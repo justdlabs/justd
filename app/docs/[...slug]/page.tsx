@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: DocPageProps): Promise<Metada
   ogSearchParams.set('title', doc.title)
 
   return {
-    title: doc.title + ' / ' + siteConfig.name,
+    title: `Docs: ${doc.title} / ${siteConfig.name}`,
     description: doc.description,
     openGraph: {
       title: doc.title,

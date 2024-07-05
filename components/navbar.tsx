@@ -13,7 +13,9 @@ import {
   IconChevronDown,
   IconDeviceDesktop,
   IconHamburger,
+  IconHome,
   IconMoon,
+  IconNotes,
   IconSearch,
   IconSun
 } from '@irsyadadl/paranoid'
@@ -54,6 +56,7 @@ export function Navbar() {
   const pathname = usePathname()
 
   const [open, setOpen] = React.useState(false)
+
   return (
     <>
       <CommandPalette setOpen={setOpen} open={open} />
@@ -83,7 +86,13 @@ export function Navbar() {
 
                 <div className="flex items-center gap-x-1">
                   <>
-                    <Button size="small" appearance="outline" className="h-9" aria-label="Open command palette">
+                    <Button
+                      onPress={() => setOpen((open: boolean) => !open)}
+                      size="small"
+                      appearance="outline"
+                      className="h-9"
+                      aria-label="Open command palette"
+                    >
                       <IconSearch />
 
                       <MenuKeyboard className="-mr-2 [&_kbd]:min-w-[3ch]" keys="⌘K" />
@@ -167,18 +176,32 @@ export function ResponsiveAside({ open, setOpen }: OpenCloseProps) {
           <ThemeSwitcher />
         </div>
       </div>
-      <Sheet isOpen={openAside} onOpenChange={setOpenAside}>
-        <SheetOverlay>
-          <SheetContent side="left" closeButton={true}>
-            <SheetHeader className="mb-4 flex flex-row justify-between py-2">
-              <NavbarDropdown />
-            </SheetHeader>
-            <LayoutGroup id={id}>
-              <Collection items={menuItems}>{(item) => <AsideLink href={item.url}>{item.label}</AsideLink>}</Collection>
-            </LayoutGroup>
-          </SheetContent>
-        </SheetOverlay>
-      </Sheet>
+      {!isDesktop && (
+        <Sheet isOpen={openAside} onOpenChange={setOpenAside}>
+          <SheetOverlay>
+            <SheetContent side="left" closeButton={true}>
+              <SheetHeader className="mb-4 flex flex-row justify-between py-2">
+                <NavbarDropdown />
+              </SheetHeader>
+              <LayoutGroup id={id}>
+                <AsideLink href="/">
+                  <IconHome />
+                  Home
+                </AsideLink>
+                <AsideLink href="/docs/getting-started/intro">
+                  <IconNotes /> Docs
+                </AsideLink>
+                <AsideLink href="https://paranoid.irsyad.co" target="_blank">
+                  <IconBrandParanoid /> Paranoid
+                </AsideLink>
+                <AsideLink href="https://github.com/irsyadadl/d.irsyad.co" target="_blank">
+                  <IconBrandGithub /> Github
+                </AsideLink>
+              </LayoutGroup>
+            </SheetContent>
+          </SheetOverlay>
+        </Sheet>
+      )}
     </nav>
   )
 }
@@ -212,10 +235,10 @@ export function NavbarDropdown() {
   const { theme, setTheme } = useTheme()
   return (
     <Menu>
-      <Button aria-label="Menu" appearance="plain" className="group -ml-3 [&_svg]:size-5">
+      <Button aria-label="Menu" appearance="plain" className="group -ml-1 [&_svg]:size-5">
         <span className="flex items-center gap-x-2">
           <Logo className="-ml-1 size-6" />
-          <span className="font-mono text-base tracking-tight sm:text-sm">d.irsyad.co</span>
+          <span className="font-mono text-base tracking-tight sm:text-sm">D</span>
           <IconChevronDown className="-mr-2 ml-1 size-4 text-muted-fg transition duration-300 group-hover:text-fg group-pressed:rotate-180 group-pressed:text-fg" />
           <span className="sr-only">Open menu</span>
         </span>
