@@ -7,7 +7,7 @@ interface LinkProps extends LinkPrimitiveProps {
   intent?: 'primary' | 'secondary' | 'light/dark'
 }
 
-const styles = tv({
+const linkStyles = tv({
   base: 'rounded transition focus:outline-none disabled:cursor-default disabled:no-underline forced-colors:disabled:text-[GrayText]',
   variants: {
     intent: {
@@ -28,7 +28,7 @@ function Link(props: LinkProps) {
     <LinkPrimitive
       {...props}
       className={composeRenderProps(props.className, (className, renderProps) =>
-        styles({
+        linkStyles({
           ...renderProps,
           className,
           intent: props.href ? props.intent : 'secondary'

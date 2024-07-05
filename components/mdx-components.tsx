@@ -3,7 +3,7 @@ import { PlainCode } from '@/components/docs/rehype/plain-code'
 import { SourceCode } from '@/components/docs/rehype/source-code'
 import { useMDXComponent } from '@/lib/hooks/use-mdx'
 import Image from 'next/image'
-import { Snippet, type SnippetProps } from 'ui'
+import { Link, LinkProps, Snippet, type SnippetProps } from 'ui'
 import { DocHow } from './doc-how'
 
 interface MdxProps {
@@ -18,6 +18,7 @@ export function MDXContent({ code }: MdxProps) {
         Image,
         Install: DocInstallation,
         How: DocHow,
+        a: (props: LinkProps) => <Link {...props} className='not-prose font-medium hover:underline' />,
         SourceCode: SourceCode,
         PlainCode: PlainCode,
         Snippet: (props: SnippetProps) => <Snippet {...props} className="bg-[#0e0e10] text-white" />
