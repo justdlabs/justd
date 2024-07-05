@@ -2,8 +2,8 @@ import { docs } from '#site/content'
 import { MDXContent } from '@/components/mdx-components'
 import { notFound } from 'next/navigation'
 
-import { Refs } from '@/app/docs/[...slug]/partials/refs'
-import { Toc } from '@/components/docs/toc'
+import { DocRefs } from '@/components/doc-refs'
+import { TableOfContents } from '@/components/table-of-contents'
 import { siteConfig } from '@/config/site'
 import '@/styles/code.css'
 import { Metadata } from 'next'
@@ -77,15 +77,16 @@ export default async function PostPage({ params }: DocPageProps) {
           {doc.description ? <p className="text-xl mt-0 text-muted-foreground">{doc.description}</p> : null}
 
           <div className="not-prose">
-            <div className="flex gap-2 mb-2 mt-0">
-              {doc.references && doc.references?.length > 0 && <Refs references={doc.references} />}
+            <div className="flex gap-2 mt-0">
+              {doc.references && doc.references?.length > 0 && <DocRefs references={doc.references} />}
             </div>
-            <Separator className="mt-10 -mb-2" />
+            <Separator className="my-4 lg:my-10 not-prose" />
           </div>
+          <TableOfContents className='mt-8 block xl:hidden' items={doc.toc} />
           <MDXContent code={doc.body} />
         </main>
       </div>
-      <Toc items={doc.toc} />
+      <TableOfContents className='hidden xl:block' items={doc.toc} />
     </>
   )
 }

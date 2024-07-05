@@ -5,9 +5,9 @@ import * as React from 'react'
 import {
   composeRenderProps,
   type LabelProps,
+  Slider as SliderPrimitive,
   SliderOutput as SliderOutputPrimitive,
   type SliderOutputProps as SliderOutputPrimitiveProps,
-  Slider as SliderPrimitive,
   type SliderProps as SliderPrimitiveProps,
   SliderStateContext as SliderStateContextPrimitive,
   SliderThumb as SliderThumbPrimitive,

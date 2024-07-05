@@ -2,8 +2,8 @@
 
 import { type ReactNode } from 'react'
 import {
-  RadioGroup as RadioGroupPrimitive,
   Radio as RadioPrimitive,
+  RadioGroup as RadioGroupPrimitive,
   type RadioGroupProps as RACRadioGroupProps,
   type RadioProps,
   type ValidationResult

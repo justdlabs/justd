@@ -1,10 +1,10 @@
-import { Install } from '@/components/docs/install'
+import { DocInstallation } from '@/components/doc-installation'
 import { PlainCode } from '@/components/docs/rehype/plain-code'
 import { SourceCode } from '@/components/docs/rehype/source-code'
 import { useMDXComponent } from '@/lib/hooks/use-mdx'
 import Image from 'next/image'
 import { Snippet, type SnippetProps } from 'ui'
-import { How } from './docs/how'
+import { DocHow } from './doc-how'
 
 interface MdxProps {
   code: string
@@ -16,12 +16,11 @@ export function MDXContent({ code }: MdxProps) {
     <Component
       components={{
         Image,
-        Install: Install,
-        How: How,
-        // pre: SourceCode,
+        Install: DocInstallation,
+        How: DocHow,
         SourceCode: SourceCode,
         PlainCode: PlainCode,
-        Snippet: (props: SnippetProps) => <Snippet {...props} className='bg-[#0e0e10] text-white' />
+        Snippet: (props: SnippetProps) => <Snippet {...props} className="bg-[#0e0e10] text-white" />
       }}
     />
   )

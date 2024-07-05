@@ -8,9 +8,9 @@ import {
   DialogTrigger as DialogTriggerPrimitive,
   Heading,
   type HeadingProps,
+  Modal as ModalPrimitive,
   ModalOverlay as ModalOverlayPrimitive,
   type ModalOverlayProps,
-  Modal as ModalPrimitive,
   OverlayTriggerStateContext
 } from 'react-aria-components'
 import { tv, type VariantProps } from 'tailwind-variants'

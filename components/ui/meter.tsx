@@ -2,7 +2,7 @@
 
 import { IconTriangleInfoFill } from '@irsyadadl/paranoid'
 import { motion } from 'framer-motion'
-import { MeterProps as AriaMeterProps, Meter as MeterPrimitive } from 'react-aria-components'
+import { Meter as MeterPrimitive, MeterProps as AriaMeterProps } from 'react-aria-components'
 import { Label } from './field'
 import { ctr } from './primitive'
 

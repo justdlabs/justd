@@ -1,6 +1,6 @@
 'use client'
 
-import { OptionPreview } from '@/components/docs/docs-c/option-preview'
+import { OptionPreview } from '@/components/docs/outside/option-preview'
 import React, { useState } from 'react'
 import { Button, SheetContent, SheetDescription, SheetHeader, SheetOverlay, SheetTitle, Switch } from 'ui'
 import { titleCase } from 'usemods'

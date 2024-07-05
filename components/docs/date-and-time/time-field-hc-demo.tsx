@@ -1,6 +1,6 @@
 'use client'
 
-import { OptionPreview } from '@/components/docs/docs-c/option-preview'
+import { OptionPreview } from '@/components/docs/outside/option-preview'
 import { Time } from '@internationalized/date'
 import React from 'react'
 import { Switch, TimeField } from 'ui'

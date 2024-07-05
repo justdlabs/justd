@@ -18,7 +18,7 @@ interface HowProps extends React.HTMLAttributes<HTMLDivElement> {
   withNoPadding?: boolean
 }
 
-export function How({
+export function DocHow({
   toUse,
   children,
   className,
@@ -30,6 +30,7 @@ export function How({
   ...props
 }: HowProps) {
   const Preview = previews[toUse] ? previews[toUse].component : null
+
   // @ts-ignore
   const codeString = jsonPreviews[toUse].raw ?? ''
   return (

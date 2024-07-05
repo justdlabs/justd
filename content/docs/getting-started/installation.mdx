@@ -31,8 +31,7 @@ First of all, you need to modify your root css file, like for example you are us
 
 ### Variables
 Below that you need to add the following code:
-```css
-@layer base {
+<PlainCode lang='css' code={`@layer base {
   :root {
     --background: 0 0% 100%;
     --fg: 240 10% 3.9%;
@@ -102,9 +101,9 @@ Below that you need to add the following code:
     --toggle: 240 5% 26%;
   }
 }
-```
+`} />
 
-### Page Utilities
+### Default Utilities
 Add this one for the default set of utilities:
 <PlainCode lang='css' code={`@layer base {
   * {

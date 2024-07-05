@@ -2,8 +2,8 @@
 
 import {
   Button,
-  GridListItem as GridListItemPrimitive,
   GridList as GridListPrimitive,
+  GridListItem as GridListItemPrimitive,
   type GridListItemProps,
   type GridListProps
 } from 'react-aria-components'

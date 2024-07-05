@@ -4,7 +4,7 @@ import { composeRenderProps, Link as LinkPrimitive, type LinkProps as LinkPrimit
 import { tv } from 'tailwind-variants'
 
 interface LinkProps extends LinkPrimitiveProps {
-  intent?: 'primary' | 'secondary'
+  intent?: 'primary' | 'secondary' | 'light/dark'
 }
 
 const styles = tv({
@@ -13,6 +13,7 @@ const styles = tv({
     intent: {
       unstyled: 'text-fg',
       primary: 'text-primary hover:text-primary-500 dark:text-primary-500 dark:hover:text-primary-400',
+      'light/dark': 'text-fg hover:text-zinc-700 dark:hover:text-primary-400',
       secondary:
         'text-zinc-700 underline decoration-zinc-700/50 hover:decoration-zinc-700 dark:text-zinc-300 dark:decoration-zinc-300/70 dark:hover:decoration-zinc-300'
     }

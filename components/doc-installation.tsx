@@ -7,7 +7,7 @@ interface InstallProps {
   items?: string[]
 }
 
-const Install: React.FC<InstallProps> = ({ items = ['react-aria-components'] }) => {
+const DocInstallation: React.FC<InstallProps> = ({ items = ['react-aria-components'] }) => {
   const getInstallCommand = (packageManager: string) => {
     switch (packageManager) {
       case 'bun':
@@ -54,4 +54,4 @@ const Install: React.FC<InstallProps> = ({ items = ['react-aria-components'] }) 
   )
 }
 
-export { Install }
+export { DocInstallation }

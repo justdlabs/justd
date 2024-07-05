@@ -1,6 +1,6 @@
 'use client'
 
-import { OptionPreview } from '@/components/docs/docs-c/option-preview'
+import { OptionPreview } from '@/components/docs/outside/option-preview'
 import {
   IconBrandBluesky,
   IconBrandTelegram,

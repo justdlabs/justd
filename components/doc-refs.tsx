@@ -6,7 +6,7 @@ import { FC, SVGProps } from 'react'
 import { Menu, MenuItem } from 'react-aria-components'
 import { buttonStyles, cn } from 'ui'
 
-export function Refs({ references }: any) {
+export function DocRefs({ references }: any) {
   const urls = references.map((url: string) => {
     let title = ''
     let icon: FC<SVGProps<SVGSVGElement>>
