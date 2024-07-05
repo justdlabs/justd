@@ -2,8 +2,8 @@
 
 import { IconHamburger } from '@irsyadadl/paranoid'
 import {
-  ListBox as ListBoxPrimitive,
   ListBoxItem as ListBoxItemPrimitive,
+  ListBox as ListBoxPrimitive,
   type ListBoxItemProps,
   type ListBoxProps
 } from 'react-aria-components'

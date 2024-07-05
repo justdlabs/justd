@@ -18,7 +18,7 @@ export function MDXContent({ code }: MdxProps) {
         Image,
         Install: DocInstallation,
         How: DocHow,
-        a: (props: LinkProps) => <Link {...props} className='not-prose font-medium hover:underline' />,
+        a: (props: LinkProps) => <Link {...props} className="not-prose font-medium hover:underline" />,
         SourceCode: SourceCode,
         PlainCode: PlainCode,
         Snippet: (props: SnippetProps) => <Snippet {...props} className="bg-[#0e0e10] text-white" />

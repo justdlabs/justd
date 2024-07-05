@@ -5,11 +5,11 @@ import { createContext, useContext } from 'react'
 import {
   Button,
   composeRenderProps,
-  Tag as TagPrimitive,
   TagGroup as TagGroupPrimitive,
   type TagGroupProps as TagGroupPrimitiveProps,
   TagList,
   type TagListProps,
+  Tag as TagPrimitive,
   type TagProps as TagPrimitiveProps,
   Text
 } from 'react-aria-components'

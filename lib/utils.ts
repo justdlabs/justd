@@ -47,7 +47,7 @@ export function getDocsByTagReferences(docs: Array<Docs>, tag: string) {
 }
 
 export function goodTitle(str: string) {
-  return titlePrimitive(str)
+  return titlePrimitive(str.replaceAll('-', ' '))
 }
 
 export function toTitleCase(input: string): string {

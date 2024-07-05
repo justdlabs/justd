@@ -6,8 +6,8 @@ import {
   composeRenderProps,
   DialogTrigger,
   OverlayArrow,
-  Popover as PopoverPrimitive,
   PopoverContext,
+  Popover as PopoverPrimitive,
   type PopoverProps as PopoverPrimitiveProps,
   useSlottedContext
 } from 'react-aria-components'

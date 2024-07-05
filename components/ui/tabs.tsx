@@ -4,11 +4,11 @@ import { LayoutGroup, motion } from 'framer-motion'
 import { useId } from 'react'
 import {
   composeRenderProps,
-  Tab as TabPrimitive,
   TabList as TabListPrimitive,
   type TabListProps,
   TabPanel as TabPanelPrimitive,
   type TabPanelProps,
+  Tab as TabPrimitive,
   type TabProps,
   Tabs as TabsPrimitive,
   type TabsProps

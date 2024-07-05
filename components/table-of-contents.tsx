@@ -2,8 +2,8 @@
 
 import React, { Suspense } from 'react'
 import { Heading } from 'react-aria-components'
-import { cn, Link, Skeleton } from 'ui'
 import { twJoin } from 'tailwind-merge'
+import { cn, Link, Skeleton } from 'ui'
 
 interface TableOfContentsProps {
   title: string
@@ -65,9 +65,10 @@ function TocLink({ item, activeId }: { item: TableOfContentsProps; activeId: str
   return (
     <li key={item.title}>
       <Link
-        className={cn('outline-none block no-underline font-medium lg:text-[0.885rem]',
+        className={cn(
+          'outline-none block no-underline font-medium lg:text-[0.885rem]',
           item.url.split('#')[1] === activeId ? 'text-fg' : 'text-muted-fg'
-          )}
+        )}
         href={item.url}
       >
         {item.title}

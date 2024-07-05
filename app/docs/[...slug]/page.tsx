@@ -82,11 +82,11 @@ export default async function PostPage({ params }: DocPageProps) {
             </div>
             <Separator className="my-4 lg:my-10 not-prose" />
           </div>
-          <TableOfContents className='mt-8 block xl:hidden' items={doc.toc} />
+          <TableOfContents className="mt-8 block xl:hidden" items={doc.toc} />
           <MDXContent code={doc.body} />
         </main>
       </div>
-      <TableOfContents className='hidden xl:block' items={doc.toc} />
+      <TableOfContents className="hidden xl:block" items={doc.toc} />
     </>
   )
 }
