@@ -22,6 +22,7 @@ And finally, we need additional packages:
 
 ## CSS
 First of all, you need to modify your root css file, like for example you are using laravel it's `resources/css/app.css` and you need to add the following code:
+
 ```css
 @tailwind base;
 @tailwind components;
@@ -30,7 +31,8 @@ First of all, you need to modify your root css file, like for example you are us
 
 ### Variables
 Below that you need to add the following code:
-<PlainCode lang='css' code={`@layer base {
+```css
+@layer base {
   :root {
     --background: 0 0% 100%;
     --fg: 240 10% 3.9%;
@@ -99,7 +101,8 @@ Below that you need to add the following code:
     --input: 240 3.7% 15.9%;
     --toggle: 240 5% 26%;
   }
-}`} />
+}
+```
 
 ### Page Utilities
 Add this one for the default set of utilities:

@@ -9,11 +9,22 @@ pre[data-theme="night-owl"] {
 }
 
 [data-rehype-pretty-code-figure] pre code {
-    @apply !bg-red-500;
+    /*@apply !bg-red-500;*/
+}
+
+span[data-rehype-pretty-code-figure] > code {
+    @apply bg-transparent text-fg !important;
+}
+span[data-rehype-pretty-code-figure] > code span {
+    @apply bg-transparent text-fg font-normal !important;
 }
 
 [data-rehype-pretty-code-figure] [data-line] {
-    @apply !bg-[#0e0e10] !text-fg;
+    /*@apply !bg-[#0e0e10] !text-fg;*/
+}
+
+.prose :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    /*@apply !bg-red-500;*/
 }
 
 [data-rehype-pretty-code-figure] code[data-line-numbers] {

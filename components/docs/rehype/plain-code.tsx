@@ -30,7 +30,7 @@ export function PlainCode({ lang = 'tsx', code, ...props }: PlainCodeProps) {
             </CollapsibleContent>
             <div
               className={cn(
-                'absolute flex items-center justify-center bg-gradient-to-b from-popover/50 to-background',
+                'absolute flex items-center justify-center bg-gradient-to-b from-[#0e0e10]/50 to-black',
                 isOpened ? 'inset-x-0 bottom-0 h-12' : 'inset-0'
               )}
             >

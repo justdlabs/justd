@@ -12,11 +12,11 @@ const snippetVariants = {
   visible: { opacity: 1, scale: 1 }
 }
 
-interface Props extends React.HTMLAttributes<HTMLDivElement> {
+interface SnippetProps extends React.HTMLAttributes<HTMLDivElement> {
   text: string
 }
 
-const Snippet: React.FC<Props> = ({ className, text, ...props }) => {
+const Snippet: React.FC<SnippetProps> = ({ className, text, ...props }) => {
   const [copied, setCopied] = React.useState(false)
 
   const handleCopy = async () => {
@@ -102,4 +102,4 @@ const CopyButton = ({ initialIcon, copiedIcon, ariaLabel = 'Copy', isCopied, ...
   )
 }
 
-export { CopyButton, Snippet, snippetVariants }
+export { CopyButton, Snippet, snippetVariants, type SnippetProps }
