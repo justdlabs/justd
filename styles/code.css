@@ -1,0 +1,54 @@
+
+
+pre[data-theme="night-owl"] {
+    @apply border !bg-[#0e0e10];
+}
+
+[data-rehype-pretty-code-figure] code {
+    @apply text-sm !leading-loose border-0 p-0;
+}
+
+[data-rehype-pretty-code-figure] pre code {
+    @apply !bg-red-500;
+}
+
+[data-rehype-pretty-code-figure] [data-line] {
+    @apply !bg-[#0e0e10] !text-fg;
+}
+
+[data-rehype-pretty-code-figure] code[data-line-numbers] {
+    counter-reset: line;
+}
+
+[data-rehype-pretty-code-figure] code[data-line-numbers] > [data-line]::before {
+    counter-increment: line;
+    content: counter(line);
+    @apply mr-4 inline-block w-4 text-right text-zinc-500;
+}
+
+[data-rehype-pretty-code-figure] [data-line] {
+    @apply border-l-2 border-l-transparent;
+}
+
+.prose :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *))::before,
+.prose :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *))::after{
+    @apply !hidden;
+}
+
+[data-rehype-pretty-code-figure] [data-highlighted-line] {
+    background: rgba(200, 200, 255, 0.1);
+    @apply border-l-blue-400;
+}
+
+[data-rehype-pretty-code-figure] [data-highlighted-chars] {
+    @apply rounded bg-zinc-600/50;
+    box-shadow: 0 0 0 4px rgb(82 82 91 / 0.5);
+}
+
+[data-rehype-pretty-code-figure] [data-chars-id] {
+    @apply border-b-2 p-1 shadow-none;
+}
+
+.subheading-anchor {
+    @apply no-underline font-semibold hover:no-underline text-fg;
+}

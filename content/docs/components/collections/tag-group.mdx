@@ -1,0 +1,29 @@
+---
+title: "Tag Group"
+description: This organizer keeps your tags tight and right, making sure they’re lined up and making sense, just like a librarian sorting books on a shelf.
+order: 4
+references: ["https://react-spectrum.adobe.com/react-aria/TagGroup.html#props"]
+
+published: true
+---
+
+## Basic
+A tag group is a focusable list of labels, categories, keywords, filters, or other items, supporting keyboard navigation, selection, and removal.
+<How toUse="collections/tag-group-demo" />
+
+## Installation
+
+<Install items={['react-aria-components']}/>
+
+<SourceCode toShow='tag-group'/>
+
+## With Remove Button
+It's possible to add a remove button to the tag group.
+<How toUse="collections/tag-group-with-remove-demo" />
+
+## Colors
+You can switch up the tag group color by throwing in the `color` prop. But right now, only the default blue matches the selected color. The color comes from the badge component. If you want, check out the available colors in the [badge docs](/design-system/statuses/badge).
+
+```
+<TagGroup color="amber"/>
+```

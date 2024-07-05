@@ -1,0 +1,12 @@
+{
+  "tailwindFunctions": ["clsx", "tw", "tv", "cn", "twMerge", "tm", "cx"],
+  "plugins": ["prettier-plugin-tailwindcss", "prettier-plugin-organize-imports"],
+  "printWidth": 120,
+  "singleQuote": true,
+  "trailingComma": "none",
+  "tabWidth": 2,
+  "semi": false,
+  "useTabs": false,
+  "bracketSpacing": true,
+  "bracketSameLine": false
+}

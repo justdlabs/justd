@@ -1,0 +1,90 @@
+---
+title: "Modal"
+description: Pop up a dialog box, demanding attention like a traffic stop sign, ideal for critical interactions..
+order: 1
+references: ["https://react-spectrum.adobe.com/react-aria/Modal.html#props", "https://github.com/jamiebuilds/tailwindcss-animate"]
+
+published: true
+---
+
+
+## Basic
+A pop-up window that demands how  your attention. You gotta deal with it before doing anything else on the page.
+<How toUse="overlays/modal-demo" />
+
+## Installation
+
+<Install items={['react-aria-components', 'tailwindcss-animate']}/>
+
+<SourceCode toShow='button'/>
+
+## Alert Dialog
+If you want to create an alert dialog, you can do that too. Use the isDismissable prop and disable the close button by default.
+<How toUse="overlays/alert-dialog-demo" />
+
+## Controlled
+Of course, you can controll the modal.
+<How toUse="overlays/modal-controlled-demo" />
+
+## Triggered By Menu
+You can also trigger the modal by clicking on a menu item.
+<How toUse="overlays/modal-triggered-by-menu-demo" />
+But it would be better if we can extract the modal to a component.
+
+```
+interface ModalActionProps {
+  title: string
+  description: string
+  confirmText: string
+  action: () => void
+  closeModal: () => void
+  loading: boolean
+  isOpen: boolean
+}
+
+export function ModalAction(props: ModalActionProps) {
+  return (
+    <ModalOverlay isOpen={props.isOpen} onOpenChange={props.closeModal}>
+      <ModalContent>
+        <ModalHeader>
+          <ModalTitle>{props.title}</ModalTitle>
+          <ModalDescription>{props.description}</ModalDescription>
+        </ModalHeader>
+        <ModalFooter>
+          <ModalClose>Cancel</ModalClose>
+          <Button className="min-w-24" isDisabled={props.loading} onPress={props.action}>
+            {props.loading ? <LoadingDots className={'bg-fg'} /> : props.confirmText}
+          </Button>
+        </ModalFooter>
+      </ModalContent>
+    </ModalOverlay>
+  )
+}
+```
+
+Then you can use it like this.
+
+```
+<ModalAction {...actionType(state)} closeModal={closeModal} loading={loading} isOpen={!!state} />
+```
+
+With that, now we can modify the `actionType` function to return the initial state.
+
+```tsx
+const actionType = (t: string | null) => {
+  let initialsState = {
+    title: '',
+    description: '',
+    confirmText: '',
+    action: () => {}
+  }
+
+  switch (t) {
+    case 'delete': ...
+    case 'ban': ...
+    case 'restore': ...
+    default:
+      return initialsState
+  }
+}
+```

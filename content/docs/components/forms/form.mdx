@@ -1,0 +1,40 @@
+---
+title: "Form"
+description: Gather all your input fields in one place, like a survey collecting data, making it easy to organize and submit info.
+order: 1
+references: ["https://react-spectrum.adobe.com/react-aria/Form.html#props"]
+
+published: true
+---
+
+## Basic
+A form's a bunch of inputs lettin' users send stuff to a server, plus it throws in field error checks.
+
+```
+import { Form } from 'ui'
+
+<Form/>
+```
+
+
+## Installation
+
+<Install items={['react-aria-components']}/>
+
+<SourceCode toShow='form'/>
+
+## Validation
+You can validate the form by using the `isInvalid` prop.
+<How minW72 toUse="forms/form-validation-demo" />
+
+Sometimes, the server's errors ain't matching the client's. Just use the `validationErrors` prop to get 'em all in the right format.
+
+```
+<Form validationErrors={errors} onSubmit={() => {}}/>
+```
+
+Then, in the `<TextField />` component, throw the `errorMessage` props in like this:
+
+```
+<TextField errorMessage={errors.name} label="Name" isRequired/>
+```
