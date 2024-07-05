@@ -46,7 +46,7 @@ const renderHierarchy = (node: HierarchyNode, level: number = 0) => {
       <Accordion type="multiple" defaultValue={['getting-started', 'prologue', 'components']} className="w-full">
         {Object.entries(node).map(([key, value]) => (
           <AccordionItem key={key} value={key}>
-            <Trigger className="[&_.jr131]:size-4 [&_.jr131]:text-emerald-400 [&_.jr131]:fill-emerald-500/25">
+            <Trigger className="[&_.jr131]:size-4 [&_.jr131]:text-primary [&_.jr131]:fill-primary/25">
               {key === 'getting-started' ? (
                 <IconLayers className="jr131" />
               ) : key === 'prologue' ? (
@@ -61,7 +61,7 @@ const renderHierarchy = (node: HierarchyNode, level: number = 0) => {
                 <AsideLink href={`/${(value as Doc).slug}`}>{goodTitle((value as Doc).title)}</AsideLink>
               ) : (
                 <Accordion type="multiple" className="w-full relative">
-                  <div className="h-full absolute left-0 bg-muted w-px ml-4" />
+                  <div className="h-full absolute left-0 bg-zinc-200 dark:bg-zinc-800 w-px ml-4" />
                   {Object.entries(value as HierarchyNode).map(([subKey, subValue]) =>
                     typeof subValue === 'object' && 'title' in subValue ? (
                       <AsideLink className="pl-[2rem]" key={subKey} href={`/${subValue.slug}`}>
