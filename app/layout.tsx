@@ -48,6 +48,10 @@ export default function RootLayout({
           <div className="relative flex min-h-dvh flex-col bg-background">
             <Navbar />
             <main className="flex-1">{children}</main>
+
+            <footer className='px-4 py-4 sm:py-8 lg:py-10 text-muted-fg [&_a]:text-fg text-center font-mono text-sm'>
+              D. 2024 - This project is crafted with ♥ by <a href="https://twitter.com/irsyadadl">Irsyad</a>
+            </footer>
           </div>
           <Analytics />
         </Providers>

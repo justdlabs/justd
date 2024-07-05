@@ -238,7 +238,7 @@ export function NavbarDropdown() {
       <Button aria-label="Menu" appearance="plain" className="group -ml-1 [&_svg]:size-5">
         <span className="flex items-center gap-x-2">
           <Logo className="-ml-1 size-6" />
-          <span className="font-mono text-base tracking-tight sm:text-sm">D</span>
+          <span className="font-mono text-base tracking-tight sm:text-sm">D.</span>
           <IconChevronDown className="-mr-2 ml-1 size-4 text-muted-fg transition duration-300 group-hover:text-fg group-pressed:rotate-180 group-pressed:text-fg" />
           <span className="sr-only">Open menu</span>
         </span>
