@@ -1,4 +1,5 @@
 'use client'
+
 import { IconSearch } from '@irsyadadl/paranoid'
 import { Command as CommandPrimitive } from 'cmdk'
 import * as React from 'react'

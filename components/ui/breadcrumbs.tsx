@@ -1,4 +1,5 @@
 'use client'
+
 import { IconChevronRight } from '@irsyadadl/paranoid'
 import {
   Breadcrumb as BreadcrumbPrimitive,

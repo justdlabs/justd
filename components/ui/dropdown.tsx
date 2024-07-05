@@ -1,4 +1,5 @@
 'use client'
+
 import { IconCheck } from '@irsyadadl/paranoid'
 import {
   Collection,
