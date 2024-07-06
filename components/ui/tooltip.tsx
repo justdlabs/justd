@@ -15,7 +15,7 @@ export interface TooltipProps extends Omit<TooltipPrimitiveProps, 'children'> {
   children: React.ReactNode
 }
 
-const styles = tv({
+const tooltipStyles = tv({
   base: [
     'group rounded-lg border bg-tertiary px-1.5 py-1 text-sm text-tertiary-fg will-change-transform dark:shadow-none',
     // Placement
@@ -40,7 +40,7 @@ const TooltipContent = ({ children, ...props }: TooltipProps) => {
       {...props}
       offset={10}
       className={composeRenderProps(props.className, (className, renderProps) =>
-        styles({
+        tooltipStyles({
           ...renderProps,
           className
         })

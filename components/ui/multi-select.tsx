@@ -23,28 +23,34 @@ export function MultiSelect({ items, placeholder = 'Select items...', max = 5, s
   const inputRef = React.useRef<HTMLInputElement>(null)
   const [open, setOpen] = React.useState(false)
   const [inputValue, setInputValue] = React.useState('')
-  const handleUnselect = React.useCallback((item: ItemProps) => {
-    setSelected((prev) => prev.filter((s) => s.value !== item.value))
-  }, [])
+  const handleUnselect = React.useCallback(
+    (item: ItemProps) => {
+      setSelected((prev) => prev.filter((s) => s.value !== item.value))
+    },
+    [setSelected]
+  )
 
-  const handleKeyDown = React.useCallback((e: React.KeyboardEvent<HTMLDivElement>) => {
-    const input = inputRef.current
-    if (input) {
-      if (e.key === 'Delete' || e.key === 'Backspace') {
-        if (input.value === '') {
-          setSelected((prev) => {
-            const newSelected = [...prev]
-            newSelected.pop()
-            return newSelected
-          })
+  const handleKeyDown = React.useCallback(
+    (e: React.KeyboardEvent<HTMLDivElement>) => {
+      const input = inputRef.current
+      if (input) {
+        if (e.key === 'Delete' || e.key === 'Backspace') {
+          if (input.value === '') {
+            setSelected((prev) => {
+              const newSelected = [...prev]
+              newSelected.pop()
+              return newSelected
+            })
+          }
+        }
+
+        if (e.key === 'Escape') {
+          input.blur()
         }
       }
-
-      if (e.key === 'Escape') {
-        input.blur()
-      }
-    }
-  }, [])
+    },
+    [setSelected]
+  )
   const selectables = items.filter((item) => !selected.includes(item))
   React.useEffect(() => {
     if (selected.length >= max) {
@@ -110,7 +116,7 @@ export function MultiSelect({ items, placeholder = 'Select items...', max = 5, s
                       e.preventDefault()
                       e.stopPropagation()
                     }}
-                    onSelect={(value) => {
+                    onSelect={() => {
                       setInputValue('')
                       setSelected((prev) => [...prev, item])
                     }}

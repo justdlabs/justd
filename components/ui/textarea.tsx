@@ -18,7 +18,7 @@ export interface TextareaProps extends TextFieldPrimitiveProps {
   errorMessage?: string | ((validation: ValidationResult) => string)
 }
 
-const textAriaStyles = tv({
+const textareaStyles = tv({
   extend: focusStyles,
   base: 'w-full min-w-0 rounded-md border border-input bg-background px-2.5 py-2 text-base shadow-sm outline-none transition duration-200 disabled:bg-secondary disabled:opacity-50 sm:text-sm'
 })
@@ -27,7 +27,7 @@ export function Textarea({ placeholder, label, description, errorMessage, ...pro
   return (
     <TextFieldPrimitive {...props} className={ctr(props.className, 'group flex flex-col gap-1')}>
       {label && <Label>{label}</Label>}
-      <TextAreaPrimitive placeholder={placeholder} className={textAriaStyles} />
+      <TextAreaPrimitive placeholder={placeholder} className={textareaStyles} />
       {description && <Description>{description}</Description>}
       <FieldError>{errorMessage}</FieldError>
     </TextFieldPrimitive>
