@@ -48,7 +48,7 @@ const renderHierarchy = (node: HierarchyNode, level: number = 0) => {
   })
   return (
     <>
-      <Accordion type="multiple" defaultValue={['getting-started', 'prologue', 'components']} className="w-full">
+      <Accordion type="multiple" defaultValue={['getting-started', 'components']} className="w-full">
         {filteredNodeEntries.map(([key, value]) => (
           <AccordionItem key={key} value={key}>
             <Trigger className="[&_.jr131]:size-4 [&_.jr131]:text-sky-500 [&_.jr131]:fill-sky-500/10 dark:[&_.jr131]:fill-sky-500/30">
