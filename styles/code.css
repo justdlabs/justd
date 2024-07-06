@@ -1,30 +1,17 @@
-
-
-pre[data-theme="night-owl"] {
-    @apply border !bg-[#0e0e10];
+[data-rehype-pretty-code-figure] pre {
+    @apply px-0 py-2 border rounded-lg !bg-[#0e0e10];
 }
 
 [data-rehype-pretty-code-figure] code {
-    @apply text-sm !leading-loose border-0 p-0;
-}
-
-[data-rehype-pretty-code-figure] pre code {
-    /*@apply !bg-red-500;*/
+    @apply !text-sm !leading-loose md:text-base border-0 p-0;
 }
 
 span[data-rehype-pretty-code-figure] > code {
-    @apply bg-transparent text-fg !important;
+    @apply bg-transparent !important;
 }
+
 span[data-rehype-pretty-code-figure] > code span {
-    @apply bg-transparent text-fg font-normal !important;
-}
-
-[data-rehype-pretty-code-figure] [data-line] {
-    /*@apply !bg-[#0e0e10] !text-fg;*/
-}
-
-.prose :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-    /*@apply !bg-red-500;*/
+    @apply px-0.5 text-fg font-normal !important;
 }
 
 [data-rehype-pretty-code-figure] code[data-line-numbers] {
@@ -34,16 +21,11 @@ span[data-rehype-pretty-code-figure] > code span {
 [data-rehype-pretty-code-figure] code[data-line-numbers] > [data-line]::before {
     counter-increment: line;
     content: counter(line);
-    @apply mr-4 inline-block w-4 text-right text-zinc-500;
+    @apply mr-4 inline-block w-4 text-right text-gray-500;
 }
 
 [data-rehype-pretty-code-figure] [data-line] {
-    @apply border-l-2 border-l-transparent;
-}
-
-.prose :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *))::before,
-.prose :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *))::after{
-    @apply !hidden;
+    @apply border-l-2 border-l-transparent px-3;
 }
 
 [data-rehype-pretty-code-figure] [data-highlighted-line] {
@@ -62,4 +44,10 @@ span[data-rehype-pretty-code-figure] > code span {
 
 .subheading-anchor {
     @apply no-underline font-semibold hover:no-underline text-fg;
+}
+
+
+.prose :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *))::before,
+.prose :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *))::after{
+    @apply hidden;
 }
