@@ -9,9 +9,10 @@ import { Button } from 'ui'
 
 interface SourceCodeProps extends React.HTMLAttributes<HTMLDivElement> {
   toShow: string
+  message?: string
 }
 
-export function SourceCode({ toShow, ...props }: SourceCodeProps) {
+export function SourceCode({ message,toShow, ...props }: SourceCodeProps) {
   const [codeString, setCodeString] = React.useState('')
   const [isOpened, setIsOpened] = React.useState(false)
   React.useMemo(() => {
@@ -30,7 +31,7 @@ export function SourceCode({ toShow, ...props }: SourceCodeProps) {
   return (
     <section className="my-6 not-prose">
       <p className="mb-4 -mt-2">
-        And next, you can copy the code below and paste it into your dopest component folder.
+        {message ? message : 'And next, you can copy the code below and paste it into your dopest component folder.'}
       </p>
       <div className={cn('overflow-hidden rounded-md')}>
         <Collapsible open={isOpened} onOpenChange={setIsOpened}>
