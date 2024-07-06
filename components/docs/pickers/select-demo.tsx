@@ -2,7 +2,7 @@
 
 import { Select, SelectItem } from 'ui'
 
-const software = [
+export const software = [
   { id: 1, name: 'Adobe Photoshop' },
   { id: 2, name: 'Sketch' },
   { id: 3, name: 'Figma' },

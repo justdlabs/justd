@@ -53,3 +53,4 @@ export * from './loading-dots';
 export * from './skeleton';
 export * from './form';
 export * from './carousel';
+export * from './aspect-ratio';

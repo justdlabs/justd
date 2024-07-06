@@ -26,7 +26,7 @@ const table = tv({
   slots: {
     root: 'table w-full caption-bottom border-spacing-0 text-sm outline-none',
     column: 'whitespace-nowrap px-4 py-3 text-left font-medium outline-none [&:has([slot=selection])]:pr-0',
-    header: 'border-b bg-secondary/50',
+    header: 'border-b',
     row: 'tr group relative cursor-default border-b text-fg/70 outline-none ring-primary focus-visible:ring-1 selected:bg-primary/15',
     cell: 'whitespace-nowrap px-4 py-3 outline-none'
   }

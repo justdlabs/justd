@@ -6,7 +6,7 @@ import { Container, Heading } from 'ui'
 
 export function Hero() {
   return (
-    <div className="py-6 lg:py-24 border-b">
+    <div className="py-6 lg:py-16 border-b">
       <Container>
         <Header>
           <Heading level={1} className="max-w-xl text-2xl lg:text-5xl mb-2 lg:mb-6">

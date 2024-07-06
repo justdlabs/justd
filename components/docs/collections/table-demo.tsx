@@ -1,6 +1,6 @@
 'use client'
 
-import { Card, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from 'ui'
+import { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from 'ui'
 
 const bands = [
   { id: '1', name: 'Nirvana', genre: 'Grunge', latestAlbum: 'In Utero' },
@@ -14,25 +14,23 @@ const bands = [
 
 export default function TableDemo() {
   return (
-    <Card>
-      <Table aria-label="Bands" selectionMode="multiple">
-        <TableHeader>
-          <TableColumn>#</TableColumn>
-          <TableColumn>Name</TableColumn>
-          <TableColumn>Genre</TableColumn>
-          <TableColumn>Latest Album</TableColumn>
-        </TableHeader>
-        <TableBody items={bands}>
-          {(item) => (
-            <TableRow key={item.id}>
-              <TableCell>{item.id}</TableCell>
-              <TableCell>{item.name}</TableCell>
-              <TableCell>{item.genre}</TableCell>
-              <TableCell>{item.latestAlbum}</TableCell>
-            </TableRow>
-          )}
-        </TableBody>
-      </Table>
-    </Card>
+    <Table aria-label="Bands" selectionMode="multiple">
+      <TableHeader>
+        <TableColumn>#</TableColumn>
+        <TableColumn>Name</TableColumn>
+        <TableColumn>Genre</TableColumn>
+        <TableColumn>Latest Album</TableColumn>
+      </TableHeader>
+      <TableBody items={bands}>
+        {(item) => (
+          <TableRow key={item.id}>
+            <TableCell>{item.id}</TableCell>
+            <TableCell>{item.name}</TableCell>
+            <TableCell>{item.genre}</TableCell>
+            <TableCell>{item.latestAlbum}</TableCell>
+          </TableRow>
+        )}
+      </TableBody>
+    </Table>
   )
 }

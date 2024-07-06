@@ -14,7 +14,7 @@ import {
   TextField
 } from 'ui'
 
-export default function App() {
+export default function ModalDemo() {
   return (
     <Modal>
       <Button>Turn on 2FA</Button>

@@ -1,19 +1,19 @@
 'use client'
 
-import { Button, Popover, PopoverContent } from 'ui'
+import { Button, Popover, PopoverContent, PopoverDescription, PopoverFooter, PopoverHeader, PopoverTitle } from 'ui'
 
-export default function App() {
+export default function PopoverDemo() {
   return (
     <Popover>
       <Button intent="secondary">Forgot Password</Button>
       <PopoverContent className="w-[28rem]">
-        <div className="mb-4">
-          <h2 className="font-semibold">Email</h2>
-          <p className="text-sm text-muted-fg">We'll send you an email to log in.</p>
-        </div>
-        <div className="flex gap-x-2">
+        <PopoverHeader>
+          <PopoverTitle>Email</PopoverTitle>
+          <PopoverDescription>We'll send you an email to log in.</PopoverDescription>
+        </PopoverHeader>
+        <PopoverFooter>
           <Button>Send Login Link</Button>
-        </div>
+        </PopoverFooter>
       </PopoverContent>
     </Popover>
   )

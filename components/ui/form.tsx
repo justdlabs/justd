@@ -7,11 +7,7 @@ interface FormProps extends FormPrimitiveProps {
 }
 
 function Form({ onSubmit, ...props }: FormProps) {
-  const action = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    onSubmit()
-  }
-  return <FormPrimitive onSubmit={action} {...props} />
+  return <FormPrimitive {...props} />
 }
 
 export { Form, type FormProps }
