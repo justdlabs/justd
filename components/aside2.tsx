@@ -2,7 +2,7 @@
 
 import { Docs, docs } from '@/.velite'
 import { goodTitle, sortDocs } from '@/lib/utils'
-import { IconChevronDown, IconCircleHalf, IconCube, IconHighlight, IconLayers } from '@irsyadadl/paranoid'
+import { IconChevronDown, IconCube, IconHighlight, IconLayers } from '@irsyadadl/paranoid'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@radix-ui/react-accordion'
 import { LayoutGroup, motion } from 'framer-motion'
 import Link, { LinkProps } from 'next/link'
@@ -42,22 +42,16 @@ const createHierarchy = (docs: Array<Docs>): HierarchyNode => {
 }
 
 const renderHierarchy = (node: HierarchyNode, level: number = 0) => {
-  const filteredNodeEntries = Object.entries(node).sort(([a], [b]) => {
-    const order = ['getting-started', 'dark-mode', 'prologue', 'components']
-    return order.indexOf(a) - order.indexOf(b)
-  })
   return (
     <>
       <Accordion type="multiple" defaultValue={['getting-started', 'prologue', 'components']} className="w-full">
-        {filteredNodeEntries.map(([key, value]) => (
+        {Object.entries(node).map(([key, value]) => (
           <AccordionItem key={key} value={key}>
             <Trigger className="[&_.jr131]:size-4 [&_.jr131]:text-sky-500 [&_.jr131]:fill-sky-500/10 dark:[&_.jr131]:fill-sky-500/30">
               {key === 'getting-started' ? (
                 <IconLayers className="jr131" />
               ) : key === 'prologue' ? (
                 <IconHighlight className="jr131" />
-              ) : key === 'dark-mode' ? (
-                <IconCircleHalf className="jr131" />
               ) : (
                 <IconCube className="jr131" />
               )}
