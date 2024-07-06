@@ -1,5 +1,6 @@
 import { Aside } from '@/components/aside'
 import { ReactNode } from 'react'
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
@@ -14,6 +15,8 @@ export default function Layout({ children }: { children: ReactNode }) {
           </div>
         </div>
         {children}
+
+        <SpeedInsights />
       </div>
     </div>
   )
