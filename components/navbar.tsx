@@ -188,7 +188,7 @@ export function ResponsiveAside({ open, setOpen }: OpenCloseProps) {
                   <IconHome />
                   Home
                 </AsideLink>
-                <AsideLink href="/docs/getting-started/intro">
+                <AsideLink href="/docs/getting-started/introduction">
                   <IconNotes /> Docs
                 </AsideLink>
                 <AsideLink href="https://paranoid.irsyad.co" target="_blank">
