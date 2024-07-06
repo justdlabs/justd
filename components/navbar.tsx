@@ -61,7 +61,7 @@ export function Navbar() {
     <>
       <CommandPalette setOpen={setOpen} open={open} />
       <LayoutGroup id={`navigation-${id}`}>
-        <div className="sticky xnw2 top-0 z-20 hidden overflow-hidden pb-1 sm:block">
+        <div className="sticky xnw2 top-0 z-30 hidden overflow-hidden pb-1 sm:block">
           <nav className="border-b bg-background/60 py-2 backdrop-blur-xl">
             <div className="mx-auto max-w-screen-2xl px-4">
               <div className="flex items-center justify-between">
