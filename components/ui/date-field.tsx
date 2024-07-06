@@ -53,7 +53,7 @@ const DateInput = (props: Omit<DateInputProps, 'children'>) => {
         fieldGroupStyles({
           ...renderProps,
           className: cn(
-            'min-w-sm block font-mono disabled:bg-secondary uppercase w-full py-2 px-2 text-base lg:text-sm',
+            'min-w-sm block font-mono disabled:bg-secondary uppercase w-full py-2 px-2 lg:text-sm',
             className
           )
         })

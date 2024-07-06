@@ -48,7 +48,7 @@ import {
 
 const menuItems = [
   { id: 1, label: 'Home', url: '/' },
-  { id: 2, label: 'Components', url: '/docs' }
+  { id: 2, label: 'Components', url: '/docs/getting-started/introduction' }
 ]
 
 export function Navbar() {
@@ -212,7 +212,7 @@ export function AsideLink(props: LinkPrimitiveProps) {
   return (
     <LinkPrimitive
       className={cn(
-        'relative flex items-center gap-x-3 py-2 text-base text-muted-fg transition-colors hover:text-fg focus:outline-none sm:text-sm',
+        'relative flex items-center gap-x-3 py-2 text-muted-fg transition-colors hover:text-fg focus:outline-none sm:text-sm',
         current && 'text-fg',
         props.className
       )}

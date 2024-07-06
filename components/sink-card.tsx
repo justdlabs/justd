@@ -6,10 +6,10 @@ import { tv } from 'tailwind-variants'
 
 const sinkCardStyles = tv({
   slots: {
-    root: 'sk border rounded-lg break-inside-avoid',
-    header: 'border-b px-6 py-4',
-    title: 'font-mono lg:text-sm',
-    content: 'p-6 w-full',
+    root: 'relative sk border rounded-lg break-inside-avoid',
+    header: 'border-b px-2 py-2 lg:px-6 lg:py-4',
+    title: 'font-mono text-xs lg:text-sm',
+    content: 'p-2 lg:p-6 w-full',
     center: 'items-center flex w-full justify-center'
   }
 })

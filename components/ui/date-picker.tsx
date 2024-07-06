@@ -29,7 +29,7 @@ function DatePicker<T extends DateValue>({ label, description, errorMessage, ...
     <DatePickerPrimitive {...props} className={ctr(props.className, 'group flex flex-col gap-1')}>
       {label && <Label>{label}</Label>}
       <FieldGroup className="min-w-40">
-        <DateInput className="w-full px-2 font-mono uppercase min-w-[inherit] text-base lg:text-sm" />
+        <DateInput className="w-full px-2 font-mono uppercase min-w-[inherit] lg:text-sm" />
         <Button
           size="square-petite"
           appearance="plain"

@@ -77,7 +77,7 @@ export default function Page() {
           <div>
             <Heading className="border-b pb-3 mb-6">Collections</Heading>
             <div className="gap-8 lg:columns-3 [&_.sk]:mb-8">
-              <SinkCard title="Menu">
+              <SinkCard isCentered title="Menu">
                 <MenuBasicDemo />
               </SinkCard>
               <SinkCard title="List Box">
