@@ -140,20 +140,19 @@ Then for the switcher, you can use the `useTheme` hook to get the current theme.
 
 <PlainCode code={`import { useTheme } from '@/components/theme-provider'
 import { IconCircleHalf, IconCircleHalfFill } from '@irsyadadl/paranoid'
-import { ButtonPrimitive } from 'ui'
+import { Button } from 'ui'
 
-export function ThemeSwitcher({ className }: { className?: string }) {
+export function ThemeSwitcher() {
   const { setTheme } = useTheme()
   return (
-    <div className={className}>
-      <ButtonPrimitive className="hidden dark:block" onPress={() => setTheme('light')}>
-        <IconCircleHalfFill />
-      </ButtonPrimitive>
-
-        <ButtonPrimitive className="block dark:hidden" onPress={() => setTheme('dark')}>
-          <IconCircleHalf />
-        </ButtonPrimitive>
-      </div>
+    <Button
+      appearance="outline"
+      size="square-petite"
+      aria-label={'Switch to ' + resolvedTheme === 'light' ? 'dark' : 'light' + 'mode'}
+      onPress={() => setTheme(resolvedTheme === 'light' ? 'dark' : 'light')}
+    >
+      <IconSun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+      <IconMoon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+    </Button>
     )
-  }
-`}/>
+}`}/>
