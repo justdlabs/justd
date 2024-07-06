@@ -1,7 +1,6 @@
 'use client'
 
 import { IconBulletFill, IconCheck, IconChevronLgRight } from '@irsyadadl/paranoid'
-import { clsx } from 'clsx'
 import * as React from 'react'
 import {
   Button,
@@ -24,6 +23,7 @@ import {
   SubmenuTrigger as SubmenuTriggerPrimitive,
   useSlottedContext
 } from 'react-aria-components'
+import { twJoin } from 'tailwind-merge'
 import { VariantProps } from 'tailwind-variants'
 import { dropdownItemStyles } from './dropdown'
 import { cn } from './primitive'
@@ -154,7 +154,7 @@ const MenuKeyboard = ({ keys, className, ...props }: MenuKeyboardProps) => {
       {(Array.isArray(keys) ? keys : keys.split('')).map((char, index) => (
         <kbd
           key={index}
-          className={clsx([
+          className={twJoin([
             'min-w-[2ch] text-center font-sans capitalize text-muted-fg group-focus:text-fg forced-colors:group-focus:text-[HighlightText]',
             'inline-grid min-h-5 min-w-5 place-content-center rounded bg-background font-sans text-[.75rem] uppercase text-fg ring-1 ring-fg/10 group-focus:opacity-60',
             // Make sure key names that are longer than one character (like "Tab") have extra space

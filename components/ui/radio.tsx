@@ -19,7 +19,7 @@ interface RadioGroupProps extends Omit<RACRadioGroupProps, 'children'> {
   errorMessage?: string | ((validation: ValidationResult) => string)
 }
 
-function RadioGroup(props: RadioGroupProps) {
+const RadioGroup = (props: RadioGroupProps) => {
   return (
     <RadioGroupPrimitive {...props} className={ctr(props.className, 'group flex flex-col gap-2')}>
       <Label>{props.label}</Label>
@@ -32,7 +32,7 @@ function RadioGroup(props: RadioGroupProps) {
   )
 }
 
-const styles = tv({
+const radioStyles = tv({
   base: 'size-4 rounded-full border bg-secondary transition',
   variants: {
     isSelected: {
@@ -54,7 +54,7 @@ const styles = tv({
   }
 })
 
-function Radio(props: RadioProps) {
+const Radio = (props: RadioProps) => {
   return (
     <RadioPrimitive
       {...props}
@@ -65,7 +65,7 @@ function Radio(props: RadioProps) {
     >
       {(renderProps) => (
         <>
-          <div className={styles(renderProps)} />
+          <div className={radioStyles(renderProps)} />
           {props.children}
         </>
       )}
@@ -73,4 +73,4 @@ function Radio(props: RadioProps) {
   )
 }
 
-export { Radio, RadioGroup }
+export { Radio, RadioGroup, radioStyles }
