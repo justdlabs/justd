@@ -4,13 +4,13 @@ import { CommandPalette, OpenCloseProps } from '@/components/command-palette'
 import { Logo } from '@/components/logo'
 import { ThemeSwitcher } from '@/components/theme-switcher'
 import {
+  IconBrandAdobe,
   IconBrandGithub,
-  IconBrandKarteil,
   IconBrandLayers,
   IconBrandParanoid,
-  IconBrandParsinta,
   IconBrandTwitter,
   IconChevronDown,
+  IconColors,
   IconDeviceDesktop,
   IconHamburger,
   IconHome,
@@ -261,20 +261,21 @@ export function NavbarDropdown() {
         </MenuSection>
         <MenuSeparator />
         <MenuSection>
-          <MenuHeader separator>Projects</MenuHeader>
-          <MenuItem href="https://parsinta.com" target="_blank">
-            <IconBrandParsinta />
-            Parsinta
-          </MenuItem>
-          <MenuItem href="https://karteil.com" target="_blank">
-            <IconBrandKarteil />
-            Karteil
+          <MenuHeader separator>Refs</MenuHeader>
+          <MenuItem href="https://irsyad.co/colors" target="_blank">
+            <IconColors />
+            Colors
           </MenuItem>
           <MenuItem href="https://paranoid.irsyad.co" target="_blank">
             <IconBrandParanoid />
             Paranoid
           </MenuItem>
+          <MenuItem href="https://react-spectrum.adobe.com/react-aria/components.html" target="_blank">
+            <IconBrandAdobe />
+            RAC
+          </MenuItem>
         </MenuSection>
+        <MenuSeparator />
         <SubmenuTrigger>
           <MenuItem>
             {theme === 'system' ? <IconDeviceDesktop /> : theme === 'dark' ? <IconMoon /> : <IconSun />}

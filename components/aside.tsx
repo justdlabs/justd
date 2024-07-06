@@ -43,7 +43,7 @@ const createHierarchy = (docs: Array<Docs>): HierarchyNode => {
 
 const renderHierarchy = (node: HierarchyNode, level: number = 0) => {
   const filteredNodeEntries = Object.entries(node).sort(([a], [b]) => {
-    const order = [ 'prologue', 'getting-started', 'dark-mode', 'components']
+    const order = ['prologue', 'getting-started', 'dark-mode', 'components']
     return order.indexOf(a) - order.indexOf(b)
   })
   return (
