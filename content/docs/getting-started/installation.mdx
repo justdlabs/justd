@@ -42,7 +42,7 @@ After install the animation package for handling animations and Paranoid for ico
 And finally, we need additional packages:
 <Snippet text={`bun i embla-carousel-react cmdk framer-motion input-otp sonner`} />
 
-## CSS
+### CSS
 First of all, you need to modify your root css file, like for example you are using laravel it's `resources/css/app.css` and you need to add the following code:
 
 ```css
@@ -136,9 +136,6 @@ Add this one for the default set of utilities:
 
   body {
     @apply bg-background text-fg;
-    font-feature-settings:
-      'rlig' 1,
-      'calt' 1;
   }
 }
 `} />
@@ -196,7 +193,7 @@ And finally, you need to add this for react-aria-components:
 ```
 
 
-## Tailwind Configuration
+### Tailwind Configuration
 You need wrap your tailwind config with `withTV` from `tailwind-variants`, also you need to plug the plugins we've just installed.
 <PlainCode lang='js' code={`/** @type {import('tailwindcss').Config} */
 
@@ -284,7 +281,7 @@ export default withTV({
 })
 `} />
 
-## Primitive
+### Primitive
 All these components are souped up with the primitive, so you gotta import 'em for sure.
 <PlainCode lang='js' code={`'use client'
 
