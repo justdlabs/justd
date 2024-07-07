@@ -5,7 +5,29 @@ order: 3
 published: true
 ---
 
-## Requirements
+## Installation via CLI
+Kick things off by running this command:
+
+<Snippet text={`npx @irsyadadl/d@latest init`} />
+
+Next up, tell it your source. If you're rocking **Next.js**, pick Next.js. If **Laravel** with **Inertia.js** is your jam, go with Laravel. Not using either? Just hit up the **other** option.
+
+After that, just run `add --component [component-name]` to drop the component in your project. No need to install everything at once. Need a file-trigger? Just add it up. Even if it requires a button, this command's got you covered. Just install what you need now. Otherwise, hit up the docs and do it manually. Here's how to add a `combo-box`:
+
+<Snippet text={`npx @irsyadadl/d@latest add --component combo-box`} />
+
+This command will install all the required components like:
+```
+- combo-box created
+- select created
+- dropdown created
+- field created
+- list-box created
+- popover created
+- button created
+```
+
+## Manual Installation
 To get started with the design system, you need to install the following packages:
 
 <Snippet text={`bun i react-aria-components tailwindcss-react-aria-components`} />

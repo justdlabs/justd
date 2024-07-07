@@ -1,6 +1,7 @@
-import { DocInstallation } from '@/components/doc-installation'
+import { DefaultInstallation } from '@/components/default-installation'
 import { PlainCode } from '@/components/docs/rehype/plain-code'
 import { SourceCode } from '@/components/docs/rehype/source-code'
+import { ManualInstallation } from '@/components/manual-installation'
 import { useMDXComponent } from '@/lib/hooks/use-mdx'
 import Image from 'next/image'
 import { Link, LinkProps, Snippet, type SnippetProps } from 'ui'
@@ -16,7 +17,8 @@ export function MDXContent({ code }: MdxProps) {
     <Component
       components={{
         Image,
-        Install: DocInstallation,
+        Default: DefaultInstallation,
+        ManualInstall: ManualInstallation,
         How: DocHow,
         a: (props: LinkProps) => <Link {...props} className="not-prose font-medium hover:underline" />,
         SourceCode: SourceCode,

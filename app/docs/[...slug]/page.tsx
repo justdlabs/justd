@@ -69,6 +69,7 @@ export default async function PostPage({ params }: DocPageProps) {
     notFound()
   }
 
+  console.log(doc.slug)
   return (
     <>
       <div className="min-w-0 max-w-2xl flex-auto pt-16 pb-56 lg:max-w-none px-4 lg:pl-8 lg:pr-0 xl:px-16">
