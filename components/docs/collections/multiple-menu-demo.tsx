@@ -1,6 +1,6 @@
 'use client'
 
-import { Selection } from '@react-types/shared'
+import { type Selection } from '@react-types/shared'
 import React from 'react'
 import { Button, Menu, MenuCheckboxItem, MenuContent, MenuHeader, MenuSection } from 'ui'
 

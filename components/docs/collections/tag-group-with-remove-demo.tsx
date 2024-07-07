@@ -4,7 +4,7 @@ import { useListData } from 'react-stately'
 import { Tag, TagGroup } from 'ui'
 
 export default function TagGroupWithRemoveDemo() {
-  let list = useListData({
+  const list = useListData({
     initialItems: [
       { id: '1', name: 'Samsung', available: false },
       { id: '2', name: 'OnePlus', available: true },

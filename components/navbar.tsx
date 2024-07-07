@@ -1,6 +1,6 @@
 'use client'
 
-import { CommandPalette, OpenCloseProps } from '@/components/command-palette'
+import { CommandPalette, type OpenCloseProps } from '@/components/command-palette'
 import { Logo } from '@/components/logo'
 import { ThemeSwitcher } from '@/components/theme-switcher'
 import {

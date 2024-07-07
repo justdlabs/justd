@@ -14,13 +14,8 @@
     "@next/next/no-img-element": "off",
     "@typescript-eslint/prefer-nullish-coalescing": "off",
     "@typescript-eslint/consistent-type-imports": "warn",
-    "@typescript-eslint/no-unused-vars": [
-      "warn",
-      {
-        "argsIgnorePattern": ",^_"
-      }
-    ],
     "@typescript-eslint/require-await": "off",
+    "@typescript-eslint/no-unused-vars": "off",
     "react/react-in-jsx-scope": "off",
     "react/no-children-prop": "off",
     "@typescript-eslint/no-explicit-any": "off",

@@ -115,7 +115,7 @@ function RangeCalendar<T extends DateValue>({ errorMessage, ...props }: RangeCal
               date={date}
               className="group size-9 cursor-default text-sm outline outline-0 outside-month:text-gray-300 selected:bg-primary-100 invalid:selected:bg-red-100 selection-start:rounded-s-full selection-end:rounded-e-full dark:selected:bg-primary-700/30 dark:invalid:selected:bg-red-700/30 forced-colors:selected:bg-[Highlight] forced-colors:invalid:selected:bg-[Mark] [td:first-child_&]:rounded-s-full [td:last-child_&]:rounded-e-full"
             >
-              {({ formattedDate, isSelected, isSelectionStart, isSelectionEnd, isFocusVisible, isDisabled }) => (
+              {({ formattedDate, isSelected, isSelectionStart, isSelectionEnd, isDisabled }) => (
                 <span
                   className={cell({
                     selectionState:

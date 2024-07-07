@@ -2,7 +2,7 @@
 
 import { Logo } from '@/components/logo'
 import { IconBrandAdobe, IconBrandFramer, IconBrandGithub, IconBrandParanoid } from '@irsyadadl/paranoid'
-import { FC, SVGProps } from 'react'
+import type { FC, SVGProps } from 'react'
 import { Menu, MenuItem } from 'react-aria-components'
 import { buttonStyles, cn } from 'ui'
 

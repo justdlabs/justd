@@ -1,38 +1,53 @@
 'use client'
 
 import React from 'react'
-import { cn } from './primitive'
+import { tv, type VariantProps } from 'tailwind-variants'
 
-type AvatarProps = {
+const avatarStyles = tv({
+  base: [
+    'inline-grid shrink-0 bg-secondary align-middle [--avatar-radius:20%] [--ring-opacity:20%] *:col-start-1 *:row-start-1',
+    'loo2ppvkxrcah38e outline outline-1 -outline-offset-1 outline-black/[--ring-opacity] dark:outline-white/[--ring-opacity]'
+  ],
+  variants: {
+    size: {
+      small: 'size-6',
+      medium: 'size-8',
+      large: 'size-10'
+    },
+    shape: {
+      square: 'rounded-[--avatar-radius] *:rounded-[--avatar-radius]',
+      circle: 'rounded-full *:rounded-full'
+    }
+  },
+
+  defaultVariants: {
+    shape: 'circle',
+    size: 'medium'
+  }
+})
+
+interface AvatarProps extends React.ComponentPropsWithoutRef<'span'>, VariantProps<typeof avatarStyles> {
   src?: string | null
-  square?: boolean
   initials?: string
   alt?: string
   className?: string
 }
 
-const Avatar = ({
-  src = null,
-  square = false,
-  initials,
-  alt = '',
-  className,
-  ...props
-}: AvatarProps & React.ComponentPropsWithoutRef<'span'>) => {
+const avatarGroupStyles = tv({
+  base: 'flex items-center justify-center -space-x-2 [&_[data-slot=avatar]]:ring-2 [&_[data-slot=avatar]]:ring-background'
+})
+
+interface AvatarGroupProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof avatarGroupStyles> {
+  children: React.ReactNode
+}
+
+const AvatarGroup = ({ className, ...props }: AvatarGroupProps) => {
+  return <div className={avatarGroupStyles({ className })} {...props} />
+}
+
+const Avatar = ({ src = null, initials, alt = '', className, shape, size, ...props }: AvatarProps) => {
   return (
-    <span
-      data-slot="avatar"
-      {...props}
-      className={cn(
-        // Basic layout
-        'inline-grid shrink-0 bg-secondary align-middle [--avatar-radius:20%] [--ring-opacity:20%] *:col-start-1 *:row-start-1',
-        'loo2ppvkxrcah38e outline outline-1 -outline-offset-1 outline-black/[--ring-opacity] dark:outline-white/[--ring-opacity]',
-        // Add the correct border radius
-        square ? 'rounded-[--avatar-radius] *:rounded-[--avatar-radius]' : 'rounded-full *:rounded-full',
-        'size-8',
-        className
-      )}
-    >
+    <span data-slot="avatar" {...props} className={avatarStyles({ shape, size, className })}>
       {initials && (
         <svg
           className="select-none fill-current text-[48px] font-medium uppercase"
@@ -50,4 +65,4 @@ const Avatar = ({
   )
 }
 
-export { Avatar }
+export { Avatar, AvatarGroup }

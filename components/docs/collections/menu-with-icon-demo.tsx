@@ -15,7 +15,7 @@ import {
   IconPlus,
   IconSettings
 } from '@irsyadadl/paranoid'
-import { Placement } from '@react-types/overlays'
+import type { Placement } from '@react-types/overlays'
 import React, { useState } from 'react'
 import {
   Avatar,
@@ -36,7 +36,7 @@ import { placements } from './single-menu-demo'
 
 export default function MenuWithIconDemo() {
   const [showArrow, setShowArrow] = useState(false)
-  let [selected, setSelected] = React.useState<Placement>('bottom')
+  const [selected, setSelected] = React.useState<Placement>('bottom')
   return (
     <>
       <OptionPreview className="space-y-2">

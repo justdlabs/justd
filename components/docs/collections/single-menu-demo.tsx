@@ -1,7 +1,7 @@
 'use client'
 
-import { Placement } from '@react-types/overlays'
-import { Selection } from '@react-types/shared'
+import type { Placement } from '@react-types/overlays'
+import type { Selection } from '@react-types/shared'
 import React from 'react'
 import { Button, Menu, MenuContent, MenuRadioItem } from 'ui'
 
@@ -31,7 +31,7 @@ export const placements = [
 ].map((item, i) => ({ id: i, name: item }))
 
 export default function SingleMenuDemo() {
-  let [selected, setSelected] = React.useState<Selection>(new Set(['bottom']))
+  const [selected, setSelected] = React.useState<Selection>(new Set(['bottom']))
   return (
     <Menu>
       <Button appearance="outline">Placement</Button>

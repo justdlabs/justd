@@ -1,4 +1,4 @@
-import { Docs } from '#site/content'
+import { type Docs } from '#site/content'
 import { type ClassValue, clsx } from 'clsx'
 import { slug } from 'github-slugger'
 import { twMerge } from 'tailwind-merge'

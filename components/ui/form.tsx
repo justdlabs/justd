@@ -3,11 +3,9 @@
 import type { FormProps as FormPrimitiveProps } from 'react-aria-components'
 import { Form as FormPrimitive } from 'react-aria-components'
 
-interface FormProps extends FormPrimitiveProps {
-  onSubmit(): void
-}
+interface FormProps extends FormPrimitiveProps {}
 
-function Form({ onSubmit, ...props }: FormProps) {
+function Form(props: FormProps) {
   return <FormPrimitive {...props} />
 }
 

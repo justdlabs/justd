@@ -6,7 +6,7 @@ import { DocRefs } from '@/components/doc-refs'
 import { TableOfContents } from '@/components/table-of-contents'
 import { siteConfig } from '@/config/site'
 import '@/styles/code.css'
-import { Metadata } from 'next'
+import { type Metadata } from 'next'
 import { Separator } from 'ui'
 
 export interface DocPageProps {

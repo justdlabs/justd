@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { FileDropItem } from 'react-aria'
+import { type FileDropItem } from 'react-aria'
 import { DropZone, FileTrigger, Label } from 'ui'
 
 export default function DropZoneAndFileTriggerDemo() {
@@ -16,8 +16,8 @@ export default function DropZoneAndFileTriggerDemo() {
   }
 
   const handleSelect = (files: FileList | null) => {
-    let fileArray = Array.from(files ?? [])
-    let filenames = fileArray.map((file) => file.name)
+    const fileArray = Array.from(files ?? [])
+    const filenames = fileArray.map((file) => file.name)
     setFiles(filenames)
   }
   return (

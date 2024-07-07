@@ -1,5 +1,5 @@
-import { Docs, docs } from '@/.velite'
-import { MetadataRoute } from 'next'
+import { type Docs, docs } from '@/.velite'
+import type { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [

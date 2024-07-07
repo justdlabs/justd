@@ -484,6 +484,36 @@
     "raw": "'use client'\n\nimport { GridList, GridListItem } from 'ui'\n\nconst items = [\n  { id: '1', name: 'The Beatles' },\n  { id: '2', name: 'Led Zeppelin' },\n  { id: '3', name: 'Pink Floyd' },\n  { id: '4', name: 'Queen' },\n  { id: '5', name: 'The Rolling Stones' }\n]\nexport default function GridListDemo() {\n  return (\n    <GridList items={items} aria-label=\"you make it\" selectionMode=\"multiple\" className=\"min-w-64\">\n      {(item) => <GridListItem id={item.id}>{item.name}</GridListItem>}\n    </GridList>\n  )\n}\n",
     "type": "docs"
   },
+  "media/avatar-size-demo": {
+    "component": "@/components/docs/media/avatar-size-demo",
+    "raw": "import { Avatar } from 'ui'\n\nexport default function AvatarSizeDemo() {\n  return (\n    <div className=\"flex gap-4\">\n      <Avatar size=\"small\" src=\"https://github.com/irsyadadl.png\" />\n      <Avatar size=\"medium\" src=\"https://github.com/irsyadadl.png\" />\n      <Avatar size=\"large\" src=\"https://github.com/irsyadadl.png\" />\n    </div>\n  )\n}\n",
+    "type": "docs"
+  },
+  "media/avatar-initials-demo": {
+    "component": "@/components/docs/media/avatar-initials-demo",
+    "raw": "import { Avatar } from 'ui'\n\nexport default function AvatarInitialsDemo() {\n  return <Avatar initials=\"IR\" />\n}\n",
+    "type": "docs"
+  },
+  "media/avatar-demo": {
+    "component": "@/components/docs/media/avatar-demo",
+    "raw": "import { Avatar } from 'ui'\n\nexport default function AvatarDemo() {\n  return (\n    <div className=\"flex gap-4\">\n      <Avatar size=\"small\" src=\"https://github.com/irsyadadl.png\" />\n      <Avatar size=\"medium\" src=\"https://github.com/irsyadadl.png\" />\n      <Avatar size=\"large\" src=\"https://github.com/irsyadadl.png\" />\n    </div>\n  )\n}\n",
+    "type": "docs"
+  },
+  "media/avatar-shape-demo": {
+    "component": "@/components/docs/media/avatar-shape-demo",
+    "raw": "import { Avatar } from 'ui'\n\nexport default function AvatarShapeDemo() {\n  return <Avatar shape=\"square\" initials=\"IR\" alt=\"irsyadadl\" src=\"https://github.com/irsyadadl.png\" />\n}\n",
+    "type": "docs"
+  },
+  "media/avatar-group-demo": {
+    "component": "@/components/docs/media/avatar-group-demo",
+    "raw": "import { Avatar, AvatarGroup } from 'ui'\n\nexport default function AvatarGroupDemo() {\n  return (\n    <AvatarGroup>\n      <Avatar initials=\"IR\" src=\"https://i.pravatar.cc/150?img=61\" />\n      <Avatar initials=\"IR\" src=\"https://i.pravatar.cc/150?img=62\" />\n      <Avatar initials=\"IR\" src=\"https://i.pravatar.cc/150?img=63\" />\n      <Avatar initials=\"IR\" src=\"https://i.pravatar.cc/150?img=64\" />\n      <Avatar initials=\"IR\" src=\"https://i.pravatar.cc/150?img=65\" />\n    </AvatarGroup>\n  )\n}\n",
+    "type": "docs"
+  },
+  "media/avatar-fallback-demo": {
+    "component": "@/components/docs/media/avatar-fallback-demo",
+    "raw": "import { Avatar } from 'ui'\n\nexport default function AvatarFallbackDemo() {\n  return <Avatar initials=\"IR\" src=\"https://github.com/irsyadadl.png\" />\n}\n",
+    "type": "docs"
+  },
   "aspect-ratio": {
     "component": "@/components/ui/aspect-ratio",
     "raw": "'use client'\n\nimport * as AspectRatioPrimitive from '@radix-ui/react-aspect-ratio'\n\nconst AspectRatio = AspectRatioPrimitive.Root\n\nexport { AspectRatio }\n",
@@ -656,7 +686,7 @@
   },
   "avatar": {
     "component": "@/components/ui/avatar",
-    "raw": "'use client'\n\nimport React from 'react'\nimport { cn } from './primitive'\n\ntype AvatarProps = {\n  src?: string | null\n  square?: boolean\n  initials?: string\n  alt?: string\n  className?: string\n}\n\nconst Avatar = ({\n  src = null,\n  square = false,\n  initials,\n  alt = '',\n  className,\n  ...props\n}: AvatarProps & React.ComponentPropsWithoutRef<'span'>) => {\n  return (\n    <span\n      data-slot=\"avatar\"\n      {...props}\n      className={cn(\n        // Basic layout\n        'inline-grid shrink-0 bg-secondary align-middle [--avatar-radius:20%] [--ring-opacity:20%] *:col-start-1 *:row-start-1',\n        'loo2ppvkxrcah38e outline outline-1 -outline-offset-1 outline-black/[--ring-opacity] dark:outline-white/[--ring-opacity]',\n        // Add the correct border radius\n        square ? 'rounded-[--avatar-radius] *:rounded-[--avatar-radius]' : 'rounded-full *:rounded-full',\n        'size-8',\n        className\n      )}\n    >\n      {initials && (\n        <svg\n          className=\"select-none fill-current text-[48px] font-medium uppercase\"\n          viewBox=\"0 0 100 100\"\n          aria-hidden={alt ? undefined : 'true'}\n        >\n          {alt && <title>{alt}</title>}\n          <text x=\"50%\" y=\"50%\" alignmentBaseline=\"middle\" dominantBaseline=\"middle\" textAnchor=\"middle\" dy=\".125em\">\n            {initials}\n          </text>\n        </svg>\n      )}\n      {src && <img src={src} alt={alt} />}\n    </span>\n  )\n}\n\nexport { Avatar }\n",
+    "raw": "'use client'\n\nimport React from 'react'\nimport { tv, type VariantProps } from 'tailwind-variants'\n\nconst avatarStyles = tv({\n  base: [\n    'inline-grid shrink-0 bg-secondary align-middle [--avatar-radius:20%] [--ring-opacity:20%] *:col-start-1 *:row-start-1',\n    'loo2ppvkxrcah38e outline outline-1 -outline-offset-1 outline-black/[--ring-opacity] dark:outline-white/[--ring-opacity]'\n  ],\n  variants: {\n    size: {\n      small: 'size-6',\n      medium: 'size-8',\n      large: 'size-10'\n    },\n    shape: {\n      square: 'rounded-[--avatar-radius] *:rounded-[--avatar-radius]',\n      circle: 'rounded-full *:rounded-full'\n    }\n  },\n\n  defaultVariants: {\n    shape: 'circle',\n    size: 'medium'\n  }\n})\n\ninterface AvatarProps extends React.ComponentPropsWithoutRef<'span'>, VariantProps<typeof avatarStyles> {\n  src?: string | null\n  initials?: string\n  alt?: string\n  className?: string\n}\n\nconst avatarGroupStyles = tv({\n  base: 'flex items-center justify-center -space-x-2 [&_[data-slot=avatar]]:ring-2 [&_[data-slot=avatar]]:ring-background'\n})\n\ninterface AvatarGroupProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof avatarGroupStyles> {\n  children: React.ReactNode\n}\n\nconst AvatarGroup = ({ className, ...props }: AvatarGroupProps) => {\n  return <div className={avatarGroupStyles({ className })} {...props} />\n}\n\nconst Avatar = ({ src = null, initials, alt = '', className, shape, size, ...props }: AvatarProps) => {\n  return (\n    <span data-slot=\"avatar\" {...props} className={avatarStyles({ shape, size, className })}>\n      {initials && (\n        <svg\n          className=\"select-none fill-current text-[48px] font-medium uppercase\"\n          viewBox=\"0 0 100 100\"\n          aria-hidden={alt ? undefined : 'true'}\n        >\n          {alt && <title>{alt}</title>}\n          <text x=\"50%\" y=\"50%\" alignmentBaseline=\"middle\" dominantBaseline=\"middle\" textAnchor=\"middle\" dy=\".125em\">\n            {initials}\n          </text>\n        </svg>\n      )}\n      {src && <img src={src} alt={alt} />}\n    </span>\n  )\n}\n\nexport { Avatar, AvatarGroup }\n",
     "type": "ui"
   },
   "combo-box": {

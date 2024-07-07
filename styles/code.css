@@ -11,7 +11,7 @@ span[data-rehype-pretty-code-figure] > code {
 }
 
 span[data-rehype-pretty-code-figure] > code span {
-    @apply px-0.5 text-fg font-normal !important;
+    @apply px-0 text-sky-500 dark:text-sky-400 font-normal !important;
 }
 
 [data-rehype-pretty-code-figure] code[data-line-numbers] {
@@ -49,5 +49,5 @@ span[data-rehype-pretty-code-figure] > code span {
 
 .prose :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *))::before,
 .prose :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *))::after{
-    @apply hidden;
+    /*@apply hidden;*/
 }

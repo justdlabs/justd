@@ -1,7 +1,11 @@
 import { Avatar } from 'ui'
 
-export default function AvatarShapeDemo() {
+export default function AvatarSizeDemo() {
   return (
-    <Avatar shape="square" initials="IR" alt="irsyadadl" src="https://github.com/irsyadadl.png" />
+    <div className="flex gap-4">
+      <Avatar size="small" src="https://github.com/irsyadadl.png" />
+      <Avatar size="medium" src="https://github.com/irsyadadl.png" />
+      <Avatar size="large" src="https://github.com/irsyadadl.png" />
+    </div>
   )
 }

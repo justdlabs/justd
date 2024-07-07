@@ -5,7 +5,7 @@ import { useListData } from 'react-stately'
 import { ListBox, ListBoxItem } from 'ui'
 
 export default function ListBoxRearrangeDemo() {
-  let list = useListData({
+  const list = useListData({
     initialItems: [
       { id: '1', name: 'Nirvana' },
       { id: '2', name: 'Radiohead' },
@@ -14,7 +14,8 @@ export default function ListBoxRearrangeDemo() {
       { id: '5', name: 'The Strokes' }
     ]
   })
-  let { dragAndDropHooks } = useDragAndDrop({
+
+  const { dragAndDropHooks } = useDragAndDrop({
     getItems: (keys) => [...keys].map((key) => ({ 'text/plain': list.getItem(key).name })),
     onReorder(e) {
       if (e.target.dropPosition === 'before') {
@@ -24,6 +25,7 @@ export default function ListBoxRearrangeDemo() {
       }
     }
   })
+
   return (
     <ListBox items={list.items} aria-label="Bands" selectionMode="multiple" dragAndDropHooks={dragAndDropHooks}>
       {(item) => <ListBoxItem key={item.id}>{item.name}</ListBoxItem>}

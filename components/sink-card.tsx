@@ -1,7 +1,7 @@
 'use client'
 
 import * as React from 'react'
-import { Header, Heading, HeadingProps } from 'react-aria-components'
+import { Header, Heading, type HeadingProps } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
 const sinkCardStyles = tv({

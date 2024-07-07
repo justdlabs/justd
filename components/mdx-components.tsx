@@ -4,7 +4,7 @@ import { SourceCode } from '@/components/docs/rehype/source-code'
 import { ManualInstallation } from '@/components/manual-installation'
 import { useMDXComponent } from '@/lib/hooks/use-mdx'
 import Image from 'next/image'
-import { Link, LinkProps, Snippet, type SnippetProps } from 'ui'
+import { Link, type LinkProps, Snippet, type SnippetProps } from 'ui'
 import { DocHow } from './doc-how'
 
 interface MdxProps {

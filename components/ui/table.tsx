@@ -80,7 +80,7 @@ const TableHeader = <T extends object>({
 }: TableHeaderProps<T> & { className?: string }) => {
   const { selectionBehavior, selectionMode, allowsDragging } = useTableOptions()
   return (
-    <TableHeaderPrimitive {...props} className={header()}>
+    <TableHeaderPrimitive {...props} className={header({ className })}>
       {allowsDragging && <Column />}
       {selectionBehavior === 'toggle' && (
         <Column className="pl-4">{selectionMode === 'multiple' && <Checkbox slot="selection" />}</Column>
@@ -103,7 +103,7 @@ const TableRow = <T extends object>({
       id={id}
       {...props}
       className={row({
-        className: 'href' in props ? 'cursor-pointer hover:bg-secondary/50' : ''
+        className: 'href' in props ? cn('cursor-pointer hover:bg-secondary/50', className) : ''
       })}
     >
       {allowsDragging && (
