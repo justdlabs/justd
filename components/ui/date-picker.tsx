@@ -29,7 +29,7 @@ function DatePicker<T extends DateValue>({ label, description, errorMessage, ...
     <DatePickerPrimitive {...props} className={ctr(props.className, 'group flex flex-col gap-1')}>
       {label && <Label>{label}</Label>}
       <FieldGroup className="min-w-40">
-        <DateInput className="w-full px-2 font-mono uppercase min-w-[inherit] lg:text-sm" />
+        <DateInput className="w-full px-2 font-mono uppercase min-w-[inherit] text-base lg:text-sm" />
         <Button
           size="square-petite"
           appearance="plain"
@@ -60,14 +60,14 @@ function DateRangePicker<T extends DateValue>({ label, description, errorMessage
     <DateRangePickerPrimitive {...props} className={ctr(props.className, 'group flex flex-col gap-1')}>
       {label && <Label>{label}</Label>}
       <FieldGroup className="w-auto min-w-[208px]">
-        <DateInput slot="start" className="px-2 lg:text-sm font-mono uppercase min-w-[ineherit]" />
+        <DateInput slot="start" className="px-2 lg:text-sm font-mono uppercase text-base min-w-[ineherit]" />
         <span
           aria-hidden="true"
           className="text-gray-800 group-disabled:text-gray-200 dark:text-zinc-200 group-disabled:dark:text-zinc-600 forced-colors:text-[ButtonText] group-disabled:forced-colors:text-[GrayText]"
         >
           –
         </span>
-        <DateInput slot="end" className="flex-1 px-2 py-1.5 font-mono uppercase lg:text-sm" />
+        <DateInput slot="end" className="flex-1 px-2 py-1.5 font-mono uppercase text-base lg:text-sm" />
         <Button
           size="square-petite"
           appearance="plain"
