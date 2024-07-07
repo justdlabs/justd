@@ -78,7 +78,7 @@ const TableHeader = <T extends object>({
   columns,
   ...props
 }: TableHeaderProps<T> & { className?: string }) => {
-  let { selectionBehavior, selectionMode, allowsDragging } = useTableOptions()
+  const { selectionBehavior, selectionMode, allowsDragging } = useTableOptions()
   return (
     <TableHeaderPrimitive {...props} className={header()}>
       {allowsDragging && <Column />}
@@ -97,7 +97,7 @@ const TableRow = <T extends object>({
   id,
   ...props
 }: RowProps<T> & { className?: string }) => {
-  let { selectionBehavior, allowsDragging } = useTableOptions()
+  const { selectionBehavior, allowsDragging } = useTableOptions()
   return (
     <Row
       id={id}

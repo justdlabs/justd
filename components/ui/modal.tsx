@@ -123,7 +123,7 @@ interface ModalCloseProps extends ButtonProps {}
 
 const ModalClose = ({ className, ...props }: ModalCloseProps) => {
   const state = React.useContext(OverlayTriggerStateContext)!
-  return <Button appearance="outline" onPress={() => state.close()} {...props} />
+  return <Button className={className} appearance="outline" onPress={() => state.close()} {...props} />
 }
 
 const ModalBody = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (

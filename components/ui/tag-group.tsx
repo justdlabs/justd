@@ -105,8 +105,8 @@ const removeButtonStyles = tv({
 })
 
 export function Tag({ children, intent, ...props }: TagProps) {
-  let textValue = typeof children === 'string' ? children : undefined
-  let groupIntent = useContext(IntentContext)
+  const textValue = typeof children === 'string' ? children : undefined
+  const groupIntent = useContext(IntentContext)
   return (
     <TagPrimitive
       textValue={textValue}

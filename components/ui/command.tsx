@@ -5,7 +5,8 @@ import { Command as CommandPrimitive } from 'cmdk'
 import * as React from 'react'
 import { Button, Dialog, Modal } from 'react-aria-components'
 import { twJoin } from 'tailwind-merge'
-import { ModalOverlay, ModalOverlayProps } from './modal'
+import type { ModalOverlayProps } from './modal'
+import { ModalOverlay } from './modal'
 import { cn, useMediaQuery } from './primitive'
 
 type CommandComponent = React.ForwardRefExoticComponent<

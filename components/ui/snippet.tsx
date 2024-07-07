@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import * as React from 'react'
 import { toast } from 'sonner'
 import { twMerge } from 'tailwind-merge'
-import { Button, ButtonProps } from './button'
+import { Button, type ButtonProps } from './button'
 
 const snippetVariants = {
   hidden: { opacity: 0, scale: 0.5 },

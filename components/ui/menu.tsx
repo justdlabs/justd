@@ -24,7 +24,7 @@ import {
   useSlottedContext
 } from 'react-aria-components'
 import { twJoin } from 'tailwind-merge'
-import { VariantProps } from 'tailwind-variants'
+import type { VariantProps } from 'tailwind-variants'
 import { dropdownItemStyles } from './dropdown'
 import { cn } from './primitive'
 
@@ -57,8 +57,8 @@ const MenuContent = <T extends object>({
   offset = 4,
   ...props
 }: MenuContentProps<T>) => {
-  let popoverContext = useSlottedContext(PopoverContext)!
-  let isSubmenu = popoverContext?.trigger === 'SubmenuTrigger'
+  const popoverContext = useSlottedContext(PopoverContext)!
+  const isSubmenu = popoverContext?.trigger === 'SubmenuTrigger'
   let currentOffset = showArrow ? 12 : 8
   currentOffset = isSubmenu ? currentOffset - 6 : currentOffset
   return (

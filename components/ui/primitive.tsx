@@ -1,6 +1,7 @@
 'use client'
 
-import { ClassValue, clsx } from 'clsx'
+import type { ClassValue } from 'clsx'
+import { clsx } from 'clsx'
 import * as React from 'react'
 import { composeRenderProps } from 'react-aria-components'
 import { twMerge } from 'tailwind-merge'

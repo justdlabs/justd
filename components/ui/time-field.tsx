@@ -2,9 +2,9 @@
 
 import {
   TimeField as TimeFieldPrimitive,
-  TimeFieldProps as TimeFieldPrimitiveProps,
-  TimeValue,
-  ValidationResult
+  type TimeFieldProps as TimeFieldPrimitiveProps,
+  type TimeValue,
+  type ValidationResult
 } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 import { DateInput } from './date-field'

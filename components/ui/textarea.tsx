@@ -3,8 +3,8 @@
 import {
   TextArea as TextAreaPrimitive,
   TextField as TextFieldPrimitive,
-  TextFieldProps as TextFieldPrimitiveProps,
-  ValidationResult
+  type TextFieldProps as TextFieldPrimitiveProps,
+  type ValidationResult
 } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 import { Description, FieldError, Label } from './field'

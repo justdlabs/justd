@@ -35,7 +35,7 @@ const itemStyles = tv({
 })
 
 const GridListItem = ({ children, ...props }: GridListItemProps) => {
-  let textValue = typeof children === 'string' ? children : undefined
+  const textValue = typeof children === 'string' ? children : undefined
   return (
     <GridListItemPrimitive textValue={textValue} {...props} className={itemStyles}>
       {({ selectionMode, selectionBehavior, allowsDragging }) => (

@@ -1,10 +1,14 @@
 'use client'
 
-import { composeRenderProps, ToggleButton as ToggleButtonPrimitive, ToggleButtonProps } from 'react-aria-components'
+import {
+  type ToggleButtonProps,
+  composeRenderProps,
+  ToggleButton as ToggleButtonPrimitive
+} from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 import { focusRing } from './primitive'
 
-let styles = tv({
+const toggleButtonStyles = tv({
   extend: focusRing,
   base: [
     'inline-flex h-10 items-center justify-center whitespace-nowrap rounded-md px-4 py-2 text-base font-medium ring-offset-background transition-colors focus:outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 pressed:outline-none disabled:pointer-events-none disabled:opacity-50 sm:text-sm',
@@ -25,7 +29,9 @@ export function ToggleButton(props: ToggleButtonProps) {
   return (
     <ToggleButtonPrimitive
       {...props}
-      className={composeRenderProps(props.className, (className, renderProps) => styles({ ...renderProps, className }))}
+      className={composeRenderProps(props.className, (className, renderProps) =>
+        toggleButtonStyles({ ...renderProps, className })
+      )}
     />
   )
 }

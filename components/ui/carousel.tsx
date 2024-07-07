@@ -4,7 +4,8 @@ import useEmblaCarousel, { type UseEmblaCarouselType } from 'embla-carousel-reac
 import * as React from 'react'
 
 import { IconChevronLgLeft, IconChevronLgRight } from '@irsyadadl/paranoid'
-import { Button, ButtonProps } from './button'
+import type { ButtonProps } from './button'
+import { Button } from './button'
 import { cn } from './primitive'
 
 type CarouselApi = UseEmblaCarouselType[1]

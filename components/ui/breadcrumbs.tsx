@@ -1,11 +1,10 @@
 'use client'
 
 import { IconChevronRight } from '@irsyadadl/paranoid'
+import type { BreadcrumbProps, BreadcrumbsProps } from 'react-aria-components'
 import {
   Breadcrumb as BreadcrumbPrimitive,
-  BreadcrumbProps,
   Breadcrumbs as BreadcrumbsPrimitive,
-  BreadcrumbsProps,
   type LinkProps
 } from 'react-aria-components'
 import { Link } from './link'
