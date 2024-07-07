@@ -20,7 +20,8 @@ const docs = defineCollection({
       published: s.boolean().default(true),
       references: s.array(s.string()).optional(),
       body: s.mdx(),
-      toc: s.toc()
+      toc: s.toc(),
+      status: s.string().optional()
     })
     .transform(computedFields)
 })

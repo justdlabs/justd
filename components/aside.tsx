@@ -9,11 +9,12 @@ import type { LinkProps } from 'next/link'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React from 'react'
-import { cn } from 'ui'
+import { Badge, cn } from 'ui'
 
 interface Doc {
   slug: string
   title: string
+  status?: 'wip' | 'new' | 'beta' | 'help'
 }
 
 interface HierarchyNode {
@@ -29,6 +30,7 @@ const createHierarchy = (docs: Array<Docs>): HierarchyNode => {
 
     parts.forEach((part, index) => {
       if (index === parts.length - 1) {
+        // @ts-ignore
         currentLevel[part] = doc
       } else {
         if (!currentLevel[part]) {
@@ -78,19 +80,34 @@ const renderHierarchy = (node: HierarchyNode, level: number = 0) => {
                     ) : (
                       <AccordionItem key={subKey} value={subKey}>
                         <Trigger className="pl-[2rem] text-muted-fg group-data-[state=open]:text-fg">
-                          {' '}
-                          {goodTitle(subKey)}{' '}
+                          {goodTitle(subKey)}
                         </Trigger>
                         <AccordionContent className="relative overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
                           {Object.entries(subValue as HierarchyNode).map(([childKey, childValue]) =>
                             typeof childValue === 'object' && 'title' in childValue ? (
                               <AsideLink
-                                className="ml-[-0rem] pl-[3rem]"
+                                className="ml-[-0rem] flex justify-between items-center pl-[3rem]"
                                 key={childKey}
                                 href={`/${childValue.slug}`}
                                 indicatorClassName=""
                               >
-                                {goodTitle((childValue as Doc).title)}
+                                {goodTitle((childValue as Doc).title)}{' '}
+                                {childValue.status && (
+                                  <Badge
+                                    intent={
+                                      childValue?.status === 'wip'
+                                        ? 'primary'
+                                        : childValue.status === 'beta'
+                                          ? 'warning'
+                                          : childValue.status === 'help'
+                                            ? 'warning'
+                                            : 'info'
+                                    }
+                                    className="lowercase text-xs"
+                                  >
+                                    {childValue?.status as Doc['status']}
+                                  </Badge>
+                                )}
                               </AsideLink>
                             ) : (
                               <AccordionItem key={childKey} value={childKey}>
