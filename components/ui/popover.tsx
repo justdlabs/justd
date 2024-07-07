@@ -71,7 +71,7 @@ const PopoverContent = ({ children, showArrow = true, className, ...props }: Pop
 
 const PopoverPicker = ({ showArrow = false, children, ...props }: PopoverProps) => {
   return (
-    <PopoverContent showArrow={showArrow} className="max-h-72 min-w-[--trigger-width] p-0" {...props}>
+    <PopoverContent showArrow={showArrow} className="max-h-72 overflow-y-auto min-w-[--trigger-width] p-0" {...props}>
       {children}
     </PopoverContent>
   )
