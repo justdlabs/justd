@@ -127,7 +127,7 @@ export default function Page() {
               <SinkCard title="Time Field">
                 <TimeFieldDemo />
               </SinkCard>
-              <SinkCard title="Calendar">
+              <SinkCard isCentered title="Calendar">
                 <CalendarDemo />
               </SinkCard>
             </div>
