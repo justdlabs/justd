@@ -47,8 +47,14 @@ export const previews: Record<string, any> = {
   'forms/checkbox-group-demo': {
     component: React.lazy(() => import('@/components/docs/forms/checkbox-group-demo'))
   },
+  'forms/input-otp-controlled-demo': {
+    component: React.lazy(() => import('@/components/docs/forms/input-otp-controlled-demo'))
+  },
   'forms/switch-variant-demo': {
     component: React.lazy(() => import('@/components/docs/forms/switch-variant-demo'))
+  },
+  'forms/input-otp-separator-demo': {
+    component: React.lazy(() => import('@/components/docs/forms/input-otp-separator-demo'))
   },
   'forms/form-validation-demo': {
     component: React.lazy(() => import('@/components/docs/forms/form-validation-demo'))
@@ -82,6 +88,9 @@ export const previews: Record<string, any> = {
   },
   'forms/textarea-disabled-demo': {
     component: React.lazy(() => import('@/components/docs/forms/textarea-disabled-demo'))
+  },
+  'forms/input-otp-demo': {
+    component: React.lazy(() => import('@/components/docs/forms/input-otp-demo'))
   },
   'forms/text-field-demo': {
     component: React.lazy(() => import('@/components/docs/forms/text-field-demo'))
@@ -248,11 +257,17 @@ export const previews: Record<string, any> = {
   'statuses/badge-demo': {
     component: React.lazy(() => import('@/components/docs/statuses/badge-demo'))
   },
+  'statuses/toaster-demo': {
+    component: React.lazy(() => import('@/components/docs/statuses/toaster-demo'))
+  },
   'statuses/progress-bar-demo': {
     component: React.lazy(() => import('@/components/docs/statuses/progress-bar-demo'))
   },
   'statuses/indeterminate-progress-bar-demo': {
     component: React.lazy(() => import('@/components/docs/statuses/indeterminate-progress-bar-demo'))
+  },
+  'statuses/toaster-positions-demo': {
+    component: React.lazy(() => import('@/components/docs/statuses/toaster-positions-demo'))
   },
   'statuses/badge-shape-demo': {
     component: React.lazy(() => import('@/components/docs/statuses/badge-shape-demo'))
