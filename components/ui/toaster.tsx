@@ -23,7 +23,7 @@ const Toaster = ({ ...props }: ToasterProps) => {
         classNames: {
           error: 'ring-red-500/20 dark:ring-red-500/20 bg-danger/10 dark:text-red-50 text-red-950',
           success: 'ring-emerald-500/30 dark:ring-emerald-500/20 bg-success/10 dark:text-emerald-50 text-emerald-950',
-          warning: 'ring-amber-500/25 dark:ring-amber-500/20 bg-warning/10 dark:text-amber-50 text-amber-950',
+          warning: '!ring-amber-500/25 dark:ring-amber-500/20 bg-warning/10 dark:text-amber-50 text-amber-950',
           info: 'ring-lime-500/30 dark:ring-lime-500/20 bg-lime-500/10 dark:text-lime-50 text-lime-950',
           actionButton: 'py-1 rounded-md text-xs px-2 bg-primary text-primary-fg',
           cancelButton: 'py-1 rounded-md text-xs px-2 bg-secondary text-secondary-fg'
