@@ -1,10 +1,3 @@
----
-title: "Contribution Guide"
-description: If you're interested in contributing to D., this guide will help you get started.
-order: 1
-published: true
----
-
 ## Contribution Guide
 
 Yo, thanks for wanting to chip in at d.irsyad.co. Stoked to have ya on board!
