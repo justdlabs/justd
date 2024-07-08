@@ -1,0 +1,53 @@
+---
+title: Toaster
+description: Gives the vibe and easy access for a toast component. Toasts show quick, temporary alerts about actions, errors, or other events in an app.
+order: 5
+published: true
+status: new
+references: ["https://sonner.emilkowal.ski/toast"]
+---
+
+## Basic
+This is the basic toaster component.
+First, in your root app component, import the Toaster component.
+```tsx
+import { Toaster } from 'ui';
+```
+Then, add the Toaster component to your app.
+```tsx
+const App = () => {
+  return (
+    <Toaster />
+  );
+};
+```
+And next, just use the `toast()` function to show a toast.
+
+<How toUse="statuses/toaster-demo" />
+
+## Installation
+<Default items={['toaster']}/>
+
+## Manual Installation
+<ManualInstall items={['sonner', '@irsyadadl/paranoid']}/>
+<SourceCode toShow={['toaster']}/>
+
+## Positions
+Toaster can be positioned in four different places.
+<How toUse="statuses/toaster-positions-demo" />
+
+## Status
+Toaster can be positioned in four different positions.
+<How toUse="statuses/toaster-status-demo" />
+
+## Action
+Toaster can be positioned in four different positions.
+<How toUse="statuses/toaster-action-demo" />
+
+## Expand
+Toaster can be expanded to show more content.
+```tsx
+<Toaster expand />
+```
+
+And if you want to see more about this toaster, you can see full documentation [here](https://sonner.emilkowal.ski/toast).

@@ -1,0 +1,376 @@
+---
+title: "Installation"
+description: To start using the D., you need to install the required packages and configure your project.
+order: 3
+published: true
+---
+
+## Installation via CLI
+Before you run the command, make sure you have **tailwind installed**. If you don't, just see [here](https://tailwindcss.com/docs/installation) how to install it.
+
+Kick things off by running this command:
+
+<Snippet text={`npx @irsyadadl/d@latest init`} />
+
+Next up, tell it your source. If you're rocking **Next.js**, pick Next.js. If **Laravel** with **Inertia.js** is your jam, go with Laravel. Not using either? Just hit up the **other** option.
+
+After that, just run `add --component [component-name]` to drop the component in your project. No need to install everything at once. Need a file-trigger? Just add it up. Even if it requires a button, this command's got you covered. Just install what you need now. Otherwise, hit up the docs and do it manually. Here's how to add a `combo-box`:
+
+<Snippet text={`npx @irsyadadl/d@latest add --component combo-box`} />
+
+This command will install all the required components like:
+```bash
+Checking for d.json file...
+d.json file found, proceeding...
+- combo-box created  ✓
+- select created  ✓
+- dropdown created  ✓
+- field created  ✓
+- list-box created  ✓
+- popover created ✓
+- button created ✓
+```
+
+If ya wanna drop in group components, check the docs, they bundle all the goodies into one namespace, like collections, overlays, forms, etc. So you can slap 'em in all at once like this:
+<Snippet text={`npx @irsyadadl/d@latest add --component overlays`} />
+With that command, you'll get all the components in the overlays namespace like this:
+```bash
+Checking for d.json file...
+d.json file found, proceeding...
+- button created  ✓
+- dialog created  ✓
+- modal created  ✓
+- sheet created  ✓
+- drawer created  ✓
+- popover created  ✓
+- tooltip created  ✓
+```
+
+Right now, the CLI can only drop one component at a time. So if you try `--component note card`, it'll only add the `note` component. If you wanna upgrade it to handle multiple components, feel free to make a [PR](https://github.com/irsyadadl/d.cli/).
+
+## Manual Installation
+To get started with the design system, you need to install the following packages:
+
+<Snippet text={`bun i react-aria-components tailwindcss-react-aria-components`} />
+
+Next, install Tailwind Variant, Tailwind Merge, and clsx for utility functions.
+
+<Snippet text={`bun i tailwind-variants tailwind-merge clsx`} />
+
+After install the animation package for handling animations and Paranoid for icons:
+<Snippet text={`bun i @irsyadadl/paranoid tailwindcss-animate`} />
+
+And finally, we need additional packages:
+<Snippet text={`bun i embla-carousel-react cmdk framer-motion input-otp sonner`} />
+
+### CSS
+First of all, you need to modify your root css file, like for example you are using laravel it's `resources/css/app.css` and you need to add the following code:
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+### Variables
+Below that you need to add the following code:
+<PlainCode lang='css' code={`@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --fg: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-header: 240 5% 99%;
+
+    --popover: 0 0% 100%;
+    --popover-fg: 240 10% 3.9%;
+
+    --primary: 216 98% 52%;
+    --primary-fg: 0 0% 100%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-fg: 240 5.9% 10%;
+
+    --tertiary: 240 4.8% 95.9%;
+    --tertiary-fg: 240 4% 16%;
+
+    --success: 152 69% 31%;
+    --success-fg: 0 0% 100%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-fg: 240 3.8% 46.1%;
+
+    --accent: 240 4.8% 95.9%;
+    --accent-fg: 240 5.9% 10%;
+
+    --danger: 347 77% 50%;
+    --danger-fg: 356 100% 97%;
+
+    --warning: 46 97% 65%;
+    --warning-fg: 21 92% 14%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --toggle: 240 5% 84%;
+    --ring: 211 100% 58%;
+
+    --radius: 0.55rem;
+  }
+
+  .dark {
+    --background: 0 0% 0%;
+    --fg: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-header: 240 6% 6%;
+
+    --popover: 240 6% 6%;
+    --popover-fg: 0 0% 98%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-fg: 0 0% 98%;
+
+    --tertiary: 240 10% 6%;
+    --tertiary-fg: 240 5% 96%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-fg: 240 5% 64.9%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-fg: 0 0% 98%;
+
+    --border: 240 7% 15%;
+    --input: 240 3.7% 15.9%;
+    --toggle: 240 5% 26%;
+  }
+}
+`} />
+
+### Default Utilities
+Add this one for the default set of utilities:
+<PlainCode lang='css' code={`@layer base {
+  * {
+    @apply border-border;
+    font-feature-settings: 'cv11', 'ss01';
+    font-variation-settings: 'opsz' 850;
+  }
+
+  body {
+    @apply bg-background text-fg;
+  }
+}
+`} />
+
+### Scrollbars
+And then if you want, you can add this one for scrollbars:
+
+<PlainCode lang='css' code={` /* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #d4d4d8 transparent;
+}
+
+/* dark mode */
+.dark {
+  scrollbar-width: thin;
+  scrollbar-color: #3f3f46 transparent;
+
+  @media (prefers-color-scheme: dark) {
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: #3f3f46 transparent;
+    }
+  }
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+  @apply bg-muted;
+  border-radius: 14px;
+  border: 3px solid transparent;
+}
+`} />
+
+### React Aria Components
+And finally, you need to add this for react-aria-components:
+
+```css
+.react-aria-Button,
+.react-aria-Dialog { outline: none; }
+
+.react-aria-DropIndicator[data-drop-target] {
+  outline: 1px solid hsl(var(--primary));
+}
+```
+
+
+### Tailwind Configuration
+You need wrap your tailwind config with `withTV` from `tailwind-variants`, also you need to plug the plugins we've just installed.
+<PlainCode lang='js' code={`/** @type {import('tailwindcss').Config} */
+
+import { withTV } from 'tailwind-variants/transformer'
+import ta from 'tailwindcss-animate'
+import trac from 'tailwindcss-react-aria-components'
+
+export default withTV({
+  darkMode: 'class',
+  content: [...],
+
+  plugins: [ ta, trac ],
+  theme: {
+    // ...
+    extend: {
+      // ...
+      colors: {
+        border: 'hsl(var(--border))',
+        link: 'hsl(var(--link))',
+        input: 'hsl(var(--input))',
+        toggle: 'hsl(var(--toggle))',
+        ring: 'hsl(var(--ring))',
+        background: 'hsl(var(--background))',
+        fg: 'hsl(var(--fg))',
+        primary: {
+          DEFAULT: 'hsl(var(--primary))',
+          fg: 'hsl(var(--primary-fg))',
+          '50': '#eef8ff',
+          '100': '#d8eeff',
+          '200': '#b9e0ff',
+          '300': '#89cfff',
+          '400': '#52b4ff',
+          '500': '#2a91ff',
+          '600': '#0d6efd',
+          '700': '#0c5ae9',
+          '800': '#1149bc',
+          '900': '#144194',
+          '950': '#11295a'
+        },
+        secondary: {
+          DEFAULT: 'hsl(var(--secondary))',
+          fg: 'hsl(var(--secondary-fg))'
+        },
+        tertiary: {
+          DEFAULT: 'hsl(var(--tertiary))',
+          fg: 'hsl(var(--tertiary-fg))'
+        },
+        success: {
+          DEFAULT: 'hsl(var(--success))',
+          fg: 'hsl(var(--success-fg))'
+        },
+        info: {
+          DEFAULT: 'hsl(var(--info))',
+          fg: 'hsl(var(--info-fg))'
+        },
+        danger: {
+          DEFAULT: 'hsl(var(--danger))',
+          fg: 'hsl(var(--danger-fg))'
+        },
+        warning: {
+          DEFAULT: 'hsl(var(--warning))',
+          fg: 'hsl(var(--warning-fg))'
+        },
+        muted: {
+          DEFAULT: 'hsl(var(--muted))',
+          fg: 'hsl(var(--muted-fg))'
+        },
+        accent: {
+          DEFAULT: 'hsl(var(--accent))',
+          fg: 'hsl(var(--accent-fg))'
+        },
+        popover: {
+          DEFAULT: 'hsl(var(--popover))',
+          fg: 'hsl(var(--popover-fg))'
+        },
+      },
+      borderRadius: {
+        xl: 'calc(var(--radius) + 2px)',
+        lg: 'var(--radius)',
+        md: 'calc(var(--radius) - 2px)',
+        sm: 'calc(var(--radius) - 4px)'
+      },
+    }
+  },
+})
+`} />
+
+### Primitive
+All these components are souped up with the primitive, so you gotta import 'em for sure.
+<PlainCode lang='js' code={`'use client'
+
+import { ClassValue, clsx } from 'clsx'
+import * as React from 'react'
+import { composeRenderProps } from 'react-aria-components'
+import { twMerge } from 'tailwind-merge'
+import { tv } from 'tailwind-variants'
+
+const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs))
+
+function composeTailwindRenderProps<T>(
+  className: string | ((v: T) => string) | undefined,
+  tw: string
+): string | ((v: T) => string) {
+  return composeRenderProps(className, (className) => twMerge(tw, className))
+}
+
+const focusRing = tv({
+  base: 'outline-none focus:outline-none forced-colors:outline-[Highlight]',
+  variants: {
+    isFocused: { false: 'ring-0', true: 'ring-4 ring-primary/20' },
+    isInvalid: { true: 'ring-4 ring-danger/20' }
+  }
+})
+
+const focusStyles = tv({
+  extend: focusRing,
+  variants: {
+    isFocused: { true: 'border-primary' },
+    isInvalid: { true: 'border-danger' }
+  }
+})
+
+function pickBy<T extends object>(
+  object: T,
+  predicate: (value: T[keyof T], key: keyof T) => boolean = (value) => value !== undefined && value !== ''
+): Partial<T> {
+  return Object.keys(object).reduce((acc: Partial<T>, key: string) => {
+    const typedKey = key as keyof T
+    if (predicate(object[typedKey], typedKey)) {
+      acc[typedKey] = object[typedKey]
+    }
+    return acc
+  }, {})
+}
+
+function useMediaQuery(query: string) {
+  const [value, setValue] = React.useState(false)
+
+  React.useEffect(() => {
+    function onChange(event: MediaQueryListEvent) {
+      setValue(event.matches)
+    }
+
+    const result = matchMedia(query)
+    result.addEventListener('change', onChange)
+    setValue(result.matches)
+
+    return () => result.removeEventListener('change', onChange)
+  }, [query])
+
+  return value
+}
+
+const ctr = composeTailwindRenderProps
+const tm = twMerge
+const cr = composeRenderProps
+
+export { cn, composeTailwindRenderProps, cr, ctr, focusRing, focusStyles, pickBy, tm, twMerge, useMediaQuery }
+`} />
