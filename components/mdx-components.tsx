@@ -20,7 +20,9 @@ export function MDXContent({ code }: MdxProps) {
         Default: DefaultInstallation,
         ManualInstall: ManualInstallation,
         How: DocHow,
-        a: (props: LinkProps) => <Link {...props} className="not-prose font-medium hover:underline" />,
+        a: (props: LinkProps) => (
+          <Link target="_blank" intent="primary" {...props} className="not-prose xd2432 font-medium hover:underline" />
+        ),
         SourceCode: SourceCode,
         PlainCode: PlainCode,
         Snippet: (props: SnippetProps) => <Snippet {...props} className="bg-[#0e0e10] text-white" />
