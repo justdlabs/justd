@@ -47,12 +47,14 @@ export default function RootLayout({
               D. 2024 - This project is crafted with ♥ by <a href="https://twitter.com/irsyadadl">Irsyad</a>
             </footer>
           </div>
-          <OpenpanelProvider
-            clientId={process.env.NEXT_PUBLIC_OPENPANEL_CLIENT_ID as string}
-            trackScreenViews={true}
-            trackAttributes={true}
-            trackOutgoingLinks={true}
-          />
+          {process.env.NEXT_PUBLIC_ENV !== 'local' && (
+            <OpenpanelProvider
+              clientId={process.env.NEXT_PUBLIC_OPENPANEL_CLIENT_ID as string}
+              trackScreenViews={true}
+              trackAttributes={true}
+              trackOutgoingLinks={true}
+            />
+          )}
         </Providers>
       </body>
     </html>
