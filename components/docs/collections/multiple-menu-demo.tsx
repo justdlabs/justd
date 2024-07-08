@@ -11,7 +11,7 @@ export default function MultipleMenuDemo() {
       <Button appearance="outline">Open</Button>
       <MenuContent
         placement="bottom"
-        selectionMode="single"
+        selectionMode="multiple"
         selectedKeys={selected}
         onSelectionChange={setSelected}
         className="w-56"

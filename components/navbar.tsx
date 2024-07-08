@@ -61,7 +61,7 @@ export function Navbar() {
     <>
       <CommandPalette setOpen={setOpen} open={open} />
       <LayoutGroup id={`navigation-${id}`}>
-        <div className="sticky xnw2 top-0 z-30 hidden overflow-hidden pb-1 sm:block">
+        <div className="sticky xnw2 top-0 z-30 hidden overflow-hidden pb-0 sm:block">
           <nav className="border-b bg-background/60 py-2 backdrop-blur-xl">
             <div className="mx-auto max-w-screen-2xl px-4">
               <div className="flex items-center justify-between">
@@ -191,31 +191,6 @@ export function ResponsiveAside({ open, setOpen }: OpenCloseProps) {
         </Sheet>
       )}
     </nav>
-  )
-}
-
-export function AsideLink(props: LinkPrimitiveProps) {
-  const pathname = usePathname()
-  const current = pathname === props.href
-  return (
-    <LinkPrimitive
-      className={cn(
-        'relative flex items-center gap-x-3 py-2 text-muted-fg transition-colors hover:text-fg focus:outline-none sm:text-sm',
-        current && 'text-fg',
-        props.className
-      )}
-      {...props}
-    >
-      <>
-        {props.children}
-        {current && (
-          <motion.span
-            layoutId="sidebar-current-indicator"
-            className="absolute inset-y-2 -left-4 w-0.5 rounded-full bg-fg"
-          />
-        )}
-      </>
-    </LinkPrimitive>
   )
 }
 
