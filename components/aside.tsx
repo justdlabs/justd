@@ -11,17 +11,17 @@ import { usePathname } from 'next/navigation'
 import React from 'react'
 import { Badge, cn } from 'ui'
 
-interface Doc {
+export interface Doc {
   slug: string
   title: string
   status?: 'wip' | 'new' | 'beta' | 'help'
 }
 
-interface HierarchyNode {
+export interface HierarchyNode {
   [key: string]: HierarchyNode | Doc
 }
 
-const createHierarchy = (docs: Array<Docs>): HierarchyNode => {
+export const createHierarchy = (docs: Array<Docs>): HierarchyNode => {
   const hierarchy: HierarchyNode = {}
 
   sortDocs(docs).forEach((doc) => {

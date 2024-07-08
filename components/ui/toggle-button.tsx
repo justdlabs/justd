@@ -1,9 +1,9 @@
 'use client'
 
 import {
-  type ToggleButtonProps,
   composeRenderProps,
-  ToggleButton as ToggleButtonPrimitive
+  ToggleButton as ToggleButtonPrimitive,
+  type ToggleButtonProps
 } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 import { focusRing } from './primitive'
