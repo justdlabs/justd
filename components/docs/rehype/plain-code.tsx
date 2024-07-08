@@ -9,9 +9,10 @@ import { Button } from 'ui'
 interface PlainCodeProps extends React.HTMLAttributes<HTMLDivElement> {
   code: string
   lang?: string
+  withImportCopy?: boolean
 }
 
-export function PlainCode({ lang = 'tsx', code, ...props }: PlainCodeProps) {
+export function PlainCode({ withImportCopy = false, lang = 'tsx', code, ...props }: PlainCodeProps) {
   const [isOpened, setIsOpened] = React.useState(false)
   return (
     <section className="my-6 not-prose">
@@ -25,7 +26,7 @@ export function PlainCode({ lang = 'tsx', code, ...props }: PlainCodeProps) {
                   !isOpened ? '[&_pre]:overflow-hidden' : '[&_pre]:overflow-auto]'
                 )}
               >
-                <Code lang={lang} code={code} />
+                <Code withImportCopy={withImportCopy} lang={lang} code={code} />
               </div>
             </CollapsibleContent>
             <div

@@ -7,7 +7,15 @@ import { nightOwl as theme } from 'react-syntax-highlighter/dist/esm/styles/pris
 import { cn, CopyButton } from 'ui'
 import { copyToClipboard } from 'usemods'
 
-function Code({ lang = 'tsx', code }: { lang?: string; code: string }) {
+function Code({
+  lang = 'tsx',
+  code,
+  withImportCopy = true
+}: {
+  lang?: string
+  code: string
+  withImportCopy?: boolean
+}) {
   const [copied, setCopied] = React.useState<string>('')
 
   function copyImportsToClipboard(): void {
@@ -25,12 +33,14 @@ function Code({ lang = 'tsx', code }: { lang?: string; code: string }) {
   return (
     <div className="dfakdpxe2941 not-prose group relative max-h-96 overflow-y-auto rounded-lg [&_pre]:!bg-[#0e0e10] [&_pre_code]:!leading-loose [&_pre]:!m-0 [&_pre]:!p-4 border-zinc-800 border font-mono text-sm">
       <div className={cn('absolute z-20 bottom-auto right-3 top-3 flex gap-1.5')}>
-        <CopyButton
-          ariaLabel="Copy imports statement"
-          initialIcon={<IconCircleInfo />}
-          isCopied={copied === 'imports'}
-          onPress={copyImportsToClipboard}
-        />
+        {withImportCopy && (
+          <CopyButton
+            ariaLabel="Copy imports statement"
+            initialIcon={<IconCircleInfo />}
+            isCopied={copied === 'imports'}
+            onPress={copyImportsToClipboard}
+          />
+        )}
         <CopyRawButton code={code} />
       </div>
       <SyntaxHighlighter language={lang} style={theme}>
