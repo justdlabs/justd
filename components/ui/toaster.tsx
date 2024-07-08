@@ -25,7 +25,7 @@ const Toaster = ({ ...props }: ToasterProps) => {
           success:
             'ring-emerald-500/30 dark:ring-emerald-500/20 bg-success/10 dark:text-emerald-50 text-emerald-950 dark:ring-inset',
           warning:
-            'ring-amber-500/25 dark:ring-amber-500/20 bg-warning/10 dark:text-amber-50 text-amber-950 dark:ring-inset',
+            '!ring-amber-500/25 dark:!ring-amber-500/20 bg-warning/10 dark:text-amber-50 text-amber-950 dark:ring-inset',
           info: 'ring-lime-500/30 dark:ring-lime-500/20 bg-lime-500/10 dark:text-lime-50 text-lime-950 dark:ring-inset',
           actionButton: 'py-1 rounded-md text-xs px-2 bg-primary text-primary-fg dark:ring-inset',
           cancelButton: 'py-1 rounded-md text-xs px-2 bg-secondary text-secondary-fg dark:ring-inset'
