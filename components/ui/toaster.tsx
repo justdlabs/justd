@@ -33,7 +33,7 @@ const Toaster = ({ ...props }: ToasterProps) => {
       icons={{
         success: <IconCircleCheckFill className="text-success" />,
         info: <IconCircleInfoFill className="text-lime-500" />,
-        warning: <IconTriangleInfoFill className="text-warning" />,
+        warning: <IconTriangleInfoFill className="text-amber-500" />,
         error: <IconCircleInfoFill className="text-danger" />,
         loading: <IconLoader className="animate-spin" />
       }}
