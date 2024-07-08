@@ -21,7 +21,6 @@ const Toaster = ({ ...props }: ToasterProps) => {
           '[&_svg]:size-5 [&_svg]:mt-1.5'
         ),
         classNames: {
-          toast: 'group',
           error: 'ring-red-500/20 dark:ring-red-500/20 bg-danger/10 dark:text-red-50 text-red-950',
           success: 'ring-emerald-500/30 dark:ring-emerald-500/20 bg-success/10 dark:text-emerald-50 text-emerald-950',
           warning: 'ring-amber-500/25 dark:ring-amber-500/20 bg-warning/10 dark:text-amber-50 text-amber-950',
