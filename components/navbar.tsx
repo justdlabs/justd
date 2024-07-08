@@ -1,5 +1,6 @@
 'use client'
 
+import { Aside } from '@/components/aside'
 import { CommandPalette, type OpenCloseProps } from '@/components/command-palette'
 import { Logo } from '@/components/logo'
 import { ThemeSwitcher } from '@/components/theme-switcher'
@@ -15,7 +16,6 @@ import {
   IconHamburger,
   IconHome,
   IconMoon,
-  IconNotes,
   IconSearch,
   IconSun
 } from '@irsyadadl/paranoid'
@@ -179,24 +179,12 @@ export function ResponsiveAside({ open, setOpen }: OpenCloseProps) {
       {!isDesktop && (
         <Sheet isOpen={openAside} onOpenChange={setOpenAside}>
           <SheetOverlay>
-            <SheetContent side="left" closeButton={true}>
+            <SheetContent className="w-[19rem]" side="left" closeButton={true}>
               <SheetHeader className="mb-4 flex flex-row justify-between py-2">
                 <NavbarDropdown />
               </SheetHeader>
               <LayoutGroup id={id}>
-                <AsideLink href="/">
-                  <IconHome />
-                  Home
-                </AsideLink>
-                <AsideLink href="/docs/getting-started/introduction">
-                  <IconNotes /> Docs
-                </AsideLink>
-                <AsideLink href="https://paranoid.irsyad.co" target="_blank">
-                  <IconBrandParanoid /> Paranoid
-                </AsideLink>
-                <AsideLink href="https://github.com/irsyadadl/d.irsyad.co" target="_blank">
-                  <IconBrandGithub /> Github
-                </AsideLink>
+                <Aside />
               </LayoutGroup>
             </SheetContent>
           </SheetOverlay>
@@ -244,8 +232,12 @@ export function NavbarDropdown() {
         </span>
       </Button>
       <MenuContent placement="bottom" className="w-64">
+        <MenuItem href="https://x.com/intent/follow?screen_name=irsyadadl" target="_blank">
+          <IconHome />
+          Home
+        </MenuItem>
+        <MenuSeparator />
         <MenuSection>
-          <MenuHeader separator>Say Hi</MenuHeader>
           <MenuItem href="https://x.com/intent/follow?screen_name=irsyadadl" target="_blank">
             <IconBrandTwitter />
             Twitter

@@ -37,7 +37,7 @@ const generateCompoundVariants = (sides: Array<'top' | 'bottom' | 'left' | 'righ
   }))
 }
 
-const sheetVariants = tv({
+const sheetStyles = tv({
   base: 'fixed z-50 grid gap-4 bg-popover text-popover-fg shadow-lg transition ease-in-out entering:duration-300 entering:animate-in exiting:duration-200 exiting:animate-out',
   variants: {
     side: {
@@ -70,17 +70,17 @@ const SheetOverlay = ({ className, isDismissable = true, ...props }: ModalOverla
 
 export interface SheetContentProps
   extends Omit<React.ComponentProps<typeof Modal>, 'children'>,
-    VariantProps<typeof sheetVariants> {
+    VariantProps<typeof sheetStyles> {
   children?: DialogProps['children']
   role?: DialogProps['role']
   closeButton?: boolean
+  className?: string
   isStack?: boolean
 }
 
-const SheetContent = (props: SheetContentProps) => {
-  const { className, children, side = 'right', role, closeButton = true, isStack = true } = props
+const SheetContent = ({ className, children, side = 'right', role, closeButton = true, isStack = true, ...props }: SheetContentProps) => {
   return (
-    <Modal className={cn(sheetVariants({ side, isStack }), className)} {...props}>
+    <Modal className={sheetStyles({ side, isStack, className })} {...props}>
       <Dialog aria-label="Sheet" role={role} className="h-full outline-none">
         {(values) => (
           <>
