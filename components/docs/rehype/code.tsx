@@ -25,8 +25,13 @@ function Code({ lang = 'tsx', code }: { lang?: string; code: string }) {
   return (
     <div className="dfakdpxe2941 not-prose group relative max-h-96 overflow-y-auto rounded-lg [&_pre]:!bg-[#0e0e10] [&_pre_code]:!leading-loose [&_pre]:!m-0 [&_pre]:!p-4 border-zinc-800 border font-mono text-sm">
       <div className={cn('absolute z-20 bottom-auto right-3 top-3 flex gap-1.5')}>
+        <CopyButton
+          ariaLabel="Copy imports statement"
+          initialIcon={<IconCircleInfo />}
+          isCopied={copied === 'imports'}
+          onPress={copyImportsToClipboard}
+        />
         <CopyRawButton code={code} />
-        <CopyButton initialIcon={<IconCircleInfo />} isCopied={copied === 'imports'} onPress={copyImportsToClipboard} />
       </div>
       <SyntaxHighlighter language={lang} style={theme}>
         {code}
@@ -47,7 +52,7 @@ export function CopyRawButton({ code }: { className?: string; code: any }) {
         console.error('Copy failed: ', err)
       })
   }
-  return <CopyButton isCopied={copied === 'raw'} onPress={copyRaw} />
+  return <CopyButton ariaLabel="Copy raw code" isCopied={copied === 'raw'} onPress={copyRaw} />
 }
 
 export { Code }

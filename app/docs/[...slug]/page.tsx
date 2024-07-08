@@ -34,27 +34,7 @@ export async function generateMetadata({ params }: DocPageProps): Promise<Metada
 
   return {
     title: `Docs: ${doc.title} / ${siteConfig.name}`,
-    description: doc.description,
-    openGraph: {
-      title: doc.title,
-      description: doc.description,
-      type: 'article',
-      url: doc.slug,
-      images: [
-        {
-          url: `/api/og?${ogSearchParams.toString()}`,
-          width: 1200,
-          height: 630,
-          alt: doc.title
-        }
-      ]
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: doc.title,
-      description: doc.description,
-      images: [`/api/og?${ogSearchParams.toString()}`]
-    }
+    description: doc.description
   }
 }
 

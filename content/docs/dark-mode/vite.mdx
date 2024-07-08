@@ -95,7 +95,8 @@ export { ThemeProvider, useTheme, type Theme, type ThemeProviderProps, type Them
 
 Then add it in your provider
 
-<PlainCode code={`import { ThemeProvider } from '@/components/theme-provider'
+```tsx {1} {6-8}
+import { ThemeProvider } from '@/components/theme-provider'
 import React from 'react'
 
 export function Providers({ children }: { children: React.ReactNode }) {
@@ -105,10 +106,11 @@ export function Providers({ children }: { children: React.ReactNode }) {
     </ThemeProvider>
   )
 }
-`}/>
+```
 
 ## Usage
 Then you can wrap your app with the provider. For example if you are using Laravel with Inertia.js, you can put it inside your `app.tsx` like so:
+
 ```tsx {1} {6-8}
 import { Providers } from './providers'
 

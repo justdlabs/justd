@@ -13,7 +13,7 @@ export default function SelectDemo() {
   return (
     <Select label="Design software" placeholder="Select a software" items={software}>
       {(item) => (
-        <SelectItem key={item.id} id={item.id} textValue={item.name}>
+        <SelectItem id={item.id} textValue={item.name}>
           {item.name}
         </SelectItem>
       )}

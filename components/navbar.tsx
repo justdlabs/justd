@@ -28,7 +28,6 @@ import {
   Button,
   cn,
   LinkPrimitive,
-  type LinkPrimitiveProps,
   type LinkProps,
   Menu,
   MenuContent,

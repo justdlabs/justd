@@ -78,7 +78,15 @@ export interface SheetContentProps
   isStack?: boolean
 }
 
-const SheetContent = ({ className, children, side = 'right', role, closeButton = true, isStack = true, ...props }: SheetContentProps) => {
+const SheetContent = ({
+  className,
+  children,
+  side = 'right',
+  role,
+  closeButton = true,
+  isStack = true,
+  ...props
+}: SheetContentProps) => {
   return (
     <Modal className={sheetStyles({ side, isStack, className })} {...props}>
       <Dialog aria-label="Sheet" role={role} className="h-full outline-none">

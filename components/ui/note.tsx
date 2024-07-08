@@ -1,6 +1,6 @@
 'use client'
 
-import { IconCircleInfoFill, IconTriangleInfoFill } from '@irsyadadl/paranoid'
+import { IconCircleCheckFill, IconCircleInfoFill, IconTriangleInfoFill } from '@irsyadadl/paranoid'
 import * as React from 'react'
 import { Heading, type HeadingProps, Text, type TextProps } from 'react-aria-components'
 import { tv, type VariantProps } from 'tailwind-variants'
@@ -49,7 +49,13 @@ interface NoteProps extends React.HtmlHTMLAttributes<HTMLDivElement>, VariantPro
 const Note = ({ intent = 'primary', className, ...props }: NoteProps) => {
   return (
     <div className={noteStyles({ intent, className })} {...props}>
-      {['info', 'primary', 'secondary'].includes(intent) ? <IconCircleInfoFill /> : <IconTriangleInfoFill />}
+      {['info', 'primary', 'secondary'].includes(intent) ? (
+        <IconCircleInfoFill />
+      ) : intent === 'success' ? (
+        <IconCircleCheckFill />
+      ) : (
+        <IconTriangleInfoFill />
+      )}
       {props.children}
     </div>
   )
