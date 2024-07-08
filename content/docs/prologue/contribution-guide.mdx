@@ -12,23 +12,24 @@ Yo, thanks for wanting to chip in at d.irsyad.co. Stoked to have ya on board!
 Quick favor: give this doc a once-over before dropping your first pull request. Also, peep the open issues and pull requests to make sure no one's already on the same grind.
 
 ## Folder Structure
-Because this is an open source project, so you can contribute to it, by following the folder structure. Here's a brief overview of the folders and files you'll be working with.
+This project's open source, so you can jump in and contribute. Follow the folder structure. Here's a quick rundown of the folders and files you'll mess with.
 
 ### CLI
-The CLI is located inside the `d.cli` folder. Or you can find the source code [here](https://github.com/irsyadadl/d.cli). All components that can be added by `npx @irsyadadl/d@latest add --component` are placed inside `src/resources/components.ts` file. You can find the structure of the file [here](https://github.com/irsyadadl/d.cli/blob/main/src/resources/components.ts). This cli using `@changesets/cli` to make releases. So, if you are done, and before run release command, you need to make sure that everything has been test by running `npm run preview`, after that, you can run test the command directly in the folder. But before you commit, make sure you run `npm run clean` to clean the build files. Then, run build like so.
+The CLI lives in the `d.cli` folder. You can scope the source code [here](https://github.com/irsyadadl/d.cli). All components you can add with `npx @irsyadadl/d@latest add --component` are chillin' in the `src/resources/components.ts` file. Peep the file structure [here](https://github.com/irsyadadl/d.cli/blob/main/src/resources/components.ts). This CLI uses `@changesets/cli` for releases. When you're done and before running the release command, test everything with `npm run preview`. After that, test the command directly in the folder. Before you commit, run `npm run clean` to tidy up build files. Then, build it like this.
+
 ```
 npm run build
 git commit -a
 npm run release
 ```
+
 ### Content
-For the docs, it place right on the `content` folder. and you can find the structure of the folder [here](https://github.com/irsyadadl/d./tree/main/content/docs),
+For the docs, they hang out in the `content` folder. Scope the structure [here](https://github.com/irsyadadl/d./tree/main/content/docs).
 
 ### Docs Components
-All components that shown in the docs are placed inside `components/docs` folder. You can find the structure of the folder [here](https://github.com/irsyadadl/d./tree/main/components/docs). When ever you change this component, you need to run `npm run b` to make sure that the changes are reflected in the docs.
+All the components in the docs are chillin' in the `components/docs` folder. Peep the structure [here](https://github.com/irsyadadl/d./tree/main/components/docs). Anytime you mess with these components, run `npm run b` to see the changes in the docs.
 
 ### Main UI Components
-All ui components that shown in the docs are placed inside `components/ui` folder. You can find the structure of the folder [here](https://github.com/irsyadadl/d./tree/main/components/ui). When ever you change this component, you need to run `npm run b` to make sure that the changes are reflected in the docs.
-
+All the UI components in the docs are kickin' it in the `components/ui` folder. Check the structure [here](https://github.com/irsyadadl/d./tree/main/components/ui). Anytime you mess with these components, run `npm run b` to see the changes in the docs.
 
 Need a hand? Hit up [@irsyadadl](https://twitter.com/irsyadadl).
