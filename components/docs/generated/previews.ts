@@ -251,6 +251,15 @@ export const previews: Record<string, any> = {
   "pickers/combo-box-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/pickers/combo-box-disabled-demo")),
   },
+  "surfaces/card-login-form-demo": {
+    component: React.lazy(() => import("@/components/docs/surfaces/card-login-form-demo")),
+  },
+  "surfaces/card-table-demo": {
+    component: React.lazy(() => import("@/components/docs/surfaces/card-table-demo")),
+  },
+  "surfaces/card-demo": {
+    component: React.lazy(() => import("@/components/docs/surfaces/card-demo")),
+  },
   "statuses/table-of-badges": {
     component: React.lazy(() => import("@/components/docs/statuses/table-of-badges")),
   },

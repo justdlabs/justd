@@ -2,7 +2,7 @@
 
 import { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from 'ui'
 
-const bands = [
+export const bands = [
   { id: '1', name: 'Nirvana', genre: 'Grunge', latestAlbum: 'In Utero' },
   { id: '2', name: 'Radiohead', genre: 'Alternative Rock', latestAlbum: 'A Moon Shaped Pool' },
   { id: '3', name: 'Foo Fighters', genre: 'Rock', latestAlbum: 'Medicine at Midnight' },
