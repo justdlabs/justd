@@ -3,7 +3,7 @@ import { Providers } from '@/components/providers'
 import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
 import '@/styles/app.css'
-import { Analytics } from '@vercel/analytics/next'
+import { OpenpanelProvider } from '@openpanel/nextjs'
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import React from 'react'
@@ -47,7 +47,12 @@ export default function RootLayout({
               D. 2024 - This project is crafted with ♥ by <a href="https://twitter.com/irsyadadl">Irsyad</a>
             </footer>
           </div>
-          <Analytics />
+          <OpenpanelProvider
+            clientId={process.env.NEXT_PUBLIC_OPENPANEL_CLIENT_ID as string}
+            trackScreenViews={true}
+            trackAttributes={true}
+            trackOutgoingLinks={true}
+          />
         </Providers>
       </body>
     </html>
