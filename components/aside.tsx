@@ -49,94 +49,118 @@ const renderHierarchy = (node: HierarchyNode, level: number = 0) => {
     const order = ['prologue', 'getting-started', 'dark-mode', 'components']
     return order.indexOf(a) - order.indexOf(b)
   })
+
+  const computeDefaultValuesFromURL = (): string[] => {
+    const pathParts = window.location.pathname.split('/').filter(Boolean)
+    const relevantKey = pathParts[2]
+    if (relevantKey) {
+      return [relevantKey]
+    }
+    return []
+  }
+
+  const defaultValues = computeDefaultValuesFromURL()
   return (
-    <>
-      <Accordion type="multiple" defaultValue={['getting-started', 'components']} className="w-full">
-        {filteredNodeEntries.map(([key, value]) => (
-          <AccordionItem key={key} value={key}>
-            <Trigger className="[&_.jr131]:size-4 [&_.jr131]:text-sky-500 [&_.jr131]:fill-sky-500/10 dark:[&_.jr131]:fill-sky-500/30">
-              {key === 'getting-started' ? (
-                <IconLayers className="jr131" />
-              ) : key === 'prologue' ? (
-                <IconHighlight className="jr131" />
-              ) : key === 'dark-mode' ? (
-                <IconCircleHalf className="jr131" />
-              ) : (
-                <IconCube className="jr131" />
-              )}
-              {goodTitle(key)}
-            </Trigger>
-            <AccordionContent className="overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
-              {typeof value === 'object' && 'title' in value ? (
-                <AsideLink href={`/${(value as Doc).slug}`}>{goodTitle((value as Doc).title)}</AsideLink>
-              ) : (
-                <Accordion type="multiple" className="w-full relative">
-                  <div className="h-full absolute left-0 bg-zinc-200 dark:bg-zinc-800 w-px ml-4" />
-                  {Object.entries(value as HierarchyNode).map(([subKey, subValue]) =>
-                    typeof subValue === 'object' && 'title' in subValue ? (
-                      <AsideLink className="pl-[2rem]" key={subKey} href={`/${subValue.slug}`}>
-                        {goodTitle((subValue as Doc).title)}
-                      </AsideLink>
-                    ) : (
-                      <AccordionItem key={subKey} value={subKey}>
-                        <Trigger className="pl-[2rem] text-muted-fg group-data-[state=open]:text-fg">
-                          {goodTitle(subKey)}
-                        </Trigger>
-                        <AccordionContent className="relative overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
-                          {Object.entries(subValue as HierarchyNode).map(([childKey, childValue]) =>
-                            typeof childValue === 'object' && 'title' in childValue ? (
-                              <AsideLink
-                                className="ml-[-0rem] flex justify-between items-center pl-[3rem]"
-                                key={childKey}
-                                href={`/${childValue.slug}`}
-                                indicatorClassName=""
-                              >
-                                {goodTitle((childValue as Doc).title)}{' '}
-                                {childValue.status && (
-                                  <Badge
-                                    intent={
-                                      childValue?.status === 'wip'
-                                        ? 'primary'
-                                        : childValue.status === 'beta'
+    <Accordion type="multiple" defaultValue={['getting-started', 'components']} className="w-full">
+      {/*<Accordion type="multiple" defaultValue={['getting-started', 'components']} className="w-full">*/}
+      {filteredNodeEntries.map(([key, value]) => (
+        <AccordionItem key={key} value={key}>
+          <Trigger className="[&_.jr131]:size-4 [&_.jr131]:text-sky-500 [&_.jr131]:fill-sky-500/10 dark:[&_.jr131]:fill-sky-500/30">
+            {key === 'getting-started' ? (
+              <IconLayers className="jr131" />
+            ) : key === 'prologue' ? (
+              <IconHighlight className="jr131" />
+            ) : key === 'dark-mode' ? (
+              <IconCircleHalf className="jr131" />
+            ) : (
+              <IconCube className="jr131" />
+            )}
+            {goodTitle(key)}
+          </Trigger>
+          <AccordionContent className="overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
+            {typeof value === 'object' && 'title' in value ? (
+              <AsideLink href={`/${(value as Doc).slug}`}>{goodTitle((value as Doc).title)}</AsideLink>
+            ) : (
+              <Accordion defaultValue={defaultValues} type="multiple" className="w-full relative">
+                <div className="h-full absolute left-0 bg-zinc-200 dark:bg-zinc-800 w-px ml-4" />
+                {Object.entries(value as HierarchyNode).map(([subKey, subValue]) =>
+                  typeof subValue === 'object' && 'title' in subValue ? (
+                    <AsideLink className="pl-[2rem]" key={subKey} href={`/${subValue.slug}`}>
+                      {goodTitle((subValue as Doc).title)}
+                    </AsideLink>
+                  ) : (
+                    <AccordionItem key={subKey} value={subKey}>
+                      <Trigger className="pl-[2rem] text-muted-fg group-data-[state=open]:text-fg">
+                        {goodTitle(subKey)}
+                      </Trigger>
+                      <AccordionContent className="relative overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
+                        {Object.entries(subValue as HierarchyNode).map(([childKey, childValue]) =>
+                          typeof childValue === 'object' && 'title' in childValue ? (
+                            <AsideLink
+                              className={cn(
+                                'ml-[-0rem] flex justify-between items-center pl-[3rem]',
+                                defaultValues.length > 0 && 'jf320s'
+                              )}
+                              key={childKey}
+                              href={`/${childValue.slug}`}
+                              indicatorClassName=""
+                            >
+                              {goodTitle((childValue as Doc).title)}
+                              {childValue.status && (
+                                <Badge
+                                  intent={
+                                    childValue?.status === 'wip'
+                                      ? 'primary'
+                                      : childValue.status === 'beta'
+                                        ? 'warning'
+                                        : childValue.status === 'help'
                                           ? 'warning'
-                                          : childValue.status === 'help'
-                                            ? 'warning'
-                                            : 'info'
-                                    }
-                                    className="lowercase text-xs"
-                                  >
-                                    {childValue?.status as Doc['status']}
-                                  </Badge>
-                                )}
-                              </AsideLink>
-                            ) : (
-                              <AccordionItem key={childKey} value={childKey}>
-                                <Trigger className="text-muted-fg group-data-[state=open]:text-fg">
-                                  {goodTitle(childKey)}
-                                </Trigger>
-                                <AccordionContent className="overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
-                                  {renderHierarchy(childValue as HierarchyNode, level + 1)}
-                                </AccordionContent>
-                              </AccordionItem>
-                            )
-                          )}
-                        </AccordionContent>
-                      </AccordionItem>
-                    )
-                  )}
-                </Accordion>
-              )}
-            </AccordionContent>
-          </AccordionItem>
-        ))}
-      </Accordion>
-    </>
+                                          : 'info'
+                                  }
+                                  className="lowercase text-xs"
+                                >
+                                  {childValue?.status as Doc['status']}
+                                </Badge>
+                              )}
+                            </AsideLink>
+                          ) : (
+                            <AccordionItem key={childKey} value={childKey}>
+                              <Trigger className="text-muted-fg group-data-[state=open]:text-fg">
+                                {goodTitle(childKey)}
+                              </Trigger>
+                              <AccordionContent className="overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
+                                {renderHierarchy(childValue as HierarchyNode, level + 1)}
+                              </AccordionContent>
+                            </AccordionItem>
+                          )
+                        )}
+                      </AccordionContent>
+                    </AccordionItem>
+                  )
+                )}
+              </Accordion>
+            )}
+          </AccordionContent>
+        </AccordionItem>
+      ))}
+    </Accordion>
   )
 }
 
 const Aside = () => {
   const id = React.useId()
   const hierarchicalDocs = createHierarchy(docs)
+
+  React.useEffect(() => {
+    const activeElement = document.querySelector('.jf320s')
+
+    if (activeElement) {
+      activeElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+      })
+    }
+  }, [])
   return (
     <LayoutGroup id={id}>
       <aside>{renderHierarchy(hierarchicalDocs)}</aside>
