@@ -10,7 +10,8 @@ status: new
 
 When you’re rockin' Inertia.js, gotta whip up a provider called `theme-provider.tsx` and drop it in the `resources/js/components` folder.
 
-<PlainCode lang="tsx" code={`import { createContext, useContext, useEffect, useState } from 'react'
+```tsx
+import { createContext, useContext, useEffect, useState } from 'react'
 
 type Theme = 'dark' | 'light' | 'system'
 
@@ -32,7 +33,7 @@ const initialState: ThemeProviderState = {
 
 const ThemeProviderContext = createContext<ThemeProviderState>(initialState)
 
-function ThemeProvider({ children, defaultTheme = 'system', storageKey = 'inertia-ui-theme', ...props }: ThemeProviderProps) {
+function ThemeProvider({ children, defaultTheme = 'system', storageKey = 'iut', ...props }: ThemeProviderProps) {
   const [theme, setTheme] = useState<Theme>(() => (localStorage.getItem(storageKey) as Theme) || defaultTheme)
 
   useEffect(() => {
@@ -91,12 +92,13 @@ const useTheme = () => {
 }
 
 export { ThemeProvider, useTheme, type Theme, type ThemeProviderProps, type ThemeProviderState }
-`}/>
+```
 
 ## Root App
 Not sure if you're rollin' with Inertia.js on Ruby or Laravel, but if it's Laravel, you can stash it in your `resources/js/app.tsx` like this:
 
-<PlainCode code={`import './bootstrap';
+```tsx {10} {20-22}
+import './bootstrap';
 import '../css/app.css';
 
 import { createRoot, hydrateRoot } from 'react-dom/client';
@@ -110,8 +112,8 @@ import { ThemeProvider } from "@/Components/theme-provider";
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
 createInertiaApp({
-  title: (title) => title + ' | ' + appName,
-  resolve: (name) => resolvePageComponent('./Pages/'+ name +'.tsx', import.meta.glob('./Pages/**/*.tsx')),
+  title: (title) => `${title} - ${appName}`,
+  resolve: (name) => resolvePageComponent(`./Pages/${name}.tsx`, import.meta.glob('./Pages/**/*.tsx')),
   setup({ el, App, props }) {
     window.route = useRoute(Ziggy as any)
     const appElement = (
@@ -120,18 +122,18 @@ createInertiaApp({
       </ThemeProvider>
     )
 
-        if (import.meta.env.DEV) {
-          createRoot(el).render(appElement);
-          return
-        }
+    if (import.meta.env.DEV) {
+      createRoot(el).render(appElement);
+      return
+    }
 
-        hydrateRoot(el, appElement);
-      },
-      progress: {
-        color: '#4B5563',
-      },
-    });
-`}/>
+    hydrateRoot(el, appElement);
+  },
+  progress: {
+    color: '#4B5563',
+  },
+});
+```
 
 ## Theme Switcher
 <ManualInstall items={['@irsyadadl/paranoid']}/>
