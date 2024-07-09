@@ -44,25 +44,13 @@ export const createHierarchy = (docs: Array<Docs>): HierarchyNode => {
   return hierarchy
 }
 
-const renderHierarchy = (node: HierarchyNode, level: number = 0) => {
+const renderHierarchy = (node: HierarchyNode, defaultValues: string[], level: number = 0) => {
   const filteredNodeEntries = Object.entries(node).sort(([a], [b]) => {
     const order = ['prologue', 'getting-started', 'dark-mode', 'components']
     return order.indexOf(a) - order.indexOf(b)
   })
-
-  const computeDefaultValuesFromURL = (): string[] => {
-    const pathParts = window.location.pathname.split('/').filter(Boolean)
-    const relevantKey = pathParts[2]
-    if (relevantKey) {
-      return [relevantKey]
-    }
-    return []
-  }
-
-  const defaultValues = computeDefaultValuesFromURL()
   return (
     <Accordion type="multiple" defaultValue={['getting-started', 'components']} className="w-full">
-      {/*<Accordion type="multiple" defaultValue={['getting-started', 'components']} className="w-full">*/}
       {filteredNodeEntries.map(([key, value]) => (
         <AccordionItem key={key} value={key}>
           <Trigger className="[&_.jr131]:size-4 [&_.jr131]:text-sky-500 [&_.jr131]:fill-sky-500/10 dark:[&_.jr131]:fill-sky-500/30">
@@ -129,7 +117,7 @@ const renderHierarchy = (node: HierarchyNode, level: number = 0) => {
                                 {goodTitle(childKey)}
                               </Trigger>
                               <AccordionContent className="overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
-                                {renderHierarchy(childValue as HierarchyNode, level + 1)}
+                                {renderHierarchy(childValue as HierarchyNode, defaultValues, level + 1)}
                               </AccordionContent>
                             </AccordionItem>
                           )
@@ -148,8 +136,20 @@ const renderHierarchy = (node: HierarchyNode, level: number = 0) => {
 }
 
 const Aside = () => {
+  const pathname = usePathname()
   const id = React.useId()
   const hierarchicalDocs = createHierarchy(docs)
+
+  const computeDefaultValuesFromURL = (): string[] => {
+    const pathParts = pathname.split('/').filter(Boolean)
+    const relevantKey = pathParts[2]
+    if (relevantKey) {
+      return [relevantKey]
+    }
+    return []
+  }
+
+  const defaultValues = computeDefaultValuesFromURL()
 
   React.useEffect(() => {
     const activeElement = document.querySelector('.jf320s')
@@ -163,7 +163,7 @@ const Aside = () => {
   }, [])
   return (
     <LayoutGroup id={id}>
-      <aside>{renderHierarchy(hierarchicalDocs)}</aside>
+      <aside>{renderHierarchy(hierarchicalDocs, defaultValues)}</aside>
     </LayoutGroup>
   )
 }
