@@ -1,6 +1,6 @@
 'use client'
 
-import { docs } from '@/.velite'
+import { docs } from '#site/content'
 import type { Doc, HierarchyNode } from '@/components/aside'
 import { createHierarchy } from '@/components/aside'
 import { goodTitle } from '@/lib/utils'
@@ -65,11 +65,27 @@ export function CommandPalette({ open, setOpen }: OpenCloseProps) {
                 typeof subValue === 'object' && 'title' in subValue ? (
                   <CommandItem
                     value={goodTitle(key + ' ' + (subValue as Doc).title)}
-                    className="pl-[2rem]"
+                    className="pl-[2rem] flex justify-between items-center"
                     key={`${key}-${subKey}`}
                     onSelect={() => router.push(`/${subValue.slug}`)}
                   >
                     {goodTitle((subValue as Doc).title)}
+                    {subValue.status && (
+                      <Badge
+                        intent={
+                          subValue?.status === 'wip'
+                            ? 'primary'
+                            : subValue.status === 'beta'
+                              ? 'warning'
+                              : subValue.status === 'help'
+                                ? 'warning'
+                                : 'info'
+                        }
+                        className="uppercase h-5 text-[0.5rem]"
+                      >
+                        {subValue?.status as Doc['status']}
+                      </Badge>
+                    )}
                   </CommandItem>
                 ) : null
               )}
@@ -97,7 +113,7 @@ export function CommandPalette({ open, setOpen }: OpenCloseProps) {
                                     ? 'warning'
                                     : 'info'
                             }
-                            className="lowercase -mr-1 text-xs"
+                            className="uppercase h-5 text-[0.5rem]"
                           >
                             {childValue?.status as Doc['status']}
                           </Badge>
