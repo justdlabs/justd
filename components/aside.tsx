@@ -1,6 +1,6 @@
 'use client'
 
-import { docs, type Docs } from '@/.velite'
+import { docs, type Docs } from '#site/content'
 import { goodTitle, sortDocs } from '@/lib/utils'
 import { IconChevronDown, IconCircleHalf, IconCube, IconHighlight, IconLayers } from '@irsyadadl/paranoid'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@radix-ui/react-accordion'
@@ -73,8 +73,28 @@ const renderHierarchy = (node: HierarchyNode, defaultValues: string[], level: nu
                 <div className="h-full absolute left-0 bg-zinc-200 dark:bg-zinc-800 w-px ml-4" />
                 {Object.entries(value as HierarchyNode).map(([subKey, subValue]) =>
                   typeof subValue === 'object' && 'title' in subValue ? (
-                    <AsideLink className="pl-[2rem]" key={subKey} href={`/${subValue.slug}`}>
-                      {goodTitle((subValue as Doc).title)}
+                    <AsideLink
+                      className="pl-[2rem] flex justify-between items-center"
+                      key={subKey}
+                      href={`/${subValue.slug}`}
+                    >
+                      {(subValue as Doc).title}
+                      {subValue.status && (
+                        <Badge
+                          intent={
+                            subValue?.status === 'wip'
+                              ? 'primary'
+                              : subValue.status === 'beta'
+                                ? 'warning'
+                                : subValue.status === 'help'
+                                  ? 'warning'
+                                  : 'info'
+                          }
+                          className="uppercase h-5 text-[0.5rem]"
+                        >
+                          {subValue?.status as Doc['status']}
+                        </Badge>
+                      )}
                     </AsideLink>
                   ) : (
                     <AccordionItem key={subKey} value={subKey}>
@@ -105,7 +125,7 @@ const renderHierarchy = (node: HierarchyNode, defaultValues: string[], level: nu
                                           ? 'warning'
                                           : 'info'
                                   }
-                                  className="lowercase text-xs"
+                                  className="uppercase h-5 text-[0.5rem]"
                                 >
                                   {childValue?.status as Doc['status']}
                                 </Badge>
