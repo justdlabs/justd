@@ -11,14 +11,14 @@ const DefaultInstallation: React.FC<InstallProps> = ({ items = ['react-aria-comp
   const getInstallCommand = (packageManager: string) => {
     switch (packageManager) {
       case 'bun':
-        return `bunx @irsyadadl/d@latest add --component ${items.join(' ')}`
+        return `bunx @irsyadadl/d@latest add ${items.join(' ')}`
       case 'yarn':
-        return `npx @irsyadadl/d@latest add --component ${items.join(' ')}`
+        return `npx @irsyadadl/d@latest add ${items.join(' ')}`
       case 'pnpm':
-        return `pnpm dlx @irsyadadl/d@latest add --component ${items.join(' ')}`
+        return `pnpm dlx @irsyadadl/d@latest add ${items.join(' ')}`
       case 'npm':
       default:
-        return `npx @irsyadadl/d@latest add --component ${items.join(' ')}`
+        return `npx @irsyadadl/d@latest add ${items.join(' ')}`
     }
   }
 

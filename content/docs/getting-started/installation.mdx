@@ -14,9 +14,9 @@ Kick things off by running this command:
 
 Next up, tell it your source. If you're rocking **Next.js**, pick Next.js. If **Laravel** with **Inertia.js** is your jam, go with Laravel. Not using either? Just hit up the **other** option.
 
-After that, just run `add --component [component-name]` to drop the component in your project. No need to install everything at once. Need a file-trigger? Just add it up. Even if it requires a button, this command's got you covered. Just install what you need now. Otherwise, hit up the docs and do it manually. Here's how to add a `combo-box`:
+After that, just run `add [component-name]` to drop the component in your project. No need to install everything at once. Need a file-trigger? Just add it up. Even if it requires a button, this command's got you covered. Just install what you need now. Otherwise, hit up the docs and do it manually. Here's how to add a `combo-box`:
 
-<Snippet text={`npx @irsyadadl/d@latest add --component combo-box`} />
+<Snippet text={`npx @irsyadadl/d@latest add combo-box`} />
 
 This command will install all the required components like:
 ```bash
@@ -32,7 +32,7 @@ d.json file found, proceeding...
 ```
 
 If ya wanna drop in group components, check the docs, they bundle all the goodies into one namespace, like collections, overlays, forms, etc. So you can slap 'em in all at once like this:
-<Snippet text={`npx @irsyadadl/d@latest add --component overlays`} />
+<Snippet text={`npx @irsyadadl/d@latest add overlays`} />
 With that command, you'll get all the components in the overlays namespace like this:
 ```bash
 Checking for d.json file...
@@ -46,7 +46,7 @@ d.json file found, proceeding...
 - tooltip created  ✓
 ```
 
-Right now, the CLI can only drop one component at a time. So if you try `--component note card`, it'll only add the `note` component. If you wanna upgrade it to handle multiple components, feel free to make a [PR](https://github.com/irsyadadl/d.cli/).
+Right now, the CLI can only drop one component at a time. So if you try `add note card`, it'll only add the `note` component. If you wanna upgrade it to handle multiple components, feel free to make a [PR](https://github.com/irsyadadl/d.cli/).
 
 ## React Server Component
 Alright, here's your sentence with some slang:
