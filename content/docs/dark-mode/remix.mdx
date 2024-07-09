@@ -1,9 +1,161 @@
 ---
 title: Remix
-description: How to implement dark mode in your Remix project
+description: A guide on how to implement dark mode in your Remix project.
 order: 3
 published: true
 ---
 
 
-Feel free to contribute!
+## Remix Themes
+Remix themes is a slick way to handle themes in your Remix app. Read more about it [here](https://github.com/abereghici/remix-themes).
+<ManualInstall items={['remix-themes']}/>
+
+Next, modify your `tailwind.css` file to include the following:
+
+```css
+.dark,
+[data-theme='dark'] {
+  color-scheme: dark;
+}
+
+.light,
+[data-theme='light'] {
+  color-scheme: light;
+}
+
+[data-theme='dark'] {
+  background-color: hsl(var(--background));
+  color: hsl(var(--fg));
+  transition: background-color 2s ease, color 2s ease;
+}
+
+[data-theme='light'] {
+  background-color: hsl(var(--background));
+  color: hsl(var(--fg));
+  transition: background-color 2s ease, color 2s ease;
+}
+
+.dark {
+  background-color: hsl(var(--background));
+  color: hsl(var(--fg));
+  transition: background-color 2s ease, color 2s ease;
+}
+
+.light {
+  background-color: hsl(var(--background));
+  color: hsl(var(--fg));
+  transition: background-color 2s ease, color 2s ease;
+}
+```
+
+## Session Storage
+And next, in your `app/session.server.tsx` file, add the following:
+```tsx
+import { createThemeSessionResolver } from "remix-themes"
+
+const isProduction = process.env.NODE_ENV === "production"
+
+const sessionStorage = createCookieSessionStorage({
+  cookie: {
+    name: "theme",
+    path: "/",
+    httpOnly: true,
+    sameSite: "lax",
+    secrets: ["s3cr3t"],
+    ...(isProduction
+      ? { domain: "domain.com", secure: true }
+      : {}),
+  },
+})
+
+export const themeSessionResolver = createThemeSessionResolver(sessionStorage)
+```
+
+## Providers
+Next to add the `ThemeProvider` to your root layout like so:
+```tsx {4} {6-20} {24} {31}
+import clsx from "clsx"
+import { PreventFlashOnWrongTheme, ThemeProvider, useTheme } from "remix-themes"
+
+import { themeSessionResolver } from "./sessions.server"
+
+export async function loader({ request }: LoaderFunctionArgs) {
+  const { getTheme } = await themeSessionResolver(request)
+  return {
+    theme: getTheme(),
+  }
+}
+
+export default function AppWithProviders() {
+  const data = useLoaderData<typeof loader>()
+  return (
+    <ThemeProvider specifiedTheme={data.theme} themeAction="/action/set-theme">
+      <App />
+    </ThemeProvider>
+  )
+}
+
+export function App() {
+  const data = useLoaderData<typeof loader>()
+  const [theme] = useTheme()
+  return (
+    <html lang="en" className={clsx(theme)}>
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <Meta />
+        <PreventFlashOnWrongTheme ssrTheme={Boolean(data.theme)} />
+        <Links />
+      </head>
+      <body>
+        <Outlet />
+        <ScrollRestoration />
+        <Scripts />
+        <LiveReload />
+      </body>
+    </html>
+  )
+}
+```
+
+## Action Route
+Create a file in `/routes/action.set-theme.ts`. Make sure you pass the filename to the `ThemeProvider` component. This route stores the preferred theme in session storage when the user switches it up.
+
+```tsx
+import { createThemeAction } from "remix-themes"
+import { themeSessionResolver } from "./sessions.server"
+
+export const action = createThemeAction(themeSessionResolver)
+```
+
+## Theme Switcher
+For theme switcher, you can use the `useTheme` hook from `remix-themes` to get the current theme.
+<ManualInstall items={['@irsyadadl/paranoid']} />
+Then, make sure you import the icons you want to use.
+
+```tsx
+import { IconMoon, IconSun } from '@irsyadadl/paranoid'
+import { Theme, useTheme } from "remix-themes"
+import { Button } from 'ui'
+
+export function ThemeSwitcher() {
+  const [theme, setTheme] = useTheme()
+  const switchTheme = () => {
+    setTheme((prevTheme) => (prevTheme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT));
+  };
+
+  return (
+    <Button
+      appearance="outline"
+      size="square-petite"
+      aria-label='Switch theme'
+      onPress={switchTheme}
+    >
+      <IconSun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+      <IconMoon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+    </Button>
+  )
+}
+```
+
+If you spot typos or wrong implementations, feel free to [contribute here](https://github.com/irsyadadl/d./blob/main/content/docs/dark-mode/remix.mdx).
