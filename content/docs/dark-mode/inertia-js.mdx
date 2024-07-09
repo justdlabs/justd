@@ -1,6 +1,6 @@
 ---
 title: Inertia.js
-description: A guide on how to implement dark mode in your Inertia.js project.
+description: Ready to give your Inertia.js project that sleek, dark mode look? Check out this guide and get your app looking smooth and stylish in the dark.
 order: 2
 published: true
 status: new
@@ -8,7 +8,7 @@ status: new
 
 ## Theme Provider
 
-When using Inertia.js, you need to create a provider called `theme-provider.tsx` in your `resources/js/components` folder.
+When you’re rockin' Inertia.js, gotta whip up a provider called `theme-provider.tsx` and drop it in the `resources/js/components` folder.
 
 ```tsx
 import { createContext, useContext, useEffect, useState } from 'react'
@@ -95,7 +95,7 @@ export { ThemeProvider, useTheme, type Theme, type ThemeProviderProps, type Them
 ```
 
 ## Root App
-I'm not sure if you're using Inertia.js with Ruby or Laravel, but if you are using Laravel, you can put it inside your `resources/js/app.tsx` like so:
+Not sure if you're rollin' with Inertia.js on Ruby or Laravel, but if it's Laravel, you can stash it in your `resources/js/app.tsx` like this:
 
 ```tsx {10} {20-22}
 import './bootstrap';
@@ -160,7 +160,7 @@ export function ThemeSwitcher() {
 ```
 
 ## Group Providers
-If you are using multiple providers, like for example when we are using React Aria Components, we need a `RouterProvider`. So if you want to combine all the providers, simply just create new file called `providers.tsx` in your `resources/js` folder and put the following code:
+When you're juggling multiple providers, like React Aria Components, you need a `RouterProvider`. To combine 'em all, just create a new file called `providers.tsx` in your `resources/js` folder and drop in this code:
 ```
 import { ThemeProvider } from '@/Components/theme-provider'
 import { router } from '@inertiajs/react'
@@ -177,7 +177,9 @@ export function Provider({ children }: { children: React.ReactNode }) {
   )
 }
 ```
-Next, modify your `resources/js/app.tsx` file to include the following:
+
+Next up, tweak your `resources/js/app.tsx` file to include this:
+
 ```tsx {1} {4-6}
 import { Provider } from './provider'
 
