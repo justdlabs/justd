@@ -51,8 +51,7 @@ Next, modify your `tailwind.css` file to include the following:
 
 ## Session Storage
 And next, in your `app/session.server.tsx` file, add the following:
-```tsx
-import { createThemeSessionResolver } from "remix-themes"
+<PlainCode code={`import { createThemeSessionResolver } from "remix-themes"
 
 const isProduction = process.env.NODE_ENV === "production"
 
@@ -69,13 +68,11 @@ const sessionStorage = createCookieSessionStorage({
   },
 })
 
-export const themeSessionResolver = createThemeSessionResolver(sessionStorage)
-```
+export const themeSessionResolver = createThemeSessionResolver(sessionStorage)`} />
 
 ## Providers
 Next to add the `ThemeProvider` to your root layout like so:
-```tsx {4} {6-20} {24} {31}
-import clsx from "clsx"
+<PlainCode code={`import clsx from "clsx"
 import { PreventFlashOnWrongTheme, ThemeProvider, useTheme } from "remix-themes"
 
 import { themeSessionResolver } from "./sessions.server"
@@ -116,8 +113,7 @@ export function App() {
       </body>
     </html>
   )
-}
-```
+}`} />
 
 ## Action Route
 Create a file in `/routes/action.set-theme.ts`. Make sure you pass the filename to the `ThemeProvider` component. This route stores the preferred theme in session storage when the user switches it up.
