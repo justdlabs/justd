@@ -25,7 +25,7 @@ export const createHierarchy = (docs: Array<Docs>): HierarchyNode => {
   const hierarchy: HierarchyNode = {}
 
   sortDocs(docs).forEach((doc) => {
-    const parts = doc.slug.split('/').slice(1) // Remove the 'docs' part
+    const parts = doc.slug.split('/').slice(1)
     let currentLevel = hierarchy
 
     parts.forEach((part, index) => {
