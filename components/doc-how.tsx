@@ -1,11 +1,12 @@
 'use client'
 
+import * as React from 'react'
+
 import { previews } from '@/components/docs/generated/previews'
 import jsonPreviews from '@/components/docs/generated/previews.json'
 import { Code } from '@/components/docs/rehype/code'
 import { cn } from '@/lib/utils'
 import { IconLoader } from '@irsyadadl/paranoid'
-import * as React from 'react'
 import { Tab, TabList, TabPanel, Tabs } from 'ui'
 
 interface HowProps extends React.HTMLAttributes<HTMLDivElement> {

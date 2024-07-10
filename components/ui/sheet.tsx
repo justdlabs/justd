@@ -1,6 +1,7 @@
 'use client'
 
 import * as React from 'react'
+
 import {
   Button,
   type DialogProps,
@@ -10,6 +11,7 @@ import {
   type ModalOverlayProps
 } from 'react-aria-components'
 import { tv, type VariantProps } from 'tailwind-variants'
+
 import { Dialog } from './dialog'
 import { CloseButtonIndicator, ModalClose, ModalDescription, ModalFooter, ModalHeader, ModalTitle } from './modal'
 import { cn } from './primitive'

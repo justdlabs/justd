@@ -1,7 +1,8 @@
 'use client'
 
+import * as React from 'react'
+
 import { IconChevronLgDown } from '@irsyadadl/paranoid'
-import React from 'react'
 import {
   Button,
   Select as SelectPrimitive,
@@ -10,6 +11,7 @@ import {
   type ValidationResult
 } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
+
 import { DropdownItem, DropdownSection } from './dropdown'
 import { Description, FieldError, Label } from './field'
 import { ListBoxPicker } from './list-box'
@@ -50,7 +52,9 @@ function Select<T extends object>({ label, description, errorMessage, children, 
       {description && <Description>{description}</Description>}
       <FieldError>{errorMessage}</FieldError>
       <PopoverPicker>
-        <ListBoxPicker items={items}>{children}</ListBoxPicker>
+        <ListBoxPicker aria-label="items" items={items}>
+          {children}
+        </ListBoxPicker>
       </PopoverPicker>
     </SelectPrimitive>
   )

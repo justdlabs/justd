@@ -1,5 +1,7 @@
 'use client'
 
+import React, { useEffect, useId, useState } from 'react'
+
 import { Aside } from '@/components/aside'
 import { CommandPalette, type OpenCloseProps } from '@/components/command-palette'
 import { Logo } from '@/components/logo'
@@ -22,7 +24,6 @@ import {
 import { LayoutGroup, motion } from 'framer-motion'
 import { useTheme } from 'next-themes'
 import { usePathname } from 'next/navigation'
-import React, { useEffect, useId, useState } from 'react'
 import { Collection, Link } from 'react-aria-components'
 import {
   Button,
@@ -73,6 +74,9 @@ export function Navbar() {
                     </NavLink>
                     <NavLink isActive={pathname?.startsWith('/docs')} href="/docs/getting-started/introduction">
                       Components
+                    </NavLink>
+                    <NavLink target="_blank" href="https://irsyad.co/c">
+                      Colors
                     </NavLink>
                     <NavLink target="_blank" href="https://paranoid.irsyad.co">
                       Paranoid

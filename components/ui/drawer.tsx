@@ -1,5 +1,7 @@
 'use client'
 
+import React from 'react'
+
 import {
   animate,
   AnimatePresence,
@@ -9,7 +11,6 @@ import {
   useMotionValue,
   useTransform
 } from 'framer-motion'
-import React from 'react'
 import {
   Button,
   type ButtonProps,
@@ -20,6 +21,7 @@ import {
   Modal,
   ModalOverlay
 } from 'react-aria-components'
+
 import { ModalClose, ModalDescription } from './modal'
 import { cn } from './primitive'
 

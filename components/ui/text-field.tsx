@@ -1,13 +1,15 @@
 'use client'
 
-import { IconLoader } from '@irsyadadl/paranoid'
 import * as React from 'react'
+
+import { IconLoader } from '@irsyadadl/paranoid'
 import {
   TextField as TextFieldPrimitive,
   type TextFieldProps as TextFieldPrimitiveProps,
   type ValidationResult
 } from 'react-aria-components'
-import { Description, FieldError, FieldGroup, Input, Label, fieldGroupPrefixStyles } from './field'
+
+import { Description, FieldError, FieldGroup, fieldGroupPrefixStyles, Input, Label } from './field'
 import { ctr } from './primitive'
 
 interface TextFieldProps extends TextFieldPrimitiveProps {

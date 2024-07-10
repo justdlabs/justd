@@ -1,8 +1,9 @@
 'use client'
 
+import React from 'react'
+
 import { wait } from '@/lib/utils'
 import { IconDotsVertical } from '@irsyadadl/paranoid'
-import React from 'react'
 import {
   Button,
   buttonStyles,

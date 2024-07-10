@@ -1,6 +1,8 @@
 'use client'
 
-import { docs, type Docs } from '#site/content'
+import React from 'react'
+
+import { type Docs, docs } from '#site/content'
 import { goodTitle, sortDocs } from '@/lib/utils'
 import { IconChevronDown, IconCircleHalf, IconCube, IconHighlight, IconLayers } from '@irsyadadl/paranoid'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@radix-ui/react-accordion'
@@ -8,7 +10,6 @@ import { LayoutGroup, motion } from 'framer-motion'
 import type { LinkProps } from 'next/link'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import React from 'react'
 import { Badge, cn } from 'ui'
 
 export interface Doc {

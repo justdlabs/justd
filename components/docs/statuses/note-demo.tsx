@@ -1,7 +1,8 @@
 'use client'
 
-import { OptionPreview } from '@/components/docs/outside/option-preview'
 import React from 'react'
+
+import { OptionPreview } from '@/components/docs/outside/option-preview'
 import { Note, NoteDescription, NoteTitle, Select, SelectItem } from 'ui'
 
 const notes = ['info', 'primary', 'secondary', 'warning', 'danger', 'success'].map((n) => ({

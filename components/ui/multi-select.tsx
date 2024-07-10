@@ -4,6 +4,7 @@ import * as React from 'react'
 
 import { IconCircleXFill } from '@irsyadadl/paranoid'
 import { Command, CommandGroup, CommandInput, CommandItem, CommandList } from 'cmdk'
+
 import { Badge } from './badge'
 
 interface ItemProps {

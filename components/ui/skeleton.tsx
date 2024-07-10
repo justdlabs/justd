@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { cn } from './primitive'
 
 function Skeleton({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {

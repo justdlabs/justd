@@ -7,7 +7,7 @@ const linkStyles = tv({
   base: 'rounded transition focus:outline-none disabled:cursor-default disabled:no-underline forced-colors:disabled:text-[GrayText]',
   variants: {
     intent: {
-      unstyled: 'text-zinc-900 dark:text-white',
+      unstyled: 'text-fg',
       primary:
         'text-primary-600 hover:text-primary-500 dark:text-primary-500 dark:hover:text-primary-400 forced-colors:disabled:text-[GrayText]',
       'light/dark': 'text-fg hover:text-zinc-700 dark:hover:text-primary-400',

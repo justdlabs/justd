@@ -1,10 +1,11 @@
 'use client'
 
+import * as React from 'react'
+
 import jsonPreviews from '@/components/docs/generated/previews.json'
 import { Code } from '@/components/docs/rehype/code'
 import { cn } from '@/lib/utils'
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@radix-ui/react-collapsible'
-import * as React from 'react'
 import { Button, Tab, TabList, TabPanel, Tabs } from 'ui'
 
 interface SourceCodeProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -86,9 +87,9 @@ export function SourceCode({ message, toShow, ...props }: SourceCodeProps) {
       </p>
 
       <Tabs>
-        <TabList>
+        <TabList className="overflow-x-auto no-scrollbar">
           {codeStrings.map((code, index) => (
-            <Tab key={index} id={`tab-${index}`}>
+            <Tab className="whitespace-nowrap" key={index} id={`tab-${index}`}>
               {code.name}.tsx
             </Tab>
           ))}

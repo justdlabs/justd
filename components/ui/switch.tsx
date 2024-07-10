@@ -2,6 +2,7 @@
 
 import { Switch as SwitchPrimitive, type SwitchProps as SwitchPrimitiveProps } from 'react-aria-components'
 import { tv, type VariantProps } from 'tailwind-variants'
+
 import { cn, focusRing } from './primitive'
 
 const trackStyles = tv({

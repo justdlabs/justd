@@ -1,9 +1,9 @@
-import { ColorArea, ColorThumb } from 'ui'
+import { ColorArea, ColorThumb as Thumb } from 'ui'
 
 export default function ColorAreaDemo() {
   return (
     <ColorArea>
-      <ColorThumb />
+      <Thumb />
     </ColorArea>
   )
 }

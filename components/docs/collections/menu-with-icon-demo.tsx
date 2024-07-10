@@ -1,5 +1,7 @@
 'use client'
 
+import React, { useState } from 'react'
+
 import { OptionPreview } from '@/components/docs/outside/option-preview'
 import {
   IconBrandBluesky,
@@ -16,7 +18,6 @@ import {
   IconSettings
 } from '@irsyadadl/paranoid'
 import type { Placement } from '@react-types/overlays'
-import React, { useState } from 'react'
 import {
   Avatar,
   Menu,
@@ -32,6 +33,7 @@ import {
   SubmenuTrigger,
   Switch
 } from 'ui'
+
 import { placements } from './single-menu-demo'
 
 export default function MenuWithIconDemo() {

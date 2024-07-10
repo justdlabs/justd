@@ -1,17 +1,19 @@
 'use client'
 
-import React from 'react'
+import * as React from 'react'
+
 import {
   Button,
   composeRenderProps,
   DialogTrigger,
   OverlayArrow,
-  PopoverContext,
   Popover as PopoverPrimitive,
+  PopoverContext,
   type PopoverProps as PopoverPrimitiveProps,
   useSlottedContext
 } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
+
 import { ModalBody, ModalClose, ModalDescription, ModalFooter, ModalHeader, ModalOverlay, ModalTitle } from './modal'
 
 export interface PopoverProps extends Omit<PopoverPrimitiveProps, 'children'> {

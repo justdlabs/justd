@@ -1,7 +1,24 @@
 {
-  "tailwindFunctions": ["clsx", "tw", "tv", "cn", "twMerge", "tm", "cx"],
-  "plugins": ["prettier-plugin-tailwindcss", "prettier-plugin-organize-imports"],
+  "tailwindFunctions": [
+    "clsx",
+    "tw",
+    "tv",
+    "cn",
+    "twMerge",
+    "tm",
+    "cx"
+  ],
+  "plugins": [
+    "prettier-plugin-tailwindcss",
+    "@trivago/prettier-plugin-sort-imports"
+  ],
   "printWidth": 120,
+  "importOrder": [
+    "^react$",
+    "<THIRD_PARTY_MODULES>",
+    "^[./]"
+  ],
+  "importOrderSeparation": true,
   "singleQuote": true,
   "trailingComma": "none",
   "tabWidth": 2,

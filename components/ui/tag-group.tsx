@@ -1,26 +1,28 @@
 'use client'
 
+import * as React from 'react'
+
 import { IconX } from '@irsyadadl/paranoid'
-import { createContext, useContext } from 'react'
 import {
   Button,
   composeRenderProps,
+  Tag as TagPrimitive,
   TagGroup as TagGroupPrimitive,
   type TagGroupProps as TagGroupPrimitiveProps,
   TagList,
   type TagListProps,
-  Tag as TagPrimitive,
   type TagProps as TagPrimitiveProps,
   Text
 } from 'react-aria-components'
 import { twMerge } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
+
 import { badgeIntents, badgeStyles } from './badge'
 import { Description, Label } from './field'
 import { cn, focusRing } from './primitive'
 
 type Intent = keyof typeof badgeIntents
-const IntentContext = createContext<Intent>('primary')
+const IntentContext = React.createContext<Intent>('primary')
 
 const emptyColors = Object.keys(badgeIntents).reduce(
   (acc, key) => {
@@ -106,7 +108,7 @@ const removeButtonStyles = tv({
 
 export function Tag({ children, intent, ...props }: TagProps) {
   const textValue = typeof children === 'string' ? children : undefined
-  const groupIntent = useContext(IntentContext)
+  const groupIntent = React.useContext(IntentContext)
   return (
     <TagPrimitive
       textValue={textValue}

@@ -1,10 +1,13 @@
 'use client'
 
+import * as React from 'react'
+
 import { motion } from 'framer-motion'
 import {
   ProgressBar as ProgressBarPrimitive,
   type ProgressBarProps as ProgressBarPrimitiveProps
 } from 'react-aria-components'
+
 import { Label } from './field'
 import { ctr } from './primitive'
 

@@ -1,8 +1,9 @@
 'use client'
 
+import React from 'react'
+
 import { IconCircleCheckFill, IconCircleInfoFill, IconLoader, IconTriangleInfoFill } from '@irsyadadl/paranoid'
 import { useTheme } from 'next-themes'
-import React from 'react'
 import { Toaster as Sonner } from 'sonner'
 import { twJoin } from 'tailwind-merge'
 

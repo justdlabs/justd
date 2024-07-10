@@ -10,15 +10,16 @@ import {
   type ColumnProps,
   Row,
   type RowProps,
+  Table as TablePrimitive,
   TableBody as TableBodyPrimitive,
   type TableBodyProps,
   TableHeader as TableHeaderPrimitive,
   type TableHeaderProps,
-  Table as TablePrimitive,
   type TableProps,
   useTableOptions
 } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
+
 import { Checkbox } from './checkbox'
 import { cn } from './primitive'
 

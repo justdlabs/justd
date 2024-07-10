@@ -1,19 +1,47 @@
 ---
 title: "Color Picker"
 description: A Color Picker keeps color values in sync across React Aria color components. It makes building color pickers with custom layouts a breeze through composition.
-order: 4
+order: 1
 published: true
-status: beta
+status: new
 references: ["https://react-spectrum.adobe.com/react-aria/ColorPicker.html"]
 ---
 
 ## Basic
 The basic color picker lets users pick a color.
-<How toUse="colors/color-picker-demo" />
+<How className='min-w-40' toUse="colors/color-picker-demo" />
 
 ## Installation
-<Default items={['color']}/>
+<Default items={['color-picker']}/>
 
 ## Manual Installation
 <ManualInstall items={['react-aria-components']}/>
-<SourceCode toShow={['color', 'field']}/>
+<SourceCode toShow={['color-picker', 'color', 'field', 'button', 'modal', 'dialog', 'slider', 'select']}/>
+
+## Enable Format Selection
+<How className='min-w-40' toUse="colors/color-picker-enable-selection-format-demo" />
+
+## Enable Swatch
+<How className='min-w-40' toUse="colors/color-picker-enable-swatch-demo" />
+
+## Custom Colors
+By default, the color picker uses the default Tailwind CSS colors which is zinc. You can pass your own colors to the `colors` prop.
+<How className='min-w-40' toUse="colors/color-picker-custom-colors-demo" />
+
+## Combination
+<How className='min-w-40' toUse="colors/color-picker-combination-demo" />
+
+## Label
+<How className='min-w-40' toUse="colors/color-picker-with-label-demo" />
+
+## Description
+<How className='min-w-40' toUse="colors/color-picker-with-description-demo" />
+
+## Placeholder
+<How className='min-w-40' toUse="colors/color-picker-with-placeholder-demo" />
+
+## Controlled
+<How className='min-w-40' toUse="colors/color-picker-controlled-demo" />
+
+## Disabled
+<How className='min-w-40' toUse="colors/color-picker-disabled-demo" />

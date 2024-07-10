@@ -1,16 +1,17 @@
 'use client'
 
-import { IconBulletFill, IconCheck, IconChevronLgRight } from '@irsyadadl/paranoid'
 import * as React from 'react'
+
+import { IconBulletFill, IconCheck, IconChevronLgRight } from '@irsyadadl/paranoid'
 import {
   Button,
   type ButtonProps,
   composeRenderProps,
   Header,
   Keyboard,
+  Menu as MenuPrimitive,
   MenuItem as MenuItemPrimitive,
   type MenuItemProps as MenuItemPrimitiveProps,
-  Menu as MenuPrimitive,
   type MenuProps,
   MenuTrigger as MenuTriggerPrimitive,
   OverlayArrow,
@@ -25,6 +26,7 @@ import {
 } from 'react-aria-components'
 import { twJoin } from 'tailwind-merge'
 import type { VariantProps } from 'tailwind-variants'
+
 import { dropdownItemStyles } from './dropdown'
 import { cn } from './primitive'
 

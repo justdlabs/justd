@@ -167,7 +167,7 @@ export default function RootLayout({children}) {
 
 ### Remix
 Remix rocks React Router, so you can still roll with `useNavigate` and `useHref` hooks. Pop `RouterProvider` at the root of any page with React Aria links, or in `app/root.tsx` to cover all pages. Hit up the [Remix docs](https://remix.run/docs/en/main/file-conventions/root) for the full scoop.
-```tsx {3} {5-7} {20-22}
+```tsx {3} {5-9} {20-22}
 import { useNavigate, useHref, Outlet } from '@remix-run/react';
 import type { NavigateOptions } from 'react-router-dom';
 import { RouterProvider } from 'react-aria-components';

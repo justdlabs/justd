@@ -1,15 +1,17 @@
 'use client'
 
 import { type ReactNode } from 'react'
+
 import {
+  Checkbox as CheckboxPrimitive,
   CheckboxGroup as CheckboxGroupPrimitive,
   type CheckboxGroupProps as CheckboxGroupPrimitiveProps,
-  Checkbox as CheckboxPrimitive,
   type CheckboxProps,
   composeRenderProps,
   type ValidationResult
 } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
+
 import { Description, FieldError, Label } from './field'
 import { ctr } from './primitive'
 

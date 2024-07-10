@@ -1,3 +1,5 @@
+import React from 'react'
+
 import { Navbar } from '@/components/navbar'
 import { Providers } from '@/components/providers'
 import { siteConfig } from '@/config/site'
@@ -6,7 +8,6 @@ import '@/styles/app.css'
 import { OpenpanelProvider } from '@openpanel/nextjs'
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
-import React from 'react'
 
 const satoshi = localFont({
   src: './fonts/Satoshi-Variable.woff2',

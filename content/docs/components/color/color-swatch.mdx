@@ -3,8 +3,29 @@ title: "Color Swatch"
 description: A visual lineup of colors, letting you pick with a click, just like choosing your next outfit from your wardrobe.
 order: 5
 published: true
-status: wip
-references: ["https://react-spectrum.adobe.com/react-aria/ColorSwatch.html"]
+status: new
+references: ["https://react-spectrum.adobe.com/react-aria/ColorSwatch.html#props"]
 ---
 
-We're working on this component. In the meantime, you can check out other color components.
+## Basic
+The basic color swatch just displays the current color value.
+<How toUse="colors/color-swatch-demo" />
+
+## Installation
+<Default items={['color']}/>
+
+## Manual Installation
+<ManualInstall items={['react-aria-components']}/>
+<SourceCode toShow={['color']}/>
+
+## Swatch Picker
+A color swatch lets users pick a color you’ve laid out for them.
+<How toUse="colors/color-swatch-picker-demo" />
+
+## Controlled
+Color swatch can be controlled.
+<How toUse="colors/color-swatch-controlled-demo" />
+
+## Disabled
+You can disable the picket item, but you can't disable the picker itself. Well, you technically can, but it ain't the best move.
+<How toUse="colors/color-swatch-picker-item-disabled-demo" />

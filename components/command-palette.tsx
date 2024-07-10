@@ -1,11 +1,12 @@
 'use client'
 
+import React from 'react'
+
 import { docs } from '#site/content'
 import type { Doc, HierarchyNode } from '@/components/aside'
 import { createHierarchy } from '@/components/aside'
 import { goodTitle } from '@/lib/utils'
 import { usePathname, useRouter } from 'next/navigation'
-import React from 'react'
 import {
   Badge,
   CommandEmpty,
@@ -27,7 +28,7 @@ export function CommandPalette({ open, setOpen }: OpenCloseProps) {
   const pathname = usePathname()
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
-      if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
+      if (e.key === 'k') {
         e.preventDefault()
         // @ts-ignore
         setOpen((open: boolean) => !open)

@@ -1,9 +1,9 @@
 ---
 title: "Color Area"
 description: A color area lets users tweak two channels of an RGB, HSL, or HSB color against a 2D gradient backdrop.
-order: 2
+order: 3
 published: true
-status: beta
+status: new
 references: ["https://react-spectrum.adobe.com/react-aria/ColorArea.html#props"]
 ---
 
@@ -16,7 +16,7 @@ A color area lets users pick a color.
 
 ## Manual Installation
 <ManualInstall items={['react-aria-components']}/>
-<SourceCode toShow={['color', 'field']}/>
+<SourceCode toShow={['color', 'field', 'slider']}/>
 
 ## Channel
 Color channel for the horizontal and vertical axes, so you can use `xChannel` and `yChannel` to specify which channel to use.
@@ -26,7 +26,10 @@ Color channel for the horizontal and vertical axes, so you can use `xChannel` an
 The color space where the color area operates. The xChannel and yChannel gotta be in this color space. If not specified, it defaults to the color space of the color or defaultColor value. It has a type of `rgb` | `hsl` | `hsb`
 <How toUse="colors/color-area-space-demo" />
 
-
 ## Controlled
 Color channel for the horizontal and vertical axes, so you can use `xChannel` and `yChannel` to specify which channel to use.
 <How toUse="colors/color-area-controlled-demo" />
+
+## Disabled
+You can disable the color area, but you can't disable the thumb. Well, you technically can, but it ain't the best move.
+<How toUse="colors/color-area-disabled-demo" />

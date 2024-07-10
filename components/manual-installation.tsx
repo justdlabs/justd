@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+
 import { Snippet, Tab, TabList, TabPanel, Tabs } from 'ui'
 
 interface InstallProps {

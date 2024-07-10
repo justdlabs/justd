@@ -1,19 +1,21 @@
 'use client'
 
-import { IconX } from '@irsyadadl/paranoid'
 import * as React from 'react'
+
+import { IconX } from '@irsyadadl/paranoid'
 import {
   Button as ButtonPrimitive,
   type DialogProps,
   DialogTrigger as DialogTriggerPrimitive,
   Heading,
   type HeadingProps,
+  Modal as ModalPrimitive,
   ModalOverlay as ModalOverlayPrimitive,
   type ModalOverlayProps,
-  Modal as ModalPrimitive,
   OverlayTriggerStateContext
 } from 'react-aria-components'
 import { tv, type VariantProps } from 'tailwind-variants'
+
 import { Button, type ButtonProps } from './button'
 import { Dialog } from './dialog'
 import { cn, useMediaQuery } from './primitive'

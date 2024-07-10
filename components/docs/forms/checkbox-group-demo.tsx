@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+
 import { Checkbox, CheckboxGroup } from 'ui'
 
 export default function CheckboxGroupDemo() {
