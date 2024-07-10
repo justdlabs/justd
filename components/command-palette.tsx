@@ -27,7 +27,7 @@ export function CommandPalette({ open, setOpen }: OpenCloseProps) {
   const pathname = usePathname()
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
-      if (e.key === 'k') {
+      if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
         e.preventDefault()
         // @ts-ignore
         setOpen((open: boolean) => !open)
