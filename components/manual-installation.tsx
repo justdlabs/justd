@@ -23,7 +23,7 @@ const ManualInstallation: React.FC<InstallProps> = ({ items = ['react-aria-compo
   }
 
   return (
-    <Tabs className="mt-4" aria-label="Packages">
+    <Tabs className="mt-4" aria-label="Installation Packages">
       <TabList>
         <Tab className="font-mono" id="bun">
           bun

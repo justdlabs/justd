@@ -45,7 +45,7 @@ export function SourceCode({ message, toShow, ...props }: SourceCodeProps) {
         <p className="mb-4 -mt-2">
           {message ? message : 'And next, you can copy the code below and paste it into your dopest component folder.'}
         </p>
-        <div className={cn('overflow-hidden rounded-md')}>
+        <div className="overflow-hidden rounded-md">
           <Collapsible open={isOpened[0]} onOpenChange={(open) => handleOpenChange(0, open)}>
             <div className={'relative overflow-hidden'} {...props}>
               <CollapsibleContent forceMount className={cn('overflow-hidden', !isOpened[0] && 'h-32')}>
@@ -96,7 +96,7 @@ export function SourceCode({ message, toShow, ...props }: SourceCodeProps) {
         {codeStrings.map((code, index) => (
           <TabPanel key={index} id={`tab-${index}`}>
             <Collapsible open={isOpened[index]} onOpenChange={(open) => handleOpenChange(index, open)}>
-              <div className={'relative overflow-hidden'} {...props}>
+              <div className={'relative rounded-md overflow-hidden'} {...props}>
                 <CollapsibleContent forceMount className={cn('overflow-hidden', !isOpened[index] && 'h-32')}>
                   <div
                     className={cn(

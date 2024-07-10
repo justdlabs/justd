@@ -230,6 +230,33 @@ export const previews: Record<string, any> = {
   "drag-and-drop/drop-zone-demo": {
     component: React.lazy(() => import("@/components/docs/drag-and-drop/drop-zone-demo")),
   },
+  "colors/color-field-with-prefix-demo": {
+    component: React.lazy(() => import("@/components/docs/colors/color-field-with-prefix-demo")),
+  },
+  "colors/color-area-channel-demo": {
+    component: React.lazy(() => import("@/components/docs/colors/color-area-channel-demo")),
+  },
+  "colors/color-area-demo": {
+    component: React.lazy(() => import("@/components/docs/colors/color-area-demo")),
+  },
+  "colors/color-field-with-suffix-demo": {
+    component: React.lazy(() => import("@/components/docs/colors/color-field-with-suffix-demo")),
+  },
+  "colors/color-field-demo": {
+    component: React.lazy(() => import("@/components/docs/colors/color-field-demo")),
+  },
+  "colors/color-area-space-demo": {
+    component: React.lazy(() => import("@/components/docs/colors/color-area-space-demo")),
+  },
+  "colors/color-wheel-demo": {
+    component: React.lazy(() => import("@/components/docs/colors/color-wheel-demo")),
+  },
+  "colors/color-picker-demo": {
+    component: React.lazy(() => import("@/components/docs/colors/color-picker-demo")),
+  },
+  "colors/color-area-controlled-demo": {
+    component: React.lazy(() => import("@/components/docs/colors/color-area-controlled-demo")),
+  },
   "pickers/select-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/pickers/select-disabled-demo")),
   },

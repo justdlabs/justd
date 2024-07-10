@@ -110,7 +110,6 @@ const MenuItem = ({ className, isDanger = false, inset, children, ...props }: Me
     data-danger={isDanger ? 'true' : undefined}
     {...props}
   >
-    {/*<MenuItemPrimitive className={cn(menuItemVariants({ intent }), className, inset && 'pl-8')} {...props}>*/}
     {(values) => (
       <>
         {typeof children === 'function' ? children(values) : children}
@@ -155,9 +154,8 @@ const MenuKeyboard = ({ keys, className, ...props }: MenuKeyboardProps) => {
         <kbd
           key={index}
           className={twJoin([
-            'min-w-[2ch] text-center font-sans capitalize text-muted-fg group-focus:text-fg forced-colors:group-focus:text-[HighlightText]',
+            'text-center font-sans capitalize text-muted-fg group-focus:text-fg forced-colors:group-focus:text-[HighlightText]',
             'inline-grid min-h-5 min-w-5 place-content-center rounded bg-background font-sans text-[.75rem] uppercase text-fg ring-1 ring-fg/10 group-focus:opacity-60',
-            // Make sure key names that are longer than one character (like "Tab") have extra space
             index > 0 && char.length > 1 && 'pl-1'
           ])}
         >

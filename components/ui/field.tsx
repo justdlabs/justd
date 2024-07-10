@@ -55,6 +55,10 @@ const fieldGroupStyles = tv({
   ]
 })
 
+const fieldGroupPrefixStyles = tv({
+  base: 'flex group-invalid:border-danger group-disabled:bg-secondary group-disabled:opacity-50 items-center group-invalid:focus-within:ring-danger/20'
+})
+
 const FieldGroup = (props: GroupProps) => {
   return (
     <Group
@@ -78,4 +82,14 @@ const Input = (props: InputProps) => {
   )
 }
 
-export { Description, fieldBorderStyles, FieldError, FieldGroup, fieldGroupStyles, Input, InputPrimitive, Label }
+export {
+  Description,
+  fieldBorderStyles,
+  FieldError,
+  FieldGroup,
+  fieldGroupPrefixStyles,
+  fieldGroupStyles,
+  Input,
+  InputPrimitive,
+  Label
+}
