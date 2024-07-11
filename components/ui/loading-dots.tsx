@@ -4,6 +4,7 @@ import * as React from 'react'
 
 import { cn } from './primitive'
 
+
 const dots = 'mx-[1px] inline-block size-[0.3125rem] animate-blink rounded-md'
 
 export const LoadingDots = ({ className }: { className: string }) => {

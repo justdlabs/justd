@@ -8,6 +8,7 @@ import { Toaster as ToasterPrimitive, type ToasterProps } from 'sonner'
 
 import { cn } from './primitive'
 
+
 const Toaster = ({ ...props }: ToasterProps) => {
   const { theme = 'system' } = useTheme()
   return (
@@ -16,7 +17,6 @@ const Toaster = ({ ...props }: ToasterProps) => {
       className="toaster group"
       toastOptions={{
         unstyled: true,
-        duration: 300000,
         closeButton: true,
         classNames: {
           toast: cn(

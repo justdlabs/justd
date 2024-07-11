@@ -1,18 +1,18 @@
 'use client'
 
-import { IconChevronLeft, IconChevronLgLeft, IconChevronRight } from '@irsyadadl/paranoid'
+import { IconChevronLgLeft, IconChevronLgRight } from '@irsyadadl/paranoid'
 import {
-  Calendar as AriaCalendar,
+  Calendar as CalendarPrimitive,
   CalendarCell,
   CalendarGrid,
   CalendarGridBody,
-  CalendarGridHeader as AriaCalendarGridHeader,
+  CalendarGridHeader as CalendarGridHeaderPrimitive,
   CalendarHeaderCell,
-  type CalendarProps as AriaCalendarProps,
+  type CalendarProps as CalendarPrimitiveProps,
   type DateValue,
   Heading,
-  RangeCalendar as AriaRangeCalendar,
-  type RangeCalendarProps as AriaRangeCalendarProps,
+  RangeCalendar as RangeCalendarPrimitive,
+  type RangeCalendarProps as RangeCalendarPrimitiveProps,
   Text,
   useLocale
 } from 'react-aria-components'
@@ -23,7 +23,7 @@ import { focusRing } from './primitive'
 
 const cellStyles = tv({
   extend: focusRing,
-  base: 'flex size-9 cursor-default items-center justify-center rounded-full text-sm forced-color-adjust-none',
+  base: 'flex size-10 lg:size-9 cursor-default items-center justify-center rounded-full lg:text-sm forced-color-adjust-none',
   variants: {
     isSelected: {
       false: 'text-fg hover:bg-gray-100 pressed:bg-gray-200 dark:hover:bg-zinc-700 dark:pressed:bg-zinc-600',
@@ -35,13 +35,13 @@ const cellStyles = tv({
   }
 })
 
-interface CalendarProps<T extends DateValue> extends Omit<AriaCalendarProps<T>, 'visibleDuration'> {
+interface CalendarProps<T extends DateValue> extends Omit<CalendarPrimitiveProps<T>, 'visibleDuration'> {
   errorMessage?: string
 }
 
 function Calendar<T extends DateValue>({ errorMessage, ...props }: CalendarProps<T>) {
   return (
-    <AriaCalendar {...props}>
+    <CalendarPrimitive {...props}>
       <CalendarHeader />
       <CalendarGrid>
         <CalendarGridHeader />
@@ -52,7 +52,7 @@ function Calendar<T extends DateValue>({ errorMessage, ...props }: CalendarProps
           {errorMessage}
         </Text>
       )}
-    </AriaCalendar>
+    </CalendarPrimitive>
   )
 }
 
@@ -60,13 +60,13 @@ function CalendarHeader() {
   const { direction } = useLocale()
 
   return (
-    <header className="flex w-full items-center gap-1 px-1 pb-4">
+    <header className="flex w-full justify-center items-center gap-1 px-1 pb-4">
       <Button size="square-petite" className="[&_[data-slot=icon]]:text-fg" appearance="outline" slot="previous">
-        {direction === 'rtl' ? <IconChevronRight aria-hidden /> : <IconChevronLeft aria-hidden />}
+        {direction === 'rtl' ? <IconChevronLgRight /> : <IconChevronLgLeft aria-hidden />}
       </Button>
       <Heading className="mx-2 flex-1 text-center text-base font-medium text-fg" />
       <Button size="square-petite" className="[&_[data-slot=icon]]:text-fg" appearance="outline" slot="next">
-        {direction === 'rtl' ? <IconChevronLgLeft aria-hidden /> : <IconChevronRight aria-hidden />}
+        {direction === 'rtl' ? <IconChevronLgLeft /> : <IconChevronLgRight />}
       </Button>
     </header>
   )
@@ -74,19 +74,19 @@ function CalendarHeader() {
 
 function CalendarGridHeader() {
   return (
-    <AriaCalendarGridHeader>
-      {(day) => <CalendarHeaderCell className="text-xs font-semibold text-gray-500">{day}</CalendarHeaderCell>}
-    </AriaCalendarGridHeader>
+    <CalendarGridHeaderPrimitive>
+      {(day) => <CalendarHeaderCell className="text-sm lg:text-xs font-semibold text-gray-500">{day}</CalendarHeaderCell>}
+    </CalendarGridHeaderPrimitive>
   )
 }
 
-interface RangeCalendarProps<T extends DateValue> extends Omit<AriaRangeCalendarProps<T>, 'visibleDuration'> {
+interface RangeCalendarProps<T extends DateValue> extends Omit<RangeCalendarPrimitiveProps<T>, 'visibleDuration'> {
   errorMessage?: string
 }
 
 const cell = tv({
   extend: focusRing,
-  base: 'flex h-full w-full items-center justify-center rounded-full text-zinc-900 forced-color-adjust-none dark:text-zinc-200',
+  base: 'flex h-full w-full items-center justify-center rounded-full text-fg forced-color-adjust-none',
   variants: {
     selectionState: {
       none: 'group-hover:bg-gray-100 group-pressed:bg-gray-200 dark:group-hover:bg-zinc-700 dark:group-pressed:bg-zinc-600',
@@ -106,7 +106,7 @@ const cell = tv({
 
 function RangeCalendar<T extends DateValue>({ errorMessage, ...props }: RangeCalendarProps<T>) {
   return (
-    <AriaRangeCalendar {...props}>
+    <RangeCalendarPrimitive {...props}>
       <CalendarHeader />
       <CalendarGrid className="[&_td]:px-0">
         <CalendarGridHeader />
@@ -136,7 +136,7 @@ function RangeCalendar<T extends DateValue>({ errorMessage, ...props }: RangeCal
           {errorMessage}
         </Text>
       )}
-    </AriaRangeCalendar>
+    </RangeCalendarPrimitive>
   )
 }
 

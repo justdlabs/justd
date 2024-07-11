@@ -8,6 +8,7 @@ import { type Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { Separator, Toaster } from 'ui'
 
+
 export interface DocPageProps {
   params: {
     slug: string[]

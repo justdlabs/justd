@@ -9,6 +9,7 @@ import type { ButtonProps } from './button'
 import { Button } from './button'
 import { cn } from './primitive'
 
+
 type CarouselApi = UseEmblaCarouselType[1]
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>
 type CarouselOptions = UseCarouselParameters[0]

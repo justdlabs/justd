@@ -4,6 +4,7 @@ import React from 'react'
 
 import { tv, type VariantProps } from 'tailwind-variants'
 
+
 const badgeIntents = {
   primary:
     'ring-primary-300 dark:ring-primary-400/20 bg-primary-500/15 text-primary-700 hover:bg-primary-500/25 dark:text-primary-400 dark:hover:bg-primary-500/25',

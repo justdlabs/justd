@@ -9,6 +9,7 @@ import { twMerge } from 'tailwind-merge'
 
 import { Button, type ButtonProps } from './button'
 
+
 const snippetVariants = {
   hidden: { opacity: 0, scale: 0.5 },
   visible: { opacity: 1, scale: 1 }

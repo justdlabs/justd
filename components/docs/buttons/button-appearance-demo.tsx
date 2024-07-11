@@ -3,6 +3,7 @@
 import title from 'title'
 import { Button, buttonStyles } from 'ui'
 
+
 type Appearance = keyof typeof buttonStyles.variants.appearance
 
 export default function ButtonAppearanceDemo() {

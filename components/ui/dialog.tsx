@@ -8,7 +8,7 @@ const Dialog = ({ className, ...props }: DialogProps) => {
     <DialogPrimitive
       {...props}
       className={twMerge(
-        'relative max-h-[inherit] overflow-y-auto p-4 focus:outline-none outline-0 [[data-placement]>&]:p-4',
+        'relative max-h-[inherit] overflow-y-auto p-4 focus:outline-none outline-0 [[data-placement]>&]:p-4 dlc',
         className
       )}
     />

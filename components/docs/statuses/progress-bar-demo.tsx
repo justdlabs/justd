@@ -4,6 +4,7 @@ import React from 'react'
 
 import { ProgressBar } from 'ui'
 
+
 export default function ProgressBarDemo() {
   const [value, setValue] = React.useState(1)
 

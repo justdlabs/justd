@@ -1,7 +1,7 @@
 'use client'
 
 import { IconCubeFill } from '@irsyadadl/paranoid'
-import { Link, buttonStyles } from 'ui'
+import { buttonStyles, Link } from 'ui'
 
 export function ShowMore() {
   return (

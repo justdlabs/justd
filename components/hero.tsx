@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { Header, Text } from 'react-aria-components'
 import { buttonStyles, Container, Heading } from 'ui'
 
+
 export function Hero() {
   return (
     <div className="pt-10 pb-6 lg:py-16 border-b">

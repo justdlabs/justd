@@ -97,16 +97,15 @@ const MenuContent = <T extends object>({
 }
 
 interface MenuItemProps extends Omit<MenuItemPrimitiveProps, 'isDanger'>, VariantProps<typeof dropdownItemStyles> {
-  inset?: boolean
   isDanger?: boolean
 }
 
-const MenuItem = ({ className, isDanger = false, inset, children, ...props }: MenuItemProps) => (
+const MenuItem = ({ className, isDanger = false, children, ...props }: MenuItemProps) => (
   <MenuItemPrimitive
     className={composeRenderProps(className, (className, renderProps) =>
       dropdownItemStyles({
         ...renderProps,
-        className: cn(inset && 'pl-8', className)
+        className
       })
     )}
     data-danger={isDanger ? 'true' : undefined}

@@ -8,6 +8,7 @@ import { Link, type LinkProps, Snippet, type SnippetProps } from 'ui'
 
 import { DocHow } from './doc-how'
 
+
 interface MdxProps {
   code: string
 }

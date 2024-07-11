@@ -25,8 +25,8 @@ import {
   isBrightColor
 } from './color'
 import { Dialog } from './dialog'
+import { DynamicOverlay } from './dynamic-overlay'
 import { Description, Label } from './field'
-import { PopoverPicker } from './popover'
 import { Select, SelectItem } from './select'
 
 interface ColorPickerProps extends ColorPickerPrimitiveProps {
@@ -41,6 +41,7 @@ interface ColorPickerProps extends ColorPickerPrimitiveProps {
   colors?: string[]
   isDisabled?: boolean
 }
+
 const ColorPicker = ({
   enableColorSwatch = false,
   enableColorFormatSelection = false,
@@ -63,11 +64,16 @@ const ColorPicker = ({
             <ColorSwatch isBright={props.value ? isBrightColor(props.value) : false} className="-ml-1.5 size-6" />
             <span>{placeholder}</span>
           </Button>
-          <PopoverPicker placement="bottom start" className="w-fit p-0 min-w-fit">
-            <Dialog className="w-[17rem] [[data-placement]>&]:p-3">
+          <DynamicOverlay placement="bottom start" className="w-fit p-0 overflow-hidden min-w-fit">
+            <Dialog className="[[data-placement]>&]:p-[0.70rem] w-full lg:w-[18rem] lg:p-0">
               <div className="space-y-2">
                 <div>
-                  <ColorArea className="w-full" colorSpace="hsb" xChannel="saturation" yChannel="brightness">
+                  <ColorArea
+                    className="w-full sm:w-[calc(18rem-1.30rem)]"
+                    colorSpace="hsb"
+                    xChannel="saturation"
+                    yChannel="brightness"
+                  >
                     <ColorThumb className="z-50" />
                   </ColorArea>
                   <ColorSlider
@@ -117,7 +123,7 @@ const ColorPicker = ({
                 </div>
 
                 {enableColorSwatch && colors && colors.length > 0 && (
-                  <ColorSwatchPicker className="w-[inherit] grid grid-cols-6 gap-x-2 gap-y-2.5">
+                  <ColorSwatchPicker className="flex flex-wrap gap-x-2 gap-y-2.5">
                     {colors.map((color) => (
                       <ColorSwatchPickerItem key={color} color={color} />
                     ))}
@@ -125,7 +131,7 @@ const ColorPicker = ({
                 )}
               </div>
             </Dialog>
-          </PopoverPicker>
+          </DynamicOverlay>
         </DialogTrigger>
       </ColorPickerPrimitive>
       {description && <Description>{description}</Description>}

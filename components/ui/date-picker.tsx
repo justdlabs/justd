@@ -1,5 +1,6 @@
 'use client'
 
+import { DynamicOverlay } from '@/components/ui/dynamic-overlay'
 import { IconCalendar } from '@irsyadadl/paranoid'
 import {
   DatePicker as DatePickerPrimitive,
@@ -13,10 +14,9 @@ import {
 import { Button } from './button'
 import { Calendar, RangeCalendar } from './calendar'
 import { DateInput } from './date-field'
-import { Dialog } from './dialog'
 import { Description, FieldError, FieldGroup, Label } from './field'
-import { PopoverContentPrimitive } from './popover'
 import { ctr } from './primitive'
+import { Dialog } from '@/components/ui/dialog'
 
 interface DatePickerProps<T extends DateValue> extends DatePickerPrimitiveProps<T> {
   label?: string
@@ -40,11 +40,11 @@ function DatePicker<T extends DateValue>({ label, description, errorMessage, ...
       </FieldGroup>
       {description && <Description>{description}</Description>}
       <FieldError>{errorMessage}</FieldError>
-      <PopoverContentPrimitive className="rounded-xl border bg-popover">
+      <DynamicOverlay className='p-0 grid'>
         <Dialog>
-          <Calendar />
+        <Calendar />
         </Dialog>
-      </PopoverContentPrimitive>
+      </DynamicOverlay>
     </DatePickerPrimitive>
   )
 }
@@ -78,11 +78,9 @@ function DateRangePicker<T extends DateValue>({ label, description, errorMessage
       </FieldGroup>
       {description && <Description>{description}</Description>}
       <FieldError>{errorMessage}</FieldError>
-      <PopoverContentPrimitive className="rounded-xl border bg-popover">
-        <Dialog>
-          <RangeCalendar />
-        </Dialog>
-      </PopoverContentPrimitive>
+      <DynamicOverlay>
+        <RangeCalendar />
+      </DynamicOverlay>
     </DateRangePickerPrimitive>
   )
 }

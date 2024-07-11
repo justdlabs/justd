@@ -4,6 +4,7 @@ import React from 'react'
 
 import { tv, type VariantProps } from 'tailwind-variants'
 
+
 const avatarStyles = tv({
   base: [
     'inline-grid shrink-0 bg-secondary align-middle [--avatar-radius:20%] [--ring-opacity:20%] *:col-start-1 *:row-start-1',
