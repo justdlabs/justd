@@ -54,3 +54,6 @@ export * from './skeleton';
 export * from './form';
 export * from './carousel';
 export * from './aspect-ratio';
+export * from './color';
+export * from './color-picker';
+export * from './dynamic-overlay';

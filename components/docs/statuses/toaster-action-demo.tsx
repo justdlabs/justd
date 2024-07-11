@@ -23,6 +23,24 @@ export default function ToasterActionDemo() {
         size="small"
         onPress={() =>
           toast('New comment on your post!', {
+            action: {
+              label: 'View',
+              onClick: () => alert('Viewed')
+            },
+            cancel: {
+              label: 'Cancel',
+              onClick: () => alert('Cancelled')
+            }
+          })
+        }
+      >
+        Do or Not
+      </Button>
+      <Button
+        appearance="outline"
+        size="small"
+        onPress={() =>
+          toast('New comment on your post!', {
             cancel: {
               label: 'Cancel',
               onClick: () => alert('Cancelled')

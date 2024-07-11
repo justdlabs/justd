@@ -9,13 +9,13 @@ import {
   type DateValue,
   type ValidationResult
 } from 'react-aria-components'
-import { Dialog } from './dialog'
 
 import { Button } from './button'
 import { Calendar, RangeCalendar } from './calendar'
 import { DateInput } from './date-field'
+import { Dialog } from './dialog'
+import { DynamicOverlay } from './dynamic-overlay'
 import { Description, FieldError, FieldGroup, Label } from './field'
-import { PopoverContentPrimitive } from './popover'
 import { ctr } from './primitive'
 
 interface DatePickerProps<T extends DateValue> extends DatePickerPrimitiveProps<T> {
@@ -40,11 +40,11 @@ function DatePicker<T extends DateValue>({ label, description, errorMessage, ...
       </FieldGroup>
       {description && <Description>{description}</Description>}
       <FieldError>{errorMessage}</FieldError>
-      <PopoverContentPrimitive className="rounded-xl border bg-popover">
+      <DynamicOverlay className="p-0 grid">
         <Dialog>
           <Calendar />
         </Dialog>
-      </PopoverContentPrimitive>
+      </DynamicOverlay>
     </DatePickerPrimitive>
   )
 }
@@ -78,11 +78,9 @@ function DateRangePicker<T extends DateValue>({ label, description, errorMessage
       </FieldGroup>
       {description && <Description>{description}</Description>}
       <FieldError>{errorMessage}</FieldError>
-      <PopoverContentPrimitive className="rounded-xl border bg-popover">
-        <Dialog>
-          <RangeCalendar />
-        </Dialog>
-      </PopoverContentPrimitive>
+      <DynamicOverlay>
+        <RangeCalendar />
+      </DynamicOverlay>
     </DateRangePickerPrimitive>
   )
 }

@@ -1,12 +1,14 @@
 'use client'
 
-import { IconChevronLgDown } from '@irsyadadl/paranoid'
 import React from 'react'
+
+import { IconChevronLgDown } from '@irsyadadl/paranoid'
 import {
   ComboBox as ComboboxPrimitive,
   type ComboBoxProps as ComboboxPrimitiveProps,
   type ValidationResult
 } from 'react-aria-components'
+
 import { Button } from './button'
 import { DropdownItem, DropdownSection } from './dropdown'
 import { Description, FieldError, FieldGroup, Input, Label } from './field'

@@ -1,20 +1,22 @@
 'use client'
 
-import { LayoutGroup, motion } from 'framer-motion'
 import { useId } from 'react'
+
+import { LayoutGroup, motion } from 'framer-motion'
 import {
   composeRenderProps,
+  Tab as TabPrimitive,
   TabList as TabListPrimitive,
   type TabListProps,
   TabPanel as TabPanelPrimitive,
   type TabPanelProps,
-  Tab as TabPrimitive,
   type TabProps,
   Tabs as TabsPrimitive,
   type TabsProps
 } from 'react-aria-components'
 import { twJoin } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
+
 import { cn } from './primitive'
 
 const tabsStyles = tv({

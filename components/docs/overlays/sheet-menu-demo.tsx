@@ -1,5 +1,7 @@
 'use client'
 
+import React from 'react'
+
 import {
   IconBook,
   IconBookOpen,
@@ -18,7 +20,6 @@ import {
   IconPerson,
   IconStar
 } from '@irsyadadl/paranoid'
-import React from 'react'
 import { Group, Menu } from 'react-aria-components'
 import {
   Avatar,

@@ -1,11 +1,7 @@
 'use client'
 
 import { composeRenderProps, Link as LinkPrimitive, type LinkProps as LinkPrimitiveProps } from 'react-aria-components'
-import { tv } from 'tailwind-variants'
-
-interface LinkProps extends LinkPrimitiveProps {
-  intent?: 'primary' | 'secondary' | 'light/dark'
-}
+import { tv, type VariantProps } from 'tailwind-variants'
 
 const linkStyles = tv({
   base: 'rounded transition focus:outline-none disabled:cursor-default disabled:no-underline forced-colors:disabled:text-[GrayText]',
@@ -24,20 +20,17 @@ const linkStyles = tv({
   }
 })
 
-function Link(props: LinkProps) {
+interface LinkProps extends LinkPrimitiveProps, VariantProps<typeof linkStyles> {}
+
+function Link({ className, intent, ...props }: LinkProps) {
   return (
     <LinkPrimitive
       {...props}
-      className={composeRenderProps(props.className, (className, renderProps) =>
-        linkStyles({
-          ...renderProps,
-          className,
-          intent: props.href ? props.intent : 'secondary'
-        })
+      className={composeRenderProps(className, (className, ...renderProps) =>
+        linkStyles({ ...renderProps, intent, className })
       )}
     />
   )
 }
 
-export { Link, LinkPrimitive }
-export type { LinkPrimitiveProps, LinkProps }
+export { Link, LinkPrimitive, type LinkPrimitiveProps, type LinkProps }

@@ -1,9 +1,11 @@
 'use client'
 
-import { IconCircleCheckFill, IconCircleInfoFill, IconTriangleInfoFill } from '@irsyadadl/paranoid'
 import * as React from 'react'
+
+import { IconCircleCheckFill, IconCircleInfoFill, IconTriangleInfoFill } from '@irsyadadl/paranoid'
 import { Heading, type HeadingProps, Text, type TextProps } from 'react-aria-components'
 import { tv, type VariantProps } from 'tailwind-variants'
+
 import { cn } from './primitive'
 
 const noteStyles = tv({

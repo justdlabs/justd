@@ -1,6 +1,7 @@
 'use client'
 
 import { Heading as HeadingPrimitive, type HeadingProps } from 'react-aria-components'
+
 import { cn } from './primitive'
 
 export function Heading({ className, level = 1, ...props }: HeadingProps) {

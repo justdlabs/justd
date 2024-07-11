@@ -1,4 +1,5 @@
 'use client'
+
 import { IconCubeFill } from '@irsyadadl/paranoid'
 import { buttonStyles, Link } from 'ui'
 

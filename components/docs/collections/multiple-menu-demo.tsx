@@ -1,7 +1,8 @@
 'use client'
 
-import { type Selection } from '@react-types/shared'
 import React from 'react'
+
+import { type Selection } from '@react-types/shared'
 import { Button, Menu, MenuCheckboxItem, MenuContent, MenuHeader, MenuSection } from 'ui'
 
 export default function MultipleMenuDemo() {

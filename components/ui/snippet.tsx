@@ -1,10 +1,12 @@
 'use client'
 
+import * as React from 'react'
+
 import { IconCheck, IconDuplicate } from '@irsyadadl/paranoid'
 import { AnimatePresence, motion } from 'framer-motion'
-import * as React from 'react'
 import { toast } from 'sonner'
 import { twMerge } from 'tailwind-merge'
+
 import { Button, type ButtonProps } from './button'
 
 const snippetVariants = {

@@ -1,6 +1,7 @@
+import { type ReactNode } from 'react'
+
 import { Aside } from '@/components/aside'
 import { SpeedInsights } from '@vercel/speed-insights/next'
-import { type ReactNode } from 'react'
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (

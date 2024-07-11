@@ -1,9 +1,10 @@
 'use client'
 
-import useEmblaCarousel, { type UseEmblaCarouselType } from 'embla-carousel-react'
 import * as React from 'react'
 
 import { IconChevronLgLeft, IconChevronLgRight } from '@irsyadadl/paranoid'
+import useEmblaCarousel, { type UseEmblaCarouselType } from 'embla-carousel-react'
+
 import type { ButtonProps } from './button'
 import { Button } from './button'
 import { cn } from './primitive'

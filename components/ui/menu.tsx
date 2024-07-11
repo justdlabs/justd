@@ -1,16 +1,17 @@
 'use client'
 
-import { IconBulletFill, IconCheck, IconChevronLgRight } from '@irsyadadl/paranoid'
 import * as React from 'react'
+
+import { IconBulletFill, IconCheck, IconChevronLgRight } from '@irsyadadl/paranoid'
 import {
   Button,
   type ButtonProps,
   composeRenderProps,
   Header,
   Keyboard,
+  Menu as MenuPrimitive,
   MenuItem as MenuItemPrimitive,
   type MenuItemProps as MenuItemPrimitiveProps,
-  Menu as MenuPrimitive,
   type MenuProps,
   MenuTrigger as MenuTriggerPrimitive,
   OverlayArrow,
@@ -25,6 +26,7 @@ import {
 } from 'react-aria-components'
 import { twJoin } from 'tailwind-merge'
 import type { VariantProps } from 'tailwind-variants'
+
 import { dropdownItemStyles } from './dropdown'
 import { cn } from './primitive'
 
@@ -95,22 +97,20 @@ const MenuContent = <T extends object>({
 }
 
 interface MenuItemProps extends Omit<MenuItemPrimitiveProps, 'isDanger'>, VariantProps<typeof dropdownItemStyles> {
-  inset?: boolean
   isDanger?: boolean
 }
 
-const MenuItem = ({ className, isDanger = false, inset, children, ...props }: MenuItemProps) => (
+const MenuItem = ({ className, isDanger = false, children, ...props }: MenuItemProps) => (
   <MenuItemPrimitive
     className={composeRenderProps(className, (className, renderProps) =>
       dropdownItemStyles({
         ...renderProps,
-        className: cn(inset && 'pl-8', className)
+        className
       })
     )}
     data-danger={isDanger ? 'true' : undefined}
     {...props}
   >
-    {/*<MenuItemPrimitive className={cn(menuItemVariants({ intent }), className, inset && 'pl-8')} {...props}>*/}
     {(values) => (
       <>
         {typeof children === 'function' ? children(values) : children}
@@ -155,9 +155,8 @@ const MenuKeyboard = ({ keys, className, ...props }: MenuKeyboardProps) => {
         <kbd
           key={index}
           className={twJoin([
-            'min-w-[2ch] text-center font-sans capitalize text-muted-fg group-focus:text-fg forced-colors:group-focus:text-[HighlightText]',
+            'text-center font-sans capitalize text-muted-fg group-focus:text-fg forced-colors:group-focus:text-[HighlightText]',
             'inline-grid min-h-5 min-w-5 place-content-center rounded bg-background font-sans text-[.75rem] uppercase text-fg ring-1 ring-fg/10 group-focus:opacity-60',
-            // Make sure key names that are longer than one character (like "Tab") have extra space
             index > 0 && char.length > 1 && 'pl-1'
           ])}
         >

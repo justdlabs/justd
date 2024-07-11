@@ -1,8 +1,9 @@
 'use client'
 
-import { Logo } from '@/components/logo'
-import { IconBell, IconBrandAdobe, IconBrandD, IconBrandFramer, IconBrandParanoid } from '@irsyadadl/paranoid'
 import type { FC, SVGProps } from 'react'
+
+import { Logo } from '@/components/logo'
+import { IconBell, IconBrandAdobe, IconBrandFramer, IconBrandGithub, IconBrandParanoid } from '@irsyadadl/paranoid'
 import { Menu, MenuItem } from 'react-aria-components'
 import { buttonStyles, cn } from 'ui'
 
@@ -34,7 +35,7 @@ export function DocRefs({ references }: any) {
         break
       case url.includes('github'):
         title = 'Github'
-        icon = IconBrandD
+        icon = IconBrandGithub
         break
       default:
         icon = () => null

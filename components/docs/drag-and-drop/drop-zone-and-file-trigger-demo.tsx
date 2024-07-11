@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+
 import { type FileDropItem } from 'react-aria'
 import { DropZone, FileTrigger, Label } from 'ui'
 

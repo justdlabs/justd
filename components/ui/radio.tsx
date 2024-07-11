@@ -1,20 +1,22 @@
 'use client'
 
-import { type ReactNode } from 'react'
+import * as React from 'react'
+
 import {
-  RadioGroup as RadioGroupPrimitive,
   Radio as RadioPrimitive,
+  RadioGroup as RadioGroupPrimitive,
   type RadioGroupProps as RACRadioGroupProps,
   type RadioProps,
   type ValidationResult
 } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
+
 import { Description, FieldError, Label } from './field'
 import { ctr } from './primitive'
 
 interface RadioGroupProps extends Omit<RACRadioGroupProps, 'children'> {
   label?: string
-  children?: ReactNode
+  children?: React.ReactNode
   description?: string
   errorMessage?: string | ((validation: ValidationResult) => string)
 }

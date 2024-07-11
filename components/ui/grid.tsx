@@ -1,8 +1,10 @@
 'use client'
 
 import React from 'react'
+
 import type { VariantProps } from 'tailwind-variants'
 import { tv } from 'tailwind-variants'
+
 import { cn } from './primitive'
 
 const gridCols = {

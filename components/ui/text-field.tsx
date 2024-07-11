@@ -1,13 +1,15 @@
 'use client'
 
-import { IconLoader } from '@irsyadadl/paranoid'
 import * as React from 'react'
+
+import { IconLoader } from '@irsyadadl/paranoid'
 import {
   TextField as TextFieldPrimitive,
   type TextFieldProps as TextFieldPrimitiveProps,
   type ValidationResult
 } from 'react-aria-components'
-import { Description, FieldError, FieldGroup, Input, Label } from './field'
+
+import { Description, FieldError, FieldGroup, fieldGroupPrefixStyles, Input, Label } from './field'
 import { ctr } from './primitive'
 
 interface TextFieldProps extends TextFieldPrimitiveProps {
@@ -35,10 +37,7 @@ const TextField = ({
   return (
     <TextFieldPrimitive {...props} className={ctr(props.className, 'group flex flex-col gap-1')}>
       {label && <Label>{label}</Label>}
-      <FieldGroup
-        data-loading={isLoading ? 'true' : undefined}
-        className="flex group-invalid:border-danger group-disabled:bg-secondary group-disabled:opacity-50 items-center group-invalid:focus-within:ring-danger/20"
-      >
+      <FieldGroup data-loading={isLoading ? 'true' : undefined} className={fieldGroupPrefixStyles()}>
         {isLoading && indicatorPlace === 'prefix' ? (
           <IconLoader className="animate-spin isPfx" />
         ) : prefix ? (
@@ -57,5 +56,4 @@ const TextField = ({
   )
 }
 
-export { TextField, TextFieldPrimitive }
-export type { TextFieldProps }
+export { TextField, TextFieldPrimitive, type TextFieldProps }

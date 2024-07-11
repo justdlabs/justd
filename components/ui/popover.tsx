@@ -1,17 +1,19 @@
 'use client'
 
-import React from 'react'
+import * as React from 'react'
+
 import {
   Button,
   composeRenderProps,
   DialogTrigger,
   OverlayArrow,
-  PopoverContext,
   Popover as PopoverPrimitive,
+  PopoverContext,
   type PopoverProps as PopoverPrimitiveProps,
   useSlottedContext
 } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
+
 import { ModalBody, ModalClose, ModalDescription, ModalFooter, ModalHeader, ModalOverlay, ModalTitle } from './modal'
 
 export interface PopoverProps extends Omit<PopoverPrimitiveProps, 'children'> {
@@ -19,7 +21,7 @@ export interface PopoverProps extends Omit<PopoverPrimitiveProps, 'children'> {
   children: React.ReactNode
 }
 
-const styles = tv({
+const popoverContentStyles = tv({
   base: 'max-w-xs rounded-xl border bg-popover bg-clip-padding p-4 text-popover-fg shadow-lg dark:backdrop-blur-2xl dark:backdrop-saturate-200 sm:max-w-3xl forced-colors:bg-[Canvas]',
   variants: {
     isEntering: {
@@ -50,7 +52,9 @@ const PopoverContent = ({ children, showArrow = true, className, ...props }: Pop
     <PopoverPrimitive
       offset={offset}
       {...props}
-      className={composeRenderProps(className, (className, renderProps) => styles({ ...renderProps, className }))}
+      className={composeRenderProps(className, (className, renderProps) =>
+        popoverContentStyles({ ...renderProps, className })
+      )}
     >
       {showArrow && (
         <OverlayArrow className="group">

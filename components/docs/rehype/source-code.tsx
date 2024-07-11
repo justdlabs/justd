@@ -1,10 +1,11 @@
 'use client'
 
+import * as React from 'react'
+
 import jsonPreviews from '@/components/docs/generated/previews.json'
 import { Code } from '@/components/docs/rehype/code'
 import { cn } from '@/lib/utils'
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@radix-ui/react-collapsible'
-import * as React from 'react'
 import { Button, Tab, TabList, TabPanel, Tabs } from 'ui'
 
 interface SourceCodeProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -45,7 +46,7 @@ export function SourceCode({ message, toShow, ...props }: SourceCodeProps) {
         <p className="mb-4 -mt-2">
           {message ? message : 'And next, you can copy the code below and paste it into your dopest component folder.'}
         </p>
-        <div className={cn('overflow-hidden rounded-md')}>
+        <div className="overflow-hidden rounded-md">
           <Collapsible open={isOpened[0]} onOpenChange={(open) => handleOpenChange(0, open)}>
             <div className={'relative overflow-hidden'} {...props}>
               <CollapsibleContent forceMount className={cn('overflow-hidden', !isOpened[0] && 'h-32')}>
@@ -86,9 +87,9 @@ export function SourceCode({ message, toShow, ...props }: SourceCodeProps) {
       </p>
 
       <Tabs>
-        <TabList>
+        <TabList className="overflow-x-auto no-scrollbar">
           {codeStrings.map((code, index) => (
-            <Tab key={index} id={`tab-${index}`}>
+            <Tab className="whitespace-nowrap" key={index} id={`tab-${index}`}>
               {code.name}.tsx
             </Tab>
           ))}
@@ -96,7 +97,7 @@ export function SourceCode({ message, toShow, ...props }: SourceCodeProps) {
         {codeStrings.map((code, index) => (
           <TabPanel key={index} id={`tab-${index}`}>
             <Collapsible open={isOpened[index]} onOpenChange={(open) => handleOpenChange(index, open)}>
-              <div className={'relative overflow-hidden'} {...props}>
+              <div className={'relative rounded-md overflow-hidden'} {...props}>
                 <CollapsibleContent forceMount className={cn('overflow-hidden', !isOpened[index] && 'h-32')}>
                   <div
                     className={cn(

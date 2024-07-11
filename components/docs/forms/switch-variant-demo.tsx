@@ -1,7 +1,8 @@
 'use client'
 
-import { OptionPreview } from '@/components/docs/outside/option-preview'
 import React from 'react'
+
+import { OptionPreview } from '@/components/docs/outside/option-preview'
 import { Select, SelectItem, Switch } from 'ui'
 
 const items = ['primary', 'secondary', 'success', 'danger', 'warning', 'info'].map((item) => ({

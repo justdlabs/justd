@@ -1,8 +1,9 @@
 'use client'
 
+import React from 'react'
+
 import { OptionPreview } from '@/components/docs/outside/option-preview'
 import { Time } from '@internationalized/date'
-import React from 'react'
 import { Switch, TimeField } from 'ui'
 
 export default function TimeFieldHcDemo() {

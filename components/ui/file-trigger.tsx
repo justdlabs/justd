@@ -1,12 +1,14 @@
 'use client'
 
-import { IconCamera, IconFolder, IconPaperclip } from '@irsyadadl/paranoid'
 import React from 'react'
+
+import { IconCamera, IconFolder, IconPaperclip } from '@irsyadadl/paranoid'
 import {
   FileTrigger as FileTriggerPrimitive,
   type FileTriggerProps as FileTriggerPrimitiveProps
 } from 'react-aria-components'
 import { type VariantProps } from 'tailwind-variants'
+
 import { Button, type buttonStyles } from './button'
 
 interface FileTriggerProps extends FileTriggerPrimitiveProps, VariantProps<typeof buttonStyles> {

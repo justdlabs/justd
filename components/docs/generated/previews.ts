@@ -230,6 +230,99 @@ export const previews: Record<string, any> = {
   "drag-and-drop/drop-zone-demo": {
     component: React.lazy(() => import("@/components/docs/drag-and-drop/drop-zone-demo")),
   },
+  "colors/color-wheel-controlled-demo": {
+    component: React.lazy(() => import("@/components/docs/colors/color-wheel-controlled-demo")),
+  },
+  "colors/color-field-disabled-demo": {
+    component: React.lazy(() => import("@/components/docs/colors/color-field-disabled-demo")),
+  },
+  "colors/color-swatch-demo": {
+    component: React.lazy(() => import("@/components/docs/colors/color-swatch-demo")),
+  },
+  "colors/color-wheel-disabled-demo": {
+    component: React.lazy(() => import("@/components/docs/colors/color-wheel-disabled-demo")),
+  },
+  "colors/color-field-with-prefix-demo": {
+    component: React.lazy(() => import("@/components/docs/colors/color-field-with-prefix-demo")),
+  },
+  "colors/color-slider-disabled-demo": {
+    component: React.lazy(() => import("@/components/docs/colors/color-slider-disabled-demo")),
+  },
+  "colors/color-area-channel-demo": {
+    component: React.lazy(() => import("@/components/docs/colors/color-area-channel-demo")),
+  },
+  "colors/color-picker-custom-colors-demo": {
+    component: React.lazy(() => import("@/components/docs/colors/color-picker-custom-colors-demo")),
+  },
+  "colors/color-picker-with-placeholder-demo": {
+    component: React.lazy(() => import("@/components/docs/colors/color-picker-with-placeholder-demo")),
+  },
+  "colors/color-area-demo": {
+    component: React.lazy(() => import("@/components/docs/colors/color-area-demo")),
+  },
+  "colors/color-picker-controlled-demo": {
+    component: React.lazy(() => import("@/components/docs/colors/color-picker-controlled-demo")),
+  },
+  "colors/color-swatch-picker-item-disabled-demo": {
+    component: React.lazy(() => import("@/components/docs/colors/color-swatch-picker-item-disabled-demo")),
+  },
+  "colors/color-slider-demo": {
+    component: React.lazy(() => import("@/components/docs/colors/color-slider-demo")),
+  },
+  "colors/color-field-with-suffix-demo": {
+    component: React.lazy(() => import("@/components/docs/colors/color-field-with-suffix-demo")),
+  },
+  "colors/color-swatch-controlled-demo": {
+    component: React.lazy(() => import("@/components/docs/colors/color-swatch-controlled-demo")),
+  },
+  "colors/color-picker-with-description-demo": {
+    component: React.lazy(() => import("@/components/docs/colors/color-picker-with-description-demo")),
+  },
+  "colors/color-field-demo": {
+    component: React.lazy(() => import("@/components/docs/colors/color-field-demo")),
+  },
+  "colors/color-slider-with-label-demo": {
+    component: React.lazy(() => import("@/components/docs/colors/color-slider-with-label-demo")),
+  },
+  "colors/color-area-space-demo": {
+    component: React.lazy(() => import("@/components/docs/colors/color-area-space-demo")),
+  },
+  "colors/color-wheel-demo": {
+    component: React.lazy(() => import("@/components/docs/colors/color-wheel-demo")),
+  },
+  "colors/color-picker-demo": {
+    component: React.lazy(() => import("@/components/docs/colors/color-picker-demo")),
+  },
+  "colors/color-area-controlled-demo": {
+    component: React.lazy(() => import("@/components/docs/colors/color-area-controlled-demo")),
+  },
+  "colors/color-picker-enable-swatch-demo": {
+    component: React.lazy(() => import("@/components/docs/colors/color-picker-enable-swatch-demo")),
+  },
+  "colors/color-picker-disabled-demo": {
+    component: React.lazy(() => import("@/components/docs/colors/color-picker-disabled-demo")),
+  },
+  "colors/color-picker-with-label-demo": {
+    component: React.lazy(() => import("@/components/docs/colors/color-picker-with-label-demo")),
+  },
+  "colors/color-picker-enable-selection-format-demo": {
+    component: React.lazy(() => import("@/components/docs/colors/color-picker-enable-selection-format-demo")),
+  },
+  "colors/color-picker-combination-demo": {
+    component: React.lazy(() => import("@/components/docs/colors/color-picker-combination-demo")),
+  },
+  "colors/color-area-disabled-demo": {
+    component: React.lazy(() => import("@/components/docs/colors/color-area-disabled-demo")),
+  },
+  "colors/color-swatch-picker-demo": {
+    component: React.lazy(() => import("@/components/docs/colors/color-swatch-picker-demo")),
+  },
+  "colors/color-slider-without-output-demo": {
+    component: React.lazy(() => import("@/components/docs/colors/color-slider-without-output-demo")),
+  },
+  "colors/color-field-controlled-demo": {
+    component: React.lazy(() => import("@/components/docs/colors/color-field-controlled-demo")),
+  },
   "pickers/select-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/pickers/select-disabled-demo")),
   },

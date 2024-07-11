@@ -1,6 +1,7 @@
 'use client'
 
 import React, { Suspense } from 'react'
+
 import { Heading } from 'react-aria-components'
 import { twJoin } from 'tailwind-merge'
 import { cn, Link, Skeleton } from 'ui'

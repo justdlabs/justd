@@ -1,13 +1,14 @@
 'use client'
 
-import { useSlotId } from '@react-aria/utils'
 import * as React from 'react'
+
+import { useSlotId } from '@react-aria/utils'
 import {
   composeRenderProps,
   type LabelProps,
+  Slider as SliderPrimitive,
   SliderOutput as SliderOutputPrimitive,
   type SliderOutputProps as SliderOutputPrimitiveProps,
-  Slider as SliderPrimitive,
   type SliderProps as SliderPrimitiveProps,
   SliderStateContext as SliderStateContextPrimitive,
   SliderThumb as SliderThumbPrimitive,
@@ -18,6 +19,7 @@ import {
   type TextProps
 } from 'react-aria-components'
 import { tv, type VariantProps } from 'tailwind-variants'
+
 import { Description, Label } from './field'
 
 const sliderStyles = tv({

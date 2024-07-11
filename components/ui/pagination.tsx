@@ -1,5 +1,7 @@
 'use client'
 
+import * as React from 'react'
+
 import {
   IconChevronLgLeft,
   IconChevronLgRight,
@@ -8,8 +10,8 @@ import {
   IconDotsHorizontal
 } from '@irsyadadl/paranoid'
 import Link from 'next/link'
-import * as React from 'react'
 import type { LabelProps } from 'react-aria-components'
+
 import { type ButtonProps, buttonStyles } from './button'
 import { Label } from './field'
 import { cn } from './primitive'

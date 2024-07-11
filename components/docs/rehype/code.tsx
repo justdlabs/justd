@@ -1,10 +1,11 @@
 'use client'
 
-import { IconCircleInfo } from '@irsyadadl/paranoid'
 import React from 'react'
+
+import { IconCircleInfo } from '@irsyadadl/paranoid'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { nightOwl as theme } from 'react-syntax-highlighter/dist/esm/styles/prism'
-import { cn, CopyButton } from 'ui'
+import { CopyButton, cn } from 'ui'
 import { copyToClipboard } from 'usemods'
 
 function Code({
