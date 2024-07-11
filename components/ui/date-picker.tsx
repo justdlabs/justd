@@ -78,8 +78,10 @@ function DateRangePicker<T extends DateValue>({ label, description, errorMessage
       </FieldGroup>
       {description && <Description>{description}</Description>}
       <FieldError>{errorMessage}</FieldError>
-      <DynamicOverlay>
-        <RangeCalendar />
+      <DynamicOverlay className="p-0 grid">
+        <Dialog>
+          <RangeCalendar />
+        </Dialog>
       </DynamicOverlay>
     </DateRangePickerPrimitive>
   )
