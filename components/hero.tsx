@@ -14,9 +14,10 @@ export function Hero() {
             Making your site accessible ain't rocket science.
           </Heading>
           <Text className="text-base lg:text-xl max-w-2xl block leading-relaxed text-muted-fg">
-            D. is a chill set of React components, built on top of{' '}
+            <strong className="text-fg">D.</strong> is a chill set of React components, built on top of{' '}
             <strong className="text-fg">React Aria Components</strong>, all about keeping the web accessible. Easy to
-            customize and just copy & paste into your React projects.
+            customize and just copy & paste into your React projects. Plus, it includes{' '}
+            <strong className="text-fg">Tailwind CSS</strong> for sleek styling right out of the box.
           </Text>
         </Header>
         <div className="mt-6">
