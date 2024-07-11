@@ -8,7 +8,6 @@ import { tv } from 'tailwind-variants'
 
 import { Description } from './field'
 
-
 const card = tv({
   slots: {
     root: 'rounded-lg xkd2 border bg-card text-fg shadow-sm [&:has(.larhy3):not(:has(.yahnba))>.ccvgs8x]:pt-6 [&:has(.larhy3)]:overflow-hidden [&_table]:overflow-hidden',

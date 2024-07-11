@@ -64,8 +64,11 @@ const ColorPicker = ({
             <ColorSwatch isBright={props.value ? isBrightColor(props.value) : false} className="-ml-1.5 size-6" />
             <span>{placeholder}</span>
           </Button>
-          <DynamicOverlay placement="bottom start" className="w-fit p-0 overflow-hidden min-w-fit">
-            <Dialog className="[[data-placement]>&]:p-[0.70rem] w-full lg:w-[18rem] lg:p-0">
+          <DynamicOverlay
+            placement="bottom start"
+            className="w-full p-0 overflow-hidden min-w-full sm:w-fit sm:min-w-fit"
+          >
+            <Dialog className="[[data-placement]>&]:p-[0.70rem] lg:w-[18rem] lg:p-0">
               <div className="space-y-2">
                 <div>
                   <ColorArea

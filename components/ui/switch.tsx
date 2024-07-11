@@ -5,7 +5,6 @@ import { tv, type VariantProps } from 'tailwind-variants'
 
 import { cn, focusRing } from './primitive'
 
-
 const trackStyles = tv({
   extend: focusRing,
   base: 'mr-2 h-5 w-8 cursor-pointer rounded-full border-2 border-transparent bg-zinc-400 dark:bg-zinc-600 transition duration-200',

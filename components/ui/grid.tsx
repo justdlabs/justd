@@ -7,7 +7,6 @@ import { tv } from 'tailwind-variants'
 
 import { cn } from './primitive'
 
-
 const gridCols = {
   1: 'grid-cols-1',
   2: 'grid-cols-2',

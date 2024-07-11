@@ -75,7 +75,9 @@ function CalendarHeader() {
 function CalendarGridHeader() {
   return (
     <CalendarGridHeaderPrimitive>
-      {(day) => <CalendarHeaderCell className="text-sm lg:text-xs font-semibold text-gray-500">{day}</CalendarHeaderCell>}
+      {(day) => (
+        <CalendarHeaderCell className="text-sm lg:text-xs font-semibold text-gray-500">{day}</CalendarHeaderCell>
+      )}
     </CalendarGridHeaderPrimitive>
   )
 }

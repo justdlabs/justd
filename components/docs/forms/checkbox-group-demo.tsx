@@ -4,7 +4,6 @@ import React from 'react'
 
 import { Checkbox, CheckboxGroup } from 'ui'
 
-
 export default function CheckboxGroupDemo() {
   return (
     <CheckboxGroup label="Settings">

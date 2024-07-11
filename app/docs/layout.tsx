@@ -3,7 +3,6 @@ import { type ReactNode } from 'react'
 import { Aside } from '@/components/aside'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 
-
 export default function Layout({ children }: { children: ReactNode }) {
   return (
     <div className="flex w-full flex-col">

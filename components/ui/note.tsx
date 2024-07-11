@@ -8,7 +8,6 @@ import { tv, type VariantProps } from 'tailwind-variants'
 
 import { cn } from './primitive'
 
-
 const noteStyles = tv({
   base: [
     'relative rounded-lg ring-1 dark:ring-inset ring-border p-4 [&_a]:font-medium [&_a:hover]:underline',

@@ -4,7 +4,6 @@ import React from 'react'
 
 import { Meter } from 'ui'
 
-
 export default function MeterDemo() {
   const [value, setValue] = React.useState(1)
 

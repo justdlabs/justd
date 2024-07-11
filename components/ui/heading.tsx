@@ -4,7 +4,6 @@ import { Heading as HeadingPrimitive, type HeadingProps } from 'react-aria-compo
 
 import { cn } from './primitive'
 
-
 export function Heading({ className, level = 1, ...props }: HeadingProps) {
   return (
     <HeadingPrimitive

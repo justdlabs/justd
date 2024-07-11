@@ -11,7 +11,6 @@ import {
 import { Label } from './field'
 import { ctr } from './primitive'
 
-
 export interface ProgressBarProps extends ProgressBarPrimitiveProps {
   label?: string
 }

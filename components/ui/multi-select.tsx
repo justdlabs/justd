@@ -7,7 +7,6 @@ import { Command, CommandGroup, CommandInput, CommandItem, CommandList } from 'c
 
 import { Badge } from './badge'
 
-
 interface ItemProps {
   label: string
   value: string

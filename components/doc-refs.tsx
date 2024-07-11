@@ -7,7 +7,6 @@ import { IconBell, IconBrandAdobe, IconBrandFramer, IconBrandGithub, IconBrandPa
 import { Menu, MenuItem } from 'react-aria-components'
 import { buttonStyles, cn } from 'ui'
 
-
 export function DocRefs({ references }: any) {
   const urls = references.map((url: string) => {
     let title = ''

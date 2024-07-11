@@ -52,7 +52,9 @@ const PopoverContent = ({ children, showArrow = true, className, ...props }: Pop
     <PopoverPrimitive
       offset={offset}
       {...props}
-      className={composeRenderProps(className, (className, renderProps) => popoverContentStyles({ ...renderProps, className }))}
+      className={composeRenderProps(className, (className, renderProps) =>
+        popoverContentStyles({ ...renderProps, className })
+      )}
     >
       {showArrow && (
         <OverlayArrow className="group">

@@ -2,12 +2,11 @@
 
 import React from 'react'
 
-import { buttonStyles } from '@/components/ui/button'
 import { useTheme } from 'next-themes'
 import { Toaster as ToasterPrimitive, type ToasterProps } from 'sonner'
 
+import { buttonStyles } from './button'
 import { cn } from './primitive'
-
 
 const Toaster = ({ ...props }: ToasterProps) => {
   const { theme = 'system' } = useTheme()

@@ -6,7 +6,6 @@ import { OptionPreview } from '@/components/docs/outside/option-preview'
 import { Button, SheetContent, SheetDescription, SheetHeader, SheetOverlay, SheetTitle, Switch } from 'ui'
 import { titleCase } from 'usemods'
 
-
 type Side = 'left' | 'right' | 'top' | 'bottom'
 export default function SheetDemo() {
   const [sheetSide, setSheetSide] = React.useState<Side>('left')

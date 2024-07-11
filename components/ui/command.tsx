@@ -11,7 +11,6 @@ import type { ModalOverlayProps } from './modal'
 import { ModalOverlay } from './modal'
 import { cn, useMediaQuery } from './primitive'
 
-
 type CommandComponent = React.ForwardRefExoticComponent<
   React.ComponentPropsWithoutRef<typeof CommandPrimitive> & React.RefAttributes<HTMLElement>
 >
