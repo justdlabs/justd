@@ -2,42 +2,52 @@
 
 import React from 'react'
 
-import { IconCircleCheckFill, IconCircleInfoFill, IconLoader, IconTriangleInfoFill } from '@irsyadadl/paranoid'
+import { buttonStyles } from '@/components/ui/button'
 import { useTheme } from 'next-themes'
-import { Toaster as Sonner } from 'sonner'
-import { twJoin } from 'tailwind-merge'
+import { Toaster as ToasterPrimitive, type ToasterProps } from 'sonner'
 
-type ToasterProps = React.ComponentProps<typeof Sonner>
+import { cn } from './primitive'
 
 const Toaster = ({ ...props }: ToasterProps) => {
   const { theme = 'system' } = useTheme()
   return (
-    <Sonner
+    <ToasterPrimitive
       theme={theme as ToasterProps['theme']}
       className="toaster group"
       toastOptions={{
         unstyled: true,
-        className: twJoin(
-          'ring-1 p-4 group ring-border rounded-lg gap-x-1 bg-background text-fg flex overflow-hidden w-full text-sm backdrop-blur-xl',
-          '[&_svg]:size-5 [&_svg]:mt-1.5'
-        ),
+        duration: 300000,
+        closeButton: true,
         classNames: {
+          toast: cn(
+            'ring-1 w-[25rem] px-4 py-3 right-0 font-normal sm:px-4 sm:py-6 group ring-border rounded-xl bg-background text-fg overflow-hidden text-[0.925rem] backdrop-blur-xl',
+            '[&:has([data-button])_[data-close-button="true"]]:hidden',
+            '[&:not([data-description])_[data-title]]:font-normal',
+            '[&:has([data-description])_[data-title]]:!font-medium',
+            '[&>[data-button]]:absolute [&>[data-button=true]]:bottom-4',
+            '[&>[data-action=true]]:right-4',
+            '[&>[data-cancel=true]]:left-4'
+          ),
+          icon: 'hidden',
+          content: '[&:not(:has(+button))]:pr-10 [&:has(+button)]:pb-11 md:[&:has(+button)]:pb-9',
           error: 'ring-red-500/20 dark:ring-red-500/20 bg-danger/10 dark:text-red-50 text-red-950 dark:ring-inset',
           success:
             'ring-emerald-500/30 dark:ring-emerald-500/20 bg-success/10 dark:text-emerald-50 text-emerald-950 dark:ring-inset',
           warning:
             '!ring-amber-500/25 dark:!ring-amber-500/20 bg-warning/10 dark:text-amber-50 text-amber-950 dark:ring-inset',
           info: 'ring-lime-500/30 dark:ring-lime-500/20 bg-lime-500/10 dark:text-lime-50 text-lime-950 dark:ring-inset',
-          actionButton: 'py-1 rounded-md text-xs px-2 bg-primary text-primary-fg dark:ring-inset',
-          cancelButton: 'py-1 rounded-md text-xs px-2 bg-secondary text-secondary-fg dark:ring-inset'
+          cancelButton: buttonStyles({
+            className: '',
+            size: 'extra-small',
+            appearance: 'outline'
+          }),
+          actionButton: buttonStyles({
+            className: 'self-end justify-self-end',
+            size: 'extra-small'
+          }),
+          closeButton:
+            '[&_svg]:size-5 size-8 absolute top-1/2 transform -translate-y-1/2 right-4 left-auto grid place-content-center rounded-md hover:bg-black/20 dark:hover:bg-white/20 border-0 [&_svg]:text-fg'
         }
-      }}
-      icons={{
-        success: <IconCircleCheckFill className="text-success" />,
-        info: <IconCircleInfoFill className="text-lime-500" />,
-        warning: <IconTriangleInfoFill className="text-amber-500" />,
-        error: <IconCircleInfoFill className="text-danger" />,
-        loading: <IconLoader className="animate-spin" />
       }}
       {...props}
     />

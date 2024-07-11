@@ -1,5 +1,6 @@
 {
   "tailwindFunctions": [
+    "twJoin",
     "clsx",
     "tw",
     "tv",
