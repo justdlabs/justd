@@ -4,7 +4,7 @@ import { composeRenderProps, Link as LinkPrimitive, type LinkProps as LinkPrimit
 import { tv, type VariantProps } from 'tailwind-variants'
 
 const linkStyles = tv({
-  base: 'rounded transition focus:outline-none disabled:cursor-default disabled:no-underline forced-colors:disabled:text-[GrayText]',
+  base: 'rounded transition-colors focus:outline-none disabled:cursor-default disabled:no-underline forced-colors:disabled:text-[GrayText]',
   variants: {
     intent: {
       unstyled: 'text-fg',

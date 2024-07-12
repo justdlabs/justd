@@ -78,7 +78,7 @@ function TocLink({ item, activeId }: { item: TableOfContentsProps; activeId: str
   )
 }
 
-function useActiveItem(itemIds: string[]) {
+export function useActiveItem(itemIds: string[]) {
   const [activeId, setActiveId] = React.useState<string | null>(null)
 
   React.useEffect(() => {
