@@ -42,8 +42,14 @@ const segmentStyles = tv({
       true: 'text-fg/50 forced-colors:text-[GrayText]'
     },
     isFocused: {
-      true: 'bg-primary text-primary-fg forced-colors:bg-[Highlight] forced-colors:text-[HighlightText]'
+      true: [
+        'bg-primary text-primary-fg forced-colors:bg-[Highlight] forced-colors:text-[HighlightText]',
+        'invalid:bg-danger invalid:text-danger-fg'
+      ]
     }
+    // isInvalid: {
+    //   true: 'bg-danger text-danger-fg'
+    // }
   }
 })
 

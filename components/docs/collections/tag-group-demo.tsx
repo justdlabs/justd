@@ -2,7 +2,7 @@
 
 import { Tag, TagGroup } from 'ui'
 
-const androidBrands = [
+export const androidBrands = [
   { id: '1', name: 'Samsung', available: false },
   { id: '2', name: 'OnePlus', available: true },
   { id: '3', name: 'Google', available: true },

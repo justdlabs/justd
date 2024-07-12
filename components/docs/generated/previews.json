@@ -9,9 +9,24 @@
     "raw": "'use client'\n\nimport { DateRangePicker } from 'ui'\n\nexport default function DateRangePickerDisabledDemo() {\n  return <DateRangePicker isDisabled label=\"Event date\" />\n}\n",
     "type": "docs"
   },
+  "date-and-time/date-range-picker-controlled-demo": {
+    "component": "@/components/docs/date-and-time/date-range-picker-controlled-demo",
+    "raw": "'use client'\n\nimport React from 'react'\n\nimport { getLocalTimeZone, today } from '@internationalized/date'\nimport { useDateFormatter } from '@react-aria/i18n'\nimport { DateRangePicker } from 'ui'\n\nexport default function DateRangePickerControlledDemo() {\n  const now = today(getLocalTimeZone())\n  const tomorrowWeek = today(getLocalTimeZone()).add({ days: 12 })\n  const formatter = useDateFormatter({ dateStyle: 'full' })\n\n  const [value, setValue] = React.useState({\n    start: now,\n    end: tomorrowWeek\n  })\n\n  return (\n    <div className=\"space-y-3\">\n      <div className=\"divide-y [&_p]:py-2\">\n        <p>\n          {value\n            ? `${formatter.format(value.start.toDate(getLocalTimeZone()))} to ${formatter.format(value.end.toDate(getLocalTimeZone()))}`\n            : '-- to --'}\n        </p>\n        <p>{value ? `${value.start.toString()} to ${value.end.toString()}` : '-- to --'}</p>\n      </div>\n      <DateRangePicker value={value} onChange={setValue} label=\"Event date\" />\n    </div>\n  )\n}\n",
+    "type": "docs"
+  },
   "date-and-time/time-field-disabled-demo": {
     "component": "@/components/docs/date-and-time/time-field-disabled-demo",
     "raw": "'use client'\n\nimport { TimeField } from 'ui'\n\nexport default function TimeFieldDisabledDemo() {\n  return <TimeField isDisabled label=\"Event time\" />\n}\n",
+    "type": "docs"
+  },
+  "date-and-time/date-picker-custom-validation-demo": {
+    "component": "@/components/docs/date-and-time/date-picker-custom-validation-demo",
+    "raw": "'use client'\n\nimport React from 'react'\n\nimport { getLocalTimeZone, parseDate, startOfYear, today } from '@internationalized/date'\nimport { Button, DatePicker, Form } from 'ui'\n\nexport default function DatePickerInvalidDemo() {\n  const ly = startOfYear(today(getLocalTimeZone()))\n  const now = today(getLocalTimeZone())\n  const [value, setValue] = React.useState(parseDate(ly.toString()))\n  return (\n    <Form onSubmit={(e) => e.preventDefault()}>\n      <DatePicker\n        validate={(date) => (date < now ? 'Select a future date, please.' : null)}\n        value={value}\n        onChange={setValue}\n        label=\"Delivery date\"\n        className=\"mb-2\"\n      />\n\n      <Button type=\"submit\">Submit</Button>\n    </Form>\n  )\n}\n",
+    "type": "docs"
+  },
+  "date-and-time/date-field-controlled-demo": {
+    "component": "@/components/docs/date-and-time/date-field-controlled-demo",
+    "raw": "'use client'\n\nimport React from 'react'\n\nimport { getLocalTimeZone, parseDate, today } from '@internationalized/date'\nimport { useDateFormatter } from '@react-aria/i18n'\nimport { DateField } from 'ui'\n\nexport default function DateFieldDisabledDemo() {\n  const now = today(getLocalTimeZone())\n  const [value, setValue] = React.useState(parseDate(now.toString()))\n\n  const formatter = useDateFormatter({ dateStyle: 'full' })\n\n  return (\n    <div className=\"space-y-3\">\n      <div className=\"divide-y [&_p]:py-2\">\n        <p>{value ? formatter.format(value.toDate(getLocalTimeZone())) : '--'}</p>\n        <p>{value ? value.toString() : '--'}</p>\n      </div>\n      <DateField value={value} onChange={setValue} label=\"Event date\" />\n    </div>\n  )\n}\n",
     "type": "docs"
   },
   "date-and-time/range-calendar-demo": {
@@ -22,6 +37,16 @@
   "date-and-time/date-picker-demo": {
     "component": "@/components/docs/date-and-time/date-picker-demo",
     "raw": "'use client'\n\nimport { DatePicker } from 'ui'\n\nexport default function DatePickerDemo() {\n  return <DatePicker label=\"Event date\" />\n}\n",
+    "type": "docs"
+  },
+  "date-and-time/date-range-picker-custom-validation-demo": {
+    "component": "@/components/docs/date-and-time/date-range-picker-custom-validation-demo",
+    "raw": "'use client'\n\nimport { getLocalTimeZone, today } from '@internationalized/date'\nimport { Button, DateRangePicker, Form } from 'ui'\n\nexport default function DateRangePickerCustomValidationDemo() {\n  return (\n    <Form onSubmit={(e) => e.preventDefault()}>\n      <DateRangePicker\n        label=\"Room Booking Dates\"\n        validate={(range) => (range?.end.compare(range.start) > 7 ? 'Maximum booking duration is 1 week.' : null)}\n        defaultValue={{\n          start: today(getLocalTimeZone()),\n          end: today(getLocalTimeZone()).add({ weeks: 2 })\n        }}\n        className=\"mb-2\"\n      />\n      <Button type=\"submit\">Book Room</Button>\n    </Form>\n  )\n}\n",
+    "type": "docs"
+  },
+  "date-and-time/time-field-validation-demo": {
+    "component": "@/components/docs/date-and-time/time-field-validation-demo",
+    "raw": "'use client'\n\nimport { Button, Form, TimeField } from 'ui'\n\nexport default function TimeFieldValidationDemo() {\n  return (\n    <Form onSubmit={(e) => e.preventDefault()}>\n      <TimeField label=\"Event time\" isRequired className=\"mb-2\" />\n      <Button type=\"submit\">Submit</Button>\n    </Form>\n  )\n}\n",
     "type": "docs"
   },
   "date-and-time/date-field-disabled-demo": {
@@ -39,9 +64,24 @@
     "raw": "'use client'\n\nimport { DateRangePicker } from 'ui'\n\nexport default function DateRangePickerDemo() {\n  return <DateRangePicker label=\"Event date\" />\n}\n",
     "type": "docs"
   },
+  "date-and-time/date-picker-required-demo": {
+    "component": "@/components/docs/date-and-time/date-picker-required-demo",
+    "raw": "'use client'\n\nimport React from 'react'\n\nimport { Button, DatePicker, Form } from 'ui'\n\nexport default function DatePickerRequiredDemo() {\n  return (\n    <Form onSubmit={(e) => e.preventDefault()}>\n      <DatePicker label=\"Delivery date\" name=\"deliveryDate\" isRequired className=\"mb-2\" />\n\n      <Button type=\"submit\">Submit</Button>\n    </Form>\n  )\n}\n",
+    "type": "docs"
+  },
   "date-and-time/time-field-hc-demo": {
     "component": "@/components/docs/date-and-time/time-field-hc-demo",
     "raw": "'use client'\n\nimport React from 'react'\n\nimport { OptionPreview } from '@/components/docs/outside/option-preview'\nimport { Time } from '@internationalized/date'\nimport { Switch, TimeField } from 'ui'\n\nexport default function TimeFieldHcDemo() {\n  const [hc, setHc] = React.useState<12 | 24>(24)\n  const [value, setValue] = React.useState(new Time(13, 45))\n  return (\n    <>\n      <OptionPreview>\n        <Switch isSelected={hc === 24} onChange={() => setHc((prevHc) => (prevHc === 24 ? 12 : 24))}>\n          {hc} hour\n        </Switch>\n      </OptionPreview>\n      <TimeField value={value} onChange={setValue} hourCycle={hc} label=\"Event time\" />\n    </>\n  )\n}\n",
+    "type": "docs"
+  },
+  "date-and-time/time-field-controlled-demo": {
+    "component": "@/components/docs/date-and-time/time-field-controlled-demo",
+    "raw": "'use client'\n\nimport React from 'react'\n\nimport { Time } from '@internationalized/date'\nimport { TimeField } from 'ui'\n\nexport default function TimeFieldValidationDemo() {\n  const [value, setValue] = React.useState(new Time(11, 45))\n  return (\n    <div className=\"space-y-3\">\n      <div className=\"divide-y [&_p]:py-2\">\n        <p>{value ? value.toString() : '--'}</p>\n      </div>\n      <TimeField label=\"Event time\" value={value} onChange={setValue} />\n    </div>\n  )\n}\n",
+    "type": "docs"
+  },
+  "date-and-time/date-field-validation-demo": {
+    "component": "@/components/docs/date-and-time/date-field-validation-demo",
+    "raw": "'use client'\n\nimport { Button, DateField, Form } from 'ui'\n\nexport default function DateFieldDisabledDemo() {\n  return (\n    <Form onSubmit={(e) => e.preventDefault()}>\n      <DateField isRequired label=\"Event date\" className=\"mb-2\" />\n      <Button type=\"submit\">Submit</Button>\n    </Form>\n  )\n}\n",
     "type": "docs"
   },
   "date-and-time/date-picker-disabled-demo": {
@@ -54,9 +94,24 @@
     "raw": "'use client'\n\nimport { TimeField } from 'ui'\n\nexport default function TimeFieldDemo() {\n  return <TimeField label=\"Event time\" />\n}\n",
     "type": "docs"
   },
+  "date-and-time/date-range-picker-validation-demo": {
+    "component": "@/components/docs/date-and-time/date-range-picker-validation-demo",
+    "raw": "'use client'\n\nimport { Button, DateRangePicker, Form } from 'ui'\n\nexport default function DateRangePickerValidationDemo() {\n  return (\n    <Form onSubmit={(e) => e.preventDefault()}>\n      <DateRangePicker isRequired label=\"Event date\" className=\"mb-2\" />\n      <Button type=\"submit\">Submit</Button>\n    </Form>\n  )\n}\n",
+    "type": "docs"
+  },
+  "date-and-time/date-picker-controlled-demo": {
+    "component": "@/components/docs/date-and-time/date-picker-controlled-demo",
+    "raw": "import React from 'react'\n\nimport { getLocalTimeZone, parseDate, today } from '@internationalized/date'\nimport { useDateFormatter } from '@react-aria/i18n'\nimport { DatePicker } from 'ui'\n\nexport default function DatePickerControlledDemo() {\n  const now = today(getLocalTimeZone())\n\n  const [value, setValue] = React.useState(parseDate(now.toString()))\n\n  const formatter = useDateFormatter({ dateStyle: 'full' })\n\n  return (\n    <div className=\"space-y-3\">\n      <div className=\"divide-y [&_p]:py-2\">\n        <p>{value ? formatter.format(value.toDate(getLocalTimeZone())) : '--'}</p>\n        <p>{value ? value.toString() : '--'}</p>\n      </div>\n      <DatePicker value={value} onChange={setValue} label=\"Event date\" />\n    </div>\n  )\n}\n",
+    "type": "docs"
+  },
   "forms/slider-range-demo": {
     "component": "@/components/docs/forms/slider-range-demo",
     "raw": "'use client'\n\nimport { Slider } from 'ui'\n\nexport default function SliderRangeDemo() {\n  return <Slider defaultValue={[25, 75]} label=\"Progress tracking\" />\n}\n",
+    "type": "docs"
+  },
+  "forms/text-field-validation-demo": {
+    "component": "@/components/docs/forms/text-field-validation-demo",
+    "raw": "'use client'\n\nimport { Button, Form, TextField } from 'ui'\n\nexport default function TextFieldValidationDemo() {\n  return (\n    <Form>\n      <TextField isRequired label=\"Name\" className=\"mb-2\" />\n      <Button type=\"submit\">Submit</Button>\n    </Form>\n  )\n}\n",
     "type": "docs"
   },
   "forms/checkbox-demo": {
@@ -67,6 +122,11 @@
   "forms/checkbox-group-demo": {
     "component": "@/components/docs/forms/checkbox-group-demo",
     "raw": "'use client'\n\nimport React from 'react'\n\nimport { Checkbox, CheckboxGroup } from 'ui'\n\nexport default function CheckboxGroupDemo() {\n  return (\n    <CheckboxGroup label=\"Settings\">\n      <React.Fragment key=\".0\">\n        <Checkbox value=\"notifications\">Enable notifications</Checkbox>\n        <Checkbox value=\"auto_update\">Auto-update applications</Checkbox>\n        <Checkbox value=\"dark_mode\">Enable dark mode</Checkbox>\n        <Checkbox value=\"location_access\">Allow location access</Checkbox>\n        <Checkbox value=\"two_factor_auth\">Enable two-factor authentication</Checkbox>\n      </React.Fragment>\n    </CheckboxGroup>\n  )\n}\n",
+    "type": "docs"
+  },
+  "forms/search-field-controlled-demo": {
+    "component": "@/components/docs/forms/search-field-controlled-demo",
+    "raw": "'use client'\n\nimport React from 'react'\n\nimport { Description, SearchField } from 'ui'\n\nexport default function SearchFieldControlledDemo() {\n  const [value, setValue] = React.useState('')\n  return (\n    <>\n      <SearchField value={value} onChange={setValue} className=\"mb-2\" />\n      <Description className=\"mt-2 block [&>strong]:text-fg\">\n        You have typed: <strong>{value ?? '-'}</strong>\n      </Description>\n    </>\n  )\n}\n",
     "type": "docs"
   },
   "forms/input-otp-controlled-demo": {
@@ -104,6 +164,21 @@
     "raw": "'use client'\n\nimport { NumberField } from 'ui'\n\nexport default function NumberFieldDisabledDemo() {\n  return <NumberField isDisabled label=\"Cookies\" />\n}\n",
     "type": "docs"
   },
+  "forms/search-field-disabled-demo": {
+    "component": "@/components/docs/forms/search-field-disabled-demo",
+    "raw": "'use client'\n\nimport { SearchField } from 'ui'\n\nexport default function SearchFieldDisabledDemo() {\n  return <SearchField isDisabled />\n}\n",
+    "type": "docs"
+  },
+  "forms/checkbox-controlled-demo": {
+    "component": "@/components/docs/forms/checkbox-controlled-demo",
+    "raw": "'use client'\n\nimport React from 'react'\n\nimport { Checkbox, Description } from 'ui'\n\nexport default function CheckboxControlledDemo() {\n  const [selected, setSelection] = React.useState(false)\n  return (\n    <>\n      <Checkbox isSelected={selected} onChange={setSelection} value=\"updates\">\n        Receive Updates\n      </Checkbox>\n      <Description className=\"mt-2 block [&>strong]:text-fg\">\n        You have <strong>{selected ? 'enabled' : 'disabled'}</strong> the option.\n      </Description>\n    </>\n  )\n}\n",
+    "type": "docs"
+  },
+  "forms/slider-controlled-demo": {
+    "component": "@/components/docs/forms/slider-controlled-demo",
+    "raw": "'use client'\n\nimport React from 'react'\n\nimport { Description, Slider } from 'ui'\n\nexport default function SearchFieldControlledDemo() {\n  const [temperature, setTemperature] = React.useState<number>(31)\n  const [saturation, setSaturation] = React.useState<number[]>([21, 86])\n  return (\n    <div className=\"space-y-6\">\n      <div>\n        <Slider value={temperature} onChange={(v) => setTemperature(v as number)} label=\"Temperature\" />\n        <Description className=\"mt-2 block [&>strong]:text-fg\">\n          Current temperature: <strong>{temperature ?? '-'}</strong>\n        </Description>\n      </div>\n      <div>\n        <Slider value={saturation} onChange={(v) => setSaturation(v as number[])} label=\"Saturation\" />\n        <Description className=\"mt-2 block [&>strong]:text-fg\">\n          Current saturation: <strong>{saturation ?? '-'}</strong>\n        </Description>\n      </div>\n    </div>\n  )\n}\n",
+    "type": "docs"
+  },
   "forms/radio-group-demo": {
     "component": "@/components/docs/forms/radio-group-demo",
     "raw": "'use client'\n\nimport { Radio, RadioGroup } from 'ui'\n\nexport default function RadioGroupDemo() {\n  return (\n    <RadioGroup label=\"Features\">\n      <Radio value=\"fs\">Font size: Small, Medium, Large</Radio>\n      <Radio value=\"dr\">Display resolution: 1080p, 1440p, 4K</Radio>\n      <Radio value=\"ss\">Sound settings: Mute, Low, Medium, High</Radio>\n      <Radio value=\"bi\">Background image: Default, Custom</Radio>\n      <Radio value=\"ks\">Keyboard shortcuts: Enabled, Disabled</Radio>\n    </RadioGroup>\n  )\n}\n",
@@ -112,6 +187,11 @@
   "forms/slider-demo": {
     "component": "@/components/docs/forms/slider-demo",
     "raw": "import { Slider } from 'ui'\n\nexport default function SliderDemo() {\n  return <Slider label=\"Volume\" />\n}\n",
+    "type": "docs"
+  },
+  "forms/textarea-controlled-demo": {
+    "component": "@/components/docs/forms/textarea-controlled-demo",
+    "raw": "'use client'\n\nimport React from 'react'\n\nimport { Textarea } from 'ui'\n\nexport default function TextareaControlledDemo() {\n  const [value, setValue] = React.useState('')\n  return (\n    <>\n      <Textarea value={value} onChange={setValue} label=\"Address\" className=\"mb-2\" />\n      <p className=\"mt-2\">You have typed: {value ?? '-'}</p>\n    </>\n  )\n}\n",
     "type": "docs"
   },
   "forms/checkbox-invalid-demo": {
@@ -127,6 +207,11 @@
   "forms/slider-disabled-demo": {
     "component": "@/components/docs/forms/slider-disabled-demo",
     "raw": "'use client'\n\nimport { Slider } from 'ui'\n\nexport default function SliderDisabledDemo() {\n  return <Slider isDisabled label=\"Volume\" />\n}\n",
+    "type": "docs"
+  },
+  "forms/radio-group-controlled-demo": {
+    "component": "@/components/docs/forms/radio-group-controlled-demo",
+    "raw": "import React from 'react'\n\nimport { Description, Radio, RadioGroup } from 'ui'\n\nexport default function RadioGroupControlledDemo() {\n  const [selected, setSelected] = React.useState('')\n  return (\n    <>\n      <RadioGroup label=\"Features\" value={selected} onChange={setSelected}>\n        <Radio value=\"theme\">Theme</Radio>\n        <Radio value=\"language\">Language</Radio>\n        <Radio value=\"timezone\">Timezone</Radio>\n        <Radio value=\"notifications\">Notifications</Radio>\n        <Radio value=\"privacy\">Privacy</Radio>\n      </RadioGroup>\n      <Description className=\"mt-2 block [&>strong]:text-fg\">\n        You have selected: <strong>{selected ?? '-'}</strong>\n      </Description>\n    </>\n  )\n}\n",
     "type": "docs"
   },
   "forms/text-field-prefix-suffix-demo": {
@@ -147,6 +232,11 @@
   "forms/text-field-demo": {
     "component": "@/components/docs/forms/text-field-demo",
     "raw": "'use client'\n\nimport { TextField } from 'ui'\n\nexport default function TextFieldDemo() {\n  return <TextField label=\"Name\" />\n}\n",
+    "type": "docs"
+  },
+  "forms/textarea-validation-demo": {
+    "component": "@/components/docs/forms/textarea-validation-demo",
+    "raw": "'use client'\n\nimport React from 'react'\n\nimport { Button, Form, Textarea } from 'ui'\n\nexport default function TextareaControlledDemo() {\n  const [value, setValue] = React.useState('')\n  return (\n    <Form onSubmit={(e) => e.preventDefault()}>\n      <Textarea value={value} onChange={setValue} label=\"Address\" isRequired className=\"mb-2\" />\n      <Button type=\"submit\">Submit</Button>\n    </Form>\n  )\n}\n",
     "type": "docs"
   },
   "forms/slider-step-demo": {
@@ -189,14 +279,34 @@
     "raw": "'use client'\n\nimport { Checkbox } from 'ui'\n\nexport default function CheckboxDisabledDemo() {\n  return <Checkbox isDisabled>Enable notifications</Checkbox>\n}\n",
     "type": "docs"
   },
+  "forms/switch-controlled-demo": {
+    "component": "@/components/docs/forms/switch-controlled-demo",
+    "raw": "'use client'\n\nimport React from 'react'\n\nimport { Description, Switch } from 'ui'\n\nexport default function SwitchControlledDemo() {\n  const [darkMode, setDarkMode] = React.useState(false)\n  return (\n    <>\n      <Switch isSelected={darkMode} onChange={setDarkMode} value=\"dark_mode\">\n        Enable Dark Mode\n      </Switch>\n\n      <Description className=\"mt-2 block [&>strong]:text-fg\">\n        Dark Mode is <strong>{darkMode ? 'enabled' : 'disabled'}</strong>\n      </Description>\n    </>\n  )\n}\n",
+    "type": "docs"
+  },
   "forms/text-field-loading-demo": {
     "component": "@/components/docs/forms/text-field-loading-demo",
     "raw": "'use client'\n\nimport { TextField } from 'ui'\n\nexport default function TextFieldLoadingDemo() {\n  return <TextField isLoading indicatorPlace=\"suffix\" label=\"Name\" />\n}\n",
     "type": "docs"
   },
+  "forms/text-field-controlled-demo": {
+    "component": "@/components/docs/forms/text-field-controlled-demo",
+    "raw": "'use client'\n\nimport React from 'react'\n\nimport { Description, TextField } from 'ui'\n\nexport default function TextFieldControlledDemo() {\n  const [value, setValue] = React.useState('')\n  return (\n    <>\n      <TextField value={value} onChange={setValue} label=\"Name\" className=\"mb-2\" />\n      <Description className=\"mt-2 block [&>strong]:text-fg\">\n        You have typed: <strong>{value ?? '-'}</strong>\n      </Description>\n    </>\n  )\n}\n",
+    "type": "docs"
+  },
+  "forms/search-field-with-label-demo": {
+    "component": "@/components/docs/forms/search-field-with-label-demo",
+    "raw": "'use client'\n\nimport { SearchField } from 'ui'\n\nexport default function SearchFieldWithLabelDemo() {\n  return <SearchField label=\"Search\" />\n}\n",
+    "type": "docs"
+  },
   "forms/switch-disabled-demo": {
     "component": "@/components/docs/forms/switch-disabled-demo",
     "raw": "'use client'\n\nimport { Switch } from 'ui'\n\nexport default function SwitchDemo() {\n  return <Switch isDisabled>Dark Mode</Switch>\n}\n",
+    "type": "docs"
+  },
+  "forms/search-field-validation-demo": {
+    "component": "@/components/docs/forms/search-field-validation-demo",
+    "raw": "'use client'\n\nimport { Button, Form, SearchField } from 'ui'\n\nexport default function SearchFieldValidationDemo() {\n  return (\n    <Form>\n      <SearchField isRequired label=\"Name\" className=\"mb-2\" />\n      <Button type=\"submit\">Submit</Button>\n    </Form>\n  )\n}\n",
     "type": "docs"
   },
   "buttons/file-trigger-disabled-demo": {
@@ -634,6 +744,11 @@
     "raw": "'use client'\n\nimport React from 'react'\n\nimport { Meter } from 'ui'\n\nexport default function MeterDemo() {\n  const [value, setValue] = React.useState(1)\n\n  React.useEffect(() => {\n    const interval = setInterval(() => {\n      setValue((prev) => (prev < 100 ? prev + 1 : 100))\n    }, 50)\n\n    return () => clearInterval(interval)\n  }, [])\n  return <Meter label=\"Storage space\" value={value} />\n}\n",
     "type": "docs"
   },
+  "collections/tag-group-disabled-demo": {
+    "component": "@/components/docs/collections/tag-group-disabled-demo",
+    "raw": "import { androidBrands } from '@/components/docs/collections/tag-group-demo'\nimport { Tag, TagGroup } from 'ui'\n\nexport default function TagGroupDisabledDemo() {\n  return (\n    <div className=\"space-y-6\">\n      <TagGroup\n        disabledKeys={androidBrands.filter((brand) => !brand.available).map((brand) => brand.id)}\n        label=\"Disabled Key\"\n        selectionMode=\"multiple\"\n        items={androidBrands}\n      >\n        {(item) => <Tag>{item.name}</Tag>}\n      </TagGroup>\n\n      <TagGroup label=\"Disabled by Tag\" selectionMode=\"multiple\" items={androidBrands}>\n        {(item) => <Tag isDisabled={!item.available}>{item.name}</Tag>}\n      </TagGroup>\n    </div>\n  )\n}\n",
+    "type": "docs"
+  },
   "collections/single-menu-demo": {
     "component": "@/components/docs/collections/single-menu-demo",
     "raw": "'use client'\n\nimport React from 'react'\n\nimport type { Placement } from '@react-types/overlays'\nimport type { Selection } from '@react-types/shared'\nimport { Button, Menu, MenuContent, MenuRadioItem } from 'ui'\n\nexport const placements = [\n  'bottom',\n  'bottom left',\n  'bottom right',\n  'bottom start',\n  'bottom end',\n  'top',\n  'top left',\n  'top right',\n  'top start',\n  'top end',\n  'left',\n  'left top',\n  'left bottom',\n  'start',\n  'start top',\n  'start bottom',\n  'right',\n  'right top',\n  'right bottom',\n  'end',\n  'end top',\n  'end bottom'\n].map((item, i) => ({ id: i, name: item }))\n\nexport default function SingleMenuDemo() {\n  const [selected, setSelected] = React.useState<Selection>(new Set(['bottom']))\n  return (\n    <Menu>\n      <Button appearance=\"outline\">Placement</Button>\n      <MenuContent\n        placement={Array.from(selected)[0] as Placement}\n        selectionMode=\"single\"\n        selectedKeys={selected}\n        onSelectionChange={setSelected}\n        items={placements}\n        className=\"max-h-72 min-w-52\"\n      >\n        {(item) => <MenuRadioItem id={item.name}>{item.name}</MenuRadioItem>}\n      </MenuContent>\n    </Menu>\n  )\n}\n",
@@ -656,7 +771,7 @@
   },
   "collections/tag-group-demo": {
     "component": "@/components/docs/collections/tag-group-demo",
-    "raw": "'use client'\n\nimport { Tag, TagGroup } from 'ui'\n\nconst androidBrands = [\n  { id: '1', name: 'Samsung', available: false },\n  { id: '2', name: 'OnePlus', available: true },\n  { id: '3', name: 'Google', available: true },\n  { id: '4', name: 'Xiaomi', available: false }\n]\n\nexport default function TagGroupDemo() {\n  return (\n    <TagGroup label=\"Android Brands\" selectionMode=\"multiple\" items={androidBrands}>\n      {(item) => <Tag isDisabled={!item.available}>{item.name}</Tag>}\n    </TagGroup>\n  )\n}\n",
+    "raw": "'use client'\n\nimport { Tag, TagGroup } from 'ui'\n\nexport const androidBrands = [\n  { id: '1', name: 'Samsung', available: false },\n  { id: '2', name: 'OnePlus', available: true },\n  { id: '3', name: 'Google', available: true },\n  { id: '4', name: 'Xiaomi', available: false }\n]\n\nexport default function TagGroupDemo() {\n  return (\n    <TagGroup label=\"Android Brands\" selectionMode=\"multiple\" items={androidBrands}>\n      {(item) => <Tag isDisabled={!item.available}>{item.name}</Tag>}\n    </TagGroup>\n  )\n}\n",
     "type": "docs"
   },
   "collections/menu-with-icon-demo": {
@@ -674,6 +789,11 @@
     "raw": "'use client'\n\nimport React, { useState } from 'react'\n\nexport default function CommandBasicDemo() {\n  const [open, setOpen] = useState(false)\n  React.useEffect(() => {\n    const down = (e: KeyboardEvent) => {\n      if (e.key === 'e') {\n        e.preventDefault()\n        setOpen((open: boolean) => !open)\n      }\n    }\n\n    document.addEventListener('keydown', down)\n\n    return () => document.removeEventListener('keydown', down)\n  }, [])\n  return <>{/*  */}</>\n}\n",
     "type": "docs"
   },
+  "collections/tag-group-controlled-demo": {
+    "component": "@/components/docs/collections/tag-group-controlled-demo",
+    "raw": "import React from 'react'\n\nimport type { Selection } from 'react-aria-components'\nimport { Description, Tag, TagGroup } from 'ui'\n\nconst fruitList = [\n  { id: '1', name: 'Apple', available: false },\n  { id: '2', name: 'Banana', available: true },\n  { id: '3', name: 'Cherry', available: true },\n  { id: '4', name: 'Date', available: false }\n]\n\nexport default function TagGroupControlledDemo() {\n  const [selected, setSelected] = React.useState<Selection>(new Set([]))\n  return (\n    <div>\n      <TagGroup selectionMode=\"multiple\" items={fruitList} selectedKeys={selected} onSelectionChange={setSelected}>\n        {(item) => <Tag>{item.name}</Tag>}\n      </TagGroup>\n\n      <Description className=\"mt-2 block [&>strong]:text-fg text-muted-fg\">\n        You have selected: <strong>{Array.from(selected).join(', ')}</strong>\n      </Description>\n    </div>\n  )\n}\n",
+    "type": "docs"
+  },
   "collections/tag-group-with-remove-demo": {
     "component": "@/components/docs/collections/tag-group-with-remove-demo",
     "raw": "'use client'\n\nimport { useListData } from 'react-stately'\nimport { Tag, TagGroup } from 'ui'\n\nexport default function TagGroupWithRemoveDemo() {\n  const list = useListData({\n    initialItems: [\n      { id: '1', name: 'Samsung', available: false },\n      { id: '2', name: 'OnePlus', available: true },\n      { id: '3', name: 'Google', available: true },\n      { id: '4', name: 'Xiaomi', available: false }\n    ]\n  })\n\n  return (\n    <TagGroup\n      label=\"Android Brands\"\n      selectionMode=\"multiple\"\n      items={list.items}\n      onRemove={(keys) => list.remove(...keys)}\n    >\n      {(item) => <Tag>{item.name}</Tag>}\n    </TagGroup>\n  )\n}\n",
@@ -682,6 +802,11 @@
   "collections/menu-basic-demo": {
     "component": "@/components/docs/collections/menu-basic-demo",
     "raw": "'use client'\n\nimport { Menu, MenuContent, MenuItem, MenuTrigger } from 'ui'\n\nexport default function MenuBasicDemo() {\n  return (\n    <Menu>\n      <MenuTrigger>Open</MenuTrigger>\n      <MenuContent placement=\"bottom\">\n        <MenuItem>Inbox</MenuItem>\n        <MenuItem>Sent</MenuItem>\n        <MenuItem>New Message</MenuItem>\n        <MenuItem isDanger>Spam</MenuItem>\n        <MenuItem isDisabled>Dang</MenuItem>\n      </MenuContent>\n    </Menu>\n  )\n}\n",
+    "type": "docs"
+  },
+  "collections/tag-group-href-demo": {
+    "component": "@/components/docs/collections/tag-group-href-demo",
+    "raw": "import React from 'react'\n\nimport { Tag, TagGroup } from 'ui'\n\nconst articles = [\n  { name: 'React Tutorial', url: '#' },\n  { name: 'TypeScript Handbook', url: '#' },\n  { name: 'JavaScript Guide', url: '#' }\n]\n\nexport default function TagGroupControlledDemo() {\n  return (\n    <TagGroup items={articles}>\n      {(item) => (\n        <Tag id={item.name} href={item.url}>\n          {item.name}\n        </Tag>\n      )}\n    </TagGroup>\n  )\n}\n",
     "type": "docs"
   },
   "collections/grid-list-demo": {
@@ -736,7 +861,7 @@
   },
   "pagination": {
     "component": "@/components/ui/pagination",
-    "raw": "'use client'\n\nimport * as React from 'react'\n\nimport {\n  IconChevronLgLeft,\n  IconChevronLgRight,\n  IconChevronsLgLeft,\n  IconChevronsLgRight,\n  IconDotsHorizontal\n} from '@irsyadadl/paranoid'\nimport Link from 'next/link'\nimport type { LabelProps } from 'react-aria-components'\n\nimport { type ButtonProps, buttonStyles } from './button'\nimport { Label } from './field'\nimport { cn } from './primitive'\nimport { Separator } from './separator'\n\nconst Pagination = ({ className, ...props }: React.ComponentProps<'nav'>) => (\n  <nav\n    role=\"navigation\"\n    aria-label=\"pagination\"\n    className={cn('mx-auto flex w-full justify-center', className)}\n    {...props}\n  />\n)\nPagination.displayName = 'Pagination'\n\nconst PaginationContent = React.forwardRef<HTMLUListElement, React.ComponentProps<'ul'>>(\n  ({ className, ...props }, ref) => (\n    <ul ref={ref} className={cn('flex flex-row items-center gap-1', className)} {...props} />\n  )\n)\nPaginationContent.displayName = 'PaginationContent'\n\nconst PaginationItem = React.forwardRef<HTMLLIElement, React.ComponentProps<'li'>>(({ className, ...props }, ref) => (\n  <li ref={ref} className={cn(className)} {...props} />\n))\nPaginationItem.displayName = 'PaginationItem'\n\ntype PaginationLinkProps = {\n  isActive?: boolean\n} & Pick<ButtonProps, 'size'> &\n  Omit<React.ComponentProps<typeof Link>, 'size'>\n\nconst PaginationLink = ({ className, isActive, size = 'square-petite', ...props }: PaginationLinkProps) => (\n  <Link\n    scroll={false}\n    aria-current={isActive ? 'page' : undefined}\n    className={cn(\n      buttonStyles({\n        appearance: isActive ? 'solid' : 'outline',\n        size,\n        className: 'rounded-lg'\n      }),\n      className\n    )}\n    {...props}\n  />\n)\nPaginationLink.displayName = 'PaginationLink'\n\nconst PaginationPrevious = ({ className, ...props }: React.ComponentProps<typeof PaginationLink>) => (\n  <PaginationLink aria-label=\"Go to previous page\" size=\"square-petite\" className={cn('gap-1', className)} {...props}>\n    <IconChevronLgLeft />\n\n    <span className=\"sr-only\">Previous</span>\n  </PaginationLink>\n)\nPaginationPrevious.displayName = 'PaginationPrevious'\n\nconst PaginationNext = ({ className, ...props }: React.ComponentProps<typeof PaginationLink>) => (\n  <PaginationLink aria-label=\"Go to next page\" size=\"square-petite\" className={cn('gap-1', className)} {...props}>\n    <span className=\"sr-only\">Next</span>\n    <IconChevronLgRight />\n  </PaginationLink>\n)\nPaginationNext.displayName = 'PaginationNext'\n\nconst PaginationLast = ({ className, ...props }: React.ComponentProps<typeof PaginationLink>) => (\n  <PaginationLink aria-label=\"Go to next page\" size=\"square-petite\" className={cn('gap-1', className)} {...props}>\n    <span className=\"sr-only\">Last</span>\n    <IconChevronsLgRight />\n  </PaginationLink>\n)\nPaginationLast.displayName = 'PaginationLast'\n\nconst PaginationFirst = ({ className, ...props }: React.ComponentProps<typeof PaginationLink>) => (\n  <PaginationLink aria-label=\"Go to previous page\" size=\"square-petite\" className={cn('gap-1', className)} {...props}>\n    <IconChevronsLgLeft />\n\n    <span className=\"sr-only\">First</span>\n  </PaginationLink>\n)\nPaginationFirst.displayName = 'PaginationFirst'\n\nconst PaginationEllipsis = ({ className, ...props }: React.ComponentProps<'span'>) => (\n  <span aria-hidden className={cn('flex size-9 items-center justify-center', className)} {...props}>\n    <IconDotsHorizontal className=\"size-4\" />\n    <span className=\"sr-only\">More pages</span>\n  </span>\n)\nPaginationEllipsis.displayName = 'PaginationEllipsis'\n\nconst PaginationLabel = ({ className, ...props }: LabelProps) => (\n  <Label aria-hidden className={cn('grid h-9 place-content-center px-3 text-sm font-normal', className)} {...props} />\n)\nPaginationLabel.displayName = 'PaginationLabel'\n\nconst PaginationSeparator = ({ className, ...props }: React.ComponentProps<'span'>) => (\n  <Separator aria-hidden className={cn('mx-1 h-5 w-px rotate-[14deg] self-center', className)} {...props}></Separator>\n)\nPaginationSeparator.displayName = 'PaginationSeparator'\n\nexport {\n  Pagination,\n  PaginationContent,\n  PaginationEllipsis,\n  PaginationFirst,\n  PaginationItem,\n  PaginationLabel,\n  PaginationLast,\n  PaginationLink,\n  PaginationNext,\n  PaginationPrevious,\n  PaginationSeparator\n}\n",
+    "raw": "'use client'\n\nimport * as React from 'react'\n\nimport {\n  IconChevronLgLeft,\n  IconChevronLgRight,\n  IconChevronsLgLeft,\n  IconChevronsLgRight,\n  IconDotsHorizontal\n} from '@irsyadadl/paranoid'\nimport type { LabelProps, LinkProps } from 'react-aria-components'\nimport { Link } from 'react-aria-components'\nimport type { VariantProps } from 'tailwind-variants'\n\nimport { buttonStyles } from './button'\nimport { Label } from './field'\nimport { cn } from './primitive'\nimport { Separator } from './separator'\n\nconst Pagination = ({ className, ...props }: React.ComponentProps<'nav'>) => (\n  <nav\n    role=\"navigation\"\n    aria-label=\"pagination\"\n    className={cn('mx-auto flex w-full justify-center', className)}\n    {...props}\n  />\n)\nPagination.displayName = 'Pagination'\n\nconst PaginationContent = React.forwardRef<HTMLUListElement, React.ComponentProps<'ul'>>(\n  ({ className, ...props }, ref) => (\n    <ul ref={ref} className={cn('flex flex-row items-center gap-1', className)} {...props} />\n  )\n)\nPaginationContent.displayName = 'PaginationContent'\n\nconst PaginationItem = React.forwardRef<HTMLLIElement, React.ComponentProps<'li'>>(({ className, ...props }, ref) => (\n  <li ref={ref} className={cn(className)} {...props} />\n))\nPaginationItem.displayName = 'PaginationItem'\n\ninterface PaginationLinkProps extends LinkProps, VariantProps<typeof buttonStyles> {\n  isActive?: boolean\n  className?: string\n}\n\nconst PaginationLink = ({ className, isActive, size = 'square-petite', ...props }: PaginationLinkProps) => (\n  <Link\n    routerOptions={{\n      scroll: true\n    }}\n    aria-current={isActive ? 'page' : undefined}\n    className={cn(\n      buttonStyles({\n        appearance: isActive ? 'solid' : 'outline',\n        size,\n        className: 'rounded-lg'\n      }),\n      className\n    )}\n    {...props}\n  />\n)\nPaginationLink.displayName = 'PaginationLink'\n\nconst PaginationPrevious = ({ className, ...props }: React.ComponentProps<typeof PaginationLink>) => (\n  <PaginationLink aria-label=\"Go to previous page\" size=\"square-petite\" className={cn('gap-1', className)} {...props}>\n    <IconChevronLgLeft />\n\n    <span className=\"sr-only\">Previous</span>\n  </PaginationLink>\n)\nPaginationPrevious.displayName = 'PaginationPrevious'\n\nconst PaginationNext = ({ className, ...props }: React.ComponentProps<typeof PaginationLink>) => (\n  <PaginationLink aria-label=\"Go to next page\" size=\"square-petite\" className={cn('gap-1', className)} {...props}>\n    <span className=\"sr-only\">Next</span>\n    <IconChevronLgRight />\n  </PaginationLink>\n)\nPaginationNext.displayName = 'PaginationNext'\n\nconst PaginationLast = ({ className, ...props }: React.ComponentProps<typeof PaginationLink>) => (\n  <PaginationLink aria-label=\"Go to next page\" size=\"square-petite\" className={cn('gap-1', className)} {...props}>\n    <span className=\"sr-only\">Last</span>\n    <IconChevronsLgRight />\n  </PaginationLink>\n)\nPaginationLast.displayName = 'PaginationLast'\n\nconst PaginationFirst = ({ className, ...props }: React.ComponentProps<typeof PaginationLink>) => (\n  <PaginationLink aria-label=\"Go to previous page\" size=\"square-petite\" className={cn('gap-1', className)} {...props}>\n    <IconChevronsLgLeft />\n\n    <span className=\"sr-only\">First</span>\n  </PaginationLink>\n)\nPaginationFirst.displayName = 'PaginationFirst'\n\nconst PaginationEllipsis = ({ className, ...props }: React.ComponentProps<'span'>) => (\n  <span aria-hidden className={cn('flex size-9 items-center justify-center', className)} {...props}>\n    <IconDotsHorizontal className=\"size-4\" />\n    <span className=\"sr-only\">More pages</span>\n  </span>\n)\nPaginationEllipsis.displayName = 'PaginationEllipsis'\n\nconst PaginationLabel = ({ className, ...props }: LabelProps) => (\n  <Label aria-hidden className={cn('grid h-9 place-content-center px-3 text-sm font-normal', className)} {...props} />\n)\nPaginationLabel.displayName = 'PaginationLabel'\n\nconst PaginationSeparator = ({ className, ...props }: React.ComponentProps<'span'>) => (\n  <Separator aria-hidden className={cn('mx-1 h-5 w-px rotate-[14deg] self-center', className)} {...props}></Separator>\n)\nPaginationSeparator.displayName = 'PaginationSeparator'\n\nexport {\n  Pagination,\n  PaginationContent,\n  PaginationEllipsis,\n  PaginationFirst,\n  PaginationItem,\n  PaginationLabel,\n  PaginationLast,\n  PaginationLink,\n  PaginationNext,\n  PaginationPrevious,\n  PaginationSeparator\n}\n",
     "type": "ui"
   },
   "link": {
@@ -776,7 +901,7 @@
   },
   "date-field": {
     "component": "@/components/ui/date-field",
-    "raw": "'use client'\n\nimport {\n  composeRenderProps,\n  DateField as DateFieldPrimitive,\n  type DateFieldProps as DateFieldPrimitiveProps,\n  DateInput as DateInputPrimitive,\n  type DateInputProps,\n  DateSegment,\n  type DateValue,\n  type ValidationResult\n} from 'react-aria-components'\nimport { tv } from 'tailwind-variants'\n\nimport { Description, FieldError, fieldGroupStyles, Label } from './field'\nimport { cn, ctr } from './primitive'\n\ninterface DateFieldProps<T extends DateValue> extends DateFieldPrimitiveProps<T> {\n  label?: string\n  description?: string\n  errorMessage?: string | ((validation: ValidationResult) => string)\n}\n\nconst DateField = <T extends DateValue>({ label, description, errorMessage, ...props }: DateFieldProps<T>) => {\n  return (\n    <DateFieldPrimitive {...props} className={ctr(props.className, 'flex flex-col gap-1')}>\n      {label && <Label>{label}</Label>}\n      <DateInput />\n      {description && <Description>{description}</Description>}\n      <FieldError>{errorMessage}</FieldError>\n    </DateFieldPrimitive>\n  )\n}\n\nconst segmentStyles = tv({\n  base: 'inline rounded p-0.5 tracking-wider text-fg caret-transparent outline outline-0 forced-color-adjust-none type-literal:px-0 lg:text-sm forced-colors:text-[ButtonText]',\n  variants: {\n    isPlaceholder: {\n      true: 'text-muted-fg'\n    },\n    isDisabled: {\n      true: 'text-fg/50 forced-colors:text-[GrayText]'\n    },\n    isFocused: {\n      true: 'bg-primary text-primary-fg forced-colors:bg-[Highlight] forced-colors:text-[HighlightText]'\n    }\n  }\n})\n\nconst DateInput = (props: Omit<DateInputProps, 'children'>) => {\n  return (\n    <DateInputPrimitive\n      className={composeRenderProps(props.className, (className, renderProps) =>\n        fieldGroupStyles({\n          ...renderProps,\n          className: cn(\n            'min-w-sm block font-mono disabled:bg-secondary uppercase w-full py-2 px-2 text-base lg:text-sm',\n            className\n          )\n        })\n      )}\n      {...props}\n    >\n      {(segment) => <DateSegment segment={segment} className={segmentStyles} />}\n    </DateInputPrimitive>\n  )\n}\n\nexport { DateField, DateInput, segmentStyles, type DateFieldProps }\n",
+    "raw": "'use client'\n\nimport {\n  composeRenderProps,\n  DateField as DateFieldPrimitive,\n  type DateFieldProps as DateFieldPrimitiveProps,\n  DateInput as DateInputPrimitive,\n  type DateInputProps,\n  DateSegment,\n  type DateValue,\n  type ValidationResult\n} from 'react-aria-components'\nimport { tv } from 'tailwind-variants'\n\nimport { Description, FieldError, fieldGroupStyles, Label } from './field'\nimport { cn, ctr } from './primitive'\n\ninterface DateFieldProps<T extends DateValue> extends DateFieldPrimitiveProps<T> {\n  label?: string\n  description?: string\n  errorMessage?: string | ((validation: ValidationResult) => string)\n}\n\nconst DateField = <T extends DateValue>({ label, description, errorMessage, ...props }: DateFieldProps<T>) => {\n  return (\n    <DateFieldPrimitive {...props} className={ctr(props.className, 'flex flex-col gap-1')}>\n      {label && <Label>{label}</Label>}\n      <DateInput />\n      {description && <Description>{description}</Description>}\n      <FieldError>{errorMessage}</FieldError>\n    </DateFieldPrimitive>\n  )\n}\n\nconst segmentStyles = tv({\n  base: 'inline rounded p-0.5 tracking-wider text-fg caret-transparent outline outline-0 forced-color-adjust-none type-literal:px-0 lg:text-sm forced-colors:text-[ButtonText]',\n  variants: {\n    isPlaceholder: {\n      true: 'text-muted-fg'\n    },\n    isDisabled: {\n      true: 'text-fg/50 forced-colors:text-[GrayText]'\n    },\n    isFocused: {\n      true: [\n        'bg-primary text-primary-fg forced-colors:bg-[Highlight] forced-colors:text-[HighlightText]',\n        'invalid:bg-danger invalid:text-danger-fg'\n      ]\n    }\n    // isInvalid: {\n    //   true: 'bg-danger text-danger-fg'\n    // }\n  }\n})\n\nconst DateInput = (props: Omit<DateInputProps, 'children'>) => {\n  return (\n    <DateInputPrimitive\n      className={composeRenderProps(props.className, (className, renderProps) =>\n        fieldGroupStyles({\n          ...renderProps,\n          className: cn(\n            'min-w-sm block font-mono disabled:bg-secondary uppercase w-full py-2 px-2 text-base lg:text-sm',\n            className\n          )\n        })\n      )}\n      {...props}\n    >\n      {(segment) => <DateSegment segment={segment} className={segmentStyles} />}\n    </DateInputPrimitive>\n  )\n}\n\nexport { DateField, DateInput, segmentStyles, type DateFieldProps }\n",
     "type": "ui"
   },
   "primitive": {
