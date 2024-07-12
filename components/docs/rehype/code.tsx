@@ -5,7 +5,7 @@ import React from 'react'
 import { IconCircleInfo } from '@irsyadadl/paranoid'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { nightOwl as theme } from 'react-syntax-highlighter/dist/esm/styles/prism'
-import { CopyButton, cn } from 'ui'
+import { cn, CopyButton } from 'ui'
 import { copyToClipboard } from 'usemods'
 
 function Code({

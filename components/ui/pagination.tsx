@@ -9,10 +9,11 @@ import {
   IconChevronsLgRight,
   IconDotsHorizontal
 } from '@irsyadadl/paranoid'
-import Link from 'next/link'
-import type { LabelProps } from 'react-aria-components'
+import type { LabelProps, LinkProps } from 'react-aria-components'
+import { Link } from 'react-aria-components'
+import type { VariantProps } from 'tailwind-variants'
 
-import { type ButtonProps, buttonStyles } from './button'
+import { buttonStyles } from './button'
 import { Label } from './field'
 import { cn } from './primitive'
 import { Separator } from './separator'
@@ -39,14 +40,16 @@ const PaginationItem = React.forwardRef<HTMLLIElement, React.ComponentProps<'li'
 ))
 PaginationItem.displayName = 'PaginationItem'
 
-type PaginationLinkProps = {
+interface PaginationLinkProps extends LinkProps, VariantProps<typeof buttonStyles> {
   isActive?: boolean
-} & Pick<ButtonProps, 'size'> &
-  Omit<React.ComponentProps<typeof Link>, 'size'>
+  className?: string
+}
 
 const PaginationLink = ({ className, isActive, size = 'square-petite', ...props }: PaginationLinkProps) => (
   <Link
-    scroll={false}
+    routerOptions={{
+      scroll: true
+    }}
     aria-current={isActive ? 'page' : undefined}
     className={cn(
       buttonStyles({
