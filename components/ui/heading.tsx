@@ -1,10 +1,11 @@
 'use client'
 
-import { Heading as HeadingPrimitive, type HeadingProps } from 'react-aria-components'
+import { Header as HeaderPrimitive, Heading as HeadingPrimitive, type HeadingProps } from 'react-aria-components'
 
 import { cn } from './primitive'
 
-export function Heading({ className, level = 1, ...props }: HeadingProps) {
+const Header = HeaderPrimitive
+const Heading = ({ className, level = 1, ...props }: HeadingProps) => {
   return (
     <HeadingPrimitive
       level={level}
@@ -14,7 +15,7 @@ export function Heading({ className, level = 1, ...props }: HeadingProps) {
   )
 }
 
-export function Subheading({ className, level = 2, ...props }: HeadingProps) {
+const Subheading = ({ className, level = 2, ...props }: HeadingProps) => {
   return (
     <HeadingPrimitive
       level={level}
@@ -23,3 +24,5 @@ export function Subheading({ className, level = 2, ...props }: HeadingProps) {
     />
   )
 }
+
+export { Header, Heading, Subheading, type HeadingProps }

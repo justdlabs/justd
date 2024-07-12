@@ -5,9 +5,8 @@ import React from 'react'
 import { groupedComponents } from '@/app/components/partials/card-list-box'
 import { useActiveItem } from '@/components/table-of-contents'
 import { goodTitle } from '@/lib/utils'
-import { IconHamburger } from '@irsyadadl/paranoid'
 import { ListBox, ListBoxItem } from 'react-aria-components'
-import { Button, cn, Heading, Menu, MenuContent, MenuItem, useMediaQuery } from 'ui'
+import { cn, Heading, useMediaQuery } from 'ui'
 
 const navigations = Object.keys(groupedComponents).map((x) => {
   return {
@@ -33,25 +32,7 @@ export function OnThisPage() {
             ))}
           </ListBox>
         </div>
-      ) : (
-        <Menu>
-          <Button
-            aria-label="Open list on this page"
-            size="square-petite"
-            intent="light/dark"
-            className="fixed bottom-4 right-4 z-50"
-          >
-            <IconHamburger />
-          </Button>
-          <MenuContent className="w-56" items={navigations} aria-label="On this page">
-            {({ text, href, id }) => (
-              <MenuItem id={id} href={href}>
-                {goodTitle(text)}
-              </MenuItem>
-            )}
-          </MenuContent>
-        </Menu>
-      )}
+      ) : null}
     </>
   )
 }
