@@ -7,14 +7,15 @@ import { CommandPalette, type OpenCloseProps } from '@/components/command-palett
 import { Logo } from '@/components/logo'
 import { ThemeSwitcher } from '@/components/theme-switcher'
 import {
-  IconBrandAdobe, IconBrandD,
+  IconBrandAdobe,
+  IconBrandD,
   IconBrandGithub,
-  IconBrandLayers,
   IconBrandParanoid,
   IconBrandTwitter,
   IconBrandX,
   IconChevronDown,
   IconColors,
+  IconCube,
   IconDeviceDesktop,
   IconHamburger,
   IconHome,
@@ -80,7 +81,10 @@ export function Navbar() {
                     >
                       Docs
                     </NavLink>
-                    <NavLink isActive={pathname?.startsWith('/docs/components')} href="/docs/components/buttons/button">
+                    <NavLink
+                      isActive={pathname?.startsWith('/docs/components') || pathname === '/components'}
+                      href="/components"
+                    >
                       Components
                     </NavLink>
                     <NavLink target="_blank" href="https://irsyad.co/c">
@@ -256,6 +260,10 @@ export function NavbarDropdown() {
         <MenuItem href="https://x.com/intent/follow?screen_name=irsyadadl" target="_blank">
           <IconHome />
           Home
+        </MenuItem>
+        <MenuItem href="/components">
+          <IconCube />
+          Components
         </MenuItem>
         <MenuSeparator />
         <MenuSection>

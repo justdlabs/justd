@@ -74,7 +74,8 @@
 }
 
 .react-aria-Button,
-.react-aria-Dialog {
+.react-aria-Dialog,
+.react-aria-Link {
     outline: none;
 }
 
