@@ -7,7 +7,7 @@ import { CommandPalette, type OpenCloseProps } from '@/components/command-palett
 import { Logo } from '@/components/logo'
 import { ThemeSwitcher } from '@/components/theme-switcher'
 import {
-  IconBrandAdobe,
+  IconBrandAdobe, IconBrandD,
   IconBrandGithub,
   IconBrandLayers,
   IconBrandParanoid,
@@ -246,7 +246,7 @@ export function NavbarDropdown() {
     <Menu>
       <Button aria-label="Menu" appearance="plain" className="group -ml-1 [&_svg]:size-5">
         <span className="flex items-center gap-x-2">
-          <Logo className="-ml-1 size-6" />
+          <IconBrandD className="-ml-1 size-6" />
           <span className="font-mono text-base tracking-tight sm:text-sm">D.</span>
           <IconChevronDown className="-mr-2 ml-1 size-4 text-muted-fg transition duration-300 group-hover:text-fg group-pressed:rotate-180 group-pressed:text-fg" />
           <span className="sr-only">Open menu</span>
@@ -262,10 +262,6 @@ export function NavbarDropdown() {
           <MenuItem href="https://x.com/intent/follow?screen_name=irsyadadl" target="_blank">
             <IconBrandTwitter />
             Twitter
-          </MenuItem>
-          <MenuItem href="https://layers.to/irsyad" target="_blank">
-            <IconBrandLayers />
-            Layers
           </MenuItem>
           <MenuItem href="https://github.com/irsyadadl" target="_blank">
             <IconBrandGithub />
