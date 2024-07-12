@@ -12,6 +12,7 @@ import {
   IconBrandLayers,
   IconBrandParanoid,
   IconBrandTwitter,
+  IconBrandX,
   IconChevronDown,
   IconColors,
   IconDeviceDesktop,
@@ -27,6 +28,7 @@ import { usePathname } from 'next/navigation'
 import { Collection, Link } from 'react-aria-components'
 import {
   Button,
+  buttonStyles,
   cn,
   LinkPrimitive,
   type LinkProps,
@@ -108,6 +110,41 @@ export function Navbar() {
                     </Button>
 
                     <ThemeSwitcher />
+
+                    <Separator orientation="vertical" className="h-7 mx-2" />
+
+                    <Link
+                      aria-label="Github Repository"
+                      className={buttonStyles({ appearance: 'outline', size: 'square-petite' })}
+                      target="_blank"
+                      href="https://irsyad.co/c"
+                    >
+                      <IconColors />
+                    </Link>
+                    <Link
+                      aria-label="Github Repository"
+                      className={buttonStyles({ appearance: 'outline', size: 'square-petite' })}
+                      target="_blank"
+                      href="https://paranoid.irsyad.co"
+                    >
+                      <IconBrandParanoid />
+                    </Link>
+                    <Link
+                      aria-label="Github Repository"
+                      className={buttonStyles({ appearance: 'outline', size: 'square-petite' })}
+                      target="_blank"
+                      href="https://github.com/irsyadadl/d."
+                    >
+                      <IconBrandGithub />
+                    </Link>
+                    <Link
+                      aria-label="Follow Update on X"
+                      className={buttonStyles({ appearance: 'outline', size: 'square-petite' })}
+                      target="_blank"
+                      href="https://x.com/irsyadadl"
+                    >
+                      <IconBrandX />
+                    </Link>
                   </>
                 </div>
               </div>
