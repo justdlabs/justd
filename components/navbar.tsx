@@ -72,7 +72,13 @@ export function Navbar() {
                     <NavLink isActive={pathname === '/'} href="/">
                       Home
                     </NavLink>
-                    <NavLink isActive={pathname?.startsWith('/docs')} href="/docs/getting-started/introduction">
+                    <NavLink
+                      isActive={pathname?.startsWith('/docs') && !pathname?.includes('/docs/components')}
+                      href="/docs/getting-started/introduction"
+                    >
+                      Docs
+                    </NavLink>
+                    <NavLink isActive={pathname?.startsWith('/docs/components')} href="/docs/components/buttons/button">
                       Components
                     </NavLink>
                     <NavLink target="_blank" href="https://irsyad.co/c">
