@@ -1,6 +1,6 @@
 'use client'
 
-import { IconBrandD, IconLayers } from '@irsyadadl/paranoid'
+import { IconBrandD } from '@irsyadadl/paranoid'
 import Link from 'next/link'
 import { Header, Text } from 'react-aria-components'
 import { buttonStyles, Container, Heading } from 'ui'
