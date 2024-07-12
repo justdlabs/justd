@@ -8,6 +8,7 @@ import '@/styles/app.css'
 import { OpenpanelProvider } from '@openpanel/nextjs'
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
+import { Container, Link } from 'ui'
 
 const satoshi = localFont({
   src: './fonts/Satoshi-Variable.woff2',
@@ -44,8 +45,13 @@ export default function RootLayout({
             <Navbar />
             <main className="flex-1">{children}</main>
 
-            <footer className="px-4 py-4 sm:py-8 lg:py-10 text-muted-fg [&_a]:text-fg text-center font-mono text-sm">
-              D. 2024 - This project is crafted with ♥ by <a href="https://twitter.com/irsyadadl">Irsyad</a>
+            <footer className="px-4 border-t py-4 sm:py-8 lg:py-10 [&_strong]:text-fg [&_a]:text-fg text-muted-fg [&_a]:text-fg text-center text-sm">
+              <Container>
+                <strong>D. 2024</strong> - This project’s made with{' '}
+                <span className="font-[ui-sans-serif,-apple-system,system-ui]">♥</span> by{' '}
+                <Link href="https://twitter.com/irsyadadl">Irsyad</Link>. Check out the Source Code on{' '}
+                <Link href="https://github.com/irsyadadl/d.">GitHub</Link>.
+              </Container>
             </footer>
           </div>
           {process.env.NEXT_PUBLIC_ENV !== 'local' && (
