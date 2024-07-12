@@ -1,6 +1,6 @@
 'use client'
 
-import { IconLayers } from '@irsyadadl/paranoid'
+import { IconBrandD, IconLayers } from '@irsyadadl/paranoid'
 import Link from 'next/link'
 import { Header, Text } from 'react-aria-components'
 import { buttonStyles, Container, Heading } from 'ui'
@@ -22,7 +22,7 @@ export function Hero() {
         </Header>
         <div className="mt-6">
           <Link className={buttonStyles({ size: 'large' })} href="/docs/getting-started/installation">
-            <IconLayers />
+            <IconBrandD />
             Get started
           </Link>
         </div>
