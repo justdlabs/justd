@@ -166,7 +166,7 @@ export function NavLink({ href, isActive, ...props }: LinkProps & { isActive?: b
     <LinkPrimitive
       href={href}
       className={cn(
-        'relative flex items-center gap-x-3 py-2 text-sm font-semibold text-muted-fg transition-colors focus:outline-none sm:py-3',
+        'relative flex items-center gap-x-3 py-2 text-sm text-muted-fg transition-colors focus:outline-none sm:py-3',
         isActive ? 'text-fg' : 'text-muted-fg hover:text-fg',
         props.className
       )}
