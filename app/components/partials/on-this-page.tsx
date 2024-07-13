@@ -23,7 +23,7 @@ export function OnThisPage() {
     <>
       {isDesktop ? (
         <div className="w-1/6 pt-0 pb-16 shrink-0 sticky top-28">
-          <Heading level={2} className="mb-3">
+          <Heading level={2} className="mb-3 font-medium">
             On this Page
           </Heading>
           <ListBox aria-label="On this page">
