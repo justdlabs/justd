@@ -4,13 +4,13 @@ import React, { useEffect, useId, useState } from 'react'
 
 import { Aside } from '@/components/aside'
 import { CommandPalette, type OpenCloseProps } from '@/components/command-palette'
-import { Logo } from '@/components/logo'
 import { ThemeSwitcher } from '@/components/theme-switcher'
 import {
   IconBrandAdobe,
   IconBrandD,
   IconBrandGithub,
   IconBrandParanoid,
+  IconBrandTailwindcss,
   IconBrandTwitter,
   IconBrandX,
   IconChevronDown,
@@ -110,6 +110,8 @@ export function Navbar() {
                     >
                       <IconSearch />
 
+                      <span className="text-muted-fg">Search...</span>
+
                       <MenuKeyboard className="-mr-2 [&_kbd]:min-w-[3ch]" keys="⌘K" />
                     </Button>
 
@@ -208,12 +210,16 @@ export function ResponsiveAside({ open, setOpen }: OpenCloseProps) {
         >
           <IconHamburger />
         </Button>
-        <Link className="focus:outline-none focus:ring-1 focus:ring-primary-500 rounded" href="/" aria-label="Logo">
-          <Logo className="size-7" />
+        <Link
+          className="focus:outline-none -mr-6 focus:ring-1 focus:ring-primary-500 rounded"
+          href="/"
+          aria-label="Logo"
+        >
+          <IconBrandD className="size-6" />
         </Link>
         <div className="flex items-center gap-x-1">
           <Button
-            // @ts-expect-error
+            // @ts-expect-error - TODO: fix types
             onPress={() => setOpen((open: boolean) => !open)}
             size="square-petite"
             appearance="outline"
@@ -290,6 +296,10 @@ export function NavbarDropdown() {
           <MenuItem href="https://react-spectrum.adobe.com/react-aria/components.html" target="_blank">
             <IconBrandAdobe />
             RAC
+          </MenuItem>
+          <MenuItem href="https://tailwindcss.com" target="_blank">
+            <IconBrandTailwindcss />
+            Tailwind CSS
           </MenuItem>
         </MenuSection>
         <MenuSeparator />

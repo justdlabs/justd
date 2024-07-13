@@ -1,5 +1,5 @@
 [data-rehype-pretty-code-figure] pre {
-    @apply px-0 py-2 border rounded-lg !bg-[#0e0e10];
+    @apply px-0 py-2 border rounded-lg border-zinc-800 !bg-[#0e0e10];
 }
 
 [data-rehype-pretty-code-figure] code {

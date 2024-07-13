@@ -1,22 +1,25 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { IconCircleInfo } from '@irsyadadl/paranoid'
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { nightOwl as theme } from 'react-syntax-highlighter/dist/esm/styles/prism'
-import { cn, CopyButton } from 'ui'
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@radix-ui/react-collapsible'
+import rehypePrettyCode from 'rehype-pretty-code'
+import rehypeStringify from 'rehype-stringify'
+import remarkParse from 'remark-parse'
+import remarkRehype from 'remark-rehype'
+import { Button, cn, CopyButton } from 'ui'
+import { unified } from 'unified'
 import { copyToClipboard } from 'usemods'
 
-function Code({
-  lang = 'tsx',
-  code,
-  withImportCopy = true
-}: {
+interface CodeProps {
   lang?: string
   code: string
   withImportCopy?: boolean
-}) {
+  className?: string
+}
+
+function Code({ className, lang = 'tsx', code, withImportCopy = true }: CodeProps) {
   const [copied, setCopied] = React.useState<string>('')
 
   function copyImportsToClipboard(): void {
@@ -32,7 +35,12 @@ function Code({
   }
 
   return (
-    <div className="dfakdpxe2941 not-prose group relative max-h-96 overflow-y-auto rounded-lg [&_pre]:!bg-[#0e0e10] [&_pre_code]:!leading-loose [&_pre]:!m-0 [&_pre]:!p-4 border-zinc-800 border font-mono text-sm">
+    <div
+      className={cn(
+        'dfakdpxe2941 not-prose group relative max-h-96 overflow-y-auto rounded-lg font-mono text-sm',
+        className
+      )}
+    >
       <div className={cn('absolute z-20 bottom-auto right-3 top-3 flex gap-1.5')}>
         {withImportCopy && (
           <CopyButton
@@ -44,11 +52,74 @@ function Code({
         )}
         <CopyRawButton code={code} />
       </div>
-      <SyntaxHighlighter language={lang} style={theme}>
-        {code}
-      </SyntaxHighlighter>
+      <CodeHighlighter lang={lang} code={code} />
     </div>
   )
+}
+
+function CodeContainer({ children, isOpened }: { children: React.ReactNode; isOpened: boolean }) {
+  return (
+    <CollapsibleContent forceMount className={cn('overflow-hidden', !isOpened && 'h-32')}>
+      <div
+        className={cn(
+          '[&_pre]:my-0 [&_pre]:!border-0 [&_pre]:max-h-[32rem] [&_pre]:pb-[100px]',
+          !isOpened ? '[&_pre]:overflow-hidden' : '[&_pre]:overflow-auto]'
+        )}
+      >
+        {children}
+      </div>
+    </CollapsibleContent>
+  )
+}
+
+function CodeExpandButton({ isOpened }: { isOpened: boolean }) {
+  return (
+    <div
+      className={cn(
+        'absolute flex items-center justify-center bg-gradient-to-b from-[#0e0e10]/50 to-black',
+        isOpened ? 'inset-x-0 bottom-0 h-16' : 'inset-0'
+      )}
+    >
+      <CollapsibleTrigger asChild>
+        <Button intent="secondary" size="small">
+          {isOpened ? 'Collapse' : 'Expand'}
+        </Button>
+      </CollapsibleTrigger>
+    </div>
+  )
+}
+
+interface CodeCollapsibleProps {
+  isOpened: boolean
+  onOpenChange: (open: boolean) => void
+  lang?: string
+  withImportCopy?: boolean
+  code: string
+}
+
+function CodeCollapsible({
+  children,
+  isOpened,
+  onOpenChange,
+  lang = 'tsx',
+  withImportCopy = true,
+  code,
+  ...props
+}: React.PropsWithChildren<CodeCollapsibleProps>) {
+  return (
+    <Collapsible open={isOpened} onOpenChange={onOpenChange}>
+      <div className={'relative overflow-hidden'} {...props}>
+        <CodeContainer isOpened={isOpened}>
+          <Code code={code} lang={lang} withImportCopy={withImportCopy} />
+        </CodeContainer>
+        <CodeExpandButton isOpened={isOpened} />
+      </div>
+    </Collapsible>
+  )
+}
+
+export function CodeCollapsibleRoot({ children }: React.PropsWithChildren<{}>) {
+  return <div className="overflow-hidden border border-zinc-800 bg-[#0e0e10] rounded-lg">{children}</div>
 }
 
 export function CopyRawButton({ code }: { className?: string; code: any }) {
@@ -66,4 +137,41 @@ export function CopyRawButton({ code }: { className?: string; code: any }) {
   return <CopyButton ariaLabel="Copy raw code" isCopied={copied === 'raw'} onPress={copyRaw} />
 }
 
-export { Code }
+const CodeHighlighter: React.FC<CodeProps> = ({ lang = 'tsx', code }) => {
+  const [formattedCode, setFormattedCode] = useState('')
+  const [error, setError] = useState('')
+
+  useEffect(() => {
+    const processCode = async () => {
+      try {
+        const file = await unified()
+          .use(remarkParse)
+          .use(remarkRehype, { allowDangerousHtml: true })
+          .use(rehypePrettyCode, {
+            keepBackground: false,
+            theme: 'vesper',
+            defaultLang: {
+              block: lang,
+              inline: 'plaintext'
+            }
+          })
+          .use(rehypeStringify, { allowDangerousHtml: true })
+          .process(`\`\`\`${lang}\n${code}\n\`\`\``)
+        setFormattedCode(String(file))
+      } catch (err) {
+        setError('Failed to process code. Please check the configuration.')
+        console.error(err)
+      }
+    }
+
+    processCode()
+  }, [code, lang])
+
+  if (error) {
+    return <p>Error: {error}</p>
+  }
+
+  return <div dangerouslySetInnerHTML={{ __html: formattedCode }} />
+}
+
+export { CodeContainer, CodeExpandButton, CodeCollapsible, Code }

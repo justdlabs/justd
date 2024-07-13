@@ -39,7 +39,16 @@ export default defineConfig({
   mdx: {
     rehypePlugins: [
       rehypeSlug,
-      [rehypePrettyCode, { defaultLang: 'tsx', theme: 'night-owl' }],
+      [
+        rehypePrettyCode,
+        {
+          theme: 'vesper',
+          defaultLang: {
+            block: 'tsx',
+            inline: 'plaintext'
+          }
+        }
+      ],
       [
         rehypeAutolinkHeadings,
         {

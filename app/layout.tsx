@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { Footer } from '@/components/footer'
 import { Navbar } from '@/components/navbar'
 import { Providers } from '@/components/providers'
 import { siteConfig } from '@/config/site'
@@ -45,14 +46,7 @@ export default function RootLayout({
             <Navbar />
             <main className="flex-1">{children}</main>
 
-            <footer className="px-4 border-t py-4 sm:py-8 lg:py-10 [&_strong]:text-fg [&_a]:text-fg text-muted-fg [&_a]:text-fg text-center text-sm">
-              <Container>
-                <strong>D. 2024</strong> - This project’s made with{' '}
-                <span className="font-[ui-sans-serif,-apple-system,system-ui]">♥</span> by{' '}
-                <Link href="https://twitter.com/irsyadadl">Irsyad</Link>. Check out the Source Code on{' '}
-                <Link href="https://github.com/irsyadadl/d.">GitHub</Link>.
-              </Container>
-            </footer>
+            <Footer />
           </div>
           {process.env.NEXT_PUBLIC_ENV !== 'local' && (
             <OpenpanelProvider

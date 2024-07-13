@@ -63,7 +63,10 @@ export function DocHow({
           </div>
         </TabPanel>
         <TabPanel id="code">
-          <Code code={codeString} />
+          <Code
+            className="border [&_pre_span[data-line]:last-of-type]:hidden [&_pre]:!border-0 border-zinc-800 bg-[#0e0e10] rounded-lg"
+            code={codeString}
+          />
         </TabPanel>
       </Tabs>
     </div>

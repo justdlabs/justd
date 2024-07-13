@@ -2,10 +2,13 @@ import { build } from "velite";
 
 /** @type {import('next').NextConfig} */
 export default {
+    experimental: {
+        optimizePackageImports: [
+            'shiki',
+        ],
+    },
     webpack: (config) => {
         config.plugins.push(new VeliteWebpackPlugin());
-
-
         return config;
     },
 };
