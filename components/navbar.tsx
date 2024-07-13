@@ -10,7 +10,7 @@ import {
   IconBrandAdobe,
   IconBrandD,
   IconBrandGithub,
-  IconBrandParanoid,
+  IconBrandParanoid, IconBrandTailwindcss,
   IconBrandTwitter,
   IconBrandX,
   IconChevronDown,
@@ -290,6 +290,10 @@ export function NavbarDropdown() {
           <MenuItem href="https://react-spectrum.adobe.com/react-aria/components.html" target="_blank">
             <IconBrandAdobe />
             RAC
+          </MenuItem>
+          <MenuItem href="https://tailwindcss.com" target="_blank">
+            <IconBrandTailwindcss />
+            Tailwind CSS
           </MenuItem>
         </MenuSection>
         <MenuSeparator />
