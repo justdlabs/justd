@@ -35,7 +35,12 @@ function Code({ className, lang = 'tsx', code, withImportCopy = true }: CodeProp
   }
 
   return (
-    <div className={cn("dfakdpxe2941 not-prose group relative max-h-96 overflow-y-auto rounded-lg font-mono text-sm", className)}>
+    <div
+      className={cn(
+        'dfakdpxe2941 not-prose group relative max-h-96 overflow-y-auto rounded-lg font-mono text-sm',
+        className
+      )}
+    >
       <div className={cn('absolute z-20 bottom-auto right-3 top-3 flex gap-1.5')}>
         {withImportCopy && (
           <CopyButton

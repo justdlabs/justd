@@ -219,7 +219,7 @@ function AsideLink({ indicatorClassName, className, children, active, ...props }
     <Link
       className={cn(
         'relative block focus:outline-none focus-visible:bg-secondary focus-visible:ring-inset focus-visible:ring-1 focus-visible:ring-primary-500 rounded-md px-2.5 py-2 text-base font-medium transition-colors hover:bg-secondary/70 hover:text-fg lg:text-sm',
-        isActive ? 'font-semibold text-fg' : 'text-muted-fg',
+        isActive ? 'font-medium text-fg' : 'text-muted-fg',
         className
       )}
       {...props}
