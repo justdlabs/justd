@@ -43,7 +43,7 @@ export function CardListBox() {
     <div className="space-y-10 w-full">
       {Object.entries(groupedComponents).map(([category, components]) => (
         <div key={category}>
-          <Heading id={category} className="mb-3 scroll-mt-28" level={2}>
+          <Heading id={category} className="mb-3 scroll-mt-28 font-medium" level={2}>
             {goodTitle(category)}
           </Heading>
           <ListBox
@@ -60,7 +60,7 @@ export function CardListBox() {
                 id={component.slug}
               >
                 <div className="flex-1">
-                  <Heading level={3}>{component.title}</Heading>
+                  <Heading level={3} className='font-medium'>{component.title}</Heading>
                   <Description className="block mt-2">{component.description}</Description>
                 </div>
                 <div className="justify-end flex mt-6">
