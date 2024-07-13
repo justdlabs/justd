@@ -9,7 +9,7 @@ const Heading = ({ className, level = 1, ...props }: HeadingProps) => {
   return (
     <HeadingPrimitive
       level={level}
-      className={cn('font-semibold text-zinc-950 dark:text-white sm:text-xl', className)}
+      className={cn('font-medium text-zinc-950 dark:text-white sm:text-xl', className)}
       {...props}
     />
   )

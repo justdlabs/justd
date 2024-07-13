@@ -60,7 +60,7 @@ export function CardListBox() {
                 id={component.slug}
               >
                 <div className="flex-1">
-                  <Heading level={3} className='font-medium'>{component.title}</Heading>
+                  <Heading level={3}>{component.title}</Heading>
                   <Description className="block mt-2">{component.description}</Description>
                 </div>
                 <div className="justify-end flex mt-6">
