@@ -9,7 +9,6 @@ import { cn } from '@/lib/utils'
 import { IconLoader } from '@irsyadadl/paranoid'
 import { Tab, TabList, TabPanel, Tabs } from 'ui'
 
-
 interface HowProps extends React.HTMLAttributes<HTMLDivElement> {
   toUse: string
   minW72?: boolean
@@ -64,7 +63,7 @@ export function DocHow({
           </div>
         </TabPanel>
         <TabPanel id="code">
-          <Code code={codeString} />
+          <Code className='border [&_pre_span[data-line]:last-of-type]:hidden [&_pre]:!border-0 border-zinc-800 bg-[#0e0e10] rounded-lg' code={codeString} />
         </TabPanel>
       </Tabs>
     </div>

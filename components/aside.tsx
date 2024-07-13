@@ -12,7 +12,6 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Badge, cn } from 'ui'
 
-
 export interface Doc {
   slug: string
   title: string

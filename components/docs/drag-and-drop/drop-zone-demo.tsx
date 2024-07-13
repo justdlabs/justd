@@ -4,7 +4,6 @@ import React from 'react'
 
 import { DropZone, Label } from 'ui'
 
-
 export default function DropZoneDemo() {
   const [dropped, setDropped] = React.useState(false)
 

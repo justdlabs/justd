@@ -3,7 +3,6 @@ import React from 'react'
 import type { Selection } from 'react-aria-components'
 import { Description, Tag, TagGroup } from 'ui'
 
-
 const fruitList = [
   { id: '1', name: 'Apple', available: false },
   { id: '2', name: 'Banana', available: true },

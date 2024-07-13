@@ -5,7 +5,6 @@ import React from 'react'
 import { type FileDropItem } from 'react-aria'
 import { DropZone, FileTrigger, Label } from 'ui'
 
-
 export default function DropZoneAndFileTriggerDemo() {
   const [files, setFiles] = React.useState<string[] | null>(null)
 

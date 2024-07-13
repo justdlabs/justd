@@ -6,7 +6,6 @@ import { getLocalTimeZone, today } from '@internationalized/date'
 import { useDateFormatter } from '@react-aria/i18n'
 import { DateRangePicker } from 'ui'
 
-
 export default function DateRangePickerControlledDemo() {
   const now = today(getLocalTimeZone())
   const tomorrowWeek = today(getLocalTimeZone()).add({ days: 12 })

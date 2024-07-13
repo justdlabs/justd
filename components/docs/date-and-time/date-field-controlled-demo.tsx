@@ -6,7 +6,6 @@ import { getLocalTimeZone, parseDate, today } from '@internationalized/date'
 import { useDateFormatter } from '@react-aria/i18n'
 import { DateField } from 'ui'
 
-
 export default function DateFieldDisabledDemo() {
   const now = today(getLocalTimeZone())
   const [value, setValue] = React.useState(parseDate(now.toString()))

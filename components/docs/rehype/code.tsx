@@ -1,21 +1,25 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { IconCircleInfo } from '@irsyadadl/paranoid'
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@radix-ui/react-collapsible'
+import rehypePrettyCode from 'rehype-pretty-code'
+import rehypeStringify from 'rehype-stringify'
+import remarkParse from 'remark-parse'
+import remarkRehype from 'remark-rehype'
 import { Button, cn, CopyButton } from 'ui'
+import { unified } from 'unified'
 import { copyToClipboard } from 'usemods'
-
-import { Pretty } from './pretty'
 
 interface CodeProps {
   lang?: string
   code: string
   withImportCopy?: boolean
+  className?: string
 }
 
-function Code({ lang = 'tsx', code, withImportCopy = true }: CodeProps) {
+function Code({ className, lang = 'tsx', code, withImportCopy = true }: CodeProps) {
   const [copied, setCopied] = React.useState<string>('')
 
   function copyImportsToClipboard(): void {
@@ -31,7 +35,7 @@ function Code({ lang = 'tsx', code, withImportCopy = true }: CodeProps) {
   }
 
   return (
-    <div className="dfakdpxe2941 not-prose group relative max-h-96 overflow-y-auto rounded-lg font-mono text-sm">
+    <div className={cn("dfakdpxe2941 not-prose group relative max-h-96 overflow-y-auto rounded-lg font-mono text-sm", className)}>
       <div className={cn('absolute z-20 bottom-auto right-3 top-3 flex gap-1.5')}>
         {withImportCopy && (
           <CopyButton
@@ -43,7 +47,7 @@ function Code({ lang = 'tsx', code, withImportCopy = true }: CodeProps) {
         )}
         <CopyRawButton code={code} />
       </div>
-      <Pretty lang={lang} code={code} />
+      <CodeHighlighter lang={lang} code={code} />
     </div>
   )
 }
@@ -126,6 +130,43 @@ export function CopyRawButton({ code }: { className?: string; code: any }) {
       })
   }
   return <CopyButton ariaLabel="Copy raw code" isCopied={copied === 'raw'} onPress={copyRaw} />
+}
+
+const CodeHighlighter: React.FC<CodeProps> = ({ lang = 'tsx', code }) => {
+  const [formattedCode, setFormattedCode] = useState('')
+  const [error, setError] = useState('')
+
+  useEffect(() => {
+    const processCode = async () => {
+      try {
+        const file = await unified()
+          .use(remarkParse)
+          .use(remarkRehype, { allowDangerousHtml: true })
+          .use(rehypePrettyCode, {
+            keepBackground: false,
+            theme: 'vesper',
+            defaultLang: {
+              block: lang,
+              inline: 'plaintext'
+            }
+          })
+          .use(rehypeStringify, { allowDangerousHtml: true })
+          .process(`\`\`\`${lang}\n${code}\n\`\`\``)
+        setFormattedCode(String(file))
+      } catch (err) {
+        setError('Failed to process code. Please check the configuration.')
+        console.error(err)
+      }
+    }
+
+    processCode()
+  }, [code, lang])
+
+  if (error) {
+    return <p>Error: {error}</p>
+  }
+
+  return <div dangerouslySetInnerHTML={{ __html: formattedCode }} />
 }
 
 export { CodeContainer, CodeExpandButton, CodeCollapsible, Code }

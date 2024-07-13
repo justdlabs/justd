@@ -4,7 +4,6 @@ import { getLocalTimeZone, parseDate, today } from '@internationalized/date'
 import { useDateFormatter } from '@react-aria/i18n'
 import { DatePicker } from 'ui'
 
-
 export default function DatePickerControlledDemo() {
   const now = today(getLocalTimeZone())
 
