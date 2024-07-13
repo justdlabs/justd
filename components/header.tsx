@@ -4,6 +4,7 @@ import React from 'react'
 
 import { Container, Header as HeaderPrimitive, Heading } from 'ui'
 
+
 export function Header({ children }: { children: React.ReactNode }) {
   return (
     <HeaderPrimitive className="bg-background pb-4 pt-12 lg:py-16 border-b ">

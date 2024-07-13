@@ -9,6 +9,7 @@ import { cn } from '@/lib/utils'
 import { IconLoader } from '@irsyadadl/paranoid'
 import { Tab, TabList, TabPanel, Tabs } from 'ui'
 
+
 interface HowProps extends React.HTMLAttributes<HTMLDivElement> {
   toUse: string
   minW72?: boolean
