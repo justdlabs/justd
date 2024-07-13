@@ -23,6 +23,7 @@
     "react/prop-types": "off",
     "@typescript-eslint/ban-ts-comment": "off",
     "react/no-unescaped-entities": "off",
+    "@typescript-eslint/ban-types": "off",
     "react/no-unknown-property": "off"
   }
 }
