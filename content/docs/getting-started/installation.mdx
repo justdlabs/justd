@@ -60,10 +60,6 @@ The command above will show you list like this:
 Right now, the CLI can only drop one component at a time. So if you try `add note card`, it'll only add the `note` component. If you wanna upgrade it to handle multiple components, feel free to make a [PR](https://github.com/irsyadadl/d.cli/).
 
 ## React Server Component
-Alright, here's your sentence with some slang:
-
----
-
 By default, the primitive gets dropped in the `components/ui` folder of your project. It packs all the must-have functions for your components, like `cn` for className and `composeTailwindRenderProps`. But heads up, you can't rock it in server components. So, if you wanna flex that `cn` class outside the built-in squad, you gotta whip up a file that only holds that function, like this:
 
 ```ts
