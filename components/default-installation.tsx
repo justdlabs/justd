@@ -14,7 +14,7 @@ const DefaultInstallation: React.FC<InstallProps> = ({ items = ['react-aria-comp
       case 'bun':
         return `bunx @irsyadadl/d@latest add ${items.join(' ')}`
       case 'yarn':
-        return `npx @irsyadadl/d@latest add ${items.join(' ')}`
+        return `yarn dlx @irsyadadl/d@latest add ${items.join(' ')}`
       case 'pnpm':
         return `pnpm dlx @irsyadadl/d@latest add ${items.join(' ')}`
       case 'npm':

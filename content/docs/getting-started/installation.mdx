@@ -16,7 +16,7 @@ Next up, tell it your source. If you're rocking **Next.js**, pick Next.js. If **
 
 After that, just run `add [component-name]` to drop the component in your project. No need to install everything at once. Need a file-trigger? Just add it up. Even if it requires a button, this command's got you covered. Just install what you need now. Otherwise, hit up the docs and do it manually. Here's how to add a `combo-box`:
 
-<Snippet text={`npx @irsyadadl/d@latest add combo-box`} />
+<Default items={['combo-box']}/>
 
 This command will install all the required components like:
 ```bash
@@ -30,7 +30,7 @@ This command will install all the required components like:
 ```
 
 If ya wanna drop in group components, check the docs, they bundle all the goodies into one namespace, like collections, overlays, forms, etc. So you can slap 'em in all at once like this:
-<Snippet text={`npx @irsyadadl/d@latest add overlays`} />
+<Default items={['overlays']}/>
 With that command, you'll get all the components in the overlays namespace like this:
 ```bash
 ✓ button created
@@ -40,6 +40,21 @@ With that command, you'll get all the components in the overlays namespace like 
 ✓ drawer created
 ✓ popover created
 ✓ tooltip created
+```
+
+Or you might wanna pick the components you wanna toss in. Just add 'em without any arguments. You'll get a list of components to select, using arrow keys and spacebar.
+<Default items={['']}/>
+
+The command above will show you list like this:
+```bash
+? Select components to add: (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter> to proceed)
+ ◯ dropdown
+ ◯ dialog
+ ◯ dynamic-overlay
+ ◯ field
+ ◯ forms
+ ◯ collections
+ ◯ date-and-time
 ```
 
 Right now, the CLI can only drop one component at a time. So if you try `add note card`, it'll only add the `note` component. If you wanna upgrade it to handle multiple components, feel free to make a [PR](https://github.com/irsyadadl/d.cli/).
@@ -206,9 +221,7 @@ export default withTV({
 
   plugins: [ ta, trac ],
   theme: {
-    // ...
     extend: {
-      // ...
       colors: {
         border: 'hsl(var(--border))',
         link: 'hsl(var(--link))',
