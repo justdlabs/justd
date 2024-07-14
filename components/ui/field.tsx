@@ -1,5 +1,7 @@
 'use client'
 
+import * as React from 'react'
+
 import {
   composeRenderProps,
   FieldError as FieldErrorPrimitive,
@@ -71,9 +73,10 @@ const FieldGroup = (props: GroupProps) => {
   )
 }
 
-const Input = (props: InputProps) => {
+const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   return (
     <InputPrimitive
+      ref={ref}
       {...props}
       className={ctr(
         props.className,
@@ -81,7 +84,8 @@ const Input = (props: InputProps) => {
       )}
     />
   )
-}
+})
+Input.displayName = 'Input'
 
 export {
   Description,

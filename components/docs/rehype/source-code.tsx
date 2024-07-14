@@ -16,9 +16,10 @@ import { Tab, TabList, TabPanel, Tabs } from 'ui'
 interface SourceCodeProps extends React.HTMLAttributes<HTMLDivElement> {
   toShow: string | string[]
   message?: string
+  title?: string
 }
 
-export function SourceCode({ message, toShow, ...props }: SourceCodeProps) {
+export function SourceCode({ title, message, toShow, ...props }: SourceCodeProps) {
   const [codeStrings, setCodeStrings] = React.useState<{ name: string; code: string }[]>([])
   const [isOpened, setIsOpened] = React.useState<Record<string, boolean>>({})
 
@@ -51,6 +52,7 @@ export function SourceCode({ message, toShow, ...props }: SourceCodeProps) {
         <p className="mb-4 -mt-2">
           {message ? message : 'And next, you can copy the code below and paste it into your dopest component folder.'}
         </p>
+        {title && <figcaption data-rehype-pretty-code-title="">{title}</figcaption>}
         <CodeCollapsibleRoot>
           <CodeCollapsible
             isOpened={isOpened[0]}

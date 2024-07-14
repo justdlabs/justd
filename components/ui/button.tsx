@@ -1,5 +1,7 @@
 'use client'
 
+import * as React from 'react'
+
 import { Button as ButtonPrimitive, type ButtonProps as ButtonPrimitiveProps } from 'react-aria-components'
 import { tv, type VariantProps } from 'tailwind-variants'
 
@@ -116,21 +118,18 @@ interface ButtonProps extends ButtonPrimitiveProps, ButtonVariants {
   className?: string
 }
 
-const Button = ({ className, intent, appearance, size, shape, ...props }: ButtonProps) => {
-  return (
-    <ButtonPrimitive
-      className={cn(
-        buttonStyles({
-          intent,
-          appearance,
-          size,
-          shape,
-          className
-        })
-      )}
-      {...props}
-    />
-  )
-}
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, intent, appearance, size, shape, ...props }, ref) => {
+    return (
+      <ButtonPrimitive
+        ref={ref}
+        className={cn(buttonStyles({ intent, appearance, size, shape }), className)}
+        {...props}
+      />
+    )
+  }
+)
+
+Button.displayName = 'Button'
 
 export { Button, ButtonPrimitive, buttonStyles, type ButtonProps }

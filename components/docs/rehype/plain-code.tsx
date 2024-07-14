@@ -7,13 +7,15 @@ import { CodeCollapsible, CodeCollapsibleRoot } from '@/components/docs/rehype/c
 interface PlainCodeProps extends React.HTMLAttributes<HTMLDivElement> {
   code: string
   lang?: string
+  title?: string
   withImportCopy?: boolean
 }
 
-export function PlainCode({ withImportCopy = false, lang = 'tsx', code, ...props }: PlainCodeProps) {
+export function PlainCode({ title, withImportCopy = false, lang = 'tsx', code, ...props }: PlainCodeProps) {
   const [isOpened, setIsOpened] = React.useState(false)
   return (
     <section className="my-4 not-prose">
+      {title && <figcaption data-rehype-pretty-code-title="">{title}</figcaption>}
       <CodeCollapsibleRoot>
         <CodeCollapsible
           isOpened={isOpened}

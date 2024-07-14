@@ -2,6 +2,10 @@
     @apply px-0 py-2 border rounded-lg border-zinc-800 !bg-[#0e0e10];
 }
 
+[data-rehype-pretty-code-title] {
+    @apply text-sm font-medium text-muted-fg p-2;
+}
+
 [data-rehype-pretty-code-figure] code {
     @apply !text-sm !leading-loose md:text-base border-0 p-0;
 }
