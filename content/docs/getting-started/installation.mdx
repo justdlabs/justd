@@ -62,7 +62,7 @@ Right now, the CLI can only drop one component at a time. So if you try `add not
 ## React Server Component
 By default, the primitive gets dropped in the `components/ui` folder of your project. It packs all the must-have functions for your components, like `cn` for className and `composeTailwindRenderProps`. But heads up, you can't rock it in server components. So, if you wanna flex that `cn` class outside the built-in squad, you gotta whip up a file that only holds that function, like this:
 
-```ts
+```ts title="utils/classes.ts"
 import { twMerge } from 'tailwind-merge'
 import { type ClassValue, clsx } from 'clsx'
 
@@ -83,14 +83,14 @@ export default function page() {
 ## Manual Installation
 To get started with the design system, you gotta install these packages:
 
-<Snippet text={`bun i react-aria-components tailwindcss-react-aria-components`} />
+<ManualInstall items={['react-aria-components', 'tailwindcss-react-aria-components']} />
 
 Next, grab Tailwind Variant, Tailwind Merge, and clsx for those sweet utility functions.
 
-<Snippet text={`bun i tailwind-variants tailwind-merge clsx`} />
+<ManualInstall items={['tailwind-variants', 'tailwind-merge','clsx']} />
 
 Then, snag the animation package for handling animations and Paranoid for icons:
-<Snippet text={`bun i @irsyadadl/paranoid tailwindcss-animate framer-motion`} />
+<ManualInstall items={['@irsyadadl/paranoid', 'tailwindcss-animate', 'framer-motion']} />
 
 ### CSS
 First up, tweak your root CSS file. For example, if you're rockin' Laravel, it's **resources/css/app.css**, and you gotta add this code:
@@ -290,7 +290,7 @@ export default withTV({
 `} />
 
 ### Primitive
-<SourceCode toShow={['primitive']} />
+<SourceCode title='ui/primitive.tsx' toShow={['primitive']} />
 
 ## Simple Import
 Yup, that's slick 'cause the index.ts file in your ui folder plays the connect-the-dots game. Even if button and badge are chillin' in different files, you can scoop them up in one go like this:
@@ -298,8 +298,7 @@ Yup, that's slick 'cause the index.ts file in your ui folder plays the connect-t
 import { Button, VisuallyHidden, Badge } from 'ui'
 ```
 Aight, so here’s the lowdown: your ui folder’s rockin’ an index.ts file, right? This bad boy bundles up all your components for easy access. Just pull 'em in like this, no sweat!
-```tsx
-export * from './primitive';
+<PlainCode title="ui/index.ts" lang='tsx' code={`export * from './primitive';
 export * from './note';
 export * from './list-box';
 export * from './pagination';
@@ -359,11 +358,13 @@ export * from './color';
 export * from './color-picker';
 export * from './dynamic-overlay';
 export * from './visually-hidden';
-```
+`} />
+
 If you ain’t usin’ all them bits, just ditch the ones you don’t need. Later on, when you got a fresh component, just slide it into the lineup. Easy peasy!
-## TS Config
+
+### TS Config
 Then, you gotta drop this into your `tsconfig.json` file:
-```json
+```json title="tsconfig.json" {6}
 {
   "compilerOptions": {
     // ...
@@ -374,8 +375,10 @@ Then, you gotta drop this into your `tsconfig.json` file:
   }
 }
 ```
+### TS Config with src Folder
 Just make sure you're rockin' the paths property right when you got a src folder in your project. If you wanna mess with the ui folder, just line up your paths proper like this:
-```json
+
+```json title="tsconfig.json" {6}
 {
   "compilerOptions": {
     // ...
