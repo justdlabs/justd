@@ -77,19 +77,28 @@ export interface ModalContentProps
 }
 
 interface CloseButtonIndicatorProps {
-  desktop?: boolean
   className?: string
   close: () => void
   dismissable?: boolean | undefined
 }
 
 const CloseButtonIndicator = ({ className, ...props }: CloseButtonIndicatorProps) => {
+  const isMobile = useMediaQuery('(max-width: 600px)')
+  const buttonRef = React.useRef<HTMLButtonElement>(null)
+
+  React.useEffect(() => {
+    if (isMobile && buttonRef.current) {
+      buttonRef.current.focus()
+    }
+  }, [isMobile])
+
   return (
     <Button
+      ref={buttonRef}
+      {...(isMobile ? { autoFocus: true } : {})}
       appearance="plain"
       size="square-petite"
       aria-label="Close"
-      autoFocus={!props.desktop}
       onPress={props.close}
       className={cn('close absolute right-1 size-6 top-1 z-50', className, props.dismissable === false && 'hidden')}
     >
@@ -100,16 +109,13 @@ const CloseButtonIndicator = ({ className, ...props }: CloseButtonIndicatorProps
 
 const ModalContent = ({ className, children, size, role, closeButton = true, ...props }: ModalContentProps) => {
   const { isDismissable } = React.useContext(ModalOverlayContext)
-  const isDesktop = useMediaQuery('(min-width: 1024px)')
   return (
     <ModalPrimitive className={modalVariants({ size, className })} {...props}>
       <Dialog role={role}>
         {(values) => (
           <>
             {typeof children === 'function' ? children(values) : children}
-            {closeButton && (
-              <CloseButtonIndicator desktop={isDesktop} close={values.close} dismissable={isDismissable} />
-            )}
+            {closeButton && <CloseButtonIndicator close={values.close} dismissable={isDismissable} />}
           </>
         )}
       </Dialog>
