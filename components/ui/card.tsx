@@ -2,11 +2,12 @@
 
 import * as React from 'react'
 
-import type { HeadingProps, TextProps } from 'react-aria-components'
+import type { HeadingProps, TextProps } from 'react-aria-components';
 import { Heading } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
 import { Description } from './field'
+
 
 const card = tv({
   slots: {
@@ -22,32 +23,28 @@ const card = tv({
 
 const { root, header, title, description, content, footer } = card()
 
-const Card = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(({ className, ...props }, ref) => (
-  <div ref={ref} className={root({ className })} {...props} />
-))
-Card.displayName = 'Card'
+const Card =  ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => {
+  return <div className={root({ className })} {...props} />
+}
 
-const CardHeader = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => <div ref={ref} className={header({ className })} {...props} />
+const CardHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
+  <div className={header({ className })} {...props} />
 )
-CardHeader.displayName = 'CardHeader'
 
-function CardTitle(props: HeadingProps) {
+const CardTitle = (props: HeadingProps) => {
   return <Heading className={title({ className: props.className })} {...props} />
 }
 
-function CardDescription(props: TextProps) {
+const CardDescription = (props: TextProps) => {
   return <Description className={description({ className: props.className })} {...props} />
 }
 
-const CardContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => <div ref={ref} className={content({ className })} {...props} />
-)
-CardContent.displayName = 'CardContent'
+const CardContent = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => {
+  return <div className={content({ className })} {...props} />
+}
 
-const CardFooter = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => <div ref={ref} className={footer({ className })} {...props} />
-)
-CardFooter.displayName = 'CardFooter'
+const CardFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => {
+  return <div className={footer({ className })} {...props} />
+}
 
 export { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
