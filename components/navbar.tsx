@@ -11,7 +11,6 @@ import {
   IconBrandGithub,
   IconBrandParanoid,
   IconBrandTailwindcss,
-  IconBrandTwitter,
   IconBrandX,
   IconChevronDown,
   IconColors,
@@ -263,7 +262,7 @@ export function NavbarDropdown() {
         </span>
       </Button>
       <MenuContent placement="bottom" className="w-64">
-        <MenuItem href="https://x.com/intent/follow?screen_name=irsyadadl" target="_blank">
+        <MenuItem href="/">
           <IconHome />
           Home
         </MenuItem>
@@ -274,8 +273,8 @@ export function NavbarDropdown() {
         <MenuSeparator />
         <MenuSection>
           <MenuItem href="https://x.com/intent/follow?screen_name=irsyadadl" target="_blank">
-            <IconBrandTwitter />
-            Twitter
+            <IconBrandX />
+            X / Twitter
           </MenuItem>
           <MenuItem href="https://github.com/irsyadadl" target="_blank">
             <IconBrandGithub />

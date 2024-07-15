@@ -40,6 +40,7 @@ export default function RootLayout({
           satoshi.variable,
           geistMono.variable
         )}
+        suppressHydrationWarning
       >
         <Providers>
           <div className="relative flex min-h-dvh flex-col bg-background">
