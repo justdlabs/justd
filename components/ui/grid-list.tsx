@@ -1,19 +1,29 @@
 'use client'
 
+import React from 'react'
+
+import { IconHamburger } from '@irsyadadl/paranoid'
 import {
   Button,
   GridList as GridListPrimitive,
   GridListItem as GridListItemPrimitive,
   type GridListItemProps,
-  type GridListProps
+  type GridListProps as GridListPrimitiveProps
 } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
 import { Checkbox } from './checkbox'
 import { composeTailwindRenderProps, focusRing } from './primitive'
 
-const GridList = <T extends object>({ children, ...props }: GridListProps<T>) => (
+interface GridListProps<T extends object> extends GridListPrimitiveProps<T> {}
+
+const GridList = <T extends object>({
+  selectionMode = 'single',
+  children,
+  ...props
+}: GridListProps<T>) => (
   <GridListPrimitive
+    selectionMode={selectionMode}
     {...props}
     className={composeTailwindRenderProps(
       props.className,
@@ -44,8 +54,11 @@ const GridListItem = ({ children, ...props }: GridListItemProps) => {
     <GridListItemPrimitive textValue={textValue} {...props} className={itemStyles}>
       {({ selectionMode, selectionBehavior, allowsDragging }) => (
         <>
-          {/* Add elements for drag and drop and selection. */}
-          {allowsDragging && <Button slot="drag">≡</Button>}
+          {allowsDragging && (
+            <Button slot="drag">
+              <IconHamburger />
+            </Button>
+          )}
           {selectionMode === 'multiple' && selectionBehavior === 'toggle' && (
             <Checkbox slot="selection" />
           )}
@@ -56,4 +69,8 @@ const GridListItem = ({ children, ...props }: GridListItemProps) => {
   )
 }
 
-export { GridList, GridListItem }
+const GridEmptyState = (props: React.HTMLAttributes<HTMLDivElement>) => (
+  <div className="p-6" {...props} />
+)
+
+export { GridList, GridListItem, GridEmptyState }
