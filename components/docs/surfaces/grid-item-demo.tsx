@@ -2,7 +2,7 @@ import { Grid, GridItem } from 'ui'
 
 export default function GridItemDemo() {
   return (
-    <Grid debug columns={3} gap={2}>
+    <Grid debug columns={3} gap={4}>
       <GridItem
         colSpan={{
           initial: 1,
