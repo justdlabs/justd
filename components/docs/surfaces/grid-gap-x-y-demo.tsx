@@ -10,11 +10,11 @@ export default function GridGapXYDemo() {
       }}
       gapX={{
         initial: 2,
-        sm: 6
+        sm: 4
       }}
       gapY={{
         initial: 4,
-        sm: 8
+        sm: 6
       }}
     >
       <GridItem>

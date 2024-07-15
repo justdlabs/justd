@@ -2,7 +2,7 @@ import { Grid, GridItem } from 'ui'
 
 export default function GridItemDemo() {
   return (
-    <Grid debug columns={3} gap={6}>
+    <Grid debug columns={3} gap={2}>
       <GridItem
         colSpan={{
           initial: 1,
@@ -15,10 +15,6 @@ export default function GridItemDemo() {
       <GridItem className="w-full h-24 grid place-content-center">2</GridItem>
       <GridItem
         colSpan={{
-          initial: 1,
-          sm: 3
-        }}
-        rowStart={{
           initial: 1,
           sm: 3
         }}

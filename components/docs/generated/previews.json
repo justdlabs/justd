@@ -676,7 +676,7 @@
   },
   "surfaces/grid-gap-demo": {
     "component": "@/components/docs/surfaces/grid-gap-demo",
-    "raw": "import { Grid, GridItem } from 'ui'\n\nexport default function GridGapDemo() {\n  return (\n    <Grid\n      columns={{\n        initial: 4,\n        sm: 5,\n        md: 6\n      }}\n      gap={{\n        initial: 2,\n        sm: 6\n      }}\n    >\n      <GridItem>\n        <div className=\"p-4 border h-24\" />\n      </GridItem>\n      <GridItem>\n        <div className=\"p-4 border h-24\" />\n      </GridItem>\n      <GridItem>\n        <div className=\"p-4 border h-24\" />\n      </GridItem>\n      <GridItem>\n        <div className=\"p-4 border h-24\" />\n      </GridItem>\n      <GridItem>\n        <div className=\"p-4 border h-24\" />\n      </GridItem>\n      <GridItem>\n        <div className=\"p-4 border h-24\" />\n      </GridItem>\n    </Grid>\n  )\n}\n",
+    "raw": "import { Grid, GridItem } from 'ui'\n\nexport default function GridGapDemo() {\n  return (\n    <Grid\n      columns={{\n        initial: 4,\n        sm: 5,\n        md: 6\n      }}\n      gap={{\n        initial: 2,\n        sm: 4\n      }}\n    >\n      <GridItem>\n        <div className=\"p-4 border h-24\" />\n      </GridItem>\n      <GridItem>\n        <div className=\"p-4 border h-24\" />\n      </GridItem>\n      <GridItem>\n        <div className=\"p-4 border h-24\" />\n      </GridItem>\n      <GridItem>\n        <div className=\"p-4 border h-24\" />\n      </GridItem>\n      <GridItem>\n        <div className=\"p-4 border h-24\" />\n      </GridItem>\n      <GridItem>\n        <div className=\"p-4 border h-24\" />\n      </GridItem>\n    </Grid>\n  )\n}\n",
     "type": "docs"
   },
   "surfaces/grid-collections-demo": {
@@ -706,12 +706,12 @@
   },
   "surfaces/grid-item-demo": {
     "component": "@/components/docs/surfaces/grid-item-demo",
-    "raw": "import { Grid, GridItem } from 'ui'\n\nexport default function GridItemDemo() {\n  return (\n    <Grid debug columns={3} gap={6}>\n      <GridItem\n        colSpan={{\n          initial: 1,\n          sm: 2\n        }}\n        className=\"w-full h-24 grid place-content-center\"\n      >\n        1\n      </GridItem>\n      <GridItem className=\"w-full h-24 grid place-content-center\">2</GridItem>\n      <GridItem\n        colSpan={{\n          initial: 1,\n          sm: 3\n        }}\n        rowStart={{\n          initial: 1,\n          sm: 3\n        }}\n        className=\"w-full h-24 grid place-content-center\"\n      >\n        3\n      </GridItem>\n    </Grid>\n  )\n}\n",
+    "raw": "import { Grid, GridItem } from 'ui'\n\nexport default function GridItemDemo() {\n  return (\n    <Grid debug columns={3} gap={2}>\n      <GridItem\n        colSpan={{\n          initial: 1,\n          sm: 2\n        }}\n        className=\"w-full h-24 grid place-content-center\"\n      >\n        1\n      </GridItem>\n      <GridItem className=\"w-full h-24 grid place-content-center\">2</GridItem>\n      <GridItem\n        colSpan={{\n          initial: 1,\n          sm: 3\n        }}\n        className=\"w-full h-24 grid place-content-center\"\n      >\n        3\n      </GridItem>\n    </Grid>\n  )\n}\n",
     "type": "docs"
   },
   "surfaces/grid-debug-demo": {
     "component": "@/components/docs/surfaces/grid-debug-demo",
-    "raw": "import { Grid, GridItem } from 'ui'\n\nexport default function GridDebugDemo() {\n  return (\n    <Grid debug columns={3} gap={6}>\n      <GridItem className=\"w-full h-24\" />\n      <GridItem className=\"w-full h-24\" />\n      <GridItem className=\"w-full h-24\" />\n      <GridItem className=\"w-full h-24\" />\n      <GridItem className=\"w-full h-24\" />\n      <GridItem className=\"w-full h-24\" />\n      <GridItem className=\"w-full h-24\" />\n      <GridItem className=\"w-full h-24\" />\n      <GridItem className=\"w-full h-24\" />\n    </Grid>\n  )\n}\n",
+    "raw": "import { Grid, GridItem } from 'ui'\n\nexport default function GridDebugDemo() {\n  return (\n    <Grid debug columns={3} gap={4}>\n      <GridItem className=\"w-full h-24\" />\n      <GridItem className=\"w-full h-24\" />\n      <GridItem className=\"w-full h-24\" />\n      <GridItem className=\"w-full h-24\" />\n      <GridItem className=\"w-full h-24\" />\n      <GridItem className=\"w-full h-24\" />\n      <GridItem className=\"w-full h-24\" />\n      <GridItem className=\"w-full h-24\" />\n      <GridItem className=\"w-full h-24\" />\n    </Grid>\n  )\n}\n",
     "type": "docs"
   },
   "surfaces/card-demo": {
@@ -721,7 +721,7 @@
   },
   "surfaces/grid-gap-x-y-demo": {
     "component": "@/components/docs/surfaces/grid-gap-x-y-demo",
-    "raw": "import { Grid, GridItem } from 'ui'\n\nexport default function GridGapXYDemo() {\n  return (\n    <Grid\n      columns={{\n        initial: 3,\n        sm: 4,\n        md: 6\n      }}\n      gapX={{\n        initial: 2,\n        sm: 6\n      }}\n      gapY={{\n        initial: 4,\n        sm: 8\n      }}\n    >\n      <GridItem>\n        <div className=\"p-4 border h-24\" />\n      </GridItem>\n      <GridItem>\n        <div className=\"p-4 border h-24\" />\n      </GridItem>\n      <GridItem>\n        <div className=\"p-4 border h-24\" />\n      </GridItem>\n      <GridItem>\n        <div className=\"p-4 border h-24\" />\n      </GridItem>\n      <GridItem>\n        <div className=\"p-4 border h-24\" />\n      </GridItem>\n      <GridItem>\n        <div className=\"p-4 border h-24\" />\n      </GridItem>\n    </Grid>\n  )\n}\n",
+    "raw": "import { Grid, GridItem } from 'ui'\n\nexport default function GridGapXYDemo() {\n  return (\n    <Grid\n      columns={{\n        initial: 3,\n        sm: 4,\n        md: 6\n      }}\n      gapX={{\n        initial: 2,\n        sm: 4\n      }}\n      gapY={{\n        initial: 4,\n        sm: 6\n      }}\n    >\n      <GridItem>\n        <div className=\"p-4 border h-24\" />\n      </GridItem>\n      <GridItem>\n        <div className=\"p-4 border h-24\" />\n      </GridItem>\n      <GridItem>\n        <div className=\"p-4 border h-24\" />\n      </GridItem>\n      <GridItem>\n        <div className=\"p-4 border h-24\" />\n      </GridItem>\n      <GridItem>\n        <div className=\"p-4 border h-24\" />\n      </GridItem>\n      <GridItem>\n        <div className=\"p-4 border h-24\" />\n      </GridItem>\n    </Grid>\n  )\n}\n",
     "type": "docs"
   },
   "statuses/table-of-badges": {

@@ -10,7 +10,7 @@ export default function GridGapDemo() {
       }}
       gap={{
         initial: 2,
-        sm: 6
+        sm: 4
       }}
     >
       <GridItem>
