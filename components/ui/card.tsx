@@ -2,12 +2,11 @@
 
 import * as React from 'react'
 
-import type { HeadingProps, TextProps } from 'react-aria-components';
+import type { HeadingProps, TextProps } from 'react-aria-components'
 import { Heading } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
 import { Description } from './field'
-
 
 const card = tv({
   slots: {
@@ -23,7 +22,7 @@ const card = tv({
 
 const { root, header, title, description, content, footer } = card()
 
-const Card =  ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => {
+const Card = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => {
   return <div className={root({ className })} {...props} />
 }
 
