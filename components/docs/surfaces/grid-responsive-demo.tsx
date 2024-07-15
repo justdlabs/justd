@@ -11,8 +11,8 @@ export default function GridResponsiveDemo() {
       }}
       gap={{
         initial: 2,
-        sm: 4,
-        lg: 6
+        sm: 3,
+        lg: 4
       }}
     >
       <GridItem>
