@@ -1,6 +1,6 @@
 'use client'
 
-import { IconBrandD } from '@irsyadadl/paranoid'
+import { IconBrandD, IconCube } from '@irsyadadl/paranoid'
 import Link from 'next/link'
 import { Header, Text } from 'react-aria-components'
 import { buttonStyles, Container, Heading } from 'ui'
@@ -25,13 +25,25 @@ export function Hero() {
             of the box.
           </Text>
         </Header>
-        <div className="mt-6">
+        <div className="mt-6 space-x-2">
           <Link
-            className={buttonStyles({ size: 'large' })}
+            className={buttonStyles({
+              size: 'large'
+            })}
             href="/docs/getting-started/installation"
           >
             <IconBrandD />
             Get started
+          </Link>
+          <Link
+            className={buttonStyles({
+              size: 'large',
+              intent: 'light'
+            })}
+            href="/components"
+          >
+            <IconCube />
+            Components
           </Link>
         </div>
       </Container>
