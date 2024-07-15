@@ -2,7 +2,7 @@ import { withTV } from 'tailwind-variants/transformer'
 import type { Config } from 'tailwindcss'
 import { fontFamily } from 'tailwindcss/defaultTheme'
 
-const config = {
+const config = withTV({
   darkMode: ['class'],
   content: [
     './components/**/*.{ts,tsx}',
@@ -125,6 +125,6 @@ const config = {
     require('@tailwindcss/typography'),
     require('tailwindcss-react-aria-components')
   ]
-} satisfies Config
+}) satisfies Config
 
-export default withTV(config)
+export default config

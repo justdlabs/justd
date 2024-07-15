@@ -12,12 +12,3 @@ export default function Page() {
     </div>
   )
 }
-
-function Number(props: React.HTMLProps<HTMLDivElement>) {
-  return (
-    <div
-      className="text-2xl w-full h-32 font-bold grid place-content-center"
-      {...props}
-    />
-  )
-}
