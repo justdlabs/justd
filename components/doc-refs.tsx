@@ -3,7 +3,13 @@
 import type { FC, SVGProps } from 'react'
 
 import { Logo } from '@/components/logo'
-import { IconBell, IconBrandAdobe, IconBrandFramer, IconBrandGithub, IconBrandParanoid } from '@irsyadadl/paranoid'
+import {
+  IconBell,
+  IconBrandAdobe,
+  IconBrandFramer,
+  IconBrandGithub,
+  IconBrandParanoid
+} from '@irsyadadl/paranoid'
 import { Menu, MenuItem } from 'react-aria-components'
 import { buttonStyles, cn } from 'ui'
 
@@ -53,7 +59,13 @@ export function DocRefs({ references }: any) {
       {(item: any) => (
         <MenuItem
           target="_blank"
-          className={cn(buttonStyles({ appearance: 'outline', size: 'small', className: 'focus:outline-0' }))}
+          className={cn(
+            buttonStyles({
+              appearance: 'outline',
+              size: 'small',
+              className: 'focus:outline-0'
+            })
+          )}
           id={item.url}
           href={item.url}
         >

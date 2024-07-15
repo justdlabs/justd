@@ -59,7 +59,9 @@ const Slider = React.forwardRef<React.ElementRef<typeof SliderPrimitive>, Slider
         {label && <Label>{label}</Label>}
         {(showValue || typeof showValue === 'function') && (
           <SliderValueLabel>
-            {({ state }) => (typeof showValue === 'function' ? showValue(state.values) : undefined)}
+            {({ state }) =>
+              typeof showValue === 'function' ? showValue(state.values) : undefined
+            }
           </SliderValueLabel>
         )}
       </div>
@@ -71,19 +73,25 @@ const Slider = React.forwardRef<React.ElementRef<typeof SliderPrimitive>, Slider
 Slider.displayName = 'Slider'
 
 type SliderRootProps = SliderPrimitiveProps
-const SliderRoot = React.forwardRef((props: SliderRootProps, ref: React.Ref<HTMLDivElement>) => {
-  const descriptionId = useSlotId()
-  return (
-    <TextContextPrimitive.Provider value={{ slots: { description: { id: descriptionId } } }}>
-      <SliderPrimitive
-        ref={ref}
-        aria-describedby={descriptionId}
-        {...props}
-        className={composeRenderProps(props.className, (className) => root({ className }))}
-      />
-    </TextContextPrimitive.Provider>
-  )
-})
+const SliderRoot = React.forwardRef(
+  (props: SliderRootProps, ref: React.Ref<HTMLDivElement>) => {
+    const descriptionId = useSlotId()
+    return (
+      <TextContextPrimitive.Provider
+        value={{ slots: { description: { id: descriptionId } } }}
+      >
+        <SliderPrimitive
+          ref={ref}
+          aria-describedby={descriptionId}
+          {...props}
+          className={composeRenderProps(props.className, (className) =>
+            root({ className })
+          )}
+        />
+      </TextContextPrimitive.Provider>
+    )
+  }
+)
 SliderRoot.displayName = 'SliderRoot'
 
 type SliderControlsProps = SliderTrackProps & VariantProps<typeof sliderStyles>
@@ -112,7 +120,9 @@ const SliderTrack = (props: SliderTrackProps) => {
 
 type SliderFillerProps = React.HTMLAttributes<HTMLDivElement>
 const SliderFiller = (props: SliderFillerProps) => {
-  const { orientation, getThumbPercent, values } = React.useContext(SliderStateContextPrimitive)
+  const { orientation, getThumbPercent, values } = React.useContext(
+    SliderStateContextPrimitive
+  )
   return (
     <div
       {...props}
@@ -154,14 +164,25 @@ const SliderValueLabel = (props: SliderValueLabelProps) => {
   return (
     <SliderOutputPrimitive
       {...props}
-      className={composeRenderProps(props.className, (className) => valueLabel({ className }))}
+      className={composeRenderProps(props.className, (className) =>
+        valueLabel({ className })
+      )}
     >
       {composeRenderProps(
         props.children,
-        (children, { state }) => children ?? state.values.map((_, i) => state.getThumbValueLabel(i)).join(' - ')
+        (children, { state }) =>
+          children ?? state.values.map((_, i) => state.getThumbValueLabel(i)).join(' - ')
       )}
     </SliderOutputPrimitive>
   )
 }
 
-export { Slider, SliderControls, SliderFiller, SliderRoot, SliderThumb, SliderTrack, SliderValueLabel }
+export {
+  Slider,
+  SliderControls,
+  SliderFiller,
+  SliderRoot,
+  SliderThumb,
+  SliderTrack,
+  SliderValueLabel
+}

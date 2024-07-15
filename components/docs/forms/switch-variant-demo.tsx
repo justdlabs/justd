@@ -5,17 +5,23 @@ import React from 'react'
 import { OptionPreview } from '@/components/docs/outside/option-preview'
 import { Select, SelectItem, Switch } from 'ui'
 
-const items = ['primary', 'secondary', 'success', 'danger', 'warning', 'info'].map((item) => ({
-  value: item,
-  label: item
-}))
+const items = ['primary', 'secondary', 'success', 'danger', 'warning', 'info'].map(
+  (item) => ({
+    value: item,
+    label: item
+  })
+)
 export default function SwitchVariantDemo() {
   const [intent, setIntent] = React.useState('primary')
 
   return (
     <>
       <OptionPreview>
-        <Select items={items} selectedKey={intent} onSelectionChange={(v) => setIntent(v as any)}>
+        <Select
+          items={items}
+          selectedKey={intent}
+          onSelectionChange={(v) => setIntent(v as any)}
+        >
           {(item) => (
             <SelectItem id={item.value} textValue={item.value}>
               {item.label}

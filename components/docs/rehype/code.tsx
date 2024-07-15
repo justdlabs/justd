@@ -3,7 +3,11 @@
 import React, { useEffect, useState } from 'react'
 
 import { IconCircleInfo } from '@irsyadadl/paranoid'
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@radix-ui/react-collapsible'
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger
+} from '@radix-ui/react-collapsible'
 import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeStringify from 'rehype-stringify'
 import remarkParse from 'remark-parse'
@@ -25,7 +29,9 @@ function Code({ className, lang = 'tsx', code, withImportCopy = true }: CodeProp
   function copyImportsToClipboard(): void {
     const importRegex = /import[\s\S]+?from\s+['"][\s\S]+?['"];?\n*/g
     const _imports = code.match(importRegex) || []
-    const imports = _imports.map((importStatement: string) => importStatement.trim()).join('\n')
+    const imports = _imports
+      .map((importStatement: string) => importStatement.trim())
+      .join('\n')
     copyToClipboard(imports)
       .then(() => {
         setCopied('imports')
@@ -57,7 +63,13 @@ function Code({ className, lang = 'tsx', code, withImportCopy = true }: CodeProp
   )
 }
 
-function CodeContainer({ children, isOpened }: { children: React.ReactNode; isOpened: boolean }) {
+function CodeContainer({
+  children,
+  isOpened
+}: {
+  children: React.ReactNode
+  isOpened: boolean
+}) {
   return (
     <CollapsibleContent forceMount className={cn('overflow-hidden', !isOpened && 'h-32')}>
       <div
@@ -119,7 +131,11 @@ function CodeCollapsible({
 }
 
 export function CodeCollapsibleRoot({ children }: React.PropsWithChildren<{}>) {
-  return <div className="overflow-hidden border border-zinc-800 bg-[#0e0e10] rounded-lg">{children}</div>
+  return (
+    <div className="overflow-hidden border border-zinc-800 bg-[#0e0e10] rounded-lg">
+      {children}
+    </div>
+  )
 }
 
 export function CopyRawButton({ code }: { className?: string; code: any }) {
@@ -134,7 +150,9 @@ export function CopyRawButton({ code }: { className?: string; code: any }) {
         console.error('Copy failed: ', err)
       })
   }
-  return <CopyButton ariaLabel="Copy raw code" isCopied={copied === 'raw'} onPress={copyRaw} />
+  return (
+    <CopyButton ariaLabel="Copy raw code" isCopied={copied === 'raw'} onPress={copyRaw} />
+  )
 }
 
 const CodeHighlighter: React.FC<CodeProps> = ({ lang = 'tsx', code }) => {

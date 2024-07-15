@@ -30,7 +30,8 @@ const selectTriggerStyles = tv({
   }
 })
 
-interface SelectProps<T extends object> extends Omit<SelectPrimitiveProps<T>, 'children'> {
+interface SelectProps<T extends object>
+  extends Omit<SelectPrimitiveProps<T>, 'children'> {
   label?: string
   description?: string
   errorMessage?: string | ((validation: ValidationResult) => string)
@@ -38,9 +39,19 @@ interface SelectProps<T extends object> extends Omit<SelectPrimitiveProps<T>, 'c
   children: React.ReactNode | ((item: T) => React.ReactNode)
 }
 
-function Select<T extends object>({ label, description, errorMessage, children, items, ...props }: SelectProps<T>) {
+function Select<T extends object>({
+  label,
+  description,
+  errorMessage,
+  children,
+  items,
+  ...props
+}: SelectProps<T>) {
   return (
-    <SelectPrimitive {...props} className={ctr(props.className, 'group flex w-full flex-col gap-1')}>
+    <SelectPrimitive
+      {...props}
+      className={ctr(props.className, 'group flex w-full flex-col gap-1')}
+    >
       {label && <Label>{label}</Label>}
       <Button className={selectTriggerStyles()}>
         <SelectValue className="flex-1 text-base placeholder-shown:text-muted-fg lg:text-sm" />

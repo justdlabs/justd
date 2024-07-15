@@ -6,7 +6,9 @@ export function NoteStatuses() {
     <CardSink>
       <Note intent="success">
         <NoteTitle>New Feature</NoteTitle>
-        <NoteDescription>Check out the new dark mode feature available in your settings.</NoteDescription>
+        <NoteDescription>
+          Check out the new dark mode feature available in your settings.
+        </NoteDescription>
       </Note>
     </CardSink>
   )

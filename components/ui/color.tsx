@@ -26,7 +26,14 @@ import {
 } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
-import { Description, FieldError, FieldGroup, fieldGroupPrefixStyles, Input, Label } from './field'
+import {
+  Description,
+  FieldError,
+  FieldGroup,
+  fieldGroupPrefixStyles,
+  Input,
+  Label
+} from './field'
 import { cn, ctr, focusStyles } from './primitive'
 import { SliderTrack } from './slider'
 
@@ -51,9 +58,15 @@ const ColorField = ({
   ...props
 }: ColorFieldProps) => {
   return (
-    <ColorFieldPrimitive {...props} className={ctr(props.className, 'group w-full flex flex-col gap-1')}>
+    <ColorFieldPrimitive
+      {...props}
+      className={ctr(props.className, 'group w-full flex flex-col gap-1')}
+    >
       {label && <Label>{label}</Label>}
-      <FieldGroup data-loading={isLoading ? 'true' : undefined} className={fieldGroupPrefixStyles()}>
+      <FieldGroup
+        data-loading={isLoading ? 'true' : undefined}
+        className={fieldGroupPrefixStyles()}
+      >
         {prefix ? <span className="atrs isPfx">{prefix}</span> : null}
         <Input className="px-2.5" placeholder={placeholder} />
         {suffix ? <span className="atrs isSfx">{suffix}</span> : null}
@@ -114,7 +127,10 @@ const colorSwatchPickerItemStyles = tv({
   base: 'size-8 rounded-md cspis disabled:opacity-50'
 })
 
-const ColorSwatchPickerItem = ({ className, ...props }: ColorSwatchPickerItemPrimitiveProps) => {
+const ColorSwatchPickerItem = ({
+  className,
+  ...props
+}: ColorSwatchPickerItemPrimitiveProps) => {
   return (
     <ColorSwatchPickerItemPrimitive
       className={composeRenderProps(className, (className, renderProps) =>
@@ -125,7 +141,10 @@ const ColorSwatchPickerItem = ({ className, ...props }: ColorSwatchPickerItemPri
       )}
       {...props}
     >
-      <ColorSwatch isBright={isBrightColor(props.color ?? '')} className="size-[inherit] cocspip" />
+      <ColorSwatch
+        isBright={isBrightColor(props.color ?? '')}
+        className="size-[inherit] cocspip"
+      />
     </ColorSwatchPickerItemPrimitive>
   )
 }
@@ -140,7 +159,9 @@ const ColorSwatch = ({ isBright, className, ...props }: ColorSwatchProps) => {
     <ColorSwatchPrimitive
       className={cn(
         'size-8 cs rounded-md',
-        needRing ? 'ring-1 ring-inset ring-black/10' : 'dark:ring-1 dark:ring-inset dark:ring-white/10',
+        needRing
+          ? 'ring-1 ring-inset ring-black/10'
+          : 'dark:ring-1 dark:ring-inset dark:ring-white/10',
         className
       )}
       {...props}
@@ -162,7 +183,11 @@ const hexToRgb = (hex: string): { r: number; g: number; b: number } | null => {
     : null
 }
 
-const hsbToRgb = (h: number, s: number, b: number): { r: number; g: number; b: number } => {
+const hsbToRgb = (
+  h: number,
+  s: number,
+  b: number
+): { r: number; g: number; b: number } => {
   s /= 100
   b /= 100
   const k = (n: number) => (n + h / 60) % 6
@@ -223,7 +248,12 @@ const isBrightColor = (color: any): boolean => {
         return false
       }
     }
-  } else if (typeof color === 'object' && 'hue' in color && 'saturation' in color && 'brightness' in color) {
+  } else if (
+    typeof color === 'object' &&
+    'hue' in color &&
+    'saturation' in color &&
+    'brightness' in color
+  ) {
     const rgb = hsbToRgb(color.hue, color.saturation, color.brightness)
     r = rgb.r
     g = rgb.g
@@ -244,9 +274,18 @@ interface ColorSliderProps extends ColorSliderPrimitiveProps {
   showOutput?: boolean
 }
 
-const ColorSlider = ({ className, showOutput = true, label, description, ...props }: ColorSliderProps) => {
+const ColorSlider = ({
+  className,
+  showOutput = true,
+  label,
+  description,
+  ...props
+}: ColorSliderProps) => {
   return (
-    <ColorSliderPrimitive className={cn('flex disabled:opacity-50 w-full flex-col gap-1', className)} {...props}>
+    <ColorSliderPrimitive
+      className={cn('flex disabled:opacity-50 w-full flex-col gap-1', className)}
+      {...props}
+    >
       <div className="flex items-center gap-2">
         {label && <Label className="text-sm [grid-area:label]">{label}</Label>}
         {showOutput && <SliderOutput className="text-sm ml-auto [grid-area:output]" />}

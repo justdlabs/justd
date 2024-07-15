@@ -9,7 +9,14 @@ import {
   type ValidationResult
 } from 'react-aria-components'
 
-import { Description, FieldError, FieldGroup, fieldGroupPrefixStyles, Input, Label } from './field'
+import {
+  Description,
+  FieldError,
+  FieldGroup,
+  fieldGroupPrefixStyles,
+  Input,
+  Label
+} from './field'
 import { ctr } from './primitive'
 
 interface TextFieldProps extends TextFieldPrimitiveProps {
@@ -35,9 +42,15 @@ const TextField = ({
   ...props
 }: TextFieldProps) => {
   return (
-    <TextFieldPrimitive {...props} className={ctr(props.className, 'group flex flex-col gap-1')}>
+    <TextFieldPrimitive
+      {...props}
+      className={ctr(props.className, 'group flex flex-col gap-1')}
+    >
       {label && <Label>{label}</Label>}
-      <FieldGroup data-loading={isLoading ? 'true' : undefined} className={fieldGroupPrefixStyles()}>
+      <FieldGroup
+        data-loading={isLoading ? 'true' : undefined}
+        className={fieldGroupPrefixStyles()}
+      >
         {isLoading && indicatorPlace === 'prefix' ? (
           <IconLoader className="animate-spin isPfx" />
         ) : prefix ? (

@@ -12,7 +12,8 @@ export default function ColorAreaControlledDemo() {
         <ColorThumb />
       </ColorArea>
       <Description className="block mt-2">
-        Current color value: <strong style={{ color: value.toString('hex') }}>{value.toString('hex')}</strong>
+        Current color value:{' '}
+        <strong style={{ color: value.toString('hex') }}>{value.toString('hex')}</strong>
       </Description>
     </>
   )

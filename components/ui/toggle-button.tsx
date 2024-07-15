@@ -17,7 +17,8 @@ const toggleButtonStyles = tv({
   ],
   variants: {
     isSelected: {
-      false: 'hover:bg-secondary pressed:bg-tertiary forced-colors:!bg-[ButtonFace] forced-colors:!text-[ButtonText]',
+      false:
+        'hover:bg-secondary pressed:bg-tertiary forced-colors:!bg-[ButtonFace] forced-colors:!text-[ButtonText]',
       true: 'bg-secondary hover:bg-secondary/80 pressed:bg-secondary/70 forced-colors:!bg-[Highlight] forced-colors:!text-[HighlightText]'
     },
     isDisabled: {

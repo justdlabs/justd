@@ -53,11 +53,23 @@ const Snippet: React.FC<SnippetProps> = ({ className, text, ...props }) => {
       >
         <AnimatePresence mode="wait" initial={false}>
           {copied ? (
-            <motion.span key="checkmark" variants={snippetVariants} initial="hidden" animate="visible" exit="hidden">
+            <motion.span
+              key="checkmark"
+              variants={snippetVariants}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+            >
               <IconCheck />
             </motion.span>
           ) : (
-            <motion.span key="copy" variants={snippetVariants} initial="hidden" animate="visible" exit="hidden">
+            <motion.span
+              key="copy"
+              variants={snippetVariants}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+            >
               <IconDuplicate />
             </motion.span>
           )}
@@ -74,7 +86,13 @@ interface CopyButtonProps extends ButtonProps {
   copiedIcon?: React.ReactNode
 }
 
-const CopyButton = ({ initialIcon, copiedIcon, ariaLabel = 'Copy', isCopied, ...props }: CopyButtonProps) => {
+const CopyButton = ({
+  initialIcon,
+  copiedIcon,
+  ariaLabel = 'Copy',
+  isCopied,
+  ...props
+}: CopyButtonProps) => {
   return (
     <Button
       className="size-7 backdrop-blur-lg text-white bg-zinc-800 border hover:bg-zinc-700 border-zinc-700"
@@ -95,7 +113,13 @@ const CopyButton = ({ initialIcon, copiedIcon, ariaLabel = 'Copy', isCopied, ...
             {copiedIcon ?? <IconCheck />}
           </motion.span>
         ) : (
-          <motion.span key="copy-import" variants={snippetVariants} initial="hidden" animate="visible" exit="hidden">
+          <motion.span
+            key="copy-import"
+            variants={snippetVariants}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+          >
             {initialIcon ?? <IconDuplicate />}
           </motion.span>
         )}

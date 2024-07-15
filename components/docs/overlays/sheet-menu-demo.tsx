@@ -62,12 +62,16 @@ export default function SheetMenuDemo() {
           </ModalHeader>
           <ModalBody>
             <div className="space-y-4">
-              <TextField prefix={<IconBrandGithub />} label="Status" placeholder="What's your status?" />
+              <TextField
+                prefix={<IconBrandGithub />}
+                label="Status"
+                placeholder="What's your status?"
+              />
               <Group>
                 <Checkbox>Busy</Checkbox>
                 <Description>
-                  When others mention you, assign you, or request your review, GitHub will let them know that you have
-                  limited availability.
+                  When others mention you, assign you, or request your review, GitHub will
+                  let them know that you have limited availability.
                 </Description>
               </Group>
               <Select label="Clear Status">

@@ -4,7 +4,11 @@ import { fontFamily } from 'tailwindcss/defaultTheme'
 
 const config = {
   darkMode: ['class'],
-  content: ['./components/**/*.{ts,tsx}', './app/**/*.{ts,tsx,.md,.mdx}', './src/**/*.{ts,tsx,.md,.mdx}'],
+  content: [
+    './components/**/*.{ts,tsx}',
+    './app/**/*.{ts,tsx,.md,.mdx}',
+    './src/**/*.{ts,tsx,.md,.mdx}'
+  ],
   theme: {
     container: {
       center: true,
@@ -65,6 +69,10 @@ const config = {
         success: {
           DEFAULT: 'hsl(var(--success))',
           fg: 'hsl(var(--success-fg))'
+        },
+        info: {
+          DEFAULT: 'hsl(var(--info))',
+          fg: 'hsl(var(--info-fg))'
         },
         danger: {
           DEFAULT: 'hsl(var(--danger))',

@@ -9,7 +9,6 @@ import '@/styles/app.css'
 import { OpenpanelProvider } from '@openpanel/nextjs'
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
-import { Container, Link } from 'ui'
 
 const satoshi = localFont({
   src: './fonts/Satoshi-Variable.woff2',

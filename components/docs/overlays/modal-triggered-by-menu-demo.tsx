@@ -84,8 +84,16 @@ export default function ModalTriggeredByMenuDemo() {
           </ModalHeader>
           <ModalFooter>
             <ModalClose>Cancel</ModalClose>
-            <Button className="min-w-24" isDisabled={loading} onPress={actionType(state)?.action}>
-              {loading ? <LoadingDots className={'bg-fg'} /> : actionType(state)?.confirmText}
+            <Button
+              className="min-w-24"
+              isDisabled={loading}
+              onPress={actionType(state)?.action}
+            >
+              {loading ? (
+                <LoadingDots className={'bg-fg'} />
+              ) : (
+                actionType(state)?.confirmText
+              )}
             </Button>
           </ModalFooter>
         </ModalContent>

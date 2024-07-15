@@ -27,7 +27,9 @@ const avatarStyles = tv({
   }
 })
 
-interface AvatarProps extends React.ComponentPropsWithoutRef<'span'>, VariantProps<typeof avatarStyles> {
+interface AvatarProps
+  extends React.ComponentPropsWithoutRef<'span'>,
+    VariantProps<typeof avatarStyles> {
   src?: string | null
   initials?: string
   alt?: string
@@ -38,7 +40,9 @@ const avatarGroupStyles = tv({
   base: 'flex items-center justify-center -space-x-2 [&_[data-slot=avatar]]:ring-2 [&_[data-slot=avatar]]:ring-background'
 })
 
-interface AvatarGroupProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof avatarGroupStyles> {
+interface AvatarGroupProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof avatarGroupStyles> {
   children: React.ReactNode
 }
 
@@ -46,9 +50,21 @@ const AvatarGroup = ({ className, ...props }: AvatarGroupProps) => {
   return <div className={avatarGroupStyles({ className })} {...props} />
 }
 
-const Avatar = ({ src = null, initials, alt = '', className, shape, size, ...props }: AvatarProps) => {
+const Avatar = ({
+  src = null,
+  initials,
+  alt = '',
+  className,
+  shape,
+  size,
+  ...props
+}: AvatarProps) => {
   return (
-    <span data-slot="avatar" {...props} className={avatarStyles({ shape, size, className })}>
+    <span
+      data-slot="avatar"
+      {...props}
+      className={avatarStyles({ shape, size, className })}
+    >
       {initials && (
         <svg
           className="select-none fill-current text-[48px] font-medium uppercase"
@@ -56,7 +72,14 @@ const Avatar = ({ src = null, initials, alt = '', className, shape, size, ...pro
           aria-hidden={alt ? undefined : 'true'}
         >
           {alt && <title>{alt}</title>}
-          <text x="50%" y="50%" alignmentBaseline="middle" dominantBaseline="middle" textAnchor="middle" dy=".125em">
+          <text
+            x="50%"
+            y="50%"
+            alignmentBaseline="middle"
+            dominantBaseline="middle"
+            textAnchor="middle"
+            dy=".125em"
+          >
             {initials}
           </text>
         </svg>

@@ -11,7 +11,12 @@ const items = [
 ]
 export default function GridListDemo() {
   return (
-    <GridList items={items} aria-label="you make it" selectionMode="multiple" className="min-w-64">
+    <GridList
+      items={items}
+      aria-label="you make it"
+      selectionMode="multiple"
+      className="min-w-64"
+    >
       {(item) => <GridListItem id={item.id}>{item.name}</GridListItem>}
     </GridList>
   )

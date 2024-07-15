@@ -410,14 +410,35 @@ export const previews: Record<string, any> = {
   "pickers/combo-box-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/pickers/combo-box-disabled-demo")),
   },
+  "surfaces/grid-gap-demo": {
+    component: React.lazy(() => import("@/components/docs/surfaces/grid-gap-demo")),
+  },
+  "surfaces/grid-collections-demo": {
+    component: React.lazy(() => import("@/components/docs/surfaces/grid-collections-demo")),
+  },
   "surfaces/card-login-form-demo": {
     component: React.lazy(() => import("@/components/docs/surfaces/card-login-form-demo")),
+  },
+  "surfaces/grid-basic-demo": {
+    component: React.lazy(() => import("@/components/docs/surfaces/grid-basic-demo")),
   },
   "surfaces/card-table-demo": {
     component: React.lazy(() => import("@/components/docs/surfaces/card-table-demo")),
   },
+  "surfaces/grid-responsive-demo": {
+    component: React.lazy(() => import("@/components/docs/surfaces/grid-responsive-demo")),
+  },
+  "surfaces/grid-item-demo": {
+    component: React.lazy(() => import("@/components/docs/surfaces/grid-item-demo")),
+  },
+  "surfaces/grid-debug-demo": {
+    component: React.lazy(() => import("@/components/docs/surfaces/grid-debug-demo")),
+  },
   "surfaces/card-demo": {
     component: React.lazy(() => import("@/components/docs/surfaces/card-demo")),
+  },
+  "surfaces/grid-gap-x-y-demo": {
+    component: React.lazy(() => import("@/components/docs/surfaces/grid-gap-x-y-demo")),
   },
   "statuses/table-of-badges": {
     component: React.lazy(() => import("@/components/docs/statuses/table-of-badges")),

@@ -75,13 +75,19 @@ export function Navbar() {
                       Home
                     </NavLink>
                     <NavLink
-                      isActive={pathname?.startsWith('/docs') && !pathname?.includes('/docs/components')}
+                      isActive={
+                        pathname?.startsWith('/docs') &&
+                        !pathname?.includes('/docs/components')
+                      }
                       href="/docs/getting-started/introduction"
                     >
                       Docs
                     </NavLink>
                     <NavLink
-                      isActive={pathname?.startsWith('/docs/components') || pathname === '/components'}
+                      isActive={
+                        pathname?.startsWith('/docs/components') ||
+                        pathname === '/components'
+                      }
                       href="/components"
                     >
                       Components
@@ -92,7 +98,10 @@ export function Navbar() {
                     <NavLink target="_blank" href="https://paranoid.irsyad.co">
                       Paranoid
                     </NavLink>
-                    <NavLink target="_blank" href="https://github.com/irsyadadl/d.irsyad.co">
+                    <NavLink
+                      target="_blank"
+                      href="https://github.com/irsyadadl/d.irsyad.co"
+                    >
                       Github
                     </NavLink>
                   </Collection>
@@ -120,7 +129,10 @@ export function Navbar() {
 
                     <Link
                       aria-label="Github Repository"
-                      className={buttonStyles({ appearance: 'outline', size: 'square-petite' })}
+                      className={buttonStyles({
+                        appearance: 'outline',
+                        size: 'square-petite'
+                      })}
                       target="_blank"
                       href="https://irsyad.co/c"
                     >
@@ -128,7 +140,10 @@ export function Navbar() {
                     </Link>
                     <Link
                       aria-label="Github Repository"
-                      className={buttonStyles({ appearance: 'outline', size: 'square-petite' })}
+                      className={buttonStyles({
+                        appearance: 'outline',
+                        size: 'square-petite'
+                      })}
                       target="_blank"
                       href="https://paranoid.irsyad.co"
                     >
@@ -136,7 +151,10 @@ export function Navbar() {
                     </Link>
                     <Link
                       aria-label="Github Repository"
-                      className={buttonStyles({ appearance: 'outline', size: 'square-petite' })}
+                      className={buttonStyles({
+                        appearance: 'outline',
+                        size: 'square-petite'
+                      })}
                       target="_blank"
                       href="https://github.com/irsyadadl/d."
                     >
@@ -144,7 +162,10 @@ export function Navbar() {
                     </Link>
                     <Link
                       aria-label="Follow Update on X"
-                      className={buttonStyles({ appearance: 'outline', size: 'square-petite' })}
+                      className={buttonStyles({
+                        appearance: 'outline',
+                        size: 'square-petite'
+                      })}
                       target="_blank"
                       href="https://x.com/irsyadadl"
                     >
@@ -162,7 +183,11 @@ export function Navbar() {
   )
 }
 
-export function NavLink({ href, isActive, ...props }: LinkProps & { isActive?: boolean }) {
+export function NavLink({
+  href,
+  isActive,
+  ...props
+}: LinkProps & { isActive?: boolean }) {
   return (
     <LinkPrimitive
       href={href}
@@ -272,9 +297,11 @@ export function NavbarDropdown() {
         </MenuItem>
         <MenuSeparator />
         <MenuSection>
-          <MenuItem href="https://x.com/intent/follow?screen_name=irsyadadl" target="_blank">
-            <IconBrandX />
-            X / Twitter
+          <MenuItem
+            href="https://x.com/intent/follow?screen_name=irsyadadl"
+            target="_blank"
+          >
+            <IconBrandX />X / Twitter
           </MenuItem>
           <MenuItem href="https://github.com/irsyadadl" target="_blank">
             <IconBrandGithub />
@@ -292,7 +319,10 @@ export function NavbarDropdown() {
             <IconBrandParanoid />
             Paranoid
           </MenuItem>
-          <MenuItem href="https://react-spectrum.adobe.com/react-aria/components.html" target="_blank">
+          <MenuItem
+            href="https://react-spectrum.adobe.com/react-aria/components.html"
+            target="_blank"
+          >
             <IconBrandAdobe />
             RAC
           </MenuItem>
@@ -304,7 +334,13 @@ export function NavbarDropdown() {
         <MenuSeparator />
         <SubmenuTrigger>
           <MenuItem>
-            {theme === 'system' ? <IconDeviceDesktop /> : theme === 'dark' ? <IconMoon /> : <IconSun />}
+            {theme === 'system' ? (
+              <IconDeviceDesktop />
+            ) : theme === 'dark' ? (
+              <IconMoon />
+            ) : (
+              <IconSun />
+            )}
             <span>Switch Theme</span>
           </MenuItem>
           <MenuContent>

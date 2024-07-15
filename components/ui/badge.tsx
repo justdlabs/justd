@@ -11,7 +11,7 @@ const badgeIntents = {
     'ring-zinc-300 dark:ring-zinc-400/20 bg-zinc-600/10 text-zinc-700 hover:bg-zinc-600/20 dark:bg-white/5 dark:text-zinc-400 dark:hover:bg-white/10',
   success:
     'ring-emerald-300 dark:ring-emerald-400/20 bg-emerald-400/20 text-emerald-700 hover:bg-emerald-400/30 dark:bg-emerald-400/10 dark:text-emerald-300 dark:hover:bg-emerald-400/15',
-  info: 'ring-lime-300 dark:ring-lime-400/20 bg-lime-500/15 text-lime-700 hover:bg-lime-500/25 dark:bg-lime-500/10 dark:text-lime-300 dark:hover:bg-lime-500/20',
+  info: 'ring-info dark:ring-lime-400/20 bg-lime-500/15 text-lime-700 hover:bg-lime-500/25 dark:bg-lime-500/10 dark:text-info dark:hover:bg-lime-500/20',
   warning:
     'ring-amber-300 dark:ring-amber-400/20 bg-amber-400/20 text-amber-700 hover:bg-amber-400/30 dark:bg-amber-400/10 dark:text-amber-400 dark:hover:bg-amber-400/15',
   danger:
@@ -35,7 +35,9 @@ const badgeStyles = tv({
   }
 })
 
-interface BadgeProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof badgeStyles> {
+interface BadgeProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof badgeStyles> {
   className?: string
   children: React.ReactNode
 }

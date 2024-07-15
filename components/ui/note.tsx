@@ -2,7 +2,11 @@
 
 import * as React from 'react'
 
-import { IconCircleCheckFill, IconCircleInfoFill, IconTriangleInfoFill } from '@irsyadadl/paranoid'
+import {
+  IconCircleCheckFill,
+  IconCircleInfoFill,
+  IconTriangleInfoFill
+} from '@irsyadadl/paranoid'
 import { Heading, type HeadingProps, Text, type TextProps } from 'react-aria-components'
 import { tv, type VariantProps } from 'tailwind-variants'
 
@@ -46,9 +50,11 @@ const noteStyles = tv({
   }
 })
 
-interface NoteProps extends React.HtmlHTMLAttributes<HTMLDivElement>, VariantProps<typeof noteStyles> {}
+interface NoteProps
+  extends React.HtmlHTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof noteStyles> {}
 
-const Note = ({ intent = 'primary', className, ...props }: NoteProps) => {
+const Note = ({ intent = 'secondary', className, ...props }: NoteProps) => {
   return (
     <div className={noteStyles({ intent, className })} {...props}>
       {['info', 'primary', 'secondary'].includes(intent) ? (
@@ -64,11 +70,23 @@ const Note = ({ intent = 'primary', className, ...props }: NoteProps) => {
 }
 
 const NoteTitle = ({ className, ...props }: HeadingProps) => {
-  return <Heading className={cn('mb-1 pr-2 sm:text-base font-medium', className)} level={3} {...props} />
+  return (
+    <Heading
+      className={cn('mb-1 pr-2 sm:text-base font-medium', className)}
+      level={3}
+      {...props}
+    />
+  )
 }
 
 const NoteDescription = ({ className, ...props }: TextProps) => {
-  return <Text slot="description" {...props} className={cn('text-sm nd', className)} />
+  return (
+    <Text
+      slot="description"
+      {...props}
+      className={cn('text-sm pr-12 block nd', className)}
+    />
+  )
 }
 
-export { Note, NoteDescription, NoteTitle }
+export { Note, NoteDescription, NoteTitle, type NoteProps }

@@ -10,9 +10,11 @@ export function Footer() {
       <Container>
         <p>
           <strong>D. 2024</strong> - This project’s made with{' '}
-          <span className="font-[ui-sans-serif,-apple-system,system-ui] text-pink-500">♥</span> by{' '}
-          <Link href="https://twitter.com/irsyadadl">Irsyad</Link>. Check out the Source Code on{' '}
-          <Link href="https://github.com/irsyadadl/d.">GitHub</Link>.
+          <span className="font-[ui-sans-serif,-apple-system,system-ui] text-pink-500">
+            ♥
+          </span>{' '}
+          by <Link href="https://twitter.com/irsyadadl">Irsyad</Link>. Check out the
+          Source Code on <Link href="https://github.com/irsyadadl/d.">GitHub</Link>.
         </p>
 
         <p>
@@ -21,7 +23,10 @@ export function Footer() {
             Tailwind CSS
           </Link>
           , and{' '}
-          <Link href="https://react-spectrum.adobe.com/react-aria/components.html" target="_blank">
+          <Link
+            href="https://react-spectrum.adobe.com/react-aria/components.html"
+            target="_blank"
+          >
             RAC
           </Link>
           .
@@ -31,7 +36,8 @@ export function Footer() {
           <Link href="https://vercel.com" target="_blank">
             Vercel
           </Link>
-          . The source code is licensed under <Link href="https://github.com/irsyadadl/d./blob/main/LICENSE">MIT</Link>.
+          . The source code is licensed under{' '}
+          <Link href="https://github.com/irsyadadl/d./blob/main/LICENSE">MIT</Link>.
         </p>
       </Container>
     </footer>
