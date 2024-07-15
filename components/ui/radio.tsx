@@ -23,7 +23,10 @@ interface RadioGroupProps extends Omit<RACRadioGroupProps, 'children'> {
 
 const RadioGroup = (props: RadioGroupProps) => {
   return (
-    <RadioGroupPrimitive {...props} className={ctr(props.className, 'group flex flex-col gap-2')}>
+    <RadioGroupPrimitive
+      {...props}
+      className={ctr(props.className, 'group flex flex-col gap-2')}
+    >
       <Label>{props.label}</Label>
       <div className="flex gap-2 group-orientation-horizontal:gap-4 group-orientation-vertical:flex-col">
         {props.children}

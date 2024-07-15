@@ -24,7 +24,10 @@ interface CheckboxGroupProps extends Omit<CheckboxGroupPrimitiveProps, 'children
 
 const CheckboxGroup = (props: CheckboxGroupProps) => {
   return (
-    <CheckboxGroupPrimitive {...props} className={ctr(props.className, 'flex flex-col gap-2')}>
+    <CheckboxGroupPrimitive
+      {...props}
+      className={ctr(props.className, 'flex flex-col gap-2')}
+    >
       <Label>{props.label}</Label>
       {props.children}
       {props.description && <Description>{props.description}</Description>}

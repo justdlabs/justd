@@ -16,7 +16,8 @@ export default function ListBoxRearrangeDemo() {
   })
 
   const { dragAndDropHooks } = useDragAndDrop({
-    getItems: (keys) => [...keys].map((key) => ({ 'text/plain': list.getItem(key).name })),
+    getItems: (keys) =>
+      [...keys].map((key) => ({ 'text/plain': list.getItem(key).name })),
     onReorder(e) {
       if (e.target.dropPosition === 'before') {
         list.moveBefore(e.target.key, e.keys)
@@ -27,7 +28,12 @@ export default function ListBoxRearrangeDemo() {
   })
 
   return (
-    <ListBox items={list.items} aria-label="Bands" selectionMode="multiple" dragAndDropHooks={dragAndDropHooks}>
+    <ListBox
+      items={list.items}
+      aria-label="Bands"
+      selectionMode="multiple"
+      dragAndDropHooks={dragAndDropHooks}
+    >
       {(item) => <ListBoxItem key={item.id}>{item.name}</ListBoxItem>}
     </ListBox>
   )

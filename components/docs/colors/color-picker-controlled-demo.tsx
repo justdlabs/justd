@@ -10,5 +10,11 @@ export default function ColorPickerControlledDemo() {
     // console.log(v.toString('hex'))
     setColor(v)
   }
-  return <ColorPicker label="Pick Color" value={color} onChange={(v) => colorChangeHandler(v)} />
+  return (
+    <ColorPicker
+      label="Pick Color"
+      value={color}
+      onChange={(v) => colorChangeHandler(v)}
+    />
+  )
 }

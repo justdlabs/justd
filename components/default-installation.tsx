@@ -8,7 +8,9 @@ interface InstallProps {
   items?: string[]
 }
 
-const DefaultInstallation: React.FC<InstallProps> = ({ items = ['react-aria-components'] }) => {
+const DefaultInstallation: React.FC<InstallProps> = ({
+  items = ['react-aria-components']
+}) => {
   const getInstallCommand = (packageManager: string) => {
     switch (packageManager) {
       case 'bun':
@@ -41,16 +43,28 @@ const DefaultInstallation: React.FC<InstallProps> = ({ items = ['react-aria-comp
           </Tab>
         </TabList>
         <TabPanel id="bun">
-          <Snippet className="bg-[#0e0e10] text-zinc-200" text={getInstallCommand('bun')} />
+          <Snippet
+            className="bg-[#0e0e10] text-zinc-200"
+            text={getInstallCommand('bun')}
+          />
         </TabPanel>
         <TabPanel id="yarn">
-          <Snippet className="bg-[#0e0e10] text-zinc-200" text={getInstallCommand('yarn')} />
+          <Snippet
+            className="bg-[#0e0e10] text-zinc-200"
+            text={getInstallCommand('yarn')}
+          />
         </TabPanel>
         <TabPanel id="pnpm">
-          <Snippet className="bg-[#0e0e10] text-zinc-200" text={getInstallCommand('pnpm')} />
+          <Snippet
+            className="bg-[#0e0e10] text-zinc-200"
+            text={getInstallCommand('pnpm')}
+          />
         </TabPanel>
         <TabPanel id="npm">
-          <Snippet className="bg-[#0e0e10] text-zinc-200" text={getInstallCommand('npm')} />
+          <Snippet
+            className="bg-[#0e0e10] text-zinc-200"
+            text={getInstallCommand('npm')}
+          />
         </TabPanel>
       </Tabs>
     </div>

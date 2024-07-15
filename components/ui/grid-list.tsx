@@ -15,7 +15,10 @@ import { composeTailwindRenderProps, focusRing } from './primitive'
 const GridList = <T extends object>({ children, ...props }: GridListProps<T>) => (
   <GridListPrimitive
     {...props}
-    className={composeTailwindRenderProps(props.className, 'relative overflow-auto rounded-lg border')}
+    className={composeTailwindRenderProps(
+      props.className,
+      'relative overflow-auto rounded-lg border'
+    )}
   >
     {children}
   </GridListPrimitive>
@@ -43,7 +46,9 @@ const GridListItem = ({ children, ...props }: GridListItemProps) => {
         <>
           {/* Add elements for drag and drop and selection. */}
           {allowsDragging && <Button slot="drag">≡</Button>}
-          {selectionMode === 'multiple' && selectionBehavior === 'toggle' && <Checkbox slot="selection" />}
+          {selectionMode === 'multiple' && selectionBehavior === 'toggle' && (
+            <Checkbox slot="selection" />
+          )}
           {children}
         </>
       )}

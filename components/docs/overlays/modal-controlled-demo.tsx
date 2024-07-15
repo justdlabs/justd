@@ -24,7 +24,9 @@ export default function ModalControlledDemo() {
         <ModalContent>
           <ModalHeader>
             <ModalTitle>Delete file</ModalTitle>
-            <ModalDescription>This will permanently delete the selected file. Continue?</ModalDescription>
+            <ModalDescription>
+              This will permanently delete the selected file. Continue?
+            </ModalDescription>
           </ModalHeader>
           <ModalFooter>
             <ModalClose>Cancel</ModalClose>

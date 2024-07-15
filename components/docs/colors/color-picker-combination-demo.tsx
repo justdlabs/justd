@@ -4,5 +4,12 @@ import { ColorPicker, defaultColor } from 'ui'
 
 export default function ColorPickerEnableSelectionFormatDemo() {
   const [color, setColor] = React.useState(defaultColor)
-  return <ColorPicker enableColorFormatSelection enableColorSwatch value={color} onChange={setColor} />
+  return (
+    <ColorPicker
+      enableColorFormatSelection
+      enableColorSwatch
+      value={color}
+      onChange={setColor}
+    />
+  )
 }

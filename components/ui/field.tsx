@@ -33,18 +33,30 @@ const Label = (props: LabelProps) => {
   return (
     <LabelPrimitive
       {...props}
-      className={twMerge('w-fit cursor-default font-medium text-secondary-fg text-sm', props.className)}
+      className={twMerge(
+        'w-fit cursor-default font-medium text-secondary-fg text-sm',
+        props.className
+      )}
     />
   )
 }
 
 const Description = (props: TextProps) => {
-  return <Text {...props} slot="description" className={twMerge('text-sm text-muted-fg', props.className)} />
+  return (
+    <Text
+      {...props}
+      slot="description"
+      className={twMerge('text-sm text-muted-fg', props.className)}
+    />
+  )
 }
 
 const FieldError = (props: FieldErrorProps) => {
   return (
-    <FieldErrorPrimitive {...props} className={ctr(props.className, 'text-sm text-danger forced-colors:text-[Mark]')} />
+    <FieldErrorPrimitive
+      {...props}
+      className={ctr(props.className, 'text-sm text-danger forced-colors:text-[Mark]')}
+    />
   )
 }
 

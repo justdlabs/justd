@@ -2,7 +2,10 @@
 
 import * as React from 'react'
 
-import { Separator as SeparatorPrimitive, type SeparatorProps } from 'react-aria-components'
+import {
+  Separator as SeparatorPrimitive,
+  type SeparatorProps
+} from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
 const styles = tv({

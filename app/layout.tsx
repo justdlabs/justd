@@ -9,7 +9,6 @@ import '@/styles/app.css'
 import { OpenpanelProvider } from '@openpanel/nextjs'
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
-import { Container, Link } from 'ui'
 
 const satoshi = localFont({
   src: './fonts/Satoshi-Variable.woff2',
@@ -40,6 +39,7 @@ export default function RootLayout({
           satoshi.variable,
           geistMono.variable
         )}
+        suppressHydrationWarning
       >
         <Providers>
           <div className="relative flex min-h-dvh flex-col bg-background">

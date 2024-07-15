@@ -18,16 +18,28 @@ export interface SearchFieldProps extends SearchFieldPrimitiveProps {
   errorMessage?: string | ((validation: ValidationResult) => string)
 }
 
-export function SearchField({ placeholder = 'Search', label, description, errorMessage, ...props }: SearchFieldProps) {
+export function SearchField({
+  placeholder = 'Search',
+  label,
+  description,
+  errorMessage,
+  ...props
+}: SearchFieldProps) {
   return (
-    <SearchFieldPrimitive {...props} className={ctr(props.className, 'group flex min-w-[40px] flex-col gap-1')}>
+    <SearchFieldPrimitive
+      {...props}
+      className={ctr(props.className, 'group flex min-w-[40px] flex-col gap-1')}
+    >
       {label && <Label>{label}</Label>}
       <FieldGroup>
         <IconSearch
           aria-hidden
           className="ml-2 size-4 shrink-0 text-muted-fg group-disabled:text-muted-fg/50 forced-colors:text-[ButtonText] forced-colors:group-disabled:text-[GrayText]"
         />
-        <Input placeholder={placeholder} className="[&::-webkit-search-cancel-button]:hidden" />
+        <Input
+          placeholder={placeholder}
+          className="[&::-webkit-search-cancel-button]:hidden"
+        />
         <Button
           size="square-petite"
           appearance="plain"

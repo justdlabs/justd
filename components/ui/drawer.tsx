@@ -73,7 +73,12 @@ interface DrawerProps {
   onOpenChange?: (isOpen: boolean) => void
 }
 
-const Drawer = ({ children, withNotch = true, isOpen: controlledIsOpen, onOpenChange }: DrawerProps) => {
+const Drawer = ({
+  children,
+  withNotch = true,
+  isOpen: controlledIsOpen,
+  onOpenChange
+}: DrawerProps) => {
   const [internalIsOpen, setInternalIsOpen] = React.useState(false)
 
   const isControlled = controlledIsOpen !== undefined
@@ -106,11 +111,14 @@ const Drawer = ({ children, withNotch = true, isOpen: controlledIsOpen, onOpenCh
   }
 
   return (
-    <DrawerContext.Provider value={{ isOpen, openDrawer, closeDrawer, withNotch }}>{children}</DrawerContext.Provider>
+    <DrawerContext.Provider value={{ isOpen, openDrawer, closeDrawer, withNotch }}>
+      {children}
+    </DrawerContext.Provider>
   )
 }
 
-interface DrawerContentProps extends Omit<React.ComponentProps<typeof Modal>, 'children'> {
+interface DrawerContentProps
+  extends Omit<React.ComponentProps<typeof Modal>, 'children'> {
   children?: DialogProps['children']
 }
 
@@ -122,7 +130,11 @@ const DrawerContent = ({ children, className, ...props }: DrawerContentProps) =>
   const bgOpacity = useTransform(y, [0, h], [0.5, 0])
   const bg = useMotionTemplate`rgba(0, 0, 0, ${bgOpacity})`
 
-  const bodyScale = useTransform(y, [0, h], [(window.innerWidth - DRAWER_MARGIN) / window.innerWidth, 1])
+  const bodyScale = useTransform(
+    y,
+    [0, h],
+    [(window.innerWidth - DRAWER_MARGIN) / window.innerWidth, 1]
+  )
   const bodyTranslate = useTransform(y, [0, h], [DRAWER_MARGIN - DRAWER_RADIUS, 0])
   const bodyBorderRadius = useTransform(y, [0, h], [DRAWER_RADIUS, 0])
   return (
@@ -168,9 +180,13 @@ const DrawerContent = ({ children, className, ...props }: DrawerContentProps) =>
               {...props}
             >
               {/* drag affordance / notch */}
-              {withNotch && <div className="notch mx-auto mt-2 h-1.5 w-10 rounded-full bg-fg/20" />}
+              {withNotch && (
+                <div className="notch mx-auto mt-2 h-1.5 w-10 rounded-full bg-fg/20" />
+              )}
               <Dialog className="mx-auto flex h-[calc(var(--visual-viewport-height)-4.5rem)] max-w-3xl flex-col justify-between overflow-y-auto px-4 pt-4 outline-none">
-                {(values) => <>{typeof children === 'function' ? children(values) : children}</>}
+                {(values) => (
+                  <>{typeof children === 'function' ? children(values) : children}</>
+                )}
               </Dialog>
             </MotionModal>
           </MotionModalOverlay>
@@ -181,11 +197,17 @@ const DrawerContent = ({ children, className, ...props }: DrawerContentProps) =>
 }
 
 const DrawerHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className={cn('flex flex-col gap-y-1 text-center sm:text-left', className)} {...props} />
+  <div
+    className={cn('flex flex-col gap-y-1 text-center sm:text-left', className)}
+    {...props}
+  />
 )
 
 const DrawerBody = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className={cn('flex-1 overflow-y-auto overflow-x-hidden py-4', className)} {...props} />
+  <div
+    className={cn('flex-1 overflow-y-auto overflow-x-hidden py-4', className)}
+    {...props}
+  />
 )
 
 const DrawerFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
@@ -199,7 +221,11 @@ const DrawerFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivEleme
 )
 
 const DrawerTitle = ({ className, ...props }: HeadingProps) => (
-  <Heading slot="title" className={cn('text-lg font-semibold leading-none tracking-tight', className)} {...props} />
+  <Heading
+    slot="title"
+    className={cn('text-lg font-semibold leading-none tracking-tight', className)}
+    {...props}
+  />
 )
 
 const DrawerDescription = ModalDescription

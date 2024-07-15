@@ -20,7 +20,9 @@ interface SourceCodeProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export function SourceCode({ title, message, toShow, ...props }: SourceCodeProps) {
-  const [codeStrings, setCodeStrings] = React.useState<{ name: string; code: string }[]>([])
+  const [codeStrings, setCodeStrings] = React.useState<{ name: string; code: string }[]>(
+    []
+  )
   const [isOpened, setIsOpened] = React.useState<Record<string, boolean>>({})
 
   React.useEffect(() => {
@@ -31,7 +33,10 @@ export function SourceCode({ title, message, toShow, ...props }: SourceCodeProps
       if (componentData) {
         return {
           name: show,
-          code: componentData.raw.replace(/export default function \w+\(\) \{/g, 'export default function App() {')
+          code: componentData.raw.replace(
+            /export default function \w+\(\) \{/g,
+            'export default function App() {'
+          )
         }
       } else {
         console.error('Component not found:', show)
@@ -50,7 +55,9 @@ export function SourceCode({ title, message, toShow, ...props }: SourceCodeProps
     return (
       <section className="my-6 not-prose">
         <p className="mb-4 -mt-2">
-          {message ? message : 'And next, you can copy the code below and paste it into your dopest component folder.'}
+          {message
+            ? message
+            : 'And next, you can copy the code below and paste it into your dopest component folder.'}
         </p>
         {title && <figcaption data-rehype-pretty-code-title="">{title}</figcaption>}
         <CodeCollapsibleRoot>
@@ -82,8 +89,16 @@ export function SourceCode({ title, message, toShow, ...props }: SourceCodeProps
         </TabList>
         {codeStrings.map((code, index) => (
           <TabPanel key={index} id={`tab-${index}`}>
-            <Collapsible open={isOpened[index]} onOpenChange={(open) => handleOpenChange(index, open)}>
-              <div className={'relative rounded-lg border border-zinc-800 bg-[#0e0e10] overflow-hidden'} {...props}>
+            <Collapsible
+              open={isOpened[index]}
+              onOpenChange={(open) => handleOpenChange(index, open)}
+            >
+              <div
+                className={
+                  'relative rounded-lg border border-zinc-800 bg-[#0e0e10] overflow-hidden'
+                }
+                {...props}
+              >
                 <CodeContainer isOpened={isOpened[index]}>
                   <Code code={code.code} />
                 </CodeContainer>

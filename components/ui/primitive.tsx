@@ -34,7 +34,8 @@ const focusStyles = tv({
 
 function pickBy<T extends object>(
   object: T,
-  predicate: (value: T[keyof T], key: keyof T) => boolean = (value) => value !== undefined && value !== ''
+  predicate: (value: T[keyof T], key: keyof T) => boolean = (value) =>
+    value !== undefined && value !== ''
 ): Partial<T> {
   return Object.keys(object).reduce((acc: Partial<T>, key: string) => {
     const typedKey = key as keyof T
@@ -67,4 +68,15 @@ const ctr = composeTailwindRenderProps
 const tm = twMerge
 const cr = composeRenderProps
 
-export { cn, composeTailwindRenderProps, cr, ctr, focusRing, focusStyles, pickBy, tm, twMerge, useMediaQuery }
+export {
+  cn,
+  composeTailwindRenderProps,
+  cr,
+  ctr,
+  focusRing,
+  focusStyles,
+  pickBy,
+  tm,
+  twMerge,
+  useMediaQuery
+}

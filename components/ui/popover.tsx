@@ -14,7 +14,15 @@ import {
 } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
-import { ModalBody, ModalClose, ModalDescription, ModalFooter, ModalHeader, ModalOverlay, ModalTitle } from './modal'
+import {
+  ModalBody,
+  ModalClose,
+  ModalDescription,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
+  ModalTitle
+} from './modal'
 
 export interface PopoverProps extends Omit<PopoverPrimitiveProps, 'children'> {
   showArrow?: boolean
@@ -43,7 +51,12 @@ const PopoverTitle = ModalTitle
 const PopoverDescription = ModalDescription
 const PopoverBody = ModalBody
 
-const PopoverContent = ({ children, showArrow = true, className, ...props }: PopoverProps) => {
+const PopoverContent = ({
+  children,
+  showArrow = true,
+  className,
+  ...props
+}: PopoverProps) => {
   const popoverContext = useSlottedContext(PopoverContext)!
   const isSubmenu = popoverContext?.trigger === 'SubmenuTrigger'
   let offset = showArrow ? 12 : 8
@@ -75,7 +88,11 @@ const PopoverContent = ({ children, showArrow = true, className, ...props }: Pop
 
 const PopoverPicker = ({ showArrow = false, children, ...props }: PopoverProps) => {
   return (
-    <PopoverContent showArrow={showArrow} className="max-h-72 overflow-y-auto min-w-[--trigger-width] p-0" {...props}>
+    <PopoverContent
+      showArrow={showArrow}
+      className="max-h-72 overflow-y-auto min-w-[--trigger-width] p-0"
+      {...props}
+    >
       {children}
     </PopoverContent>
   )

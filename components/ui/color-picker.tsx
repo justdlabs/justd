@@ -60,8 +60,15 @@ const ColorPicker = ({
       {label && <Label>{label}</Label>}
       <ColorPickerPrimitive defaultValue={defaultColor} {...props}>
         <DialogTrigger>
-          <Button isDisabled={isDisabled} appearance="outline" className="w-full max-w-sm justify-start">
-            <ColorSwatch isBright={props.value ? isBrightColor(props.value) : false} className="-ml-1.5 size-6" />
+          <Button
+            isDisabled={isDisabled}
+            appearance="outline"
+            className="w-full max-w-sm justify-start"
+          >
+            <ColorSwatch
+              isBright={props.value ? isBrightColor(props.value) : false}
+              className="-ml-1.5 size-6"
+            />
             <span>{placeholder}</span>
           </Button>
           <DynamicOverlay

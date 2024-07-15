@@ -16,7 +16,8 @@ import { ListBoxPicker } from './list-box'
 import { PopoverPicker } from './popover'
 import { ctr } from './primitive'
 
-interface ComboBoxProps<T extends object> extends Omit<ComboboxPrimitiveProps<T>, 'children'> {
+interface ComboBoxProps<T extends object>
+  extends Omit<ComboboxPrimitiveProps<T>, 'children'> {
   label?: string
   placeholder?: string
   description?: string | null

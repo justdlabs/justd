@@ -7,7 +7,7 @@ import {
   ListBox as ListBoxPrimitive,
   ListBoxItem as ListBoxItemPrimitive,
   type ListBoxItemProps,
-  type ListBoxProps
+  type ListBoxProps as ListBoxPrimitiveProps
 } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
@@ -29,7 +29,15 @@ const listBox = tv({
 
 const { root, item } = listBox()
 
-const ListBox = <T extends object>({ children, className, ...props }: ListBoxProps<T> & { className?: string }) => (
+interface ListBoxProps<T> extends ListBoxPrimitiveProps<T> {
+  className?: string
+}
+
+const ListBox = <T extends object>({
+  children,
+  className,
+  ...props
+}: ListBoxProps<T>) => (
   <ListBoxPrimitive {...props} className={root({ className: className })}>
     {children}
   </ListBoxPrimitive>
@@ -45,7 +53,11 @@ const ListBoxItem = <T extends object>({
   const textValue = typeof children === 'string' ? children : undefined
 
   return (
-    <ListBoxItemPrimitive textValue={textValue} {...props} className={item({ className })}>
+    <ListBoxItemPrimitive
+      textValue={textValue}
+      {...props}
+      className={item({ className })}
+    >
       {(values) => (
         <div className="flex items-center gap-2">
           <>
@@ -61,7 +73,6 @@ const ListBoxItem = <T extends object>({
             )}
             <div className="flex flex-col">
               {typeof children === 'function' ? children(values) : children}
-              {/*{children}*/}
             </div>
           </>
         </div>
@@ -74,10 +85,16 @@ const ListBoxSection = DropdownSection
 
 interface ListBoxPickerProps<T> extends ListBoxProps<T> {}
 
-const ListBoxPicker = <T extends object>({ className, ...props }: ListBoxPickerProps<T>) => {
+const ListBoxPicker = <T extends object>({
+  className,
+  ...props
+}: ListBoxPickerProps<T>) => {
   return (
     <ListBoxPrimitive
-      className={cn('max-h-72 overflow-auto p-1 outline-none [clip-path:inset(0_0_0_0_round_.75rem)]', className)}
+      className={cn(
+        'max-h-72 overflow-auto p-1 outline-none [clip-path:inset(0_0_0_0_round_.75rem)]',
+        className
+      )}
       {...props}
     />
   )
