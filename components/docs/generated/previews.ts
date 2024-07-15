@@ -482,8 +482,14 @@ export const previews: Record<string, any> = {
   "collections/multiple-menu-demo": {
     component: React.lazy(() => import("@/components/docs/collections/multiple-menu-demo")),
   },
+  "collections/grid-list-drag-between-item-demo": {
+    component: React.lazy(() => import("@/components/docs/collections/grid-list-drag-between-item-demo")),
+  },
   "collections/list-box-demo": {
     component: React.lazy(() => import("@/components/docs/collections/list-box-demo")),
+  },
+  "collections/grid-list-multiple-demo": {
+    component: React.lazy(() => import("@/components/docs/collections/grid-list-multiple-demo")),
   },
   "collections/table-demo": {
     component: React.lazy(() => import("@/components/docs/collections/table-demo")),
@@ -500,17 +506,29 @@ export const previews: Record<string, any> = {
   "collections/command-basic-demo": {
     component: React.lazy(() => import("@/components/docs/collections/command-basic-demo")),
   },
+  "collections/grid-list-render-empty-state-demo": {
+    component: React.lazy(() => import("@/components/docs/collections/grid-list-render-empty-state-demo")),
+  },
   "collections/tag-group-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/collections/tag-group-controlled-demo")),
   },
   "collections/tag-group-with-remove-demo": {
     component: React.lazy(() => import("@/components/docs/collections/tag-group-with-remove-demo")),
   },
+  "collections/grid-list-controlled-demo": {
+    component: React.lazy(() => import("@/components/docs/collections/grid-list-controlled-demo")),
+  },
   "collections/menu-basic-demo": {
     component: React.lazy(() => import("@/components/docs/collections/menu-basic-demo")),
   },
+  "collections/grid-list-disabled-demo": {
+    component: React.lazy(() => import("@/components/docs/collections/grid-list-disabled-demo")),
+  },
   "collections/tag-group-href-demo": {
     component: React.lazy(() => import("@/components/docs/collections/tag-group-href-demo")),
+  },
+  "collections/grid-list-drag-demo": {
+    component: React.lazy(() => import("@/components/docs/collections/grid-list-drag-demo")),
   },
   "collections/grid-list-demo": {
     component: React.lazy(() => import("@/components/docs/collections/grid-list-demo")),
