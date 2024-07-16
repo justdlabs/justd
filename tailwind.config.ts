@@ -45,19 +45,6 @@ const config = withTV({
           '900': '#144194',
           '950': '#11295a'
         },
-        blue: {
-          '50': '#eef8ff',
-          '100': '#d8eeff',
-          '200': '#b9e0ff',
-          '300': '#89cfff',
-          '400': '#52b4ff',
-          '500': '#2a91ff',
-          '600': '#0d6efd',
-          '700': '#0c5ae9',
-          '800': '#1149bc',
-          '900': '#144194',
-          '950': '#11295a'
-        },
         secondary: {
           DEFAULT: 'hsl(var(--secondary))',
           fg: 'hsl(var(--secondary-fg))'
@@ -70,10 +57,6 @@ const config = withTV({
           DEFAULT: 'hsl(var(--success))',
           fg: 'hsl(var(--success-fg))'
         },
-        info: {
-          DEFAULT: 'hsl(var(--info))',
-          fg: 'hsl(var(--info-fg))'
-        },
         danger: {
           DEFAULT: 'hsl(var(--danger))',
           fg: 'hsl(var(--danger-fg))'
@@ -85,10 +68,6 @@ const config = withTV({
         muted: {
           DEFAULT: 'hsl(var(--muted))',
           fg: 'hsl(var(--muted-fg))'
-        },
-        accent: {
-          DEFAULT: 'hsl(var(--accent))',
-          fg: 'hsl(var(--accent-fg))'
         },
         popover: {
           DEFAULT: 'hsl(var(--popover))',
