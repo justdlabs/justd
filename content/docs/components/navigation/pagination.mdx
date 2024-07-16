@@ -1,87 +1,31 @@
 ---
-title: "Pagination"
-description: Click through pages of content, like turning the pages of a book, controlling the flow of your data presentation.
+title: 'Pagination'
+description: Click through pages of content, like turning the pages of a book, controlling the flow of your data presentation..
 order: 3
+references: ['https://react-spectrum.adobe.com/react-aria/Link.html#props', 'https://lucide.dev/icons', '/docs/components/buttons/button#variations']
 published: true
-status: updated
-references: ["https://react-spectrum.adobe.com/react-aria/Link.html#props", "https://react-spectrum.adobe.com/react-aria/GridList.html#props"]
 ---
 
-
 ## Basic
-Pagination's a nav component that lets users cruise through a bunch of pages. It’s made up of a few parts that team up to give a smooth user experience.
-<How isCenter={false} toUse="navigation/pagination-demo" />
+
+Pagination is a navigation component that allows users to navigate through a set of pages. It consists of several components that work together to provide a seamless user experience.
+
+<How isCenter={false} toUse='navigation/pagination-demo' />
 
 ## Installation
-<Default items={['pagination']}/>
 
-## Manual Installation
+<Install items={['react-aria-components', 'lucide-react']} />
 
-<ManualInstall items={['react-aria-components', '@irsyadadl/paranoid']}/>
-
-<SourceCode toShow={['pagination', 'button', 'field', 'visually-hidden']}/>
+<SourceCode toShow={['pagination', 'button', 'separator', 'field']} />
 
 ## Simple
-The simple pagination won't show the number of pages. Instead, it’ll just rock a simple arrow navigation.
-<How isCenter={false} toUse="navigation/simple-pagination-demo" />
+
+The simple pagination won't show the number of pages. Instead, it will show a simple arrow navigation.
+
+<How isCenter={false} toUse='navigation/simple-pagination-demo' />
 
 ## Using Collections
-Since the pagination list's part of the `GridList` primitive, it's a snap to handle collections. Just throw the collections into the `PaginationList` with the `items` prop.
-<How isCenter={false} toUse="navigation/pagination-dynamic-demo" />
 
-## Preserving Scroll
-Sometimes, you gotta keep the page from scrollin' to the top when users hit the pagination. Just toss the scroll props from your routerOptions into the `PaginationLink` component.
+The simple pagination won't show the number of pages. Instead, it will show a simple arrow navigation.
 
-### Inertia.js
-When you’re usin' [Inertia.js](https://inertiajs.com/scroll-management#scroll-preservation), you can use the `preserveScroll` prop to keep the page from scrollin' to the top when users hit the pagination.
-```tsx title="ui/pagination.tsx"
-const PaginationLink = ({
-  className,
-  isActive,
-  size = 'square-petite',
-  ...props
-}: PaginationLinkProps) => (
-  <Link
-    routerOptions={{
-      preserveScroll: true
-    }}
-    aria-current={isActive ? 'page' : undefined}
-```
-
-### Next.js
-When you’re usin' [Next.js](https://nextjs.org/docs/app/building-your-application/routing/linking-and-navigating#disabling-scroll-restoration), slap on the `scroll` prop to keep the page from scrollin' to the top when users hit the pagination.
-```tsx title="ui/pagination.tsx"
-const PaginationLink = ({
-  className,
-  isActive,
-  size = 'square-petite',
-  ...props
-}: PaginationLinkProps) => (
-  <Link
-    routerOptions={{
-      scroll: false
-    }}
-    aria-current={isActive ? 'page' : undefined}
-```
-
-### Remix
-When you’re usin' [Remix](https://remix.run/docs/en/main/components/scroll-restoration#preventing-scroll-reset), slap on the `preventScrollReset` prop to keep the page from scrollin' to the top when users hit the pagination.
-```tsx title="ui/pagination.tsx"
-const PaginationLink = ({
-  className,
-  isActive,
-  size = 'square-petite',
-  ...props
-}: PaginationLinkProps) => (
-  <Link
-    routerOptions={{
-      preventScrollReset: true
-    }}
-    aria-current={isActive ? 'page' : undefined}
-```
-
-## React Router
-When you’re rockin' with React Router, peep the tutorial [here](https://youtu.be/4_H8j3rkpjI?t=61). Then go ahead and do it yourself. My bad, I'm not up to speed with the latest React Router.
-
-## Client Side Routing
-Make sure you have read [Client Side Routing](/docs/getting-started/client-side-routing) before using this component.
+<How isCenter={false} toUse='navigation/pagination-dynamic-demo' />

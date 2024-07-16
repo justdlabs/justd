@@ -1,77 +1,68 @@
 'use client'
 
-import * as React from 'react'
+import React from 'react'
 
-import { IconChevronLgDown } from '@irsyadadl/paranoid'
-import {
-  Button,
-  Select as SelectPrimitive,
-  type SelectProps as SelectPrimitiveProps,
-  SelectValue,
-  type ValidationResult
-} from 'react-aria-components'
-import { tv } from 'tailwind-variants'
+import { cn } from '@/lib/utils'
+import { ChevronsUpDown } from 'lucide-react'
+import * as Primitive from 'react-aria-components'
 
 import { DropdownItem, DropdownSection } from './dropdown'
 import { Description, FieldError, Label } from './field'
-import { ListBoxPicker } from './list-box'
-import { PopoverPicker } from './popover'
-import { ctr, focusStyles } from './primitive'
-
-const selectTriggerStyles = tv({
-  extend: focusStyles,
-  base: 'btr group-disabled:bg-secondary group-disabled:opacity-50 focus-visible:border-primary focus-visible:ring-4 focus-visible:ring-primary/20 group-open:border-primary w-full group-open:ring-4 group-open:ring-primary/20 flex h-10 w-full cursor-default items-center gap-4 rounded-lg border border-input bg-background py-2 pl-3 pr-2 text-start shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)] transition dark:shadow-none',
-  variants: {
-    isDisabled: {
-      false:
-        'text-fg group-invalid:border-danger group-invalid:ring-danger/20 forced-colors:group-invalid:border-[Mark]',
-      true: 'bg-secondary text-muted-fg forced-colors:border-[GrayText] forced-colors:text-[GrayText]'
-    }
-  }
-})
+import { ListBox } from './list-box'
+import { Popover } from './popover'
 
 interface SelectProps<T extends object>
-  extends Omit<SelectPrimitiveProps<T>, 'children'> {
-  label?: string
-  description?: string
-  errorMessage?: string | ((validation: ValidationResult) => string)
-  items?: Iterable<T>
-  children: React.ReactNode | ((item: T) => React.ReactNode)
+    extends Omit<Primitive.SelectProps<T>, 'children'> {
+    label?: string
+    description?: string
+    errorMessage?: string | ((validation: Primitive.ValidationResult) => string)
+    items?: Iterable<T>
+    children: React.ReactNode | ((item: T) => React.ReactNode)
 }
 
 function Select<T extends object>({
-  label,
-  description,
-  errorMessage,
-  children,
-  items,
-  ...props
+    label,
+    description,
+    errorMessage,
+    children,
+    items,
+    ...props
 }: SelectProps<T>) {
-  return (
-    <SelectPrimitive
-      {...props}
-      className={ctr(props.className, 'group flex w-full flex-col gap-1')}
-    >
-      {label && <Label>{label}</Label>}
-      <Button className={selectTriggerStyles()}>
-        <SelectValue className="flex-1 text-base placeholder-shown:text-muted-fg lg:text-sm" />
-        <IconChevronLgDown
-          aria-hidden
-          className="size-4 text-muted-fg duration-300 group-open:rotate-180 group-open:text-fg group-disabled:opacity-50 forced-colors:text-[ButtonText] forced-colors:group-disabled:text-[GrayText]"
-        />
-      </Button>
-      {description && <Description>{description}</Description>}
-      <FieldError>{errorMessage}</FieldError>
-      <PopoverPicker>
-        <ListBoxPicker aria-label="items" items={items}>
-          {children}
-        </ListBoxPicker>
-      </PopoverPicker>
-    </SelectPrimitive>
-  )
+    return (
+        <Primitive.Select
+            {...props}
+            className={cn(
+                'group flex w-full flex-col gap-1 outline-none',
+                props.className
+            )}
+        >
+            {label && <Label>{label}</Label>}
+            <Primitive.Button
+                className={cn(
+                    'flex h-10 w-full cursor-default items-center gap-4 rounded-lg border border-input bg-background py-2 pl-3 pr-2 text-start shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)] outline-none transition group-open:border-primary group-open:ring-4 group-open:ring-primary/20 focus-visible:border-primary focus-visible:ring-4 focus-visible:ring-primary/20 group-disabled:bg-secondary group-disabled:opacity-70 dark:shadow-none',
+                    'text-foreground group-invalid:border-danger group-invalid:ring-danger/20',
+                    'disabled:bg-secondary disabled:text-muted-foreground'
+                )}
+            >
+                <Primitive.SelectValue className='flex-1 text-base placeholder-shown:text-muted-foreground lg:text-sm' />
+                <ChevronsUpDown
+                    aria-hidden
+                    className='size-4 text-muted-foreground duration-300 group-open:rotate-180 group-open:text-foreground group-disabled:opacity-70'
+                />
+            </Primitive.Button>
+            {description && <Description>{description}</Description>}
+            <FieldError>{errorMessage}</FieldError>
+            <Popover.Picker>
+                <ListBox.Picker items={items}>{children}</ListBox.Picker>
+            </Popover.Picker>
+        </Primitive.Select>
+    )
 }
 
 const SelectItem = DropdownItem
 const SelectSection = DropdownSection
 
-export { Select, SelectItem, SelectSection }
+Select.Item = SelectItem
+Select.Section = SelectSection
+
+export { Select }

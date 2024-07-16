@@ -1,12 +1,11 @@
 'use client'
 
-import type { FormProps as FormPrimitiveProps } from 'react-aria-components'
-import { Form as FormPrimitive } from 'react-aria-components'
+import * as Primitive from 'react-aria-components'
 
-interface FormProps extends FormPrimitiveProps {}
+interface FormProps extends Primitive.FormProps {}
 
 function Form(props: FormProps) {
-  return <FormPrimitive {...props} />
+    return <Primitive.Form {...props} />
 }
 
 export { Form, type FormProps }

@@ -1,18 +1,24 @@
 'use client'
 
-import { Tab, TabList, TabPanel, Tabs } from 'ui'
+import { Tabs } from '@/components/ui'
 
 export default function TabsOrientationDemo() {
-  return (
-    <Tabs orientation="vertical" aria-label="Packages">
-      <TabList>
-        <Tab id="t1">Tab 1</Tab>
-        <Tab id="t2">Tab 2</Tab>
-        <Tab id="t3">Tab 3</Tab>
-      </TabList>
-      <TabPanel id="t1">Tab 1 content</TabPanel>
-      <TabPanel id="t2">Tab 2 content</TabPanel>
-      <TabPanel id="t3">Tab 3 content</TabPanel>
-    </Tabs>
-  )
+    return (
+        <Tabs orientation='vertical' aria-label='Packages'>
+            <Tabs.List>
+                <Tabs.Label id='t1'>First Tab</Tabs.Label>
+                <Tabs.Label id='t2'>Second Tab</Tabs.Label>
+                <Tabs.Label id='t3'>Third Tab</Tabs.Label>
+            </Tabs.List>
+            <Tabs.Content id='t1'>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </Tabs.Content>
+            <Tabs.Content id='t2'>
+                Consectetur adipisicing elit. Quibusdam, suscipit.
+            </Tabs.Content>
+            <Tabs.Content id='t3'>
+                Amet fuga reprehenderit earum adipisci maiores voluptas.
+            </Tabs.Content>
+        </Tabs>
+    )
 }

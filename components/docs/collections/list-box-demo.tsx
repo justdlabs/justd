@@ -1,19 +1,23 @@
 'use client'
 
-import { ListBox, ListBoxItem } from 'ui'
+import { ListBox } from '@/components/ui'
 
-const rockPopBands = [
-  { id: '1', name: 'Nirvana' },
-  { id: '2', name: 'Radiohead' },
-  { id: '3', name: 'Foo Fighters' },
-  { id: '4', name: 'Arctic Monkeys' },
-  { id: '5', name: 'The Strokes' }
+const libraries = [
+    { id: 'tw', name: 'Tailwind CSS' },
+    { id: 'bs', name: 'Bootstrap' },
+    { id: 'react', name: 'React.Js' },
+    { id: 'jq', name: 'JQuery' },
+    { id: 'alpine', name: 'Alpine.Js' }
 ]
 
 export default function ListBoxDemo() {
-  return (
-    <ListBox items={rockPopBands} aria-label="Bands" selectionMode="multiple">
-      {(item) => <ListBoxItem key={item.id}>{item.name}</ListBoxItem>}
-    </ListBox>
-  )
+    return (
+        <ListBox items={libraries} aria-label='Libraries' selectionMode='multiple'>
+            {(item) => (
+                <ListBox.Item id={item.id} key={item.id}>
+                    {item.name}
+                </ListBox.Item>
+            )}
+        </ListBox>
+    )
 }

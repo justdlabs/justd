@@ -1,120 +1,113 @@
 'use client'
 
-import { IconCalendar } from '@irsyadadl/paranoid'
-import {
-  DatePicker as DatePickerPrimitive,
-  type DatePickerProps as DatePickerPrimitiveProps,
-  DateRangePicker as DateRangePickerPrimitive,
-  type DateRangePickerProps as DateRangePickerPrimitiveProps,
-  type DateValue,
-  type ValidationResult
-} from 'react-aria-components'
+import { Popover } from '@/components/ui/popover'
+import { cn } from '@/lib/utils'
+import { CalendarIcon } from 'lucide-react'
+import * as Primitive from 'react-aria-components'
 
 import { Button } from './button'
-import { Calendar, RangeCalendar } from './calendar'
+import { Calendar } from './calendar'
 import { DateInput } from './date-field'
 import { Dialog } from './dialog'
-import { DynamicOverlay } from './dynamic-overlay'
 import { Description, FieldError, FieldGroup, Label } from './field'
-import { ctr } from './primitive'
 
-interface DatePickerProps<T extends DateValue> extends DatePickerPrimitiveProps<T> {
-  label?: string
-  description?: string
-  errorMessage?: string | ((validation: ValidationResult) => string)
+interface DatePickerProps<T extends Primitive.DateValue>
+    extends Primitive.DatePickerProps<T> {
+    label?: string
+    description?: string
+    errorMessage?: string | ((validation: Primitive.ValidationResult) => string)
 }
 
-function DatePicker<T extends DateValue>({
-  label,
-  description,
-  errorMessage,
-  ...props
+function DatePicker<T extends Primitive.DateValue>({
+    label,
+    description,
+    errorMessage,
+    ...props
 }: DatePickerProps<T>) {
-  return (
-    <DatePickerPrimitive
-      {...props}
-      className={ctr(props.className, 'group flex flex-col gap-1')}
-    >
-      {label && <Label>{label}</Label>}
-      <FieldGroup className="min-w-40">
-        <DateInput className="w-full px-2 font-mono uppercase min-w-[inherit] text-base lg:text-sm" />
-        <Button
-          size="square-petite"
-          appearance="plain"
-          className="group mr-1 h-7 w-8 rounded outline-offset-0 hover:bg-transparent pressed:bg-transparent"
+    return (
+        <Primitive.DatePicker
+            {...props}
+            className={cn('group flex flex-col gap-1', props.className)}
         >
-          <IconCalendar aria-hidden className="size-4 text-muted-fg group-open:text-fg" />
-        </Button>
-      </FieldGroup>
-      {description && <Description>{description}</Description>}
-      <FieldError>{errorMessage}</FieldError>
-      <DynamicOverlay className="p-0 grid">
-        <Dialog>
-          <Calendar />
-        </Dialog>
-      </DynamicOverlay>
-    </DatePickerPrimitive>
-  )
+            {label && <Label>{label}</Label>}
+            <FieldGroup className='min-w-40'>
+                <DateInput className='w-full min-w-[inherit] px-2 font-mono uppercase lg:text-sm' />
+                <Button
+                    size='icon'
+                    variant='ghost'
+                    className='group mr-1 h-7 w-8 rounded outline-offset-0 hover:bg-transparent pressed:bg-transparent'
+                >
+                    <CalendarIcon
+                        aria-hidden
+                        className='size-4 text-muted-foreground group-open:text-foreground'
+                    />
+                </Button>
+            </FieldGroup>
+            {description && <Description>{description}</Description>}
+            <FieldError>{errorMessage}</FieldError>
+            <Popover.Content className='rounded-xl border bg-background p-0'>
+                <Dialog>
+                    <Calendar />
+                </Dialog>
+            </Popover.Content>
+        </Primitive.DatePicker>
+    )
 }
 
-interface DateRangePickerProps<T extends DateValue>
-  extends DateRangePickerPrimitiveProps<T> {
-  label?: string
-  description?: string
-  errorMessage?: string | ((validation: ValidationResult) => string)
+interface DateRangePickerProps<T extends Primitive.DateValue>
+    extends Primitive.DateRangePickerProps<T> {
+    label?: string
+    description?: string
+    errorMessage?: string | ((validation: Primitive.ValidationResult) => string)
 }
 
-function DateRangePicker<T extends DateValue>({
-  label,
-  description,
-  errorMessage,
-  ...props
+function DateRangePicker<T extends Primitive.DateValue>({
+    label,
+    description,
+    errorMessage,
+    ...props
 }: DateRangePickerProps<T>) {
-  return (
-    <DateRangePickerPrimitive
-      {...props}
-      className={ctr(props.className, 'group flex flex-col gap-1')}
-    >
-      {label && <Label>{label}</Label>}
-      <FieldGroup className="w-auto min-w-[208px]">
-        <DateInput
-          slot="start"
-          className="px-2 lg:text-sm font-mono uppercase text-base min-w-[ineherit]"
-        />
-        <span
-          aria-hidden="true"
-          className="text-gray-800 group-disabled:text-gray-200 dark:text-zinc-200 group-disabled:dark:text-zinc-600 forced-colors:text-[ButtonText] group-disabled:forced-colors:text-[GrayText]"
+    return (
+        <Primitive.DateRangePicker
+            {...props}
+            className={cn('group flex flex-col gap-1', props.className)}
         >
-          –
-        </span>
-        <DateInput
-          slot="end"
-          className="flex-1 px-2 py-1.5 font-mono uppercase text-base lg:text-sm"
-        />
-        <Button
-          size="square-petite"
-          appearance="plain"
-          className="group mr-1 h-7 w-8 rounded outline-offset-0 hover:bg-transparent pressed:bg-transparent"
-        >
-          <IconCalendar aria-hidden className="size-4 text-muted-fg group-open:text-fg" />
-        </Button>
-      </FieldGroup>
-      {description && <Description>{description}</Description>}
-      <FieldError>{errorMessage}</FieldError>
-      <DynamicOverlay className="p-0 grid">
-        <Dialog>
-          <RangeCalendar />
-        </Dialog>
-      </DynamicOverlay>
-    </DateRangePickerPrimitive>
-  )
+            {label && <Label>{label}</Label>}
+            <FieldGroup className='w-auto min-w-[208px]'>
+                <DateInput
+                    slot='start'
+                    className='min-w-[ineherit] px-2 font-mono uppercase lg:text-sm'
+                />
+                <span
+                    aria-hidden='true'
+                    className='text-foreground group-disabled:text-muted-foreground'
+                >
+                    –
+                </span>
+                <DateInput
+                    slot='end'
+                    className='flex-1 px-2 py-1.5 font-mono uppercase lg:text-sm'
+                />
+                <Button
+                    size='icon'
+                    variant='ghost'
+                    className='group mr-1 h-7 w-8 rounded outline-offset-0 hover:bg-transparent pressed:bg-transparent'
+                >
+                    <CalendarIcon
+                        aria-hidden
+                        className='size-4 text-muted-foreground group-open:text-foreground'
+                    />
+                </Button>
+            </FieldGroup>
+            {description && <Description>{description}</Description>}
+            <FieldError>{errorMessage}</FieldError>
+            <Popover.Content className='rounded-xl border bg-background p-0'>
+                <Dialog>
+                    <Calendar.RangeCalendar />
+                </Dialog>
+            </Popover.Content>
+        </Primitive.DateRangePicker>
+    )
 }
 
-export {
-  DatePicker,
-  DateRangePicker,
-  type DatePickerProps,
-  type DateRangePickerProps,
-  type DateValue,
-  type ValidationResult
-}
+export { DatePicker, DateRangePicker }

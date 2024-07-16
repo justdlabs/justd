@@ -1,12 +1,12 @@
 'use client'
 
-import { IconBrandParsinta } from '@irsyadadl/paranoid'
-import { Button } from 'ui'
+import { NextLogo } from '@/components/logo'
+import { Button } from '@/components/ui'
 
 export default function ButtonOnlyIconDemo() {
-  return (
-    <Button size="square-petite" appearance="outline">
-      <IconBrandParsinta />
-    </Button>
-  )
+    return (
+        <Button size='icon'>
+            <NextLogo className='size-4' />
+        </Button>
+    )
 }

@@ -1,47 +1,35 @@
 'use client'
 
-import { IconBrandGithub, IconBrandLayers, IconBrandTwitter } from '@irsyadadl/paranoid'
-import { buttonStyles, Tooltip, TooltipContent, TooltipTrigger } from 'ui'
+import { FacebookLogo, GithubLogo } from '@/components/logo'
+import { buttonVariants, Tooltip } from '@/components/ui'
 
 export default function TooltipDemo() {
-  return (
-    <div className="flex gap-2">
-      <Tooltip>
-        <TooltipTrigger
-          aria-label="Follow My Twitter"
-          className={buttonStyles({
-            appearance: 'outline',
-            size: 'square-petite'
-          })}
-        >
-          <IconBrandTwitter />
-        </TooltipTrigger>
-        <TooltipContent>Tollow me on Twitter @irsyadadl</TooltipContent>
-      </Tooltip>
-      <Tooltip>
-        <TooltipTrigger
-          aria-label="Follow My Github"
-          className={buttonStyles({
-            appearance: 'outline',
-            size: 'square-petite'
-          })}
-        >
-          <IconBrandGithub />
-        </TooltipTrigger>
-        <TooltipContent>Follow me on Github @irsyadadl</TooltipContent>
-      </Tooltip>
-      <Tooltip>
-        <TooltipTrigger
-          aria-label="Follow My Layers"
-          className={buttonStyles({
-            appearance: 'outline',
-            size: 'square-petite'
-          })}
-        >
-          <IconBrandLayers />
-        </TooltipTrigger>
-        <TooltipContent>Follow me on Github irsyad</TooltipContent>
-      </Tooltip>
-    </div>
-  )
+    return (
+        <div className='flex gap-2'>
+            <Tooltip>
+                <Tooltip.Trigger
+                    aria-label='Add My Facebook'
+                    className={buttonVariants({
+                        variant: 'outline',
+                        size: 'icon'
+                    })}
+                >
+                    <FacebookLogo className='h-4 w-4' />
+                </Tooltip.Trigger>
+                <Tooltip.Content>Add me on Facebook @DiqiNahdliyan</Tooltip.Content>
+            </Tooltip>
+            <Tooltip>
+                <Tooltip.Trigger
+                    aria-label='Follow My Github'
+                    className={buttonVariants({
+                        variant: 'outline',
+                        size: 'icon'
+                    })}
+                >
+                    <GithubLogo className='h-4 w-4' />
+                </Tooltip.Trigger>
+                <Tooltip.Content>Follow me on Github @dqnahdliyan</Tooltip.Content>
+            </Tooltip>
+        </div>
+    )
 }

@@ -1,18 +1,18 @@
 'use client'
 
-import { Dialog as DialogPrimitive, type DialogProps } from 'react-aria-components'
-import { twMerge } from 'tailwind-merge'
+import { cn } from '@/lib/utils'
+import * as Primitive from 'react-aria-components'
 
-const Dialog = ({ className, ...props }: DialogProps) => {
-  return (
-    <DialogPrimitive
-      {...props}
-      className={twMerge(
-        'relative max-h-[inherit] overflow-y-auto p-4 focus:outline-none outline-0 [[data-placement]>&]:p-4 dlc',
-        className
-      )}
-    />
-  )
+const Dialog = ({ className, ...props }: Primitive.DialogProps) => {
+    return (
+        <Primitive.Dialog
+            {...props}
+            className={cn(
+                'relative max-h-[inherit] overflow-y-auto p-4 outline-0 focus:outline-none [[data-placement]>&]:p-4',
+                className
+            )}
+        />
+    )
 }
 
 export { Dialog }

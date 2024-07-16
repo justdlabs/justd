@@ -1,7 +1,12 @@
 'use client'
 
-import { Badge } from 'ui'
+import { Badge } from '@/components/ui'
 
 export default function BadgeShapeDemo() {
-  return <Badge shape="circle">Label</Badge>
+    return (
+        <div className='flex gap-2'>
+            <Badge shape='square'>Square</Badge>
+            <Badge shape='circle'>Circle</Badge>
+        </div>
+    )
 }

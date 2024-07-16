@@ -1,7 +1,7 @@
 'use client'
 
-import { SearchField } from 'ui'
+import { SearchField } from '@/components/ui'
 
 export default function SearchFieldWithLabelDemo() {
-  return <SearchField label="Search" />
+    return <SearchField label='Search' />
 }

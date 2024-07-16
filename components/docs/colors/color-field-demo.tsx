@@ -1,5 +1,5 @@
-import { ColorField } from 'ui'
+import { ColorField } from '@/components/ui'
 
 export default function ColorFieldDemo() {
-  return <ColorField label="Color" placeholder="#FAFAFA" />
+    return <ColorField label='Color' placeholder='#FAFAFA' />
 }

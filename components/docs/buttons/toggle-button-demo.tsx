@@ -1,9 +1,11 @@
 'use client'
 
-import { ToggleButton } from 'ui'
+import { ToggleButton } from '@/components/ui'
 
 export default function ToggleButtonDemo() {
-  return (
-    <ToggleButton>{({ isSelected }) => <>{isSelected ? 'Unpin' : 'Pin'}</>}</ToggleButton>
-  )
+    return (
+        <ToggleButton>
+            {({ isSelected }) => <>{isSelected ? "I'm On" : "I'm Off"}</>}
+        </ToggleButton>
+    )
 }

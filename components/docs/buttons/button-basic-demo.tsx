@@ -1,7 +1,7 @@
 'use client'
 
-import { Button } from 'ui'
+import { Button } from '@/components/ui'
 
 export default function ButtonBasicDemo() {
-  return <Button>Label</Button>
+    return <Button>This is Button</Button>
 }

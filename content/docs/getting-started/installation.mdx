@@ -1,391 +1,363 @@
 ---
 title: "Installation"
-description: To start using the D., you need to install the required packages and configure your project.
-order: 2
+description: To start using the design system, you need to install the required packages.
+order: 3
 published: true
 ---
 
-## Installation via CLI
-Before you run the command, make sure you have **tailwind installed**. If you don't, just see [here](https://tailwindcss.com/docs/installation) how to install it.
+## Requirements
 
-Kick things off by running this command:
+To get started with the design system, you need to install the following packages:
 
-<Snippet text={`npx @irsyadadl/d@latest init`} />
+<Snippet text={`bun i react-aria-components tailwindcss-react-aria-components tailwind-variants tailwind-merge clsx`} />
 
-Next up, tell it your source. If you're rocking **Next.js**, pick Next.js. If **Laravel** with **Inertia.js** is your jam, go with Laravel. Not using either? Just hit up the **other** option.
+After install these package for handling animations and icons:
 
-After that, just run `add [component-name]` to drop the component in your project. No need to install everything at once. Need a file-trigger? Just add it up. Even if it requires a button, this command's got you covered. Just install what you need now. Otherwise, hit up the docs and do it manually. Here's how to add a `combo-box`:
+<Snippet text={`bun i framer-motion lucide-react tailwindcss-animate embla-carousel-react cmdk framer-motion input-otp sonner`} />
 
-<Default items={['combo-box']}/>
+## CSS
 
-This command will install all the required components like:
-```bash
-✓ combo-box created
-✓ select created
-✓ dropdown created
-✓ field created
-✓ list-box created
-✓ popover created
-✓ button created
-```
-
-If ya wanna drop in group components, check the docs, they bundle all the goodies into one namespace, like collections, overlays, forms, etc. So you can slap 'em in all at once like this:
-<Default items={['overlays']}/>
-With that command, you'll get all the components in the overlays namespace like this:
-```bash
-✓ button created
-✓ dialog created
-✓ modal created
-✓ sheet created
-✓ drawer created
-✓ popover created
-✓ tooltip created
-```
-
-Or you might wanna pick the components you wanna toss in. Just add 'em without any arguments. You'll get a list of components to select, using arrow keys and spacebar.
-<Default items={['']}/>
-
-The command above will show you list like this:
-```bash
-? Select components to add: (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter> to proceed)
- ◯ dropdown
- ◯ dialog
- ◯ dynamic-overlay
- ◯ field
- ◯ forms
- ◯ collections
- ◯ date-and-time
-```
-
-Right now, the CLI can only drop one component at a time. So if you try `add note card`, it'll only add the `note` component. If you wanna upgrade it to handle multiple components, feel free to make a [PR](https://github.com/irsyadadl/d.cli/).
-
-## React Server Component
-By default, the primitive gets dropped in the `components/ui` folder of your project. It packs all the must-have functions for your components, like `cn` for className and `composeTailwindRenderProps`. But heads up, you can't rock it in server components. So, if you wanna flex that `cn` class outside the built-in squad, you gotta whip up a file that only holds that function, like this:
-
-```ts title="utils/classes.ts"
-import { twMerge } from 'tailwind-merge'
-import { type ClassValue, clsx } from 'clsx'
-
-export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs))
-```
-
-If I were you, I'd stash this in a file named `classes.ts` in the `utils` folder. Then, whenever I need to roll with it, I'll import it like this:
-```tsx
-import { cn } from '@/utils/classes'
-
-export default function page() {
-  return (
-    <span className={cn('...')}/>
-  )
-}
-```
-
-## Manual Installation
-To get started with the design system, you gotta install these packages:
-
-<ManualInstall items={['react-aria-components', 'tailwindcss-react-aria-components']} />
-
-Next, grab Tailwind Variant, Tailwind Merge, and clsx for those sweet utility functions.
-
-<ManualInstall items={['tailwind-variants', 'tailwind-merge','clsx']} />
-
-Then, snag the animation package for handling animations and Paranoid for icons:
-<ManualInstall items={['@irsyadadl/paranoid', 'tailwindcss-animate', 'framer-motion']} />
-
-### CSS
-First up, tweak your root CSS file. For example, if you're rockin' Laravel, it's **resources/css/app.css**, and you gotta add this code:
+First of all, you need to modify your root css file, like for example you are using laravel it's `resources/css/app.css` and you need to add the following code:
 
 ```css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 ```
 
 ### Variables
-Below that, you gotta drop in the following code:
+
+Below that you need to add the following code:
+
 <PlainCode lang='css' code={`@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --fg: 240 10% 3.9%;
+    :root {
+        --font-sans: 'GT Walsheim Pro';
+        --font-mono: 'Jetbrains Mono';
 
-    --card: 0 0% 100%;
-    --card-header: 240 5% 99%;
+        --background: 0 0% 98%;
+        --foreground: 240 10% 4%;
 
-    --popover: 0 0% 100%;
-    --popover-fg: 240 10% 3.9%;
+        /* Blue */
+        --primary: 240 100% 42%;
+        --primary-lighter: 240 100% 50%;
+        --primary-darker: 240 100% 33%;
+        --primary-foreground: 0 0% 98%;
 
-    --primary: 216 98% 52%;
-    --primary-fg: 0 0% 100%;
+        /* Zinc */
+        --secondary: 240 5% 84%;
+        --secondary-lighter: 240 6% 90%;
+        --secondary-darker: 240 5% 65%;
+        --secondary-foreground: 240 10% 4%;
 
-    --secondary: 240 4.8% 95.9%;
-    --secondary-fg: 240 5.9% 10%;
+        /* Rose */
+        --danger: 347 77% 50%;
+        --danger-lighter: 350 89% 60%;
+        --danger-darker: 345 83% 41%;
+        --danger-foreground: 0 0% 98%;
 
-    --tertiary: 240 4.8% 95.9%;
-    --tertiary-fg: 240 4% 16%;
+        /* Green*/
+        --success: 120 100% 21%;
+        --success-lighter: 120 100% 25%;
+        --success-darker: 120 100% 17%;
+        --success-foreground: 0 0% 98%;
 
-    --success: 152 69% 31%;
-    --success-fg: 0 0% 100%;
+        /* Slate Blue */
+        --info: 248 39% 48%;
+        --info-lighter: 248 53% 58%;
+        --info-darker: 248 39% 38%;
+        --info-foreground: 0 0% 98%;
 
-    --muted: 240 4.8% 95.9%;
-    --muted-fg: 240 3.8% 46.1%;
+        /* Amber */
+        --warning: 32 95% 44%;
+        --warning-lighter: 38 92% 50%;
+        --warning-darker: 26 90% 37%;
+        --warning-foreground: 0 0% 98%;
 
-    --accent: 240 4.8% 95.9%;
-    --accent-fg: 240 5.9% 10%;
+        --dark: 240 10% 4%;
+        --dark-lighter: 240 4% 16%;
+        --dark-darker: 240 6% 10%;
+        --dark-foreground: 0 0% 98%;
 
-    --danger: 347 77% 50%;
-    --danger-fg: 356 100% 97%;
+        --muted: 240 5% 84%;
+        --muted-foreground: 240 5% 65%;
 
-    --warning: 46 97% 65%;
-    --warning-fg: 21 92% 14%;
+        --accent: 240 100% 42%;
+        --accent-foreground: 0 0% 98%;
 
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --toggle: 240 5% 84%;
-    --ring: 211 100% 58%;
-
-    --radius: 0.55rem;
-  }
-
-  .dark {
-    --background: 0 0% 0%;
-    --fg: 0 0% 98%;
-
-    --card: 240 10% 3.9%;
-    --card-header: 240 6% 6%;
-
-    --popover: 240 6% 6%;
-    --popover-fg: 0 0% 98%;
-
-    --secondary: 240 3.7% 15.9%;
-    --secondary-fg: 0 0% 98%;
-
-    --tertiary: 240 10% 6%;
-    --tertiary-fg: 240 5% 96%;
-
-    --muted: 240 3.7% 15.9%;
-    --muted-fg: 240 5% 64.9%;
-
-    --accent: 240 3.7% 15.9%;
-    --accent-fg: 0 0% 98%;
-
-    --border: 240 7% 15%;
-    --input: 240 3.7% 15.9%;
-    --toggle: 240 5% 26%;
-  }
-}
-`} />
-
-### Default Utilities
-Add this for the default set of utilities:
-<PlainCode lang='css' code={`@layer base {
-  * {
-    @apply border-border;
-    font-feature-settings: 'cv11', 'ss01';
-    font-variation-settings: 'opsz' 850;
-  }
-
-  body {
-    @apply bg-background text-fg;
-  }
-}
-`} />
-
-### React Aria Components
-And finally, toss in this for react-aria-components:
-
-```css
-.react-aria-Button,
-.react-aria-Dialog { outline: none; }
-
-.react-aria-DropIndicator[data-drop-target] {
-  outline: 1px solid hsl(var(--primary));
-}
-```
-
-
-### Tailwind Configuration
-You need wrap your tailwind config with `withTV` from `tailwind-variants`, also you need to plug the plugins we've just installed.
-<PlainCode lang='js' code={`/** @type {import('tailwindcss').Config} */
-
-import { withTV } from 'tailwind-variants/transformer'
-import ta from 'tailwindcss-animate'
-import trac from 'tailwindcss-react-aria-components'
-
-export default withTV({
-  darkMode: 'class',
-  content: [...],
-
-  plugins: [ ta, trac ],
-  theme: {
-    extend: {
-      colors: {
-        border: 'hsl(var(--border))',
-        link: 'hsl(var(--link))',
-        input: 'hsl(var(--input))',
-        toggle: 'hsl(var(--toggle))',
-        ring: 'hsl(var(--ring))',
-        background: 'hsl(var(--background))',
-        fg: 'hsl(var(--fg))',
-        primary: {
-          DEFAULT: 'hsl(var(--primary))',
-          fg: 'hsl(var(--primary-fg))',
-          '50': '#eef8ff',
-          '100': '#d8eeff',
-          '200': '#b9e0ff',
-          '300': '#89cfff',
-          '400': '#52b4ff',
-          '500': '#2a91ff',
-          '600': '#0d6efd',
-          '700': '#0c5ae9',
-          '800': '#1149bc',
-          '900': '#144194',
-          '950': '#11295a'
-        },
-        secondary: {
-          DEFAULT: 'hsl(var(--secondary))',
-          fg: 'hsl(var(--secondary-fg))'
-        },
-        tertiary: {
-          DEFAULT: 'hsl(var(--tertiary))',
-          fg: 'hsl(var(--tertiary-fg))'
-        },
-        success: {
-          DEFAULT: 'hsl(var(--success))',
-          fg: 'hsl(var(--success-fg))'
-        },
-        info: {
-          DEFAULT: 'hsl(var(--info))',
-          fg: 'hsl(var(--info-fg))'
-        },
-        danger: {
-          DEFAULT: 'hsl(var(--danger))',
-          fg: 'hsl(var(--danger-fg))'
-        },
-        warning: {
-          DEFAULT: 'hsl(var(--warning))',
-          fg: 'hsl(var(--warning-fg))'
-        },
-        muted: {
-          DEFAULT: 'hsl(var(--muted))',
-          fg: 'hsl(var(--muted-fg))'
-        },
-        accent: {
-          DEFAULT: 'hsl(var(--accent))',
-          fg: 'hsl(var(--accent-fg))'
-        },
-        popover: {
-          DEFAULT: 'hsl(var(--popover))',
-          fg: 'hsl(var(--popover-fg))'
-        },
-      },
-      borderRadius: {
-        xl: 'calc(var(--radius) + 2px)',
-        lg: 'var(--radius)',
-        md: 'calc(var(--radius) - 2px)',
-        sm: 'calc(var(--radius) - 4px)'
-      },
+        --border: 240 5% 84%;
+        --radius: 0.5rem;
     }
-  },
-})
+
+    .dark {
+        --background: 240 10% 4%;
+        --foreground: 0 0% 98%;
+
+        /* Dark Blue */
+        --primary: 240 58% 39%;
+        --primary-lighter: 240 37% 51%;
+        --primary-darker: 240 100% 27%;
+        --primary-foreground: 0 0% 98%;
+
+        /* Zinc */
+        --secondary: 240 5% 26%;
+        --secondary-lighter: 240 5% 34%;
+        --secondary-darker: 240 4% 16%;
+        --secondary-foreground: 0 0% 98%;
+
+        /* Crimson */
+        --danger: 348 83% 47%;
+        --danger-lighter: 348 73% 56%;
+        --danger-darker: 348 84% 39%;
+        --danger-foreground: 0 0% 98%;
+
+        /* Dark Green */
+        --success: 120 100% 20%;
+        --success-lighter: 120 50% 33%;
+        --success-darker: 120 100% 16%;
+        --success-foreground: 0 0% 98%;
+
+        /* Dark Slate Blue */
+        --info: 248 39% 39%;
+        --info-lighter: 248 26% 49%;
+        --info-darker: 249 39% 32%;
+        --info-foreground: 0 0% 98%;
+
+        /* Dark Orange */
+        --warning: 32 95% 44%;
+        --warning-lighter: 38 92% 50%;
+        --warning-darker: 26 90% 37%;
+        --warning-foreground: 0 0% 98%;
+
+        --dark: 0 0% 98%;
+        --dark-lighter: 240 6% 90%;
+        --dark-darker: 240 5% 65%;
+        --dark-foreground: 240 10% 4%;
+
+        --muted: 240 5% 26%;
+        --muted-foreground: 240 5% 34%;
+
+        --accent: 240 58% 39%;
+        --accent-foreground: 0 0% 98%;
+
+        --border: 240 5% 26%;
+    }
+}
+
+@layer base {
+    html {
+        @apply scroll-smooth;
+    }
+
+    * {
+        @apply border-border;
+        font-feature-settings: 'cv11', 'ss01';
+        font-variation-settings: 'opsz' 850;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+        font-feature-settings: 'rlig' 1,
+        'calt' 1;
+    }
+}
 `} />
 
-### Primitive
-<SourceCode title='ui/primitive.tsx' toShow={['primitive']} />
+### Scrollbars
 
-## Simple Import
-Yup, that's slick 'cause the index.ts file in your ui folder plays the connect-the-dots game. Even if button and badge are chillin' in different files, you can scoop them up in one go like this:
-```tsx
-import { Button, VisuallyHidden, Badge } from 'ui'
-```
-Aight, so here’s the lowdown: your ui folder’s rockin’ an index.ts file, right? This bad boy bundles up all your components for easy access. Just pull 'em in like this, no sweat!
-<PlainCode title="ui/index.ts" lang='tsx' code={`export * from './primitive';
-export * from './note';
-export * from './list-box';
-export * from './pagination';
-export * from './link';
-export * from './tabs';
-export * from './card';
-export * from './slider';
-export * from './popover';
-export * from './text-field';
-export * from './radio';
-export * from './date-field';
-export * from './date-picker';
-export * from './toaster';
-export * from './container';
-export * from './input-otp';
-export * from './tag-group';
-export * from './sheet';
-export * from './field';
-export * from './drop-zone';
-export * from './grid';
-export * from './meter';
-export * from './time-field';
-export * from './breadcrumbs';
-export * from './drawer';
-export * from './tooltip';
-export * from './file-trigger';
-export * from './heading';
-export * from './switch';
-export * from './calendar';
-export * from './grid-list';
-export * from './command';
-export * from './dropdown';
-export * from './avatar';
-export * from './combo-box';
-export * from './search-field';
-export * from './multi-select';
-export * from './dialog';
-export * from './menu';
-export * from './progress-bar';
-export * from './badge';
-export * from './toggle-button';
-export * from './snippet';
-export * from './number-field';
-export * from './table';
-export * from './separator';
-export * from './button';
-export * from './modal';
-export * from './checkbox';
-export * from './select';
-export * from './textarea';
-export * from './loading-dots';
-export * from './skeleton';
-export * from './form';
-export * from './carousel';
-export * from './aspect-ratio';
-export * from './color';
-export * from './color-picker';
-export * from './dynamic-overlay';
-export * from './visually-hidden';
+If you wan't to customize the scrollbars
+
+Install this package first
+
+<Snippet text={`bun i -D tailwind-scrollbar`} />
+
+Then you can add this one for scrollbars:
+
+<PlainCode lang='css' code={`*,
+.overflow-auto,
+.overflow-scroll,
+.overflow-x-scroll,
+.overflow-y-scroll,
+.overflow-y-auto,
+.overflow-x-auto {
+    @apply ease-in-out scrollbar-none scrollbar-track-background scrollbar-thumb-background scrollbar-thumb-rounded-full;
+}
+
+*,
+.overflow-auto:hover,
+.overflow-scroll:hover,
+.overflow-x-scroll:hover,
+.overflow-y-scroll:hover,
+.overflow-y-auto:hover,
+.overflow-x-auto:hover {
+    @apply scrollbar-thin scrollbar-thumb-border;
+}
 `} />
 
-If you ain’t usin’ all them bits, just ditch the ones you don’t need. Later on, when you got a fresh component, just slide it into the lineup. Easy peasy!
+## Tailwind Configuration
 
-### TS Config
-Then, you gotta drop this into your `tsconfig.json` file:
-```json title="tsconfig.json" {6}
-{
-  "compilerOptions": {
-    // ...
-    "paths": {
-      "@/*": ["./*"],
-      "ui": ["./components/ui"]
-    }
-  }
-}
-```
-### TS Config with src Folder
-Just make sure you're rockin' the paths property right when you got a src folder in your project. If you wanna mess with the ui folder, just line up your paths proper like this:
+You need to change your `tailwind.config.ts`.
 
-```json title="tsconfig.json" {6}
-{
-  "compilerOptions": {
-    // ...
-    "paths": {
-      "@/*": ["./src/*"],
-      "ui": ["./src/components/ui"]
-    }
-  }
+<PlainCode lang='js' code={`import type { Config } from 'tailwindcss'
+import { fontFamily } from 'tailwindcss/defaultTheme'
+
+/** @type {import('tailwindcss').Config} */
+const config: Config = {
+    content: [
+        // Laravel
+        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
+        './storage/framework/views/*.php',
+        './resources/views/**/*.blade.php',
+        './resources/js/**/*.tsx',
+
+        // Next.Js
+        './pages/**/*.{js,ts,jsx,tsx}',
+        './app/**/*.{js,ts,jsx,tsx}',
+        './components/**/*.{js,ts,jsx,tsx}',
+
+        // Astro.Js
+        './src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',
+    ],
+    darkMode: 'class',
+    theme: {
+        container: {
+            center: true,
+            padding: {
+                DEFAULT: '1rem',
+                sm: '2rem'
+            },
+            screens: {
+                '2xl': '1400px'
+            }
+        },
+        fontFamily: {
+            sans: ['var(--font-sans)', ...fontFamily.sans],
+            mono: ['var(--font-mono)', ...fontFamily.mono]
+        },
+        extend: {
+            colors: {
+                background: 'hsl(var(--background))',
+                foreground: 'hsl(var(--foreground))',
+                border: 'hsl(var(--border))',
+                primary: {
+                    DEFAULT: 'hsl(var(--primary))',
+                    foreground: 'hsl(var(--primary-foreground))'
+                },
+                secondary: {
+                    DEFAULT: 'hsl(var(--secondary))',
+                    foreground: 'hsl(var(--secondary-foreground))'
+                },
+                danger: {
+                    DEFAULT: 'hsl(var(--danger))',
+                    foreground: 'hsl(var(--danger-foreground))'
+                },
+                success: {
+                    DEFAULT: 'hsl(var(--success))',
+                    foreground: 'hsl(var(--success-foreground))'
+                },
+                info: {
+                    DEFAULT: 'hsl(var(--info))',
+                    foreground: 'hsl(var(--info-foreground))'
+                },
+                warning: {
+                    DEFAULT: 'hsl(var(--warning))',
+                    foreground: 'hsl(var(--warning-foreground))'
+                },
+                dark: {
+                    DEFAULT: 'hsl(var(--dark))',
+                    foreground: 'hsl(var(--dark-foreground))'
+                },
+                accent: {
+                    DEFAULT: 'hsl(var(--accent))',
+                    foreground: 'hsl(var(--accent-foreground))'
+                },
+                muted: {
+                    DEFAULT: 'hsl(var(--muted))',
+                    foreground: 'hsl(var(--muted-foreground))'
+                },
+                popover: {
+                    DEFAULT: 'hsl(var(--popover))',
+                    foreground: 'hsl(var(--popover-foreground))'
+                },
+                card: {
+                    DEFAULT: 'hsl(var(--card))',
+                    foreground: 'hsl(var(--card-foreground))'
+                },
+                input: 'hsl(var(--input))',
+                toggle: 'hsl(var(--toggle))',
+                ring: 'hsl(var(--ring))'
+            },
+            borderRadius: {
+                lg: 'var(--radius)',
+                md: 'calc(var(--radius) - 2px)',
+                sm: 'calc(var(--radius) - 4px)'
+            },
+            keyframes: {
+                'accordion-down': {
+                    from: { height: '0' },
+                    to: { height: '50' }
+                },
+                'accordion-up': {
+                    from: { height: '50' },
+                    to: { height: '0' }
+                }
+            },
+            animation: {
+                'accordion-down': 'accordion-down 0.2s ease-in-out',
+                'accordion-up': 'accordion-up 0.2s ease-in-out'
+            }
+        }
+    },
+    plugins: [
+        require('tailwindcss-animate'),
+        require('tailwind-scrollbar')({
+            nocompatible: true,
+            preferredStrategy: 'pseudoelements'
+        }),
+        require('tailwindcss-react-aria-components')
+    ]
+} satisfies Config
+
+export default config
+`} />
+
+## Utils
+
+Use a cn helper to make it easier to conditionally add Tailwind CSS classes. Here's how to define it in lib/utils.ts:
+
+<PlainCode lang='js' code={`import React from 'react'
+import { type ClassValue, clsx } from 'clsx'
+import { twMerge } from 'tailwind-merge'
+
+export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs))
+
+export function useMediaQuery(query: string) {
+    const [value, setValue] = React.useState(false)
+
+    React.useEffect(() => {
+        function onChange(event: MediaQueryListEvent) {
+            setValue(event.matches)
+        }
+
+        const result = matchMedia(query)
+        result.addEventListener('change', onChange)
+        setValue(result.matches)
+
+        return () => result.removeEventListener('change', onChange)
+    }, [query])
+
+    return value
 }
-```
+
+export function formatDate(input: string | number): string {
+    const date = new Date(input)
+    return date.toLocaleDateString('en-US', {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric'
+    })
+}
+
+export function wait(number: number = 1000) {
+    return new Promise((resolve) => setTimeout(resolve, number))
+}
+`} />

@@ -2,68 +2,67 @@
 
 import React from 'react'
 
-import { IconChevronLgDown } from '@irsyadadl/paranoid'
-import {
-  ComboBox as ComboboxPrimitive,
-  type ComboBoxProps as ComboboxPrimitiveProps,
-  type ValidationResult
-} from 'react-aria-components'
+import { cn } from '@/lib/utils'
+import { ChevronDown } from 'lucide-react'
+import * as Primitive from 'react-aria-components'
 
 import { Button } from './button'
 import { DropdownItem, DropdownSection } from './dropdown'
 import { Description, FieldError, FieldGroup, Input, Label } from './field'
-import { ListBoxPicker } from './list-box'
-import { PopoverPicker } from './popover'
-import { ctr } from './primitive'
+import { ListBox } from './list-box'
+import { Popover } from './popover'
 
 interface ComboBoxProps<T extends object>
-  extends Omit<ComboboxPrimitiveProps<T>, 'children'> {
-  label?: string
-  placeholder?: string
-  description?: string | null
-  errorMessage?: string | ((validation: ValidationResult) => string)
-  children: React.ReactNode | ((item: T) => React.ReactNode)
+    extends Omit<Primitive.ComboBoxProps<T>, 'children'> {
+    label?: string
+    placeholder?: string
+    description?: string | null
+    errorMessage?: string | ((validation: Primitive.ValidationResult) => string)
+    children: React.ReactNode | ((item: T) => React.ReactNode)
 }
 
 const ComboBox = <T extends object>({
-  label,
-  description,
-  errorMessage,
-  children,
-  placeholder,
-  items,
-  ...props
+    label,
+    description,
+    errorMessage,
+    children,
+    placeholder,
+    items,
+    ...props
 }: ComboBoxProps<T>) => {
-  return (
-    <ComboboxPrimitive
-      menuTrigger="focus"
-      {...props}
-      className={ctr(props.className, 'group w-full flex flex-col gap-1')}
-    >
-      <Label>{label}</Label>
-      <FieldGroup className="pl-0">
-        <Input className="pl-2.5" placeholder={placeholder} />
-        <Button
-          size="square-petite"
-          appearance="plain"
-          className="h-7 w-8 rounded outline-offset-0 active:bg-transparent hover:bg-transparent pressed:bg-transparent"
+    return (
+        <Primitive.ComboBox
+            menuTrigger='focus'
+            {...props}
+            className={cn('group flex w-full flex-col gap-1', props.className)}
         >
-          <IconChevronLgDown
-            aria-hidden
-            className="text-muted-fg transition duration-200 group-open:rotate-180 group-open:text-fg"
-          />
-        </Button>
-      </FieldGroup>
-      {description && <Description>{description}</Description>}
-      <FieldError>{errorMessage}</FieldError>
-      <PopoverPicker>
-        <ListBoxPicker items={items}>{children}</ListBoxPicker>
-      </PopoverPicker>
-    </ComboboxPrimitive>
-  )
+            <Label>{label}</Label>
+            <FieldGroup className='pl-0'>
+                <Input className='pl-2.5' placeholder={placeholder} />
+                <Button
+                    size='icon'
+                    variant='ghost'
+                    className='h-7 w-8 rounded outline-offset-0 active:bg-transparent hover:bg-transparent pressed:bg-transparent'
+                >
+                    <ChevronDown
+                        aria-hidden
+                        className='text-muted-foreground transition duration-200 group-open:rotate-180 group-open:text-foreground'
+                    />
+                </Button>
+            </FieldGroup>
+            {description && <Description>{description}</Description>}
+            <FieldError>{errorMessage}</FieldError>
+            <Popover.Picker>
+                <ListBox.Picker items={items}>{children}</ListBox.Picker>
+            </Popover.Picker>
+        </Primitive.ComboBox>
+    )
 }
 
 const ComboBoxItem = DropdownItem
 const ComboBoxSection = DropdownSection
 
-export { ComboBox, ComboBoxItem, ComboBoxSection, type ComboBoxProps }
+ComboBox.Item = ComboBoxItem
+ComboBox.Section = ComboBoxSection
+
+export { ComboBox }

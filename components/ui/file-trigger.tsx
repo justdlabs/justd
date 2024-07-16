@@ -2,59 +2,55 @@
 
 import React from 'react'
 
-import { IconCamera, IconFolder, IconPaperclip } from '@irsyadadl/paranoid'
-import {
-  FileTrigger as FileTriggerPrimitive,
-  type FileTriggerProps as FileTriggerPrimitiveProps
-} from 'react-aria-components'
+import { Camera, Folder, Paperclip } from 'lucide-react'
+import * as Primitive from 'react-aria-components'
 import { type VariantProps } from 'tailwind-variants'
 
-import { Button, type buttonStyles } from './button'
+import { Button, type buttonVariants } from './button'
 
 interface FileTriggerProps
-  extends FileTriggerPrimitiveProps,
-    VariantProps<typeof buttonStyles> {
-  withIcon?: boolean
-  isDisabled?: boolean
+    extends Primitive.FileTriggerProps,
+        VariantProps<typeof buttonVariants> {
+    withIcon?: boolean
+    isDisabled?: boolean
 }
 
 const FileTrigger: React.FC<FileTriggerProps> = ({
-  intent = 'primary',
-  appearance = 'outline',
-  withIcon = true,
-  ...props
+    variant = 'primary',
+    withIcon = true,
+    ...props
 }) => {
-  return (
-    <>
-      <FileTriggerPrimitive {...props}>
-        <Button isDisabled={props.isDisabled} intent={intent} appearance={appearance}>
-          {withIcon && (
-            <>
-              {props.defaultCamera ? (
-                <IconCamera />
-              ) : props.acceptDirectory ? (
-                <IconFolder />
-              ) : (
-                <IconPaperclip className="rotate-45" />
-              )}
-            </>
-          )}
-          {props.children ? (
-            props.children
-          ) : (
-            <>
-              {props.allowsMultiple
-                ? 'Browse a files'
-                : props.acceptDirectory
-                  ? 'Browse'
-                  : 'Browse a file'}
-              ...
-            </>
-          )}
-        </Button>
-      </FileTriggerPrimitive>
-    </>
-  )
+    return (
+        <>
+            <Primitive.FileTrigger {...props}>
+                <Button isDisabled={props.isDisabled} variant={variant}>
+                    {withIcon && (
+                        <>
+                            {props.defaultCamera ? (
+                                <Camera />
+                            ) : props.acceptDirectory ? (
+                                <Folder />
+                            ) : (
+                                <Paperclip className='rotate-45' />
+                            )}
+                        </>
+                    )}
+                    {props.children ? (
+                        props.children
+                    ) : (
+                        <>
+                            {props.allowsMultiple
+                                ? 'Browse a files'
+                                : props.acceptDirectory
+                                  ? 'Browse'
+                                  : 'Browse a file'}
+                            ...
+                        </>
+                    )}
+                </Button>
+            </Primitive.FileTrigger>
+        </>
+    )
 }
 
 export { FileTrigger }

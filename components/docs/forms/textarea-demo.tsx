@@ -1,7 +1,7 @@
 'use client'
 
-import { Textarea } from 'ui'
+import { Textarea } from '@/components/ui'
 
 export default function TextareaDemo() {
-  return <Textarea label="Address" />
+    return <Textarea label='Address' />
 }

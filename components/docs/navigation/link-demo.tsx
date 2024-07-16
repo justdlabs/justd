@@ -1,7 +1,7 @@
 'use client'
 
-import { Link } from 'ui'
+import { Link } from '@/components/ui'
 
 export default function LinkDemo() {
-  return <Link href="/">Link</Link>
+    return <Link href='/'>Go Home</Link>
 }

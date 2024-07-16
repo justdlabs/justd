@@ -1,24 +1,22 @@
 ---
-title: "Date Picker"
+title: 'Date Picker'
 description: Pop up a calendar, click a date, and it’s set. It’s like pointing at a day on the wall calendar, but digital and without the thumbtacks..
 order: 3
 published: true
-references: ["https://react-spectrum.adobe.com/react-aria/DatePicker.html#props"]
+references: ['https://react-spectrum.adobe.com/react-aria/DatePicker.html#props', 'https://lucide.dev/icons/']
 ---
 
 ## Basic
 
 A date picker mashes up a DateField and a Calendar popover so users can either type in or pick a date and time.
-<How minW72 toUse="date-and-time/date-picker-demo" />
+
+<How minW72 toUse='date-and-time/date-picker-demo' />
 
 ## Installation
-<Default items={['date-picker']}/>
 
-## Manual Installation
+<Install items={['react-aria-components', 'lucide-react']} />
 
-<ManualInstall items={['react-aria-components', '@irsyadadl/paranoid']}/>
-
-<SourceCode toShow={['date-picker', 'date-field', 'popover', 'field', 'calendar', 'button', 'dialog', 'modal', 'dynamic-overlay']}/>
+<SourceCode toShow={['date-picker', 'date-field', 'popover', 'field', 'calendar', 'button', 'dialog']} />
 
 ## Controlled
 Wanna boss around your date picker? Easy peasy. Just throw a value prop at it, and bam, it'll lock in on that date picker.
@@ -33,5 +31,7 @@ The `validate` function's the real MVP when you wanna check your own rules. It p
 <How minW72 toUse="date-and-time/date-picker-custom-validation-demo" />
 
 ## Disabled
+
 When a date picker is disabled, it cannot be interacted with and is visually indicated by a disabled state.
-<How minW72 toUse="date-and-time/date-picker-disabled-demo" />
+
+<How minW72 toUse='date-and-time/date-picker-disabled-demo' />

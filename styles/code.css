@@ -1,13 +1,9 @@
 [data-rehype-pretty-code-figure] pre {
-    @apply px-0 py-2 border rounded-lg border-zinc-800 !bg-[#0e0e10];
-}
-
-[data-rehype-pretty-code-title] {
-    @apply text-sm font-medium text-muted-fg p-2;
+    @apply rounded-lg border !bg-[#0e0e10] px-0 py-2;
 }
 
 [data-rehype-pretty-code-figure] code {
-    @apply !text-sm !leading-loose md:text-base border-0 p-0;
+    @apply border-0 p-0 !text-sm !leading-loose md:text-base;
 }
 
 span[data-rehype-pretty-code-figure] > code {
@@ -15,7 +11,7 @@ span[data-rehype-pretty-code-figure] > code {
 }
 
 span[data-rehype-pretty-code-figure] > code span {
-    @apply px-0 text-sky-500 dark:text-sky-400 font-normal !important;
+    @apply px-0.5 font-normal text-accent !important;
 }
 
 [data-rehype-pretty-code-figure] code[data-line-numbers] {
@@ -25,7 +21,7 @@ span[data-rehype-pretty-code-figure] > code span {
 [data-rehype-pretty-code-figure] code[data-line-numbers] > [data-line]::before {
     counter-increment: line;
     content: counter(line);
-    @apply mr-4 inline-block w-4 text-right text-gray-500;
+    @apply mr-4 inline-block w-4 text-right text-muted-foreground;
 }
 
 [data-rehype-pretty-code-figure] [data-line] {
@@ -34,11 +30,11 @@ span[data-rehype-pretty-code-figure] > code span {
 
 [data-rehype-pretty-code-figure] [data-highlighted-line] {
     background: rgba(200, 200, 255, 0.1);
-    @apply border-l-blue-400;
+    @apply border-l-primary/80;
 }
 
 [data-rehype-pretty-code-figure] [data-highlighted-chars] {
-    @apply rounded bg-zinc-600/50;
+    @apply rounded bg-muted/50;
     box-shadow: 0 0 0 4px rgb(82 82 91 / 0.5);
 }
 
@@ -47,16 +43,15 @@ span[data-rehype-pretty-code-figure] > code span {
 }
 
 .subheading-anchor {
-    @apply no-underline font-semibold hover:no-underline text-fg;
+    @apply font-semibold text-accent no-underline hover:no-underline;
 }
 
 .prose-headings\:scroll-mt-24 :is(:where(h1, h2, h3, h4, h5, h6, th):not(:where([class~="not-prose"], [class~="not-prose"] *))) > a {
     text-decoration: none !important;
-    @apply text-fg !important;
+    @apply text-foreground !important;
 }
 
-
-.prose :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *))::before,
-.prose :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *))::after{
-    /*@apply hidden;*/
+.prose :where(code):not(:where([class~='not-prose'], [class~='not-prose'] *))::before,
+.prose :where(code):not(:where([class~='not-prose'], [class~='not-prose'] *))::after {
+    @apply hidden;
 }

@@ -1,34 +1,37 @@
 ---
-title: "Drawer"
-description: Pull out a side menu or extra options, like opening a side drawer, handy for accessing additional functionalities.
+title: 'Drawer'
+description: Pull out a side menu or extra options, like opening a side drawer, handy for accessing additional functionalities..
 order: 3
 published: true
-references: ["https://react-spectrum.adobe.com/react-aria/Modal.html#props", "https://www.framer.com/motion/animate-presence"]
+references: ['https://react-spectrum.adobe.com/react-aria/Modal.html#props', 'https://www.framer.com/motion/animate-presence']
 ---
 
-
 ## Basic
+
 Slide-in overlay for more content or options, anchored to the screen edge. Quick access!
-<How toUse="overlays/drawer-basic-demo" />
+
+<How toUse='overlays/drawer-basic-demo' />
 
 ## Installation
-<Default items={['drawer']}/>
 
-## Manual Installation
+<Install items={['react-aria-components', 'framer-motion']} />
 
-<ManualInstall items={['react-aria-components', 'framer-motion']}/>
-
-<SourceCode toShow={['drawer', 'modal', 'button', 'dialog']}/>
+<SourceCode toShow={['drawer', 'modal']} />
 
 ## Drawer with Footer
+
 When you choose to include a footer, be sure to use the drawer body inside the content. This ensures the footer stays fixed at the bottom of the drawer.
-<How toUse="overlays/drawer-with-footer-demo" />
+
+<How toUse='overlays/drawer-with-footer-demo' />
 
 ## Drawer Controlled
+
 Of course, you can controll the drawer.
-<How toUse="overlays/drawer-controlled-demo" />
+
+<How toUse='overlays/drawer-controlled-demo' />
 
 ## Without Notch
+
 You can disable the notch on the drawer by setting the withNotch prop to false.
 
 ```

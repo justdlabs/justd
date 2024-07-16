@@ -3,35 +3,36 @@
 import React from 'react'
 
 import { OptionPreview } from '@/components/docs/outside/option-preview'
-import { Select, SelectItem, Switch } from 'ui'
+import { Select, Switch } from '@/components/ui'
 
 const items = ['primary', 'secondary', 'success', 'danger', 'warning', 'info'].map(
-  (item) => ({
-    value: item,
-    label: item
-  })
+    (item) => ({
+        value: item,
+        label: item
+    })
 )
 export default function SwitchVariantDemo() {
-  const [intent, setIntent] = React.useState('primary')
+    const [variant, setVariant] = React.useState('primary')
 
-  return (
-    <>
-      <OptionPreview>
-        <Select
-          items={items}
-          selectedKey={intent}
-          onSelectionChange={(v) => setIntent(v as any)}
-        >
-          {(item) => (
-            <SelectItem id={item.value} textValue={item.value}>
-              {item.label}
-            </SelectItem>
-          )}
-        </Select>
-      </OptionPreview>
-      <Switch defaultSelected intent={intent as any}>
-        Label
-      </Switch>
-    </>
-  )
+    return (
+        <>
+            <OptionPreview>
+                <Select
+                    aria-labelledby='Variant'
+                    items={items}
+                    selectedKey={variant}
+                    onSelectionChange={(v) => setVariant(v as any)}
+                >
+                    {(item) => (
+                        <Select.Item id={item.value} textValue={item.value}>
+                            {item.label}
+                        </Select.Item>
+                    )}
+                </Select>
+            </OptionPreview>
+            <Switch defaultSelected variant={variant as any}>
+                Label
+            </Switch>
+        </>
+    )
 }

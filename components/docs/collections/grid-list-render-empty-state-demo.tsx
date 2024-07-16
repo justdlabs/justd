@@ -1,17 +1,19 @@
 'use client'
 
-import { GridEmptyState, GridList } from 'ui'
+import { GridList } from '@/components/ui'
 
 export default function GridListRenderEmptyStateDemo() {
-  return (
-    <GridList
-      items={items}
-      aria-label="Select items"
-      selectionMode="multiple"
-      className="min-w-64"
-      renderEmptyState={() => <GridEmptyState>No bands selected</GridEmptyState>}
-    />
-  )
+    return (
+        <GridList
+            items={items}
+            aria-label='Select items'
+            selectionMode='multiple'
+            className='min-w-64'
+            renderEmptyState={() => (
+                <GridList.EmptyState>No bands selected</GridList.EmptyState>
+            )}
+        />
+    )
 }
 
 const items: Iterable<any> | undefined = []

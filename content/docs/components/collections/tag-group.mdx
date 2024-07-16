@@ -1,43 +1,33 @@
 ---
-title: "Tag Group"
+title: 'Tag Group'
 description: This organizer keeps your tags tight and right, making sure they’re lined up and making sense, just like a librarian sorting books on a shelf.
 order: 4
 published: true
-references: ["https://react-spectrum.adobe.com/react-aria/TagGroup.html#props"]
+references: ['https://react-spectrum.adobe.com/react-aria/TagGroup.html#props']
 ---
 
 ## Basic
+
 A tag group is a focusable list of labels, categories, keywords, filters, or other items, supporting keyboard navigation, selection, and removal.
-<How toUse="collections/tag-group-demo" />
+
+<How toUse='collections/tag-group-demo' />
 
 ## Installation
-<Default items={['tag-group']}/>
 
-## Manual Installation
+<Install items={['react-aria-components', '@irsyadadl/paranoid']} />
 
-<ManualInstall items={['react-aria-components', '@irsyadadl/paranoid']}/>
-
-<SourceCode toShow={['tag-group', 'field', 'badge']}/>
+<SourceCode toShow={['tag-group', 'field', 'badge']} />
 
 ## With Remove Button
+
 It's possible to add a remove button to the tag group.
-<How toUse="collections/tag-group-with-remove-demo" />
 
-## Variants
-You can switch up the tag group intent by throwing in the `intent` prop. But right now, only the default blue matches the selected color. The color comes from the badge component. If you want, check out the available variants in the [badge docs](/design-system/statuses/badge).
+<How toUse='collections/tag-group-with-remove-demo' />
+
+## Colors
+
+You can switch up the tag group color by throwing in the `color` prop. But right now, only the default blue matches the selected color. The color comes from the badge component. If you want, check out the available colors in the [badge docs](/design-system/statuses/badge).
 
 ```
-<TagGroup intent="info"/>
+<TagGroup color="amber"/>
 ```
-
-## Controlled
-You can control the value of the tag group by setting the `value` prop.
-<How toUse="collections/tag-group-controlled-demo" />
-
-## Href
-You can add a link to the tag group by setting the `href` prop.
-<How toUse="collections/tag-group-href-demo" />
-
-## Disabled
-You can disable the tag by setting the `isDisabled` prop or `disabledKeys` on `TagGroup` prop.
-<How toUse="collections/tag-group-disabled-demo" />

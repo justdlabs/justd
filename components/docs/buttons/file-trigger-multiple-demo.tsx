@@ -1,7 +1,7 @@
 'use client'
 
-import { FileTrigger } from 'ui'
+import { FileTrigger } from '@/components/ui'
 
 export default function FileTriggerMultipleDemo() {
-  return <FileTrigger allowsMultiple />
+    return <FileTrigger allowsMultiple />
 }

@@ -1,29 +1,20 @@
 'use client'
 
-import {
-  Button,
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle
-} from 'ui'
+import { Button, Card } from '@/components/ui'
 
 export default function CardDemo() {
-  return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Monthly Report</CardTitle>
-        <CardDescription>Financial summary for June</CardDescription>
-      </CardHeader>
-      <CardContent>
-        The monthly financial report shows a 15% increase in revenue compared to last
-        month.
-      </CardContent>
-      <CardFooter>
-        <Button>View Details</Button>
-      </CardFooter>
-    </Card>
-  )
+    return (
+        <Card>
+            <Card.Header>
+                <Card.Title>Teerakat UI</Card.Title>
+                <Card.Description>UI Library for your react project</Card.Description>
+            </Card.Header>
+            <Card.Content>
+                Make beautiful websites regardless of your design experience.
+            </Card.Content>
+            <Card.Footer>
+                <Button>View Details</Button>
+            </Card.Footer>
+        </Card>
+    )
 }

@@ -1,24 +1,22 @@
 ---
-title: "Date Range Picker"
+title: 'Date Range Picker'
 description: Date Range Pickers are used to communicate information to the user.
 order: 5
 published: true
-references: ["https://react-spectrum.adobe.com/react-aria/DateRangePicker.html#props", "https://paranoid.irsyad.co"]
+references: ['https://react-spectrum.adobe.com/react-aria/DateRangePicker.html#props', 'https://lucide.dev/icons/']
 ---
 
 ## Basic
 
 A range calendar shows one or more date grids and lets users pick a range of dates in one go.
-<How minW72 toUse="date-and-time/date-range-picker-demo" />
+
+<How minW72 toUse='date-and-time/date-range-picker-demo' />
 
 ## Installation
-<Default items={['date-picker']}/>
 
-## Manual Installation
+<Install items={['react-aria-components', 'lucide-react']} />
 
-<ManualInstall items={['react-aria-components', '@irsyadadl/paranoid']}/>
-
-<SourceCode toShow={['date-picker', 'date-field', 'popover', 'field', 'dynamic-overlay', 'calendar', 'button', 'dialog']}/>
+<SourceCode toShow={['date-picker', 'date-field', 'popover', 'field', 'calendar', 'button', 'dialog']} />
 
 ## Controlled
 Wanna boss around your date picker? Easy peasy. Just throw a value prop at it, and bam, it'll lock in on that date range picker.
@@ -32,6 +30,9 @@ If you wanna make sure your date picker is filled out, just throw a `isRequired`
 The `validate` function's the real MVP when you wanna check your own rules. It peeps at the current date value and spits back a string or some strings loaded with error messages if the value's off.
 <How minW72 toUse="date-and-time/date-range-picker-custom-validation-demo" />
 
+
 ## Disabled
+
 When a date range picker is disabled, it cannot be interacted with and is visually indicated by a disabled state.
-<How minW72 toUse="date-and-time/date-range-picker-disabled-demo" />
+
+<How minW72 toUse='date-and-time/date-range-picker-disabled-demo' />

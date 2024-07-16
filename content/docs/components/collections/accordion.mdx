@@ -1,9 +1,25 @@
 ---
-title: Accordion
-description: An accordion's like a vertical stack of headers that pop open to show or hide content sections.
-status: wip
+title: 'Accordion'
+description: Accordion display a list of high-level options that can expand/collapse to reveal more information.
 order: 6
 published: true
+references: ['https://react-spectrum.adobe.com/react-aria/Tabs.html#props', 'https://www.framer.com/motion/layout-animations/']
 ---
 
-Work in progress.
+## Basic
+
+A vertically stacked set of interactive headings that each reveal a section of content.
+
+<How className="w-full" toUse='collections/accordion-demo' />
+
+## Installation
+
+<Install items={['react-aria-components', 'framer-motion']} />
+
+<SourceCode toShow='accordion' />
+
+## Multiple Collapse
+
+If you add `multiple` attribute, then the Accordion will allow multiple items to be expanded at the same time.
+
+<How className="w-full" toUse='collections/accordion-multiple-demo' />

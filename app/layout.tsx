@@ -6,58 +6,55 @@ import { Providers } from '@/components/providers'
 import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
 import '@/styles/app.css'
-import { OpenpanelProvider } from '@openpanel/nextjs'
-import type { Metadata } from 'next'
+import { Analytics } from '@vercel/analytics/react'
+import type { Metadata, Viewport } from 'next'
 import localFont from 'next/font/local'
 
-const satoshi = localFont({
-  src: './fonts/Satoshi-Variable.woff2',
-  variable: '--font-sans'
+const fontSans = localFont({
+    src: './fonts/Walsheim.woff2',
+    variable: '--font-sans'
 })
-
-const geistMono = localFont({
-  src: './fonts/GeistMonoVF.woff',
-  variable: '--font-mono'
+const fontMono = localFont({
+    src: './fonts/JetbrainsMono.woff2',
+    variable: '--font-mono'
 })
 
 export const metadata: Metadata = {
-  title: siteConfig.name,
-  description: siteConfig.description,
-  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? siteConfig.url)
+    title: siteConfig.name,
+    description: siteConfig.description,
+    metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? siteConfig.url)
+}
+
+export const viewport: Viewport = {
+    themeColor: [
+        { media: '(prefers-color-scheme: light)', color: 'white' },
+        { media: '(prefers-color-scheme: dark)', color: 'black' }
+    ]
 }
 
 export default function RootLayout({
-  children
+    children
 }: Readonly<{
-  children: React.ReactNode
+    children: React.ReactNode
 }>) {
-  return (
-    <html lang="en">
-      <body
-        className={cn(
-          'min-h-svh [max-width:1850px] mx-auto bg-background font-sans antialiased',
-          satoshi.variable,
-          geistMono.variable
-        )}
-        suppressHydrationWarning
-      >
-        <Providers>
-          <div className="relative flex min-h-dvh flex-col bg-background">
-            <Navbar />
-            <main className="flex-1">{children}</main>
-
-            <Footer />
-          </div>
-          {process.env.NEXT_PUBLIC_ENV !== 'local' && (
-            <OpenpanelProvider
-              clientId={process.env.NEXT_PUBLIC_OPENPANEL_CLIENT_ID as string}
-              trackScreenViews={true}
-              trackAttributes={true}
-              trackOutgoingLinks={true}
-            />
-          )}
-        </Providers>
-      </body>
-    </html>
-  )
+    return (
+        <html lang='en' suppressHydrationWarning>
+            <body
+                className={cn(
+                    'mx-auto min-h-svh scroll-smooth bg-background font-sans antialiased [max-width:1850px]',
+                    fontSans.variable,
+                    fontMono.variable
+                )}
+            >
+                <Providers>
+                    <div className='relative flex min-h-dvh flex-col bg-background'>
+                        <Navbar />
+                        <main className='flex-1'>{children}</main>
+                        <Footer />
+                    </div>
+                    <Analytics />
+                </Providers>
+            </body>
+        </html>
+    )
 }

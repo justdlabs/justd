@@ -1,48 +1,41 @@
 'use client'
 
-import {
-  Pagination,
-  PaginationFirst,
-  PaginationItem,
-  PaginationLabel,
-  PaginationLast,
-  PaginationList,
-  PaginationNext,
-  PaginationPrevious,
-  PaginationSeparator
-} from 'ui'
+import { Pagination } from '@/components/ui'
 
 export default function SimplePaginationDemo() {
-  return (
-    <Pagination>
-      <PaginationList>
-        <PaginationItem>
-          <PaginationFirst href="#" />
-        </PaginationItem>
-
-        <PaginationItem>
-          <PaginationPrevious href="#" />
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationList className="rounded-lg border">
-            <PaginationItem>
-              <PaginationLabel className="font-semibold">1</PaginationLabel>
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationSeparator />
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationLabel className="text-muted-fg">10</PaginationLabel>
-            </PaginationItem>
-          </PaginationList>
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationNext href="#" />
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLast href="#" />
-        </PaginationItem>
-      </PaginationList>
-    </Pagination>
-  )
+    return (
+        <Pagination>
+            <Pagination.Content>
+                <Pagination.Item>
+                    <Pagination.First href='#' />
+                </Pagination.Item>
+                <Pagination.Item>
+                    <Pagination.Previous href='#' />
+                </Pagination.Item>
+                <Pagination.Item>
+                    <Pagination.Content>
+                        <Pagination.Item>
+                            <Pagination.Label className='font-semibold'>
+                                1
+                            </Pagination.Label>
+                        </Pagination.Item>
+                        <Pagination.Item>
+                            <Pagination.Separator />
+                        </Pagination.Item>
+                        <Pagination.Item>
+                            <Pagination.Label className='text-muted-foreground'>
+                                10
+                            </Pagination.Label>
+                        </Pagination.Item>
+                    </Pagination.Content>
+                </Pagination.Item>
+                <Pagination.Item>
+                    <Pagination.Next href='#' />
+                </Pagination.Item>
+                <Pagination.Item>
+                    <Pagination.Last href='#' />
+                </Pagination.Item>
+            </Pagination.Content>
+        </Pagination>
+    )
 }

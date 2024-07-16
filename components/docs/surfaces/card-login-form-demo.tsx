@@ -1,46 +1,34 @@
 'use client'
 
-import {
-  Button,
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-  Checkbox,
-  Form,
-  Link,
-  TextField
-} from 'ui'
+import { Button, Card, Checkbox, Form, Link, TextField } from '@/components/ui'
 
 export default function CardLoginFormDemo() {
-  return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Login</CardTitle>
-        <CardDescription>Don't loose the level, just keep on going.</CardDescription>
-      </CardHeader>
-      <Form action={() => {}}>
-        <CardContent className="space-y-6">
-          <TextField isRequired label="Email" placeholder="Enter your email" />
-          <TextField
-            isRequired
-            label="Password"
-            type="password"
-            placeholder="Enter your password"
-          />
-          <div className="flex justify-between items-center">
-            <Checkbox>Remember me</Checkbox>
-            <Link intent="primary" href="#">
-              Forgot password?
-            </Link>
-          </div>
-        </CardContent>
-        <CardFooter>
-          <Button type="submit">Login</Button>
-        </CardFooter>
-      </Form>
-    </Card>
-  )
+    return (
+        <Card>
+            <Card.Header>
+                <Card.Title>Login</Card.Title>
+                <Card.Description>Use your email and password to login</Card.Description>
+            </Card.Header>
+            <Form action={() => {}}>
+                <Card.Content className='space-y-6'>
+                    <TextField isRequired label='Email' placeholder='Enter your email' />
+                    <TextField
+                        isRequired
+                        label='Password'
+                        type='password'
+                        placeholder='Enter your password'
+                    />
+                    <div className='flex items-center justify-between'>
+                        <Checkbox>Remember me</Checkbox>
+                        <Link href='#' className='text-sm text-muted-foreground'>
+                            Forgot password?
+                        </Link>
+                    </div>
+                </Card.Content>
+                <Card.Footer>
+                    <Button type='submit'>Login</Button>
+                </Card.Footer>
+            </Form>
+        </Card>
+    )
 }

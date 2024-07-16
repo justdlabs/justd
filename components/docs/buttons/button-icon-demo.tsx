@@ -1,13 +1,13 @@
 'use client'
 
-import { IconBrandLaravel } from '@irsyadadl/paranoid'
-import { Button } from 'ui'
+import { NextLogo } from '@/components/logo'
+import { Button } from '@/components/ui'
 
 export default function ButtonIconDemo() {
-  return (
-    <Button intent="danger">
-      <IconBrandLaravel />
-      Laravel
-    </Button>
-  )
+    return (
+        <Button>
+            <NextLogo className='size-4' />
+            Next.Js
+        </Button>
+    )
 }

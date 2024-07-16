@@ -1,51 +1,37 @@
 'use client'
 
-import { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from 'ui'
+import { Table } from '@/components/ui'
 
-export const bands = [
-  { id: '1', name: 'Nirvana', genre: 'Grunge', latestAlbum: 'In Utero' },
-  {
-    id: '2',
-    name: 'Radiohead',
-    genre: 'Alternative Rock',
-    latestAlbum: 'A Moon Shaped Pool'
-  },
-  { id: '3', name: 'Foo Fighters', genre: 'Rock', latestAlbum: 'Medicine at Midnight' },
-  {
-    id: '4',
-    name: 'Arctic Monkeys',
-    genre: 'Indie Rock',
-    latestAlbum: 'Tranquility Base Hotel & Casino'
-  },
-  { id: '5', name: 'The Strokes', genre: 'Indie Rock', latestAlbum: 'The New Abnormal' },
-  {
-    id: '6',
-    name: 'Red Hot Chili Peppers',
-    genre: 'Funk Rock',
-    latestAlbum: 'Unlimited Love'
-  },
-  { id: '7', name: 'Green Day', genre: 'Punk Rock', latestAlbum: 'Father of All...' }
+export const presidents = [
+    { id: '1', name: 'Soekarno', year: '1945 - 1965', terms: '20 Years' },
+    { id: '2', name: 'Soeharto', year: '1965 - 1998', terms: '32 Years' },
+    { id: '3', name: 'B.J. Habibie', year: '1998 - 1999', terms: '1 Year' },
+    { id: '4', name: 'Abdurrahman Wahid', year: '1999 - 2001', terms: '2 Years' },
+    { id: '5', name: 'Megawati Soekarnoputri', year: '2001 - 2004', terms: '3 Years' },
+    { id: '6', name: 'Susilo Bambang Yudhoyono', year: '2004 - 2014', terms: '10 Years' },
+    { id: '7', name: 'Joko Widodo', year: '2014 - 2024', terms: '10 Years' },
+    { id: '8', name: 'Prabowo Subianto', year: '2024 - Now', terms: 'Not yet' }
 ]
 
 export default function TableDemo() {
-  return (
-    <Table aria-label="Bands" selectionMode="multiple">
-      <TableHeader>
-        <TableColumn>#</TableColumn>
-        <TableColumn>Name</TableColumn>
-        <TableColumn>Genre</TableColumn>
-        <TableColumn>Latest Album</TableColumn>
-      </TableHeader>
-      <TableBody items={bands}>
-        {(item) => (
-          <TableRow key={item.id}>
-            <TableCell>{item.id}</TableCell>
-            <TableCell>{item.name}</TableCell>
-            <TableCell>{item.genre}</TableCell>
-            <TableCell>{item.latestAlbum}</TableCell>
-          </TableRow>
-        )}
-      </TableBody>
-    </Table>
-  )
+    return (
+        <Table aria-label='President of Indonesia' selectionMode='multiple'>
+            <Table.Header>
+                <Table.Column>#</Table.Column>
+                <Table.Column>Name</Table.Column>
+                <Table.Column>Year</Table.Column>
+                <Table.Column>Terms</Table.Column>
+            </Table.Header>
+            <Table.Body items={presidents}>
+                {(item) => (
+                    <Table.Row key={item.id}>
+                        <Table.Cell>{item.id}</Table.Cell>
+                        <Table.Cell>{item.name}</Table.Cell>
+                        <Table.Cell>{item.year}</Table.Cell>
+                        <Table.Cell>{item.terms}</Table.Cell>
+                    </Table.Row>
+                )}
+            </Table.Body>
+        </Table>
+    )
 }

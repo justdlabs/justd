@@ -1,7 +1,7 @@
 'use client'
 
-import { RangeCalendar } from 'ui'
+import { Calendar } from '@/components/ui'
 
 export default function RangeCalendarDemo() {
-  return <RangeCalendar aria-label="Trip dates" />
+    return <Calendar.RangeCalendar aria-label='Trip dates' />
 }

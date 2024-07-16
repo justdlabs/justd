@@ -1,7 +1,7 @@
 'use client'
 
-import { Checkbox } from 'ui'
+import { Checkbox } from '@/components/ui'
 
 export default function CheckboxInvalidDemo() {
-  return <Checkbox isInvalid>Enable notifications</Checkbox>
+    return <Checkbox isInvalid>There is something wrong</Checkbox>
 }

@@ -1,11 +1,5 @@
-import { Avatar } from 'ui'
+import { Avatar } from '@/components/ui'
 
 export default function AvatarDemo() {
-  return (
-    <div className="flex gap-4">
-      <Avatar size="small" src="https://github.com/irsyadadl.png" />
-      <Avatar size="medium" src="https://github.com/irsyadadl.png" />
-      <Avatar size="large" src="https://github.com/irsyadadl.png" />
-    </div>
-  )
+    return <Avatar src='https://github.com/dqnahdliyan.png' />
 }

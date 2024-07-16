@@ -1,201 +1,269 @@
 ---
 title: "Client Side Routing"
-description: React Aria components like Link, Menu, Tabs, Table, and others can make elements act as links that navigate when you click 'em. These components take the href prop, making 'em render an anchor tag. Props like target and download work too.
-order: 3
+description: Many React Aria components support rendering as HTML links. This page discusses how to set up your app to integrate React Aria links with your framework or client side router.
+order: 2
 published: true
 ---
 
 ## Introduction
-React Aria components like [Link](https://irsyad.co/d/link), [Menu](https://irsyad.co/d/menu), [Tabs](https://irsyad.co/d/tabs), [Table](https://irsyad.co/d/table), and others can make elements act as links that navigate when you click 'em. These components take the `href` prop, making 'em render an `<a>` tag. Props like `target` and `download` work too.
 
-Users can mess with these links differently based on the component. Like, arrow keys to switch tabs or enter to open a link in a ComboBox. With the href prop, React Aria makes navigation smooth for each component.
+React Aria components such as Link, Menu, Tabs, Table, and many others support rendering elements as links that perform navigation when the user interacts with them. Each component that supports link behavior accepts the href prop, which causes the component to render an `<a>` element. Other link DOM props such as target and download are also supported.
 
-Usually, links do the standard browser thing when clicked. But, many apps use client-side routers to skip reloading the whole page. The RouterProvider sets up React Aria components to use your client-side router. Just set it up at the root, and any React Aria component with href will use your router automatically.
+Depending on the component, users may interact with links in different ways. For example, users can navigate between tabs using the arrow keys, or open a link in a ComboBox using the enter key. Because React Aria components accept the href prop rather than supporting arbitrary element overrides, they can ensure that link navigation occurs when it is appropriate for the component.
 
-Keep in mind, links to other sites won't use client-side routing and will go with the browser's default navigation. Also, if a link's target ain't "_self", uses the download attribute, or you hit keys like Command or Alt to switch things up, it'll use the browser's native navigation instead of client-side routing.
+By default, links perform native browser navigation when they are interacted with. However, many apps and frameworks use client side routers to avoid a full page reload when navigating between pages. The RouterProvider component configures all React Aria components within it to navigate using the client side router you provide. Set this up once in the root of your app, and any React Aria component with the href prop will automatically navigate using your router.
+
+Note that external links to different origins will not trigger client side routing, and will use native browser navigation. Additionally, if the link has a [target](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#target) other than "_self", uses the [download](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#download) attribute, or the user presses modifier keys such as Command or Alt to change the default behavior, browser native navigation will occur instead of client side routing.
 
 ## Router Provider
+
 The `RouterProvider` component takes two props: navigate and `useHref`. Set navigate to a function from your router that handles client-side moves. `useHref` is optional and tweaks a router-specific href to a regular HTML href, like adding a base path. Here’s the basic setup. Peep the examples below for different frameworks.
+
 ```tsx
-import { RouterProvider } from 'react-aria-components';
-import { useNavigate, useHref } from 'your-router';
+import { RouterProvider } from 'react-aria-components'
+import { useNavigate, useHref } from 'your-router'
 
 export default function Layout() {
-  let navigate = useNavigate();
+    let navigate = useNavigate()
 
-  return (
-    <RouterProvider navigate={navigate} useHref={useHref}>
-      {/* ... */}
-    </RouterProvider>
-  );
+    return (
+        <RouterProvider navigate={navigate} useHref={useHref}>
+            {/* ... */}
+        </RouterProvider>
+    )
 }
 ```
 
 ### Inertia.js
+
 When using Inertia.js, you need to declare it your .d.ts file for example `global.d.ts`.
 
 ```tsx
 import { FormDataConvertible, Method, PreserveStateOption, Progress } from '@inertiajs/core'
 
 declare module 'react-aria-components' {
-  interface RouterConfig {
-    routerOptions: {
-      method?: Method
-      data?: Record<string, FormDataConvertible>
-      replace?: boolean
-      preserveState?: PreserveStateOption
-      preserveScroll?: PreserveStateOption
-      forceFormData?: boolean
-      only?: string[]
-      onBefore?: () => void
-      onStart?: () => void
-      onProgress?: (progress: Progress) => void
-      onCancel?: () => void
-      onSuccess?: () => void
-      onError?: () => void
-      onFinish?: () => void
+    interface RouterConfig {
+        routerOptions: {
+            method?: Method
+            data?: Record<string, FormDataConvertible>
+            replace?: boolean
+            preserveState?: PreserveStateOption
+            preserveScroll?: PreserveStateOption
+            forceFormData?: boolean
+            only?: string[]
+            onBefore?: () => void
+            onStart?: () => void
+            onProgress?: (progress: Progress) => void
+            onCancel?: () => void
+            onSuccess?: () => void
+            onError?: () => void
+            onFinish?: () => void
+        }
     }
-  }
 }
 ```
-After that, run `php artisan ziggy:generate` to generate the Ziggy routes.
 
-And next, alias the 'ziggy-js' to the `vite.config.ts` file.
-```js {4} {15-19}
-import { defineConfig } from 'vite';
-import laravel from 'laravel-vite-plugin';
-import react from '@vitejs/plugin-react';
-import { resolve } from 'path';
+create a provider in your components folder `components/providers.tsx` and paste this code:
 
-export default defineConfig({
-    plugins: [
-        laravel({
-            input: 'resources/js/app.tsx',
-            ssr: 'resources/js/ssr.tsx',
-            refresh: true,
-        }),
-        react(),
-    ],
-    resolve: {
-      alias: {
-        'ziggy-js': resolve('vendor/tightenco/ziggy'),
-      }
-    }
-});
+```tsx
+import {
+    createContext,
+    ReactNode,
+    useContext,
+    useEffect,
+    useState,
+} from "react";
+import { router } from "@inertiajs/react";
+import { RouterProvider } from "react-aria-components";
+
+type Theme = "dark" | "light" | "system";
+
+type ThemeProviderProps = {
+    children: ReactNode;
+    defaultTheme?: Theme;
+    storageKey?: string;
+};
+
+type ThemeProviderState = {
+    theme: Theme;
+    setTheme: (theme: Theme) => void;
+};
+
+const initialState: ThemeProviderState = {
+    theme: "system",
+    setTheme: () => null,
+};
+
+const ThemeProviderContext = createContext<ThemeProviderState>(initialState);
+
+function ThemeProvider({
+    children,
+    defaultTheme = "system",
+    storageKey = "inertia-ui-theme",
+    ...props
+}: ThemeProviderProps) {
+    const [theme, setTheme] = useState<Theme>(
+        () => (localStorage.getItem(storageKey) as Theme) || defaultTheme,
+    );
+
+    useEffect(() => {
+        const root = window.document.documentElement;
+
+        root.classList.remove("light", "dark");
+
+        if (theme === "system") {
+            const systemTheme = window.matchMedia(
+                "(prefers-color-scheme: dark)",
+            ).matches
+                ? "dark"
+                : "light";
+
+            root.classList.add(systemTheme);
+            return;
+        }
+
+        const metaThemeColor = document.getElementById("theme-color-meta");
+        if (metaThemeColor) {
+            if (theme === "dark") {
+                metaThemeColor.setAttribute("content", "#000000");
+            } else if (theme === "light") {
+                metaThemeColor.setAttribute("content", "#ffffff");
+            } else if (theme === "system") {
+                if (
+                    window.matchMedia &&
+                    window.matchMedia("(prefers-color-scheme: dark)").matches
+                ) {
+                    metaThemeColor.setAttribute("content", "#000000");
+                } else {
+                    metaThemeColor.setAttribute("content", "#ffffff");
+                }
+            } else {
+                metaThemeColor.setAttribute("content", "#ffffff");
+            }
+        }
+
+        root.classList.add(theme);
+    }, [theme]);
+
+    const value = {
+        theme,
+        setTheme: (theme: Theme) => {
+            localStorage.setItem(storageKey, theme);
+            setTheme(theme);
+        },
+    };
+
+    return (
+        <ThemeProviderContext.Provider {...props} value={value}>
+            {children}
+        </ThemeProviderContext.Provider>
+    );
+}
+
+const Provider = ({ children }: { children: ReactNode }) => (
+    <RouterProvider
+        navigate={(to, options) => router.visit(to, options as any)}
+    >
+        <ThemeProvider defaultTheme="system" storageKey="vite-theme">
+            {children}
+        </ThemeProvider>
+    </RouterProvider>
+);
+
+const useTheme = () => {
+    const context = useContext(ThemeProviderContext);
+
+    if (context === undefined)
+        throw new Error("useTheme must be used within a ThemeProvider");
+
+    return context;
+};
+
+export {
+    Provider,
+    useTheme,
+    type Theme,
+};
 ```
 
-Next in in your `resources/js/app.tsx` you can wrap `<App/>` within `RouterProvider` like this:
-```tsx {7} {9-10} {18-30}
-import './bootstrap';
-import '../css/app.css';
+Then in your `resources/js/app.tsx` you can wrap `<App/>` within `Provider` like this:
 
-import { createRoot, hydrateRoot } from 'react-dom/client';
-import { createInertiaApp, router } from '@inertiajs/react';
-import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
-import { RouterProvider } from 'react-aria-components'
+```tsx
+import "./bootstrap";
+import "../css/app.css";
 
-import { Ziggy } from '@/ziggy'
-import { useRoute } from 'ziggy-js'
+import { createRoot, hydrateRoot } from "react-dom/client";
+import { createInertiaApp } from "@inertiajs/react";
+import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
+import { Provider } from "@/components/providers";
 
-const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
+const appName = import.meta.env.VITE_APP_NAME || "Laravel";
 
 createInertiaApp({
-  title: (title) => `${title} - ${appName}`,
-  resolve: (name) => resolvePageComponent(`./Pages/${name}.tsx`, import.meta.glob('./Pages/**/*.tsx')),
-  setup({ el, App, props }) {
-    window.route = useRoute(Ziggy as any)
-    const appElement = (
-      <RouterProvider navigate={(to, options) => router.visit(to, options as any)}>
-        <App {...props} />
-      </RouterProvider>
-    )
+    title: (title) => (title ? `${title} | ${appName}` : appName),
+    resolve: (name) =>
+        resolvePageComponent(
+            `./pages/${name}.tsx`,
+            import.meta.glob("./pages/**/*.tsx"),
+        ),
+    setup({ el, App, props }) {
+        const appElement = (
+            <Provider>
+                <App {...props} />
+            </Provider>
+        );
+        if (import.meta.env.DEV) {
+            createRoot(el).render(appElement);
+            return;
+        }
 
-    if (import.meta.env.DEV) {
-      createRoot(el).render(appElement);
-      return
-    }
-
-    hydrateRoot(el, appElement);
-  },
-  progress: {
-    color: '#4B5563',
-  },
+        hydrateRoot(el, appElement);
+    },
+    progress: {
+        color: "#4B5563",
+    },
 });
 ```
 
 ### Next.js
+
 The useRouter hook from next/navigation returns a router object for navigation. RouterProvider should be rendered in a client component at the root of each page or layout with React Aria links. Create a new client component for this or combine it with other top-level providers as described in the Next.js docs.
 Create new file `provider.tsx` in `app` folder.
-```tsx
-'use client';
 
-import { useRouter } from 'next/navigation';
-import { RouterProvider as RouterProviderPrimitive } from 'react-aria-components';
+```tsx
+'use client'
+
+import { useRouter } from 'next/navigation'
+import { RouterProvider as RouterProviderPrimitive } from 'react-aria-components'
 
 declare module 'react-aria-components' {
-  interface RouterConfig {
-    routerOptions: NonNullable<
-      Parameters<ReturnType<typeof useRouter>['push']>[1]
-    >;
-  }
+    interface RouterConfig {
+        routerOptions: NonNullable<Parameters<ReturnType<typeof useRouter>['push']>[1]>
+    }
 }
 
 export function RouteProvider({ children }) {
-  let router = useRouter();
+    let router = useRouter()
 
-  return (
-    <RouterProviderPrimitive navigate={router.push}>
-      {children}
-    </RouterProviderPrimitive>
-  );
+    return <RouterProviderPrimitive navigate={router.push}>{children}</RouterProviderPrimitive>
 }
 ```
 
 Then in `app/layout.tsx` or your root layout, wrap the children with the ClientProviders component.
-```tsx {1} {6}
-import { RouteProvider } from './provider';
-export default function RootLayout({children}) {
-  return (
-    <html>
-      <body>
-        <RouteProvider>{children}</RouteProvider>
-      </body>
-    </html>
-  );
-}
-```
 
-### Remix
-Remix rocks React Router, so you can still roll with `useNavigate` and `useHref` hooks. Pop `RouterProvider` at the root of any page with React Aria links, or in `app/root.tsx` to cover all pages. Hit up the [Remix docs](https://remix.run/docs/en/main/file-conventions/root) for the full scoop.
-```tsx {3} {5-9} {20-22}
-import { useNavigate, useHref, Outlet } from '@remix-run/react';
-import type { NavigateOptions } from 'react-router-dom';
-import { RouterProvider } from 'react-aria-components';
-
-declare module 'react-aria-components' {
-  interface RouterConfig {
-    routerOptions: NavigateOptions
-  }
-}
-
-export default function App() {
-  let navigate = useNavigate();
-
-  return (
-    <html lang="en">
-      <head>
-        {/* ... */}
-      </head>
-      <body>
-        <RouterProvider navigate={navigate} useHref={useHref}>
-          <Outlet />
-        </RouterProvider>
-        {/* ... */}
-      </body>
-    </html>
-  );
+```tsx
+import { RouteProvider } from './provider'
+export default function RootLayout({ children }) {
+    return (
+        <html>
+            <body>
+                <RouteProvider>{children}</RouteProvider>
+            </body>
+        </html>
+    )
 }
 ```
 
 ### Others
+
 You might not be using the framework or router provider mentioned above. If you're rocking a different router or framework, check out the [React Aria Components Docs](https://react-spectrum.adobe.com/react-aria/routing.html) for more info.

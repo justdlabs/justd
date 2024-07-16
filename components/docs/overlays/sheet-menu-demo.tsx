@@ -2,180 +2,148 @@
 
 import React from 'react'
 
+import { GithubLogo } from '@/components/logo'
 import {
-  IconBook,
-  IconBookOpen,
-  IconBrandCopilot,
-  IconBrandGithub,
-  IconBuilding,
-  IconChart,
-  IconCodeBrackets,
-  IconFilter,
-  IconGear,
-  IconGlobe,
-  IconHeart,
-  IconLogout,
-  IconMessages,
-  IconPeople,
-  IconPerson,
-  IconStar
-} from '@irsyadadl/paranoid'
-import { Group, Menu } from 'react-aria-components'
+    Avatar,
+    Button,
+    Checkbox,
+    Description,
+    Menu,
+    Modal,
+    Select,
+    Sheet,
+    TextField
+} from '@/components/ui'
 import {
-  Avatar,
-  Button,
-  Checkbox,
-  Description,
-  MenuItem,
-  MenuSection,
-  MenuSeparator,
-  ModalBody,
-  ModalClose,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  ModalOverlay,
-  ModalTitle,
-  Select,
-  SelectItem,
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetOverlay,
-  SheetTitle,
-  SheetTrigger,
-  TextField
-} from 'ui'
+    BookKey,
+    Filter,
+    Heart,
+    LogOut,
+    MessageCircle,
+    Settings,
+    User
+} from 'lucide-react'
+import { Group, Menu as PrimitiveMenu } from 'react-aria-components'
 
 export default function SheetMenuDemo() {
-  const [isOpen, setIsOpen] = React.useState(false)
+    const [isOpen, setIsOpen] = React.useState(false)
 
-  const openModal = () => setIsOpen(true)
-  const closeModal = () => setIsOpen(false)
-  return (
-    <>
-      <ModalOverlay isOpen={isOpen} onOpenChange={setIsOpen}>
-        <ModalContent>
-          <ModalHeader>
-            <ModalTitle>Edit status</ModalTitle>
-          </ModalHeader>
-          <ModalBody>
-            <div className="space-y-4">
-              <TextField
-                prefix={<IconBrandGithub />}
-                label="Status"
-                placeholder="What's your status?"
-              />
-              <Group>
-                <Checkbox>Busy</Checkbox>
-                <Description>
-                  When others mention you, assign you, or request your review, GitHub will
-                  let them know that you have limited availability.
-                </Description>
-              </Group>
-              <Select label="Clear Status">
-                <SelectItem>Never</SelectItem>
-                <SelectItem>in 30 Minutes</SelectItem>
-                <SelectItem>in 1 Hour</SelectItem>
-                <SelectItem>in 8 Hours</SelectItem>
-                <SelectItem>after Today</SelectItem>
-                <SelectItem>after a Week</SelectItem>
-                <SelectItem>after a Month</SelectItem>
-              </Select>
-              <Select label="Visible to">
-                <SelectItem>Everyone</SelectItem>
-                <SelectItem>Organization</SelectItem>
-                <SelectItem>Public</SelectItem>
-              </Select>
-            </div>
-          </ModalBody>
-          <ModalFooter>
-            <ModalClose>Clear Status</ModalClose>
-            <Button onPress={closeModal}>Set Status</Button>
-          </ModalFooter>
-        </ModalContent>
-      </ModalOverlay>
-      <Sheet>
-        <SheetTrigger aria-label="Open menu">
-          <Avatar src="https://github.com/irsyadadl.png" alt="irsyadadl" />
-        </SheetTrigger>
-        <SheetOverlay>
-          <SheetContent closeButton={false}>
-            <SheetHeader className="flex flex-row items-center gap-x-3 mb-2">
-              <Avatar src="https://github.com/irsyadadl.png" alt="irsyadadl" />
-              <div>
-                <SheetTitle>irsyadadl</SheetTitle>
-                <SheetDescription>Irsyad A. Panjaitan</SheetDescription>
-              </div>
-            </SheetHeader>
-            <Menu>
-              <MenuItem onAction={openModal}>
-                <IconBrandGithub />
-                Edit Status
-              </MenuItem>
-              <MenuSeparator />
-              <MenuSection>
-                <MenuItem>
-                  <IconPerson />
-                  Your profile
-                </MenuItem>
-                <MenuItem>
-                  <IconBook /> Your repositories
-                </MenuItem>
-                <MenuItem>
-                  <IconBrandCopilot /> Your Copilot
-                </MenuItem>
-                <MenuItem>
-                  <IconChart /> Your projects
-                </MenuItem>
-                <MenuItem>
-                  <IconStar /> Your stars
-                </MenuItem>
-                <MenuItem>
-                  <IconCodeBrackets /> Your gists
-                </MenuItem>
-                <MenuItem>
-                  <IconBuilding /> Your organizations
-                </MenuItem>
-                <MenuItem>
-                  <IconGlobe /> Your enterprises
-                </MenuItem>
-                <MenuItem>
-                  <IconHeart />
-                  Your sponsors
-                </MenuItem>
-              </MenuSection>
-              <MenuSeparator />
-              <MenuSection>
-                <MenuItem>
-                  <IconFilter /> Feature preview
-                </MenuItem>
-                <MenuItem>
-                  <IconGear />
-                  Settings
-                </MenuItem>
-              </MenuSection>
-              <MenuSeparator />
-              <MenuSection>
-                <MenuItem>
-                  <IconBookOpen /> GitHub Docs
-                </MenuItem>
-                <MenuItem>
-                  <IconPeople /> GitHub Support
-                </MenuItem>
-                <MenuItem>
-                  <IconMessages /> GitHub Community
-                </MenuItem>
-              </MenuSection>
-              <MenuSeparator />
-              <MenuItem>
-                <IconLogout /> Sign out
-              </MenuItem>
-            </Menu>
-          </SheetContent>
-        </SheetOverlay>
-      </Sheet>
-    </>
-  )
+    const openModal = () => setIsOpen(true)
+    const closeModal = () => setIsOpen(false)
+    return (
+        <>
+            <Modal.Overlay isOpen={isOpen} onOpenChange={setIsOpen}>
+                <Modal.Content>
+                    <Modal.Header>
+                        <Modal.Title>Edit status</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <div className='space-y-4'>
+                            <TextField
+                                prefix={<GithubLogo className='size-4' />}
+                                label='Status'
+                                placeholder="What's your status?"
+                            />
+                            <Group>
+                                <Checkbox>Busy</Checkbox>
+                                <Description>
+                                    When others mention you, assign you, or request your
+                                    review, GitHub will let them know that you have
+                                    limited availability.
+                                </Description>
+                            </Group>
+                            <Select label='Clear Status'>
+                                <Select.Item>Never</Select.Item>
+                                <Select.Item>in 30 Minutes</Select.Item>
+                                <Select.Item>in 1 Hour</Select.Item>
+                                <Select.Item>in 8 Hours</Select.Item>
+                                <Select.Item>after Today</Select.Item>
+                                <Select.Item>after a Week</Select.Item>
+                                <Select.Item>after a Month</Select.Item>
+                            </Select>
+                            <Select label='Visible to'>
+                                <Select.Item>Everyone</Select.Item>
+                                <Select.Item>Organization</Select.Item>
+                                <Select.Item>Public</Select.Item>
+                            </Select>
+                        </div>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Modal.Close>Clear Status</Modal.Close>
+                        <Button onPress={closeModal}>Set Status</Button>
+                    </Modal.Footer>
+                </Modal.Content>
+            </Modal.Overlay>
+            <Sheet>
+                <Sheet.Trigger aria-labelledby='open' aria-label='Open menu'>
+                    <Avatar
+                        initials='DQ'
+                        alt='DQ'
+                        src='https://github.com/dqnahdliyan.png'
+                    />
+                </Sheet.Trigger>
+                <Sheet.Overlay>
+                    <Sheet.Content closeButton={false}>
+                        <Sheet.Header className='mb-2 flex flex-row items-center gap-x-3'>
+                            <Avatar
+                                initials='DQ'
+                                alt='DQ'
+                                src='https://github.com/dqnahdliyan.png'
+                            />
+                            <div>
+                                <Sheet.Title>dqnahdliyan</Sheet.Title>
+                                <Sheet.Description>Diqi Nahdliyan</Sheet.Description>
+                            </div>
+                        </Sheet.Header>
+                        <PrimitiveMenu aria-labelledby='Sheet'>
+                            <Menu.Item onAction={openModal}>
+                                <GithubLogo className='size-4' />
+                                Edit Status
+                            </Menu.Item>
+                            <Menu.Separator />
+                            <Menu.Section>
+                                <Menu.Item>
+                                    <User />
+                                    Your profile
+                                </Menu.Item>
+                                <Menu.Item>
+                                    <BookKey /> Your repositories
+                                </Menu.Item>
+                                <Menu.Item>
+                                    <Heart />
+                                    Your sponsors
+                                </Menu.Item>
+                            </Menu.Section>
+                            <Menu.Separator />
+                            <Menu.Section>
+                                <Menu.Item>
+                                    <Filter /> Feature preview
+                                </Menu.Item>
+                                <Menu.Item>
+                                    <Settings />
+                                    Settings
+                                </Menu.Item>
+                            </Menu.Section>
+                            <Menu.Separator />
+                            <Menu.Section>
+                                <Menu.Item>
+                                    <BookKey /> GitHub Docs
+                                </Menu.Item>
+                                <Menu.Item>
+                                    <User /> GitHub Support
+                                </Menu.Item>
+                                <Menu.Item>
+                                    <MessageCircle /> GitHub Community
+                                </Menu.Item>
+                            </Menu.Section>
+                            <Menu.Separator />
+                            <Menu.Item isDanger>
+                                <LogOut /> Sign out
+                            </Menu.Item>
+                        </PrimitiveMenu>
+                    </Sheet.Content>
+                </Sheet.Overlay>
+            </Sheet>
+        </>
+    )
 }

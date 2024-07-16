@@ -1,7 +1,6 @@
 ---
 title: "Grid List"
 description: A grid list is where your interactive items chill, letting you navigate with your keyboard, pick one or multiple, and even drop some row actions.
-status: new
 published: true
 order: 7
 references: ["https://react-spectrum.adobe.com/react-aria/GridList.html#props"]
@@ -12,12 +11,8 @@ A basic grid list's a dope way for your peeps to cruise through a list of stuff.
 <How minW72 toUse="collections/grid-list-demo" />
 
 ## Installation
-<Default items={['grid-list']}/>
 
-
-## Manual Installation
-
-<ManualInstall items={['react-aria-components']}/>
+<Install items={['react-aria-components']}/>
 
 <SourceCode toShow={['grid-list', 'checkbox']}/>
 
@@ -27,10 +22,12 @@ By default, if you don’t tweak the selectionMode prop, it's single selection. 
 
 ## Drag and Drop
 Grid list lets you drag and drop stuff if you roll with the dragAndDropHooks prop and the useDragAndDrop hook. You can drop data on the whole list, on individual items, add new stuff between old ones, or rearrange items.
+
 <How minW72 toUse="collections/grid-list-drag-demo" />
 
 ## Dragging Between Items
 You can drag items between items in the grid list.
+
 <How withNoPadding isCenter={false} toUse="collections/grid-list-drag-between-item-demo" />
 
 ## Controlled
@@ -54,6 +51,6 @@ If you wanna disable items from the parent, you can use the `disabledKeys` prop 
   disabledKeys={[2,5]}
   className="min-w-64"
 >
-  {(item) => <GridListItem id={item.id}>{item.name}</GridListItem>}
+  {(item) => <GridList.Item id={item.id}>{item.name}</GridList.Item>}
 </GridList>
 ```

@@ -1,27 +1,27 @@
-import { Grid, GridItem } from 'ui'
+import { Grid } from '@/components/ui'
 
 export default function GridItemDemo() {
-  return (
-    <Grid debug columns={3} gap={4}>
-      <GridItem
-        colSpan={{
-          initial: 1,
-          sm: 2
-        }}
-        className="w-full h-24 grid place-content-center"
-      >
-        1
-      </GridItem>
-      <GridItem className="w-full h-24 grid place-content-center">2</GridItem>
-      <GridItem
-        colSpan={{
-          initial: 1,
-          sm: 3
-        }}
-        className="w-full h-24 grid place-content-center"
-      >
-        3
-      </GridItem>
-    </Grid>
-  )
+    return (
+        <Grid debug columns={3} gap={4}>
+            <Grid.Item
+                colSpan={{
+                    initial: 1,
+                    sm: 2
+                }}
+                className='w-full h-24 grid place-content-center'
+            >
+                1
+            </Grid.Item>
+            <Grid.Item className='w-full h-24 grid place-content-center'>2</Grid.Item>
+            <Grid.Item
+                colSpan={{
+                    initial: 1,
+                    sm: 3
+                }}
+                className='w-full h-24 grid place-content-center'
+            >
+                3
+            </Grid.Item>
+        </Grid>
+    )
 }

@@ -1,12 +1,20 @@
-import { Avatar } from 'ui'
+import { Avatar } from '@/components/ui'
 
 export default function AvatarShapeDemo() {
-  return (
-    <Avatar
-      shape="square"
-      initials="IR"
-      alt="irsyadadl"
-      src="https://github.com/irsyadadl.png"
-    />
-  )
+    return (
+        <div className='flex gap-2'>
+            <Avatar
+                shape='square'
+                initials='DQ'
+                alt='dqnahdliyan'
+                src='https://github.com/dqnahdliyan.png'
+            />
+            <Avatar
+                shape='circle'
+                initials='DQ'
+                alt='dqnahdliyan'
+                src='https://github.com/dqnahdliyan.png'
+            />
+        </div>
+    )
 }

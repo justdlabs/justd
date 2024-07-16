@@ -2,18 +2,18 @@
 
 import React from 'react'
 
-import { ProgressBar } from 'ui'
+import { Progress } from '@/components/ui'
 
-export default function ProgressBarDemo() {
-  const [value, setValue] = React.useState(1)
+export default function ProgressDemo() {
+    const [value, setValue] = React.useState(1)
 
-  React.useEffect(() => {
-    const interval = setInterval(() => {
-      setValue((prev) => (prev < 100 ? prev + 1 : 100))
-    }, 50)
+    React.useEffect(() => {
+        const interval = setInterval(() => {
+            setValue((prev) => (prev < 100 ? prev + 1 : 100))
+        }, 50)
 
-    return () => clearInterval(interval)
-  }, [])
+        return () => clearInterval(interval)
+    }, [])
 
-  return <ProgressBar label="Loading…" value={60} />
+    return <Progress label='Loading…' value={60} />
 }

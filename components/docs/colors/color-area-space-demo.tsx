@@ -1,9 +1,9 @@
-import { ColorArea, ColorThumb } from 'ui'
+import { ColorArea, ColorThumb } from '@/components/ui'
 
 export default function ColorAreaSpaceDemo() {
-  return (
-    <ColorArea colorSpace="rgb">
-      <ColorThumb />
-    </ColorArea>
-  )
+    return (
+        <ColorArea colorSpace='rgb'>
+            <ColorThumb />
+        </ColorArea>
+    )
 }

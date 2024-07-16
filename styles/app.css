@@ -4,82 +4,88 @@
 
 @layer base {
     :root {
-        --background: 0 0% 100%;
-        --fg: 240 10% 3.9%;
+        --font-sans: 'GT Walsheim Pro';
+        --font-mono: 'Jetbrains Mono';
 
-        --card: 0 0% 100%;
-        --card-header: 240 5% 99%;
+        --background: 0 0% 98%;
+        --foreground: 240 10% 4%;
 
-        --popover: 0 0% 100%;
-        --popover-fg: 240 10% 3.9%;
+        /* Blue */
+        --primary: 240 100% 42%;
+        --primary-foreground: 0 0% 98%;
 
-        --primary: 216 98% 52%;
-        --primary-fg: 0 0% 100%;
+        /* Zinc */
+        --secondary: 240 5% 84%;
+        --secondary-foreground: 240 10% 4%;
 
-        --secondary: 240 4.8% 95.9%;
-        --secondary-fg: 240 5.9% 10%;
-
-        --tertiary: 240 4.8% 95.9%;
-        --tertiary-fg: 240 4% 16%;
-
-        --success: 152 69% 31%;
-        --success-fg: 0 0% 100%;
-
-        --muted: 240 4.8% 95.9%;
-        --muted-fg: 240 3.8% 46.1%;
-
-        --accent: 240 4.8% 95.9%;
-        --accent-fg: 240 5.9% 10%;
-
+        /* Rose */
         --danger: 347 77% 50%;
-        --danger-fg: 356 100% 97%;
+        --danger-foreground: 0 0% 98%;
 
-        --warning: 46 97% 65%;
-        --warning-fg: 21 92% 14%;
+        /* Green*/
+        --success: 120 100% 21%;
+        --success-foreground: 0 0% 98%;
 
-        --info: 120 100% 67%;
-        --info-fg: 120 100% 8%;
+        /* Slate Blue */
+        --info: 248 39% 48%;
+        --info-foreground: 0 0% 98%;
 
-        --border: 240 5.9% 90%;
-        --input: 240 5.9% 90%;
-        --toggle: 240 5% 84%;
-        --ring: 211 100% 58%;
+        /* Amber */
+        --warning: 32 95% 44%;
+        --warning-foreground: 0 0% 98%;
 
-        --radius: 0.55rem;
+        --dark: 240 10% 4%;
+        --dark-foreground: 0 0% 98%;
+
+        --muted: 240 5% 84%;
+        --muted-foreground: 240 5% 65%;
+
+        --accent: 240 100% 42%;
+        --accent-foreground: 0 0% 98%;
+
+        --border: 240 5% 84%;
+        --radius: 0.5rem;
     }
 
     .dark {
-        --background: 0 0% 0%;
-        --fg: 0 0% 98%;
+        --background: 240 10% 4%;
+        --foreground: 0 0% 98%;
 
-        --card: 240 10% 3.9%;
-        --card-header: 240 6% 6%;
+        /* Dark Blue */
+        --primary: 240 58% 39%;
+        --primary-foreground: 0 0% 98%;
 
-        --popover: 240 6% 6%;
-        --popover-fg: 0 0% 98%;
+        /* Zinc */
+        --secondary: 240 5% 26%;
+        --secondary-foreground: 0 0% 98%;
 
-        --secondary: 240 3.7% 15.9%;
-        --secondary-fg: 0 0% 98%;
+        /* Crimson */
+        --danger: 348 83% 47%;
+        --danger-foreground: 0 0% 98%;
 
-        --tertiary: 240 10% 6%;
-        --tertiary-fg: 240 5% 96%;
+        /* Dark Green */
+        --success: 120 100% 20%;
+        --success-foreground: 0 0% 98%;
 
-        --muted: 240 3.7% 15.9%;
-        --muted-fg: 240 5% 64.9%;
+        /* Dark Slate Blue */
+        --info: 248 39% 39%;
+        --info-foreground: 0 0% 98%;
 
-        --accent: 240 3.7% 15.9%;
-        --accent-fg: 0 0% 98%;
+        /* Dark Orange */
+        --warning: 32 95% 44%;
+        --warning-foreground: 0 0% 98%;
 
-        --border: 240 7% 15%;
-        --input: 240 3.7% 15.9%;
-        --toggle: 240 5% 26%;
+        --dark: 0 0% 98%;
+        --dark-foreground: 240 10% 4%;
+
+        --muted: 240 5% 26%;
+        --muted-foreground: 240 5% 34%;
+
+        --accent: 240 58% 39%;
+        --accent-foreground: 0 0% 98%;
+
+        --border: 240 5% 26%;
     }
-}
-
-.react-aria-Button,
-.react-aria-Dialog,
-.react-aria-Link {
-    outline: none;
 }
 
 @layer base {
@@ -94,49 +100,26 @@
     }
 
     body {
-        @apply bg-background text-fg;
+        @apply bg-background text-foreground;
         font-feature-settings: 'rlig' 1,
         'calt' 1;
     }
 
-
-
-    /* Firefox */
-    * {
-        scrollbar-width: thin;
-        scrollbar-color: #d4d4d8 transparent;
+    *,
+    .overflow-auto,
+    .overflow-y-auto,
+    .overflow-x-auto {
+        @apply ease-in-out scrollbar-none scrollbar-track-background scrollbar-thumb-background scrollbar-thumb-rounded-full;
     }
 
-    /* dark mode */
-    .dark {
-        scrollbar-width: thin;
-        scrollbar-color: #3f3f46 transparent;
-
-        @media (prefers-color-scheme: dark) {
-            * {
-                scrollbar-width: thin;
-                scrollbar-color: #3f3f46 transparent;
-            }
-        }
-    }
-
-    /* Chrome, Edge, and Safari */
-    *::-webkit-scrollbar {
-        width: 8px;
-        height: 8px;
-    }
-
-    *::-webkit-scrollbar-track {
-        background: transparent;
-        border-radius: 5px;
-    }
-
-    *::-webkit-scrollbar-thumb {
-        @apply bg-muted;
-        border-radius: 14px;
-        border: 3px solid transparent;
+    *,
+    .overflow-auto:hover,
+    .overflow-y-auto:hover,
+    .overflow-x-auto:hover {
+        @apply scrollbar-thin scrollbar-thumb-border;
     }
 }
+
 
 .react-aria-Button,
 .react-aria-Dialog {
@@ -145,19 +128,4 @@
 
 .react-aria-DropIndicator[data-drop-target] {
     outline: 1px solid hsl(var(--primary));
-}
-
-.recharts-rectangle.recharts-tooltip-cursor {
-    @apply fill-zinc-300/10;
-}
-
-@layer components {
-    .no-scrollbar {
-        -ms-overflow-style: none; /* Internet Explorer and Edge */
-        scrollbar-width: none; /* Firefox */
-    }
-
-    .no-scrollbar::-webkit-scrollbar {
-        display: none; /* Safari and Chrome */
-    }
 }

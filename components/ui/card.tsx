@@ -2,52 +2,85 @@
 
 import * as React from 'react'
 
-import type { HeadingProps, TextProps } from 'react-aria-components'
-import { Heading } from 'react-aria-components'
+import * as Primitive from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
 import { Description } from './field'
 
 const card = tv({
-  slots: {
-    root: [
-      'xrkr rounded-lg xkd2 border bg-card text-fg shadow-sm [&:has(.larhy3):not(:has(.yahnba))>.ccvgs8x]:pt-6 [&:has(.larhy3)]:overflow-hidden [&_table]:overflow-hidden'
-    ],
-    header: 'flex xlw32 flex-col space-y-1.5 px-6 py-5',
-    title: 'text-xl klda font-semibold leading-none tracking-tight',
-    description: 'text-base dl2 text-muted-fg sm:text-sm',
-    content:
-      'yahnba px-6 pb-6 has-[.t-hea]:bg-secondary/40 has-[table]:p-0 [&:has(table)+.ccvgs8x]:py-5 [&:has(table)]:border-t [&_.t-cel]:px-6 [&_.t-col]:px-6',
-    footer: 'ccvgs8x flex items-center p-6 pt-0'
-  }
+    slots: {
+        root: 'rounded-md border bg-card text-card-foreground shadow-sm [&_table]:overflow-hidden',
+        header: 'flex flex-col space-y-1.5 px-6 py-5',
+        title: 'text-xl font-semibold leading-none tracking-tight',
+        description: 'text-base text-muted-foreground sm:text-sm',
+        content:
+            'px-6 pb-6 has-[table]:p-0 [&:has(table)]:border-t [&_.t-cel]:px-6 [&_.t-col]:px-6',
+        footer: 'flex items-center p-6 pt-0'
+    }
 })
 
 const { root, header, title, description, content, footer } = card()
 
-const Card = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => {
-  return <div className={root({ className })} {...props} />
+interface CardSubComponents {
+    Header: typeof CardHeader
+    Title: typeof CardTitle
+    Description: typeof CardDescription
+    Content: typeof CardContent
+    Footer: typeof CardFooter
 }
 
-const CardHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className={header({ className })} {...props} />
+type CardComponent = React.ForwardRefExoticComponent<
+    React.HTMLAttributes<HTMLDivElement>
+> &
+    React.RefAttributes<HTMLDivElement> &
+    CardSubComponents
+
+const Card: CardComponent = React.forwardRef<
+    HTMLDivElement,
+    React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+    <div ref={ref} className={root({ className })} {...props} />
+)) as CardComponent
+Card.displayName = 'Card'
+
+const CardHeader = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+    ({ className, ...props }, ref) => (
+        <div ref={ref} className={header({ className })} {...props} />
+    )
 )
+CardHeader.displayName = 'CardHeader'
 
-const CardTitle = (props: HeadingProps) => {
-  return <Heading className={title({ className: props.className })} {...props} />
+function CardTitle(props: Primitive.HeadingProps) {
+    return (
+        <Primitive.Heading className={title({ className: props.className })} {...props} />
+    )
 }
 
-const CardDescription = (props: TextProps) => {
-  return (
-    <Description className={description({ className: props.className })} {...props} />
-  )
+function CardDescription(props: Primitive.TextProps) {
+    return (
+        <Description className={description({ className: props.className })} {...props} />
+    )
 }
 
-const CardContent = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => {
-  return <div className={content({ className })} {...props} />
-}
+const CardContent = React.forwardRef<
+    HTMLDivElement,
+    React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+    <div ref={ref} className={content({ className })} {...props} />
+))
+CardContent.displayName = 'CardContent'
 
-const CardFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => {
-  return <div className={footer({ className })} {...props} />
-}
+const CardFooter = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+    ({ className, ...props }, ref) => (
+        <div ref={ref} className={footer({ className })} {...props} />
+    )
+)
+CardFooter.displayName = 'CardFooter'
 
-export { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
+Card.Header = CardHeader
+Card.Title = CardTitle
+Card.Description = CardDescription
+Card.Content = CardContent
+Card.Footer = CardFooter
+
+export { Card }
