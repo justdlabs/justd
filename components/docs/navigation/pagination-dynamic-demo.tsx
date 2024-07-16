@@ -1,14 +1,13 @@
 'use client'
 
-import { Collection } from 'react-aria-components'
 import {
   Pagination,
-  PaginationContent,
   PaginationFirst,
   PaginationItem,
   PaginationLabel,
   PaginationLast,
   PaginationLink,
+  PaginationList,
   PaginationNext,
   PaginationPrevious,
   PaginationSeparator
@@ -18,7 +17,7 @@ const pages = Array.from({ length: 6 }, (_, i) => ({ value: i + 1 }))
 export default function PaginationDynamicDemo() {
   return (
     <Pagination>
-      <PaginationContent>
+      <PaginationList>
         <PaginationItem>
           <PaginationFirst href="#" />
         </PaginationItem>
@@ -26,24 +25,22 @@ export default function PaginationDynamicDemo() {
           <PaginationPrevious href="#" />
         </PaginationItem>
         <PaginationItem className="lg:hidden">
-          <PaginationContent className="rounded-lg border">
+          <PaginationList className="rounded-lg border">
             <PaginationLabel className="font-semibold">1</PaginationLabel>
             <PaginationSeparator />
             <PaginationLabel className="text-muted-fg">6</PaginationLabel>
-          </PaginationContent>
+          </PaginationList>
         </PaginationItem>
         <PaginationItem className="hidden lg:inline">
-          <PaginationContent>
-            <Collection items={pages}>
-              {(item) => (
-                <PaginationItem id={item.value.toString()}>
-                  <PaginationLink isActive={item.value === 4} href="#">
-                    {item.value}
-                  </PaginationLink>
-                </PaginationItem>
-              )}
-            </Collection>
-          </PaginationContent>
+          <PaginationList items={pages}>
+            {(item) => (
+              <PaginationItem id={item.value.toString()}>
+                <PaginationLink isActive={item.value === 4} href="#">
+                  {item.value}
+                </PaginationLink>
+              </PaginationItem>
+            )}
+          </PaginationList>
         </PaginationItem>
         <PaginationItem>
           <PaginationNext href="#" />
@@ -51,7 +48,7 @@ export default function PaginationDynamicDemo() {
         <PaginationItem>
           <PaginationLast href="#" />
         </PaginationItem>
-      </PaginationContent>
+      </PaginationList>
     </Pagination>
   )
 }

@@ -3,6 +3,7 @@
 import type { FC, SVGProps } from 'react'
 
 import { Logo } from '@/components/logo'
+import { extractAndFormat } from '@/lib/utils'
 import {
   IconBell,
   IconBrandAdobe,
@@ -20,7 +21,7 @@ export function DocRefs({ references }: any) {
 
     switch (true) {
       case url.includes('react-spectrum'):
-        title = 'Props Reference'
+        title = extractAndFormat(url) + ' Props'
         icon = IconBrandAdobe
         break
       case url.includes('paranoid'):
