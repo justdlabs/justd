@@ -24,10 +24,7 @@ const Subheading = ({ className, level = 2, ...props }: HeadingProps) => {
     <HeadingPrimitive
       level={level}
       {...props}
-      className={cn(
-        className,
-        'text-base/7 font-semibold text-zinc-950 dark:text-white sm:text-sm/6'
-      )}
+      className={cn('text-base/7 font-semibold text-fg sm:text-sm/6', className)}
     />
   )
 }
