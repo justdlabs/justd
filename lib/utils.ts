@@ -63,7 +63,7 @@ export function wait(number: number) {
 }
 
 export function extractAndFormat(url: string): string {
-  const match = url.match(/\/([^\/]+)\.html/)
+  const match = url.match(/\/([^/]+)\.html/)
   if (match) {
     return match[1].replace(/([a-z])([A-Z])/g, '$1 $2')
   }
