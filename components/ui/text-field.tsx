@@ -46,21 +46,22 @@ const TextField = ({
       {...props}
       className={ctr(props.className, 'group flex flex-col gap-1')}
     >
-      {label && <Label>{label}</Label>}
+      {label && <Label id="x21z-id">{label}</Label>}
       <FieldGroup
+        aria-labelledby={label ? 'x21z-id' : undefined}
         data-loading={isLoading ? 'true' : undefined}
         className={fieldGroupPrefixStyles()}
       >
         {isLoading && indicatorPlace === 'prefix' ? (
           <IconLoader className="animate-spin isPfx" />
         ) : prefix ? (
-          <span className="atrs isPfx">{prefix}</span>
+          <span className="atrs isPfx x2e2">{prefix}</span>
         ) : null}
         <Input className="px-2.5" placeholder={placeholder} />
         {isLoading && indicatorPlace === 'suffix' ? (
           <IconLoader className="animate-spin isSfx" />
         ) : suffix ? (
-          <span className="atrs isSfx">{suffix}</span>
+          <span className="atrs isSfx x2e2">{suffix}</span>
         ) : null}
       </FieldGroup>
       {description && <Description>{description}</Description>}

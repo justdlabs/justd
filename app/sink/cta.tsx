@@ -1,5 +1,6 @@
 'use client'
 
+import { siteConfig } from '@/config/site'
 import { IconBrandGithub } from '@irsyadadl/paranoid'
 import { buttonStyles, Container, Heading, Link } from 'ui'
 
@@ -18,7 +19,7 @@ export function Cta() {
 
           <Link
             target="_blank"
-            href="https://github.com/irsyadadl/d."
+            href={siteConfig.repo}
             className={buttonStyles({ size: 'large', intent: 'light/dark' })}
           >
             <IconBrandGithub />

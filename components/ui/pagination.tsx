@@ -79,6 +79,7 @@ const PaginationPrevious = ({
   <PaginationLink
     aria-label="Go to previous page"
     size="square-petite"
+    slot="previous"
     className={cn('gap-1', className)}
     {...props}
   >
@@ -95,6 +96,7 @@ const PaginationNext = ({
   <PaginationLink
     aria-label="Go to next page"
     size="square-petite"
+    slot="next"
     className={cn('gap-1', className)}
     {...props}
   >

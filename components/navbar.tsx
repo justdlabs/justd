@@ -5,6 +5,7 @@ import React, { useEffect, useId, useState } from 'react'
 import { Aside } from '@/components/aside'
 import { CommandPalette, type OpenCloseProps } from '@/components/command-palette'
 import { ThemeSwitcher } from '@/components/theme-switcher'
+import { siteConfig } from '@/config/site'
 import {
   IconBrandAdobe,
   IconBrandD,
@@ -98,10 +99,7 @@ export function Navbar() {
                     <NavLink target="_blank" href="https://paranoid.irsyad.co">
                       Paranoid
                     </NavLink>
-                    <NavLink
-                      target="_blank"
-                      href="https://github.com/irsyadadl/d.irsyad.co"
-                    >
+                    <NavLink target="_blank" href={siteConfig.repo}>
                       Github
                     </NavLink>
                   </Collection>
@@ -156,7 +154,7 @@ export function Navbar() {
                         size: 'square-petite'
                       })}
                       target="_blank"
-                      href="https://github.com/irsyadadl/d."
+                      href={siteConfig.repo}
                     >
                       <IconBrandGithub />
                     </Link>
@@ -281,7 +279,9 @@ export function NavbarDropdown() {
       <Button aria-label="Menu" appearance="plain" className="group -ml-1 [&_svg]:size-5">
         <span className="flex items-center gap-x-2">
           <IconBrandD className="-ml-1 size-6" />
-          <span className="font-mono text-base tracking-tight sm:text-sm">D.</span>
+          <span className="font-mono text-base tracking-tight sm:text-sm">
+            {siteConfig.name}
+          </span>
           <IconChevronDown className="-mr-2 ml-1 size-4 text-muted-fg transition duration-300 group-hover:text-fg group-pressed:rotate-180 group-pressed:text-fg" />
           <span className="sr-only">Open menu</span>
         </span>
