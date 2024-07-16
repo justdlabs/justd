@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-import { IconAt, IconPlus } from '@irsyadadl/paranoid'
+import { IconPlus } from '@irsyadadl/paranoid'
 import {
   Button,
   ModalBody,
@@ -39,7 +39,6 @@ export default function TextFieldSuffixButtonDemo() {
       </ModalOverlay>
       <TextField
         label="Username"
-        prefix={<IconAt />}
         suffix={
           <Button
             aria-label="New user"
