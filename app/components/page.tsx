@@ -4,7 +4,14 @@ import { CardListBox } from '@/app/components/partials/card-list-box'
 import { OnThisPage } from '@/app/components/partials/on-this-page'
 import { Header } from '@/components/header'
 import { Container } from 'ui'
+import type { Metadata } from 'next'
+import { siteConfig } from '@/config/site'
 
+export const metadata: Metadata = {
+  title: 'Components / ' + siteConfig.name,
+  description: siteConfig.description,
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? siteConfig.url)
+}
 export default function Page() {
   return (
     <div>

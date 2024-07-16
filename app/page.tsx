@@ -16,7 +16,7 @@ import type { Metadata } from 'next'
 import { Container } from 'ui'
 
 export const metadata: Metadata = {
-  title: siteConfig.name,
+  title: siteConfig.name  + ' is a Chill Set of React Components',
   description: siteConfig.description,
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? siteConfig.url)
 }
