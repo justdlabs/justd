@@ -3,7 +3,7 @@
 import React from 'react'
 
 import { OptionPreview } from '@/components/docs/outside/option-preview'
-import { Note, NoteDescription, NoteTitle, Select, SelectItem } from 'ui'
+import { Note, Select, SelectItem } from 'ui'
 
 const notes = ['info', 'primary', 'secondary', 'warning', 'danger', 'success'].map(
   (n) => ({
@@ -11,7 +11,7 @@ const notes = ['info', 'primary', 'secondary', 'warning', 'danger', 'success'].m
   })
 )
 export default function NoteDemo() {
-  const [selected, setSelected] = React.useState<any>('secondary')
+  const [selected, setSelected] = React.useState<any>('primary')
   return (
     <>
       <OptionPreview>
@@ -29,10 +29,12 @@ export default function NoteDemo() {
           )}
         </Select>
       </OptionPreview>
-      <Note intent={selected as any}>
-        <NoteTitle>Note Title</NoteTitle>
-        <NoteDescription>Note Description</NoteDescription>
-      </Note>
+      <div className="max-w-md">
+        <Note intent={selected as any}>
+          We hook you up with top-tier migration services in our startup plan. Wanna roll
+          with it? Hit us up here.
+        </Note>
+      </div>
     </>
   )
 }
