@@ -4,9 +4,9 @@ import React from 'react'
 
 import { useTheme } from 'next-themes'
 import { Toaster as ToasterPrimitive, type ToasterProps } from 'sonner'
+import { twJoin } from 'tailwind-merge'
 
 import { buttonStyles } from './button'
-import { cn } from './primitive'
 
 const Toaster = ({ ...props }: ToasterProps) => {
   const { theme = 'system' } = useTheme()
@@ -18,8 +18,8 @@ const Toaster = ({ ...props }: ToasterProps) => {
         unstyled: true,
         closeButton: true,
         classNames: {
-          toast: cn(
-            'ring-1 w-[25rem] px-4 py-3 right-0 font-normal sm:px-4 sm:py-6 group ring-border rounded-xl bg-background text-fg overflow-hidden text-[0.925rem] backdrop-blur-xl',
+          toast: twJoin(
+            'bg-background ring-1 ring-border rounded-xl text-fg overflow-hidden text-[0.925rem] backdrop-blur-xl px-4 py-3 font-normal sm:px-4 sm:py-5',
             '[&:has([data-button])_[data-close-button="true"]]:hidden',
             '[&:not([data-description])_[data-title]]:font-normal',
             '[&:has([data-description])_[data-title]]:!font-medium',
@@ -47,7 +47,7 @@ const Toaster = ({ ...props }: ToasterProps) => {
             size: 'extra-small'
           }),
           closeButton:
-            '[&_svg]:size-5 size-8 absolute top-1/2 transform -translate-y-1/2 right-4 left-auto grid place-content-center rounded-md hover:bg-black/20 dark:hover:bg-white/20 border-0 [&_svg]:text-fg'
+            '[&_svg]:size-5 size-8 absolute top-1/2 transform -translate-y-1/2 right-2 lg:right-4 left-auto grid place-content-center rounded-md hover:bg-black/20 dark:hover:bg-white/20 border-0 [&_svg]:text-fg'
         }
       }}
       {...props}
