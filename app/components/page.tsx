@@ -3,9 +3,9 @@ import React from 'react'
 import { CardListBox } from '@/app/components/partials/card-list-box'
 import { OnThisPage } from '@/app/components/partials/on-this-page'
 import { Header } from '@/components/header'
-import { Container } from 'ui'
-import type { Metadata } from 'next'
 import { siteConfig } from '@/config/site'
+import type { Metadata } from 'next'
+import { Container } from 'ui'
 
 export const metadata: Metadata = {
   title: 'Components / ' + siteConfig.name,

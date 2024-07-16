@@ -9,14 +9,19 @@ import {
   IconChevronsLgRight,
   IconDotsHorizontal
 } from '@irsyadadl/paranoid'
-import type { LabelProps, LinkProps } from 'react-aria-components'
-import { Link } from 'react-aria-components'
+import type {
+  GridListItemProps,
+  GridListProps,
+  LabelProps,
+  LinkProps
+} from 'react-aria-components'
+import { GridList, GridListItem, Link } from 'react-aria-components'
 import type { VariantProps } from 'tailwind-variants'
 
 import { buttonStyles } from './button'
 import { Label } from './field'
 import { cn } from './primitive'
-import { Separator } from './separator'
+import { VisuallyHidden } from './visually-hidden'
 
 const Pagination = ({ className, ...props }: React.ComponentProps<'nav'>) => (
   <nav
@@ -26,25 +31,20 @@ const Pagination = ({ className, ...props }: React.ComponentProps<'nav'>) => (
     {...props}
   />
 )
-Pagination.displayName = 'Pagination'
 
-const PaginationContent = React.forwardRef<HTMLUListElement, React.ComponentProps<'ul'>>(
-  ({ className, ...props }, ref) => (
-    <ul
-      ref={ref}
-      className={cn('flex flex-row items-center gap-1', className)}
-      {...props}
-    />
+const PaginationList = <T extends object>({ className, ...props }: GridListProps<T>) => {
+  return (
+    <GridList className={cn('flex flex-row items-center gap-1', className)} {...props} />
   )
-)
-PaginationContent.displayName = 'PaginationContent'
+}
 
-const PaginationItem = React.forwardRef<HTMLLIElement, React.ComponentProps<'li'>>(
-  ({ className, ...props }, ref) => <li ref={ref} className={cn(className)} {...props} />
+const PaginationItem = ({ className, ...props }: GridListItemProps) => (
+  <GridListItem className={cn(className)} {...props} />
 )
-PaginationItem.displayName = 'PaginationItem'
 
-interface PaginationLinkProps extends LinkProps, VariantProps<typeof buttonStyles> {
+interface PaginationLinkProps
+  extends Omit<LinkProps, 'id'>,
+    VariantProps<typeof buttonStyles> {
   isActive?: boolean
   className?: string
 }
@@ -57,7 +57,7 @@ const PaginationLink = ({
 }: PaginationLinkProps) => (
   <Link
     routerOptions={{
-      scroll: true
+      scroll: false
     }}
     aria-current={isActive ? 'page' : undefined}
     className={cn(
@@ -71,7 +71,6 @@ const PaginationLink = ({
     {...props}
   />
 )
-PaginationLink.displayName = 'PaginationLink'
 
 const PaginationPrevious = ({
   className,
@@ -88,7 +87,6 @@ const PaginationPrevious = ({
     <span className="sr-only">Previous</span>
   </PaginationLink>
 )
-PaginationPrevious.displayName = 'PaginationPrevious'
 
 const PaginationNext = ({
   className,
@@ -104,7 +102,6 @@ const PaginationNext = ({
     <IconChevronLgRight />
   </PaginationLink>
 )
-PaginationNext.displayName = 'PaginationNext'
 
 const PaginationLast = ({
   className,
@@ -120,7 +117,6 @@ const PaginationLast = ({
     <IconChevronsLgRight />
   </PaginationLink>
 )
-PaginationLast.displayName = 'PaginationLast'
 
 const PaginationFirst = ({
   className,
@@ -137,7 +133,6 @@ const PaginationFirst = ({
     <span className="sr-only">First</span>
   </PaginationLink>
 )
-PaginationFirst.displayName = 'PaginationFirst'
 
 const PaginationEllipsis = ({ className, ...props }: React.ComponentProps<'span'>) => (
   <span
@@ -149,7 +144,6 @@ const PaginationEllipsis = ({ className, ...props }: React.ComponentProps<'span'
     <span className="sr-only">More pages</span>
   </span>
 )
-PaginationEllipsis.displayName = 'PaginationEllipsis'
 
 const PaginationLabel = ({ className, ...props }: LabelProps) => (
   <Label
@@ -158,20 +152,20 @@ const PaginationLabel = ({ className, ...props }: LabelProps) => (
     {...props}
   />
 )
-PaginationLabel.displayName = 'PaginationLabel'
 
 const PaginationSeparator = ({ className, ...props }: React.ComponentProps<'span'>) => (
-  <Separator
+  <span
     aria-hidden
-    className={cn('mx-1 h-5 w-px rotate-[14deg] self-center', className)}
+    className={cn('mx-1 h-5 w-px rotate-[14deg] bg-border block self-center', className)}
     {...props}
-  ></Separator>
+  >
+    <VisuallyHidden>Divider</VisuallyHidden>
+  </span>
 )
-PaginationSeparator.displayName = 'PaginationSeparator'
 
 export {
   Pagination,
-  PaginationContent,
+  PaginationList,
   PaginationEllipsis,
   PaginationFirst,
   PaginationItem,

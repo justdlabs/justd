@@ -14,12 +14,12 @@ import {
   MenuSeparator,
   MenuTrigger,
   Pagination,
-  PaginationContent,
   PaginationEllipsis,
   PaginationFirst,
   PaginationItem,
   PaginationLast,
   PaginationLink,
+  PaginationList,
   PaginationNext,
   PaginationPrevious,
   Table,
@@ -154,7 +154,7 @@ export default function CardTableDemo() {
       </CardContent>
       <CardFooter>
         <Pagination>
-          <PaginationContent>
+          <PaginationList>
             <PaginationItem>
               <PaginationFirst href="#" />
             </PaginationItem>
@@ -178,7 +178,7 @@ export default function CardTableDemo() {
             <PaginationItem>
               <PaginationLast href="#" />
             </PaginationItem>
-          </PaginationContent>
+          </PaginationList>
         </Pagination>
       </CardFooter>
     </Card>

@@ -4,7 +4,6 @@ import { CardSink } from '@/app/sink/card-sink'
 import { Cta } from '@/app/sink/cta'
 import { LoginForm } from '@/app/sink/login-form'
 import { Menus } from '@/app/sink/menus'
-import { NoteStatuses } from '@/app/sink/note-statuses'
 import { ModalOverlays, PopoverOverlays } from '@/app/sink/overlays'
 import { Pickers } from '@/app/sink/pickers'
 import { ShowMore } from '@/app/sink/show-more'
@@ -16,7 +15,7 @@ import type { Metadata } from 'next'
 import { Container } from 'ui'
 
 export const metadata: Metadata = {
-  title: siteConfig.name  + ' is a Chill Set of React Components',
+  title: siteConfig.name + ' is a Chill Set of React Components',
   description: siteConfig.description,
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? siteConfig.url)
 }

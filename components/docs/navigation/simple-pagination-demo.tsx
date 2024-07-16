@@ -2,11 +2,11 @@
 
 import {
   Pagination,
-  PaginationContent,
   PaginationFirst,
   PaginationItem,
   PaginationLabel,
   PaginationLast,
+  PaginationList,
   PaginationNext,
   PaginationPrevious,
   PaginationSeparator
@@ -15,7 +15,7 @@ import {
 export default function SimplePaginationDemo() {
   return (
     <Pagination>
-      <PaginationContent>
+      <PaginationList>
         <PaginationItem>
           <PaginationFirst href="#" />
         </PaginationItem>
@@ -24,7 +24,7 @@ export default function SimplePaginationDemo() {
           <PaginationPrevious href="#" />
         </PaginationItem>
         <PaginationItem>
-          <PaginationContent className="rounded-lg border">
+          <PaginationList className="rounded-lg border">
             <PaginationItem>
               <PaginationLabel className="font-semibold">1</PaginationLabel>
             </PaginationItem>
@@ -34,7 +34,7 @@ export default function SimplePaginationDemo() {
             <PaginationItem>
               <PaginationLabel className="text-muted-fg">10</PaginationLabel>
             </PaginationItem>
-          </PaginationContent>
+          </PaginationList>
         </PaginationItem>
         <PaginationItem>
           <PaginationNext href="#" />
@@ -42,7 +42,7 @@ export default function SimplePaginationDemo() {
         <PaginationItem>
           <PaginationLast href="#" />
         </PaginationItem>
-      </PaginationContent>
+      </PaginationList>
     </Pagination>
   )
 }

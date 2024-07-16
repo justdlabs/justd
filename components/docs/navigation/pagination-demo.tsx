@@ -2,12 +2,12 @@
 
 import {
   Pagination,
-  PaginationContent,
   PaginationEllipsis,
   PaginationFirst,
   PaginationItem,
   PaginationLast,
   PaginationLink,
+  PaginationList,
   PaginationNext,
   PaginationPrevious
 } from 'ui'
@@ -15,7 +15,7 @@ import {
 export default function PaginationDemo() {
   return (
     <Pagination>
-      <PaginationContent>
+      <PaginationList>
         <PaginationItem>
           <PaginationFirst href="#" />
         </PaginationItem>
@@ -39,7 +39,7 @@ export default function PaginationDemo() {
         <PaginationItem>
           <PaginationLast href="#" />
         </PaginationItem>
-      </PaginationContent>
+      </PaginationList>
     </Pagination>
   )
 }
