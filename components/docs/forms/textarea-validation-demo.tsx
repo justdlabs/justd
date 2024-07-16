@@ -4,7 +4,7 @@ import React from 'react'
 
 import { Button, Form, Textarea } from 'ui'
 
-export default function TextareaControlledDemo() {
+export default function TextareaValidationDemo() {
   const [value, setValue] = React.useState('')
   return (
     <Form onSubmit={(e) => e.preventDefault()}>

@@ -71,7 +71,14 @@ const fieldGroupStyles = tv({
 })
 
 const fieldGroupPrefixStyles = tv({
-  base: 'flex group-invalid:border-danger group-disabled:bg-secondary group-disabled:opacity-50 items-center group-invalid:focus-within:ring-danger/20'
+  base: [
+    'flex group-invalid:border-danger group-disabled:bg-secondary group-disabled:opacity-50 items-center group-invalid:focus-within:ring-danger/20',
+
+    '[&>.x2e2>.kbt32x]:size-7 [&>.x2e2>.kbt32x]:rounded-sm [&>.x2e2:has(.kbt32x)]:size-9 [&>.x2e2:has(.kbt32x)]:grid [&>.x2e2:has(.kbt32x)]:place-items-center',
+    '[&>.x2e2>.kbt32x]:before:rounded-[calc(theme(borderRadius.sm)-1px)] [&>.x2e2>.kbt32x]:after:rounded-[calc(theme(borderRadius.sm)-1px)] dark:[&>.x2e2>.kbt32x]:after:rounded-sm',
+
+    '[&>.isSfx:has(.kbt32x)]:-mr-2 [&>.isPfx:has(.kbt32x)]:-ml-2 [&>.isSfx>.kbt32x]:mr-0.5 [&>.isPfx>.kbt32x]:ml-0.5'
+  ]
 })
 
 const FieldGroup = (props: GroupProps) => {

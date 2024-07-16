@@ -13,7 +13,7 @@ import { cn } from './primitive'
 const buttonStyles = tv(
   {
     base: [
-      'relative no-underline isolate inline-flex items-center justify-center gap-x-2 border font-medium',
+      'kbt32x relative no-underline isolate inline-flex items-center justify-center gap-x-2 border font-medium',
       'focus:outline-none focus:outline focus:outline-2 focus-visible:outline-2 focus:outline-offset-2 focus:outline-primary-500',
       'data-[disabled]:opacity-50',
       'forced-colors:[--btn-icon:ButtonText] forced-colors:hover:[--btn-icon:ButtonText] [&>[data-slot=icon]]:-mx-0.5 [&>[data-slot=icon]]:my-1 [&>[data-slot=icon]]:size-4 [&>[data-slot=icon]]:shrink-0 [&>[data-slot=icon]]:text-[--btn-icon]'

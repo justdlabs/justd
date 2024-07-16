@@ -185,6 +185,9 @@ export const previews: Record<string, any> = {
   "forms/search-field-with-label-demo": {
     component: React.lazy(() => import("@/components/docs/forms/search-field-with-label-demo")),
   },
+  "forms/text-field-suffix-button-demo": {
+    component: React.lazy(() => import("@/components/docs/forms/text-field-suffix-button-demo")),
+  },
   "forms/switch-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/forms/switch-disabled-demo")),
   },
