@@ -3,23 +3,46 @@ title: "Tabs"
 description: Switch between views like flipping through file folders at a desk, organizing content without clutter.
 order: 3
 published: true
+status: updated
 references: ["https://react-spectrum.adobe.com/react-aria/Tabs.html#props", "https://www.framer.com/motion/layout-animations/"]
 ---
 
 
 ## Basic
-Tabs split content into different sections and let users switch between them easily.
+Tabs chop content into sections, letting users switch between 'em with ease.
 <How isCenter={false} toUse="navigation/tabs-demo" />
 
 ## Installation
-<Default items={['tabs']}/>
+<Default items={['tabs']} />
 
 ## Manual Installation
 
-<ManualInstall items={['react-aria-components', 'framer-motion']}/>
+<ManualInstall items={['react-aria-components', 'framer-motion']} />
 
-<SourceCode toShow='tabs'/>
+<SourceCode toShow='tabs' />
+
+## With icons
+Sometimes you wanna throw icons on your tabs. No biggie, this tab's got you covered, handling the design real smooth.
+<How isCenter={false} toUse="navigation/tabs-icons-demo" />
 
 ## Orientation
 The orientation of the tabs can be set to `horizontal` or `vertical`.
-<How minW72 toUse="navigation/tabs-orientation-demo" />
+<How isCenter={false} toUse="navigation/tabs-orientation-demo" />
+
+## Collections
+Tabs can be used in collections.
+<How isCenter={false} toUse="navigation/tabs-collections-demo" />
+
+## Links
+Maybe you wanna use tabs as links, like for hopping between pages. Just slap the `href` prop on the `Tab` component. Boom, cursor turns into a pointer automatically.
+<How isCenter={false} toUse="navigation/tabs-link-demo" />
+
+## Disabled
+Tabs can be disabled by setting the `isDisabled` prop to `true`.
+<How isCenter={false} toUse="navigation/tabs-disabled-demo" />
+
+You can also disable individual tabs by setting the `isDisabled` prop to `true`, like this:
+```tsx
+<Tab isDisabled id="c">Contact</Tab>
+<Tab isDisabled id="a">About Us</Tab>
+```

@@ -4,15 +4,28 @@ import { Tab, TabList, TabPanel, Tabs } from 'ui'
 
 export default function TabsDemo() {
   return (
-    <Tabs aria-label="Packages">
+    <Tabs aria-label="Recipe App">
       <TabList>
-        <Tab id="t1">Tab 1</Tab>
-        <Tab id="t2">Tab 2</Tab>
-        <Tab id="t3">Tab 3</Tab>
+        <Tab id="r">Recipes</Tab>
+        <Tab id="i">Ingredients</Tab>
+        <Tab id="m">Meal Plans</Tab>
+        <Tab id="v">Videos</Tab>
+        <Tab id="f">Favorites</Tab>
       </TabList>
-      <TabPanel id="t1">Tab 1 content</TabPanel>
-      <TabPanel id="t2">Tab 2 content</TabPanel>
-      <TabPanel id="t3">Tab 3 content</TabPanel>
+      <TabPanel id="r">
+        Browse through a wide selection of recipes for all occasions and dietary
+        preferences.
+      </TabPanel>
+      <TabPanel id="i">
+        Check the list of ingredients needed for your chosen recipes.
+      </TabPanel>
+      <TabPanel id="m">
+        Discover curated meal plans to simplify your weekly cooking.
+      </TabPanel>
+      <TabPanel id="v">
+        Watch cooking videos to learn new techniques and recipes.
+      </TabPanel>
+      <TabPanel id="f">Save your favorite recipes for quick access anytime.</TabPanel>
     </Tabs>
   )
 }

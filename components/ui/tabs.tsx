@@ -67,9 +67,9 @@ function TabList<T extends object>(props: TabListProps<T>) {
   )
 }
 
-const tabProps = tv({
+const tabStyles = tv({
   base: [
-    'relative flex cursor-default items-center rounded-full text-sm font-medium outline-none transition forced-color-adjust-none hover:text-fg',
+    'relative flex cursor-default items-center rounded-full text-sm font-medium outline-none transition forced-color-adjust-none hover:text-fg [&>[data-slot=icon]]:size-4 [&>[data-slot=icon]]:mr-2',
     // hor
     'group-orientation-vertical:w-full group-orientation-vertical:py-0',
     // ver
@@ -92,7 +92,7 @@ function Tab({ children, ...props }: TabProps) {
     <TabPrimitive
       {...props}
       className={composeRenderProps(props.className, (_className, renderProps) =>
-        tabProps({
+        tabStyles({
           ...renderProps,
           className: twJoin('href' in props && 'cursor-pointer', _className)
         })
@@ -111,7 +111,7 @@ function Tab({ children, ...props }: TabProps) {
                 'group-orientation-vertical:left-0 group-orientation-vertical:h-[calc(100%-10%)] group-orientation-vertical:w-0.5 group-orientation-vertical:transform'
               )}
               layoutId="current-selected"
-              transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+              transition={{ type: 'spring', stiffness: 500, damping: 40 }}
             />
           )}
         </>
