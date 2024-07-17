@@ -1,27 +1,27 @@
-'use client';
+'use client'
 
-import * as React from 'react';
+import * as React from 'react'
 
 import {
   IconChevronLgLeft,
   IconChevronLgRight,
   IconChevronsLgLeft,
   IconChevronsLgRight,
-  IconDotsHorizontal,
-} from '@irsyadadl/paranoid';
+  IconDotsHorizontal
+} from '@irsyadadl/paranoid'
 import type {
   GridListItemProps,
   GridListProps,
   LabelProps,
-  LinkProps,
-} from 'react-aria-components';
-import { GridList, GridListItem, Link } from 'react-aria-components';
-import type { VariantProps } from 'tailwind-variants';
+  LinkProps
+} from 'react-aria-components'
+import { GridList, GridListItem, Link } from 'react-aria-components'
+import type { VariantProps } from 'tailwind-variants'
 
-import { buttonStyles } from './button';
-import { Label } from './field';
-import { cn } from './primitive';
-import { VisuallyHidden } from './visually-hidden';
+import { buttonStyles } from './button'
+import { Label } from './field'
+import { cn } from './primitive'
+import { VisuallyHidden } from './visually-hidden'
 
 const Pagination = ({ className, ...props }: React.ComponentProps<'nav'>) => (
   <nav
@@ -30,27 +30,31 @@ const Pagination = ({ className, ...props }: React.ComponentProps<'nav'>) => (
     className={cn('mx-auto flex w-full justify-center gap-1', className)}
     {...props}
   />
-);
+)
 
 const PaginationList = <T extends object>({ className, ...props }: GridListProps<T>) => {
-  return <GridList className={cn('flex flex-row items-center gap-1', className)} {...props} />;
-};
+  return (
+    <GridList className={cn('flex flex-row items-center gap-1', className)} {...props} />
+  )
+}
 
 const PaginationItem = ({ className, ...props }: GridListItemProps) => (
   <GridListItem className={className} {...props} />
-);
+)
 
-interface PaginationLinkProps extends Omit<LinkProps, 'id'>, VariantProps<typeof buttonStyles> {
-  isCurrent?: boolean;
-  className?: string;
+interface PaginationLinkProps
+  extends Omit<LinkProps, 'id'>,
+    VariantProps<typeof buttonStyles> {
+  isCurrent?: boolean
+  className?: string
 }
 
 const PaginationLink = ({
-                          className,
-                          isCurrent,
-                          size = 'square-petite',
-                          ...props
-                        }: PaginationLinkProps) => (
+  className,
+  isCurrent,
+  size = 'square-petite',
+  ...props
+}: PaginationLinkProps) => (
   <Link
     aria-current={isCurrent ? 'page' : undefined}
     isDisabled={isCurrent}
@@ -58,18 +62,18 @@ const PaginationLink = ({
       buttonStyles({
         appearance: isCurrent ? 'solid' : 'outline',
         size,
-        className: 'rounded-lg disabled:cursor-default disabled:opacity-100',
+        className: 'rounded-lg disabled:cursor-default disabled:opacity-100'
       }),
-      className,
+      className
     )}
     {...props}
   />
-);
+)
 
 const PaginationPrevious = ({
-                              className,
-                              ...props
-                            }: React.ComponentProps<typeof PaginationLink>) => (
+  className,
+  ...props
+}: React.ComponentProps<typeof PaginationLink>) => (
   <PaginationLink
     aria-label="Go to previous page"
     size="square-petite"
@@ -81,9 +85,12 @@ const PaginationPrevious = ({
 
     <span className="sr-only">Previous</span>
   </PaginationLink>
-);
+)
 
-const PaginationNext = ({ className, ...props }: React.ComponentProps<typeof PaginationLink>) => (
+const PaginationNext = ({
+  className,
+  ...props
+}: React.ComponentProps<typeof PaginationLink>) => (
   <PaginationLink
     aria-label="Go to next page"
     size="square-petite"
@@ -94,9 +101,12 @@ const PaginationNext = ({ className, ...props }: React.ComponentProps<typeof Pag
     <span className="sr-only">Next</span>
     <IconChevronLgRight />
   </PaginationLink>
-);
+)
 
-const PaginationLast = ({ className, ...props }: React.ComponentProps<typeof PaginationLink>) => (
+const PaginationLast = ({
+  className,
+  ...props
+}: React.ComponentProps<typeof PaginationLink>) => (
   <PaginationLink
     aria-label="Go to next page"
     size="square-petite"
@@ -106,9 +116,12 @@ const PaginationLast = ({ className, ...props }: React.ComponentProps<typeof Pag
     <span className="sr-only">Last</span>
     <IconChevronsLgRight />
   </PaginationLink>
-);
+)
 
-const PaginationFirst = ({ className, ...props }: React.ComponentProps<typeof PaginationLink>) => (
+const PaginationFirst = ({
+  className,
+  ...props
+}: React.ComponentProps<typeof PaginationLink>) => (
   <PaginationLink
     aria-label="Go to previous page"
     size="square-petite"
@@ -119,7 +132,7 @@ const PaginationFirst = ({ className, ...props }: React.ComponentProps<typeof Pa
 
     <span className="sr-only">First</span>
   </PaginationLink>
-);
+)
 
 const PaginationEllipsis = ({ className, ...props }: React.ComponentProps<'span'>) => (
   <span
@@ -127,10 +140,10 @@ const PaginationEllipsis = ({ className, ...props }: React.ComponentProps<'span'
     className={cn('flex size-9 items-center justify-center', className)}
     {...props}
   >
-        <IconDotsHorizontal />
-        <span className="sr-only">More pages</span>
-    </span>
-);
+    <IconDotsHorizontal />
+    <span className="sr-only">More pages</span>
+  </span>
+)
 
 const PaginationLabel = ({ className, ...props }: LabelProps) => (
   <Label
@@ -138,7 +151,7 @@ const PaginationLabel = ({ className, ...props }: LabelProps) => (
     className={cn('grid h-9 place-content-center px-3 text-sm font-normal', className)}
     {...props}
   />
-);
+)
 
 const PaginationSeparator = ({ className, ...props }: React.ComponentProps<'span'>) => (
   <span
@@ -146,9 +159,9 @@ const PaginationSeparator = ({ className, ...props }: React.ComponentProps<'span
     className={cn('mx-1 block h-5 w-px rotate-[14deg] self-center bg-border', className)}
     {...props}
   >
-        <VisuallyHidden>Divider</VisuallyHidden>
-    </span>
-);
+    <VisuallyHidden>Divider</VisuallyHidden>
+  </span>
+)
 
 export {
   Pagination,
@@ -161,5 +174,5 @@ export {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-  PaginationSeparator,
-};
+  PaginationSeparator
+}
