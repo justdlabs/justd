@@ -184,6 +184,11 @@
     "raw": "'use client'\n\nimport React from 'react'\n\nimport { Checkbox, Description } from 'ui'\n\nexport default function CheckboxControlledDemo() {\n  const [selected, setSelection] = React.useState(false)\n  return (\n    <>\n      <Checkbox isSelected={selected} onChange={setSelection} value=\"updates\">\n        Receive Updates\n      </Checkbox>\n      <Description className=\"mt-2 block [&>strong]:text-fg\">\n        You have <strong>{selected ? 'enabled' : 'disabled'}</strong> the option.\n      </Description>\n    </>\n  )\n}\n",
     "type": "docs"
   },
+  "forms/number-field-controlled-demo": {
+    "component": "@/components/docs/forms/number-field-controlled-demo",
+    "raw": "'use client'\n\nimport { Description, NumberField } from 'ui'\nimport React from 'react'\n\nexport default function NumberFieldControlledDemo() {\n  const [number, setNumber] = React.useState(1280)\n  return <div>\n    <NumberField label=\"Width\" value={number} onChange={setNumber} />\n\n    <Description className=\"mt-2 block [&>strong]:text-fg\">\n      You have typed: <strong>{number ?? '-'}</strong>\n    </Description>\n  </div>\n}\n",
+    "type": "docs"
+  },
   "forms/slider-controlled-demo": {
     "component": "@/components/docs/forms/slider-controlled-demo",
     "raw": "'use client'\n\nimport React from 'react'\n\nimport { Description, Slider } from 'ui'\n\nexport default function SearchFieldControlledDemo() {\n  const [temperature, setTemperature] = React.useState<number>(31)\n  const [saturation, setSaturation] = React.useState<number[]>([21, 86])\n  return (\n    <div className=\"space-y-6\">\n      <div>\n        <Slider\n          value={temperature}\n          onChange={(v) => setTemperature(v as number)}\n          label=\"Temperature\"\n        />\n        <Description className=\"mt-2 block [&>strong]:text-fg\">\n          Current temperature: <strong>{temperature ?? '-'}</strong>\n        </Description>\n      </div>\n      <div>\n        <Slider\n          value={saturation}\n          onChange={(v) => setSaturation(v as number[])}\n          label=\"Saturation\"\n        />\n        <Description className=\"mt-2 block [&>strong]:text-fg\">\n          Current saturation: <strong>{saturation ?? '-'}</strong>\n        </Description>\n      </div>\n    </div>\n  )\n}\n",
