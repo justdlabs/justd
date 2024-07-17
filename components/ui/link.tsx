@@ -16,7 +16,7 @@ const linkStyles = tv({
         'text-primary-600 hover:text-primary-500 dark:text-primary-500 dark:hover:text-primary-400 forced-colors:disabled:text-[GrayText]',
       'light/dark': 'text-fg hover:text-zinc-700 dark:hover:text-primary-400',
       secondary:
-        'text-zinc-700 underline decoration-zinc-700/50 hover:decoration-zinc-700 dark:text-zinc-300 dark:decoration-zinc-300/70 dark:hover:decoration-zinc-300'
+        'text-zinc-800 dark:text-zinc-300 hover:text-zinc-700 dark:hover:text-zinc-white'
     }
   },
   defaultVariants: {

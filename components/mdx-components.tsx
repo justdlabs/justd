@@ -31,6 +31,7 @@ export function MDXContent({ code }: MdxProps) {
   return (
     <Component
       components={{
+        InstallCommand: (props: InstallCommandProps) => <InstallCommand {...props} />,
         table: (props: TableProps) => (
           <Card className="not-prose">
             <Table {...props} />
@@ -43,7 +44,6 @@ export function MDXContent({ code }: MdxProps) {
         tr: TableRow,
         td: TableCell,
         Image,
-        InstallCommand: (props: InstallCommandProps) => <InstallCommand {...props} />,
         How: DocHow,
         a: (props: LinkProps) => (
           <Link

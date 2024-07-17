@@ -27,13 +27,13 @@ export default function Page() {
       <Container>
         <div className="py-6 sm:py-16">
           <div className="grid mb-6 lg:grid-cols-3 gap-6">
-            <Buttons />
             <LoginForm />
             <Menus />
             <Pickers />
             <PopoverOverlays />
             <ModalOverlays />
             <AvatarMedia />
+            <Buttons />
             <CardSink>
               <SwitchDemo />
             </CardSink>

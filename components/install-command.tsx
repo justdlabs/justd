@@ -2,12 +2,13 @@
 
 import React, { useEffect, useState } from 'react'
 
-import { CopyButton, Menu, MenuContent, MenuItem } from 'ui'
+import { CopyButton, Link, Menu, MenuContent, MenuItem } from 'ui'
 
 export interface InstallCommandProps {
   isAdd?: boolean
   isInstall?: boolean
   isInit?: boolean
+  isManual?: boolean
   items?: string[]
 }
 
@@ -15,6 +16,7 @@ const InstallCommand: React.FC<InstallCommandProps> = ({
   items = [],
   isAdd = false,
   isInstall = false,
+  isManual = false,
   isInit = false
 }) => {
   const addCommand = '@irsyadadl/d@latest add'
@@ -84,20 +86,43 @@ const InstallCommand: React.FC<InstallCommandProps> = ({
   }
 
   return (
-    <div className="not-prose relative flex items-center justify-between rounded-lg border bg-[#0e0e10] py-2.5 pl-4 pr-2.5 font-mono text-sm [&>svg]:text-zinc-400 [&>svg]:transition [&_svg]:shrink-0">
-      <code>{command}</code>
-      <div className="pl-3">
-        <Menu>
-          <CopyButton className="rounded-sm" ariaLabel={command} isCopied={isCopied} />
-          <MenuContent showArrow placement="bottom end">
-            <MenuItem onAction={() => handleAction('Bun')}>Bun</MenuItem>
-            <MenuItem onAction={() => handleAction('Yarn')}>Yarn</MenuItem>
-            <MenuItem onAction={() => handleAction('PNPM')}>PNPM</MenuItem>
-            <MenuItem onAction={() => handleAction('NPM')}>NPM</MenuItem>
-          </MenuContent>
-        </Menu>
+    <>
+      {isAdd && (
+        <p>
+          If you hit any snags, make sure you peep the installation guide{' '}
+          <Link
+            className="not-prose font-medium"
+            intent="primary"
+            href="/docs/getting-started/installation"
+            target="_blank"
+            rel="noreferrer"
+          >
+            here
+          </Link>
+          .
+        </p>
+      )}
+      {isManual && (
+        <p>
+          Sometimes, using the CLI is the way to roll, so make sure you install the
+          necessary dependencies for the components you wanna use.
+        </p>
+      )}
+      <div className="not-prose relative flex items-center justify-between rounded-lg border bg-[#0e0e10] py-2.5 pl-4 pr-2.5 text-white font-mono text-sm [&>svg]:text-zinc-400 [&>svg]:transition [&_svg]:shrink-0">
+        <code>{command}</code>
+        <div className="pl-3">
+          <Menu>
+            <CopyButton className="rounded-sm" ariaLabel={command} isCopied={isCopied} />
+            <MenuContent showArrow placement="bottom end">
+              <MenuItem onAction={() => handleAction('Bun')}>Bun</MenuItem>
+              <MenuItem onAction={() => handleAction('Yarn')}>Yarn</MenuItem>
+              <MenuItem onAction={() => handleAction('PNPM')}>PNPM</MenuItem>
+              <MenuItem onAction={() => handleAction('NPM')}>NPM</MenuItem>
+            </MenuContent>
+          </Menu>
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 
