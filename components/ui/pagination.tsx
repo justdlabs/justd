@@ -56,9 +56,6 @@ const PaginationLink = ({
   ...props
 }: PaginationLinkProps) => (
   <Link
-    routerOptions={{
-      scroll: false
-    }}
     aria-current={isActive ? 'page' : undefined}
     className={cn(
       buttonStyles({
