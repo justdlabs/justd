@@ -37,7 +37,7 @@ const dropdownItemStyles = tv({
     {
       isFocused: false,
       isOpen: true,
-      className: 'bg-gray-100 dark:bg-zinc-700/60'
+      className: 'bg-zinc-100 dark:bg-zinc-700/60'
     }
   ]
 })

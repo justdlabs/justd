@@ -16,6 +16,7 @@ import {
   Text,
   useLocale
 } from 'react-aria-components'
+import { twJoin } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
 
 import { Button } from './button'
@@ -23,15 +24,15 @@ import { focusRing } from './primitive'
 
 const cellStyles = tv({
   extend: focusRing,
-  base: 'flex size-10 lg:size-9 cursor-default items-center justify-center rounded-full lg:text-sm forced-color-adjust-none',
+  base: 'flex size-10 lg:size-9 cursor-default items-center justify-center font-medium rounded-full lg:text-sm forced-color-adjust-none',
   variants: {
     isSelected: {
       false:
-        'text-fg hover:bg-gray-100 pressed:bg-gray-200 dark:hover:bg-zinc-700 dark:pressed:bg-zinc-600',
+        'text-fg hover:bg-zinc-100 pressed:bg-zinc-200 dark:hover:bg-zinc-700 dark:pressed:bg-zinc-600',
       true: 'bg-primary text-primary-fg invalid:bg-danger invalid:text-danger-fg forced-colors:bg-[Highlight] forced-colors:text-[HighlightText] forced-colors:invalid:bg-[Mark]'
     },
     isDisabled: {
-      true: 'text-gray-300 dark:text-zinc-600 forced-colors:text-[GrayText]'
+      true: 'text-zinc-400 dark:text-zinc-500 forced-colors:text-[GrayText]'
     }
   }
 })
@@ -90,7 +91,7 @@ function CalendarGridHeader() {
   return (
     <CalendarGridHeaderPrimitive>
       {(day) => (
-        <CalendarHeaderCell className="text-sm lg:text-xs font-semibold text-gray-500">
+        <CalendarHeaderCell className="text-sm lg:text-xs font-semibold text-zinc-500">
           {day}
         </CalendarHeaderCell>
       )}
@@ -103,12 +104,12 @@ interface RangeCalendarProps<T extends DateValue>
   errorMessage?: string
 }
 
-const cell = tv({
+const cellRangeStyles = tv({
   extend: focusRing,
-  base: 'flex h-full w-full items-center justify-center rounded-full text-fg forced-color-adjust-none',
+  base: 'flex h-full w-full items-center  justify-center rounded-full font-medium forced-color-adjust-none',
   variants: {
     selectionState: {
-      none: 'group-hover:bg-gray-100 group-pressed:bg-gray-200 dark:group-hover:bg-zinc-700 dark:group-pressed:bg-zinc-600',
+      none: 'group-hover:bg-zinc-100 group-pressed:bg-zinc-200 dark:group-hover:bg-zinc-700 dark:group-pressed:bg-zinc-600',
       middle: [
         'group-hover:bg-primary-200 dark:group-hover:bg-primary-900 forced-colors:group-hover:bg-[Highlight]',
         'group-invalid:group-hover:bg-red-200 dark:group-invalid:group-hover:bg-red-900 forced-colors:group-invalid:group-hover:bg-[Mark]',
@@ -118,7 +119,7 @@ const cell = tv({
       cap: 'bg-primary text-primary-fg group-invalid:bg-danger group-invalid:text-danger-fg forced-colors:bg-[Highlight] forced-colors:text-[HighlightText] forced-colors:group-invalid:bg-[Mark]'
     },
     isDisabled: {
-      true: 'text-gray-300 dark:text-zinc-600 forced-colors:text-[GrayText]'
+      true: 'text-zinc-400 dark:text-zinc-500 forced-colors:text-[GrayText]'
     }
   }
 })
@@ -128,7 +129,7 @@ function RangeCalendar<T extends DateValue>({
   ...props
 }: RangeCalendarProps<T>) {
   return (
-    <RangeCalendarPrimitive {...props}>
+    <RangeCalendarPrimitive className="max-w-[16rem]" {...props}>
       <CalendarHeader />
       <CalendarGrid className="[&_td]:px-0">
         <CalendarGridHeader />
@@ -136,7 +137,12 @@ function RangeCalendar<T extends DateValue>({
           {(date) => (
             <CalendarCell
               date={date}
-              className="group size-9 cursor-default text-sm outline outline-0 outside-month:text-gray-300 selected:bg-primary-100 invalid:selected:bg-red-100 selection-start:rounded-s-full selection-end:rounded-e-full dark:selected:bg-primary-700/30 dark:invalid:selected:bg-red-700/30 forced-colors:selected:bg-[Highlight] forced-colors:invalid:selected:bg-[Mark] [td:first-child_&]:rounded-s-full [td:last-child_&]:rounded-e-full"
+              className={twJoin([
+                'group size-9 cursor-default text-sm outline outline-0 outside-month:text-zinc-300 selection-start:rounded-s-full selection-end:rounded-e-full forced-colors:selected:bg-[Highlight] forced-colors:invalid:selected:bg-[Mark]',
+                'selected:bg-primary/10 dark:selected:bg-primary-600/20 selected:text-primary-600 dark:selected:text-primary-500 forced-colors:selected:text-[HighlightText]',
+                '[td:first-child_&]:rounded-s-full [td:last-child_&]:rounded-e-full',
+                'invalid:selected:bg-red-100 dark:invalid:selected:bg-red-700/30'
+              ])}
             >
               {({
                 formattedDate,
@@ -146,7 +152,7 @@ function RangeCalendar<T extends DateValue>({
                 isDisabled
               }) => (
                 <span
-                  className={cell({
+                  className={cellRangeStyles({
                     selectionState:
                       isSelected && (isSelectionStart || isSelectionEnd)
                         ? 'cap'

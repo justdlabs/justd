@@ -1,6 +1,6 @@
 'use client'
 
-import { IconCalendar } from '@irsyadadl/paranoid'
+import { IconCalendarDays } from '@irsyadadl/paranoid'
 import {
   DatePicker as DatePickerPrimitive,
   type DatePickerProps as DatePickerPrimitiveProps,
@@ -43,7 +43,10 @@ function DatePicker<T extends DateValue>({
           appearance="plain"
           className="group mr-1 h-7 w-8 rounded outline-offset-0 hover:bg-transparent pressed:bg-transparent"
         >
-          <IconCalendar aria-hidden className="size-4 text-muted-fg group-open:text-fg" />
+          <IconCalendarDays
+            aria-hidden
+            className="size-4 text-muted-fg group-open:text-fg"
+          />
         </Button>
       </FieldGroup>
       {description && <Description>{description}</Description>}
@@ -83,7 +86,7 @@ function DateRangePicker<T extends DateValue>({
         />
         <span
           aria-hidden="true"
-          className="text-gray-800 group-disabled:text-gray-200 dark:text-zinc-200 group-disabled:dark:text-zinc-600 forced-colors:text-[ButtonText] group-disabled:forced-colors:text-[GrayText]"
+          className="text-zinc-800 group-disabled:text-zinc-200 dark:text-zinc-200 group-disabled:dark:text-zinc-600 forced-colors:text-[ButtonText] group-disabled:forced-colors:text-[GrayText]"
         >
           –
         </span>
@@ -96,7 +99,10 @@ function DateRangePicker<T extends DateValue>({
           appearance="plain"
           className="group mr-1 h-7 w-8 rounded outline-offset-0 hover:bg-transparent pressed:bg-transparent"
         >
-          <IconCalendar aria-hidden className="size-4 text-muted-fg group-open:text-fg" />
+          <IconCalendarDays
+            aria-hidden
+            className="size-4 text-muted-fg group-open:text-fg"
+          />
         </Button>
       </FieldGroup>
       {description && <Description>{description}</Description>}
