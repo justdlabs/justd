@@ -371,7 +371,7 @@
   },
   "buttons/file-trigger-demo": {
     "component": "@/components/docs/buttons/file-trigger-demo",
-    "raw": "'use client'\n\nimport React from 'react'\n\nimport { Description, FileTrigger } from 'ui'\n\nexport default function FileTriggerDemo() {\n  const [file, setFile] = React.useState<string[] | null>(null)\n  return (\n    <>\n      <FileTrigger\n        onSelect={(e) => {\n          const files = Array.from(e ?? [])\n          const filenames = files.map((file) => file.name)\n          setFile(filenames)\n        }}\n      />\n      {file && <Description>{file}</Description>}\n    </>\n  )\n}\n",
+    "raw": "'use client'\n\nimport React from 'react'\n\nimport { FileTrigger } from 'ui'\n\nexport default function FileTriggerDemo() {\n  return <FileTrigger />\n}\n",
     "type": "docs"
   },
   "buttons/button-icon-demo": {
@@ -382,6 +382,11 @@
   "buttons/toggle-button-demo": {
     "component": "@/components/docs/buttons/toggle-button-demo",
     "raw": "'use client'\n\nimport { ToggleButton } from 'ui'\n\nexport default function ToggleButtonDemo() {\n  return (\n    <ToggleButton>{({ isSelected }) => <>{isSelected ? 'Unpin' : 'Pin'}</>}</ToggleButton>\n  )\n}\n",
+    "type": "docs"
+  },
+  "buttons/file-trigger-controlled-demo": {
+    "component": "@/components/docs/buttons/file-trigger-controlled-demo",
+    "raw": "'use client'\n\nimport React from 'react'\n\nimport { Description, FileTrigger } from 'ui'\n\nexport default function FileTriggerDemo() {\n  const [file, setFile] = React.useState<string[] | null>(null)\n  return (\n    <>\n      <FileTrigger\n        onSelect={(e) => {\n          const files = Array.from(e ?? [])\n          const filenames = files.map((file) => file.name)\n          setFile(filenames)\n        }}\n      />\n      {file && (\n        <Description className=\"truncate max-w-60 [&>strong]:font-medium block [&>strong]:text-fg mt-2\">\n          Your file: <strong>{file}</strong>\n        </Description>\n      )}\n    </>\n  )\n}\n",
     "type": "docs"
   },
   "buttons/button-disabled-demo": {
@@ -422,6 +427,16 @@
   "buttons/button-appearance-demo": {
     "component": "@/components/docs/buttons/button-appearance-demo",
     "raw": "'use client'\n\nimport title from 'title'\nimport { Button, buttonStyles } from 'ui'\n\ntype Appearance = keyof typeof buttonStyles.variants.appearance\n\nexport default function ButtonAppearanceDemo() {\n  return (\n    <div className=\"flex flex-col gap-2 md:flex-row md:flex-wrap\">\n      {Object.keys(buttonStyles.variants.appearance).map((appearance) => (\n        <div key={appearance}>\n          <Button appearance={appearance as Appearance}>{title(appearance)}</Button>\n        </div>\n      ))}\n    </div>\n  )\n}\n",
+    "type": "docs"
+  },
+  "buttons/toggle-button-disabled-demo": {
+    "component": "@/components/docs/buttons/toggle-button-disabled-demo",
+    "raw": "'use client'\n\nimport React from 'react'\n\nimport { IconPin, IconUnpin } from '@irsyadadl/paranoid'\nimport { ToggleButton } from 'ui'\n\nexport default function ToggleButtonDisabledDemo() {\n  return (\n    <ToggleButton isDisabled>\n      {({ isSelected }) => <>{isSelected ? <IconUnpin /> : <IconPin />}</>}\n    </ToggleButton>\n  )\n}\n",
+    "type": "docs"
+  },
+  "buttons/toggle-button-controlled-demo": {
+    "component": "@/components/docs/buttons/toggle-button-controlled-demo",
+    "raw": "'use client'\n\nimport React from 'react'\n\nimport { IconPin, IconUnpin } from '@irsyadadl/paranoid'\nimport { ToggleButton } from 'ui'\n\nexport default function ToggleButtonControlledDemo() {\n  const [isSelected, setSelected] = React.useState(false)\n  return (\n    <ToggleButton isSelected={isSelected} onChange={setSelected}>\n      {({ isSelected }) => <>{isSelected ? <IconUnpin /> : <IconPin />}</>}\n    </ToggleButton>\n  )\n}\n",
     "type": "docs"
   },
   "overlays/modal-triggered-by-menu-demo": {
