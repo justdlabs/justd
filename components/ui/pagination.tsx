@@ -27,7 +27,7 @@ const Pagination = ({ className, ...props }: React.ComponentProps<'nav'>) => (
   <nav
     role="navigation"
     aria-label="pagination"
-    className={cn('mx-auto flex w-full justify-center', className)}
+    className={cn('mx-auto flex w-full gap-1 justify-center', className)}
     {...props}
   />
 )
@@ -39,27 +39,27 @@ const PaginationList = <T extends object>({ className, ...props }: GridListProps
 }
 
 const PaginationItem = ({ className, ...props }: GridListItemProps) => (
-  <GridListItem className={cn(className)} {...props} />
+  <GridListItem className={className} {...props} />
 )
 
 interface PaginationLinkProps
   extends Omit<LinkProps, 'id'>,
     VariantProps<typeof buttonStyles> {
-  isActive?: boolean
+  isCurrent?: boolean
   className?: string
 }
 
 const PaginationLink = ({
   className,
-  isActive,
+  isCurrent,
   size = 'square-petite',
   ...props
 }: PaginationLinkProps) => (
   <Link
-    aria-current={isActive ? 'page' : undefined}
+    aria-current={isCurrent ? 'page' : undefined}
     className={cn(
       buttonStyles({
-        appearance: isActive ? 'solid' : 'outline',
+        appearance: isCurrent ? 'solid' : 'outline',
         size,
         className: 'rounded-lg'
       }),
@@ -77,7 +77,7 @@ const PaginationPrevious = ({
     aria-label="Go to previous page"
     size="square-petite"
     slot="previous"
-    className={cn('gap-1', className)}
+    className={className}
     {...props}
   >
     <IconChevronLgLeft />
@@ -94,7 +94,7 @@ const PaginationNext = ({
     aria-label="Go to next page"
     size="square-petite"
     slot="next"
-    className={cn('gap-1', className)}
+    className={className}
     {...props}
   >
     <span className="sr-only">Next</span>
@@ -109,7 +109,7 @@ const PaginationLast = ({
   <PaginationLink
     aria-label="Go to next page"
     size="square-petite"
-    className={cn('gap-1', className)}
+    className={className}
     {...props}
   >
     <span className="sr-only">Last</span>
@@ -124,7 +124,7 @@ const PaginationFirst = ({
   <PaginationLink
     aria-label="Go to previous page"
     size="square-petite"
-    className={cn('gap-1', className)}
+    className={className}
     {...props}
   >
     <IconChevronsLgLeft />
@@ -139,7 +139,7 @@ const PaginationEllipsis = ({ className, ...props }: React.ComponentProps<'span'
     className={cn('flex size-9 items-center justify-center', className)}
     {...props}
   >
-    <IconDotsHorizontal className="size-4" />
+    <IconDotsHorizontal />
     <span className="sr-only">More pages</span>
   </span>
 )
