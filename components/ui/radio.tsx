@@ -6,7 +6,7 @@ import {
   Radio as RadioPrimitive,
   RadioGroup as RadioGroupPrimitive,
   type RadioGroupProps as RACRadioGroupProps,
-  type RadioProps,
+  type RadioProps as RadioPrimitiveProps,
   type ValidationResult
 } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
@@ -28,7 +28,7 @@ const RadioGroup = (props: RadioGroupProps) => {
       className={ctr(props.className, 'group flex flex-col gap-2')}
     >
       <Label>{props.label}</Label>
-      <div className="flex gap-2 group-orientation-horizontal:gap-4 group-orientation-vertical:flex-col">
+      <div className="flex gap-2 group-orientation-horizontal:flex-wrap group-orientation-horizontal:gap-2 sm:group-orientation-horizontal:gap-4 group-orientation-vertical:flex-col">
         {props.children}
       </div>
       {props.description && <Description>{props.description}</Description>}
@@ -38,7 +38,7 @@ const RadioGroup = (props: RadioGroupProps) => {
 }
 
 const radioStyles = tv({
-  base: 'size-4 rounded-full border bg-secondary transition',
+  base: 'size-4 shrink-0 rounded-full border bg-secondary transition',
   variants: {
     isSelected: {
       false: 'border-toggle',
@@ -59,22 +59,36 @@ const radioStyles = tv({
   }
 })
 
-const Radio = (props: RadioProps) => {
+interface RadioProps extends RadioPrimitiveProps {
+  description?: string
+}
+
+const Radio = ({ description, ...props }: RadioProps) => {
   return (
-    <RadioPrimitive
-      {...props}
-      className={ctr(
-        props.className,
-        'group flex items-center gap-2 text-sm text-fg transition disabled:text-fg/50 forced-colors:disabled:text-[GrayText]'
-      )}
-    >
-      {(renderProps) => (
-        <>
-          <div className={radioStyles(renderProps)} />
-          {props.children}
-        </>
-      )}
-    </RadioPrimitive>
+    <>
+      <RadioPrimitive
+        {...props}
+        className={ctr(
+          props.className,
+          'group flex items-center gap-2 text-sm text-fg transition disabled:text-fg/50 forced-colors:disabled:text-[GrayText]'
+        )}
+      >
+        {(renderProps) => (
+          <div className="flex gap-2">
+            <div
+              className={radioStyles({
+                ...renderProps,
+                className: description ? 'mt-1' : 'mt-0.5'
+              })}
+            />
+            <div>
+              <>{props.children}</>
+              {description && <Description className="block">{description}</Description>}
+            </div>
+          </div>
+        )}
+      </RadioPrimitive>
+    </>
   )
 }
 

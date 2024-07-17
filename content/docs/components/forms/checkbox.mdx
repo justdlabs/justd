@@ -3,6 +3,7 @@ title: "Checkbox"
 description: Click to check or uncheck, like making a choice on a quiz, simple and straightforward for quick decisions.
 order: 8
 published: true
+status: updated
 references: ["https://react-spectrum.adobe.com/react-aria/Checkbox.html#props"]
 ---
 
@@ -13,26 +14,45 @@ A little box you can tick to select an option. It's either on or off.
 <How toUse="forms/checkbox-demo" />
 
 ## Installation
-<Default items={['checkbox']}/>
+<InstallCommand isAdd items={['checkbox']}/>
 
 ## Manual Installation
 
-<ManualInstall items={['react-aria-components']}/>
+<InstallCommand isInstall isManual items={['react-aria-components']}/>
 
 <SourceCode toShow={['checkbox', 'field']}/>
-
-## Checkbox Group
-A bunch of checkboxes together, letting you pick multiple options at once.
-<How toUse="forms/checkbox-group-demo" />
 
 ## Controlled
 You can control the checkbox value with the `value` prop.
 <How minW72 toUse="forms/checkbox-controlled-demo" />
 
-## Disabled
-Checkbox is disabled.
-<How toUse="forms/checkbox-disabled-demo" />
+## Without Label
+The label's optional, homie. Just ditch it, and you're all set.
+
+## Description
+You can add a description to the checkbox group by passing the `description` prop.
+<How minW72 toUse="forms/checkbox-description-demo" />
 
 ## Invalid
 Checkbox is in an error state.
 <How toUse="forms/checkbox-invalid-demo" />
+
+## Disabled
+Checkbox is disabled.
+<How toUse="forms/checkbox-disabled-demo" />
+
+## Group
+A bunch of checkboxes together, letting you pick multiple options at once.
+<How toUse="forms/checkbox-group-demo" />
+
+### Group Controlled
+You can control the checkbox group value with the `value` prop.
+<How minW72 toUse="forms/checkbox-group-controlled-demo" />
+
+### Group Description
+You can add a description to the checkbox group by passing the `description` prop.
+<How minW72 toUse="forms/checkbox-group-description-demo" />
+
+### Group Disabled
+You can disable the checkbox group by passing the `isDisabled` prop.
+<How minW72 toUse="forms/checkbox-group-disabled-demo" />

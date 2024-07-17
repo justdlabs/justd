@@ -49,7 +49,7 @@ const buttonStyles = tv(
           '[--btn-icon:theme(colors.zinc.400)] active:[--btn-icon:theme(colors.zinc.500)] hover:[--btn-icon:theme(colors.zinc.500)]'
         ],
         info: [
-          'text-lime-950 [--btn-bg:theme(colors.info.DEFAULT)] [--btn-border:theme(colors.lime.400/80%)] [--btn-hover-overlay:theme(colors.white/25%)]',
+          'text-lime-950 [--btn-bg:theme(colors.lime.400)] [--btn-border:theme(colors.lime.400/80%)] [--btn-hover-overlay:theme(colors.white/25%)]',
           '[--btn-icon:theme(colors.lime.600)] active:[--btn-icon:theme(colors.lime.700)] hover:[--btn-icon:theme(colors.lime.700)]'
         ],
         warning: [

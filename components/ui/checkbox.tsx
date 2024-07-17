@@ -6,7 +6,7 @@ import {
   Checkbox as CheckboxPrimitive,
   CheckboxGroup as CheckboxGroupPrimitive,
   type CheckboxGroupProps as CheckboxGroupPrimitiveProps,
-  type CheckboxProps,
+  type CheckboxProps as CheckboxPrimitiveProps,
   composeRenderProps,
   type ValidationResult
 } from 'react-aria-components'
@@ -29,8 +29,10 @@ const CheckboxGroup = (props: CheckboxGroupProps) => {
       className={ctr(props.className, 'flex flex-col gap-2')}
     >
       <Label>{props.label}</Label>
-      {props.children}
-      {props.description && <Description>{props.description}</Description>}
+      <>{props.children}</>
+      {props.description && (
+        <Description className="block">{props.description}</Description>
+      )}
       <FieldError>{props.errorMessage}</FieldError>
     </CheckboxGroupPrimitive>
   )
@@ -67,6 +69,11 @@ const boxStyles = tv({
     }
   }
 })
+
+interface CheckboxProps extends CheckboxPrimitiveProps {
+  description?: string
+}
+
 const Checkbox = (props: CheckboxProps) => {
   return (
     <CheckboxPrimitive
@@ -76,10 +83,11 @@ const Checkbox = (props: CheckboxProps) => {
       )}
     >
       {({ isSelected, isIndeterminate, ...renderProps }) => (
-        <>
+        <div className="flex gap-2">
           <div
             className={boxStyles({
               isSelected: isSelected || isIndeterminate,
+              className: props.description ? 'mt-1' : 'mt-0.5',
               ...renderProps
             })}
           >
@@ -115,8 +123,10 @@ const Checkbox = (props: CheckboxProps) => {
               </svg>
             ) : null}
           </div>
-          {props.children}
-        </>
+
+          <>{props.children}</>
+          {props.description && <Description>{props.description}</Description>}
+        </div>
       )}
     </CheckboxPrimitive>
   )

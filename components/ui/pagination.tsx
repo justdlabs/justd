@@ -27,7 +27,7 @@ const Pagination = ({ className, ...props }: React.ComponentProps<'nav'>) => (
   <nav
     role="navigation"
     aria-label="pagination"
-    className={cn('mx-auto flex w-full gap-1 justify-center', className)}
+    className={cn('mx-auto flex w-full justify-center gap-1', className)}
     {...props}
   />
 )
@@ -57,11 +57,12 @@ const PaginationLink = ({
 }: PaginationLinkProps) => (
   <Link
     aria-current={isCurrent ? 'page' : undefined}
+    isDisabled={isCurrent}
     className={cn(
       buttonStyles({
         appearance: isCurrent ? 'solid' : 'outline',
         size,
-        className: 'rounded-lg'
+        className: 'rounded-lg disabled:cursor-default disabled:opacity-100'
       }),
       className
     )}
@@ -155,7 +156,7 @@ const PaginationLabel = ({ className, ...props }: LabelProps) => (
 const PaginationSeparator = ({ className, ...props }: React.ComponentProps<'span'>) => (
   <span
     aria-hidden
-    className={cn('mx-1 h-5 w-px rotate-[14deg] bg-border block self-center', className)}
+    className={cn('mx-1 block h-5 w-px rotate-[14deg] self-center bg-border', className)}
     {...props}
   >
     <VisuallyHidden>Divider</VisuallyHidden>

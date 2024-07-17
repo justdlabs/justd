@@ -1,16 +1,16 @@
-import { DefaultInstallation } from '@/components/default-installation'
+import type { DocSnippetProps } from '@/components/doc-snippet'
+import { DocSnippet } from '@/components/doc-snippet'
 import { DocsNote } from '@/components/docs-note'
 import { PlainCode } from '@/components/docs/rehype/plain-code'
 import { SourceCode } from '@/components/docs/rehype/source-code'
-import { ManualInstallation } from '@/components/manual-installation'
+import type { InstallCommandProps } from '@/components/install-command'
+import { InstallCommand } from '@/components/install-command'
 import { useMDXComponent } from '@/lib/hooks/use-mdx'
 import Image from 'next/image'
 import {
   Card,
   Link,
   type LinkProps,
-  Snippet,
-  type SnippetProps,
   Table,
   TableBody,
   TableCell,
@@ -31,6 +31,7 @@ export function MDXContent({ code }: MdxProps) {
   return (
     <Component
       components={{
+        InstallCommand: (props: InstallCommandProps) => <InstallCommand {...props} />,
         table: (props: TableProps) => (
           <Card className="not-prose">
             <Table {...props} />
@@ -43,8 +44,6 @@ export function MDXContent({ code }: MdxProps) {
         tr: TableRow,
         td: TableCell,
         Image,
-        Default: DefaultInstallation,
-        ManualInstall: ManualInstallation,
         How: DocHow,
         a: (props: LinkProps) => (
           <Link
@@ -56,9 +55,7 @@ export function MDXContent({ code }: MdxProps) {
         ),
         SourceCode: SourceCode,
         PlainCode: PlainCode,
-        Snippet: (props: SnippetProps) => (
-          <Snippet {...props} className="bg-[#0e0e10] text-white" />
-        )
+        Snippet: (props: DocSnippetProps) => <DocSnippet {...props} />
       }}
     />
   )
