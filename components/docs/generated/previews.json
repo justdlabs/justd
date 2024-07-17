@@ -496,7 +496,7 @@
   },
   "navigation/tabs-link-demo": {
     "component": "@/components/docs/navigation/tabs-link-demo",
-    "raw": "'use client'\n\nimport { Tab, TabList, Tabs } from 'ui'\n\nconst navs = [\n  { url: '/', label: 'Home' },\n  { url: '/docs/getting-started/introduction', label: 'Docs' },\n  { url: '/components', label: 'Components' },\n  { url: 'https://paranoid.irsyad.co', label: 'Paranoid' }\n]\n\nexport default function TabsLinkDemo() {\n  return (\n    <Tabs aria-label=\"Recipe App\">\n      <TabList items={navs}>\n        {(item) => (\n          <Tab id={item.label} href={item.url}>\n            {item.label}\n          </Tab>\n        )}\n      </TabList>\n    </Tabs>\n  )\n}\n",
+    "raw": "'use client'\n\nimport { Tab, TabList, Tabs } from 'ui'\n\nconst navs = [\n  { url: '/', label: 'Home' },\n  { url: '/docs/getting-started/introduction', label: 'Docs' },\n  { url: '/components', label: 'Components' },\n  { url: 'https://paranoid.irsyad.co', label: 'Paranoid' }\n]\n\nexport default function TabsLinkDemo() {\n  return (\n    <Tabs aria-label=\"Navbar\">\n      <TabList items={navs}>\n        {(item) => (\n          <Tab id={item.label} href={item.url}>\n            {item.label}\n          </Tab>\n        )}\n      </TabList>\n    </Tabs>\n  )\n}\n",
     "type": "docs"
   },
   "navigation/tabs-collections-demo": {
@@ -837,6 +837,11 @@
   "statuses/note-demo": {
     "component": "@/components/docs/statuses/note-demo",
     "raw": "'use client'\n\nimport React from 'react'\n\nimport { OptionPreview } from '@/components/docs/outside/option-preview'\nimport { Note, Select, SelectItem } from 'ui'\n\nconst notes = ['info', 'primary', 'secondary', 'warning', 'danger', 'success'].map(\n  (n) => ({\n    name: n\n  })\n)\nexport default function NoteDemo() {\n  const [selected, setSelected] = React.useState<any>('primary')\n  return (\n    <>\n      <OptionPreview>\n        <Select\n          className=\"[&_button]:h-9\"\n          selectedKey={selected}\n          onSelectionChange={setSelected}\n          placeholder=\"Choose an intent\"\n          items={notes}\n        >\n          {(item) => (\n            <SelectItem id={item.name} textValue={item.name}>\n              {item.name}\n            </SelectItem>\n          )}\n        </Select>\n      </OptionPreview>\n      <div className=\"max-w-md\">\n        <Note intent={selected as any}>\n          We hook you up with top-tier migration services in our startup plan. Wanna roll\n          with it? Hit us up here.\n        </Note>\n      </div>\n    </>\n  )\n}\n",
+    "type": "docs"
+  },
+  "statuses/badge-intent-demo": {
+    "component": "@/components/docs/statuses/badge-intent-demo",
+    "raw": "'use client'\n\nimport { Badge } from 'ui'\n\nexport default function BadgeIntentDemo() {\n  return (\n    <div className=\"flex flex-wrap gap-2\">\n      {[\n        'primary',\n        'secondary',\n        'success',\n        'info',\n        'warning',\n        'danger',\n        'light',\n        'dark',\n        'light/dark'\n      ].map((intent, index) => (\n        <Badge key={index} intent={intent as any}>\n          {intent}\n        </Badge>\n      ))}\n    </div>\n  )\n}\n",
     "type": "docs"
   },
   "statuses/meter-demo": {
