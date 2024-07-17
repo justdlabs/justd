@@ -32,7 +32,7 @@ const cellStyles = tv({
       true: 'bg-primary text-primary-fg invalid:bg-danger invalid:text-danger-fg forced-colors:bg-[Highlight] forced-colors:text-[HighlightText] forced-colors:invalid:bg-[Mark]'
     },
     isDisabled: {
-      true: 'text-zinc-400 dark:text-zinc-500 forced-colors:text-[GrayText]'
+      true: 'text-zinc-400 dark:text-zinc-600 forced-colors:text-[GrayText]'
     }
   }
 })
@@ -106,10 +106,10 @@ interface RangeCalendarProps<T extends DateValue>
 
 const cellRangeStyles = tv({
   extend: focusRing,
-  base: 'flex h-full w-full items-center  justify-center rounded-full font-medium forced-color-adjust-none',
+  base: 'flex h-full w-full items-center font-medium justify-center rounded-full forced-color-adjust-none',
   variants: {
     selectionState: {
-      none: 'group-hover:bg-zinc-100 group-pressed:bg-zinc-200 dark:group-hover:bg-zinc-700 dark:group-pressed:bg-zinc-600',
+      none: 'group-hover:bg-gray-100 group-pressed:bg-gray-200 dark:group-hover:bg-zinc-700 dark:group-pressed:bg-zinc-600 forced-colors:group-pressed:bg-[Highlight]',
       middle: [
         'group-hover:bg-primary-200 dark:group-hover:bg-primary-900 forced-colors:group-hover:bg-[Highlight]',
         'group-invalid:group-hover:bg-red-200 dark:group-invalid:group-hover:bg-red-900 forced-colors:group-invalid:group-hover:bg-[Mark]',
@@ -119,7 +119,7 @@ const cellRangeStyles = tv({
       cap: 'bg-primary text-primary-fg group-invalid:bg-danger group-invalid:text-danger-fg forced-colors:bg-[Highlight] forced-colors:text-[HighlightText] forced-colors:group-invalid:bg-[Mark]'
     },
     isDisabled: {
-      true: 'text-zinc-400 dark:text-zinc-500 forced-colors:text-[GrayText]'
+      true: 'text-gray-300 dark:text-zinc-600 forced-colors:text-[GrayText]'
     }
   }
 })
@@ -129,7 +129,7 @@ function RangeCalendar<T extends DateValue>({
   ...props
 }: RangeCalendarProps<T>) {
   return (
-    <RangeCalendarPrimitive className="max-w-[16rem]" {...props}>
+    <RangeCalendarPrimitive {...props}>
       <CalendarHeader />
       <CalendarGrid className="[&_td]:px-0">
         <CalendarGridHeader />

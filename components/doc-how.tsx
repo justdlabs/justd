@@ -35,7 +35,7 @@ export function DocHow({
   // @ts-ignore
   const codeString = jsonPreviews[toUse].raw ?? ''
   return (
-    <div className={cn('group not-prose relative my-4', className)} {...props}>
+    <div className={cn('not-prose relative my-4', className)} {...props}>
       <Tabs aria-label="Packages">
         <TabList>
           <Tab id="preview">Preview</Tab>
@@ -57,7 +57,7 @@ export function DocHow({
                 </div>
               }
             >
-              <div className={cn(minW72 && 'min-w-72', className)}>
+              <div className={cn(minW72 && 'min-w-72', 'not-prose', className)}>
                 <Preview />
               </div>
             </React.Suspense>
