@@ -35,7 +35,7 @@ export default function PaginationDynamicDemo() {
           <PaginationList items={pages}>
             {(item) => (
               <PaginationItem id={item.value.toString()}>
-                <PaginationLink isActive={item.value === 4} href="#">
+                <PaginationLink isCurrent={item.value === 4} href="#">
                   {item.value}
                 </PaginationLink>
               </PaginationItem>
