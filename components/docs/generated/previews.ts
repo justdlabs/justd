@@ -98,6 +98,12 @@ export const previews: Record<string, any> = {
   "forms/textarea-demo": {
     component: React.lazy(() => import("@/components/docs/forms/textarea-demo")),
   },
+  "forms/checkbox-description-demo": {
+    component: React.lazy(() => import("@/components/docs/forms/checkbox-description-demo")),
+  },
+  "forms/checkbox-group-description-demo": {
+    component: React.lazy(() => import("@/components/docs/forms/checkbox-group-description-demo")),
+  },
   "forms/number-field-invalid-demo": {
     component: React.lazy(() => import("@/components/docs/forms/number-field-invalid-demo")),
   },
@@ -143,6 +149,9 @@ export const previews: Record<string, any> = {
   "forms/input-otp-demo": {
     component: React.lazy(() => import("@/components/docs/forms/input-otp-demo")),
   },
+  "forms/radio-group-orientation-demo": {
+    component: React.lazy(() => import("@/components/docs/forms/radio-group-orientation-demo")),
+  },
   "forms/text-field-demo": {
     component: React.lazy(() => import("@/components/docs/forms/text-field-demo")),
   },
@@ -173,6 +182,9 @@ export const previews: Record<string, any> = {
   "forms/checkbox-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/forms/checkbox-disabled-demo")),
   },
+  "forms/radio-group-description-demo": {
+    component: React.lazy(() => import("@/components/docs/forms/radio-group-description-demo")),
+  },
   "forms/switch-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/forms/switch-controlled-demo")),
   },
@@ -188,8 +200,17 @@ export const previews: Record<string, any> = {
   "forms/text-field-suffix-button-demo": {
     component: React.lazy(() => import("@/components/docs/forms/text-field-suffix-button-demo")),
   },
+  "forms/radio-group-children-description-demo": {
+    component: React.lazy(() => import("@/components/docs/forms/radio-group-children-description-demo")),
+  },
+  "forms/checkbox-group-disabled-demo": {
+    component: React.lazy(() => import("@/components/docs/forms/checkbox-group-disabled-demo")),
+  },
   "forms/switch-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/forms/switch-disabled-demo")),
+  },
+  "forms/checkbox-group-controlled-demo": {
+    component: React.lazy(() => import("@/components/docs/forms/checkbox-group-controlled-demo")),
   },
   "forms/search-field-validation-demo": {
     component: React.lazy(() => import("@/components/docs/forms/search-field-validation-demo")),

@@ -4,9 +4,9 @@ import React from 'react'
 
 import { Checkbox, CheckboxGroup } from 'ui'
 
-export default function CheckboxGroupDemo() {
+export default function CheckboxDisabledDemo() {
   return (
-    <CheckboxGroup label="Settings">
+    <CheckboxGroup isDisabled label="Settings">
       <Checkbox value="notifications">Enable notifications</Checkbox>
       <Checkbox value="auto_update">Auto-update applications</Checkbox>
       <Checkbox value="dark_mode">Enable dark mode</Checkbox>
