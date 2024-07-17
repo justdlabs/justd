@@ -1,39 +1,25 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
-import { snippetClassName } from '@/components/doc-snippet'
-import { IconCheck, IconDuplicate } from '@irsyadadl/paranoid'
-import {
-  Button,
-  CopyButton,
-  Menu,
-  MenuContent,
-  MenuItem,
-  Snippet,
-  Tab,
-  TabList,
-  TabPanel,
-  Tabs
-} from 'ui'
+import { CopyButton, Menu, MenuContent, MenuItem } from 'ui'
 
-interface InstallProps {
-  items?: string[]
+export const snippetClassName =
+  'not-prose relative flex items-center justify-between rounded-lg border bg-[#0e0e10] py-2.5 pl-3 pr-2.5 font-mono text-sm [&>svg]:text-zinc-400 [&>svg]:transition [&_svg]:shrink-0'
+export interface DocSnippetProps extends React.HTMLAttributes<HTMLDivElement> {
+  text: string
 }
-
-const DefaultInstallation: React.FC<InstallProps> = ({
-  items = ['react-aria-components']
-}) => {
-  const commandArgs = `@irsyadadl/d@latest add ${items.join(' ')}`
-  const [commandPrefix, setCommandPrefix] = useState('npx')
+export function DocSnippet({ text }: DocSnippetProps) {
+  const initialCommandArgs = text.split(' ').slice(1).join(' ') // Strip the initial 'npx' or any other prefix
+  const [command, setCommand] = useState(text)
   const [isCopied, setIsCopied] = useState(false)
 
   useEffect(() => {
     let timer: NodeJS.Timeout
     if (isCopied) {
-      timer = setTimeout(() => setIsCopied(false), 2000)
+      timer = setTimeout(() => setIsCopied(false), 2000) // Reset the copied state after 2 seconds
     }
-    return () => clearTimeout(timer)
+    return () => clearTimeout(timer) // Cleanup the timeout
   }, [isCopied])
 
   const copyToClipboard = (textToCopy: string) => {
@@ -55,14 +41,15 @@ const DefaultInstallation: React.FC<InstallProps> = ({
       NPM: 'npx'
     }
     // @ts-ignore
-    setCommandPrefix(commandMap[tool])
-    // @ts-ignore
-    copyToClipboard(`${commandMap[tool]} ${commandArgs}`)
+    const newPrefix: any = commandMap[tool]
+    const newCommand = `${newPrefix} ${initialCommandArgs}`
+    setCommand(newCommand)
+    copyToClipboard(newCommand)
   }
 
   return (
     <div className={snippetClassName}>
-      <code>{`${commandPrefix} ${commandArgs}`}</code>
+      <code>{command}</code>
       <div className="pl-3">
         <Menu>
           <CopyButton isCopied={isCopied} />
@@ -77,5 +64,3 @@ const DefaultInstallation: React.FC<InstallProps> = ({
     </div>
   )
 }
-
-export { DefaultInstallation }

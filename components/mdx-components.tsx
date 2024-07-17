@@ -1,4 +1,6 @@
 import { DefaultInstallation } from '@/components/default-installation'
+import type { DocSnippetProps } from '@/components/doc-snippet'
+import { DocSnippet } from '@/components/doc-snippet'
 import { DocsNote } from '@/components/docs-note'
 import { PlainCode } from '@/components/docs/rehype/plain-code'
 import { SourceCode } from '@/components/docs/rehype/source-code'
@@ -9,8 +11,6 @@ import {
   Card,
   Link,
   type LinkProps,
-  Snippet,
-  type SnippetProps,
   Table,
   TableBody,
   TableCell,
@@ -56,9 +56,7 @@ export function MDXContent({ code }: MdxProps) {
         ),
         SourceCode: SourceCode,
         PlainCode: PlainCode,
-        Snippet: (props: SnippetProps) => (
-          <Snippet {...props} className="bg-[#0e0e10] text-white" />
-        )
+        Snippet: (props: DocSnippetProps) => <DocSnippet {...props} />
       }}
     />
   )

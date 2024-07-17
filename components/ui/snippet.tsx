@@ -39,7 +39,7 @@ const Snippet: React.FC<SnippetProps> = ({ className, text, ...props }) => {
     <div
       {...props}
       className={twMerge(
-        'relative flex items-center justify-between rounded-lg border bg-tertiary py-2.5 pl-3 pr-2.5 font-mono text-sm [&>svg:hover]:text-fg [&>svg]:text-muted-fg [&>svg]:transition [&_svg]:shrink-0',
+        'relative flex items-center justify-between rounded-lg border bg-[#0e0e10] py-2.5 pl-3 pr-2.5 font-mono text-sm [&>svg:hover]:text-whi [&>svg]:text-muted-fg [&>svg]:transition [&_svg]:shrink-0',
         className
       )}
     >
