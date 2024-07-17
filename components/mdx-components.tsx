@@ -1,10 +1,10 @@
-import { DefaultInstallation } from '@/components/default-installation'
 import type { DocSnippetProps } from '@/components/doc-snippet'
 import { DocSnippet } from '@/components/doc-snippet'
 import { DocsNote } from '@/components/docs-note'
 import { PlainCode } from '@/components/docs/rehype/plain-code'
 import { SourceCode } from '@/components/docs/rehype/source-code'
-import { ManualInstallation } from '@/components/manual-installation'
+import type { InstallCommandProps } from '@/components/install-command'
+import { InstallCommand } from '@/components/install-command'
 import { useMDXComponent } from '@/lib/hooks/use-mdx'
 import Image from 'next/image'
 import {
@@ -43,8 +43,7 @@ export function MDXContent({ code }: MdxProps) {
         tr: TableRow,
         td: TableCell,
         Image,
-        Default: DefaultInstallation,
-        ManualInstall: ManualInstallation,
+        InstallCommand: (props: InstallCommandProps) => <InstallCommand {...props} />,
         How: DocHow,
         a: (props: LinkProps) => (
           <Link

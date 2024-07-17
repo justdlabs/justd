@@ -32,7 +32,7 @@ Astro supports inline scripts, so we can get localStorage and set the theme.
 ```
 
 ## Theme Switcher
-<ManualInstall items={['@irsyadadl/paranoid']} />
+<InstallCommand isInstall items={['@irsyadadl/paranoid']} />
 ```tsx
 export function ThemeSwitcher() {
   const [theme, setThemeState] = React.useState< "theme-light" | "dark" | "system" >("theme-light")

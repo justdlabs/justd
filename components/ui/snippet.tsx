@@ -2,6 +2,7 @@
 
 import * as React from 'react'
 
+import { cn } from '@/components/ui/primitive'
 import { IconCheck, IconDuplicate } from '@irsyadadl/paranoid'
 import { AnimatePresence, motion } from 'framer-motion'
 import { toast } from 'sonner'
@@ -84,6 +85,7 @@ interface CopyButtonProps extends ButtonProps {
   ariaLabel?: string
   initialIcon?: React.ReactNode
   copiedIcon?: React.ReactNode
+  className?: string
 }
 
 const CopyButton = ({
@@ -91,11 +93,15 @@ const CopyButton = ({
   copiedIcon,
   ariaLabel = 'Copy',
   isCopied,
+  className,
   ...props
 }: CopyButtonProps) => {
   return (
     <Button
-      className="size-7 backdrop-blur-lg text-white bg-zinc-800 border hover:bg-zinc-700 border-zinc-700"
+      className={cn(
+        'size-7 backdrop-blur-lg text-white bg-zinc-800 border hover:bg-zinc-700 border-zinc-700',
+        className
+      )}
       aria-label={ariaLabel}
       size="square-petite"
       appearance="outline"
