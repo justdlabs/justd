@@ -17,10 +17,7 @@ function Breadcrumbs<T extends object>(props: BreadcrumbsProps<T>) {
 
 function Breadcrumb(props: BreadcrumbProps & LinkProps) {
   return (
-    <BreadcrumbPrimitive
-      {...props}
-      className={cn('flex items-center gap-1', props.className)}
-    >
+    <BreadcrumbPrimitive {...props} className={cn('flex items-center gap-1', props.className)}>
       <Link href={props.href} {...props} />
       {props.href && <IconChevronRight className="size-4 shrink-0 text-muted-fg" />}
     </BreadcrumbPrimitive>

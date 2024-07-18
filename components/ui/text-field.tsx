@@ -9,14 +9,7 @@ import {
   type ValidationResult
 } from 'react-aria-components'
 
-import {
-  Description,
-  FieldError,
-  FieldGroup,
-  fieldGroupPrefixStyles,
-  Input,
-  Label
-} from './field'
+import { Description, FieldError, FieldGroup, fieldGroupPrefixStyles, Input, Label } from './field'
 import { ctr } from './primitive'
 
 interface TextFieldProps extends TextFieldPrimitiveProps {
@@ -42,10 +35,7 @@ const TextField = ({
   ...props
 }: TextFieldProps) => {
   return (
-    <TextFieldPrimitive
-      {...props}
-      className={ctr(props.className, 'group flex flex-col gap-1')}
-    >
+    <TextFieldPrimitive {...props} className={ctr(props.className, 'group flex flex-col gap-1')}>
       {label && <Label id="x21z-id">{label}</Label>}
       <FieldGroup
         aria-labelledby={label ? 'x21z-id' : undefined}

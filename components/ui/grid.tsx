@@ -162,10 +162,7 @@ const Grid = <T extends object>({
         columns: columns ?? 1,
         rows: rows ?? 1,
 
-        className:
-          'debug' in props
-            ? cn('[&>.grid-cell]:border [&>.grid-cell]:border-warning', className)
-            : className
+        className: 'debug' in props ? cn('[&>.grid-cell]:border [&>.grid-cell]:border-warning', className) : className
       })}
       {...props}
     >

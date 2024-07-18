@@ -2,14 +2,7 @@
 
 import React from 'react'
 
-import {
-  Menu,
-  MenuContent,
-  MenuItem,
-  MenuSeparator,
-  MenuTrigger,
-  SubmenuTrigger
-} from 'ui'
+import { Menu, MenuContent, MenuItem, MenuSeparator, MenuTrigger, SubmenuTrigger } from 'ui'
 
 export default function MenuSubDemo() {
   return (

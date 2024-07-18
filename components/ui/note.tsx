@@ -46,9 +46,7 @@ const noteStyles = tv({
   }
 })
 
-interface NoteProps
-  extends React.HtmlHTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof noteStyles> {}
+interface NoteProps extends React.HtmlHTMLAttributes<HTMLDivElement>, VariantProps<typeof noteStyles> {}
 
 const Note = ({ intent = 'secondary', className, ...props }: NoteProps) => {
   return (

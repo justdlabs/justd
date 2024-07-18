@@ -83,6 +83,9 @@ export const previews: Record<string, any> = {
   "forms/search-field-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/forms/search-field-controlled-demo")),
   },
+  "forms/text-field-readonly-demo": {
+    component: React.lazy(() => import("@/components/docs/forms/text-field-readonly-demo")),
+  },
   "forms/input-otp-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/forms/input-otp-controlled-demo")),
   },
@@ -130,6 +133,9 @@ export const previews: Record<string, any> = {
   },
   "forms/textarea-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/forms/textarea-controlled-demo")),
+  },
+  "forms/textarea-readonly-demo": {
+    component: React.lazy(() => import("@/components/docs/forms/textarea-readonly-demo")),
   },
   "forms/checkbox-invalid-demo": {
     component: React.lazy(() => import("@/components/docs/forms/checkbox-invalid-demo")),
@@ -440,11 +446,17 @@ export const previews: Record<string, any> = {
   "pickers/select-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/pickers/select-disabled-demo")),
   },
+  "pickers/combo-box-readonly-demo": {
+    component: React.lazy(() => import("@/components/docs/pickers/combo-box-readonly-demo")),
+  },
   "pickers/combo-box-demo": {
     component: React.lazy(() => import("@/components/docs/pickers/combo-box-demo")),
   },
   "pickers/select-demo": {
     component: React.lazy(() => import("@/components/docs/pickers/select-demo")),
+  },
+  "pickers/select-validation-demo": {
+    component: React.lazy(() => import("@/components/docs/pickers/select-validation-demo")),
   },
   "pickers/combo-box-avatar-demo": {
     component: React.lazy(() => import("@/components/docs/pickers/combo-box-avatar-demo")),
@@ -457,6 +469,9 @@ export const previews: Record<string, any> = {
   },
   "pickers/combo-box-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/pickers/combo-box-disabled-demo")),
+  },
+  "pickers/combo-box-validation-demo": {
+    component: React.lazy(() => import("@/components/docs/pickers/combo-box-validation-demo")),
   },
   "surfaces/separator-demo": {
     component: React.lazy(() => import("@/components/docs/surfaces/separator-demo")),

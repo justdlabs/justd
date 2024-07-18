@@ -1,10 +1,6 @@
 'use client'
 
-import {
-  Header as HeaderPrimitive,
-  Heading as HeadingPrimitive,
-  type HeadingProps
-} from 'react-aria-components'
+import { Header as HeaderPrimitive, Heading as HeadingPrimitive, type HeadingProps } from 'react-aria-components'
 
 import { cn } from './primitive'
 

@@ -1,14 +1,6 @@
 'use client'
 
-import {
-  Button,
-  Popover,
-  PopoverContent,
-  PopoverDescription,
-  PopoverFooter,
-  PopoverHeader,
-  PopoverTitle
-} from 'ui'
+import { Button, Popover, PopoverContent, PopoverDescription, PopoverFooter, PopoverHeader, PopoverTitle } from 'ui'
 
 export default function PopoverDemo() {
   return (

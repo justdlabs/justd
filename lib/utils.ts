@@ -52,9 +52,7 @@ export function goodTitle(str: string) {
 
 export function toTitleCase(input: string): string {
   return input
-    .replace(/([-_][a-z])/g, (group) =>
-      group.toUpperCase().replace('-', '').replace('_', '')
-    )
+    .replace(/([-_][a-z])/g, (group) => group.toUpperCase().replace('-', '').replace('_', ''))
     .replace(/^[a-z]/, (group) => group.toUpperCase())
 }
 

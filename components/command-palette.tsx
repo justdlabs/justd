@@ -93,39 +93,34 @@ export function CommandPalette({ open, setOpen }: OpenCloseProps) {
             </CommandSection>
             {Object.entries(value as HierarchyNode).map(([subKey, subValue]) =>
               typeof subValue === 'object' && 'title' in subValue ? null : (
-                <CommandSection
-                  key={`${key}-${subKey}-section`}
-                  value={goodTitle(subKey)}
-                  heading={goodTitle(subKey)}
-                >
-                  {Object.entries(subValue as HierarchyNode).map(
-                    ([childKey, childValue]) =>
-                      typeof childValue === 'object' && 'title' in childValue ? (
-                        <CommandItem
-                          className="justify-between"
-                          value={goodTitle(subKey + ' ' + (childValue as Doc).title)}
-                          key={`${key}-${subKey}-${childKey}`}
-                          onSelect={() => router.push(`/${childValue.slug}`)}
-                        >
-                          {goodTitle((childValue as Doc).title)}
-                          {childValue.status && (
-                            <Badge
-                              intent={
-                                childValue?.status === 'wip'
-                                  ? 'primary'
-                                  : childValue.status === 'beta'
+                <CommandSection key={`${key}-${subKey}-section`} value={goodTitle(subKey)} heading={goodTitle(subKey)}>
+                  {Object.entries(subValue as HierarchyNode).map(([childKey, childValue]) =>
+                    typeof childValue === 'object' && 'title' in childValue ? (
+                      <CommandItem
+                        className="justify-between"
+                        value={goodTitle(subKey + ' ' + (childValue as Doc).title)}
+                        key={`${key}-${subKey}-${childKey}`}
+                        onSelect={() => router.push(`/${childValue.slug}`)}
+                      >
+                        {goodTitle((childValue as Doc).title)}
+                        {childValue.status && (
+                          <Badge
+                            intent={
+                              childValue?.status === 'wip'
+                                ? 'primary'
+                                : childValue.status === 'beta'
+                                  ? 'warning'
+                                  : childValue.status === 'help'
                                     ? 'warning'
-                                    : childValue.status === 'help'
-                                      ? 'warning'
-                                      : 'info'
-                              }
-                              className="uppercase h-5 text-[0.5rem]"
-                            >
-                              {childValue?.status as Doc['status']}
-                            </Badge>
-                          )}
-                        </CommandItem>
-                      ) : null
+                                    : 'info'
+                            }
+                            className="uppercase h-5 text-[0.5rem]"
+                          >
+                            {childValue?.status as Doc['status']}
+                          </Badge>
+                        )}
+                      </CommandItem>
+                    ) : null
                   )}
                 </CommandSection>
               )

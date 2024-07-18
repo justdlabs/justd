@@ -16,25 +16,17 @@ type CarouselPlugin = UseCarouselParameters[1]
 
 interface CarouselComponent
   extends React.ForwardRefExoticComponent<
-    React.HTMLAttributes<HTMLDivElement> &
-      CarouselProps &
-      React.RefAttributes<HTMLDivElement>
+    React.HTMLAttributes<HTMLDivElement> & CarouselProps & React.RefAttributes<HTMLDivElement>
   > {
-  Content: React.ForwardRefExoticComponent<
-    React.HTMLAttributes<HTMLDivElement> & React.RefAttributes<HTMLDivElement>
-  >
-  Item: React.ForwardRefExoticComponent<
-    React.HTMLAttributes<HTMLDivElement> & React.RefAttributes<HTMLDivElement>
-  >
+  Content: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLDivElement> & React.RefAttributes<HTMLDivElement>>
+  Item: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLDivElement> & React.RefAttributes<HTMLDivElement>>
   Previous: React.ForwardRefExoticComponent<
     React.ButtonHTMLAttributes<HTMLButtonElement> & React.RefAttributes<HTMLButtonElement>
   >
   Next: React.ForwardRefExoticComponent<
     React.ButtonHTMLAttributes<HTMLButtonElement> & React.RefAttributes<HTMLButtonElement>
   >
-  Handler: React.ForwardRefExoticComponent<
-    React.HTMLAttributes<HTMLDivElement> & React.RefAttributes<HTMLDivElement>
-  >
+  Handler: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLDivElement> & React.RefAttributes<HTMLDivElement>>
 }
 
 type CarouselProps = {
@@ -65,14 +57,8 @@ function useCarousel() {
   return context
 }
 
-const Carousel = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement> & CarouselProps
->(
-  (
-    { orientation = 'horizontal', opts, setApi, plugins, className, children, ...props },
-    ref
-  ) => {
+const Carousel = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement> & CarouselProps>(
+  ({ orientation = 'horizontal', opts, setApi, plugins, className, children, ...props }, ref) => {
     const [carouselRef, api] = useEmblaCarousel(
       {
         ...opts,
@@ -164,86 +150,66 @@ const Carousel = React.forwardRef<
 ) as CarouselComponent
 Carousel.displayName = 'Carousel'
 
-const CarouselContent = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => {
-  const { carouselRef, orientation } = useCarousel()
+const CarouselContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => {
+    const { carouselRef, orientation } = useCarousel()
 
-  return (
-    <div ref={carouselRef} className="overflow-hidden">
+    return (
+      <div ref={carouselRef} className="overflow-hidden">
+        <div
+          ref={ref}
+          className={cn('flex', orientation === 'horizontal' ? '-ml-4' : '-mt-4 flex-col', className)}
+          {...props}
+        />
+      </div>
+    )
+  }
+)
+CarouselContent.displayName = 'CarouselContent'
+
+const CarouselItem = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => {
+    const { orientation } = useCarousel()
+
+    return (
+      <div
+        ref={ref}
+        role="group"
+        aria-roledescription="slide"
+        className={cn('min-w-0 shrink-0 grow-0 basis-full', orientation === 'horizontal' ? 'pl-4' : 'pt-4', className)}
+        {...props}
+      />
+    )
+  }
+)
+CarouselItem.displayName = 'CarouselItem'
+
+const CarouselHandler = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => {
+    const { orientation } = useCarousel()
+    return (
       <div
         ref={ref}
         className={cn(
-          'flex',
-          orientation === 'horizontal' ? '-ml-4' : '-mt-4 flex-col',
+          'mt-6 flex items-center gap-x-2',
+          orientation === 'horizontal' ? 'justify-end' : 'justify-center',
           className
         )}
         {...props}
       />
-    </div>
-  )
-})
-CarouselContent.displayName = 'CarouselContent'
-
-const CarouselItem = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => {
-  const { orientation } = useCarousel()
-
-  return (
-    <div
-      ref={ref}
-      role="group"
-      aria-roledescription="slide"
-      className={cn(
-        'min-w-0 shrink-0 grow-0 basis-full',
-        orientation === 'horizontal' ? 'pl-4' : 'pt-4',
-        className
-      )}
-      {...props}
-    />
-  )
-})
-CarouselItem.displayName = 'CarouselItem'
-
-const CarouselHandler = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => {
-  const { orientation } = useCarousel()
-  return (
-    <div
-      ref={ref}
-      className={cn(
-        'mt-6 flex items-center gap-x-2',
-        orientation === 'horizontal' ? 'justify-end' : 'justify-center',
-        className
-      )}
-      {...props}
-    />
-  )
-})
+    )
+  }
+)
 CarouselHandler.displayName = 'CarouselHandler'
 
-const CarouselPrevious = ({
-  className,
-  intent = 'secondary',
-  size = 'square-petite',
-  ...props
-}: ButtonProps) => {
+const CarouselPrevious = ({ className, intent = 'secondary', size = 'square-petite', ...props }: ButtonProps) => {
   const { orientation, scrollPrev, canScrollPrev } = useCarousel()
 
   return (
     <Button
       intent={intent}
       size={size}
-      className={cn(
-        'size-8 rounded-full',
-        orientation === 'vertical' ? 'rotate-90' : '',
-        className
-      )}
+      className={cn('size-8 rounded-full', orientation === 'vertical' ? 'rotate-90' : '', className)}
       isDisabled={!canScrollPrev}
       onPress={scrollPrev}
       {...props}
@@ -254,23 +220,14 @@ const CarouselPrevious = ({
   )
 }
 
-const CarouselNext = ({
-  className,
-  intent = 'secondary',
-  size = 'square-petite',
-  ...props
-}: ButtonProps) => {
+const CarouselNext = ({ className, intent = 'secondary', size = 'square-petite', ...props }: ButtonProps) => {
   const { orientation, scrollNext, canScrollNext } = useCarousel()
 
   return (
     <Button
       intent={intent}
       size={size}
-      className={cn(
-        'size-8 rounded-full',
-        orientation === 'vertical' ? 'rotate-90' : '',
-        className
-      )}
+      className={cn('size-8 rounded-full', orientation === 'vertical' ? 'rotate-90' : '', className)}
       isDisabled={!canScrollNext}
       onPress={scrollNext}
       {...props}
@@ -281,12 +238,4 @@ const CarouselNext = ({
   )
 }
 
-export {
-  Carousel,
-  CarouselContent,
-  CarouselHandler,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-  type CarouselApi
-}
+export { Carousel, CarouselContent, CarouselHandler, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi }

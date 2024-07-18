@@ -38,11 +38,7 @@ export default function GridListDragBetweenItemDemo() {
         <GridListDragDemo />
       </GridItem>
       <GridItem>
-        <GridList
-          aria-label="Droppable list"
-          items={list.items}
-          dragAndDropHooks={dragAndDropHooks}
-        >
+        <GridList aria-label="Droppable list" items={list.items} dragAndDropHooks={dragAndDropHooks}>
           {(item) => <GridListItem>{item.name}</GridListItem>}
         </GridList>
       </GridItem>

@@ -28,13 +28,7 @@ export function OnThisPage() {
           </Heading>
           <ListBox aria-label="On this page">
             {navigations.map(({ text, href, id }) => (
-              <AsideLink
-                key={id}
-                id={id}
-                activeId={activeId || ''}
-                text={text}
-                href={href}
-              />
+              <AsideLink key={id} id={id} activeId={activeId || ''} text={text} href={href} />
             ))}
           </ListBox>
         </div>
@@ -43,17 +37,7 @@ export function OnThisPage() {
   )
 }
 
-export function AsideLink({
-  text,
-  href,
-  activeId,
-  id
-}: {
-  id: string
-  activeId: string
-  text: string
-  href: string
-}) {
+export function AsideLink({ text, href, activeId, id }: { id: string; activeId: string; text: string; href: string }) {
   return (
     <ListBoxItem
       className={cn(

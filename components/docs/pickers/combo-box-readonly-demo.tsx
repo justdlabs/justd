@@ -6,9 +6,9 @@ const users = [
   { id: 1, name: 'Barbara Kirlin Sr.', image_url: 'https://i.pravatar.cc/150?img=1' }
   //...
 ]
-export default function ComboBoxInvalidDemo() {
+export default function ComboBoxReadonlyDemo() {
   return (
-    <ComboBox placeholder="Select a user" label="Users" isInvalid items={users}>
+    <ComboBox placeholder="Select a user" label="Users" isReadOnly items={users}>
       {(item) => (
         <ComboBoxItem key={item.id} id={item.id} textValue={item.name}>
           <Avatar src={item.image_url} />

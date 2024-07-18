@@ -52,11 +52,7 @@ const ModalOverlayContext = React.createContext<{
   isDismissable?: boolean
 }>({})
 
-const ModalOverlay = ({
-  className,
-  isDismissable = true,
-  ...props
-}: ModalOverlayProps) => (
+const ModalOverlay = ({ className, isDismissable = true, ...props }: ModalOverlayProps) => (
   <ModalOverlayContext.Provider value={{ isDismissable: isDismissable }}>
     <ModalOverlayPrimitive
       isDismissable={isDismissable}
@@ -70,15 +66,6 @@ const ModalOverlay = ({
     />
   </ModalOverlayContext.Provider>
 )
-
-export interface ModalContentProps
-  extends Omit<React.ComponentProps<typeof Modal>, 'children'>,
-    VariantProps<typeof modalVariants> {
-  children?: DialogProps['children']
-  role?: DialogProps['role']
-  closeButton?: boolean
-  className?: string
-}
 
 interface CloseButtonIndicatorProps {
   className?: string
@@ -104,25 +91,23 @@ const CloseButtonIndicator = ({ className, ...props }: CloseButtonIndicatorProps
       size="square-petite"
       aria-label="Close"
       onPress={props.close}
-      className={cn(
-        'close absolute right-1 size-6 top-1 z-50',
-        className,
-        props.dismissable === false && 'hidden'
-      )}
+      className={cn('close absolute right-1 size-6 top-1 z-50', className, props.dismissable === false && 'hidden')}
     >
       <IconX className="size-4" />
     </Button>
   )
 }
 
-const ModalContent = ({
-  className,
-  children,
-  size,
-  role,
-  closeButton = true,
-  ...props
-}: ModalContentProps) => {
+interface ModalContentProps
+  extends Omit<React.ComponentProps<typeof Modal>, 'children'>,
+    VariantProps<typeof modalVariants> {
+  children?: DialogProps['children']
+  role?: DialogProps['role']
+  closeButton?: boolean
+  className?: string
+}
+
+const ModalContent = ({ className, children, size, role, closeButton = true, ...props }: ModalContentProps) => {
   const { isDismissable } = React.useContext(ModalOverlayContext)
   return (
     <ModalPrimitive className={modalVariants({ size, className })} {...props}>
@@ -130,9 +115,7 @@ const ModalContent = ({
         {(values) => (
           <>
             {typeof children === 'function' ? children(values) : children}
-            {closeButton && (
-              <CloseButtonIndicator close={values.close} dismissable={isDismissable} />
-            )}
+            {closeButton && <CloseButtonIndicator close={values.close} dismissable={isDismissable} />}
           </>
         )}
       </Dialog>
@@ -141,27 +124,14 @@ const ModalContent = ({
 }
 
 const ModalHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div
-    className={cn(
-      'mb-6 flex flex-col gap-y-0.5 pr-1 text-center sm:pr-0 sm:text-left',
-      className
-    )}
-    {...props}
-  />
+  <div className={cn('mb-6 flex flex-col gap-y-0.5 pr-1 text-center sm:pr-0 sm:text-left', className)} {...props} />
 )
 
 interface ModalCloseProps extends ButtonProps {}
 
 const ModalClose = ({ className, ...props }: ModalCloseProps) => {
   const state = React.useContext(OverlayTriggerStateContext)!
-  return (
-    <Button
-      className={className}
-      appearance="outline"
-      onPress={() => state.close()}
-      {...props}
-    />
-  )
+  return <Button className={className} appearance="outline" onPress={() => state.close()} {...props} />
 }
 
 const ModalBody = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
@@ -169,22 +139,13 @@ const ModalBody = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>
 )
 
 const ModalFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div
-    className={cn(
-      'flex flex-col-reverse gap-2 sm:flex-row sm:justify-between',
-      className
-    )}
-    {...props}
-  />
+  <div className={cn('flex flex-col-reverse gap-2 sm:flex-row sm:justify-between', className)} {...props} />
 )
 
 const ModalTitle = ({ className, ...props }: HeadingProps) => (
   <Heading
     slot="title"
-    className={cn(
-      'text-xl font-semibold leading-none tracking-tight lg:text-lg',
-      className
-    )}
+    className={cn('text-xl font-semibold leading-none tracking-tight lg:text-lg', className)}
     {...props}
   />
 )
@@ -205,5 +166,6 @@ export {
   ModalOverlay,
   ModalTitle,
   ModalTrigger,
-  type ModalOverlayProps
+  type ModalOverlayProps,
+  type ModalContentProps
 }

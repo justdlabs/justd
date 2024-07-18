@@ -50,9 +50,7 @@ export function ModalOverlays() {
               <>
                 <ModalHeader>
                   <ModalTitle>Install Update</ModalTitle>
-                  <ModalDescription>
-                    An update is available for your application.
-                  </ModalDescription>
+                  <ModalDescription>An update is available for your application.</ModalDescription>
                 </ModalHeader>
                 <ModalFooter>
                   <ModalClose>Later</ModalClose>

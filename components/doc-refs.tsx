@@ -4,13 +4,7 @@ import type { FC, SVGProps } from 'react'
 
 import { Logo } from '@/components/logo'
 import { extractAndFormat } from '@/lib/utils'
-import {
-  IconBell,
-  IconBrandAdobe,
-  IconBrandFramer,
-  IconBrandGithub,
-  IconBrandParanoid
-} from '@irsyadadl/paranoid'
+import { IconBell, IconBrandAdobe, IconBrandFramer, IconBrandGithub, IconBrandParanoid } from '@irsyadadl/paranoid'
 import { Menu, MenuItem } from 'react-aria-components'
 import { buttonStyles, cn } from 'ui'
 

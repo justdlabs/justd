@@ -10,11 +10,5 @@ export default function ColorPickerEnableSwatchDemo() {
     console.log(v.toString('hex'))
     setColor(v)
   }
-  return (
-    <ColorPicker
-      enableColorSwatch
-      value={color}
-      onChange={(v) => colorChangeHandler(v)}
-    />
-  )
+  return <ColorPicker enableColorSwatch value={color} onChange={(v) => colorChangeHandler(v)} />
 }

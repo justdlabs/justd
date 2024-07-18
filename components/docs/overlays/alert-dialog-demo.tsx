@@ -23,9 +23,7 @@ export default function AlertDialogDemo() {
             <>
               <ModalHeader>
                 <ModalTitle>Delete file</ModalTitle>
-                <ModalDescription>
-                  This will permanently delete the selected file. Continue?
-                </ModalDescription>
+                <ModalDescription>This will permanently delete the selected file. Continue?</ModalDescription>
               </ModalHeader>
               <ModalFooter>
                 <Button appearance="outline" onPress={close}>

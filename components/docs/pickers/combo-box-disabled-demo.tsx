@@ -8,7 +8,7 @@ const users = [
 ]
 export default function ComboBoxDisabledDemo() {
   return (
-    <ComboBox placeholder="Select a user" label="Users" isRequired items={users}>
+    <ComboBox placeholder="Select a user" label="Users" isDisabled items={users}>
       {(item) => (
         <ComboBoxItem key={item.id} id={item.id} textValue={item.name}>
           <Avatar src={item.image_url} />

@@ -56,8 +56,7 @@ const DropdownSection = <T extends object>(props: DropdownSectionProps<T>) => {
 }
 
 const DropdownItem = (props: ListBoxItemProps) => {
-  const textValue =
-    props.textValue || (typeof props.children === 'string' ? props.children : undefined)
+  const textValue = props.textValue || (typeof props.children === 'string' ? props.children : undefined)
   return (
     <ListBoxItemPrimitive
       {...props}
@@ -71,9 +70,7 @@ const DropdownItem = (props: ListBoxItemProps) => {
           <span className="flex flex-1 items-center gap-2 truncate font-normal group-selected:font-semibold">
             {children}
           </span>
-          <span className="flex w-5 items-center">
-            {isSelected && <IconCheck className="h-4 w-4" />}
-          </span>
+          <span className="flex w-5 items-center">{isSelected && <IconCheck className="h-4 w-4" />}</span>
         </>
       ))}
     </ListBoxItemPrimitive>
