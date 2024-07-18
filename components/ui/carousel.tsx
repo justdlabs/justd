@@ -4,6 +4,8 @@ import * as React from 'react'
 
 import { IconChevronLgLeft, IconChevronLgRight } from '@irsyadadl/paranoid'
 import useEmblaCarousel, { type UseEmblaCarouselType } from 'embla-carousel-react'
+import type { ListBoxItemProps, SectionProps } from 'react-aria-components'
+import { ListBox, ListBoxItem, Section } from 'react-aria-components'
 
 import type { ButtonProps } from './button'
 import { Button } from './button'
@@ -150,39 +152,35 @@ const Carousel = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivEl
 ) as CarouselComponent
 Carousel.displayName = 'Carousel'
 
-const CarouselContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => {
-    const { carouselRef, orientation } = useCarousel()
+const CarouselContent = <T extends object>({ className, ...props }: SectionProps<T>) => {
+  const { carouselRef, orientation } = useCarousel()
 
-    return (
-      <div ref={carouselRef} className="overflow-hidden">
-        <div
-          ref={ref}
-          className={cn('flex', orientation === 'horizontal' ? '-ml-4' : '-mt-4 flex-col', className)}
-          {...props}
-        />
-      </div>
-    )
-  }
-)
-CarouselContent.displayName = 'CarouselContent'
-
-const CarouselItem = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => {
-    const { orientation } = useCarousel()
-
-    return (
-      <div
-        ref={ref}
-        role="group"
-        aria-roledescription="slide"
-        className={cn('min-w-0 shrink-0 grow-0 basis-full', orientation === 'horizontal' ? 'pl-4' : 'pt-4', className)}
+  return (
+    <ListBox aria-label="Slides" orientation={orientation} ref={carouselRef} className="overflow-hidden">
+      <Section
+        className={cn('flex', orientation === 'horizontal' ? '-ml-4' : '-mt-4 flex-col', className)}
         {...props}
       />
-    )
-  }
-)
-CarouselItem.displayName = 'CarouselItem'
+    </ListBox>
+  )
+}
+
+const CarouselItem = ({ className, ...props }: ListBoxItemProps) => {
+  const { orientation } = useCarousel()
+
+  return (
+    <ListBoxItem
+      aria-label={`Slide ${props.id}`}
+      aria-roledescription="slide"
+      className={cn(
+        'min-w-0 xd24r shrink-0 grow-0 basis-full',
+        orientation === 'horizontal' ? 'pl-4' : 'pt-4',
+        className
+      )}
+      {...props}
+    />
+  )
+}
 
 const CarouselHandler = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => {
@@ -191,7 +189,7 @@ const CarouselHandler = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HT
       <div
         ref={ref}
         className={cn(
-          'mt-6 flex items-center gap-x-2',
+          'mt-6 z-20 relative flex items-center gap-x-2',
           orientation === 'horizontal' ? 'justify-end' : 'justify-center',
           className
         )}
@@ -202,40 +200,37 @@ const CarouselHandler = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HT
 )
 CarouselHandler.displayName = 'CarouselHandler'
 
-const CarouselPrevious = ({ className, intent = 'secondary', size = 'square-petite', ...props }: ButtonProps) => {
-  const { orientation, scrollPrev, canScrollPrev } = useCarousel()
+const CarouselButton = ({
+  slot,
+  className,
+  intent = 'secondary',
+  appearance = 'outline',
+  shape = 'circle',
+  size = 'square-petite',
+  ...props
+}: ButtonProps & { slot: 'previous' | 'next' }) => {
+  const { orientation, scrollPrev, canScrollPrev, scrollNext, canScrollNext } = useCarousel()
+  const isNext = slot === 'next'
+  const canScroll = isNext ? canScrollNext : canScrollPrev
+  const scroll = isNext ? scrollNext : scrollPrev
+  const Icon = isNext ? IconChevronLgRight : IconChevronLgLeft
 
   return (
     <Button
+      aria-label={isNext ? 'Next slide' : 'Previous slide'}
+      slot={slot}
       intent={intent}
+      appearance={appearance}
       size={size}
-      className={cn('size-8 rounded-full', orientation === 'vertical' ? 'rotate-90' : '', className)}
-      isDisabled={!canScrollPrev}
-      onPress={scrollPrev}
+      shape={shape}
+      className={cn(orientation === 'vertical' ? 'rotate-90' : '', className)}
+      isDisabled={!canScroll}
+      onPress={scroll}
       {...props}
     >
-      <IconChevronLgLeft className="size-4" />
-      <span className="sr-only">Previous slide</span>
+      <Icon className="size-4" />
     </Button>
   )
 }
 
-const CarouselNext = ({ className, intent = 'secondary', size = 'square-petite', ...props }: ButtonProps) => {
-  const { orientation, scrollNext, canScrollNext } = useCarousel()
-
-  return (
-    <Button
-      intent={intent}
-      size={size}
-      className={cn('size-8 rounded-full', orientation === 'vertical' ? 'rotate-90' : '', className)}
-      isDisabled={!canScrollNext}
-      onPress={scrollNext}
-      {...props}
-    >
-      <IconChevronLgRight className="size-4" />
-      <span className="sr-only">Next slide</span>
-    </Button>
-  )
-}
-
-export { Carousel, CarouselContent, CarouselHandler, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi }
+export { Carousel, CarouselContent, CarouselHandler, CarouselItem, CarouselButton, type CarouselApi }

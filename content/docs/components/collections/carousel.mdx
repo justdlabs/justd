@@ -1,0 +1,45 @@
+---
+title: "Carousel"
+description: A carousel is a slick, rotating showcase for images or videos, displaying one at a time. Perfect for highlighting multiple pieces of content seamlessly in one spot.
+status: new
+published: true
+order: 8
+references: ["https://react-spectrum.adobe.com/react-aria/ListBox.html#props", "https://www.embla-carousel.com/api/"]
+---
+
+## Basic
+
+<How minW72 toUse="collections/carousel-demo" />
+
+## Installation
+<InstallCommand isAdd items={['carousel']}/>
+
+
+## Manual Installation
+
+<InstallCommand isInstall isManual items={['react-aria-components', 'embla-carousel-react', '@irsyadadl/paranoid']}/>
+
+<SourceCode toShow={['carousel', 'button']}/>
+
+## Collections
+Because the carousel it self use a ListBox, then of course we can use `items` on the CarouselContent to render the items.
+<How minW72 toUse="collections/carousel-with-collection-demo" />
+
+## Orientation
+You can change the orientation of the carousel by using the `orientation` prop. The default is horizontal, but you can switch it to vertical.
+<How minW72 toUse="collections/carousel-orientation-demo" />
+
+## Options
+You want to loop, or align the carouse, don't worry, you can do it with the `opts` prop.
+<How isCenter={false} withNoPadding={false} toUse="collections/carousel-options-demo" />
+
+## Autoplay
+This a plugin by the embla-carousel it self, it's not included in the package, but you can install it to make sure the carousel autoplay.
+<InstallCommand isInstall items={['embla-carousel-autoplay']} />
+
+Once you install it, you can use it with the `plugins` prop.
+<How minW72 toUse="collections/carousel-autoplay-demo" />
+
+## API
+You can use the carousel api to control the carousel.
+<How minW72 toUse="collections/carousel-api-demo" />
