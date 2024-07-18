@@ -3,7 +3,5 @@
 import { ToggleButton } from 'ui'
 
 export default function ToggleButtonDemo() {
-  return (
-    <ToggleButton>{({ isSelected }) => <>{isSelected ? 'Unpin' : 'Pin'}</>}</ToggleButton>
-  )
+  return <ToggleButton>{({ isSelected }) => <>{isSelected ? 'Unpin' : 'Pin'}</>}</ToggleButton>
 }

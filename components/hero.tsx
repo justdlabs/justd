@@ -37,12 +37,7 @@ export function Hero() {
             <path d="M.5 200V.5H200" fill="none" />
           </pattern>
         </defs>
-        <rect
-          fill="url(#0787a7c5-978c-4f66-83c7-11c213f99cb7)"
-          width="100%"
-          height="100%"
-          strokeWidth={0}
-        />
+        <rect fill="url(#0787a7c5-978c-4f66-83c7-11c213f99cb7)" width="100%" height="100%" strokeWidth={0} />
       </svg>
       <div className="pt-10 pb-6 sm:py-16 md:py-20 lg:py-24 border-b">
         <Container>
@@ -54,13 +49,10 @@ export function Hero() {
               slot="description"
               className="text-base [&_strong]:font-medium lg:text-xl max-w-2xl block leading-relaxed text-muted-fg"
             >
-              <strong className="text-fg">{siteConfig.name}</strong> is a chill set of
-              React components, built on top of{' '}
-              <strong className="text-fg">React Aria Components</strong>, all about
-              keeping the web accessible. Easy to customize and just copy & paste into
-              your React projects. Plus, it includes{' '}
-              <strong className="text-fg">Tailwind CSS</strong> for sleek styling right
-              out of the box.
+              <strong className="text-fg">{siteConfig.name}</strong> is a chill set of React components, built on top of{' '}
+              <strong className="text-fg">React Aria Components</strong>, all about keeping the web accessible. Easy to
+              customize and just copy & paste into your React projects. Plus, it includes{' '}
+              <strong className="text-fg">Tailwind CSS</strong> for sleek styling right out of the box.
             </Text>
           </Header>
           <div className="mt-6 space-x-2">

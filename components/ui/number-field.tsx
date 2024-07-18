@@ -9,14 +9,7 @@ import {
   type ValidationResult
 } from 'react-aria-components'
 
-import {
-  Description,
-  fieldBorderStyles,
-  FieldError,
-  FieldGroup,
-  Input,
-  Label
-} from './field'
+import { Description, fieldBorderStyles, FieldError, FieldGroup, Input, Label } from './field'
 import { cn, ctr, useMediaQuery } from './primitive'
 
 export interface NumberFieldProps extends NumberFieldPrimitiveProps {
@@ -26,19 +19,10 @@ export interface NumberFieldProps extends NumberFieldPrimitiveProps {
   errorMessage?: string | ((validation: ValidationResult) => string)
 }
 
-export function NumberField({
-  label,
-  placeholder,
-  description,
-  errorMessage,
-  ...props
-}: NumberFieldProps) {
+export function NumberField({ label, placeholder, description, errorMessage, ...props }: NumberFieldProps) {
   const isMobile = useMediaQuery('(max-width: 768px)')
   return (
-    <NumberFieldPrimitive
-      {...props}
-      className={ctr(props.className, 'group flex flex-col gap-1')}
-    >
+    <NumberFieldPrimitive {...props} className={ctr(props.className, 'group flex flex-col gap-1')}>
       <Label>{label}</Label>
       <FieldGroup className="group-disabled:bg-secondary">
         {(renderProps) => (
@@ -55,22 +39,14 @@ export function NumberField({
                 <StepperButton slot="increment" />
               ) : (
                 <div className="flex h-full flex-col">
-                  <StepperButton
-                    slot="increment"
-                    emblemType="chevron"
-                    className="h-5 px-1"
-                  />
+                  <StepperButton slot="increment" emblemType="chevron" className="h-5 px-1" />
                   <div
                     className={fieldBorderStyles({
                       ...renderProps,
                       className: 'border-b'
                     })}
                   />
-                  <StepperButton
-                    slot="decrement"
-                    emblemType="chevron"
-                    className="h-5 px-1"
-                  />
+                  <StepperButton slot="decrement" emblemType="chevron" className="h-5 px-1" />
                 </div>
               )}
             </div>
@@ -89,12 +65,7 @@ interface StepperButtonProps extends ButtonProps {
   className?: string
 }
 
-const StepperButton = ({
-  slot,
-  className,
-  emblemType = 'default',
-  ...props
-}: StepperButtonProps) => {
+const StepperButton = ({ slot, className, emblemType = 'default', ...props }: StepperButtonProps) => {
   const icon =
     emblemType === 'chevron' ? (
       slot === 'increment' ? (

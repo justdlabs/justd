@@ -10,19 +10,16 @@ export default function MultipleMenuDemo() {
   return (
     <Menu>
       <Button appearance="outline">Open</Button>
-      <MenuContent
-        placement="bottom"
-        selectionMode="multiple"
-        selectedKeys={selected}
-        onSelectionChange={setSelected}
-        className="w-56"
-        disabledKeys={['activity']}
-      >
+      <MenuContent placement="bottom" selectionMode="multiple" selectedKeys={selected} onSelectionChange={setSelected}>
         <MenuSection>
-          <MenuHeader separator>Appearance</MenuHeader>
-          <MenuCheckboxItem id="status">Status Bar</MenuCheckboxItem>
-          <MenuCheckboxItem id="activity">Activity Bar</MenuCheckboxItem>
-          <MenuCheckboxItem id="panel">Panel</MenuCheckboxItem>
+          <MenuHeader separator>Content Preferences</MenuHeader>
+          <MenuCheckboxItem id="autoPlay">Auto-Play Videos</MenuCheckboxItem>
+          <MenuCheckboxItem id="highQuality">High-Quality Streaming</MenuCheckboxItem>
+          <MenuCheckboxItem id="exclusiveContent">Exclusive Releases</MenuCheckboxItem>
+          <MenuCheckboxItem id="subtitles">Default Subtitles</MenuCheckboxItem>
+          <MenuCheckboxItem id="recommendations">Personalized Recommendations</MenuCheckboxItem>
+          <MenuCheckboxItem id="backgroundPlay">Background Play</MenuCheckboxItem>
+          <MenuCheckboxItem id="download">Allow Downloads</MenuCheckboxItem>
         </MenuSection>
       </MenuContent>
     </Menu>

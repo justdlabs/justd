@@ -4,9 +4,7 @@ import { Note } from 'ui'
 export function NoteStatuses() {
   return (
     <CardSink>
-      <Note intent="success">
-        Check out the new dark mode feature available in your settings.
-      </Note>
+      <Note intent="success">Check out the new dark mode feature available in your settings.</Note>
     </CardSink>
   )
 }

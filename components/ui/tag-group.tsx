@@ -32,10 +32,7 @@ const emptyColors = Object.keys(badgeIntents).reduce(
   {} as Record<string, string>
 )
 const tagStyles = tv({
-  base: [
-    badgeStyles.base,
-    'cursor-pointer focus:outline-none select-none disabled:cursor-default'
-  ],
+  base: [badgeStyles.base, 'cursor-pointer focus:outline-none select-none disabled:cursor-default'],
   variants: {
     intent: {
       ...emptyColors
@@ -87,17 +84,10 @@ export function TagGroup<T extends object>({
   ...props
 }: TagGroupProps<T>) {
   return (
-    <TagGroupPrimitive
-      {...props}
-      className={twMerge('flex flex-col gap-1', props.className)}
-    >
+    <TagGroupPrimitive {...props} className={twMerge('flex flex-col gap-1', props.className)}>
       <Label>{label}</Label>
       <IntentContext.Provider value={props.intent || 'primary'}>
-        <TagList
-          items={items}
-          renderEmptyState={renderEmptyState}
-          className="flex flex-wrap gap-1"
-        >
+        <TagList items={items} renderEmptyState={renderEmptyState} className="flex flex-wrap gap-1">
           {children}
         </TagList>
       </IntentContext.Provider>
@@ -126,10 +116,7 @@ export function Tag({ children, intent, ...props }: TagProps) {
       className={composeRenderProps(props.className, (className, renderProps) =>
         tagStyles({
           ...renderProps,
-          className: cn(
-            'href' in props ? '' : 'focus:ring-1 focus:ring-primary-400',
-            className
-          ),
+          className: cn('href' in props ? '' : 'focus:ring-1 focus:ring-primary-400', className),
           intent: intent || groupIntent
         })
       )}

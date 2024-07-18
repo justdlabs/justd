@@ -8,13 +8,7 @@ export default function TextareaValidationDemo() {
   const [value, setValue] = React.useState('')
   return (
     <Form onSubmit={(e) => e.preventDefault()}>
-      <Textarea
-        value={value}
-        onChange={setValue}
-        label="Address"
-        isRequired
-        className="mb-2"
-      />
+      <Textarea value={value} onChange={setValue} label="Address" isRequired className="mb-2" />
       <Button type="submit">Submit</Button>
     </Form>
   )

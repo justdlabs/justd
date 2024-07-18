@@ -17,10 +17,7 @@ export interface ProgressBarProps extends ProgressBarPrimitiveProps {
 
 export function ProgressBar({ label, ...props }: ProgressBarProps) {
   return (
-    <ProgressBarPrimitive
-      {...props}
-      className={ctr(props.className, 'flex flex-col gap-1')}
-    >
+    <ProgressBarPrimitive {...props} className={ctr(props.className, 'flex flex-col gap-1')}>
       {({ percentage, valueText, isIndeterminate }) => (
         <>
           <div className="flex justify-between gap-2">

@@ -5,11 +5,9 @@ import React from 'react'
 import { OptionPreview } from '@/components/docs/outside/option-preview'
 import { Note, Select, SelectItem } from 'ui'
 
-const notes = ['info', 'primary', 'secondary', 'warning', 'danger', 'success'].map(
-  (n) => ({
-    name: n
-  })
-)
+const notes = ['info', 'primary', 'secondary', 'warning', 'danger', 'success'].map((n) => ({
+  name: n
+}))
 export default function NoteDemo() {
   const [selected, setSelected] = React.useState<any>('primary')
   return (
@@ -31,8 +29,7 @@ export default function NoteDemo() {
       </OptionPreview>
       <div className="max-w-md">
         <Note intent={selected as any}>
-          We hook you up with top-tier migration services in our startup plan. Wanna roll
-          with it? Hit us up here.
+          We hook you up with top-tier migration services in our startup plan. Wanna roll with it? Hit us up here.
         </Note>
       </div>
     </>

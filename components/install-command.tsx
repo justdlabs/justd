@@ -10,6 +10,7 @@ export interface InstallCommandProps {
   isInit?: boolean
   isManual?: boolean
   items?: string[]
+  isInDocsComponent?: boolean
 }
 
 const InstallCommand: React.FC<InstallCommandProps> = ({
@@ -17,6 +18,7 @@ const InstallCommand: React.FC<InstallCommandProps> = ({
   isAdd = false,
   isInstall = false,
   isManual = false,
+  isInDocsComponent = true,
   isInit = false
 }) => {
   const addCommand = 'justd-cli@latest add'
@@ -87,7 +89,7 @@ const InstallCommand: React.FC<InstallCommandProps> = ({
 
   return (
     <>
-      {isAdd && (
+      {isAdd && isInDocsComponent && (
         <p>
           If you hit any snags, make sure you peep the installation guide{' '}
           <Link
@@ -104,8 +106,8 @@ const InstallCommand: React.FC<InstallCommandProps> = ({
       )}
       {isManual && (
         <p>
-          Sometimes, using the CLI is the way to roll, so make sure you install the
-          necessary dependencies for the components you wanna use.
+          Sometimes, using the CLI is the way to roll, so make sure you install the necessary dependencies for the
+          components you wanna use.
         </p>
       )}
       <div className="not-prose relative flex items-center justify-between rounded-lg border bg-[#0e0e10] py-2.5 pl-4 pr-2.5 text-white font-mono text-sm [&>svg]:text-zinc-400 [&>svg]:transition [&_svg]:shrink-0">

@@ -26,8 +26,7 @@ import { cn } from './primitive'
 const table = tv({
   slots: {
     root: 'table w-full caption-bottom border-spacing-0 text-sm outline-none',
-    column:
-      'whitespace-nowrap px-4 py-3 text-left font-medium outline-none [&:has([slot=selection])]:pr-0',
+    column: 'whitespace-nowrap px-4 py-3 text-left font-medium outline-none [&:has([slot=selection])]:pr-0',
     header: 'border-b',
     row: 'tr group relative cursor-default border-b text-fg/70 outline-none ring-primary focus-visible:ring-1 selected:bg-primary/15',
     cell: 'whitespace-nowrap px-4 py-3 outline-none'
@@ -52,21 +51,13 @@ const Table = ({ children, className, ...props }: TableProps) => (
   </div>
 )
 
-const TableCell = ({
-  children,
-  className,
-  ...props
-}: CellProps & { className?: string }) => (
+const TableCell = ({ children, className, ...props }: CellProps & { className?: string }) => (
   <Cell {...props} className={cell({ className })}>
     {children}
   </Cell>
 )
 
-const TableColumn = ({
-  children,
-  className,
-  ...props
-}: ColumnProps & { className?: string }) => (
+const TableColumn = ({ children, className, ...props }: ColumnProps & { className?: string }) => (
   <Column isRowHeader {...props} className={column({ className })}>
     {({ allowsSorting, sortDirection }) => (
       <div className="flex items-center gap-2">
@@ -97,9 +88,7 @@ const TableHeader = <T extends object>({
     <TableHeaderPrimitive {...props} className={header({ className })}>
       {allowsDragging && <Column />}
       {selectionBehavior === 'toggle' && (
-        <Column className="pl-4">
-          {selectionMode === 'multiple' && <Checkbox slot="selection" />}
-        </Column>
+        <Column className="pl-4">{selectionMode === 'multiple' && <Checkbox slot="selection" />}</Column>
       )}
       <Collection items={columns}>{children}</Collection>
     </TableHeaderPrimitive>
@@ -119,8 +108,7 @@ const TableRow = <T extends object>({
       id={id}
       {...props}
       className={row({
-        className:
-          'href' in props ? cn('cursor-pointer hover:bg-secondary/50', className) : ''
+        className: 'href' in props ? cn('cursor-pointer hover:bg-secondary/50', className) : ''
       })}
     >
       {allowsDragging && (
@@ -135,10 +123,7 @@ const TableRow = <T extends object>({
       )}
       {selectionBehavior === 'toggle' && (
         <Cell className="pl-4">
-          <span
-            aria-hidden
-            className="absolute inset-y-0 left-0 hidden h-full w-0.5 bg-primary group-selected:block"
-          />
+          <span aria-hidden className="absolute inset-y-0 left-0 hidden h-full w-0.5 bg-primary group-selected:block" />
           <Checkbox slot="selection" />
         </Cell>
       )}
@@ -147,12 +132,4 @@ const TableRow = <T extends object>({
   )
 }
 
-export {
-  Table,
-  TableBody,
-  TableCell,
-  TableColumn,
-  TableHeader,
-  TableRow,
-  type TableProps
-}
+export { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow, type TableProps }

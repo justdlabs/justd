@@ -11,9 +11,7 @@ import { type VariantProps } from 'tailwind-variants'
 
 import { Button, type buttonStyles } from './button'
 
-interface FileTriggerProps
-  extends FileTriggerPrimitiveProps,
-    VariantProps<typeof buttonStyles> {
+interface FileTriggerProps extends FileTriggerPrimitiveProps, VariantProps<typeof buttonStyles> {
   withIcon?: boolean
   isDisabled?: boolean
 }
@@ -43,11 +41,7 @@ const FileTrigger: React.FC<FileTriggerProps> = ({
             props.children
           ) : (
             <>
-              {props.allowsMultiple
-                ? 'Browse a files'
-                : props.acceptDirectory
-                  ? 'Browse'
-                  : 'Browse a file'}
+              {props.allowsMultiple ? 'Browse a files' : props.acceptDirectory ? 'Browse' : 'Browse a file'}
               ...
             </>
           )}

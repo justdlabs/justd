@@ -17,18 +17,11 @@ import { composeTailwindRenderProps, focusRing } from './primitive'
 
 interface GridListProps<T extends object> extends GridListPrimitiveProps<T> {}
 
-const GridList = <T extends object>({
-  selectionMode = 'single',
-  children,
-  ...props
-}: GridListProps<T>) => (
+const GridList = <T extends object>({ selectionMode = 'single', children, ...props }: GridListProps<T>) => (
   <GridListPrimitive
     selectionMode={selectionMode}
     {...props}
-    className={composeTailwindRenderProps(
-      props.className,
-      'relative overflow-auto rounded-lg border'
-    )}
+    className={composeTailwindRenderProps(props.className, 'relative overflow-auto rounded-lg border')}
   >
     {children}
   </GridListPrimitive>
@@ -59,9 +52,7 @@ const GridListItem = ({ children, ...props }: GridListItemProps) => {
               <IconHamburger />
             </Button>
           )}
-          {selectionMode === 'multiple' && selectionBehavior === 'toggle' && (
-            <Checkbox slot="selection" />
-          )}
+          {selectionMode === 'multiple' && selectionBehavior === 'toggle' && <Checkbox slot="selection" />}
           {children}
         </>
       )}
@@ -69,8 +60,6 @@ const GridListItem = ({ children, ...props }: GridListItemProps) => {
   )
 }
 
-const GridEmptyState = (props: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className="p-6" {...props} />
-)
+const GridEmptyState = (props: React.HTMLAttributes<HTMLDivElement>) => <div className="p-6" {...props} />
 
 export { GridList, GridListItem, GridEmptyState }

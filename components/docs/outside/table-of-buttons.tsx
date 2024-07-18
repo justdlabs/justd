@@ -1,15 +1,6 @@
 'use client'
 
-import {
-  Badge,
-  Card,
-  Table,
-  TableBody,
-  TableCell,
-  TableColumn,
-  TableHeader,
-  TableRow
-} from 'ui'
+import { Badge, Card, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from 'ui'
 
 export function TableOfButtons() {
   return (
@@ -55,9 +46,7 @@ export function TableOfButtons() {
           </TableRow>
           <TableRow>
             <TableCell>Default Variants</TableCell>
-            <TableCell>
-              intent: primary, appearance: solid, size: medium, shape: square
-            </TableCell>
+            <TableCell>intent: primary, appearance: solid, size: medium, shape: square</TableCell>
           </TableRow>
         </TableBody>
       </Table>

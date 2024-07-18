@@ -13,8 +13,7 @@ export function Cta() {
             Just D. is Open Source
           </Heading>
           <p className="mt-2 mb-4 text-base lg:text-lg text-muted-fg">
-            Our code's chillin' on GitHub - dive in, peep it, or drop some hot commits if
-            you're feelin' it!
+            Our code's chillin' on GitHub - dive in, peep it, or drop some hot commits if you're feelin' it!
           </p>
 
           <Link

@@ -9,12 +9,7 @@ import {
   IconChevronsLgRight,
   IconDotsHorizontal
 } from '@irsyadadl/paranoid'
-import type {
-  GridListItemProps,
-  GridListProps,
-  LabelProps,
-  LinkProps
-} from 'react-aria-components'
+import type { GridListItemProps, GridListProps, LabelProps, LinkProps } from 'react-aria-components'
 import { GridList, GridListItem, Link } from 'react-aria-components'
 import type { VariantProps } from 'tailwind-variants'
 
@@ -33,28 +28,17 @@ const Pagination = ({ className, ...props }: React.ComponentProps<'nav'>) => (
 )
 
 const PaginationList = <T extends object>({ className, ...props }: GridListProps<T>) => {
-  return (
-    <GridList className={cn('flex flex-row items-center gap-1', className)} {...props} />
-  )
+  return <GridList className={cn('flex flex-row items-center gap-1', className)} {...props} />
 }
 
-const PaginationItem = ({ className, ...props }: GridListItemProps) => (
-  <GridListItem className={className} {...props} />
-)
+const PaginationItem = ({ className, ...props }: GridListItemProps) => <GridListItem className={className} {...props} />
 
-interface PaginationLinkProps
-  extends Omit<LinkProps, 'id'>,
-    VariantProps<typeof buttonStyles> {
+interface PaginationLinkProps extends Omit<LinkProps, 'id'>, VariantProps<typeof buttonStyles> {
   isCurrent?: boolean
   className?: string
 }
 
-const PaginationLink = ({
-  className,
-  isCurrent,
-  size = 'square-petite',
-  ...props
-}: PaginationLinkProps) => (
+const PaginationLink = ({ className, isCurrent, size = 'square-petite', ...props }: PaginationLinkProps) => (
   <Link
     aria-current={isCurrent ? 'page' : undefined}
     isDisabled={isCurrent}
@@ -70,10 +54,7 @@ const PaginationLink = ({
   />
 )
 
-const PaginationPrevious = ({
-  className,
-  ...props
-}: React.ComponentProps<typeof PaginationLink>) => (
+const PaginationPrevious = ({ className, ...props }: React.ComponentProps<typeof PaginationLink>) => (
   <PaginationLink
     aria-label="Go to previous page"
     size="square-petite"
@@ -87,47 +68,22 @@ const PaginationPrevious = ({
   </PaginationLink>
 )
 
-const PaginationNext = ({
-  className,
-  ...props
-}: React.ComponentProps<typeof PaginationLink>) => (
-  <PaginationLink
-    aria-label="Go to next page"
-    size="square-petite"
-    slot="next"
-    className={className}
-    {...props}
-  >
+const PaginationNext = ({ className, ...props }: React.ComponentProps<typeof PaginationLink>) => (
+  <PaginationLink aria-label="Go to next page" size="square-petite" slot="next" className={className} {...props}>
     <span className="sr-only">Next</span>
     <IconChevronLgRight />
   </PaginationLink>
 )
 
-const PaginationLast = ({
-  className,
-  ...props
-}: React.ComponentProps<typeof PaginationLink>) => (
-  <PaginationLink
-    aria-label="Go to next page"
-    size="square-petite"
-    className={className}
-    {...props}
-  >
+const PaginationLast = ({ className, ...props }: React.ComponentProps<typeof PaginationLink>) => (
+  <PaginationLink aria-label="Go to next page" size="square-petite" className={className} {...props}>
     <span className="sr-only">Last</span>
     <IconChevronsLgRight />
   </PaginationLink>
 )
 
-const PaginationFirst = ({
-  className,
-  ...props
-}: React.ComponentProps<typeof PaginationLink>) => (
-  <PaginationLink
-    aria-label="Go to previous page"
-    size="square-petite"
-    className={className}
-    {...props}
-  >
+const PaginationFirst = ({ className, ...props }: React.ComponentProps<typeof PaginationLink>) => (
+  <PaginationLink aria-label="Go to previous page" size="square-petite" className={className} {...props}>
     <IconChevronsLgLeft />
 
     <span className="sr-only">First</span>
@@ -135,30 +91,18 @@ const PaginationFirst = ({
 )
 
 const PaginationEllipsis = ({ className, ...props }: React.ComponentProps<'span'>) => (
-  <span
-    aria-hidden
-    className={cn('flex size-9 items-center justify-center', className)}
-    {...props}
-  >
+  <span aria-hidden className={cn('flex size-9 items-center justify-center', className)} {...props}>
     <IconDotsHorizontal />
     <span className="sr-only">More pages</span>
   </span>
 )
 
 const PaginationLabel = ({ className, ...props }: LabelProps) => (
-  <Label
-    aria-hidden
-    className={cn('grid h-9 place-content-center px-3 text-sm font-normal', className)}
-    {...props}
-  />
+  <Label aria-hidden className={cn('grid h-9 place-content-center px-3 text-sm font-normal', className)} {...props} />
 )
 
 const PaginationSeparator = ({ className, ...props }: React.ComponentProps<'span'>) => (
-  <span
-    aria-hidden
-    className={cn('mx-1 block h-5 w-px rotate-[14deg] self-center bg-border', className)}
-    {...props}
-  >
+  <span aria-hidden className={cn('mx-1 block h-5 w-px rotate-[14deg] self-center bg-border', className)} {...props}>
     <VisuallyHidden>Divider</VisuallyHidden>
   </span>
 )

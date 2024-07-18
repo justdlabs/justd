@@ -1,15 +1,6 @@
 'use client'
 
-import {
-  Button,
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetOverlay,
-  SheetTitle
-} from 'ui'
+import { Button, Sheet, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetOverlay, SheetTitle } from 'ui'
 
 export default function SheetBasicDemo() {
   return (

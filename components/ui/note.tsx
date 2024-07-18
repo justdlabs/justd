@@ -46,15 +46,13 @@ const noteStyles = tv({
   }
 })
 
-interface NoteProps
-  extends React.HtmlHTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof noteStyles> {}
+interface NoteProps extends React.HtmlHTMLAttributes<HTMLDivElement>, VariantProps<typeof noteStyles> {}
 
 const Note = ({ intent = 'secondary', className, ...props }: NoteProps) => {
   return (
     <div className={noteStyles({ intent, className })} {...props}>
       <div className="flex items-start gap-x-3">
-        <div className="mt-0.5 w-5">
+        <div className="mt-[3px] w-5">
           {['info', 'primary', 'secondary'].includes(intent) ? (
             <IconCircleInfo />
           ) : intent === 'success' ? (

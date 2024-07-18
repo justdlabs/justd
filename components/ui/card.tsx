@@ -37,9 +37,7 @@ const CardTitle = (props: HeadingProps) => {
 }
 
 const CardDescription = (props: TextProps) => {
-  return (
-    <Description className={description({ className: props.className })} {...props} />
-  )
+  return <Description className={description({ className: props.className })} {...props} />
 }
 
 const CardContent = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => {

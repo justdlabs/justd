@@ -65,9 +65,7 @@ export function CardListBox() {
               >
                 <div className="flex-1">
                   <Heading level={3}>{component.title}</Heading>
-                  <Description className="block mt-2">
-                    {component.description}
-                  </Description>
+                  <Description className="block mt-2">{component.description}</Description>
                 </div>
                 <div className="justify-end flex mt-6">
                   <Button intent="light/dark">View</Button>

@@ -20,13 +20,7 @@ interface Props {
   max?: number
 }
 
-export function MultiSelect({
-  items,
-  placeholder = 'Select items...',
-  max = 5,
-  selected,
-  setSelected
-}: Props) {
+export function MultiSelect({ items, placeholder = 'Select items...', max = 5, selected, setSelected }: Props) {
   const inputRef = React.useRef<HTMLInputElement>(null)
   const [open, setOpen] = React.useState(false)
   const [inputValue, setInputValue] = React.useState('')
@@ -105,9 +99,7 @@ export function MultiSelect({
                 setOpen(true)
               }
             }}
-            placeholder={
-              selected.length >= max ? 'Remove one to select more' : placeholder
-            }
+            placeholder={selected.length >= max ? 'Remove one to select more' : placeholder}
             className="ml-0.5 flex-1 bg-transparent outline-none placeholder:text-muted-fg"
           />
         </div>

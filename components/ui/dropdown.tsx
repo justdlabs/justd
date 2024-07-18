@@ -16,7 +16,7 @@ const dropdownItemStyles = tv({
   base: [
     'group flex cursor-default select-none items-center gap-x-1.5 rounded-md py-2 pl-2.5 pr-1 text-base outline outline-0 forced-color-adjust-none lg:text-sm',
     '[&_[data-slot=avatar]]:-mr-0.5 [&_[data-slot=avatar]]:size-6 sm:[&_[data-slot=avatar]]:size-5',
-    '[&_svg]:size-4',
+    '[&_[data-slot=icon]]:size-4',
     'has-submenu:open:data-[danger=true]:bg-danger/20 has-submenu:open:data-[danger=true]:text-danger',
     'has-submenu:open:bg-primary has-submenu:open:text-primary-fg'
   ],
@@ -56,8 +56,7 @@ const DropdownSection = <T extends object>(props: DropdownSectionProps<T>) => {
 }
 
 const DropdownItem = (props: ListBoxItemProps) => {
-  const textValue =
-    props.textValue || (typeof props.children === 'string' ? props.children : undefined)
+  const textValue = props.textValue || (typeof props.children === 'string' ? props.children : undefined)
   return (
     <ListBoxItemPrimitive
       {...props}
@@ -71,9 +70,7 @@ const DropdownItem = (props: ListBoxItemProps) => {
           <span className="flex flex-1 items-center gap-2 truncate font-normal group-selected:font-semibold">
             {children}
           </span>
-          <span className="flex w-5 items-center">
-            {isSelected && <IconCheck className="h-4 w-4" />}
-          </span>
+          <span className="flex w-5 items-center">{isSelected && <IconCheck className="h-4 w-4" />}</span>
         </>
       ))}
     </ListBoxItemPrimitive>

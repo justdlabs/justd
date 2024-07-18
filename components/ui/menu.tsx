@@ -3,24 +3,26 @@
 import * as React from 'react'
 
 import { IconBulletFill, IconCheck, IconChevronLgRight } from '@irsyadadl/paranoid'
+import type {
+  ButtonProps,
+  MenuItemProps as MenuItemPrimitiveProps,
+  MenuProps,
+  PopoverProps,
+  SeparatorProps
+} from 'react-aria-components'
 import {
   Button,
-  type ButtonProps,
   composeRenderProps,
   Header,
   Keyboard,
   Menu as MenuPrimitive,
   MenuItem as MenuItemPrimitive,
-  type MenuItemProps as MenuItemPrimitiveProps,
-  type MenuProps,
   MenuTrigger as MenuTriggerPrimitive,
   OverlayArrow,
   Popover,
   PopoverContext,
-  type PopoverProps,
   Section,
   Separator,
-  type SeparatorProps,
   SubmenuTrigger as SubmenuTriggerPrimitive,
   useSlottedContext
 } from 'react-aria-components'
@@ -46,9 +48,7 @@ const SubmenuTrigger = SubmenuTriggerPrimitive
 
 const MenuSection = Section
 
-export interface MenuContentProps<T>
-  extends Omit<PopoverProps, 'children' | 'style'>,
-    MenuProps<T> {
+export interface MenuContentProps<T> extends Omit<PopoverProps, 'children' | 'style'>, MenuProps<T> {
   className?: string
   popoverClassName?: string
   showArrow?: boolean
@@ -98,9 +98,7 @@ const MenuContent = <T extends object>({
   )
 }
 
-interface MenuItemProps
-  extends Omit<MenuItemPrimitiveProps, 'isDanger'>,
-    VariantProps<typeof dropdownItemStyles> {
+interface MenuItemProps extends Omit<MenuItemPrimitiveProps, 'isDanger'>, VariantProps<typeof dropdownItemStyles> {
   isDanger?: boolean
 }
 
@@ -129,12 +127,7 @@ export interface MenuHeaderProps extends React.ComponentProps<typeof Header> {
   separator?: boolean
 }
 
-const MenuHeader = ({
-  className,
-  inset,
-  separator = false,
-  ...props
-}: MenuHeaderProps) => (
+const MenuHeader = ({ className, inset, separator = false, ...props }: MenuHeaderProps) => (
   <Header
     className={cn(
       'px-2 py-1.5 text-base font-semibold sm:text-sm',
@@ -157,10 +150,7 @@ interface MenuKeyboardProps extends React.HTMLAttributes<HTMLElement> {
 const MenuKeyboard = ({ keys, className, ...props }: MenuKeyboardProps) => {
   return (
     <Keyboard
-      className={cn(
-        '-mr-1 ml-auto hidden items-center gap-[0.170rem] px-1 lg:inline-flex',
-        className
-      )}
+      className={cn('-mr-1 ml-auto hidden items-center gap-[0.170rem] px-1 lg:inline-flex', className)}
       {...props}
     >
       {(Array.isArray(keys) ? keys : keys.split('')).map((char, index) => (
@@ -180,10 +170,10 @@ const MenuKeyboard = ({ keys, className, ...props }: MenuKeyboardProps) => {
 }
 
 const MenuCheckboxItem = ({ className, children, ...props }: MenuItemProps) => (
-  <MenuItem className={className} {...props}>
+  <MenuItem className={cn('pr-8', className)} {...props}>
     {(values) => (
       <>
-        <span className="absolute right-2 flex size-4 items-center justify-center">
+        <span className="absolute right-2 flex size-4 items-center animate-in justify-center">
           {values.isSelected && <IconCheck className="size-4" />}
         </span>
 
@@ -194,11 +184,11 @@ const MenuCheckboxItem = ({ className, children, ...props }: MenuItemProps) => (
 )
 
 const MenuRadioItem = ({ className, children, ...props }: MenuItemProps) => (
-  <MenuItem className={className} {...props}>
+  <MenuItem className={cn('pr-8', className)} {...props}>
     {(values) => (
       <>
-        <span className="absolute right-2 flex size-2 items-center justify-center">
-          {values.isSelected && <IconBulletFill className="size-2" />}
+        <span className="absolute right-2 flex size-2.5 items-center animate-in justify-center">
+          {values.isSelected && <IconBulletFill className="size-2.5" />}
         </span>
         {typeof children === 'function' ? children(values) : children}
       </>

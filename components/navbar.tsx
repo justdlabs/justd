@@ -76,19 +76,13 @@ export function Navbar() {
                       Home
                     </NavLink>
                     <NavLink
-                      isActive={
-                        pathname?.startsWith('/docs') &&
-                        !pathname?.includes('/docs/components')
-                      }
+                      isActive={pathname?.startsWith('/docs') && !pathname?.includes('/docs/components')}
                       href="/docs/getting-started/introduction"
                     >
                       Docs
                     </NavLink>
                     <NavLink
-                      isActive={
-                        pathname?.startsWith('/docs/components') ||
-                        pathname === '/components'
-                      }
+                      isActive={pathname?.startsWith('/docs/components') || pathname === '/components'}
                       href="/components"
                     >
                       Components
@@ -181,11 +175,7 @@ export function Navbar() {
   )
 }
 
-export function NavLink({
-  href,
-  isActive,
-  ...props
-}: LinkProps & { isActive?: boolean }) {
+export function NavLink({ href, isActive, ...props }: LinkProps & { isActive?: boolean }) {
   return (
     <LinkPrimitive
       href={href}
@@ -279,9 +269,7 @@ export function NavbarDropdown() {
       <Button aria-label="Menu" appearance="plain" className="group -ml-1 [&_svg]:size-5">
         <span className="flex items-center gap-x-2">
           <IconBrandD className="-ml-1 size-6" />
-          <span className="font-mono text-base tracking-tight sm:text-sm">
-            {siteConfig.name}
-          </span>
+          <span className="font-mono text-base tracking-tight sm:text-sm">{siteConfig.name}</span>
           <IconChevronDown className="-mr-2 ml-1 size-4 text-muted-fg transition duration-300 group-hover:text-fg group-pressed:rotate-180 group-pressed:text-fg" />
           <span className="sr-only">Open menu</span>
         </span>
@@ -297,10 +285,7 @@ export function NavbarDropdown() {
         </MenuItem>
         <MenuSeparator />
         <MenuSection>
-          <MenuItem
-            href="https://x.com/intent/follow?screen_name=irsyadadl"
-            target="_blank"
-          >
+          <MenuItem href="https://x.com/intent/follow?screen_name=irsyadadl" target="_blank">
             <IconBrandX />X / Twitter
           </MenuItem>
           <MenuItem href="https://github.com/irsyadadl" target="_blank">
@@ -319,10 +304,7 @@ export function NavbarDropdown() {
             <IconBrandParanoid />
             Paranoid
           </MenuItem>
-          <MenuItem
-            href="https://react-spectrum.adobe.com/react-aria/components.html"
-            target="_blank"
-          >
+          <MenuItem href="https://react-spectrum.adobe.com/react-aria/components.html" target="_blank">
             <IconBrandAdobe />
             RAC
           </MenuItem>
@@ -334,13 +316,7 @@ export function NavbarDropdown() {
         <MenuSeparator />
         <SubmenuTrigger>
           <MenuItem>
-            {theme === 'system' ? (
-              <IconDeviceDesktop />
-            ) : theme === 'dark' ? (
-              <IconMoon />
-            ) : (
-              <IconSun />
-            )}
+            {theme === 'system' ? <IconDeviceDesktop /> : theme === 'dark' ? <IconMoon /> : <IconSun />}
             <span>Switch Theme</span>
           </MenuItem>
           <MenuContent>

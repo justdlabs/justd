@@ -13,14 +13,7 @@ import {
 import { tv, type VariantProps } from 'tailwind-variants'
 
 import { Dialog } from './dialog'
-import {
-  CloseButtonIndicator,
-  ModalClose,
-  ModalDescription,
-  ModalFooter,
-  ModalHeader,
-  ModalTitle
-} from './modal'
+import { CloseButtonIndicator, ModalClose, ModalDescription, ModalFooter, ModalHeader, ModalTitle } from './modal'
 import { cn } from './primitive'
 
 const Sheet = DialogTriggerPrimitive
@@ -51,8 +44,7 @@ const sheetStyles = tv({
   variants: {
     side: {
       top: 'inset-x-0 top-0 rounded-b-2xl border-b entering:slide-in-from-top exiting:slide-out-to-top',
-      bottom:
-        'inset-x-0 bottom-0 rounded-t-2xl border-t entering:slide-in-from-bottom exiting:slide-out-to-bottom',
+      bottom: 'inset-x-0 bottom-0 rounded-t-2xl border-t entering:slide-in-from-bottom exiting:slide-out-to-bottom',
       left: 'inset-y-0 left-0 h-auto w-72 sm:w-3/4 overflow-y-auto border-r entering:slide-in-from-left exiting:slide-out-to-left sm:max-w-xs',
       right:
         'inset-y-0 right-0 h-auto w-72 sm:w-3/4 overflow-y-auto border-l entering:slide-in-from-right exiting:slide-out-to-right sm:max-w-xs'
@@ -65,11 +57,7 @@ const sheetStyles = tv({
   compoundVariants: generateCompoundVariants(['top', 'bottom', 'left', 'right'])
 })
 
-const SheetOverlay = ({
-  className,
-  isDismissable = true,
-  ...props
-}: ModalOverlayProps) => (
+const SheetOverlay = ({ className, isDismissable = true, ...props }: ModalOverlayProps) => (
   <ModalOverlay
     isDismissable={isDismissable}
     className={(values) =>
@@ -107,9 +95,7 @@ const SheetContent = ({
         {(values) => (
           <>
             {typeof children === 'function' ? children(values) : children}
-            {closeButton && (
-              <CloseButtonIndicator className="top-2.5 right-2.5" close={values.close} />
-            )}
+            {closeButton && <CloseButtonIndicator className="top-2.5 right-2.5" close={values.close} />}
           </>
         )}
       </Dialog>

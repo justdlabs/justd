@@ -11,11 +11,9 @@ export function Footer() {
       <Container>
         <p>
           <strong>{siteConfig.name} &trade; 2024</strong> - This project’s crafted with{' '}
-          <span className="font-[ui-sans-serif,-apple-system,system-ui] text-pink-500">
-            ♥
-          </span>{' '}
-          by <Link href="https://twitter.com/irsyadadl">Irsyad</Link>. Peep the Source
-          Code on <Link href="https://github.com/irsyadadl/d.">GitHub</Link>.
+          <span className="font-[ui-sans-serif,-apple-system,system-ui] text-pink-500">♥</span> by{' '}
+          <Link href="https://twitter.com/irsyadadl">Irsyad</Link>. Peep the Source Code on{' '}
+          <Link href="https://github.com/irsyadadl/d.">GitHub</Link>.
         </p>
 
         <p>
@@ -24,10 +22,7 @@ export function Footer() {
             Tailwind CSS
           </Link>
           , and{' '}
-          <Link
-            href="https://react-spectrum.adobe.com/react-aria/components.html"
-            target="_blank"
-          >
+          <Link href="https://react-spectrum.adobe.com/react-aria/components.html" target="_blank">
             RAC
           </Link>
           .
@@ -37,9 +32,7 @@ export function Footer() {
           <Link href="https://vercel.com" target="_blank">
             Vercel
           </Link>
-          . The source code's got the{' '}
-          <Link href="https://github.com/irsyadadl/d./blob/main/LICENSE">MIT</Link>{' '}
-          license.
+          . The source code's got the <Link href="https://github.com/irsyadadl/d./blob/main/LICENSE">MIT</Link> license.
         </p>
       </Container>
     </footer>

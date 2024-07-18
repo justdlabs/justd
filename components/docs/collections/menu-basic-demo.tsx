@@ -10,8 +10,6 @@ export default function MenuBasicDemo() {
         <MenuItem>Inbox</MenuItem>
         <MenuItem>Sent</MenuItem>
         <MenuItem>New Message</MenuItem>
-        <MenuItem isDanger>Spam</MenuItem>
-        <MenuItem isDisabled>Dang</MenuItem>
       </MenuContent>
     </Menu>
   )

@@ -3,6 +3,7 @@ title: "Menu"
 description: It's the boss of options, serving up choices like a pro. Click and it’ll show you the spread pick what you like!
 order: 1
 published: true
+status: updated
 references: ["https://react-spectrum.adobe.com/react-aria/Menu.html#props", "https://paranoid.irsyad.co", "https://github.com/jamiebuilds/tailwindcss-animate"]
 ---
 
@@ -19,6 +20,14 @@ A menu shows a bunch of actions or options you can pick from.
 
 <SourceCode toShow={['menu', 'dropdown']} />
 
+## Sub Menu
+The menu can be nested to show submenus.
+<How toUse="collections/menu-sub-demo" />
+
+## Danger
+You can make a menu item dangerous.
+<How toUse="collections/menu-danger-demo" />
+
 ## With Icon
 You can add icons to the menu items like this.
 <How toUse="collections/menu-with-icon-demo" />
@@ -30,6 +39,14 @@ A menu shows a bunch of actions or options you can pick from.
 ## Single Menu
 A menu shows a bunch of actions or options you can pick from.
 <How toUse="collections/single-menu-demo" />
+
+## Disabled
+You can disable a menu item.
+<How toUse="collections/menu-disabled-demo" />
+You can also disable it by `MenuContent` by passing `disabledKeys` prop.
+```tsx
+<MenuContent disabledKeys={['gsu']} />
+```
 
 ## Open Modal
 You can open a modal when you click on a menu item. See the [modal demo](/docs/components/overlays/modal#triggered-by-menu) for more details.

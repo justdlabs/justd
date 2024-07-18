@@ -4,16 +4,7 @@ import React from 'react'
 
 import { IconDotsVertical } from '@irsyadadl/paranoid'
 import { Collection } from 'react-aria-components'
-import {
-  Menu,
-  MenuContent,
-  MenuItem,
-  MenuTrigger,
-  Tab,
-  TabList,
-  TabPanel,
-  Tabs
-} from 'ui'
+import { Menu, MenuContent, MenuItem, MenuTrigger, Tab, TabList, TabPanel, Tabs } from 'ui'
 
 export default function TabsCollectionsDemo() {
   const [tabs, setTabs] = React.useState([
@@ -56,9 +47,7 @@ export default function TabsCollectionsDemo() {
         </Menu>
       </div>
 
-      <Collection items={tabs}>
-        {(item) => <TabPanel key={item.id}>{item.content}</TabPanel>}
-      </Collection>
+      <Collection items={tabs}>{(item) => <TabPanel key={item.id}>{item.content}</TabPanel>}</Collection>
     </Tabs>
   )
 }

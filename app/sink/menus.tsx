@@ -34,12 +34,7 @@ export function Menus() {
     <CardSink>
       <Menu>
         <Button appearance="outline" className="[&>[data-slot=icon]]:ml-4">
-          <Avatar
-            className="-ml-2"
-            shape="square"
-            size="small"
-            src="https://github.com/irsyadadl.png"
-          />
+          <Avatar className="-ml-2" shape="square" size="small" src="https://github.com/irsyadadl.png" />
           Your Profile
           <IconChevronLgDown />
         </Button>
