@@ -9,7 +9,8 @@ export interface InstallCommandProps {
   isInstall?: boolean
   isInit?: boolean
   isManual?: boolean
-  items?: string[]
+  items?: string[],
+  isInDocsComponent?: boolean
 }
 
 const InstallCommand: React.FC<InstallCommandProps> = ({
@@ -17,6 +18,7 @@ const InstallCommand: React.FC<InstallCommandProps> = ({
   isAdd = false,
   isInstall = false,
   isManual = false,
+  isInDocsComponent = true,
   isInit = false
 }) => {
   const addCommand = 'justd-cli@latest add'
@@ -87,7 +89,7 @@ const InstallCommand: React.FC<InstallCommandProps> = ({
 
   return (
     <>
-      {isAdd && (
+      {(isAdd && isInDocsComponent) && (
         <p>
           If you hit any snags, make sure you peep the installation guide{' '}
           <Link
