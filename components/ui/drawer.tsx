@@ -35,8 +35,9 @@ const staticTransition = {
   duration: 0.5,
   ease: [0.32, 0.72, 0, 1]
 }
-const drawerMargin = 34
-const drawerRoundedCorner = 12
+const drawerMargin = 40
+const drawerRadius = 32
+
 interface DrawerContextType {
   isOpen: boolean
   openDrawer: () => void
@@ -113,6 +114,7 @@ const DrawerOverlayPrimitive = (props: React.ComponentProps<typeof ModalOverlayP
 interface DrawerContentPrimitiveProps extends Omit<React.ComponentProps<typeof Modal>, 'children'> {
   children?: DialogProps['children']
 }
+
 const DrawerContentPrimitive = (props: DrawerContentPrimitiveProps) => {
   const { isOpen } = useDrawerContext()
 
@@ -120,8 +122,8 @@ const DrawerContentPrimitive = (props: DrawerContentPrimitiveProps) => {
   const y = useMotionValue(h)
 
   const bodyScale = useTransform(y, [0, h], [(window.innerWidth - drawerMargin) / window.innerWidth, 1])
-  const bodyTranslate = useTransform(y, [0, h], [drawerMargin - drawerRoundedCorner, 0])
-  const bodyBorderRadius = useTransform(y, [0, h], [drawerRoundedCorner, 0])
+  const bodyTranslate = useTransform(y, [0, h], [drawerMargin - drawerRadius, 0])
+  const bodyBorderRadius = useTransform(y, [0, h], [drawerRadius, 0])
   return (
     <motion.div
       style={{
@@ -151,6 +153,7 @@ interface DrawerProps {
   withNotch?: boolean
   onOpenChange?: (isOpen: boolean) => void
 }
+
 const Drawer = ({ children, withNotch = true, isOpen: controlledIsOpen, onOpenChange }: DrawerProps) => {
   const [internalIsOpen, setInternalIsOpen] = React.useState(false)
 
@@ -217,14 +220,16 @@ const DrawerBody = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement
 const DrawerFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
     className={cn(
-      'flex shrink-0 flex-col-reverse gap-2 sm:flex-row sm:justify-between [&_button:first-child:nth-last-child(1)]:w-full',
+      'flex shrink-0 pb-1 flex-col-reverse gap-2 sm:flex-row sm:justify-between [&_button:first-child:nth-last-child(1)]:w-full',
       className
     )}
     {...props}
   />
 )
 
-const DrawerClose = ModalClose
+const DrawerClose = (props: React.ComponentProps<typeof ModalClose>) => {
+  return <ModalClose shape="circle" {...props} />
+}
 
 export {
   Drawer,
