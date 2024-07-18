@@ -36,7 +36,6 @@
     "tailwindcss-animate": "^1.0.7",
     "tailwindcss-react-aria-components": "^1.1.3",
     "title": "^3.5.3",
-    "unist-builder": "^4.0.0",
     "usemods": "^1.6.1"
   },
   "devDependencies": {
