@@ -19,8 +19,8 @@ const InstallCommand: React.FC<InstallCommandProps> = ({
   isManual = false,
   isInit = false
 }) => {
-  const addCommand = '@irsyadadl/d@latest add'
-  const initCommand = '@irsyadadl/d@latest init'
+  const addCommand = 'justd-cli@latest add'
+  const initCommand = 'justd-cli@latest init'
   const commandArgs = items.join(' ')
 
   const defaultCommand = isAdd
