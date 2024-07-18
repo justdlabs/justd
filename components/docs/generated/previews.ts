@@ -236,6 +236,9 @@ export const previews: Record<string, any> = {
   "buttons/toggle-button-demo": {
     component: React.lazy(() => import("@/components/docs/buttons/toggle-button-demo")),
   },
+  "buttons/file-trigger-controlled-demo": {
+    component: React.lazy(() => import("@/components/docs/buttons/file-trigger-controlled-demo")),
+  },
   "buttons/button-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/buttons/button-disabled-demo")),
   },
@@ -259,6 +262,12 @@ export const previews: Record<string, any> = {
   },
   "buttons/button-appearance-demo": {
     component: React.lazy(() => import("@/components/docs/buttons/button-appearance-demo")),
+  },
+  "buttons/toggle-button-disabled-demo": {
+    component: React.lazy(() => import("@/components/docs/buttons/toggle-button-disabled-demo")),
+  },
+  "buttons/toggle-button-controlled-demo": {
+    component: React.lazy(() => import("@/components/docs/buttons/toggle-button-controlled-demo")),
   },
   "overlays/modal-triggered-by-menu-demo": {
     component: React.lazy(() => import("@/components/docs/overlays/modal-triggered-by-menu-demo")),

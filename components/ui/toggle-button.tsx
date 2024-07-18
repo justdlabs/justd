@@ -22,7 +22,7 @@ const toggleButtonStyles = tv({
       true: 'bg-secondary hover:bg-secondary/80 pressed:bg-secondary/70 forced-colors:!bg-[Highlight] forced-colors:!text-[HighlightText]'
     },
     isDisabled: {
-      true: 'border-black/5 bg-gray-100 text-gray-300 dark:border-white/5 dark:bg-zinc-800 dark:text-zinc-600 forced-colors:border-[GrayText] forced-colors:!bg-[ButtonFace] forced-colors:!text-[GrayText]'
+      true: 'opacity-50 border-zinc-300 forced-colors:border-[GrayText] forced-colors:bg-[ButtonFace] forced-colors:!text-[GrayText]'
     }
   }
 })
