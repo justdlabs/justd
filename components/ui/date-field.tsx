@@ -41,7 +41,7 @@ const DateField = <T extends DateValue>({
 }
 
 const segmentStyles = tv({
-  base: 'inline rounded p-0.5 tracking-wider text-fg caret-transparent outline outline-0 forced-color-adjust-none type-literal:px-0 lg:text-sm forced-colors:text-[ButtonText]',
+  base: 'inline shrink-0 rounded p-0.5 tracking-wider text-fg caret-transparent outline outline-0 forced-color-adjust-none type-literal:px-0 lg:text-sm forced-colors:text-[ButtonText]',
   variants: {
     isPlaceholder: {
       true: 'text-muted-fg'
@@ -55,9 +55,6 @@ const segmentStyles = tv({
         'invalid:bg-danger invalid:text-danger-fg'
       ]
     }
-    // isInvalid: {
-    //   true: 'bg-danger text-danger-fg'
-    // }
   }
 })
 
@@ -68,7 +65,7 @@ const DateInput = (props: Omit<DateInputProps, 'children'>) => {
         fieldGroupStyles({
           ...renderProps,
           className: cn(
-            'min-w-sm block font-mono disabled:bg-secondary uppercase w-full py-2 px-2 text-base lg:text-sm',
+            'min-w-sm block font-mono disabled:bg-secondary uppercase w-full py-2 px-2.5 text-base lg:text-sm/[1.4rem]',
             className
           )
         })
