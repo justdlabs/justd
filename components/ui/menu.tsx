@@ -3,24 +3,26 @@
 import * as React from 'react'
 
 import { IconBulletFill, IconCheck, IconChevronLgRight } from '@irsyadadl/paranoid'
+import type {
+  ButtonProps,
+  MenuItemProps as MenuItemPrimitiveProps,
+  MenuProps,
+  PopoverProps,
+  SeparatorProps
+} from 'react-aria-components'
 import {
   Button,
-  type ButtonProps,
   composeRenderProps,
   Header,
   Keyboard,
   Menu as MenuPrimitive,
   MenuItem as MenuItemPrimitive,
-  type MenuItemProps as MenuItemPrimitiveProps,
-  type MenuProps,
   MenuTrigger as MenuTriggerPrimitive,
   OverlayArrow,
   Popover,
   PopoverContext,
-  type PopoverProps,
   Section,
   Separator,
-  type SeparatorProps,
   SubmenuTrigger as SubmenuTriggerPrimitive,
   useSlottedContext
 } from 'react-aria-components'
@@ -180,10 +182,10 @@ const MenuKeyboard = ({ keys, className, ...props }: MenuKeyboardProps) => {
 }
 
 const MenuCheckboxItem = ({ className, children, ...props }: MenuItemProps) => (
-  <MenuItem className={className} {...props}>
+  <MenuItem className={cn('pr-8', className)} {...props}>
     {(values) => (
       <>
-        <span className="absolute right-2 flex size-4 items-center justify-center">
+        <span className="absolute right-2 flex size-4 items-center animate-in justify-center">
           {values.isSelected && <IconCheck className="size-4" />}
         </span>
 
@@ -194,11 +196,11 @@ const MenuCheckboxItem = ({ className, children, ...props }: MenuItemProps) => (
 )
 
 const MenuRadioItem = ({ className, children, ...props }: MenuItemProps) => (
-  <MenuItem className={className} {...props}>
+  <MenuItem className={cn('pr-8', className)} {...props}>
     {(values) => (
       <>
-        <span className="absolute right-2 flex size-2 items-center justify-center">
-          {values.isSelected && <IconBulletFill className="size-2" />}
+        <span className="absolute right-2 flex size-2.5 items-center animate-in justify-center">
+          {values.isSelected && <IconBulletFill className="size-2.5" />}
         </span>
         {typeof children === 'function' ? children(values) : children}
       </>

@@ -9,7 +9,7 @@ export interface InstallCommandProps {
   isInstall?: boolean
   isInit?: boolean
   isManual?: boolean
-  items?: string[],
+  items?: string[]
   isInDocsComponent?: boolean
 }
 
@@ -89,7 +89,7 @@ const InstallCommand: React.FC<InstallCommandProps> = ({
 
   return (
     <>
-      {(isAdd && isInDocsComponent) && (
+      {isAdd && isInDocsComponent && (
         <p>
           If you hit any snags, make sure you peep the installation guide{' '}
           <Link

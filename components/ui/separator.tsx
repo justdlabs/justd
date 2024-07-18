@@ -8,7 +8,7 @@ import {
 } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
-const styles = tv({
+const separatorStyles = tv({
   base: 'bg-muted forced-colors:bg-[ButtonBorder]',
   variants: {
     orientation: {
@@ -25,7 +25,7 @@ export function Separator(props: SeparatorProps) {
   return (
     <SeparatorPrimitive
       {...props}
-      className={styles({
+      className={separatorStyles({
         orientation: props.orientation,
         className: props.className
       })}

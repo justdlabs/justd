@@ -458,6 +458,9 @@ export const previews: Record<string, any> = {
   "pickers/combo-box-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/pickers/combo-box-disabled-demo")),
   },
+  "surfaces/separator-demo": {
+    component: React.lazy(() => import("@/components/docs/surfaces/separator-demo")),
+  },
   "surfaces/grid-gap-demo": {
     component: React.lazy(() => import("@/components/docs/surfaces/grid-gap-demo")),
   },
@@ -472,6 +475,9 @@ export const previews: Record<string, any> = {
   },
   "surfaces/card-table-demo": {
     component: React.lazy(() => import("@/components/docs/surfaces/card-table-demo")),
+  },
+  "surfaces/separator-orientation-demo": {
+    component: React.lazy(() => import("@/components/docs/surfaces/separator-orientation-demo")),
   },
   "surfaces/grid-responsive-demo": {
     component: React.lazy(() => import("@/components/docs/surfaces/grid-responsive-demo")),
@@ -545,6 +551,9 @@ export const previews: Record<string, any> = {
   "collections/table-demo": {
     component: React.lazy(() => import("@/components/docs/collections/table-demo")),
   },
+  "collections/menu-danger-demo": {
+    component: React.lazy(() => import("@/components/docs/collections/menu-danger-demo")),
+  },
   "collections/tag-group-demo": {
     component: React.lazy(() => import("@/components/docs/collections/tag-group-demo")),
   },
@@ -569,6 +578,9 @@ export const previews: Record<string, any> = {
   "collections/grid-list-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/collections/grid-list-controlled-demo")),
   },
+  "collections/menu-sub-demo": {
+    component: React.lazy(() => import("@/components/docs/collections/menu-sub-demo")),
+  },
   "collections/menu-basic-demo": {
     component: React.lazy(() => import("@/components/docs/collections/menu-basic-demo")),
   },
@@ -577,6 +589,9 @@ export const previews: Record<string, any> = {
   },
   "collections/tag-group-href-demo": {
     component: React.lazy(() => import("@/components/docs/collections/tag-group-href-demo")),
+  },
+  "collections/menu-disabled-demo": {
+    component: React.lazy(() => import("@/components/docs/collections/menu-disabled-demo")),
   },
   "collections/grid-list-drag-demo": {
     component: React.lazy(() => import("@/components/docs/collections/grid-list-drag-demo")),
