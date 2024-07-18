@@ -1,79 +1,32 @@
 import * as React from 'react'
 
-import {
-  Card,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-  Carousel,
-  CarouselButton,
-  CarouselContent,
-  CarouselHandler,
-  CarouselItem
-} from 'ui'
+import Image from 'next/image'
+import { Carousel, CarouselButton, CarouselContent, CarouselHandler, CarouselItem } from 'ui'
 
 export default function CarouselDemo() {
   return (
     <Carousel className="w-full [&_.xrkr]:h-56 [&_.xrkr]:overflow-hidden [&_.xrkr]:flex [&_.xrkr]:flex-col max-w-xs">
       <CarouselContent>
-        <CarouselItem>
-          <div className="p-1">
-            <Card>
-              <div className="bg-fg/5 border-b flex-1" />
-              <CardHeader>
-                <CardTitle>Discover the World</CardTitle>
-                <CardDescription>Explore amazing places around the globe.</CardDescription>
-              </CardHeader>
-            </Card>
-          </div>
+        <CarouselItem className="basis-1/2">
+          <Image className="rounded-xl" src="/slides/slide-1.jpg" alt="image 1" width={400} height={300} />
         </CarouselItem>
-
-        <CarouselItem>
-          <div className="p-1">
-            <Card>
-              <div className="bg-fg/5 border-b flex-1" />
-              <CardHeader>
-                <CardTitle>Innovate Your Life</CardTitle>
-                <CardDescription>Find cutting-edge tech solutions for everyday problems.</CardDescription>
-              </CardHeader>
-            </Card>
-          </div>
+        <CarouselItem className="basis-1/2">
+          <Image className="rounded-xl" src="/slides/slide-2.jpg" alt="image 2" width={400} height={300} />
         </CarouselItem>
-
-        <CarouselItem>
-          <div className="p-1">
-            <Card>
-              <div className="bg-fg/5 border-b flex-1" />
-              <CardHeader>
-                <CardTitle>Fitness Goals</CardTitle>
-                <CardDescription>Join our community and achieve your fitness dreams.</CardDescription>
-              </CardHeader>
-            </Card>
-          </div>
+        <CarouselItem className="basis-1/2">
+          <Image className="rounded-xl" src="/slides/slide-3.jpg" alt="image 3" width={400} height={300} />
         </CarouselItem>
-
-        <CarouselItem>
-          <div className="p-1">
-            <Card>
-              <div className="bg-fg/5 border-b flex-1" />
-              <CardHeader>
-                <CardTitle>Healthy Recipes</CardTitle>
-                <CardDescription>Delicious and nutritious meals for a healthier you.</CardDescription>
-              </CardHeader>
-            </Card>
-          </div>
+        <CarouselItem className="basis-1/2">
+          <Image className="rounded-xl" src="/slides/slide-4.jpg" alt="image 4" width={400} height={300} />
         </CarouselItem>
-
-        <CarouselItem>
-          <div className="p-1">
-            <Card>
-              <div className="bg-fg/5 border-b flex-1" />
-              <CardHeader>
-                <CardTitle>Travel Tips</CardTitle>
-                <CardDescription>Get the best tips for a hassle-free travel experience.</CardDescription>
-              </CardHeader>
-            </Card>
-          </div>
+        <CarouselItem className="basis-1/2">
+          <Image className="rounded-xl" src="/slides/slide-5.jpg" alt="image 5" width={400} height={300} />
+        </CarouselItem>
+        <CarouselItem className="basis-1/2">
+          <Image className="rounded-xl" src="/slides/slide-6.jpg" alt="image 6" width={400} height={300} />
+        </CarouselItem>
+        <CarouselItem className="basis-1/2">
+          <Image className="rounded-xl" src="/slides/slide-7.jpg" alt="image 7" width={400} height={300} />
         </CarouselItem>
       </CarouselContent>
 
