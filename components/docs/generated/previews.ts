@@ -554,17 +554,26 @@ export const previews: Record<string, any> = {
   "collections/multiple-menu-demo": {
     component: React.lazy(() => import("@/components/docs/collections/multiple-menu-demo")),
   },
+  "collections/carousel-demo": {
+    component: React.lazy(() => import("@/components/docs/collections/carousel-demo")),
+  },
   "collections/grid-list-drag-between-item-demo": {
     component: React.lazy(() => import("@/components/docs/collections/grid-list-drag-between-item-demo")),
   },
   "collections/list-box-demo": {
     component: React.lazy(() => import("@/components/docs/collections/list-box-demo")),
   },
+  "collections/carousel-with-collection-demo": {
+    component: React.lazy(() => import("@/components/docs/collections/carousel-with-collection-demo")),
+  },
   "collections/grid-list-multiple-demo": {
     component: React.lazy(() => import("@/components/docs/collections/grid-list-multiple-demo")),
   },
   "collections/table-demo": {
     component: React.lazy(() => import("@/components/docs/collections/table-demo")),
+  },
+  "collections/carousel-api-demo": {
+    component: React.lazy(() => import("@/components/docs/collections/carousel-api-demo")),
   },
   "collections/menu-danger-demo": {
     component: React.lazy(() => import("@/components/docs/collections/menu-danger-demo")),
@@ -583,6 +592,9 @@ export const previews: Record<string, any> = {
   },
   "collections/grid-list-render-empty-state-demo": {
     component: React.lazy(() => import("@/components/docs/collections/grid-list-render-empty-state-demo")),
+  },
+  "collections/carousel-options-demo": {
+    component: React.lazy(() => import("@/components/docs/collections/carousel-options-demo")),
   },
   "collections/tag-group-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/collections/tag-group-controlled-demo")),
@@ -611,8 +623,14 @@ export const previews: Record<string, any> = {
   "collections/grid-list-drag-demo": {
     component: React.lazy(() => import("@/components/docs/collections/grid-list-drag-demo")),
   },
+  "collections/carousel-autoplay-demo": {
+    component: React.lazy(() => import("@/components/docs/collections/carousel-autoplay-demo")),
+  },
   "collections/grid-list-demo": {
     component: React.lazy(() => import("@/components/docs/collections/grid-list-demo")),
+  },
+  "collections/carousel-orientation-demo": {
+    component: React.lazy(() => import("@/components/docs/collections/carousel-orientation-demo")),
   },
   "media/avatar-size-demo": {
     component: React.lazy(() => import("@/components/docs/media/avatar-size-demo")),

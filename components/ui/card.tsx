@@ -32,8 +32,8 @@ const CardHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement
   <div className={header({ className })} {...props} />
 )
 
-const CardTitle = (props: HeadingProps) => {
-  return <Heading className={title({ className: props.className })} {...props} />
+const CardTitle = ({ className, ...props }: HeadingProps) => {
+  return <Heading className={title({ className })} {...props} />
 }
 
 const CardDescription = (props: TextProps) => {
