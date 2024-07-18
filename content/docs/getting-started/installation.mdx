@@ -9,7 +9,7 @@ published: true
 Before you run the command, make sure you have **tailwind installed**. If you don't, just see [here](https://tailwindcss.com/docs/installation) how to install it.
 
 <Note intent='primary'>
-  Make sure ya run this command in ya **fresh project**, not in the **old one**, fam.
+  This command's gonna nuke your `tailwind config` and `css` file. So, run it in a **fresh project**, not in an **old one**. Otherwise, you'll have to manually add the needed files.
 </Note>
 
 Kick things off by running this command:
@@ -20,7 +20,7 @@ Next up, tell it your source. If you're rocking **Next.js**, pick Next.js. If **
 
 After that, just run `add [component-name]` to drop the component in your project. No need to install everything at once. Need a file-trigger? Just add it up. Even if it requires a button, this command's got you covered. Just install what you need now. Otherwise, hit up the docs and do it manually. Here's how to add a `combo-box`:
 
-<InstallCommand isInDocsComponent={false} isAdd items={['combo-box']}/>
+<InstallCommand isInDocsComponent={false} isAdd items={['combo-box']} />
 
 This command will install all the required components like:
 ```bash
@@ -34,7 +34,7 @@ This command will install all the required components like:
 ```
 
 If ya wanna drop in group components, check the docs, they bundle all the goodies into one namespace, like collections, overlays, forms, etc. So you can slap 'em in all at once like this:
-<InstallCommand isInDocsComponent={false} isAdd items={['overlays']}/>
+<InstallCommand isInDocsComponent={false} isAdd items={['overlays']} />
 With that command, you'll get all the components in the overlays namespace like this:
 ```bash
 ✓ button created
@@ -47,7 +47,7 @@ With that command, you'll get all the components in the overlays namespace like 
 ```
 
 Or you might wanna pick the components you wanna toss in. Just add 'em without any arguments. You'll get a list of components to select, using arrow keys and spacebar.
-<InstallCommand isInDocsComponent={false} isAdd items={['']}/>
+<InstallCommand isInDocsComponent={false} isAdd items={['']} />
 
 The command above will show you list like this:
 ```bash
@@ -61,7 +61,7 @@ The command above will show you list like this:
  ◯ date-and-time
 ```
 
-Right now, the CLI can only drop one component at a time. So if you try `add note card`, it'll only add the `note` component. If you wanna upgrade it to handle multiple components, feel free to make a [PR](https://github.com/irsyadadl/d.cli/).
+Right now, the CLI can only drop one component at a time. So if you try `add note card`, it'll only add the `note` component. If you wanna upgrade it to handle multiple components, feel free to make a [PR](https://github.com/irsyadadl/justd-cli/).
 
 ## React Server Component
 By default, the primitive gets dropped in the `components/ui` folder of your project. It packs all the must-have functions for your components, like `cn` for className and `composeTailwindRenderProps`. But heads up, you can't rock it in server components. So, if you wanna flex that `cn` class outside the built-in squad, you gotta whip up a file that only holds that function, like this:
@@ -91,7 +91,7 @@ To get started with the design system, you gotta install these packages:
 
 Next, grab Tailwind Variant, Tailwind Merge, and clsx for those sweet utility functions.
 
-<InstallCommand isInstall items={['tailwind-variants', 'tailwind-merge','clsx']} />
+<InstallCommand isInstall items={['tailwind-variants', 'tailwind-merge', 'clsx']} />
 
 Then, snag the animation package for handling animations and Paranoid for icons:
 <InstallCommand isInstall items={['@irsyadadl/paranoid', 'tailwindcss-animate', 'framer-motion']} />
