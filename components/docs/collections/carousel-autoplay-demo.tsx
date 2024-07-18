@@ -14,7 +14,7 @@ import {
 } from 'ui'
 
 export default function CarouselAutoplayDemo() {
-  const plugin = React.useRef(Autoplay({ delay: 2000, stopOnInteraction: true }))
+  const plugin = React.useRef(Autoplay({ delay: 1000, stopOnInteraction: true }))
 
   return (
     <Carousel

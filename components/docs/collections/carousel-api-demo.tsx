@@ -47,7 +47,7 @@ export default function CarouselDApiDemo() {
             <Button
               className={twJoin(
                 'focus:outline-none transition rounded-xl',
-                current === index + 1 ? 'w-7 h-4 bg-primary hover:bg-primary/80' : 'bg-fg/10 hover:bg-fg/15 w-4 h-4'
+                current === index + 1 ? 'w-6 h-3 bg-primary hover:bg-primary/80' : 'bg-fg/10 hover:bg-fg/15 w-3 h-3'
               )}
               aria-label={`Slide ${current} of ${count}`}
               onPress={() => handleSelect(index)}
