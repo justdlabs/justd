@@ -29,7 +29,6 @@
     "react-dom": "^18.3.1",
     "rehype-pretty-code": "^0.13.2",
     "rehype-stringify": "^10.0.0",
-    "remark": "^15.0.1",
     "shiki": "^1.10.3",
     "sonner": "^1.5.0",
     "tailwind-merge": "^2.4.0",
