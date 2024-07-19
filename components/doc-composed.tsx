@@ -19,12 +19,16 @@ export function DocComposed({ components }: { components: string[] }) {
         A <strong className="font-medium">{name}</strong> packs these dope components that can vibe solo or squad up in
         other parts of your project.
       </p>
-      <Grid gap={6} columns={2} items={filteredComponents}>
+      <Grid gap={{
+        initial: 2,
+        sm: 4,
+        lg: 6,
+      }} columns={2} items={filteredComponents}>
         {(item) => (
           <GridItem id={item.slug} href={`/${item.slug}`}>
             <Card>
               <CardHeader>
-                <CardTitle>{item.title}</CardTitle>
+                <CardTitle className="sm:text-lg text-base line-clamp-1 font-medium">{item.title}</CardTitle>
                 <CardDescription className="line-clamp-2">{item.description}</CardDescription>
               </CardHeader>
             </Card>
