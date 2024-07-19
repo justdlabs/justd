@@ -129,19 +129,9 @@
     "raw": "'use client'\n\nimport React from 'react'\n\nimport { Description, SearchField } from 'ui'\n\nexport default function SearchFieldControlledDemo() {\n  const [value, setValue] = React.useState('')\n  return (\n    <>\n      <SearchField value={value} onChange={setValue} className=\"mb-2\" />\n      <Description className=\"mt-2 block [&>strong]:text-fg\">\n        You have typed: <strong>{value ?? '-'}</strong>\n      </Description>\n    </>\n  )\n}\n",
     "type": "docs"
   },
-  "forms/choicebox-single-selection-demo": {
-    "component": "@/components/docs/forms/choicebox-single-selection-demo",
-    "raw": "'use client'\n\nimport React from 'react'\n\nimport { Choicebox, ChoiceboxItem } from 'ui'\n\nexport default function ChoiceboxSingleSelectionDemo() {\n  return (\n    <Choicebox aria-label=\"Select packages\" selectionMode=\"single\" items={packages}>\n      {(item) => <ChoiceboxItem {...item} />}\n    </Choicebox>\n  )\n}\n\nconst packages = [\n  {\n    id: 'sm',\n    title: 'Small',\n    description: 'Perfect for beginners. Basic resources for light projects.'\n  },\n  {\n    id: 'md',\n    title: 'Medium',\n    description: 'Great for growing sites. More power and storage.'\n  },\n  {\n    id: 'lg',\n    title: 'Large',\n    description: 'Ideal for busy sites. Lots of resources and support.'\n  },\n  {\n    id: 'xl',\n    title: 'Extra Large',\n    description: 'Max power for demanding applications. Top-tier performance.'\n  }\n]\n",
-    "type": "docs"
-  },
   "forms/text-field-readonly-demo": {
     "component": "@/components/docs/forms/text-field-readonly-demo",
     "raw": "'use client'\n\nimport { TextField } from 'ui'\n\nexport default function TextFieldReadonlyDemo() {\n  return <TextField isReadOnly label=\"Name\" />\n}\n",
-    "type": "docs"
-  },
-  "forms/choicebox-controlled-demo": {
-    "component": "@/components/docs/forms/choicebox-controlled-demo",
-    "raw": "'use client'\n\nimport React from 'react'\n\nimport type { Selection } from 'react-aria-components'\nimport { Choicebox, ChoiceboxItem, Description } from 'ui'\n\nexport default function ChoiceboxControlledDemo() {\n  const [selectedKeys, setSelectedKeys] = React.useState<Selection>(new Set([packages[0].id]))\n  return (\n    <>\n      <Choicebox\n        aria-label=\"Select packages\"\n        selectionMode=\"multiple\"\n        selectedKeys={selectedKeys}\n        onSelectionChange={setSelectedKeys}\n        items={packages}\n      >\n        {(item) => <ChoiceboxItem {...item} />}\n      </Choicebox>\n\n      <Description className=\"mt-2 block [&>strong]:text-fg text-muted-fg\">\n        You have selected: <strong>{Array.from(selectedKeys).join(', ')}</strong>\n      </Description>\n    </>\n  )\n}\n\nconst packages = [\n  {\n    id: 'sm',\n    title: 'Small',\n    description: 'Perfect for beginners. Basic resources for light projects.'\n  },\n  {\n    id: 'md',\n    title: 'Medium',\n    description: 'Great for growing sites. More power and storage.'\n  },\n  {\n    id: 'lg',\n    title: 'Large',\n    description: 'Ideal for busy sites. Lots of resources and support.'\n  },\n  {\n    id: 'xl',\n    title: 'Extra Large',\n    description: 'Max power for demanding applications. Top-tier performance.'\n  }\n]\n",
     "type": "docs"
   },
   "forms/input-otp-controlled-demo": {
@@ -234,11 +224,6 @@
     "raw": "'use client'\n\nimport { Checkbox } from 'ui'\n\nexport default function CheckboxInvalidDemo() {\n  return <Checkbox isInvalid>Enable notifications</Checkbox>\n}\n",
     "type": "docs"
   },
-  "forms/choicebox-disabled-demo": {
-    "component": "@/components/docs/forms/choicebox-disabled-demo",
-    "raw": "'use client'\n\nimport React from 'react'\n\nimport { Choicebox, ChoiceboxItem } from 'ui'\n\nexport default function ChoiceboxDisabledDemo() {\n  return (\n    <Choicebox aria-label=\"Select packages\" selectionMode=\"multiple\" items={packages}>\n      {(item) => <ChoiceboxItem isDisabled={['sm', 'lg'].includes(item.id)} {...item} />}\n    </Choicebox>\n  )\n}\n\nconst packages = [\n  {\n    id: 'sm',\n    title: 'Small',\n    description: 'Perfect for beginners. Basic resources for light projects.'\n  },\n  {\n    id: 'md',\n    title: 'Medium',\n    description: 'Great for growing sites. More power and storage.'\n  },\n  {\n    id: 'lg',\n    title: 'Large',\n    description: 'Ideal for busy sites. Lots of resources and support.'\n  },\n  {\n    id: 'xl',\n    title: 'Extra Large',\n    description: 'Max power for demanding applications. Top-tier performance.'\n  }\n]\n",
-    "type": "docs"
-  },
   "forms/search-field-demo": {
     "component": "@/components/docs/forms/search-field-demo",
     "raw": "import { SearchField } from 'ui'\n\nexport default function SearchFieldDemo() {\n  return <SearchField aria-label=\"Search\" placeholder=\"Search\" />\n}\n",
@@ -314,11 +299,6 @@
     "raw": "'use client'\n\nimport { Radio, RadioGroup } from 'ui'\n\nexport default function RadioGroupDisabledDemo() {\n  return (\n    <RadioGroup isDisabled label=\"Features\">\n      <Radio value=\"fs\">Font size: Small, Medium, Large</Radio>\n      <Radio value=\"dr\">Display resolution: 1080p, 1440p, 4K</Radio>\n      <Radio value=\"ss\">Sound settings: Mute, Low, Medium, High</Radio>\n      <Radio value=\"bi\">Background image: Default, Custom</Radio>\n      <Radio value=\"ks\">Keyboard shortcuts: Enabled, Disabled</Radio>\n    </RadioGroup>\n  )\n}\n",
     "type": "docs"
   },
-  "forms/choicebox-columns-demo": {
-    "component": "@/components/docs/forms/choicebox-columns-demo",
-    "raw": "'use client'\n\nimport React from 'react'\n\nimport { Choicebox, ChoiceboxItem } from 'ui'\n\nexport default function ChoiceboxColumnsDemo() {\n  return (\n    <Choicebox aria-label=\"Select prices\" gap={2} columns={3} selectionMode=\"multiple\" items={prices}>\n      {(item) => <ChoiceboxItem {...item} />}\n    </Choicebox>\n  )\n}\n\nconst prices = [\n  { id: 1, title: 'Basic', description: 'Essentials, get started' },\n  { id: 2, title: 'Standard', description: 'More features, support' },\n  { id: 3, title: 'Premium', description: 'Advanced, growing needs' },\n  { id: 4, title: 'Deluxe', description: 'Top-tier, maximum performance' },\n  { id: 5, title: 'Ultimate', description: 'All-inclusive, every feature' },\n  { id: 6, title: 'Enterprise', description: 'Custom, large-scale operations' }\n]\n",
-    "type": "docs"
-  },
   "forms/number-field-demo": {
     "component": "@/components/docs/forms/number-field-demo",
     "raw": "'use client'\n\nimport { NumberField } from 'ui'\n\nexport default function NumberFieldDemo() {\n  return <NumberField label=\"Cookies\" />\n}\n",
@@ -332,11 +312,6 @@
   "forms/radio-group-description-demo": {
     "component": "@/components/docs/forms/radio-group-description-demo",
     "raw": "'use client'\n\nimport { Radio, RadioGroup } from 'ui'\n\nexport default function RadioGroupDescriptionDemo() {\n  return (\n    <RadioGroup\n      description=\"Select your preferred shipping method for the delivery of your items.\"\n      label=\"Shipping Method\"\n    >\n      <Radio value=\"standard\">Standard</Radio>\n      <Radio value=\"express\">Express</Radio>\n      <Radio value=\"overnight\">Overnight</Radio>\n      <Radio value=\"international\">International</Radio>\n      <Radio value=\"pickup\">Pickup</Radio>\n    </RadioGroup>\n  )\n}\n",
-    "type": "docs"
-  },
-  "forms/choicebox-demo": {
-    "component": "@/components/docs/forms/choicebox-demo",
-    "raw": "'use client'\n\nimport React from 'react'\n\nimport { Choicebox, ChoiceboxItem } from 'ui'\n\nconst packages = [\n  {\n    id: 1,\n    title: 'Small',\n    description: 'Perfect for beginners. Basic resources for light projects.'\n  },\n  {\n    id: 2,\n    title: 'Medium',\n    description: 'Great for growing sites. More power and storage.'\n  },\n  {\n    id: 3,\n    title: 'Large',\n    description: 'Ideal for busy sites. Lots of resources and support.'\n  },\n  {\n    id: 4,\n    title: 'Extra Large',\n    description: 'Max power for demanding applications. Top-tier performance.'\n  }\n]\n\nexport default function ChoiceboxDemo() {\n  return (\n    <Choicebox aria-label=\"Select items\" selectionMode=\"multiple\">\n      <ChoiceboxItem title=\"Basic\" description=\"Just the essentials to get started.\" />\n      <ChoiceboxItem title=\"Standard\" description=\"A step up with more features and support.\" />\n      <ChoiceboxItem title=\"Premium\" description=\"Advanced options for growing needs.\" />\n      <ChoiceboxItem title=\"Deluxe\" description=\"Top-tier features for maximum performance.\" />\n      <ChoiceboxItem title=\"Ultimate\" description=\"All-inclusive plan with every feature available.\" />\n      <ChoiceboxItem title=\"Enterprise\" description=\"Custom solutions for large-scale operations.\" />\n    </Choicebox>\n  )\n}\n",
     "type": "docs"
   },
   "forms/switch-controlled-demo": {
@@ -934,6 +909,11 @@
     "raw": "'use client'\n\nimport React from 'react'\n\nimport type { Placement } from '@react-types/overlays'\nimport type { Selection } from '@react-types/shared'\nimport { Button, Menu, MenuContent, MenuRadioItem } from 'ui'\n\nexport const placements = [\n  'bottom',\n  'bottom left',\n  'bottom right',\n  'bottom start',\n  'bottom end',\n  'top',\n  'top left',\n  'top right',\n  'top start',\n  'top end',\n  'left',\n  'left top',\n  'left bottom',\n  'start',\n  'start top',\n  'start bottom',\n  'right',\n  'right top',\n  'right bottom',\n  'end',\n  'end top',\n  'end bottom'\n].map((item, i) => ({ id: i, name: item }))\n\nexport default function SingleMenuDemo() {\n  const [selected, setSelected] = React.useState<Selection>(new Set(['bottom']))\n  return (\n    <Menu>\n      <Button appearance=\"outline\">Placement</Button>\n      <MenuContent\n        placement={Array.from(selected)[0] as Placement}\n        selectionMode=\"single\"\n        selectedKeys={selected}\n        onSelectionChange={setSelected}\n        items={placements}\n        className=\"max-h-72 min-w-52\"\n      >\n        {(item) => <MenuRadioItem id={item.name}>{item.name}</MenuRadioItem>}\n      </MenuContent>\n    </Menu>\n  )\n}\n",
     "type": "docs"
   },
+  "collections/choicebox-single-selection-demo": {
+    "component": "@/components/docs/collections/choicebox-single-selection-demo",
+    "raw": "'use client'\n\nimport React from 'react'\n\nimport { Choicebox, ChoiceboxItem } from 'ui'\n\nexport default function ChoiceboxSingleSelectionDemo() {\n  return (\n    <Choicebox aria-label=\"Select packages\" selectionMode=\"single\" items={packages}>\n      {(item) => <ChoiceboxItem {...item} />}\n    </Choicebox>\n  )\n}\n\nconst packages = [\n  {\n    id: 'sm',\n    title: 'Small',\n    description: 'Perfect for beginners. Basic resources for light projects.'\n  },\n  {\n    id: 'md',\n    title: 'Medium',\n    description: 'Great for growing sites. More power and storage.'\n  },\n  {\n    id: 'lg',\n    title: 'Large',\n    description: 'Ideal for busy sites. Lots of resources and support.'\n  },\n  {\n    id: 'xl',\n    title: 'Extra Large',\n    description: 'Max power for demanding applications. Top-tier performance.'\n  }\n]\n",
+    "type": "docs"
+  },
   "collections/multiple-menu-demo": {
     "component": "@/components/docs/collections/multiple-menu-demo",
     "raw": "'use client'\n\nimport React from 'react'\n\nimport { type Selection } from '@react-types/shared'\nimport { Button, Menu, MenuCheckboxItem, MenuContent, MenuHeader, MenuSection } from 'ui'\n\nexport default function MultipleMenuDemo() {\n  const [selected, setSelected] = React.useState<Selection>(new Set(['status']))\n  return (\n    <Menu>\n      <Button appearance=\"outline\">Open</Button>\n      <MenuContent placement=\"bottom\" selectionMode=\"multiple\" selectedKeys={selected} onSelectionChange={setSelected}>\n        <MenuSection>\n          <MenuHeader separator>Content Preferences</MenuHeader>\n          <MenuCheckboxItem id=\"autoPlay\">Auto-Play Videos</MenuCheckboxItem>\n          <MenuCheckboxItem id=\"highQuality\">High-Quality Streaming</MenuCheckboxItem>\n          <MenuCheckboxItem id=\"exclusiveContent\">Exclusive Releases</MenuCheckboxItem>\n          <MenuCheckboxItem id=\"subtitles\">Default Subtitles</MenuCheckboxItem>\n          <MenuCheckboxItem id=\"recommendations\">Personalized Recommendations</MenuCheckboxItem>\n          <MenuCheckboxItem id=\"backgroundPlay\">Background Play</MenuCheckboxItem>\n          <MenuCheckboxItem id=\"download\">Allow Downloads</MenuCheckboxItem>\n        </MenuSection>\n      </MenuContent>\n    </Menu>\n  )\n}\n",
@@ -942,6 +922,11 @@
   "collections/carousel-demo": {
     "component": "@/components/docs/collections/carousel-demo",
     "raw": "import * as React from 'react'\n\nimport Image from 'next/image'\nimport { Carousel, CarouselButton, CarouselContent, CarouselHandler, CarouselItem } from 'ui'\n\nexport default function CarouselDemo() {\n  return (\n    <Carousel className=\"w-full [&_.xrkr]:h-56 [&_.xrkr]:overflow-hidden [&_.xrkr]:flex [&_.xrkr]:flex-col max-w-xs\">\n      <CarouselContent>\n        <CarouselItem className=\"basis-1/2\">\n          <Image className=\"rounded-xl\" src=\"/slides/slide-1.jpg\" alt=\"image 1\" width={400} height={300} />\n        </CarouselItem>\n        <CarouselItem className=\"basis-1/2\">\n          <Image className=\"rounded-xl\" src=\"/slides/slide-2.jpg\" alt=\"image 2\" width={400} height={300} />\n        </CarouselItem>\n        <CarouselItem className=\"basis-1/2\">\n          <Image className=\"rounded-xl\" src=\"/slides/slide-3.jpg\" alt=\"image 3\" width={400} height={300} />\n        </CarouselItem>\n        <CarouselItem className=\"basis-1/2\">\n          <Image className=\"rounded-xl\" src=\"/slides/slide-4.jpg\" alt=\"image 4\" width={400} height={300} />\n        </CarouselItem>\n        <CarouselItem className=\"basis-1/2\">\n          <Image className=\"rounded-xl\" src=\"/slides/slide-5.jpg\" alt=\"image 5\" width={400} height={300} />\n        </CarouselItem>\n        <CarouselItem className=\"basis-1/2\">\n          <Image className=\"rounded-xl\" src=\"/slides/slide-6.jpg\" alt=\"image 6\" width={400} height={300} />\n        </CarouselItem>\n        <CarouselItem className=\"basis-1/2\">\n          <Image className=\"rounded-xl\" src=\"/slides/slide-7.jpg\" alt=\"image 7\" width={400} height={300} />\n        </CarouselItem>\n      </CarouselContent>\n\n      <CarouselHandler>\n        <CarouselButton slot=\"previous\" />\n        <CarouselButton slot=\"next\" />\n      </CarouselHandler>\n    </Carousel>\n  )\n}\n",
+    "type": "docs"
+  },
+  "collections/choicebox-controlled-demo": {
+    "component": "@/components/docs/collections/choicebox-controlled-demo",
+    "raw": "'use client'\n\nimport React from 'react'\n\nimport type { Selection } from 'react-aria-components'\nimport { Choicebox, ChoiceboxItem, Description } from 'ui'\n\nexport default function ChoiceboxControlledDemo() {\n  const [selectedKeys, setSelectedKeys] = React.useState<Selection>(new Set([packages[0].id]))\n  return (\n    <>\n      <Choicebox\n        aria-label=\"Select packages\"\n        selectionMode=\"multiple\"\n        selectedKeys={selectedKeys}\n        onSelectionChange={setSelectedKeys}\n        items={packages}\n      >\n        {(item) => <ChoiceboxItem {...item} />}\n      </Choicebox>\n\n      <Description className=\"mt-2 block [&>strong]:text-fg text-muted-fg\">\n        You have selected: <strong>{Array.from(selectedKeys).join(', ')}</strong>\n      </Description>\n    </>\n  )\n}\n\nconst packages = [\n  {\n    id: 'sm',\n    title: 'Small',\n    description: 'Perfect for beginners. Basic resources for light projects.'\n  },\n  {\n    id: 'md',\n    title: 'Medium',\n    description: 'Great for growing sites. More power and storage.'\n  },\n  {\n    id: 'lg',\n    title: 'Large',\n    description: 'Ideal for busy sites. Lots of resources and support.'\n  },\n  {\n    id: 'xl',\n    title: 'Extra Large',\n    description: 'Max power for demanding applications. Top-tier performance.'\n  }\n]\n",
     "type": "docs"
   },
   "collections/grid-list-drag-between-item-demo": {
@@ -977,6 +962,11 @@
   "collections/menu-danger-demo": {
     "component": "@/components/docs/collections/menu-danger-demo",
     "raw": "'use client'\n\nimport React from 'react'\n\nimport { Menu, MenuContent, MenuItem, MenuSeparator, MenuTrigger } from 'ui'\n\nexport default function MenuDangerDemo() {\n  return (\n    <Menu>\n      <MenuTrigger>Open</MenuTrigger>\n      <MenuContent className=\"min-w-48\" placement=\"bottom\">\n        <MenuItem>View</MenuItem>\n        <MenuItem>Edit</MenuItem>\n        <MenuSeparator />\n        <MenuItem isDanger>Delete</MenuItem>\n      </MenuContent>\n    </Menu>\n  )\n}\n",
+    "type": "docs"
+  },
+  "collections/choicebox-disabled-demo": {
+    "component": "@/components/docs/collections/choicebox-disabled-demo",
+    "raw": "'use client'\n\nimport React from 'react'\n\nimport { Choicebox, ChoiceboxItem } from 'ui'\n\nexport default function ChoiceboxDisabledDemo() {\n  return (\n    <Choicebox aria-label=\"Select packages\" selectionMode=\"multiple\" items={packages}>\n      {(item) => <ChoiceboxItem isDisabled={['sm', 'lg'].includes(item.id)} {...item} />}\n    </Choicebox>\n  )\n}\n\nconst packages = [\n  {\n    id: 'sm',\n    title: 'Small',\n    description: 'Perfect for beginners. Basic resources for light projects.'\n  },\n  {\n    id: 'md',\n    title: 'Medium',\n    description: 'Great for growing sites. More power and storage.'\n  },\n  {\n    id: 'lg',\n    title: 'Large',\n    description: 'Ideal for busy sites. Lots of resources and support.'\n  },\n  {\n    id: 'xl',\n    title: 'Extra Large',\n    description: 'Max power for demanding applications. Top-tier performance.'\n  }\n]\n",
     "type": "docs"
   },
   "collections/tag-group-demo": {
@@ -1034,6 +1024,11 @@
     "raw": "'use client'\n\nimport { Menu, MenuContent, MenuItem, MenuTrigger } from 'ui'\n\nexport default function MenuBasicDemo() {\n  return (\n    <Menu>\n      <MenuTrigger>Open</MenuTrigger>\n      <MenuContent placement=\"bottom\">\n        <MenuItem>Inbox</MenuItem>\n        <MenuItem>Sent</MenuItem>\n        <MenuItem>New Message</MenuItem>\n      </MenuContent>\n    </Menu>\n  )\n}\n",
     "type": "docs"
   },
+  "collections/choicebox-columns-demo": {
+    "component": "@/components/docs/collections/choicebox-columns-demo",
+    "raw": "'use client'\n\nimport React from 'react'\n\nimport { Choicebox, ChoiceboxItem } from 'ui'\n\nexport default function ChoiceboxColumnsDemo() {\n  return (\n    <Choicebox aria-label=\"Select prices\" gap={2} columns={3} selectionMode=\"multiple\" items={prices}>\n      {(item) => <ChoiceboxItem {...item} />}\n    </Choicebox>\n  )\n}\n\nconst prices = [\n  { id: 1, title: 'Basic', description: 'Essentials, get started' },\n  { id: 2, title: 'Standard', description: 'More features, support' },\n  { id: 3, title: 'Premium', description: 'Advanced, growing needs' },\n  { id: 4, title: 'Deluxe', description: 'Top-tier, maximum performance' },\n  { id: 5, title: 'Ultimate', description: 'All-inclusive, every feature' },\n  { id: 6, title: 'Enterprise', description: 'Custom, large-scale operations' }\n]\n",
+    "type": "docs"
+  },
   "collections/grid-list-disabled-demo": {
     "component": "@/components/docs/collections/grid-list-disabled-demo",
     "raw": "'use client'\n\nimport { GridList, GridListItem } from 'ui'\n\nexport default function GridListDisabledDemo() {\n  return (\n    <GridList items={items} aria-label=\"Select your favorite bands\" selectionMode=\"multiple\" className=\"min-w-64\">\n      {(item) => (\n        <GridListItem isDisabled={[2, 5].includes(Number(item.id))} id={item.id}>\n          {item.name}\n        </GridListItem>\n      )}\n    </GridList>\n  )\n}\n\nconst items = [\n  { id: '1', name: 'The Beatles' },\n  { id: '2', name: 'Led Zeppelin' },\n  { id: '3', name: 'Pink Floyd' },\n  { id: '4', name: 'Queen' },\n  { id: '5', name: 'The Rolling Stones' }\n]\n",
@@ -1047,6 +1042,11 @@
   "collections/menu-disabled-demo": {
     "component": "@/components/docs/collections/menu-disabled-demo",
     "raw": "'use client'\n\nimport React from 'react'\n\nimport { Menu, MenuContent, MenuItem, MenuTrigger } from 'ui'\n\nexport default function MenuDisabledDemo() {\n  return (\n    <Menu>\n      <MenuTrigger>Open</MenuTrigger>\n      <MenuContent className=\"min-w-48\" placement=\"bottom\">\n        <MenuItem id=\"view\">View</MenuItem>\n        <MenuItem id=\"edit\">Edit</MenuItem>\n        <MenuItem id=\"gsu\" isDisabled>\n          Generate Short URL\n        </MenuItem>\n      </MenuContent>\n    </Menu>\n  )\n}\n",
+    "type": "docs"
+  },
+  "collections/choicebox-demo": {
+    "component": "@/components/docs/collections/choicebox-demo",
+    "raw": "'use client'\n\nimport React from 'react'\n\nimport { Choicebox, ChoiceboxItem } from 'ui'\n\nconst packages = [\n  {\n    id: 1,\n    title: 'Small',\n    description: 'Perfect for beginners. Basic resources for light projects.'\n  },\n  {\n    id: 2,\n    title: 'Medium',\n    description: 'Great for growing sites. More power and storage.'\n  },\n  {\n    id: 3,\n    title: 'Large',\n    description: 'Ideal for busy sites. Lots of resources and support.'\n  },\n  {\n    id: 4,\n    title: 'Extra Large',\n    description: 'Max power for demanding applications. Top-tier performance.'\n  }\n]\n\nexport default function ChoiceboxDemo() {\n  return (\n    <Choicebox aria-label=\"Select items\" selectionMode=\"multiple\">\n      <ChoiceboxItem title=\"Basic\" description=\"Just the essentials to get started.\" />\n      <ChoiceboxItem title=\"Standard\" description=\"A step up with more features and support.\" />\n      <ChoiceboxItem title=\"Premium\" description=\"Advanced options for growing needs.\" />\n      <ChoiceboxItem title=\"Deluxe\" description=\"Top-tier features for maximum performance.\" />\n      <ChoiceboxItem title=\"Ultimate\" description=\"All-inclusive plan with every feature available.\" />\n      <ChoiceboxItem title=\"Enterprise\" description=\"Custom solutions for large-scale operations.\" />\n    </Choicebox>\n  )\n}\n",
     "type": "docs"
   },
   "collections/grid-list-drag-demo": {
