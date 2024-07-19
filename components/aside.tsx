@@ -15,7 +15,7 @@ import { Badge, cn } from 'ui'
 export interface Doc {
   slug: string
   title: string
-  status?: 'wip' | 'new' | 'beta' | 'help'
+  status?: 'wip' | 'new' | 'beta' | 'help' | 'primitive'
 }
 
 export interface HierarchyNode {
@@ -89,7 +89,9 @@ const renderHierarchy = (node: HierarchyNode, defaultValues: string[], level: nu
                                 ? 'warning'
                                 : subValue.status === 'help'
                                   ? 'warning'
-                                  : 'info'
+                                  : subValue.status === 'primitive'
+                                    ? 'secondary'
+                                    : 'info'
                           }
                           className="uppercase h-5 text-[0.5rem]"
                         >
@@ -124,7 +126,9 @@ const renderHierarchy = (node: HierarchyNode, defaultValues: string[], level: nu
                                         ? 'warning'
                                         : childValue.status === 'help'
                                           ? 'warning'
-                                          : 'info'
+                                          : childValue.status === 'primitive'
+                                            ? 'secondary'
+                                            : 'info'
                                   }
                                   className="uppercase h-5 text-[0.5rem]"
                                 >
