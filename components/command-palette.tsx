@@ -80,7 +80,9 @@ export function CommandPalette({ open, setOpen }: OpenCloseProps) {
                               ? 'warning'
                               : subValue.status === 'help'
                                 ? 'warning'
-                                : 'info'
+                                : subValue.status === 'primitive'
+                                  ? 'secondary'
+                                  : 'info'
                         }
                         className="uppercase h-5 text-[0.5rem]"
                       >
