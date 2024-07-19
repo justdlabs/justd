@@ -173,7 +173,7 @@ const Grid = <T extends object>({
 
 const gridItemStyles = tv(
   {
-    base: 'grid-cell',
+    base: 'grid-cell focus:outline-none',
     variants: {
       colSpan: {
         auto: 'col-auto',

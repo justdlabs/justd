@@ -1,6 +1,7 @@
+import { DocComposed } from '@/components/doc-composed'
+import { DocNote } from '@/components/doc-note'
 import type { DocSnippetProps } from '@/components/doc-snippet'
 import { DocSnippet } from '@/components/doc-snippet'
-import { DocsNote } from '@/components/docs-note'
 import { PlainCode } from '@/components/docs/rehype/plain-code'
 import { SourceCode } from '@/components/docs/rehype/source-code'
 import type { InstallCommandProps } from '@/components/install-command'
@@ -37,7 +38,8 @@ export function MDXContent({ code }: MdxProps) {
             <Table {...props} />
           </Card>
         ),
-        Note: DocsNote,
+        Note: DocNote,
+        Composed: DocComposed,
         thead: TableHeader,
         tbody: TableBody,
         th: TableColumn,
