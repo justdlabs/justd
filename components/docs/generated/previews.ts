@@ -83,14 +83,8 @@ export const previews: Record<string, any> = {
   "forms/search-field-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/forms/search-field-controlled-demo")),
   },
-  "forms/choicebox-single-selection-demo": {
-    component: React.lazy(() => import("@/components/docs/forms/choicebox-single-selection-demo")),
-  },
   "forms/text-field-readonly-demo": {
     component: React.lazy(() => import("@/components/docs/forms/text-field-readonly-demo")),
-  },
-  "forms/choicebox-controlled-demo": {
-    component: React.lazy(() => import("@/components/docs/forms/choicebox-controlled-demo")),
   },
   "forms/input-otp-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/forms/input-otp-controlled-demo")),
@@ -146,9 +140,6 @@ export const previews: Record<string, any> = {
   "forms/checkbox-invalid-demo": {
     component: React.lazy(() => import("@/components/docs/forms/checkbox-invalid-demo")),
   },
-  "forms/choicebox-disabled-demo": {
-    component: React.lazy(() => import("@/components/docs/forms/choicebox-disabled-demo")),
-  },
   "forms/search-field-demo": {
     component: React.lazy(() => import("@/components/docs/forms/search-field-demo")),
   },
@@ -194,9 +185,6 @@ export const previews: Record<string, any> = {
   "forms/radio-group-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/forms/radio-group-disabled-demo")),
   },
-  "forms/choicebox-columns-demo": {
-    component: React.lazy(() => import("@/components/docs/forms/choicebox-columns-demo")),
-  },
   "forms/number-field-demo": {
     component: React.lazy(() => import("@/components/docs/forms/number-field-demo")),
   },
@@ -205,9 +193,6 @@ export const previews: Record<string, any> = {
   },
   "forms/radio-group-description-demo": {
     component: React.lazy(() => import("@/components/docs/forms/radio-group-description-demo")),
-  },
-  "forms/choicebox-demo": {
-    component: React.lazy(() => import("@/components/docs/forms/choicebox-demo")),
   },
   "forms/switch-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/forms/switch-controlled-demo")),
@@ -566,11 +551,17 @@ export const previews: Record<string, any> = {
   "collections/single-menu-demo": {
     component: React.lazy(() => import("@/components/docs/collections/single-menu-demo")),
   },
+  "collections/choicebox-single-selection-demo": {
+    component: React.lazy(() => import("@/components/docs/collections/choicebox-single-selection-demo")),
+  },
   "collections/multiple-menu-demo": {
     component: React.lazy(() => import("@/components/docs/collections/multiple-menu-demo")),
   },
   "collections/carousel-demo": {
     component: React.lazy(() => import("@/components/docs/collections/carousel-demo")),
+  },
+  "collections/choicebox-controlled-demo": {
+    component: React.lazy(() => import("@/components/docs/collections/choicebox-controlled-demo")),
   },
   "collections/grid-list-drag-between-item-demo": {
     component: React.lazy(() => import("@/components/docs/collections/grid-list-drag-between-item-demo")),
@@ -592,6 +583,9 @@ export const previews: Record<string, any> = {
   },
   "collections/menu-danger-demo": {
     component: React.lazy(() => import("@/components/docs/collections/menu-danger-demo")),
+  },
+  "collections/choicebox-disabled-demo": {
+    component: React.lazy(() => import("@/components/docs/collections/choicebox-disabled-demo")),
   },
   "collections/tag-group-demo": {
     component: React.lazy(() => import("@/components/docs/collections/tag-group-demo")),
@@ -626,6 +620,9 @@ export const previews: Record<string, any> = {
   "collections/menu-basic-demo": {
     component: React.lazy(() => import("@/components/docs/collections/menu-basic-demo")),
   },
+  "collections/choicebox-columns-demo": {
+    component: React.lazy(() => import("@/components/docs/collections/choicebox-columns-demo")),
+  },
   "collections/grid-list-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/collections/grid-list-disabled-demo")),
   },
@@ -634,6 +631,9 @@ export const previews: Record<string, any> = {
   },
   "collections/menu-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/collections/menu-disabled-demo")),
+  },
+  "collections/choicebox-demo": {
+    component: React.lazy(() => import("@/components/docs/collections/choicebox-demo")),
   },
   "collections/grid-list-drag-demo": {
     component: React.lazy(() => import("@/components/docs/collections/grid-list-drag-demo")),
