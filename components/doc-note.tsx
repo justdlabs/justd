@@ -5,7 +5,7 @@ interface DocsNoteProps extends NoteProps {
   children: TextProps['children']
 }
 
-export function DocsNote({ intent, title, children }: DocsNoteProps) {
+export function DocNote({ intent, children }: DocsNoteProps) {
   return (
     <div className="not-prose">
       <Note intent={intent}>{children}</Note>

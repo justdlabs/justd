@@ -1,6 +1,7 @@
 export * from './primitive';
 export * from './note';
 export * from './list-box';
+export * from './choicebox';
 export * from './pagination';
 export * from './link';
 export * from './tabs';

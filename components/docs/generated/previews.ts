@@ -83,8 +83,14 @@ export const previews: Record<string, any> = {
   "forms/search-field-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/forms/search-field-controlled-demo")),
   },
+  "forms/choicebox-single-selection-demo": {
+    component: React.lazy(() => import("@/components/docs/forms/choicebox-single-selection-demo")),
+  },
   "forms/text-field-readonly-demo": {
     component: React.lazy(() => import("@/components/docs/forms/text-field-readonly-demo")),
+  },
+  "forms/choicebox-controlled-demo": {
+    component: React.lazy(() => import("@/components/docs/forms/choicebox-controlled-demo")),
   },
   "forms/input-otp-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/forms/input-otp-controlled-demo")),
@@ -140,6 +146,9 @@ export const previews: Record<string, any> = {
   "forms/checkbox-invalid-demo": {
     component: React.lazy(() => import("@/components/docs/forms/checkbox-invalid-demo")),
   },
+  "forms/choicebox-disabled-demo": {
+    component: React.lazy(() => import("@/components/docs/forms/choicebox-disabled-demo")),
+  },
   "forms/search-field-demo": {
     component: React.lazy(() => import("@/components/docs/forms/search-field-demo")),
   },
@@ -185,6 +194,9 @@ export const previews: Record<string, any> = {
   "forms/radio-group-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/forms/radio-group-disabled-demo")),
   },
+  "forms/choicebox-columns-demo": {
+    component: React.lazy(() => import("@/components/docs/forms/choicebox-columns-demo")),
+  },
   "forms/number-field-demo": {
     component: React.lazy(() => import("@/components/docs/forms/number-field-demo")),
   },
@@ -193,6 +205,9 @@ export const previews: Record<string, any> = {
   },
   "forms/radio-group-description-demo": {
     component: React.lazy(() => import("@/components/docs/forms/radio-group-description-demo")),
+  },
+  "forms/choicebox-demo": {
+    component: React.lazy(() => import("@/components/docs/forms/choicebox-demo")),
   },
   "forms/switch-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/forms/switch-controlled-demo")),

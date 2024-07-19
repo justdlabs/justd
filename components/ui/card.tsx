@@ -3,6 +3,7 @@
 import * as React from 'react'
 
 import type { HeadingProps, TextProps } from 'react-aria-components'
+import { Header } from 'react-aria-components'
 import { Heading } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
@@ -28,8 +29,8 @@ const Card = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => 
   return <div className={root({ className })} {...props} />
 }
 
-const CardHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className={header({ className })} {...props} />
+const CardHeader = ({ className, ...props }: React.ComponentProps<typeof Header>) => (
+  <Header className={header({ className })} {...props} />
 )
 
 const CardTitle = ({ className, ...props }: HeadingProps) => {
