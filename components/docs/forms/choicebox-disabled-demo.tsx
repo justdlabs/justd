@@ -2,8 +2,7 @@
 
 import React from 'react'
 
-import type { Selection } from 'react-aria-components'
-import { Choicebox, ChoiceboxItem, Description } from 'ui'
+import { Choicebox, ChoiceboxItem } from 'ui'
 
 export default function ChoiceboxDisabledDemo() {
   return (

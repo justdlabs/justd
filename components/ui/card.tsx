@@ -3,8 +3,7 @@
 import * as React from 'react'
 
 import type { HeadingProps, TextProps } from 'react-aria-components'
-import { Header } from 'react-aria-components'
-import { Heading } from 'react-aria-components'
+import { Header, Heading } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
 import { Description } from './field'
