@@ -87,7 +87,7 @@ export function Navbar() {
                     >
                       Components
                     </NavLink>
-                    <NavLink>Colors</NavLink>
+                    <NavLink href="/colors">Colors</NavLink>
                     <NavLink target="_blank" href="https://paranoid.irsyad.co">
                       Paranoid
                     </NavLink>

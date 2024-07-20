@@ -3,6 +3,7 @@
 import * as React from 'react'
 
 import { IconChevronLgDown } from '@irsyadadl/paranoid'
+import type { Placement } from '@react-types/overlays'
 import {
   Button,
   Select as SelectPrimitive,
@@ -20,7 +21,7 @@ import { ctr, focusStyles } from './primitive'
 
 const selectTriggerStyles = tv({
   extend: focusStyles,
-  base: 'btr group-disabled:bg-secondary group-disabled:opacity-50 focus-visible:border-primary focus-visible:ring-4 focus-visible:ring-primary/20 group-open:border-primary w-full group-open:ring-4 group-open:ring-primary/20 flex h-10 w-full cursor-default items-center gap-4 rounded-lg border border-input bg-background py-2 pl-3 pr-2 text-start shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)] transition dark:shadow-none',
+  base: 'btr group-disabled:bg-secondary group-disabled:opacity-50 focus-visible:border-primary focus-visible:ring-4 focus-visible:ring-primary/20 group-open:border-primary group-open:ring-4 group-open:ring-primary/20 flex h-10 w-full cursor-default items-center gap-4 rounded-lg border border-input bg-background py-2 pl-3 pr-2 text-start shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)] transition dark:shadow-none',
   variants: {
     isDisabled: {
       false:
@@ -36,9 +37,18 @@ interface SelectProps<T extends object> extends Omit<SelectPrimitiveProps<T>, 'c
   errorMessage?: string | ((validation: ValidationResult) => string)
   items?: Iterable<T>
   children: React.ReactNode | ((item: T) => React.ReactNode)
+  placement?: Placement
 }
 
-function Select<T extends object>({ label, description, errorMessage, children, items, ...props }: SelectProps<T>) {
+function Select<T extends object>({
+  label,
+  description,
+  placement,
+  errorMessage,
+  children,
+  items,
+  ...props
+}: SelectProps<T>) {
   return (
     <SelectPrimitive {...props} className={ctr(props.className, 'group flex w-full flex-col gap-1')}>
       {label && <Label>{label}</Label>}
@@ -51,7 +61,7 @@ function Select<T extends object>({ label, description, errorMessage, children, 
       </Button>
       {description && <Description>{description}</Description>}
       <FieldError>{errorMessage}</FieldError>
-      <PopoverPicker>
+      <PopoverPicker placement={placement}>
         <ListBoxPicker aria-label="items" items={items}>
           {children}
         </ListBoxPicker>

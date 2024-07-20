@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Colors } from '@/app/(app)/colors/colors'
+import { ColorPalette } from '@/app/(app)/colors/color-palette'
 import { siteConfig } from '@/config/site'
 import type { Metadata } from 'next'
 
@@ -20,5 +20,5 @@ export const metadata: Metadata = {
 }
 
 export default function Page() {
-  return <Colors />
+  return <ColorPalette />
 }

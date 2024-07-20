@@ -15,8 +15,9 @@ const PickYourVibe = () => {
   const [color, setColor] = useState<Color>(parseColor('hsl(216, 98%, 52%)'))
   const [tailwindFormat, setTailwindFormat] = useState(false)
 
-  const rgbFormatted = formatColorForTailwind(color.toString('rgb'), 'rgb') ?? color.toString('rgb')
-  const hslFormatted = formatColorForTailwind(color.toString('hsl'), 'hsl') ?? color.toString('hsl')
+  const rgbFormatted = tailwindFormat ? formatColorForTailwind(color.toString('rgb'), 'rgb') : color.toString('rgb')
+  const hslFormatted = tailwindFormat ? formatColorForTailwind(color.toString('hsl'), 'hsl') : color.toString('hsl')
+  const hsbFormatted = tailwindFormat ? formatColorForTailwind(color.toString('hsl'), 'hsb') : color.toString('hsb')
 
   return (
     <Popover aria-label="Choose your vibe color">
@@ -40,6 +41,7 @@ const PickYourVibe = () => {
           </div>
           <Snippet className={sc} text={rgbFormatted} />
           <Snippet className={sc} text={hslFormatted} />
+          <Snippet className={sc} text={hsbFormatted} />
         </div>
       </PopoverContent>
     </Popover>
