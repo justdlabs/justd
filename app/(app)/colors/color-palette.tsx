@@ -3,11 +3,11 @@
 import * as React from 'react'
 
 import { PickYourVibe } from '@/app/(app)/colors/customize'
-import { allFormats, FormatOnlyForTailwindVariableType } from '@/lib/colors'
+import type { FormatOnlyForTailwindVariableType } from '@/lib/colors'
 import {
+  allFormats,
   colors as primitiveColors,
   formatColorForTailwind,
-  formatOnlyForTailwindVariable,
   formatOnlyForTailwindVariableValues
 } from '@/lib/colors'
 import { IconBrandTailwindcss, IconCheck, IconDuplicate } from '@irsyadadl/paranoid'
@@ -146,7 +146,7 @@ export function ColorName({ id, value }: any) {
           </>
         </div>
       </div>
-      <GridListPrimitive aria-label={`${id} colors`} className="grid gap-2 p-2.5 overflow-hidden">
+      <GridListPrimitive aria-label={`${id} 50-950 colors`} className="grid gap-2 p-2.5 overflow-hidden">
         {Object.entries(value as any)
           .map(([shade, value]) => ({ value, shade }))
           .map((item, i) => (
@@ -155,7 +155,6 @@ export function ColorName({ id, value }: any) {
               selectedFormat={selectedFormat}
               key={i.toString()}
               textValue={item.shade}
-              aria-label={`${id} of ${item.shade}`}
               id={id + '-' + Math.random()}
               item={item}
             />
@@ -182,6 +181,7 @@ function GridListItem({ item, id, isForTailwindVariable, selectedFormat }: any) 
 
   return (
     <GridListItemPrimitive
+      aria-label={`${id} of ${item.shade}`}
       className={twJoin(
         'group w-full group text-muted-fg border-y border-transparent flex relative items-center justify-between font-mono text-xs',
         'focus:outline-none',

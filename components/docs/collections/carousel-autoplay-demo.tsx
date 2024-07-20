@@ -20,7 +20,7 @@ export default function CarouselAutoplayDemo() {
     <Carousel
       onMouseEnter={plugin.current.stop}
       onMouseLeave={plugin.current.reset}
-      plugins={[plugin.current]}
+      plugins={[Autoplay({ delay: 1000, stopOnInteraction: true })]}
       opts={{
         loop: true,
         align: 'center'
