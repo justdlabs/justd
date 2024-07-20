@@ -1,22 +1,44 @@
-'use client';
+'use client'
 
-import * as React from 'react';
+import * as React from 'react'
 
-
-
-import { PickYourVibe } from '@/app/(app)/colors/customize';
-import type { FormatOnlyForTailwindVariableType } from '@/lib/colors';
-import { colors as primitiveColors, formatColorForTailwind, formatOnlyForTailwindVariable, formatOnlyForTailwindVariableValues } from '@/lib/colors';
-import { IconBrandTailwindcss, IconCheck, IconDuplicate } from '@irsyadadl/paranoid';
-import { parseColor } from '@react-stately/color';
-import type { ColorFormat } from '@react-types/color';
-import { AnimatePresence, motion } from 'framer-motion';
-import { GridList as GridListPrimitive, GridListItem as GridListItemPrimitive, Text, ToggleButton } from 'react-aria-components';
-import { toast } from 'sonner';
-import { twJoin } from 'tailwind-merge';
-import { buttonStyles, cn, ColorSwatch, Container, gridStyles, Header as HeaderPrimitive, Heading, isBrightColor, Label, Select, SelectItem, snippetVariants, Subheading, Toaster } from 'ui';
-import { copyToClipboard } from 'usemods';
-
+import { PickYourVibe } from '@/app/(app)/colors/customize'
+import type { FormatOnlyForTailwindVariableType } from '@/lib/colors'
+import {
+  colors as primitiveColors,
+  formatColorForTailwind,
+  formatOnlyForTailwindVariable,
+  formatOnlyForTailwindVariableValues
+} from '@/lib/colors'
+import { IconBrandTailwindcss, IconCheck, IconDuplicate } from '@irsyadadl/paranoid'
+import { parseColor } from '@react-stately/color'
+import type { ColorFormat } from '@react-types/color'
+import { AnimatePresence, motion } from 'framer-motion'
+import {
+  GridList as GridListPrimitive,
+  GridListItem as GridListItemPrimitive,
+  Text,
+  ToggleButton
+} from 'react-aria-components'
+import { toast } from 'sonner'
+import { twJoin } from 'tailwind-merge'
+import {
+  buttonStyles,
+  cn,
+  ColorSwatch,
+  Container,
+  gridStyles,
+  Header as HeaderPrimitive,
+  Heading,
+  isBrightColor,
+  Label,
+  Select,
+  SelectItem,
+  snippetVariants,
+  Subheading,
+  Toaster
+} from 'ui'
+import { copyToClipboard } from 'usemods'
 
 const excludedColors = [
   'current',
@@ -41,10 +63,11 @@ export function ColorPalette() {
           <div className="flex flex-col sm:flex-row  justify-between sm:items-center gap-4">
             <div className="flex max-w-xl flex-col gap-y-2">
               <Heading level={1} className="text-2xl flex-1 sm:text-3xl font-bold tracking-tight">
-                Colors
+                <span className="text-fg">Col</span>
+                <span className="text-muted-fg">ors</span>
               </Heading>
               <Subheading className="font-normal sm:text-base text-muted-fg">
-                The mix of colors mashes up Tailwind CSS shades with HTML color names.
+                A stash of colors blending Tailwind CSS vibes with HTML color names, served up in 6 slick formats.
               </Subheading>
             </div>
 
@@ -79,7 +102,7 @@ export function ColorName({ id, value }: any) {
   return (
     <div className="border rounded-2xl overflow-hidden">
       <div className="flex items-center gap-x-1 justify-between bg-secondary/30 border-b p-2">
-        <div className="capitalize text-sm font-medium pl-2">{id}</div>
+        <div className="capitalize text-sm font-medium">{id}</div>
         <div className="flex gap-x-1">
           <>
             <ToggleButton

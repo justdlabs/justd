@@ -292,12 +292,12 @@ const tailwindColors = {
 const colors = { ...tailwindColors, ...htmlcolors }
 
 const formatOnlyForTailwindVariable = [
-  { id: 3, format: 'rgb' },
-  { id: 4, format: 'rgba' },
-  { id: 5, format: 'hsl' },
-  { id: 6, format: 'hsla' },
-  { id: 7, format: 'hsb' },
-  { id: 8, format: 'hsba' }
+  { id: 1, format: 'rgb' },
+  { id: 2, format: 'rgba' },
+  { id: 3, format: 'hsl' },
+  { id: 4, format: 'hsla' },
+  { id: 5, format: 'hsb' },
+  { id: 6, format: 'hsba' }
 ] as const
 
 type FormatOnlyForTailwindVariableType = (typeof formatOnlyForTailwindVariable)[number]['format']
