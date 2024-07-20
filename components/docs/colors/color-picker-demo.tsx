@@ -2,10 +2,9 @@
 
 import React from 'react'
 
-import { parseColor } from '@react-stately/color'
-import { ColorPicker } from 'ui'
+import { ColorPicker, defaultColor } from 'ui'
 
 export default function ColorPickerDemo() {
-  const [color, setColor] = React.useState(parseColor('hsl(216, 98%, 52%)'))
+  const [color, setColor] = React.useState(defaultColor)
   return <ColorPicker label="Color Picker" value={color} onChange={setColor} />
 }

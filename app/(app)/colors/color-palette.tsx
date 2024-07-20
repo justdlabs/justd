@@ -74,7 +74,7 @@ export function ColorPalette() {
               </Subheading>
             </div>
 
-            <div className="flex gap-x-2 shrink-0">
+            <div className="flex shrink-0">
               <PickYourVibe />
             </div>
           </div>
@@ -186,9 +186,6 @@ function GridListItem({ item, id, isForTailwindVariable, selectedFormat }: any) 
         'group w-full group text-muted-fg border-y border-transparent flex relative items-center justify-between font-mono text-xs',
         'focus:outline-none',
         'text-muted-fg hover:text-fg'
-        // isBrightColor(item.value)
-        //   ? 'text-zinc-900/80 hover:text-white focus:text-white'
-        //   : 'text-white/80 hover:text-zinc-900 focus:text-zinc-900'
       )}
       onAction={() => handleCopy(parseColor(item.value as string).toString(selectedFormat ?? 'hsl'))}
     >

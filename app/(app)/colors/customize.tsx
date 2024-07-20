@@ -2,12 +2,23 @@ import React, { useState } from 'react'
 
 import type { FormatOnlyForTailwindVariableType } from '@/lib/colors'
 import { formatColorForTailwind, formatOnlyForTailwindVariable } from '@/lib/colors'
-import { IconBrandTailwindcss, IconColors } from '@irsyadadl/paranoid'
+import { IconBrandTailwindcss, IconColors, IconRefresh } from '@irsyadadl/paranoid'
 import { parseColor } from '@react-stately/color'
 import type { ColorFormat } from '@react-types/color'
 import { type Color } from 'react-aria-components'
 import { twJoin } from 'tailwind-merge'
-import { Button, ColorPicker, defaultColor, Popover, PopoverContent, Select, SelectItem, Snippet } from 'ui'
+import {
+  Button,
+  ColorField,
+  ColorPicker,
+  defaultColor,
+  Popover,
+  PopoverContent,
+  Select,
+  SelectItem,
+  Snippet,
+  useMediaQuery
+} from 'ui'
 
 const sc =
   'text-fg [&_.bx]:text-fg [&_.bx]:bg-background [&_[.bx[data-slot=icon]]:text-fg [&_.bx]:border-border bg-secondary/50 py-2'
@@ -18,17 +29,31 @@ const PickYourVibe = () => {
   const rgbFormatted = tailwindFormat ? formatColorForTailwind(color.toString('rgb'), 'rgb') : color.toString('rgb')
   const hslFormatted = tailwindFormat ? formatColorForTailwind(color.toString('hsl'), 'hsl') : color.toString('hsl')
   const hsbFormatted = tailwindFormat ? formatColorForTailwind(color.toString('hsl'), 'hsb') : color.toString('hsb')
-
+  const isMobile = useMediaQuery('(max-width: 600px)')
   return (
     <Popover aria-label="Choose your vibe color">
-      <Button className="w-full" appearance="outline">
+      <Button appearance="outline">
         <IconColors />
         Pick Your Vibe
       </Button>
       <PopoverContent className="min-w-80" placement="bottom end">
         <div className="flex flex-col gap-y-2">
           <div className="flex items-center gap-1 justify-between">
-            <ColorPicker placeholder={color.toString('hex') ?? defaultColor} value={color} onChange={setColor} />
+            {isMobile ? (
+              <ColorField
+                enableColorPicker={false}
+                value={color}
+                onChange={(newColor: Color | null) => newColor && setColor(newColor)}
+                suffix={<IconRefresh aria-label="Refresh color" />}
+              />
+            ) : (
+              <ColorPicker
+                className="hidden lg:block"
+                placeholder={color.toString('hex') ?? defaultColor}
+                value={color}
+                onChange={setColor}
+              />
+            )}
             <Button
               aria-label="Convert to Tailwind variable format"
               onPress={() => setTailwindFormat(!tailwindFormat)}
