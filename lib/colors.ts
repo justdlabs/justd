@@ -291,6 +291,17 @@ const tailwindColors = {
 
 const colors = { ...tailwindColors, ...htmlcolors }
 
+const allFormats = [
+  { id: 1, format: 'hex' },
+  { id: 2, format: 'hexa' },
+  { id: 3, format: 'rgb' },
+  { id: 4, format: 'rgba' },
+  { id: 5, format: 'hsl' },
+  { id: 6, format: 'hsla' },
+  { id: 7, format: 'hsb' },
+  { id: 8, format: 'hsba' }
+] as const
+
 const formatOnlyForTailwindVariable = [
   { id: 1, format: 'rgb' },
   { id: 2, format: 'rgba' },
@@ -315,6 +326,7 @@ const formatColorForTailwind = (colorString: string, format: FormatOnlyForTailwi
 
 export {
   colors,
+  allFormats,
   formatColorForTailwind,
   formatOnlyForTailwindVariable,
   formatOnlyForTailwindVariableValues,

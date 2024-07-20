@@ -3,7 +3,7 @@
 import * as React from 'react'
 
 import { PickYourVibe } from '@/app/(app)/colors/customize'
-import type { FormatOnlyForTailwindVariableType } from '@/lib/colors'
+import { allFormats, FormatOnlyForTailwindVariableType } from '@/lib/colors'
 import {
   colors as primitiveColors,
   formatColorForTailwind,
@@ -36,7 +36,9 @@ import {
   SelectItem,
   snippetVariants,
   Subheading,
-  Toaster
+  Toaster,
+  Tooltip,
+  TooltipContent
 } from 'ui'
 import { copyToClipboard } from 'usemods'
 
@@ -67,7 +69,8 @@ export function ColorPalette() {
                 <span className="text-muted-fg">ors</span>
               </Heading>
               <Subheading className="font-normal sm:text-base text-muted-fg">
-                A stash of colors blending Tailwind CSS vibes with HTML color names, served up in 6 slick formats.
+                A stash of over <strong className="font-medium text-fg">154</strong> colors blending Tailwind CSS vibes
+                with HTML color names, served up in <strong className="font-medium text-fg">8 slick formats</strong>.
               </Subheading>
             </div>
 
@@ -105,23 +108,33 @@ export function ColorName({ id, value }: any) {
         <div className="capitalize text-sm font-medium">{id}</div>
         <div className="flex gap-x-1">
           <>
-            <ToggleButton
-              className={buttonStyles({ appearance: 'outline', size: 'square-petite', className: 'size-8' })}
-              isSelected={isForTailwindVariable}
-              isDisabled={
-                !formatOnlyForTailwindVariableValues.includes(selectedFormat as FormatOnlyForTailwindVariableType)
-              }
-              onChange={setIsForTailwindVariable}
-            >
-              {({ isSelected }) => <IconBrandTailwindcss className={isSelected ? '!text-sky-500' : '!text-fg'} />}
-            </ToggleButton>
+            <Tooltip>
+              <ToggleButton
+                className={buttonStyles({ appearance: 'outline', size: 'square-petite', className: 'size-8' })}
+                isSelected={isForTailwindVariable}
+                onChange={() => {
+                  if (
+                    !formatOnlyForTailwindVariableValues.includes(selectedFormat as FormatOnlyForTailwindVariableType)
+                  ) {
+                    toast('You can only switch up the color format to RGB, RGBA, HSL, HSLA, HSB, or HSBA.')
+                    return
+                  }
+                  setIsForTailwindVariable(!isForTailwindVariable)
+                }}
+              >
+                {({ isSelected }) => <IconBrandTailwindcss className={isSelected ? '!text-sky-500' : '!text-fg'} />}
+              </ToggleButton>
+              <TooltipContent className="max-w-xs">
+                You can switch up the color format to RGB, RGBA, HSL, HSLA, HSB, or HSBA.
+              </TooltipContent>
+            </Tooltip>
             <Select
               selectedKey={selectedFormat}
               onSelectionChange={(v) => setSelectedFormat(v as ColorFormat)}
               placeholder={selectedFormat}
               className="[&_.btr]:min-w-24 [&_.btr]:h-8 flex-1"
               aria-label="Select Format"
-              items={formatOnlyForTailwindVariable}
+              items={allFormats}
               placement="bottom right"
             >
               {(item) => (

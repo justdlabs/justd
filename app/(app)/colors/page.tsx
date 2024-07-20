@@ -7,7 +7,7 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Colors / ' + siteConfig.name,
   description:
-    'Over 154 colors are available for copying in your preferred format, plus it supports 8 different format options.',
+    'A stash of over 154 colors blending TailwindCSS vibes with HTML color names, served up in 8 slick formats.',
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? siteConfig.url),
   applicationName: siteConfig.name,
   category: 'Colors',
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Colors / ' + siteConfig.name,
     description:
-      'Over 154 colors are available for copying in your preferred format, plus it supports 8 different format options.'
+      'A stash of over 154 colors blending TailwindCSS vibes with HTML color names, served up in 8 slick formats.'
   }
 }
 
