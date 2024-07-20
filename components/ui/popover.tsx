@@ -16,10 +16,15 @@ import { tv } from 'tailwind-variants'
 
 import { ModalBody, ModalClose, ModalDescription, ModalFooter, ModalHeader, ModalOverlay, ModalTitle } from './modal'
 
-export interface PopoverProps extends Omit<PopoverPrimitiveProps, 'children'> {
-  showArrow?: boolean
-  children: React.ReactNode
-}
+const Popover = DialogTrigger
+const PopoverTrigger = Button
+const PopoverClose = ModalClose
+const PopoverOverlay = ModalOverlay
+const PopoverFooter = ModalFooter
+const PopoverHeader = ModalHeader
+const PopoverTitle = ModalTitle
+const PopoverDescription = ModalDescription
+const PopoverBody = ModalBody
 
 const popoverContentStyles = tv({
   base: 'max-w-xs rounded-xl border bg-popover bg-clip-padding p-4 text-popover-fg shadow-lg dark:backdrop-blur-2xl dark:backdrop-saturate-200 sm:max-w-3xl forced-colors:bg-[Canvas]',
@@ -33,15 +38,10 @@ const popoverContentStyles = tv({
   }
 })
 
-const Popover = DialogTrigger
-const PopoverTrigger = Button
-const PopoverClose = ModalClose
-const PopoverOverlay = ModalOverlay
-const PopoverFooter = ModalFooter
-const PopoverHeader = ModalHeader
-const PopoverTitle = ModalTitle
-const PopoverDescription = ModalDescription
-const PopoverBody = ModalBody
+export interface PopoverProps extends Omit<PopoverPrimitiveProps, 'children'> {
+  showArrow?: boolean
+  children: React.ReactNode
+}
 
 const PopoverContent = ({ children, showArrow = true, className, ...props }: PopoverProps) => {
   const popoverContext = useSlottedContext(PopoverContext)!

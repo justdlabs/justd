@@ -45,4 +45,4 @@ const DynamicOverlay = ({ className, children, ...props }: OverlayProps) => {
   )
 }
 
-export { DynamicOverlay }
+export { DynamicOverlay, drawerStyles }
