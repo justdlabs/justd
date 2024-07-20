@@ -1,44 +1,22 @@
-'use client'
+'use client';
 
-import * as React from 'react'
+import * as React from 'react';
 
-import { PickYourVibe } from '@/app/(app)/colors/customize'
-import type { FormatOnlyForTailwindVariableType } from '@/lib/colors'
-import {
-  colors as primitiveColors,
-  formatColorForTailwind,
-  formatOnlyForTailwindVariable,
-  formatOnlyForTailwindVariableValues
-} from '@/lib/colors'
-import { IconBrandTailwindcss, IconCheck, IconDuplicate } from '@irsyadadl/paranoid'
-import { parseColor } from '@react-stately/color'
-import type { ColorFormat } from '@react-types/color'
-import { AnimatePresence, motion } from 'framer-motion'
-import {
-  GridList as GridListPrimitive,
-  GridListItem as GridListItemPrimitive,
-  Header,
-  Text,
-  ToggleButton
-} from 'react-aria-components'
-import { toast } from 'sonner'
-import { twJoin } from 'tailwind-merge'
-import {
-  buttonStyles,
-  cn,
-  ColorSwatch,
-  Container,
-  gridStyles,
-  Header as HeaderPrimitive,
-  Heading,
-  isBrightColor,
-  Label,
-  Select,
-  SelectItem,
-  snippetVariants,
-  Toaster
-} from 'ui'
-import { copyToClipboard } from 'usemods'
+
+
+import { PickYourVibe } from '@/app/(app)/colors/customize';
+import type { FormatOnlyForTailwindVariableType } from '@/lib/colors';
+import { colors as primitiveColors, formatColorForTailwind, formatOnlyForTailwindVariable, formatOnlyForTailwindVariableValues } from '@/lib/colors';
+import { IconBrandTailwindcss, IconCheck, IconDuplicate } from '@irsyadadl/paranoid';
+import { parseColor } from '@react-stately/color';
+import type { ColorFormat } from '@react-types/color';
+import { AnimatePresence, motion } from 'framer-motion';
+import { GridList as GridListPrimitive, GridListItem as GridListItemPrimitive, Text, ToggleButton } from 'react-aria-components';
+import { toast } from 'sonner';
+import { twJoin } from 'tailwind-merge';
+import { buttonStyles, cn, ColorSwatch, Container, gridStyles, Header as HeaderPrimitive, Heading, isBrightColor, Label, Select, SelectItem, snippetVariants, Subheading, Toaster } from 'ui';
+import { copyToClipboard } from 'usemods';
+
 
 const excludedColors = [
   'current',
@@ -61,9 +39,14 @@ export function ColorPalette() {
       <HeaderPrimitive className="bg-background pb-4 pt-12 lg:py-16 border-b ">
         <Container>
           <div className="flex flex-col sm:flex-row  justify-between sm:items-center gap-4">
-            <Heading level={1} className="text-2xl flex-1 sm:text-3xl font-bold tracking-tight">
-              Colors
-            </Heading>
+            <div className="flex max-w-xl flex-col gap-y-2">
+              <Heading level={1} className="text-2xl flex-1 sm:text-3xl font-bold tracking-tight">
+                Colors
+              </Heading>
+              <Subheading className="font-normal sm:text-base text-muted-fg">
+                The mix of colors mashes up Tailwind CSS shades with HTML color names.
+              </Subheading>
+            </div>
 
             <div className="flex gap-x-2 shrink-0">
               <PickYourVibe />
@@ -76,8 +59,7 @@ export function ColorPalette() {
         <div
           className={gridStyles({
             columns: { initial: 1, lg: 4 },
-            gapX: { initial: 2 },
-            gapY: 0,
+            gap: { initial: 2, sm: 4 },
             className: 'py-6 md:py-10 lg:py-16'
           })}
         >
@@ -95,63 +77,54 @@ export function ColorName({ id, value }: any) {
   const [selectedFormat, setSelectedFormat] = React.useState<ColorFormat>('hex')
 
   return (
-    <div className="flex flex-col gap-2">
-      <Header className="flex w-full uppercase text-xs items-center gap-x-1 justify-between">
-        {/*<div>*/}
-        {/*  <span>{id}</span>*/}
-        {/*  <span className="mx-2">/</span>*/}
-        {/*  <span>{selectedFormat}</span>*/}
-        {/*</div>*/}
-      </Header>
-      <div className="border rounded-2xl overflow-hidden">
-        <div className="flex items-center gap-x-1 justify-between bg-secondary/30 border-b p-2">
-          <div className="capitalize text-sm font-medium pl-2">{id}</div>
-          <div className="flex gap-x-1">
-            <>
-              <ToggleButton
-                className={buttonStyles({ appearance: 'outline', size: 'square-petite', className: 'size-8' })}
-                isSelected={isForTailwindVariable}
-                isDisabled={
-                  !formatOnlyForTailwindVariableValues.includes(selectedFormat as FormatOnlyForTailwindVariableType)
-                }
-                onChange={setIsForTailwindVariable}
-              >
-                {({ isSelected }) => <IconBrandTailwindcss className={isSelected ? '!text-sky-500' : '!text-fg'} />}
-              </ToggleButton>
-              <Select
-                selectedKey={selectedFormat}
-                onSelectionChange={(v) => setSelectedFormat(v as ColorFormat)}
-                placeholder={selectedFormat}
-                className="[&_.btr]:min-w-24 [&_.btr]:h-8 flex-1"
-                aria-label="Select Format"
-                items={formatOnlyForTailwindVariable}
-                placement="bottom right"
-              >
-                {(item) => (
-                  <SelectItem id={item.format}>
-                    <Text slot="label">{item.format}</Text>
-                  </SelectItem>
-                )}
-              </Select>
-            </>
-          </div>
+    <div className="border rounded-2xl overflow-hidden">
+      <div className="flex items-center gap-x-1 justify-between bg-secondary/30 border-b p-2">
+        <div className="capitalize text-sm font-medium pl-2">{id}</div>
+        <div className="flex gap-x-1">
+          <>
+            <ToggleButton
+              className={buttonStyles({ appearance: 'outline', size: 'square-petite', className: 'size-8' })}
+              isSelected={isForTailwindVariable}
+              isDisabled={
+                !formatOnlyForTailwindVariableValues.includes(selectedFormat as FormatOnlyForTailwindVariableType)
+              }
+              onChange={setIsForTailwindVariable}
+            >
+              {({ isSelected }) => <IconBrandTailwindcss className={isSelected ? '!text-sky-500' : '!text-fg'} />}
+            </ToggleButton>
+            <Select
+              selectedKey={selectedFormat}
+              onSelectionChange={(v) => setSelectedFormat(v as ColorFormat)}
+              placeholder={selectedFormat}
+              className="[&_.btr]:min-w-24 [&_.btr]:h-8 flex-1"
+              aria-label="Select Format"
+              items={formatOnlyForTailwindVariable}
+              placement="bottom right"
+            >
+              {(item) => (
+                <SelectItem id={item.format}>
+                  <Text slot="label">{item.format}</Text>
+                </SelectItem>
+              )}
+            </Select>
+          </>
         </div>
-        <GridListPrimitive aria-label={`${id} colors`} className="grid gap-2 p-2 overflow-hidden">
-          {Object.entries(value as any)
-            .map(([shade, value]) => ({ value, shade }))
-            .map((item, i) => (
-              <GridListItem
-                isForTailwindVariable={isForTailwindVariable}
-                selectedFormat={selectedFormat}
-                key={i.toString()}
-                textValue={item.shade}
-                aria-label={`${id} of ${item.shade}`}
-                id={id + '-' + Math.random()}
-                item={item}
-              />
-            ))}
-        </GridListPrimitive>
       </div>
+      <GridListPrimitive aria-label={`${id} colors`} className="grid gap-2 p-2.5 overflow-hidden">
+        {Object.entries(value as any)
+          .map(([shade, value]) => ({ value, shade }))
+          .map((item, i) => (
+            <GridListItem
+              isForTailwindVariable={isForTailwindVariable}
+              selectedFormat={selectedFormat}
+              key={i.toString()}
+              textValue={item.shade}
+              aria-label={`${id} of ${item.shade}`}
+              id={id + '-' + Math.random()}
+              item={item}
+            />
+          ))}
+      </GridListPrimitive>
     </div>
   )
 }
