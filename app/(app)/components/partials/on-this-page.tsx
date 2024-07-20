@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-import { groupedComponents } from '@/app/components/partials/card-list-box'
+import { groupedComponents } from '@/app/(app)/components/partials/card-list-box'
 import { useActiveItem } from '@/components/table-of-contents'
 import { goodTitle } from '@/lib/utils'
 import { ListBox, ListBoxItem } from 'react-aria-components'

@@ -87,9 +87,7 @@ export function Navbar() {
                     >
                       Components
                     </NavLink>
-                    <NavLink target="_blank" href="https://irsyad.co/c">
-                      Colors
-                    </NavLink>
+                    <NavLink>Colors</NavLink>
                     <NavLink target="_blank" href="https://paranoid.irsyad.co">
                       Paranoid
                     </NavLink>
@@ -296,7 +294,7 @@ export function NavbarDropdown() {
         <MenuSeparator />
         <MenuSection>
           <MenuHeader separator>Refs</MenuHeader>
-          <MenuItem href="https://irsyad.co/colors" target="_blank">
+          <MenuItem href="/colors" target="_blank">
             <IconColors />
             Colors
           </MenuItem>

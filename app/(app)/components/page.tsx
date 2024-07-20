@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { CardListBox } from '@/app/components/partials/card-list-box'
-import { OnThisPage } from '@/app/components/partials/on-this-page'
+import { CardListBox } from '@/app/(app)/components/partials/card-list-box'
+import { OnThisPage } from '@/app/(app)/components/partials/on-this-page'
 import { Header } from '@/components/header'
 import { siteConfig } from '@/config/site'
 import type { Metadata } from 'next'
@@ -9,9 +9,11 @@ import { Container } from 'ui'
 
 export const metadata: Metadata = {
   title: 'Components / ' + siteConfig.name,
-  description: siteConfig.description,
-  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? siteConfig.url)
+  description: 'Over 50 accessible components, neatly grouped into sections. Guaranteed usability for all!',
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? siteConfig.url),
+  applicationName: siteConfig.name
 }
+
 export default function Page() {
   return (
     <div>

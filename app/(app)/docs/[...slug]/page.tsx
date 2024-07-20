@@ -33,7 +33,14 @@ export async function generateMetadata({ params }: DocPageProps): Promise<Metada
 
   return {
     title: `Docs: ${doc.title} / ${siteConfig.name}`,
-    description: doc.description
+    description: doc.description,
+    applicationName: siteConfig.name,
+    category: 'Docs',
+    twitter: {
+      card: 'summary_large_image',
+      title: `Docs: ${doc.title} / ${siteConfig.name}`,
+      description: doc.description
+    }
   }
 }
 
@@ -48,7 +55,6 @@ export default async function PostPage({ params }: DocPageProps) {
     notFound()
   }
 
-  console.log(doc.slug)
   return (
     <>
       {doc.title === 'Toaster' && <Toaster />}

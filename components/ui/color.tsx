@@ -125,21 +125,19 @@ const ColorSwatchPickerItem = ({ className, ...props }: ColorSwatchPickerItemPri
       )}
       {...props}
     >
-      <ColorSwatch isBright={isBrightColor(props.color ?? '')} className="size-[inherit] cocspip" />
+      <ColorSwatch className="size-[inherit] cocspip" />
     </ColorSwatchPickerItemPrimitive>
   )
 }
 
-interface ColorSwatchProps extends ColorSwatchPrimitiveProps {
-  isBright?: boolean
-}
+interface ColorSwatchProps extends ColorSwatchPrimitiveProps {}
 
-const ColorSwatch = ({ isBright, className, ...props }: ColorSwatchProps) => {
-  const needRing = props.color ? isBrightColor(props.color) : isBright
+const ColorSwatch = ({ className, ...props }: ColorSwatchProps) => {
+  const needRing = props.color ? isBrightColor(props.color) : false
   return (
     <ColorSwatchPrimitive
       className={cn(
-        'size-8 cs rounded-md',
+        'size-8 cs rounded-md shrink-0',
         needRing ? 'ring-1 ring-inset ring-black/10' : 'dark:ring-1 dark:ring-inset dark:ring-white/10',
         className
       )}

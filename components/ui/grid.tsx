@@ -8,7 +8,7 @@ import { tv, type VariantProps } from 'tailwind-variants'
 
 import { cn } from './primitive'
 
-const gridStyle = tv(
+const gridStyles = tv(
   {
     base: 'grid',
     variants: {
@@ -133,7 +133,7 @@ const gridStyle = tv(
   }
 )
 
-interface GridProps<T> extends VariantProps<typeof gridStyle>, ListBoxProps<T> {
+interface GridProps<T> extends VariantProps<typeof gridStyles>, ListBoxProps<T> {
   className?: string
   debug?: boolean
 }
@@ -154,7 +154,7 @@ const Grid = <T extends object>({
       aria-label={props['aria-label'] || 'grid'}
       orientation="horizontal"
       layout="grid"
-      className={gridStyle({
+      className={gridStyles({
         gap: gap ?? gapX ?? gapY,
         gapX: gapX ?? gap,
         gapY: gapY ?? gap,
@@ -313,4 +313,4 @@ const GridItem = ({
   )
 }
 
-export { Grid, GridItem }
+export { Grid, GridItem, gridStyles, gridItemStyles }

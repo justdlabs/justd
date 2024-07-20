@@ -1,4 +1,4 @@
-import { CardSink } from '@/app/sink/card-sink'
+import { CardSink } from '@/app/(app)/sink/card-sink'
 import { Note } from 'ui'
 
 export function NoteStatuses() {

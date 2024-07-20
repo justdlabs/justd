@@ -21,8 +21,7 @@ import {
   ColorSwatchPicker,
   ColorSwatchPickerItem,
   ColorThumb,
-  defaultColor,
-  isBrightColor
+  defaultColor
 } from './color'
 import { Dialog } from './dialog'
 import { DynamicOverlay } from './dynamic-overlay'
@@ -60,12 +59,18 @@ const ColorPicker = ({
       {label && <Label>{label}</Label>}
       <ColorPickerPrimitive defaultValue={defaultColor} {...props}>
         <DialogTrigger>
-          <Button isDisabled={isDisabled} appearance="outline" className="w-full max-w-sm justify-start">
-            <ColorSwatch isBright={props.value ? isBrightColor(props.value) : false} className="-ml-1.5 size-6" />
+          <Button
+            aria-label="Open color picker"
+            isDisabled={isDisabled}
+            appearance="outline"
+            className="w-full max-w-sm justify-start"
+          >
+            <ColorSwatch color={props.value ?? props.defaultValue} className="-ml-1.5 size-6" />
             <span>{placeholder}</span>
           </Button>
           <DynamicOverlay
             placement="bottom start"
+            role="dialog"
             className="w-full p-0 overflow-hidden min-w-full sm:w-fit sm:min-w-fit"
           >
             <Dialog className="[[data-placement]>&]:p-[0.70rem] lg:w-[18rem] lg:p-0">
@@ -76,6 +81,7 @@ const ColorPicker = ({
                     colorSpace="hsb"
                     xChannel="saturation"
                     yChannel="brightness"
+                    aria-label="Color area"
                   >
                     <ColorThumb className="z-50" />
                   </ColorArea>
@@ -84,18 +90,19 @@ const ColorPicker = ({
                     className="mt-2 [&_.cstrk]:orientation-horizontal:h-3"
                     colorSpace="hsb"
                     channel="hue"
+                    aria-label="Color slider"
                   />
                 </div>
 
                 <div className="grid gap-2">
                   {enableColorFormatSelection && (
                     <Select
+                      aria-label="Select color format"
                       selectedKey={space}
                       onSelectionChange={(s) => {
                         setSpace(s as ColorSpace)
                         setIsHexFormat(s === 'hex')
                       }}
-                      aria-label="Type of Color"
                     >
                       {['rgb', 'hsl', 'hsb', 'hex'].map((s) => (
                         <SelectItem key={s} id={s} textValue={s}>
@@ -108,7 +115,7 @@ const ColorPicker = ({
                   {enableColorFormatSelection ? (
                     <div className="flex gap-1 w-[inherit]">
                       {isHexFormat ? (
-                        <ColorField colorSpace={space} />
+                        <ColorField aria-label="Hex color" colorSpace={space} />
                       ) : (
                         getColorChannels(space).map((channel) => (
                           <ColorField
@@ -121,12 +128,12 @@ const ColorPicker = ({
                       )}
                     </div>
                   ) : (
-                    <ColorField colorSpace={space} />
+                    <ColorField aria-label={`Color in ${space} format`} colorSpace={space} />
                   )}
                 </div>
 
                 {enableColorSwatch && colors && colors.length > 0 && (
-                  <ColorSwatchPicker className="flex flex-wrap gap-x-2 gap-y-2.5">
+                  <ColorSwatchPicker layout="grid" className="flex flex-wrap gap-x-2 gap-y-2.5">
                     {colors.map((color) => (
                       <ColorSwatchPickerItem key={color} color={color} />
                     ))}
