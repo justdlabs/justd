@@ -153,7 +153,8 @@ export function ColorRow({ item }: ColorPaletteProps) {
         <GridList
           className={gridStyles({
             columns: { initial: 7, lg: 11 },
-            gap: { initial: 1 }
+            gapY: { initial: 3, sm: 1 },
+            gapX: { initial: 1, sm: 1 }
           })}
           aria-label={`${item.name} 50-950 colors`}
         >
@@ -207,7 +208,7 @@ const ColorItem = ({ item, name, isForTailwindVariable, selectedFormat }: GridLi
           color={item.color}
           className="relative size-9 sm:w-9 lg:w-8 lg:h-16"
         />
-        <div className="absolute top-1.5 left-2 group-hover:block hidden">
+        <div className="absolute top-2.5 left-2.5 lg:top-1.5 lg:left-2 group-hover:block hidden">
           <AnimatePresence mode="wait" initial={false}>
             {copied ? (
               <motion.span key="checkmark" variants={snippetVariants} initial="hidden" animate="visible" exit="hidden">
