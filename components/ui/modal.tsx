@@ -28,7 +28,7 @@ const ModalOverlayContext = React.createContext<{ isDismissable?: boolean }>({
   isDismissable: true
 })
 
-export const modalVariants = tv({
+const modalVariants = tv({
   base: [
     'fixed bottom-0 left-[50%] top-auto z-50 grid w-full max-w-full translate-x-[-50%] gap-4 rounded-t-xl border border-b-transparent bg-background p-2 shadow-lg outline-none sm:bottom-auto sm:top-[40%] sm:translate-y-[-50%] sm:rounded-xl sm:border-b-border',
     'sm:entering:slide-in-from-bottom-auto entering:animate-in entering:fade-in-0 entering:slide-in-from-bottom-1/2 entering:slide-in-from-left-1/2 entering:[transition-timing-function:ease-out] sm:entering:slide-in-from-top-[58%]',
@@ -150,8 +150,7 @@ const ModalHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivElemen
   <div className={cn('mb-6 flex flex-col gap-y-0.5 pr-1 text-center sm:pr-0 sm:text-left', className)} {...props} />
 )
 
-interface ModalCloseProps extends ButtonProps {
-}
+interface ModalCloseProps extends ButtonProps {}
 
 const ModalClose = ({ className, ...props }: ModalCloseProps) => {
   const state = React.useContext(OverlayTriggerStateContext)!

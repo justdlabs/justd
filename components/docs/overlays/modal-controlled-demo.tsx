@@ -17,18 +17,17 @@ export default function ModalControlledDemo() {
   const [open, setOpen] = useState(false)
   return (
     <>
-      <Button onPress={() => setOpen(true)} intent="secondary">
-        Controlled
+      <Button onPress={() => setOpen(true)} intent="primary">
+        Subscribe
       </Button>
       <ModalOverlay isOpen={open} onOpenChange={setOpen}>
         <ModalContent>
           <ModalHeader>
-            <ModalTitle>Delete file</ModalTitle>
-            <ModalDescription>This will permanently delete the selected file. Continue?</ModalDescription>
+            <ModalTitle>Subscribe to Our Newsletter</ModalTitle>
+            <ModalDescription>Get the latest news and updates right to your inbox.</ModalDescription>
           </ModalHeader>
           <ModalFooter>
-            <ModalClose>Cancel</ModalClose>
-            <Button onPress={() => setOpen(false)}>Continue</Button>
+            <Button onPress={() => setOpen(false)}>Sign Up</Button>
           </ModalFooter>
         </ModalContent>
       </ModalOverlay>
