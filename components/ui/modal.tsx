@@ -76,7 +76,7 @@ const ModalOverlay = ({ isDismissable, className, ...props }: ModalOverlayProps)
         isDismissable={effectiveIsDismissable}
         className={(values) =>
           cn(
-            'fixed inset-0 z-50 bg-black/60 entering:animate-in entering:fade-in-0 exiting:animate-in exiting:fade-out-0',
+            'fixed h-[--visual-viewport-height] inset-0 z-50 bg-black/60 entering:animate-in entering:fade-in-0 exiting:animate-in exiting:fade-out-0',
             typeof className === 'function' ? className(values) : className
           )
         }

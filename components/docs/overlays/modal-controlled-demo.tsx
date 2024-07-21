@@ -2,16 +2,7 @@
 
 import { useState } from 'react'
 
-import {
-  Button,
-  ModalClose,
-  ModalContent,
-  ModalDescription,
-  ModalFooter,
-  ModalHeader,
-  ModalOverlay,
-  ModalTitle
-} from 'ui'
+import { Button, ModalContent, ModalDescription, ModalFooter, ModalHeader, ModalOverlay, ModalTitle } from 'ui'
 
 export default function ModalControlledDemo() {
   const [open, setOpen] = useState(false)

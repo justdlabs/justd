@@ -25,7 +25,7 @@ export function PopoverOverlays() {
     <CardSink>
       <Popover>
         <Button intent="secondary">Forgot Password</Button>
-        <PopoverContent className="w-[28rem]">
+        <PopoverContent className="max-w-[28rem]">
           <PopoverHeader>
             <PopoverTitle>Email</PopoverTitle>
             <PopoverDescription>We'll send you an email to log in.</PopoverDescription>
