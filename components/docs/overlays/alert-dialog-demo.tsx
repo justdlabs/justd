@@ -20,16 +20,20 @@ export default function AlertDialogDemo() {
       <ModalTrigger className={buttonStyles({ intent: 'danger' })}>Delete</ModalTrigger>
       <ModalOverlay>
         <ModalContent>
-          <ModalHeader>
-            <ModalTitle>Delete file</ModalTitle>
-            <ModalDescription>This will permanently delete the selected file. Continue?</ModalDescription>
-          </ModalHeader>
-          <ModalFooter>
-            <ModalClose appearance="outline">Cancel</ModalClose>
-            <Button intent="danger" onPress={close}>
-              Continue
-            </Button>
-          </ModalFooter>
+          <>
+            <ModalHeader>
+              <ModalTitle>Delete file</ModalTitle>
+              <ModalDescription>This will permanently delete the selected file. Continue?</ModalDescription>
+            </ModalHeader>
+            <ModalFooter>
+              <Button appearance="outline" onPress={close}>
+                Cancel
+              </Button>
+              <Button intent="danger" onPress={close}>
+                Continue
+              </Button>
+            </ModalFooter>
+          </>
         </ModalContent>
       </ModalOverlay>
     </Modal>
