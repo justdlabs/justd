@@ -154,7 +154,7 @@ export function ColorRow({ item }: ColorPaletteProps) {
           className={gridStyles({
             columns: { initial: 7, lg: 11 },
             gapY: { initial: 3, sm: 1 },
-            gapX: { initial: 1, sm: 1 },
+            gapX: { initial: 1, sm: 1 }
           })}
           aria-label={`${item.name} 50-950 colors`}
         >
