@@ -8,7 +8,7 @@ import { twJoin } from 'tailwind-merge'
 
 import { buttonStyles } from './button'
 
-const Toaster = ({ ...props }: ToasterProps) => {
+const Toast = ({ ...props }: ToasterProps) => {
   const { theme = 'system' } = useTheme()
   return (
     <ToasterPrimitive
@@ -29,12 +29,13 @@ const Toaster = ({ ...props }: ToasterProps) => {
           ),
           icon: 'hidden',
           content: '[&:not(:has(+button))]:pr-10 [&:has(+button)]:pb-11 md:[&:has(+button)]:pb-9',
-          error: 'ring-red-500/20 dark:ring-red-500/20 bg-danger/10 dark:text-red-50 text-red-950 dark:ring-inset',
+          error:
+            'bg-danger text-white ring-white/10 text-danger-fg dark:ring-inset [&>[data-close-button=true]>svg]:text-white [&>[data-close-button=true]:hover]:bg-white/20',
           success:
-            'ring-emerald-500/30 dark:ring-emerald-500/20 bg-success/10 dark:text-emerald-50 text-emerald-950 dark:ring-inset',
+            'bg-success text-white ring-white/10 text-success-fg dark:ring-inset [&>[data-close-button=true]>svg]:text-white [&>[data-close-button=true]:hover]:bg-white/20',
           warning:
-            '!ring-amber-500/25 dark:!ring-amber-500/20 bg-warning/10 dark:text-amber-50 text-amber-950 dark:ring-inset',
-          info: 'ring-lime-500/30 dark:ring-lime-500/20 bg-lime-500/10 dark:text-lime-50 text-lime-950 dark:ring-inset',
+            'bg-warning text-warning-fg ring-white/10 text-warning-fg dark:ring-inset [&>[data-close-button=true]>svg]:text-amber-950 [&>[data-close-button=true]:hover]:bg-white/20',
+          info: 'bg-primary text-white ring-white/10 text-primary-fg dark:ring-inset [&>[data-close-button=true]>svg]:text-white [&>[data-close-button=true]:hover]:bg-white/20',
           cancelButton: buttonStyles({
             className: '',
             size: 'extra-small',
@@ -53,4 +54,4 @@ const Toaster = ({ ...props }: ToasterProps) => {
   )
 }
 
-export { Toaster }
+export { Toast }

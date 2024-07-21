@@ -10,7 +10,7 @@ const positions: ToastT['position'][] = [
   'bottom-center'
 ]
 
-export default function ToasterPositionsDemo() {
+export default function ToastPositionsDemo() {
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
       {positions.map((position) => (
