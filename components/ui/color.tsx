@@ -3,17 +3,19 @@
 import * as React from 'react'
 
 import { parseColor } from '@react-stately/color'
+import type {
+  ColorSliderProps as ColorSliderPrimitiveProps,
+  ColorSwatchPickerItemProps as ColorSwatchPickerItemPrimitiveProps,
+  ColorSwatchProps as ColorSwatchPrimitiveProps,
+  ColorThumbProps as ColorThumbPrimitiveProps
+} from 'react-aria-components'
 import {
   ColorArea as ColorAreaPrimitive,
   ColorSlider as ColorSliderPrimitive,
-  ColorSliderProps as ColorSliderPrimitiveProps,
   ColorSwatch as ColorSwatchPrimitive,
   ColorSwatchPicker as ColorSwatchPickerPrimitive,
   ColorSwatchPickerItem as ColorSwatchPickerItemPrimitive,
-  ColorSwatchPickerItemProps as ColorSwatchPickerItemPrimitiveProps,
-  ColorSwatchProps as ColorSwatchPrimitiveProps,
   ColorThumb as ColorThumbPrimitive,
-  ColorThumbProps as ColorThumbPrimitiveProps,
   ColorWheel as ColorWheelPrimitive,
   ColorWheelTrack as ColorWheelTrackPrimitive,
   composeRenderProps,

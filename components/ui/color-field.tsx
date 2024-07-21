@@ -1,11 +1,14 @@
+'use client'
+
 import * as React from 'react'
 
-import { ColorSwatch } from '@/components/ui/color'
-import { ColorPicker } from '@/components/ui/color-picker'
-import { Description, FieldError, FieldGroup, fieldGroupPrefixStyles, Input, Label } from '@/components/ui/field'
 import { ctr } from '@/components/ui/primitive'
 import type { ColorFieldProps as ColorFieldPrimitiveProps, ValidationResult } from 'react-aria-components'
 import { ColorField as ColorFieldPrimitive } from 'react-aria-components'
+
+import { ColorSwatch } from './color'
+import { ColorPicker } from './color-picker'
+import { Description, FieldError, FieldGroup, fieldGroupPrefixStyles, Input, Label } from './field'
 
 interface ColorFieldProps extends ColorFieldPrimitiveProps {
   label?: string

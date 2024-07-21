@@ -88,7 +88,9 @@ export function Navbar() {
                     >
                       Components
                     </NavLink>
-                    <NavLink href="/colors">Colors</NavLink>
+                    <NavLink isActive={pathname === '/colors'} href="/colors">
+                      Colors
+                    </NavLink>
                     <NavLink target="_blank" href="https://paranoid.irsyad.co">
                       Paranoid
                     </NavLink>

@@ -87,9 +87,15 @@ const config = withTV({
         'accordion-up': {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' }
+        },
+        blink: {
+          '0%': { opacity: '0.2' },
+          '20%': { opacity: '1' },
+          '100% ': { opacity: '0.2' }
         }
       },
       animation: {
+        blink: 'blink 1.4s both infinite',
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out'
       }

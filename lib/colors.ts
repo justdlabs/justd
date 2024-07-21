@@ -1,3 +1,4 @@
+import { FormatOnlyForTailwindVariableType } from '@/types'
 import { htmlcolors } from 'html-color-names'
 
 const tailwindColors = {
@@ -289,7 +290,20 @@ const tailwindColors = {
   }
 }
 
-const colors = { ...tailwindColors, ...htmlcolors }
+const excludedColors = [
+  'current',
+  'transparent',
+  'black',
+  'white',
+  'inherit',
+  'lightBlue',
+  'warmGray',
+  'trueGray',
+  'coolGray',
+  'blueGray'
+]
+
+const colors = Object.entries({ ...tailwindColors, ...htmlcolors }).filter(([key]) => !excludedColors.includes(key))
 
 const allFormats = [
   { id: 1, format: 'hex' },
@@ -311,7 +325,6 @@ const formatOnlyForTailwindVariable = [
   { id: 6, format: 'hsba' }
 ] as const
 
-type FormatOnlyForTailwindVariableType = (typeof formatOnlyForTailwindVariable)[number]['format']
 const formatOnlyForTailwindVariableValues = formatOnlyForTailwindVariable.map((format) => format.format)
 
 const formatColorForTailwind = (colorString: string, format: FormatOnlyForTailwindVariableType): string => {

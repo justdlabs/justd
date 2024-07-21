@@ -1,172 +1,188 @@
 'use client'
 
 import * as React from 'react'
+import { useEffect, useState } from 'react'
 
-import { PickYourVibe } from '@/app/(app)/colors/customize'
-import type { FormatOnlyForTailwindVariableType } from '@/lib/colors'
+import _colors from '@/app/(app)/colors/colors.json'
+import { PickYourVibe } from '@/app/(app)/colors/pick-your-vibe'
 import {
   allFormats,
-  colors as primitiveColors,
   formatColorForTailwind,
+  type FormatOnlyForTailwindVariableType,
   formatOnlyForTailwindVariableValues
 } from '@/lib/colors'
+import type { ColorItem, ColorShade } from '@/types'
 import { IconBrandTailwindcss, IconCheck, IconDuplicate } from '@irsyadadl/paranoid'
 import { parseColor } from '@react-stately/color'
 import type { ColorFormat } from '@react-types/color'
 import { AnimatePresence, motion } from 'framer-motion'
-import {
-  GridList as GridListPrimitive,
-  GridListItem as GridListItemPrimitive,
-  Text,
-  ToggleButton
-} from 'react-aria-components'
+import type { ListBoxItemProps } from 'react-aria-components'
+import { GridList, GridListItem, Text, ToggleButton } from 'react-aria-components'
+import { useInView } from 'react-intersection-observer'
 import { toast } from 'sonner'
-import { twJoin } from 'tailwind-merge'
 import {
   buttonStyles,
-  cn,
   ColorSwatch,
   Container,
   gridStyles,
   Header as HeaderPrimitive,
   Heading,
-  isBrightColor,
-  Label,
+  LoadingDots,
   Select,
   SelectItem,
   snippetVariants,
-  Subheading,
-  Toaster,
   Tooltip,
   TooltipContent
 } from 'ui'
 import { copyToClipboard } from 'usemods'
 
-const excludedColors = [
-  'current',
-  'transparent',
-  'black',
-  'white',
-  'inherit',
-  'lightBlue',
-  'warmGray',
-  'trueGray',
-  'coolGray',
-  'blueGray'
-]
-const colors = Object.entries(primitiveColors).filter(([key]) => !excludedColors.includes(key))
+const filteredColors = _colors.map(([name, colorShades]) => ({
+  name,
+  children: Object.entries(colorShades).map(([shade, color]) => ({
+    shade: shade,
+    color
+  }))
+}))
 
 export function ColorPalette() {
+  const [colors, setColors] = useState(() => filteredColors.slice(0, 12))
+  const [hasMore, setHasMore] = useState(true)
+  const { ref, inView } = useInView({
+    threshold: 0 // Trigger as soon as even one pixel is visible
+  })
+
+  useEffect(() => {
+    if (inView && hasMore) {
+      const nextPage = colors.length + 6
+      const newColors = filteredColors.slice(0, nextPage)
+      setColors(newColors)
+      if (newColors.length >= filteredColors.length) {
+        setHasMore(false)
+      }
+    }
+  }, [inView])
   return (
     <>
-      <Toaster />
       <HeaderPrimitive className="bg-background pb-4 pt-12 lg:py-16 border-b ">
         <Container>
-          <div className="flex flex-col sm:flex-row  justify-between sm:items-center gap-4">
-            <div className="flex max-w-xl flex-col gap-y-2">
-              <Heading level={1} className="text-2xl flex-1 sm:text-3xl font-bold tracking-tight">
-                <span className="text-fg">Col</span>
-                <span className="text-muted-fg">ors</span>
-              </Heading>
-              <Subheading className="font-normal sm:text-base text-muted-fg">
-                A stash of over <strong className="font-medium text-fg">154</strong> colors blending Tailwind CSS vibes
-                with HTML color names, served up in <strong className="font-medium text-fg">8 slick formats</strong>.
-              </Subheading>
-            </div>
-
-            <div className="flex shrink-0">
-              <PickYourVibe />
-            </div>
+          <div className="flex justify-between items-center">
+            <Heading level={1} className="text-2xl sm:text-3xl font-bold tracking-tight">
+              Col
+              <span className="text-muted-fg">ors</span>
+            </Heading>
+            <PickYourVibe />
           </div>
         </Container>
       </HeaderPrimitive>
-
-      <Container>
+      <Container className="max-w-screen-2xl py-6 lg:py-10">
         <div
           className={gridStyles({
-            columns: { initial: 1, lg: 4 },
-            gap: { initial: 2, sm: 4 },
-            className: 'py-6 md:py-10 lg:py-16'
+            columns: { initial: 1, sm: 2, lg: 3 },
+            gap: { initial: 2, sm: 4 }
           })}
         >
-          {colors.map(([key, value]) =>
-            typeof value === 'object' ? <ColorName key={key} id={key} value={value} /> : null
-          )}
+          {colors.map((color, i) => (
+            <ColorRow key={i} item={color as ColorItem} />
+          ))}
         </div>
+
+        {hasMore && (
+          <div ref={ref} className="col-span-3 text-center">
+            <LoadingDots className="bg-fg/50" />
+          </div>
+        )}
       </Container>
     </>
   )
 }
 
-export function ColorName({ id, value }: any) {
-  const [isForTailwindVariable, setIsForTailwindVariable] = React.useState(false)
-  const [selectedFormat, setSelectedFormat] = React.useState<ColorFormat>('hex')
+interface ColorPaletteProps extends ListBoxItemProps {
+  item: ColorItem
+}
 
+export function ColorRow({ item }: ColorPaletteProps) {
+  const [isForTailwindVariable, setIsForTailwindVariable] = React.useState(false)
+  const [selectedFormat, setSelectedFormat] = React.useState<ColorFormat | FormatOnlyForTailwindVariableType>('hex')
   return (
-    <div className="border rounded-2xl overflow-hidden">
-      <div className="flex items-center gap-x-1 justify-between bg-secondary/30 border-b p-2">
-        <div className="capitalize text-sm font-medium">{id}</div>
-        <div className="flex gap-x-1">
-          <>
-            <Tooltip>
-              <ToggleButton
-                className={buttonStyles({ appearance: 'outline', size: 'square-petite', className: 'size-8' })}
-                isSelected={isForTailwindVariable}
-                onChange={() => {
-                  if (
-                    !formatOnlyForTailwindVariableValues.includes(selectedFormat as FormatOnlyForTailwindVariableType)
-                  ) {
-                    toast('You can only switch up the color format to RGB, RGBA, HSL, HSLA, HSB, or HSBA.')
-                    return
-                  }
-                  setIsForTailwindVariable(!isForTailwindVariable)
-                }}
+    <>
+      <div className="border p-3 rounded-xl overflow-hidden">
+        <div className="flex mb-2 items-center gap-x-1 justify-between">
+          <Heading level={3} className="capitalize text-sm font-medium sm:text-sm">
+            {item.name}
+          </Heading>
+          <div className="flex gap-x-1">
+            <>
+              <Tooltip>
+                <ToggleButton
+                  className={buttonStyles({ appearance: 'outline', size: 'square-petite', className: 'size-8' })}
+                  isSelected={isForTailwindVariable}
+                  onChange={() => {
+                    if (
+                      !formatOnlyForTailwindVariableValues.includes(selectedFormat as FormatOnlyForTailwindVariableType)
+                    ) {
+                      toast('You can only switch up the color format to RGB, RGBA, HSL, HSLA, HSB, or HSBA.')
+                      return
+                    }
+                    setIsForTailwindVariable(!isForTailwindVariable)
+                  }}
+                >
+                  {({ isSelected }) => <IconBrandTailwindcss className={isSelected ? '!text-sky-500' : '!text-fg'} />}
+                </ToggleButton>
+                <TooltipContent className="max-w-xs">
+                  You can switch up the color format to RGB, RGBA, HSL, HSLA, HSB, or HSBA.
+                </TooltipContent>
+              </Tooltip>
+              <Select
+                selectedKey={selectedFormat}
+                onSelectionChange={(v) => setSelectedFormat(v as ColorFormat)}
+                placeholder={selectedFormat}
+                className="[&_.btr]:min-w-24 [&_.btr]:h-8 flex-1"
+                aria-label="Select Format"
+                items={allFormats}
+                placement="bottom right"
               >
-                {({ isSelected }) => <IconBrandTailwindcss className={isSelected ? '!text-sky-500' : '!text-fg'} />}
-              </ToggleButton>
-              <TooltipContent className="max-w-xs">
-                You can switch up the color format to RGB, RGBA, HSL, HSLA, HSB, or HSBA.
-              </TooltipContent>
-            </Tooltip>
-            <Select
-              selectedKey={selectedFormat}
-              onSelectionChange={(v) => setSelectedFormat(v as ColorFormat)}
-              placeholder={selectedFormat}
-              className="[&_.btr]:min-w-24 [&_.btr]:h-8 flex-1"
-              aria-label="Select Format"
-              items={allFormats}
-              placement="bottom right"
-            >
-              {(item) => (
-                <SelectItem id={item.format}>
-                  <Text slot="label">{item.format}</Text>
-                </SelectItem>
-              )}
-            </Select>
-          </>
+                {(item) => (
+                  <SelectItem id={item.format}>
+                    <Text slot="label">{item.format}</Text>
+                  </SelectItem>
+                )}
+              </Select>
+            </>
+          </div>
         </div>
-      </div>
-      <GridListPrimitive aria-label={`${id} 50-950 colors`} className="grid gap-2 p-2.5 overflow-hidden">
-        {Object.entries(value as any)
-          .map(([shade, value]) => ({ value, shade }))
-          .map((item, i) => (
-            <GridListItem
-              isForTailwindVariable={isForTailwindVariable}
-              selectedFormat={selectedFormat}
-              key={i.toString()}
-              textValue={item.shade}
-              id={id + '-' + Math.random()}
-              item={item}
+        <GridList
+          className={gridStyles({
+            columns: { initial: 7, lg: 11 },
+            gap: { initial: 1 }
+          })}
+          aria-label={`${item.name} 50-950 colors`}
+        >
+          {item.children.map(({ shade, color }, i) => (
+            <ColorItem
+              key={i}
+              {...{
+                isForTailwindVariable,
+                selectedFormat,
+                item: { shade, color },
+                name: item.name
+              }}
             />
           ))}
-      </GridListPrimitive>
-    </div>
+        </GridList>
+      </div>
+    </>
   )
 }
 
-function GridListItem({ item, id, isForTailwindVariable, selectedFormat }: any) {
-  const [copied, setCopied] = React.useState(false)
+interface GridListItem {
+  item: ColorShade
+  name: string
+  isForTailwindVariable: boolean
+  selectedFormat: FormatOnlyForTailwindVariableType | ColorFormat
+}
 
+const ColorItem = ({ item, name, isForTailwindVariable, selectedFormat }: GridListItem) => {
+  const [copied, setCopied] = React.useState(false)
   const handleCopy = async (selectedColor: string) => {
     const toCopy = isForTailwindVariable
       ? formatColorForTailwind(selectedColor, selectedFormat as FormatOnlyForTailwindVariableType)
@@ -178,60 +194,33 @@ function GridListItem({ item, id, isForTailwindVariable, selectedFormat }: any) 
     }, 2000)
     toast('Copied to clipboard!')
   }
-
   return (
-    <GridListItemPrimitive
-      aria-label={`${id} of ${item.shade}`}
-      className={twJoin(
-        'group w-full group text-muted-fg border-y border-transparent flex relative items-center justify-between font-mono text-xs',
-        'focus:outline-none',
-        'text-muted-fg hover:text-fg'
-      )}
-      onAction={() => handleCopy(parseColor(item.value as string).toString(selectedFormat ?? 'hsl'))}
+    <GridListItem
+      aria-label={`${name} of ${item.shade}`}
+      className="group w-full focus:outline-none text-muted-fg hover:text-fg"
+      onAction={() => handleCopy(parseColor(item.color as string).toString(selectedFormat ?? 'hsl'))}
     >
-      <div className="line-clamp-1 w-48">
-        {isForTailwindVariable ? (
-          <span>
-            {formatColorForTailwind(
-              parseColor(item.value as string).toString(selectedFormat ?? 'hsl'),
-              selectedFormat ?? 'hsl'
+      <div className="relative">
+        <ColorSwatch
+          aria-label={`${name} of ${item.shade}`}
+          colorName={`${name} of ${item.shade}`}
+          color={item.color}
+          className="relative size-9 sm:w-9 lg:w-8 lg:h-16"
+        />
+        <div className="absolute top-1.5 left-[0.350rem] group-hover:block hidden">
+          <AnimatePresence mode="wait" initial={false}>
+            {copied ? (
+              <motion.span key="checkmark" variants={snippetVariants} initial="hidden" animate="visible" exit="hidden">
+                <IconCheck />
+              </motion.span>
+            ) : (
+              <motion.span key="copy" variants={snippetVariants} initial="hidden" animate="visible" exit="hidden">
+                <IconDuplicate />
+              </motion.span>
             )}
-          </span>
-        ) : (
-          <span>{parseColor(item.value as string).toString(selectedFormat ?? 'hsl')}</span>
-        )}
-      </div>
-      <div className={cn('flex justify-end relative gap-x-2 items-center')}>
-        <div
-          className={cn(
-            'absolute right-2 group-hover:block hidden',
-            isBrightColor(item.value) ? 'text-zinc-900/80' : 'text-white/80'
-          )}
-        >
-          <span className="relative shrink-0">
-            <AnimatePresence mode="wait" initial={false}>
-              {copied ? (
-                <motion.span
-                  key="checkmark"
-                  variants={snippetVariants}
-                  initial="hidden"
-                  animate="visible"
-                  exit="hidden"
-                >
-                  <IconCheck />
-                </motion.span>
-              ) : (
-                <motion.span key="copy" variants={snippetVariants} initial="hidden" animate="visible" exit="hidden">
-                  <IconDuplicate />
-                </motion.span>
-              )}
-            </AnimatePresence>
-          </span>
+          </AnimatePresence>
         </div>
-        <Label className="shrink-0 text-[inherit]">{item.shade}</Label>
-
-        <ColorSwatch colorName={`${id} of ${item.shade}`} color={item.value} />
       </div>
-    </GridListItemPrimitive>
+    </GridListItem>
   )
 }
