@@ -48,7 +48,7 @@ export function ColorPalette() {
   const [colors, setColors] = useState(() => filteredColors.slice(0, 12))
   const [hasMore, setHasMore] = useState(true)
   const { ref, inView } = useInView({
-    threshold: 0 // Trigger as soon as even one pixel is visible
+    threshold: 0
   })
 
   useEffect(() => {
@@ -207,7 +207,7 @@ const ColorItem = ({ item, name, isForTailwindVariable, selectedFormat }: GridLi
           color={item.color}
           className="relative size-9 sm:w-9 lg:w-8 lg:h-16"
         />
-        <div className="absolute top-1.5 left-[0.350rem] group-hover:block hidden">
+        <div className="absolute top-1.5 left-2 group-hover:block hidden">
           <AnimatePresence mode="wait" initial={false}>
             {copied ? (
               <motion.span key="checkmark" variants={snippetVariants} initial="hidden" animate="visible" exit="hidden">
