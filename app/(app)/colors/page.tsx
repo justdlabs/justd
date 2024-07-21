@@ -21,15 +21,6 @@ export const metadata: Metadata = {
   }
 }
 
-const simplifiedColors = _colors.map(([name, colorShades]) => ({
-  name,
-  children: Object.entries(colorShades).map(([shade, color]) => ({
-    shade: Number(shade),
-    color
-  }))
-}))
-
-// const colors = simplifiedColors.slice(0, 10)
 export default async function Page() {
   return <ColorPalette />
 }
