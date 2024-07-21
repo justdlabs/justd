@@ -6,7 +6,7 @@ export default function PopoverDemo() {
   return (
     <Popover>
       <Button intent="secondary">Forgot Password</Button>
-      <PopoverContent className="w-[28rem]">
+      <PopoverContent className="min-w-72">
         <PopoverHeader>
           <PopoverTitle>Email</PopoverTitle>
           <PopoverDescription>We'll send you an email to log in.</PopoverDescription>

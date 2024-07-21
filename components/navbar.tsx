@@ -9,6 +9,7 @@ import { siteConfig } from '@/config/site'
 import {
   IconBrandAdobe,
   IconBrandD,
+  IconBrandFramer,
   IconBrandGithub,
   IconBrandParanoid,
   IconBrandTailwindcss,
@@ -87,7 +88,7 @@ export function Navbar() {
                     >
                       Components
                     </NavLink>
-                    <NavLink target="_blank" href="https://irsyad.co/c">
+                    <NavLink isActive={pathname === '/colors'} href="/colors">
                       Colors
                     </NavLink>
                     <NavLink target="_blank" href="https://paranoid.irsyad.co">
@@ -283,6 +284,10 @@ export function NavbarDropdown() {
           <IconCube />
           Components
         </MenuItem>
+        <MenuItem href="/colors">
+          <IconColors />
+          Colors
+        </MenuItem>
         <MenuSeparator />
         <MenuSection>
           <MenuItem href="https://x.com/intent/follow?screen_name=irsyadadl" target="_blank">
@@ -296,10 +301,6 @@ export function NavbarDropdown() {
         <MenuSeparator />
         <MenuSection>
           <MenuHeader separator>Refs</MenuHeader>
-          <MenuItem href="https://irsyad.co/colors" target="_blank">
-            <IconColors />
-            Colors
-          </MenuItem>
           <MenuItem href="https://paranoid.irsyad.co" target="_blank">
             <IconBrandParanoid />
             Paranoid
@@ -311,6 +312,10 @@ export function NavbarDropdown() {
           <MenuItem href="https://tailwindcss.com" target="_blank">
             <IconBrandTailwindcss />
             Tailwind CSS
+          </MenuItem>
+          <MenuItem href="https://www.framer.com/motion/" target="_blank">
+            <IconBrandFramer />
+            Framer Motion
           </MenuItem>
         </MenuSection>
         <MenuSeparator />

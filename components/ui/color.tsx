@@ -4,16 +4,13 @@ import * as React from 'react'
 
 import { parseColor } from '@react-stately/color'
 import type {
-  ColorFieldProps as ColorFieldPrimitiveProps,
   ColorSliderProps as ColorSliderPrimitiveProps,
   ColorSwatchPickerItemProps as ColorSwatchPickerItemPrimitiveProps,
   ColorSwatchProps as ColorSwatchPrimitiveProps,
-  ColorThumbProps as ColorThumbPrimitiveProps,
-  ValidationResult
+  ColorThumbProps as ColorThumbPrimitiveProps
 } from 'react-aria-components'
 import {
   ColorArea as ColorAreaPrimitive,
-  ColorField as ColorFieldPrimitive,
   ColorSlider as ColorSliderPrimitive,
   ColorSwatch as ColorSwatchPrimitive,
   ColorSwatchPicker as ColorSwatchPickerPrimitive,
@@ -26,43 +23,9 @@ import {
 } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
-import { Description, FieldError, FieldGroup, fieldGroupPrefixStyles, Input, Label } from './field'
-import { cn, ctr, focusStyles } from './primitive'
+import { Description, Label } from './field'
+import { cn, focusStyles } from './primitive'
 import { SliderTrack } from './slider'
-
-interface ColorFieldProps extends ColorFieldPrimitiveProps {
-  label?: string
-  description?: string
-  errorMessage?: string | ((validation: ValidationResult) => string)
-  placeholder?: string
-  prefix?: React.ReactNode
-  suffix?: React.ReactNode
-  isLoading?: boolean
-}
-
-const ColorField = ({
-  label,
-  description,
-  errorMessage,
-  placeholder,
-  prefix,
-  suffix,
-  isLoading,
-  ...props
-}: ColorFieldProps) => {
-  return (
-    <ColorFieldPrimitive {...props} className={ctr(props.className, 'group w-full flex flex-col gap-1')}>
-      {label && <Label>{label}</Label>}
-      <FieldGroup data-loading={isLoading ? 'true' : undefined} className={fieldGroupPrefixStyles()}>
-        {prefix ? <span className="atrs isPfx">{prefix}</span> : null}
-        <Input className="px-2.5" placeholder={placeholder} />
-        {suffix ? <span className="atrs isSfx">{suffix}</span> : null}
-      </FieldGroup>
-      {description && <Description>{description}</Description>}
-      <FieldError>{errorMessage}</FieldError>
-    </ColorFieldPrimitive>
-  )
-}
 
 const colorAreaStyles = tv({
   base: 'size-48 rounded-lg border border-background shrink-0 disabled:opacity-50'
@@ -125,21 +88,19 @@ const ColorSwatchPickerItem = ({ className, ...props }: ColorSwatchPickerItemPri
       )}
       {...props}
     >
-      <ColorSwatch isBright={isBrightColor(props.color ?? '')} className="size-[inherit] cocspip" />
+      <ColorSwatch className="size-[inherit] cocspip" />
     </ColorSwatchPickerItemPrimitive>
   )
 }
 
-interface ColorSwatchProps extends ColorSwatchPrimitiveProps {
-  isBright?: boolean
-}
+interface ColorSwatchProps extends ColorSwatchPrimitiveProps {}
 
-const ColorSwatch = ({ isBright, className, ...props }: ColorSwatchProps) => {
-  const needRing = props.color ? isBrightColor(props.color) : isBright
+const ColorSwatch = ({ className, ...props }: ColorSwatchProps) => {
+  const needRing = props.color ? isBrightColor(props.color) : false
   return (
     <ColorSwatchPrimitive
       className={cn(
-        'size-8 cs rounded-md',
+        'size-8 cs rounded-md shrink-0',
         needRing ? 'ring-1 ring-inset ring-black/10' : 'dark:ring-1 dark:ring-inset dark:ring-white/10',
         className
       )}
@@ -265,7 +226,6 @@ const ColorSwatchPicker = ColorSwatchPickerPrimitive
 
 export {
   ColorArea,
-  ColorField,
   ColorSlider,
   ColorSwatch,
   ColorSwatchPicker,

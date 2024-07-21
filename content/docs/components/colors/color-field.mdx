@@ -15,7 +15,7 @@ A color field lets users tweak a hex color or mess with individual color channel
 <InstallCommand isAdd items={['color']}/>
 
 ## Composed Components
-<Composed components={['field', 'slider']}/>
+<Composed components={['field', 'slider', 'color-picker']}/>
 
 ## Manual Installation
 
@@ -32,9 +32,12 @@ A color field can have a suffix.
 <How toUse="colors/color-field-with-suffix-demo" />
 
 ## Controlled
-A color field can be controlled.
+When you got that color field on lock, the [ColorSwatch](/docs/components/colors/color-swatch) auto-updates to show the current color.
 <How toUse="colors/color-field-controlled-demo" />
-
+By default, you can click the color swatch to pop open the color picker. But if you wanna shut it down, just set `enableColorPicker` to false.
+```
+<ColorField enableColorPicker={false}/>
+```
 ## Disabled
 A color field can be disabled.
 <How toUse="colors/color-field-disabled-demo" />
