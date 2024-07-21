@@ -12,7 +12,7 @@ export * from './text-field';
 export * from './radio';
 export * from './date-field';
 export * from './date-picker';
-export * from './toaster';
+export * from './toast';
 export * from './container';
 export * from './input-otp';
 export * from './tag-group';

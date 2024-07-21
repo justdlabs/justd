@@ -1,7 +1,7 @@
 import { toast } from 'sonner'
 import { Button } from 'ui'
 
-export default function ToasterStatusDemo() {
+export default function ToastStatusDemo() {
   return (
     <div className="grid grid-cols-2 gap-3">
       <Button appearance="outline" size="small" onPress={() => toast.error('The registration failed')}>

@@ -515,23 +515,14 @@ export const previews: Record<string, any> = {
   "statuses/badge-demo": {
     component: React.lazy(() => import("@/components/docs/statuses/badge-demo")),
   },
-  "statuses/toaster-demo": {
-    component: React.lazy(() => import("@/components/docs/statuses/toaster-demo")),
-  },
   "statuses/progress-bar-demo": {
     component: React.lazy(() => import("@/components/docs/statuses/progress-bar-demo")),
-  },
-  "statuses/toaster-action-demo": {
-    component: React.lazy(() => import("@/components/docs/statuses/toaster-action-demo")),
-  },
-  "statuses/toaster-status-demo": {
-    component: React.lazy(() => import("@/components/docs/statuses/toaster-status-demo")),
   },
   "statuses/indeterminate-progress-bar-demo": {
     component: React.lazy(() => import("@/components/docs/statuses/indeterminate-progress-bar-demo")),
   },
-  "statuses/toaster-positions-demo": {
-    component: React.lazy(() => import("@/components/docs/statuses/toaster-positions-demo")),
+  "statuses/toast-action-demo": {
+    component: React.lazy(() => import("@/components/docs/statuses/toast-action-demo")),
   },
   "statuses/badge-shape-demo": {
     component: React.lazy(() => import("@/components/docs/statuses/badge-shape-demo")),
@@ -539,8 +530,17 @@ export const previews: Record<string, any> = {
   "statuses/note-demo": {
     component: React.lazy(() => import("@/components/docs/statuses/note-demo")),
   },
+  "statuses/toast-status-demo": {
+    component: React.lazy(() => import("@/components/docs/statuses/toast-status-demo")),
+  },
+  "statuses/toast-positions-demo": {
+    component: React.lazy(() => import("@/components/docs/statuses/toast-positions-demo")),
+  },
   "statuses/badge-intent-demo": {
     component: React.lazy(() => import("@/components/docs/statuses/badge-intent-demo")),
+  },
+  "statuses/toast-demo": {
+    component: React.lazy(() => import("@/components/docs/statuses/toast-demo")),
   },
   "statuses/meter-demo": {
     component: React.lazy(() => import("@/components/docs/statuses/meter-demo")),

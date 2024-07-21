@@ -1,0 +1,56 @@
+---
+title: Toast
+description: Gives the vibe and easy access for a toast component. Toasts show quick, temporary alerts about actions, errors, or other events in an app.
+order: 5
+published: true
+status: new
+references: ["https://sonner.emilkowal.ski/toast"]
+---
+
+## Basic
+This is the basic toast component.
+First, in your root app component, import the Toast component.
+```tsx
+import { Toast } from 'ui';
+```
+Then, add the Toast component to your app.
+```tsx
+const App = () => {
+  return (
+    <Toast />
+  );
+};
+```
+And next, just use the `toast()` function to show a toast.
+
+<How toUse="statuses/toast-demo" />
+
+## Installation
+<InstallCommand isAdd items={['toast']}/>
+
+## Composed Components
+<Composed components={['button']}/>
+
+## Manual Installation
+<InstallCommand isInstall isManual items={['react-aria-components', 'sonner']}/>
+<SourceCode toShow={['toast']}/>
+
+## Positions
+Toast can be positioned in four different places.
+<How toUse="statuses/toast-positions-demo" />
+
+## Status
+Toast can be positioned in four different positions.
+<How toUse="statuses/toast-status-demo" />
+
+## Action
+Toast can be positioned in four different positions.
+<How toUse="statuses/toast-action-demo" />
+
+## Expand
+Toast can be expanded to show more content.
+```tsx
+<Toast expand />
+```
+
+And if you want to see more about this toast, you can see full documentation [here](https://sonner.emilkowal.ski/toast).

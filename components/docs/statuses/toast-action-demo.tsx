@@ -1,7 +1,7 @@
 import { toast } from 'sonner'
 import { Button } from 'ui'
 
-export default function ToasterActionDemo() {
+export default function ToastActionDemo() {
   return (
     <div className="flex gap-3">
       <Button
