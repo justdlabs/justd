@@ -126,8 +126,7 @@ export function Navbar() {
                         appearance: 'outline',
                         size: 'square-petite'
                       })}
-                      target="_blank"
-                      href="https://irsyad.co/c"
+                      href="/colors"
                     >
                       <IconColors />
                     </Link>
@@ -181,7 +180,7 @@ export function NavLink({ href, isActive, ...props }: LinkProps & { isActive?: b
     <LinkPrimitive
       href={href}
       className={cn(
-        'relative flex items-center gap-x-3 font-medium py-2 text-sm text-muted-fg transition-colors focus:outline-none sm:py-3',
+        'relative flex focus-visible:text-fg items-center gap-x-3 font-medium py-2 text-sm text-muted-fg transition-colors focus:outline-none sm:py-3',
         isActive ? 'text-fg' : 'text-muted-fg hover:text-fg',
         props.className
       )}
