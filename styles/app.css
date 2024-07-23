@@ -67,12 +67,6 @@
     }
 }
 
-.react-aria-Button,
-.react-aria-Dialog,
-.react-aria-Link {
-    outline: none;
-}
-
 @layer base {
     html {
         @apply scroll-smooth;

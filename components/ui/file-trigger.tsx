@@ -7,25 +7,30 @@ import {
   FileTrigger as FileTriggerPrimitive,
   type FileTriggerProps as FileTriggerPrimitiveProps
 } from 'react-aria-components'
-import { type VariantProps } from 'tailwind-variants'
 
-import { Button, type buttonStyles } from './button'
+import { Button } from './button'
 
-interface FileTriggerProps extends FileTriggerPrimitiveProps, VariantProps<typeof buttonStyles> {
+interface FileTriggerProps extends FileTriggerPrimitiveProps {
   withIcon?: boolean
   isDisabled?: boolean
+  intent?: 'primary' | 'secondary' | 'danger' | 'warning' | 'info' | 'light/dark' | 'success' | 'light' | 'dark'
+  size?: 'medium' | 'large' | 'square-petite' | 'extra-small' | 'small'
+  shape?: 'square' | 'circle'
+  appearance?: 'solid' | 'outline' | 'plain'
 }
 
-const FileTrigger: React.FC<FileTriggerProps> = ({
+const FileTrigger = ({
   intent = 'primary',
   appearance = 'outline',
+  size = 'medium',
+  shape = 'square',
   withIcon = true,
   ...props
-}) => {
+}: FileTriggerProps) => {
   return (
     <>
       <FileTriggerPrimitive {...props}>
-        <Button isDisabled={props.isDisabled} intent={intent} appearance={appearance}>
+        <Button isDisabled={props.isDisabled} intent={intent} size={size} shape={shape} appearance={appearance}>
           {withIcon && (
             <>
               {props.defaultCamera ? (

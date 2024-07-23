@@ -19,7 +19,7 @@ const composeTailwindRenderProps = <T,>(
 const focusRing = tv({
   base: 'outline-none focus:outline-none forced-colors:outline-[Highlight]',
   variants: {
-    isFocused: { false: 'ring-0', true: 'ring-4 ring-primary/20' },
+    isFocusVisible: { true: 'ring-4 ring-primary/20' },
     isInvalid: { true: 'ring-4 ring-danger/20' }
   }
 })
@@ -27,8 +27,18 @@ const focusRing = tv({
 const focusStyles = tv({
   extend: focusRing,
   variants: {
-    isFocused: { true: 'border-primary' },
+    isFocusVisible: { true: 'border-primary' },
     isInvalid: { true: 'border-danger' }
+  }
+})
+
+const focusButtonStyles = tv({
+  base: 'outline outline-primary forced-colors:outline-[Highlight] outline-offset-2',
+  variants: {
+    isFocusVisible: {
+      false: 'outline-0',
+      true: 'outline-2'
+    }
   }
 })
 
@@ -54,4 +64,15 @@ const ctr = composeTailwindRenderProps
 const tm = twMerge
 const cr = composeRenderProps
 
-export { cn, composeTailwindRenderProps, cr, ctr, focusRing, focusStyles, tm, twMerge, useMediaQuery }
+export {
+  cn,
+  composeTailwindRenderProps,
+  cr,
+  ctr,
+  focusRing,
+  focusStyles,
+  focusButtonStyles,
+  tm,
+  twMerge,
+  useMediaQuery
+}

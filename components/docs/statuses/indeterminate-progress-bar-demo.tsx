@@ -15,5 +15,5 @@ export default function ProgressBarDemo() {
     return () => clearInterval(interval)
   }, [])
 
-  return <ProgressBar label="Loading…" isIndeterminate value={60} />
+  return <ProgressBar label="Loading…" isIndeterminate value={value} />
 }

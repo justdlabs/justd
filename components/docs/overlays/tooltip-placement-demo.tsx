@@ -1,5 +1,5 @@
 import { type TooltipProps } from 'react-aria-components'
-import { Button, Grid, Tooltip, TooltipContent } from 'ui'
+import { Button, Tooltip, TooltipContent } from 'ui'
 
 type Placement = Pick<TooltipProps, 'placement'>['placement']
 const placements: Placement[] = [
