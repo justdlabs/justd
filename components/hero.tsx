@@ -1,7 +1,7 @@
 'use client'
 
 import { siteConfig } from '@/config/site'
-import { IconBrandD, IconCube } from '@irsyadadl/paranoid'
+import { IconBrandD, IconBrandGithub, IconCube, IconStar, IconStarFill } from '@irsyadadl/paranoid'
 import Link from 'next/link'
 import { Header, Text } from 'react-aria-components'
 import { buttonStyles, Container, Heading } from 'ui'
@@ -42,7 +42,14 @@ export function Hero() {
       <div className="pt-10 pb-6 sm:py-16 md:py-20 lg:py-24 border-b">
         <Container>
           <Header>
-            <Heading className="max-w-xl text-2xl font-bold tracking-tight lg:text-5xl mb-2 lg:mb-6">
+            <Link
+              target="_blank"
+              href="https://github.com/irsyadadl/justd"
+              className={buttonStyles({ size: 'extra-small', intent: 'light', shape: 'circle' })}
+            >
+              <IconStar /> Stars sustain energy
+            </Link>
+            <Heading className="max-w-xl mt-4 text-2xl font-bold tracking-tight lg:text-5xl mb-2 lg:mb-6">
               Making your site accessible ain't rocket science.
             </Heading>
             <Text
