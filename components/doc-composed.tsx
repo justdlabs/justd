@@ -26,8 +26,7 @@ export function DocComposed({ components, text }: { components: string[]; text?:
       <Grid
         gap={{
           initial: 2,
-          sm: 4,
-          lg: 6
+          sm: 4
         }}
         columns={{
           initial: filteredComponents.length === 1 ? 1 : 2,
@@ -37,8 +36,8 @@ export function DocComposed({ components, text }: { components: string[]; text?:
       >
         {(item) => (
           <GridItem id={item.slug} href={`/${item.slug}`}>
-            <Card>
-              <CardHeader className="sm:p-6 p-4">
+            <Card className="overflow-hidden hover:bg-secondary/40 focus:bg-secondary/40 transition-colors">
+              <CardHeader className="p-4">
                 <CardTitle className="sm:text-lg text-base line-clamp-1 font-medium">{item.title}</CardTitle>
                 <CardDescription className="line-clamp-2">{item.description}</CardDescription>
               </CardHeader>
