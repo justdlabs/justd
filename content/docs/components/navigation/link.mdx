@@ -20,13 +20,21 @@ A link lets you jump to another page or resource within a website or app.
 
 <SourceCode toShow='link'/>
 
+## Intent
+You can change the intent of the link by passing the `intent` prop. It can be `primary`, `secondary`, `lad/primary`, `danger`.
+<How toUse="navigation/link-intent-demo" />
+
+## Unstyled
+Actually, the default link got no style, so it's a breeze to slap on some other classes and style it up.
+
+<How toUse="navigation/link-unstyled-demo" />
+
 ## Use as Button
-Sometims you want to use the link as a button. You can do that too. Just use the `buttonStyles` like this.
+Sometimes you wanna rock that link like a button. You can do that too. Just throw on the `buttonStyles` like this.
 
-```
-import { buttonStyles, Link } from 'ui'
+<How toUse="navigation/link-button-demo" />
 
-<Link href="#" className={buttonStyles()}>
-  Label
-</Link>
-```
+## Disabled
+You can disable the link by passing the `isDisabled` prop.
+
+<How toUse="navigation/link-disabled-demo" />

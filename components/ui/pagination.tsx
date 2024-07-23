@@ -11,7 +11,6 @@ import {
 } from '@irsyadadl/paranoid'
 import type { GridListItemProps, GridListProps, LabelProps, LinkProps } from 'react-aria-components'
 import { GridList, GridListItem, Link } from 'react-aria-components'
-import type { VariantProps } from 'tailwind-variants'
 
 import { buttonStyles } from './button'
 import { Label } from './field'
@@ -33,9 +32,13 @@ const PaginationList = <T extends object>({ className, ...props }: GridListProps
 
 const PaginationItem = ({ className, ...props }: GridListItemProps) => <GridListItem className={className} {...props} />
 
-interface PaginationLinkProps extends Omit<LinkProps, 'id'>, VariantProps<typeof buttonStyles> {
+interface PaginationLinkProps extends Omit<LinkProps, 'id'> {
   isCurrent?: boolean
   className?: string
+  intent?: 'primary' | 'secondary' | 'danger' | 'warning' | 'info' | 'light/dark' | 'success' | 'light' | 'dark'
+  size?: 'medium' | 'large' | 'square-petite' | 'extra-small' | 'small'
+  shape?: 'square' | 'circle'
+  appearance?: 'solid' | 'outline' | 'plain'
 }
 
 const PaginationLink = ({ className, isCurrent, size = 'square-petite', ...props }: PaginationLinkProps) => (

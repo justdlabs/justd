@@ -2,17 +2,20 @@
 
 import * as React from 'react'
 
-import { Button as ButtonPrimitive, type ButtonProps as ButtonPrimitiveProps } from 'react-aria-components'
-import { tv, type VariantProps } from 'tailwind-variants'
+import {
+  Button as ButtonPrimitive,
+  type ButtonProps as ButtonPrimitiveProps,
+  composeRenderProps
+} from 'react-aria-components'
+import { tv } from 'tailwind-variants'
 
-import { cn } from './primitive'
+import { focusButtonStyles } from './primitive'
 
 const buttonStyles = tv(
   {
+    extend: focusButtonStyles,
     base: [
       'kbt32x relative no-underline isolate inline-flex items-center justify-center gap-x-2 border font-medium',
-      'focus:outline-none focus-visible:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500 forced-colors:outline-[Highlight]',
-      'data-[disabled]:opacity-50',
       'forced-colors:[--btn-icon:ButtonText] forced-colors:hover:[--btn-icon:ButtonText] [&>[data-slot=icon]]:-mx-0.5 [&>[data-slot=icon]]:my-1 [&>[data-slot=icon]]:size-4 [&>[data-slot=icon]]:shrink-0 [&>[data-slot=icon]]:text-[--btn-icon]'
     ],
     variants: {
@@ -66,7 +69,6 @@ const buttonStyles = tv(
         plain:
           'border-transparent text-fg active:bg-fg/5 hover:bg-fg/5 [--btn-icon:theme(colors.zinc.500)] active:[--btn-icon:theme(colors.zinc.700)] hover:[--btn-icon:theme(colors.zinc.700)] dark:[--btn-icon:theme(colors.zinc.500)] dark:active:[--btn-icon:theme(colors.zinc.400)] dark:hover:[--btn-icon:theme(colors.zinc.400)]'
       },
-
       size: {
         'extra-small':
           'h-8 px-[calc(theme(spacing.3)-1px)] py-[calc(theme(spacing.1)-1px)] text-xs/4 lg:text-[0.800rem]/4',
@@ -80,6 +82,10 @@ const buttonStyles = tv(
         square:
           'rounded-lg before:rounded-[calc(theme(borderRadius.lg)-1px)] after:rounded-[calc(theme(borderRadius.lg)-1px)] dark:after:rounded-lg',
         circle: 'rounded-[9999px] before:rounded-[9998px] after:rounded-[9998px] dark:after:rounded-[9999px]'
+      },
+      isDisabled: {
+        false: 'forced-colors:disabled:text-[GrayText]',
+        true: 'cursor-default opacity-60 forced-colors:disabled:text-[GrayText]'
       }
     },
     defaultVariants: {
@@ -116,8 +122,11 @@ const buttonStyles = tv(
   }
 )
 
-interface ButtonProps extends ButtonPrimitiveProps, VariantProps<typeof buttonStyles> {
-  className?: string
+interface ButtonProps extends ButtonPrimitiveProps {
+  intent?: 'primary' | 'secondary' | 'danger' | 'warning' | 'info' | 'light/dark' | 'success' | 'light' | 'dark'
+  size?: 'medium' | 'large' | 'square-petite' | 'extra-small' | 'small'
+  shape?: 'square' | 'circle'
+  appearance?: 'solid' | 'outline' | 'plain'
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -125,8 +134,17 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <ButtonPrimitive
         ref={ref}
-        className={cn(buttonStyles({ intent, appearance, size, shape }), className)}
         {...props}
+        className={composeRenderProps(className, (className, renderProps) =>
+          buttonStyles({
+            ...renderProps,
+            intent,
+            appearance,
+            size,
+            shape,
+            className
+          })
+        )}
       />
     )
   }

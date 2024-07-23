@@ -1,6 +1,6 @@
 'use client'
 
-import { IconApple, IconClock, IconCut, IconGear, IconPeople } from '@irsyadadl/paranoid'
+import { IconApple, IconClock, IconCut } from '@irsyadadl/paranoid'
 import { Tab, TabList, TabPanel, Tabs } from 'ui'
 
 export default function TabsIconsDemo() {

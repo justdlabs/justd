@@ -104,7 +104,9 @@ interface ColorPaletteProps extends ListBoxItemProps {
 
 export function ColorRow({ item }: ColorPaletteProps) {
   const [isForTailwindVariable, setIsForTailwindVariable] = React.useState(false)
-  const [selectedFormat, setSelectedFormat] = React.useState<ColorFormat | FormatOnlyForTailwindVariableType>('hex')
+  const [selectedFormat, setSelectedFormat] = React.useState<ColorFormat | null | FormatOnlyForTailwindVariableType>(
+    '' as any
+  )
   return (
     <>
       <div className="border p-3 rounded-xl overflow-hidden">
@@ -137,9 +139,9 @@ export function ColorRow({ item }: ColorPaletteProps) {
               <Select
                 selectedKey={selectedFormat}
                 onSelectionChange={(v) => setSelectedFormat(v as ColorFormat)}
-                placeholder={selectedFormat}
                 className="[&_.btr]:min-w-24 [&_.btr]:h-8 flex-1"
                 aria-label="Select Format"
+                placeholder="hsl"
                 items={allFormats}
                 placement="bottom right"
               >
@@ -165,7 +167,7 @@ export function ColorRow({ item }: ColorPaletteProps) {
               key={i}
               {...{
                 isForTailwindVariable,
-                selectedFormat,
+                selectedFormat: selectedFormat ?? 'hex',
                 item: { shade, color },
                 name: item.name
               }}
@@ -204,7 +206,7 @@ const ColorItem = ({ item, name, isForTailwindVariable, selectedFormat }: GridLi
         'group w-full focus:outline-none size-9 sm:w-9 lg:w-8 lg:h-16',
         isBrightColor(item.color) ? 'text-black' : 'text-white'
       )}
-      onAction={() => handleCopy(parseColor(item.color as string).toString(selectedFormat ?? 'hsl'))}
+      onAction={() => handleCopy(parseColor(item.color as string)?.toString(selectedFormat ?? 'hsl'))}
     >
       <div className="relative">
         <ColorSwatch

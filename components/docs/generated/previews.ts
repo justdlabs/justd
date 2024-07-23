@@ -329,6 +329,9 @@ export const previews: Record<string, any> = {
   "navigation/tabs-icons-demo": {
     component: React.lazy(() => import("@/components/docs/navigation/tabs-icons-demo")),
   },
+  "navigation/link-intent-demo": {
+    component: React.lazy(() => import("@/components/docs/navigation/link-intent-demo")),
+  },
   "navigation/tabs-link-demo": {
     component: React.lazy(() => import("@/components/docs/navigation/tabs-link-demo")),
   },
@@ -347,14 +350,23 @@ export const previews: Record<string, any> = {
   "navigation/simple-pagination-demo": {
     component: React.lazy(() => import("@/components/docs/navigation/simple-pagination-demo")),
   },
+  "navigation/link-unstyled-demo": {
+    component: React.lazy(() => import("@/components/docs/navigation/link-unstyled-demo")),
+  },
   "navigation/tabs-orientation-demo": {
     component: React.lazy(() => import("@/components/docs/navigation/tabs-orientation-demo")),
+  },
+  "navigation/link-button-demo": {
+    component: React.lazy(() => import("@/components/docs/navigation/link-button-demo")),
   },
   "navigation/link-demo": {
     component: React.lazy(() => import("@/components/docs/navigation/link-demo")),
   },
   "navigation/breadcrumbs-demo": {
     component: React.lazy(() => import("@/components/docs/navigation/breadcrumbs-demo")),
+  },
+  "navigation/link-disabled-demo": {
+    component: React.lazy(() => import("@/components/docs/navigation/link-disabled-demo")),
   },
   "navigation/tabs-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/navigation/tabs-disabled-demo")),

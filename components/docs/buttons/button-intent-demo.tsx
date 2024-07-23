@@ -1,31 +1,17 @@
 'use client'
 
-import { Button, Grid, GridItem } from 'ui'
+import { Button, gridStyles } from 'ui'
 
 export default function ButtonIntentDemo() {
   return (
-    <Grid columns={{ lg: 3, sm: 2 }} gap={4}>
-      <GridItem>
-        <Button intent="light">Label</Button>
-      </GridItem>
-      <GridItem>
-        <Button intent="secondary">Label</Button>
-      </GridItem>
-      <GridItem>
-        <Button intent="danger">Label</Button>
-      </GridItem>
-      <GridItem>
-        <Button intent="info">Label</Button>
-      </GridItem>
-      <GridItem>
-        <Button intent="light/dark">Label</Button>
-      </GridItem>
-      <GridItem>
-        <Button intent="success">Label</Button>
-      </GridItem>
-      <GridItem>
-        <Button>Label</Button>
-      </GridItem>
-    </Grid>
+    <div className={gridStyles({ columns: { initial: 2, sm: 3, lg: 4 }, gap: 3 })}>
+      <Button intent="light">Label</Button>
+      <Button intent="secondary">Label</Button>
+      <Button intent="danger">Label</Button>
+      <Button intent="info">Label</Button>
+      <Button intent="light/dark">Label</Button>
+      <Button intent="success">Label</Button>
+      <Button>Label</Button>
+    </div>
   )
 }

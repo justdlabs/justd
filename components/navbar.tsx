@@ -27,11 +27,12 @@ import {
 import { LayoutGroup, motion } from 'framer-motion'
 import { useTheme } from 'next-themes'
 import { usePathname } from 'next/navigation'
-import { Collection, Link } from 'react-aria-components'
+import { Collection } from 'react-aria-components'
 import {
   Button,
   buttonStyles,
   cn,
+  Link,
   LinkPrimitive,
   type LinkProps,
   Menu,

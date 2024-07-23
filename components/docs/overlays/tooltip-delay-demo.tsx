@@ -1,6 +1,6 @@
 'use client'
 
-import { IconBrandGithub, IconBrandTwitter } from '@irsyadadl/paranoid'
+import { IconBrandGithub } from '@irsyadadl/paranoid'
 import { buttonStyles, Tooltip, TooltipContent, TooltipTrigger } from 'ui'
 
 export default function TooltipDelayDemo() {

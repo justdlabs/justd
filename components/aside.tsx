@@ -199,7 +199,7 @@ export function Trigger({ children, className }: { children: React.ReactNode; cl
   return (
     <AccordionTrigger
       className={cn(
-        'relative group flex items-center gap-x-2 w-full focus:outline-none focus-visible:ring-1 focus-visible:bg-secondary focus-visible:ring-primary-500 rounded-md px-2.5 py-2 text-left text-base transition-colors hover:bg-secondary/70 hover:text-fg lg:text-sm',
+        'relative group flex focus-visible:ring-inset items-center gap-x-2 w-full focus:outline-none focus-visible:ring-1 focus-visible:bg-secondary focus-visible:ring-primary-500 rounded-md px-2.5 py-2 text-left text-base transition-colors hover:bg-secondary/70 hover:text-fg lg:text-sm',
         className
       )}
     >

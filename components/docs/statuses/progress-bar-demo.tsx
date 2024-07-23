@@ -10,10 +10,10 @@ export default function ProgressBarDemo() {
   React.useEffect(() => {
     const interval = setInterval(() => {
       setValue((prev) => (prev < 100 ? prev + 1 : 100))
-    }, 50)
+    }, 200)
 
     return () => clearInterval(interval)
   }, [])
 
-  return <ProgressBar label="Loading…" value={60} />
+  return <ProgressBar label="Loading…" value={value} />
 }
