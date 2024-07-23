@@ -452,6 +452,9 @@ export const previews: Record<string, any> = {
   "pickers/select-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/pickers/select-disabled-demo")),
   },
+  "pickers/combo-box-controlled-demo": {
+    component: React.lazy(() => import("@/components/docs/pickers/combo-box-controlled-demo")),
+  },
   "pickers/combo-box-readonly-demo": {
     component: React.lazy(() => import("@/components/docs/pickers/combo-box-readonly-demo")),
   },
@@ -469,6 +472,9 @@ export const previews: Record<string, any> = {
   },
   "pickers/select-invalid-demo": {
     component: React.lazy(() => import("@/components/docs/pickers/select-invalid-demo")),
+  },
+  "pickers/select-controlled-demo": {
+    component: React.lazy(() => import("@/components/docs/pickers/select-controlled-demo")),
   },
   "pickers/combo-box-invalid-demo": {
     component: React.lazy(() => import("@/components/docs/pickers/combo-box-invalid-demo")),
