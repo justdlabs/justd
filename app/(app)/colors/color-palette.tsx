@@ -21,12 +21,12 @@ import { GridList, GridListItem, Text, ToggleButton } from 'react-aria-component
 import { useInView } from 'react-intersection-observer'
 import { toast } from 'sonner'
 import {
-  buttonStyles,
+  buttonStyles, cn,
   ColorSwatch,
   Container,
   gridStyles,
   Header as HeaderPrimitive,
-  Heading,
+  Heading, isBrightColor,
   LoadingDots,
   Select,
   SelectItem,
@@ -198,7 +198,11 @@ const ColorItem = ({ item, name, isForTailwindVariable, selectedFormat }: GridLi
   return (
     <GridListItem
       aria-label={`${name} of ${item.shade}`}
-      className="group w-full focus:outline-none text-muted-fg hover:text-fg"
+
+      className={cn(
+        "group w-full focus:outline-none size-9 sm:w-9 lg:w-8 lg:h-16",
+        isBrightColor(item.color) ? "text-black" : "text-white",
+      )}
       onAction={() => handleCopy(parseColor(item.color as string).toString(selectedFormat ?? 'hsl'))}
     >
       <div className="relative">
@@ -208,7 +212,7 @@ const ColorItem = ({ item, name, isForTailwindVariable, selectedFormat }: GridLi
           color={item.color}
           className="relative size-9 sm:w-9 lg:w-8 lg:h-16"
         />
-        <div className="absolute top-2.5 left-2.5 lg:top-1.5 lg:left-2 group-hover:block hidden">
+        <div className="absolute top-2.5 left-2.5 lg:top-1.5 lg:left-2 group-hover:block group-focus:block hidden group-pressed:block">
           <AnimatePresence mode="wait" initial={false}>
             {copied ? (
               <motion.span key="checkmark" variants={snippetVariants} initial="hidden" animate="visible" exit="hidden">
