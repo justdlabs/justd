@@ -41,3 +41,17 @@ By default, you can click the color swatch to pop open the color picker. But if 
 ## Disabled
 A color field can be disabled.
 <How toUse="colors/color-field-disabled-demo" />
+
+## Props
+Totally! The `ColorField` component is loaded with all the standard props from `react-aria-components`, and it's also kitted out with these additional props:
+
+| Property           | Type                                                    | Optional |
+|--------------------|---------------------------------------------------------|----------|
+| label            | string                                                | Yes      |
+| description      | string                                                | Yes      |
+| errorMessage     | string \| ((validation: ValidationResult) => string)   | Yes      |
+| placeholder      | string                                                | Yes      |
+| prefix           | React.ReactNode                                       | Yes      |
+| suffix           | React.ReactNode                                       | Yes      |
+| isLoading        | boolean                                               | Yes      |
+| enableColorPicker| boolean                                               | Yes      |

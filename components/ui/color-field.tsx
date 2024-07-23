@@ -57,7 +57,7 @@ const ColorField = ({
 
           <Input className="px-2.5" placeholder={placeholder} />
         </div>
-        {suffix ? <span className="atrs isSfx">{suffix}</span> : null}
+        {suffix ? <span className="atrs ml-auto isSfx">{suffix}</span> : null}
       </FieldGroup>
       {description && <Description>{description}</Description>}
       <FieldError>{errorMessage}</FieldError>

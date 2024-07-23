@@ -31,11 +31,11 @@ const Toast = ({ ...props }: ToasterProps) => {
           content: '[&:not(:has(+button))]:pr-10 [&:has(+button)]:pb-11 md:[&:has(+button)]:pb-9',
           error:
             'bg-danger text-white ring-white/10 text-danger-fg dark:ring-inset [&>[data-close-button=true]>svg]:text-white [&>[data-close-button=true]:hover]:bg-white/20',
-          success:
-            'bg-success text-white ring-white/10 text-success-fg dark:ring-inset [&>[data-close-button=true]>svg]:text-white [&>[data-close-button=true]:hover]:bg-white/20',
+          info: 'bg-lime-600 ring-white/10 text-lime-50 dark:ring-inset [&>[data-close-button=true]>svg]:text-white [&>[data-close-button=true]:hover]:bg-white/20',
           warning:
-            'bg-warning text-warning-fg ring-white/10 text-warning-fg dark:ring-inset [&>[data-close-button=true]>svg]:text-amber-950 [&>[data-close-button=true]:hover]:bg-white/20',
-          info: 'bg-primary text-white ring-white/10 text-primary-fg dark:ring-inset [&>[data-close-button=true]>svg]:text-white [&>[data-close-button=true]:hover]:bg-white/20',
+            'bg-warning text-warning-fg ring-white/10 dark:ring-inset [&>[data-close-button=true]>svg]:text-amber-950 [&>[data-close-button=true]:hover]:bg-white/20',
+          success:
+            'bg-primary text-white ring-white/10 text-primary-fg dark:ring-inset [&>[data-close-button=true]>svg]:text-white [&>[data-close-button=true]:hover]:bg-white/20',
           cancelButton: buttonStyles({
             className: '',
             size: 'extra-small',
