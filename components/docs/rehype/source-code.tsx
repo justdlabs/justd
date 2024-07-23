@@ -17,9 +17,10 @@ interface SourceCodeProps extends React.HTMLAttributes<HTMLDivElement> {
   toShow: string | string[]
   message?: string
   title?: string
+  ext?: string
 }
 
-export function SourceCode({ title, message, toShow, ...props }: SourceCodeProps) {
+export function SourceCode({ title, message, ext = 'tsx', toShow, ...props }: SourceCodeProps) {
   const [codeStrings, setCodeStrings] = React.useState<{ name: string; code: string }[]>([])
   const [isOpened, setIsOpened] = React.useState<Record<string, boolean>>({})
 
@@ -76,7 +77,7 @@ export function SourceCode({ title, message, toShow, ...props }: SourceCodeProps
         <TabList className="overflow-x-auto no-scrollbar">
           {codeStrings.map((code, index) => (
             <Tab className="whitespace-nowrap" key={index} id={`tab-${index}`}>
-              {code.name}.tsx
+              {code.name}.{ext}
             </Tab>
           ))}
         </TabList>
