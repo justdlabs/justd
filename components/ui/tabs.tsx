@@ -17,7 +17,7 @@ import {
 import { twJoin } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
 
-import { cn, useMediaQuery } from './primitive'
+import { cn } from './primitive'
 
 const tabsStyles = tv({
   base: 'group flex gap-4',

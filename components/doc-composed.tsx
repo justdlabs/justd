@@ -6,7 +6,7 @@ import { Card, CardDescription, CardHeader, CardTitle, Grid, GridItem } from 'ui
 
 const simplifiedDocs = docs.map(({ title, slug, description }) => ({ title, slug, description }))
 
-export function DocComposed({ components }: { components: string[] }) {
+export function DocComposed({ components, text }: { components: string[]; text?: string | React.ReactNode }) {
   const pathname = usePathname()
   const name = getLatestOfString(pathname)
   const filteredComponents = simplifiedDocs.filter((component) => {
@@ -15,23 +15,30 @@ export function DocComposed({ components }: { components: string[] }) {
   })
   return (
     <div className="not-prose">
-      <p className="mb-6">
-        A <strong className="font-medium">{name}</strong> packs these dope components that can vibe solo or squad up in
-        other parts of your project.
-      </p>
+      {!text ? (
+        <p className="mb-6">
+          A <strong className="font-medium">{name}</strong> packs these dope components that can vibe solo or squad up
+          in other parts of your project.
+        </p>
+      ) : (
+        <p className="mb-4">{text}</p>
+      )}
       <Grid
         gap={{
           initial: 2,
           sm: 4,
           lg: 6
         }}
-        columns={2}
+        columns={{
+          initial: filteredComponents.length === 1 ? 1 : 2,
+          sm: filteredComponents.length === 1 ? 1 : 2
+        }}
         items={filteredComponents}
       >
         {(item) => (
           <GridItem id={item.slug} href={`/${item.slug}`}>
             <Card>
-              <CardHeader>
+              <CardHeader className="sm:p-6 p-4">
                 <CardTitle className="sm:text-lg text-base line-clamp-1 font-medium">{item.title}</CardTitle>
                 <CardDescription className="line-clamp-2">{item.description}</CardDescription>
               </CardHeader>
