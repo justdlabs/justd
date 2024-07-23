@@ -64,7 +64,7 @@ const DateRangePicker = <T extends DateValue>({
   return (
     <DateRangePickerPrimitive {...props} className={ctr(props.className, 'group flex flex-col gap-1')}>
       {label && <Label>{label}</Label>}
-      <FieldGroup className="w-auto min-w-[208px]">
+      <FieldGroup className="w-auto min-w-40">
         <DateInput slot="start" className="px-2 lg:text-sm font-mono uppercase text-base min-w-[ineherit]" />
         <span
           aria-hidden="true"

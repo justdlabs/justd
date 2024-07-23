@@ -44,7 +44,7 @@ const Calendar = <T extends DateValue>({ errorMessage, ...props }: CalendarProps
   return (
     <CalendarPrimitive {...props}>
       <CalendarHeader />
-      <CalendarGrid>
+      <CalendarGrid className="[&_td]:px-0">
         <CalendarGridHeader />
         <CalendarGridBody>{(date) => <CalendarCell date={date} className={cellStyles} />}</CalendarGridBody>
       </CalendarGrid>
@@ -118,7 +118,7 @@ const RangeCalendar = <T extends DateValue>({ errorMessage, ...props }: RangeCal
             <CalendarCell
               date={date}
               className={twJoin([
-                'group size-9 cursor-default text-sm outline outline-0 outside-month:text-zinc-300 selection-start:rounded-s-full selection-end:rounded-e-full forced-colors:selected:bg-[Highlight] forced-colors:invalid:selected:bg-[Mark]',
+                'group size-10 lg:size-9 cursor-default lg:text-sm outline outline-0 outside-month:text-zinc-300 selection-start:rounded-s-full selection-end:rounded-e-full forced-colors:selected:bg-[Highlight] forced-colors:invalid:selected:bg-[Mark]',
                 'selected:bg-primary/10 dark:selected:bg-primary-600/20 selected:text-primary-600 dark:selected:text-primary-500 forced-colors:selected:text-[HighlightText]',
                 '[td:first-child_&]:rounded-s-full [td:last-child_&]:rounded-e-full',
                 'invalid:selected:bg-red-100 dark:invalid:selected:bg-red-700/30'
@@ -140,7 +140,7 @@ const RangeCalendar = <T extends DateValue>({ errorMessage, ...props }: RangeCal
         </CalendarGridBody>
       </CalendarGrid>
       {errorMessage && (
-        <Text slot="errorMessage" className="text-sm text-red-600">
+        <Text slot="errorMessage" className="text-sm text-danger">
           {errorMessage}
         </Text>
       )}
