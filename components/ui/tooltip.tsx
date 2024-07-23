@@ -18,8 +18,7 @@ export interface TooltipProps extends Omit<TooltipPrimitiveProps, 'children'> {
 
 const tooltipStyles = tv({
   base: [
-    'group rounded-lg border bg-tertiary px-1.5 py-1 text-sm text-tertiary-fg will-change-transform dark:shadow-none',
-    // Placement
+    'group rounded-md [&_strong]:font-medium bg-fg border border-fg text-background px-2 py-1.5 text-sm will-change-transform dark:shadow-none',
     'placement-left:slide-in-from-right-1 placement-right:slide-in-from-left-1 placement-top:slide-in-from-bottom-1 placement-bottom:slide-in-from-top-1'
   ],
   variants: {
@@ -52,7 +51,7 @@ const TooltipContent = ({ children, ...props }: TooltipProps) => {
           width={8}
           height={8}
           viewBox="0 0 8 8"
-          className="fill-tertiary stroke-border group-placement-left:-rotate-90 group-placement-right:rotate-90 group-placement-bottom:rotate-180 forced-colors:fill-[Canvas] forced-colors:stroke-[ButtonBorder]"
+          className="fill-fg stroke-fg group-placement-left:-rotate-90 group-placement-right:rotate-90 group-placement-bottom:rotate-180 forced-colors:fill-[Canvas] forced-colors:stroke-[ButtonBorder]"
         >
           <path d="M0 0 L4 4 L8 0" />
         </svg>
