@@ -52,7 +52,7 @@ export function DocHow({
               onPress={() => setActiveTab(tab.id)}
               className={cn(
                 activeTab === tab.id ? 'text-fg' : 'text-muted-fg hover:text-fg',
-                'relative focus-visible:text-fg flex cursor-default pb-2.5 items-center rounded-full text-sm font-medium outline-none transition forced-color-adjust-none hover:text-fg'
+                'relative focus:outline-none pb-2.5'
               )}
               style={{
                 WebkitTapHighlightColor: 'transparent'
@@ -60,7 +60,7 @@ export function DocHow({
             >
               {activeTab === tab.id && (
                 <motion.span
-                  className="absolute rounded bg-fg inset-x-0 -bottom-px h-0.5 w-full"
+                  className="absolute bg-fg inset-x-0 mb-[-1.5px] h-[2.5px] rounded bottom-0 w-full"
                   layoutId="current-selected"
                   transition={{ type: 'spring', stiffness: 500, damping: 40 }}
                 />

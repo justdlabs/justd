@@ -1,5 +1,7 @@
 'use client'
 
+import * as React from 'react'
+
 import type { DialogProps, PopoverProps } from 'react-aria-components'
 import { Modal } from 'react-aria-components'
 import type { VariantProps } from 'tailwind-variants'

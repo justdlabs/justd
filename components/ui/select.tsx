@@ -42,6 +42,7 @@ interface SelectProps<T extends object> extends Omit<SelectPrimitiveProps<T>, 'c
   items?: Iterable<T>
   children: React.ReactNode | ((item: T) => React.ReactNode)
   placement?: Placement
+  prefix?: React.ReactNode
 }
 
 const Select = <T extends object>({
@@ -51,6 +52,7 @@ const Select = <T extends object>({
   errorMessage,
   children,
   items,
+  prefix,
   ...props
 }: SelectProps<T>) => {
   return (
@@ -58,6 +60,7 @@ const Select = <T extends object>({
       {label && <Label>{label}</Label>}
       <Group className="relative">
         <Button className={selectTriggerStyles()}>
+          {prefix && <span className="-mr-1">{prefix}</span>}
           <SelectValue className="flex-1 text-base placeholder-shown:text-muted-fg lg:text-sm" />
 
           {!props?.selectedKey && (

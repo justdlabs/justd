@@ -100,7 +100,11 @@ export function CommandPalette({ open, setOpen }: OpenCloseProps) {
                     typeof childValue === 'object' && 'title' in childValue ? (
                       <CommandItem
                         className="justify-between"
-                        value={goodTitle(subKey + ' ' + (childValue as Doc).title)}
+                        value={
+                          childValue.title === 'Text Field'
+                            ? 'Text Field Input'
+                            : goodTitle(subKey + ' ' + (childValue as Doc).title)
+                        }
                         key={`${key}-${subKey}-${childKey}`}
                         onSelect={() => router.push(`/${childValue.slug}`)}
                       >

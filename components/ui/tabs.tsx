@@ -17,7 +17,7 @@ import {
 import { twJoin } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
 
-import { cn } from './primitive'
+import { cn, useMediaQuery } from './primitive'
 
 const tabsStyles = tv({
   base: 'group flex gap-4',
@@ -29,7 +29,7 @@ const tabsStyles = tv({
   }
 })
 
-const Tabs = (props: TabsProps) => {
+function Tabs(props: TabsProps) {
   return (
     <TabsPrimitive
       {...props}
@@ -53,7 +53,7 @@ const tabListStyles = tv({
   }
 })
 
-const TabList = <T extends object>(props: TabListProps<T>) => {
+function TabList<T extends object>(props: TabListProps<T>) {
   const id = useId()
   return (
     <LayoutGroup id={id}>
@@ -69,11 +69,11 @@ const TabList = <T extends object>(props: TabListProps<T>) => {
 
 const tabStyles = tv({
   base: [
-    'relative flex cursor-default items-center rounded-full text-sm font-medium outline-none transition forced-color-adjust-none hover:text-fg [&>[data-slot=icon]]:size-4 [&>[data-slot=icon]]:mr-2',
-    // horizontal
-    'group-orientation-vertical:w-full group-orientation-vertical:py-0',
-    // vertical
-    'group-orientation-horizontal:pb-3 group-orientation-vertical:pl-4 group-orientation-vertical:pr-2'
+    'relative flex whitespace-nowrap cursor-default items-center rounded-full text-sm font-medium outline-none transition forced-color-adjust-none hover:text-fg [&>[data-slot=icon]]:size-4 [&>[data-slot=icon]]:mr-2',
+    // hor
+    'group-orientation-vertical:w-full group-orientation-vertical:py-0 group-orientation-vertical:pl-4 group-orientation-vertical:pr-2',
+    // ver
+    'group-orientation-horizontal:pb-3'
   ],
   variants: {
     isSelected: {
@@ -87,7 +87,7 @@ const tabStyles = tv({
   }
 })
 
-const Tab = ({ children, ...props }: TabProps) => {
+function Tab({ children, ...props }: TabProps) {
   return (
     <TabPrimitive
       {...props}
@@ -124,7 +124,7 @@ const tabPanelStyles = tv({
   base: 'flex-1 text-sm text-fg'
 })
 
-const TabPanel = (props: TabPanelProps) => {
+function TabPanel(props: TabPanelProps) {
   return (
     <TabPanelPrimitive
       {...props}

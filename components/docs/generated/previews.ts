@@ -332,6 +332,9 @@ export const previews: Record<string, any> = {
   "navigation/pagination-dynamic-demo": {
     component: React.lazy(() => import("@/components/docs/navigation/pagination-dynamic-demo")),
   },
+  "navigation/tabs-responsive-demo": {
+    component: React.lazy(() => import("@/components/docs/navigation/tabs-responsive-demo")),
+  },
   "navigation/pagination-demo": {
     component: React.lazy(() => import("@/components/docs/navigation/pagination-demo")),
   },
