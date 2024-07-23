@@ -13,7 +13,7 @@ import { cn, useMediaQuery } from './primitive'
 
 const drawerStyles = tv({
   base: [
-    'fixed bottom-0 top-auto z-50 w-full max-w-xl place-content-center gap-4 rounded-t-xl border border-b-transparent bg-background shadow-lg outline-none',
+    'fixed bg-popover bottom-0 top-auto z-50 w-full max-w-xl place-content-center gap-4 rounded-t-xl border border-b-transparent shadow-lg outline-none',
     'entering:animate-in entering:fade-in-0 entering:slide-in-from-bottom-1/2 entering:[transition-timing-function:ease-out',
     'exiting:animate-out exiting:fade-out-0 exiting:slide-out-to-bottom-1/2 exiting:[transition-timing-function:ease]'
   ]
@@ -34,14 +34,14 @@ const DynamicOverlay = ({ className, children, ...props }: OverlayProps) => {
     <Modal {...props} isDismissable className={cn(drawerStyles(), className)}>
       {children}
 
-      <div className="pb-4 px-4 max-w-[inherit]">
+      <div className="pb-4 px-4 mx-auto w-full max-w-[inherit]">
         <ModalClose shape="circle" className="w-full">
           Close
         </ModalClose>
       </div>
     </Modal>
   ) : (
-    <PopoverPicker {...props} className={cn('', className)}>
+    <PopoverPicker {...props} className={className}>
       {children}
     </PopoverPicker>
   )

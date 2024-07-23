@@ -281,6 +281,9 @@ export const previews: Record<string, any> = {
   "overlays/modal-triggered-by-menu-demo": {
     component: React.lazy(() => import("@/components/docs/overlays/modal-triggered-by-menu-demo")),
   },
+  "overlays/tooltip-delay-demo": {
+    component: React.lazy(() => import("@/components/docs/overlays/tooltip-delay-demo")),
+  },
   "overlays/sheet-basic-demo": {
     component: React.lazy(() => import("@/components/docs/overlays/sheet-basic-demo")),
   },
@@ -292,6 +295,9 @@ export const previews: Record<string, any> = {
   },
   "overlays/drawer-with-footer-demo": {
     component: React.lazy(() => import("@/components/docs/overlays/drawer-with-footer-demo")),
+  },
+  "overlays/tooltip-placement-demo": {
+    component: React.lazy(() => import("@/components/docs/overlays/tooltip-placement-demo")),
   },
   "overlays/modal-size-demo": {
     component: React.lazy(() => import("@/components/docs/overlays/modal-size-demo")),

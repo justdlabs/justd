@@ -1,12 +1,12 @@
 'use client'
 
-import { IconBrandX } from '@irsyadadl/paranoid'
+import { IconBrandGithub, IconBrandTwitter } from '@irsyadadl/paranoid'
 import { buttonStyles, Tooltip, TooltipContent, TooltipTrigger } from 'ui'
 
-export default function TooltipDemo() {
+export default function TooltipDelayDemo() {
   return (
     <div className="flex gap-2">
-      <Tooltip>
+      <Tooltip delay={0}>
         <TooltipTrigger
           aria-label="Follow My Twitter"
           className={buttonStyles({
@@ -14,9 +14,9 @@ export default function TooltipDemo() {
             size: 'square-petite'
           })}
         >
-          <IconBrandX />
+          <IconBrandGithub />
         </TooltipTrigger>
-        <TooltipContent>Follow me on X @irsyadadl</TooltipContent>
+        <TooltipContent>Follow me on Github @irsyadadl</TooltipContent>
       </Tooltip>
     </div>
   )
