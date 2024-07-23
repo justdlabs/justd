@@ -27,14 +27,7 @@ export default function ModalSizeDemo() {
   }
   return (
     <>
-      <Grid
-        columns={{
-          initial: 2,
-          sm: 3,
-          lg: 4
-        }}
-        gap={2}
-      >
+      <Grid columns={{ initial: 2, sm: 3, lg: 4 }} gap={2}>
         {sizes.map((size, idx) => (
           <GridItem key={idx}>
             <Button appearance="outline" onPress={() => handlePress(size, true)}>
