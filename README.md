@@ -5,7 +5,7 @@ Just D. is a chill set of React components, built on top of [React Aria Componen
 
 
 ## Documentation
-Swing by [d.irsyad.co](https://d.irsyad.co/docs/getting-started/introduction) to peep the docs and get the lowdown on getting started!
+Swing by [justd.co](https://d.irsyad.co/docs/getting-started/introduction) to peep the docs and get the lowdown on getting started!
 
 ## Contributing
 

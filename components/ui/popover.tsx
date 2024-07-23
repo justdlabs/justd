@@ -44,11 +44,6 @@ const popoverContentStyles = tv({
   }
 })
 
-// export interface PopoverProps extends Omit<PopoverPrimitiveProps, 'children'> {
-//   showArrow?: boolean
-//   children: React.ReactNode
-// }
-
 const drawerStyles = tv({
   base: [
     'fixed bottom-0 p-4 top-auto z-50 w-full bg-popover max-w-2xl rounded-t-xl border border-b-transparent outline-none',

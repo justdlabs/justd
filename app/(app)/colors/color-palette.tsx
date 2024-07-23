@@ -21,12 +21,14 @@ import { GridList, GridListItem, Text, ToggleButton } from 'react-aria-component
 import { useInView } from 'react-intersection-observer'
 import { toast } from 'sonner'
 import {
-  buttonStyles, cn,
+  buttonStyles,
+  cn,
   ColorSwatch,
   Container,
   gridStyles,
   Header as HeaderPrimitive,
-  Heading, isBrightColor,
+  Heading,
+  isBrightColor,
   LoadingDots,
   Select,
   SelectItem,
@@ -198,10 +200,9 @@ const ColorItem = ({ item, name, isForTailwindVariable, selectedFormat }: GridLi
   return (
     <GridListItem
       aria-label={`${name} of ${item.shade}`}
-
       className={cn(
-        "group w-full focus:outline-none size-9 sm:w-9 lg:w-8 lg:h-16",
-        isBrightColor(item.color) ? "text-black" : "text-white",
+        'group w-full focus:outline-none size-9 sm:w-9 lg:w-8 lg:h-16',
+        isBrightColor(item.color) ? 'text-black' : 'text-white'
       )}
       onAction={() => handleCopy(parseColor(item.color as string).toString(selectedFormat ?? 'hsl'))}
     >

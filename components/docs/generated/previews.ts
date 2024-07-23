@@ -293,6 +293,9 @@ export const previews: Record<string, any> = {
   "overlays/drawer-with-footer-demo": {
     component: React.lazy(() => import("@/components/docs/overlays/drawer-with-footer-demo")),
   },
+  "overlays/modal-size-demo": {
+    component: React.lazy(() => import("@/components/docs/overlays/modal-size-demo")),
+  },
   "overlays/drawer-basic-demo": {
     component: React.lazy(() => import("@/components/docs/overlays/drawer-basic-demo")),
   },
