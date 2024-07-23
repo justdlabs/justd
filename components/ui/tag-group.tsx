@@ -61,7 +61,7 @@ const tagStyles = tv({
   }))
 })
 
-export interface TagGroupProps<T>
+interface TagGroupProps<T>
   extends Omit<TagGroupPrimitiveProps, 'children'>,
     Pick<TagListProps<T>, 'items' | 'children' | 'renderEmptyState'> {
   intent?: Intent
@@ -70,11 +70,11 @@ export interface TagGroupProps<T>
   errorMessage?: string
 }
 
-export interface TagProps extends TagPrimitiveProps {
+interface TagProps extends TagPrimitiveProps {
   intent?: Intent
 }
 
-export function TagGroup<T extends object>({
+const TagGroup = <T extends object>({
   label,
   description,
   errorMessage,
@@ -82,7 +82,7 @@ export function TagGroup<T extends object>({
   children,
   renderEmptyState,
   ...props
-}: TagGroupProps<T>) {
+}: TagGroupProps<T>) => {
   return (
     <TagGroupPrimitive {...props} className={twMerge('flex flex-col gap-1', props.className)}>
       <Label>{label}</Label>
@@ -106,7 +106,7 @@ const removeButtonStyles = tv({
   base: 'flex cursor-default items-center justify-center rounded-full p-0.5 transition-[background-color] hover:bg-black/10 pressed:bg-black/20 dark:hover:bg-white/10 dark:pressed:bg-white/20'
 })
 
-export function Tag({ children, intent, ...props }: TagProps) {
+const Tag = ({ children, intent, ...props }: TagProps) => {
   const textValue = typeof children === 'string' ? children : undefined
   const groupIntent = React.useContext(IntentContext)
   return (
@@ -134,3 +134,5 @@ export function Tag({ children, intent, ...props }: TagProps) {
     </TagPrimitive>
   )
 }
+
+export { Tag, TagGroup }

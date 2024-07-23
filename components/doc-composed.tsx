@@ -30,7 +30,7 @@ export function DocComposed({ components, text }: { components: string[]; text?:
         }}
         columns={{
           initial: filteredComponents.length === 1 ? 1 : 2,
-          sm: filteredComponents.length === 1 ? 1 : 2
+          sm: 2
         }}
         items={filteredComponents}
       >

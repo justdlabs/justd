@@ -9,10 +9,10 @@ import { tv } from 'tailwind-variants'
 
 const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs))
 
-function composeTailwindRenderProps<T>(
+const composeTailwindRenderProps = <T,>(
   className: string | ((v: T) => string) | undefined,
   tw: string
-): string | ((v: T) => string) {
+): string | ((v: T) => string) => {
   return composeRenderProps(className, (className) => twMerge(tw, className))
 }
 
@@ -32,24 +32,11 @@ const focusStyles = tv({
   }
 })
 
-function pickBy<T extends object>(
-  object: T,
-  predicate: (value: T[keyof T], key: keyof T) => boolean = (value) => value !== undefined && value !== ''
-): Partial<T> {
-  return Object.keys(object).reduce((acc: Partial<T>, key: string) => {
-    const typedKey = key as keyof T
-    if (predicate(object[typedKey], typedKey)) {
-      acc[typedKey] = object[typedKey]
-    }
-    return acc
-  }, {})
-}
-
-function useMediaQuery(query: string) {
+const useMediaQuery = (query: string) => {
   const [value, setValue] = React.useState(false)
 
   React.useEffect(() => {
-    function onChange(event: MediaQueryListEvent) {
+    const onChange = (event: MediaQueryListEvent) => {
       setValue(event.matches)
     }
 
@@ -67,4 +54,4 @@ const ctr = composeTailwindRenderProps
 const tm = twMerge
 const cr = composeRenderProps
 
-export { cn, composeTailwindRenderProps, cr, ctr, focusRing, focusStyles, pickBy, tm, twMerge, useMediaQuery }
+export { cn, composeTailwindRenderProps, cr, ctr, focusRing, focusStyles, tm, twMerge, useMediaQuery }

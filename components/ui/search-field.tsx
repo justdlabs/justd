@@ -11,14 +11,14 @@ import { Button } from './button'
 import { Description, FieldError, FieldGroup, Input, Label } from './field'
 import { ctr } from './primitive'
 
-export interface SearchFieldProps extends SearchFieldPrimitiveProps {
+interface SearchFieldProps extends SearchFieldPrimitiveProps {
   label?: string
   placeholder?: string
   description?: string
   errorMessage?: string | ((validation: ValidationResult) => string)
 }
 
-export function SearchField({ placeholder = 'Search', label, description, errorMessage, ...props }: SearchFieldProps) {
+const SearchField = ({ placeholder = 'Search', label, description, errorMessage, ...props }: SearchFieldProps) => {
   return (
     <SearchFieldPrimitive {...props} className={ctr(props.className, 'group flex min-w-[40px] flex-col gap-1')}>
       {label && <Label>{label}</Label>}
@@ -41,3 +41,5 @@ export function SearchField({ placeholder = 'Search', label, description, errorM
     </SearchFieldPrimitive>
   )
 }
+
+export { SearchField, type SearchFieldProps }

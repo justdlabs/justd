@@ -29,7 +29,7 @@ const tabsStyles = tv({
   }
 })
 
-function Tabs(props: TabsProps) {
+const Tabs = (props: TabsProps) => {
   return (
     <TabsPrimitive
       {...props}
@@ -53,7 +53,7 @@ const tabListStyles = tv({
   }
 })
 
-function TabList<T extends object>(props: TabListProps<T>) {
+const TabList = <T extends object>(props: TabListProps<T>) => {
   const id = useId()
   return (
     <LayoutGroup id={id}>
@@ -87,7 +87,7 @@ const tabStyles = tv({
   }
 })
 
-function Tab({ children, ...props }: TabProps) {
+const Tab = ({ children, ...props }: TabProps) => {
   return (
     <TabPrimitive
       {...props}
@@ -124,7 +124,7 @@ const tabPanelStyles = tv({
   base: 'flex-1 text-sm text-fg'
 })
 
-function TabPanel(props: TabPanelProps) {
+const TabPanel = (props: TabPanelProps) => {
   return (
     <TabPanelPrimitive
       {...props}

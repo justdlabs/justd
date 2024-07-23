@@ -40,7 +40,7 @@ interface CalendarProps<T extends DateValue> extends Omit<CalendarPrimitiveProps
   errorMessage?: string
 }
 
-function Calendar<T extends DateValue>({ errorMessage, ...props }: CalendarProps<T>) {
+const Calendar = <T extends DateValue>({ errorMessage, ...props }: CalendarProps<T>) => {
   return (
     <CalendarPrimitive {...props}>
       <CalendarHeader />
@@ -57,7 +57,7 @@ function Calendar<T extends DateValue>({ errorMessage, ...props }: CalendarProps
   )
 }
 
-function CalendarHeader() {
+const CalendarHeader = () => {
   const { direction } = useLocale()
 
   return (
@@ -73,7 +73,7 @@ function CalendarHeader() {
   )
 }
 
-function CalendarGridHeader() {
+const CalendarGridHeader = () => {
   return (
     <CalendarGridHeaderPrimitive>
       {(day) => (
@@ -107,7 +107,7 @@ const cellRangeStyles = tv({
   }
 })
 
-function RangeCalendar<T extends DateValue>({ errorMessage, ...props }: RangeCalendarProps<T>) {
+const RangeCalendar = <T extends DateValue>({ errorMessage, ...props }: RangeCalendarProps<T>) => {
   return (
     <RangeCalendarPrimitive {...props}>
       <CalendarHeader />
