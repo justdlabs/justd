@@ -91,7 +91,7 @@ export function Navbar() {
                     <NavLink isActive={pathname === '/colors'} href="/colors">
                       Colors
                     </NavLink>
-                    <NavLink target="_blank" href="https://paranoid.irsyad.co">
+                    <NavLink target="_blank" href="https://paranoijustd.co">
                       Paranoid
                     </NavLink>
                     <NavLink target="_blank" href={siteConfig.repo}>
@@ -137,7 +137,7 @@ export function Navbar() {
                         size: 'square-petite'
                       })}
                       target="_blank"
-                      href="https://paranoid.irsyad.co"
+                      href="https://paranoijustd.co"
                     >
                       <IconBrandParanoid />
                     </Link>
@@ -300,7 +300,7 @@ export function NavbarDropdown() {
         <MenuSeparator />
         <MenuSection>
           <MenuHeader separator>Refs</MenuHeader>
-          <MenuItem href="https://paranoid.irsyad.co" target="_blank">
+          <MenuItem href="https://paranoijustd.co" target="_blank">
             <IconBrandParanoid />
             Paranoid
           </MenuItem>

@@ -15,7 +15,7 @@ import { Badge, cn } from 'ui'
 export interface Doc {
   slug: string
   title: string
-  status?: 'wip' | 'new' | 'beta' | 'help' | 'primitive'
+  status?: 'wip' | 'new' | 'beta' | 'help' | 'primitive' | 'rc'
 }
 
 export interface HierarchyNode {
@@ -83,7 +83,7 @@ const renderHierarchy = (node: HierarchyNode, defaultValues: string[], level: nu
                       {subValue.status && (
                         <Badge
                           intent={
-                            subValue?.status === 'wip'
+                            subValue?.status === 'wip' || subValue?.status === 'rc'
                               ? 'primary'
                               : subValue.status === 'beta'
                                 ? 'warning'

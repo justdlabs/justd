@@ -4,8 +4,6 @@ import { ColorPalette } from '@/app/(app)/colors/color-palette'
 import { siteConfig } from '@/config/site'
 import type { Metadata } from 'next'
 
-import _colors from './colors.json'
-
 export const metadata: Metadata = {
   title: 'Colors / ' + siteConfig.name,
   description:

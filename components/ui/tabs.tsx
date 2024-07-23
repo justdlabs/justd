@@ -29,7 +29,7 @@ const tabsStyles = tv({
   }
 })
 
-function Tabs(props: TabsProps) {
+const Tabs = (props: TabsProps) => {
   return (
     <TabsPrimitive
       {...props}
@@ -53,7 +53,7 @@ const tabListStyles = tv({
   }
 })
 
-function TabList<T extends object>(props: TabListProps<T>) {
+const TabList = <T extends object>(props: TabListProps<T>) => {
   const id = useId()
   return (
     <LayoutGroup id={id}>
@@ -70,9 +70,9 @@ function TabList<T extends object>(props: TabListProps<T>) {
 const tabStyles = tv({
   base: [
     'relative flex cursor-default items-center rounded-full text-sm font-medium outline-none transition forced-color-adjust-none hover:text-fg [&>[data-slot=icon]]:size-4 [&>[data-slot=icon]]:mr-2',
-    // hor
+    // horizontal
     'group-orientation-vertical:w-full group-orientation-vertical:py-0',
-    // ver
+    // vertical
     'group-orientation-horizontal:pb-3 group-orientation-vertical:pl-4 group-orientation-vertical:pr-2'
   ],
   variants: {
@@ -87,7 +87,7 @@ const tabStyles = tv({
   }
 })
 
-function Tab({ children, ...props }: TabProps) {
+const Tab = ({ children, ...props }: TabProps) => {
   return (
     <TabPrimitive
       {...props}
@@ -124,7 +124,7 @@ const tabPanelStyles = tv({
   base: 'flex-1 text-sm text-fg'
 })
 
-function TabPanel(props: TabPanelProps) {
+const TabPanel = (props: TabPanelProps) => {
   return (
     <TabPanelPrimitive
       {...props}
