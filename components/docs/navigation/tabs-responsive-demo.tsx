@@ -19,11 +19,11 @@ const tabs = [
 export default function TabsResponsiveDemo() {
   const isMobile = useMediaQuery('(max-width: 600px)')
   return isMobile ? (
-    <Select prefix={<IconHamburger />} items={tabs}>
+    <Select className="sm:hidden block" prefix={<IconHamburger />} items={tabs}>
       {(item) => <SelectItem textValue={item.title}>{item.title}</SelectItem>}
     </Select>
   ) : (
-    <Tabs aria-label="Project Management">
+    <Tabs className="sm:flex hidden" aria-label="Project Management">
       <TabList aria-label="Dynamic tabs" items={tabs}>
         {(item) => <Tab>{item.title}</Tab>}
       </TabList>
