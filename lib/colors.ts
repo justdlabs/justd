@@ -1,4 +1,4 @@
-import { FormatOnlyForTailwindVariableType } from '@/types'
+import type { FormatOnlyForTailwindVariableType } from '@/types'
 import { htmlcolors } from 'html-color-names'
 
 const tailwindColors = {

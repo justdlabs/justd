@@ -25,7 +25,7 @@ const timeFieldStyles = tv({
   base: 'flex w-fit font-mono min-w-28 justify-around whitespace-nowrap p-2 lg:text-sm'
 })
 
-export function TimeField<T extends TimeValue>({ label, description, errorMessage, ...props }: TimeFieldProps<T>) {
+const TimeField = <T extends TimeValue>({ label, description, errorMessage, ...props }: TimeFieldProps<T>) => {
   return (
     <TimeFieldPrimitive {...props} className={ctr(props.className, 'flex flex-col gap-1')}>
       <Label>{label}</Label>
@@ -35,3 +35,5 @@ export function TimeField<T extends TimeValue>({ label, description, errorMessag
     </TimeFieldPrimitive>
   )
 }
+
+export { TimeField }

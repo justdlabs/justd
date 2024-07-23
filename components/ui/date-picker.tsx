@@ -24,7 +24,7 @@ interface DatePickerProps<T extends DateValue> extends DatePickerPrimitiveProps<
   errorMessage?: string | ((validation: ValidationResult) => string)
 }
 
-function DatePicker<T extends DateValue>({ label, description, errorMessage, ...props }: DatePickerProps<T>) {
+const DatePicker = <T extends DateValue>({ label, description, errorMessage, ...props }: DatePickerProps<T>) => {
   return (
     <DatePickerPrimitive {...props} className={ctr(props.className, 'group flex flex-col gap-1')}>
       {label && <Label>{label}</Label>}
@@ -55,7 +55,12 @@ interface DateRangePickerProps<T extends DateValue> extends DateRangePickerPrimi
   errorMessage?: string | ((validation: ValidationResult) => string)
 }
 
-function DateRangePicker<T extends DateValue>({ label, description, errorMessage, ...props }: DateRangePickerProps<T>) {
+const DateRangePicker = <T extends DateValue>({
+  label,
+  description,
+  errorMessage,
+  ...props
+}: DateRangePickerProps<T>) => {
   return (
     <DateRangePickerPrimitive {...props} className={ctr(props.className, 'group flex flex-col gap-1')}>
       {label && <Label>{label}</Label>}

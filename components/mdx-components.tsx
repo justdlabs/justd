@@ -48,7 +48,7 @@ export function MDXContent({ code }: MdxProps) {
         Image,
         How: DocHow,
         a: (props: LinkProps) => (
-          <Link target="_blank" intent="primary" {...props} className="not-prose xd2432 font-medium hover:underline" />
+          <Link intent="primary" {...props} className="not-prose xd2432 font-medium hover:underline" />
         ),
         SourceCode: SourceCode,
         PlainCode: PlainCode,

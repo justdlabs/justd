@@ -12,14 +12,14 @@ import {
 import { Description, fieldBorderStyles, FieldError, FieldGroup, Input, Label } from './field'
 import { cn, ctr, useMediaQuery } from './primitive'
 
-export interface NumberFieldProps extends NumberFieldPrimitiveProps {
+interface NumberFieldProps extends NumberFieldPrimitiveProps {
   label?: string
   description?: string
   placeholder?: string
   errorMessage?: string | ((validation: ValidationResult) => string)
 }
 
-export function NumberField({ label, placeholder, description, errorMessage, ...props }: NumberFieldProps) {
+const NumberField = ({ label, placeholder, description, errorMessage, ...props }: NumberFieldProps) => {
   const isMobile = useMediaQuery('(max-width: 768px)')
   return (
     <NumberFieldPrimitive {...props} className={ctr(props.className, 'group flex flex-col gap-1')}>
@@ -91,3 +91,5 @@ const StepperButton = ({ slot, className, emblemType = 'default', ...props }: St
     </Button>
   )
 }
+
+export { NumberField, type NumberFieldProps }

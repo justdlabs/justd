@@ -40,7 +40,7 @@ interface BadgeProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<
   children: React.ReactNode
 }
 
-function Badge({ children, intent, shape, className, ...props }: BadgeProps) {
+const Badge = ({ children, intent, shape, className, ...props }: BadgeProps) => {
   return (
     <span {...props} className={badgeStyles({ intent, shape, className })}>
       {children}

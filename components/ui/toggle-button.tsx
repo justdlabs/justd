@@ -26,7 +26,7 @@ const toggleButtonStyles = tv({
   }
 })
 
-export function ToggleButton(props: ToggleButtonProps) {
+const ToggleButton = (props: ToggleButtonProps) => {
   return (
     <ToggleButtonPrimitive
       {...props}
@@ -36,3 +36,5 @@ export function ToggleButton(props: ToggleButtonProps) {
     />
   )
 }
+
+export { ToggleButton, toggleButtonStyles }

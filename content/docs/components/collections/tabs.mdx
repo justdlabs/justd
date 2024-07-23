@@ -3,7 +3,6 @@ title: "Tabs"
 description: Switch between views like flipping through file folders at a desk, organizing content without clutter.
 order: 3
 published: true
-status: updated
 references: ["https://react-spectrum.adobe.com/react-aria/Tabs.html#props", "https://www.framer.com/motion/layout-animations/"]
 ---
 
@@ -27,7 +26,8 @@ Sometimes you wanna throw icons on your tabs. No biggie, this tab's got you cove
 
 ## Orientation
 The orientation of the tabs can be set to `horizontal` or `vertical`.
-<How isCenter={false} toUse="navigation/tabs-orientation-demo" />
+
+[//]: # (<How isCenter={false} toUse="navigation/tabs-orientation-demo" />)
 
 ## Collections
 Tabs can be used in collections.
@@ -36,6 +36,14 @@ Tabs can be used in collections.
 ## Links
 Maybe you wanna use tabs as links, like for hopping between pages. Just slap the `href` prop on the `Tab` component. Boom, cursor turns into a pointer automatically.
 <How isCenter={false} toUse="navigation/tabs-link-demo" />
+
+## Responsive
+When tabs start packin' like sardines, things get messy. So, I hooked y'all up with a way to keep 'em chill and responsive.
+
+
+<Composed text="Mix it up with a menu, select, or combo box, but this example's all about mastering the select component." components={['select']}/>
+
+<How isCenter={false} toUse="navigation/tabs-responsive-demo" />
 
 ## Disabled
 Tabs can be disabled by setting the `isDisabled` prop to `true`.

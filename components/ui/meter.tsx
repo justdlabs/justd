@@ -14,7 +14,7 @@ export interface MeterProps extends AriaMeterProps {
   label?: string
 }
 
-export function Meter({ label, ...props }: MeterProps) {
+const Meter = ({ label, ...props }: MeterProps) => {
   return (
     <MeterPrimitive {...props} className={ctr(props.className, 'flex flex-col gap-1')}>
       {({ percentage, valueText }) => (
@@ -45,7 +45,7 @@ export function Meter({ label, ...props }: MeterProps) {
   )
 }
 
-function getColor(percentage: number) {
+const getColor = (percentage: number) => {
   if (percentage < 30) {
     return '#0d6efd' // Blue
   }
@@ -64,3 +64,5 @@ function getColor(percentage: number) {
 
   return '#e11d48' // Red
 }
+
+export { Meter, getColor }

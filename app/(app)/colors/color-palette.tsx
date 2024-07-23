@@ -62,7 +62,7 @@ export function ColorPalette() {
         setHasMore(false)
       }
     }
-  }, [inView])
+  }, [colors.length, hasMore, inView])
   return (
     <>
       <HeaderPrimitive className="bg-background pb-4 pt-12 lg:py-16 border-b ">

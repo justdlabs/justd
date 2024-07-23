@@ -12,7 +12,7 @@ interface ItemProps {
   value: string
 }
 
-interface Props {
+interface MultiSelectProps {
   items: ItemProps[]
   placeholder?: string
   selected: ItemProps[]
@@ -20,7 +20,7 @@ interface Props {
   max?: number
 }
 
-export function MultiSelect({ items, placeholder = 'Select items...', max = 5, selected, setSelected }: Props) {
+const MultiSelect = ({ items, placeholder = 'Select items...', max = 5, selected, setSelected }: MultiSelectProps) => {
   const inputRef = React.useRef<HTMLInputElement>(null)
   const [open, setOpen] = React.useState(false)
   const [inputValue, setInputValue] = React.useState('')
@@ -134,3 +134,5 @@ export function MultiSelect({ items, placeholder = 'Select items...', max = 5, s
     </Command>
   )
 }
+
+export { MultiSelect, type MultiSelectProps }

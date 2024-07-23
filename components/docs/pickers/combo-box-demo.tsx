@@ -25,7 +25,7 @@ const users = [
 
 export default function ComboBoxDemo() {
   return (
-    <ComboBox placeholder="Select a user" label="Users" isRequired items={users}>
+    <ComboBox placeholder="Select a user" label="Users" items={users}>
       {(item) => (
         <ComboBoxItem key={item.id} id={item.id} textValue={item.name}>
           {item.name}

@@ -11,11 +11,11 @@ import {
 import { Label } from './field'
 import { ctr } from './primitive'
 
-export interface ProgressBarProps extends ProgressBarPrimitiveProps {
+interface ProgressBarProps extends ProgressBarPrimitiveProps {
   label?: string
 }
 
-export function ProgressBar({ label, ...props }: ProgressBarProps) {
+const ProgressBar = ({ label, ...props }: ProgressBarProps) => {
   return (
     <ProgressBarPrimitive {...props} className={ctr(props.className, 'flex flex-col gap-1')}>
       {({ percentage, valueText, isIndeterminate }) => (
@@ -50,3 +50,5 @@ export function ProgressBar({ label, ...props }: ProgressBarProps) {
     </ProgressBarPrimitive>
   )
 }
+
+export { ProgressBar, type ProgressBarProps }

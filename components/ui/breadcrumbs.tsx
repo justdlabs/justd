@@ -11,11 +11,11 @@ import {
 import { Link } from './link'
 import { cn } from './primitive'
 
-function Breadcrumbs<T extends object>(props: BreadcrumbsProps<T>) {
+const Breadcrumbs = <T extends object>(props: BreadcrumbsProps<T>) => {
   return <BreadcrumbsPrimitive {...props} className={cn('flex gap-1', props.className)} />
 }
 
-function Breadcrumb(props: BreadcrumbProps & LinkProps) {
+const Breadcrumb = (props: BreadcrumbProps & LinkProps) => {
   return (
     <BreadcrumbPrimitive {...props} className={cn('flex items-center gap-1', props.className)}>
       <Link href={props.href} {...props} />

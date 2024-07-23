@@ -1,14 +1,15 @@
 import { type Docs, docs } from '@/.velite'
+import { siteConfig } from '@/config/site'
 import type { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: 'https://d.irsyad.co',
+      url: siteConfig.url,
       lastModified: new Date()
     },
     ...docs.map((doc: Docs) => ({
-      url: `https://d.irsyad.co/${doc.slug}`,
+      url: `${siteConfig.url}/${doc.slug}`,
       lastModified: new Date()
     }))
   ]
