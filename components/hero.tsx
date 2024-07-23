@@ -1,7 +1,7 @@
 'use client'
 
 import { siteConfig } from '@/config/site'
-import { IconBrandD, IconBrandGithub, IconCube, IconStar, IconStarFill } from '@irsyadadl/paranoid'
+import { IconBrandD, IconCube, IconStar } from '@irsyadadl/paranoid'
 import Link from 'next/link'
 import { Header, Text } from 'react-aria-components'
 import { buttonStyles, Container, Heading } from 'ui'
@@ -50,7 +50,7 @@ export function Hero() {
               <IconStar /> Stars sustain energy
             </Link>
             <Heading className="max-w-xl mt-4 text-2xl font-bold tracking-tight lg:text-5xl mb-2 lg:mb-6">
-              Making your site accessible ain't rocket science.
+              Making your site accessible ain't brain surgery.
             </Heading>
             <Text
               slot="description"
