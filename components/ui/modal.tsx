@@ -3,6 +3,7 @@
 import * as React from 'react'
 
 import { IconX } from '@irsyadadl/paranoid'
+import { isIOS } from '@react-aria/utils'
 import type { DialogTriggerProps } from 'react-aria-components'
 import {
   Button as ButtonPrimitive,
@@ -12,14 +13,14 @@ import {
   type HeadingProps,
   Modal as ModalPrimitive,
   ModalOverlay as ModalOverlayPrimitive,
-  type ModalOverlayProps,
+  type ModalOverlayProps as ModalOverlayPrimitiveProps,
   OverlayTriggerStateContext
 } from 'react-aria-components'
 import { tv, type VariantProps } from 'tailwind-variants'
 
 import { Button, type ButtonProps } from './button'
 import { Dialog } from './dialog'
-import { cn, useMediaQuery } from './primitive'
+import { cn, isIos, useMediaQuery } from './primitive'
 
 const ModalContext = React.createContext<{ isDismissable?: boolean }>({
   isDismissable: true
@@ -69,7 +70,7 @@ const ModalTrigger = ButtonPrimitive
 
 const modalOverlayStyles = tv({
   base: [
-    'fixed top-0 left-0 w-full h-[--visual-viewport-height] isolate z-50 bg-black/20 flex items-center justify-center p-4 backdrop-blur-[1px]'
+    'fixed top-0 data-[blur=true]:backdrop-blur-sm left-0 w-full h-[--visual-viewport-height] isolate z-50 bg-black/20 flex items-center justify-center p-4'
   ],
   variants: {
     isEntering: {
@@ -81,12 +82,23 @@ const modalOverlayStyles = tv({
   }
 })
 
-const ModalOverlay = ({ isDismissable, className, ...props }: ModalOverlayProps) => {
+interface ModalOverlayProps extends ModalOverlayPrimitiveProps {
+  isBlurred?: boolean
+}
+
+const ModalOverlay = ({ isBlurred, isDismissable, className, ...props }: ModalOverlayProps) => {
   const { isDismissable: defaultIsDismissable } = React.useContext(ModalContext)
   const effectiveIsDismissable = isDismissable !== undefined ? isDismissable : defaultIsDismissable
+  const isIosDevice = isIos()
+  const effectiveIsBlurred = isIosDevice || isBlurred
   return (
     <ModalOverlayContext.Provider value={{ isDismissable: effectiveIsDismissable }}>
-      <ModalOverlayPrimitive isDismissable={effectiveIsDismissable} className={modalOverlayStyles()} {...props} />
+      <ModalOverlayPrimitive
+        data-blur={effectiveIsBlurred ? 'true' : 'false'}
+        isDismissable={effectiveIsDismissable}
+        className={modalOverlayStyles()}
+        {...props}
+      />
     </ModalOverlayContext.Provider>
   )
 }
