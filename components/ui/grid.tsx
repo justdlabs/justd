@@ -159,7 +159,7 @@ const Grid = <T extends object>({
   return (
     <GridList
       aria-label={props['aria-label'] || 'grid'}
-      layout="grid"
+      layout={columns === 1 ? 'stack' : 'grid'}
       className={gridStyles({
         gap: gap ?? gapX ?? gapY,
         gapX: gapX ?? gap,

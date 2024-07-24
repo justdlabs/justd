@@ -17,7 +17,7 @@ import { parseColor } from '@react-stately/color'
 import type { ColorFormat } from '@react-types/color'
 import { AnimatePresence, motion } from 'framer-motion'
 import type { ListBoxItemProps } from 'react-aria-components'
-import { GridList, GridListItem, Text, ToggleButton } from 'react-aria-components'
+import { GridListItem, Text, ToggleButton } from 'react-aria-components'
 import { useInView } from 'react-intersection-observer'
 import { toast } from 'sonner'
 import {
@@ -25,6 +25,7 @@ import {
   cn,
   ColorSwatch,
   Container,
+  Grid,
   gridStyles,
   Header as HeaderPrimitive,
   Heading,
@@ -154,13 +155,10 @@ export function ColorRow({ item }: ColorPaletteProps) {
             </>
           </div>
         </div>
-        <GridList
-          layout="grid"
-          className={gridStyles({
-            columns: { initial: 7, lg: 11 },
-            gapY: { initial: 3, sm: 1 },
-            gapX: { initial: 1, sm: 1 }
-          })}
+        <Grid
+          columns={{ initial: 7, lg: 11 }}
+          gapY={{ initial: 3, sm: 1 }}
+          gapX={{ initial: 1, sm: 1 }}
           aria-label={`${item.name} 50-950 colors`}
         >
           {item.children.map(({ shade, color }, i) => (
@@ -174,7 +172,7 @@ export function ColorRow({ item }: ColorPaletteProps) {
               }}
             />
           ))}
-        </GridList>
+        </Grid>
       </div>
     </>
   )
