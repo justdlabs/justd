@@ -156,7 +156,13 @@ const CarouselContent = <T extends object>({ className, ...props }: SectionProps
   const { carouselRef, orientation } = useCarousel()
 
   return (
-    <ListBox aria-label="Slides" orientation={orientation} ref={carouselRef} className="overflow-hidden">
+    <ListBox
+      layout={orientation === 'vertical' ? 'stack' : 'grid'}
+      aria-label="Slides"
+      orientation={orientation}
+      ref={carouselRef}
+      className="overflow-hidden"
+    >
       <Section
         className={cn('flex', orientation === 'horizontal' ? '-ml-4' : '-mt-4 flex-col', className)}
         {...props}
