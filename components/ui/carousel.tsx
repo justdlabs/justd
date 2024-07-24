@@ -179,7 +179,7 @@ const CarouselItem = ({ className, ...props }: ListBoxItemProps) => {
       aria-label={`Slide ${props.id}`}
       aria-roledescription="slide"
       className={cn(
-        'min-w-0 xd24r shrink-0 grow-0 basis-full focus-visible:outline-none',
+        'min-w-0 xd24r shrink-0 focus:outline-none grow-0 basis-full focus-visible:outline-none',
         orientation === 'horizontal' ? 'pl-4' : 'pt-4',
         className
       )}
