@@ -69,7 +69,7 @@ const ModalTrigger = ButtonPrimitive
 
 const modalOverlayStyles = tv({
   base: [
-    'fixed top-0 data-[blur=true]:backdrop-blur-sm left-0 w-full h-[--visual-viewport-height] isolate z-50 bg-black/20 flex items-center justify-center p-4'
+    'fixed top-0 data-[blur=true]:backdrop-blur-sm left-0 w-full h-[--visual-viewport-height] isolate z-50 flex items-center justify-center p-4'
   ],
   variants: {
     isEntering: {
@@ -95,7 +95,7 @@ const ModalOverlay = ({ isBlurred, isDismissable, className, ...props }: ModalOv
       <ModalOverlayPrimitive
         data-blur={effectiveIsBlurred ? 'true' : 'false'}
         isDismissable={effectiveIsDismissable}
-        className={modalOverlayStyles()}
+        className={modalOverlayStyles({ className: cn(isIosDevice ? 'bg-black/15' : 'bg-black/40', className) })}
         {...props}
       />
     </ModalOverlayContext.Provider>

@@ -16,10 +16,16 @@ export function DocComposed({ components, text }: { components: string[]; text?:
   return (
     <div className="not-prose">
       {!text ? (
-        <p className="mb-6">
-          A <strong className="font-medium">{name}</strong> packs these dope components that can vibe solo or squad up
-          in other parts of your project.
-        </p>
+        <>
+          <p className="mb-6">
+            When you plug this component from the CLI, it autoloads all the composed components. No need to toss 'em in
+            one at a time.
+          </p>
+          <p className="mb-6">
+            A <strong className="font-medium">{name}</strong> bundles these slick units that can flex solo or team up
+            across your project's scene.
+          </p>
+        </>
       ) : (
         <p className="mb-4">{text}</p>
       )}
