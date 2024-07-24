@@ -27,7 +27,7 @@ export default function ComboBoxAvatarDemo() {
   return (
     <ComboBox placeholder="Select a user" label="Users" isRequired items={users}>
       {(item) => (
-        <ComboBoxItem key={item.id} id={item.id} textValue={item.name}>
+        <ComboBoxItem id={item.id} textValue={item.name}>
           <Avatar src={item.image_url} />
           {item.name}
         </ComboBoxItem>
