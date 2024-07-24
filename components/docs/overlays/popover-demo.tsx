@@ -5,7 +5,7 @@ import { Button, Popover, PopoverContent, PopoverDescription, PopoverFooter, Pop
 export default function PopoverDemo() {
   return (
     <Popover>
-      <Button intent="secondary">Forgot Password</Button>
+      <Button>Forgot Password</Button>
       <PopoverContent className="min-w-72">
         <PopoverHeader>
           <PopoverTitle>Email</PopoverTitle>

@@ -105,7 +105,7 @@ interface ColorPaletteProps extends ListBoxItemProps {
 export function ColorRow({ item }: ColorPaletteProps) {
   const [isForTailwindVariable, setIsForTailwindVariable] = React.useState(false)
   const [selectedFormat, setSelectedFormat] = React.useState<ColorFormat | null | FormatOnlyForTailwindVariableType>(
-    '' as any
+    'hex'
   )
   return (
     <>
@@ -141,7 +141,7 @@ export function ColorRow({ item }: ColorPaletteProps) {
                 onSelectionChange={(v) => setSelectedFormat(v as ColorFormat)}
                 className="[&_.btr]:min-w-24 [&_.btr]:h-8 flex-1"
                 aria-label="Select Format"
-                placeholder="hsl"
+                placeholder="hex"
                 items={allFormats}
                 placement="bottom right"
               >
@@ -155,6 +155,7 @@ export function ColorRow({ item }: ColorPaletteProps) {
           </div>
         </div>
         <GridList
+          layout="grid"
           className={gridStyles({
             columns: { initial: 7, lg: 11 },
             gapY: { initial: 3, sm: 1 },
@@ -167,7 +168,7 @@ export function ColorRow({ item }: ColorPaletteProps) {
               key={i}
               {...{
                 isForTailwindVariable,
-                selectedFormat: selectedFormat ?? 'hex',
+                selectedFormat: selectedFormat ?? 'hsl',
                 item: { shade, color },
                 name: item.name
               }}
@@ -203,10 +204,10 @@ const ColorItem = ({ item, name, isForTailwindVariable, selectedFormat }: GridLi
     <GridListItem
       aria-label={`${name} of ${item.shade}`}
       className={cn(
-        'group w-full focus:outline-none size-9 sm:w-9 lg:w-8 lg:h-16',
+        'group w-full focus:outline-none focus-visible:outline-primary-600 rounded focus-visible:outline-none size-9 sm:w-9 lg:w-8 lg:h-16',
         isBrightColor(item.color) ? 'text-black' : 'text-white'
       )}
-      onAction={() => handleCopy(parseColor(item.color as string)?.toString(selectedFormat ?? 'hsl'))}
+      onAction={() => handleCopy(parseColor(item.color as string)?.toString(selectedFormat))}
     >
       <div className="relative">
         <ColorSwatch
