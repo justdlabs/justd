@@ -497,8 +497,8 @@ export const previews: Record<string, any> = {
   "pickers/combo-box-avatar-demo": {
     component: React.lazy(() => import("@/components/docs/pickers/combo-box-avatar-demo")),
   },
-  "pickers/select-invalid-demo": {
-    component: React.lazy(() => import("@/components/docs/pickers/select-invalid-demo")),
+  "pickers/select-item-details-demo": {
+    component: React.lazy(() => import("@/components/docs/pickers/select-item-details-demo")),
   },
   "pickers/select-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/pickers/select-controlled-demo")),

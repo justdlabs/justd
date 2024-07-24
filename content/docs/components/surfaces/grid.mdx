@@ -4,7 +4,7 @@ description: Check out this Responsive Grid component! It flexes columns and gap
 status: new
 order: 2
 published: true
-references: ["https://react-spectrum.adobe.com/react-aria/ListBox.html#props"]
+references: ["https://react-spectrum.adobe.com/react-aria/GridList.html#props"]
 ---
 
 ## Basic
@@ -49,6 +49,19 @@ Sometimes you need to know what's going on in your grid. Grid has a `debug` prop
 Grid Item is the component that makes up the grid. It's a wrapper around the `ListBoxItem` component from `react-aria-components`. Grid Item has all the same props as `ListBoxItem`, but with a few extra props to help you define column and row spans.
 
 <How withNoPadding isCenter={false} toUse="surfaces/grid-item-demo" />
+
+## Link
+Sometimes you need a link, right? Like, imagine you got a grid showing a list of articles. Sure, you could toss a link inside the group item, but check it, you can also slap a link directly on the grid item itself, like this:
+```tsx
+<GridItem href='https://github.com/' />
+```
+I use that vibe on the [Components](/components) page, where you can catch the link to the component's docs. What's the next step?
+
+## Action
+You can also hook up some actions to the grid item. Peep the real deal on the [Colors](/colors) page, where you can snag the color to your clipboard with the action button.
+```tsx
+<GridItem onAction={() => handleCopy(parseColor(item.color as string)?.toString(selectedFormat))} />
+```
 
 ## Props
 Alright, just so you know, all the props got that responsive swagger. You can set up the prop for each breakpoint like a boss.

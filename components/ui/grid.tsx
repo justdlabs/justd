@@ -2,7 +2,14 @@
 
 import * as React from 'react'
 
-import type { ListBoxItemProps, ListBoxProps } from 'react-aria-components'
+import {
+  GridList,
+  GridListItem,
+  GridListItemProps,
+  GridListProps,
+  ListBoxItemProps,
+  ListBoxProps
+} from 'react-aria-components'
 import { ListBox, ListBoxItem } from 'react-aria-components'
 import { tv, type VariantProps } from 'tailwind-variants'
 
@@ -133,7 +140,7 @@ const gridStyles = tv(
   }
 )
 
-interface GridProps<T> extends VariantProps<typeof gridStyles>, ListBoxProps<T> {
+interface GridProps<T> extends VariantProps<typeof gridStyles>, GridListProps<T> {
   className?: string
   debug?: boolean
 }
@@ -150,10 +157,9 @@ const Grid = <T extends object>({
   ...props
 }: GridProps<T>) => {
   return (
-    <ListBox
+    <GridList
       aria-label={props['aria-label'] || 'grid'}
-      orientation="horizontal"
-      layout="grid"
+      layout={columns === 1 ? 'stack' : 'grid'}
       className={gridStyles({
         gap: gap ?? gapX ?? gapY,
         gapX: gapX ?? gap,
@@ -167,7 +173,7 @@ const Grid = <T extends object>({
       {...props}
     >
       {children}
-    </ListBox>
+    </GridList>
   )
 }
 
@@ -278,7 +284,7 @@ const gridItemStyles = tv(
   }
 )
 
-interface GridItemProps extends ListBoxItemProps, VariantProps<typeof gridItemStyles> {
+interface GridItemProps extends GridListItemProps, VariantProps<typeof gridItemStyles> {
   className?: string
 }
 
@@ -295,7 +301,7 @@ const GridItem = ({
 }: GridItemProps) => {
   const textValue = typeof children === 'string' ? children : undefined
   return (
-    <ListBoxItem
+    <GridListItem
       textValue={textValue}
       className={gridItemStyles({
         colSpan,
@@ -309,7 +315,7 @@ const GridItem = ({
       {...props}
     >
       {(values) => <>{typeof children === 'function' ? children(values) : children}</>}
-    </ListBoxItem>
+    </GridListItem>
   )
 }
 

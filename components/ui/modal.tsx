@@ -29,7 +29,7 @@ const ModalOverlayContext = React.createContext<{ isDismissable?: boolean }>({
   isDismissable: true
 })
 
-const modalVariants = tv({
+const modalContentStyles = tv({
   base: [
     'fixed bottom-0 left-[50%] top-auto z-50 grid w-full max-w-full translate-x-[-50%] gap-4 rounded-t-2xl border border-white dark:border-zinc-800 sm:border-b-white dark:sm:border-b-zinc-800 border-b-transparent bg-popover p-2 shadow-lg outline-none sm:bottom-auto sm:top-[40%] sm:translate-y-[-50%] sm:rounded-xl',
     'sm:entering:slide-in-from-bottom-auto entering:animate-in entering:fade-in-0 entering:slide-in-from-bottom-1/2 entering:slide-in-from-left-1/2 entering:[transition-timing-function:ease-out] sm:entering:slide-in-from-top-[58%]',
@@ -69,7 +69,7 @@ const ModalTrigger = ButtonPrimitive
 
 const modalOverlayStyles = tv({
   base: [
-    'fixed top-0 data-[blur=true]:backdrop-blur-sm left-0 w-full h-[--visual-viewport-height] isolate z-50 bg-black/20 flex items-center justify-center p-4'
+    'fixed top-0 data-[blur=true]:backdrop-blur-sm left-0 w-full h-[--visual-viewport-height] isolate z-50 flex items-center justify-center p-4'
   ],
   variants: {
     isEntering: {
@@ -95,7 +95,7 @@ const ModalOverlay = ({ isBlurred, isDismissable, className, ...props }: ModalOv
       <ModalOverlayPrimitive
         data-blur={effectiveIsBlurred ? 'true' : 'false'}
         isDismissable={effectiveIsDismissable}
-        className={modalOverlayStyles()}
+        className={modalOverlayStyles({ className: cn(isIosDevice ? 'bg-black/15' : 'bg-black/40', className) })}
         {...props}
       />
     </ModalOverlayContext.Provider>
@@ -104,7 +104,7 @@ const ModalOverlay = ({ isBlurred, isDismissable, className, ...props }: ModalOv
 
 interface ModalContentProps
   extends Omit<React.ComponentProps<typeof Modal>, 'children'>,
-    VariantProps<typeof modalVariants> {
+    VariantProps<typeof modalContentStyles> {
   children?: DialogProps['children']
   role?: DialogProps['role']
   closeButton?: boolean
@@ -118,7 +118,7 @@ const ModalContent = ({ className, children, size, role, closeButton = true, ...
   const isDismissable = overlayIsDismissable !== undefined ? overlayIsDismissable : modalIsDismissable
 
   return (
-    <ModalPrimitive className={modalVariants({ size, className })} {...props}>
+    <ModalPrimitive className={modalContentStyles({ size, className })} {...props}>
       <Dialog role={role}>
         {({ close }) => (
           <>

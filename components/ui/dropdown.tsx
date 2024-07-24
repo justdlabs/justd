@@ -8,7 +8,9 @@ import {
   ListBoxItem as ListBoxItemPrimitive,
   type ListBoxItemProps,
   Section,
-  type SectionProps
+  type SectionProps,
+  Text,
+  TextProps
 } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
@@ -60,11 +62,11 @@ const DropdownItem = (props: ListBoxItemProps) => {
   const textValue = props.textValue || (typeof props.children === 'string' ? props.children : undefined)
   return (
     <ListBoxItemPrimitive
-      {...props}
       textValue={textValue}
       className={composeRenderProps(props.className, (className, renderProps) =>
         dropdownItemStyles({ ...renderProps, className })
       )}
+      {...props}
     >
       {composeRenderProps(props.children, (children, { isSelected }) => (
         <>
@@ -78,5 +80,22 @@ const DropdownItem = (props: ListBoxItemProps) => {
   )
 }
 
+interface DropdownItemSlot extends TextProps {
+  label?: TextProps['children']
+  description?: TextProps['children']
+}
+const DropdownItemDetails = ({ label, description, ...props }: DropdownItemSlot) => {
+  return (
+    <div className="flex flex-col gap-1">
+      <Text slot="label" className="font-medium lg:text-sm" {...props}>
+        {label}
+      </Text>
+      <Text slot="description" className="text-muted-fg text-xs" {...props}>
+        {description}
+      </Text>
+    </div>
+  )
+}
+
 // Note: This is not exposed component, but it's used in other components to render dropdowns.
-export { DropdownItem, dropdownItemStyles, DropdownSection, type DropdownSectionProps }
+export { DropdownItem, dropdownItemStyles, DropdownItemDetails, DropdownSection, type DropdownSectionProps }

@@ -16,8 +16,8 @@ import { IconBrandTailwindcss, IconCheck, IconDuplicate } from '@irsyadadl/paran
 import { parseColor } from '@react-stately/color'
 import type { ColorFormat } from '@react-types/color'
 import { AnimatePresence, motion } from 'framer-motion'
-import type { ListBoxItemProps } from 'react-aria-components'
-import { GridList, GridListItem, Text, ToggleButton } from 'react-aria-components'
+import type { GridListItemProps } from 'react-aria-components'
+import { GridListItem, Text, ToggleButton } from 'react-aria-components'
 import { useInView } from 'react-intersection-observer'
 import { toast } from 'sonner'
 import {
@@ -25,6 +25,7 @@ import {
   cn,
   ColorSwatch,
   Container,
+  Grid,
   gridStyles,
   Header as HeaderPrimitive,
   Heading,
@@ -62,7 +63,7 @@ export function ColorPalette() {
         setHasMore(false)
       }
     }
-  }, [colors.length, hasMore, inView])
+  }, [inView])
   return (
     <>
       <HeaderPrimitive className="bg-background pb-4 pt-12 lg:py-16 border-b ">
@@ -98,7 +99,7 @@ export function ColorPalette() {
   )
 }
 
-interface ColorPaletteProps extends ListBoxItemProps {
+interface ColorPaletteProps {
   item: ColorItem
 }
 
@@ -154,40 +155,38 @@ export function ColorRow({ item }: ColorPaletteProps) {
             </>
           </div>
         </div>
-        <GridList
-          layout="grid"
-          className={gridStyles({
-            columns: { initial: 7, lg: 11 },
-            gapY: { initial: 3, sm: 1 },
-            gapX: { initial: 1, sm: 1 }
-          })}
+        <Grid
+          columns={{ initial: 7, lg: 11 }}
+          gapY={{ initial: 3, sm: 1 }}
+          gapX={{ initial: 1, sm: 1 }}
           aria-label={`${item.name} 50-950 colors`}
+          items={item.children}
         >
-          {item.children.map(({ shade, color }, i) => (
+          {(color) => (
             <ColorItem
-              key={i}
+              id={Math.random().toString()}
               {...{
                 isForTailwindVariable,
                 selectedFormat: selectedFormat ?? 'hsl',
-                item: { shade, color },
+                item: color,
                 name: item.name
               }}
             />
-          ))}
-        </GridList>
+          )}
+        </Grid>
       </div>
     </>
   )
 }
 
-interface GridListItem {
+interface ColorItemProps extends GridListItemProps {
   item: ColorShade
   name: string
   isForTailwindVariable: boolean
   selectedFormat: FormatOnlyForTailwindVariableType | ColorFormat
 }
 
-const ColorItem = ({ item, name, isForTailwindVariable, selectedFormat }: GridListItem) => {
+const ColorItem = ({ item, name, isForTailwindVariable, selectedFormat }: ColorItemProps) => {
   const [copied, setCopied] = React.useState(false)
   const handleCopy = async (selectedColor: string) => {
     const toCopy = isForTailwindVariable

@@ -15,7 +15,7 @@ import {
 } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
-import { DropdownItem, DropdownSection } from './dropdown'
+import { DropdownItem, DropdownItemDetails, DropdownSection } from './dropdown'
 import { Description, FieldError, Label } from './field'
 import { ListBoxPicker } from './list-box'
 import { PopoverPicker } from './popover'
@@ -61,7 +61,7 @@ const Select = <T extends object>({
       <Group className="relative">
         <Button className={selectTriggerStyles()}>
           {prefix && <span className="-mr-1">{prefix}</span>}
-          <SelectValue className="flex-1 text-base placeholder-shown:text-muted-fg lg:text-sm" />
+          <SelectValue className="flex-1 [&_[slot=description]]:hidden text-base placeholder-shown:text-muted-fg lg:text-sm" />
 
           {!props?.selectedKey && (
             <IconChevronLgDown
@@ -101,7 +101,8 @@ const SelectClearButton = () => {
   )
 }
 
+const SelectItemDetails = DropdownItemDetails
 const SelectItem = DropdownItem
 const SelectSection = DropdownSection
 
-export { Select, SelectItem, SelectSection }
+export { Select, SelectItem, SelectItemDetails, SelectSection }
