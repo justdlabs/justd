@@ -2,27 +2,29 @@
 
 import * as React from 'react'
 
-import {
-  Button,
-  type DialogProps,
-  DialogTrigger as DialogTriggerPrimitive,
-  Modal,
-  ModalOverlay,
-  type ModalOverlayProps
-} from 'react-aria-components'
+import { Button, type DialogProps, Modal as ModalPrimitive } from 'react-aria-components'
 import { tv, type VariantProps } from 'tailwind-variants'
 
 import { Dialog } from './dialog'
-import { CloseButtonIndicator, ModalClose, ModalDescription, ModalFooter, ModalHeader, ModalTitle } from './modal'
-import { cn } from './primitive'
+import {
+  CloseButtonIndicator,
+  Modal,
+  ModalClose,
+  ModalDescription,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
+  ModalTitle
+} from './modal'
 
-const Sheet = DialogTriggerPrimitive
+const Sheet = Modal
 const SheetTrigger = Button
-const SheetClose = ModalClose
+const SheetOverlay = ModalOverlay
 const SheetFooter = ModalFooter
 const SheetHeader = ModalHeader
 const SheetTitle = ModalTitle
 const SheetDescription = ModalDescription
+const SheetClose = ModalClose
 
 const generateCompoundVariants = (sides: Array<'top' | 'bottom' | 'left' | 'right'>) => {
   return sides.map((side) => ({
@@ -57,19 +59,6 @@ const sheetStyles = tv({
   compoundVariants: generateCompoundVariants(['top', 'bottom', 'left', 'right'])
 })
 
-const SheetOverlay = ({ className, isDismissable = true, ...props }: ModalOverlayProps) => (
-  <ModalOverlay
-    isDismissable={isDismissable}
-    className={(values) =>
-      cn(
-        'fixed inset-0 z-50 bg-black/50 entering:animate-in entering:fade-in-0 exiting:duration-300 exiting:animate-out exiting:fade-out-0',
-        typeof className === 'function' ? className(values) : className
-      )
-    }
-    {...props}
-  />
-)
-
 export interface SheetContentProps
   extends Omit<React.ComponentProps<typeof Modal>, 'children'>,
     VariantProps<typeof sheetStyles> {
@@ -84,14 +73,14 @@ const SheetContent = ({
   className,
   children,
   side = 'right',
-  role,
+  role = 'dialog',
   closeButton = true,
   isStack = true,
   ...props
 }: SheetContentProps) => {
   return (
-    <Modal className={sheetStyles({ side, isStack, className })} {...props}>
-      <Dialog aria-label="Sheet" role={role} className="h-full outline-none">
+    <ModalPrimitive className={sheetStyles({ side, isStack, className })} {...props}>
+      <Dialog aria-label="Sheet" role={role} className="h-full">
         {(values) => (
           <>
             {typeof children === 'function' ? children(values) : children}
@@ -99,7 +88,7 @@ const SheetContent = ({
           </>
         )}
       </Dialog>
-    </Modal>
+    </ModalPrimitive>
   )
 }
 
