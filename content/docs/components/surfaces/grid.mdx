@@ -51,13 +51,14 @@ Grid Item is the component that makes up the grid. It's a wrapper around the `Li
 <How withNoPadding isCenter={false} toUse="surfaces/grid-item-demo" />
 
 ## Link
-Sometimes you need a link, like for example say you have a grid that shows a list of articles. Of course you can use link inside the group item, but also, you can use a link directly from the grid item it self, like this:
+Sometimes you need a link, right? Like, imagine you got a grid showing a list of articles. Sure, you could toss a link inside the group item, but check it, you can also slap a link directly on the grid item itself, like this:
 ```tsx
 <GridItem href='https://github.com/' />
 ```
+I use that vibe on the [Components](/components) page, where you can catch the link to the component's docs. What's the next step?
 
 ## Action
-You can also add actions to the grid item. The real example right now you can see is in the [Colors](/colors) page, where you can copy the color to your clipboard through the action button.
+You can also hook up some actions to the grid item. Peep the real deal on the [Colors](/colors) page, where you can snag the color to your clipboard with the action button.
 ```tsx
 <GridItem onAction={() => handleCopy(parseColor(item.color as string)?.toString(selectedFormat))} />
 ```
