@@ -2,18 +2,13 @@
 
 import * as React from 'react'
 
-import {
-  Button,
-  type DialogProps,
-  DialogTrigger as DialogTriggerPrimitive,
-  Modal as ModalPrimitive
-} from 'react-aria-components'
+import { Button, type DialogProps, Modal as ModalPrimitive } from 'react-aria-components'
 import { tv, type VariantProps } from 'tailwind-variants'
 
 import { Dialog } from './dialog'
 import {
-  Modal,
   CloseButtonIndicator,
+  Modal,
   ModalClose,
   ModalDescription,
   ModalFooter,

@@ -3,7 +3,6 @@
 import * as React from 'react'
 
 import { IconX } from '@irsyadadl/paranoid'
-import { isIOS } from '@react-aria/utils'
 import type { DialogTriggerProps } from 'react-aria-components'
 import {
   Button as ButtonPrimitive,
