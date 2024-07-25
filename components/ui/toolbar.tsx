@@ -1,7 +1,8 @@
-import React from 'react';
-import type { ToolbarProps} from 'react-aria-components';
-import { Toolbar as ToolbarPrimitive, composeRenderProps } from 'react-aria-components';
-import { tv } from 'tailwind-variants';
+import React from 'react'
+
+import type { ToolbarProps } from 'react-aria-components'
+import { Toolbar as ToolbarPrimitive, composeRenderProps } from 'react-aria-components'
+import { tv } from 'tailwind-variants'
 
 const toolbarStyles = tv({
   base: 'flex gap-2',
@@ -17,11 +18,11 @@ const Toolbar = (props: ToolbarProps) => {
   return (
     <ToolbarPrimitive
       {...props}
-      className={composeRenderProps(
-        props.className,
-        (className, renderProps) => toolbarStyles({...renderProps, className})
-      )} />
-  );
+      className={composeRenderProps(props.className, (className, renderProps) =>
+        toolbarStyles({ ...renderProps, className })
+      )}
+    />
+  )
 }
 
-export { Toolbar };
+export { Toolbar }

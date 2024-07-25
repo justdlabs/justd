@@ -104,11 +104,6 @@
     "raw": "import React from 'react'\n\nimport { getLocalTimeZone, parseDate, today } from '@internationalized/date'\nimport { useDateFormatter } from '@react-aria/i18n'\nimport { DatePicker } from 'ui'\n\nexport default function DatePickerControlledDemo() {\n  const now = today(getLocalTimeZone())\n\n  const [value, setValue] = React.useState(parseDate(now.toString()))\n\n  const formatter = useDateFormatter({ dateStyle: 'full' })\n\n  return (\n    <div className=\"space-y-3\">\n      <div className=\"divide-y [&_p]:py-2\">\n        <p>{value ? formatter.format(value.toDate(getLocalTimeZone())) : '--'}</p>\n        <p>{value ? value.toString() : '--'}</p>\n      </div>\n      <DatePicker value={value} onChange={setValue} label=\"Event date\" />\n    </div>\n  )\n}\n",
     "type": "docs"
   },
-  "forms/slider-range-demo": {
-    "component": "@/components/docs/forms/slider-range-demo",
-    "raw": "'use client'\n\nimport { Slider } from 'ui'\n\nexport default function SliderRangeDemo() {\n  return <Slider defaultValue={[25, 75]} label=\"Progress tracking\" />\n}\n",
-    "type": "docs"
-  },
   "forms/text-field-validation-demo": {
     "component": "@/components/docs/forms/text-field-validation-demo",
     "raw": "'use client'\n\nimport { Button, Form, TextField } from 'ui'\n\nexport default function TextFieldValidationDemo() {\n  return (\n    <Form>\n      <TextField isRequired label=\"Name\" className=\"mb-2\" />\n      <Button type=\"submit\">Submit</Button>\n    </Form>\n  )\n}\n",
@@ -137,11 +132,6 @@
   "forms/input-otp-controlled-demo": {
     "component": "@/components/docs/forms/input-otp-controlled-demo",
     "raw": "import React from 'react'\n\nimport { InputOTP, InputOTPGroup, InputOTPSlot } from 'ui'\n\nexport default function InputOtpControlledDemo() {\n  const [value, setValue] = React.useState('')\n  return (\n    <div className=\"space-y-2\">\n      <InputOTP maxLength={6} value={value} onChange={setValue}>\n        <InputOTPGroup>\n          {[...Array(6)].map((_, index) => (\n            <InputOTPSlot key={index} index={index} />\n          ))}\n        </InputOTPGroup>\n      </InputOTP>\n\n      <div className=\"text-center text-sm\">\n        {value === '' ? <>Enter your one-time password.</> : <>You entered: {value}</>}\n      </div>\n    </div>\n  )\n}\n",
-    "type": "docs"
-  },
-  "forms/switch-variant-demo": {
-    "component": "@/components/docs/forms/switch-variant-demo",
-    "raw": "'use client'\n\nimport React from 'react'\n\nimport { OptionPreview } from '@/components/docs/outside/option-preview'\nimport { Select, SelectItem, Switch } from 'ui'\n\nconst items = ['primary', 'secondary', 'success', 'danger', 'warning', 'info'].map((item) => ({\n  value: item,\n  label: item\n}))\nexport default function SwitchVariantDemo() {\n  const [intent, setIntent] = React.useState('primary')\n\n  return (\n    <>\n      <OptionPreview>\n        <Select items={items} selectedKey={intent} onSelectionChange={(v) => setIntent(v as any)}>\n          {(item) => (\n            <SelectItem id={item.value} textValue={item.value}>\n              {item.label}\n            </SelectItem>\n          )}\n        </Select>\n      </OptionPreview>\n      <Switch defaultSelected intent={intent as any}>\n        Label\n      </Switch>\n    </>\n  )\n}\n",
     "type": "docs"
   },
   "forms/input-otp-separator-demo": {
@@ -194,19 +184,9 @@
     "raw": "'use client'\n\nimport React from 'react'\n\nimport { Description, NumberField } from 'ui'\n\nexport default function NumberFieldControlledDemo() {\n  const [number, setNumber] = React.useState(1280)\n  return (\n    <div>\n      <NumberField label=\"Width\" value={number} onChange={setNumber} />\n\n      <Description className=\"mt-2 block [&>strong]:text-fg\">\n        You have typed: <strong>{number ?? '-'}</strong>\n      </Description>\n    </div>\n  )\n}\n",
     "type": "docs"
   },
-  "forms/slider-controlled-demo": {
-    "component": "@/components/docs/forms/slider-controlled-demo",
-    "raw": "'use client'\n\nimport React from 'react'\n\nimport { Description, Slider } from 'ui'\n\nexport default function SearchFieldControlledDemo() {\n  const [temperature, setTemperature] = React.useState<number>(31)\n  const [saturation, setSaturation] = React.useState<number[]>([21, 86])\n  return (\n    <div className=\"space-y-6\">\n      <div>\n        <Slider value={temperature} onChange={(v) => setTemperature(v as number)} label=\"Temperature\" />\n        <Description className=\"mt-2 block [&>strong]:text-fg\">\n          Current temperature: <strong>{temperature ?? '-'}</strong>\n        </Description>\n      </div>\n      <div>\n        <Slider value={saturation} onChange={(v) => setSaturation(v as number[])} label=\"Saturation\" />\n        <Description className=\"mt-2 block [&>strong]:text-fg\">\n          Current saturation: <strong>{saturation ?? '-'}</strong>\n        </Description>\n      </div>\n    </div>\n  )\n}\n",
-    "type": "docs"
-  },
   "forms/radio-group-demo": {
     "component": "@/components/docs/forms/radio-group-demo",
     "raw": "'use client'\n\nimport { Radio, RadioGroup } from 'ui'\n\nexport default function RadioGroupDemo() {\n  return (\n    <RadioGroup label=\"Features\">\n      <Radio value=\"fs\">Font size: Small, Medium, Large</Radio>\n      <Radio value=\"dr\">Display resolution: 1080p, 1440p, 4K</Radio>\n      <Radio value=\"ss\">Sound settings: Mute, Low, Medium, High</Radio>\n      <Radio value=\"bi\">Background image: Default, Custom</Radio>\n      <Radio value=\"ks\">Keyboard shortcuts: Enabled, Disabled</Radio>\n    </RadioGroup>\n  )\n}\n",
-    "type": "docs"
-  },
-  "forms/slider-demo": {
-    "component": "@/components/docs/forms/slider-demo",
-    "raw": "import { Slider } from 'ui'\n\nexport default function SliderDemo() {\n  return <Slider label=\"Volume\" />\n}\n",
     "type": "docs"
   },
   "forms/textarea-controlled-demo": {
@@ -227,11 +207,6 @@
   "forms/search-field-demo": {
     "component": "@/components/docs/forms/search-field-demo",
     "raw": "import { SearchField } from 'ui'\n\nexport default function SearchFieldDemo() {\n  return <SearchField aria-label=\"Search\" placeholder=\"Search\" />\n}\n",
-    "type": "docs"
-  },
-  "forms/slider-disabled-demo": {
-    "component": "@/components/docs/forms/slider-disabled-demo",
-    "raw": "'use client'\n\nimport { Slider } from 'ui'\n\nexport default function SliderDisabledDemo() {\n  return <Slider isDisabled label=\"Volume\" />\n}\n",
     "type": "docs"
   },
   "forms/radio-group-controlled-demo": {
@@ -269,19 +244,9 @@
     "raw": "'use client'\n\nimport React from 'react'\n\nimport { Button, Form, Textarea } from 'ui'\n\nexport default function TextareaValidationDemo() {\n  const [value, setValue] = React.useState('')\n  return (\n    <Form onSubmit={(e) => e.preventDefault()}>\n      <Textarea value={value} onChange={setValue} label=\"Address\" isRequired className=\"mb-2\" />\n      <Button type=\"submit\">Submit</Button>\n    </Form>\n  )\n}\n",
     "type": "docs"
   },
-  "forms/slider-step-demo": {
-    "component": "@/components/docs/forms/slider-step-demo",
-    "raw": "'use client'\n\nimport { Slider } from 'ui'\n\nexport default function SliderStepDemo() {\n  return <Slider step={10} description=\"Step in 10\" label=\"Progress tracking\" />\n}\n",
-    "type": "docs"
-  },
   "forms/form-demo": {
     "component": "@/components/docs/forms/form-demo",
     "raw": "'use client'\n\nimport { Button, Form, Heading, TextField } from 'ui'\n\nexport default function FormDemo() {\n  return (\n    <div className=\"mx-auto max-w-md py-10\">\n      <Heading level={2} className=\"mb-4\">\n        Register\n      </Heading>\n      <Form onSubmit={() => {}} className=\"space-y-4\">\n        <TextField isRequired label=\"Name\" placeholder=\"Enter your name\" />\n        <TextField isRequired label=\"Email\" placeholder=\"Enter your email\" />\n        <div className=\"grid grid-cols-2 gap-4\">\n          <TextField isRequired label=\"Password\" placeholder=\"Enter your password\" type=\"password\" />\n          <TextField isRequired label=\"Confirm Password\" placeholder=\"Enter your password again\" type=\"password\" />\n        </div>\n        <Button type=\"submit\">Submit</Button>\n      </Form>\n    </div>\n  )\n}\n",
-    "type": "docs"
-  },
-  "forms/switch-demo": {
-    "component": "@/components/docs/forms/switch-demo",
-    "raw": "'use client'\n\nimport { useTheme } from 'next-themes'\nimport { Switch } from 'ui'\n\nexport default function SwitchDemo() {\n  const { resolvedTheme, setTheme } = useTheme()\n  return <Switch onChange={() => setTheme(resolvedTheme === 'light' ? 'dark' : 'light')}>Switch Theme</Switch>\n}\n",
     "type": "docs"
   },
   "forms/radio-group-invalid-demo": {
@@ -314,11 +279,6 @@
     "raw": "'use client'\n\nimport { Radio, RadioGroup } from 'ui'\n\nexport default function RadioGroupDescriptionDemo() {\n  return (\n    <RadioGroup\n      description=\"Select your preferred shipping method for the delivery of your items.\"\n      label=\"Shipping Method\"\n    >\n      <Radio value=\"standard\">Standard</Radio>\n      <Radio value=\"express\">Express</Radio>\n      <Radio value=\"overnight\">Overnight</Radio>\n      <Radio value=\"international\">International</Radio>\n      <Radio value=\"pickup\">Pickup</Radio>\n    </RadioGroup>\n  )\n}\n",
     "type": "docs"
   },
-  "forms/switch-controlled-demo": {
-    "component": "@/components/docs/forms/switch-controlled-demo",
-    "raw": "'use client'\n\nimport React from 'react'\n\nimport { Description, Switch } from 'ui'\n\nexport default function SwitchControlledDemo() {\n  const [darkMode, setDarkMode] = React.useState(false)\n  return (\n    <>\n      <Switch isSelected={darkMode} onChange={setDarkMode} value=\"dark_mode\">\n        Enable Dark Mode\n      </Switch>\n\n      <Description className=\"mt-2 block [&>strong]:text-fg\">\n        Dark Mode is <strong>{darkMode ? 'enabled' : 'disabled'}</strong>\n      </Description>\n    </>\n  )\n}\n",
-    "type": "docs"
-  },
   "forms/text-field-loading-demo": {
     "component": "@/components/docs/forms/text-field-loading-demo",
     "raw": "'use client'\n\nimport { TextField } from 'ui'\n\nexport default function TextFieldLoadingDemo() {\n  return <TextField isLoading indicatorPlace=\"suffix\" label=\"Name\" />\n}\n",
@@ -347,11 +307,6 @@
   "forms/checkbox-group-disabled-demo": {
     "component": "@/components/docs/forms/checkbox-group-disabled-demo",
     "raw": "'use client'\n\nimport React from 'react'\n\nimport { Checkbox, CheckboxGroup } from 'ui'\n\nexport default function CheckboxDisabledDemo() {\n  return (\n    <CheckboxGroup isDisabled label=\"Settings\">\n      <Checkbox value=\"notifications\">Enable notifications</Checkbox>\n      <Checkbox value=\"auto_update\">Auto-update applications</Checkbox>\n      <Checkbox value=\"dark_mode\">Enable dark mode</Checkbox>\n      <Checkbox value=\"location_access\">Allow location access</Checkbox>\n      <Checkbox value=\"two_factor_auth\">Enable two-factor authentication</Checkbox>\n    </CheckboxGroup>\n  )\n}\n",
-    "type": "docs"
-  },
-  "forms/switch-disabled-demo": {
-    "component": "@/components/docs/forms/switch-disabled-demo",
-    "raw": "'use client'\n\nimport { Switch } from 'ui'\n\nexport default function SwitchDemo() {\n  return <Switch isDisabled>Dark Mode</Switch>\n}\n",
     "type": "docs"
   },
   "forms/checkbox-group-controlled-demo": {
@@ -632,6 +587,51 @@
   "navigation/tabs-disabled-demo": {
     "component": "@/components/docs/navigation/tabs-disabled-demo",
     "raw": "'use client'\n\nimport { Tab, TabList, TabPanel, Tabs } from 'ui'\n\nexport default function TabsDisabledDemo() {\n  return (\n    <Tabs disabledKeys={['c', 'a']} aria-label=\"Services\">\n      <TabList>\n        <Tab id=\"o\">Overview</Tab>\n        <Tab id=\"c\">Contact</Tab>\n        <Tab id=\"a\">About Us</Tab>\n      </TabList>\n      <TabPanel id=\"o\">\n        Welcome to our service! Here, you’ll find a brief overview of what we offer, our mission, and how we strive to\n        provide value to our customers.\n      </TabPanel>\n      <TabPanel id=\"c\">\n        Get in touch with us through our contact page. We are here to help you with any inquiries, support requests, or\n        feedback you may have.\n      </TabPanel>\n      <TabPanel id=\"a\">\n        Learn more about our company, our history, and the team behind our success. We are dedicated to delivering the\n        best service to our customers.\n      </TabPanel>\n    </Tabs>\n  )\n}\n",
+    "type": "docs"
+  },
+  "controls/slider-range-demo": {
+    "component": "@/components/docs/controls/slider-range-demo",
+    "raw": "'use client'\n\nimport { Slider } from 'ui'\n\nexport default function SliderRangeDemo() {\n  return <Slider defaultValue={[25, 75]} label=\"Progress tracking\" />\n}\n",
+    "type": "docs"
+  },
+  "controls/switch-variant-demo": {
+    "component": "@/components/docs/controls/switch-variant-demo",
+    "raw": "'use client'\n\nimport React from 'react'\n\nimport { OptionPreview } from '@/components/docs/outside/option-preview'\nimport { Select, SelectItem, Switch } from 'ui'\n\nconst items = ['primary', 'secondary', 'success', 'danger', 'warning', 'info'].map((item) => ({\n  value: item,\n  label: item\n}))\nexport default function SwitchVariantDemo() {\n  const [intent, setIntent] = React.useState('primary')\n\n  return (\n    <>\n      <OptionPreview>\n        <Select items={items} selectedKey={intent} onSelectionChange={(v) => setIntent(v as any)}>\n          {(item) => (\n            <SelectItem id={item.value} textValue={item.value}>\n              {item.label}\n            </SelectItem>\n          )}\n        </Select>\n      </OptionPreview>\n      <Switch defaultSelected intent={intent as any}>\n        Label\n      </Switch>\n    </>\n  )\n}\n",
+    "type": "docs"
+  },
+  "controls/slider-controlled-demo": {
+    "component": "@/components/docs/controls/slider-controlled-demo",
+    "raw": "'use client'\n\nimport React from 'react'\n\nimport { Description, Slider } from 'ui'\n\nexport default function SearchFieldControlledDemo() {\n  const [temperature, setTemperature] = React.useState<number>(31)\n  const [saturation, setSaturation] = React.useState<number[]>([21, 86])\n  return (\n    <div className=\"space-y-6\">\n      <div>\n        <Slider value={temperature} onChange={(v) => setTemperature(v as number)} label=\"Temperature\" />\n        <Description className=\"mt-2 block [&>strong]:text-fg\">\n          Current temperature: <strong>{temperature ?? '-'}</strong>\n        </Description>\n      </div>\n      <div>\n        <Slider value={saturation} onChange={(v) => setSaturation(v as number[])} label=\"Saturation\" />\n        <Description className=\"mt-2 block [&>strong]:text-fg\">\n          Current saturation: <strong>{saturation ?? '-'}</strong>\n        </Description>\n      </div>\n    </div>\n  )\n}\n",
+    "type": "docs"
+  },
+  "controls/slider-demo": {
+    "component": "@/components/docs/controls/slider-demo",
+    "raw": "import { Slider } from 'ui'\n\nexport default function SliderDemo() {\n  return <Slider label=\"Volume\" />\n}\n",
+    "type": "docs"
+  },
+  "controls/slider-disabled-demo": {
+    "component": "@/components/docs/controls/slider-disabled-demo",
+    "raw": "'use client'\n\nimport { Slider } from 'ui'\n\nexport default function SliderDisabledDemo() {\n  return <Slider isDisabled label=\"Volume\" />\n}\n",
+    "type": "docs"
+  },
+  "controls/slider-step-demo": {
+    "component": "@/components/docs/controls/slider-step-demo",
+    "raw": "'use client'\n\nimport { Slider } from 'ui'\n\nexport default function SliderStepDemo() {\n  return <Slider step={10} description=\"Step in 10\" label=\"Progress tracking\" />\n}\n",
+    "type": "docs"
+  },
+  "controls/switch-demo": {
+    "component": "@/components/docs/controls/switch-demo",
+    "raw": "'use client'\n\nimport { useTheme } from 'next-themes'\nimport { Switch } from 'ui'\n\nexport default function SwitchDemo() {\n  const { resolvedTheme, setTheme } = useTheme()\n  return <Switch onChange={() => setTheme(resolvedTheme === 'light' ? 'dark' : 'light')}>Switch Theme</Switch>\n}\n",
+    "type": "docs"
+  },
+  "controls/switch-controlled-demo": {
+    "component": "@/components/docs/controls/switch-controlled-demo",
+    "raw": "'use client'\n\nimport React from 'react'\n\nimport { Description, Switch } from 'ui'\n\nexport default function SwitchControlledDemo() {\n  const [darkMode, setDarkMode] = React.useState(false)\n  return (\n    <>\n      <Switch isSelected={darkMode} onChange={setDarkMode} value=\"dark_mode\">\n        Enable Dark Mode\n      </Switch>\n\n      <Description className=\"mt-2 block [&>strong]:text-fg\">\n        Dark Mode is <strong>{darkMode ? 'enabled' : 'disabled'}</strong>\n      </Description>\n    </>\n  )\n}\n",
+    "type": "docs"
+  },
+  "controls/switch-disabled-demo": {
+    "component": "@/components/docs/controls/switch-disabled-demo",
+    "raw": "'use client'\n\nimport { Switch } from 'ui'\n\nexport default function SwitchDemo() {\n  return <Switch isDisabled>Dark Mode</Switch>\n}\n",
     "type": "docs"
   },
   "drag-and-drop/drop-zone-and-file-trigger-demo": {
@@ -1282,6 +1282,11 @@
   "drop-zone": {
     "component": "@/components/ui/drop-zone",
     "raw": "'use client'\n\nimport { DropZone as DropPrimitiveZone, type DropZoneProps } from 'react-aria-components'\n\nimport { cn } from './primitive'\n\nconst DropZone = ({ className, ...props }: DropZoneProps) => (\n  <DropPrimitiveZone\n    className={(values) =>\n      cn(\n        'flex h-[150px] w-[300px] flex-col items-center justify-center gap-2 rounded-md border border-dashed text-sm data-[drop-target]:border-solid data-[drop-target]:border-primary data-[drop-target]:bg-accent',\n        typeof className === 'function' ? className(values) : className\n      )\n    }\n    {...props}\n  />\n)\n\nexport { DropZone }\n",
+    "type": "ui"
+  },
+  "toolbar": {
+    "component": "@/components/ui/toolbar",
+    "raw": "import React from 'react'\n\nimport type { ToolbarProps } from 'react-aria-components'\nimport { Toolbar as ToolbarPrimitive, composeRenderProps } from 'react-aria-components'\nimport { tv } from 'tailwind-variants'\n\nconst toolbarStyles = tv({\n  base: 'flex gap-2',\n  variants: {\n    orientation: {\n      horizontal: 'flex-row',\n      vertical: 'flex-col items-start'\n    }\n  }\n})\n\nconst Toolbar = (props: ToolbarProps) => {\n  return (\n    <ToolbarPrimitive\n      {...props}\n      className={composeRenderProps(props.className, (className, renderProps) =>\n        toolbarStyles({ ...renderProps, className })\n      )}\n    />\n  )\n}\n\nexport { Toolbar }\n",
     "type": "ui"
   },
   "grid": {
