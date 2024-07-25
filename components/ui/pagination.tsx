@@ -9,8 +9,8 @@ import {
   IconChevronsLgRight,
   IconDotsHorizontal
 } from '@irsyadadl/paranoid'
-import type { GridListItemProps, GridListProps } from 'react-aria-components'
-import { GridList, GridListItem, Separator } from 'react-aria-components'
+import type { ListBoxItemProps, ListBoxProps, SectionProps } from 'react-aria-components'
+import { ListBox, ListBoxItem, Section, Separator } from 'react-aria-components'
 
 import { buttonStyles } from './button'
 import { cn } from './primitive'
@@ -24,10 +24,15 @@ const Pagination = ({ className, ...props }: React.ComponentProps<'nav'>) => (
   />
 )
 
-const PaginationList = <T extends object>({ className, ...props }: GridListProps<T>) => {
+const PaginationSection = <T extends object>({ className, ...props }: SectionProps<T>) => (
+  <Section {...props} className={cn('flex gap-1', className)} />
+)
+
+const PaginationList = <T extends object>({ className, ...props }: ListBoxProps<T>) => {
   const ariaLabel = props['aria-label'] || 'Pagination'
   return (
-    <GridList
+    <ListBox
+      orientation="horizontal"
       aria-label={ariaLabel}
       layout="grid"
       className={cn('flex flex-row items-center gap-1', className)}
@@ -36,17 +41,17 @@ const PaginationList = <T extends object>({ className, ...props }: GridListProps
   )
 }
 
-const renderGridListItem = (
-  props: GridListItemProps & {
+const renderListItem = (
+  props: ListBoxItemProps & {
     textValue?: string
     ariaCurrent?: string | undefined
     isDisabled?: boolean
     className?: string
   },
   children: React.ReactNode
-) => <GridListItem {...props}>{children}</GridListItem>
+) => <ListBoxItem {...props}>{children}</ListBoxItem>
 
-interface PaginationItemProps extends GridListItemProps {
+interface PaginationItemProps extends ListBoxItemProps {
   children?: React.ReactNode
   className?: string
   intent?: 'primary' | 'secondary' | 'danger' | 'warning' | 'info' | 'light/dark' | 'success' | 'light' | 'dark'
@@ -54,17 +59,25 @@ interface PaginationItemProps extends GridListItemProps {
   shape?: 'square' | 'circle'
   appearance?: 'solid' | 'outline' | 'plain'
   isCurrent?: boolean
-  role?: 'label' | 'segment' | 'separator' | 'ellipsis' | 'default' | 'last' | 'first' | 'previous' | 'next'
+  role?: 'label' | 'separator' | 'ellipsis' | 'default' | 'last' | 'first' | 'previous' | 'next'
 }
 
-const PaginationItem = ({ role = 'default', className, size, isCurrent, children, ...props }: PaginationItemProps) => {
-  const effectiveSize = role === 'segment' ? 'small' : 'square-petite'
-  const effectiveAppearance = role === 'segment' ? 'plain' : isCurrent ? 'solid' : 'outline'
+const PaginationItem = ({
+  role = 'default',
+  size = 'square-petite',
+  appearance = 'outline',
+  intent,
+  shape = 'square',
+  className,
+  isCurrent,
+  children,
+  ...props
+}: PaginationItemProps) => {
   const textValue =
     typeof children === 'string' ? children : typeof children === 'number' ? children.toString() : undefined
 
-  const renderPaginationIcon = (indicator: React.ReactNode) =>
-    renderGridListItem(
+  const renderPaginationIndicator = (indicator: React.ReactNode) =>
+    renderListItem(
       {
         textValue: role,
         ariaCurrent: isCurrent ? 'page' : undefined,
@@ -72,7 +85,9 @@ const PaginationItem = ({ role = 'default', className, size, isCurrent, children
         className: cn(
           buttonStyles({
             appearance: 'outline',
-            size: 'square-petite'
+            size: 'square-petite',
+            className:
+              'focus-visible:border-primary focus-visible:bg-primary/10 dark:focus-visible:text-primary-100 dark:[&>[data-slot=icon]]:text-primary-100 focus-visible:text-primary-900 [&>[data-slot=icon]]:text-primary-960 focus-visible:ring-4 focus-visible:ring-primary/20'
           }),
           className
         ),
@@ -83,7 +98,7 @@ const PaginationItem = ({ role = 'default', className, size, isCurrent, children
 
   switch (role) {
     case 'label':
-      return renderGridListItem(
+      return renderListItem(
         {
           textValue: textValue,
           className: cn('h-9 px-3.5 grid place-content-center', className),
@@ -92,7 +107,7 @@ const PaginationItem = ({ role = 'default', className, size, isCurrent, children
         children
       )
     case 'separator':
-      return renderGridListItem(
+      return renderListItem(
         {
           textValue: 'Separator',
           className: 'h-9 grid place-content-center',
@@ -104,10 +119,13 @@ const PaginationItem = ({ role = 'default', className, size, isCurrent, children
         />
       )
     case 'ellipsis':
-      return renderGridListItem(
+      return renderListItem(
         {
           textValue: 'More pages',
-          className: cn('flex items-center justify-center', className),
+          className: cn(
+            'flex items-center justify-center focus-visible:border-primary rounded-lg border border-transparent focus:outline-none size-9 focus-visible:bg-primary/10 dark:focus-visible:text-primary-100 dark:[&>[data-slot=icon]]:text-primary-100 focus-visible:text-primary-900 [&>[data-slot=icon]]:text-primary-960 focus-visible:ring-4 focus-visible:ring-primary/20',
+            className
+          ),
           ...props
         },
         <span aria-hidden className={cn('flex size-9 items-center justify-center', className)}>
@@ -115,27 +133,26 @@ const PaginationItem = ({ role = 'default', className, size, isCurrent, children
         </span>
       )
     case 'previous':
-      return renderPaginationIcon(<IconChevronLgLeft />)
+      return renderPaginationIndicator(<IconChevronLgLeft />)
     case 'next':
-      return renderPaginationIcon(<IconChevronLgRight />)
+      return renderPaginationIndicator(<IconChevronLgRight />)
     case 'first':
-      return renderPaginationIcon(<IconChevronsLgLeft />)
+      return renderPaginationIndicator(<IconChevronsLgLeft />)
     case 'last':
-      return renderPaginationIcon(<IconChevronsLgRight />)
+      return renderPaginationIndicator(<IconChevronsLgRight />)
     default:
-      return renderGridListItem(
+      return renderListItem(
         {
           textValue: textValue,
           ariaCurrent: isCurrent ? 'page' : undefined,
           isDisabled: isCurrent,
           className: cn(
             buttonStyles({
-              appearance: effectiveAppearance,
-              size: effectiveSize,
+              intent: isCurrent ? 'primary' : intent,
+              appearance: isCurrent ? 'solid' : appearance,
+              size,
               className:
-                role === 'segment'
-                  ? 'p-0 gap-0 focus:bg-transparent'
-                  : 'cursor-pointer rounded-lg disabled:cursor-default disabled:opacity-100'
+                'focus-visible:border-primary focus-visible:bg-primary/10 dark:focus-visible:text-primary-100 dark:[&>[data-slot=icon]]:text-primary-100 focus-visible:text-primary-900 [&>[data-slot=icon]]:text-primary-960 focus-visible:ring-4 focus-visible:ring-primary/20 disabled:opacity-100'
             }),
             className
           ),
@@ -146,4 +163,4 @@ const PaginationItem = ({ role = 'default', className, size, isCurrent, children
   }
 }
 
-export { Pagination, PaginationList, PaginationItem }
+export { Pagination, PaginationItem, PaginationList, PaginationSection }

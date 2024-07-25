@@ -4,7 +4,7 @@ description: Click through pages of content, like turning the pages of a book, c
 order: 3
 published: true
 status: beta
-references: ["https://react-spectrum.adobe.com/react-aria/Link.html#props", "https://react-spectrum.adobe.com/react-aria/GridList.html#props"]
+references: ["https://react-spectrum.adobe.com/react-aria/ListBox.html#props"]
 ---
 
 
@@ -80,8 +80,8 @@ When you’re rockin' with React Router, peep the tutorial [here](https://youtu.
 ### Considering
 You’re probably like, “Let’s just default this stuff in the Pagination component, right?” But nah, it ain’t that straight. Tried mixin' it into the Pagination vibe, but when you mess with other moves like those Inertia.js router options, stuff don't play nice. How I rolled with it? Kept it real simple.
 ```tsx {10}
-const renderGridListItem = (
-  props: GridListItemProps & {
+const renderListItem = (
+  props: ListBoxItemProps & {
     textValue?: string
     ariaCurrent?: string | undefined
     isDisabled?: boolean
@@ -89,9 +89,9 @@ const renderGridListItem = (
   },
   children: React.ReactNode
 ) => (
-  <GridListItem routerOptions={{ preserveScroll: true, ...props.routerOptions }} {...props}>
+  <ListBoxItem routerOptions={{ preserveScroll: true, ...props.routerOptions }} {...props}>
     {children}
-  </GridListItem>
+  </ListBoxItem>
 )
 ```
 So here's how I roll with it:

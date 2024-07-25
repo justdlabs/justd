@@ -16,6 +16,7 @@ import {
   Pagination,
   PaginationItem,
   PaginationList,
+  PaginationSection,
   Table,
   TableBody,
   TableCell,
@@ -151,24 +152,20 @@ export default function CardTableDemo() {
           <PaginationList>
             <PaginationItem role="first" />
             <PaginationItem role="previous" />
-            <PaginationItem role="segment" className="lg:hidden">
-              <PaginationList className="rounded-lg border">
-                <PaginationItem role="label">1</PaginationItem>
-                <PaginationItem role="separator" />
-                <PaginationItem className="text-muted-fg" role="label">
-                  10
+            <PaginationSection className="lg:hidden rounded-lg border">
+              <PaginationItem role="label">1</PaginationItem>
+              <PaginationItem role="separator" />
+              <PaginationItem className="text-muted-fg" role="label">
+                10
+              </PaginationItem>
+            </PaginationSection>
+            <PaginationSection items={pages}>
+              {(item) => (
+                <PaginationItem id={item.value.toString()} isCurrent={item.value === 4} href="#">
+                  {item.value}
                 </PaginationItem>
-              </PaginationList>
-            </PaginationItem>
-            <PaginationItem className="hidden lg:flex" role="segment">
-              <PaginationList items={pages}>
-                {(item) => (
-                  <PaginationItem id={item.value.toString()} isCurrent={item.value === 4} href="#">
-                    {item.value}
-                  </PaginationItem>
-                )}
-              </PaginationList>
-            </PaginationItem>
+              )}
+            </PaginationSection>
             <PaginationItem role="next" />
             <PaginationItem role="last" />
           </PaginationList>
