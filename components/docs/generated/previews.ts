@@ -605,9 +605,6 @@ export const previews: Record<string, any> = {
   "collections/multiple-menu-demo": {
     component: React.lazy(() => import("@/components/docs/collections/multiple-menu-demo")),
   },
-  "collections/carousel-demo": {
-    component: React.lazy(() => import("@/components/docs/media/carousel-demo")),
-  },
   "collections/choicebox-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/collections/choicebox-controlled-demo")),
   },
@@ -617,17 +614,11 @@ export const previews: Record<string, any> = {
   "collections/list-box-demo": {
     component: React.lazy(() => import("@/components/docs/collections/list-box-demo")),
   },
-  "collections/carousel-with-collection-demo": {
-    component: React.lazy(() => import("@/components/docs/media/carousel-with-collection-demo")),
-  },
   "collections/grid-list-multiple-demo": {
     component: React.lazy(() => import("@/components/docs/collections/grid-list-multiple-demo")),
   },
   "collections/table-demo": {
     component: React.lazy(() => import("@/components/docs/collections/table-demo")),
-  },
-  "collections/carousel-api-demo": {
-    component: React.lazy(() => import("@/components/docs/media/carousel-api-demo")),
   },
   "collections/menu-danger-demo": {
     component: React.lazy(() => import("@/components/docs/collections/menu-danger-demo")),
@@ -649,9 +640,6 @@ export const previews: Record<string, any> = {
   },
   "collections/grid-list-render-empty-state-demo": {
     component: React.lazy(() => import("@/components/docs/collections/grid-list-render-empty-state-demo")),
-  },
-  "collections/carousel-options-demo": {
-    component: React.lazy(() => import("@/components/docs/media/carousel-options-demo")),
   },
   "collections/tag-group-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/collections/tag-group-controlled-demo")),
@@ -686,20 +674,23 @@ export const previews: Record<string, any> = {
   "collections/grid-list-drag-demo": {
     component: React.lazy(() => import("@/components/docs/collections/grid-list-drag-demo")),
   },
-  "collections/carousel-autoplay-demo": {
-    component: React.lazy(() => import("@/components/docs/media/carousel-autoplay-demo")),
-  },
   "collections/grid-list-demo": {
     component: React.lazy(() => import("@/components/docs/collections/grid-list-demo")),
-  },
-  "collections/carousel-orientation-demo": {
-    component: React.lazy(() => import("@/components/docs/media/carousel-orientation-demo")),
   },
   "media/avatar-size-demo": {
     component: React.lazy(() => import("@/components/docs/media/avatar-size-demo")),
   },
+  "media/carousel-demo": {
+    component: React.lazy(() => import("@/components/docs/media/carousel-demo")),
+  },
   "media/avatar-initials-demo": {
     component: React.lazy(() => import("@/components/docs/media/avatar-initials-demo")),
+  },
+  "media/carousel-with-collection-demo": {
+    component: React.lazy(() => import("@/components/docs/media/carousel-with-collection-demo")),
+  },
+  "media/carousel-api-demo": {
+    component: React.lazy(() => import("@/components/docs/media/carousel-api-demo")),
   },
   "media/avatar-demo": {
     component: React.lazy(() => import("@/components/docs/media/avatar-demo")),
@@ -707,10 +698,19 @@ export const previews: Record<string, any> = {
   "media/avatar-shape-demo": {
     component: React.lazy(() => import("@/components/docs/media/avatar-shape-demo")),
   },
+  "media/carousel-options-demo": {
+    component: React.lazy(() => import("@/components/docs/media/carousel-options-demo")),
+  },
   "media/avatar-group-demo": {
     component: React.lazy(() => import("@/components/docs/media/avatar-group-demo")),
   },
   "media/avatar-fallback-demo": {
     component: React.lazy(() => import("@/components/docs/media/avatar-fallback-demo")),
+  },
+  "media/carousel-autoplay-demo": {
+    component: React.lazy(() => import("@/components/docs/media/carousel-autoplay-demo")),
+  },
+  "media/carousel-orientation-demo": {
+    component: React.lazy(() => import("@/components/docs/media/carousel-orientation-demo")),
   },
 };
