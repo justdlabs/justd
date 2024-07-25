@@ -134,7 +134,7 @@ const PaginationItem = ({ role = 'default', className, size, isCurrent, children
               size: effectiveSize,
               className:
                 role === 'segment'
-                  ? 'p-0 gap-0'
+                  ? 'p-0 gap-0 focus:bg-transparent'
                   : 'cursor-pointer rounded-lg disabled:cursor-default disabled:opacity-100'
             }),
             className
