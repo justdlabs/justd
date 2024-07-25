@@ -18,6 +18,8 @@ const toggleStyles = tv({
     },
     intent: {
       transparent: 'selected:bg-secondary selected:text-secondary-fg',
+      'light/primary':
+        'bg-white border-border hover:border-primary selected:border-primary hover:bg-primary hover:text-primary-fg text-zinc-900 selected:bg-primary selected:text-primary-fg',
       outline:
         'border-borer selected:bg-secondary/50 selected:backdrop-blur-sm selected:text-secondary-fg hover:bg-secondary/50 hover:text-secondary-fg'
     },
@@ -40,7 +42,7 @@ const toggleStyles = tv({
 })
 
 interface ToggleProps extends ToggleButtonProps {
-  intent?: 'transparent' | 'outline'
+  intent?: 'transparent' | 'outline' | 'light/primary'
   size?: 'small' | 'medium' | 'large' | 'square-petite'
   shape?: 'circle' | 'square'
 }
