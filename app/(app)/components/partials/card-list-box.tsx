@@ -4,7 +4,7 @@ import React from 'react'
 
 import { docs } from '#site/content'
 import { goodTitle } from '@/lib/utils'
-import { Button, Description, Grid, GridItem, Heading } from 'ui'
+import { buttonStyles, Description, Grid, GridItem, Heading } from 'ui'
 
 type GroupedComponents = {
   [category: string]: {
@@ -68,7 +68,7 @@ export function CardListBox() {
                   <Description className="block mt-2">{component.description}</Description>
                 </div>
                 <div className="justify-end flex mt-6">
-                  <Button intent="light/dark">View</Button>
+                  <div className={buttonStyles({ intent: 'light/dark' })}>View</div>
                 </div>
               </GridItem>
             )}

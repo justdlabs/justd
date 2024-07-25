@@ -38,49 +38,33 @@ Sometimes, you gotta keep the page from scrollin' to the top when users hit the 
 ### Inertia.js
 When you’re usin' [Inertia.js](https://inertiajs.com/scroll-management#scroll-preservation), you can use the `preserveScroll` prop to keep the page from scrollin' to the top when users hit the pagination.
 ```tsx title="ui/pagination.tsx"
-const PaginationLink = ({
-  className,
-  isActive,
-  size = 'square-petite',
-  ...props
-}: PaginationLinkProps) => (
-  <Link
-    routerOptions={{
-      preserveScroll: true
-    }}
-    aria-current={isActive ? 'page' : undefined}
+const routerOptions = {
+  preserveScroll: true,
+};
+
+const renderGridListItem = (
+  { textValue, ariaCurrent, isDisabled, className, ...props }: any,
+  children: React.ReactNode
+) => (
+  <GridListItem
+    routerOptions={routerOptions}
+    ...
 ```
 
 ### Next.js
 When you’re usin' [Next.js](https://nextjs.org/docs/app/building-your-application/routing/linking-and-navigating#disabling-scroll-restoration), slap on the `scroll` prop to keep the page from scrollin' to the top when users hit the pagination.
 ```tsx title="ui/pagination.tsx"
-const PaginationLink = ({
-  className,
-  isActive,
-  size = 'square-petite',
-  ...props
-}: PaginationLinkProps) => (
-  <Link
-    routerOptions={{
-      scroll: false
-    }}
-    aria-current={isActive ? 'page' : undefined}
+const routerOptions = {
+  scroll: false,
+};
 ```
 
 ### Remix
 When you’re usin' [Remix](https://remix.run/docs/en/main/components/scroll-restoration#preventing-scroll-reset), slap on the `preventScrollReset` prop to keep the page from scrollin' to the top when users hit the pagination.
 ```tsx title="ui/pagination.tsx"
-const PaginationLink = ({
-  className,
-  isActive,
-  size = 'square-petite',
-  ...props
-}: PaginationLinkProps) => (
-  <Link
-    routerOptions={{
-      preventScrollReset: true
-    }}
-    aria-current={isActive ? 'page' : undefined}
+const routerOptions = {
+  preventScrollReset: true,
+};
 ```
 
 ## React Router

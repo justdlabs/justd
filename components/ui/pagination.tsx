@@ -36,17 +36,15 @@ const PaginationList = <T extends object>({ className, ...props }: GridListProps
   )
 }
 
-const extractTextValue = (children: React.ReactNode): string | undefined => {
-  let text = ''
-  React.Children.forEach(children, (child) => {
-    if (typeof child === 'string' || typeof child === 'number') {
-      text += child.toString()
-    } else if (React.isValidElement(child) && child.props.children) {
-      text += extractTextValue(child.props.children) || ''
-    }
-  })
-  return text || undefined
-}
+const renderGridListItem = (
+  props: GridListItemProps & {
+    textValue?: string
+    ariaCurrent?: string | undefined
+    isDisabled?: boolean
+    className?: string
+  },
+  children: React.ReactNode
+) => <GridListItem {...props}>{children}</GridListItem>
 
 interface PaginationItemProps extends GridListItemProps {
   children?: React.ReactNode
@@ -62,53 +60,59 @@ interface PaginationItemProps extends GridListItemProps {
 const PaginationItem = ({ role = 'default', className, size, isCurrent, children, ...props }: PaginationItemProps) => {
   const effectiveSize = role === 'segment' ? 'small' : 'square-petite'
   const effectiveAppearance = role === 'segment' ? 'plain' : isCurrent ? 'solid' : 'outline'
-  const renderPaginationIcon = (indicator: React.ReactNode) => (
-    <GridListItem
-      textValue={role}
-      aria-current={isCurrent ? 'page' : undefined}
-      isDisabled={isCurrent}
-      className={cn(
-        buttonStyles({
-          appearance: 'outline',
-          size: 'square-petite'
-        }),
-        className
-      )}
-      {...props}
-    >
-      {indicator}
-    </GridListItem>
-  )
   const textValue =
     typeof children === 'string' ? children : typeof children === 'number' ? children.toString() : undefined
 
+  const renderPaginationIcon = (indicator: React.ReactNode) =>
+    renderGridListItem(
+      {
+        textValue: role,
+        ariaCurrent: isCurrent ? 'page' : undefined,
+        isDisabled: isCurrent,
+        className: cn(
+          buttonStyles({
+            appearance: 'outline',
+            size: 'square-petite'
+          }),
+          className
+        ),
+        ...props
+      },
+      indicator
+    )
+
   switch (role) {
     case 'label':
-      return (
-        <GridListItem
-          textValue={textValue}
-          className={cn('h-9 px-3.5 grid place-content-center', className)}
-          {...props}
-        >
-          {children}
-        </GridListItem>
+      return renderGridListItem(
+        {
+          textValue: textValue,
+          className: cn('h-9 px-3.5 grid place-content-center', className),
+          ...props
+        },
+        children
       )
     case 'separator':
-      return (
-        <GridListItem textValue="Separator" className="h-9 grid place-content-center" {...props}>
-          <Separator
-            orientation="vertical"
-            className="h-5 w-[1.5px] bg-zinc-300 dark:bg-zinc-700 rotate-[14deg] shrink-0"
-          />
-        </GridListItem>
+      return renderGridListItem(
+        {
+          textValue: 'Separator',
+          className: 'h-9 grid place-content-center',
+          ...props
+        },
+        <Separator
+          orientation="vertical"
+          className="h-5 w-[1.5px] bg-zinc-300 dark:bg-zinc-700 rotate-[14deg] shrink-0"
+        />
       )
     case 'ellipsis':
-      return (
-        <GridListItem textValue="More pages" className={cn('flex items-center justify-center', className)} {...props}>
-          <span aria-hidden className={cn('flex size-9 items-center justify-center', className)}>
-            <IconDotsHorizontal />
-          </span>
-        </GridListItem>
+      return renderGridListItem(
+        {
+          textValue: 'More pages',
+          className: cn('flex items-center justify-center', className),
+          ...props
+        },
+        <span aria-hidden className={cn('flex size-9 items-center justify-center', className)}>
+          <IconDotsHorizontal />
+        </span>
       )
     case 'previous':
       return renderPaginationIcon(<IconChevronLgLeft />)
@@ -119,12 +123,12 @@ const PaginationItem = ({ role = 'default', className, size, isCurrent, children
     case 'last':
       return renderPaginationIcon(<IconChevronsLgRight />)
     default:
-      return (
-        <GridListItem
-          textValue={textValue}
-          aria-current={isCurrent ? 'page' : undefined}
-          isDisabled={isCurrent}
-          className={cn(
+      return renderGridListItem(
+        {
+          textValue: textValue,
+          ariaCurrent: isCurrent ? 'page' : undefined,
+          isDisabled: isCurrent,
+          className: cn(
             buttonStyles({
               appearance: effectiveAppearance,
               size: effectiveSize,
@@ -134,11 +138,10 @@ const PaginationItem = ({ role = 'default', className, size, isCurrent, children
                   : 'cursor-pointer rounded-lg disabled:cursor-default disabled:opacity-100'
             }),
             className
-          )}
-          {...props}
-        >
-          {children}
-        </GridListItem>
+          ),
+          ...props
+        },
+        children
       )
   }
 }
