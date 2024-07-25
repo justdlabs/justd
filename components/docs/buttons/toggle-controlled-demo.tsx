@@ -3,13 +3,13 @@
 import React from 'react'
 
 import { IconPin, IconUnpin } from '@irsyadadl/paranoid'
-import { ToggleButton } from 'ui'
+import { Toggle } from 'ui'
 
-export default function ToggleButtonControlledDemo() {
+export default function ToggleControlledDemo() {
   const [isSelected, setSelected] = React.useState(false)
   return (
-    <ToggleButton isSelected={isSelected} onChange={setSelected}>
+    <Toggle isSelected={isSelected} onChange={setSelected}>
       {({ isSelected }) => <>{isSelected ? <IconUnpin /> : <IconPin />}</>}
-    </ToggleButton>
+    </Toggle>
   )
 }

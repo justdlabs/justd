@@ -233,14 +233,17 @@ export const previews: Record<string, any> = {
   "buttons/file-trigger-folder-demo": {
     component: React.lazy(() => import("@/components/docs/buttons/file-trigger-folder-demo")),
   },
+  "buttons/toggle-disabled-demo": {
+    component: React.lazy(() => import("@/components/docs/buttons/toggle-disabled-demo")),
+  },
   "buttons/file-trigger-demo": {
     component: React.lazy(() => import("@/components/docs/buttons/file-trigger-demo")),
   },
   "buttons/button-icon-demo": {
     component: React.lazy(() => import("@/components/docs/buttons/button-icon-demo")),
   },
-  "buttons/toggle-button-demo": {
-    component: React.lazy(() => import("@/components/docs/buttons/toggle-button-demo")),
+  "buttons/toggle-shape-demo": {
+    component: React.lazy(() => import("@/components/docs/buttons/toggle-shape-demo")),
   },
   "buttons/file-trigger-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/buttons/file-trigger-controlled-demo")),
@@ -253,6 +256,9 @@ export const previews: Record<string, any> = {
   },
   "buttons/button-size-demo": {
     component: React.lazy(() => import("@/components/docs/buttons/button-size-demo")),
+  },
+  "buttons/toggle-demo": {
+    component: React.lazy(() => import("@/components/docs/buttons/toggle-demo")),
   },
   "buttons/button-shape-demo": {
     component: React.lazy(() => import("@/components/docs/buttons/button-shape-demo")),
@@ -269,14 +275,17 @@ export const previews: Record<string, any> = {
   "buttons/button-appearance-demo": {
     component: React.lazy(() => import("@/components/docs/buttons/button-appearance-demo")),
   },
-  "buttons/toggle-button-disabled-demo": {
-    component: React.lazy(() => import("@/components/docs/buttons/toggle-button-disabled-demo")),
+  "buttons/toggle-size-demo": {
+    component: React.lazy(() => import("@/components/docs/buttons/toggle-size-demo")),
+  },
+  "buttons/toggle-controlled-demo": {
+    component: React.lazy(() => import("@/components/docs/buttons/toggle-controlled-demo")),
+  },
+  "buttons/toggle-intent-demo": {
+    component: React.lazy(() => import("@/components/docs/buttons/toggle-intent-demo")),
   },
   "buttons/button-link-demo": {
     component: React.lazy(() => import("@/components/docs/buttons/button-link-demo")),
-  },
-  "buttons/toggle-button-controlled-demo": {
-    component: React.lazy(() => import("@/components/docs/buttons/toggle-button-controlled-demo")),
   },
   "overlays/modal-triggered-by-menu-demo": {
     component: React.lazy(() => import("@/components/docs/overlays/modal-triggered-by-menu-demo")),

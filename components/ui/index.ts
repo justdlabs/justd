@@ -40,7 +40,7 @@ export * from './dialog';
 export * from './menu';
 export * from './progress-bar';
 export * from './badge';
-export * from './toggle-button';
+export * from './toggle';
 export * from './snippet';
 export * from './number-field';
 export * from './table';
