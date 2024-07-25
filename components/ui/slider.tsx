@@ -34,12 +34,12 @@ const sliderStyles = tv({
       'pointer-events-none absolute group-orientation-horizontal/top-0 group-orientation-vertical/track:w-full group-orientation-vertical/track:bottom-0 group-orientation-horizontal/track:h-full'
     ],
     thumb: [
-      'outline-none focus:ring-4 focus:ring-primary/20 focus:outline-none forced-colors:outline-[Highlight]',
-      'rounded-full bg-white shadow-md transition-[width,height]',
+      'outline-none focus:ring-4 border border-zinc-200 focus:ring-primary/20 focus:border-primary focus:outline-none forced-colors:outline-[Highlight]',
+      'rounded-full bg-white transition-[width,height]',
       'absolute left-[50%] top-[50%] block !-translate-x-1/2 !-translate-y-1/2',
       'disabled:bg-bg-disabled disabled:border disabled:border-bg',
       'orientation-vertical:w-2 orientation-horizontal:h-2',
-      'size-4 dragging:size-5'
+      'size-[1.15rem] dragging:size-[1.30rem] dragging:border-primary'
     ],
     valueLabel: 'text-muted-fg text-sm'
   }
