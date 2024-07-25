@@ -2,14 +2,14 @@
 
 import * as React from 'react'
 
-import type { ToggleProps } from '@/components/ui/toggle'
-import { Toggle, toggleStyles } from '@/components/ui/toggle'
 import type { GroupProps, SeparatorProps, ToolbarProps as ToolbarPrimitiveProps } from 'react-aria-components'
 import { composeRenderProps, Group, Toolbar as ToolbarPrimitive } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
 import { cn } from './primitive'
 import { Separator } from './separator'
+import type { ToggleProps } from './toggle'
+import { Toggle, toggleStyles } from './toggle'
 
 const toolbarStyles = tv({
   base: 'flex gap-2 group',
