@@ -14,14 +14,8 @@ import {
   MenuSeparator,
   MenuTrigger,
   Pagination,
-  PaginationEllipsis,
-  PaginationFirst,
   PaginationItem,
-  PaginationLast,
-  PaginationLink,
   PaginationList,
-  PaginationNext,
-  PaginationPrevious,
   Table,
   TableBody,
   TableCell,
@@ -102,7 +96,7 @@ const users = [
     occupation: 'Writer'
   }
 ]
-
+const pages = Array.from({ length: users.length / 2 }, (_, i) => ({ value: i + 1 }))
 export default function CardTableDemo() {
   return (
     <Card>
@@ -155,29 +149,28 @@ export default function CardTableDemo() {
       <CardFooter>
         <Pagination>
           <PaginationList>
-            <PaginationItem>
-              <PaginationFirst href="#" />
+            <PaginationItem role="first" />
+            <PaginationItem role="previous" />
+            <PaginationItem role="segment" className="lg:hidden">
+              <PaginationList className="rounded-lg border">
+                <PaginationItem role="label">1</PaginationItem>
+                <PaginationItem role="separator" />
+                <PaginationItem className="text-muted-fg" role="label">
+                  10
+                </PaginationItem>
+              </PaginationList>
             </PaginationItem>
-            <PaginationItem>
-              <PaginationPrevious href="#" />
+            <PaginationItem className="hidden lg:flex" role="segment">
+              <PaginationList items={pages}>
+                {(item) => (
+                  <PaginationItem id={item.value.toString()} isCurrent={item.value === 4} href="#">
+                    {item.value}
+                  </PaginationItem>
+                )}
+              </PaginationList>
             </PaginationItem>
-            <PaginationItem>
-              <PaginationLink href="#">1</PaginationLink>
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationLink href="#" isCurrent>
-                2
-              </PaginationLink>
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationEllipsis />
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationNext href="#" />
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationLast href="#" />
-            </PaginationItem>
+            <PaginationItem role="next" />
+            <PaginationItem role="last" />
           </PaginationList>
         </Pagination>
       </CardFooter>

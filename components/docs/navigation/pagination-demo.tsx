@@ -1,44 +1,20 @@
 'use client'
 
-import {
-  Pagination,
-  PaginationEllipsis,
-  PaginationFirst,
-  PaginationItem,
-  PaginationLast,
-  PaginationLink,
-  PaginationList,
-  PaginationNext,
-  PaginationPrevious
-} from 'ui'
+import { Pagination, PaginationItem, PaginationList } from 'ui'
 
 export default function PaginationDemo() {
   return (
     <Pagination>
       <PaginationList>
-        <PaginationItem>
-          <PaginationFirst href="#" />
+        <PaginationItem role="first" href="#" />
+        <PaginationItem role="previous" href="#" />
+        <PaginationItem href="#">1</PaginationItem>
+        <PaginationItem href="#" isCurrent>
+          2
         </PaginationItem>
-        <PaginationItem>
-          <PaginationPrevious href="#" />
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLink href="#">1</PaginationLink>
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLink href="#" isCurrent>
-            2
-          </PaginationLink>
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationEllipsis />
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationNext href="#" />
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLast href="#" />
-        </PaginationItem>
+        <PaginationItem role="ellipsis" />
+        <PaginationItem role="next" href="#" />
+        <PaginationItem role="last" href="#" />
       </PaginationList>
     </Pagination>
   )

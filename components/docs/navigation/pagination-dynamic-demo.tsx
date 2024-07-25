@@ -1,53 +1,34 @@
 'use client'
 
-import {
-  Pagination,
-  PaginationFirst,
-  PaginationItem,
-  PaginationLabel,
-  PaginationLast,
-  PaginationLink,
-  PaginationList,
-  PaginationNext,
-  PaginationPrevious,
-  PaginationSeparator
-} from 'ui'
+import { Pagination, PaginationItem, PaginationList } from 'ui'
 
 const pages = Array.from({ length: 6 }, (_, i) => ({ value: i + 1 }))
 export default function PaginationDynamicDemo() {
   return (
     <Pagination>
       <PaginationList>
-        <PaginationItem>
-          <PaginationFirst href="#" />
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationPrevious href="#" />
-        </PaginationItem>
-        <PaginationItem className="lg:hidden">
+        <PaginationItem role="first" href="#" />
+        <PaginationItem role="previous" href="#" />
+        <PaginationItem textValue="Segment" role="segment" className="lg:hidden">
           <PaginationList className="rounded-lg border">
-            <PaginationLabel className="font-semibold">1</PaginationLabel>
-            <PaginationSeparator />
-            <PaginationLabel className="text-muted-fg">6</PaginationLabel>
+            <PaginationItem role="label">1</PaginationItem>
+            <PaginationItem role="separator" />
+            <PaginationItem className="text-muted-fg" role="label">
+              10
+            </PaginationItem>
           </PaginationList>
         </PaginationItem>
-        <PaginationItem className="hidden lg:inline">
-          <PaginationList items={pages}>
+        <PaginationItem textValue="Segment" className="hidden lg:flex" role="segment">
+          <PaginationList aria-label="Pagination Segment" items={pages}>
             {(item) => (
-              <PaginationItem id={item.value.toString()}>
-                <PaginationLink isCurrent={item.value === 4} href="#">
-                  {item.value}
-                </PaginationLink>
+              <PaginationItem id={item.value.toString()} isCurrent={item.value === 4} href="#">
+                {item.value}
               </PaginationItem>
             )}
           </PaginationList>
         </PaginationItem>
-        <PaginationItem>
-          <PaginationNext href="#" />
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLast href="#" />
-        </PaginationItem>
+        <PaginationItem role="next" href="#" />
+        <PaginationItem role="last" href="#" />
       </PaginationList>
     </Pagination>
   )

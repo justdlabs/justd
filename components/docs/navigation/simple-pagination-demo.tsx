@@ -1,47 +1,24 @@
 'use client'
 
-import {
-  Pagination,
-  PaginationFirst,
-  PaginationItem,
-  PaginationLabel,
-  PaginationLast,
-  PaginationList,
-  PaginationNext,
-  PaginationPrevious,
-  PaginationSeparator
-} from 'ui'
+import { Pagination, PaginationItem, PaginationList } from 'ui'
 
 export default function SimplePaginationDemo() {
   return (
     <Pagination>
       <PaginationList>
-        <PaginationItem>
-          <PaginationFirst href="#" />
-        </PaginationItem>
-
-        <PaginationItem>
-          <PaginationPrevious href="#" />
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationList className="rounded-lg border">
-            <PaginationItem>
-              <PaginationLabel className="font-semibold">1</PaginationLabel>
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationSeparator />
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationLabel className="text-muted-fg">10</PaginationLabel>
+        <PaginationItem role="first" href="#" />
+        <PaginationItem role="previous" href="#" />
+        <PaginationItem textValue="Segment" role="segment">
+          <PaginationList aria-label="Pagination Segment" className="rounded-lg border">
+            <PaginationItem role="label">1</PaginationItem>
+            <PaginationItem role="separator" />
+            <PaginationItem className="text-muted-fg" role="label">
+              10
             </PaginationItem>
           </PaginationList>
         </PaginationItem>
-        <PaginationItem>
-          <PaginationNext href="#" />
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLast href="#" />
-        </PaginationItem>
+        <PaginationItem role="next" href="#" />
+        <PaginationItem role="last" href="#" />
       </PaginationList>
     </Pagination>
   )
