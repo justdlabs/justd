@@ -35,7 +35,12 @@ export default function Layout() {
 When using Inertia.js, you need to declare it your .d.ts file for example `global.d.ts`.
 
 ```tsx
-import { FormDataConvertible, Method, PreserveStateOption, Progress } from '@inertiajs/core'
+import {
+  type FormDataConvertible,
+  type Method,
+  type PreserveStateOption,
+  type Progress
+} from '@inertiajs/core'
 
 declare module 'react-aria-components' {
   interface RouterConfig {

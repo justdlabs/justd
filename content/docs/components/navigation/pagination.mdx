@@ -16,7 +16,7 @@ Pagination's a nav component that lets users cruise through a bunch of pages. It
 <InstallCommand isAdd items={['pagination']}/>
 
 ## Composed Components
-<Composed components={['button', 'field']}/>
+<Composed components={['button']}/>
 
 ## Manual Installation
 
@@ -37,38 +37,79 @@ Sometimes, you gotta keep the page from scrollin' to the top when users hit the 
 
 ### Inertia.js
 When you’re usin' [Inertia.js](https://inertiajs.com/scroll-management#scroll-preservation), you can use the `preserveScroll` prop to keep the page from scrollin' to the top when users hit the pagination.
-```tsx title="ui/pagination.tsx"
-const routerOptions = {
-  preserveScroll: true,
-};
-
-const renderGridListItem = (
-  { textValue, ariaCurrent, isDisabled, className, ...props }: any,
-  children: React.ReactNode
-) => (
-  <GridListItem
-    routerOptions={routerOptions}
-    ...
+```tsx {4}
+<PaginationList aria-label="Pagination Segment" items={pages}>
+  {(item) => (
+    <PaginationItem
+      routerOptions={{ preserveScroll: true }}
+      id={item.label.toString()}
+      isCurrent={item.isCurrent}
+      href={item.url ?? ''}
+    >
 ```
 
 ### Next.js
 When you’re usin' [Next.js](https://nextjs.org/docs/app/building-your-application/routing/linking-and-navigating#disabling-scroll-restoration), slap on the `scroll` prop to keep the page from scrollin' to the top when users hit the pagination.
-```tsx title="ui/pagination.tsx"
-const routerOptions = {
-  scroll: false,
-};
+```tsx {4}
+<PaginationList aria-label="Pagination Segment" items={pages}>
+  {(item) => (
+    <PaginationItem
+      routerOptions={{ scroll: false }}
+      id={item.label.toString()}
+      isCurrent={item.isCurrent}
+      href={item.url ?? ''}
+    >
 ```
 
 ### Remix
 When you’re usin' [Remix](https://remix.run/docs/en/main/components/scroll-restoration#preventing-scroll-reset), slap on the `preventScrollReset` prop to keep the page from scrollin' to the top when users hit the pagination.
-```tsx title="ui/pagination.tsx"
-const routerOptions = {
-  preventScrollReset: true,
-};
+```tsx {4}
+<PaginationList aria-label="Pagination Segment" items={pages}>
+  {(item) => (
+    <PaginationItem
+      routerOptions={{ preventScrollReset: true }}
+      id={item.label.toString()}
+      isCurrent={item.isCurrent}
+      href={item.url ?? ''}
+    >
 ```
 
-## React Router
+### React Router
 When you’re rockin' with React Router, peep the tutorial [here](https://youtu.be/4_H8j3rkpjI?t=61). Then go ahead and do it yourself. My bad, I'm not up to speed with the latest React Router.
+
+### Considering
+You’re probably like, “Let’s just default this stuff in the Pagination component, right?” But nah, it ain’t that straight. Tried mixin' it into the Pagination vibe, but when you mess with other moves like those Inertia.js router options, stuff don't play nice. How I rolled with it? Kept it real simple.
+```tsx {10}
+const renderGridListItem = (
+  props: GridListItemProps & {
+    textValue?: string
+    ariaCurrent?: string | undefined
+    isDisabled?: boolean
+    className?: string
+  },
+  children: React.ReactNode
+) => (
+  <GridListItem routerOptions={{ preserveScroll: true, ...props.routerOptions }} {...props}>
+    {children}
+  </GridListItem>
+)
+```
+So here's how I roll with it:
+```tsx {4}
+ <PaginationList aria-label="Pagination Segment" items={paginate.pages}>
+  {(item) => (
+    <PaginationItem
+      routerOptions={{ only: ['series'] }}
+      id={item.label.toString()}
+      isCurrent={item.isCurrent}
+      href={item.url ?? ''}
+    >
+      {item.label}
+    </PaginationItem>
+  )}
+</PaginationList>
+```
+I figured it'd be chill, but nah, it ain't cuttin' it. That’s why I’m throwin' this idea your way: toss that option in when you're rockin' the pagination component. Ain’t sayin' it's top shelf, but it’s one way to roll.
 
 ## Client Side Routing
 Make sure you have read [Client Side Routing](/docs/getting-started/client-side-routing) before using this component.
