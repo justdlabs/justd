@@ -1,3 +1,5 @@
+'use client'
+
 import { Avatar } from 'ui'
 
 export default function AvatarDemo() {

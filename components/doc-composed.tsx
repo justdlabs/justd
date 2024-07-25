@@ -22,8 +22,8 @@ export function DocComposed({ components, text }: { components: string[]; text?:
             one at a time.
           </p>
           <p className="mb-6">
-            A <strong className="font-medium">{name}</strong> bundles these slick units that can flex solo or team up
-            across your project's scene.
+            The <strong className="font-medium lowercase">{name}</strong>'s decked out with several components to make
+            it bangin'.
           </p>
         </>
       ) : (

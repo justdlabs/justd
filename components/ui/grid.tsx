@@ -2,15 +2,7 @@
 
 import * as React from 'react'
 
-import {
-  GridList,
-  GridListItem,
-  GridListItemProps,
-  GridListProps,
-  ListBoxItemProps,
-  ListBoxProps
-} from 'react-aria-components'
-import { ListBox, ListBoxItem } from 'react-aria-components'
+import { GridList, GridListItem, GridListItemProps, GridListProps } from 'react-aria-components'
 import { tv, type VariantProps } from 'tailwind-variants'
 
 import { cn } from './primitive'

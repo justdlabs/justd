@@ -68,9 +68,6 @@ export const previews: Record<string, any> = {
   "date-and-time/date-picker-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/date-and-time/date-picker-controlled-demo")),
   },
-  "forms/slider-range-demo": {
-    component: React.lazy(() => import("@/components/docs/forms/slider-range-demo")),
-  },
   "forms/text-field-validation-demo": {
     component: React.lazy(() => import("@/components/docs/forms/text-field-validation-demo")),
   },
@@ -88,9 +85,6 @@ export const previews: Record<string, any> = {
   },
   "forms/input-otp-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/forms/input-otp-controlled-demo")),
-  },
-  "forms/switch-variant-demo": {
-    component: React.lazy(() => import("@/components/docs/forms/switch-variant-demo")),
   },
   "forms/input-otp-separator-demo": {
     component: React.lazy(() => import("@/components/docs/forms/input-otp-separator-demo")),
@@ -122,14 +116,8 @@ export const previews: Record<string, any> = {
   "forms/number-field-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/forms/number-field-controlled-demo")),
   },
-  "forms/slider-controlled-demo": {
-    component: React.lazy(() => import("@/components/docs/forms/slider-controlled-demo")),
-  },
   "forms/radio-group-demo": {
     component: React.lazy(() => import("@/components/docs/forms/radio-group-demo")),
-  },
-  "forms/slider-demo": {
-    component: React.lazy(() => import("@/components/docs/forms/slider-demo")),
   },
   "forms/textarea-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/forms/textarea-controlled-demo")),
@@ -142,9 +130,6 @@ export const previews: Record<string, any> = {
   },
   "forms/search-field-demo": {
     component: React.lazy(() => import("@/components/docs/forms/search-field-demo")),
-  },
-  "forms/slider-disabled-demo": {
-    component: React.lazy(() => import("@/components/docs/forms/slider-disabled-demo")),
   },
   "forms/radio-group-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/forms/radio-group-controlled-demo")),
@@ -167,14 +152,8 @@ export const previews: Record<string, any> = {
   "forms/textarea-validation-demo": {
     component: React.lazy(() => import("@/components/docs/forms/textarea-validation-demo")),
   },
-  "forms/slider-step-demo": {
-    component: React.lazy(() => import("@/components/docs/forms/slider-step-demo")),
-  },
   "forms/form-demo": {
     component: React.lazy(() => import("@/components/docs/forms/form-demo")),
-  },
-  "forms/switch-demo": {
-    component: React.lazy(() => import("@/components/docs/forms/switch-demo")),
   },
   "forms/radio-group-invalid-demo": {
     component: React.lazy(() => import("@/components/docs/forms/radio-group-invalid-demo")),
@@ -194,9 +173,6 @@ export const previews: Record<string, any> = {
   "forms/radio-group-description-demo": {
     component: React.lazy(() => import("@/components/docs/forms/radio-group-description-demo")),
   },
-  "forms/switch-controlled-demo": {
-    component: React.lazy(() => import("@/components/docs/forms/switch-controlled-demo")),
-  },
   "forms/text-field-loading-demo": {
     component: React.lazy(() => import("@/components/docs/forms/text-field-loading-demo")),
   },
@@ -215,9 +191,6 @@ export const previews: Record<string, any> = {
   "forms/checkbox-group-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/forms/checkbox-group-disabled-demo")),
   },
-  "forms/switch-disabled-demo": {
-    component: React.lazy(() => import("@/components/docs/forms/switch-disabled-demo")),
-  },
   "forms/checkbox-group-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/forms/checkbox-group-controlled-demo")),
   },
@@ -233,14 +206,17 @@ export const previews: Record<string, any> = {
   "buttons/file-trigger-folder-demo": {
     component: React.lazy(() => import("@/components/docs/buttons/file-trigger-folder-demo")),
   },
+  "buttons/toggle-disabled-demo": {
+    component: React.lazy(() => import("@/components/docs/buttons/toggle-disabled-demo")),
+  },
   "buttons/file-trigger-demo": {
     component: React.lazy(() => import("@/components/docs/buttons/file-trigger-demo")),
   },
   "buttons/button-icon-demo": {
     component: React.lazy(() => import("@/components/docs/buttons/button-icon-demo")),
   },
-  "buttons/toggle-button-demo": {
-    component: React.lazy(() => import("@/components/docs/buttons/toggle-button-demo")),
+  "buttons/toggle-shape-demo": {
+    component: React.lazy(() => import("@/components/docs/buttons/toggle-shape-demo")),
   },
   "buttons/file-trigger-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/buttons/file-trigger-controlled-demo")),
@@ -253,6 +229,9 @@ export const previews: Record<string, any> = {
   },
   "buttons/button-size-demo": {
     component: React.lazy(() => import("@/components/docs/buttons/button-size-demo")),
+  },
+  "buttons/toggle-demo": {
+    component: React.lazy(() => import("@/components/docs/buttons/toggle-demo")),
   },
   "buttons/button-shape-demo": {
     component: React.lazy(() => import("@/components/docs/buttons/button-shape-demo")),
@@ -269,14 +248,17 @@ export const previews: Record<string, any> = {
   "buttons/button-appearance-demo": {
     component: React.lazy(() => import("@/components/docs/buttons/button-appearance-demo")),
   },
-  "buttons/toggle-button-disabled-demo": {
-    component: React.lazy(() => import("@/components/docs/buttons/toggle-button-disabled-demo")),
+  "buttons/toggle-size-demo": {
+    component: React.lazy(() => import("@/components/docs/buttons/toggle-size-demo")),
+  },
+  "buttons/toggle-controlled-demo": {
+    component: React.lazy(() => import("@/components/docs/buttons/toggle-controlled-demo")),
+  },
+  "buttons/toggle-intent-demo": {
+    component: React.lazy(() => import("@/components/docs/buttons/toggle-intent-demo")),
   },
   "buttons/button-link-demo": {
     component: React.lazy(() => import("@/components/docs/buttons/button-link-demo")),
-  },
-  "buttons/toggle-button-controlled-demo": {
-    component: React.lazy(() => import("@/components/docs/buttons/toggle-button-controlled-demo")),
   },
   "overlays/modal-triggered-by-menu-demo": {
     component: React.lazy(() => import("@/components/docs/overlays/modal-triggered-by-menu-demo")),
@@ -376,6 +358,42 @@ export const previews: Record<string, any> = {
   },
   "navigation/tabs-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/navigation/tabs-disabled-demo")),
+  },
+  "controls/slider-range-demo": {
+    component: React.lazy(() => import("@/components/docs/controls/slider-range-demo")),
+  },
+  "controls/toolbar-disabled-demo": {
+    component: React.lazy(() => import("@/components/docs/controls/toolbar-disabled-demo")),
+  },
+  "controls/switch-variant-demo": {
+    component: React.lazy(() => import("@/components/docs/controls/switch-variant-demo")),
+  },
+  "controls/toolbar-demo": {
+    component: React.lazy(() => import("@/components/docs/controls/toolbar-demo")),
+  },
+  "controls/slider-controlled-demo": {
+    component: React.lazy(() => import("@/components/docs/controls/slider-controlled-demo")),
+  },
+  "controls/slider-demo": {
+    component: React.lazy(() => import("@/components/docs/controls/slider-demo")),
+  },
+  "controls/toolbar-orientation-demo": {
+    component: React.lazy(() => import("@/components/docs/controls/toolbar-orientation-demo")),
+  },
+  "controls/slider-disabled-demo": {
+    component: React.lazy(() => import("@/components/docs/controls/slider-disabled-demo")),
+  },
+  "controls/slider-step-demo": {
+    component: React.lazy(() => import("@/components/docs/controls/slider-step-demo")),
+  },
+  "controls/switch-demo": {
+    component: React.lazy(() => import("@/components/docs/controls/switch-demo")),
+  },
+  "controls/switch-controlled-demo": {
+    component: React.lazy(() => import("@/components/docs/controls/switch-controlled-demo")),
+  },
+  "controls/switch-disabled-demo": {
+    component: React.lazy(() => import("@/components/docs/controls/switch-disabled-demo")),
   },
   "drag-and-drop/drop-zone-and-file-trigger-demo": {
     component: React.lazy(() => import("@/components/docs/drag-and-drop/drop-zone-and-file-trigger-demo")),
@@ -596,9 +614,6 @@ export const previews: Record<string, any> = {
   "collections/multiple-menu-demo": {
     component: React.lazy(() => import("@/components/docs/collections/multiple-menu-demo")),
   },
-  "collections/carousel-demo": {
-    component: React.lazy(() => import("@/components/docs/collections/carousel-demo")),
-  },
   "collections/choicebox-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/collections/choicebox-controlled-demo")),
   },
@@ -608,17 +623,11 @@ export const previews: Record<string, any> = {
   "collections/list-box-demo": {
     component: React.lazy(() => import("@/components/docs/collections/list-box-demo")),
   },
-  "collections/carousel-with-collection-demo": {
-    component: React.lazy(() => import("@/components/docs/collections/carousel-with-collection-demo")),
-  },
   "collections/grid-list-multiple-demo": {
     component: React.lazy(() => import("@/components/docs/collections/grid-list-multiple-demo")),
   },
   "collections/table-demo": {
     component: React.lazy(() => import("@/components/docs/collections/table-demo")),
-  },
-  "collections/carousel-api-demo": {
-    component: React.lazy(() => import("@/components/docs/collections/carousel-api-demo")),
   },
   "collections/menu-danger-demo": {
     component: React.lazy(() => import("@/components/docs/collections/menu-danger-demo")),
@@ -640,9 +649,6 @@ export const previews: Record<string, any> = {
   },
   "collections/grid-list-render-empty-state-demo": {
     component: React.lazy(() => import("@/components/docs/collections/grid-list-render-empty-state-demo")),
-  },
-  "collections/carousel-options-demo": {
-    component: React.lazy(() => import("@/components/docs/collections/carousel-options-demo")),
   },
   "collections/tag-group-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/collections/tag-group-controlled-demo")),
@@ -677,20 +683,23 @@ export const previews: Record<string, any> = {
   "collections/grid-list-drag-demo": {
     component: React.lazy(() => import("@/components/docs/collections/grid-list-drag-demo")),
   },
-  "collections/carousel-autoplay-demo": {
-    component: React.lazy(() => import("@/components/docs/collections/carousel-autoplay-demo")),
-  },
   "collections/grid-list-demo": {
     component: React.lazy(() => import("@/components/docs/collections/grid-list-demo")),
-  },
-  "collections/carousel-orientation-demo": {
-    component: React.lazy(() => import("@/components/docs/collections/carousel-orientation-demo")),
   },
   "media/avatar-size-demo": {
     component: React.lazy(() => import("@/components/docs/media/avatar-size-demo")),
   },
+  "media/carousel-demo": {
+    component: React.lazy(() => import("@/components/docs/media/carousel-demo")),
+  },
   "media/avatar-initials-demo": {
     component: React.lazy(() => import("@/components/docs/media/avatar-initials-demo")),
+  },
+  "media/carousel-with-collection-demo": {
+    component: React.lazy(() => import("@/components/docs/media/carousel-with-collection-demo")),
+  },
+  "media/carousel-api-demo": {
+    component: React.lazy(() => import("@/components/docs/media/carousel-api-demo")),
   },
   "media/avatar-demo": {
     component: React.lazy(() => import("@/components/docs/media/avatar-demo")),
@@ -698,10 +707,19 @@ export const previews: Record<string, any> = {
   "media/avatar-shape-demo": {
     component: React.lazy(() => import("@/components/docs/media/avatar-shape-demo")),
   },
+  "media/carousel-options-demo": {
+    component: React.lazy(() => import("@/components/docs/media/carousel-options-demo")),
+  },
   "media/avatar-group-demo": {
     component: React.lazy(() => import("@/components/docs/media/avatar-group-demo")),
   },
   "media/avatar-fallback-demo": {
     component: React.lazy(() => import("@/components/docs/media/avatar-fallback-demo")),
+  },
+  "media/carousel-autoplay-demo": {
+    component: React.lazy(() => import("@/components/docs/media/carousel-autoplay-demo")),
+  },
+  "media/carousel-orientation-demo": {
+    component: React.lazy(() => import("@/components/docs/media/carousel-orientation-demo")),
   },
 };

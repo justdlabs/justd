@@ -1,5 +1,8 @@
+'use client'
+
 import * as React from 'react'
 
+import Image from 'next/image'
 import {
   Card,
   CardDescription,
@@ -12,16 +15,23 @@ import {
   CarouselItem
 } from 'ui'
 
-export default function CarouselOrientationDemo() {
+export default function CarouselWithCollectionDemo() {
   return (
-    <Carousel orientation="vertical" className="w-full relative max-w-xs">
-      <CarouselContent items={items} className="h-64 py-4 snap-y">
+    <Carousel className="w-full [&_.xrkr]:overflow-hidden [&_.xrkr]:flex [&_.xrkr]:flex-col max-w-xs">
+      <CarouselContent items={items}>
         {(item) => (
-          <CarouselItem className="pt-1 basis-1/2 md:basis-1/3 snap-center">
-            <Card>
+          <CarouselItem id={item.id}>
+            <Card className="p-2">
+              <Image
+                className="rounded-md h-40 object-center object-cover"
+                src={`/slides/slide-${item.id}.jpg`}
+                alt="image 5"
+                width={400}
+                height={300}
+              />
               <CardHeader>
-                <CardTitle>{item.title}</CardTitle>
-                <CardDescription>{item.description}</CardDescription>
+                <CardTitle className="line-clamp-1 sm:text-lg">{item.title}</CardTitle>
+                <CardDescription className="line-clamp-2">{item.description}</CardDescription>
               </CardHeader>
             </Card>
           </CarouselItem>
@@ -71,20 +81,5 @@ const items = [
     id: 7,
     title: 'Portable Charger',
     description: 'Never run out of battery with this high-capacity portable charger.'
-  },
-  {
-    id: 8,
-    title: 'Noise-Canceling Earbuds',
-    description: 'Compact and powerful earbuds that block out unwanted noise.'
-  },
-  {
-    id: 9,
-    title: 'Yoga Mat',
-    description: 'Non-slip, cushioned yoga mat for a comfortable workout experience.'
-  },
-  {
-    id: 10,
-    title: 'LED Desk Lamp',
-    description: 'Bright and energy-efficient LED lamp with adjustable brightness.'
   }
 ]

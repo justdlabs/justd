@@ -1,3 +1,5 @@
+'use client'
+
 import { type TooltipProps } from 'react-aria-components'
 import { Button, Tooltip, TooltipContent } from 'ui'
 

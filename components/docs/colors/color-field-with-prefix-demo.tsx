@@ -1,3 +1,5 @@
+'use client'
+
 import { IconColors } from '@irsyadadl/paranoid'
 import { ColorField } from 'ui'
 

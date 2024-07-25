@@ -1,3 +1,5 @@
+'use client'
+
 import { ColorThumb, ColorWheel, ColorWheelTrack } from 'ui'
 
 export default function ColorWheelDemo() {
