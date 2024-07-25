@@ -1,30 +1,88 @@
 'use client'
 
-import React from 'react'
+import * as React from 'react'
 
-import type { ToolbarProps } from 'react-aria-components'
-import { Toolbar as ToolbarPrimitive, composeRenderProps } from 'react-aria-components'
+import type { ToggleProps } from '@/components/ui/toggle'
+import { Toggle, toggleStyles } from '@/components/ui/toggle'
+import type { GroupProps, SeparatorProps, ToolbarProps as ToolbarPrimitiveProps } from 'react-aria-components'
+import { composeRenderProps, Group, Toolbar as ToolbarPrimitive } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
+import { cn } from './primitive'
+import { Separator } from './separator'
+
 const toolbarStyles = tv({
-  base: 'flex gap-2',
+  base: 'flex gap-2 group',
   variants: {
     orientation: {
-      horizontal: 'flex-row',
+      horizontal:
+        'flex-row overflow-x-auto overflow-y-hidden [&::-webkit-scrollbar]:hidden [scrollbar-width:none] [-ms-overflow-style:none]',
       vertical: 'flex-col items-start'
     }
   }
 })
 
-const Toolbar = (props: ToolbarProps) => {
+const ToolbarSeparator = ({ className, ...props }: SeparatorProps) => {
+  const { orientation } = React.useContext(ToolbarContext)
+  const effectiveOrientation = orientation === 'vertical' ? 'horizontal' : 'vertical'
   return (
-    <ToolbarPrimitive
+    <Separator
+      orientation={effectiveOrientation}
+      className={cn(effectiveOrientation === 'vertical' ? 'mx-1.5' : 'my-1.5 w-9', className)}
+      {...props}
+    />
+  )
+}
+
+const ToolbarContext = React.createContext<{ orientation?: ToolbarProps['orientation'] }>({
+  orientation: 'horizontal'
+})
+
+interface ToolbarProps extends ToolbarPrimitiveProps {}
+
+const Toolbar = ({ orientation = 'horizontal', ...props }: ToolbarProps) => {
+  return (
+    <ToolbarContext.Provider value={{ orientation }}>
+      <ToolbarPrimitive
+        orientation={orientation}
+        {...props}
+        className={composeRenderProps(props.className, (className, renderProps) =>
+          toolbarStyles({ ...renderProps, className })
+        )}
+      />
+    </ToolbarContext.Provider>
+  )
+}
+
+const toolbarGroupStyles = tv({
+  base: ['flex gap-2', 'group-orientation-vertical:flex-col group-orientation-vertical:items-start']
+})
+
+const ToolbarGroupContext = React.createContext<{ isDisabled?: boolean }>({})
+
+const ToolbarGroup = ({ isDisabled, ...props }: GroupProps) => {
+  return (
+    <ToolbarGroupContext.Provider value={{ isDisabled }}>
+      <Group className={toolbarGroupStyles()} {...props}>
+        {props.children}
+      </Group>
+    </ToolbarGroupContext.Provider>
+  )
+}
+
+const ToolbarItem = ({ isDisabled, ...props }: ToggleProps) => {
+  const context = React.useContext(ToolbarGroupContext)
+  const effectiveIsDisabled = isDisabled || context.isDisabled
+
+  return (
+    <Toggle
+      isDisabled={effectiveIsDisabled}
       {...props}
       className={composeRenderProps(props.className, (className, renderProps) =>
-        toolbarStyles({ ...renderProps, className })
+        toggleStyles({ ...renderProps, intent: props.intent, size: props.size, shape: props.shape, className })
       )}
     />
   )
 }
 
-export { Toolbar }
+export { Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarItem, ToolbarGroupContext }

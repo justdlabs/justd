@@ -21,7 +21,7 @@ const toggleStyles = tv({
       'light/primary':
         'bg-white border-border hover:border-primary selected:border-primary hover:bg-primary hover:text-primary-fg text-zinc-900 selected:bg-primary selected:text-primary-fg',
       outline:
-        'border-borer selected:bg-secondary/50 selected:backdrop-blur-sm selected:text-secondary-fg hover:bg-secondary/50 hover:text-secondary-fg'
+        'border-border selected:bg-secondary selected:backdrop-blur-sm selected:text-secondary-fg hover:bg-secondary hover:text-secondary-fg'
     },
     size: {
       medium: 'h-10 px-3',
@@ -58,4 +58,4 @@ const Toggle = (props: ToggleProps) => {
   )
 }
 
-export { Toggle, toggleStyles }
+export { Toggle, toggleStyles, type ToggleProps }

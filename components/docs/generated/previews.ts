@@ -362,14 +362,23 @@ export const previews: Record<string, any> = {
   "controls/slider-range-demo": {
     component: React.lazy(() => import("@/components/docs/controls/slider-range-demo")),
   },
+  "controls/toolbar-disabled-demo": {
+    component: React.lazy(() => import("@/components/docs/controls/toolbar-disabled-demo")),
+  },
   "controls/switch-variant-demo": {
     component: React.lazy(() => import("@/components/docs/controls/switch-variant-demo")),
+  },
+  "controls/toolbar-demo": {
+    component: React.lazy(() => import("@/components/docs/controls/toolbar-demo")),
   },
   "controls/slider-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/controls/slider-controlled-demo")),
   },
   "controls/slider-demo": {
     component: React.lazy(() => import("@/components/docs/controls/slider-demo")),
+  },
+  "controls/toolbar-orientation-demo": {
+    component: React.lazy(() => import("@/components/docs/controls/toolbar-orientation-demo")),
   },
   "controls/slider-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/controls/slider-disabled-demo")),
