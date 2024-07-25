@@ -14,7 +14,7 @@ const toggleStyles = tv({
   ],
   variants: {
     isDisabled: {
-      true: 'opacity-50 cursor-pointer forced-colors:border-[GrayText]'
+      true: 'opacity-50 cursor-default forced-colors:border-[GrayText]'
     },
     intent: {
       transparent: 'selected:bg-secondary selected:text-secondary-fg',
@@ -36,7 +36,7 @@ const toggleStyles = tv({
   },
   defaultVariants: {
     intent: 'transparent',
-    size: 'medium',
+    size: 'small',
     shape: 'square'
   }
 })

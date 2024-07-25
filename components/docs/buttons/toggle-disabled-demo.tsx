@@ -7,7 +7,7 @@ import { Toggle } from 'ui'
 
 export default function ToggleDisabledDemo() {
   return (
-    <Toggle isDisabled>
+    <Toggle size="square-petite" isDisabled>
       <IconPin />
     </Toggle>
   )

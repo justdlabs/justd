@@ -8,7 +8,7 @@ import { Toggle } from 'ui'
 export default function ToggleControlledDemo() {
   const [isSelected, setSelected] = React.useState(false)
   return (
-    <Toggle isSelected={isSelected} onChange={setSelected}>
+    <Toggle size="square-petite" isSelected={isSelected} onChange={setSelected}>
       {({ isSelected }) => <>{isSelected ? <IconUnpin /> : <IconPin />}</>}
     </Toggle>
   )
