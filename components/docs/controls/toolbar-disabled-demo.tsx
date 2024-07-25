@@ -3,33 +3,22 @@
 import React from 'react'
 
 import {
-  IconAlignmentCenter,
-  IconAlignmentCenterFill,
   IconAlignmentJustify,
   IconAlignmentJustifyFill,
-  IconAlignmentLeft,
-  IconAlignmentLeftFill,
   IconAlignmentRight,
   IconAlignmentRightFill,
   IconCamera,
   IconCameraFill,
-  IconCirclePlaceholderDashed,
-  IconCrop,
   IconCursor,
   IconCursorFill,
-  IconDotsVertical,
   IconGallery,
   IconGalleryFill,
-  IconGrid4,
-  IconLink,
   IconPencilBox,
   IconPencilBoxFill,
-  IconRedo,
   IconToolbox,
-  IconToolboxFill,
-  IconUndo
+  IconToolboxFill
 } from '@irsyadadl/paranoid'
-import { Button, Menu, MenuContent, MenuItem, Toggle, Toolbar, ToolbarGroup, ToolbarItem, ToolbarSeparator } from 'ui'
+import { Toggle, Toolbar, ToolbarGroup, ToolbarItem, ToolbarSeparator } from 'ui'
 
 export default function ToolbarDisabledDemo() {
   return (

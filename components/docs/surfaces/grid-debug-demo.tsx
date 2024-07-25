@@ -1,3 +1,5 @@
+'use client'
+
 import { Grid, GridItem } from 'ui'
 
 export default function GridDebugDemo() {

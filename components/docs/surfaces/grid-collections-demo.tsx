@@ -1,3 +1,5 @@
+'use client'
+
 import { Card, CardDescription, CardHeader, CardTitle, Grid, GridItem } from 'ui'
 
 export default function GridCollectionsDemo() {

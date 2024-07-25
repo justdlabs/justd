@@ -1,3 +1,5 @@
+'use client'
+
 import { ColorSlider } from 'ui'
 
 export default function ColorSliderDisabledDemo() {

@@ -1,3 +1,5 @@
+'use client'
+
 import { ColorField } from 'ui'
 
 export default function ColorFieldDisabledDemo() {

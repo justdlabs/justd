@@ -1,3 +1,5 @@
+'use client'
+
 import { toast, type ToastT } from 'sonner'
 import { Button } from 'ui'
 

@@ -26,7 +26,7 @@ import {
   IconUnderlineFill,
   IconUndo
 } from '@irsyadadl/paranoid'
-import { Button, Checkbox, Menu, MenuContent, MenuItem, ToolbarItem, Toolbar, ToolbarGroup, ToolbarSeparator } from 'ui'
+import { Button, Checkbox, Menu, MenuContent, MenuItem, Toolbar, ToolbarGroup, ToolbarItem, ToolbarSeparator } from 'ui'
 
 export default function ToolbarDemo() {
   return (

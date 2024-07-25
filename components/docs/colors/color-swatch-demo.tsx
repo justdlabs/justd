@@ -1,3 +1,5 @@
+'use client'
+
 import { ColorSwatch } from 'ui'
 
 export default function ColorSwatchDemo() {
