@@ -7,9 +7,10 @@ import { goodTitle, sortDocs } from '@/lib/utils'
 import { IconChevronDown, IconCircleHalf, IconCube, IconHighlight, IconLayers } from '@irsyadadl/paranoid'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@radix-ui/react-accordion'
 import { LayoutGroup, motion } from 'framer-motion'
-import type { LinkProps } from 'next/link'
-import Link from 'next/link'
+import { Link as NextLink } from 'next-view-transitions'
+import type { LinkProps as NextLinkProps } from 'next/link'
 import { usePathname } from 'next/navigation'
+import { tv } from 'tailwind-variants'
 import { Badge, cn } from 'ui'
 
 export interface Doc {
@@ -209,25 +210,28 @@ export function Trigger({ children, className }: { children: React.ReactNode; cl
   )
 }
 
-interface AsideLinkProps extends LinkProps {
+interface AsideLinkProps extends NextLinkProps {
   active?: boolean
   children: React.ReactNode
   className?: string
   indicatorClassName?: string
 }
 
+const asideLinkStyles = tv({
+  base: 'relative block focus:outline-none focus-visible:bg-secondary focus-visible:ring-inset focus-visible:ring-1 focus-visible:ring-primary-500 rounded-md px-2.5 py-2 text-base font-medium transition-colors hover:bg-secondary/70 hover:text-fg lg:text-sm',
+  variants: {
+    isActive: {
+      true: 'font-medium text-fg',
+      false: 'text-muted-fg'
+    }
+  }
+})
+
 function AsideLink({ indicatorClassName, className, children, active, ...props }: AsideLinkProps) {
   const pathname = usePathname()
   const isActive = pathname === props.href
   return (
-    <Link
-      className={cn(
-        'relative block focus:outline-none focus-visible:bg-secondary focus-visible:ring-inset focus-visible:ring-1 focus-visible:ring-primary-500 rounded-md px-2.5 py-2 text-base font-medium transition-colors hover:bg-secondary/70 hover:text-fg lg:text-sm',
-        isActive ? 'font-medium text-fg' : 'text-muted-fg',
-        className
-      )}
-      {...props}
-    >
+    <NextLink className={asideLinkStyles({ isActive, className })} {...props}>
       {children}
       {isActive && (
         <motion.span
@@ -235,6 +239,6 @@ function AsideLink({ indicatorClassName, className, children, active, ...props }
           className={cn('absolute inset-y-1 left-[1rem] w-0.5 rounded-full bg-fg', indicatorClassName)}
         />
       )}
-    </Link>
+    </NextLink>
   )
 }

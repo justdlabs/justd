@@ -8,6 +8,7 @@ import { cn } from '@/lib/utils'
 import '@/styles/app.css'
 import { OpenpanelProvider } from '@openpanel/nextjs'
 import type { Metadata } from 'next'
+import { ViewTransitions } from 'next-view-transitions'
 import localFont from 'next/font/local'
 
 const satoshi = localFont({
@@ -33,31 +34,33 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={cn(
-          'min-h-svh [max-width:1850px] mx-auto bg-background font-sans antialiased',
-          satoshi.variable,
-          geistMono.variable
-        )}
-        suppressHydrationWarning
-      >
-        <Providers>
-          <div className="relative flex min-h-dvh flex-col bg-background">
-            <Navbar />
-            <main className="flex-1">{children}</main>
-
-            <Footer />
-          </div>
-          {process.env.NEXT_PUBLIC_ENV !== 'local' && (
-            <OpenpanelProvider
-              clientId={process.env.NEXT_PUBLIC_OPENPANEL_CLIENT_ID as string}
-              trackScreenViews={true}
-              trackAttributes={true}
-              trackOutgoingLinks={true}
-            />
+      <ViewTransitions>
+        <body
+          className={cn(
+            'min-h-svh [max-width:1850px] mx-auto bg-background font-sans antialiased',
+            satoshi.variable,
+            geistMono.variable
           )}
-        </Providers>
-      </body>
+          suppressHydrationWarning
+        >
+          <Providers>
+            <div className="relative flex min-h-dvh flex-col bg-background">
+              <Navbar />
+              <main className="flex-1">{children}</main>
+
+              <Footer />
+            </div>
+            {process.env.NEXT_PUBLIC_ENV !== 'local' && (
+              <OpenpanelProvider
+                clientId={process.env.NEXT_PUBLIC_OPENPANEL_CLIENT_ID as string}
+                trackScreenViews={true}
+                trackAttributes={true}
+                trackOutgoingLinks={true}
+              />
+            )}
+          </Providers>
+        </body>
+      </ViewTransitions>
     </html>
   )
 }
