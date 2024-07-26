@@ -1,19 +1,10 @@
-import { AvatarMedia } from '@/app/(app)/sink/avatar-media'
-import { Buttons } from '@/app/(app)/sink/buttons'
-import { CardSink } from '@/app/(app)/sink/card-sink'
-import { Cta } from '@/app/(app)/sink/cta'
-import { LoginForm } from '@/app/(app)/sink/login-form'
-import { Menus } from '@/app/(app)/sink/menus'
-import { ModalOverlays, PopoverOverlays } from '@/app/(app)/sink/overlays'
-import { Pickers } from '@/app/(app)/sink/pickers'
-import { ShowMore } from '@/app/(app)/sink/show-more'
-import SwitchDemo from '@/components/docs/controls/switch-demo'
-import PaginationDemo from '@/components/docs/navigation/pagination-demo'
+import { Blocks } from '@/components/blocks'
+import { Cta } from '@/components/cta'
 import { Hero } from '@/components/hero'
+import { Resources } from '@/components/resources'
 import { siteConfig } from '@/config/site'
 import type { Metadata } from 'next'
 import { Container } from 'ui'
-import { Resources } from '@/components/resources'
 
 export const metadata: Metadata = {
   title: siteConfig.name + ' is a Chill Set of React Components',
@@ -25,28 +16,9 @@ export default function Page() {
   return (
     <>
       <Hero />
-      <Container>
-        <div className="py-6 space-y-16 sm:py-16">
-          <Resources/>
-
-          <div className="grid mb-6 lg:grid-cols-3 gap-6">
-            <LoginForm />
-            <Menus />
-            <Pickers />
-            <PopoverOverlays />
-            <ModalOverlays />
-            <AvatarMedia />
-            <Buttons />
-            <CardSink>
-              <SwitchDemo />
-            </CardSink>
-            <CardSink>
-              <PaginationDemo />
-            </CardSink>
-          </div>
-
-          <ShowMore />
-        </div>
+      <Container className="py-6 space-y-16 sm:py-16">
+        <Blocks />
+        <Resources />
       </Container>
       <Cta />
     </>

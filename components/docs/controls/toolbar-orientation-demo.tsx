@@ -31,34 +31,34 @@ export default function ToolbarOrientationDemo() {
   return (
     <Toolbar aria-label="Toolbox" orientation="vertical">
       <ToolbarGroup aria-label="Toolbox">
-        <ToolbarItem aria-label="Cursor" size="square-petite" intent="outline">
+        <ToolbarItem aria-label="Cursor" size="square-petite" appearance="outline">
           {({ isSelected }) => <>{isSelected ? <IconCursorFill /> : <IconCursor />}</>}
         </ToolbarItem>
-        <ToolbarItem aria-label="Pencil Box" size="square-petite" intent="outline">
+        <ToolbarItem aria-label="Pencil Box" size="square-petite" appearance="outline">
           {({ isSelected }) => <>{isSelected ? <IconPencilBoxFill /> : <IconPencilBox />}</>}
         </ToolbarItem>
-        <ToolbarItem aria-label="Pencil Box" size="square-petite" intent="outline">
+        <ToolbarItem aria-label="Pencil Box" size="square-petite" appearance="outline">
           {({ isSelected }) => <>{isSelected ? <IconToolboxFill /> : <IconToolbox />}</>}
         </ToolbarItem>
       </ToolbarGroup>
       <ToolbarSeparator />
       <ToolbarGroup aria-label="Gallery">
-        <ToolbarItem aria-label="Camera" size="square-petite" intent="outline">
+        <ToolbarItem aria-label="Camera" size="square-petite" appearance="outline">
           {({ isSelected }) => <>{isSelected ? <IconCameraFill /> : <IconCamera />}</>}
         </ToolbarItem>
-        <ToolbarItem aria-label="Gallery" size="square-petite" intent="outline">
+        <ToolbarItem aria-label="Gallery" size="square-petite" appearance="outline">
           {({ isSelected }) => <>{isSelected ? <IconGalleryFill /> : <IconGallery />}</>}
         </ToolbarItem>
       </ToolbarGroup>
       <ToolbarSeparator />
       <ToolbarGroup aria-label="Alignment">
-        <Toggle aria-label="Align Left" size="square-petite" intent="outline">
+        <Toggle aria-label="Align Left" size="square-petite" appearance="outline">
           {({ isSelected }) => <>{isSelected ? <IconAlignmentLeftFill /> : <IconAlignmentLeft />}</>}
         </Toggle>
-        <ToolbarItem aria-label="Align Center" intent="outline">
+        <ToolbarItem aria-label="Align Center" appearance="outline">
           {({ isSelected }) => <>{isSelected ? <IconAlignmentCenterFill /> : <IconAlignmentCenter />}</>}
         </ToolbarItem>
-        <ToolbarItem aria-label="Align Justify" intent="outline">
+        <ToolbarItem aria-label="Align Justify" appearance="outline">
           {({ isSelected }) => <>{isSelected ? <IconAlignmentJustifyFill /> : <IconAlignmentJustify />}</>}
         </ToolbarItem>
       </ToolbarGroup>

@@ -5,7 +5,7 @@ import React from 'react'
 import GridListDragDemo from '@/components/docs/collections/grid-list-drag-demo'
 import { useDragAndDrop } from 'react-aria-components'
 import { useListData } from 'react-stately'
-import { Grid, GridEmptyState, GridItem, GridList, GridListItem } from 'ui'
+import { GridEmptyState, GridList, GridListItem } from 'ui'
 
 export default function GridListDragBetweenItemDemo() {
   const list = useListData({
@@ -33,23 +33,17 @@ export default function GridListDragBetweenItemDemo() {
   })
 
   return (
-    <Grid gap={4} columns={3}>
-      <GridItem>
-        <GridListDragDemo />
-      </GridItem>
-      <GridItem>
-        <GridList aria-label="Droppable list" items={list.items} dragAndDropHooks={dragAndDropHooks}>
-          {(item) => <GridListItem>{item.name}</GridListItem>}
-        </GridList>
-      </GridItem>
-      <GridItem>
-        <OtherEmptyList />
-      </GridItem>
-    </Grid>
+    <div className="grid gap-4 lg:grid-cols-3">
+      <GridListDragDemo />
+      <GridList aria-label="Droppable list" items={list.items} dragAndDropHooks={dragAndDropHooks}>
+        {(item) => <GridListItem>{item.name}</GridListItem>}
+      </GridList>
+      <OtherEmptyList />
+    </div>
   )
 }
 
-function OtherEmptyList() {
+export function OtherEmptyList() {
   const list = useListData({
     initialItems: [{ id: 7, name: 'The Who' }]
   })

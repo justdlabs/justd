@@ -78,7 +78,7 @@ const ToolbarItem = ({ isDisabled, ...props }: ToggleProps) => {
       isDisabled={effectiveIsDisabled}
       {...props}
       className={composeRenderProps(props.className, (className, renderProps) =>
-        toggleStyles({ ...renderProps, intent: props.intent, size: props.size, shape: props.shape, className })
+        toggleStyles({ ...renderProps, appearance: props.appearance, size: props.size, shape: props.shape, className })
       )}
     />
   )

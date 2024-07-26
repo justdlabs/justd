@@ -4,21 +4,22 @@ import type { ToggleButtonProps } from 'react-aria-components'
 import { composeRenderProps, ToggleButton as ToggleButtonPrimitive } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
+import { type ButtonProps } from './button'
 import { focusButtonStyles } from './primitive'
 
 const toggleStyles = tv({
   extend: focusButtonStyles,
   base: [
-    'inline-flex items-center bg-transparent justify-center border border-transparent rounded-md text-sm font-medium ring-offset-background transition-colors',
+    'inline-flex items-center bg-transparent justify-center border border-transparent rounded-lg text-sm font-medium ring-offset-background transition-colors',
     'hover:bg-muted hover:text-muted-fg'
   ],
   variants: {
     isDisabled: {
       true: 'opacity-50 cursor-default forced-colors:border-[GrayText]'
     },
-    intent: {
-      transparent: 'selected:bg-secondary selected:text-secondary-fg',
-      'light/primary':
+    appearance: {
+      plain: 'selected:bg-secondary selected:text-secondary-fg',
+      solid:
         'bg-white border-border hover:border-primary selected:border-primary hover:bg-primary hover:text-primary-fg text-zinc-900 selected:bg-primary selected:text-primary-fg',
       outline:
         'border-border selected:bg-secondary selected:backdrop-blur-sm selected:text-secondary-fg hover:bg-secondary hover:text-secondary-fg'
@@ -30,7 +31,7 @@ const toggleStyles = tv({
       'square-petite': 'size-9 shrink-0'
     },
     shape: {
-      square: 'rounded-md',
+      square: 'rounded-lg',
       circle: 'rounded-full'
     }
   },
@@ -42,9 +43,9 @@ const toggleStyles = tv({
 })
 
 interface ToggleProps extends ToggleButtonProps {
-  intent?: 'transparent' | 'outline' | 'light/primary'
+  appearance?: ButtonProps['appearance']
   size?: 'small' | 'medium' | 'large' | 'square-petite'
-  shape?: 'circle' | 'square'
+  shape?: ButtonProps['shape']
 }
 
 const Toggle = (props: ToggleProps) => {
@@ -52,7 +53,7 @@ const Toggle = (props: ToggleProps) => {
     <ToggleButtonPrimitive
       {...props}
       className={composeRenderProps(props.className, (className, renderProps) =>
-        toggleStyles({ ...renderProps, intent: props.intent, size: props.size, shape: props.shape, className })
+        toggleStyles({ ...renderProps, appearance: props.appearance, size: props.size, shape: props.shape, className })
       )}
     />
   )

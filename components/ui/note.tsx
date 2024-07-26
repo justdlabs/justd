@@ -51,8 +51,8 @@ interface NoteProps extends React.HtmlHTMLAttributes<HTMLDivElement>, VariantPro
 const Note = ({ intent = 'secondary', className, ...props }: NoteProps) => {
   return (
     <div className={noteStyles({ intent, className })} {...props}>
-      <div className="flex items-start gap-x-3">
-        <div className="mt-[3px] w-5">
+      <div className="flex items-start gap-x-2.5">
+        <div className="mt-[2.5px] w-5">
           {['info', 'primary', 'secondary'].includes(intent) ? (
             <IconCircleInfo />
           ) : intent === 'success' ? (

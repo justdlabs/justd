@@ -1,10 +1,10 @@
 'use client'
 
+import { CardBlock } from '@/components/blocks'
 import {
   IconBrandBluesky,
   IconBrandTelegram,
   IconBrandTwitter,
-  IconChevronLgDown,
   IconHashtag,
   IconHeadphones,
   IconLogout,
@@ -16,7 +16,6 @@ import {
 } from '@irsyadadl/paranoid'
 import {
   Avatar,
-  Button,
   Menu,
   MenuContent,
   MenuHeader,
@@ -24,20 +23,17 @@ import {
   MenuKeyboard,
   MenuSection,
   MenuSeparator,
+  MenuTrigger,
   SubmenuTrigger
 } from 'ui'
 
-import { CardSink } from './card-sink'
-
 export function Menus() {
   return (
-    <CardSink>
+    <CardBlock>
       <Menu>
-        <Button appearance="outline" className="[&>[data-slot=icon]]:ml-4">
-          <Avatar className="-ml-2" shape="square" size="small" src="https://github.com/irsyadadl.png" />
-          Your Profile
-          <IconChevronLgDown />
-        </Button>
+        <MenuTrigger>
+          <Avatar shape="square" size="medium" src="https://github.com/irsyadadl.png" />
+        </MenuTrigger>
         <MenuContent showArrow placement="bottom" className="min-w-64">
           <MenuSection>
             <MenuHeader separator>
@@ -107,6 +103,6 @@ export function Menus() {
           </MenuItem>
         </MenuContent>
       </Menu>
-    </CardSink>
+    </CardBlock>
   )
 }

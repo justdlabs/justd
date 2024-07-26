@@ -4,9 +4,8 @@ import * as React from 'react'
 
 import { IconSearch } from '@irsyadadl/paranoid'
 import { Command as CommandPrimitive } from 'cmdk'
-import { Button, Dialog, Modal } from 'react-aria-components'
 import type { ModalOverlayProps } from 'react-aria-components'
-import { ModalOverlay } from 'react-aria-components'
+import { Button, Dialog, Modal, ModalOverlay } from 'react-aria-components'
 import { twJoin } from 'tailwind-merge'
 
 import { cn, useMediaQuery } from './primitive'

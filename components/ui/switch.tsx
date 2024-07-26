@@ -39,7 +39,7 @@ const Switch = ({ children, intent, className, ...props }: SwitchProps) => {
     >
       {(values) => (
         <>
-          <span className={trackStyles({ intent: intent })}>
+          <span className={trackStyles({ intent })}>
             <span className="forced-colors:disabled:outline-[GrayText] group-selected:ml-3 group-selected:group-data-[pressed]:ml-2 group-pressed:w-5 block size-4 origin-right rounded-full bg-white shadow transition-all duration-200" />
           </span>
           {typeof children === 'function' ? children(values) : children}

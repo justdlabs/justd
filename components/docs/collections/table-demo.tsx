@@ -38,7 +38,7 @@ export default function TableDemo() {
       </TableHeader>
       <TableBody items={bands}>
         {(item) => (
-          <TableRow key={item.id}>
+          <TableRow id={item.id}>
             <TableCell>{item.id}</TableCell>
             <TableCell>{item.name}</TableCell>
             <TableCell>{item.genre}</TableCell>

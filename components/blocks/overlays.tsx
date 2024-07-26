@@ -1,5 +1,6 @@
 'use client'
 
+import { CardBlock } from '@/components/blocks'
 import {
   Button,
   Modal,
@@ -18,13 +19,11 @@ import {
   PopoverTitle
 } from 'ui'
 
-import { CardSink } from './card-sink'
-
 export function PopoverOverlays() {
   return (
-    <CardSink>
+    <CardBlock>
       <Popover>
-        <Button intent="secondary">Forgot Password</Button>
+        <Button appearance="outline">Forgot Password</Button>
         <PopoverContent className="max-w-[28rem]">
           <PopoverHeader>
             <PopoverTitle>Email</PopoverTitle>
@@ -35,13 +34,13 @@ export function PopoverOverlays() {
           </PopoverFooter>
         </PopoverContent>
       </Popover>
-    </CardSink>
+    </CardBlock>
   )
 }
 
 export function ModalOverlays() {
   return (
-    <CardSink>
+    <CardBlock>
       <Modal>
         <Button>Install Update</Button>
         <ModalOverlay>
@@ -61,6 +60,6 @@ export function ModalOverlays() {
           </ModalContent>
         </ModalOverlay>
       </Modal>
-    </CardSink>
+    </CardBlock>
   )
 }
