@@ -24,7 +24,7 @@ import {
   IconSearch,
   IconSun
 } from '@irsyadadl/paranoid'
-import { LayoutGroup, motion } from 'framer-motion'
+import { LayoutGroup } from 'framer-motion'
 import { useTheme } from 'next-themes'
 import { usePathname } from 'next/navigation'
 import { Collection } from 'react-aria-components'
@@ -33,8 +33,6 @@ import {
   buttonStyles,
   cn,
   Link,
-  LinkPrimitive,
-  type LinkProps,
   Menu,
   MenuContent,
   MenuHeader,
@@ -50,6 +48,8 @@ import {
   SubmenuTrigger,
   useMediaQuery
 } from 'ui'
+
+import { NavLink } from './nav-item'
 
 const menuItems = [
   { id: 1, label: 'Home', url: '/' },
@@ -74,22 +74,24 @@ export function Navbar() {
                   <NavbarDropdown />
                   <Separator orientation="vertical" className="h-6" />
                   <Collection items={menuItems}>
-                    <NavLink isActive={pathname === '/'} href="/">
+                    <NavLink isNextLink isActive={pathname === '/'} href="/">
                       Home
                     </NavLink>
                     <NavLink
+                      isNextLink
                       isActive={pathname?.startsWith('/docs') && !pathname?.includes('/docs/components')}
                       href="/docs/getting-started/introduction"
                     >
                       Docs
                     </NavLink>
                     <NavLink
+                      isNextLink
                       isActive={pathname?.startsWith('/docs/components') || pathname === '/components'}
                       href="/components"
                     >
                       Components
                     </NavLink>
-                    <NavLink isActive={pathname === '/colors'} href="/colors">
+                    <NavLink isNextLink isActive={pathname === '/colors'} href="/colors">
                       Colors
                     </NavLink>
                     <NavLink target="_blank" href="https://paranoid.irsyad.co">
@@ -173,30 +175,6 @@ export function Navbar() {
       </LayoutGroup>
       <ResponsiveAside open={open} setOpen={setOpen} />
     </>
-  )
-}
-
-export function NavLink({ href, isActive, ...props }: LinkProps & { isActive?: boolean }) {
-  return (
-    <LinkPrimitive
-      href={href}
-      className={cn(
-        'relative flex focus-visible:text-fg items-center gap-x-3 font-medium py-2 text-sm text-muted-fg transition-colors focus:outline-none sm:py-3',
-        isActive ? 'text-fg' : 'text-muted-fg hover:text-fg',
-        props.className
-      )}
-      {...props}
-    >
-      <>
-        {props.children}
-        {isActive && (
-          <motion.span
-            layoutId="current-indicator-navlink"
-            className="absolute inset-x-0 bottom-[-0.550rem] h-0.5 w-full rounded bg-fg"
-          />
-        )}
-      </>
-    </LinkPrimitive>
   )
 }
 

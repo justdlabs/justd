@@ -5,10 +5,10 @@ import * as React from 'react'
 import { IconSearch } from '@irsyadadl/paranoid'
 import { Command as CommandPrimitive } from 'cmdk'
 import { Button, Dialog, Modal } from 'react-aria-components'
+import type { ModalOverlayProps } from 'react-aria-components'
+import { ModalOverlay } from 'react-aria-components'
 import { twJoin } from 'tailwind-merge'
 
-import type { ModalOverlayProps } from './modal'
-import { ModalOverlay } from './modal'
 import { cn, useMediaQuery } from './primitive'
 
 type CommandComponent = React.ForwardRefExoticComponent<
@@ -31,6 +31,7 @@ const Command: CommandComponent = React.forwardRef<
     {...props}
   />
 )) as any
+
 Command.displayName = CommandPrimitive.displayName
 
 interface CommandModalProps extends ModalOverlayProps {
@@ -40,7 +41,10 @@ interface CommandModalProps extends ModalOverlayProps {
 const CommandModal = ({ children, ...props }: CommandModalProps) => {
   const isDesktop = useMediaQuery('(min-width: 1024px)')
   return (
-    <ModalOverlay {...props}>
+    <ModalOverlay
+      className="fixed inset-0 z-50 bg-black/60 entering:animate-in entering:fade-in-0 exiting:animate-in exiting:fade-out-0"
+      {...props}
+    >
       <Modal
         className={twJoin(
           'fixed bottom-0 left-[50%] top-auto z-50 grid h-[calc(100vh-35%)] w-full max-w-full translate-x-[-50%] gap-4 overflow-hidden rounded-t-xl bg-background p-0 shadow-lg ring-1 ring-border sm:bottom-auto sm:top-[6rem] sm:h-auto sm:w-full sm:max-w-2xl sm:rounded-xl',
