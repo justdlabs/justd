@@ -1,20 +1,23 @@
 'use client'
 
-import { Card, CardDescription, CardHeader, CardTitle, Grid, GridItem } from 'ui'
+import { Collection } from 'react-aria-components'
+import { Card, CardDescription, CardHeader, CardTitle, Grid, GridCollection, GridItem } from 'ui'
 
 export default function GridCollectionsDemo() {
   return (
-    <Grid aria-label="List articles" columns={{ initial: 1, sm: 2, '2xl': 3 }} gap={2} items={articles}>
-      {(item) => (
-        <GridItem>
-          <Card>
-            <CardHeader>
-              <CardTitle>{item.title}</CardTitle>
-              <CardDescription>{item.description}</CardDescription>
-            </CardHeader>
-          </Card>
-        </GridItem>
-      )}
+    <Grid aria-label="List articles" columns={{ initial: 1, sm: 2, '2xl': 3 }} gap={2}>
+      <GridCollection items={articles}>
+        {(item) => (
+          <GridItem>
+            <Card>
+              <CardHeader>
+                <CardTitle>{item.title}</CardTitle>
+                <CardDescription>{item.description}</CardDescription>
+              </CardHeader>
+            </Card>
+          </GridItem>
+        )}
+      </GridCollection>
     </Grid>
   )
 }

@@ -37,9 +37,10 @@ import {
   buttonStyles,
   Card,
   cn,
+  Grid,
+  GridItem,
   GridList,
   GridListItem,
-  gridStyles,
   Link,
   Note,
   Popover,
@@ -55,20 +56,20 @@ export function Blocks() {
     <section id="blocks" className="mb-12">
       <h2 className="text-2xl mb-6 font-bold">Blocks</h2>
       <div className="space-y-4 lg:space-y-8">
-        <div className={gridStyles({ columns: { initial: 1, sm: 2, lg: 5 }, gap: { initial: 4, lg: 8 } })}>
-          <div className="lg:col-span-3">
+        <Grid columns={{ initial: 1, sm: 2, lg: 5 }} gap={{ initial: 4, lg: 8 }}>
+          <GridItem colSpan={{ initial: 1, lg: 3 }}>
             <CardBlock>
               <TableDemo />
             </CardBlock>
-          </div>
-          <div className="lg:col-span-2">
+          </GridItem>
+          <GridItem colSpan={{ initial: 1, lg: 2 }}>
             <CardBlock>
               <LoginForm />
             </CardBlock>
-          </div>
-        </div>
-        <div className={gridStyles({ columns: { initial: 1, sm: 2, lg: 3 }, gap: { initial: 4, lg: 8 } })}>
-          <div className="flex flex-col gap-y-4 lg:gap-y-8">
+          </GridItem>
+        </Grid>
+        <Grid columns={{ initial: 1, sm: 2, lg: 3 }} gap={{ initial: 4, lg: 8 }}>
+          <GridItem className="flex flex-col gap-y-4 lg:gap-y-8">
             <Card className="p-6">
               <div className="flex justify-center gap-2">
                 <Toolbar aria-label="Toolbars" className="flex justify-between">
@@ -106,47 +107,70 @@ export function Blocks() {
                 </Toolbar>
               </div>
             </Card>
-            <>
-              <GridList items={items} aria-label="Select items" selectionMode="multiple" className="min-w-64">
-                {(item) => <GridListItem>{item.name}</GridListItem>}
-              </GridList>
-            </>
-          </div>
-          <CheckRadioBlock />
-          <CardBlock className="p-4 py-2 sm:p-4 lg:px-5 lg:py-0">
-            <div>
-              <Note>Check out the latest updates on our dashboard!</Note>
-              <Note intent="primary">Reminder: Complete your profile to get personalized recommendations.</Note>
-              <Note intent="warning">Heads up! We'll be doing system maintenance this Sunday at 2 AM.</Note>
-              <Note intent="danger">Alert: Your subscription expires in 3 days. Renew now to avoid interruption.</Note>
-              <Note intent="info">Did you know? You can now export your reports in Excel format.</Note>
-            </div>
-          </CardBlock>
-          <CardBlock>
-            <SelectDemo />
-          </CardBlock>
-          <CardBlock>
-            <ComboBoxAvatarDemo />
-          </CardBlock>
-          <CardBlock>
-            <ColorPickerCombinationDemo />
-          </CardBlock>
-          <ModalOverlays />
-          <PopoverOverlays />
-          <CardBlock>
-            <TooltipDelayDemo />
-          </CardBlock>
-          <Buttons />
-          <AvatarDemo />
-
-          <CardBlock>
-            <SwitchDemo />
-          </CardBlock>
-          <div className="lg:col-span-2">
+            <GridList items={items} aria-label="Select items" selectionMode="multiple" className="min-w-64">
+              {(item) => <GridListItem>{item.name}</GridListItem>}
+            </GridList>
+          </GridItem>
+          <GridItem>
+            <CheckRadioBlock />
+          </GridItem>
+          <GridItem>
+            <CardBlock className="p-4 py-2 sm:p-4 lg:px-5 lg:py-0">
+              <div>
+                <Note>Check out the latest updates on our dashboard!</Note>
+                <Note intent="primary">Reminder: Complete your profile to get personalized recommendations.</Note>
+                <Note intent="warning">Heads up! We'll be doing system maintenance this Sunday at 2 AM.</Note>
+                <Note intent="danger">
+                  Alert: Your subscription expires in 3 days. Renew now to avoid interruption.
+                </Note>
+                <Note intent="info">Did you know? You can now export your reports in Excel format.</Note>
+              </div>
+            </CardBlock>
+          </GridItem>
+          <GridItem>
+            <CardBlock>
+              <SelectDemo />
+            </CardBlock>
+          </GridItem>
+          <GridItem>
+            <CardBlock>
+              <ComboBoxAvatarDemo />
+            </CardBlock>
+          </GridItem>
+          <GridItem>
+            <CardBlock>
+              <ColorPickerCombinationDemo />
+            </CardBlock>
+          </GridItem>
+          <GridItem>
+            <ModalOverlays />
+          </GridItem>
+          <GridItem>
+            <PopoverOverlays />
+          </GridItem>
+          <GridItem>
+            <CardBlock>
+              <TooltipDelayDemo />
+            </CardBlock>
+          </GridItem>
+          <GridItem>
+            <Buttons />
+          </GridItem>
+          <GridItem>
+            <AvatarDemo />
+          </GridItem>
+          <GridItem>
+            <CardBlock>
+              <SwitchDemo />
+            </CardBlock>
+          </GridItem>
+          <GridItem colSpan={{ initial: 1, lg: 2 }}>
             <GridListDragBlock />
-          </div>
-          <Menus />
-        </div>
+          </GridItem>
+          <GridItem>
+            <Menus />
+          </GridItem>
+        </Grid>
       </div>
 
       <div className="flex items-center mt-8 justify-center lg:justify-end">
