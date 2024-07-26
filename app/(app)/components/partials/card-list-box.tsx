@@ -4,7 +4,6 @@ import React from 'react'
 
 import { docs } from '#site/content'
 import { goodTitle } from '@/lib/utils'
-import { Collection } from 'react-aria-components'
 import { buttonStyles, Description, Grid, GridCollection, GridItem, Heading } from 'ui'
 
 type GroupedComponents = {

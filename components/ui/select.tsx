@@ -2,14 +2,13 @@
 
 import * as React from 'react'
 
-import { IconChevronLgDown, IconX } from '@irsyadadl/paranoid'
+import { IconChevronLgDown } from '@irsyadadl/paranoid'
 import type { Placement } from '@react-types/overlays'
 import {
   Button,
   Group,
   Select as SelectPrimitive,
   type SelectProps as SelectPrimitiveProps,
-  SelectStateContext,
   SelectValue,
   type ValidationResult
 } from 'react-aria-components'
@@ -63,14 +62,11 @@ const Select = <T extends object>({
           {prefix && <span className="-mr-1">{prefix}</span>}
           <SelectValue className="flex-1 [&_[slot=description]]:hidden text-base placeholder-shown:text-muted-fg lg:text-sm" />
 
-          {!props?.selectedKey && (
-            <IconChevronLgDown
-              aria-hidden
-              className="size-4 text-muted-fg duration-300 group-open:rotate-180 group-open:text-fg group-disabled:opacity-50 forced-colors:text-[ButtonText] forced-colors:group-disabled:text-[GrayText]"
-            />
-          )}
+          <IconChevronLgDown
+            aria-hidden
+            className="size-4 text-muted-fg duration-300 group-open:rotate-180 group-open:text-fg group-disabled:opacity-50 forced-colors:text-[ButtonText] forced-colors:group-disabled:text-[GrayText]"
+          />
         </Button>
-        {props?.selectedKey && <SelectClearButton />}
       </Group>
       {description && <Description>{description}</Description>}
       <FieldError>{errorMessage}</FieldError>
@@ -80,24 +76,6 @@ const Select = <T extends object>({
         </ListBoxPicker>
       </PopoverPicker>
     </SelectPrimitive>
-  )
-}
-
-const SelectClearButton = () => {
-  const state = React.useContext(SelectStateContext)
-
-  return (
-    <Button
-      className="focus:outline-none absolute inset-y-0 right-0 flex items-center pr-2 text-muted-fg hover:text-fg"
-      slot={null}
-      aria-label="Clear"
-      onPress={() => {
-        state?.setSelectedKey(null)
-        state?.open()
-      }}
-    >
-      <IconX className="size-4" />
-    </Button>
   )
 }
 

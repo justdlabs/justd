@@ -16,8 +16,7 @@ import { IconBrandTailwindcss, IconCheck, IconDuplicate } from '@irsyadadl/paran
 import { parseColor } from '@react-stately/color'
 import type { ColorFormat } from '@react-types/color'
 import { AnimatePresence, motion } from 'framer-motion'
-import { GridList, GridListItemProps } from 'react-aria-components'
-import { GridListItem, Text, ToggleButton } from 'react-aria-components'
+import { GridList, GridListItem, GridListItemProps, Text, ToggleButton } from 'react-aria-components'
 import { useInView } from 'react-intersection-observer'
 import { toast } from 'sonner'
 import {
@@ -25,7 +24,6 @@ import {
   cn,
   ColorSwatch,
   Container,
-  Grid,
   gridStyles,
   Header as HeaderPrimitive,
   Heading,
