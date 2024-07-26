@@ -10,10 +10,12 @@ import {
   CloseButtonIndicator,
   Modal,
   ModalClose,
+  ModalContext,
   ModalDescription,
   ModalFooter,
   ModalHeader,
   ModalOverlay,
+  ModalOverlayContext,
   ModalTitle
 } from './modal'
 
@@ -78,13 +80,19 @@ const SheetContent = ({
   isStack = true,
   ...props
 }: SheetContentProps) => {
+  const { isDismissable: overlayIsDismissable } = React.useContext(ModalOverlayContext)
+  const { isDismissable: modalIsDismissable } = React.useContext(ModalContext)
+
+  const isDismissable = overlayIsDismissable !== undefined ? overlayIsDismissable : modalIsDismissable
   return (
     <ModalPrimitive className={sheetStyles({ side, isStack, className })} {...props}>
       <Dialog aria-label="Sheet" role={role} className="h-full">
         {(values) => (
           <>
             {typeof children === 'function' ? children(values) : children}
-            {closeButton && <CloseButtonIndicator className="top-2.5 right-2.5" close={values.close} />}
+            {closeButton && (
+              <CloseButtonIndicator className="top-2.5 right-2.5" close={values.close} isDismissable={isDismissable} />
+            )}
           </>
         )}
       </Dialog>
