@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 
-import { Collection, Section, type SectionProps } from 'react-aria-components'
+import { Collection } from 'react-aria-components'
 import { tv, type VariantProps } from 'tailwind-variants'
 
 import { cn } from './primitive'

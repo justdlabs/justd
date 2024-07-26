@@ -1,6 +1,5 @@
 'use client'
 
-import { Collection } from 'react-aria-components'
 import { Card, CardDescription, CardHeader, CardTitle, Grid, GridCollection, GridItem } from 'ui'
 
 export default function GridCollectionsDemo() {
