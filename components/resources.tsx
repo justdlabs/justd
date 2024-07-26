@@ -1,7 +1,7 @@
 'use client'
 
 import { IconBrandLaravel, IconBrandNextjs } from '@irsyadadl/paranoid'
-import { Badge, CardDescription, CardFooter, CardHeader, CardTitle, Grid, GridItem } from 'ui'
+import { Badge, CardDescription, CardFooter, CardHeader, CardTitle, Grid, GridCollection, GridItem, Link } from 'ui'
 
 const resources = [
   {
@@ -41,32 +41,37 @@ export function Resources() {
           initial: 4,
           lg: 8
         }}
-        items={resources}
         aria-label="Resources"
       >
-        {(item) => (
-          <GridItem
-            aria-label={item.name}
-            id={item.name.toLowerCase().replaceAll(' ', '-')}
-            href={item.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex flex-col rounded-md border focus-visible:ring-2 focus-visible:ring-primary/20 focus-visible:border-primary transition-colors hover:bg-tertiary bg-tertiary/80"
-          >
-            <div className="flex-1">
-              <div className="px-6 pt-6">
-                <item.icon className="size-7" />
+        <GridCollection items={resources}>
+          {(item) => (
+            <GridItem
+              aria-label={item.name}
+              id={item.name.toLowerCase().replaceAll(' ', '-')}
+              className="flex relative flex-col rounded-md border focus-visible:ring-2 focus-visible:ring-primary/20 focus-visible:border-primary transition-colors hover:bg-tertiary bg-tertiary/80"
+            >
+              <Link
+                aria-label={`Open ${item.name}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                href={item.url}
+                className="absolute inset-0 size-full"
+              />
+              <div className="flex-1">
+                <div className="px-6 pt-6">
+                  <item.icon className="size-7" />
+                </div>
+                <CardHeader>
+                  <CardTitle level={3}>{item.name}</CardTitle>
+                  <CardDescription className="line-clamp-2">{item.description}</CardDescription>
+                </CardHeader>
               </div>
-              <CardHeader>
-                <CardTitle level={3}>{item.name}</CardTitle>
-                <CardDescription className="line-clamp-2">{item.description}</CardDescription>
-              </CardHeader>
-            </div>
-            <CardFooter>
-              <Badge>{item.label}</Badge>
-            </CardFooter>
-          </GridItem>
-        )}
+              <CardFooter>
+                <Badge>{item.label}</Badge>
+              </CardFooter>
+            </GridItem>
+          )}
+        </GridCollection>
       </Grid>
     </section>
   )

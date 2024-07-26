@@ -2,7 +2,7 @@
 
 import { docs } from '#site/content'
 import { usePathname } from 'next/navigation'
-import { Card, CardDescription, CardHeader, CardTitle, Grid, GridItem } from 'ui'
+import { Card, CardDescription, CardHeader, CardTitle, Grid, GridCollection, GridItem, Link } from 'ui'
 
 const simplifiedDocs = docs.map(({ title, slug, description }) => ({ title, slug, description }))
 
@@ -38,18 +38,26 @@ export function DocComposed({ components, text }: { components: string[]; text?:
           initial: filteredComponents.length === 1 ? 1 : 2,
           sm: 2
         }}
-        items={filteredComponents}
       >
-        {(item) => (
-          <GridItem id={item.slug} href={`/${item.slug}`}>
-            <Card className="overflow-hidden hover:bg-secondary/40 focus:bg-secondary/40 transition-colors">
-              <CardHeader className="p-4">
-                <CardTitle className="sm:text-lg text-base line-clamp-1 font-medium">{item.title}</CardTitle>
-                <CardDescription className="line-clamp-2">{item.description}</CardDescription>
-              </CardHeader>
-            </Card>
-          </GridItem>
-        )}
+        <GridCollection items={filteredComponents}>
+          {(item) => (
+            <GridItem className="relative" id={item.slug}>
+              <Link
+                aria-label={`Open ${item.title}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                href={`/${item.slug}`}
+                className="absolute inset-0 size-full"
+              />
+              <Card className="overflow-hidden hover:bg-secondary/40 focus:bg-secondary/40 transition-colors">
+                <CardHeader className="p-4">
+                  <CardTitle className="sm:text-lg text-base line-clamp-1 font-medium">{item.title}</CardTitle>
+                  <CardDescription className="line-clamp-2">{item.description}</CardDescription>
+                </CardHeader>
+              </Card>
+            </GridItem>
+          )}
+        </GridCollection>
       </Grid>
     </div>
   )
