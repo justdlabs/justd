@@ -42,6 +42,7 @@ const CommandModal = ({ children, ...props }: CommandModalProps) => {
   const isDesktop = useMediaQuery('(min-width: 1024px)')
   return (
     <ModalOverlay
+      isDismissable
       className="fixed inset-0 z-50 bg-black/60 entering:animate-in entering:fade-in-0 exiting:animate-in exiting:fade-out-0"
       {...props}
     >
