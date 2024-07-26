@@ -55,7 +55,7 @@ export function CommandPalette({ open, setOpen }: OpenCloseProps) {
   })
 
   return (
-    <CommandModal isBlurred={false} isOpen={open} onOpenChange={setOpen}>
+    <CommandModal isOpen={open} onOpenChange={setOpen}>
       <CommandInput autoFocus={isDesktop} placeholder="Search Component" />
       <CommandList>
         <CommandEmpty>No results found.</CommandEmpty>
