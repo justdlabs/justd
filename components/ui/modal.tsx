@@ -205,5 +205,7 @@ export {
   ModalTitle,
   ModalTrigger,
   type ModalOverlayProps,
-  type ModalContentProps
+  type ModalContentProps,
+  ModalContext,
+  ModalOverlayContext
 }
