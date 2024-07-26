@@ -63,7 +63,6 @@ const ColorPicker = ({
   const [space, setSpace] = React.useState<ColorSpace>('rgb')
   const [isHexFormat, setIsHexFormat] = React.useState(false)
   const value = props.value ?? props.defaultValue
-
   return (
     <Group className={cn('flex w-full flex-col gap-1', className)}>
       {label && <Label>{label}</Label>}
@@ -119,6 +118,7 @@ const ColorPicker = ({
                   <Select
                     aria-label="Select color format"
                     selectedKey={space}
+                    defaultSelectedKey={space}
                     onSelectionChange={(s) => {
                       setSpace(s as ColorSpace)
                       setIsHexFormat(s === 'hex')
