@@ -4,7 +4,8 @@ import React from 'react'
 
 import { docs } from '#site/content'
 import { goodTitle } from '@/lib/utils'
-import { buttonStyles, Description, Grid, GridItem, Heading } from 'ui'
+import { Collection } from 'react-aria-components'
+import { buttonStyles, Description, Grid, GridCollection, GridItem, Heading } from 'ui'
 
 type GroupedComponents = {
   [category: string]: {
@@ -47,31 +48,30 @@ export function CardListBox() {
           </Heading>
           <Grid
             aria-label="Components"
-            items={components}
             className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2"
             columns={{
               initial: 1,
               sm: 2,
               lg: 3
             }}
-            layout="grid"
           >
-            {(component) => (
-              <GridItem
-                href={`/${component.slug}`}
-                className="relative cursor-pointer focus:outline-none p-4 lg:p-6 h-full flex flex-col w-full focus-visible:outline-none focus-visible:outline-primary rounded-xl bg-white shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:bg-zinc-900 dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:-inset-px dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset] forced-colors:outline"
-                aria-label={component.title}
-                id={component.slug}
-              >
-                <div className="flex-1">
-                  <Heading level={3}>{component.title}</Heading>
-                  <Description className="block mt-2">{component.description}</Description>
-                </div>
-                <div className="justify-end flex mt-6">
-                  <div className={buttonStyles({ intent: 'light/dark' })}>View</div>
-                </div>
-              </GridItem>
-            )}
+            <GridCollection items={components}>
+              {(component) => (
+                <GridItem
+                  className="relative cursor-pointer focus:outline-none p-4 lg:p-6 h-full flex flex-col w-full focus-visible:outline-none focus-visible:outline-primary rounded-xl bg-white shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:bg-zinc-900 dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:-inset-px dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset] forced-colors:outline"
+                  aria-label={component.title}
+                  id={component.slug}
+                >
+                  <div className="flex-1">
+                    <Heading level={3}>{component.title}</Heading>
+                    <Description className="block mt-2">{component.description}</Description>
+                  </div>
+                  <div className="justify-end flex mt-6">
+                    <div className={buttonStyles({ intent: 'light/dark' })}>View</div>
+                  </div>
+                </GridItem>
+              )}
+            </GridCollection>
           </Grid>
         </div>
       ))}

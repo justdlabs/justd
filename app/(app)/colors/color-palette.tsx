@@ -16,7 +16,7 @@ import { IconBrandTailwindcss, IconCheck, IconDuplicate } from '@irsyadadl/paran
 import { parseColor } from '@react-stately/color'
 import type { ColorFormat } from '@react-types/color'
 import { AnimatePresence, motion } from 'framer-motion'
-import type { GridListItemProps } from 'react-aria-components'
+import { GridList, GridListItemProps } from 'react-aria-components'
 import { GridListItem, Text, ToggleButton } from 'react-aria-components'
 import { useInView } from 'react-intersection-observer'
 import { toast } from 'sonner'
@@ -155,10 +155,12 @@ export function ColorRow({ item }: ColorPaletteProps) {
             </>
           </div>
         </div>
-        <Grid
-          columns={{ initial: 7, lg: 11 }}
-          gapY={{ initial: 3, sm: 1 }}
-          gapX={{ initial: 1, sm: 1 }}
+        <GridList
+          className={gridStyles({
+            columns: { initial: 7, lg: 11 },
+            gapX: { initial: 1, sm: 1 },
+            gapY: { initial: 3, sm: 1 }
+          })}
           aria-label={`${item.name} 50-950 colors`}
           items={item.children}
         >
@@ -173,7 +175,7 @@ export function ColorRow({ item }: ColorPaletteProps) {
               }}
             />
           )}
-        </Grid>
+        </GridList>
       </div>
     </>
   )

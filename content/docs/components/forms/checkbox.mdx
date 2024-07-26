@@ -58,9 +58,3 @@ You can add a description to the checkbox group by passing the `description` pro
 ### Group Disabled
 You can disable the checkbox group by passing the `isDisabled` prop.
 <How minW72 toUse="forms/checkbox-group-disabled-demo" />
-
-## Caution
-When you drop this checkbox into a [GridList](/components/collections/grid-list) or [Grid](/docs/components/surfaces/grid), make sure to slap on the `selectionBehavior` prop to either. Since the checkbox chills as a kid of the grid item, which in turn is the parent, not setting this up will leave your checkbox unclickable.
-<Note>
-  **For now!** Dropping a checkbox into a Grid, like in a form? It'll straight up ghost your clicks. That's why the [Grid](/docs/components/surfaces/grid) is still rockin' that beta tag. I'm on the hustle to sort this out.
-</Note>
