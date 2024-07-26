@@ -6,16 +6,16 @@ import { Toggle } from 'ui'
 export default function ToggleSizeDemo() {
   return (
     <div className="flex flex-wrap gap-2">
-      <Toggle intent="outline" size="square-petite">
+      <Toggle appearance="outline" size="square-petite">
         {({ isSelected }) => <>{isSelected ? <IconAccessibleFill /> : <IconAccessible />}</>}
       </Toggle>
-      <Toggle intent="outline" size="small">
+      <Toggle appearance="outline" size="small">
         {({ isSelected }) => <>{isSelected ? 'Unpin' : 'Pin'}</>}
       </Toggle>
-      <Toggle intent="outline" size="medium">
+      <Toggle appearance="outline" size="medium">
         {({ isSelected }) => <>{isSelected ? 'Unpin' : 'Pin'}</>}
       </Toggle>
-      <Toggle intent="outline" size="large">
+      <Toggle appearance="outline" size="large">
         {({ isSelected }) => <>{isSelected ? 'Unpin' : 'Pin'}</>}
       </Toggle>
     </div>

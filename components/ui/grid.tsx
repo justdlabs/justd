@@ -302,7 +302,7 @@ const GridItem = ({
         colEnd,
         rowStart,
         rowEnd,
-        className
+        className: 'href' in props ? cn('cursor-pointer', className) : className
       })}
       {...props}
     >

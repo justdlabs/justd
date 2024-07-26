@@ -25,6 +25,10 @@ A basic grid list's a dope way for your peeps to cruise through a list of stuff.
 ## Multiple Selection
 By default, if you don’t tweak the selectionMode prop, it's single selection. But, you can switch it up to multiple selection too.
 <How minW72 toUse="collections/grid-list-multiple-demo" />
+Note that I didn't set an `id` for the grid list item since the items already have default IDs. Just assume there's no `id`, and you'll need to attach the `id` props to the grid list item like this:
+```
+{(item) => <GridListItem id={item.name}>{item.name}</GridListItem>}
+```
 
 ## Drag and Drop
 Grid list lets you drag and drop stuff if you roll with the dragAndDropHooks prop and the useDragAndDrop hook. You can drop data on the whole list, on individual items, add new stuff between old ones, or rearrange items.

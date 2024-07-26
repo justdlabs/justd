@@ -33,7 +33,7 @@ const CardHeader = ({ className, ...props }: React.ComponentProps<typeof Header>
 )
 
 const CardTitle = ({ className, ...props }: HeadingProps) => {
-  return <Heading className={title({ className })} {...props} />
+  return <Heading slot="title" className={title({ className })} {...props} />
 }
 
 const CardDescription = (props: TextProps) => {

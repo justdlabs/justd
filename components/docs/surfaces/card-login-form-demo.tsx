@@ -21,7 +21,7 @@ export default function CardLoginFormDemo() {
         <CardTitle>Login</CardTitle>
         <CardDescription>Don't loose the level, just keep on going.</CardDescription>
       </CardHeader>
-      <Form action={() => {}}>
+      <Form onSubmit={() => {}}>
         <CardContent className="space-y-6">
           <TextField isRequired label="Email" placeholder="Enter your email" />
           <TextField isRequired label="Password" type="password" placeholder="Enter your password" />

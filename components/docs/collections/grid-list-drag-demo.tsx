@@ -20,7 +20,7 @@ export default function GridListDragDemo() {
   })
 
   return (
-    <div>
+    <>
       <GridList
         items={list.items}
         aria-label="Droppable list"
@@ -29,7 +29,7 @@ export default function GridListDragDemo() {
       >
         {(item) => <GridListItem id={item.id}>{item.name}</GridListItem>}
       </GridList>
-    </div>
+    </>
   )
 }
 

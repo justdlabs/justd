@@ -1,13 +1,12 @@
 'use client'
 
-import { Avatar } from 'ui'
+import { CardBlock } from '@/components/blocks'
+import AvatarGroupDemo from '@/components/docs/media/avatar-group-demo'
 
 export default function AvatarDemo() {
   return (
-    <div className="flex gap-4">
-      <Avatar size="small" src="https://github.com/irsyadadl.png" />
-      <Avatar size="medium" src="https://github.com/irsyadadl.png" />
-      <Avatar size="large" src="https://github.com/irsyadadl.png" />
-    </div>
+    <CardBlock>
+      <AvatarGroupDemo />
+    </CardBlock>
   )
 }

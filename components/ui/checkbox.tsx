@@ -119,8 +119,10 @@ const Checkbox = (props: CheckboxProps) => {
             ) : null}
           </div>
 
-          <>{props.children}</>
-          {props.description && <Description>{props.description}</Description>}
+          <div className="flex flex-col gap-1">
+            <>{props.children}</>
+            {props.description && <Description>{props.description}</Description>}
+          </div>
         </div>
       )}
     </CheckboxPrimitive>

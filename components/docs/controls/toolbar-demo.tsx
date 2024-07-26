@@ -32,31 +32,31 @@ export default function ToolbarDemo() {
   return (
     <Toolbar aria-label="Toolbars">
       <ToolbarGroup aria-label="Text Formatting Options">
-        <ToolbarItem defaultSelected aria-label="Bold" size="square-petite" intent="outline">
+        <ToolbarItem defaultSelected aria-label="Bold" size="square-petite" appearance="outline">
           {({ isSelected }) => <>{isSelected ? <IconBoldFill /> : <IconBold />}</>}
         </ToolbarItem>
-        <ToolbarItem aria-label="Italic" size="square-petite" intent="outline">
+        <ToolbarItem aria-label="Italic" size="square-petite" appearance="outline">
           {({ isSelected }) => <>{isSelected ? <IconItalicFill /> : <IconItalic />}</>}
         </ToolbarItem>
-        <ToolbarItem aria-label="Underline" size="square-petite" intent="outline">
+        <ToolbarItem aria-label="Underline" size="square-petite" appearance="outline">
           {({ isSelected }) => <>{isSelected ? <IconUnderlineFill /> : <IconUnderline />}</>}
         </ToolbarItem>
-        <ToolbarItem aria-label="Strikethrough" size="square-petite" intent="outline">
+        <ToolbarItem aria-label="Strikethrough" size="square-petite" appearance="outline">
           {({ isSelected }) => <>{isSelected ? <IconStrikeThroughFill /> : <IconStrikeThrough />}</>}
         </ToolbarItem>
       </ToolbarGroup>
       <ToolbarSeparator />
       <ToolbarGroup aria-label="Alignment">
-        <ToolbarItem aria-label="Align Left" size="square-petite" intent="outline">
+        <ToolbarItem aria-label="Align Left" size="square-petite" appearance="outline">
           {({ isSelected }) => <>{isSelected ? <IconAlignmentLeftFill /> : <IconAlignmentLeft />}</>}
         </ToolbarItem>
-        <ToolbarItem aria-label="Align Center" intent="outline">
+        <ToolbarItem aria-label="Align Center" appearance="outline">
           {({ isSelected }) => <>{isSelected ? <IconAlignmentCenterFill /> : <IconAlignmentCenter />}</>}
         </ToolbarItem>
-        <ToolbarItem aria-label="Align Right" intent="outline">
+        <ToolbarItem aria-label="Align Right" appearance="outline">
           {({ isSelected }) => <>{isSelected ? <IconAlignmentRightFill /> : <IconAlignmentRight />}</>}
         </ToolbarItem>
-        <ToolbarItem aria-label="Align Justify" intent="outline">
+        <ToolbarItem aria-label="Align Justify" appearance="outline">
           {({ isSelected }) => <>{isSelected ? <IconAlignmentJustifyFill /> : <IconAlignmentJustify />}</>}
         </ToolbarItem>
       </ToolbarGroup>

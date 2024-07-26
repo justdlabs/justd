@@ -4,7 +4,7 @@ import { Toggle } from 'ui'
 
 export default function ToggleShapeDemo() {
   return (
-    <Toggle intent="outline" shape="circle">
+    <Toggle appearance="outline" shape="circle">
       {({ isSelected }) => <>{isSelected ? 'Unpin' : 'Pin'}</>}
     </Toggle>
   )

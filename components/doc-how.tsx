@@ -33,7 +33,10 @@ export function DocHow({
   const Preview = previews[toUse] ? previews[toUse].component : null
 
   // @ts-ignore
-  const codeString = jsonPreviews[toUse].raw ?? ''
+  let codeString = jsonPreviews[toUse].raw ?? ''
+
+  codeString = codeString.replace(/function\s+\w+\s*\(/g, 'function App(')
+
   return (
     <div className={cn('not-prose relative my-4', className)} {...props}>
       <Tabs aria-label="Packages">

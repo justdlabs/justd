@@ -4,7 +4,7 @@ import React from 'react'
 
 import { Description, Slider } from 'ui'
 
-export default function SearchFieldControlledDemo() {
+export default function SliderControlledDemo() {
   const [temperature, setTemperature] = React.useState<number>(31)
   const [saturation, setSaturation] = React.useState<number[]>([21, 86])
   return (

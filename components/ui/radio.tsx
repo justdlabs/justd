@@ -25,7 +25,7 @@ const RadioGroup = (props: RadioGroupProps) => {
   return (
     <RadioGroupPrimitive {...props} className={ctr(props.className, 'group flex flex-col gap-2')}>
       <Label>{props.label}</Label>
-      <div className="flex gap-2 group-orientation-horizontal:flex-wrap group-orientation-horizontal:gap-2 sm:group-orientation-horizontal:gap-4 group-orientation-vertical:flex-col">
+      <div className="flex select-none gap-2 group-orientation-horizontal:flex-wrap group-orientation-horizontal:gap-2 sm:group-orientation-horizontal:gap-4 group-orientation-vertical:flex-col">
         {props.children}
       </div>
       {props.description && <Description>{props.description}</Description>}
@@ -78,7 +78,7 @@ const Radio = ({ description, ...props }: RadioProps) => {
                 className: description ? 'mt-1' : 'mt-0.5'
               })}
             />
-            <div>
+            <div className="flex flex-col gap-1">
               <>{props.children}</>
               {description && <Description className="block">{description}</Description>}
             </div>
