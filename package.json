@@ -12,7 +12,7 @@
     "preview": "bun run build && bun run start"
   },
   "dependencies": {
-    "@irsyadadl/paranoid": "^1.4.1",
+    "@irsyadadl/paranoid": "^1.4.6",
     "@openpanel/nextjs": "^0.0.10-beta",
     "@radix-ui/react-accordion": "^1.2.0",
     "@radix-ui/react-aspect-ratio": "^1.1.0",

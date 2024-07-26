@@ -13,6 +13,7 @@ import { Hero } from '@/components/hero'
 import { siteConfig } from '@/config/site'
 import type { Metadata } from 'next'
 import { Container } from 'ui'
+import { Resources } from '@/components/resources'
 
 export const metadata: Metadata = {
   title: siteConfig.name + ' is a Chill Set of React Components',
@@ -25,7 +26,9 @@ export default function Page() {
     <>
       <Hero />
       <Container>
-        <div className="py-6 sm:py-16">
+        <div className="py-6 space-y-16 sm:py-16">
+          <Resources/>
+
           <div className="grid mb-6 lg:grid-cols-3 gap-6">
             <LoginForm />
             <Menus />
