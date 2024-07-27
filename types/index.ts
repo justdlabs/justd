@@ -5,7 +5,7 @@ export interface ColorShade {
   color: string
 }
 
-export interface ColorItem {
+export interface ColorItemProps {
   name: string
   children: ColorShade[]
 }

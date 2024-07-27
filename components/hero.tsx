@@ -49,7 +49,7 @@ export function Hero() {
             >
               <IconStar /> Stars sustain energy
             </Link>
-            <Heading className="max-w-xl mt-4 text-2xl font-bold tracking-tight lg:text-5xl mb-2 lg:mb-6">
+            <Heading className="max-w-xl mt-4 text-2xl font-bold tracking-tighter lg:text-5xl mb-2 lg:mb-6">
               Making your site accessible ain't brain surgery.
             </Heading>
             <Text

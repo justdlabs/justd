@@ -95,7 +95,7 @@ export function Navbar() {
                       Colors
                     </NavLink>
                     <NavLink target="_blank" href="https://paranoid.irsyad.co">
-                      Paranoid
+                      Icons
                     </NavLink>
                     <NavLink target="_blank" href={siteConfig.repo}>
                       Github
@@ -116,23 +116,13 @@ export function Navbar() {
 
                       <span className="text-muted-fg">Search...</span>
 
-                      <MenuKeyboard className="-mr-2 [&_kbd]:min-w-[3ch]" keys="⌘K" />
+                      <MenuKeyboard className="-mr-2" keys="⌘K" />
                     </Button>
 
                     <ThemeSwitcher />
 
                     <Separator orientation="vertical" className="h-7 mx-2" />
 
-                    <Link
-                      aria-label="Github Repository"
-                      className={buttonStyles({
-                        appearance: 'outline',
-                        size: 'square-petite'
-                      })}
-                      href="/colors"
-                    >
-                      <IconColors />
-                    </Link>
                     <Link
                       aria-label="Github Repository"
                       className={buttonStyles({
@@ -281,7 +271,7 @@ export function NavbarDropdown() {
           <MenuHeader separator>Refs</MenuHeader>
           <MenuItem href="https://paranoid.irsyad.co" target="_blank">
             <IconBrandParanoid />
-            Paranoid
+            Icons
           </MenuItem>
           <MenuItem href="https://react-spectrum.adobe.com/react-aria/components.html" target="_blank">
             <IconBrandAdobe />

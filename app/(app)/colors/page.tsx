@@ -1,6 +1,7 @@
 import React from 'react'
 
-import { ColorPalette } from '@/app/(app)/colors/color-palette'
+import { ColorPalette } from '@/app/(app)/colors/(colors)/color-palette'
+import { Header } from '@/components/header'
 import { siteConfig } from '@/config/site'
 import type { Metadata } from 'next'
 
@@ -20,5 +21,13 @@ export const metadata: Metadata = {
 }
 
 export default async function Page() {
-  return <ColorPalette />
+  return (
+    <>
+      <Header>
+        Col
+        <span className="text-muted-fg">ors</span>
+      </Header>
+      <ColorPalette />
+    </>
+  )
 }

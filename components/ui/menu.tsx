@@ -150,7 +150,7 @@ interface MenuKeyboardProps extends React.HTMLAttributes<HTMLElement> {
 const MenuKeyboard = ({ keys, className, ...props }: MenuKeyboardProps) => {
   return (
     <Keyboard
-      className={cn('-mr-1 ml-auto hidden items-center gap-[0.170rem] px-1 lg:inline-flex', className)}
+      className={cn('-mr-1 ml-auto hidden items-center gap-[0.25rem] px-1 lg:inline-flex', className)}
       {...props}
     >
       {(Array.isArray(keys) ? keys : keys.split('')).map((char, index) => (

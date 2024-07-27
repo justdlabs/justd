@@ -47,11 +47,10 @@ export function CardListBox() {
           </Heading>
           <Grid
             aria-label="Components"
-            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2"
+            gap={2}
             columns={{
               initial: 1,
-              sm: 2,
-              lg: 3
+              sm: 2
             }}
           >
             <GridCollection items={components}>
@@ -61,17 +60,14 @@ export function CardListBox() {
                   aria-label={component.title}
                   id={component.slug}
                 >
-                  <Link
-                    className="absolute cursor-pointer inset-0 size-full"
-                    aria-label={`View component ${component.title}`}
-                    href={component.slug}
-                  />
                   <div className="flex-1">
                     <Heading level={3}>{component.title}</Heading>
                     <Description className="block mt-2">{component.description}</Description>
                   </div>
                   <div className="justify-end flex mt-6">
-                    <div className={buttonStyles({ intent: 'light/dark' })}>View</div>
+                    <Link href={component.slug} className={buttonStyles()}>
+                      View
+                    </Link>
                   </div>
                 </GridItem>
               )}

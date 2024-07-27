@@ -46,11 +46,11 @@ const generateColorScale = (color: string): { shade: number; color: string }[] =
     chroma(color).brighten(1).hex(),
     chroma(color).brighten(0.5).hex(),
     color,
-    chroma(color).darken(0.7).hex(),
+    chroma(color).darken(0.5).hex(),
     chroma(color).darken(1.1).hex(),
-    chroma(color).darken(1.6).hex(),
-    chroma(color).darken(2.4).hex(),
-    chroma(color).darken(2.7).hex()
+    chroma(color).darken(1.8).hex(),
+    chroma(color).darken(2.5).hex(),
+    chroma(color).darken(2.9).hex()
   ]
 
   return shades.map((shade, index) => ({

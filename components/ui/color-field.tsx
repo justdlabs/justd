@@ -34,7 +34,11 @@ const ColorField = ({
 }: ColorFieldProps) => {
   const value = props.value ?? props.defaultValue
   return (
-    <ColorFieldPrimitive {...props} className={ctr(props.className, 'group w-full flex flex-col gap-1')}>
+    <ColorFieldPrimitive
+      {...props}
+      aria-label={props['aria-label'] ?? 'Color field'}
+      className={ctr(props.className, 'group w-full flex flex-col gap-1')}
+    >
       {label && <Label>{label}</Label>}
       <FieldGroup data-loading={isLoading ? 'true' : undefined} className={fieldGroupPrefixStyles()}>
         {prefix ? <span className="atrs isPfx">{prefix}</span> : null}

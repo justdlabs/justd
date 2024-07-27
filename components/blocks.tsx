@@ -8,6 +8,7 @@ import { GridListDragBlock } from '@/components/blocks/grid-list-drag-block'
 import { LoginForm } from '@/components/blocks/login-form'
 import { Menus } from '@/components/blocks/menus'
 import { ModalOverlays, PopoverOverlays } from '@/components/blocks/overlays'
+import { SliderOnPopoverBlock } from '@/components/blocks/slider-on-popover-block'
 import { TableDemo } from '@/components/blocks/table-demo'
 import ColorPickerCombinationDemo from '@/components/docs/colors/color-picker-combination-demo'
 import SliderControlledDemo from '@/components/docs/controls/slider-controlled-demo'
@@ -55,8 +56,8 @@ export function Blocks() {
   return (
     <section id="blocks" className="mb-12">
       <h2 className="text-2xl mb-6 font-bold">Blocks</h2>
-      <div className="space-y-4 lg:space-y-8">
-        <Grid columns={{ initial: 1, sm: 2, lg: 5 }} gap={{ initial: 4, lg: 8 }}>
+      <div className="space-y-2">
+        <Grid columns={{ initial: 1, sm: 2, lg: 5 }} gap={2}>
           <GridItem colSpan={{ initial: 1, lg: 3 }}>
             <CardBlock>
               <TableDemo />
@@ -68,7 +69,7 @@ export function Blocks() {
             </CardBlock>
           </GridItem>
         </Grid>
-        <Grid columns={{ initial: 1, sm: 2, lg: 3 }} gap={{ initial: 4, lg: 8 }}>
+        <Grid columns={{ initial: 1, sm: 2, lg: 3 }} gap={2}>
           <GridItem className="flex flex-col gap-y-4 lg:gap-y-8">
             <Card className="p-6">
               <div className="flex justify-center gap-2">
@@ -83,14 +84,7 @@ export function Blocks() {
                     <ToolbarItem aria-label="Resolve with AI" appearance="outline">
                       {({ isSelected }) => <>{isSelected ? <IconMagicFill /> : <IconMagic />}</>}
                     </ToolbarItem>
-                    <Popover>
-                      <Button size="square-petite" appearance="outline">
-                        <IconAdjustment />
-                      </Button>
-                      <PopoverContent>
-                        <SliderControlledDemo />
-                      </PopoverContent>
-                    </Popover>
+                    <SliderOnPopoverBlock />
                   </ToolbarGroup>
                   <ToolbarSeparator />
                   <ToolbarGroup aria-label="Gallery">

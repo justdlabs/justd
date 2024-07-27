@@ -198,7 +198,6 @@ const isBrightColor = (color: any): boolean => {
 }
 
 const defaultColor = parseColor('hsl(216, 98%, 52%)')
-
 interface ColorSliderProps extends ColorSliderPrimitiveProps {
   label?: string
   description?: string
