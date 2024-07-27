@@ -34,7 +34,7 @@ const emptyColors = Object.keys(badgeIntents).reduce(
 const tagStyles = tv({
   base: [badgeStyles.base, 'cursor-pointer focus:outline-none select-none disabled:cursor-default'],
   variants: {
-    appearance: {
+    intent: {
       ...emptyColors
     },
     shape: {
@@ -116,8 +116,8 @@ const Tag = ({ children, intent, ...props }: TagProps) => {
       className={composeRenderProps(props.className, (className, renderProps) =>
         tagStyles({
           ...renderProps,
-          className: cn('href' in props ? '' : 'focus:ring-1 focus:ring-primary-400', className),
-          appearance: intent || groupIntent
+          className: cn('href' in props ? '' : 'focus-visible:ring-1 focus-visible:ring-primary-400', className),
+          intent: intent || groupIntent
         })
       )}
     >

@@ -12,7 +12,7 @@ export const androidBrands = [
 export default function TagGroupDemo() {
   return (
     <TagGroup label="Android Brands" selectionMode="multiple" items={androidBrands}>
-      {(item) => <Tag isDisabled={!item.available}>{item.name}</Tag>}
+      {(item) => <Tag>{item.name}</Tag>}
     </TagGroup>
   )
 }
