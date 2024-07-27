@@ -10,7 +10,7 @@ import {
   Section,
   type SectionProps,
   Text,
-  TextProps
+  type TextProps
 } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 

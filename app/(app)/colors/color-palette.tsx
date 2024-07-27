@@ -3,6 +3,7 @@
 import * as React from 'react'
 import { useEffect, useState } from 'react'
 
+import { ColorGenerator } from '@/app/(app)/colors/color-generator'
 import _colors from '@/app/(app)/colors/colors.json'
 import { PickYourVibe } from '@/app/(app)/colors/pick-your-vibe'
 import {
@@ -12,11 +13,11 @@ import {
   formatOnlyForTailwindVariableValues
 } from '@/lib/colors'
 import type { ColorItem, ColorShade } from '@/types'
-import { IconBrandTailwindcss, IconCheck, IconDuplicate } from '@irsyadadl/paranoid'
+import { IconBrandTailwindcss, IconCheck, IconDuplicate, IconLoader } from '@irsyadadl/paranoid'
 import { parseColor } from '@react-stately/color'
 import type { ColorFormat } from '@react-types/color'
 import { AnimatePresence, motion } from 'framer-motion'
-import { GridList, GridListItem, GridListItemProps, Text, ToggleButton } from 'react-aria-components'
+import { GridList, GridListItem, type GridListItemProps, Text, ToggleButton } from 'react-aria-components'
 import { useInView } from 'react-intersection-observer'
 import { toast } from 'sonner'
 import {
@@ -28,7 +29,6 @@ import {
   Header as HeaderPrimitive,
   Heading,
   isBrightColor,
-  LoadingDots,
   Select,
   SelectItem,
   snippetVariants,
@@ -75,7 +75,9 @@ export function ColorPalette() {
           </div>
         </Container>
       </HeaderPrimitive>
+
       <Container className="max-w-screen-2xl py-6 lg:py-10">
+        <ColorGenerator />
         <div
           className={gridStyles({
             columns: { initial: 1, sm: 2, lg: 3 },
@@ -88,8 +90,8 @@ export function ColorPalette() {
         </div>
 
         {hasMore && (
-          <div ref={ref} className="col-span-3 text-center">
-            <LoadingDots className="bg-fg/50" />
+          <div ref={ref} className="col-span-3 mt-8 text-center">
+            <IconLoader className="size-6 animate-spin mx-auto" />
           </div>
         )}
       </Container>
