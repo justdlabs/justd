@@ -4,7 +4,7 @@ import React from 'react'
 
 import { docs } from '#site/content'
 import { goodTitle } from '@/lib/utils'
-import { buttonStyles, Description, Grid, GridCollection, GridItem, Heading } from 'ui'
+import { buttonStyles, Description, Grid, GridCollection, GridItem, Heading, Link } from 'ui'
 
 type GroupedComponents = {
   [category: string]: {
@@ -57,10 +57,15 @@ export function CardListBox() {
             <GridCollection items={components}>
               {(component) => (
                 <GridItem
-                  className="relative cursor-pointer focus:outline-none p-4 lg:p-6 h-full flex flex-col w-full focus-visible:outline-none focus-visible:outline-primary rounded-xl bg-white shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:bg-zinc-900 dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:-inset-px dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset] forced-colors:outline"
+                  className="relative focus:outline-none p-4 lg:p-6 h-full flex flex-col w-full focus-visible:outline-none focus-visible:outline-primary rounded-xl bg-white shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:bg-zinc-900 dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:-inset-px dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset] forced-colors:outline"
                   aria-label={component.title}
                   id={component.slug}
                 >
+                  <Link
+                    className="absolute cursor-pointer inset-0 size-full"
+                    aria-label={`View component ${component.title}`}
+                    href={component.slug}
+                  />
                   <div className="flex-1">
                     <Heading level={3}>{component.title}</Heading>
                     <Description className="block mt-2">{component.description}</Description>
