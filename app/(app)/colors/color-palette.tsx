@@ -139,7 +139,10 @@ export function ColorRow({ item }: ColorPaletteProps) {
               </Tooltip>
               <Select
                 selectedKey={selectedFormat}
-                onSelectionChange={(v) => setSelectedFormat(v as ColorFormat)}
+                onSelectionChange={(v) => {
+                  setSelectedFormat(v as ColorFormat)
+                  console.log(v)
+                }}
                 className="[&_.btr]:min-w-24 [&_.btr]:h-8 flex-1"
                 aria-label="Select Format"
                 placeholder="hex"
@@ -155,6 +158,7 @@ export function ColorRow({ item }: ColorPaletteProps) {
             </>
           </div>
         </div>
+
         <GridList
           className={gridStyles({
             columns: { initial: 7, lg: 11 },
@@ -164,8 +168,9 @@ export function ColorRow({ item }: ColorPaletteProps) {
           aria-label={`${item.name} 50-950 colors`}
           items={item.children}
         >
-          {(color) => (
+          {item.children.map((color, i) => (
             <ColorItem
+              key={i}
               id={Math.random().toString()}
               {...{
                 isForTailwindVariable,
@@ -174,7 +179,7 @@ export function ColorRow({ item }: ColorPaletteProps) {
                 name: item.name
               }}
             />
-          )}
+          ))}
         </GridList>
       </div>
     </>
@@ -191,6 +196,7 @@ interface ColorItemProps extends GridListItemProps {
 const ColorItem = ({ item, name, isForTailwindVariable, selectedFormat }: ColorItemProps) => {
   const [copied, setCopied] = React.useState(false)
   const handleCopy = async (selectedColor: string) => {
+    console.log(selectedFormat)
     const toCopy = isForTailwindVariable
       ? formatColorForTailwind(selectedColor, selectedFormat as FormatOnlyForTailwindVariableType)
       : selectedColor
