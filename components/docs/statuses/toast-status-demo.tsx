@@ -5,22 +5,35 @@ import { Button } from 'ui'
 
 export default function ToastStatusDemo() {
   return (
-    <div className="grid grid-cols-2 gap-3">
-      <Button appearance="outline" size="small" onPress={() => toast.error('The registration failed')}>
+    <div className="flex flex-wrap gap-3">
+      <Button appearance="outline" onPress={() => toast.error('The registration failed')}>
         Error
       </Button>
-      <Button appearance="outline" size="small" onPress={() => toast.success('The registration was successful.')}>
+      <Button appearance="outline" onPress={() => toast.success('The registration was successful.')}>
         Success
       </Button>
-      <Button appearance="outline" size="small" onPress={() => toast.warning('There was an issue during registration')}>
+      <Button appearance="outline" onPress={() => toast.warning('There was an issue during registration')}>
         Warning
       </Button>
-      <Button appearance="outline" size="small" onPress={() => toast.info('Email is already registered.')}>
+      <Button appearance="outline" onPress={() => toast.info('Email is already registered.')}>
         Info
       </Button>
-      <Button appearance="outline" size="small" onPress={() => toast.loading('We are registering your email.')}>
-        Loading
+      <Button
+        appearance="outline"
+        onPress={() => {
+          toast.promise(wait(2000), {
+            loading: 'Deleting database...',
+            success: 'Database deleted.',
+            error: 'Failed to delete database.'
+          })
+        }}
+      >
+        Promise / Loading
       </Button>
     </div>
   )
+}
+
+function wait(number: number) {
+  return new Promise((resolve) => setTimeout(resolve, number))
 }
