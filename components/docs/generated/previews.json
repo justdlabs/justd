@@ -1356,7 +1356,7 @@
   },
   "heading": {
     "component": "@/components/ui/heading",
-    "raw": "'use client'\n\nimport { Header as HeaderPrimitive, Heading as HeadingPrimitive, type HeadingProps } from 'react-aria-components'\n\nimport { cn } from './primitive'\n\nconst Header = HeaderPrimitive\nconst Heading = ({ className, level = 1, ...props }: HeadingProps) => {\n  return (\n    <HeadingPrimitive\n      level={level}\n      className={cn('font-medium text-zinc-950 dark:text-white sm:text-xl', className)}\n      {...props}\n    />\n  )\n}\n\nconst Subheading = ({ className, level = 2, ...props }: HeadingProps) => {\n  return (\n    <HeadingPrimitive\n      level={level}\n      {...props}\n      className={cn('text-base/7 font-semibold text-fg sm:text-sm/6', className)}\n    />\n  )\n}\n\nexport { Header, Heading, Subheading, type HeadingProps }\n",
+    "raw": "'use client'\n\nimport { Header as HeaderPrimitive, Heading as HeadingPrimitive, type HeadingProps } from 'react-aria-components'\n\nimport { cn } from './primitive'\n\nconst Header = HeaderPrimitive\nconst Heading = ({ className, level = 1, ...props }: HeadingProps) => {\n  return (\n    <HeadingPrimitive\n      level={level}\n      className={cn('font-semibold tracking-tight text-zinc-950 dark:text-white sm:text-2xl', className)}\n      {...props}\n    />\n  )\n}\n\nconst Subheading = ({ className, level = 2, ...props }: HeadingProps) => {\n  return (\n    <HeadingPrimitive\n      level={level}\n      {...props}\n      className={cn('text-base/7 font-semibold text-fg sm:text-sm/6', className)}\n    />\n  )\n}\n\nexport { Header, Heading, Subheading, type HeadingProps }\n",
     "type": "ui"
   },
   "choicebox": {

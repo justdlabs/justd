@@ -1,7 +1,18 @@
 'use client'
 
 import { IconBrandLaravel, IconBrandNextjs } from '@irsyadadl/paranoid'
-import { Badge, CardDescription, CardFooter, CardHeader, CardTitle, Grid, GridCollection, GridItem, Link } from 'ui'
+import {
+  Badge,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+  Grid,
+  GridCollection,
+  GridItem,
+  Heading,
+  Link
+} from 'ui'
 
 const resources = [
   {
@@ -24,7 +35,9 @@ const resources = [
 export function Resources() {
   return (
     <section id="Starter Kit" className="mb-12">
-      <h2 className="text-2xl mb-6 font-bold">Starter Kit</h2>
+      <Heading level={2} className="mb-6">
+        Starter Kit
+      </Heading>
       <Grid
         columns={{
           initial: 1,

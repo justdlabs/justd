@@ -39,6 +39,7 @@ import {
   GridItem,
   GridList,
   GridListItem,
+  Heading,
   Link,
   Note,
   Toolbar,
@@ -50,7 +51,9 @@ import {
 export function Blocks() {
   return (
     <section id="blocks" className="mb-12">
-      <h2 className="text-2xl mb-6 font-bold">Blocks</h2>
+      <Heading level={2} className="mb-6">
+        Blocks
+      </Heading>
       <div className="space-y-2">
         <Grid columns={{ initial: 1, sm: 2, lg: 5 }} gap={2}>
           <GridItem colSpan={{ initial: 1, lg: 3 }}>
