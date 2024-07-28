@@ -50,7 +50,7 @@ export default function RootLayout({
 
               <Footer />
             </div>
-            {process.env.NEXT_PUBLIC_ENV !== 'local' && (
+            {process.env.NODE_ENV !== 'production' && (
               <>
                 <Script
                   defer
