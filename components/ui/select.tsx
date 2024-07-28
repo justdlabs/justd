@@ -70,7 +70,7 @@ const Select = <T extends object>({
       </Group>
       {description && <Description>{description}</Description>}
       <FieldError>{errorMessage}</FieldError>
-      <PopoverPicker trigger="ComboBox" placement={placement}>
+      <PopoverPicker trigger="Select" placement={placement}>
         <ListBoxPicker aria-label="items" items={items}>
           {children}
         </ListBoxPicker>

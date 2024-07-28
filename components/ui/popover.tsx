@@ -99,14 +99,9 @@ const PopoverContent = ({ children, showArrow = true, className, ...props }: Pop
   )
 }
 
-const PopoverPicker = ({ showArrow = false, children, className, ...props }: PopoverProps) => {
-  const popoverContext = useSlottedContext(PopoverContext)!
-  const isSubmenu = popoverContext?.trigger === 'SubmenuTrigger'
-  let offset = showArrow ? 12 : 8
-  offset = isSubmenu ? offset - 6 : offset
+const PopoverPicker = ({ children, className, ...props }: PopoverProps) => {
   return (
     <PopoverPrimitive
-      offset={offset}
       {...props}
       className={composeRenderProps(className, (className, renderProps) =>
         popoverContentStyles({
@@ -115,18 +110,6 @@ const PopoverPicker = ({ showArrow = false, children, className, ...props }: Pop
         })
       )}
     >
-      {showArrow && (
-        <OverlayArrow className="group">
-          <svg
-            width={12}
-            height={12}
-            viewBox="0 0 12 12"
-            className="block fill-popover stroke-border group-placement-left:-rotate-90 group-placement-right:rotate-90 group-placement-bottom:rotate-180 forced-colors:fill-[Canvas] forced-colors:stroke-[ButtonBorder]"
-          >
-            <path d="M0 0 L6 6 L12 0" />
-          </svg>
-        </OverlayArrow>
-      )}
       {children}
     </PopoverPrimitive>
   )

@@ -11,8 +11,8 @@ import type { Metadata } from 'next'
 import { ViewTransitions } from 'next-view-transitions'
 import localFont from 'next/font/local'
 
-const satoshi = localFont({
-  src: './fonts/Satoshi-Variable.woff2',
+const geistSans = localFont({
+  src: './fonts/GeistVF.woff',
   variable: '--font-sans'
 })
 
@@ -38,7 +38,7 @@ export default function RootLayout({
         <body
           className={cn(
             'min-h-svh [max-width:1850px] mx-auto bg-background font-sans antialiased',
-            satoshi.variable,
+            geistSans.variable,
             geistMono.variable
           )}
           suppressHydrationWarning
