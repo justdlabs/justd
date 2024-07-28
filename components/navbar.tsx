@@ -4,12 +4,12 @@ import React, { useEffect, useId, useState } from 'react'
 
 import { Aside } from '@/components/aside'
 import { CommandPalette, type OpenCloseProps } from '@/components/command-palette'
+import { TakeCurrentUrl } from '@/components/take-current-url'
 import { ThemeSwitcher } from '@/components/theme-switcher'
 import { siteConfig } from '@/config/site'
 import {
   IconBrandAdobe,
   IconBrandD,
-  IconBrandFramer,
   IconBrandGithub,
   IconBrandParanoid,
   IconBrandTailwindcss,
@@ -118,7 +118,7 @@ export function Navbar() {
 
                       <MenuKeyboard className="-mr-2" keys="⌘K" />
                     </Button>
-
+                    <TakeCurrentUrl />
                     <ThemeSwitcher />
 
                     <Separator orientation="vertical" className="h-7 mx-2" />
@@ -213,6 +213,7 @@ export function ResponsiveAside({ open, setOpen }: OpenCloseProps) {
             <MenuKeyboard className="-mr-2 [&_kbd]:min-w-[3ch]" keys="⌘K" />
           </Button>
 
+          <TakeCurrentUrl />
           <ThemeSwitcher />
         </div>
       </div>
@@ -283,10 +284,6 @@ export function NavbarDropdown() {
           <MenuItem href="https://tailwindcss.com" target="_blank">
             <IconBrandTailwindcss />
             Tailwind CSS
-          </MenuItem>
-          <MenuItem href="https://www.framer.com/motion/" target="_blank">
-            <IconBrandFramer />
-            Framer Motion
           </MenuItem>
         </MenuSection>
         <MenuSeparator />

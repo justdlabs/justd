@@ -51,13 +51,11 @@ export default function RootLayout({
               <Footer />
             </div>
             {process.env.NODE_ENV !== 'production' && (
-              <>
-                <Script
-                  defer
-                  src={process.env.NEXT_PUBLIC_ANALYTICS_URL as string}
-                  data-website-id={process.env.NEXT_PUBLIC_ANALYTICS_CLIENT_ID as string}
-                />
-              </>
+              <Script
+                defer
+                src={process.env.NEXT_PUBLIC_ANALYTICS_URL as string}
+                data-website-id={process.env.NEXT_PUBLIC_ANALYTICS_CLIENT_ID as string}
+              />
             )}
           </Providers>
         </body>

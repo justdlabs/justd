@@ -14,7 +14,7 @@ export interface DocPageProps {
   }
 }
 
-async function getPostFromParams(params: DocPageProps['params']) {
+export async function getPostFromParams(params: DocPageProps['params']) {
   const slug = params?.slug?.join('/')
   const doc = docs.find((doc) => doc.slugAsParams === slug)
 
