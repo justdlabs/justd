@@ -15,12 +15,11 @@ export default function ToastStatusDemo() {
       <Button appearance="outline" size="small" onPress={() => toast.warning('There was an issue during registration')}>
         Warning
       </Button>
-      <Button
-        appearance="outline"
-        size="small"
-        onPress={() => toast.info('Here is some information about your registration.')}
-      >
+      <Button appearance="outline" size="small" onPress={() => toast.info('Email is already registered.')}>
         Info
+      </Button>
+      <Button appearance="outline" size="small" onPress={() => toast.loading('We are registering your email.')}>
+        Loading
       </Button>
     </div>
   )
