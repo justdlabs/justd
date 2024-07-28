@@ -29,6 +29,7 @@ const Toast = ({ ...props }: ToasterProps) => {
           toast: twJoin(
             'bg-background ring-1 ring-border dark:ring-inset min-w-[22rem] rounded-xl text-fg overflow-hidden text-[0.925rem] backdrop-blur-xl px-4 py-3 font-normal sm:px-4 sm:py-5',
             '[&:has([data-icon])_[data-content]]:ml-5',
+            '[&:has([data-button])_[data-close-button="true"]]:hidden',
             '[&:not([data-description])_[data-title]]:font-normal',
             '[&:has([data-description])_[data-title]]:!font-medium',
             '[&>[data-button]]:absolute [&>[data-button=true]]:bottom-4',

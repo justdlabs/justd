@@ -67,7 +67,7 @@ function TocLink({ item, activeId }: { item: TableOfContentsProps; activeId: str
     <li key={item.title}>
       <Link
         className={cn(
-          'outline-none block no-underline font-medium lg:text-[0.885rem]',
+          'outline-none block no-underline tracking-tight lg:text-[0.885rem]',
           item.url.split('#')[1] === activeId ? 'text-fg' : 'text-muted-fg'
         )}
         href={item.url}
