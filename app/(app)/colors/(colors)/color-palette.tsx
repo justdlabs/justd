@@ -29,7 +29,7 @@ export function ColorPalette() {
 
   useEffect(() => {
     if (inView && hasMore) {
-      const nextPage = colors.length + 6
+      const nextPage = colors.length + 9
       const newColors = filteredColors.slice(0, nextPage)
       setColors(newColors)
       if (newColors.length >= filteredColors.length) {
