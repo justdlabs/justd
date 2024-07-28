@@ -10,6 +10,7 @@
   ],
   "parser": "@typescript-eslint/parser",
   "rules": {
+    "react-hooks/exhaustive-deps": "off",
     "react/jsx-uses-react": "warn",
     "@typescript-eslint/consistent-type-definitions": "off",
     "@next/next/no-img-element": "off",

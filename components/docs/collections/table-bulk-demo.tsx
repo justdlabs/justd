@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-import { Selection } from 'react-aria-components'
+import type { Selection } from 'react-aria-components'
 import { Card, Description, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from 'ui'
 
 export default function TableBulkDemo() {
