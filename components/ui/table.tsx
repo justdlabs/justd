@@ -26,10 +26,11 @@ import { cn } from './primitive'
 const table = tv({
   slots: {
     root: 'table w-full caption-bottom border-spacing-0 text-sm outline-none',
-    column: 'whitespace-nowrap px-4 py-3 text-left font-medium outline-none [&:has([slot=selection])]:pr-0',
+    column:
+      'whitespace-nowrap allows-sorting:cursor-pointer px-3 py-3 text-left dragging:cursor-grabbing font-medium outline-none [&:has([slot=selection])]:pr-0',
     header: 'border-b',
     row: 'tr group relative cursor-default border-b text-fg/70 outline-none ring-primary focus-visible:ring-1 selected:bg-primary/15',
-    cell: 'whitespace-nowrap px-4 py-3 outline-none'
+    cell: 'whitespace-nowrap px-3 py-3 outline-none'
   }
 })
 
@@ -60,12 +61,12 @@ const TableCell = ({ children, className, ...props }: CellProps & { className?: 
 const TableColumn = ({ children, className, ...props }: ColumnProps & { className?: string }) => (
   <Column isRowHeader {...props} className={column({ className })}>
     {({ allowsSorting, sortDirection }) => (
-      <div className="flex items-center gap-2">
+      <div className="flex [&>[data-slot=icon]]:shrink-0 items-center gap-2">
         <>
           {children}
           {allowsSorting &&
             (sortDirection === undefined ? (
-              <div className="w-6"></div>
+              <div className="w-6" />
             ) : sortDirection === 'ascending' ? (
               <IconChevronUp />
             ) : (
@@ -112,12 +113,9 @@ const TableRow = <T extends object>({
       })}
     >
       {allowsDragging && (
-        <Cell className="ring-primary">
-          <Button
-            className="cursor-pointer bg-transparent p-1.5 text-muted-fg pressed:cursor-grab pressed:text-fg"
-            slot="drag"
-          >
-            <IconDotGrid2X3 className="size-5" />
+        <Cell className="ring-primary group cursor-grab dragging:cursor-grabbing">
+          <Button className="bg-transparent pl-1.5 py-1.5 text-muted-fg pressed:text-fg" slot="drag">
+            <IconDotGrid2X3 />
           </Button>
         </Cell>
       )}

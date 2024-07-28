@@ -11,6 +11,7 @@ export function ThemeSwitcher() {
     <Button
       appearance="outline"
       size="square-petite"
+      className="[&_[data-slot=icon]]:text-fg"
       aria-label={'Switch to ' + resolvedTheme === 'light' ? 'dark' : 'light' + 'mode'}
       onPress={() => setTheme(resolvedTheme === 'light' ? 'dark' : 'light')}
     >

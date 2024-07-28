@@ -45,7 +45,12 @@ export function Hero() {
             <Link
               target="_blank"
               href="https://github.com/irsyadadl/justd"
-              className={buttonStyles({ size: 'extra-small', intent: 'light', shape: 'circle' })}
+              className={buttonStyles({
+                size: 'extra-small',
+                intent: 'light',
+                shape: 'circle',
+                className: '[&_[data-slot=icon]]:text-warning'
+              })}
             >
               <IconStar /> Stars sustain energy
             </Link>

@@ -644,6 +644,12 @@ export const previews: Record<string, any> = {
   "collections/list-box-rearrange-demo": {
     component: React.lazy(() => import("@/components/docs/collections/list-box-rearrange-demo")),
   },
+  "collections/table-sorting-demo": {
+    component: React.lazy(() => import("@/components/docs/collections/table-sorting-demo")),
+  },
+  "collections/table-bulk-demo": {
+    component: React.lazy(() => import("@/components/docs/collections/table-bulk-demo")),
+  },
   "collections/command-basic-demo": {
     component: React.lazy(() => import("@/components/docs/collections/command-basic-demo")),
   },
@@ -670,6 +676,9 @@ export const previews: Record<string, any> = {
   },
   "collections/grid-list-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/collections/grid-list-disabled-demo")),
+  },
+  "collections/table-drag-demo": {
+    component: React.lazy(() => import("@/components/docs/collections/table-drag-demo")),
   },
   "collections/tag-group-href-demo": {
     component: React.lazy(() => import("@/components/docs/collections/tag-group-href-demo")),

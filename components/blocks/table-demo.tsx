@@ -1,51 +1,26 @@
 'use client'
 
-import { bands } from '@/components/docs/collections/table-demo'
-import { IconDotsVertical } from '@irsyadadl/paranoid'
-import {
-  Menu,
-  MenuContent,
-  MenuItem,
-  MenuSeparator,
-  MenuTrigger,
-  Table,
-  TableBody,
-  TableCell,
-  TableColumn,
-  TableHeader,
-  TableRow
-} from 'ui'
+import { books } from '@/components/docs/collections/table-bulk-demo'
+import { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from 'ui'
 
 export function TableDemo() {
   return (
-    <Table aria-label="Bands" selectionMode="multiple">
+    <Table aria-label="Books">
       <TableHeader>
         <TableColumn>#</TableColumn>
-        <TableColumn>Name</TableColumn>
+        <TableColumn>Title</TableColumn>
+        <TableColumn>Author</TableColumn>
         <TableColumn>Genre</TableColumn>
-        <TableColumn />
+        <TableColumn>Published</TableColumn>
       </TableHeader>
-      <TableBody items={bands.slice(0, 6)}>
+      <TableBody items={books.slice(0, 6)}>
         {(item) => (
           <TableRow>
             <TableCell>{item.id}</TableCell>
-            <TableCell>{item.name}</TableCell>
+            <TableCell>{item.title}</TableCell>
+            <TableCell>{item.author}</TableCell>
             <TableCell>{item.genre}</TableCell>
-            <TableCell>
-              <div className="flex justify-end">
-                <Menu>
-                  <MenuTrigger>
-                    <IconDotsVertical />
-                  </MenuTrigger>
-                  <MenuContent aria-label="Actions" showArrow placement="left">
-                    <MenuItem>View</MenuItem>
-                    <MenuItem>Edit</MenuItem>
-                    <MenuSeparator />
-                    <MenuItem isDanger>Delete</MenuItem>
-                  </MenuContent>
-                </Menu>
-              </div>
-            </TableCell>
+            <TableCell>{item.publishedYear}</TableCell>
           </TableRow>
         )}
       </TableBody>

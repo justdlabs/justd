@@ -67,7 +67,7 @@ export function Navbar() {
       <CommandPalette setOpen={setOpen} open={open} />
       <LayoutGroup id={`navigation-${id}`}>
         <div className="sticky xnw2 top-0 z-30 hidden overflow-hidden pb-0 sm:block">
-          <nav className="border-b bg-background/60 py-2 backdrop-blur-xl">
+          <nav className="border-b bg-background/95 py-2 backdrop-blur-lg supports-[backdrop-filter]:bg-background/60">
             <div className="mx-auto max-w-screen-2xl px-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-x-6">
@@ -127,7 +127,8 @@ export function Navbar() {
                       aria-label="Github Repository"
                       className={buttonStyles({
                         appearance: 'outline',
-                        size: 'square-petite'
+                        size: 'square-petite',
+                        className: '[&_[data-slot=icon]]:text-fg'
                       })}
                       target="_blank"
                       href="https://paranoid.irsyad.co"
@@ -138,7 +139,8 @@ export function Navbar() {
                       aria-label="Github Repository"
                       className={buttonStyles({
                         appearance: 'outline',
-                        size: 'square-petite'
+                        size: 'square-petite',
+                        className: '[&_[data-slot=icon]]:text-fg'
                       })}
                       target="_blank"
                       href={siteConfig.repo}
@@ -149,7 +151,8 @@ export function Navbar() {
                       aria-label="Follow Update on X"
                       className={buttonStyles({
                         appearance: 'outline',
-                        size: 'square-petite'
+                        size: 'square-petite',
+                        className: '[&_[data-slot=icon]]:text-fg'
                       })}
                       target="_blank"
                       href="https://x.com/irsyadadl"

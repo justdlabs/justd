@@ -47,6 +47,7 @@ const Choicebox = <T extends object>({
 }: ChoiceboxProps<T>) => {
   return (
     <GridList
+      layout={columns === 1 ? 'stack' : 'grid'}
       selectionMode={selectionMode}
       className={choiceboxStyles({
         columns,

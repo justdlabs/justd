@@ -11,10 +11,10 @@ import { Description } from './field'
 const card = tv({
   slots: {
     root: [
-      'xrkr rounded-lg xkd2 border bg-card text-fg shadow-sm [&:has(.larhy3):not(:has(.yahnba))>.ccvgs8x]:pt-6 [&:has(.larhy3)]:overflow-hidden [&_table]:overflow-hidden'
+      'xrkr rounded-lg xkd2 [&:has(table)_.ccvgs8x]:border-t border bg-card text-fg shadow-sm [&:has(.larhy3):not(:has(.yahnba))>.ccvgs8x]:pt-6 [&:has(.larhy3)]:overflow-hidden [&_table]:overflow-hidden'
     ],
     header: 'flex xlw32 flex-col space-y-1.5 px-6 py-5',
-    title: 'text-xl klda font-semibold leading-none tracking-tight',
+    title: 'text-lg klda font-semibold leading-none tracking-tight',
     description: 'text-base dl2 text-muted-fg sm:text-sm',
     content:
       'yahnba px-6 pb-6 has-[.t-hea]:bg-secondary/40 has-[table]:p-0 [&:has(table)+.ccvgs8x]:py-5 [&:has(table)]:border-t [&_.t-cel]:px-6 [&_.t-col]:px-6',

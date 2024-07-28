@@ -11,14 +11,12 @@ import { ModalOverlays, PopoverOverlays } from '@/components/blocks/overlays'
 import { SliderOnPopoverBlock } from '@/components/blocks/slider-on-popover-block'
 import { TableDemo } from '@/components/blocks/table-demo'
 import ColorPickerCombinationDemo from '@/components/docs/colors/color-picker-combination-demo'
-import SliderControlledDemo from '@/components/docs/controls/slider-controlled-demo'
 import SwitchDemo from '@/components/docs/controls/switch-demo'
 import AvatarDemo from '@/components/docs/media/avatar-demo'
 import TooltipDelayDemo from '@/components/docs/overlays/tooltip-delay-demo'
 import ComboBoxAvatarDemo from '@/components/docs/pickers/combo-box-avatar-demo'
 import SelectDemo from '@/components/docs/pickers/select-demo'
 import {
-  IconAdjustment,
   IconCamera,
   IconCameraFill,
   IconCubeFill,
@@ -34,7 +32,6 @@ import {
   IconVideoPlaylistFill
 } from '@irsyadadl/paranoid'
 import {
-  Button,
   buttonStyles,
   Card,
   cn,
@@ -44,8 +41,6 @@ import {
   GridListItem,
   Link,
   Note,
-  Popover,
-  PopoverContent,
   Toolbar,
   ToolbarGroup,
   ToolbarItem,
