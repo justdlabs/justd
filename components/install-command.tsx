@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react'
 
+import { trackEvent } from '@openpanel/nextjs'
 import { CopyButton, Link, Menu, MenuContent, MenuItem } from 'ui'
 
 export interface InstallCommandProps {
@@ -24,7 +25,6 @@ const InstallCommand: React.FC<InstallCommandProps> = ({
   const addCommand = 'justd-cli@latest add'
   const initCommand = 'justd-cli@latest init'
   const commandArgs = items.join(' ')
-
   const defaultCommand = isAdd
     ? `npx ${addCommand} ${commandArgs}`
     : isInit
@@ -46,6 +46,7 @@ const InstallCommand: React.FC<InstallCommandProps> = ({
     navigator.clipboard
       .writeText(textToCopy)
       .then(() => {
+        trackEvent('cli pressed', { copy: textToCopy })
         setIsCopied(true)
       })
       .catch((err) => {

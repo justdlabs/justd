@@ -52,7 +52,9 @@ export default function RootLayout({
             </div>
             {process.env.NODE_ENV !== 'production' && (
               <OpenpanelProvider
-                clientId={process.env.NEXT_PUBLIC_ANALYTICS_CLIENT_ID as string}
+                url={process.env.ANALYTICS_CLIENT_URL as string}
+                clientSecret={process.env.ANALYTICS_CLIENT_SECRET as string}
+                clientId={process.env.ANALYTICS_CLIENT_ID as string}
                 trackScreenViews={true}
                 trackAttributes={true}
                 trackOutgoingLinks={true}

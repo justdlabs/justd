@@ -82,7 +82,7 @@ export function Hero() {
                 size: 'large',
                 intent: 'light'
               })}
-              href="/components/blocks"
+              href="/components"
             >
               <IconCube />
               Components
