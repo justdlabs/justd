@@ -13,7 +13,6 @@
   },
   "dependencies": {
     "@irsyadadl/paranoid": "^1.4.8",
-    "@openpanel/nextjs": "^0.0.10-beta",
     "@radix-ui/react-accordion": "^1.2.0",
     "@radix-ui/react-aspect-ratio": "^1.1.0",
     "@vercel/speed-insights": "^1.0.12",

@@ -6,10 +6,10 @@ import { Providers } from '@/components/providers'
 import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
 import '@/styles/app.css'
-import { OpenpanelProvider } from '@openpanel/nextjs'
 import type { Metadata } from 'next'
 import { ViewTransitions } from 'next-view-transitions'
 import localFont from 'next/font/local'
+import Script from 'next/script'
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -51,12 +51,13 @@ export default function RootLayout({
               <Footer />
             </div>
             {process.env.NEXT_PUBLIC_ENV !== 'local' && (
-              <OpenpanelProvider
-                clientId={process.env.NEXT_PUBLIC_OPENPANEL_CLIENT_ID as string}
-                trackScreenViews={true}
-                trackAttributes={true}
-                trackOutgoingLinks={true}
-              />
+              <>
+                <Script
+                  defer
+                  src={process.env.NEXT_PUBLIC_ANALYTICS_URL as string}
+                  data-website-id={process.env.NEXT_PUBLIC_ANALYTICS_CLIENT_ID as string}
+                />
+              </>
             )}
           </Providers>
         </body>
