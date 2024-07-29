@@ -149,7 +149,9 @@ export function Blocks() {
             <Buttons />
           </GridItem>
           <GridItem>
-            <AvatarDemo />
+            <CardBlock>
+              <AvatarDemo />
+            </CardBlock>
           </GridItem>
           <GridItem>
             <CardBlock>
