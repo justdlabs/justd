@@ -257,6 +257,9 @@ export const previews: Record<string, any> = {
   "buttons/toggle-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/buttons/toggle-controlled-demo")),
   },
+  "buttons/file-trigger-avatar-demo": {
+    component: React.lazy(() => import("@/components/docs/buttons/file-trigger-avatar-demo")),
+  },
   "buttons/button-link-demo": {
     component: React.lazy(() => import("@/components/docs/buttons/button-link-demo")),
   },

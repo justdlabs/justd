@@ -2,31 +2,57 @@
 
 import React from 'react'
 
-import { type FileDropItem } from 'react-aria'
-import { DropZone, FileTrigger, Label } from 'ui'
+import { IconGallery } from '@irsyadadl/paranoid'
+import type { DropEvent } from '@react-types/shared'
+import { isFileDropItem } from 'react-aria-components'
+import { Description, DropZone, FileTrigger } from 'ui'
 
 export default function DropZoneAndFileTriggerDemo() {
-  const [files, setFiles] = React.useState<string[] | null>(null)
+  const [droppedImage, setDroppedImage] = React.useState<string | undefined>(undefined)
 
-  const handleDrop = (e: { items: any[] }) => {
-    const files = e.items.filter((file) => file.kind === 'file') as FileDropItem[]
-    const filenames = files.map((file) => file.name)
-    if (filenames.length > 0) {
-      setFiles(filenames)
+  const onDropHandler = async (e: DropEvent) => {
+    const item = e.items.filter(isFileDropItem).find((item) => item.type === 'image/jpeg' || item.type === 'image/png')
+    if (item) {
+      const file = await item.getFile()
+      setDroppedImage(URL.createObjectURL(file))
     }
   }
 
-  const handleSelect = (files: FileList | null) => {
-    const fileArray = Array.from(files ?? [])
-    const filenames = fileArray.map((file) => file.name)
-    setFiles(filenames)
+  const onSelectHandler = async (e: any) => {
+    if (e) {
+      const files = Array.from([...e])
+      const item = files[0]
+
+      if (item) {
+        setDroppedImage(URL.createObjectURL(item))
+      }
+    }
   }
   return (
-    <DropZone onDrop={handleDrop}>
-      <FileTrigger allowsMultiple onSelect={(e) => handleSelect(e)}>
-        Select files
-      </FileTrigger>
-      <Label slot="label">{files ? files.join(', ') : 'Toss your stuff here'}</Label>
+    <DropZone
+      getDropOperation={(types) => (types.has('image/jpeg') || types.has('image/png') ? 'copy' : 'cancel')}
+      onDrop={onDropHandler}
+    >
+      {droppedImage ? (
+        <img alt="" src={droppedImage} className="aspect-square size-full object-contain" />
+      ) : (
+        <div className="grid space-y-3">
+          <div className="size-12 mx-auto grid place-content-center rounded-full border bg-secondary/70 group-data-[drop-target]:bg-primary/20 group-data-[drop-target]:border-primary/70">
+            <IconGallery className="size-5" />
+          </div>
+          <div className="justify-center flex">
+            <FileTrigger
+              acceptedFileTypes={['image/png', 'image/jpeg']}
+              allowsMultiple={false}
+              onSelect={onSelectHandler}
+            >
+              Upload a file
+            </FileTrigger>
+          </div>
+          <Description>Or drag and drop PNG, JPG, GIF up to 10MB</Description>
+        </div>
+      )}
+      <input type="hidden" name="image" value={droppedImage} />
     </DropZone>
   )
 }
