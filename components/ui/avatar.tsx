@@ -128,4 +128,4 @@ const AvatarBadge = ({ size, className, status, ...props }: AvatarBadgeProps) =>
   )
 }
 
-export { Avatar, AvatarGroup, AvatarBadge }
+export { Avatar, AvatarGroup }
