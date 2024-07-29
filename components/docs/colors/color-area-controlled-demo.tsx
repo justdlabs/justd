@@ -2,20 +2,19 @@
 
 import React from 'react'
 
+import { ControlledValues } from '@/components/docs/colors/controlled-values'
 import { parseColor } from '@react-stately/color'
-import { ColorArea, ColorThumb, Description } from 'ui'
+import { ColorArea, ColorThumb } from 'ui'
 
 export default function ColorAreaControlledDemo() {
   const [value, setValue] = React.useState(parseColor('hsl(0, 100%, 50%)'))
 
   return (
-    <>
+    <div className="flex flex-col lg:flex-row gap-2 lg:gap-4">
       <ColorArea value={value} onChange={setValue}>
         <ColorThumb />
       </ColorArea>
-      <Description className="block mt-2">
-        Current color value: <strong style={{ color: value.toString('hex') }}>{value.toString('hex')}</strong>
-      </Description>
-    </>
+      <ControlledValues color={value} />
+    </div>
   )
 }

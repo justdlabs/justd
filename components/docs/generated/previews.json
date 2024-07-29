@@ -666,7 +666,12 @@
   },
   "colors/color-wheel-controlled-demo": {
     "component": "@/components/docs/colors/color-wheel-controlled-demo",
-    "raw": "'use client'\n\nimport React from 'react'\n\nimport { parseColor } from '@react-stately/color'\nimport { ColorThumb, ColorWheel, ColorWheelTrack } from 'ui'\n\nexport default function ColorWheelControlledDemo() {\n  const [color, setColor] = React.useState(parseColor('hsl(0, 100%, 50%)'))\n  return (\n    <ColorWheel value={color} onChange={setColor} outerRadius={105} innerRadius={78}>\n      <ColorWheelTrack />\n      <ColorThumb />\n    </ColorWheel>\n  )\n}\n",
+    "raw": "'use client'\n\nimport React from 'react'\n\nimport { ControlledValues } from '@/components/docs/colors/controlled-values'\nimport { parseColor } from '@react-stately/color'\nimport { ColorThumb, ColorWheel, ColorWheelTrack } from 'ui'\n\nexport default function ColorWheelControlledDemo() {\n  const [color, setColor] = React.useState(parseColor('hsl(0, 100%, 50%)'))\n  return (\n    <div className=\"grid gap-4 justify-center items-center sm:grid-cols-2\">\n      <div className=\"shrink-0 grid place-content-center\">\n        <ColorWheel value={color} onChange={setColor} outerRadius={105} innerRadius={78}>\n          <ColorWheelTrack />\n          <ColorThumb />\n        </ColorWheel>\n      </div>\n      <ControlledValues color={color} />\n    </div>\n  )\n}\n",
+    "type": "docs"
+  },
+  "colors/controlled-values": {
+    "component": "@/components/docs/colors/controlled-values",
+    "raw": "import React from 'react'\n\nimport type { ColorFormat } from '@react-types/color'\nimport { Card, ColorSwatch } from 'ui'\n\nconst formats: string[] = ['hex', 'hexa', 'rgb', 'rgba', 'hsl', 'hsla', 'hsb', 'hsba']\nexport function ControlledValues({ color }: { color: any }) {\n  return (\n    <Card className=\"p-3 min-w-[15.5rem] sm:min-w-72 text-center bg-transparent flex flex-col gap-y-2 [&>span]:flex [&>span]:gap-x-6 [&>span]:justify-between\">\n      {formats.map((format) => (\n        <span key={format}>\n          <span className=\"flex gap-x-1.5 items-center\">\n            <ColorSwatch className=\"size-4 rounded\" color={color.toString(format as ColorFormat | 'css' | undefined)} />\n            <span className=\"uppercase text-xs\">{format}</span>\n          </span>\n          <span className=\"text-xs sm:text-sm\">{color.toString(format as ColorFormat | 'css' | undefined)}</span>\n        </span>\n      ))}\n    </Card>\n  )\n}\n",
     "type": "docs"
   },
   "colors/color-field-disabled-demo": {
@@ -681,7 +686,7 @@
   },
   "colors/color-wheel-disabled-demo": {
     "component": "@/components/docs/colors/color-wheel-disabled-demo",
-    "raw": "'use client'\n\nimport { ColorThumb, ColorWheel, ColorWheelTrack } from 'ui'\n\nexport default function ColorWheelDisabledDemo() {\n  return (\n    <ColorWheel outerRadius={105} innerRadius={78}>\n      <ColorWheelTrack />\n      <ColorThumb />\n    </ColorWheel>\n  )\n}\n",
+    "raw": "'use client'\n\nimport { ColorThumb, ColorWheel, ColorWheelTrack } from 'ui'\n\nexport default function ColorWheelDisabledDemo() {\n  return (\n    <ColorWheel isDisabled outerRadius={105} innerRadius={78}>\n      <ColorWheelTrack />\n      <ColorThumb />\n    </ColorWheel>\n  )\n}\n",
     "type": "docs"
   },
   "colors/color-field-with-prefix-demo": {
@@ -716,12 +721,12 @@
   },
   "colors/color-picker-controlled-demo": {
     "component": "@/components/docs/colors/color-picker-controlled-demo",
-    "raw": "'use client'\n\nimport React from 'react'\n\nimport { type Color } from 'react-aria-components'\nimport { ColorPicker, defaultColor } from 'ui'\n\nexport default function ColorPickerControlledDemo() {\n  const [color, setColor] = React.useState(defaultColor)\n  const colorChangeHandler = (v: Color) => {\n    // ['hex','rgb','rgba','hsb','hsba','hsl','hsla']\n    // console.log(v.toString('hex'))\n    setColor(v)\n  }\n  return <ColorPicker label=\"Pick Color\" value={color} onChange={(v) => colorChangeHandler(v)} />\n}\n",
+    "raw": "'use client'\n\nimport React from 'react'\n\nimport { ControlledValues } from '@/components/docs/colors/controlled-values'\nimport { type Color } from 'react-aria-components'\nimport { ColorPicker, defaultColor } from 'ui'\n\nexport default function ColorPickerControlledDemo() {\n  const [color, setColor] = React.useState(defaultColor)\n  const colorChangeHandler = (v: Color) => {\n    setColor(v)\n  }\n  return (\n    <div className=\"flex flex-col lg:flex-row gap-2 lg:gap-4\">\n      <ColorPicker className=\"min-w-56\" value={color} onChange={(v) => colorChangeHandler(v)} />\n      <ControlledValues color={color} />\n    </div>\n  )\n}\n",
     "type": "docs"
   },
   "colors/color-swatch-picker-item-disabled-demo": {
     "component": "@/components/docs/colors/color-swatch-picker-item-disabled-demo",
-    "raw": "'use client'\n\nimport * as React from 'react'\n\nimport { parseColor } from '@react-stately/color'\nimport { ColorSwatchPicker, ColorSwatchPickerItem } from 'ui'\n\nexport default function ColorSwatchPickerDemo() {\n  const [value, setValue] = React.useState(parseColor('#0d6efd'))\n  return (\n    <ColorSwatchPicker value={value} onChange={setValue} className=\"grid grid-cols-3 lg:grid-cols-6 gap-2\">\n      <ColorSwatchPickerItem isDisabled color=\"#f59e0b\" />\n      <ColorSwatchPickerItem color=\"#84cc16\" />\n      <ColorSwatchPickerItem color=\"#0d6efd\" />\n      <ColorSwatchPickerItem isDisabled color=\"#ec4899\" />\n      <ColorSwatchPickerItem isDisabled color=\"#f43f5e\" />\n    </ColorSwatchPicker>\n  )\n}\n",
+    "raw": "'use client'\n\nimport * as React from 'react'\n\nimport { ControlledValues } from '@/components/docs/colors/controlled-values'\nimport { parseColor } from '@react-stately/color'\nimport { ColorSwatchPicker, ColorSwatchPickerItem } from 'ui'\n\nexport default function ColorSwatchPickerDemo() {\n  const [value, setValue] = React.useState(parseColor('#0d6efd'))\n  return (\n    <div className=\"flex flex-col gap-4\">\n      <ColorSwatchPicker value={value} onChange={setValue} className=\"flex justify-center gap-2\">\n        <ColorSwatchPickerItem isDisabled color=\"#f59e0b\" />\n        <ColorSwatchPickerItem color=\"#84cc16\" />\n        <ColorSwatchPickerItem color=\"#0d6efd\" />\n        <ColorSwatchPickerItem isDisabled color=\"#ec4899\" />\n        <ColorSwatchPickerItem isDisabled color=\"#f43f5e\" />\n      </ColorSwatchPicker>\n\n      <ControlledValues color={value} />\n    </div>\n  )\n}\n",
     "type": "docs"
   },
   "colors/color-slider-demo": {
@@ -736,7 +741,7 @@
   },
   "colors/color-swatch-controlled-demo": {
     "component": "@/components/docs/colors/color-swatch-controlled-demo",
-    "raw": "'use client'\n\nimport * as React from 'react'\n\nimport { parseColor } from '@react-stately/color'\nimport { ColorSwatchPicker, ColorSwatchPickerItem, Description } from 'ui'\n\nexport default function ColorSwatchPickerDemo() {\n  const [value, setValue] = React.useState(parseColor('#0d6efd'))\n  return (\n    <div>\n      <ColorSwatchPicker value={value} onChange={setValue} className=\"grid grid-cols-3 lg:grid-cols-6 gap-2\">\n        <ColorSwatchPickerItem color=\"#f59e0b\" />\n        <ColorSwatchPickerItem color=\"#84cc16\" />\n        <ColorSwatchPickerItem color=\"#0d6efd\" />\n        <ColorSwatchPickerItem color=\"#ec4899\" />\n        <ColorSwatchPickerItem color=\"#f43f5e\" />\n      </ColorSwatchPicker>\n      <Description className=\"block mt-2\">\n        Current color value: <strong style={{ color: value.toString('hex') }}>{value.toString('hex')}</strong>\n      </Description>\n    </div>\n  )\n}\n",
+    "raw": "'use client'\n\nimport * as React from 'react'\n\nimport { ControlledValues } from '@/components/docs/colors/controlled-values'\nimport { parseColor } from '@react-stately/color'\nimport { ColorSwatchPicker, ColorSwatchPickerItem } from 'ui'\n\nexport default function ColorSwatchPickerDemo() {\n  const [value, setValue] = React.useState(parseColor('#0d6efd'))\n  return (\n    <div className=\"flex flex-col gap-4\">\n      <ColorSwatchPicker value={value} onChange={setValue} className=\"flex justify-center gap-2\">\n        <ColorSwatchPickerItem color=\"#f59e0b\" />\n        <ColorSwatchPickerItem color=\"#84cc16\" />\n        <ColorSwatchPickerItem color=\"#0d6efd\" />\n        <ColorSwatchPickerItem color=\"#ec4899\" />\n        <ColorSwatchPickerItem color=\"#f43f5e\" />\n      </ColorSwatchPicker>\n      <ControlledValues color={value} />\n    </div>\n  )\n}\n",
     "type": "docs"
   },
   "colors/color-picker-with-description-demo": {
@@ -769,9 +774,14 @@
     "raw": "'use client'\n\nimport React from 'react'\n\nimport { ColorPicker, defaultColor } from 'ui'\n\nexport default function ColorPickerDemo() {\n  const [color, setColor] = React.useState(defaultColor)\n  return <ColorPicker label=\"Color Picker\" value={color} onChange={setColor} />\n}\n",
     "type": "docs"
   },
+  "colors/color-slider-controlled-demo": {
+    "component": "@/components/docs/colors/color-slider-controlled-demo",
+    "raw": "'use client'\n\nimport React from 'react'\n\nimport { ControlledValues } from '@/components/docs/colors/controlled-values'\nimport { ColorSlider, defaultColor } from 'ui'\n\nexport default function ColorSliderControlledDemo() {\n  const [value, setValue] = React.useState(defaultColor)\n  return (\n    <div className=\"flex flex-col gap-2\">\n      <ColorSlider channel=\"hue\" value={value} onChange={setValue} />\n      <ControlledValues color={value} />\n    </div>\n  )\n}\n",
+    "type": "docs"
+  },
   "colors/color-area-controlled-demo": {
     "component": "@/components/docs/colors/color-area-controlled-demo",
-    "raw": "'use client'\n\nimport React from 'react'\n\nimport { parseColor } from '@react-stately/color'\nimport { ColorArea, ColorThumb, Description } from 'ui'\n\nexport default function ColorAreaControlledDemo() {\n  const [value, setValue] = React.useState(parseColor('hsl(0, 100%, 50%)'))\n\n  return (\n    <>\n      <ColorArea value={value} onChange={setValue}>\n        <ColorThumb />\n      </ColorArea>\n      <Description className=\"block mt-2\">\n        Current color value: <strong style={{ color: value.toString('hex') }}>{value.toString('hex')}</strong>\n      </Description>\n    </>\n  )\n}\n",
+    "raw": "'use client'\n\nimport React from 'react'\n\nimport { ControlledValues } from '@/components/docs/colors/controlled-values'\nimport { parseColor } from '@react-stately/color'\nimport { ColorArea, ColorThumb } from 'ui'\n\nexport default function ColorAreaControlledDemo() {\n  const [value, setValue] = React.useState(parseColor('hsl(0, 100%, 50%)'))\n\n  return (\n    <div className=\"flex flex-col lg:flex-row gap-2 lg:gap-4\">\n      <ColorArea value={value} onChange={setValue}>\n        <ColorThumb />\n      </ColorArea>\n      <ControlledValues color={value} />\n    </div>\n  )\n}\n",
     "type": "docs"
   },
   "colors/color-picker-enable-swatch-demo": {
@@ -816,7 +826,7 @@
   },
   "colors/color-field-controlled-demo": {
     "component": "@/components/docs/colors/color-field-controlled-demo",
-    "raw": "'use client'\n\nimport React from 'react'\n\nimport { type Color, parseColor } from '@react-stately/color'\nimport { ColorField } from 'ui'\n\nexport default function ColorFieldControlledDemo() {\n  const [color, setColor] = React.useState(parseColor('#FAFAFA'))\n  return (\n    <ColorField\n      value={color}\n      onChange={(newColor: Color | null) => newColor && setColor(newColor)}\n      label=\"Color\"\n      placeholder=\"#FAFAFA\"\n      description={`Current color value: ${color.toString('hex')}`}\n    />\n  )\n}\n",
+    "raw": "'use client'\n\nimport React from 'react'\n\nimport { ControlledValues } from '@/components/docs/colors/controlled-values'\nimport { type Color, parseColor } from '@react-stately/color'\nimport { ColorField } from 'ui'\n\nexport default function ColorFieldControlledDemo() {\n  const [color, setColor] = React.useState(parseColor('#FAFAFA'))\n  return (\n    <div className=\"flex flex-col lg:flex-row gap-2 lg:gap-4\">\n      <ColorField\n        className=\"min-w-56\"\n        value={color}\n        aria-label=\"Pick a color\"\n        onChange={(newColor: Color | null) => newColor && setColor(newColor)}\n        placeholder=\"#FAFAFA\"\n      />\n      <ControlledValues color={color} />\n    </div>\n  )\n}\n",
     "type": "docs"
   },
   "pickers/select-disabled-demo": {
