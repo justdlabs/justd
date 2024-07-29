@@ -18,6 +18,12 @@ export function TakeCurrentUrl() {
     if (navigator.clipboard && window.isSecureContext) {
       try {
         await navigator.clipboard.writeText(text as string)
+        toast.success(`Copied ${text} to clipboard`, {
+          classNames: {
+            toast: '[&:has([data-icon])_[data-content]]:ml-0',
+            icon: 'hidden'
+          }
+        })
         setCopied(true)
         setTimeout(() => setCopied(false), 2000) // Reset the copied state after 2 seconds
       } catch (error) {

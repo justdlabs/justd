@@ -10,6 +10,7 @@ import { OpenpanelProvider } from '@openpanel/nextjs'
 import type { Metadata } from 'next'
 import { ViewTransitions } from 'next-view-transitions'
 import localFont from 'next/font/local'
+import { Toast } from 'ui'
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -49,6 +50,7 @@ export default function RootLayout({
               <main className="flex-1">{children}</main>
 
               <Footer />
+              <Toast />
             </div>
             {process.env.NODE_ENV === 'production' && (
               <OpenpanelProvider

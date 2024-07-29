@@ -53,4 +53,14 @@ Toast can be expanded to show more content.
 <Toast expand />
 ```
 
-And if you want to see more about this toast, you can see full documentation [here](https://sonner.emilkowal.ski/toast).
+## Hide Icon
+When this toast has status like `success`, `warning` etc, the icon is shown by default. But if you want to disable the icon for a specific toast, you can do it like this.
+```tsx {2-5}
+toast.success(`Copied ${text} to clipboard`, {
+  classNames: {
+    toast: '[&:has([data-icon])_[data-content]]:ml-0',
+    icon: 'hidden'
+  }
+})
+```
+You can shut it down straight from the component if you wanna nuke it completely. But sometimes it looks funky when you're dealing with toast promises or loading.
