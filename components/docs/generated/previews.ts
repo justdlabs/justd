@@ -740,6 +740,9 @@ export const previews: Record<string, any> = {
   "media/avatar-fallback-demo": {
     component: React.lazy(() => import("@/components/docs/media/avatar-fallback-demo")),
   },
+  "media/avatar-status-demo": {
+    component: React.lazy(() => import("@/components/docs/media/avatar-status-demo")),
+  },
   "media/carousel-autoplay-demo": {
     component: React.lazy(() => import("@/components/docs/media/carousel-autoplay-demo")),
   },

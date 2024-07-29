@@ -4,35 +4,7 @@ import React from 'react'
 
 import { tv, type VariantProps } from 'tailwind-variants'
 
-const avatarStyles = tv({
-  base: [
-    'inline-grid shrink-0 bg-secondary align-middle [--avatar-radius:20%] [--ring-opacity:20%] *:col-start-1 *:row-start-1',
-    'loo2ppvkxrcah38e outline outline-1 -outline-offset-1 outline-black/[--ring-opacity] dark:outline-white/[--ring-opacity]'
-  ],
-  variants: {
-    size: {
-      small: 'size-6',
-      medium: 'size-8',
-      large: 'size-10'
-    },
-    shape: {
-      square: 'rounded-[--avatar-radius] *:rounded-[--avatar-radius]',
-      circle: 'rounded-full *:rounded-full'
-    }
-  },
-
-  defaultVariants: {
-    shape: 'circle',
-    size: 'medium'
-  }
-})
-
-interface AvatarProps extends React.ComponentPropsWithoutRef<'span'>, VariantProps<typeof avatarStyles> {
-  src?: string | null
-  initials?: string
-  alt?: string
-  className?: string
-}
+import { VisuallyHidden } from './visually-hidden'
 
 const avatarGroupStyles = tv({
   base: 'flex items-center justify-center -space-x-2 [&_[data-slot=avatar]]:ring-2 [&_[data-slot=avatar]]:ring-background'
@@ -46,9 +18,60 @@ const AvatarGroup = ({ className, ...props }: AvatarGroupProps) => {
   return <div className={avatarGroupStyles({ className })} {...props} />
 }
 
-const Avatar = ({ src = null, initials, alt = '', className, shape, size, ...props }: AvatarProps) => {
+const avatarStyles = tv({
+  base: [
+    'inline-grid relative shrink-0 bg-secondary align-middle [--avatar-radius:20%] [--ring-opacity:20%] *:col-start-1 *:row-start-1',
+    'loo2ppvkxrcah38e outline outline-1 -outline-offset-1 outline-black/[--ring-opacity] dark:outline-white/[--ring-opacity]'
+  ],
+  variants: {
+    size: {
+      small: 'size-6',
+      medium: 'size-8',
+      large: 'size-10'
+    },
+    shape: {
+      square: 'rounded-[--avatar-radius] *:rounded-[--avatar-radius] [&_[data-slot=badge]]:rounded-full',
+      circle: 'rounded-full *:rounded-full'
+    }
+  },
+
+  defaultVariants: {
+    shape: 'circle',
+    size: 'medium'
+  }
+})
+
+type Status = 'away' | 'online' | 'offline' | 'dnd' | 'idle'
+
+interface AvatarProps extends React.ComponentPropsWithoutRef<'span'>, VariantProps<typeof avatarStyles> {
+  src?: string | null
+  initials?: string
+  alt?: string
+  status?: Status
+  className?: string
+}
+
+const Avatar = ({
+  status,
+  src = null,
+  initials,
+  alt = '',
+  children,
+  className,
+  shape,
+  size,
+  ...props
+}: AvatarProps) => {
+  const badgeId = React.useId()
+  const ariaLabelledby = [badgeId, children ? badgeId : ''].join(' ')
   return (
-    <span data-slot="avatar" {...props} className={avatarStyles({ shape, size, className })}>
+    <span
+      aria-labelledby={ariaLabelledby}
+      role="avatar"
+      data-slot="avatar"
+      {...props}
+      className={avatarStyles({ shape, size, className })}
+    >
       {initials && (
         <svg
           className="select-none fill-current text-[48px] font-medium uppercase"
@@ -62,8 +85,47 @@ const Avatar = ({ src = null, initials, alt = '', className, shape, size, ...pro
         </svg>
       )}
       {src && <img src={src} alt={alt} />}
+      {status && <AvatarBadge size={size} status={status} aria-label="Available" />}
     </span>
   )
 }
 
-export { Avatar, AvatarGroup }
+type AvatarBadgeProps = {
+  className?: string
+  status?: Status
+  fillBackground?: boolean
+  'aria-label': string
+  size?: AvatarProps['size']
+}
+
+const avatarBadgeStyles = tv({
+  base: ['size-3 z-1 absolute bottom-0 right-0 z-10 rounded-full ring-[1.5px] ring-background bg-background'],
+  variants: {
+    size: {
+      small: 'size-1.5 translate-x-[0%] translate-y-[0%]',
+      medium: 'size-2 translate-x-[5%] translate-y-[5%]',
+      large: 'size-2.5 translate-x-[5%] translate-y-[5%]'
+    },
+    status: {
+      away: 'bg-red-500',
+      online: 'bg-green-500',
+      offline: 'bg-gray-500',
+      dnd: 'bg-yellow-500',
+      idle: 'bg-gray-500'
+    }
+  },
+  defaultVariants: {
+    size: 'medium',
+    status: 'idle'
+  }
+})
+
+const AvatarBadge = ({ size, className, status, ...props }: AvatarBadgeProps) => {
+  return (
+    <span data-slot="badge" {...props} aria-hidden className={avatarBadgeStyles({ size, status, className })}>
+      <VisuallyHidden>{status}</VisuallyHidden>
+    </span>
+  )
+}
+
+export { Avatar, AvatarGroup, AvatarBadge }
