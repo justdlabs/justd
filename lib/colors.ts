@@ -1,6 +1,5 @@
 import type { FormatOnlyForTailwindVariableType } from '@/types'
 import chroma from 'chroma-js'
-import namer from 'color-namer'
 import ntc from 'ntcjs'
 import { slugify } from 'usemods'
 

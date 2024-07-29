@@ -575,8 +575,17 @@ export const previews: Record<string, any> = {
   "statuses/progress-bar-demo": {
     component: React.lazy(() => import("@/components/docs/statuses/progress-bar-demo")),
   },
+  "statuses/loader-demo": {
+    component: React.lazy(() => import("@/components/docs/statuses/loader-demo")),
+  },
+  "statuses/loader-variant-demo": {
+    component: React.lazy(() => import("@/components/docs/statuses/loader-variant-demo")),
+  },
   "statuses/indeterminate-progress-bar-demo": {
     component: React.lazy(() => import("@/components/docs/statuses/indeterminate-progress-bar-demo")),
+  },
+  "statuses/loader-intent-demo": {
+    component: React.lazy(() => import("@/components/docs/statuses/loader-intent-demo")),
   },
   "statuses/toast-action-demo": {
     component: React.lazy(() => import("@/components/docs/statuses/toast-action-demo")),
@@ -601,6 +610,9 @@ export const previews: Record<string, any> = {
   },
   "statuses/meter-demo": {
     component: React.lazy(() => import("@/components/docs/statuses/meter-demo")),
+  },
+  "statuses/loader-size-demo": {
+    component: React.lazy(() => import("@/components/docs/statuses/loader-size-demo")),
   },
   "collections/tag-group-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/collections/tag-group-disabled-demo")),
