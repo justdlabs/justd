@@ -50,7 +50,7 @@ export default function RootLayout({
 
               <Footer />
             </div>
-            {process.env.NODE_ENV !== 'production' && (
+            {process.env.NODE_ENV === 'production' && (
               <OpenpanelProvider
                 url={process.env.ANALYTICS_CLIENT_URL as string}
                 clientSecret={process.env.ANALYTICS_CLIENT_SECRET as string}
