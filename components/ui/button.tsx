@@ -118,7 +118,7 @@ const buttonStyles = tv(
     ]
   },
   {
-    responsiveVariants: true
+    responsiveVariants: ['sm', 'md', 'lg', 'xl']
   }
 )
 

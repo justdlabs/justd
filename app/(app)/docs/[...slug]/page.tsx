@@ -1,6 +1,7 @@
 import { docs } from '#site/content'
 import { DocRefs } from '@/components/doc-refs'
 import { MDXContent } from '@/components/mdx-components'
+import { Pager } from '@/components/pager'
 import { TableOfContents } from '@/components/table-of-contents'
 import { siteConfig } from '@/config/site'
 import '@/styles/code.css'
@@ -58,7 +59,7 @@ export default async function PostPage({ params }: DocPageProps) {
   return (
     <>
       {doc.title === 'Toast' && <Toast />}
-      <div className="min-w-0 max-w-2xl flex-auto pt-16 pb-56 lg:max-w-none px-4 lg:pl-8 lg:pr-0 xl:px-16">
+      <div className="min-w-0 max-w-2xl flex-auto py-16 lg:max-w-none px-4 lg:pl-8 lg:pr-0 xl:px-16">
         <main className="prose prose-pre:p-0 prose-headings:mb-[0.3rem] prose-headings:scroll-mt-24 prose-blue dark:prose-invert max-w-[inherit]">
           <Heading className="mb-2 sm:text-3xl">{doc.title}</Heading>
           {doc.description ? <p className="text-xl mt-0 text-muted-foreground">{doc.description}</p> : null}
@@ -71,6 +72,16 @@ export default async function PostPage({ params }: DocPageProps) {
           </div>
           <TableOfContents className="mt-8 block xl:hidden" items={doc.toc} />
           <MDXContent code={doc.body} />
+          <Pager
+            doc={{
+              title: doc.title,
+              slug: doc.slug,
+              order: doc.order
+            }}
+            docs={docs
+              .filter((doc) => doc.slug.startsWith('docs/components'))
+              .map((doc) => ({ order: doc.order, slug: doc.slug, title: doc.title }))}
+          />
         </main>
       </div>
       <TableOfContents className="hidden xl:block" items={doc.toc} />
