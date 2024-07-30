@@ -20,7 +20,7 @@ export function TakeCurrentUrl() {
         await navigator.clipboard.writeText(text as string)
         toast.success(`Copied ${text} to clipboard`, {
           classNames: {
-            toast: '[&:has([data-icon])_[data-content]]:ml-0',
+            toast: '[&:has([data-icon])_[data-content]]:!ml-0',
             icon: 'hidden'
           }
         })
