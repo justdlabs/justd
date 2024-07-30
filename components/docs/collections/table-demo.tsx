@@ -34,7 +34,7 @@ export default function TableDemo() {
         </TableHeader>
         <TableBody items={products}>
           {(item) => (
-            <TableRow id={item.id}>
+            <TableRow href='/collections/table-demo' id={item.id}>
               <TableCell>{item.id}</TableCell>
               <TableCell>{item.name}</TableCell>
               <TableCell>{item.category}</TableCell>
