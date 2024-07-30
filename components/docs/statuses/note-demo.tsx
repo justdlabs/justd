@@ -29,7 +29,8 @@ export default function NoteDemo() {
       </OptionPreview>
       <div className="max-w-md">
         <Note intent={selected as any}>
-          We hook you up with top-tier migration services in our startup plan. Wanna roll with it? Hit us up here.
+          We hook you up with top-tier migration services in our startup plan. Wanna roll with it?
+          Hit us up here.
         </Note>
       </div>
     </>

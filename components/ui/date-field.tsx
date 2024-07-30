@@ -21,7 +21,12 @@ interface DateFieldProps<T extends DateValue> extends DateFieldPrimitiveProps<T>
   errorMessage?: string | ((validation: ValidationResult) => string)
 }
 
-const DateField = <T extends DateValue>({ label, description, errorMessage, ...props }: DateFieldProps<T>) => {
+const DateField = <T extends DateValue>({
+  label,
+  description,
+  errorMessage,
+  ...props
+}: DateFieldProps<T>) => {
   return (
     <DateFieldPrimitive {...props} className={ctr(props.className, 'flex flex-col gap-1')}>
       {label && <Label>{label}</Label>}

@@ -4,7 +4,11 @@ import { fontFamily } from 'tailwindcss/defaultTheme'
 
 const config = withTV({
   darkMode: ['class'],
-  content: ['./components/**/*.{ts,tsx}', './app/**/*.{ts,tsx,.md,.mdx}', './src/**/*.{ts,tsx,.md,.mdx}'],
+  content: [
+    './components/**/*.{ts,tsx}',
+    './app/**/*.{ts,tsx,.md,.mdx}',
+    './src/**/*.{ts,tsx,.md,.mdx}'
+  ],
   theme: {
     container: {
       center: true,

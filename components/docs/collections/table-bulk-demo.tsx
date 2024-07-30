@@ -3,7 +3,16 @@
 import React from 'react'
 
 import type { Selection } from 'react-aria-components'
-import { Card, Description, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from 'ui'
+import {
+  Card,
+  Description,
+  Table,
+  TableBody,
+  TableCell,
+  TableColumn,
+  TableHeader,
+  TableRow
+} from 'ui'
 
 export default function TableBulkDemo() {
   const [selectedKeys, setSelectedKeys] = React.useState<Selection>(new Set())
@@ -50,7 +59,13 @@ export default function TableBulkDemo() {
 }
 
 export const books = [
-  { id: '1', title: 'To Kill a Mockingbird', author: 'Harper Lee', genre: 'Fiction', publishedYear: 1960 },
+  {
+    id: '1',
+    title: 'To Kill a Mockingbird',
+    author: 'Harper Lee',
+    genre: 'Fiction',
+    publishedYear: 1960
+  },
   { id: '2', title: '1984', author: 'George Orwell', genre: 'Dystopian', publishedYear: 1949 },
   {
     id: '3',
@@ -66,7 +81,13 @@ export const books = [
     genre: 'Fiction',
     publishedYear: 1951
   },
-  { id: '5', title: 'Pride and Prejudice', author: 'Jane Austen', genre: 'Romance', publishedYear: 1813 },
+  {
+    id: '5',
+    title: 'Pride and Prejudice',
+    author: 'Jane Austen',
+    genre: 'Romance',
+    publishedYear: 1813
+  },
   {
     id: '6',
     title: 'The Lord of the Rings',

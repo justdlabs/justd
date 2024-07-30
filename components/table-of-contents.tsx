@@ -12,7 +12,13 @@ interface TableOfContentsProps {
   items?: TableOfContentsProps[]
 }
 
-export function TableOfContents({ className, items }: { className?: string; items: TableOfContentsProps[] }) {
+export function TableOfContents({
+  className,
+  items
+}: {
+  className?: string
+  items: TableOfContentsProps[]
+}) {
   const ids = items.flatMap((item) => [
     item.url.split('#')[1],
     ...(item.items ? item.items.map((subItem) => subItem.url.split('#')[1]) : [])
@@ -35,7 +41,10 @@ export function TableOfContents({ className, items }: { className?: string; item
             }
           >
             <>
-              <Heading level={2} className="text-base lg:text-lg font-semibold leading-7 mb-6 text-fg">
+              <Heading
+                level={2}
+                className="text-base lg:text-lg font-semibold leading-7 mb-6 text-fg"
+              >
                 On this page
               </Heading>
               {items.length > 0 && (
@@ -86,7 +95,10 @@ export function useActiveItem(itemIds: string[]) {
       (entries) => {
         let bestCandidate: IntersectionObserverEntry | null = null
         entries.forEach((entry) => {
-          if (entry.isIntersecting && (!bestCandidate || bestCandidate.intersectionRatio < entry.intersectionRatio)) {
+          if (
+            entry.isIntersecting &&
+            (!bestCandidate || bestCandidate.intersectionRatio < entry.intersectionRatio)
+          ) {
             bestCandidate = entry
           }
         })

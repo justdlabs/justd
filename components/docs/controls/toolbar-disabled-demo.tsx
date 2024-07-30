@@ -46,10 +46,14 @@ export default function ToolbarDisabledDemo() {
       <ToolbarSeparator />
       <ToolbarGroup aria-label="Alignment">
         <Toggle aria-label="Align Right" appearance="outline">
-          {({ isSelected }) => <>{isSelected ? <IconAlignmentRightFill /> : <IconAlignmentRight />}</>}
+          {({ isSelected }) => (
+            <>{isSelected ? <IconAlignmentRightFill /> : <IconAlignmentRight />}</>
+          )}
         </Toggle>
         <Toggle aria-label="Align Justify" appearance="outline">
-          {({ isSelected }) => <>{isSelected ? <IconAlignmentJustifyFill /> : <IconAlignmentJustify />}</>}
+          {({ isSelected }) => (
+            <>{isSelected ? <IconAlignmentJustifyFill /> : <IconAlignmentJustify />}</>
+          )}
         </Toggle>
       </ToolbarGroup>
     </Toolbar>

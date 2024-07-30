@@ -59,7 +59,8 @@ const DropdownSection = <T extends object>(props: DropdownSectionProps<T>) => {
 }
 
 const DropdownItem = ({ className, ...props }: ListBoxItemProps) => {
-  const textValue = props.textValue || (typeof props.children === 'string' ? props.children : undefined)
+  const textValue =
+    props.textValue || (typeof props.children === 'string' ? props.children : undefined)
   return (
     <ListBoxItemPrimitive
       textValue={textValue}
@@ -73,7 +74,9 @@ const DropdownItem = ({ className, ...props }: ListBoxItemProps) => {
           <span className="flex flex-1 items-center gap-2 truncate font-normal group-selected:font-semibold">
             {children}
           </span>
-          <span className="flex w-5 items-center">{isSelected && <IconCheck className="h-4 w-4" />}</span>
+          <span className="flex w-5 items-center">
+            {isSelected && <IconCheck className="h-4 w-4" />}
+          </span>
         </>
       ))}
     </ListBoxItemPrimitive>
@@ -98,4 +101,10 @@ const DropdownItemDetails = ({ label, description, ...props }: DropdownItemSlot)
 }
 
 // Note: This is not exposed component, but it's used in other components to render dropdowns.
-export { DropdownItem, dropdownItemStyles, DropdownItemDetails, DropdownSection, type DropdownSectionProps }
+export {
+  DropdownItem,
+  dropdownItemStyles,
+  DropdownItemDetails,
+  DropdownSection,
+  type DropdownSectionProps
+}

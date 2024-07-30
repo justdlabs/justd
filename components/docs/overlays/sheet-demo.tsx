@@ -3,7 +3,15 @@
 import React, { useState } from 'react'
 
 import { OptionPreview } from '@/components/docs/outside/option-preview'
-import { Button, SheetContent, SheetDescription, SheetHeader, SheetOverlay, SheetTitle, Switch } from 'ui'
+import {
+  Button,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetOverlay,
+  SheetTitle,
+  Switch
+} from 'ui'
 import { titleCase } from 'usemods'
 
 type Side = 'left' | 'right' | 'top' | 'bottom'
@@ -47,7 +55,11 @@ export default function SheetDemo() {
         ))}
       </div>
       <SheetOverlay isOpen={isOpen} onOpenChange={setIsOpen}>
-        <SheetContent closeButton={settings.closeButton} isStack={settings.isStack} side={sheetSide}>
+        <SheetContent
+          closeButton={settings.closeButton}
+          isStack={settings.isStack}
+          side={sheetSide}
+        >
           <SheetHeader>
             <SheetTitle>{titleCase(sheetSide)}</SheetTitle>
             <SheetDescription>The sheet will go from {sheetSide} side.</SheetDescription>

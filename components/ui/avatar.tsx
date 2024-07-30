@@ -10,7 +10,9 @@ const avatarGroupStyles = tv({
   base: 'flex items-center justify-center -space-x-2 [&_[data-slot=avatar]]:ring-2 [&_[data-slot=avatar]]:ring-background'
 })
 
-interface AvatarGroupProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof avatarGroupStyles> {
+interface AvatarGroupProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof avatarGroupStyles> {
   children: React.ReactNode
 }
 
@@ -30,7 +32,8 @@ const avatarStyles = tv({
       large: 'size-10'
     },
     shape: {
-      square: 'rounded-[--avatar-radius] *:rounded-[--avatar-radius] [&_[data-slot=badge]]:rounded-full',
+      square:
+        'rounded-[--avatar-radius] *:rounded-[--avatar-radius] [&_[data-slot=badge]]:rounded-full',
       circle: 'rounded-full *:rounded-full'
     }
   },
@@ -43,7 +46,9 @@ const avatarStyles = tv({
 
 type Status = 'away' | 'online' | 'offline' | 'dnd' | 'idle'
 
-interface AvatarProps extends React.ComponentPropsWithoutRef<'span'>, VariantProps<typeof avatarStyles> {
+interface AvatarProps
+  extends React.ComponentPropsWithoutRef<'span'>,
+    VariantProps<typeof avatarStyles> {
   src?: string | null
   initials?: string
   alt?: string
@@ -79,7 +84,14 @@ const Avatar = ({
           aria-hidden={alt ? undefined : 'true'}
         >
           {alt && <title>{alt}</title>}
-          <text x="50%" y="50%" alignmentBaseline="middle" dominantBaseline="middle" textAnchor="middle" dy=".125em">
+          <text
+            x="50%"
+            y="50%"
+            alignmentBaseline="middle"
+            dominantBaseline="middle"
+            textAnchor="middle"
+            dy=".125em"
+          >
             {initials}
           </text>
         </svg>
@@ -99,7 +111,9 @@ type AvatarBadgeProps = {
 }
 
 const avatarBadgeStyles = tv({
-  base: ['size-3 z-1 absolute bottom-0 right-0 z-10 rounded-full ring-[1.5px] ring-background bg-background'],
+  base: [
+    'size-3 z-1 absolute bottom-0 right-0 z-10 rounded-full ring-[1.5px] ring-background bg-background'
+  ],
   variants: {
     size: {
       small: 'size-1.5 translate-x-[0%] translate-y-[0%]',
@@ -122,7 +136,12 @@ const avatarBadgeStyles = tv({
 
 const AvatarBadge = ({ size, className, status, ...props }: AvatarBadgeProps) => {
   return (
-    <span data-slot="badge" {...props} aria-hidden className={avatarBadgeStyles({ size, status, className })}>
+    <span
+      data-slot="badge"
+      {...props}
+      aria-hidden
+      className={avatarBadgeStyles({ size, status, className })}
+    >
       <VisuallyHidden>{status}</VisuallyHidden>
     </span>
   )

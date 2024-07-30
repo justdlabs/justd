@@ -2,7 +2,11 @@
 
 import * as React from 'react'
 
-import type { GroupProps, SeparatorProps, ToolbarProps as ToolbarPrimitiveProps } from 'react-aria-components'
+import type {
+  GroupProps,
+  SeparatorProps,
+  ToolbarProps as ToolbarPrimitiveProps
+} from 'react-aria-components'
 import { composeRenderProps, Group, Toolbar as ToolbarPrimitive } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
@@ -15,7 +19,8 @@ const toolbarStyles = tv({
   base: 'flex gap-2 group',
   variants: {
     orientation: {
-      horizontal: 'flex-row [&::-webkit-scrollbar]:hidden [scrollbar-width:none] [-ms-overflow-style:none]',
+      horizontal:
+        'flex-row [&::-webkit-scrollbar]:hidden [scrollbar-width:none] [-ms-overflow-style:none]',
       vertical: 'flex-col items-start'
     }
   }
@@ -78,7 +83,13 @@ const ToolbarItem = ({ isDisabled, ...props }: ToggleProps) => {
       isDisabled={effectiveIsDisabled}
       {...props}
       className={composeRenderProps(props.className, (className, renderProps) =>
-        toggleStyles({ ...renderProps, appearance: props.appearance, size: props.size, shape: props.shape, className })
+        toggleStyles({
+          ...renderProps,
+          appearance: props.appearance,
+          size: props.size,
+          shape: props.shape,
+          className
+        })
       )}
     />
   )

@@ -158,10 +158,19 @@ const SliderValueLabel = (props: SliderValueLabelProps) => {
     >
       {composeRenderProps(
         props.children,
-        (children, { state }) => children ?? state.values.map((_, i) => state.getThumbValueLabel(i)).join(' - ')
+        (children, { state }) =>
+          children ?? state.values.map((_, i) => state.getThumbValueLabel(i)).join(' - ')
       )}
     </SliderOutputPrimitive>
   )
 }
 
-export { Slider, SliderControls, SliderFiller, SliderRoot, SliderThumb, SliderTrack, SliderValueLabel }
+export {
+  Slider,
+  SliderControls,
+  SliderFiller,
+  SliderRoot,
+  SliderThumb,
+  SliderTrack,
+  SliderValueLabel
+}

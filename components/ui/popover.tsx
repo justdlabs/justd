@@ -17,7 +17,15 @@ import {
 } from 'react-aria-components'
 import { tv, type VariantProps } from 'tailwind-variants'
 
-import { ModalBody, ModalClose, ModalDescription, ModalFooter, ModalHeader, ModalOverlay, ModalTitle } from './modal'
+import {
+  ModalBody,
+  ModalClose,
+  ModalDescription,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
+  ModalTitle
+} from './modal'
 import { cn, useMediaQuery } from './primitive'
 
 const Popover = DialogTrigger

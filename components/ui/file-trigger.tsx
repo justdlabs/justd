@@ -13,7 +13,16 @@ import { Button } from './button'
 interface FileTriggerProps extends FileTriggerPrimitiveProps {
   withIcon?: boolean
   isDisabled?: boolean
-  intent?: 'primary' | 'secondary' | 'danger' | 'warning' | 'info' | 'light/dark' | 'success' | 'light' | 'dark'
+  intent?:
+    | 'primary'
+    | 'secondary'
+    | 'danger'
+    | 'warning'
+    | 'info'
+    | 'light/dark'
+    | 'success'
+    | 'light'
+    | 'dark'
   size?: 'medium' | 'large' | 'square-petite' | 'extra-small' | 'small'
   shape?: 'square' | 'circle'
   appearance?: 'solid' | 'outline' | 'plain'
@@ -30,7 +39,13 @@ const FileTrigger = ({
   return (
     <>
       <FileTriggerPrimitive {...props}>
-        <Button isDisabled={props.isDisabled} intent={intent} size={size} shape={shape} appearance={appearance}>
+        <Button
+          isDisabled={props.isDisabled}
+          intent={intent}
+          size={size}
+          shape={shape}
+          appearance={appearance}
+        >
           {withIcon && (
             <>
               {props.defaultCamera ? (
@@ -46,7 +61,11 @@ const FileTrigger = ({
             props.children
           ) : (
             <>
-              {props.allowsMultiple ? 'Browse a files' : props.acceptDirectory ? 'Browse' : 'Browse a file'}
+              {props.allowsMultiple
+                ? 'Browse a files'
+                : props.acceptDirectory
+                  ? 'Browse'
+                  : 'Browse a file'}
               ...
             </>
           )}

@@ -95,7 +95,11 @@ export function CommandPalette({ open, setOpen }: OpenCloseProps) {
             </CommandSection>
             {Object.entries(value as HierarchyNode).map(([subKey, subValue]) =>
               typeof subValue === 'object' && 'title' in subValue ? null : (
-                <CommandSection key={`${key}-${subKey}-section`} value={goodTitle(subKey)} heading={goodTitle(subKey)}>
+                <CommandSection
+                  key={`${key}-${subKey}-section`}
+                  value={goodTitle(subKey)}
+                  heading={goodTitle(subKey)}
+                >
                   {Object.entries(subValue as HierarchyNode).map(([childKey, childValue]) =>
                     typeof childValue === 'object' && 'title' in childValue ? (
                       <CommandItem

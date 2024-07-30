@@ -119,7 +119,9 @@ function CodeCollapsible({
 }
 
 export function CodeCollapsibleRoot({ children }: React.PropsWithChildren<{}>) {
-  return <div className="overflow-hidden border border-zinc-800 bg-[#0e0e10] rounded-lg">{children}</div>
+  return (
+    <div className="overflow-hidden border border-zinc-800 bg-[#0e0e10] rounded-lg">{children}</div>
+  )
 }
 
 export function CopyRawButton({ code }: { className?: string; code: any }) {

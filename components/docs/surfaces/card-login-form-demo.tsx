@@ -24,7 +24,12 @@ export default function CardLoginFormDemo() {
       <Form onSubmit={() => {}}>
         <CardContent className="space-y-6">
           <TextField isRequired label="Email" placeholder="Enter your email" />
-          <TextField isRequired label="Password" type="password" placeholder="Enter your password" />
+          <TextField
+            isRequired
+            label="Password"
+            type="password"
+            placeholder="Enter your password"
+          />
           <div className="flex justify-between items-center">
             <Checkbox>Remember me</Checkbox>
             <Link intent="primary" href="#">

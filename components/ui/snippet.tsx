@@ -54,11 +54,23 @@ const Snippet: React.FC<SnippetProps> = ({ className, text, ...props }) => {
       >
         <AnimatePresence mode="wait" initial={false}>
           {copied ? (
-            <motion.span key="checkmark" variants={snippetVariants} initial="hidden" animate="visible" exit="hidden">
+            <motion.span
+              key="checkmark"
+              variants={snippetVariants}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+            >
               <IconCheck />
             </motion.span>
           ) : (
-            <motion.span key="copy" variants={snippetVariants} initial="hidden" animate="visible" exit="hidden">
+            <motion.span
+              key="copy"
+              variants={snippetVariants}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+            >
               <IconDuplicate />
             </motion.span>
           )}
@@ -107,7 +119,13 @@ const CopyButton = ({
             {copiedIcon ?? <IconCheck />}
           </motion.span>
         ) : (
-          <motion.span key="copy-import" variants={snippetVariants} initial="hidden" animate="visible" exit="hidden">
+          <motion.span
+            key="copy-import"
+            variants={snippetVariants}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+          >
             {initialIcon ?? <IconDuplicate />}
           </motion.span>
         )}

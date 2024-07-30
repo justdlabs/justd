@@ -20,16 +20,21 @@ const drawerStyles = tv({
   ]
 })
 
-interface OverlayProps
+interface DynamicOverlayProps
   extends Omit<DialogProps, 'children' | 'className' | 'style'>,
     Omit<PopoverProps, 'children' | 'className' | 'style'>,
     Omit<VariantProps<typeof drawerStyles>, 'className'> {
   className?: string | DialogProps['className'] | PopoverProps['className']
-  children: React.ReactNode
+  children?: React.ReactNode
   closeButton?: boolean
 }
 
-const DynamicOverlay = ({ closeButton = true, className, children, ...props }: OverlayProps) => {
+const DynamicOverlay = ({
+  closeButton = true,
+  className,
+  children,
+  ...props
+}: DynamicOverlayProps) => {
   const isMobile = useMediaQuery('(max-width: 600px)')
 
   return isMobile ? (
@@ -45,10 +50,10 @@ const DynamicOverlay = ({ closeButton = true, className, children, ...props }: O
       )}
     </Modal>
   ) : (
-    <PopoverPicker {...props} className={className}>
+    <PopoverPicker {...props} className={cn(className)}>
       {children}
     </PopoverPicker>
   )
 }
 
-export { DynamicOverlay }
+export { DynamicOverlay, type DynamicOverlayProps }

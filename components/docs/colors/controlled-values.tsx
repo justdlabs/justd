@@ -10,10 +10,15 @@ export function ControlledValues({ color }: { color: any }) {
       {formats.map((format) => (
         <span key={format}>
           <span className="flex gap-x-1.5 items-center">
-            <ColorSwatch className="size-4 rounded" color={color.toString(format as ColorFormat | 'css' | undefined)} />
+            <ColorSwatch
+              className="size-4 rounded"
+              color={color.toString(format as ColorFormat | 'css' | undefined)}
+            />
             <span className="uppercase text-xs">{format}</span>
           </span>
-          <span className="text-xs sm:text-sm">{color.toString(format as ColorFormat | 'css' | undefined)}</span>
+          <span className="text-xs sm:text-sm">
+            {color.toString(format as ColorFormat | 'css' | undefined)}
+          </span>
         </span>
       ))}
     </Card>

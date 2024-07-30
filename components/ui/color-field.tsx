@@ -3,7 +3,10 @@
 import * as React from 'react'
 
 import { ctr } from '@/components/ui/primitive'
-import type { ColorFieldProps as ColorFieldPrimitiveProps, ValidationResult } from 'react-aria-components'
+import type {
+  ColorFieldProps as ColorFieldPrimitiveProps,
+  ValidationResult
+} from 'react-aria-components'
 import { ColorField as ColorFieldPrimitive } from 'react-aria-components'
 
 import { ColorSwatch } from './color'
@@ -40,7 +43,10 @@ const ColorField = ({
       className={ctr(props.className, 'group w-full flex flex-col gap-1')}
     >
       {label && <Label>{label}</Label>}
-      <FieldGroup data-loading={isLoading ? 'true' : undefined} className={fieldGroupPrefixStyles()}>
+      <FieldGroup
+        data-loading={isLoading ? 'true' : undefined}
+        className={fieldGroupPrefixStyles()}
+      >
         {prefix ? <span className="atrs isPfx">{prefix}</span> : null}
         <div className="flex items-center">
           {value && (

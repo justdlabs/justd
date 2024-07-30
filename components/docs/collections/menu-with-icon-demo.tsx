@@ -2,7 +2,14 @@
 
 import React, { useState } from 'react'
 
-import { IconChevronsY, IconHashtag, IconHeadphones, IconLogout, IconPlus, IconSettings } from '@irsyadadl/paranoid'
+import {
+  IconChevronsY,
+  IconHashtag,
+  IconHeadphones,
+  IconLogout,
+  IconPlus,
+  IconSettings
+} from '@irsyadadl/paranoid'
 import type { Placement } from '@react-types/overlays'
 import {
   Avatar,

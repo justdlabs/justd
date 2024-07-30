@@ -32,7 +32,8 @@ export function Footer() {
           <Link href="https://vercel.com" target="_blank">
             Vercel
           </Link>
-          . The source code's got the <Link href="https://github.com/irsyadadl/d./blob/main/LICENSE">MIT</Link> license.
+          . The source code's got the{' '}
+          <Link href="https://github.com/irsyadadl/d./blob/main/LICENSE">MIT</Link> license.
         </p>
       </Container>
     </footer>

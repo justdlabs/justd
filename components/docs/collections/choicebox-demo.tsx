@@ -34,8 +34,14 @@ export default function ChoiceboxDemo() {
       <ChoiceboxItem title="Standard" description="A step up with more features and support." />
       <ChoiceboxItem title="Premium" description="Advanced options for growing needs." />
       <ChoiceboxItem title="Deluxe" description="Top-tier features for maximum performance." />
-      <ChoiceboxItem title="Ultimate" description="All-inclusive plan with every feature available." />
-      <ChoiceboxItem title="Enterprise" description="Custom solutions for large-scale operations." />
+      <ChoiceboxItem
+        title="Ultimate"
+        description="All-inclusive plan with every feature available."
+      />
+      <ChoiceboxItem
+        title="Enterprise"
+        description="Custom solutions for large-scale operations."
+      />
     </Choicebox>
   )
 }

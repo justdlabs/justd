@@ -95,7 +95,9 @@ const ModalOverlay = ({ isBlurred, isDismissable, className, ...props }: ModalOv
       <ModalOverlayPrimitive
         data-blur={effectiveIsBlurred ? 'true' : 'false'}
         isDismissable={effectiveIsDismissable}
-        className={modalOverlayStyles({ className: cn(isIosDevice ? 'bg-black/15' : 'bg-black/40', className) })}
+        className={modalOverlayStyles({
+          className: cn(isIosDevice ? 'bg-black/15' : 'bg-black/40', className)
+        })}
         {...props}
       />
     </ModalOverlayContext.Provider>
@@ -111,11 +113,19 @@ interface ModalContentProps
   className?: string
 }
 
-const ModalContent = ({ className, children, size, role, closeButton = true, ...props }: ModalContentProps) => {
+const ModalContent = ({
+  className,
+  children,
+  size,
+  role,
+  closeButton = true,
+  ...props
+}: ModalContentProps) => {
   const { isDismissable: overlayIsDismissable } = React.useContext(ModalOverlayContext)
   const { isDismissable: modalIsDismissable } = React.useContext(ModalContext)
 
-  const isDismissable = overlayIsDismissable !== undefined ? overlayIsDismissable : modalIsDismissable
+  const isDismissable =
+    overlayIsDismissable !== undefined ? overlayIsDismissable : modalIsDismissable
 
   return (
     <ModalPrimitive className={modalContentStyles({ size, className })} {...props}>
@@ -162,14 +172,19 @@ const CloseButtonIndicator = ({ className, ...props }: CloseButtonIndicatorProps
 }
 
 const ModalHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className={cn('mb-6 flex flex-col gap-y-0.5 pr-1 text-center sm:pr-0 sm:text-left', className)} {...props} />
+  <div
+    className={cn('mb-6 flex flex-col gap-y-0.5 pr-1 text-center sm:pr-0 sm:text-left', className)}
+    {...props}
+  />
 )
 
 interface ModalCloseProps extends ButtonProps {}
 
 const ModalClose = ({ className, ...props }: ModalCloseProps) => {
   const state = React.useContext(OverlayTriggerStateContext)!
-  return <Button className={className} appearance="outline" onPress={() => state.close()} {...props} />
+  return (
+    <Button className={className} appearance="outline" onPress={() => state.close()} {...props} />
+  )
 }
 
 const ModalBody = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
@@ -177,7 +192,10 @@ const ModalBody = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>
 )
 
 const ModalFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className={cn('flex flex-col-reverse gap-2 sm:flex-row sm:justify-between', className)} {...props} />
+  <div
+    className={cn('flex flex-col-reverse gap-2 sm:flex-row sm:justify-between', className)}
+    {...props}
+  />
 )
 
 const ModalTitle = ({ className, ...props }: HeadingProps) => (

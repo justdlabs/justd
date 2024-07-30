@@ -34,7 +34,9 @@ const choiceboxStyles = tv({
   }
 })
 
-interface ChoiceboxProps<T extends object> extends GridListProps<T>, VariantProps<typeof choiceboxStyles> {
+interface ChoiceboxProps<T extends object>
+  extends GridListProps<T>,
+    VariantProps<typeof choiceboxStyles> {
   className?: string
 }
 

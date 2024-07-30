@@ -53,7 +53,13 @@ const Toggle = (props: ToggleProps) => {
     <ToggleButtonPrimitive
       {...props}
       className={composeRenderProps(props.className, (className, renderProps) =>
-        toggleStyles({ ...renderProps, appearance: props.appearance, size: props.size, shape: props.shape, className })
+        toggleStyles({
+          ...renderProps,
+          appearance: props.appearance,
+          size: props.size,
+          shape: props.shape,
+          className
+        })
       )}
     />
   )

@@ -23,9 +23,14 @@ const formatOnlyForTailwindVariable = [
   { id: 6, format: 'hsba' }
 ] as const
 
-const formatOnlyForTailwindVariableValues = formatOnlyForTailwindVariable.map((format) => format.format)
+const formatOnlyForTailwindVariableValues = formatOnlyForTailwindVariable.map(
+  (format) => format.format
+)
 
-const formatColorForTailwind = (colorString: string, format: FormatOnlyForTailwindVariableType): string => {
+const formatColorForTailwind = (
+  colorString: string,
+  format: FormatOnlyForTailwindVariableType
+): string => {
   return formatOnlyForTailwindVariableValues.includes(format)
     ? colorString
         .replace(/(rgb|rgba|hsl|hsla|hsb|hsba)[(a]?/g, '')

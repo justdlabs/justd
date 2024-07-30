@@ -23,7 +23,10 @@ const Meter = ({ label, ...props }: MeterProps) => {
             <Label>{label}</Label>
             <span className={`text-sm ${percentage >= 80 ? 'text-danger' : 'text-muted-fg'}`}>
               {percentage >= 80 && (
-                <IconTriangleInfoFill aria-label="Alert" className="inline-block size-4 align-text-bottom" />
+                <IconTriangleInfoFill
+                  aria-label="Alert"
+                  className="inline-block size-4 align-text-bottom"
+                />
               )}
               {' ' + valueText}
             </span>

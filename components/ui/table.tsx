@@ -89,7 +89,9 @@ const TableHeader = <T extends object>({
     <TableHeaderPrimitive {...props} className={header({ className })}>
       {allowsDragging && <Column />}
       {selectionBehavior === 'toggle' && (
-        <Column className="pl-4">{selectionMode === 'multiple' && <Checkbox slot="selection" />}</Column>
+        <Column className="pl-4">
+          {selectionMode === 'multiple' && <Checkbox slot="selection" />}
+        </Column>
       )}
       <Collection items={columns}>{children}</Collection>
     </TableHeaderPrimitive>
@@ -114,14 +116,20 @@ const TableRow = <T extends object>({
     >
       {allowsDragging && (
         <Cell className="ring-primary group cursor-grab dragging:cursor-grabbing">
-          <Button className="bg-transparent pl-1.5 py-1.5 text-muted-fg pressed:text-fg" slot="drag">
+          <Button
+            className="bg-transparent pl-1.5 py-1.5 text-muted-fg pressed:text-fg"
+            slot="drag"
+          >
             <IconDotGrid2X3 />
           </Button>
         </Cell>
       )}
       {selectionBehavior === 'toggle' && (
         <Cell className="pl-4">
-          <span aria-hidden className="absolute inset-y-0 left-0 hidden h-full w-0.5 bg-primary group-selected:block" />
+          <span
+            aria-hidden
+            className="absolute inset-y-0 left-0 hidden h-full w-0.5 bg-primary group-selected:block"
+          />
           <Checkbox slot="selection" />
         </Cell>
       )}

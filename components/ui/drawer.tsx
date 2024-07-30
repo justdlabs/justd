@@ -121,7 +121,11 @@ const DrawerContentPrimitive = (props: DrawerContentPrimitiveProps) => {
   const h = window.innerHeight - drawerMargin
   const y = useMotionValue(h)
 
-  const bodyScale = useTransform(y, [0, h], [(window.innerWidth - drawerMargin) / window.innerWidth, 1])
+  const bodyScale = useTransform(
+    y,
+    [0, h],
+    [(window.innerWidth - drawerMargin) / window.innerWidth, 1]
+  )
   const bodyTranslate = useTransform(y, [0, h], [drawerMargin - drawerRadius, 0])
   const bodyBorderRadius = useTransform(y, [0, h], [drawerRadius, 0])
   return (
@@ -154,7 +158,12 @@ interface DrawerProps {
   onOpenChange?: (isOpen: boolean) => void
 }
 
-const Drawer = ({ children, withNotch = true, isOpen: controlledIsOpen, onOpenChange }: DrawerProps) => {
+const Drawer = ({
+  children,
+  withNotch = true,
+  isOpen: controlledIsOpen,
+  onOpenChange
+}: DrawerProps) => {
   const [internalIsOpen, setInternalIsOpen] = React.useState(false)
 
   const isControlled = controlledIsOpen !== undefined
@@ -187,11 +196,17 @@ const Drawer = ({ children, withNotch = true, isOpen: controlledIsOpen, onOpenCh
   }
 
   return (
-    <DrawerContext.Provider value={{ isOpen, openDrawer, closeDrawer, withNotch }}>{children}</DrawerContext.Provider>
+    <DrawerContext.Provider value={{ isOpen, openDrawer, closeDrawer, withNotch }}>
+      {children}
+    </DrawerContext.Provider>
   )
 }
 
-const DrawerContent = ({ children, className, ...props }: React.ComponentProps<typeof DrawerContentPrimitive>) => {
+const DrawerContent = ({
+  children,
+  className,
+  ...props
+}: React.ComponentProps<typeof DrawerContentPrimitive>) => {
   return (
     <DrawerContentPrimitive>
       <DrawerOverlayPrimitive {...props}>
@@ -208,7 +223,11 @@ const DrawerHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivEleme
 )
 
 const DrawerTitle = ({ className, ...props }: HeadingProps) => (
-  <Heading slot="title" className={cn('text-lg font-semibold leading-none tracking-tight', className)} {...props} />
+  <Heading
+    slot="title"
+    className={cn('text-lg font-semibold leading-none tracking-tight', className)}
+    {...props}
+  />
 )
 
 const DrawerDescription = ModalDescription

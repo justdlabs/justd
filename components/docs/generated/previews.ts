@@ -26,6 +26,9 @@ export const previews: Record<string, any> = {
   "date-and-time/range-calendar-demo": {
     component: React.lazy(() => import("@/components/docs/date-and-time/range-calendar-demo")),
   },
+  "date-and-time/date-range-picker-time-demo": {
+    component: React.lazy(() => import("@/components/docs/date-and-time/date-range-picker-time-demo")),
+  },
   "date-and-time/date-picker-demo": {
     component: React.lazy(() => import("@/components/docs/date-and-time/date-picker-demo")),
   },
@@ -37,6 +40,9 @@ export const previews: Record<string, any> = {
   },
   "date-and-time/date-field-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/date-and-time/date-field-disabled-demo")),
+  },
+  "date-and-time/date-time-demo": {
+    component: React.lazy(() => import("@/components/docs/date-and-time/date-time-demo")),
   },
   "date-and-time/calendar-demo": {
     component: React.lazy(() => import("@/components/docs/date-and-time/calendar-demo")),
@@ -52,6 +58,9 @@ export const previews: Record<string, any> = {
   },
   "date-and-time/time-field-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/date-and-time/time-field-controlled-demo")),
+  },
+  "date-and-time/date-time-field-demo": {
+    component: React.lazy(() => import("@/components/docs/date-and-time/date-time-field-demo")),
   },
   "date-and-time/date-field-validation-demo": {
     component: React.lazy(() => import("@/components/docs/date-and-time/date-field-validation-demo")),

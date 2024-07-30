@@ -2,7 +2,15 @@
 
 import React from 'react'
 
-import { Button, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetOverlay, SheetTitle } from 'ui'
+import {
+  Button,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetOverlay,
+  SheetTitle
+} from 'ui'
 
 export default function SheetControlledDemo() {
   const [open, setOpen] = React.useState(false)

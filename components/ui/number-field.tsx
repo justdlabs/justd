@@ -19,7 +19,13 @@ interface NumberFieldProps extends NumberFieldPrimitiveProps {
   errorMessage?: string | ((validation: ValidationResult) => string)
 }
 
-const NumberField = ({ label, placeholder, description, errorMessage, ...props }: NumberFieldProps) => {
+const NumberField = ({
+  label,
+  placeholder,
+  description,
+  errorMessage,
+  ...props
+}: NumberFieldProps) => {
   const isMobile = useMediaQuery('(max-width: 768px)')
   return (
     <NumberFieldPrimitive {...props} className={ctr(props.className, 'group flex flex-col gap-1')}>
@@ -65,7 +71,12 @@ interface StepperButtonProps extends ButtonProps {
   className?: string
 }
 
-const StepperButton = ({ slot, className, emblemType = 'default', ...props }: StepperButtonProps) => {
+const StepperButton = ({
+  slot,
+  className,
+  emblemType = 'default',
+  ...props
+}: StepperButtonProps) => {
   const icon =
     emblemType === 'chevron' ? (
       slot === 'increment' ? (

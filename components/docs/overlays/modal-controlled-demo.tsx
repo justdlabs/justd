@@ -2,7 +2,15 @@
 
 import { useState } from 'react'
 
-import { Button, ModalContent, ModalDescription, ModalFooter, ModalHeader, ModalOverlay, ModalTitle } from 'ui'
+import {
+  Button,
+  ModalContent,
+  ModalDescription,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
+  ModalTitle
+} from 'ui'
 
 export default function ModalControlledDemo() {
   const [open, setOpen] = useState(false)
@@ -15,7 +23,9 @@ export default function ModalControlledDemo() {
         <ModalContent>
           <ModalHeader>
             <ModalTitle>Subscribe to Our Newsletter</ModalTitle>
-            <ModalDescription>Get the latest news and updates right to your inbox.</ModalDescription>
+            <ModalDescription>
+              Get the latest news and updates right to your inbox.
+            </ModalDescription>
           </ModalHeader>
           <ModalFooter>
             <Button onPress={() => setOpen(false)}>Sign Up</Button>

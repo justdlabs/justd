@@ -116,7 +116,10 @@ const Tag = ({ children, intent, ...props }: TagProps) => {
       className={composeRenderProps(props.className, (className, renderProps) =>
         tagStyles({
           ...renderProps,
-          className: cn('href' in props ? '' : 'focus-visible:ring-1 focus-visible:ring-primary-400', className),
+          className: cn(
+            'href' in props ? '' : 'focus-visible:ring-1 focus-visible:ring-primary-400',
+            className
+          ),
           intent: intent || groupIntent
         })
       )}

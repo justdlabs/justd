@@ -79,14 +79,18 @@ export function Navbar() {
                     </NavLink>
                     <NavLink
                       isNextLink
-                      isActive={pathname?.startsWith('/docs') && !pathname?.includes('/docs/components')}
+                      isActive={
+                        pathname?.startsWith('/docs') && !pathname?.includes('/docs/components')
+                      }
                       href="/docs/getting-started/introduction"
                     >
                       Docs
                     </NavLink>
                     <NavLink
                       isNextLink
-                      isActive={pathname?.startsWith('/docs/components') || pathname === '/components'}
+                      isActive={
+                        pathname?.startsWith('/docs/components') || pathname === '/components'
+                      }
                       href="/components"
                     >
                       Components
@@ -277,7 +281,10 @@ export function NavbarDropdown() {
             <IconBrandParanoid />
             Icons
           </MenuItem>
-          <MenuItem href="https://react-spectrum.adobe.com/react-aria/components.html" target="_blank">
+          <MenuItem
+            href="https://react-spectrum.adobe.com/react-aria/components.html"
+            target="_blank"
+          >
             <IconBrandAdobe />
             RAC
           </MenuItem>
@@ -289,7 +296,13 @@ export function NavbarDropdown() {
         <MenuSeparator />
         <SubmenuTrigger>
           <MenuItem>
-            {theme === 'system' ? <IconDeviceDesktop /> : theme === 'dark' ? <IconMoon /> : <IconSun />}
+            {theme === 'system' ? (
+              <IconDeviceDesktop />
+            ) : theme === 'dark' ? (
+              <IconMoon />
+            ) : (
+              <IconSun />
+            )}
             <span>Switch Theme</span>
           </MenuItem>
           <MenuContent>

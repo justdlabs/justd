@@ -12,7 +12,9 @@ export default function FileTriggerAvatarDemo() {
   const [droppedImage, setDroppedImage] = React.useState<string | undefined>(undefined)
 
   const onDropHandler = async (e: DropEvent) => {
-    const item = e.items.filter(isFileDropItem).find((item) => item.type === 'image/jpeg' || item.type === 'image/png')
+    const item = e.items
+      .filter(isFileDropItem)
+      .find((item) => item.type === 'image/jpeg' || item.type === 'image/png')
     if (item) {
       const file = await item.getFile()
       setDroppedImage(URL.createObjectURL(file))

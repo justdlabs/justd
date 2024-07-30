@@ -32,7 +32,13 @@ const loaderStyles = tv({
 type LoaderVariantProps = VariantProps<typeof loaderStyles>
 
 const Bars = (props: SVGProps<SVGSVGElement>) => (
-  <svg data-slot="icon" viewBox="0 0 135 140" xmlns="http://www.w3.org/2000/svg" fill="currentColor" {...props}>
+  <svg
+    data-slot="icon"
+    viewBox="0 0 135 140"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="currentColor"
+    {...props}
+  >
     <rect y="10" width="15" height="120" rx="6">
       <animate
         attributeName="height"
@@ -126,7 +132,13 @@ const Bars = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 )
 const Dots = (props: SVGProps<SVGSVGElement>) => (
-  <svg data-slot="icon" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" fill="currentColor" {...props}>
+  <svg
+    data-slot="icon"
+    viewBox="0 0 120 30"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="currentColor"
+    {...props}
+  >
     <circle cx="15" cy="15" r="15">
       <animate
         attributeName="r"

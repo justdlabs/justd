@@ -4,8 +4,19 @@ import React from 'react'
 
 import { type Docs, docs } from '#site/content'
 import { goodTitle, sortDocs } from '@/lib/utils'
-import { IconChevronDown, IconCircleHalf, IconCube, IconHighlight, IconLayers } from '@irsyadadl/paranoid'
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@radix-ui/react-accordion'
+import {
+  IconChevronDown,
+  IconCircleHalf,
+  IconCube,
+  IconHighlight,
+  IconLayers
+} from '@irsyadadl/paranoid'
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger
+} from '@radix-ui/react-accordion'
 import { LayoutGroup, motion } from 'framer-motion'
 import { Link as NextLink } from 'next-view-transitions'
 import type { LinkProps as NextLinkProps } from 'next/link'
@@ -69,7 +80,9 @@ const renderHierarchy = (node: HierarchyNode, defaultValues: string[], level: nu
           </Trigger>
           <AccordionContent className="overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
             {typeof value === 'object' && 'title' in value ? (
-              <AsideLink href={`/${(value as Doc).slug}`}>{goodTitle((value as Doc).title)}</AsideLink>
+              <AsideLink href={`/${(value as Doc).slug}`}>
+                {goodTitle((value as Doc).title)}
+              </AsideLink>
             ) : (
               <Accordion defaultValue={defaultValues} type="multiple" className="w-full relative">
                 <div className="h-full absolute left-0 bg-zinc-200 dark:bg-zinc-800 w-px ml-4" />
@@ -143,7 +156,11 @@ const renderHierarchy = (node: HierarchyNode, defaultValues: string[], level: nu
                                 {goodTitle(childKey)}
                               </Trigger>
                               <AccordionContent className="overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
-                                {renderHierarchy(childValue as HierarchyNode, defaultValues, level + 1)}
+                                {renderHierarchy(
+                                  childValue as HierarchyNode,
+                                  defaultValues,
+                                  level + 1
+                                )}
                               </AccordionContent>
                             </AccordionItem>
                           )
@@ -196,7 +213,13 @@ const Aside = () => {
 
 export { Aside }
 
-export function Trigger({ children, className }: { children: React.ReactNode; className?: string }) {
+export function Trigger({
+  children,
+  className
+}: {
+  children: React.ReactNode
+  className?: string
+}) {
   return (
     <AccordionTrigger
       className={cn(
@@ -236,7 +259,10 @@ function AsideLink({ indicatorClassName, className, children, active, ...props }
       {isActive && (
         <motion.span
           layoutId="current-indicator-sidebar"
-          className={cn('absolute inset-y-1 left-[1rem] w-0.5 rounded-full bg-fg', indicatorClassName)}
+          className={cn(
+            'absolute inset-y-1 left-[1rem] w-0.5 rounded-full bg-fg',
+            indicatorClassName
+          )}
         />
       )}
     </NextLink>

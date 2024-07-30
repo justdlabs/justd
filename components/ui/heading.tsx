@@ -1,6 +1,10 @@
 'use client'
 
-import { Header as HeaderPrimitive, Heading as HeadingPrimitive, type HeadingProps } from 'react-aria-components'
+import {
+  Header as HeaderPrimitive,
+  Heading as HeadingPrimitive,
+  type HeadingProps
+} from 'react-aria-components'
 
 import { cn } from './primitive'
 
@@ -9,7 +13,10 @@ const Heading = ({ className, level = 1, ...props }: HeadingProps) => {
   return (
     <HeadingPrimitive
       level={level}
-      className={cn('font-semibold tracking-tight text-zinc-950 dark:text-white sm:text-2xl', className)}
+      className={cn(
+        'font-semibold tracking-tight text-zinc-950 dark:text-white sm:text-2xl',
+        className
+      )}
       {...props}
     />
   )

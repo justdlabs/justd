@@ -27,7 +27,8 @@ const cellStyles = tv({
   base: 'flex size-10 lg:size-9 cursor-default items-center justify-center font-medium rounded-full lg:text-sm forced-color-adjust-none',
   variants: {
     isSelected: {
-      false: 'text-fg hover:bg-zinc-100 pressed:bg-zinc-200 dark:hover:bg-zinc-700 dark:pressed:bg-zinc-600',
+      false:
+        'text-fg hover:bg-zinc-100 pressed:bg-zinc-200 dark:hover:bg-zinc-700 dark:pressed:bg-zinc-600',
       true: 'bg-primary text-primary-fg invalid:bg-danger invalid:text-danger-fg forced-colors:bg-[Highlight] forced-colors:text-[HighlightText] forced-colors:invalid:bg-[Mark]'
     },
     isDisabled: {
@@ -36,7 +37,8 @@ const cellStyles = tv({
   }
 })
 
-interface CalendarProps<T extends DateValue> extends Omit<CalendarPrimitiveProps<T>, 'visibleDuration'> {
+interface CalendarProps<T extends DateValue>
+  extends Omit<CalendarPrimitiveProps<T>, 'visibleDuration'> {
   errorMessage?: string
 }
 
@@ -46,7 +48,9 @@ const Calendar = <T extends DateValue>({ errorMessage, ...props }: CalendarProps
       <CalendarHeader />
       <CalendarGrid className="[&_td]:px-0">
         <CalendarGridHeader />
-        <CalendarGridBody>{(date) => <CalendarCell date={date} className={cellStyles} />}</CalendarGridBody>
+        <CalendarGridBody>
+          {(date) => <CalendarCell date={date} className={cellStyles} />}
+        </CalendarGridBody>
       </CalendarGrid>
       {errorMessage && (
         <Text slot="errorMessage" className="text-sm text-red-600">
@@ -62,11 +66,21 @@ const CalendarHeader = () => {
 
   return (
     <header className="flex w-full justify-center items-center gap-1 px-1 pb-4">
-      <Button size="square-petite" className="[&_[data-slot=icon]]:text-fg" appearance="outline" slot="previous">
+      <Button
+        size="square-petite"
+        className="[&_[data-slot=icon]]:text-fg"
+        appearance="outline"
+        slot="previous"
+      >
         {direction === 'rtl' ? <IconChevronLgRight /> : <IconChevronLgLeft aria-hidden />}
       </Button>
       <Heading className="mx-2 flex-1 text-center text-base font-medium text-fg" />
-      <Button size="square-petite" className="[&_[data-slot=icon]]:text-fg" appearance="outline" slot="next">
+      <Button
+        size="square-petite"
+        className="[&_[data-slot=icon]]:text-fg"
+        appearance="outline"
+        slot="next"
+      >
         {direction === 'rtl' ? <IconChevronLgLeft /> : <IconChevronLgRight />}
       </Button>
     </header>
@@ -77,13 +91,16 @@ const CalendarGridHeader = () => {
   return (
     <CalendarGridHeaderPrimitive>
       {(day) => (
-        <CalendarHeaderCell className="text-sm lg:text-xs font-semibold text-zinc-500">{day}</CalendarHeaderCell>
+        <CalendarHeaderCell className="text-sm lg:text-xs font-semibold text-zinc-500">
+          {day}
+        </CalendarHeaderCell>
       )}
     </CalendarGridHeaderPrimitive>
   )
 }
 
-interface RangeCalendarProps<T extends DateValue> extends Omit<RangeCalendarPrimitiveProps<T>, 'visibleDuration'> {
+interface RangeCalendarProps<T extends DateValue>
+  extends Omit<RangeCalendarPrimitiveProps<T>, 'visibleDuration'> {
   errorMessage?: string
 }
 
@@ -128,7 +145,11 @@ const RangeCalendar = <T extends DateValue>({ errorMessage, ...props }: RangeCal
                 <span
                   className={cellRangeStyles({
                     selectionState:
-                      isSelected && (isSelectionStart || isSelectionEnd) ? 'cap' : isSelected ? 'middle' : 'none',
+                      isSelected && (isSelectionStart || isSelectionEnd)
+                        ? 'cap'
+                        : isSelected
+                          ? 'middle'
+                          : 'none',
                     isDisabled
                   })}
                 >

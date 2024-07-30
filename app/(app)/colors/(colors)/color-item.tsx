@@ -66,10 +66,17 @@ const ColorItem = ({
           <span className="w-fit mb-1">{item.shade}</span>
           <Tooltip>
             <TooltipTrigger className="w-full text-left focus:outline-none">
-              {isForTailwindVariable && selectedFormat !== 'hexa' && selectedFormat !== 'hex' && 'tw/'}
-              {selectedFormat === 'hex' ? parseColor(item.color as string)?.toString(selectedFormat) : selectedFormat}
+              {isForTailwindVariable &&
+                selectedFormat !== 'hexa' &&
+                selectedFormat !== 'hex' &&
+                'tw/'}
+              {selectedFormat === 'hex'
+                ? parseColor(item.color as string)?.toString(selectedFormat)
+                : selectedFormat}
             </TooltipTrigger>
-            <TooltipContent>{parseColor(item.color as string)?.toString(selectedFormat)}</TooltipContent>
+            <TooltipContent>
+              {parseColor(item.color as string)?.toString(selectedFormat)}
+            </TooltipContent>
           </Tooltip>
         </div>
       )}

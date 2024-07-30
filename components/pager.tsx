@@ -55,7 +55,10 @@ export function Pager({ docs, doc }: { docs: Doc[]; doc: Doc }) {
         </Link>
       )}
       {pager.next && (
-        <Link href={pager.next.href} className={cn(buttonStyles({ appearance: 'outline' }), 'ml-auto')}>
+        <Link
+          href={pager.next.href}
+          className={cn(buttonStyles({ appearance: 'outline' }), 'ml-auto')}
+        >
           {pager.next.title}
           <IconChevronLgRight />
         </Link>

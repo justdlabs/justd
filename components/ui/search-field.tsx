@@ -18,9 +18,18 @@ interface SearchFieldProps extends SearchFieldPrimitiveProps {
   errorMessage?: string | ((validation: ValidationResult) => string)
 }
 
-const SearchField = ({ placeholder = 'Search', label, description, errorMessage, ...props }: SearchFieldProps) => {
+const SearchField = ({
+  placeholder = 'Search',
+  label,
+  description,
+  errorMessage,
+  ...props
+}: SearchFieldProps) => {
   return (
-    <SearchFieldPrimitive {...props} className={ctr(props.className, 'group flex min-w-[40px] flex-col gap-1')}>
+    <SearchFieldPrimitive
+      {...props}
+      className={ctr(props.className, 'group flex min-w-[40px] flex-col gap-1')}
+    >
       {label && <Label>{label}</Label>}
       <FieldGroup>
         <IconSearch

@@ -11,5 +11,12 @@ export default function ColorPickerCombinationDemo() {
   const handleChange = (value: Color) => {
     setColor(value as unknown as string)
   }
-  return <ColorPicker enableColorFormatSelection enableColorSwatch defaultValue={color} onChange={handleChange} />
+  return (
+    <ColorPicker
+      enableColorFormatSelection
+      enableColorSwatch
+      defaultValue={color}
+      onChange={handleChange}
+    />
+  )
 }

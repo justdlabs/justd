@@ -77,7 +77,9 @@ export function Blocks() {
                       {({ isSelected }) => <>{isSelected ? <IconHeartFill /> : <IconHeart />}</>}
                     </ToolbarItem>
                     <ToolbarItem aria-label="Duplicate" appearance="outline">
-                      {({ isSelected }) => <>{isSelected ? <IconDuplicateFill /> : <IconDuplicate />}</>}
+                      {({ isSelected }) => (
+                        <>{isSelected ? <IconDuplicateFill /> : <IconDuplicate />}</>
+                      )}
                     </ToolbarItem>
                     <ToolbarItem aria-label="Resolve with AI" appearance="outline">
                       {({ isSelected }) => <>{isSelected ? <IconMagicFill /> : <IconMagic />}</>}
@@ -90,16 +92,25 @@ export function Blocks() {
                       {({ isSelected }) => <>{isSelected ? <IconCameraFill /> : <IconCamera />}</>}
                     </ToolbarItem>
                     <ToolbarItem aria-label="Gallery" size="square-petite" appearance="outline">
-                      {({ isSelected }) => <>{isSelected ? <IconGalleryFill /> : <IconGallery />}</>}
+                      {({ isSelected }) => (
+                        <>{isSelected ? <IconGalleryFill /> : <IconGallery />}</>
+                      )}
                     </ToolbarItem>
                     <ToolbarItem aria-label="Playlist" size="square-petite" appearance="outline">
-                      {({ isSelected }) => <>{isSelected ? <IconVideoPlaylistFill /> : <IconVideoPlaylist />}</>}
+                      {({ isSelected }) => (
+                        <>{isSelected ? <IconVideoPlaylistFill /> : <IconVideoPlaylist />}</>
+                      )}
                     </ToolbarItem>
                   </ToolbarGroup>
                 </Toolbar>
               </div>
             </Card>
-            <GridList items={items} aria-label="Select items" selectionMode="multiple" className="min-w-64">
+            <GridList
+              items={items}
+              aria-label="Select items"
+              selectionMode="multiple"
+              className="min-w-64"
+            >
               {(item) => <GridListItem>{item.name}</GridListItem>}
             </GridList>
           </GridItem>
@@ -110,12 +121,18 @@ export function Blocks() {
             <CardBlock className="p-4 py-2 sm:p-4 lg:px-5 lg:py-0">
               <div>
                 <Note>Check out the latest updates on our dashboard!</Note>
-                <Note intent="primary">Reminder: Complete your profile to get personalized recommendations.</Note>
-                <Note intent="warning">Heads up! We'll be doing system maintenance this Sunday at 2 AM.</Note>
+                <Note intent="primary">
+                  Reminder: Complete your profile to get personalized recommendations.
+                </Note>
+                <Note intent="warning">
+                  Heads up! We'll be doing system maintenance this Sunday at 2 AM.
+                </Note>
                 <Note intent="danger">
                   Alert: Your subscription expires in 3 days. Renew now to avoid interruption.
                 </Note>
-                <Note intent="info">Did you know? You can now export your reports in Excel format.</Note>
+                <Note intent="info">
+                  Did you know? You can now export your reports in Excel format.
+                </Note>
               </div>
             </CardBlock>
           </GridItem>
@@ -176,7 +193,11 @@ export function Blocks() {
   )
 }
 
-export function CardBlock({ className, children, ...props }: React.HtmlHTMLAttributes<HTMLDivElement>) {
+export function CardBlock({
+  className,
+  children,
+  ...props
+}: React.HtmlHTMLAttributes<HTMLDivElement>) {
   return (
     <div
       {...props}

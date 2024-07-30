@@ -107,8 +107,8 @@ const InstallCommand: React.FC<InstallCommandProps> = ({
       )}
       {isManual && (
         <p>
-          Sometimes, using the CLI is the way to roll, so make sure you install the necessary dependencies for the
-          components you wanna use.
+          Sometimes, using the CLI is the way to roll, so make sure you install the necessary
+          dependencies for the components you wanna use.
         </p>
       )}
       <div className="not-prose relative flex items-center justify-between rounded-lg border bg-[#0e0e10] py-2.5 pl-4 pr-2.5 text-white font-mono text-sm [&>svg]:text-zinc-400 [&>svg]:transition [&_svg]:shrink-0">

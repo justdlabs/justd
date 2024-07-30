@@ -37,7 +37,17 @@ export function OnThisPage() {
   )
 }
 
-export function AsideLink({ text, href, activeId, id }: { id: string; activeId: string; text: string; href: string }) {
+export function AsideLink({
+  text,
+  href,
+  activeId,
+  id
+}: {
+  id: string
+  activeId: string
+  text: string
+  href: string
+}) {
   return (
     <ListBoxItem
       className={cn(

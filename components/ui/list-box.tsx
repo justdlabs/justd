@@ -63,7 +63,9 @@ const ListBoxItem = <T extends object>({
                 )}
               />
             )}
-            <div className="flex flex-col">{typeof children === 'function' ? children(values) : children}</div>
+            <div className="flex flex-col">
+              {typeof children === 'function' ? children(values) : children}
+            </div>
           </>
         </div>
       )}
@@ -78,7 +80,10 @@ interface ListBoxPickerProps<T> extends ListBoxProps<T> {}
 const ListBoxPicker = <T extends object>({ className, ...props }: ListBoxPickerProps<T>) => {
   return (
     <ListBoxPrimitive
-      className={cn('max-h-72 overflow-auto p-1 outline-none [clip-path:inset(0_0_0_0_round_.75rem)]', className)}
+      className={cn(
+        'max-h-72 overflow-auto p-1 outline-none [clip-path:inset(0_0_0_0_round_.75rem)]',
+        className
+      )}
       {...props}
     />
   )

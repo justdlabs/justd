@@ -25,7 +25,17 @@ import {
   IconToolboxFill,
   IconUndo
 } from '@irsyadadl/paranoid'
-import { Button, Menu, MenuContent, MenuItem, Toggle, Toolbar, ToolbarGroup, ToolbarItem, ToolbarSeparator } from 'ui'
+import {
+  Button,
+  Menu,
+  MenuContent,
+  MenuItem,
+  Toggle,
+  Toolbar,
+  ToolbarGroup,
+  ToolbarItem,
+  ToolbarSeparator
+} from 'ui'
 
 export default function ToolbarOrientationDemo() {
   return (
@@ -53,13 +63,19 @@ export default function ToolbarOrientationDemo() {
       <ToolbarSeparator />
       <ToolbarGroup aria-label="Alignment">
         <Toggle aria-label="Align Left" size="square-petite" appearance="outline">
-          {({ isSelected }) => <>{isSelected ? <IconAlignmentLeftFill /> : <IconAlignmentLeft />}</>}
+          {({ isSelected }) => (
+            <>{isSelected ? <IconAlignmentLeftFill /> : <IconAlignmentLeft />}</>
+          )}
         </Toggle>
         <ToolbarItem aria-label="Align Center" appearance="outline">
-          {({ isSelected }) => <>{isSelected ? <IconAlignmentCenterFill /> : <IconAlignmentCenter />}</>}
+          {({ isSelected }) => (
+            <>{isSelected ? <IconAlignmentCenterFill /> : <IconAlignmentCenter />}</>
+          )}
         </ToolbarItem>
         <ToolbarItem aria-label="Align Justify" appearance="outline">
-          {({ isSelected }) => <>{isSelected ? <IconAlignmentJustifyFill /> : <IconAlignmentJustify />}</>}
+          {({ isSelected }) => (
+            <>{isSelected ? <IconAlignmentJustifyFill /> : <IconAlignmentJustify />}</>
+          )}
         </ToolbarItem>
       </ToolbarGroup>
       <ToolbarSeparator />

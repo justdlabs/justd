@@ -4,7 +4,15 @@ import * as React from 'react'
 
 import { Button } from 'react-aria-components'
 import { twJoin } from 'tailwind-merge'
-import { Card, CardContent, Carousel, type CarouselApi, CarouselButton, CarouselContent, CarouselItem } from 'ui'
+import {
+  Card,
+  CardContent,
+  Carousel,
+  type CarouselApi,
+  CarouselButton,
+  CarouselContent,
+  CarouselItem
+} from 'ui'
 
 export default function CarouselDApiDemo() {
   const [api, setApi] = React.useState<CarouselApi>()
@@ -49,7 +57,9 @@ export default function CarouselDApiDemo() {
             <Button
               className={twJoin(
                 'focus:outline-none transition rounded-xl',
-                current === index + 1 ? 'w-6 h-3 bg-primary hover:bg-primary/80' : 'bg-fg/10 hover:bg-fg/15 w-3 h-3'
+                current === index + 1
+                  ? 'w-6 h-3 bg-primary hover:bg-primary/80'
+                  : 'bg-fg/10 hover:bg-fg/15 w-3 h-3'
               )}
               aria-label={`Slide ${current} of ${count}`}
               onPress={() => handleSelect(index)}

@@ -2,11 +2,26 @@
 
 import { docs } from '#site/content'
 import { usePathname } from 'next/navigation'
-import { Card, CardDescription, CardHeader, CardTitle, Grid, GridCollection, GridItem, Link } from 'ui'
+import {
+  Card,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+  Grid,
+  GridCollection,
+  GridItem,
+  Link
+} from 'ui'
 
 const simplifiedDocs = docs.map(({ title, slug, description }) => ({ title, slug, description }))
 
-export function DocComposed({ components, text }: { components: string[]; text?: string | React.ReactNode }) {
+export function DocComposed({
+  components,
+  text
+}: {
+  components: string[]
+  text?: string | React.ReactNode
+}) {
   const pathname = usePathname()
   const name = getLatestOfString(pathname)
   const filteredComponents = simplifiedDocs.filter((component) => {
@@ -18,12 +33,12 @@ export function DocComposed({ components, text }: { components: string[]; text?:
       {!text ? (
         <>
           <p className="mb-6">
-            When you plug this component from the CLI, it autoloads all the composed components. No need to toss 'em in
-            one at a time.
+            When you plug this component from the CLI, it autoloads all the composed components. No
+            need to toss 'em in one at a time.
           </p>
           <p className="mb-6">
-            The <strong className="font-medium lowercase">{name}</strong>'s decked out with several components to make
-            it bangin'.
+            The <strong className="font-medium lowercase">{name}</strong>'s decked out with several
+            components to make it bangin'.
           </p>
         </>
       ) : (
@@ -51,7 +66,9 @@ export function DocComposed({ components, text }: { components: string[]; text?:
               />
               <Card className="overflow-hidden hover:bg-secondary/40 focus:bg-secondary/40 transition-colors">
                 <CardHeader className="p-4">
-                  <CardTitle className="sm:text-lg text-base line-clamp-1 font-medium">{item.title}</CardTitle>
+                  <CardTitle className="sm:text-lg text-base line-clamp-1 font-medium">
+                    {item.title}
+                  </CardTitle>
                   <CardDescription className="line-clamp-2">{item.description}</CardDescription>
                 </CardHeader>
               </Card>

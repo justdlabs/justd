@@ -55,7 +55,10 @@ const Select = <T extends object>({
   ...props
 }: SelectProps<T>) => {
   return (
-    <SelectPrimitive {...props} className={ctr(props.className, 'group flex w-full flex-col gap-1')}>
+    <SelectPrimitive
+      {...props}
+      className={ctr(props.className, 'group flex w-full flex-col gap-1')}
+    >
       {label && <Label>{label}</Label>}
       <Group className="relative">
         <Button className={selectTriggerStyles()}>

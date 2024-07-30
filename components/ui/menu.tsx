@@ -48,7 +48,9 @@ const SubmenuTrigger = SubmenuTriggerPrimitive
 
 const MenuSection = Section
 
-export interface MenuContentProps<T> extends Omit<PopoverProps, 'children' | 'style'>, MenuProps<T> {
+export interface MenuContentProps<T>
+  extends Omit<PopoverProps, 'children' | 'style'>,
+    MenuProps<T> {
   className?: string
   popoverClassName?: string
   showArrow?: boolean
@@ -98,7 +100,9 @@ const MenuContent = <T extends object>({
   )
 }
 
-interface MenuItemProps extends Omit<MenuItemPrimitiveProps, 'isDanger'>, VariantProps<typeof dropdownItemStyles> {
+interface MenuItemProps
+  extends Omit<MenuItemPrimitiveProps, 'isDanger'>,
+    VariantProps<typeof dropdownItemStyles> {
   isDanger?: boolean
 }
 
@@ -150,7 +154,10 @@ interface MenuKeyboardProps extends React.HTMLAttributes<HTMLElement> {
 const MenuKeyboard = ({ keys, className, ...props }: MenuKeyboardProps) => {
   return (
     <Keyboard
-      className={cn('-mr-1 ml-auto hidden items-center gap-[0.25rem] px-1 lg:inline-flex', className)}
+      className={cn(
+        '-mr-1 ml-auto hidden items-center gap-[0.25rem] px-1 lg:inline-flex',
+        className
+      )}
       {...props}
     >
       {(Array.isArray(keys) ? keys : keys.split('')).map((char, index) => (

@@ -7,7 +7,15 @@ import { Heading } from 'react-aria-components'
 import { Button, ColorSwatch, Modal, ModalContent, ModalOverlay } from 'ui'
 import { copyToClipboard } from 'usemods'
 
-export function CopyJsonColorShades({ colorScales, name, color }: { name: string; color: string; colorScales: any }) {
+export function CopyJsonColorShades({
+  colorScales,
+  name,
+  color
+}: {
+  name: string
+  color: string
+  colorScales: any
+}) {
   const [open, setOpen] = useState(false)
   const [colorName, setColorName] = useState<string>(name || 'unknown')
   const [isCopied, setIsCopied] = useState(false)
@@ -17,7 +25,9 @@ export function CopyJsonColorShades({ colorScales, name, color }: { name: string
     setOpen(true)
   }
 
-  const codeString = colorScales.map(({ shade, color }: any) => `'${shade}': '${color}'`).join(',\n  ')
+  const codeString = colorScales
+    .map(({ shade, color }: any) => `'${shade}': '${color}'`)
+    .join(',\n  ')
   const renderColorScaleAsCode = (colorScales: any, colorName: string) => {
     const formattedColorName = colorName.includes('-') ? `'${colorName}'` : colorName
     return `${formattedColorName}: {\n  ${codeString}\n}`
@@ -56,7 +66,9 @@ export function CopyJsonColorShades({ colorScales, name, color }: { name: string
                 </Button>
               </div>
               <pre>
-                <code className="text-xs font-mono">{renderColorScaleAsCode(colorScales, name)}</code>
+                <code className="text-xs font-mono">
+                  {renderColorScaleAsCode(colorScales, name)}
+                </code>
               </pre>
             </div>
           </div>

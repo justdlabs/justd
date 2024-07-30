@@ -10,13 +10,21 @@ export default function SliderControlledDemo() {
   return (
     <div className="space-y-6">
       <div>
-        <Slider value={temperature} onChange={(v) => setTemperature(v as number)} label="Temperature" />
+        <Slider
+          value={temperature}
+          onChange={(v) => setTemperature(v as number)}
+          label="Temperature"
+        />
         <Description className="mt-2 block [&>strong]:text-fg">
           Current temperature: <strong>{temperature ?? '-'}</strong>
         </Description>
       </div>
       <div>
-        <Slider value={saturation} onChange={(v) => setSaturation(v as number[])} label="Saturation" />
+        <Slider
+          value={saturation}
+          onChange={(v) => setSaturation(v as number[])}
+          label="Saturation"
+        />
         <Description className="mt-2 block [&>strong]:text-fg">
           Current saturation: <strong>{saturation ?? '-'}</strong>
         </Description>

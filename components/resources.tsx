@@ -27,7 +27,8 @@ const resources = [
     icon: IconBrandLaravel,
     name: 'Laravel Starter Kit',
     url: 'https://github.com/irsyadadl/inertia.ts',
-    description: 'A Laravel starter kit with Justd installed. It includes a authentication system out of the box.',
+    description:
+      'A Laravel starter kit with Justd installed. It includes a authentication system out of the box.',
     label: 'Starter Kit'
   }
 ]

@@ -10,7 +10,12 @@ export default function MultipleMenuDemo() {
   return (
     <Menu>
       <Button appearance="outline">Open</Button>
-      <MenuContent placement="bottom" selectionMode="multiple" selectedKeys={selected} onSelectionChange={setSelected}>
+      <MenuContent
+        placement="bottom"
+        selectionMode="multiple"
+        selectedKeys={selected}
+        onSelectionChange={setSelected}
+      >
         <MenuSection>
           <MenuHeader separator>Content Preferences</MenuHeader>
           <MenuCheckboxItem id="autoPlay">Auto-Play Videos</MenuCheckboxItem>
