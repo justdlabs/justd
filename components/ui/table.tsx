@@ -28,7 +28,7 @@ const table = tv({
     root: 'table w-full caption-bottom border-spacing-0 text-sm outline-none',
     column:
       'whitespace-nowrap allows-sorting:cursor-pointer px-3 py-3 text-left dragging:cursor-grabbing font-medium outline-none [&:has([slot=selection])]:pr-0',
-    header: 'border-b bg-tertiary',
+    header: 'border-b x32',
     row: 'tr group relative cursor-default border-b text-fg/70 outline-none ring-primary focus-visible:ring-1 selected:bg-primary/15',
     cell: 'whitespace-nowrap px-3 py-3 outline-none'
   }
