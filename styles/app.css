@@ -80,8 +80,8 @@
 
     body {
         @apply bg-background text-fg;
-        font-feature-settings: 'rlig' 1,
-        'calt' 1;
+        font-feature-settings: 'rlig' 1, 'calt' 1;
+        text-rendering: optimizeLegibility;
     }
 
 
