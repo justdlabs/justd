@@ -50,6 +50,10 @@ You can crank up the heat on a command item, make it dangerous. That’ll switch
 ## Controlled
 You can control the value of the command palette by using the `value` and `onValueChange` props. This is a great way to make a command palette that is controlled by a parent component.
 <How toUse="controls/command-controlled-demo" />
+For sure, you can also manage the value of the item, like say you wanna kick off some action after picking an item.
+```
+<CommandItem onSelect={() => console.log('share justd.co/d/command')} />
+```
 
 ## Disabled
 When you flip it to disabled, it'll go gray and won't be clickable, just sitting there all chill.
@@ -75,7 +79,7 @@ export function CommandPalette({ open, setOpen }: Props) {
 
     return () => document.removeEventListener('keydown', down)
   }, [pathname, setOpen])
-  return ...
+  return (...)
 ```
 
 ### Inertia.js
@@ -96,5 +100,5 @@ export function CommandPalette({ open, setOpen }: Props) {
 
     router.on('navigate', () => setOpen(false))
   }, [pathname, setOpen])
-  return ...
+  return (...)
 ```
