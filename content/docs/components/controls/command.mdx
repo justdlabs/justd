@@ -59,6 +59,43 @@ For sure, you can also manage the value of the item, like say you wanna kick off
 When you flip it to disabled, it'll go gray and won't be clickable, just sitting there all chill.
 <How toUse="controls/command-disabled-demo" />
 
+## Hide Indicator
+You can hide the search indicator by passing `withoutSearchIndicator` and close button by passing `withoutCloseButton`. The demo you can see on [Command Description](#description) section.
+```
+<Command
+  withoutCloseButton
+  withoutSearchIndicator
+  isOpen={isOpen}
+  onOpenChange={setIsOpen}
+/>
+```
+
+## Fallback Empty Message
+By default, it will show a message when "No results found.". If you think you want to change the message, you can do that by passing a string to `messageOnEmpty` prop.
+```
+<Command messageOnEmpty='There are no results'/>
+```
+Or maybe you wanna make a custom empty message, you can turn it off by passing `false`. And make your own empty message like this.
+```
+<Command
+  messageOnEmpty={false}
+  withoutCloseButton
+  withoutSearchIndicator
+  isOpen={isOpen}
+  onOpenChange={setIsOpen}
+>
+  <CommandInput placeholder="Search for apps and commands..." />
+  <CommandEmpty className="grid place-content-center">
+    <div className="text-center">
+      <IconCube className="inline" />
+      <p className="mt-2">No results found.</p>
+    </div>
+  </CommandEmpty>
+  ...
+</Command>
+```
+And again, you can see the demo on [Command Description](#description) section. Try typing anything that doesn't match the option and see what happens.
+
 ## Navigating
 For sure, when you're rolling with this command as a link in client-side frameworks like Next.js or Inertia.js, you might wanna auto close the command palette once you hit the link. I got an example on how you can make that happen.
 

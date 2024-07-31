@@ -39,7 +39,7 @@ const commandStyles = tv({
       'sm:entering:slide-in-from-bottom-auto entering:duration-300 entering:animate-in entering:fade-in-0 entering:slide-in-from-bottom-1/2 entering:slide-in-from-left-1/2 entering:[transition-timing-function:ease-out] sm:entering:duration-300 sm:entering:slide-in-from-top-[2rem]',
       'exiting:duration-300 exiting:animate-out exiting:fade-out-0 exiting:slide-out-to-bottom-1/2 exiting:slide-out-to-left-1/2 exiting:[transition-timing-function:ease] sm:exiting:slide-out-to-top-[4rem]'
     ],
-    closeButtonStyles: [
+    closeButton: [
       'absolute right-3 top-1.5 [&>span>[data-slot=icon]]:text-muted-fg pressed:[&_[data-slot=icon]]:text-fg lg:top-3.5 rounded-full border lg:border-border border-transparent lg:bg-secondary/50 py-2.5 px-2.5 lg:py-0.5 text-xs transition-opacity data-[state=open]:bg-secondary data-[state=open]:text-muted-fg lg:focus:border-fg/70 focus:outline-none lg:focus:ring-2 lg:focus:ring-ring disabled:pointer-events-none',
       'focus:outline-none lg:focus:bg-primary/10 lg:focus:ring-2 lg:focus:ring-primary/20 lg:focus:border-primary/70',
       'disabled:pointer-events-none'
@@ -75,7 +75,7 @@ const {
   section,
   list,
   item,
-  closeButtonStyles,
+  closeButton,
   modal,
   input,
   modalOverlay,
@@ -85,23 +85,23 @@ const {
 
 interface CommandContextProps {
   withoutSearchIndicator?: boolean
-  closeButton?: boolean
+  withoutCloseButton?: boolean
+  messageOnEmpty?: boolean | string
 }
 
-const CommandContext = React.createContext<CommandContextProps>({
-  withoutSearchIndicator: false,
-  closeButton: true
-})
+const CommandContext = React.createContext<CommandContextProps>({})
 
 interface CommandModalProps extends ModalOverlayProps, CommandContextProps {
   children: React.ReactNode
   value?: string
+  messageOnEmpty?: boolean | string
   onValueChange?: (value: string) => void
 }
 
 const Command = ({
-  withoutSearchIndicator,
-  closeButton,
+  withoutSearchIndicator = false,
+  withoutCloseButton = false,
+  messageOnEmpty,
   value,
   onValueChange,
   children,
@@ -109,7 +109,9 @@ const Command = ({
 }: CommandModalProps) => {
   const isDesktop = useMediaQuery('(min-width: 1024px)')
   return (
-    <CommandContext.Provider value={{ withoutSearchIndicator: true, closeButton: false }}>
+    <CommandContext.Provider
+      value={{ withoutSearchIndicator: false, withoutCloseButton: false, messageOnEmpty }}
+    >
       <ModalOverlay isDismissable className={modalOverlay()} {...props}>
         <Modal className={modal()}>
           <Dialog className="outline-none" aria-label="Command Palette">
@@ -118,8 +120,8 @@ const Command = ({
                 <CommandPrimitive value={value} onValueChange={onValueChange} className={command()}>
                   {children}
                 </CommandPrimitive>
-                {closeButton && (
-                  <Button autoFocus={!isDesktop} onPress={close} className={closeButtonStyles()}>
+                {!withoutCloseButton && (
+                  <Button autoFocus={!isDesktop} onPress={close} className={closeButton()}>
                     <span className="lg:block hidden">Esc</span>
                     <span className="lg:hidden -mr-2 block">
                       <IconX />
@@ -158,16 +160,15 @@ const CommandInput = React.forwardRef<
 
 CommandInput.displayName = CommandPrimitive.Input.displayName
 
-interface CommandListProps extends React.ComponentProps<typeof CommandPrimitive.List> {
-  fallbackEmptyMessage?: boolean | string
-}
+interface CommandListProps extends React.ComponentProps<typeof CommandPrimitive.List> {}
 
-const CommandList = ({ fallbackEmptyMessage, className, ...props }: CommandListProps) => {
+const CommandList = ({ className, ...props }: CommandListProps) => {
+  const { messageOnEmpty } = React.useContext(CommandContext)
   return (
     <CommandPrimitive.List className={list({ className })} {...props}>
-      {fallbackEmptyMessage !== false && (
+      {messageOnEmpty !== false && (
         <CommandEmpty>
-          {typeof fallbackEmptyMessage === 'string' ? fallbackEmptyMessage : 'No results found.'}
+          {typeof messageOnEmpty === 'string' ? messageOnEmpty : 'No results found.'}
         </CommandEmpty>
       )}
       {props.children}

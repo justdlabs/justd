@@ -2,10 +2,12 @@
 
 import React from 'react'
 
+import { IconCube } from '@irsyadadl/paranoid'
 import {
   Button,
   Command,
   CommandDescription,
+  CommandEmpty,
   CommandInput,
   CommandItem,
   CommandList,
@@ -19,8 +21,21 @@ export default function CommandDescriptionDemo() {
       <Button appearance="outline" onPress={() => setIsOpen(true)}>
         Open
       </Button>
-      <Command withoutSearchIndicator closeButton isOpen={isOpen} onOpenChange={setIsOpen}>
+      <Command
+        messageOnEmpty={false}
+        withoutCloseButton
+        withoutSearchIndicator
+        isOpen={isOpen}
+        onOpenChange={setIsOpen}
+      >
         <CommandInput placeholder="Search for apps and commands..." />
+        <CommandEmpty className="grid place-content-center">
+          <div className="text-center">
+            <IconCube className="inline" />
+            <p className="mt-2">No results found.</p>
+          </div>
+        </CommandEmpty>
+
         <CommandList>
           <CommandSection separator heading="Suggestions">
             <CommandItem>

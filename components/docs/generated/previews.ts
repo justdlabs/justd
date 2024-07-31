@@ -686,9 +686,6 @@ export const previews: Record<string, any> = {
   "collections/table-demo": {
     component: React.lazy(() => import("@/components/docs/collections/table-demo")),
   },
-  "collections/accordion": {
-    component: React.lazy(() => import("@/components/docs/collections/accordion")),
-  },
   "collections/menu-danger-demo": {
     component: React.lazy(() => import("@/components/docs/collections/menu-danger-demo")),
   },
