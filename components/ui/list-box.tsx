@@ -14,7 +14,7 @@ import { tv } from 'tailwind-variants'
 import { DropdownSection } from './dropdown'
 import { cn } from './primitive'
 
-const listBox = tv({
+const listBoxStyles = tv({
   slots: {
     root: 'border-surface-2 flex max-h-96 w-full min-w-72 flex-col overflow-auto overflow-y-auto rounded-xl border p-1 shadow-xl outline-none',
     item: [
@@ -27,7 +27,7 @@ const listBox = tv({
   }
 })
 
-const { root, item } = listBox()
+const { root, item } = listBoxStyles()
 
 interface ListBoxProps<T> extends ListBoxPrimitiveProps<T> {
   className?: string
@@ -89,4 +89,4 @@ const ListBoxPicker = <T extends object>({ className, ...props }: ListBoxPickerP
   )
 }
 
-export { ListBox, listBox, ListBoxItem, ListBoxPicker, ListBoxSection }
+export { ListBox, listBoxStyles, ListBoxItem, ListBoxPicker, ListBoxSection }

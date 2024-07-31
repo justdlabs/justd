@@ -2,6 +2,19 @@
 
 import { Avatar, ComboBox, ComboBoxItem } from 'ui'
 
+export default function ComboBoxAvatarDemo() {
+  return (
+    <ComboBox placeholder="Select a user" label="Users" isRequired items={users}>
+      {(item) => (
+        <ComboBoxItem id={item.id} textValue={item.name}>
+          <Avatar src={item.image_url} />
+          {item.name}
+        </ComboBoxItem>
+      )}
+    </ComboBox>
+  )
+}
+
 const users = [
   { id: 1, name: 'Barbara Kirlin Sr.', image_url: 'https://i.pravatar.cc/150?img=1' },
   { id: 2, name: 'Rosemarie Koch', image_url: 'https://i.pravatar.cc/150?img=2' },
@@ -22,16 +35,3 @@ const users = [
   { id: 9, name: 'Kevon Hackett MD', image_url: 'https://i.pravatar.cc/150?img=9' },
   { id: 10, name: 'Tom Ledner', image_url: 'https://i.pravatar.cc/150?img=10' }
 ]
-
-export default function ComboBoxAvatarDemo() {
-  return (
-    <ComboBox placeholder="Select a user" label="Users" isRequired items={users}>
-      {(item) => (
-        <ComboBoxItem id={item.id} textValue={item.name}>
-          <Avatar src={item.image_url} />
-          {item.name}
-        </ComboBoxItem>
-      )}
-    </ComboBox>
-  )
-}

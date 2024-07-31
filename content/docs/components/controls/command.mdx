@@ -3,7 +3,98 @@ title: "Command"
 description: A command's like a button with a twist it pops open a menu of options. Think of it like a combobox but way cooler. Perfect for command palettes, menus, and all that jazz.
 order: 3
 published: true
-status: wip
+status: new
+references: ["https://cmdk.paco.me/", "https://react-spectrum.adobe.com/react-aria/interactions.html#keyboard-and-focus-behavior"]
 ---
 
-Work in progress.
+## Basic
+This command is straightforward, always under your control, allowing you to open and close it as needed.
+<How toUse="controls/command-demo" />
+
+## Installation
+<InstallCommand isAdd items={['command']}/>
+
+## Composed Components
+<Composed components={['keyboard', 'separator']}/>
+
+## Manual Installation
+
+<InstallCommand isInstall isManual items={['react-aria-components', 'cmdk', '@irsyadadl/paranoid']}/>
+
+<SourceCode toShow={['command']}/>
+
+## Separator
+You can toss a separator between items.
+<How toUse="controls/command-separator-demo" />
+
+## Section
+You can rock the command solo, no sections needed, but for real, it’s smart to use sections.
+<How toUse="controls/command-section-demo" />
+
+## Description
+Sometimes you gotta slap a description on a command item. Hook it up using the `CommandDescription` component. Just a heads up, the keyboard might dip out on smaller screens.
+<How toUse="controls/command-description-demo" />
+
+## Keyboard
+You can hook up a keyboard to the command. Heads up though, the keyboard might duck out on smaller screens.
+<How toUse="controls/command-keyboard-demo" />
+
+## Trigger by Keyboard
+You can trigger a command by keyboard. This is a great way to get started with command palettes.
+<How toUse="controls/command-trigger-by-keyboard-demo" />
+
+## Danger
+You can crank up the heat on a command item, make it dangerous. That’ll switch the item’s color to red, signaling caution.
+<How toUse="controls/command-danger-item-demo" />
+
+## Controlled
+You can control the value of the command palette by using the `value` and `onValueChange` props. This is a great way to make a command palette that is controlled by a parent component.
+<How toUse="controls/command-controlled-demo" />
+
+## Disabled
+When you flip it to disabled, it'll go gray and won't be clickable, just sitting there all chill.
+<How toUse="controls/command-disabled-demo" />
+
+## Navigating
+For sure, when you're rolling with this command as a link in client-side frameworks like Next.js or Inertia.js, you might wanna auto close the command palette once you hit the link. I got an example on how you can make that happen.
+
+### Next.js
+When using Next.js, you can use the `usePathname` hook to close the command palette when you navigate to a new page.
+```tsx {2} {14}
+export function CommandPalette({ open, setOpen }: Props) {
+  const pathname = usePathname()
+  React.useEffect(() => {
+    const down = (e: KeyboardEvent) => {
+      if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault()
+        setOpen((open: boolean) => !open)
+      }
+    }
+
+    document.addEventListener('keydown', down)
+
+    return () => document.removeEventListener('keydown', down)
+  }, [pathname, setOpen])
+  return ...
+```
+
+### Inertia.js
+When using Inertia.js, you can use the `router.on('navigate')` to close the command palette when you navigate to a new page.
+```tsx {14}
+export function CommandPalette({ open, setOpen }: Props) {
+  React.useEffect(() => {
+    const down = (e: KeyboardEvent) => {
+      if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault()
+        setOpen((open: boolean) => !open)
+      }
+    }
+
+    document.addEventListener('keydown', down)
+
+    return () => document.removeEventListener('keydown', down)
+
+    router.on('navigate', () => setOpen(false))
+  }, [pathname, setOpen])
+  return ...
+```

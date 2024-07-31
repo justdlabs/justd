@@ -35,7 +35,6 @@ export * from './dropdown';
 export * from './avatar';
 export * from './combo-box';
 export * from './search-field';
-export * from './multi-select';
 export * from './dialog';
 export * from './menu';
 export * from './progress-bar';

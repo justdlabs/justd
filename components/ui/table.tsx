@@ -1,6 +1,6 @@
 'use client'
 
-import { IconChevronDown, IconChevronUp, IconDotGrid2X3 } from '@irsyadadl/paranoid'
+import { IconChevronDown, IconChevronUp, IconHamburger } from '@irsyadadl/paranoid'
 import {
   Button,
   Cell,
@@ -120,7 +120,7 @@ const TableRow = <T extends object>({
             className="bg-transparent pl-1.5 py-1.5 text-muted-fg pressed:text-fg"
             slot="drag"
           >
-            <IconDotGrid2X3 />
+            <IconHamburger />
           </Button>
         </Cell>
       )}

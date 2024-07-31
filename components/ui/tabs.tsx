@@ -121,7 +121,12 @@ const Tab = ({ children, ...props }: TabProps) => {
 }
 
 const tabPanelStyles = tv({
-  base: 'flex-1 text-sm text-fg'
+  base: 'flex-1 text-sm text-fg',
+  variants: {
+    isFocusVisible: {
+      true: 'outline-none'
+    }
+  }
 })
 
 const TabPanel = (props: TabPanelProps) => {

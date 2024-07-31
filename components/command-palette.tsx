@@ -6,14 +6,16 @@ import { docs } from '#site/content'
 import type { Doc, HierarchyNode } from '@/components/aside'
 import { createHierarchy } from '@/components/aside'
 import { goodTitle } from '@/lib/utils'
+import { IconCube, IconHome, IconNotes } from '@irsyadadl/paranoid'
+import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import {
   Badge,
+  Command,
   CommandEmpty,
   CommandInput,
   CommandItem,
   CommandList,
-  CommandModal,
   CommandSection,
   useMediaQuery
 } from 'ui'
@@ -55,13 +57,34 @@ export function CommandPalette({ open, setOpen }: OpenCloseProps) {
   })
 
   return (
-    <CommandModal isOpen={open} onOpenChange={setOpen}>
+    <Command isOpen={open} onOpenChange={setOpen}>
       <CommandInput autoFocus={isDesktop} placeholder="Search Component" />
       <CommandList>
         <CommandEmpty>No results found.</CommandEmpty>
+        <CommandSection separator heading="Pages">
+          <CommandItem asChild>
+            <Link href="/">
+              <IconHome /> Home
+            </Link>
+          </CommandItem>
+          <CommandItem asChild>
+            <Link href="/docs">
+              <IconNotes /> Docs
+            </Link>
+          </CommandItem>
+          <CommandItem asChild>
+            <Link href="/components">
+              <IconCube /> Components
+            </Link>
+          </CommandItem>
+        </CommandSection>
+
         {filteredNodeEntries.map(([key, value]) => (
           <React.Fragment key={key}>
-            <CommandSection key={`${key}-section`} heading={goodTitle(key)}>
+            <CommandSection
+              key={`${key}-section`}
+              heading={key !== 'components' ? goodTitle(key) : undefined}
+            >
               {Object.entries(value as HierarchyNode).map(([subKey, subValue]) =>
                 typeof subValue === 'object' && 'title' in subValue ? (
                   <CommandItem
@@ -93,6 +116,7 @@ export function CommandPalette({ open, setOpen }: OpenCloseProps) {
                 ) : null
               )}
             </CommandSection>
+
             {Object.entries(value as HierarchyNode).map(([subKey, subValue]) =>
               typeof subValue === 'object' && 'title' in subValue ? null : (
                 <CommandSection
@@ -138,6 +162,6 @@ export function CommandPalette({ open, setOpen }: OpenCloseProps) {
           </React.Fragment>
         ))}
       </CommandList>
-    </CommandModal>
+    </Command>
   )
 }

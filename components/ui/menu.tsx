@@ -14,7 +14,6 @@ import {
   Button,
   composeRenderProps,
   Header,
-  Keyboard,
   Menu as MenuPrimitive,
   MenuItem as MenuItemPrimitive,
   MenuTrigger as MenuTriggerPrimitive,
@@ -26,10 +25,10 @@ import {
   SubmenuTrigger as SubmenuTriggerPrimitive,
   useSlottedContext
 } from 'react-aria-components'
-import { twJoin } from 'tailwind-merge'
 import type { VariantProps } from 'tailwind-variants'
 
 import { dropdownItemStyles } from './dropdown'
+import { Keyboard } from './keyboard'
 import { cn } from './primitive'
 
 const Menu = MenuTriggerPrimitive
@@ -147,34 +146,7 @@ const MenuSeparator = ({ className, ...props }: SeparatorProps) => (
   <Separator className={cn('-mx-1 my-1 h-px bg-muted', className)} {...props} />
 )
 
-interface MenuKeyboardProps extends React.HTMLAttributes<HTMLElement> {
-  keys: string | string[]
-}
-
-const MenuKeyboard = ({ keys, className, ...props }: MenuKeyboardProps) => {
-  return (
-    <Keyboard
-      className={cn(
-        '-mr-1 ml-auto hidden items-center gap-[0.25rem] px-1 lg:inline-flex',
-        className
-      )}
-      {...props}
-    >
-      {(Array.isArray(keys) ? keys : keys.split('')).map((char, index) => (
-        <kbd
-          key={index}
-          className={twJoin([
-            'text-center font-sans capitalize text-muted-fg group-focus:text-fg forced-colors:group-focus:text-[HighlightText]',
-            'inline-grid min-h-5 min-w-5 place-content-center rounded bg-background font-sans text-[.75rem] uppercase text-fg ring-1 ring-fg/10 group-focus:opacity-60',
-            index > 0 && char.length > 1 && 'pl-1'
-          ])}
-        >
-          {char}
-        </kbd>
-      ))}
-    </Keyboard>
-  )
-}
+const MenuKeyboard = Keyboard
 
 const MenuCheckboxItem = ({ className, children, ...props }: MenuItemProps) => (
   <MenuItem className={cn('pr-8', className)} {...props}>

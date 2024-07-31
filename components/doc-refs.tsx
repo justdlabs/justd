@@ -9,7 +9,8 @@ import {
   IconBrandAdobe,
   IconBrandFramer,
   IconBrandGithub,
-  IconBrandParanoid
+  IconBrandParanoid,
+  IconCommandFill
 } from '@irsyadadl/paranoid'
 import { Menu, MenuItem } from 'react-aria-components'
 import { buttonStyles, cn } from 'ui'
@@ -39,6 +40,10 @@ export function DocRefs({ references }: any) {
       case url.includes('sonner'):
         title = 'Toaster'
         icon = IconBell
+        break
+      case url.includes('cmdk'):
+        title = 'Cmdk'
+        icon = IconCommandFill
         break
       case url.includes('github'):
         title = 'Github'
