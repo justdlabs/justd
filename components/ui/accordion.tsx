@@ -55,9 +55,10 @@ const accordionItemStyles = tv({
   }
 })
 
-type AccordionItemProps<T> = AccordionItemAriaProps<T> & {
+interface AccordionItemProps<T> extends AccordionItemAriaProps<T> {
   state: TreeState<T>
   hideIndicator?: boolean
+  title?: string | React.ReactNode
 }
 
 const AccordionItemPrimitive = <T extends object>(props: AccordionItemProps<T>) => {
