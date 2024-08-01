@@ -84,8 +84,8 @@ const {
 } = commandStyles()
 
 interface CommandContextProps {
-  withoutSearchIndicator?: boolean
-  withoutCloseButton?: boolean
+  hideSearchIndicator?: boolean
+  hideCloseButton?: boolean
   messageOnEmpty?: boolean | string
 }
 
@@ -99,8 +99,8 @@ interface CommandModalProps extends ModalOverlayProps, CommandContextProps {
 }
 
 const Command = ({
-  withoutSearchIndicator = false,
-  withoutCloseButton = false,
+  hideSearchIndicator = false,
+  hideCloseButton = false,
   messageOnEmpty,
   value,
   onValueChange,
@@ -109,9 +109,7 @@ const Command = ({
 }: CommandModalProps) => {
   const isDesktop = useMediaQuery('(min-width: 1024px)')
   return (
-    <CommandContext.Provider
-      value={{ withoutSearchIndicator: false, withoutCloseButton: false, messageOnEmpty }}
-    >
+    <CommandContext.Provider value={{ hideSearchIndicator, hideCloseButton, messageOnEmpty }}>
       <ModalOverlay isDismissable className={modalOverlay()} {...props}>
         <Modal className={modal()}>
           <Dialog className="outline-none" aria-label="Command Palette">
@@ -120,7 +118,7 @@ const Command = ({
                 <CommandPrimitive value={value} onValueChange={onValueChange} className={command()}>
                   {children}
                 </CommandPrimitive>
-                {!withoutCloseButton && (
+                {!hideCloseButton && (
                   <Button autoFocus={!isDesktop} onPress={close} className={closeButton()}>
                     <span className="lg:block hidden">Esc</span>
                     <span className="lg:hidden -mr-2 block">
@@ -144,14 +142,14 @@ const CommandInput = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Input>,
   CommandInputProps
 >(({ className, ...props }, ref) => {
-  const { withoutSearchIndicator } = React.useContext(CommandContext)
+  const { hideSearchIndicator } = React.useContext(CommandContext)
   return (
     <div className="flex border-b items-center px-3">
-      {!withoutSearchIndicator && <IconSearch className="mr-2 size-5 shrink-0 opacity-50" />}
+      {!hideSearchIndicator && <IconSearch className="mr-2 size-5 shrink-0 opacity-50" />}
       <CommandPrimitive.Input
         autoFocus
         ref={ref}
-        className={input({ className: withoutSearchIndicator ? 'pl-1' : className })}
+        className={input({ className: hideSearchIndicator ? 'pl-1' : className })}
         {...props}
       />
     </div>

@@ -395,11 +395,17 @@ export const previews: Record<string, any> = {
   "controls/toolbar-demo": {
     component: React.lazy(() => import("@/components/docs/controls/toolbar-demo")),
   },
+  "controls/accordion-with-icon-demo": {
+    component: React.lazy(() => import("@/components/docs/controls/accordion-with-icon-demo")),
+  },
   "controls/accordion-default-expand-demo": {
     component: React.lazy(() => import("@/components/docs/controls/accordion-default-expand-demo")),
   },
   "controls/accordion-demo": {
     component: React.lazy(() => import("@/components/docs/controls/accordion-demo")),
+  },
+  "controls/accordion-disabled-demo": {
+    component: React.lazy(() => import("@/components/docs/controls/accordion-disabled-demo")),
   },
   "controls/slider-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/controls/slider-controlled-demo")),
@@ -430,6 +436,9 @@ export const previews: Record<string, any> = {
   },
   "controls/switch-demo": {
     component: React.lazy(() => import("@/components/docs/controls/switch-demo")),
+  },
+  "controls/accordion-border-hidden-demo": {
+    component: React.lazy(() => import("@/components/docs/controls/accordion-border-hidden-demo")),
   },
   "controls/command-trigger-by-keyboard-demo": {
     component: React.lazy(() => import("@/components/docs/controls/command-trigger-by-keyboard-demo")),

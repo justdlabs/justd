@@ -31,10 +31,6 @@ You can toss a separator between items.
 You can rock the command solo, no sections needed, but for real, it’s smart to use sections.
 <How toUse="controls/command-section-demo" />
 
-## Description
-Sometimes you gotta slap a description on a command item. Hook it up using the `CommandDescription` component. Just a heads up, the keyboard might dip out on smaller screens.
-<How toUse="controls/command-description-demo" />
-
 ## Keyboard
 You can hook up a keyboard to the command. Heads up though, the keyboard might duck out on smaller screens.
 <How toUse="controls/command-keyboard-demo" />
@@ -60,15 +56,19 @@ When you flip it to disabled, it'll go gray and won't be clickable, just sitting
 <How toUse="controls/command-disabled-demo" />
 
 ## Hide Indicator
-You can hide the search indicator by passing `withoutSearchIndicator` and close button by passing `withoutCloseButton`. The demo you can see on [Command Description](#description) section.
+You can hide the search indicator by passing `hideSearchIndicator` and close button by passing `hideCloseButton`. The demo you can see on [Command Description](#description) section.
 ```
 <Command
-  withoutCloseButton
-  withoutSearchIndicator
+  hideCloseButton
+  hideSearchIndicator
   isOpen={isOpen}
   onOpenChange={setIsOpen}
 />
 ```
+
+## Description
+Sometimes you gotta slap a description on a command item. Hook it up using the `CommandDescription` component. Just a heads up, the keyboard might dip out on smaller screens.
+<How toUse="controls/command-description-demo" />
 
 ## Fallback Empty Message
 By default, it will show a message when "No results found.". If you think you want to change the message, you can do that by passing a string to `messageOnEmpty` prop.
@@ -79,8 +79,8 @@ Or maybe you wanna make a custom empty message, you can turn it off by passing `
 ```
 <Command
   messageOnEmpty={false}
-  withoutCloseButton
-  withoutSearchIndicator
+  hideCloseButton
+  hideSearchIndicator
   isOpen={isOpen}
   onOpenChange={setIsOpen}
 >

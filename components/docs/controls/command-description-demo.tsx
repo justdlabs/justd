@@ -23,8 +23,8 @@ export default function CommandDescriptionDemo() {
       </Button>
       <Command
         messageOnEmpty={false}
-        withoutCloseButton
-        withoutSearchIndicator
+        hideCloseButton
+        hideSearchIndicator
         isOpen={isOpen}
         onOpenChange={setIsOpen}
       >
