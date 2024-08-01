@@ -395,6 +395,12 @@ export const previews: Record<string, any> = {
   "controls/toolbar-demo": {
     component: React.lazy(() => import("@/components/docs/controls/toolbar-demo")),
   },
+  "controls/accordion-default-expand-demo": {
+    component: React.lazy(() => import("@/components/docs/controls/accordion-default-expand-demo")),
+  },
+  "controls/accordion-demo": {
+    component: React.lazy(() => import("@/components/docs/controls/accordion-demo")),
+  },
   "controls/slider-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/controls/slider-controlled-demo")),
   },
@@ -430,6 +436,9 @@ export const previews: Record<string, any> = {
   },
   "controls/switch-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/controls/switch-controlled-demo")),
+  },
+  "controls/accordion-hide-indicator-demo": {
+    component: React.lazy(() => import("@/components/docs/controls/accordion-hide-indicator-demo")),
   },
   "controls/switch-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/controls/switch-disabled-demo")),

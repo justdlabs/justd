@@ -1,0 +1,31 @@
+---
+title: Accordion
+description: An accordion's like a vertical stack of headers that pop open to show or hide content sections.
+status: beta
+order: 6
+published: true
+---
+
+## Basic
+This command is straightforward, always under your control, allowing you to open and close it as needed.
+<How isCenter={false} toUse="controls/accordion-demo" />
+
+## Installation
+<InstallCommand isAdd items={['accordion']}/>
+
+## Composed Components
+<Composed components={['keyboard', 'separator']}/>
+
+## Manual Installation
+
+<InstallCommand isInstall isManual items={['react-aria-components', '@react-aria/accordion', '@irsyadadl/paranoid']}/>
+
+<SourceCode toShow={['command']}/>
+
+## Default Expanded
+You can set the default expanded keys by passing an array of keys to `defaultExpandedKeys` prop.
+<How isCenter={false} toUse="controls/accordion-default-expand-demo" />
+
+## Hide Indicator
+You can hide the arrow key indicator by passing `hideIndicator` prop.
+<How isCenter={false} toUse="controls/accordion-hide-indicator-demo" />

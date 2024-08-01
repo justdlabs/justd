@@ -1,4 +1,5 @@
 export * from './primitive';
+export * from './accordion';
 export * from './note';
 export * from './list-box';
 export * from './choicebox';
