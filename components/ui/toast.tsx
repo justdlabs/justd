@@ -2,13 +2,13 @@
 
 import React from 'react'
 
+import { useTheme } from '@/components/theme-provider'
 import {
   IconCheck,
   IconCircleInfoFill,
   IconLoader,
   IconTriangleInfoFill
 } from '@irsyadadl/paranoid'
-import { useTheme } from 'next-themes'
 import { Toaster as ToasterPrimitive, type ToasterProps } from 'sonner'
 import { twJoin } from 'tailwind-merge'
 

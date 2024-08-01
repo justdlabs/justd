@@ -9,8 +9,23 @@ published: true
 Because you are using Next.js, you can use next-themes to implement dark mode.
 <InstallCommand isInstall items={['next-themes']}/>
 
-## Providers
-Next, create one one file called `providers.tsx` in your `components` folder.
+## Theme Provider
+Next, you need to create a theme provider component. You can do it like this:
+```
+'use client'
+
+import * as React from 'react'
+
+import { ThemeProvider as NextThemesProvider, useTheme } from 'next-themes'
+import { type ThemeProviderProps } from 'next-themes/dist/types'
+
+const ThemeProvider = ({ children, ...props }: ThemeProviderProps) => {
+  return <NextThemesProvider {...props}>{children}</NextThemesProvider>
+}
+
+export { ThemeProvider, useTheme }
+```
+Since you've got the theme provider in play, you'll probably wanna team it up with a route provider. Go ahead and whip up a `providers.tsx` file in your `components` folder.
 
 <PlainCode code={`'use client'
 
