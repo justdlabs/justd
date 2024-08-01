@@ -4,25 +4,13 @@ import React from 'react'
 
 import { type Docs, docs } from '#site/content'
 import { goodTitle, sortDocs } from '@/lib/utils'
-import {
-  IconChevronDown,
-  IconCircleHalf,
-  IconCube,
-  IconHighlight,
-  IconLayers
-} from '@irsyadadl/paranoid'
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger
-} from '@radix-ui/react-accordion'
+import { IconCircleHalf, IconCube, IconHighlight, IconLayers } from '@irsyadadl/paranoid'
 import { LayoutGroup, motion } from 'framer-motion'
 import { Link as NextLink } from 'next-view-transitions'
 import type { LinkProps as NextLinkProps } from 'next/link'
 import { usePathname } from 'next/navigation'
 import { tv } from 'tailwind-variants'
-import { Badge, cn } from 'ui'
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, Badge, cn } from 'ui'
 
 export interface Doc {
   slug: string
@@ -57,16 +45,19 @@ export const createHierarchy = (docs: Array<Docs>): HierarchyNode => {
   return hierarchy
 }
 
-const renderHierarchy = (node: HierarchyNode, defaultValues: string[], level: number = 0) => {
+const renderHierarchy = (node: HierarchyNode, defaultValues: string[]) => {
   const filteredNodeEntries = Object.entries(node).sort(([a], [b]) => {
     const order = ['prologue', 'getting-started', 'dark-mode', 'components']
     return order.indexOf(a) - order.indexOf(b)
   })
   return (
-    <Accordion type="multiple" defaultValue={['getting-started', 'components']} className="w-full">
+    <Accordion
+      defaultExpandedKeys={['getting-started', 'components']}
+      className="w-full [&_.dk32xd]:p-0 [&_.zwx3ai]:p-0 [&_.zwx3ai]:border-none"
+    >
       {filteredNodeEntries.map(([key, value]) => (
-        <AccordionItem key={key} value={key}>
-          <Trigger className="[&_.jr131]:size-4 [&_.jr131]:text-primary [&_.jr131]:fill-primary/10 dark:[&_.jr131]:fill-primary/30">
+        <AccordionItem key={key} currentId={key}>
+          <Trigger className="[&_.jr131]:size-4 text-fg groud-data-[open]:text-muted-fg [&_.jr131]:text-primary [&_.jr131]:fill-primary/10 dark:[&_.jr131]:fill-primary/30">
             {key === 'getting-started' ? (
               <IconLayers className="jr131" />
             ) : key === 'prologue' ? (
@@ -78,15 +69,15 @@ const renderHierarchy = (node: HierarchyNode, defaultValues: string[], level: nu
             )}
             {goodTitle(key)}
           </Trigger>
-          <AccordionContent className="overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
+          <AccordionContent>
             {typeof value === 'object' && 'title' in value ? (
               <AsideLink href={`/${(value as Doc).slug}`}>
                 {goodTitle((value as Doc).title)}
               </AsideLink>
             ) : (
-              <Accordion defaultValue={defaultValues} type="multiple" className="w-full relative">
+              <Accordion defaultExpandedKeys={defaultValues} className="w-full relative">
                 <div className="h-full absolute left-0 bg-zinc-200 dark:bg-zinc-800 w-px ml-4" />
-                {Object.entries(value as HierarchyNode).map(([subKey, subValue]) =>
+                {Object.entries(value as HierarchyNode).map(([subKey, subValue], xi) =>
                   typeof subValue === 'object' && 'title' in subValue ? (
                     <AsideLink
                       className="pl-[2rem] flex justify-between items-center"
@@ -116,11 +107,13 @@ const renderHierarchy = (node: HierarchyNode, defaultValues: string[], level: nu
                       )}
                     </AsideLink>
                   ) : (
-                    <AccordionItem key={subKey} value={subKey}>
-                      <Trigger className="pl-[2rem] text-muted-fg group-data-[state=open]:text-fg">
-                        {goodTitle(subKey)}
-                      </Trigger>
-                      <AccordionContent className="relative overflow-hidden text-sm transition-all data-[state=closed]:animate-ru-accordion-up data-[state=open]:animate-ru-accordion-down">
+                    <AccordionItem
+                      key={subKey}
+                      currentId={subKey}
+                      className="[&[data-open]_.ex]:text-red-500"
+                    >
+                      <Trigger className="pl-[2rem]">{goodTitle(subKey)}</Trigger>
+                      <AccordionContent>
                         {Object.entries(subValue as HierarchyNode).map(([childKey, childValue]) =>
                           typeof childValue === 'object' && 'title' in childValue ? (
                             <AsideLink
@@ -152,20 +145,7 @@ const renderHierarchy = (node: HierarchyNode, defaultValues: string[], level: nu
                                 </Badge>
                               )}
                             </AsideLink>
-                          ) : (
-                            <AccordionItem key={childKey} value={childKey}>
-                              <Trigger className="text-muted-fg group-data-[state=open]:text-fg">
-                                {goodTitle(childKey)}
-                              </Trigger>
-                              <AccordionContent className="overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
-                                {renderHierarchy(
-                                  childValue as HierarchyNode,
-                                  defaultValues,
-                                  level + 1
-                                )}
-                              </AccordionContent>
-                            </AccordionItem>
-                          )
+                          ) : null
                         )}
                       </AccordionContent>
                     </AccordionItem>
@@ -180,7 +160,7 @@ const renderHierarchy = (node: HierarchyNode, defaultValues: string[], level: nu
   )
 }
 
-const Aside = () => {
+export const Aside = () => {
   const pathname = usePathname()
   const id = React.useId()
   const hierarchicalDocs = createHierarchy(docs)
@@ -213,24 +193,15 @@ const Aside = () => {
   )
 }
 
-export { Aside }
-
-export function Trigger({
-  children,
-  className
-}: {
-  children: React.ReactNode
-  className?: string
-}) {
+const Trigger = ({ children, className }: { children: React.ReactNode; className?: string }) => {
   return (
     <AccordionTrigger
       className={cn(
-        'relative group flex focus-visible:ring-inset items-center gap-x-2 w-full focus:outline-none focus-visible:ring-1 focus-visible:bg-secondary focus-visible:ring-primary-500 rounded-md px-2.5 py-2 text-left text-base transition-colors hover:bg-secondary/70 hover:text-fg lg:text-sm',
+        'pt-0 py-1.5 font-normal hover:bg-secondary/50 rounded-lg px-2 text-sm',
         className
       )}
     >
       {children}
-      <IconChevronDown className="absolute right-2.5 top-1/2 transition-transform -translate-y-1/2 text-muted-fg group-data-[state=open]:rotate-180 group-data-[state=open]:text-fg" />
     </AccordionTrigger>
   )
 }

@@ -2,14 +2,15 @@
 
 import React from 'react'
 
-import { Accordion, AccordionItem } from 'ui'
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from 'ui'
 
 export default function AccordionDefaultExpandDemo() {
   return (
-    <Accordion defaultExpandedKeys={['1', '2']}>
-      {faqs.map((faq, index) => (
-        <AccordionItem title={faq.q} key={index}>
-          {faq.a}
+    <Accordion defaultExpandedKeys={[1, 2]}>
+      {faqs.map((item, index) => (
+        <AccordionItem key={index} currentId={index}>
+          <AccordionTrigger>{item.q}</AccordionTrigger>
+          <AccordionContent>{item.a}</AccordionContent>
         </AccordionItem>
       ))}
     </Accordion>

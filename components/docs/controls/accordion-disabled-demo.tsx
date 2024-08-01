@@ -2,14 +2,15 @@
 
 import React from 'react'
 
-import { Accordion, AccordionItem } from 'ui'
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from 'ui'
 
 export default function AccordionDisabledDemo() {
   return (
-    <Accordion disabledKeys={['1', '2', '4']}>
-      {faqs.map((faq, index) => (
-        <AccordionItem title={faq.q} key={index}>
-          {faq.a}
+    <Accordion disabledKeys={[1, 2, 4]}>
+      {faqs.map((item, index) => (
+        <AccordionItem key={index} currentId={index}>
+          <AccordionTrigger>{item.q}</AccordionTrigger>
+          <AccordionContent>{item.a}</AccordionContent>
         </AccordionItem>
       ))}
     </Accordion>

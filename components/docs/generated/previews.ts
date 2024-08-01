@@ -395,9 +395,6 @@ export const previews: Record<string, any> = {
   "controls/toolbar-demo": {
     component: React.lazy(() => import("@/components/docs/controls/toolbar-demo")),
   },
-  "controls/accordion-with-icon-demo": {
-    component: React.lazy(() => import("@/components/docs/controls/accordion-with-icon-demo")),
-  },
   "controls/accordion-default-expand-demo": {
     component: React.lazy(() => import("@/components/docs/controls/accordion-default-expand-demo")),
   },

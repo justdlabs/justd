@@ -10,22 +10,15 @@ import {
   IconShield,
   IconSupport
 } from '@irsyadadl/paranoid'
-import { Accordion, AccordionItem } from 'ui'
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from 'ui'
 
 export default function AccordionWithIconDemo() {
   return (
     <Accordion hideBorder>
-      {items.map((faq, index) => (
-        <AccordionItem
-          key={index}
-          title={
-            <>
-              {faq.icon}
-              {faq.q}
-            </>
-          }
-        >
-          {faq.a}
+      {items.map((item, index) => (
+        <AccordionItem key={index} currentId={index}>
+          <AccordionTrigger>{item.title}</AccordionTrigger>
+          <AccordionContent>{item.description}</AccordionContent>
         </AccordionItem>
       ))}
     </Accordion>
@@ -35,32 +28,37 @@ export default function AccordionWithIconDemo() {
 const items = [
   {
     icon: <IconSettings />,
-    q: 'Personal Settings',
-    a: 'You can update your profile, change your password, and manage your account settings here.'
+    title: 'Personal Settings',
+    description:
+      'You can update your profile, change your password, and manage your account settings here.'
   },
   {
     icon: <IconBell />,
-    q: 'Notifications',
-    a: 'Manage your notifications preferences, including alerts, emails, and push notifications.'
+    title: 'Notifications',
+    description:
+      'Manage your notifications preferences, including alerts, emails, and push notifications.'
   },
   {
     icon: <IconShield />,
-    q: 'Privacy Options',
-    a: 'Adjust your privacy settings to control who can see your information and contact you.'
+    title: 'Privacy Options',
+    description:
+      'Adjust your privacy settings to control who can see your information and contact you.'
   },
   {
     icon: <IconCreditCard />,
-    q: 'Payment Methods',
-    a: 'Add, remove, or update your payment methods including credit cards and digital wallets.'
+    title: 'Payment Methods',
+    description:
+      'Add, remove, or update your payment methods including credit cards and digital wallets.'
   },
   {
     icon: <IconSupport />,
-    q: 'Support Center',
-    a: 'Find help with common issues, or contact support for further assistance.'
+    title: 'Support Center',
+    description: 'Find help with common issues, or contact support for further assistance.'
   },
   {
     icon: <IconDownload />,
-    q: 'Download Data',
-    a: 'Request a download of all your data we have stored, including account activity and user data.'
+    title: 'Download Data',
+    description:
+      'Request a download of all your data we have stored, including account activity and user data.'
   }
 ]

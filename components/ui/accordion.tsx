@@ -2,155 +2,190 @@
 
 import * as React from 'react'
 
-import { IconChevronLgLeft } from '@irsyadadl/paranoid'
-import type {
-  AccordionItemAriaProps as AccordionItemPrimitiveProps,
-  AriaAccordionProps
-} from '@react-aria/accordion'
-import { useAccordion, useAccordionItem } from '@react-aria/accordion'
-import { useFocus, useFocusVisible, useHover } from '@react-aria/interactions'
-import { mergeProps } from '@react-aria/utils'
-import { Item } from '@react-stately/collections'
-import type { TreeState } from '@react-stately/tree'
-import { useTreeState } from '@react-stately/tree'
-import { Heading } from 'react-aria-components'
-import { twJoin } from 'tailwind-merge'
+import { cn, focusButtonStyles } from '@/components/ui/primitive'
+import { IconChevronDown } from '@irsyadadl/paranoid'
+import type { MotionProps } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
+import type { ButtonProps } from 'react-aria-components'
+import { Button, composeRenderProps } from 'react-aria-components'
+import { twMerge } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
 
-const AccordionPrimitive = <T extends object>({ className, ...props }: AccordionProps<T>) => {
-  const domRef = React.useRef<HTMLDivElement>(null)
-  const state = useTreeState<T>(props)
-  const { accordionProps } = useAccordion(props, state, domRef)
-
-  return (
-    <div ref={domRef} className={className} {...accordionProps}>
-      {[...state.collection].map((item) => (
-        <AccordionItemPrimitive<T> key={item.key} item={item} state={state} />
-      ))}
-    </div>
-  )
-}
-
-const accordionStyles = tv({
-  slots: {
-    baseStyles: 'flex flex-col gap-0 w-full',
-    itemButtonStyles: [
-      'flex items-center [&>[data-slot=icon]]:mr-2 focus-visible:text-fg group-focus-visible:text-muted-fg focus:outline-none w-full py-3',
-      '[&_[data-slot=icon]]:transition [&_[data-slot=icon]]:duration-200 [&_[data-slot=icon]]:size-4'
-    ],
-    itemContentStyles: [
-      'relative transition-all leading-relaxed block text-sm font-normal ic max-h-0 animate-accordion-down overflow-y-hidden'
-    ]
-  }
-})
-
-const { baseStyles, itemButtonStyles, itemContentStyles } = accordionStyles()
-
-type AccordionPrimitiveProps<T> = AriaAccordionProps<T> & React.ComponentPropsWithoutRef<'div'>
-
-type AccordionGlobalProps = {
-  hideIndicator?: boolean
+interface AccordionContextType extends React.HtmlHTMLAttributes<HTMLDivElement> {
   hideBorder?: boolean
+  hideIndicator?: boolean
+  disabledKeys?: number[]
+  defaultExpandedKeys?: number[] | string[]
 }
 
-interface AccordionProps<T> extends AccordionPrimitiveProps<T>, AccordionGlobalProps {}
+const AccordionContext = React.createContext<AccordionContextType>({})
+const useAccordion = () => React.useContext(AccordionContext)
 
-const AccordionContext = React.createContext<AccordionGlobalProps>({})
+interface AccordionProps extends AccordionContextType {
+  children: React.ReactNode
+}
 
-const Accordion = <T extends object>({
-  className,
-  hideIndicator = false,
-  hideBorder = false,
+const Accordion = ({
+  children,
+  disabledKeys,
+  hideIndicator,
+  hideBorder,
+  defaultExpandedKeys,
   ...props
-}: AccordionProps<T>) => {
+}: AccordionProps) => {
   return (
-    <AccordionContext.Provider value={{ hideIndicator, hideBorder }}>
-      <AccordionPrimitive className={baseStyles()} {...props}>
-        {props.children}
-      </AccordionPrimitive>
+    <AccordionContext.Provider
+      value={{ hideIndicator, defaultExpandedKeys, hideBorder, disabledKeys }}
+    >
+      <div {...props}>{children}</div>
     </AccordionContext.Provider>
   )
 }
 
 const accordionItemStyles = tv({
+  base: 'zwx3ai flex group pb-3 relative w-full flex-col border-b'
+})
+
+interface AccordionItemContextProps {
+  setExpanded?: (index: null | number | string) => void
+  isOpen?: boolean
+  currentId: number | string
+}
+
+const AccordionItemContext = React.createContext<AccordionItemContextProps | undefined>(undefined)
+const useAccordionItem = () => {
+  const context = React.useContext(AccordionItemContext)
+  if (!context) {
+    throw new Error('AccordionItem must be used within an Accordion')
+  }
+  return context
+}
+
+interface AccordionItemProps extends React.HTMLAttributes<HTMLDivElement> {
+  currentId: number | string
+}
+
+const AccordionItem = ({ className, children, currentId }: AccordionItemProps) => {
+  const { defaultExpandedKeys, disabledKeys } = useAccordion()
+  const [expanded, setExpanded] = React.useState<any>(
+    // @ts-ignore - TS doesn't know that defaultExpandedKeys is an array of numbers
+    defaultExpandedKeys?.includes(currentId) ? currentId : false
+  )
+  const isOpen = currentId === expanded
+  const isLocked = disabledKeys?.includes(currentId as number)
+  return (
+    <AccordionItemContext.Provider value={{ setExpanded, isOpen, currentId }}>
+      <div
+        data-locked={isLocked ?? undefined}
+        data-open={isOpen ?? undefined}
+        className={accordionItemStyles({ className })}
+      >
+        {children}
+      </div>
+    </AccordionItemContext.Provider>
+  )
+}
+
+interface AccordionContentProps extends React.HTMLAttributes<HTMLDivElement> {
+  children: React.ReactNode
+}
+
+const AccordionContent = ({ className, children }: AccordionContentProps) => {
+  const { isOpen } = useAccordionItem()
+  return (
+    <AnimatePresence initial={false}>
+      {isOpen && (
+        <motion.section
+          className={cn('overflow-hidden pr-6 dk32xd', className)}
+          initial="collapsed"
+          animate="open"
+          exit="collapsed"
+          variants={{
+            open: { opacity: 1, height: 'initial' },
+            collapsed: { opacity: 0, height: 0 }
+          }}
+          transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
+        >
+          {children}
+        </motion.section>
+      )}
+    </AnimatePresence>
+  )
+}
+
+const ButtonPrimitive = motion(Button)
+
+interface AccordionTriggerProps
+  extends Omit<ButtonProps & React.RefAttributes<HTMLButtonElement> & MotionProps, 'ref'> {
+  children: React.ReactNode
+}
+
+const accordionTriggerStyles = tv({
+  extend: focusButtonStyles,
   base: [
-    'group flex flex-col cursor-pointer shadow-inner w-full relative outline-none hover:text-fg text-muted-fg focus-visible:bg-secondary'
+    'flex flex-1 text-muted-fg hover:text-fg [&>[data-slot=icon]]:size-6 items-center gap-x-2 pt-3 font-medium'
   ],
   variants: {
-    isSelected: {
-      true: 'text-fg [&_.ic]:mr-auto [&_.ic]:max-h-[initial] [&_.ic]:pb-4',
-      false: '[&_.ic]:animate-accordion-down'
+    isOpen: {
+      true: 'pb-2 text-fg'
     },
     isDisabled: {
-      true: 'text-muted-fg cursor-default hover:text-muted-fg opacity-80'
+      true: 'opacity-50 cursor-default'
     }
   }
 })
 
-interface AccordionItemProps<T> extends AccordionItemPrimitiveProps<T> {
-  state: TreeState<T>
-  hideIndicator?: boolean
-  title?: string | React.ReactNode
-  className?: string
-}
+const AccordionTrigger = ({ className, children, ...props }: AccordionTriggerProps) => {
+  const { setExpanded, isOpen, currentId } = useAccordionItem()
+  const { hideIndicator, disabledKeys } = useAccordion()
+  const isLocked = disabledKeys?.includes(currentId as number)
 
-const AccordionItemPrimitive = <T extends object>({
-  className,
-  ...props
-}: AccordionItemProps<T>) => {
-  const domRef = React.useRef<HTMLButtonElement>(null)
-  const { state, item } = props
-  const { buttonProps, regionProps } = useAccordionItem(props, state, domRef)
+  const handlePress = () => {
+    if (setExpanded) {
+      setExpanded(isOpen ? null : currentId)
+    }
+  }
 
-  const isDisabled = state.disabledKeys.has(item.key)
-  const { isFocusVisible } = useFocusVisible()
-  const [isFocused, setIsFocused] = React.useState(false)
-  const { focusProps } = useFocus({ isDisabled, onFocusChange: setIsFocused })
-  const { isHovered, hoverProps } = useHover({ isDisabled })
-  const isSelected = state.expandedKeys.has(item.key)
-  const { hideIndicator, hideBorder } = React.useContext(AccordionContext)
+  const onKeyDownHandler = (e: React.KeyboardEvent<HTMLButtonElement>) => {
+    if (e.key === 'ArrowDown') {
+      handlePress()
+    }
+  }
+
+  const onKeyUpHandler = (e: React.KeyboardEvent<HTMLButtonElement>) => {
+    if (e.key === 'ArrowUp') {
+      handlePress()
+    }
+  }
+
   return (
-    <div
-      className={accordionItemStyles({
-        isDisabled,
-        isSelected,
-        className: twJoin(hideBorder ? 'border-none' : 'border-b', className)
-      })}
-      data-selected={isSelected || undefined}
-      data-disabled={isDisabled || undefined}
+    <ButtonPrimitive
+      {...props}
+      isDisabled={isLocked}
+      onKeyUp={onKeyUpHandler}
+      onKeyDown={onKeyDownHandler}
+      initial={false}
+      onPress={handlePress}
+      className={composeRenderProps(className, (className, renderProps) =>
+        accordionTriggerStyles({
+          ...renderProps,
+          isOpen,
+          className
+        })
+      )}
     >
-      <Heading level={2}>
-        <button
-          {...mergeProps(buttonProps, hoverProps, focusProps)}
-          className={itemButtonStyles()}
-          ref={domRef}
-          data-hovered={isHovered || undefined}
-          data-focus-visible={(isFocused && isFocusVisible) || undefined}
-          data-disabled={isDisabled || undefined}
-        >
-          <>
-            {item.props.title}
-
-            {!hideIndicator && (
-              <span
-                role="img"
-                aria-hidden="true"
-                className="ml-auto"
-                aria-label="accordion item indicator"
-              >
-                <IconChevronLgLeft className={twJoin(isSelected ? '-rotate-90' : '')} />
-              </span>
-            )}
-          </>
-        </button>
-      </Heading>
-      <div {...regionProps} className={itemContentStyles()}>
-        {item.props.children}
-      </div>
-    </div>
+      {children}
+      {!hideIndicator && (
+        <IconChevronDown
+          className={twMerge(
+            'ml-auto transition duration-300 group-disabled:rotate-0',
+            isOpen ? 'rotate-180' : 'rotate-0'
+          )}
+        />
+      )}
+    </ButtonPrimitive>
   )
 }
 
-const AccordionItem = Item
-
-export { Accordion, AccordionItem, type AccordionProps, type AccordionItemProps }
+export type { AccordionTriggerProps }
+export { Accordion, AccordionItem, AccordionContent, AccordionTrigger }
