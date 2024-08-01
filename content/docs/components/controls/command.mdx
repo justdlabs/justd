@@ -99,26 +99,6 @@ And again, you can see the demo on [Command Description](#description) section. 
 ## Navigating
 For sure, when you're rolling with this command as a link in client-side frameworks like Next.js or Inertia.js, you might wanna auto close the command palette once you hit the link. I got an example on how you can make that happen.
 
-### Next.js
-When using Next.js, you can use the `usePathname` hook to close the command palette when you navigate to a new page.
-```tsx {2} {14}
-export function CommandPalette({ open, setOpen }: Props) {
-  const pathname = usePathname()
-  React.useEffect(() => {
-    const down = (e: KeyboardEvent) => {
-      if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
-        e.preventDefault()
-        setOpen((open: boolean) => !open)
-      }
-    }
-
-    document.addEventListener('keydown', down)
-
-    return () => document.removeEventListener('keydown', down)
-  }, [pathname, setOpen])
-  return (...)
-```
-
 ### Inertia.js
 When using Inertia.js, you can use the `router.on('navigate')` to close the command palette when you navigate to a new page.
 ```tsx {14}
@@ -136,6 +116,25 @@ export function CommandPalette({ open, setOpen }: Props) {
     return () => document.removeEventListener('keydown', down)
 
     router.on('navigate', () => setOpen(false))
+  }, [pathname, setOpen])
+  return (...)
+```
+### Next.js
+When using Next.js, you can use the `usePathname` hook to close the command palette when you navigate to a new page.
+```tsx {2} {14}
+export function CommandPalette({ open, setOpen }: Props) {
+  const pathname = usePathname()
+  React.useEffect(() => {
+    const down = (e: KeyboardEvent) => {
+      if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault()
+        setOpen((open: boolean) => !open)
+      }
+    }
+
+    document.addEventListener('keydown', down)
+
+    return () => document.removeEventListener('keydown', down)
   }, [pathname, setOpen])
   return (...)
 ```
