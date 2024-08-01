@@ -97,7 +97,7 @@ const renderHierarchy = (node: HierarchyNode, defaultValues: string[], level: nu
                       {subValue.status && (
                         <Badge
                           intent={
-                            subValue?.status === 'wip' || subValue?.status === 'rc'
+                            subValue?.status === 'wip' ? 'warning' : subValue?.status === 'rc'
                               ? 'primary'
                               : subValue.status === 'beta'
                                 ? 'warning'

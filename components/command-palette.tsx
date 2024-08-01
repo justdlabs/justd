@@ -98,7 +98,7 @@ export function CommandPalette({ open, setOpen }: OpenCloseProps) {
                       <Badge
                         intent={
                           subValue?.status === 'wip'
-                            ? 'primary'
+                            ? 'warning'
                             : subValue.status === 'beta'
                               ? 'warning'
                               : subValue.status === 'help'
