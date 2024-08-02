@@ -50,6 +50,7 @@ export * from './modal';
 export * from './checkbox';
 export * from './select';
 export * from './textarea';
+export * from './loading-dots';
 export * from './loader';
 export * from './skeleton';
 export * from './form';
