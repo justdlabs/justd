@@ -16,34 +16,6 @@ type UseCarouselParameters = Parameters<typeof useEmblaCarousel>
 type CarouselOptions = UseCarouselParameters[0]
 type CarouselPlugin = UseCarouselParameters[1]
 
-interface CarouselComponent
-  extends React.ForwardRefExoticComponent<
-    React.HTMLAttributes<HTMLDivElement> & CarouselProps & React.RefAttributes<HTMLDivElement>
-  > {
-  Content: React.ForwardRefExoticComponent<
-    React.HTMLAttributes<HTMLDivElement> & React.RefAttributes<HTMLDivElement>
-  >
-  Item: React.ForwardRefExoticComponent<
-    React.HTMLAttributes<HTMLDivElement> & React.RefAttributes<HTMLDivElement>
-  >
-  Previous: React.ForwardRefExoticComponent<
-    React.ButtonHTMLAttributes<HTMLButtonElement> & React.RefAttributes<HTMLButtonElement>
-  >
-  Next: React.ForwardRefExoticComponent<
-    React.ButtonHTMLAttributes<HTMLButtonElement> & React.RefAttributes<HTMLButtonElement>
-  >
-  Handler: React.ForwardRefExoticComponent<
-    React.HTMLAttributes<HTMLDivElement> & React.RefAttributes<HTMLDivElement>
-  >
-}
-
-type CarouselProps = {
-  opts?: CarouselOptions
-  plugins?: CarouselPlugin
-  orientation?: 'horizontal' | 'vertical'
-  setApi?: (api: CarouselApi) => void
-}
-
 type CarouselContextProps = {
   carouselRef: ReturnType<typeof useEmblaCarousel>[0]
   api: ReturnType<typeof useEmblaCarousel>[1]
@@ -65,10 +37,22 @@ const useCarousel = () => {
   return context
 }
 
-const Carousel = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement> & CarouselProps
->(({ orientation = 'horizontal', opts, setApi, plugins, className, children, ...props }, ref) => {
+interface CarouselProps extends React.HTMLAttributes<HTMLDivElement> {
+  opts?: CarouselOptions
+  plugins?: CarouselPlugin
+  orientation?: 'horizontal' | 'vertical'
+  setApi?: (api: CarouselApi) => void
+}
+
+const Carousel = ({
+  orientation = 'horizontal',
+  opts,
+  setApi,
+  plugins,
+  className,
+  children,
+  ...props
+}: CarouselProps) => {
   const [carouselRef, api] = useEmblaCarousel(
     {
       ...opts,
@@ -145,7 +129,6 @@ const Carousel = React.forwardRef<
       }}
     >
       <div
-        ref={ref}
         onKeyDownCapture={handleKeyDown}
         className={cn('relative', className)}
         role="region"
@@ -156,8 +139,7 @@ const Carousel = React.forwardRef<
       </div>
     </CarouselContext.Provider>
   )
-}) as CarouselComponent
-Carousel.displayName = 'Carousel'
+}
 
 const CarouselContent = <T extends object>({ className, ...props }: SectionProps<T>) => {
   const { carouselRef, orientation } = useCarousel()
