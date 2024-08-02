@@ -63,7 +63,7 @@ const Choicebox = <T extends object>({
 
 const choiceboxItemStyles = tv({
   extend: focusStyles,
-  base: 'rounded-lg border p-4 [&_[slot=title]]:font-medium',
+  base: 'rounded-lg cursor-pointer border p-4 [&_[slot=title]]:font-medium',
   variants: {
     isSelected: {
       false: 'hover:bg-secondary/50',
@@ -74,7 +74,7 @@ const choiceboxItemStyles = tv({
       ]
     },
     isDisabled: {
-      true: 'z-10 cursor-not-allowed opacity-80 [&_[slot=title]]:text-muted-fg forced-colors:text-[GrayText]'
+      true: 'z-10 cursor-default opacity-80 [&_[slot=title]]:text-muted-fg forced-colors:text-[GrayText]'
     }
   }
 })
