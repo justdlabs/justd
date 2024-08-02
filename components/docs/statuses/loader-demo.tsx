@@ -1,4 +1,4 @@
-import { Loader } from '@/components/ui/loader'
+import { Loader } from 'ui'
 
 export default function LoaderDemo() {
   return <Loader />

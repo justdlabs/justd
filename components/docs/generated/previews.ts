@@ -227,6 +227,9 @@ export const previews: Record<string, any> = {
   "buttons/toggle-appearance-demo": {
     component: React.lazy(() => import("@/components/docs/buttons/toggle-appearance-demo")),
   },
+  "buttons/button-loader-demo": {
+    component: React.lazy(() => import("@/components/docs/buttons/button-loader-demo")),
+  },
   "buttons/toggle-shape-demo": {
     component: React.lazy(() => import("@/components/docs/buttons/toggle-shape-demo")),
   },
