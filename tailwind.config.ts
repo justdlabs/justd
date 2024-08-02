@@ -84,14 +84,6 @@ const config = withTV({
         sm: 'calc(var(--radius) - 4px)'
       },
       keyframes: {
-        'accordion-open': {
-          from: { height: '0' },
-          to: { height: '36px' }
-        },
-        'accordion-close': {
-          from: { height: '36px' },
-          to: { height: '0' }
-        },
         blink: {
           '0%': { opacity: '0.2' },
           '20%': { opacity: '1' },
@@ -100,8 +92,6 @@ const config = withTV({
       },
       animation: {
         blink: 'blink 1.4s both infinite',
-        'accordion-open': 'accordion-open 0.3s ease-out',
-        'accordion-close': 'accordion-close 0.3s ease-out'
       }
     }
   },
