@@ -75,7 +75,7 @@ Next to add the `ThemeProvider` to your root layout like so:
 <PlainCode code={`import clsx from "clsx"
 import { PreventFlashOnWrongTheme, ThemeProvider, useTheme } from "remix-themes"
 
-import { themeSessionResolver } from "./sessions.server"
+import { themeSessionResolver } from "./session.server"
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const { getTheme } = await themeSessionResolver(request)
