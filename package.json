@@ -14,8 +14,6 @@
   "dependencies": {
     "@irsyadadl/paranoid": "^1.4.12",
     "@openpanel/nextjs": "^0.0.10-beta",
-    "@radix-ui/react-accordion": "^1.2.0",
-    "@react-aria/accordion": "^3.0.0-alpha.31",
     "@vercel/speed-insights": "^1.0.12",
     "chroma-js": "^2.6.0",
     "clsx": "^2.1.1",
