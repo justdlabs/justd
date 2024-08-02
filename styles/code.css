@@ -51,7 +51,7 @@ span[data-rehype-pretty-code-figure] > code span {
 }
 
 .prose-headings {
-    @apply tracking-tight;
+    @apply tracking-tighter;
 }
 
 .prose-headings\:scroll-mt-24 :is(:where(h1, h2, h3, h4, h5, h6, th):not(:where([class~="not-prose"], [class~="not-prose"] *))) > a {

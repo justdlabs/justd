@@ -11,12 +11,12 @@ import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import {
   Badge,
-  Command,
-  CommandEmpty,
-  CommandInput,
-  CommandItem,
-  CommandList,
-  CommandSection,
+  CommandMenu,
+  CommandMenuEmpty,
+  CommandMenuInput,
+  CommandMenuItem,
+  CommandMenuList,
+  CommandMenuSection,
   useMediaQuery
 } from 'ui'
 
@@ -57,37 +57,37 @@ export function CommandPalette({ open, setOpen }: OpenCloseProps) {
   })
 
   return (
-    <Command isOpen={open} onOpenChange={setOpen}>
-      <CommandInput autoFocus={isDesktop} placeholder="Search Component" />
-      <CommandList>
-        <CommandEmpty>No results found.</CommandEmpty>
-        <CommandSection separator heading="Pages">
-          <CommandItem asChild>
+    <CommandMenu isOpen={open} onOpenChange={setOpen}>
+      <CommandMenuInput autoFocus={isDesktop} placeholder="Search Component" />
+      <CommandMenuList>
+        <CommandMenuEmpty>No results found.</CommandMenuEmpty>
+        <CommandMenuSection separator heading="Pages">
+          <CommandMenuItem asChild>
             <Link href="/">
               <IconHome /> Home
             </Link>
-          </CommandItem>
-          <CommandItem asChild>
+          </CommandMenuItem>
+          <CommandMenuItem asChild>
             <Link href="/docs">
               <IconNotes /> Docs
             </Link>
-          </CommandItem>
-          <CommandItem asChild>
+          </CommandMenuItem>
+          <CommandMenuItem asChild>
             <Link href="/components">
               <IconCube /> Components
             </Link>
-          </CommandItem>
-        </CommandSection>
+          </CommandMenuItem>
+        </CommandMenuSection>
 
         {filteredNodeEntries.map(([key, value]) => (
           <React.Fragment key={key}>
-            <CommandSection
+            <CommandMenuSection
               key={`${key}-section`}
               heading={key !== 'components' ? goodTitle(key) : undefined}
             >
               {Object.entries(value as HierarchyNode).map(([subKey, subValue]) =>
                 typeof subValue === 'object' && 'title' in subValue ? (
-                  <CommandItem
+                  <CommandMenuItem
                     value={goodTitle(key + ' ' + (subValue as Doc).title)}
                     className="pl-[2rem] flex justify-between items-center"
                     key={`${key}-${subKey}`}
@@ -112,21 +112,21 @@ export function CommandPalette({ open, setOpen }: OpenCloseProps) {
                         {subValue?.status as Doc['status']}
                       </Badge>
                     )}
-                  </CommandItem>
+                  </CommandMenuItem>
                 ) : null
               )}
-            </CommandSection>
+            </CommandMenuSection>
 
             {Object.entries(value as HierarchyNode).map(([subKey, subValue]) =>
               typeof subValue === 'object' && 'title' in subValue ? null : (
-                <CommandSection
+                <CommandMenuSection
                   key={`${key}-${subKey}-section`}
                   value={goodTitle(subKey)}
                   heading={goodTitle(subKey)}
                 >
                   {Object.entries(subValue as HierarchyNode).map(([childKey, childValue]) =>
                     typeof childValue === 'object' && 'title' in childValue ? (
-                      <CommandItem
+                      <CommandMenuItem
                         className="justify-between"
                         value={
                           childValue.title === 'Text Field'
@@ -153,15 +153,15 @@ export function CommandPalette({ open, setOpen }: OpenCloseProps) {
                             {childValue?.status as Doc['status']}
                           </Badge>
                         )}
-                      </CommandItem>
+                      </CommandMenuItem>
                     ) : null
                   )}
-                </CommandSection>
+                </CommandMenuSection>
               )
             )}
           </React.Fragment>
         ))}
-      </CommandList>
-    </Command>
+      </CommandMenuList>
+    </CommandMenu>
   )
 }

@@ -83,22 +83,22 @@ const {
   description
 } = commandStyles()
 
-interface CommandContextProps {
+interface CommandMenuContextProps {
   hideSearchIndicator?: boolean
   hideCloseButton?: boolean
   messageOnEmpty?: boolean | string
 }
 
-const CommandContext = React.createContext<CommandContextProps>({})
+const CommandMenuContext = React.createContext<CommandMenuContextProps>({})
 
-interface CommandModalProps extends ModalOverlayProps, CommandContextProps {
+interface CommandMenuProps extends ModalOverlayProps, CommandMenuContextProps {
   children: React.ReactNode
   value?: string
   messageOnEmpty?: boolean | string
   onValueChange?: (value: string) => void
 }
 
-const Command = ({
+const CommandMenu = ({
   hideSearchIndicator = false,
   hideCloseButton = false,
   messageOnEmpty,
@@ -106,10 +106,10 @@ const Command = ({
   onValueChange,
   children,
   ...props
-}: CommandModalProps) => {
+}: CommandMenuProps) => {
   const isDesktop = useMediaQuery('(min-width: 1024px)')
   return (
-    <CommandContext.Provider value={{ hideSearchIndicator, hideCloseButton, messageOnEmpty }}>
+    <CommandMenuContext.Provider value={{ hideSearchIndicator, hideCloseButton, messageOnEmpty }}>
       <ModalOverlay isDismissable className={modalOverlay()} {...props}>
         <Modal className={modal()}>
           <Dialog className="outline-none" aria-label="Command Palette">
@@ -132,17 +132,18 @@ const Command = ({
           </Dialog>
         </Modal>
       </ModalOverlay>
-    </CommandContext.Provider>
+    </CommandMenuContext.Provider>
   )
 }
 
-interface CommandInputProps extends React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input> {}
+interface CommandMenuInputProps
+  extends React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input> {}
 
-const CommandInput = React.forwardRef<
+const CommandMenuInput = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Input>,
-  CommandInputProps
+  CommandMenuInputProps
 >(({ className, ...props }, ref) => {
-  const { hideSearchIndicator } = React.useContext(CommandContext)
+  const { hideSearchIndicator } = React.useContext(CommandMenuContext)
   return (
     <div className="flex border-b items-center px-3">
       {!hideSearchIndicator && <IconSearch className="mr-2 size-5 shrink-0 opacity-50" />}
@@ -156,28 +157,27 @@ const CommandInput = React.forwardRef<
   )
 })
 
-CommandInput.displayName = CommandPrimitive.Input.displayName
+CommandMenuInput.displayName = CommandPrimitive.Input.displayName
 
-interface CommandListProps extends React.ComponentProps<typeof CommandPrimitive.List> {}
+interface CommandMenuListProps extends React.ComponentProps<typeof CommandPrimitive.List> {}
 
-const CommandList = ({ className, ...props }: CommandListProps) => {
-  const { messageOnEmpty } = React.useContext(CommandContext)
+const CommandMenuList = ({ className, ...props }: CommandMenuListProps) => {
+  const { messageOnEmpty } = React.useContext(CommandMenuContext)
   return (
     <CommandPrimitive.List className={list({ className })} {...props}>
       {messageOnEmpty !== false && (
-        <CommandEmpty>
+        <CommandMenuEmpty>
           {typeof messageOnEmpty === 'string' ? messageOnEmpty : 'No results found.'}
-        </CommandEmpty>
+        </CommandMenuEmpty>
       )}
       {props.children}
     </CommandPrimitive.List>
   )
 }
 
-const CommandEmpty = ({
-  className,
-  ...props
-}: React.ComponentProps<typeof CommandPrimitive.Empty>) => {
+interface CommandMenuEmptyProps extends React.ComponentProps<typeof CommandPrimitive.Empty> {}
+
+const CommandMenuEmpty = ({ className, ...props }: CommandMenuEmptyProps) => {
   return <CommandPrimitive.Empty className={empty({ className })} {...props} />
 }
 
@@ -185,18 +185,18 @@ interface CommandSectionProps extends React.ComponentProps<typeof CommandPrimiti
   separator?: boolean
 }
 
-const CommandSection = ({ className, separator, ...props }: CommandSectionProps) => {
+const CommandMenuSection = ({ className, separator, ...props }: CommandSectionProps) => {
   return (
     <>
       <CommandPrimitive.Group className={section({ className })} {...props}>
         {props.children}
-        {separator && <CommandSeparator className="mt-2" />}
+        {separator && <CommandMenuSeparator className="mt-2" />}
       </CommandPrimitive.Group>
     </>
   )
 }
 
-const CommandSeparator = ({ className, ...props }: SeparatorProps) => {
+const CommandMenuSeparator = ({ className, ...props }: SeparatorProps) => {
   return (
     <div className="-mx-4 s3xsprt">
       <Separator className={className} {...props} orientation="horizontal" />
@@ -208,7 +208,7 @@ interface CommandItemProps extends React.ComponentProps<typeof CommandPrimitive.
   isDanger?: boolean
 }
 
-const CommandItem = ({ isDanger, className, ...props }: CommandItemProps) => {
+const CommandMenuItem = ({ isDanger, className, ...props }: CommandItemProps) => {
   return (
     <CommandPrimitive.Item
       data-danger={isDanger ? 'true' : undefined}
@@ -218,22 +218,22 @@ const CommandItem = ({ isDanger, className, ...props }: CommandItemProps) => {
   )
 }
 
-const CommandDescription = ({ className, ...props }: TextProps) => {
+const CommandMenuDescription = ({ className, ...props }: TextProps) => {
   return <Text {...props} slot="description" className={description({ className })} />
 }
 
-const CommandKeyboard = (props: KeyboardProps) => (
+const CommandMenuKeyboard = (props: KeyboardProps) => (
   <Keyboard classNames={{ kbd: kbdKeyboard(), base: '-mr-2.5' }} {...props} />
 )
 
 export {
-  CommandEmpty,
-  CommandInput,
-  CommandItem,
-  CommandKeyboard,
-  CommandList,
-  Command,
-  CommandSection,
-  CommandSeparator,
-  CommandDescription
+  CommandMenuEmpty,
+  CommandMenuInput,
+  CommandMenuItem,
+  CommandMenuKeyboard,
+  CommandMenuList,
+  CommandMenu,
+  CommandMenuSection,
+  CommandMenuSeparator,
+  CommandMenuDescription
 }

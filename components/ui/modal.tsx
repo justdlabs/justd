@@ -211,6 +211,7 @@ const ModalDescription = ({ className, ...props }: HeadingProps) => (
 )
 
 export {
+  modalContentStyles,
   CloseButtonIndicator,
   Modal,
   ModalBody,

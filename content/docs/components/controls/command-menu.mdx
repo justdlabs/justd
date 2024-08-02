@@ -1,51 +1,51 @@
 ---
-title: "Command"
+title: "Command Menu"
 description: A command's like a button with a twist it pops open a menu of options. Think of it like a combobox but way cooler. Perfect for command palettes, menus, and all that jazz.
 order: 3
 published: true
-status: new
+status: beta
 references: ["https://cmdk.paco.me/", "https://react-spectrum.adobe.com/react-aria/Modal.html#props"]
 ---
 
 ## Basic
-This command is straightforward, always under your control, allowing you to open and close it as needed.
-<How toUse="controls/command-demo" />
+This command menu is straightforward, always under your control, allowing you to open and close it as needed.
+<How toUse="controls/command-menu-demo" />
 
 ## Installation
-<InstallCommand isAdd items={['command']}/>
+<InstallCommand isAdd items={['command-menu-menu']} />
 
 ## Composed Components
-<Composed components={['keyboard', 'separator']}/>
+<Composed components={['keyboard', 'separator']} />
 
 ## Manual Installation
 
-<InstallCommand isInstall isManual items={['react-aria-components', 'cmdk', '@irsyadadl/paranoid']}/>
+<InstallCommand isInstall isManual items={['react-aria-components', 'cmdk', '@irsyadadl/paranoid']} />
 
-<SourceCode toShow={['command']}/>
+<SourceCode toShow={['command']} />
 
 ## Separator
 You can toss a separator between items.
-<How toUse="controls/command-separator-demo" />
+<How toUse="controls/command-menu-separator-demo" />
 
 ## Section
 You can rock the command solo, no sections needed, but for real, it’s smart to use sections.
-<How toUse="controls/command-section-demo" />
+<How toUse="controls/command-menu-section-demo" />
 
 ## Keyboard
 You can hook up a keyboard to the command. Heads up though, the keyboard might duck out on smaller screens.
-<How toUse="controls/command-keyboard-demo" />
+<How toUse="controls/command-menu-keyboard-demo" />
 
 ## Trigger by Keyboard
 You can trigger a command by keyboard. This is a great way to get started with command palettes.
-<How toUse="controls/command-trigger-by-keyboard-demo" />
+<How toUse="controls/command-menu-trigger-by-keyboard-demo" />
 
 ## Danger
 You can crank up the heat on a command item, make it dangerous. That’ll switch the item’s color to red, signaling caution.
-<How toUse="controls/command-danger-item-demo" />
+<How toUse="controls/command-menu-danger-item-demo" />
 
 ## Controlled
 You can control the value of the command palette by using the `value` and `onValueChange` props. This is a great way to make a command palette that is controlled by a parent component.
-<How toUse="controls/command-controlled-demo" />
+<How toUse="controls/command-menu-controlled-demo" />
 For sure, you can also manage the value of the item, like say you wanna kick off some action after picking an item.
 ```
 <CommandItem onSelect={() => console.log('share justd.co/d/command')} />
@@ -53,12 +53,12 @@ For sure, you can also manage the value of the item, like say you wanna kick off
 
 ## Disabled
 When you flip it to disabled, it'll go gray and won't be clickable, just sitting there all chill.
-<How toUse="controls/command-disabled-demo" />
+<How toUse="controls/command-menu-disabled-demo" />
 
 ## Hide Indicator
 You can hide the search indicator by passing `hideSearchIndicator` and close button by passing `hideCloseButton`. The demo you can see on [Command Description](#description) section.
 ```
-<Command
+<CommandMenu
   hideCloseButton
   hideSearchIndicator
   isOpen={isOpen}
@@ -68,7 +68,7 @@ You can hide the search indicator by passing `hideSearchIndicator` and close but
 
 ## Description
 Sometimes you gotta slap a description on a command item. Hook it up using the `CommandDescription` component. Just a heads up, the keyboard might dip out on smaller screens.
-<How toUse="controls/command-description-demo" />
+<How toUse="controls/command-menu-description-demo" />
 
 ## Fallback Empty Message
 By default, it will show a message when "No results found.". If you think you want to change the message, you can do that by passing a string to `messageOnEmpty` prop.

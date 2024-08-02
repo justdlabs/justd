@@ -3,44 +3,37 @@
 import React from 'react'
 
 import {
+  Avatar,
   Button,
-  Command,
-  CommandInput,
-  CommandItem,
-  CommandList,
-  CommandSection,
-  CommandSeparator
+  CommandMenu,
+  CommandMenuDescription,
+  CommandMenuInput,
+  CommandMenuItem,
+  CommandMenuList
 } from 'ui'
 
-export default function CommandSectionDemo() {
+export default function CommandMenuControlledDemo() {
   const [isOpen, setIsOpen] = React.useState(false)
+  const [value, setValue] = React.useState('')
   return (
     <>
       <Button appearance="outline" onPress={() => setIsOpen(true)}>
         Open
       </Button>
-      <Command isOpen={isOpen} onOpenChange={setIsOpen}>
-        <CommandInput placeholder="Quick search..." />
-        <CommandList>
-          <CommandSection heading="Pages">
-            <CommandItem asChild>
-              <a href="/">Home</a>
-            </CommandItem>
-            <CommandItem asChild>
-              <a href="/docs/getting-started/installation">Docs</a>
-            </CommandItem>
-            <CommandItem asChild>
-              <a href="/components">Components</a>
-            </CommandItem>
-          </CommandSection>
-          <CommandSeparator />
-          <CommandSection heading="Users">
-            {users.map((user) => (
-              <CommandItem key={user.id}>{user.name}</CommandItem>
-            ))}
-          </CommandSection>
-        </CommandList>
-      </Command>
+      <CommandMenu onValueChange={setValue} value={value} isOpen={isOpen} onOpenChange={setIsOpen}>
+        <CommandMenuInput defaultValue={value} placeholder="Quick search..." />
+        <CommandMenuList>
+          {users.map((user) => (
+            <CommandMenuItem key={user.id} value={user.name}>
+              <Avatar src={user.image_url} />
+              {user.name}{' '}
+              {user.name === value && (
+                <CommandMenuDescription>Selected: {value}</CommandMenuDescription>
+              )}
+            </CommandMenuItem>
+          ))}
+        </CommandMenuList>
+      </CommandMenu>
     </>
   )
 }

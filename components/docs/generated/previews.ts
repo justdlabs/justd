@@ -374,26 +374,23 @@ export const previews: Record<string, any> = {
   "controls/slider-range-demo": {
     component: React.lazy(() => import("@/components/docs/controls/slider-range-demo")),
   },
-  "controls/command-description-demo": {
-    component: React.lazy(() => import("@/components/docs/controls/command-description-demo")),
-  },
   "controls/toolbar-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/controls/toolbar-disabled-demo")),
   },
-  "controls/command-danger-item-demo": {
-    component: React.lazy(() => import("@/components/docs/controls/command-danger-item-demo")),
-  },
-  "controls/command-controlled-demo": {
-    component: React.lazy(() => import("@/components/docs/controls/command-controlled-demo")),
-  },
-  "controls/command-demo": {
-    component: React.lazy(() => import("@/components/docs/controls/command-demo")),
+  "controls/command-menu-disabled-demo": {
+    component: React.lazy(() => import("@/components/docs/controls/command-menu-disabled-demo")),
   },
   "controls/switch-variant-demo": {
     component: React.lazy(() => import("@/components/docs/controls/switch-variant-demo")),
   },
   "controls/toolbar-demo": {
     component: React.lazy(() => import("@/components/docs/controls/toolbar-demo")),
+  },
+  "controls/command-menu-section-demo": {
+    component: React.lazy(() => import("@/components/docs/controls/command-menu-section-demo")),
+  },
+  "controls/command-menu-trigger-by-keyboard-demo": {
+    component: React.lazy(() => import("@/components/docs/controls/command-menu-trigger-by-keyboard-demo")),
   },
   "controls/accordion-default-expand-demo": {
     component: React.lazy(() => import("@/components/docs/controls/accordion-default-expand-demo")),
@@ -410,23 +407,14 @@ export const previews: Record<string, any> = {
   "controls/slider-demo": {
     component: React.lazy(() => import("@/components/docs/controls/slider-demo")),
   },
-  "controls/command-keyboard-demo": {
-    component: React.lazy(() => import("@/components/docs/controls/command-keyboard-demo")),
-  },
-  "controls/command-separator-demo": {
-    component: React.lazy(() => import("@/components/docs/controls/command-separator-demo")),
-  },
   "controls/toolbar-orientation-demo": {
     component: React.lazy(() => import("@/components/docs/controls/toolbar-orientation-demo")),
-  },
-  "controls/command-section-demo": {
-    component: React.lazy(() => import("@/components/docs/controls/command-section-demo")),
   },
   "controls/slider-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/controls/slider-disabled-demo")),
   },
-  "controls/command-disabled-demo": {
-    component: React.lazy(() => import("@/components/docs/controls/command-disabled-demo")),
+  "controls/command-menu-demo": {
+    component: React.lazy(() => import("@/components/docs/controls/command-menu-demo")),
   },
   "controls/slider-step-demo": {
     component: React.lazy(() => import("@/components/docs/controls/slider-step-demo")),
@@ -434,17 +422,29 @@ export const previews: Record<string, any> = {
   "controls/switch-demo": {
     component: React.lazy(() => import("@/components/docs/controls/switch-demo")),
   },
+  "controls/command-menu-separator-demo": {
+    component: React.lazy(() => import("@/components/docs/controls/command-menu-separator-demo")),
+  },
   "controls/accordion-border-hidden-demo": {
     component: React.lazy(() => import("@/components/docs/controls/accordion-border-hidden-demo")),
   },
-  "controls/command-trigger-by-keyboard-demo": {
-    component: React.lazy(() => import("@/components/docs/controls/command-trigger-by-keyboard-demo")),
+  "controls/command-menu-keyboard-demo": {
+    component: React.lazy(() => import("@/components/docs/controls/command-menu-keyboard-demo")),
+  },
+  "controls/command-menu-description-demo": {
+    component: React.lazy(() => import("@/components/docs/controls/command-menu-description-demo")),
+  },
+  "controls/command-menu-controlled-demo": {
+    component: React.lazy(() => import("@/components/docs/controls/command-menu-controlled-demo")),
   },
   "controls/switch-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/controls/switch-controlled-demo")),
   },
   "controls/accordion-hide-indicator-demo": {
     component: React.lazy(() => import("@/components/docs/controls/accordion-hide-indicator-demo")),
+  },
+  "controls/command-menu-danger-item-demo": {
+    component: React.lazy(() => import("@/components/docs/controls/command-menu-danger-item-demo")),
   },
   "controls/switch-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/controls/switch-disabled-demo")),

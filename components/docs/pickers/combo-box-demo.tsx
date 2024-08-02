@@ -2,6 +2,18 @@
 
 import { ComboBox, ComboBoxItem } from 'ui'
 
+export default function ComboBoxDemo() {
+  return (
+    <ComboBox placeholder="Select a user" label="Users" items={users}>
+      {(item) => (
+        <ComboBoxItem key={item.id} id={item.id} textValue={item.name}>
+          {item.name}
+        </ComboBoxItem>
+      )}
+    </ComboBox>
+  )
+}
+
 const users = [
   { id: 1, name: 'Barbara Kirlin Sr.', image_url: 'https://i.pravatar.cc/150?img=1' },
   { id: 2, name: 'Rosemarie Koch', image_url: 'https://i.pravatar.cc/150?img=2' },
@@ -22,15 +34,3 @@ const users = [
   { id: 9, name: 'Kevon Hackett MD', image_url: 'https://i.pravatar.cc/150?img=9' },
   { id: 10, name: 'Tom Ledner', image_url: 'https://i.pravatar.cc/150?img=10' }
 ]
-
-export default function ComboBoxDemo() {
-  return (
-    <ComboBox placeholder="Select a user" label="Users" items={users}>
-      {(item) => (
-        <ComboBoxItem key={item.id} id={item.id} textValue={item.name}>
-          {item.name}
-        </ComboBoxItem>
-      )}
-    </ComboBox>
-  )
-}

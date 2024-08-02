@@ -12,15 +12,15 @@ import {
 } from '@irsyadadl/paranoid'
 import Link from 'next/link'
 import {
-  Command,
-  CommandInput,
-  CommandItem,
-  CommandKeyboard,
-  CommandList,
-  CommandSection
+  CommandMenu,
+  CommandMenuInput,
+  CommandMenuItem,
+  CommandMenuKeyboard,
+  CommandMenuList,
+  CommandMenuSection
 } from 'ui'
 
-export default function CommandTriggerByKeyboardDemo() {
+export default function CommandMenuTriggerByKeyboardDemo() {
   const [isOpen, setIsOpen] = React.useState(false)
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
@@ -37,47 +37,47 @@ export default function CommandTriggerByKeyboardDemo() {
   return (
     <>
       ⌘ /
-      <Command isOpen={isOpen} onOpenChange={setIsOpen}>
-        <CommandInput placeholder="Quick search..." />
-        <CommandList>
-          <CommandSection separator heading="Pages">
-            <CommandItem asChild>
+      <CommandMenu isOpen={isOpen} onOpenChange={setIsOpen}>
+        <CommandMenuInput placeholder="Quick search..." />
+        <CommandMenuList>
+          <CommandMenuSection separator heading="Pages">
+            <CommandMenuItem asChild>
               <Link href="#">
                 <IconHome2 /> Home
               </Link>
-            </CommandItem>
-            <CommandItem asChild>
+            </CommandMenuItem>
+            <CommandMenuItem asChild>
               <Link href="#">
                 <IconNotes /> Docs
-                <CommandKeyboard keys="⌘k" />
+                <CommandMenuKeyboard keys="⌘k" />
               </Link>
-            </CommandItem>
-            <CommandItem asChild>
+            </CommandMenuItem>
+            <CommandMenuItem asChild>
               <Link href="#">
                 <IconCube /> Components
               </Link>
-            </CommandItem>
-          </CommandSection>
-          <CommandSection heading="Dashboard">
-            <CommandItem asChild>
+            </CommandMenuItem>
+          </CommandMenuSection>
+          <CommandMenuSection heading="Dashboard">
+            <CommandMenuItem asChild>
               <Link href="#">
                 <IconCreditCard /> Billing
               </Link>
-            </CommandItem>
-            <CommandItem asChild>
+            </CommandMenuItem>
+            <CommandMenuItem asChild>
               <Link href="#">
                 <IconGear /> Settings
-                <CommandKeyboard keys="⌘s" />
+                <CommandMenuKeyboard keys="⌘s" />
               </Link>
-            </CommandItem>
-            <CommandItem asChild>
+            </CommandMenuItem>
+            <CommandMenuItem asChild>
               <Link href="#">
                 <IconShield /> Security
               </Link>
-            </CommandItem>
-          </CommandSection>
-        </CommandList>
-      </Command>
+            </CommandMenuItem>
+          </CommandMenuSection>
+        </CommandMenuList>
+      </CommandMenu>
     </>
   )
 }

@@ -3,37 +3,44 @@
 import React from 'react'
 
 import {
-  Avatar,
   Button,
-  Command,
-  CommandDescription,
-  CommandInput,
-  CommandItem,
-  CommandList
+  CommandMenu,
+  CommandMenuInput,
+  CommandMenuItem,
+  CommandMenuList,
+  CommandMenuSection,
+  CommandMenuSeparator
 } from 'ui'
 
-export default function CommandControlledDemo() {
+export default function CommandMenuSectionDemo() {
   const [isOpen, setIsOpen] = React.useState(false)
-  const [value, setValue] = React.useState('')
   return (
     <>
       <Button appearance="outline" onPress={() => setIsOpen(true)}>
         Open
       </Button>
-      <Command onValueChange={setValue} value={value} isOpen={isOpen} onOpenChange={setIsOpen}>
-        <CommandInput defaultValue={value} placeholder="Quick search..." />
-        <CommandList>
-          {users.map((user) => (
-            <CommandItem key={user.id} value={user.id.toString()}>
-              <Avatar src={user.image_url} />
-              {user.name}{' '}
-              {user.id.toString() === value && (
-                <CommandDescription>Selected: {value}</CommandDescription>
-              )}
-            </CommandItem>
-          ))}
-        </CommandList>
-      </Command>
+      <CommandMenu isOpen={isOpen} onOpenChange={setIsOpen}>
+        <CommandMenuInput placeholder="Quick search..." />
+        <CommandMenuList>
+          <CommandMenuSection heading="Pages">
+            <CommandMenuItem asChild>
+              <a href="/">Home</a>
+            </CommandMenuItem>
+            <CommandMenuItem asChild>
+              <a href="/docs/getting-started/installation">Docs</a>
+            </CommandMenuItem>
+            <CommandMenuItem asChild>
+              <a href="/components">Components</a>
+            </CommandMenuItem>
+          </CommandMenuSection>
+          <CommandMenuSeparator />
+          <CommandMenuSection heading="Users">
+            {users.map((user) => (
+              <CommandMenuItem key={user.id}>{user.name}</CommandMenuItem>
+            ))}
+          </CommandMenuSection>
+        </CommandMenuList>
+      </CommandMenu>
     </>
   )
 }

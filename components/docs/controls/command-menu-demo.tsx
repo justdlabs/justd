@@ -7,70 +7,70 @@ import Link from 'next/link'
 import {
   Avatar,
   Button,
-  Command,
-  CommandInput,
-  CommandItem,
-  CommandKeyboard,
-  CommandList,
-  CommandSection
+  CommandMenu,
+  CommandMenuInput,
+  CommandMenuItem,
+  CommandMenuKeyboard,
+  CommandMenuList,
+  CommandMenuSection
 } from 'ui'
 
-export default function CommandDemo() {
+export default function CommandMenuDemo() {
   const [isOpen, setIsOpen] = React.useState(false)
   return (
     <>
       <Button appearance="outline" onPress={() => setIsOpen(true)}>
         Open
       </Button>
-      <Command isOpen={isOpen} onOpenChange={setIsOpen}>
-        <CommandInput placeholder="Quick search..." />
-        <CommandList>
-          <CommandSection separator heading="Pages">
-            <CommandItem asChild>
+      <CommandMenu isOpen={isOpen} onOpenChange={setIsOpen}>
+        <CommandMenuInput placeholder="Quick search..." />
+        <CommandMenuList>
+          <CommandMenuSection separator heading="Pages">
+            <CommandMenuItem asChild>
               <Link href="#">
                 <IconHome /> Home
               </Link>
-            </CommandItem>
-            <CommandItem asChild>
+            </CommandMenuItem>
+            <CommandMenuItem asChild>
               <Link href="#">
                 <IconNotes /> Docs
-                <CommandKeyboard keys="⌘k" />
+                <CommandMenuKeyboard keys="⌘k" />
               </Link>
-            </CommandItem>
-            <CommandItem asChild>
+            </CommandMenuItem>
+            <CommandMenuItem asChild>
               <Link href="#">
                 <IconCube /> Components
               </Link>
-            </CommandItem>
-          </CommandSection>
-          <CommandSection separator heading="Dashboard">
-            <CommandItem asChild>
+            </CommandMenuItem>
+          </CommandMenuSection>
+          <CommandMenuSection separator heading="Dashboard">
+            <CommandMenuItem asChild>
               <Link href="#">
                 <IconBill /> Billing
               </Link>
-            </CommandItem>
-            <CommandItem asChild>
+            </CommandMenuItem>
+            <CommandMenuItem asChild>
               <Link href="#">
                 <IconGear /> Settings
-                <CommandKeyboard keys="⌘s" />
+                <CommandMenuKeyboard keys="⌘s" />
               </Link>
-            </CommandItem>
-            <CommandItem asChild>
+            </CommandMenuItem>
+            <CommandMenuItem asChild>
               <Link href="#">
                 <IconShield /> Security
               </Link>
-            </CommandItem>
-          </CommandSection>
-          <CommandSection heading="Team">
+            </CommandMenuItem>
+          </CommandMenuSection>
+          <CommandMenuSection heading="Team">
             {users.map((user) => (
-              <CommandItem key={user.id}>
+              <CommandMenuItem key={user.id}>
                 <Avatar src={user.image_url} />
                 {user.name}
-              </CommandItem>
+              </CommandMenuItem>
             ))}
-          </CommandSection>
-        </CommandList>
-      </Command>
+          </CommandMenuSection>
+        </CommandMenuList>
+      </CommandMenu>
     </>
   )
 }

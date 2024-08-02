@@ -59,12 +59,12 @@ export function Hero() {
             >
               <IconStar /> Stars sustain energy
             </Link>
-            <Heading className="max-w-xl mt-4 text-2xl font-bold lg:text-5xl mb-2 lg:mb-6">
-              Making your site accessible ain't brain surgery.
+            <Heading className="max-w-xl mt-4 text-2xl font-bold lg:text-4xl mb-2 lg:mb-6">
+              Build Accessible React Apps in Minutes: Copy, Paste, Customize
             </Heading>
             <Text
               slot="description"
-              className="text-base [&_strong]:font-medium lg:text-xl max-w-2xl block leading-relaxed text-muted-fg"
+              className="text-base [&_strong]:font-medium lg:text-xl max-w-2xl block leading-loose text-muted-fg"
             >
               <strong className="text-fg">{siteConfig.name}</strong> is a chill set of React
               components, built on top of <strong className="text-fg">React Aria Components</strong>

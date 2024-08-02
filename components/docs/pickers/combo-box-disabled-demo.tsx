@@ -2,10 +2,6 @@
 
 import { Avatar, ComboBox, ComboBoxItem } from 'ui'
 
-const users = [
-  { id: 1, name: 'Barbara Kirlin Sr.', image_url: 'https://i.pravatar.cc/150?img=1' }
-  //...
-]
 export default function ComboBoxDisabledDemo() {
   return (
     <ComboBox placeholder="Select a user" label="Users" isDisabled items={users}>
@@ -18,3 +14,8 @@ export default function ComboBoxDisabledDemo() {
     </ComboBox>
   )
 }
+
+const users = [
+  { id: 1, name: 'Barbara Kirlin Sr.', image_url: 'https://i.pravatar.cc/150?img=1' }
+  //...
+]
