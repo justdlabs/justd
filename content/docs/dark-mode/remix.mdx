@@ -50,7 +50,8 @@ Next, modify your `tailwind.css` file to include the following:
 
 ## Session Storage
 And next, in your `app/session.server.tsx` file, add the following:
-<PlainCode code={`import { createThemeSessionResolver } from "remix-themes"
+<PlainCode code={`import { createCookieSessionStorage } from "@remix-run/node";
+import { createThemeSessionResolver } from "remix-themes"
 
 const isProduction = process.env.NODE_ENV === "production"
 
