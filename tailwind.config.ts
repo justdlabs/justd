@@ -91,7 +91,7 @@ const config = withTV({
         }
       },
       animation: {
-        blink: 'blink 1.4s both infinite',
+        blink: 'blink 1.4s both infinite'
       }
     }
   },

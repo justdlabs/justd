@@ -4,7 +4,7 @@ description: An accordion's like a vertical stack of headers that pop open to sh
 status: new
 order: 6
 published: true
-references: ["https://react-spectrum.adobe.com/react-aria/useFocusVisible.html", "https://www.framer.com/motion/animate-presence/"]
+references: ["https://react-spectrum.adobe.com/react-aria/Button.html#props", "https://www.framer.com/motion/animate-presence/"]
 ---
 
 ## Basic
@@ -14,9 +14,6 @@ An accordion's like a vertical stack of headers that pop open to show or hide co
 ## Installation
 <InstallCommand isAdd items={['accordion']}/>
 
-## Composed Components
-<Composed components={['keyboard', 'separator']}/>
-
 ## Manual Installation
 
 <InstallCommand isInstall isManual items={['react-aria-components', 'framer-motion', '@irsyadadl/paranoid']}/>
@@ -24,7 +21,7 @@ An accordion's like a vertical stack of headers that pop open to show or hide co
 <SourceCode toShow={['accordion']}/>
 
 ## Default Expanded
-You can set the default expanded keys by passing an array of keys to `defaultExpandedKeys` prop.
+You can set the default expanded keys by passing an array of keys to `defaultExpandedKeys` prop. It can be a number or a string.
 <How isCenter={false} toUse="controls/accordion-default-expand-demo" />
 
 ## Hide Indicator
