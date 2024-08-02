@@ -626,6 +626,9 @@ export const previews: Record<string, any> = {
   "surfaces/grid-gap-x-y-demo": {
     component: React.lazy(() => import("@/components/docs/surfaces/grid-gap-x-y-demo")),
   },
+  "statuses/toast-description-demo": {
+    component: React.lazy(() => import("@/components/docs/statuses/toast-description-demo")),
+  },
   "statuses/table-of-badges": {
     component: React.lazy(() => import("@/components/docs/statuses/table-of-badges")),
   },

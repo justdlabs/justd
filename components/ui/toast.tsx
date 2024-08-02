@@ -36,7 +36,7 @@ const Toast = ({ ...props }: ToasterProps) => {
             '[&:has([data-icon])_[data-content]]:ml-5',
             '[&:has([data-button])_[data-close-button="true"]]:hidden',
             '[&:not([data-description])_[data-title]]:font-normal',
-            '[&:has([data-description])_[data-title]]:!font-medium',
+            '[&:has([data-description])_[data-title]]:!font-medium [&:has([data-description])_[data-title]]:!text-lg',
             '[&>[data-button]]:absolute [&>[data-button=true]]:bottom-4',
             '[&>[data-action=true]]:right-4',
             '[&>[data-cancel=true]]:left-4'
