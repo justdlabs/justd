@@ -2,7 +2,6 @@
 
 import * as React from 'react'
 
-import { cn, focusButtonStyles } from '@/components/ui/primitive'
 import { IconChevronDown } from '@irsyadadl/paranoid'
 import type { MotionProps } from 'framer-motion'
 import { AnimatePresence, motion } from 'framer-motion'
@@ -10,6 +9,8 @@ import type { ButtonProps } from 'react-aria-components'
 import { Button, composeRenderProps } from 'react-aria-components'
 import { twMerge } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
+
+import { cn, focusButtonStyles } from './primitive'
 
 interface AccordionContextType extends React.HtmlHTMLAttributes<HTMLDivElement> {
   hideBorder?: boolean
