@@ -369,6 +369,11 @@
     "raw": "'use client'\n\nimport { Toggle } from 'ui'\n\nexport default function ToggleAppearanceDemo() {\n  return (\n    <div className=\"flex gap-2\">\n      <Toggle>{({ isSelected }) => <>{isSelected ? 'Unpin' : 'Pin'}</>}</Toggle>\n      <Toggle appearance=\"outline\">\n        {({ isSelected }) => <>{isSelected ? 'Unpin' : 'Pin'}</>}\n      </Toggle>\n      <Toggle appearance=\"solid\">{({ isSelected }) => <>{isSelected ? 'Unpin' : 'Pin'}</>}</Toggle>\n    </div>\n  )\n}\n",
     "type": "docs"
   },
+  "buttons/button-loader-demo": {
+    "component": "@/components/docs/buttons/button-loader-demo",
+    "raw": "'use client'\n\nimport { useState } from 'react'\n\nimport { IconCircleCheckFill, IconKey, IconTriangleInfoFill } from '@irsyadadl/paranoid'\nimport { Button, Loader } from 'ui'\n\nexport default function ButtonLoaderDemo() {\n  const [loading, setLoading] = useState<'idle' | 'generating' | 'success' | 'error'>('idle')\n\n  const pressHandler = () => {\n    setLoading('generating')\n\n    // Simulate key generation\n    setTimeout(() => {\n      const isSuccess = Math.random() > 0.5\n      if (isSuccess) {\n        setLoading('success')\n      } else {\n        setLoading('error')\n      }\n    }, 2000)\n\n    setTimeout(() => {\n      setLoading('idle')\n    }, 4000)\n  }\n\n  return (\n    <Button\n      className=\"w-56 justify-between\"\n      onPress={pressHandler}\n      intent={loading === 'success' ? 'success' : loading === 'error' ? 'danger' : 'primary'}\n    >\n      {loading === 'success' ? (\n        <IconCircleCheckFill />\n      ) : loading === 'error' ? (\n        <IconTriangleInfoFill />\n      ) : loading === 'generating' ? (\n        <Loader />\n      ) : (\n        <IconKey />\n      )}\n      {loading === 'generating'\n        ? 'Generating Key...'\n        : loading === 'success'\n          ? 'Key Generated!'\n          : loading === 'error'\n            ? 'Failed to Generate Key!'\n            : 'Generate API Key'}\n    </Button>\n  )\n}\n",
+    "type": "docs"
+  },
   "buttons/toggle-shape-demo": {
     "component": "@/components/docs/buttons/toggle-shape-demo",
     "raw": "'use client'\n\nimport { Toggle } from 'ui'\n\nexport default function ToggleShapeDemo() {\n  return (\n    <Toggle appearance=\"outline\" shape=\"circle\">\n      {({ isSelected }) => <>{isSelected ? 'Unpin' : 'Pin'}</>}\n    </Toggle>\n  )\n}\n",
@@ -1056,12 +1061,12 @@
   },
   "statuses/loader-demo": {
     "component": "@/components/docs/statuses/loader-demo",
-    "raw": "import { Loader } from '@/components/ui/loader'\n\nexport default function LoaderDemo() {\n  return <Loader />\n}\n",
+    "raw": "import { Loader } from 'ui'\n\nexport default function LoaderDemo() {\n  return <Loader />\n}\n",
     "type": "docs"
   },
   "statuses/loader-variant-demo": {
     "component": "@/components/docs/statuses/loader-variant-demo",
-    "raw": "import { Loader } from '@/components/ui/loader'\n\nexport default function LoaderVariantDemo() {\n  return (\n    <div className=\"flex gap-6\">\n      <Loader variant=\"ring\" />\n      <Loader variant=\"bars\" />\n      <Loader variant=\"dots\" />\n      <Loader variant=\"spin\" />\n    </div>\n  )\n}\n",
+    "raw": "import { Loader } from 'ui'\n\nexport default function LoaderVariantDemo() {\n  return (\n    <div className=\"flex gap-6\">\n      <Loader variant=\"ring\" />\n      <Loader variant=\"bars\" />\n      <Loader variant=\"dots\" />\n      <Loader variant=\"spin\" />\n    </div>\n  )\n}\n",
     "type": "docs"
   },
   "statuses/indeterminate-progress-bar-demo": {
@@ -1071,7 +1076,7 @@
   },
   "statuses/loader-intent-demo": {
     "component": "@/components/docs/statuses/loader-intent-demo",
-    "raw": "import { Loader } from '@/components/ui/loader'\n\nexport default function LoaderIntentDemo() {\n  return (\n    <div className=\"flex gap-6\">\n      <Loader intent=\"current\" />\n      <Loader intent=\"primary\" />\n      <Loader intent=\"secondary\" />\n      <Loader intent=\"success\" />\n      <Loader intent=\"warning\" />\n      <Loader intent=\"danger\" />\n    </div>\n  )\n}\n",
+    "raw": "import { Loader } from 'ui'\n\nexport default function LoaderIntentDemo() {\n  return (\n    <div className=\"flex gap-6\">\n      <Loader intent=\"current\" />\n      <Loader intent=\"primary\" />\n      <Loader intent=\"secondary\" />\n      <Loader intent=\"success\" />\n      <Loader intent=\"warning\" />\n      <Loader intent=\"danger\" />\n    </div>\n  )\n}\n",
     "type": "docs"
   },
   "statuses/toast-action-demo": {
@@ -1116,7 +1121,7 @@
   },
   "statuses/loader-size-demo": {
     "component": "@/components/docs/statuses/loader-size-demo",
-    "raw": "import { Loader } from '@/components/ui/loader'\n\nexport default function LoaderSizeDemo() {\n  return (\n    <div className=\"flex gap-6\">\n      <Loader size=\"small\" />\n      <Loader size=\"medium\" />\n      <Loader size=\"large\" />\n      <Loader size=\"extra-large\" />\n    </div>\n  )\n}\n",
+    "raw": "import { Loader } from 'ui'\n\nexport default function LoaderSizeDemo() {\n  return (\n    <div className=\"flex gap-6\">\n      <Loader size=\"small\" />\n      <Loader size=\"medium\" />\n      <Loader size=\"large\" />\n      <Loader size=\"extra-large\" />\n    </div>\n  )\n}\n",
     "type": "docs"
   },
   "collections/tag-group-disabled-demo": {
