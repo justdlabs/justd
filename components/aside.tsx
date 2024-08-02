@@ -69,7 +69,7 @@ const renderHierarchy = (node: HierarchyNode, defaultValues: string[]) => {
             )}
             {goodTitle(key)}
           </Trigger>
-          <AccordionContent>
+          <AccordionContent className="py-0">
             {typeof value === 'object' && 'title' in value ? (
               <AsideLink href={`/${(value as Doc).slug}`}>
                 {goodTitle((value as Doc).title)}
@@ -113,7 +113,7 @@ const renderHierarchy = (node: HierarchyNode, defaultValues: string[]) => {
                       className="[&[data-open]_.ex]:text-red-500"
                     >
                       <Trigger className="pl-[2rem]">{goodTitle(subKey)}</Trigger>
-                      <AccordionContent>
+                      <AccordionContent className="py-0">
                         {Object.entries(subValue as HierarchyNode).map(([childKey, childValue]) =>
                           typeof childValue === 'object' && 'title' in childValue ? (
                             <AsideLink

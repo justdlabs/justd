@@ -10,7 +10,7 @@ import { Button, composeRenderProps } from 'react-aria-components'
 import { twMerge } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
 
-import { cn, focusButtonStyles } from './primitive'
+import { cn } from './primitive'
 
 interface AccordionContextType extends React.HtmlHTMLAttributes<HTMLDivElement> {
   hideBorder?: boolean
@@ -77,6 +77,7 @@ const AccordionItem = ({ className, children, currentId }: AccordionItemProps) =
   return (
     <AccordionItemContext.Provider value={{ setExpanded, isOpen, currentId }}>
       <div
+        data-slot="ai-31kxlae0321lsd"
         data-locked={isLocked ?? undefined}
         data-open={isOpen ?? undefined}
         className={accordionItemStyles({ className })}
@@ -107,14 +108,12 @@ const AccordionContent = ({ className, children }: AccordionContentProps) => {
           }}
           transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
         >
-          {children}
+          <div className="pb-0 pt-1">{children}</div>
         </motion.section>
       )}
     </AnimatePresence>
   )
 }
-
-const ButtonPrimitive = motion(Button)
 
 interface AccordionTriggerProps
   extends Omit<ButtonProps & React.RefAttributes<HTMLButtonElement> & MotionProps, 'ref'> {
@@ -122,13 +121,15 @@ interface AccordionTriggerProps
 }
 
 const accordionTriggerStyles = tv({
-  extend: focusButtonStyles,
   base: [
-    'flex flex-1 text-muted-fg hover:text-fg [&>[data-slot=icon]]:size-6 items-center gap-x-2 pt-3 font-medium'
+    'flex flex-1 rounded-lg text-muted-fg hover:text-fg [&>[data-slot=icon]]:size-6 items-center gap-x-2 pt-3 font-medium'
   ],
   variants: {
+    isFocused: {
+      true: 'outline-none text-fg'
+    },
     isOpen: {
-      true: 'pb-2 text-fg'
+      true: 'text-fg'
     },
     isDisabled: {
       true: 'opacity-50 cursor-default'
@@ -148,24 +149,29 @@ const AccordionTrigger = ({ className, children, ...props }: AccordionTriggerPro
   }
 
   const onKeyDownHandler = (e: React.KeyboardEvent<HTMLButtonElement>) => {
-    if (e.key === 'ArrowDown') {
-      handlePress()
-    }
-  }
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+      e.preventDefault()
+      const buttons = document.querySelectorAll('div[data-slot="ai-31kxlae0321lsd"] > button')
+      const currentButton = e.currentTarget
+      const currentIndex = Array.from(buttons).indexOf(currentButton)
+      const totalItems = buttons.length
+      let nextIndex = currentIndex + (e.key === 'ArrowDown' ? 1 : -1)
 
-  const onKeyUpHandler = (e: React.KeyboardEvent<HTMLButtonElement>) => {
-    if (e.key === 'ArrowUp') {
-      handlePress()
+      if (nextIndex >= totalItems) {
+        nextIndex = 0
+      } else if (nextIndex < 0) {
+        nextIndex = totalItems - 1
+      }
+
+      ;(buttons[nextIndex] as HTMLElement).focus()
     }
   }
 
   return (
-    <ButtonPrimitive
+    <Button
       {...props}
       isDisabled={isLocked}
-      onKeyUp={onKeyUpHandler}
       onKeyDown={onKeyDownHandler}
-      initial={false}
       onPress={handlePress}
       className={composeRenderProps(className, (className, renderProps) =>
         accordionTriggerStyles({
@@ -184,7 +190,7 @@ const AccordionTrigger = ({ className, children, ...props }: AccordionTriggerPro
           )}
         />
       )}
-    </ButtonPrimitive>
+    </Button>
   )
 }
 

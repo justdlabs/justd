@@ -58,9 +58,8 @@ export function CommandPalette({ open, setOpen }: OpenCloseProps) {
 
   return (
     <CommandMenu isOpen={open} onOpenChange={setOpen}>
-      <CommandMenuInput autoFocus={isDesktop} placeholder="Search Component" />
+      <CommandMenuInput autoFocus={isDesktop} placeholder="Quick search..." />
       <CommandMenuList>
-        <CommandMenuEmpty>No results found.</CommandMenuEmpty>
         <CommandMenuSection separator heading="Pages">
           <CommandMenuItem asChild>
             <Link href="/">
