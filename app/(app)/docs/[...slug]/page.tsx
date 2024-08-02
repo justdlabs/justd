@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: DocPageProps): Promise<Metada
     category: 'Docs',
     twitter: {
       card: 'summary_large_image',
-      title: `Docs: ${doc.title} / ${siteConfig.name}`,
+      title: `${doc.title} / ${siteConfig.name}`,
       description: doc.description
     }
   }
