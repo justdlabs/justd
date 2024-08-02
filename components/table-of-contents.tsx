@@ -43,7 +43,7 @@ export function TableOfContents({
             <>
               <Heading
                 level={2}
-                className="text-base lg:text-lg font-semibold leading-7 mb-6 text-fg"
+                className="text-base lg:text-lg font-medium leading-7 mb-6 text-fg"
               >
                 On this page
               </Heading>

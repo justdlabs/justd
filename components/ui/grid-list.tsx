@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-import { IconDotGrid2X3 } from '@irsyadadl/paranoid'
+import { IconHamburger } from '@irsyadadl/paranoid'
 import {
   Button,
   GridList as GridListPrimitive,
@@ -56,7 +56,7 @@ const GridListItem = ({ children, ...props }: GridListItemProps) => {
         <>
           {allowsDragging && (
             <Button slot="drag">
-              <IconDotGrid2X3 />
+              <IconHamburger />
             </Button>
           )}
           {selectionMode === 'multiple' && selectionBehavior === 'toggle' && (

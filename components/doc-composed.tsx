@@ -62,7 +62,7 @@ export function DocComposed({
                 target="_blank"
                 rel="noopener noreferrer"
                 href={`/${item.slug}`}
-                className="absolute inset-0 size-full"
+                className="absolute inset-0 rounded-lg size-full"
               />
               <Card className="overflow-hidden hover:bg-secondary/40 focus:bg-secondary/40 transition-colors">
                 <CardHeader className="p-4">

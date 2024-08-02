@@ -58,7 +58,7 @@ export default function CarouselDApiDemo() {
               className={twJoin(
                 'focus:outline-none transition rounded-xl',
                 current === index + 1
-                  ? 'w-6 h-3 bg-primary hover:bg-primary/80'
+                  ? 'w-5 h-3 transition-all bg-primary hover:bg-primary/80'
                   : 'bg-fg/10 hover:bg-fg/15 w-3 h-3'
               )}
               aria-label={`Slide ${current} of ${count}`}

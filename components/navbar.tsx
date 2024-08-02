@@ -101,9 +101,6 @@ export function Navbar() {
                     <NavLink target="_blank" href="https://paranoid.irsyad.co">
                       Icons
                     </NavLink>
-                    <NavLink target="_blank" href={siteConfig.repo}>
-                      Github
-                    </NavLink>
                   </Collection>
                 </div>
 

@@ -1,9 +1,36 @@
 ---
 title: Accordion
 description: An accordion's like a vertical stack of headers that pop open to show or hide content sections.
-status: wip
+status: beta
 order: 6
 published: true
+references: ["https://react-spectrum.adobe.com/react-aria/useFocusVisible.html", "https://www.framer.com/motion/animate-presence/"]
 ---
 
-Work in progress.
+## Basic
+An accordion's like a vertical stack of headers that pop open to show or hide content sections.
+<How isCenter={false} toUse="controls/accordion-demo" />
+
+## Installation
+<InstallCommand isAdd items={['accordion']}/>
+
+## Composed Components
+<Composed components={['keyboard', 'separator']}/>
+
+## Manual Installation
+
+<InstallCommand isInstall isManual items={['react-aria-components', 'framer-motion', '@irsyadadl/paranoid']}/>
+
+<SourceCode toShow={['accordion']}/>
+
+## Default Expanded
+You can set the default expanded keys by passing an array of keys to `defaultExpandedKeys` prop.
+<How isCenter={false} toUse="controls/accordion-default-expand-demo" />
+
+## Hide Indicator
+You can hide the arrow key indicator by passing `hideIndicator` prop.
+<How isCenter={false} toUse="controls/accordion-hide-indicator-demo" />
+
+## Disabled
+Flip the switch on the accordion by chucking in a `disabledKeys` prop. Peep this example: I put the brakes on keys `1`, `2`, and `4`. Once they're locked down, you can't pop 'em open or even mess with 'em.
+<How isCenter={false} toUse="controls/accordion-disabled-demo" />

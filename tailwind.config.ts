@@ -84,12 +84,21 @@ const config = withTV({
         sm: 'calc(var(--radius) - 4px)'
       },
       keyframes: {
-        'accordion-down': {
+        'ru-accordion-down': {
           from: { height: '0' },
           to: { height: 'var(--radix-accordion-content-height)' }
         },
-        'accordion-up': {
+        'ru-accordion-up': {
           from: { height: 'var(--radix-accordion-content-height)' },
+          to: { height: '0' }
+        },
+
+        'accordion-down': {
+          from: { height: '0' },
+          to: { height: 'calc-size(initial)' }
+        },
+        'accordion-up': {
+          from: { height: 'calc-size(initial)' },
           to: { height: '0' }
         },
         blink: {
@@ -101,7 +110,9 @@ const config = withTV({
       animation: {
         blink: 'blink 1.4s both infinite',
         'accordion-down': 'accordion-down 0.2s ease-out',
-        'accordion-up': 'accordion-up 0.2s ease-out'
+        'accordion-up': 'accordion-up 0.2s ease-out',
+        'ru-accordion-down': 'ru-accordion-down 0.2s ease-out',
+        'ru-accordion-up': 'ru-accordion-up 0.2s ease-out'
       }
     }
   },

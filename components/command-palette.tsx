@@ -6,15 +6,17 @@ import { docs } from '#site/content'
 import type { Doc, HierarchyNode } from '@/components/aside'
 import { createHierarchy } from '@/components/aside'
 import { goodTitle } from '@/lib/utils'
+import { IconCube, IconHome, IconNotes } from '@irsyadadl/paranoid'
+import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import {
   Badge,
-  CommandEmpty,
-  CommandInput,
-  CommandItem,
-  CommandList,
-  CommandModal,
-  CommandSection,
+  CommandMenu,
+  CommandMenuEmpty,
+  CommandMenuInput,
+  CommandMenuItem,
+  CommandMenuList,
+  CommandMenuSection,
   useMediaQuery
 } from 'ui'
 
@@ -55,16 +57,37 @@ export function CommandPalette({ open, setOpen }: OpenCloseProps) {
   })
 
   return (
-    <CommandModal isOpen={open} onOpenChange={setOpen}>
-      <CommandInput autoFocus={isDesktop} placeholder="Search Component" />
-      <CommandList>
-        <CommandEmpty>No results found.</CommandEmpty>
+    <CommandMenu isOpen={open} onOpenChange={setOpen}>
+      <CommandMenuInput autoFocus={isDesktop} placeholder="Search Component" />
+      <CommandMenuList>
+        <CommandMenuEmpty>No results found.</CommandMenuEmpty>
+        <CommandMenuSection separator heading="Pages">
+          <CommandMenuItem asChild>
+            <Link href="/">
+              <IconHome /> Home
+            </Link>
+          </CommandMenuItem>
+          <CommandMenuItem asChild>
+            <Link href="/docs">
+              <IconNotes /> Docs
+            </Link>
+          </CommandMenuItem>
+          <CommandMenuItem asChild>
+            <Link href="/components">
+              <IconCube /> Components
+            </Link>
+          </CommandMenuItem>
+        </CommandMenuSection>
+
         {filteredNodeEntries.map(([key, value]) => (
           <React.Fragment key={key}>
-            <CommandSection key={`${key}-section`} heading={goodTitle(key)}>
+            <CommandMenuSection
+              key={`${key}-section`}
+              heading={key !== 'components' ? goodTitle(key) : undefined}
+            >
               {Object.entries(value as HierarchyNode).map(([subKey, subValue]) =>
                 typeof subValue === 'object' && 'title' in subValue ? (
-                  <CommandItem
+                  <CommandMenuItem
                     value={goodTitle(key + ' ' + (subValue as Doc).title)}
                     className="pl-[2rem] flex justify-between items-center"
                     key={`${key}-${subKey}`}
@@ -75,7 +98,7 @@ export function CommandPalette({ open, setOpen }: OpenCloseProps) {
                       <Badge
                         intent={
                           subValue?.status === 'wip'
-                            ? 'primary'
+                            ? 'warning'
                             : subValue.status === 'beta'
                               ? 'warning'
                               : subValue.status === 'help'
@@ -89,20 +112,21 @@ export function CommandPalette({ open, setOpen }: OpenCloseProps) {
                         {subValue?.status as Doc['status']}
                       </Badge>
                     )}
-                  </CommandItem>
+                  </CommandMenuItem>
                 ) : null
               )}
-            </CommandSection>
+            </CommandMenuSection>
+
             {Object.entries(value as HierarchyNode).map(([subKey, subValue]) =>
               typeof subValue === 'object' && 'title' in subValue ? null : (
-                <CommandSection
+                <CommandMenuSection
                   key={`${key}-${subKey}-section`}
                   value={goodTitle(subKey)}
                   heading={goodTitle(subKey)}
                 >
                   {Object.entries(subValue as HierarchyNode).map(([childKey, childValue]) =>
                     typeof childValue === 'object' && 'title' in childValue ? (
-                      <CommandItem
+                      <CommandMenuItem
                         className="justify-between"
                         value={
                           childValue.title === 'Text Field'
@@ -129,15 +153,15 @@ export function CommandPalette({ open, setOpen }: OpenCloseProps) {
                             {childValue?.status as Doc['status']}
                           </Badge>
                         )}
-                      </CommandItem>
+                      </CommandMenuItem>
                     ) : null
                   )}
-                </CommandSection>
+                </CommandMenuSection>
               )
             )}
           </React.Fragment>
         ))}
-      </CommandList>
-    </CommandModal>
+      </CommandMenuList>
+    </CommandMenu>
   )
 }
