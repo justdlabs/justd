@@ -25,6 +25,83 @@ import {
   TableRow
 } from 'ui'
 
+export default function CardTableDemo() {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>Users</CardTitle>
+        <CardDescription>Manage users, groups, and roles.</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <Table aria-label="Bands">
+          <TableHeader>
+            <TableColumn>#</TableColumn>
+            <TableColumn>Name</TableColumn>
+            <TableColumn>Genre</TableColumn>
+            <TableColumn>Age</TableColumn>
+            <TableColumn>Occupation</TableColumn>
+            <TableColumn />
+          </TableHeader>
+          <TableBody items={users}>
+            {(item) => (
+              <TableRow key={item.id}>
+                <TableCell>{item.id}</TableCell>
+                <TableCell>{item.name}</TableCell>
+                <TableCell>{item.gender}</TableCell>
+                <TableCell>{item.age}</TableCell>
+                <TableCell>{item.occupation}</TableCell>
+                <TableCell className="flex justify-end">
+                  <Menu>
+                    <MenuTrigger>
+                      <IconDotsVertical />
+                    </MenuTrigger>
+                    <MenuContent showArrow placement="left">
+                      <MenuItem>
+                        <IconEye /> View
+                      </MenuItem>
+                      <MenuItem>
+                        <IconHighlight /> Edit
+                      </MenuItem>
+                      <MenuSeparator />
+                      <MenuItem isDanger>
+                        <IconTrash /> Delete
+                      </MenuItem>
+                    </MenuContent>
+                  </Menu>
+                </TableCell>
+              </TableRow>
+            )}
+          </TableBody>
+        </Table>
+      </CardContent>
+      <CardFooter>
+        <Pagination>
+          <PaginationList>
+            <PaginationItem role="first" />
+            <PaginationItem role="previous" />
+            <PaginationSection className="lg:hidden rounded-lg border">
+              <PaginationItem role="label">1</PaginationItem>
+              <PaginationItem role="separator" />
+              <PaginationItem className="text-muted-fg" role="label">
+                {users.length}
+              </PaginationItem>
+            </PaginationSection>
+            <PaginationSection className="lg:flex hidden" items={pages}>
+              {(item) => (
+                <PaginationItem id={item.value.toString()} isCurrent={item.value === 4} href="#">
+                  {item.value}
+                </PaginationItem>
+              )}
+            </PaginationSection>
+            <PaginationItem role="next" />
+            <PaginationItem role="last" />
+          </PaginationList>
+        </Pagination>
+      </CardFooter>
+    </Card>
+  )
+}
+
 const users = [
   {
     id: 1,
@@ -98,79 +175,3 @@ const users = [
   }
 ]
 const pages = Array.from({ length: users.length / 2 }, (_, i) => ({ value: i + 1 }))
-export default function CardTableDemo() {
-  return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Users</CardTitle>
-        <CardDescription>Manage users, groups, and roles.</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <Table aria-label="Bands">
-          <TableHeader>
-            <TableColumn>#</TableColumn>
-            <TableColumn>Name</TableColumn>
-            <TableColumn>Genre</TableColumn>
-            <TableColumn>Age</TableColumn>
-            <TableColumn>Occupation</TableColumn>
-            <TableColumn />
-          </TableHeader>
-          <TableBody items={users}>
-            {(item) => (
-              <TableRow key={item.id}>
-                <TableCell>{item.id}</TableCell>
-                <TableCell>{item.name}</TableCell>
-                <TableCell>{item.gender}</TableCell>
-                <TableCell>{item.age}</TableCell>
-                <TableCell>{item.occupation}</TableCell>
-                <TableCell className="flex justify-end">
-                  <Menu>
-                    <MenuTrigger>
-                      <IconDotsVertical />
-                    </MenuTrigger>
-                    <MenuContent showArrow placement="left">
-                      <MenuItem>
-                        <IconEye /> View
-                      </MenuItem>
-                      <MenuItem>
-                        <IconHighlight /> Edit
-                      </MenuItem>
-                      <MenuSeparator />
-                      <MenuItem isDanger>
-                        <IconTrash /> Delete
-                      </MenuItem>
-                    </MenuContent>
-                  </Menu>
-                </TableCell>
-              </TableRow>
-            )}
-          </TableBody>
-        </Table>
-      </CardContent>
-      <CardFooter>
-        <Pagination>
-          <PaginationList>
-            <PaginationItem role="first" />
-            <PaginationItem role="previous" />
-            <PaginationSection className="lg:hidden rounded-lg border">
-              <PaginationItem role="label">1</PaginationItem>
-              <PaginationItem role="separator" />
-              <PaginationItem className="text-muted-fg" role="label">
-                10
-              </PaginationItem>
-            </PaginationSection>
-            <PaginationSection items={pages}>
-              {(item) => (
-                <PaginationItem id={item.value.toString()} isCurrent={item.value === 4} href="#">
-                  {item.value}
-                </PaginationItem>
-              )}
-            </PaginationSection>
-            <PaginationItem role="next" />
-            <PaginationItem role="last" />
-          </PaginationList>
-        </Pagination>
-      </CardFooter>
-    </Card>
-  )
-}

@@ -11,7 +11,7 @@ export function Hero() {
     <div className="relative isolate overflow-hidden bg-background">
       <div
         aria-hidden="true"
-        className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-56"
+        className="absolute inset-x-0 -top-10 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-56"
       >
         <div
           style={{
@@ -59,12 +59,12 @@ export function Hero() {
             >
               <IconStar /> Stars sustain energy
             </Link>
-            <Heading className="max-w-xl mt-4 text-2xl font-bold lg:text-4xl mb-2 lg:mb-6">
-              Build Accessible React Apps in Minutes: Copy, Paste, Customize
+            <Heading className="max-w-xl mt-4 text-2xl font-bold lg:text-4xl mb-4 lg:mb-6">
+              Build Accessible React Apps in Minutes by Copy, Paste, Customize.
             </Heading>
             <Text
               slot="description"
-              className="text-base [&_strong]:font-medium lg:text-xl max-w-2xl block leading-loose text-muted-fg"
+              className="text-base [&_strong]:font-medium lg:text-xl max-w-2xl block leading-relaxed md:leading-loose text-muted-fg"
             >
               <strong className="text-fg">{siteConfig.name}</strong> is a chill set of React
               components, built on top of <strong className="text-fg">React Aria Components</strong>

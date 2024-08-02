@@ -5,7 +5,6 @@ import React from 'react'
 import { Button, CardDescription, CardTitle, Checkbox, Form, Link, TextField } from 'ui'
 
 export function LoginForm() {
-  const [remember, setRemember] = React.useState(false)
   return (
     <div className="w-full">
       <div className="mb-6 flex flex-col gap-y-1.5">
@@ -22,9 +21,7 @@ export function LoginForm() {
             placeholder="Enter your password"
           />
           <div className="flex justify-between items-center">
-            <Checkbox isSelected={remember} onChange={() => setRemember(true)} name="remember-me">
-              Remember me
-            </Checkbox>
+            <Checkbox name="remember-me">Remember me</Checkbox>
             <Link intent="primary" href="#">
               Forgot password?
             </Link>

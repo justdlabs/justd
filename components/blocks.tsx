@@ -86,8 +86,8 @@ export function Blocks() {
                     </ToolbarItem>
                     <SliderOnPopoverBlock />
                   </ToolbarGroup>
-                  <ToolbarSeparator />
-                  <ToolbarGroup aria-label="Gallery">
+                  <ToolbarSeparator className="sm:flex hidden" />
+                  <ToolbarGroup className="sm:flex hidden" aria-label="Gallery">
                     <ToolbarItem aria-label="Camera" size="square-petite" appearance="outline">
                       {({ isSelected }) => <>{isSelected ? <IconCameraFill /> : <IconCamera />}</>}
                     </ToolbarItem>
@@ -122,14 +122,12 @@ export function Blocks() {
               <div>
                 <Note>Check out the latest updates on our dashboard!</Note>
                 <Note intent="primary">
-                  Reminder: Complete your profile to get personalized recommendations.
+                  Complete your profile to get personalized recommendations.
                 </Note>
                 <Note intent="warning">
                   Heads up! We'll be doing system maintenance this Sunday at 2 AM.
                 </Note>
-                <Note intent="danger">
-                  Alert: Your subscription expires in 3 days. Renew now to avoid interruption.
-                </Note>
+                <Note intent="danger">Your subscription expires in 3 days. Renew now!</Note>
                 <Note intent="info">
                   Did you know? You can now export your reports in Excel format.
                 </Note>
