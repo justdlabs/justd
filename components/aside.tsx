@@ -197,7 +197,7 @@ const Trigger = ({ children, className }: { children: React.ReactNode; className
   return (
     <AccordionTrigger
       className={cn(
-        'pt-0 py-1.5 font-normal hover:bg-secondary/50 rounded-lg px-2 text-sm',
+        'pt-0 py-1.5 focus-visible:ring-1 focus-visible:ring-primary ring-inset outline-0 outline-offset-0 font-normal hover:bg-secondary/70 focus-visible:bg-secondary/70 rounded-lg px-2 text-sm',
         className
       )}
     >
@@ -214,7 +214,7 @@ interface AsideLinkProps extends NextLinkProps {
 }
 
 const asideLinkStyles = tv({
-  base: 'relative block focus:outline-none focus-visible:bg-secondary focus-visible:ring-inset focus-visible:ring-1 focus-visible:ring-primary-500 rounded-md px-2.5 py-2 text-base transition-colors hover:bg-secondary/70 hover:text-fg lg:text-sm',
+  base: 'relative block focus:outline-none focus-visible:bg-secondary/70 focus-visible:ring-inset focus-visible:ring-1 focus-visible:ring-primary rounded-md px-2.5 py-2 text-base transition-colors hover:bg-secondary/70 hover:text-fg lg:text-sm',
   variants: {
     isActive: {
       true: 'font-medium text-fg',
