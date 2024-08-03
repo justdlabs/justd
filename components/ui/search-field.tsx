@@ -14,7 +14,7 @@ import { ctr } from './primitive'
 
 const searchFieldStyles = tv({
   slots: {
-    base: 'group flex min-w-[40px] flex-col gap-1',
+    base: 'group flex min-w-10 flex-col gap-1',
     searchIcon:
       'ml-2 size-4 shrink-0 text-muted-fg group-disabled:text-muted-fg/50 forced-colors:text-[ButtonText] forced-colors:group-disabled:text-[GrayText]',
     closeButton:

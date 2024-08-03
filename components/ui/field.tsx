@@ -1,24 +1,17 @@
-'use client'
+'use client';
 
-import * as React from 'react'
+import * as React from 'react';
 
-import {
-  composeRenderProps,
-  FieldError as FieldErrorPrimitive,
-  type FieldErrorProps,
-  Group,
-  type GroupProps,
-  Input as InputPrimitive,
-  type InputProps,
-  Label as LabelPrimitive,
-  type LabelProps,
-  Text,
-  type TextProps
-} from 'react-aria-components'
-import { twMerge } from 'tailwind-merge'
-import { tv } from 'tailwind-variants'
 
-import { ctr } from './primitive'
+
+import { composeRenderProps, FieldError as FieldErrorPrimitive, type FieldErrorProps, Group, type GroupProps, Input as InputPrimitive, type InputProps, Label as LabelPrimitive, type LabelProps, Text, type TextProps } from 'react-aria-components';
+import { twMerge } from 'tailwind-merge';
+import { tv } from 'tailwind-variants';
+
+
+
+import { ctr } from './primitive';
+
 
 // primitive styles
 
