@@ -39,36 +39,40 @@ export function ColorRow({ showItem = false, swatchClassName, item }: ColorRowPr
               color={item.children[4].color}
               colorScales={item.children}
             />
-            <Tooltip>
-              <ToggleButton
-                className={buttonStyles({
-                  appearance: 'outline',
-                  size: 'square-petite',
-                  className: 'size-8'
-                })}
-                isSelected={isForTailwindVariable}
-                onChange={() => {
-                  if (
-                    !formatOnlyForTailwindVariableValues.includes(
-                      selectedFormat as FormatOnlyForTailwindVariableType
-                    )
-                  ) {
-                    toast(
-                      'You can only switch up the color format to RGB, RGBA, HSL, HSLA, HSB, or HSBA.'
-                    )
-                    return
-                  }
-                  setIsForTailwindVariable(!isForTailwindVariable)
-                }}
-              >
-                {({ isSelected }) => (
-                  <IconBrandTailwindcss className={isSelected ? '!text-sky-500' : '!text-fg'} />
-                )}
-              </ToggleButton>
-              <TooltipContent className="max-w-xs">
-                You can switch up the color format to RGB, RGBA, HSL, HSLA, HSB, or HSBA.
-              </TooltipContent>
-            </Tooltip>
+            {['rgb', 'rgba', 'hsl', 'hsla', 'hsb', 'hsba'].includes(
+              selectedFormat as ColorFormat
+            ) && (
+              <Tooltip>
+                <ToggleButton
+                  className={buttonStyles({
+                    appearance: 'outline',
+                    size: 'square-petite',
+                    className: 'size-8'
+                  })}
+                  isSelected={isForTailwindVariable}
+                  onChange={() => {
+                    if (
+                      !formatOnlyForTailwindVariableValues.includes(
+                        selectedFormat as FormatOnlyForTailwindVariableType
+                      )
+                    ) {
+                      toast(
+                        'You can only switch up the color format to RGB, RGBA, HSL, HSLA, HSB, or HSBA.'
+                      )
+                      return
+                    }
+                    setIsForTailwindVariable(!isForTailwindVariable)
+                  }}
+                >
+                  {({ isSelected }) => (
+                    <IconBrandTailwindcss className={isSelected ? '!text-sky-500' : '!text-fg'} />
+                  )}
+                </ToggleButton>
+                <TooltipContent className="max-w-xs">
+                  You can switch up the color format to RGB, RGBA, HSL, HSLA, HSB, or HSBA.
+                </TooltipContent>
+              </Tooltip>
+            )}
             <Select
               selectedKey={selectedFormat}
               onSelectionChange={(v) => {
