@@ -33,6 +33,9 @@ This command will install all the required components like:
 ✓ button created
 ```
 
+Sometimes, you just wanna toss in components one by one, like when you’re adding `select` and `text-field` together. Just slap 'em in like this:
+<InstallCommand isInDocsComponent={false} isAdd items={['select', 'text-field']} />
+
 If ya wanna drop in group components, check the docs, they bundle all the goodies into one namespace, like collections, overlays, forms, etc. So you can slap 'em in all at once like this:
 <InstallCommand isInDocsComponent={false} isAdd items={['overlays']} />
 With that command, you'll get all the components in the overlays namespace like this:
