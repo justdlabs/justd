@@ -27,7 +27,7 @@ export default function TableBulkDemo() {
         >
           <TableHeader>
             <TableColumn>#</TableColumn>
-            <TableColumn>Title</TableColumn>
+            <TableColumn isRowHeader>Title</TableColumn>
             <TableColumn>Author</TableColumn>
             <TableColumn>Genre</TableColumn>
             <TableColumn>Published</TableColumn>
