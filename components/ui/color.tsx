@@ -36,6 +36,7 @@ interface ColorAreaProps extends React.ComponentProps<typeof ColorAreaPrimitive>
 const ColorArea = ({ className, ...props }: ColorAreaProps) => {
   return (
     <ColorAreaPrimitive
+      aria-label={props['aria-label'] ?? 'Color area'}
       {...props}
       className={composeRenderProps(className, (className, renderProps) =>
         colorAreaStyles({
@@ -99,6 +100,7 @@ const ColorSwatch = ({ className, ...props }: ColorSwatchProps) => {
   const needRing = props.color ? isBrightColor(props.color) : false
   return (
     <ColorSwatchPrimitive
+      aria-label={props['aria-label'] ?? 'Color swatch'}
       className={cn(
         'size-8 cs rounded-md shrink-0',
         needRing

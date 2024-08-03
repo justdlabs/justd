@@ -33,10 +33,10 @@ export default function CardTableDemo() {
         <CardDescription>Manage users, groups, and roles.</CardDescription>
       </CardHeader>
       <CardContent>
-        <Table aria-label="Bands">
+        <Table aria-label="Users">
           <TableHeader>
             <TableColumn>#</TableColumn>
-            <TableColumn>Name</TableColumn>
+            <TableColumn isRowHeader>Name</TableColumn>
             <TableColumn>Genre</TableColumn>
             <TableColumn>Age</TableColumn>
             <TableColumn>Occupation</TableColumn>
@@ -44,7 +44,7 @@ export default function CardTableDemo() {
           </TableHeader>
           <TableBody items={users}>
             {(item) => (
-              <TableRow key={item.id}>
+              <TableRow id={item.id}>
                 <TableCell>{item.id}</TableCell>
                 <TableCell>{item.name}</TableCell>
                 <TableCell>{item.gender}</TableCell>

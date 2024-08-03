@@ -1,7 +1,5 @@
 import { DocComposed } from '@/components/doc-composed'
 import { DocNote } from '@/components/doc-note'
-import type { DocSnippetProps } from '@/components/doc-snippet'
-import { DocSnippet } from '@/components/doc-snippet'
 import { PlainCode } from '@/components/docs/rehype/plain-code'
 import { SourceCode } from '@/components/docs/rehype/source-code'
 import type { InstallCommandProps } from '@/components/install-command'
@@ -16,6 +14,7 @@ import {
   TableBody,
   TableCell,
   TableColumn,
+  type TableColumnProps,
   TableHeader,
   type TableProps,
   TableRow
@@ -35,14 +34,14 @@ export function MDXContent({ code }: MdxProps) {
         InstallCommand: (props: InstallCommandProps) => <InstallCommand {...props} />,
         table: (props: TableProps) => (
           <Card className="not-prose">
-            <Table {...props} />
+            <Table aria-label="Table" {...props} />
           </Card>
         ),
         Note: DocNote,
         Composed: DocComposed,
         thead: TableHeader,
         tbody: TableBody,
-        th: TableColumn,
+        th: (props: TableColumnProps) => <TableColumn isRowHeader {...props} />,
         tr: TableRow,
         td: TableCell,
         Image,
@@ -55,8 +54,7 @@ export function MDXContent({ code }: MdxProps) {
           />
         ),
         SourceCode: SourceCode,
-        PlainCode: PlainCode,
-        Snippet: (props: DocSnippetProps) => <DocSnippet {...props} />
+        PlainCode: PlainCode
       }}
     />
   )

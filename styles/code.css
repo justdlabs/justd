@@ -15,7 +15,7 @@ span[data-rehype-pretty-code-figure] > code {
 }
 
 span[data-rehype-pretty-code-figure] > code span {
-    @apply px-0 text-sky-500 dark:text-sky-400 font-normal !important;
+    @apply px-0 text-sky-700 dark:text-sky-400 font-medium !important;
 }
 
 [data-rehype-pretty-code-figure] code[data-line-numbers] {

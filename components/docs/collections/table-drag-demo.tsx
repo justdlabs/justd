@@ -28,7 +28,7 @@ export default function TableDragDemo() {
       <Table aria-label="Movies" selectionMode="multiple" dragAndDropHooks={dragAndDropHooks}>
         <TableHeader>
           <TableColumn>#</TableColumn>
-          <TableColumn>Name</TableColumn>
+          <TableColumn isRowHeader>Name</TableColumn>
           <TableColumn>Genre</TableColumn>
           <TableColumn>Release</TableColumn>
           <TableColumn>Rating</TableColumn>
