@@ -37,16 +37,7 @@ const datePickerStyles = tv({
   }
 })
 
-const {
-  base,
-  dynamicOverlay,
-  datePickerIcon,
-  calendarIcon,
-  datePickerInput,
-  dateRangePickerInputStart,
-  dateRangePickerInputEnd,
-  dateRangePickerDash
-} = datePickerStyles()
+const { base, dynamicOverlay, datePickerIcon, calendarIcon, datePickerInput } = datePickerStyles()
 
 interface DatePickerOverlayProps extends DynamicOverlayProps {
   range?: boolean
@@ -94,42 +85,11 @@ const DatePicker = <T extends DateValue>({
   )
 }
 
-interface DateRangePickerProps<T extends DateValue> extends DateRangePickerPrimitiveProps<T> {
-  label?: string
-  description?: string
-  errorMessage?: string | ((validation: ValidationResult) => string)
-}
-
-const DateRangePicker = <T extends DateValue>({
-  label,
-  className,
-  description,
-  errorMessage,
-  ...props
-}: DateRangePickerProps<T>) => {
-  return (
-    <DateRangePickerPrimitive {...props} className={ctr(className, base())}>
-      {label && <Label>{label}</Label>}
-      <FieldGroup className="w-auto min-w-40">
-        <DateInput slot="start" className={dateRangePickerInputStart()} />
-        <span aria-hidden="true" className={dateRangePickerDash()}>
-          –
-        </span>
-        <DateInput slot="end" className={dateRangePickerInputEnd()} />
-        <DatePickerIcon />
-      </FieldGroup>
-      {description && <Description>{description}</Description>}
-      <FieldError>{errorMessage}</FieldError>
-      <DatePickerOverlay range />
-    </DateRangePickerPrimitive>
-  )
-}
-
 export {
   DatePicker,
-  DateRangePicker,
+  DatePickerIcon,
+  DatePickerOverlay,
   type DatePickerProps,
-  type DateRangePickerProps,
   type DateValue,
   type ValidationResult
 }
