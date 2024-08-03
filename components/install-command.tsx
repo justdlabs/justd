@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 
 import { trackEvent } from '@openpanel/nextjs'
 import { CopyButton, Link, Menu, MenuContent, MenuItem } from 'ui'
+import { copyToClipboard } from 'usemods'
 
 export interface InstallCommandProps {
   isAdd?: boolean
@@ -42,34 +43,16 @@ const InstallCommand: React.FC<InstallCommandProps> = ({
     return () => clearTimeout(timer)
   }, [isCopied])
 
-  const copyToClipboard = (textToCopy: string) => {
-    navigator.clipboard
-      .writeText(textToCopy)
-      .then(() => {
-        trackEvent('cli pressed', { copy: textToCopy })
-        setIsCopied(true)
-      })
-      .catch((err) => {
-        console.error('Failed to copy text: ', err)
-      })
-  }
-
   const handleAction = (tool: string) => {
     let newCommand = ''
     if (isAdd) {
       const addMap = {
-        Bun: 'bunx',
-        Yarn: 'yarn dlx',
-        PNPM: 'pnpm dlx',
         NPM: 'npx'
       }
       // @ts-ignore
       newCommand = `${addMap[tool]} ${addCommand} ${commandArgs}`
     } else if (isInit) {
       const initMap = {
-        Bun: 'bunx',
-        Yarn: 'yarn dlx',
-        PNPM: 'pnpm dlx',
         NPM: 'npx'
       }
       // @ts-ignore
@@ -85,7 +68,11 @@ const InstallCommand: React.FC<InstallCommandProps> = ({
       newCommand = `${installMap[tool]} ${commandArgs}`
     }
     setCommand(newCommand)
-    copyToClipboard(newCommand)
+    console.log(newCommand)
+    copyToClipboard(newCommand).then(() => {
+      setIsCopied(true)
+      trackEvent('cli pressed', { copy: newCommand })
+    })
   }
 
   return (
@@ -114,15 +101,24 @@ const InstallCommand: React.FC<InstallCommandProps> = ({
       <div className="not-prose relative flex items-center justify-between rounded-lg border bg-[#0e0e10] py-2.5 pl-4 pr-2.5 text-white font-mono text-sm [&>svg]:text-zinc-400 [&>svg]:transition [&_svg]:shrink-0">
         <code>{command}</code>
         <div className="pl-3">
-          <Menu>
-            <CopyButton className="rounded-sm" ariaLabel={command} isCopied={isCopied} />
-            <MenuContent showArrow placement="bottom end">
-              <MenuItem onAction={() => handleAction('Bun')}>Bun</MenuItem>
-              <MenuItem onAction={() => handleAction('Yarn')}>Yarn</MenuItem>
-              <MenuItem onAction={() => handleAction('PNPM')}>PNPM</MenuItem>
-              <MenuItem onAction={() => handleAction('NPM')}>NPM</MenuItem>
-            </MenuContent>
-          </Menu>
+          {isInit || isAdd ? (
+            <CopyButton
+              onPress={() => handleAction('NPM')}
+              className="rounded-sm"
+              ariaLabel={command}
+              isCopied={isCopied}
+            />
+          ) : (
+            <Menu>
+              <CopyButton className="rounded-sm" ariaLabel={command} isCopied={isCopied} />
+              <MenuContent showArrow placement="bottom end">
+                <MenuItem onAction={() => handleAction('Bun')}>Bun</MenuItem>
+                <MenuItem onAction={() => handleAction('Yarn')}>Yarn</MenuItem>
+                <MenuItem onAction={() => handleAction('PNPM')}>PNPM</MenuItem>
+                <MenuItem onAction={() => handleAction('NPM')}>NPM</MenuItem>
+              </MenuContent>
+            </Menu>
+          )}
         </div>
       </div>
     </>
