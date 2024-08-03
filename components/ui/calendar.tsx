@@ -9,6 +9,7 @@ import {
   CalendarGridHeader as CalendarGridHeaderPrimitive,
   CalendarHeaderCell,
   type CalendarProps as CalendarPrimitiveProps,
+  composeRenderProps,
   type DateValue,
   Heading,
   RangeCalendar as RangeCalendarPrimitive,
@@ -40,16 +41,27 @@ const cellStyles = tv({
 interface CalendarProps<T extends DateValue>
   extends Omit<CalendarPrimitiveProps<T>, 'visibleDuration'> {
   errorMessage?: string
+  className?: string
 }
 
-const Calendar = <T extends DateValue>({ errorMessage, ...props }: CalendarProps<T>) => {
+const Calendar = <T extends DateValue>({ errorMessage, className, ...props }: CalendarProps<T>) => {
   return (
     <CalendarPrimitive {...props}>
       <CalendarHeader />
       <CalendarGrid className="[&_td]:px-0">
         <CalendarGridHeader />
         <CalendarGridBody>
-          {(date) => <CalendarCell date={date} className={cellStyles} />}
+          {(date) => (
+            <CalendarCell
+              date={date}
+              className={composeRenderProps(className, (className, renderProps) =>
+                cellStyles({
+                  ...renderProps,
+                  className
+                })
+              )}
+            />
+          )}
         </CalendarGridBody>
       </CalendarGrid>
       {errorMessage && (
@@ -141,16 +153,22 @@ const RangeCalendar = <T extends DateValue>({ errorMessage, ...props }: RangeCal
                 'invalid:selected:bg-red-100 dark:invalid:selected:bg-red-700/30'
               ])}
             >
-              {({ formattedDate, isSelected, isSelectionStart, isSelectionEnd, isDisabled }) => (
+              {({
+                formattedDate,
+                isSelected,
+                isSelectionStart,
+                isSelectionEnd,
+                ...renderProps
+              }) => (
                 <span
                   className={cellRangeStyles({
+                    ...renderProps,
                     selectionState:
                       isSelected && (isSelectionStart || isSelectionEnd)
                         ? 'cap'
                         : isSelected
                           ? 'middle'
-                          : 'none',
-                    isDisabled
+                          : 'none'
                   })}
                 >
                   {formattedDate}
