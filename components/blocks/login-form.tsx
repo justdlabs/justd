@@ -13,7 +13,7 @@ export function LoginForm() {
       </div>
       <Form onSubmit={() => {}} className="space-y-6">
         <div className="space-y-6">
-          <TextField isRequired type='email' label="Email" placeholder="Enter your email" />
+          <TextField isRequired type="email" label="Email" placeholder="Enter your email" />
           <TextField
             isRequired
             label="Password"

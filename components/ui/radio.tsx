@@ -21,15 +21,15 @@ interface RadioGroupProps extends Omit<RACRadioGroupProps, 'children'> {
   errorMessage?: string | ((validation: ValidationResult) => string)
 }
 
-const RadioGroup = (props: RadioGroupProps) => {
+const RadioGroup = ({ label, description, errorMessage, children, ...props }: RadioGroupProps) => {
   return (
     <RadioGroupPrimitive {...props} className={ctr(props.className, 'group flex flex-col gap-2')}>
-      <Label>{props.label}</Label>
+      {label && <Label>{label}</Label>}
       <div className="flex select-none gap-2 group-orientation-horizontal:flex-wrap group-orientation-horizontal:gap-2 sm:group-orientation-horizontal:gap-4 group-orientation-vertical:flex-col">
-        {props.children}
+        {children}
       </div>
-      {props.description && <Description>{props.description}</Description>}
-      <FieldError>{props.errorMessage}</FieldError>
+      {description && <Description>{description}</Description>}
+      <FieldError>{errorMessage}</FieldError>
     </RadioGroupPrimitive>
   )
 }
