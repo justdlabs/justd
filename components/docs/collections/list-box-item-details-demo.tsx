@@ -4,7 +4,7 @@ import { ListBox, ListBoxItem, ListBoxItemDetails } from 'ui'
 
 export default function ListBoxItemDetailsDemo() {
   return (
-    <ListBox items={roles} aria-label="Bands">
+    <ListBox defaultSelectedKeys={[2]} items={roles} aria-label="Bands">
       {(item) => (
         <ListBoxItem id={item.id}>
           <ListBoxItemDetails label={item.name} description={item.description} />

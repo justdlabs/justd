@@ -33,8 +33,10 @@ const listBoxItemStyles = tv({
   base: 'my-0.5 cursor-pointer rounded-md p-2 text-base outline-none transition lg:text-sm',
   variants: {
     isHovered: { true: 'bg-secondary text-secondary-fg' },
-    isFocused: { true: '[&_.text-muted-fg]:text-primary-fg/80 bg-primary text-primary-fg' },
-    isDragging: { true: 'cursor-grab bg-secondary text-secondary-fg' },
+    isFocused: {
+      true: '[&_[data-slot=icon]]:text-primary-fg [&_[data-slot=label]]:text-primary-fg [&_.text-muted-fg]:text-primary-fg/80 bg-primary text-primary-fg'
+    },
+    isDragging: { true: 'cursor-grabbing bg-secondary text-secondary-fg' },
     isSelected: { true: 'bg-primary text-primary-fg' },
     isDisabled: {
       true: 'opacity-70 cursor-default text-muted-fg'

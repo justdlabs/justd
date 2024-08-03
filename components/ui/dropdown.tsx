@@ -9,11 +9,10 @@ import {
   type ListBoxItemProps,
   Section,
   type SectionProps,
+  Text,
   type TextProps
 } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
-
-import { Description, Label } from './field'
 
 const dropdownItemStyles = tv({
   base: [
@@ -33,7 +32,7 @@ const dropdownItemStyles = tv({
       true: [
         'bg-primary text-primary-fg forced-colors:bg-[Highlight] forced-colors:text-[HighlightText]',
         'data-[danger=true]:bg-danger data-[danger=true]:text-danger-fg',
-        '[&_.text-muted-fg]:text-primary-fg/80'
+        '[&_.text-muted-fg]:text-primary-fg/80 [&[data-slot=label]]:text-primary-fg [&[data-slot=description]]:text-primary-fg'
       ]
     }
   },
@@ -102,12 +101,12 @@ interface DropdownItemSlot extends TextProps {
 const DropdownItemDetails = ({ label, description, ...props }: DropdownItemSlot) => {
   return (
     <div className="flex flex-col gap-1">
-      <Label className="font-medium lg:text-sm" {...props}>
+      <Text slot="label" className="font-medium lg:text-sm" {...props}>
         {label}
-      </Label>
-      <Description className="text-muted-fg text-xs" {...props}>
+      </Text>
+      <Text slot="description" className="text-muted-fg text-xs" {...props}>
         {description}
-      </Description>
+      </Text>
     </div>
   )
 }
