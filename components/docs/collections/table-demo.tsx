@@ -26,7 +26,7 @@ export default function TableDemo() {
       <Table aria-label="Products">
         <TableHeader>
           <TableColumn>#</TableColumn>
-          <TableColumn>Name</TableColumn>
+          <TableColumn isRowHeader>Name</TableColumn>
           <TableColumn>Category</TableColumn>
           <TableColumn>Price</TableColumn>
           <TableColumn>Stock</TableColumn>

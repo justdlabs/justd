@@ -31,7 +31,7 @@ export function Menus() {
   return (
     <CardBlock>
       <Menu>
-        <MenuTrigger>
+        <MenuTrigger aria-label="Open Menu">
           <Avatar shape="square" size="medium" src="https://github.com/irsyadadl.png" />
         </MenuTrigger>
         <MenuContent showArrow placement="bottom" className="min-w-64">

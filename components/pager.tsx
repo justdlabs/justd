@@ -47,15 +47,20 @@ export function Pager({ docs, doc }: { docs: Doc[]; doc: Doc }) {
   }
 
   return (
-    <div className="flex flex-row items-center justify-between">
+    <div className="flex mt-6 flex-row items-center justify-between">
       {pager.prev && (
-        <Link href={pager.prev.href} className={buttonStyles({ appearance: 'outline' })}>
+        <Link
+          aria-label={`Previous page: ${pager.prev.title}`}
+          href={pager.prev.href}
+          className={buttonStyles({ appearance: 'outline' })}
+        >
           <IconChevronLgLeft />
           {pager.prev.title}
         </Link>
       )}
       {pager.next && (
         <Link
+          aria-label={`Next page: ${pager.next.title}`}
           href={pager.next.href}
           className={cn(buttonStyles({ appearance: 'outline' }), 'ml-auto')}
         >

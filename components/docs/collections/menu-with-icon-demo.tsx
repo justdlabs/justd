@@ -29,7 +29,7 @@ export default function MenuWithIconDemo() {
   return (
     <>
       <Menu>
-        <MenuTrigger>
+        <MenuTrigger aria-label="Open Menu">
           <Avatar className="size-10" src="https://github.com/irsyadadl.png" />
         </MenuTrigger>
         <MenuContent className="min-w-64">

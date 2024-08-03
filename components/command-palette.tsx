@@ -12,7 +12,6 @@ import { usePathname, useRouter } from 'next/navigation'
 import {
   Badge,
   CommandMenu,
-  CommandMenuEmpty,
   CommandMenuInput,
   CommandMenuItem,
   CommandMenuList,

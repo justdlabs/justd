@@ -52,14 +52,22 @@ const Table = ({ children, className, ...props }: TableProps) => (
   </div>
 )
 
-const TableCell = ({ children, className, ...props }: CellProps & { className?: string }) => (
+interface TableCellProps extends CellProps {
+  className?: string
+}
+
+const TableCell = ({ children, className, ...props }: TableCellProps) => (
   <Cell {...props} className={cell({ className })}>
     {children}
   </Cell>
 )
 
-const TableColumn = ({ children, className, ...props }: ColumnProps & { className?: string }) => (
-  <Column isRowHeader {...props} className={column({ className })}>
+interface TableColumnProps extends ColumnProps {
+  className?: string
+}
+
+const TableColumn = ({ children, className, ...props }: TableColumnProps) => (
+  <Column {...props} className={column({ className })}>
     {({ allowsSorting, sortDirection }) => (
       <div className="flex [&>[data-slot=icon]]:shrink-0 items-center gap-2">
         <>
@@ -138,4 +146,5 @@ const TableRow = <T extends object>({
   )
 }
 
-export { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow, type TableProps }
+export type { TableProps, TableCellProps, TableColumnProps }
+export { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow }

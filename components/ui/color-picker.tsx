@@ -69,12 +69,15 @@ const ColorPicker = ({
       <ColorPickerPrimitive defaultValue={defaultColor} {...props}>
         <DialogTrigger>
           {trigger === 'color-field' ? (
-            <ButtonPrimitive className="size-10 -mr-2.5 grid place-content-center focus:outline-none">
+            <ButtonPrimitive
+              aria-label="Color swatch"
+              className="size-10 -mr-2.5 grid place-content-center focus:outline-none"
+            >
               <ColorSwatch color={value?.toString(space)} className="size-6" />
             </ButtonPrimitive>
           ) : trigger === 'color-picker' ? (
             <Button
-              aria-label="Open color picker"
+              aria-label="Color picker"
               isDisabled={isDisabled}
               appearance="outline"
               className="w-full max-w-sm justify-start"
@@ -84,11 +87,13 @@ const ColorPicker = ({
             </Button>
           ) : null}
           <DynamicOverlay
+            aria-describedby={label}
             placement="bottom start"
             role="dialog"
             className="w-full p-0 overflow-hidden min-w-full sm:w-fit sm:min-w-fit"
           >
             <Dialog
+              aria-label="Color picker"
               className={twJoin(
                 '[[data-placement]>&]:p-[0.70rem] lg:w-[18rem] lg:p-0',
                 enableColorField && 'space-y-2'
@@ -96,27 +101,27 @@ const ColorPicker = ({
             >
               <div>
                 <ColorArea
+                  aria-describedby={`${label ? `${label} color area` : 'Color slider'}`}
                   className="w-full sm:w-[calc(18rem-1.30rem)]"
                   colorSpace="hsb"
                   xChannel="saturation"
                   yChannel="brightness"
-                  aria-label="Color area"
                 >
                   <ColorThumb className="z-50" />
                 </ColorArea>
                 <ColorSlider
+                  aria-describedby={`${label ? `${label} color slider` : 'Color slider'}`}
                   showOutput={false}
                   className="mt-2 [&_.cstrk]:orientation-horizontal:h-3"
                   colorSpace="hsb"
                   channel="hue"
-                  aria-label="Color slider"
                 />
               </div>
 
               <div className="grid gap-2">
                 {enableColorFormatSelection && (
                   <Select
-                    aria-label="Select color format"
+                    aria-label="Color Space"
                     selectedKey={space}
                     defaultSelectedKey={space}
                     onSelectionChange={(s) => {
@@ -139,7 +144,7 @@ const ColorPicker = ({
                     ) : (
                       getColorChannels(space).map((channel) => (
                         <ColorField
-                          aria-label={channel.toString()}
+                          aria-describedby={label ?? 'Color field'}
                           colorSpace={space}
                           channel={channel}
                           key={channel}
@@ -153,7 +158,11 @@ const ColorPicker = ({
               </div>
 
               {enableColorSwatch && colors && colors.length > 0 && (
-                <ColorSwatchPicker layout="grid" className="flex flex-wrap gap-x-2 gap-y-2.5">
+                <ColorSwatchPicker
+                  aria-label="Color swatch picker"
+                  layout="grid"
+                  className="flex flex-wrap gap-x-2 gap-y-2.5"
+                >
                   {colors.map((color) => (
                     <ColorSwatchPickerItem key={color} color={color} />
                   ))}

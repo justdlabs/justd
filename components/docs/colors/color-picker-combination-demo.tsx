@@ -13,6 +13,7 @@ export default function ColorPickerCombinationDemo() {
   }
   return (
     <ColorPicker
+      aria-label="Color picker"
       enableColorFormatSelection
       enableColorSwatch
       defaultValue={color}
