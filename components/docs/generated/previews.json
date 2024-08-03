@@ -1481,7 +1481,7 @@
   },
   "breadcrumbs": {
     "component": "@/components/ui/breadcrumbs",
-    "raw": "'use client'\n\nimport { IconChevronRight } from '@irsyadadl/paranoid'\nimport type { BreadcrumbProps, BreadcrumbsProps } from 'react-aria-components'\nimport {\n  Breadcrumb as BreadcrumbPrimitive,\n  Breadcrumbs as BreadcrumbsPrimitive,\n  type LinkProps\n} from 'react-aria-components'\n\nimport { Link } from './link'\nimport { cn } from './primitive'\n\nconst Breadcrumbs = <T extends object>(props: BreadcrumbsProps<T>) => {\n  return <BreadcrumbsPrimitive {...props} className={cn('flex gap-1', props.className)} />\n}\n\nconst Breadcrumb = (props: BreadcrumbProps & LinkProps) => {\n  return (\n    <BreadcrumbPrimitive {...props} className={cn('flex items-center gap-1', props.className)}>\n      <Link href={props.href} {...props} />\n      {props.href && <IconChevronRight className=\"size-4 shrink-0 text-muted-fg\" />}\n    </BreadcrumbPrimitive>\n  )\n}\n\nexport { Breadcrumb, Breadcrumbs }\n",
+    "raw": "'use client'\n\nimport { IconChevronRight } from '@irsyadadl/paranoid'\nimport type { BreadcrumbProps, BreadcrumbsProps } from 'react-aria-components'\nimport {\n  Breadcrumb as BreadcrumbPrimitive,\n  Breadcrumbs as BreadcrumbsPrimitive,\n  type LinkProps\n} from 'react-aria-components'\n\nimport { Link } from './link'\nimport { cn } from './primitive'\n\nconst Breadcrumbs = <T extends object>({ className, ...props }: BreadcrumbsProps<T>) => {\n  return <BreadcrumbsPrimitive {...props} className={cn('flex gap-1', className)} />\n}\n\nconst Breadcrumb = ({ className, ...props }: BreadcrumbProps & LinkProps) => {\n  return (\n    <BreadcrumbPrimitive {...props} className={cn('flex items-center gap-1', className)}>\n      <Link href={props.href} {...props} />\n      {'href' in props && <IconChevronRight className=\"size-4 shrink-0 text-muted-fg\" />}\n    </BreadcrumbPrimitive>\n  )\n}\n\nexport { Breadcrumb, Breadcrumbs }\n",
     "type": "ui"
   },
   "accordion": {
@@ -1556,7 +1556,7 @@
   },
   "dialog": {
     "component": "@/components/ui/dialog",
-    "raw": "'use client'\n\nimport { Dialog as DialogPrimitive, type DialogProps } from 'react-aria-components'\nimport { twMerge } from 'tailwind-merge'\n\nconst Dialog = ({ className, ...props }: DialogProps) => {\n  return (\n    <DialogPrimitive\n      {...props}\n      className={twMerge(\n        'relative max-h-[inherit] overflow-y-auto p-4 focus:outline-none outline-0 [[data-placement]>&]:p-4 dlc',\n        className\n      )}\n    />\n  )\n}\n\nexport { Dialog }\n",
+    "raw": "'use client'\n\nimport { Dialog as DialogPrimitive, type DialogProps } from 'react-aria-components'\nimport { tv } from 'tailwind-variants'\n\nconst dialogStyles = tv({\n  base: 'dlc relative max-h-[inherit] focus:outline-none overflow-y-auto p-4 outline-0 [[data-placement]>&]:p-4'\n})\n\nconst Dialog = ({ className, ...props }: DialogProps) => {\n  return <DialogPrimitive {...props} className={dialogStyles({ className })} />\n}\n\nexport { Dialog }\n",
     "type": "ui"
   },
   "menu": {
