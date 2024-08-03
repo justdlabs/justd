@@ -33,6 +33,7 @@ interface SearchFieldProps extends SearchFieldPrimitiveProps {
 }
 
 const SearchField = ({
+  className,
   placeholder = 'Search',
   label,
   description,
@@ -40,7 +41,7 @@ const SearchField = ({
   ...props
 }: SearchFieldProps) => {
   return (
-    <SearchFieldPrimitive {...props} className={ctr(props.className, base())}>
+    <SearchFieldPrimitive {...props} className={ctr(className, base())}>
       {label && <Label>{label}</Label>}
       <FieldGroup>
         <IconSearch aria-hidden className={searchIcon()} />

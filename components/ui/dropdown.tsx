@@ -49,10 +49,20 @@ interface DropdownSectionProps<T> extends SectionProps<T> {
   title?: string
 }
 
-const DropdownSection = <T extends object>(props: DropdownSectionProps<T>) => {
+const dropdownSectionStyles = tv({
+  slots: {
+    base: "first:-mt-[5px] after:content-[''] after:block after:h-[5px]",
+    header:
+      'text-sm font-medium text-muted-fg bg-tertiary px-4 py-2 truncate min-w-[--trigger-width] sticky -top-[5px] backdrop-blur -mt-px -mx-1 z-10 supports-[-moz-appearance:none]:bg-tertiary border-y [&+*]:mt-1'
+  }
+})
+
+const { base, header } = dropdownSectionStyles()
+
+const DropdownSection = <T extends object>({ className, ...props }: DropdownSectionProps<T>) => {
   return (
-    <Section className="after:block after:h-[5px] after:content-[''] first:-mt-[5px]">
-      <Header className="dsh mb-0.5 px-2 text-sm text-muted-fg">{props.title}</Header>
+    <Section className={base(className)}>
+      {'title' in props && <Header className={header()}>{props.title}</Header>}
       <Collection items={props.items}>{props.children}</Collection>
     </Section>
   )
@@ -71,7 +81,7 @@ const DropdownItem = ({ className, ...props }: ListBoxItemProps) => {
     >
       {composeRenderProps(props.children, (children, { isSelected }) => (
         <>
-          <span className="flex flex-1 items-center gap-2 truncate font-normal group-selected:font-semibold">
+          <span className="flex flex-1 items-center gap-2 truncate font-normal group-selected:font-medium">
             {children}
           </span>
           <span className="flex w-5 items-center">
@@ -87,6 +97,7 @@ interface DropdownItemSlot extends TextProps {
   label?: TextProps['children']
   description?: TextProps['children']
 }
+
 const DropdownItemDetails = ({ label, description, ...props }: DropdownItemSlot) => {
   return (
     <div className="flex flex-col gap-1">

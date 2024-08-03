@@ -22,7 +22,8 @@ const listBoxStyles = tv({
       'hover:bg-secondary', // hover
       'focus:bg-secondary', // focus
       'dragging:cursor-grab dragging:bg-secondary', // dragging
-      'selected:bg-primary selected:text-primary-fg' // selected
+      'selected:bg-primary selected:text-primary-fg', // selected
+      'disabled:opacity-70 cursor-default disabled:text-muted-fg' // disabled
     ]
   }
 })
@@ -80,10 +81,7 @@ interface ListBoxPickerProps<T> extends ListBoxProps<T> {}
 const ListBoxPicker = <T extends object>({ className, ...props }: ListBoxPickerProps<T>) => {
   return (
     <ListBoxPrimitive
-      className={cn(
-        'max-h-72 overflow-auto p-1 outline-none [clip-path:inset(0_0_0_0_round_.75rem)]',
-        className
-      )}
+      className={cn('max-h-72 overflow-auto p-1 outline-none', className)}
       {...props}
     />
   )

@@ -584,6 +584,12 @@ export const previews: Record<string, any> = {
   "pickers/select-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/pickers/select-controlled-demo")),
   },
+  "pickers/combo-box-section-demo": {
+    component: React.lazy(() => import("@/components/docs/pickers/combo-box-section-demo")),
+  },
+  "pickers/select-section-demo": {
+    component: React.lazy(() => import("@/components/docs/pickers/select-section-demo")),
+  },
   "pickers/combo-box-invalid-demo": {
     component: React.lazy(() => import("@/components/docs/pickers/combo-box-invalid-demo")),
   },
@@ -710,6 +716,9 @@ export const previews: Record<string, any> = {
   "collections/menu-danger-demo": {
     component: React.lazy(() => import("@/components/docs/collections/menu-danger-demo")),
   },
+  "collections/menu-section-demo": {
+    component: React.lazy(() => import("@/components/docs/collections/menu-section-demo")),
+  },
   "collections/choicebox-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/collections/choicebox-disabled-demo")),
   },
@@ -718,6 +727,9 @@ export const previews: Record<string, any> = {
   },
   "collections/menu-with-icon-demo": {
     component: React.lazy(() => import("@/components/docs/collections/menu-with-icon-demo")),
+  },
+  "collections/list-box-section-demo": {
+    component: React.lazy(() => import("@/components/docs/collections/list-box-section-demo")),
   },
   "collections/list-box-rearrange-demo": {
     component: React.lazy(() => import("@/components/docs/collections/list-box-rearrange-demo")),
@@ -730,6 +742,9 @@ export const previews: Record<string, any> = {
   },
   "collections/command-basic-demo": {
     component: React.lazy(() => import("@/components/docs/collections/command-basic-demo")),
+  },
+  "collections/list-box-controlled-demo": {
+    component: React.lazy(() => import("@/components/docs/collections/list-box-controlled-demo")),
   },
   "collections/grid-list-render-empty-state-demo": {
     component: React.lazy(() => import("@/components/docs/collections/grid-list-render-empty-state-demo")),
@@ -754,6 +769,9 @@ export const previews: Record<string, any> = {
   },
   "collections/grid-list-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/collections/grid-list-disabled-demo")),
+  },
+  "collections/list-box-disabled-demo": {
+    component: React.lazy(() => import("@/components/docs/collections/list-box-disabled-demo")),
   },
   "collections/table-drag-demo": {
     component: React.lazy(() => import("@/components/docs/collections/table-drag-demo")),

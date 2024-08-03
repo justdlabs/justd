@@ -22,7 +22,23 @@ It can be customized to include features like multi-selection, filtering, and dy
 
 <SourceCode toShow={['list-box']}/>
 
+## Controlled
+You can control the list box by passing the `selectedKey` prop.
+<How toUse="collections/list-box-controlled-demo" />
+
+## Section List Box
+A list box shows a bunch of items that are grouped together.
+<How toUse="collections/list-box-section-demo" />
 
 ## Rearrange
 listBox lets you drag and drop stuff if you use the dragAndDropHooks prop with the useDragAndDrop hook. You can drop data on the whole list, individual items, add new items between old ones, or rearrange items.
 <How toUse="collections/list-box-rearrange-demo" />
+
+
+## Disabled
+You can disable a list box item.
+<How toUse="collections/list-box-disabled-demo" />
+You can also disable it by `ListBoxItem` by passing `isDisabled` prop.
+```tsx
+<ListBoxItem isDisabled>Disabled</ListBoxItem>
+```
