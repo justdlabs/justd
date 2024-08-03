@@ -75,7 +75,7 @@ const Radio = ({ description, ...props }: RadioProps) => {
             <div
               className={radioStyles({
                 ...renderProps,
-                className: description ? 'mt-1' : 'mt-0.5'
+                className: 'description' in props ? 'mt-1' : 'mt-0.5'
               })}
             />
             <div className="flex flex-col gap-1">
