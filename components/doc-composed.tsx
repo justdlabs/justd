@@ -59,7 +59,6 @@ export function DocComposed({
             <GridItem className="relative" id={item.slug}>
               <Link
                 aria-label={`Open ${item.title}`}
-                target="_blank"
                 rel="noopener noreferrer"
                 href={`/${item.slug}`}
                 className="absolute inset-0 rounded-lg size-full"

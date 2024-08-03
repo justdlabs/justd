@@ -20,14 +20,13 @@ import {
   OverlayArrow,
   Popover,
   PopoverContext,
-  Section,
   Separator,
   SubmenuTrigger as SubmenuTriggerPrimitive,
   useSlottedContext
 } from 'react-aria-components'
 import type { VariantProps } from 'tailwind-variants'
 
-import { dropdownItemStyles } from './dropdown'
+import { dropdownItemStyles, DropdownSection } from './dropdown'
 import { Keyboard } from './keyboard'
 import { cn } from './primitive'
 
@@ -45,7 +44,7 @@ const MenuTrigger = ({ className, ...props }: ButtonProps) => (
 
 const SubmenuTrigger = SubmenuTriggerPrimitive
 
-const MenuSection = Section
+const MenuSection = DropdownSection
 
 export interface MenuContentProps<T>
   extends Omit<PopoverProps, 'children' | 'style'>,

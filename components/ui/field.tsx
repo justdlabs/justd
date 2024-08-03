@@ -15,7 +15,6 @@ import {
   Text,
   type TextProps
 } from 'react-aria-components'
-import { twMerge } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
 
 import { ctr } from './primitive'
@@ -54,16 +53,16 @@ const fieldStyles = tv({
 
 const { description, label, fieldError, input } = fieldStyles()
 
-const Label = (props: LabelProps) => {
-  return <LabelPrimitive {...props} className={twMerge(label(), props.className)} />
+const Label = ({ className, ...props }: LabelProps) => {
+  return <LabelPrimitive {...props} className={label({ className })} />
 }
 
 const Description = ({ className, ...props }: TextProps) => {
   return <Text {...props} slot="description" className={description({ className })} />
 }
 
-const FieldError = (props: FieldErrorProps) => {
-  return <FieldErrorPrimitive {...props} className={ctr(props.className, fieldError())} />
+const FieldError = ({ className, ...props }: FieldErrorProps) => {
+  return <FieldErrorPrimitive {...props} className={ctr(className, fieldError())} />
 }
 
 const fieldGroupStyles = tv({

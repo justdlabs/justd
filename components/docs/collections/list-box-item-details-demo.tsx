@@ -1,16 +1,16 @@
 'use client'
 
-import { Select, SelectItem, SelectItemDetails } from 'ui'
+import { ListBox, ListBoxItem, ListBoxItemDetails } from 'ui'
 
-export default function SelectItemDetailsDemo() {
+export default function ListBoxItemDetailsDemo() {
   return (
-    <Select label="Roles" placeholder="Select a role" items={roles}>
+    <ListBox defaultSelectedKeys={[2]} items={roles} aria-label="Bands">
       {(item) => (
-        <SelectItem id={item.id} textValue={item.name}>
-          <SelectItemDetails label={item.name} description={item.description} />
-        </SelectItem>
+        <ListBoxItem id={item.id}>
+          <ListBoxItemDetails label={item.name} description={item.description} />
+        </ListBoxItem>
       )}
-    </Select>
+    </ListBox>
   )
 }
 
