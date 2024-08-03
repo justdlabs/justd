@@ -13,8 +13,8 @@ export default function ListBoxControlledDemo() {
         selectedKeys={selected}
         onSelectionChange={setSelected}
         items={fruits}
-        selectionMode="single"
         aria-label="Fruits"
+        selectionMode="multiple"
       >
         {(fruit) => (
           <ListBoxItem id={fruit.id} textValue={fruit.name}>
@@ -23,7 +23,11 @@ export default function ListBoxControlledDemo() {
         )}
       </ListBox>
 
-      {selected && <Description className="mt-4 block">Selected: {selected}</Description>}
+      {[...selected].length > 0 && (
+        <Description className="mt-4 block">
+          Selected: {selected === 'all' ? 'All selected' : [...selected].join(', ')}
+        </Description>
+      )}
     </>
   )
 }

@@ -686,6 +686,9 @@ export const previews: Record<string, any> = {
   "statuses/loader-size-demo": {
     component: React.lazy(() => import("@/components/docs/statuses/loader-size-demo")),
   },
+  "collections/menu-collection-demo": {
+    component: React.lazy(() => import("@/components/docs/collections/menu-collection-demo")),
+  },
   "collections/tag-group-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/collections/tag-group-disabled-demo")),
   },
@@ -707,6 +710,9 @@ export const previews: Record<string, any> = {
   "collections/list-box-demo": {
     component: React.lazy(() => import("@/components/docs/collections/list-box-demo")),
   },
+  "collections/list-box-multiple-demo": {
+    component: React.lazy(() => import("@/components/docs/collections/list-box-multiple-demo")),
+  },
   "collections/grid-list-multiple-demo": {
     component: React.lazy(() => import("@/components/docs/collections/grid-list-multiple-demo")),
   },
@@ -724,6 +730,12 @@ export const previews: Record<string, any> = {
   },
   "collections/tag-group-demo": {
     component: React.lazy(() => import("@/components/docs/collections/tag-group-demo")),
+  },
+  "collections/list-box-item-details-demo": {
+    component: React.lazy(() => import("@/components/docs/collections/list-box-item-details-demo")),
+  },
+  "collections/menu-with-arrow-demo": {
+    component: React.lazy(() => import("@/components/docs/collections/menu-with-arrow-demo")),
   },
   "collections/menu-with-icon-demo": {
     component: React.lazy(() => import("@/components/docs/collections/menu-with-icon-demo")),

@@ -20,7 +20,6 @@ import {
   OverlayArrow,
   Popover,
   PopoverContext,
-  Section,
   Separator,
   SubmenuTrigger as SubmenuTriggerPrimitive,
   useSlottedContext

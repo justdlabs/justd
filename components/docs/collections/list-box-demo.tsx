@@ -4,7 +4,7 @@ import { ListBox, ListBoxItem } from 'ui'
 
 export default function ListBoxDemo() {
   return (
-    <ListBox items={rockPopBands} aria-label="Bands" selectionMode="multiple">
+    <ListBox items={rockPopBands} selectionMode="single" aria-label="Bands">
       {(item) => <ListBoxItem id={item.id}>{item.name}</ListBoxItem>}
     </ListBox>
   )

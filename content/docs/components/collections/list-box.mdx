@@ -14,7 +14,7 @@ It can be customized to include features like multi-selection, filtering, and dy
 <InstallCommand isAdd items={['list-box']}/>
 
 ## Composed Components
-<Composed components={['dropdown']}/>
+<Composed components={['dropdown', 'field']}/>
 
 ## Manual Installation
 
@@ -26,6 +26,14 @@ It can be customized to include features like multi-selection, filtering, and dy
 You can control the list box by passing the `selectedKey` prop.
 <How toUse="collections/list-box-controlled-demo" />
 
+## Multiple Selection
+You can select multiple items by passing the `selectionMode` prop.
+<How toUse="collections/list-box-multiple-demo" />
+
+## Item Details
+Sometimes you gotta dish out more dirt on that item, right? Toss it in the `ListBoxItemDetails` component to spill the beans. What's next?
+<How toUse="collections/list-box-item-details-demo" />
+
 ## Section List Box
 A list box shows a bunch of items that are grouped together.
 <How toUse="collections/list-box-section-demo" />
@@ -33,7 +41,6 @@ A list box shows a bunch of items that are grouped together.
 ## Rearrange
 listBox lets you drag and drop stuff if you use the dragAndDropHooks prop with the useDragAndDrop hook. You can drop data on the whole list, individual items, add new items between old ones, or rearrange items.
 <How toUse="collections/list-box-rearrange-demo" />
-
 
 ## Disabled
 You can disable a list box item.

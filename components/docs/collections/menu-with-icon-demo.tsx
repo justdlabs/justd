@@ -1,73 +1,105 @@
 'use client'
 
-import React, { useState } from 'react'
+import React from 'react'
 
 import {
-  IconChevronsY,
-  IconHashtag,
+  IconBag,
+  IconCommandRegular,
+  IconDashboard,
+  IconDeviceDesktop,
   IconHeadphones,
+  IconHeart,
   IconLogout,
-  IconPlus,
-  IconSettings
+  IconMoon,
+  IconSettings,
+  IconSun
 } from '@irsyadadl/paranoid'
-import type { Placement } from '@react-types/overlays'
+import { useTheme } from 'next-themes'
 import {
   Avatar,
   Menu,
   MenuContent,
   MenuHeader,
   MenuItem,
-  MenuKeyboard,
   MenuSection,
   MenuSeparator,
-  MenuTrigger
+  MenuTrigger,
+  SubmenuTrigger
 } from 'ui'
 
 export default function MenuWithIconDemo() {
-  const [showArrow, setShowArrow] = useState(false)
-  const [selected, setSelected] = React.useState<Placement>('bottom')
+  const { resolvedTheme, setTheme } = useTheme()
   return (
-    <>
-      <Menu>
-        <MenuTrigger aria-label="Open Menu">
-          <Avatar className="size-10" src="https://github.com/irsyadadl.png" />
-        </MenuTrigger>
-        <MenuContent className="min-w-64">
-          <MenuSection>
-            <MenuHeader separator>
-              <span className="block">Irsyad A. Panjaitan</span>
-              <span className="font-normal text-muted-fg">@irsyadadl</span>
-            </MenuHeader>
-          </MenuSection>
-          <MenuItem onAction={() => setShowArrow(!showArrow)}>
-            <IconChevronsY />
-            {showArrow ? 'Hide' : 'Show'} Arrow
+    <Menu>
+      <MenuTrigger>
+        <Avatar className="size-10" src="https://github.com/irsyadadl.png" />
+      </MenuTrigger>
+      <MenuContent placement="bottom" showArrow className="min-w-64">
+        <MenuSection>
+          <MenuHeader separator>
+            <span className="block">Irsyad A. Panjaitan</span>
+            <span className="font-normal text-muted-fg">@irsyadadl</span>
+          </MenuHeader>
+          <MenuItem href="#dashboard">
+            <IconDashboard />
+            Dashboard
           </MenuItem>
-          <MenuItem>
+          <MenuItem href="#settings">
             <IconSettings />
             Settings
           </MenuItem>
-          <MenuItem href="#">
-            <IconPlus />
-            Create Team
+        </MenuSection>
+        <MenuSeparator />
+        <MenuSection>
+          <MenuItem href="#wishlist">
+            <IconHeart />
+            My Wishlist
           </MenuItem>
-          <MenuItem href="#">
-            <IconHashtag />
-            Command Menu
-            <MenuKeyboard keys="⌘K" />
+          <MenuItem href="#orders">
+            <IconBag />
+            Orders
           </MenuItem>
-          <MenuSeparator />
-          <MenuItem href="#">
-            <IconHeadphones />
-            Contact Support
-          </MenuItem>
-          <MenuSeparator />
+        </MenuSection>
+
+        <MenuSeparator />
+        <MenuItem>
+          <IconCommandRegular />
+          Command Menu
+        </MenuItem>
+        <SubmenuTrigger>
           <MenuItem>
-            <IconLogout />
-            Log out
+            {resolvedTheme === 'light' ? (
+              <IconSun />
+            ) : resolvedTheme === 'dark' ? (
+              <IconMoon />
+            ) : (
+              <IconDeviceDesktop />
+            )}
+            Switch theme
           </MenuItem>
-        </MenuContent>
-      </Menu>
-    </>
+          <MenuContent>
+            <MenuItem onAction={() => setTheme('system')}>
+              <IconDeviceDesktop /> System
+            </MenuItem>
+            <MenuItem onAction={() => setTheme('dark')}>
+              <IconMoon /> Dark
+            </MenuItem>
+            <MenuItem onAction={() => setTheme('light')}>
+              <IconSun /> Light
+            </MenuItem>
+          </MenuContent>
+        </SubmenuTrigger>
+        <MenuSeparator />
+        <MenuItem href="#contact-s">
+          <IconHeadphones />
+          Contact Support
+        </MenuItem>
+        <MenuSeparator />
+        <MenuItem href="#logout">
+          <IconLogout />
+          Log out
+        </MenuItem>
+      </MenuContent>
+    </Menu>
   )
 }
