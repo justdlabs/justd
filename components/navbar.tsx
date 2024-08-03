@@ -98,6 +98,9 @@ export function Navbar() {
                     <NavLink isNextLink isActive={pathname === '/colors'} href="/colors">
                       Colors
                     </NavLink>
+                    <NavLink isNextLink isActive={pathname === '/themes'} href="/themes">
+                      Themes
+                    </NavLink>
                     <NavLink target="_blank" href="https://paranoid.irsyad.co">
                       Icons
                     </NavLink>
