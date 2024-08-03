@@ -25,7 +25,7 @@ const Pagination = ({ className, ...props }: React.ComponentProps<'nav'>) => (
 )
 
 const PaginationSection = <T extends object>({ className, ...props }: SectionProps<T>) => (
-  <Section {...props} className={cn('flex gap-1', className)} />
+  <Section {...props} className={cn('flex h-9 gap-1', className)} />
 )
 
 const PaginationList = <T extends object>({ className, ...props }: ListBoxProps<T>) => {
