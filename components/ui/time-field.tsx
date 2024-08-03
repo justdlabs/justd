@@ -27,12 +27,13 @@ const timeFieldStyles = tv({
 
 const TimeField = <T extends TimeValue>({
   label,
+  className,
   description,
   errorMessage,
   ...props
 }: TimeFieldProps<T>) => {
   return (
-    <TimeFieldPrimitive {...props} className={ctr(props.className, 'flex flex-col gap-1')}>
+    <TimeFieldPrimitive {...props} className={ctr(className, 'flex flex-col gap-1')}>
       <Label>{label}</Label>
       <DateInput className={timeFieldStyles} />
       {description && <Description>{description}</Description>}

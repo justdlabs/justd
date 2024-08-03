@@ -48,11 +48,11 @@ interface ToggleProps extends ToggleButtonProps {
   shape?: ButtonProps['shape']
 }
 
-const Toggle = (props: ToggleProps) => {
+const Toggle = ({ className, ...props }: ToggleProps) => {
   return (
     <ToggleButtonPrimitive
       {...props}
-      className={composeRenderProps(props.className, (className, renderProps) =>
+      className={composeRenderProps(className, (className, renderProps) =>
         toggleStyles({
           ...renderProps,
           appearance: props.appearance,

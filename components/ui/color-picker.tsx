@@ -10,7 +10,7 @@ import {
   getColorChannels,
   Group
 } from 'react-aria-components'
-import { twJoin } from 'tailwind-merge'
+import { tv } from 'tailwind-variants'
 import tailwindColors from 'tailwindcss/colors'
 
 import { Button, ButtonPrimitive } from './button'
@@ -27,8 +27,31 @@ import { ColorField } from './color-field'
 import { Dialog } from './dialog'
 import { DynamicOverlay } from './dynamic-overlay'
 import { Description, Label } from './field'
-import { cn } from './primitive'
 import { Select, SelectItem } from './select'
+
+const colorPickerStyles = tv({
+  slots: {
+    base: 'flex w-full flex-col gap-1',
+    triggerColorField: 'size-10 -mr-2.5 grid place-content-center focus:outline-none',
+    triggerColorPicker: 'w-full max-w-sm justify-start',
+    dynamicOverlay: 'w-full p-0 overflow-hidden min-w-full sm:w-fit sm:min-w-fit',
+    dialogColorPicker: '[[data-placement]>&]:p-[0.70rem] lg:w-[18rem] lg:p-0',
+    colorArea: 'w-full sm:w-[calc(18rem-1.30rem)]',
+    colorSlider: 'mt-2 [&_.cstrk]:orientation-horizontal:h-3',
+    colorSwatchPicker: 'flex flex-wrap gap-x-2 gap-y-2.5'
+  }
+})
+
+const {
+  base,
+  triggerColorField,
+  dialogColorPicker,
+  triggerColorPicker,
+  dynamicOverlay,
+  colorArea,
+  colorSlider,
+  colorSwatchPicker
+} = colorPickerStyles()
 
 interface ColorPickerProps extends ColorPickerPrimitiveProps {
   space?: ColorSpace
@@ -64,15 +87,12 @@ const ColorPicker = ({
   const [isHexFormat, setIsHexFormat] = React.useState(false)
   const value = props.value ?? props.defaultValue
   return (
-    <Group className={cn('flex w-full flex-col gap-1', className)}>
+    <Group className={base(className)}>
       {label && <Label>{label}</Label>}
       <ColorPickerPrimitive defaultValue={defaultColor} {...props}>
         <DialogTrigger>
           {trigger === 'color-field' ? (
-            <ButtonPrimitive
-              aria-label="Color swatch"
-              className="size-10 -mr-2.5 grid place-content-center focus:outline-none"
-            >
+            <ButtonPrimitive aria-label="Color swatch" className={triggerColorField()}>
               <ColorSwatch color={value?.toString(space)} className="size-6" />
             </ButtonPrimitive>
           ) : trigger === 'color-picker' ? (
@@ -80,7 +100,7 @@ const ColorPicker = ({
               aria-label="Color picker"
               isDisabled={isDisabled}
               appearance="outline"
-              className="w-full max-w-sm justify-start"
+              className={triggerColorPicker()}
             >
               <ColorSwatch color={value?.toString(space)} className="-ml-1.5 size-6" />
               {value ? <span>{value.toString(space)}</span> : <span>{placeholder}</span>}
@@ -90,19 +110,16 @@ const ColorPicker = ({
             aria-describedby={label}
             placement="bottom start"
             role="dialog"
-            className="w-full p-0 overflow-hidden min-w-full sm:w-fit sm:min-w-fit"
+            className={dynamicOverlay()}
           >
             <Dialog
               aria-label="Color picker"
-              className={twJoin(
-                '[[data-placement]>&]:p-[0.70rem] lg:w-[18rem] lg:p-0',
-                enableColorField && 'space-y-2'
-              )}
+              className={dialogColorPicker({ className: enableColorField && 'space-y-2' })}
             >
               <div>
                 <ColorArea
                   aria-describedby={`${label ? `${label} color area` : 'Color slider'}`}
-                  className="w-full sm:w-[calc(18rem-1.30rem)]"
+                  className={colorArea()}
                   colorSpace="hsb"
                   xChannel="saturation"
                   yChannel="brightness"
@@ -112,7 +129,7 @@ const ColorPicker = ({
                 <ColorSlider
                   aria-describedby={`${label ? `${label} color slider` : 'Color slider'}`}
                   showOutput={false}
-                  className="mt-2 [&_.cstrk]:orientation-horizontal:h-3"
+                  className={colorSlider()}
                   colorSpace="hsb"
                   channel="hue"
                 />
@@ -161,7 +178,7 @@ const ColorPicker = ({
                 <ColorSwatchPicker
                   aria-label="Color swatch picker"
                   layout="grid"
-                  className="flex flex-wrap gap-x-2 gap-y-2.5"
+                  className={colorSwatchPicker()}
                 >
                   {colors.map((color) => (
                     <ColorSwatchPickerItem key={color} color={color} />

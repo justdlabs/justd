@@ -13,6 +13,7 @@ export * from './text-field';
 export * from './radio';
 export * from './date-field';
 export * from './date-picker';
+export * from './date-range-picker';
 export * from './toast';
 export * from './container';
 export * from './input-otp';
