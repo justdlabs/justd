@@ -27,6 +27,7 @@ const config = withTV({
         link: 'hsl(var(--link))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
+        toggle: 'hsl(var(--toggle))',
         background: 'hsl(var(--background))',
         fg: 'hsl(var(--fg))',
         primary: {
