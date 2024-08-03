@@ -6,8 +6,6 @@ import { IconCalendarDays } from '@irsyadadl/paranoid'
 import {
   DatePicker as DatePickerPrimitive,
   type DatePickerProps as DatePickerPrimitiveProps,
-  DateRangePicker as DateRangePickerPrimitive,
-  type DateRangePickerProps as DateRangePickerPrimitiveProps,
   type DateValue,
   type ValidationResult
 } from 'react-aria-components'

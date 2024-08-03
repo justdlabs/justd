@@ -8,9 +8,20 @@ import {
   type NumberFieldProps as NumberFieldPrimitiveProps,
   type ValidationResult
 } from 'react-aria-components'
+import { tv } from 'tailwind-variants'
 
 import { Description, fieldBorderStyles, FieldError, FieldGroup, Input, Label } from './field'
-import { cn, ctr, useMediaQuery } from './primitive'
+import { ctr, useMediaQuery } from './primitive'
+
+const numberFieldStyles = tv({
+  slots: {
+    base: 'group flex flex-col gap-1',
+    stepperButton:
+      'h-10 cursor-default px-2 text-muted-fg pressed:bg-primary pressed:text-primary-fg group-disabled:bg-secondary forced-colors:group-disabled:text-[GrayText]'
+  }
+})
+
+const { base, stepperButton } = numberFieldStyles()
 
 interface NumberFieldProps extends NumberFieldPrimitiveProps {
   label?: string
@@ -23,12 +34,13 @@ const NumberField = ({
   label,
   placeholder,
   description,
+  className,
   errorMessage,
   ...props
 }: NumberFieldProps) => {
   const isMobile = useMediaQuery('(max-width: 768px)')
   return (
-    <NumberFieldPrimitive {...props} className={ctr(props.className, 'group flex flex-col gap-1')}>
+    <NumberFieldPrimitive {...props} className={ctr(className, base())}>
       <Label>{label}</Label>
       <FieldGroup className="group-disabled:bg-secondary">
         {(renderProps) => (
@@ -90,14 +102,7 @@ const StepperButton = ({
       <IconMinus />
     )
   return (
-    <Button
-      className={cn(
-        'h-10 cursor-default px-2 text-muted-fg pressed:bg-primary pressed:text-primary-fg group-disabled:bg-secondary forced-colors:group-disabled:text-[GrayText]',
-        className
-      )}
-      slot={slot}
-      {...props}
-    >
+    <Button className={stepperButton({ className })} slot={slot} {...props}>
       {icon}
     </Button>
   )
