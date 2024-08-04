@@ -28,7 +28,7 @@ const docs = defineCollection({
 })
 
 export default defineConfig({
-  root: 'content',
+  root: 'resources/content',
   output: {
     data: '.velite',
     assets: 'public/static',
