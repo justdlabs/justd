@@ -10,7 +10,7 @@ import { cn } from './primitive'
 
 const noteStyles = tv({
   base: [
-    'my-4 px-5 py-4 overflow-hidden rounded-lg border [&_strong]:font-medium',
+    'my-4 px-5 [&_.nd]:block [&_.nd]:text-sm py-4 overflow-hidden rounded-lg border [&_strong]:font-medium',
     '[&_[data-slot=icon]]:size-5 [&_[data-slot=icon]]:shrink-0'
   ],
   variants: {
@@ -67,7 +67,7 @@ const Note = ({ hideIndicator = false, intent = 'primary', className, ...props }
             )}
           </div>
         )}
-        <Text slot="description" {...props} className={cn('text-sm block nd', className)}>
+        <Text slot="description" {...props} className="nd">
           {props.children}
         </Text>
       </div>

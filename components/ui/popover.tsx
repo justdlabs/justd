@@ -37,7 +37,7 @@ const PopoverDescription = ModalDescription
 const PopoverBody = ModalBody
 
 const popoverContentStyles = tv({
-  base: 'max-w-xs min-w-80 rounded-lg border bg-popover bg-clip-padding p-4 text-popover-fg shadow-lg dark:backdrop-blur-2xl dark:backdrop-saturate-200 sm:max-w-3xl forced-colors:bg-[Canvas]',
+  base: 'max-w-xs min-w-80 rounded-lg border bg-popover bg-clip-padding p-4 text-popover-fg shadow-lg dark:backdrop-blur-2xl dark:backdrop-saturate-200 lg:text-sm sm:max-w-3xl forced-colors:bg-[Canvas]',
   variants: {
     isEntering: {
       true: [

@@ -329,6 +329,9 @@ export const previews: Record<string, any> = {
   "overlays/sheet-stack-demo": {
     component: React.lazy(() => import("@/components/docs/overlays/sheet-stack-demo")),
   },
+  "overlays/popover-trigger-demo": {
+    component: React.lazy(() => import("@/components/docs/overlays/popover-trigger-demo")),
+  },
   "overlays/drawer-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/overlays/drawer-controlled-demo")),
   },
