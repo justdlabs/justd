@@ -3,7 +3,7 @@
 import React from 'react'
 
 import { docs } from '#site/content'
-import { goodTitle } from '@/lib/utils'
+import { goodTitle } from '@/resources/lib/utils'
 import { buttonStyles, Description, Grid, GridCollection, GridItem, Heading, Link } from 'ui'
 
 type GroupedComponents = {

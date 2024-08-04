@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-import { siteConfig } from '@/config/site'
+import { siteConfig } from '@/resources/config/site'
 import { Container, Link } from 'ui'
 
 export function Footer() {
@@ -13,7 +13,7 @@ export function Footer() {
           <strong>{siteConfig.name} &trade; 2024</strong> - This project’s crafted with{' '}
           <span className="font-[ui-sans-serif,-apple-system,system-ui] text-pink-500">♥</span> by{' '}
           <Link href="https://twitter.com/irsyadadl">Irsyad</Link>. Peep the Source Code on{' '}
-          <Link href="https://github.com/irsyadadl/d.">GitHub</Link>.
+          <Link href={siteConfig.repo}>GitHub</Link>.
         </p>
 
         <p>

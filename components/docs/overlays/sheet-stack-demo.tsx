@@ -2,15 +2,7 @@
 
 import React from 'react'
 
-import {
-  Button,
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetOverlay,
-  SheetTitle
-} from 'ui'
+import { Button, Sheet, SheetContent, SheetOverlay } from 'ui'
 
 export default function SheetStackDemo() {
   return (

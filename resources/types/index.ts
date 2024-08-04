@@ -1,4 +1,4 @@
-import type { formatOnlyForTailwindVariable } from '@/lib/colors'
+import type { formatOnlyForTailwindVariable } from '@/resources/lib/colors'
 
 export interface ColorShade {
   shade: string

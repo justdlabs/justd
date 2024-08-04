@@ -1,6 +1,6 @@
 'use client'
 
-import { siteConfig } from '@/config/site'
+import { siteConfig } from '@/resources/config/site'
 import { IconBrandD, IconCube, IconStar } from '@irsyadadl/paranoid'
 import Link from 'next/link'
 import { Header, Text } from 'react-aria-components'

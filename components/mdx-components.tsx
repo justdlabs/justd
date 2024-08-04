@@ -6,7 +6,7 @@ import { PlainCode } from '@/components/docs/rehype/plain-code'
 import { SourceCode } from '@/components/docs/rehype/source-code'
 import type { InstallCommandProps } from '@/components/install-command'
 import { InstallCommand } from '@/components/install-command'
-import { useMDXComponent } from '@/lib/hooks/use-mdx'
+import { useMDXComponent } from '@/resources/lib/hooks/use-mdx'
 import Image from 'next/image'
 import {
   Card,

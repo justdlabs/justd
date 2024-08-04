@@ -1,4 +1,4 @@
-import type { FormatOnlyForTailwindVariableType } from '@/types'
+import type { FormatOnlyForTailwindVariableType } from '@/resources/types'
 import chroma from 'chroma-js'
 import ntc from 'ntcjs'
 import { slugify } from 'usemods'

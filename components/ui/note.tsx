@@ -6,8 +6,6 @@ import { IconCircleCheck, IconCircleInfo, IconTriangleInfo } from '@irsyadadl/pa
 import { Text } from 'react-aria-components'
 import { tv, type VariantProps } from 'tailwind-variants'
 
-import { cn } from './primitive'
-
 const noteStyles = tv({
   base: [
     'my-4 px-5 [&_.nd]:block [&_.nd]:text-sm py-4 overflow-hidden rounded-lg border [&_strong]:font-medium',

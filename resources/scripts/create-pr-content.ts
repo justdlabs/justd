@@ -2,7 +2,7 @@
 import * as fs from 'fs'
 import * as path from 'path'
 
-const baseDir = path.resolve(__dirname, '../components')
+const baseDir = path.resolve(__dirname, '../../components')
 const docsDir = path.join(baseDir, 'docs')
 const uiDir = path.join(baseDir, 'ui')
 const outputMapFilePath = path.resolve(docsDir, 'generated/previews.ts')

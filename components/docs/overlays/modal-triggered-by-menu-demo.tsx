@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-import { wait } from '@/lib/utils'
+import { wait } from '@/resources/lib/utils'
 import { IconDotsVertical } from '@irsyadadl/paranoid'
 import {
   Button,

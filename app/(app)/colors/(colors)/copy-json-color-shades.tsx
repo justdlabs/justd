@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
-import { getColorName } from '@/lib/colors'
-import { wait } from '@/lib/utils'
+import { getColorName } from '@/resources/lib/colors'
+import { wait } from '@/resources/lib/utils'
 import { IconBrackets2, IconCheck, IconDuplicate } from '@irsyadadl/paranoid'
 import { Heading } from 'react-aria-components'
 import { Button, ColorSwatch, Modal, ModalContent, ModalOverlay } from 'ui'

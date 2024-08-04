@@ -3,7 +3,7 @@
 import type { FC, SVGProps } from 'react'
 
 import { Logo } from '@/components/logo'
-import { extractAndFormat } from '@/lib/utils'
+import { extractAndFormat } from '@/resources/lib/utils'
 import {
   IconBell,
   IconBrandAdobe,

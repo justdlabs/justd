@@ -1,11 +1,11 @@
 import * as React from 'react'
 
 import { CopyJsonColorShades } from '@/app/(app)/colors/(colors)/copy-json-color-shades'
-import { allFormats, formatOnlyForTailwindVariableValues } from '@/lib/colors'
-import type { ColorItemProps, FormatOnlyForTailwindVariableType } from '@/types'
+import { allFormats, formatOnlyForTailwindVariableValues } from '@/resources/lib/colors'
 import { IconBrandTailwindcss } from '@irsyadadl/paranoid'
 import type { ColorFormat } from '@react-types/color'
 import { ListBox, Text, ToggleButton } from 'react-aria-components'
+import type { ColorItemProps, FormatOnlyForTailwindVariableType } from 'resources/types'
 import { toast } from 'sonner'
 import { buttonStyles, gridStyles, Heading, Select, SelectItem, Tooltip, TooltipContent } from 'ui'
 

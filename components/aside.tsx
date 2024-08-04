@@ -3,7 +3,7 @@
 import React from 'react'
 
 import { type Docs, docs } from '#site/content'
-import { goodTitle, sortDocs } from '@/lib/utils'
+import { goodTitle, sortDocs } from '@/resources/lib/utils'
 import { IconCircleHalf, IconCube, IconHighlight, IconLayers } from '@irsyadadl/paranoid'
 import { LayoutGroup, motion } from 'framer-motion'
 import { Link as NextLink } from 'next-view-transitions'

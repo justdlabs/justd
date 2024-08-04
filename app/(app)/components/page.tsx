@@ -3,7 +3,7 @@ import React from 'react'
 import { CardListBox } from '@/app/(app)/components/partials/card-list-box'
 import { OnThisPage } from '@/app/(app)/components/partials/on-this-page'
 import { Header } from '@/components/header'
-import { siteConfig } from '@/config/site'
+import { siteConfig } from '@/resources/config/site'
 import type { Metadata } from 'next'
 import { Container } from 'ui'
 

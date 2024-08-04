@@ -6,7 +6,7 @@ import { Aside } from '@/components/aside'
 import { CommandPalette, type OpenCloseProps } from '@/components/command-palette'
 import { TakeCurrentUrl } from '@/components/take-current-url'
 import { ThemeSwitcher } from '@/components/theme-switcher'
-import { siteConfig } from '@/config/site'
+import { siteConfig } from '@/resources/config/site'
 import {
   IconBrandAdobe,
   IconBrandD,

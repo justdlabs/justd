@@ -5,9 +5,9 @@ import { useEffect, useState } from 'react'
 
 import { ColorGenerator } from '@/app/(app)/colors/(colors)/color-generator'
 import _colors from '@/app/(app)/colors/(colors)/colors.json'
-import type { ColorItemProps } from '@/types'
 import { IconLoader } from '@irsyadadl/paranoid'
 import { useInView } from 'react-intersection-observer'
+import type { ColorItemProps } from 'resources/types'
 import { Container, gridStyles } from 'ui'
 
 import { ColorRow } from './color-row'

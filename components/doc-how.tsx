@@ -5,7 +5,7 @@ import * as React from 'react'
 import { previews } from '@/components/docs/generated/previews'
 import jsonPreviews from '@/components/docs/generated/previews.json'
 import { Code } from '@/components/docs/rehype/code'
-import { cn } from '@/lib/utils'
+import { cn } from '@/resources/lib/utils'
 import { IconLoader } from '@irsyadadl/paranoid'
 import { Tab, TabList, TabPanel, Tabs } from 'ui'
 

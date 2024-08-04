@@ -1,6 +1,6 @@
 'use client'
 
-import { siteConfig } from '@/config/site'
+import { siteConfig } from '@/resources/config/site'
 import { IconBrandGithub } from '@irsyadadl/paranoid'
 import { buttonStyles, Container, Heading, Link } from 'ui'
 
