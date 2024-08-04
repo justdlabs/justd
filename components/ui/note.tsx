@@ -10,7 +10,7 @@ import { cn } from './primitive'
 
 const noteStyles = tv({
   base: [
-    'my-4 px-5 py-4 overflow-hidden rounded-xl border [&_strong]:font-medium',
+    'my-4 px-5 py-4 overflow-hidden rounded-lg border [&_strong]:font-medium',
     '[&_[data-slot=icon]]:size-5 [&_[data-slot=icon]]:shrink-0'
   ],
   variants: {
@@ -48,21 +48,25 @@ const noteStyles = tv({
 
 interface NoteProps
   extends React.HtmlHTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof noteStyles> {}
+    VariantProps<typeof noteStyles> {
+  hideIndicator?: boolean
+}
 
-const Note = ({ intent = 'secondary', className, ...props }: NoteProps) => {
+const Note = ({ hideIndicator = false, intent = 'primary', className, ...props }: NoteProps) => {
   return (
     <div className={noteStyles({ intent, className })} {...props}>
       <div className="flex items-start gap-x-2.5">
-        <div className="mt-[2.5px] w-5">
-          {['info', 'primary', 'secondary'].includes(intent) ? (
-            <IconCircleInfo />
-          ) : intent === 'success' ? (
-            <IconCircleCheck />
-          ) : (
-            <IconTriangleInfo />
-          )}
-        </div>
+        {!hideIndicator && (
+          <div className="mt-[2.5px] w-5">
+            {['info', 'primary', 'secondary'].includes(intent) ? (
+              <IconCircleInfo />
+            ) : intent === 'success' ? (
+              <IconCircleCheck />
+            ) : (
+              <IconTriangleInfo />
+            )}
+          </div>
+        )}
         <Text slot="description" {...props} className={cn('text-sm block nd', className)}>
           {props.children}
         </Text>

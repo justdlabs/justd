@@ -8,7 +8,7 @@ references: ["https://react-spectrum.adobe.com/react-aria/GridList.html#props"]
 ---
 
 ## Basic
-
+The Choicebox is an enhanced version of a Radio or Checkbox, offering users a larger tap target and additional details.
 <How isCenter={false} toUse="collections/choicebox-demo" />
 
 ## Installation
@@ -18,33 +18,27 @@ references: ["https://react-spectrum.adobe.com/react-aria/GridList.html#props"]
 <Composed components={['field', 'checkbox']}/>
 
 ## Manual Installation
-
 <InstallCommand isInstall isManual items={['react-aria-components']} />
 
-
-## Composed components
 <SourceCode toShow={['choicebox']} />
 
 ## Controlled
-This component can be controlled or uncontrolled. To make it controlled, pass the `selectedKeys` prop and use the `onSelectionChange` handler to update it.
+This component can function as either controlled or uncontrolled. For controlled use, provide the `selectedKeys` prop and manage updates with the `onSelectionChange` event handler.
 <How isCenter={false} toUse="collections/choicebox-controlled-demo" />
 
 ## Single Selection
-By default, the Choice Box is multi-selectable. To make it single-select, pass the `selectionMode` prop.
-
+Although the Choicebox defaults to allowing multiple selections, it can be configured for single selection by setting the `selectionMode` prop.
 <How isCenter={false} toUse="collections/choicebox-single-selection-demo" />
 
 ## Columns and Gap
-By default, the Choicebox is displayed 2 columns, and the gap between items is 16px. You can change these values by passing the `columns` and `gap` props.
-
+The default layout for the Choicebox includes two columns with a 16px gap between items. These settings can be adjusted by passing the `columns` and `gap` props.
 <How isCenter={false} withNoPadding={true} toUse="collections/choicebox-columns-demo" />
 
 ## Disabled
-You can disable the entire Choice Box by passing the `isDisabled` prop to the item.
-
+Disable the entire Choicebox by applying the `isDisabled` prop.
 <How isCenter={false} withNoPadding={true} toUse="collections/choicebox-disabled-demo" />
 
-You can also disable individual items by passing an array of keys to the `disabledKeys` prop.
+Individual items can also be disabled by specifying their keys in the `disabledKeys` prop.
 
 ```tsx
 <Choicebox disabledKeys={['sm', 'lg']} />

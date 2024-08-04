@@ -7,8 +7,8 @@ references: ["https://react-spectrum.adobe.com/react-aria/Table.html#props"]
 ---
 
 ## Basic
-A table shows data in rows and columns, letting you navigate with directional keys and optionally supports row selection and sorting.
-<How isCenter={false} withNoPadding copyButton={false} isCenter={false} toUse="collections/table-demo" />
+A table displays data in rows and columns, allowing navigation via directional keys. It can optionally support row selection and sorting.
+<How isCenter={false} withNoPadding copyButton={false} toUse="collections/table-demo" />
 
 ## Installation
 <InstallCommand isAdd items={['table']}/>
@@ -17,25 +17,24 @@ A table shows data in rows and columns, letting you navigate with directional ke
 <Composed components={['checkbox']}/>
 
 ## Manual Installation
-
 <InstallCommand isInstall isManual items={['react-aria-components', '@irsyadadl/paranoid']}/>
 
 <SourceCode toShow={['table']}/>
 
 ## Bulk Actions
-Sometimes ya gotta hit up bulk actions on a table.
-<How isCenter={false} withNoPadding copyButton={false} isCenter={false} toUse="collections/table-bulk-demo" />
+Tables may require bulk actions for handling multiple entries at once.
+<How isCenter={false} withNoPadding copyButton={false} toUse="collections/table-bulk-demo" />
 
 ## Drag and Drop
-Just like [GridList](/docs/components/collections/grid-list), Table can get that drag and drop vibe too.
-<How isCenter={false} withNoPadding copyButton={false} isCenter={false} toUse="collections/table-drag-demo" />
+Similar to [GridList](/docs/components/collections/grid-list), tables can also support drag and drop functionality.
+<How isCenter={false} withNoPadding copyButton={false} toUse="collections/table-drag-demo" />
 
 ## Sorting
-Table can get sortable. Give it a whirl by clicking the column header to sort it out.
-<How isCenter={false} withNoPadding copyButton={false} isCenter={false} toUse="collections/table-sorting-demo" />
+Tables can be made sortable. Activate sorting by clicking on a column header.
+<How isCenter={false} withNoPadding copyButton={false} toUse="collections/table-sorting-demo" />
 
 ## Href
-You may want to create a link inside a table row. You can do that by using the `href` prop.
+To create a clickable link within a table row, use the `href` prop.
 
 ```jsx
 <TableRow href='/collections/table-demo'/>

@@ -6,8 +6,8 @@ published: true
 ---
 
 ## Basic
-Note is a component that displays a note with a title and description.
-<How toUse="statuses/note-demo" />
+The Note component displays a note with a title and description, providing an easy way to highlight important information.
+<How isCenter={false} toUse="statuses/note-demo" />
 
 ## Installation
 <InstallCommand isAdd items={['note']}/>
@@ -15,3 +15,11 @@ Note is a component that displays a note with a title and description.
 ## Manual Installation
 <InstallCommand isInstall isManual items={['react-aria-components', '@irsyadadl/paranoid']}/>
 <SourceCode toShow={['note']}/>
+
+## Intent
+By default, the note is displayed with a primary intent. You can change the intent by passing the `intent` prop. This example demonstrates different intents.
+<How toUse="statuses/note-intent-demo" />
+
+## Hide Indicator
+You can hide the indicator by passing the `hideIndicator` prop.
+<How isCenter={false} toUse="statuses/note-hide-indicator-demo" />

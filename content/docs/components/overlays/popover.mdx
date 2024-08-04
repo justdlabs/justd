@@ -6,8 +6,8 @@ published: true
 references: ["https://react-spectrum.adobe.com/react-aria/Popover.html#props", "https://github.com/jamiebuilds/tailwindcss-animate"]
 ---
 
-## Popover
-Popovers are small overlays that display information about an element when the user clicks on it.
+## Basic
+Popovers are small overlays that display additional information about an element when the user clicks on it.
 <How toUse="overlays/popover-demo" />
 
 ## Installation
@@ -21,3 +21,31 @@ Popovers are small overlays that display information about an element when the u
 <InstallCommand isInstall isManual items={['react-aria-components', 'tailwindcss-animate']}/>
 
 <SourceCode toShow={['popover']}/>
+
+## Controlled
+You can control the popover programmatically.
+<How toUse="overlays/popover-controlled-demo" />
+
+## Overlay Arrow
+The default has an arrow, but you can disable it by passing the `showArrow` prop.
+<How toUse="overlays/popover-arrow-demo" />
+
+## Placement
+You can change the placement of the popover by passing the `placement` prop.
+<How toUse="overlays/popover-placement-demo" />
+
+The list above shows the primary directions, but you can also use specific placements like `bottom left` or `top right`. Here are all the available placement options:
+
+| Primary Direction | Placement       |
+|-------------------|-----------------|
+| `bottom`          | `bottom`, `bottom left`, `bottom right`, `bottom start`, `bottom end` |
+| `top`             | `top`, `top left`, `top right`, `top start`, `top end` |
+| `left`            | `left`, `left top`, `left bottom` |
+| `start`           | `start`, `start top`, `start bottom` |
+| `right`           | `right`, `right top`, `right bottom` |
+| `end`             | `end`, `end top`, `end bottom` |
+
+
+## Custom Close
+The popover can be customized to include a custom close button.
+<How toUse="overlays/popover-custom-close" />

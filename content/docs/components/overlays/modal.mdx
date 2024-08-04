@@ -8,7 +8,7 @@ references: ["https://react-spectrum.adobe.com/react-aria/Modal.html#props", "ht
 
 
 ## Basic
-A pop-up window that demands how  your attention. You gotta deal with it before doing anything else on the page.
+A modal is a pop-up window that demands your attention. You have to deal with it before doing anything else on the page.
 <How toUse="overlays/modal-demo" />
 
 ## Installation
@@ -18,35 +18,35 @@ A pop-up window that demands how  your attention. You gotta deal with it before 
 <Composed components={['button', 'dialog']}/>
 
 ## Manual Installation
-
 <InstallCommand isInstall isManual items={['react-aria-components', 'tailwindcss-animate', '@irsyadadl/paranoid']}/>
 
 <SourceCode toShow={['modal']}/>
 
 ## Alert Dialog
-When we chat about **alerts** dialog, peep this: you gotta nail two things. First, lock it down so the modal ain't closin' when you tap outside. Second, make that close button ghost unless it's handed over. Simple fix, just slide the `isDismissable` prop to the modal, and you’re set.
+When dealing with an **alert** dialog, there are two key things to nail down. First, make sure the modal doesn't close when tapping outside of it. Second, hide the close button unless it's provided. The simple fix? Just set the `isDismissable` prop on the modal, and you’re good to go.
 <How toUse="overlays/alert-dialog-demo" />
-So you might be wonderin', what's the move when we ain't rollin' with the `Modal`? Say you're tryna handle that modal vibe, straight up, you don't even need the `Modal` itself. Nah, switch gears and hit up the `ModalOverlay`. Just toss the `isDismissable` prop its way, and you're golden.
-```
+If you're not using the `Modal` component directly but still want to manage the modal experience, switch gears and use the `ModalOverlay`. Just pass the `isDismissable` prop to it, and you're all set.
+
+```tsx
 <ModalOverlay isDismissable={false}/>
 ```
 
 ## Controlled
-Of course, you can controll the modal.
+You can control the modal programmatically.
 <How toUse="overlays/modal-controlled-demo" />
 
 ## Sizes
-By default, the modal’s set to `lg`. You can tweak it to any size from the table below.
+The modal is set to `lg` by default. You can adjust it to any size from the available options.
 <How toUse="overlays/modal-size-demo" />
 
 ## Blur
-On iOS, the modal overlay blurs by default. Why? Gotta blur it if the modal's packing a `TextField` or `TextArea`.
+On iOS, the modal overlay blurs by default, especially when the modal contains a `TextField` or `TextArea`.
 <How toUse="overlays/modal-blur-demo" />
 
 ## Triggered By Menu
 You can also trigger the modal by clicking on a menu item.
 <How toUse="overlays/modal-triggered-by-menu-demo" />
-But it would be better if we can extract the modal to a component.
+It might be a good idea to extract the modal into a separate component for better organization.
 
 ```
 interface ModalActionProps {

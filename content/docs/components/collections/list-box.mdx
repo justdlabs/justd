@@ -7,7 +7,7 @@ references: ["https://react-spectrum.adobe.com/react-aria/ListBox.html#props"]
 ---
 
 ## Basic
-It can be customized to include features like multi-selection, filtering, and dynamic data updates. ListBoxes are commonly used in applications to present and manage lists of options or data entries.
+ListBoxes can be enhanced with features like multi-selection, filtering, and dynamic data updates. They are widely used in applications to display and manage lists of options or data entries.
 <How toUse="collections/list-box-demo" />
 
 ## Installation
@@ -17,35 +17,34 @@ It can be customized to include features like multi-selection, filtering, and dy
 <Composed components={['dropdown']}/>
 
 ## Manual Installation
-
 <InstallCommand isInstall isManual items={['react-aria-components', '@irsyadadl/paranoid']}/>
 
 <SourceCode toShow={['list-box']}/>
 
 ## Controlled
-You can control the list box by passing the `selectedKey` prop.
+Manage the ListBox selection by using the `selectedKey` prop.
 <How toUse="collections/list-box-controlled-demo" />
 
 ## Multiple Selection
-You can select multiple items by passing the `selectionMode` prop.
+Enable multiple selections by setting the `selectionMode` prop.
 <How toUse="collections/list-box-multiple-demo" />
 
 ## Item Details
-Sometimes you gotta dish out more dirt on that item, right? Toss it in the `ListBoxItemDetails` component to spill the beans. What's next?
+Enhance list items by providing additional details through the `ListBoxItemDetails` component.
 <How toUse="collections/list-box-item-details-demo" />
 
 ## Section
-A list box shows a bunch of items that are grouped together.
+Display items in a ListBox grouped by sections.
 <How toUse="collections/list-box-section-demo" />
 
 ## Rearrange
-listBox lets you drag and drop stuff if you use the dragAndDropHooks prop with the useDragAndDrop hook. You can drop data on the whole list, individual items, add new items between old ones, or rearrange items.
+Enable drag and drop functionality in the ListBox using the `dragAndDropHooks` prop with the `useDragAndDrop` hook. This allows for rearranging items, adding new entries between existing ones, or managing data across the entire list.
 <How toUse="collections/list-box-rearrange-demo" />
 
 ## Disabled
-You can disable a list box item.
+Disable specific ListBox items.
 <How toUse="collections/list-box-disabled-demo" />
-You can also disable it by `ListBoxItem` by passing `isDisabled` prop.
+You can also disable an item directly by passing the `isDisabled` prop to `ListBoxItem`.
 ```tsx
 <ListBoxItem isDisabled>Disabled</ListBoxItem>
 ```

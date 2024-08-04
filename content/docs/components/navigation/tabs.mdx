@@ -8,48 +8,45 @@ references: ["https://react-spectrum.adobe.com/react-aria/Tabs.html#props", "htt
 
 
 ## Basic
-Tabs chop content into sections, letting users switch between 'em with ease.
+Tabs divide content into sections, allowing users to easily switch between them.
 <How isCenter={false} toUse="navigation/tabs-demo" />
 
 ## Installation
 <InstallCommand isAdd items={['tabs']} />
 
 ## Manual Installation
-
 <InstallCommand isInstall isManual items={['react-aria-components', 'framer-motion']} />
 
 <SourceCode toShow='tabs' />
 
-## With icons
-Sometimes you wanna throw icons on your tabs. No biggie, this tab's got you covered, handling the design real smooth.
+## With Icons
+If you want to include icons in your tabs, it's simple to do. This tab setup handles icons smoothly, maintaining a clean design.
 <How isCenter={false} toUse="navigation/tabs-icons-demo" />
 
 ## Orientation
-The orientation of the tabs can be set to `horizontal` or `vertical`.
-
-[//]: # (<How isCenter={false} toUse="navigation/tabs-orientation-demo" />)
+You can set the orientation of the tabs to either `horizontal` or `vertical`.
+<How isCenter={false} toUse="navigation/tabs-orientation-demo" />
 
 ## Collections
-Tabs can be used in collections.
+Tabs can also be used within collections.
 <How isCenter={false} toUse="navigation/tabs-collections-demo" />
 
 ## Links
-Maybe you wanna use tabs as links, like for hopping between pages. Just slap the `href` prop on the `Tab` component. Boom, cursor turns into a pointer automatically.
+If you want to use tabs as navigational links, you can add the `href` prop to the `Tab` component. This will automatically change the cursor to a pointer.
 <How isCenter={false} toUse="navigation/tabs-link-demo" />
 
 ## Responsive
-When tabs start packin' like sardines, things get messy. So, I hooked y'all up with a way to keep 'em chill and responsive.
+When tabs get crowded, they can become difficult to manage. To keep them organized and responsive, use the following approach:
 
-
-<Composed text="Mix it up with a menu, select, or combo box, but this example's all about mastering the select component." components={['select']}/>
+<Composed text="Mix it up with a menu, select, or combo box, but this example focuses on mastering the select component." components={['select']}/>
 
 <How isCenter={false} toUse="navigation/tabs-responsive-demo" />
 
 ## Disabled
-Tabs can be disabled by setting the `isDisabled` prop to `true`.
+You can disable all tabs by setting the `isDisabled` prop to `true`.
 <How isCenter={false} toUse="navigation/tabs-disabled-demo" />
 
-You can also disable individual tabs by setting the `isDisabled` prop to `true`, like this:
+You can also disable individual tabs by setting the `isDisabled` prop for each one, like this:
 ```tsx
 <Tab isDisabled id="c">Contact</Tab>
 <Tab isDisabled id="a">About Us</Tab>

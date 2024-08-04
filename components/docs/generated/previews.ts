@@ -275,8 +275,14 @@ export const previews: Record<string, any> = {
   "buttons/button-link-demo": {
     component: React.lazy(() => import("@/components/docs/buttons/button-link-demo")),
   },
+  "overlays/popover-controlled-demo": {
+    component: React.lazy(() => import("@/components/docs/overlays/popover-controlled-demo")),
+  },
   "overlays/modal-triggered-by-menu-demo": {
     component: React.lazy(() => import("@/components/docs/overlays/modal-triggered-by-menu-demo")),
+  },
+  "overlays/popover-placement-demo": {
+    component: React.lazy(() => import("@/components/docs/overlays/popover-placement-demo")),
   },
   "overlays/tooltip-delay-demo": {
     component: React.lazy(() => import("@/components/docs/overlays/tooltip-delay-demo")),
@@ -296,8 +302,11 @@ export const previews: Record<string, any> = {
   "overlays/tooltip-placement-demo": {
     component: React.lazy(() => import("@/components/docs/overlays/tooltip-placement-demo")),
   },
-  "overlays/sheet-controlled-demo": {
-    component: React.lazy(() => import("@/components/docs/overlays/sheet-controlled-demo")),
+  "overlays/popover-arrow-demo": {
+    component: React.lazy(() => import("@/components/docs/overlays/popover-arrow-demo")),
+  },
+  "overlays/popover-custom-close": {
+    component: React.lazy(() => import("@/components/docs/overlays/popover-custom-close")),
   },
   "overlays/modal-size-demo": {
     component: React.lazy(() => import("@/components/docs/overlays/modal-size-demo")),
@@ -638,11 +647,17 @@ export const previews: Record<string, any> = {
   "statuses/toast-description-demo": {
     component: React.lazy(() => import("@/components/docs/statuses/toast-description-demo")),
   },
+  "statuses/meter-decimal-format-demo": {
+    component: React.lazy(() => import("@/components/docs/statuses/meter-decimal-format-demo")),
+  },
   "statuses/table-of-badges": {
     component: React.lazy(() => import("@/components/docs/statuses/table-of-badges")),
   },
   "statuses/badge-demo": {
     component: React.lazy(() => import("@/components/docs/statuses/badge-demo")),
+  },
+  "statuses/skeleton-shape-demo": {
+    component: React.lazy(() => import("@/components/docs/statuses/skeleton-shape-demo")),
   },
   "statuses/progress-bar-demo": {
     component: React.lazy(() => import("@/components/docs/statuses/progress-bar-demo")),
@@ -650,11 +665,17 @@ export const previews: Record<string, any> = {
   "statuses/loader-demo": {
     component: React.lazy(() => import("@/components/docs/statuses/loader-demo")),
   },
+  "statuses/skeleton-intent-demo": {
+    component: React.lazy(() => import("@/components/docs/statuses/skeleton-intent-demo")),
+  },
   "statuses/loader-variant-demo": {
     component: React.lazy(() => import("@/components/docs/statuses/loader-variant-demo")),
   },
   "statuses/indeterminate-progress-bar-demo": {
     component: React.lazy(() => import("@/components/docs/statuses/indeterminate-progress-bar-demo")),
+  },
+  "statuses/skeleton-demo": {
+    component: React.lazy(() => import("@/components/docs/statuses/skeleton-demo")),
   },
   "statuses/loader-intent-demo": {
     component: React.lazy(() => import("@/components/docs/statuses/loader-intent-demo")),
@@ -671,8 +692,17 @@ export const previews: Record<string, any> = {
   "statuses/toast-status-demo": {
     component: React.lazy(() => import("@/components/docs/statuses/toast-status-demo")),
   },
+  "statuses/note-intent-demo": {
+    component: React.lazy(() => import("@/components/docs/statuses/note-intent-demo")),
+  },
+  "statuses/meter-currency-format-demo": {
+    component: React.lazy(() => import("@/components/docs/statuses/meter-currency-format-demo")),
+  },
   "statuses/toast-positions-demo": {
     component: React.lazy(() => import("@/components/docs/statuses/toast-positions-demo")),
+  },
+  "statuses/note-hide-indicator-demo": {
+    component: React.lazy(() => import("@/components/docs/statuses/note-hide-indicator-demo")),
   },
   "statuses/badge-intent-demo": {
     component: React.lazy(() => import("@/components/docs/statuses/badge-intent-demo")),

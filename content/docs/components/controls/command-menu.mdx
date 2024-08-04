@@ -8,7 +8,7 @@ references: ["https://cmdk.paco.me/", "https://react-spectrum.adobe.com/react-ar
 ---
 
 ## Basic
-This command menu is straightforward, always under your control, allowing you to open and close it as needed.
+This command menu is straightforward and always under your control, allowing you to open and close it as needed.
 <How toUse="controls/command-menu-demo" />
 
 ## Installation
@@ -18,45 +18,43 @@ This command menu is straightforward, always under your control, allowing you to
 <Composed components={['keyboard', 'separator']} />
 
 ## Manual Installation
-
 <InstallCommand isInstall isManual items={['react-aria-components', 'cmdk', '@irsyadadl/paranoid']} />
-
 <SourceCode toShow={['command-menu']} />
 
 ## Separator
-You can toss a separator between items.
+Add a separator between items for clear distinction.
 <How toUse="controls/command-menu-separator-demo" />
 
 ## Section
-You can rock the command solo, no sections needed, but for real, it’s smart to use sections.
+While you can operate the command menu solo, utilizing sections can organize commands more effectively.
 <How toUse="controls/command-menu-section-demo" />
 
 ## Keyboard
-You can hook up a keyboard to the command. Heads up though, the keyboard might duck out on smaller screens.
+Integrate keyboard interaction with the command menu. Note that keyboard functionality may be limited on smaller screens.
 <How toUse="controls/command-menu-keyboard-demo" />
 
 ## Trigger by Keyboard
-You can trigger a command by keyboard. This is a great way to get started with command palettes.
+Activate the command menu via keyboard commands, ideal for initiating command palettes.
 <How toUse="controls/command-menu-trigger-by-keyboard-demo" />
 
 ## Danger
-You can crank up the heat on a command item, make it dangerous. That’ll switch the item’s color to red, signaling caution.
+Highlight a command item as dangerous by changing its color to red, indicating a warning.
 <How toUse="controls/command-menu-danger-item-demo" />
 
 ## Controlled
-You can control the value of the command palette by using the `value` and `onValueChange` props. This is a great way to make a command palette that is controlled by a parent component.
+Manage the command palette dynamically using the `value` and `onValueChange` props, making it responsive to changes in a parent component.
 <How toUse="controls/command-menu-controlled-demo" />
-For sure, you can also manage the value of the item, like say you wanna kick off some action after picking an item.
+Additionally, control the execution of an action upon selecting an item:
 ```
 <CommandItem onSelect={() => console.log('share justd.co/d/command')} />
 ```
 
 ## Disabled
-When you flip it to disabled, it'll go gray and won't be clickable, just sitting there all chill.
+Disable items in the command menu to make them non-interactive, appearing grayed out.
 <How toUse="controls/command-menu-disabled-demo" />
 
 ## Hide Indicator
-You can hide the search indicator by passing `hideSearchIndicator` and close button by passing `hideCloseButton`. The demo you can see on [Command Description](#description) section.
+Eliminate the search indicator and close button for a cleaner interface by using `hideSearchIndicator` and `hideCloseButton`. View this setup in the [Command Description](#description) section.
 ```
 <CommandMenu
   hideCloseButton
@@ -67,15 +65,15 @@ You can hide the search indicator by passing `hideSearchIndicator` and close but
 ```
 
 ## Description
-Sometimes you gotta slap a description on a command item. Hook it up using the `CommandDescription` component. Just a heads up, the keyboard might dip out on smaller screens.
+Enhance command items with descriptions using the `CommandDescription` component. Be aware that keyboard accessibility might be limited on smaller screens.
 <How toUse="controls/command-menu-description-demo" />
 
 ## Fallback Empty Message
-By default, it will show a message when "No results found.". If you think you want to change the message, you can do that by passing a string to `messageOnEmpty` prop.
+The default setup displays a "No results found." message when no items match. If you prefer a different message, modify it by setting the `messageOnEmpty` prop.
 ```
 <Command messageOnEmpty='There are no results'/>
 ```
-Or maybe you wanna make a custom empty message, you can turn it off by passing `false`. And make your own empty message like this.
+Alternatively, if you want to create a custom empty message, disable the default by setting `messageOnEmpty` to `false` and implement your own design like so:
 ```
 <Command
   messageOnEmpty={false}
@@ -94,13 +92,14 @@ Or maybe you wanna make a custom empty message, you can turn it off by passing `
   ...
 </Command>
 ```
-And again, you can see the demo on [Command Description](#description) section. Try typing anything that doesn't match the option and see what happens.
+And again, you can see how this works in the [Command Description](#description) section. Try typing something that doesn't match any option to see how the custom empty message appears.
 
 ## Navigating
-For sure, when you're rolling with this command as a link in client-side frameworks like Next.js or Inertia.js, you might wanna auto close the command palette once you hit the link. I got an example on how you can make that happen.
+Indeed, when using this command palette within client-side frameworks like Next.js or Inertia.js, it’s practical to automatically close the palette upon navigating via a link. Here’s how you can manage that:
 
 ### Inertia.js
-When using Inertia.js, you can use the `router.on('navigate')` to close the command palette when you navigate to a new page.
+In Inertia.js, utilize the `router.on('navigate')` event to automatically close the command palette when navigation occurs. Here’s an example:
+This setup ensures that the command palette closes seamlessly when the user navigates to a new page, maintaining a clean and distraction-free user interface.
 ```tsx {14}
 export function CommandPalette({ open, setOpen }: Props) {
   React.useEffect(() => {

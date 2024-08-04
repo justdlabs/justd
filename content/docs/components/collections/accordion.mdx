@@ -8,26 +8,25 @@ references: ["https://react-spectrum.adobe.com/react-aria/Button.html#props", "h
 ---
 
 ## Basic
-An accordion's like a vertical stack of headers that pop open to show or hide content sections.
+An accordion functions as a vertical stack of headers that expand to reveal or conceal content sections.
 <How isCenter={false} toUse="controls/accordion-demo" />
 
 ## Installation
 <InstallCommand isAdd items={['accordion']}/>
 
 ## Manual Installation
-
 <InstallCommand isInstall isManual items={['react-aria-components', 'framer-motion', '@irsyadadl/paranoid']}/>
 
 <SourceCode toShow={['accordion']}/>
 
 ## Default Expanded
-You can set the default expanded keys by passing an array of keys to `defaultExpandedKeys` prop. It can be a number or a string.
+Set the initially expanded sections by providing an array of keys to the `defaultExpandedKeys` prop. These keys can be either numbers or strings.
 <How isCenter={false} toUse="controls/accordion-default-expand-demo" />
 
 ## Hide Indicator
-You can hide the arrow key indicator by passing `hideIndicator` prop.
+Eliminate the visual indicator (arrow key) by using the `hideIndicator` prop.
 <How isCenter={false} toUse="controls/accordion-hide-indicator-demo" />
 
 ## Disabled
-Flip the switch on the accordion by chucking in a `disabledKeys` prop. Peep this example: I put the brakes on keys `1`, `2`, and `4`. Once they're locked down, you can't pop 'em open or even mess with 'em.
+Disable specific sections by using the `disabledKeys` prop. For instance, keys `1`, `2`, and `4` are disabled in this example, making them non-interactive and unable to be expanded or collapsed.
 <How isCenter={false} toUse="controls/accordion-disabled-demo" />

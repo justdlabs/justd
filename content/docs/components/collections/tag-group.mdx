@@ -7,42 +7,39 @@ references: ["https://react-spectrum.adobe.com/react-aria/TagGroup.html#props"]
 ---
 
 ## Basic
-A tag group is a focusable list of labels, categories, keywords, filters, or other items, supporting keyboard navigation, selection, and removal.
+A tag group is a focusable collection of labels, categories, keywords, filters, or other elements, equipped with keyboard navigation, selection, and removal functionalities.
 <How toUse="collections/tag-group-demo" />
 
 ## Installation
 <InstallCommand isAdd items={['tag-group']}/>
 
-
-
 ## Composed Components
 <Composed components={['field', 'badge']}/>
 
 ## Manual Installation
-
 <InstallCommand isInstall isManual items={['react-aria-components', '@irsyadadl/paranoid']}/>
 
 <SourceCode toShow={['tag-group']}/>
 
 ## With Remove Button
-It's possible to add a remove button to the tag group.
+Tags within the group can include a removal button.
 <How toUse="collections/tag-group-with-remove-demo" />
 
 ## Variants
-You can switch up the tag group intent by throwing in the `intent` prop. But right now, only the default blue matches the selected color. The color comes from the badge component. If you want, check out the available variants in the [badge docs](/design-system/statuses/badge).
+Alter the appearance of the tag group by utilizing the `intent` prop. Currently, only the default blue color aligns with the selected variant, sourced from the badge component. Explore additional variants in the [badge documentation](/design-system/statuses/badge).
 
 ```
 <TagGroup intent="info"/>
 ```
 
 ## Controlled
-You can control the value of the tag group by setting the `value` prop.
+Manage the values of the tag group through the `value` prop.
 <How toUse="collections/tag-group-controlled-demo" />
 
 ## Href
-You can add a link to the tag group by setting the `href` prop.
+Incorporate a hyperlink within the tag group using the `href` prop.
 <How toUse="collections/tag-group-href-demo" />
 
 ## Disabled
-You can disable the tag by setting the `isDisabled` prop or `disabledKeys` on `TagGroup` prop.
+Disable tags either by setting the `isDisabled` prop or using `disabledKeys` on the `TagGroup`.
 <How toUse="collections/tag-group-disabled-demo" />

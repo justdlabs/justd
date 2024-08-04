@@ -8,21 +8,31 @@ references: ["https://react-spectrum.adobe.com/react-aria/Tooltip.html#props", "
 
 
 ## Basic
-Tooltips are small overlays that display information about an element when the user clicks on it.
+Tooltips are small overlays that display information about an element when the user hovers over or interacts with it.
 <How toUse="overlays/tooltip-demo" />
 
 ## Installation
 <InstallCommand isAdd items={['tooltip']}/>
 
 ## Manual Installation
-
-<InstallCommand isInstall isManual items={['react-aria-components', 'tailwindcss-animate']}/>
+<InstallCommand isInstall isManual items={['react-aria-components']}/>
 
 <SourceCode toShow='tooltip'/>
 
 ## Placement
-Tooltip's chillin' at the top by default, but toss a `placement` prop its way if you wanna mix things up.
+By default, the tooltip appears at the top, but you can change its position by using the `placement` prop.
 <How isCenter={false} toUse="overlays/tooltip-placement-demo" />
+
+The list above shows the primary directions, but you can also use more specific placements like `bottom left` or `top right`. Here are all the available placement options:
+
+| Primary Direction | Placement       |
+|-------------------|-----------------|
+| `bottom`          | `bottom`, `bottom left`, `bottom right`, `bottom start`, `bottom end` |
+| `top`             | `top`, `top left`, `top right`, `top start`, `top end` |
+| `left`            | `left`, `left top`, `left bottom` |
+| `start`           | `start`, `start top`, `start bottom` |
+| `right`           | `right`, `right top`, `right bottom` |
+| `end`             | `end`, `end top`, `end bottom` |
 
 ## Delay
 Tooltip rolls out the welcome mat after you hover for 1.5 secs. Wanna speed it up or slow it down? Just slide in a `delay` prop. Peep these [guidelines](https://spectrum.adobe.com/page/tooltip/#Immediate-or-delayed-appearance) for the scoop.

@@ -1,28 +1,27 @@
 ---
 title: "Installation"
-description: Kick off by installing the necessary packages and setting up your project. Skip the hassle if you're using CLI, this tool sets everything up for you automatically.
+description: Start by installing the necessary packages and setting up your project. If you are using a command-line interface, this tool automatically handles the setup for you, eliminating any extra steps.
 order: 2
 published: true
 ---
-
 ## Installation via CLI
-Before you run the command, make sure you have **tailwind installed**. If you don't, just see [here](https://tailwindcss.com/docs/installation) how to install it.
+Before executing the command, ensure that **tailwind** is installed. If not, follow the instructions [here](https://tailwindcss.com/docs/installation) for installation.
 
 <Note intent='primary'>
-  This command's gonna nuke your **tailwind config** and **css** file. So, run it in a **fresh project**, not in an **old one**. Otherwise, you'll have to manually add the needed files.
+  Running this command will overwrite your **tailwind config** and **css** file. It is recommended to use this in a **new project** rather than an existing one to avoid manual file additions.
 </Note>
 
-Kick things off by running this command:
+Begin by executing this command:
 
 <InstallCommand isInit />
 
-Next up, tell it your source. If you're rocking **Next.js**, pick Next.js. If **Laravel** with **Inertia.js** is your jam, go with Laravel. Not using either? Just hit up the **other** option.
+Then, select your project type. Choose Next.js if you’re using **Next.js**, or select Laravel if you're working with **Laravel and Inertia.js**. If neither applies, select the **other** option.
 
-After that, just run `add [component-name]` to drop the component in your project. No need to install everything at once. Need a file-trigger? Just add it up. Even if it requires a button, this command's got you covered. Just install what you need now. Otherwise, hit up the docs and do it manually. Here's how to add a `combo-box`:
+Next, use `add [component-name]` to include a specific component in your project. This allows for selective installation without the need for a full setup. If you need a file-trigger or even a button, this command facilitates that. Install only what you need, or refer to the documentation to manually include components. Here's how to add a `combo-box`:
 
 <InstallCommand isInDocsComponent={false} isAdd items={['combo-box']} />
 
-This command will install all the required components like:
+This command will ensure all necessary components are installed:
 ```bash
 ✓ combo-box created
 ✓ select created
@@ -33,12 +32,12 @@ This command will install all the required components like:
 ✓ button created
 ```
 
-Sometimes, you just wanna toss in components one by one, like when you’re adding `select` and `text-field` together. Just slap 'em in like this:
+Sometimes, you may want to add components individually, such as `select` and `text-field`. You can easily do this by using the following command:
 <InstallCommand isInDocsComponent={false} isAdd items={['select', 'text-field']} />
 
-If ya wanna drop in group components, check the docs, they bundle all the goodies into one namespace, like collections, overlays, forms, etc. So you can slap 'em in all at once like this:
+If you need to include grouped components, refer to the documentation which organizes related components under a single namespace, such as collections, overlays, and forms. This allows you to add them all at once, like so:
 <InstallCommand isInDocsComponent={false} isAdd items={['overlays']} />
-With that command, you'll get all the components in the overlays namespace like this:
+Using this command, you will install all components under the overlays namespace.
 ```bash
 ✓ button created
 ✓ dialog created
@@ -49,10 +48,10 @@ With that command, you'll get all the components in the overlays namespace like 
 ✓ tooltip created
 ```
 
-Or you might wanna pick the components you wanna toss in. Just add 'em without any arguments. You'll get a list of components to select, using arrow keys and spacebar.
+You might prefer to select the components you want to include by adding them without specifying any items. Just use the following command to add components:
 <InstallCommand isInDocsComponent={false} isAdd items={['']} />
 
-The command above will show you list like this:
+This command will present a list of available components, which you can navigate and select using the arrow keys and spacebar.
 ```bash
 ? Select components to add: (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter> to proceed)
  ◯ dropdown
@@ -65,24 +64,26 @@ The command above will show you list like this:
 ```
 
 ## Starter Kit
-I have two starter kits for you. One for Next.js and one for Laravel. Wanna dive in? Grab the starter kit of your choice.
+I offer two starter kits, one for Next.js and one for Laravel. Choose the one that suits your project needs.
+
 <Note intent='primary'>
-  If you got other starter kits, like Remix or Vite, just drop a [PR](https://github.com/justdlabs/next.js/issues/new) and I'll slap it on the list.
+  If you have other starter kits, such as Remix or Vite, consider submitting a [PR](https://github.com/justdlabs/next.js/issues/new) to expand our list.
 </Note>
+
 ### Next.js
-The easiest way to get started with Just D is to use the [Next.js Starter Kit](https://github.com/justdlabs/next.js). It's a Next.js project with justd all set up, so you can roll right away. Of just run this command:
+The simplest way to start using Just D is through the [Next.js Starter Kit](https://github.com/justdlabs/next.js). This kit provides a pre-configured Next.js project, allowing you to get started immediately. To create a project, run this command:
 <Code withImportCopy={false} lang='bash' code='npx create-next-app@latest -e https://github.com/justdlabs/next.js project-name'/>
 
 
 ### Laravel
-For laravel, make sure you have [composer](https://getcomposer.org/download/) installed. Then, run this command:
+For Laravel, ensure [composer](https://getcomposer.org/download/) is installed first. Then, execute this command to create a new project:
 <Code withImportCopy={false} lang='bash' code='composer create-project justd/laravel project-name'/>
 
-After that, you gotta run `npm i && npm run build` in the project folder. Then, run `php artisan serve` to start the server. You're good to go.
+Next, navigate to the project directory and run `npm i && npm run build`. Afterward, start your server with `php artisan serve`. Your setup is now complete.
 
 
 ## React Server Component
-By default, the primitive gets dropped in the `components/ui` folder of your project. It packs all the must-have functions for your components, like `cn` for className and `composeTailwindRenderProps`. But heads up, you can't rock it in server components. So, if you wanna flex that `cn` class outside the built-in squad, you gotta whip up a file that only holds that function, like this:
+By default, components are saved in the `components/ui` folder of your project. These components include essential functions like `cn` for className handling and `composeTailwindRenderProps`. However, these functions are not compatible with server components. If you need to use `cn` outside of the typical environment, you should isolate it in a separate file like this:
 
 ```ts title="utils/classes.ts"
 import { twMerge } from 'tailwind-merge'
@@ -91,7 +92,7 @@ import { type ClassValue, clsx } from 'clsx'
 export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs))
 ```
 
-If I were you, I'd stash this in a file named `classes.ts` in the `utils` folder. Then, whenever I need to roll with it, I'll import it like this:
+If I were in your position, I would save this in a file named `classes.ts` within the `utils` folder. Then, whenever you need to use it, you can import it like this:
 ```tsx
 import { cn } from '@/utils/classes'
 
@@ -103,19 +104,20 @@ export default function page() {
 ```
 
 ## Manual Installation
-To get started with the design system, you gotta install these packages:
+To begin setting up the design system, start by installing these packages:
 
 <InstallCommand isInstall items={['react-aria-components', 'tailwindcss-react-aria-components']} />
 
-Next, grab Tailwind Variant, Tailwind Merge, and clsx for those sweet utility functions.
+Next, add Tailwind Variant, Tailwind Merge, and clsx for utility functions:
 
 <InstallCommand isInstall items={['tailwind-variants', 'tailwind-merge', 'clsx']} />
 
-Then, snag the animation package for handling animations and Paranoid for icons:
+Following that, include the animation package for managing animations and Paranoid for icons:
+
 <InstallCommand isInstall items={['@irsyadadl/paranoid', 'tailwindcss-animate']} />
 
 ### CSS
-First up, tweak your root CSS file. For example, if you're rockin' Laravel, it's **resources/css/app.css**, and you gotta add this code:
+Start by adjusting your main CSS file. For example, if you are using Laravel, this would be **resources/css/app.css**. You should add the following code:
 
 ```css
 @tailwind base;
@@ -124,7 +126,7 @@ First up, tweak your root CSS file. For example, if you're rockin' Laravel, it's
 ```
 
 ### Variables
-Below that, you gotta drop in the following code:
+Below that, insert the following code:
 <PlainCode lang='css' code={`@layer base {
   :root {
     --background: 0 0% 100%;
@@ -188,7 +190,7 @@ Below that, you gotta drop in the following code:
 `} />
 
 ### Default Utilities
-Add this for the default set of utilities:
+Include this for the default set of utilities:
 <PlainCode lang='css' code={`@layer base {
   * {
     @apply border-border;
@@ -203,7 +205,7 @@ Add this for the default set of utilities:
 `} />
 
 ### React Aria Components
-And finally, toss in this for react-aria-components:
+Then, add this section for react-aria-components:
 
 ```css
 .react-aria-DropIndicator[data-drop-target] {
@@ -213,7 +215,7 @@ And finally, toss in this for react-aria-components:
 
 
 ### Tailwind Configuration
-You need wrap your tailwind config with `withTV` from `tailwind-variants`, also you need to plug the plugins we've just installed.
+Configure your Tailwind setup by wrapping your tailwind config with withTV from tailwind-variants. Also, make sure to integrate the plugins we've just installed.
 <PlainCode lang='js' code={`/** @type {import('tailwindcss').Config} */
 
 import { withTV } from 'tailwind-variants/transformer'
@@ -294,11 +296,11 @@ export default withTV({
 <SourceCode title='ui/primitive.tsx' toShow={['primitive']} />
 
 ## Simple Import
-Yup, that's slick 'cause the index.ts file in your ui folder plays the connect-the-dots game. Even if button and badge are chillin' in different files, you can scoop them up in one go like this:
+Indeed, it's efficient because the index.ts file in your UI folder serves as a hub. Even if the button and badge components are in separate files, you can import them together easily:
 ```tsx
 import { Button, VisuallyHidden, Badge } from 'ui'
 ```
-Aight, so here’s the lowdown: your ui folder’s rockin’ an index.ts file, right? This bad boy bundles up all your components for easy access. Just pull 'em in like this, no sweat!
+So, here's the scoop: your UI folder contains an index.ts file, right? This file consolidates all your components for straightforward access. Simply import them as needed, hassle-free!
 <PlainCode title="ui/index.ts" lang='tsx' code={`export * from './primitive';
 export * from './note';
 export * from './list-box';
@@ -360,10 +362,11 @@ export * from './dynamic-overlay';
 export * from './visually-hidden';
 `} />
 
-If you ain’t usin’ all them bits, just ditch the ones you don’t need. Later on, when you got a fresh component, just slide it into the lineup. Easy peasy!
+
+If you're not using all those components, feel free to remove the ones you don't need. Later, when you introduce a new component, simply add it to your setup. It's straightforward!
 
 ### TS Config
-Then, you gotta drop this into your `tsconfig.json` file:
+Next, incorporate the following settings into your `tsconfig.json` file:
 ```json title="tsconfig.json" {6}
 {
   "compilerOptions": {
@@ -375,8 +378,9 @@ Then, you gotta drop this into your `tsconfig.json` file:
   }
 }
 ```
+
 ### TS Config with src Folder
-Just make sure you're rockin' the paths property right when you got a src folder in your project. If you wanna mess with the ui folder, just line up your paths proper like this:
+Ensure you configure the `paths` property correctly if your project includes a `src` folder. If you want to organize the UI folder, adjust your paths accordingly like this:
 
 ```json title="tsconfig.json" {6}
 {

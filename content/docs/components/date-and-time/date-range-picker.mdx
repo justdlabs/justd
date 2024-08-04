@@ -8,7 +8,7 @@ references: ["https://react-spectrum.adobe.com/react-aria/DateRangePicker.html#p
 
 ## Basic
 
-A range calendar shows one or more date grids and lets users pick a range of dates in one go.
+A range calendar displays one or more date grids and allows users to select a range of dates in a single interaction.
 <How minW72 toUse="date-and-time/date-range-picker-demo" />
 
 ## Installation
@@ -18,23 +18,22 @@ A range calendar shows one or more date grids and lets users pick a range of dat
 <Composed components={['date-picker', 'date-field', 'field']}/>
 
 ## Manual Installation
-
 <InstallCommand isInstall isManual items={['react-aria-components', '@irsyadadl/paranoid']}/>
 
 <SourceCode toShow={['date-range-picker']}/>
 
 ## Controlled
-Wanna boss around your date picker? Easy peasy. Just throw a value prop at it, and bam, it'll lock in on that date range picker.
+Take control of your date range picker by passing a `value` prop to manage the selected date range.
 <How minW72 toUse="date-and-time/date-range-picker-controlled-demo" />
 
 ## Validation
-If you wanna make sure your date picker is filled out, just throw a `isRequired` prop at it.
+Ensure that the date range picker is properly filled out by using the `isRequired` prop.
 <How minW72 toUse="date-and-time/date-range-picker-validation-demo" />
 
 ## Custom Validation
-The `validate` function's the real MVP when you wanna check your own rules. It peeps at the current date value and spits back a string or some strings loaded with error messages if the value's off.
+Use the `validate` function to implement custom validation rules. It evaluates the current date range and returns error messages if the value doesn't meet your criteria.
 <How minW72 toUse="date-and-time/date-range-picker-custom-validation-demo" />
 
 ## Disabled
-When a date range picker is disabled, it cannot be interacted with and is visually indicated by a disabled state.
+When the date range picker is disabled, it becomes non-interactive and is visually represented in a disabled state.
 <How minW72 toUse="date-and-time/date-range-picker-disabled-demo" />

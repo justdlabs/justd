@@ -23,7 +23,6 @@ import {
   ModalDescription,
   ModalFooter,
   ModalHeader,
-  ModalOverlay,
   ModalTitle
 } from './modal'
 import { cn, useMediaQuery } from './primitive'
@@ -31,7 +30,6 @@ import { cn, useMediaQuery } from './primitive'
 const Popover = DialogTrigger
 const PopoverTrigger = Button
 const PopoverClose = ModalClose
-const PopoverOverlay = ModalOverlay
 const PopoverFooter = ModalFooter
 const PopoverHeader = ModalHeader
 const PopoverTitle = ModalTitle
@@ -39,7 +37,7 @@ const PopoverDescription = ModalDescription
 const PopoverBody = ModalBody
 
 const popoverContentStyles = tv({
-  base: 'max-w-xs min-w-80 rounded-xl border bg-popover bg-clip-padding p-4 text-popover-fg shadow-lg dark:backdrop-blur-2xl dark:backdrop-saturate-200 sm:max-w-3xl forced-colors:bg-[Canvas]',
+  base: 'max-w-xs min-w-80 rounded-lg border bg-popover bg-clip-padding p-4 text-popover-fg shadow-lg dark:backdrop-blur-2xl dark:backdrop-saturate-200 sm:max-w-3xl forced-colors:bg-[Canvas]',
   variants: {
     isEntering: {
       true: [
@@ -134,7 +132,6 @@ export {
   PopoverDescription,
   PopoverFooter,
   PopoverHeader,
-  PopoverOverlay,
   PopoverPicker,
   PopoverTitle,
   PopoverTrigger

@@ -8,55 +8,57 @@ references: ["https://react-spectrum.adobe.com/react-aria/ColorPicker.html"]
 ---
 
 ## Basic
-The basic color picker lets users pick a color.
+The basic color picker allows users to select a color.
 <How className='min-w-40' toUse="colors/color-picker-demo" />
 
 ## Installation
 <InstallCommand isAdd items={['color-picker']}/>
 
 ## Composed Components
-<Composed components={['color', 'color-field', 'slider','color', 'field', 'button', 'modal', 'dynamic-overlay', 'dialog', 'slider', 'select', 'dropdown', 'list-box', 'popover',]}/>
+<Composed components={['color', 'color-field', 'slider', 'field', 'button', 'modal', 'dynamic-overlay', 'dialog', 'select', 'dropdown', 'list-box', 'popover']}/>
 
 ## Manual Installation
 <InstallCommand isInstall isManual items={['react-aria-components']}/>
 <SourceCode toShow={['color-picker']}/>
 
 ## Enable Format Selection
+Enable users to select the format of the color value (e.g., RGB, HSL).
 <How className='min-w-40' toUse="colors/color-picker-enable-selection-format-demo" />
 
 ## Enable Swatch
+Enable a swatch view where users can see and pick from predefined colors.
 <How className='min-w-40' toUse="colors/color-picker-enable-swatch-demo" />
 
 ## Custom Colors
-By default, the color picker uses the default Tailwind CSS colors which is zinc. You can pass your own colors to the `colors` prop.
+Customize the available colors beyond the default Tailwind CSS zinc palette by using the `colors` prop.
 <How className='min-w-40' toUse="colors/color-picker-custom-colors-demo" />
 
 ## Combination
-You can combine the swatch and selection format options.
+Combine both swatch and selection format options in the color picker.
 <How className='min-w-40' toUse="colors/color-picker-combination-demo" />
 
 ## Label
-You can add a label to the color picker.
+Add a label to the color picker for better accessibility and user guidance.
 <How className='min-w-40' toUse="colors/color-picker-with-label-demo" />
 
 ## Description
-You can add a description to the color picker.
+Include a description to provide additional information or instructions.
 <How className='min-w-40' toUse="colors/color-picker-with-description-demo" />
 
 ## Placeholder
-You can add a placeholder to the color picker.
+Introduce a placeholder in the color picker for an intuitive user interface.
 <How className='min-w-40' toUse="colors/color-picker-with-placeholder-demo" />
 
 ## Controlled
-You can control the color picker value with the `value` prop.
+Control the selected color with the `value` prop to sync it with your application's state.
 <How className='min-w-40' toUse="colors/color-picker-controlled-demo" />
 
 ## Disabled
-You can disable the color picker with the `isDisabled` prop.
+Disable the color picker by setting the `isDisabled` prop, making it non-interactive.
 <How className='min-w-40' toUse="colors/color-picker-disabled-demo" />
 
 ## Props
-Totally! The `ColorPicker` component is loaded with all the standard props from `react-aria-components`, and it's also kitted out with these additional props:
+Indeed, the `ColorPicker` component incorporates all standard props from `react-aria-components` along with these specialized props:
 
 | Property                    | Type                                                         | Optional |
 |-----------------------------|--------------------------------------------------------------|----------|

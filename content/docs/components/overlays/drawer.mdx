@@ -9,7 +9,7 @@ references: ["https://react-spectrum.adobe.com/react-aria/Modal.html#props", "ht
 
 
 ## Basic
-Slide-in overlay for extra content or options, anchored to the screen edge for quick access! Originally coded by **Devon Govett**. Check out his [tweet](https://x.com/devongovett/status/1674470185783402496) for more deets. Want to improve it, like making the drawer's height adapt to the content? Drop a [PR](https://github.com/irsyadadl/justd).
+A slide-in overlay for extra content or options, anchored to the screen edge for quick access! Originally coded by **Devon Govett**. Check out his [tweet](https://x.com/devongovett/status/1674470185783402496) for more details. Want to improve it, like making the drawer's height adapt to the content? Feel free to drop a [PR](https://github.com/irsyadadl/justd).
 <How toUse="overlays/drawer-basic-demo" />
 
 ## Installation
@@ -19,21 +19,20 @@ Slide-in overlay for extra content or options, anchored to the screen edge for q
 <Composed components={['modal', 'button', 'dialog']}/>
 
 ## Manual Installation
-
 <InstallCommand isInstall isManual items={['react-aria-components', 'framer-motion']}/>
 
 <SourceCode toShow={['drawer']}/>
 
 ## Drawer with Footer
-When you choose to include a footer, be sure to use the drawer body inside the content. This ensures the footer stays fixed at the bottom of the drawer.
+If you include a footer, make sure to place the drawer body inside the content area. This keeps the footer fixed at the bottom of the drawer.
 <How toUse="overlays/drawer-with-footer-demo" />
 
 ## Drawer Controlled
-Of course, you can controll the drawer.
+You can control the drawer's state programmatically.
 <How toUse="overlays/drawer-controlled-demo" />
 
 ## Without Notch
-You can disable the notch on the drawer by setting the withNotch prop to false.
+Disable the notch on the drawer by setting the `withNotch` prop to `false`.
 
 ```
 <Drawer withNotch={false}/>

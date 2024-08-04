@@ -9,7 +9,7 @@ references: ["https://react-spectrum.adobe.com/react-aria/ListBox.html#props"]
 
 
 ## Basic
-Pagination's a nav component that lets users cruise through a bunch of pages. It’s made up of a few parts that team up to give a smooth user experience.
+Pagination is a navigation component that allows users to move through multiple pages. It’s composed of several elements working together to provide a smooth user experience.
 <How isCenter={false} toUse="navigation/pagination-demo" />
 
 ## Installation
@@ -19,24 +19,23 @@ Pagination's a nav component that lets users cruise through a bunch of pages. It
 <Composed components={['button']}/>
 
 ## Manual Installation
-
 <InstallCommand isInstall isManual items={['react-aria-components', '@irsyadadl/paranoid']}/>
 
 <SourceCode toShow={['pagination']}/>
 
 ## Simple
-The simple pagination won't show the number of pages. Instead, it’ll just rock a simple arrow navigation.
+The simple pagination setup doesn’t display page numbers, using only basic arrow navigation.
 <How isCenter={false} toUse="navigation/simple-pagination-demo" />
 
 ## Using Collections
-Since the pagination list's part of the `GridList` primitive, it's a snap to handle collections. Just throw the collections into the `PaginationList` with the `items` prop.
+Since the pagination list is part of the `GridList` primitive, handling collections is easy. Just pass the collections into the `PaginationList` using the `items` prop.
 <How isCenter={false} toUse="navigation/pagination-dynamic-demo" />
 
 ## Preserving Scroll
-Sometimes, you gotta keep the page from scrollin' to the top when users hit the pagination. Just toss the scroll props from your routerOptions into the `PaginationLink` component.
+Sometimes, you need to prevent the page from scrolling to the top when users interact with pagination. You can do this by passing scroll-related props from your routerOptions into the `PaginationLink` component.
 
 ### Inertia.js
-When you’re usin' [Inertia.js](https://inertiajs.com/scroll-management#scroll-preservation), you can use the `preserveScroll` prop to keep the page from scrollin' to the top when users hit the pagination.
+When using [Inertia.js](https://inertiajs.com/scroll-management#scroll-preservation), you can use the `preserveScroll` prop to keep the page from scrolling to the top during pagination interactions.
 ```tsx {4}
 <PaginationList aria-label="Pagination Segment" items={pages}>
   {(item) => (
@@ -49,7 +48,7 @@ When you’re usin' [Inertia.js](https://inertiajs.com/scroll-management#scroll-
 ```
 
 ### Next.js
-When you’re usin' [Next.js](https://nextjs.org/docs/app/building-your-application/routing/linking-and-navigating#disabling-scroll-restoration), slap on the `scroll` prop to keep the page from scrollin' to the top when users hit the pagination.
+When using [Next.js](https://nextjs.org/docs/app/building-your-application/routing/linking-and-navigating#disabling-scroll-restoration), apply the `scroll` prop to stop the page from scrolling to the top when users navigate through pagination.
 ```tsx {4}
 <PaginationList aria-label="Pagination Segment" items={pages}>
   {(item) => (
@@ -62,7 +61,8 @@ When you’re usin' [Next.js](https://nextjs.org/docs/app/building-your-applicat
 ```
 
 ### Remix
-When you’re usin' [Remix](https://remix.run/docs/en/main/components/scroll-restoration#preventing-scroll-reset), slap on the `preventScrollReset` prop to keep the page from scrollin' to the top when users hit the pagination.
+When using [Remix](https://remix.run/docs/en/main/components/scroll-restoration#preventing-scroll-reset), you can add the `preventScrollReset` prop to prevent the page from scrolling to the top when users interact with pagination.
+
 ```tsx {4}
 <PaginationList aria-label="Pagination Segment" items={pages}>
   {(item) => (
@@ -75,10 +75,10 @@ When you’re usin' [Remix](https://remix.run/docs/en/main/components/scroll-res
 ```
 
 ### React Router
-When you’re rockin' with React Router, peep the tutorial [here](https://youtu.be/4_H8j3rkpjI?t=61). Then go ahead and do it yourself. My bad, I'm not up to speed with the latest React Router.
+If you're using React Router, check out this [tutorial](https://youtu.be/4_H8j3rkpjI?t=61) for guidance. After that, give it a go on your own. Apologies, I'm not fully up to speed with the latest updates in React Router.
 
 ### Considering
-You’re probably like, “Let’s just default this stuff in the Pagination component, right?” But nah, it ain’t that straight. Tried mixin' it into the Pagination vibe, but when you mess with other moves like those Inertia.js router options, stuff don't play nice. How I rolled with it? Kept it real simple.
+You might be thinking, "Why not just bake this functionality directly into the Pagination component, right?" But it's not that simple. I tried integrating it into the Pagination setup, but when you start mixing in other functionalities, like those Inertia.js router options, things can get messy. So, I kept it straightforward to avoid any conflicts.
 ```tsx {10}
 const renderListItem = (
   props: ListBoxItemProps & {

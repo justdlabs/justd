@@ -8,9 +8,9 @@ published: true
 ---
 
 ## Basic
-A form's a bunch of inputs lettin' users send stuff to a server, plus it throws in field error checks.
+A form is a collection of inputs that allows users to submit data to a server, with built-in field error validation.
 
-```
+```tsx
 import { Form } from 'ui'
 
 <Form/>
@@ -20,23 +20,22 @@ import { Form } from 'ui'
 <InstallCommand isAdd items={['form']}/>
 
 ## Manual Installation
-
 <InstallCommand isInstall isManual items={['react-aria-components']}/>
 
 <SourceCode toShow='form'/>
 
 ## Validation
-You can validate the form by using the `isRequired` prop.
+You can validate the form using the `isRequired` prop.
 <How minW72 toUse="forms/form-validation-demo" />
 
-Sometimes, the server's errors ain't matching the client's. Just use the `validationErrors` prop to get 'em all in the right format.
+Sometimes, server-side errors don't match the client-side validation. You can handle this by using the `validationErrors` prop to format them correctly.
 
-```
+```tsx
 <Form validationErrors={errors} onSubmit={() => {}}/>
 ```
 
-Then, in the `<TextField />` component, throw the `errorMessage` props in like this:
+Then, in the `<TextField />` component, pass the `errorMessage` prop like this:
 
-```
+```tsx
 <TextField errorMessage={errors.name} label="Name" isRequired/>
 ```

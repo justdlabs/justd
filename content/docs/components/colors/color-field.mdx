@@ -8,7 +8,7 @@ references: ["https://react-spectrum.adobe.com/react-aria/ColorField.html"]
 ---
 
 ## Basic
-A color field lets users tweak a hex color or mess with individual color channels.
+A color field allows users to adjust a hex color or manipulate individual color channels.
 <How toUse="colors/color-field-demo" />
 
 ## Installation
@@ -18,32 +18,32 @@ A color field lets users tweak a hex color or mess with individual color channel
 <Composed components={['field', 'slider', 'color-picker']}/>
 
 ## Manual Installation
-
 <InstallCommand isInstall isManual items={['react-aria-components']}/>
 
 <SourceCode toShow={['color']}/>
 
 ## Prefix
-A color field can have a prefix.
+A color field can include a prefix to provide context or functionality.
 <How toUse="colors/color-field-with-prefix-demo" />
 
 ## Suffix
-A color field can have a suffix.
+A color field can also have a suffix.
 <How toUse="colors/color-field-with-suffix-demo" />
 
 ## Controlled
-When you got that color field on lock, the [ColorSwatch](/docs/components/colors/color-swatch) auto-updates to show the current color.
+Manage the color field in a controlled manner to automatically update the [ColorSwatch](/docs/components/colors/color-swatch) and display the current color.
 <How toUse="colors/color-field-controlled-demo" />
-By default, you can click the color swatch to pop open the color picker. But if you wanna shut it down, just set `enableColorPicker` to false.
+You can typically click the color swatch to open the color picker. To disable this feature, set `enableColorPicker` to false.
 ```
 <ColorField enableColorPicker={false}/>
 ```
+
 ## Disabled
-A color field can be disabled.
+You can disable the color field, making it non-interactive.
 <How toUse="colors/color-field-disabled-demo" />
 
 ## Props
-Totally! The `ColorField` component is loaded with all the standard props from `react-aria-components`, and it's also kitted out with these additional props:
+Indeed, the `ColorField` component includes all standard props from `react-aria-components`, plus these additional features:
 
 | Property           | Type                                                    | Optional |
 |--------------------|---------------------------------------------------------|----------|
