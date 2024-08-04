@@ -28,7 +28,6 @@ import {
   Description,
   MenuItem,
   MenuSection,
-  MenuSeparator,
   ModalBody,
   ModalClose,
   ModalContent,
@@ -50,7 +49,6 @@ import {
 
 export default function SheetMenuDemo() {
   const [isOpen, setIsOpen] = React.useState(false)
-
   const openModal = () => setIsOpen(true)
   const closeModal = () => setIsOpen(false)
   return (
@@ -101,20 +99,21 @@ export default function SheetMenuDemo() {
           <Avatar src="https://github.com/irsyadadl.png" alt="irsyadadl" />
         </SheetTrigger>
         <SheetOverlay>
-          <SheetContent closeButton={false}>
-            <SheetHeader className="flex flex-row items-center gap-x-3 mb-2">
+          <SheetContent className="[&_.dlc]:p-0" closeButton={false}>
+            <SheetHeader className="flex border-b p-4 sticky top-0 bg-popover flex-row items-center gap-x-3 mb-2">
               <Avatar src="https://github.com/irsyadadl.png" alt="irsyadadl" />
               <div>
                 <SheetTitle>irsyadadl</SheetTitle>
                 <SheetDescription>Irsyad A. Panjaitan</SheetDescription>
               </div>
             </SheetHeader>
-            <Menu>
-              <MenuItem onAction={openModal}>
-                <IconBrandGithub />
-                Edit Status
-              </MenuItem>
-              <MenuSeparator />
+            <Menu className="divide-y [&_.xss3]:p-2">
+              <MenuSection>
+                <MenuItem onAction={openModal}>
+                  <IconBrandGithub />
+                  Edit Status
+                </MenuItem>
+              </MenuSection>
               <MenuSection>
                 <MenuItem>
                   <IconPerson />
@@ -146,7 +145,6 @@ export default function SheetMenuDemo() {
                   Your sponsors
                 </MenuItem>
               </MenuSection>
-              <MenuSeparator />
               <MenuSection>
                 <MenuItem>
                   <IconFilter /> Feature preview
@@ -156,7 +154,6 @@ export default function SheetMenuDemo() {
                   Settings
                 </MenuItem>
               </MenuSection>
-              <MenuSeparator />
               <MenuSection>
                 <MenuItem>
                   <IconBookOpen /> GitHub Docs
@@ -168,10 +165,11 @@ export default function SheetMenuDemo() {
                   <IconMessages /> GitHub Community
                 </MenuItem>
               </MenuSection>
-              <MenuSeparator />
-              <MenuItem>
-                <IconLogout /> Sign out
-              </MenuItem>
+              <MenuSection>
+                <MenuItem>
+                  <IconLogout /> Sign out
+                </MenuItem>
+              </MenuSection>
             </Menu>
           </SheetContent>
         </SheetOverlay>

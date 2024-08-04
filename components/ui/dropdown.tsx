@@ -51,7 +51,7 @@ interface DropdownSectionProps<T> extends SectionProps<T> {
 
 const dropdownSectionStyles = tv({
   slots: {
-    base: "first:-mt-[5px] after:content-[''] after:block after:h-[5px]",
+    base: "first:-mt-[5px] xss3 after:content-[''] after:block after:h-[5px]",
     header:
       'text-sm font-medium text-muted-fg bg-tertiary px-4 py-2 truncate min-w-[--trigger-width] sticky -top-[5px] backdrop-blur -mt-px -mx-1 z-10 supports-[-moz-appearance:none]:bg-tertiary border-y [&+*]:mt-1'
   }
