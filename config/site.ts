@@ -9,7 +9,7 @@ export const siteConfig = {
     github: 'https://github.com/irsyadadl',
     personalSite: 'https://irsyad.co'
   },
-  repo: 'https://github.com/irsyadadl/justd'
+  repo: 'https://github.com/irsyadadl/justd.co'
 }
 
 export type SiteConfig = typeof siteConfig

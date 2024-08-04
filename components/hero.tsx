@@ -49,7 +49,7 @@ export function Hero() {
           <Header>
             <Link
               target="_blank"
-              href="https://github.com/irsyadadl/justd"
+              href={siteConfig.repo}
               className={buttonStyles({
                 size: 'extra-small',
                 intent: 'light',
