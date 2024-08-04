@@ -59,7 +59,10 @@ export function Hero() {
             >
               <IconStar /> Stars sustain energy
             </Link>
-            <Heading className="max-w-xl mt-4 text-2xl font-bold lg:text-4xl mb-4 lg:mb-6">
+            <Heading
+              tracking="tight"
+              className="max-w-xl mt-4 text-2xl font-bold lg:text-4xl mb-4 lg:mb-6"
+            >
               Accessible React UI Components. Copy, Customize, and Make Them Yours.
             </Heading>
             <Text

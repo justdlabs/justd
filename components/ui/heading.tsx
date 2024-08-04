@@ -1,6 +1,6 @@
 'use client'
 
-import { isIOS, isIPad, isMac } from '@react-aria/utils'
+import { isIOS } from '@react-aria/utils'
 import {
   Heading as HeadingPrimitive,
   type HeadingProps as HeadingPrimitiveProps
@@ -24,10 +24,6 @@ const headingStyles = tv({
       wider: 'tracking-wider',
       widest: 'tracking-widest'
     }
-  },
-  defaultVariants: {
-    level: 2,
-    tracking: 'normal'
   }
 })
 
@@ -44,7 +40,7 @@ const Heading = ({ className, tracking = 'normal', level = 1, ...props }: Headin
       className={headingStyles({
         level,
         tracking,
-        className: isIOS() || isMac() || isIPad() ? 'font-medium' : className
+        className: isIOS() ? 'font-medium' : className
       })}
       {...props}
     />
