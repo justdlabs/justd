@@ -37,6 +37,7 @@ import {
   Select,
   SelectItem,
   Sheet,
+  SheetBody,
   SheetContent,
   SheetDescription,
   SheetHeader,
@@ -102,70 +103,72 @@ export default function SheetMenuDemo() {
               <SheetDescription>Irsyad A. Panjaitan</SheetDescription>
             </div>
           </SheetHeader>
-          <Menu className="divide-y [&_.xss3]:p-2">
-            <MenuSection>
-              <MenuItem onAction={openModal}>
-                <IconBrandGithub />
-                Edit Status
-              </MenuItem>
-            </MenuSection>
-            <MenuSection>
-              <MenuItem>
-                <IconPerson />
-                Your profile
-              </MenuItem>
-              <MenuItem>
-                <IconBook /> Your repositories
-              </MenuItem>
-              <MenuItem>
-                <IconBrandCopilot /> Your Copilot
-              </MenuItem>
-              <MenuItem>
-                <IconChart /> Your projects
-              </MenuItem>
-              <MenuItem>
-                <IconStar /> Your stars
-              </MenuItem>
-              <MenuItem>
-                <IconCodeBrackets /> Your gists
-              </MenuItem>
-              <MenuItem>
-                <IconBuilding /> Your organizations
-              </MenuItem>
-              <MenuItem>
-                <IconGlobe /> Your enterprises
-              </MenuItem>
-              <MenuItem>
-                <IconHeart />
-                Your sponsors
-              </MenuItem>
-            </MenuSection>
-            <MenuSection>
-              <MenuItem>
-                <IconFilter /> Feature preview
-              </MenuItem>
-              <MenuItem>
-                <IconGear />
-                Settings
-              </MenuItem>
-            </MenuSection>
-            <MenuSection>
-              <MenuItem>
-                <IconBookOpen /> GitHub Docs
-              </MenuItem>
-              <MenuItem>
-                <IconPeople /> GitHub Support
-              </MenuItem>
-              <MenuItem>
-                <IconMessages /> GitHub Community
-              </MenuItem>
-            </MenuSection>
-            <MenuSection>
-              <MenuItem>
-                <IconLogout /> Sign out
-              </MenuItem>
-            </MenuSection>
-          </Menu>
+          <SheetBody className="px-0">
+            <Menu className="divide-y [&_.xss3]:p-2">
+              <MenuSection>
+                <MenuItem onAction={openModal}>
+                  <IconBrandGithub />
+                  Edit Status
+                </MenuItem>
+              </MenuSection>
+              <MenuSection>
+                <MenuItem>
+                  <IconPerson />
+                  Your profile
+                </MenuItem>
+                <MenuItem>
+                  <IconBook /> Your repositories
+                </MenuItem>
+                <MenuItem>
+                  <IconBrandCopilot /> Your Copilot
+                </MenuItem>
+                <MenuItem>
+                  <IconChart /> Your projects
+                </MenuItem>
+                <MenuItem>
+                  <IconStar /> Your stars
+                </MenuItem>
+                <MenuItem>
+                  <IconCodeBrackets /> Your gists
+                </MenuItem>
+                <MenuItem>
+                  <IconBuilding /> Your organizations
+                </MenuItem>
+                <MenuItem>
+                  <IconGlobe /> Your enterprises
+                </MenuItem>
+                <MenuItem>
+                  <IconHeart />
+                  Your sponsors
+                </MenuItem>
+              </MenuSection>
+              <MenuSection>
+                <MenuItem>
+                  <IconFilter /> Feature preview
+                </MenuItem>
+                <MenuItem>
+                  <IconGear />
+                  Settings
+                </MenuItem>
+              </MenuSection>
+              <MenuSection>
+                <MenuItem>
+                  <IconBookOpen /> GitHub Docs
+                </MenuItem>
+                <MenuItem>
+                  <IconPeople /> GitHub Support
+                </MenuItem>
+                <MenuItem>
+                  <IconMessages /> GitHub Community
+                </MenuItem>
+              </MenuSection>
+              <MenuSection>
+                <MenuItem>
+                  <IconLogout /> Sign out
+                </MenuItem>
+              </MenuSection>
+            </Menu>
+          </SheetBody>
         </SheetContent>
       </Sheet>
     </>

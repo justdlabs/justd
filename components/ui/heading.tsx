@@ -1,5 +1,6 @@
 'use client'
 
+import { isIOS, isIPad, isMac } from '@react-aria/utils'
 import {
   Heading as HeadingPrimitive,
   type HeadingProps as HeadingPrimitiveProps
@@ -7,7 +8,7 @@ import {
 import { tv } from 'tailwind-variants'
 
 const headingStyles = tv({
-  base: 'tracking-tight text-fg',
+  base: 'font-sans tracking-tight text-fg',
   variants: {
     level: {
       1: 'font-bold text-lg',
@@ -37,10 +38,16 @@ interface HeadingProps extends HeadingPrimitiveProps {
 }
 
 const Heading = ({ className, tracking = 'normal', level = 1, ...props }: HeadingProps) => {
+  const isAppleDevice = isIOS() || isMac() || isIPad()
+  const weight = level === 1 ? 'font-semibold' : 'font-medium'
   return (
     <HeadingPrimitive
       level={level}
-      className={headingStyles({ level, tracking, className })}
+      className={headingStyles({
+        level,
+        tracking,
+        className: isAppleDevice ? weight : className
+      })}
       {...props}
     />
   )

@@ -197,7 +197,7 @@ const Trigger = ({ children, className }: { children: React.ReactNode; className
   return (
     <AccordionTrigger
       className={cn(
-        'pt-0 py-1.5 focus-visible:ring-1 focus-visible:ring-primary ring-inset outline-0 outline-offset-0 font-normal hover:bg-secondary/70 focus-visible:bg-secondary/70 rounded-lg px-2 text-sm',
+        'pt-0 py-1.5 focus-visible:ring-1 focus-visible:ring-primary ring-inset outline-0 outline-offset-0 font-normal hover:bg-secondary/70 focus-visible:bg-secondary/70 rounded-lg px-2 lg:text-sm',
         className
       )}
     >

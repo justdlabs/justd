@@ -19,7 +19,7 @@ import { useMediaQuery } from './primitive'
 const dialogStyles = tv({
   slots: {
     root: [
-      'group dlc peer relative flex max-h-[inherit] flex-col overflow-hidden outline-none peer',
+      'group dlc peer relative flex max-h-[inherit] [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin] flex-col overflow-hidden outline-none peer',
       '[&:not(:has([data-slot=dialog-body]))]:px-6 [&:has([data-slot=dialog-body])_[data-slot=dialog-header]]:px-6 [&:has([data-slot=dialog-body])_[data-slot=dialog-footer]]:px-6'
     ],
     header: 'relative flex flex-col pb-2.5 gap-y-0.5 pt-6',

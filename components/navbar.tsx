@@ -42,6 +42,7 @@ import {
   MenuSeparator,
   Separator,
   Sheet,
+  SheetBody,
   SheetContent,
   SheetHeader,
   SubmenuTrigger,
@@ -226,9 +227,11 @@ export function ResponsiveAside({ open, setOpen }: OpenCloseProps) {
             <SheetHeader className="mb-4 flex flex-row justify-between py-2">
               <NavbarDropdown />
             </SheetHeader>
-            <LayoutGroup id={id}>
-              <Aside />
-            </LayoutGroup>
+            <SheetBody className="px-2">
+              <LayoutGroup id={id}>
+                <Aside />
+              </LayoutGroup>
+            </SheetBody>
           </SheetContent>
         </Sheet>
       )}
