@@ -28,7 +28,7 @@ import { cn, focusStyles } from './primitive'
 import { SliderTrack } from './slider'
 
 const colorAreaStyles = tv({
-  base: 'size-48 rounded-lg border border-background shrink-0 disabled:opacity-50'
+  base: 'size-48 rounded-md border border-background shrink-0 disabled:opacity-50'
 })
 
 interface ColorAreaProps extends React.ComponentProps<typeof ColorAreaPrimitive> {}

@@ -11,7 +11,6 @@ import {
   ModalDescription,
   ModalFooter,
   ModalHeader,
-  ModalOverlay,
   ModalTitle,
   TextField
 } from 'ui'
@@ -21,22 +20,20 @@ export default function TextFieldSuffixButtonDemo() {
   const close = () => setOpen(false)
   return (
     <>
-      <ModalOverlay isOpen={open} onOpenChange={close}>
-        <ModalContent>
-          <ModalHeader>
-            <ModalTitle>New User</ModalTitle>
-            <ModalDescription>Create a new user account</ModalDescription>
-          </ModalHeader>
-          <ModalBody className="flex flex-col gap-4">
-            <TextField label="Username" placeholder="Username" />
-            <TextField label="Email" placeholder="Email" type="email" />
-          </ModalBody>
-          <ModalFooter>
-            <ModalClose appearance="outline">Cancel</ModalClose>
-            <Button onPress={close}>Continue</Button>
-          </ModalFooter>
-        </ModalContent>
-      </ModalOverlay>
+      <ModalContent isOpen={open} onOpenChange={close}>
+        <ModalHeader>
+          <ModalTitle>New User</ModalTitle>
+          <ModalDescription>Create a new user account</ModalDescription>
+        </ModalHeader>
+        <ModalBody className="flex flex-col gap-4">
+          <TextField label="Username" placeholder="Username" />
+          <TextField label="Email" placeholder="Email" type="email" />
+        </ModalBody>
+        <ModalFooter>
+          <ModalClose appearance="outline">Cancel</ModalClose>
+          <Button onPress={close}>Continue</Button>
+        </ModalFooter>
+      </ModalContent>
       <TextField
         label="Username"
         suffix={

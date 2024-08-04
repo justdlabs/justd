@@ -10,8 +10,8 @@
         --card: 0 0% 100%;
         --card-header: 240 5% 99%;
 
-        --popover: 0 0% 100%;
-        --popover-fg: 240 10% 3.9%;
+        --overlay: 0 0% 100%;
+        --overlay-fg: 240 10% 3.9%;
 
         --primary: 216 98% 52%;
         --primary-fg: 0 0% 100%;
@@ -48,8 +48,8 @@
         --card: 240 10% 3.9%;
         --card-header: 240 6% 6%;
 
-        --popover: 240 6% 6%;
-        --popover-fg: 0 0% 98%;
+        --overlay: 240 6% 6%;
+        --overlay-fg: 0 0% 98%;
 
         --secondary: 240 3.7% 15.9%;
         --secondary-fg: 0 0% 98%;

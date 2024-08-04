@@ -18,26 +18,26 @@ import {
 import { tv, type VariantProps } from 'tailwind-variants'
 
 import {
-  ModalBody,
-  ModalClose,
-  ModalDescription,
-  ModalFooter,
-  ModalHeader,
-  ModalTitle
-} from './modal'
+  DialogBody,
+  DialogClose,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle
+} from './dialog'
 import { cn, useMediaQuery } from './primitive'
 
 const Popover = DialogTrigger
 const PopoverTrigger = Button
-const PopoverClose = ModalClose
-const PopoverFooter = ModalFooter
-const PopoverHeader = ModalHeader
-const PopoverTitle = ModalTitle
-const PopoverDescription = ModalDescription
-const PopoverBody = ModalBody
+const PopoverClose = DialogClose
+const PopoverFooter = DialogFooter
+const PopoverHeader = DialogHeader
+const PopoverTitle = DialogTitle
+const PopoverDescription = DialogDescription
+const PopoverBody = DialogBody
 
 const popoverContentStyles = tv({
-  base: 'max-w-xs min-w-80 rounded-lg border bg-popover bg-clip-padding p-4 text-popover-fg shadow-lg dark:backdrop-blur-2xl dark:backdrop-saturate-200 lg:text-sm sm:max-w-3xl forced-colors:bg-[Canvas]',
+  base: 'max-w-xs min-w-80 rounded-lg border bg-overlay bg-clip-padding p-4 text-overlay-fg shadow-lg dark:backdrop-blur-2xl dark:backdrop-saturate-200 lg:text-sm sm:max-w-3xl forced-colors:bg-[Canvas]',
   variants: {
     isEntering: {
       true: [
@@ -52,7 +52,7 @@ const popoverContentStyles = tv({
 
 const drawerStyles = tv({
   base: [
-    'fixed bottom-0 p-4 top-auto z-50 w-full bg-popover max-w-2xl rounded-t-xl border border-b-transparent outline-none',
+    'fixed bottom-0 p-4 top-auto z-50 w-full bg-overlay max-w-2xl rounded-t-xl border border-b-transparent outline-none',
     'entering:animate-in entering:fade-in-0 entering:slide-in-from-bottom-1/2 entering:[transition-timing-function:ease-out',
     'exiting:animate-out exiting:fade-out-0 exiting:slide-out-to-bottom-1/2 exiting:[transition-timing-function:ease]'
   ]
@@ -94,7 +94,7 @@ const PopoverContent = ({ children, showArrow = true, className, ...props }: Pop
             width={12}
             height={12}
             viewBox="0 0 12 12"
-            className="block fill-popover stroke-border group-placement-left:-rotate-90 group-placement-right:rotate-90 group-placement-bottom:rotate-180 forced-colors:fill-[Canvas] forced-colors:stroke-[ButtonBorder]"
+            className="block fill-overlay stroke-border group-placement-left:-rotate-90 group-placement-right:rotate-90 group-placement-bottom:rotate-180 forced-colors:fill-[Canvas] forced-colors:stroke-[ButtonBorder]"
           >
             <path d="M0 0 L6 6 L12 0" />
           </svg>

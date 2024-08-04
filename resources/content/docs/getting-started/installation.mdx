@@ -56,7 +56,6 @@ This command will present a list of available components, which you can navigate
 ? Select components to add: (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter> to proceed)
  ◯ dropdown
  ◯ dialog
- ◯ dynamic-overlay
  ◯ field
  ◯ forms
  ◯ collections
@@ -133,8 +132,8 @@ Below that, insert the following code:
     --fg: 240 10% 3.9%;
     --card: 0 0% 100%;
     --card-header: 240 5% 99%;
-    --popover: 0 0% 100%;
-    --popover-fg: 240 10% 3.9%;
+    --overlay: 0 0% 100%;
+    --overlay-fg: 240 10% 3.9%;
 
     --primary: 216 98% 52%;
     --primary-fg: 0 0% 100%;
@@ -171,8 +170,8 @@ Below that, insert the following code:
     --card: 240 10% 3.9%;
     --card-header: 240 6% 6%;
 
-    --popover: 240 6% 6%;
-    --popover-fg: 0 0% 98%;
+    --overlay: 240 6% 6%;
+    --overlay-fg: 0 0% 98%;
 
     --secondary: 240 3.7% 15.9%;
     --secondary-fg: 0 0% 98%;
@@ -276,9 +275,9 @@ export default withTV({
           DEFAULT: 'hsl(var(--muted))',
           fg: 'hsl(var(--muted-fg))'
         },
-        popover: {
-          DEFAULT: 'hsl(var(--popover))',
-          fg: 'hsl(var(--popover-fg))'
+        overlay: {
+          DEFAULT: 'hsl(var(--overlay))',
+          fg: 'hsl(var(--overlay-fg))'
         },
       },
       borderRadius: {
@@ -358,7 +357,6 @@ export * from './aspect-ratio';
 export * from './color';
 export * from './color-field';
 export * from './color-picker';
-export * from './dynamic-overlay';
 export * from './visually-hidden';
 `} />
 

@@ -22,7 +22,7 @@ import {
   ModalOverlay
 } from 'react-aria-components'
 
-import { ModalClose, ModalDescription } from './modal'
+import { DialogClose, DialogDescription } from './dialog'
 import { cn } from './primitive'
 
 const inertiaTransition: Inertia = {
@@ -230,7 +230,7 @@ const DrawerTitle = ({ className, ...props }: HeadingProps) => (
   />
 )
 
-const DrawerDescription = ModalDescription
+const DrawerDescription = DialogDescription
 
 const DrawerBody = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
   <div className={cn('flex-1 overflow-y-auto overflow-x-hidden py-4', className)} {...props} />
@@ -246,8 +246,8 @@ const DrawerFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivEleme
   />
 )
 
-const DrawerClose = (props: React.ComponentProps<typeof ModalClose>) => {
-  return <ModalClose shape="circle" {...props} />
+const DrawerClose = (props: React.ComponentProps<typeof DialogClose>) => {
+  return <DialogClose shape="circle" {...props} />
 }
 
 export {

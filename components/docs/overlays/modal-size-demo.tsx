@@ -11,7 +11,6 @@ import {
   ModalDescription,
   ModalFooter,
   ModalHeader,
-  ModalOverlay,
   ModalTitle
 } from 'ui'
 
@@ -37,25 +36,23 @@ export default function ModalSizeDemo() {
         ))}
       </Grid>
 
-      <ModalOverlay isOpen={isOpen} onOpenChange={setIsOpen}>
-        <ModalContent size={modalSize}>
-          <ModalHeader>
-            <ModalTitle>Project Update</ModalTitle>
-            <ModalDescription>
-              Dive deep into our project’s latest updates where we've streamlined workflow and
-              improved user interfaces.
-            </ModalDescription>
-          </ModalHeader>
-          <ModalFooter>
-            <Button appearance="outline" onPress={() => setIsOpen(false)}>
-              Close
-            </Button>
-            <Button className="ml-2" onPress={() => setIsOpen(false)}>
-              Confirm
-            </Button>
-          </ModalFooter>
-        </ModalContent>
-      </ModalOverlay>
+      <ModalContent isOpen={isOpen} onOpenChange={setIsOpen} size={modalSize}>
+        <ModalHeader>
+          <ModalTitle>Project Update</ModalTitle>
+          <ModalDescription>
+            Dive deep into our project’s latest updates where we've streamlined workflow and
+            improved user interfaces.
+          </ModalDescription>
+        </ModalHeader>
+        <ModalFooter>
+          <Button appearance="outline" onPress={() => setIsOpen(false)}>
+            Close
+          </Button>
+          <Button className="ml-2" onPress={() => setIsOpen(false)}>
+            Confirm
+          </Button>
+        </ModalFooter>
+      </ModalContent>
     </>
   )
 }

@@ -24,9 +24,8 @@ import {
   defaultColor
 } from './color'
 import { ColorField } from './color-field'
-import { Dialog } from './dialog'
-import { DynamicOverlay } from './dynamic-overlay'
 import { Description, Label } from './field'
+import { PopoverClose, PopoverContent } from './popover'
 import { Select, SelectItem } from './select'
 
 const colorPickerStyles = tv({
@@ -34,24 +33,14 @@ const colorPickerStyles = tv({
     base: 'flex w-full flex-col gap-1',
     triggerColorField: 'size-10 -mr-2.5 grid place-content-center focus:outline-none',
     triggerColorPicker: 'w-full max-w-sm justify-start',
-    dynamicOverlay: 'w-full p-0 overflow-hidden min-w-full sm:w-fit sm:min-w-fit',
-    dialogColorPicker: '[[data-placement]>&]:p-[0.70rem] lg:w-[18rem] lg:p-0',
     colorArea: 'w-full sm:w-[calc(18rem-1.30rem)]',
     colorSlider: 'mt-2 [&_.cstrk]:orientation-horizontal:h-3',
     colorSwatchPicker: 'flex flex-wrap gap-x-2 gap-y-2.5'
   }
 })
 
-const {
-  base,
-  triggerColorField,
-  dialogColorPicker,
-  triggerColorPicker,
-  dynamicOverlay,
-  colorArea,
-  colorSlider,
-  colorSwatchPicker
-} = colorPickerStyles()
+const { base, triggerColorField, triggerColorPicker, colorArea, colorSlider, colorSwatchPicker } =
+  colorPickerStyles()
 
 interface ColorPickerProps extends ColorPickerPrimitiveProps {
   space?: ColorSpace
@@ -67,9 +56,11 @@ interface ColorPickerProps extends ColorPickerPrimitiveProps {
   className?: string
   trigger?: 'color-picker' | 'color-field'
   enableColorField?: boolean
+  closeButton?: boolean
 }
 
 const ColorPicker = ({
+  closeButton = true,
   enableColorSwatch = false,
   enableColorFormatSelection = false,
   enableColorField = true,
@@ -106,87 +97,85 @@ const ColorPicker = ({
               {value ? <span>{value.toString(space)}</span> : <span>{placeholder}</span>}
             </Button>
           ) : null}
-          <DynamicOverlay
-            aria-describedby={label}
-            placement="bottom start"
-            role="dialog"
-            className={dynamicOverlay()}
-          >
-            <Dialog
-              aria-label="Color picker"
-              className={dialogColorPicker({ className: enableColorField && 'space-y-2' })}
-            >
-              <div>
-                <ColorArea
-                  aria-describedby={`${label ? `${label} color area` : 'Color slider'}`}
-                  className={colorArea()}
-                  colorSpace="hsb"
-                  xChannel="saturation"
-                  yChannel="brightness"
+          <PopoverContent showArrow={false} className="p-2 min-w-[--trigger-width]" {...props}>
+            <div>
+              <ColorArea
+                aria-describedby={`${label ? `${label} color area` : 'Color slider'}`}
+                className={colorArea()}
+                colorSpace="hsb"
+                xChannel="saturation"
+                yChannel="brightness"
+              >
+                <ColorThumb className="z-50" />
+              </ColorArea>
+              <ColorSlider
+                aria-describedby={`${label ? `${label} color slider` : 'Color slider'}`}
+                showOutput={false}
+                className={colorSlider()}
+                colorSpace="hsb"
+                channel="hue"
+              />
+            </div>
+
+            <div className="grid gap-2">
+              {enableColorFormatSelection && (
+                <Select
+                  aria-label="Color Space"
+                  selectedKey={space}
+                  defaultSelectedKey={space}
+                  onSelectionChange={(s) => {
+                    setSpace(s as ColorSpace)
+                    setIsHexFormat(s === 'hex')
+                  }}
                 >
-                  <ColorThumb className="z-50" />
-                </ColorArea>
-                <ColorSlider
-                  aria-describedby={`${label ? `${label} color slider` : 'Color slider'}`}
-                  showOutput={false}
-                  className={colorSlider()}
-                  colorSpace="hsb"
-                  channel="hue"
-                />
-              </div>
-
-              <div className="grid gap-2">
-                {enableColorFormatSelection && (
-                  <Select
-                    aria-label="Color Space"
-                    selectedKey={space}
-                    defaultSelectedKey={space}
-                    onSelectionChange={(s) => {
-                      setSpace(s as ColorSpace)
-                      setIsHexFormat(s === 'hex')
-                    }}
-                  >
-                    {['rgb', 'hex', 'hsl', 'hsb'].map((s) => (
-                      <SelectItem key={s} id={s} textValue={s}>
-                        {s}
-                      </SelectItem>
-                    ))}
-                  </Select>
-                )}
-
-                {enableColorFormatSelection ? (
-                  <div className="flex gap-1 w-[inherit]">
-                    {isHexFormat ? (
-                      <ColorField aria-label="Hex color" colorSpace={space} />
-                    ) : (
-                      getColorChannels(space).map((channel) => (
-                        <ColorField
-                          aria-describedby={label ?? 'Color field'}
-                          colorSpace={space}
-                          channel={channel}
-                          key={channel}
-                        />
-                      ))
-                    )}
-                  </div>
-                ) : enableColorField ? (
-                  <ColorField aria-label={`Color in ${space} format`} colorSpace={space} />
-                ) : null}
-              </div>
-
-              {enableColorSwatch && colors && colors.length > 0 && (
-                <ColorSwatchPicker
-                  aria-label="Color swatch picker"
-                  layout="grid"
-                  className={colorSwatchPicker()}
-                >
-                  {colors.map((color) => (
-                    <ColorSwatchPickerItem key={color} color={color} />
+                  {['rgb', 'hex', 'hsl', 'hsb'].map((s) => (
+                    <SelectItem key={s} id={s} textValue={s}>
+                      {s}
+                    </SelectItem>
                   ))}
-                </ColorSwatchPicker>
+                </Select>
               )}
-            </Dialog>
-          </DynamicOverlay>
+
+              {enableColorFormatSelection ? (
+                <div className="flex gap-1 w-[inherit]">
+                  {isHexFormat ? (
+                    <ColorField aria-label="Hex color" colorSpace={space} />
+                  ) : (
+                    getColorChannels(space).map((channel) => (
+                      <ColorField
+                        aria-describedby={label ?? 'Color field'}
+                        colorSpace={space}
+                        channel={channel}
+                        key={channel}
+                      />
+                    ))
+                  )}
+                </div>
+              ) : enableColorField ? (
+                <ColorField aria-label={`Color in ${space} format`} colorSpace={space} />
+              ) : null}
+            </div>
+
+            {enableColorSwatch && colors && colors.length > 0 && (
+              <ColorSwatchPicker
+                aria-label="Color swatch picker"
+                layout="grid"
+                className={colorSwatchPicker()}
+              >
+                {colors.map((color) => (
+                  <ColorSwatchPickerItem key={color} color={color} />
+                ))}
+              </ColorSwatchPicker>
+            )}
+
+            {closeButton && (
+              <div className="sm:hidden py-2.5 mx-auto w-full max-w-[inherit]">
+                <PopoverClose shape="circle" className="w-full">
+                  Close
+                </PopoverClose>
+              </div>
+            )}
+          </PopoverContent>
         </DialogTrigger>
       </ColorPickerPrimitive>
       {description && <Description>{description}</Description>}

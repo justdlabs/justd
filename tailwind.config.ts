@@ -69,9 +69,9 @@ const config = withTV({
           DEFAULT: 'hsl(var(--muted))',
           fg: 'hsl(var(--muted-fg))'
         },
-        popover: {
-          DEFAULT: 'hsl(var(--popover))',
-          fg: 'hsl(var(--popover-fg))'
+        overlay: {
+          DEFAULT: 'hsl(var(--overlay))',
+          fg: 'hsl(var(--overlay-fg))'
         },
         card: {
           DEFAULT: 'hsl(var(--card))',

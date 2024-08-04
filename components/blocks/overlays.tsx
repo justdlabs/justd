@@ -9,7 +9,6 @@ import {
   ModalDescription,
   ModalFooter,
   ModalHeader,
-  ModalOverlay,
   ModalTitle,
   Popover,
   PopoverContent,
@@ -43,22 +42,18 @@ export function ModalOverlays() {
     <CardBlock>
       <Modal>
         <Button>Install Update</Button>
-        <ModalOverlay>
-          <ModalContent>
-            {({ close }) => (
-              <>
-                <ModalHeader>
-                  <ModalTitle>Install Update</ModalTitle>
-                  <ModalDescription>An update is available for your application.</ModalDescription>
-                </ModalHeader>
-                <ModalFooter>
-                  <ModalClose>Later</ModalClose>
-                  <Button onPress={close}>Update Now</Button>
-                </ModalFooter>
-              </>
-            )}
-          </ModalContent>
-        </ModalOverlay>
+        <ModalContent>
+          <ModalHeader>
+            <ModalTitle>Install Update</ModalTitle>
+            <ModalDescription>An update is available for your application.</ModalDescription>
+          </ModalHeader>
+          <ModalFooter>
+            <ModalClose>Later</ModalClose>
+            <ModalClose appearance="solid">
+              Update Now
+            </ModalClose>
+          </ModalFooter>
+        </ModalContent>
       </Modal>
     </CardBlock>
   )

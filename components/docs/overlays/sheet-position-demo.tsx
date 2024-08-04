@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-import { Button, SheetContent, SheetDescription, SheetHeader, SheetOverlay, SheetTitle } from 'ui'
+import { Button, SheetContent, SheetDescription, SheetHeader, SheetTitle } from 'ui'
 import { titleCase } from 'usemods'
 
 type Side = 'left' | 'right' | 'top' | 'bottom'
@@ -26,14 +26,12 @@ export default function SheetPositionDemo() {
           </Button>
         ))}
       </div>
-      <SheetOverlay isOpen={isOpen} onOpenChange={setIsOpen}>
-        <SheetContent side={sheetSide}>
-          <SheetHeader>
-            <SheetTitle>{titleCase(sheetSide)}</SheetTitle>
-            <SheetDescription>The sheet will go from {sheetSide} side.</SheetDescription>
-          </SheetHeader>
-        </SheetContent>
-      </SheetOverlay>
+      <SheetContent isOpen={isOpen} onOpenChange={setIsOpen} side={sheetSide}>
+        <SheetHeader>
+          <SheetTitle>{titleCase(sheetSide)}</SheetTitle>
+          <SheetDescription>The sheet will go from {sheetSide} side.</SheetDescription>
+        </SheetHeader>
+      </SheetContent>
     </>
   )
 }

@@ -17,7 +17,6 @@ import {
   ModalDescription,
   ModalFooter,
   ModalHeader,
-  ModalOverlay,
   ModalTitle
 } from 'ui'
 
@@ -76,20 +75,18 @@ export default function ModalTriggeredByMenuDemo() {
         </MenuContent>
       </Menu>
 
-      <ModalOverlay isOpen={state !== null} onOpenChange={closeModal}>
-        <ModalContent>
-          <ModalHeader>
-            <ModalTitle>{actionType(state)?.title}</ModalTitle>
-            <ModalDescription>{actionType(state)?.description}</ModalDescription>
-          </ModalHeader>
-          <ModalFooter>
-            <ModalClose>Cancel</ModalClose>
-            <Button className="min-w-24" isDisabled={loading} onPress={actionType(state)?.action}>
-              {loading ? <LoadingDots className={'bg-fg'} /> : actionType(state)?.confirmText}
-            </Button>
-          </ModalFooter>
-        </ModalContent>
-      </ModalOverlay>
+      <ModalContent isOpen={state !== null} onOpenChange={closeModal}>
+        <ModalHeader>
+          <ModalTitle>{actionType(state)?.title}</ModalTitle>
+          <ModalDescription>{actionType(state)?.description}</ModalDescription>
+        </ModalHeader>
+        <ModalFooter>
+          <ModalClose>Cancel</ModalClose>
+          <Button className="min-w-24" isDisabled={loading} onPress={actionType(state)?.action}>
+            {loading ? <LoadingDots className={'bg-fg'} /> : actionType(state)?.confirmText}
+          </Button>
+        </ModalFooter>
+      </ModalContent>
     </>
   )
 }

@@ -16,7 +16,7 @@ import { Separator } from './separator'
 const commandStyles = tv({
   slots: {
     command: [
-      'flex h-svh w-full flex-col overflow-hidden rounded-md bg-popover text-popover-fg sm:h-full',
+      'flex h-svh w-full flex-col overflow-hidden rounded-md bg-overlay text-overlay-fg sm:h-full',
       '[&_[cmdk-group-heading]]:ml-1 [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:-mb-1.5 [&_[cmdk-group-heading]]:text-muted-fg [&_[cmdk-group]:not([hidden])_~[cmdk-group]]:pt-0 [&_[cmdk-input-wrapper]_[data-slot=icon]]:size-5 [&_[cmdk-input]]:h-12',
       // for specific properties, it has to be controlled by the command
       '[&_[cmdk-item]]:py-2.5 [&_[cmdk-item]]:pl-2.5 [&_[cmdk-item]]:pr-4'

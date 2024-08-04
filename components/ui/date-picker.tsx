@@ -7,6 +7,8 @@ import {
   DatePicker as DatePickerPrimitive,
   type DatePickerProps as DatePickerPrimitiveProps,
   type DateValue,
+  type DialogProps,
+  type PopoverProps,
   type ValidationResult
 } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
@@ -14,16 +16,13 @@ import { tv } from 'tailwind-variants'
 import { Button } from './button'
 import { Calendar, RangeCalendar } from './calendar'
 import { DateInput } from './date-field'
-import { Dialog } from './dialog'
-import type { DynamicOverlayProps } from './dynamic-overlay'
-import { DynamicOverlay } from './dynamic-overlay'
 import { Description, FieldError, FieldGroup, Label } from './field'
+import { PopoverClose, PopoverContent } from './popover'
 import { ctr } from './primitive'
 
 const datePickerStyles = tv({
   slots: {
     base: 'group flex flex-col gap-1',
-    dynamicOverlay: 'min-w-full grid p-0 overflow-hidden sm:w-fit sm:min-w-fit',
     datePickerIcon:
       'group mr-1 h-7 dark:[&>[data-slot=icon]]:text-zinc-400 [&>[data-slot=icon]]:text-zinc-800 w-8 rounded outline-offset-0 hover:bg-transparent pressed:bg-transparent',
     calendarIcon: 'size-4 text-muted-fg group-open:text-fg',
@@ -35,17 +34,33 @@ const datePickerStyles = tv({
   }
 })
 
-const { base, dynamicOverlay, datePickerIcon, calendarIcon, datePickerInput } = datePickerStyles()
+const { base, datePickerIcon, calendarIcon, datePickerInput } = datePickerStyles()
 
-interface DatePickerOverlayProps extends DynamicOverlayProps {
+interface DatePickerOverlayProps
+  extends Omit<DialogProps, 'children' | 'className' | 'style'>,
+    Omit<PopoverProps, 'children' | 'className' | 'style'> {
+  className?: string | DialogProps['className'] | PopoverProps['className']
+  children?: React.ReactNode
+  closeButton?: boolean
   range?: boolean
 }
 
-const DatePickerOverlay = ({ range, ...props }: DatePickerOverlayProps) => {
+const DatePickerOverlay = ({ closeButton = true, range, ...props }: DatePickerOverlayProps) => {
   return (
-    <DynamicOverlay {...props} className={dynamicOverlay()}>
-      <Dialog>{range ? <RangeCalendar /> : <Calendar />}</Dialog>
-    </DynamicOverlay>
+    <PopoverContent
+      showArrow={false}
+      className="flex justify-center min-w-[--trigger-width]"
+      {...props}
+    >
+      {range ? <RangeCalendar /> : <Calendar />}
+      {closeButton && (
+        <div className="sm:hidden py-2.5 mx-auto w-full max-w-[inherit]">
+          <PopoverClose shape="circle" className="w-full">
+            Close
+          </PopoverClose>
+        </div>
+      )}
+    </PopoverContent>
   )
 }
 

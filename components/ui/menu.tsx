@@ -69,7 +69,7 @@ const MenuContent = <T extends object>({
     <Popover
       offset={currentOffset}
       className={cn(
-        'z-50 min-w-40 rounded-xl border bg-popover text-popover-fg outline-none entering:animate-in exiting:animate-out entering:fade-in-0 exiting:fade-out-0 exiting:zoom-out-95 data-[placement=bottom]:slide-in-from-top-2 data-[placement=left]:slide-in-from-right-2 data-[placement=right]:slide-in-from-left-2 data-[placement=top]:slide-in-from-bottom-2',
+        'z-50 min-w-40 rounded-xl border bg-overlay text-overlay-fg outline-none entering:animate-in exiting:animate-out entering:fade-in-0 exiting:fade-out-0 exiting:zoom-out-95 data-[placement=bottom]:slide-in-from-top-2 data-[placement=left]:slide-in-from-right-2 data-[placement=right]:slide-in-from-left-2 data-[placement=top]:slide-in-from-bottom-2',
         popoverClassName
       )}
       {...props}
@@ -80,7 +80,7 @@ const MenuContent = <T extends object>({
             width={12}
             height={12}
             viewBox="0 0 12 12"
-            className="block fill-popover stroke-border group-placement-left:-rotate-90 group-placement-right:rotate-90 group-placement-bottom:rotate-180 forced-colors:fill-[Canvas] forced-colors:stroke-[ButtonBorder]"
+            className="block fill-overlay stroke-border group-placement-left:-rotate-90 group-placement-right:rotate-90 group-placement-bottom:rotate-180 forced-colors:fill-[Canvas] forced-colors:stroke-[ButtonBorder]"
           >
             <path d="M0 0 L6 6 L12 0" />
           </svg>

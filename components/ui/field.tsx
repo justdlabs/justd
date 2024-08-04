@@ -42,7 +42,7 @@ const fieldGroupPrefixStyles = tv({
 
 const fieldStyles = tv({
   slots: {
-    description: 'text-sm text-muted-fg',
+    description: 'text-pretty text-base/6 text-muted-fg sm:text-sm/6',
     label: 'w-fit cursor-default font-medium text-secondary-fg text-sm',
     fieldError: 'text-sm text-danger forced-colors:text-[Mark]',
     input: [

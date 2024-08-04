@@ -3,6 +3,7 @@ title: "Modal"
 description: Pop up a dialog box, demanding attention like a traffic stop sign, ideal for critical interactions..
 order: 1
 published: true
+status: updated
 references: ["https://react-spectrum.adobe.com/react-aria/Modal.html#props", "https://github.com/jamiebuilds/tailwindcss-animate"]
 ---
 
@@ -23,9 +24,9 @@ A modal is a pop-up window that demands your attention. You have to deal with it
 <SourceCode toShow={['modal']}/>
 
 ## Alert Dialog
-When dealing with an **alert** dialog, there are two key things to nail down. First, make sure the modal doesn't close when tapping outside of it. Second, hide the close button unless it's provided. The simple fix? Just set the `isDismissable` prop on the modal, and you’re good to go.
+Alert dialogs are meant to interrupt the user with a critical message, so use 'em only when it's absolutely necessary. The fix? Set the role to `alertdialog`, and you're golden.
 <How toUse="overlays/alert-dialog-demo" />
-If you're not using the `Modal` component directly but still want to manage the modal experience, switch gears and use the `ModalOverlay`. Just pass the `isDismissable` prop to it, and you're all set.
+Notice how the modal is dismissable and the close button is hidden? That's 'cause the role is set to `alertdialog`.
 
 ```tsx
 <ModalOverlay isDismissable={false}/>
@@ -40,8 +41,12 @@ The modal is set to `lg` by default. You can adjust it to any size from the avai
 <How toUse="overlays/modal-size-demo" />
 
 ## Blur
-On iOS, the modal overlay blurs by default, especially when the modal contains a `TextField` or `TextArea`.
+If you want to blur the background, you can use `isBlurred` prop.
 <How toUse="overlays/modal-blur-demo" />
+
+## Sticky
+You can use the `ModalBody` component to make the modal sticky.
+<How toUse="overlays/modal-sticky-demo" />
 
 ## Triggered By Menu
 You can also trigger the modal by clicking on a menu item.

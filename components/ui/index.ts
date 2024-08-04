@@ -60,6 +60,5 @@ export * from './color';
 export * from './color-field';
 export * from './skeleton';
 export * from './color-picker';
-export * from './dynamic-overlay';
 export * from './visually-hidden';
 export * from './toolbar';

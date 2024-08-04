@@ -323,6 +323,9 @@ export const previews: Record<string, any> = {
   "overlays/sheet-demo": {
     component: React.lazy(() => import("@/components/docs/overlays/sheet-demo")),
   },
+  "overlays/modal-sticky-demo": {
+    component: React.lazy(() => import("@/components/docs/overlays/modal-sticky-demo")),
+  },
   "overlays/alert-dialog-demo": {
     component: React.lazy(() => import("@/components/docs/overlays/alert-dialog-demo")),
   },
@@ -337,6 +340,9 @@ export const previews: Record<string, any> = {
   },
   "overlays/modal-blur-demo": {
     component: React.lazy(() => import("@/components/docs/overlays/modal-blur-demo")),
+  },
+  "overlays/sheet-sticky-demo": {
+    component: React.lazy(() => import("@/components/docs/overlays/sheet-sticky-demo")),
   },
   "overlays/modal-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/overlays/modal-controlled-demo")),

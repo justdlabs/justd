@@ -44,7 +44,6 @@ import {
   Sheet,
   SheetContent,
   SheetHeader,
-  SheetOverlay,
   SubmenuTrigger,
   useMediaQuery
 } from 'ui'
@@ -223,16 +222,14 @@ export function ResponsiveAside({ open, setOpen }: OpenCloseProps) {
       </div>
       {!isDesktop && (
         <Sheet isOpen={openAside} onOpenChange={setOpenAside}>
-          <SheetOverlay>
-            <SheetContent className="w-[19rem]" side="left" closeButton={true}>
-              <SheetHeader className="mb-4 flex flex-row justify-between py-2">
-                <NavbarDropdown />
-              </SheetHeader>
-              <LayoutGroup id={id}>
-                <Aside />
-              </LayoutGroup>
-            </SheetContent>
-          </SheetOverlay>
+          <SheetContent classNames={{ sheet: 'w-[19rem]' }} side="left" closeButton={true}>
+            <SheetHeader className="mb-4 flex flex-row justify-between py-2">
+              <NavbarDropdown />
+            </SheetHeader>
+            <LayoutGroup id={id}>
+              <Aside />
+            </LayoutGroup>
+          </SheetContent>
         </Sheet>
       )}
     </nav>
