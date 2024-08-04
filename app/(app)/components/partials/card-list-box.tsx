@@ -42,7 +42,7 @@ export function CardListBox() {
     <div className="space-y-10 w-full">
       {Object.entries(groupedComponents).map(([category, components]) => (
         <div key={category}>
-          <Heading id={category} className="mb-3 scroll-mt-28 font-medium" level={2}>
+          <Heading level={2} id={category} className="mb-3 scroll-mt-28 font-medium">
             {goodTitle(category)}
           </Heading>
           <Grid

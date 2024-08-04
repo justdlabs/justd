@@ -38,15 +38,13 @@ interface HeadingProps extends HeadingPrimitiveProps {
 }
 
 const Heading = ({ className, tracking = 'normal', level = 1, ...props }: HeadingProps) => {
-  const isAppleDevice = isIOS() || isMac() || isIPad()
-  const weight = level === 1 ? 'font-semibold' : 'font-medium'
   return (
     <HeadingPrimitive
       level={level}
       className={headingStyles({
         level,
         tracking,
-        className: isAppleDevice ? weight : className
+        className: isIOS() || isMac() || isIPad() ? 'font-medium' : className
       })}
       {...props}
     />
