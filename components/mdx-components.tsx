@@ -1,6 +1,7 @@
 import { DocComposed } from '@/components/doc-composed'
 import { DocNote } from '@/components/doc-note'
-import { Code, CodeProps } from '@/components/docs/rehype/code'
+import type { CodeProps } from '@/components/docs/rehype/code'
+import { Code } from '@/components/docs/rehype/code'
 import { PlainCode } from '@/components/docs/rehype/plain-code'
 import { SourceCode } from '@/components/docs/rehype/source-code'
 import type { InstallCommandProps } from '@/components/install-command'
@@ -11,7 +12,6 @@ import {
   Card,
   Link,
   type LinkProps,
-  Snippet,
   Table,
   TableBody,
   TableCell,

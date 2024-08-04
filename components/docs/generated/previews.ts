@@ -287,8 +287,8 @@ export const previews: Record<string, any> = {
   "overlays/tooltip-delay-demo": {
     component: React.lazy(() => import("@/components/docs/overlays/tooltip-delay-demo")),
   },
-  "overlays/sheet-basic-demo": {
-    component: React.lazy(() => import("@/components/docs/overlays/sheet-basic-demo")),
+  "overlays/sheet-custom-close-demo": {
+    component: React.lazy(() => import("@/components/docs/overlays/sheet-custom-close-demo")),
   },
   "overlays/tooltip-demo": {
     component: React.lazy(() => import("@/components/docs/overlays/tooltip-demo")),
@@ -302,11 +302,17 @@ export const previews: Record<string, any> = {
   "overlays/tooltip-placement-demo": {
     component: React.lazy(() => import("@/components/docs/overlays/tooltip-placement-demo")),
   },
+  "overlays/sheet-controlled-demo": {
+    component: React.lazy(() => import("@/components/docs/overlays/sheet-controlled-demo")),
+  },
   "overlays/popover-arrow-demo": {
     component: React.lazy(() => import("@/components/docs/overlays/popover-arrow-demo")),
   },
   "overlays/popover-custom-close": {
     component: React.lazy(() => import("@/components/docs/overlays/popover-custom-close")),
+  },
+  "overlays/sheet-position-demo": {
+    component: React.lazy(() => import("@/components/docs/overlays/sheet-position-demo")),
   },
   "overlays/modal-size-demo": {
     component: React.lazy(() => import("@/components/docs/overlays/modal-size-demo")),
@@ -319,6 +325,9 @@ export const previews: Record<string, any> = {
   },
   "overlays/alert-dialog-demo": {
     component: React.lazy(() => import("@/components/docs/overlays/alert-dialog-demo")),
+  },
+  "overlays/sheet-stack-demo": {
+    component: React.lazy(() => import("@/components/docs/overlays/sheet-stack-demo")),
   },
   "overlays/drawer-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/overlays/drawer-controlled-demo")),

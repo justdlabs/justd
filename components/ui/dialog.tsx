@@ -4,7 +4,7 @@ import { Dialog as DialogPrimitive, type DialogProps } from 'react-aria-componen
 import { tv } from 'tailwind-variants'
 
 const dialogStyles = tv({
-  base: 'dlc relative max-h-[inherit] focus:outline-none overflow-y-auto p-4 outline-0 [[data-placement]>&]:p-4'
+  base: 'dlc relative max-h-[inherit] [scrollbar-width:thin] focus-visible:outline-none outline-none overflow-y-auto p-4 [[data-placement]>&]:p-4'
 })
 
 const Dialog = ({ className, ...props }: DialogProps) => {

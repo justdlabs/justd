@@ -142,7 +142,7 @@ const MenuHeader = ({ className, inset, separator = false, ...props }: MenuHeade
 )
 
 const MenuSeparator = ({ className, ...props }: SeparatorProps) => (
-  <Separator className={cn('-mx-1 my-1 h-px bg-muted', className)} {...props} />
+  <Separator className={cn('-mx-1 my-1 h-px ms bg-muted', className)} {...props} />
 )
 
 const MenuKeyboard = Keyboard
