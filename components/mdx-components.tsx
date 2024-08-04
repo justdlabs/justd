@@ -1,5 +1,6 @@
 import { DocComposed } from '@/components/doc-composed'
 import { DocNote } from '@/components/doc-note'
+import { Code, CodeProps } from '@/components/docs/rehype/code'
 import { PlainCode } from '@/components/docs/rehype/plain-code'
 import { SourceCode } from '@/components/docs/rehype/source-code'
 import type { InstallCommandProps } from '@/components/install-command'
@@ -10,6 +11,7 @@ import {
   Card,
   Link,
   type LinkProps,
+  Snippet,
   Table,
   TableBody,
   TableCell,
@@ -54,7 +56,10 @@ export function MDXContent({ code }: MdxProps) {
           />
         ),
         SourceCode: SourceCode,
-        PlainCode: PlainCode
+        PlainCode: PlainCode,
+        Code: (props: CodeProps) => (
+          <Code className="[&_.dxcode]:top-2 [&_.dxcode]:right-2" {...props} />
+        )
       }}
     />
   )

@@ -12,7 +12,7 @@ import { Button, cn, CopyButton } from 'ui'
 import { unified } from 'unified'
 import { copyToClipboard } from 'usemods'
 
-interface CodeProps {
+export interface CodeProps {
   lang?: string
   code: string
   withImportCopy?: boolean
@@ -41,7 +41,7 @@ function Code({ className, lang = 'tsx', code, withImportCopy = true }: CodeProp
         className
       )}
     >
-      <div className={cn('absolute z-20 bottom-auto right-3 top-3 flex gap-1.5')}>
+      <div className={cn('absolute dxcode z-20 bottom-auto right-3 top-3 flex gap-1.5')}>
         {withImportCopy && (
           <CopyButton
             ariaLabel="Copy imports statement"
