@@ -6,14 +6,14 @@ import { IconX } from '@irsyadadl/paranoid'
 import {
   Dialog as DialogPrimitive,
   type DialogProps,
-  Heading,
-  type HeadingProps,
   OverlayTriggerStateContext
 } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
 import type { ButtonProps } from './button'
 import { Button } from './button'
+import type { HeadingProps } from './heading'
+import { Heading } from './heading'
 import { useMediaQuery } from './primitive'
 
 const dialogStyles = tv({
@@ -22,15 +22,14 @@ const dialogStyles = tv({
       'group dlc peer relative flex max-h-[inherit] flex-col overflow-hidden outline-none peer',
       '[&:not(:has([data-slot=dialog-body]))]:px-6 [&:has([data-slot=dialog-body])_[data-slot=dialog-header]]:px-6 [&:has([data-slot=dialog-body])_[data-slot=dialog-footer]]:px-6'
     ],
-    header: 'relative flex flex-col pb-3 pt-6',
-    title: 'text-xl font-semibold leading-none tracking-tight lg:text-lg',
+    header: 'relative flex flex-col pb-2.5 gap-y-0.5 pt-6',
+    title: 'flex flex-1 items-center',
     description: 'text-sm text-muted-fg',
     body: [
       'flex flex-1 flex-col gap-2 overflow-auto px-6',
       'max-h-[calc(var(--visual-viewport-height)-var(--visual-viewport-vertical-padding)-var(--dialog-header-height,0px)-var(--dialog-footer-height,0px))]'
     ],
-    footer:
-      'mt-auto flex flex-col-reverse justify-between gap-3 group-data-[slot=body]:px-6 pb-6 pt-4 sm:flex-row',
+    footer: 'mt-auto flex flex-col-reverse justify-between gap-3 pb-6 pt-4 sm:flex-row',
     closeIndicator: 'close absolute right-2 top-2 size-6 z-50'
   }
 })
@@ -72,8 +71,18 @@ const DialogHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivEleme
   )
 }
 
-const DialogTitle = ({ className, ...props }: HeadingProps) => (
-  <Heading slot="title" className={title({ className })} {...props} />
+interface DialogTitleProps extends HeadingProps {
+  className?: string
+}
+
+const DialogTitle = ({ tracking = 'tight', level = 2, className, ...props }: DialogTitleProps) => (
+  <Heading
+    slot="title"
+    tracking={tracking}
+    level={level}
+    className={title({ className })}
+    {...props}
+  />
 )
 
 const DialogDescription = ({ className, ...props }: HeadingProps) => (
@@ -158,5 +167,6 @@ export {
   DialogBody,
   DialogFooter,
   DialogClose,
-  DialogCloseIndicator
+  DialogCloseIndicator,
+  type DialogTitleProps
 }

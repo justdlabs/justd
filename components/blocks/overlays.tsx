@@ -49,9 +49,7 @@ export function ModalOverlays() {
           </ModalHeader>
           <ModalFooter>
             <ModalClose>Later</ModalClose>
-            <ModalClose appearance="solid">
-              Update Now
-            </ModalClose>
+            <ModalClose appearance="solid">Update Now</ModalClose>
           </ModalFooter>
         </ModalContent>
       </Modal>

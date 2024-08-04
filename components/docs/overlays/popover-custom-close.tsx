@@ -28,7 +28,7 @@ export default function PopoverCustomClose() {
           <PopoverDescription>Enter your credentials to sign in.</PopoverDescription>
         </PopoverHeader>
         <Form onSubmit={() => {}}>
-          <PopoverBody className="pb-4">
+          <PopoverBody>
             <div className="space-y-4">
               <TextField isRequired type="email" label="Email" placeholder="Enter your email" />
               <TextField

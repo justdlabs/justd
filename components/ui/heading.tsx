@@ -1,35 +1,49 @@
 'use client'
 
 import {
-  Header as HeaderPrimitive,
   Heading as HeadingPrimitive,
-  type HeadingProps
+  type HeadingProps as HeadingPrimitiveProps
 } from 'react-aria-components'
+import { tv } from 'tailwind-variants'
 
-import { cn } from './primitive'
+const headingStyles = tv({
+  base: 'tracking-tight text-fg',
+  variants: {
+    level: {
+      1: 'font-bold text-lg',
+      2: 'font-semibold text-base/6 sm:text-lg/5',
+      3: 'font-semibold text-base/6 sm:text-base/6',
+      4: 'font-medium text-base/6 sm:text-sm/6'
+    },
+    tracking: {
+      tighter: 'tracking-tighter',
+      tight: 'tracking-tight',
+      normal: 'tracking-normal',
+      wide: 'tracking-wide',
+      wider: 'tracking-wider',
+      widest: 'tracking-widest'
+    }
+  },
+  defaultVariants: {
+    level: 2,
+    tracking: 'normal'
+  }
+})
 
-const Header = HeaderPrimitive
-const Heading = ({ className, level = 1, ...props }: HeadingProps) => {
+interface HeadingProps extends HeadingPrimitiveProps {
+  level?: 1 | 2 | 3 | 4
+  tracking?: 'tighter' | 'tight' | 'normal' | 'wide' | 'wider' | 'widest'
+  className?: string
+}
+
+const Heading = ({ className, tracking = 'normal', level = 1, ...props }: HeadingProps) => {
   return (
     <HeadingPrimitive
       level={level}
-      className={cn(
-        'font-semibold tracking-tight text-zinc-950 dark:text-white sm:text-2xl',
-        className
-      )}
+      className={headingStyles({ level, tracking, className })}
       {...props}
     />
   )
 }
 
-const Subheading = ({ className, level = 2, ...props }: HeadingProps) => {
-  return (
-    <HeadingPrimitive
-      level={level}
-      {...props}
-      className={cn('text-base/7 font-semibold text-fg sm:text-sm/6', className)}
-    />
-  )
-}
-
-export { Header, Heading, Subheading, type HeadingProps }
+export { Heading, type HeadingProps }

@@ -17,6 +17,7 @@ import {
 } from 'react-aria-components'
 import { tv, type VariantProps } from 'tailwind-variants'
 
+import type { DialogTitleProps } from './dialog'
 import {
   DialogBody,
   DialogClose,
@@ -30,14 +31,28 @@ import { cn, useMediaQuery } from './primitive'
 const Popover = DialogTrigger
 const PopoverTrigger = Button
 const PopoverClose = DialogClose
-const PopoverFooter = DialogFooter
-const PopoverHeader = DialogHeader
-const PopoverTitle = DialogTitle
 const PopoverDescription = DialogDescription
-const PopoverBody = DialogBody
+
+const PopoverTitle = ({ className, ...props }: DialogTitleProps) => (
+  <DialogTitle className={cn('leading-none', className)} {...props} />
+)
+
+const PopoverHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
+  <DialogHeader className={cn('p-0', className)} {...props} />
+)
+
+const PopoverFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
+  <DialogFooter className={cn('pt-4 pb-0', className)} {...props} />
+)
+
+const PopoverBody = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
+  <DialogBody className={cn('p-0', className)} {...props} />
+)
 
 const popoverContentStyles = tv({
-  base: 'max-w-xs min-w-80 rounded-lg border bg-overlay bg-clip-padding p-4 text-overlay-fg shadow-lg dark:backdrop-blur-2xl dark:backdrop-saturate-200 lg:text-sm sm:max-w-3xl forced-colors:bg-[Canvas]',
+  base: [
+    'max-w-xs min-w-80 p-4 rounded-lg border bg-overlay bg-clip-padding text-overlay-fg shadow-lg dark:backdrop-blur-2xl dark:backdrop-saturate-200 lg:text-sm sm:max-w-3xl forced-colors:bg-[Canvas]'
+  ],
   variants: {
     isEntering: {
       true: [

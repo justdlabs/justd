@@ -641,8 +641,14 @@ export const previews: Record<string, any> = {
   "surfaces/grid-basic-demo": {
     component: React.lazy(() => import("@/components/docs/surfaces/grid-basic-demo")),
   },
+  "surfaces/heading-tracking-demo": {
+    component: React.lazy(() => import("@/components/docs/surfaces/heading-tracking-demo")),
+  },
   "surfaces/card-table-demo": {
     component: React.lazy(() => import("@/components/docs/surfaces/card-table-demo")),
+  },
+  "surfaces/heading-level-demo": {
+    component: React.lazy(() => import("@/components/docs/surfaces/heading-level-demo")),
   },
   "surfaces/separator-orientation-demo": {
     component: React.lazy(() => import("@/components/docs/surfaces/separator-orientation-demo")),
@@ -655,6 +661,9 @@ export const previews: Record<string, any> = {
   },
   "surfaces/grid-debug-demo": {
     component: React.lazy(() => import("@/components/docs/surfaces/grid-debug-demo")),
+  },
+  "surfaces/heading-demo": {
+    component: React.lazy(() => import("@/components/docs/surfaces/heading-demo")),
   },
   "surfaces/card-demo": {
     component: React.lazy(() => import("@/components/docs/surfaces/card-demo")),
