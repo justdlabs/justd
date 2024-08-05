@@ -9,7 +9,7 @@ export default function SheetControlledDemo() {
     <Sheet>
       <Button appearance="outline">Notifications</Button>
       <SheetContent>
-        <SheetFooter className="bottom-4 right-4 absolute">
+        <SheetFooter>
           <SheetClose>Dismiss</SheetClose>
           <Button>Save Preferences</Button>
         </SheetFooter>

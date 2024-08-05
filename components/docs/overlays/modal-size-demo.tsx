@@ -48,9 +48,7 @@ export default function ModalSizeDemo() {
           <Button appearance="outline" onPress={() => setIsOpen(false)}>
             Close
           </Button>
-          <Button className="ml-2" onPress={() => setIsOpen(false)}>
-            Confirm
-          </Button>
+          <Button onPress={() => setIsOpen(false)}>Confirm</Button>
         </ModalFooter>
       </ModalContent>
     </>
