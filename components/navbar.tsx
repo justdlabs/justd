@@ -223,7 +223,7 @@ export function ResponsiveAside({ open, setOpen }: OpenCloseProps) {
       </div>
       {!isDesktop && (
         <Sheet isOpen={openAside} onOpenChange={setOpenAside}>
-          <SheetContent classNames={{ sheet: 'w-[19rem]' }} side="left" closeButton={true}>
+          <SheetContent classNames={{ content: 'w-[19rem]' }} side="left" closeButton={true}>
             <SheetHeader className="mb-4 flex flex-row justify-between py-2">
               <NavbarDropdown />
             </SheetHeader>

@@ -95,7 +95,7 @@ export default function SheetMenuDemo() {
         <SheetTrigger aria-label="Open menu">
           <Avatar src="https://github.com/irsyadadl.png" alt="irsyadadl" />
         </SheetTrigger>
-        <SheetContent classNames={{ sheet: '[&_.dlc]:p-0' }} closeButton={false}>
+        <SheetContent classNames={{ content: '[&_.dlc]:p-0' }} closeButton={false}>
           <SheetHeader className="flex border-b p-4 sticky top-0 bg-popover flex-row items-center gap-x-3 mb-2">
             <Avatar src="https://github.com/irsyadadl.png" alt="irsyadadl" />
             <div>

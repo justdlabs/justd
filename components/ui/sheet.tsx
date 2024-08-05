@@ -94,7 +94,7 @@ const sheetStyles = tv({
 })
 
 interface SheetContentProps
-  extends Omit<React.ComponentProps<typeof Modal>, 'children'>,
+  extends Omit<React.ComponentProps<typeof Modal>, 'children' | 'className'>,
     Omit<ModalOverlayPrimitiveProps, 'className'>,
     VariantProps<typeof sheetOverlayStyles> {
   'aria-label'?: DialogProps['aria-label']
