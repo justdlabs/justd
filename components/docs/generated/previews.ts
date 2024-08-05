@@ -407,6 +407,9 @@ export const previews: Record<string, any> = {
   "controls/toolbar-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/controls/toolbar-disabled-demo")),
   },
+  "controls/slider-orientation-demo": {
+    component: React.lazy(() => import("@/components/docs/controls/slider-orientation-demo")),
+  },
   "controls/command-menu-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/controls/command-menu-disabled-demo")),
   },
@@ -436,6 +439,9 @@ export const previews: Record<string, any> = {
   },
   "controls/slider-demo": {
     component: React.lazy(() => import("@/components/docs/controls/slider-demo")),
+  },
+  "controls/slider-prefix-suffix-demo": {
+    component: React.lazy(() => import("@/components/docs/controls/slider-prefix-suffix-demo")),
   },
   "controls/toolbar-orientation-demo": {
     component: React.lazy(() => import("@/components/docs/controls/toolbar-orientation-demo")),
@@ -632,6 +638,9 @@ export const previews: Record<string, any> = {
   "surfaces/grid-gap-demo": {
     component: React.lazy(() => import("@/components/docs/surfaces/grid-gap-demo")),
   },
+  "surfaces/show-more-controlled-demo": {
+    component: React.lazy(() => import("@/components/docs/surfaces/show-more-controlled-demo")),
+  },
   "surfaces/grid-collections-demo": {
     component: React.lazy(() => import("@/components/docs/surfaces/grid-collections-demo")),
   },
@@ -641,8 +650,14 @@ export const previews: Record<string, any> = {
   "surfaces/grid-basic-demo": {
     component: React.lazy(() => import("@/components/docs/surfaces/grid-basic-demo")),
   },
+  "surfaces/show-more-as-text-demo": {
+    component: React.lazy(() => import("@/components/docs/surfaces/show-more-as-text-demo")),
+  },
   "surfaces/heading-tracking-demo": {
     component: React.lazy(() => import("@/components/docs/surfaces/heading-tracking-demo")),
+  },
+  "surfaces/show-more-orientation-demo": {
+    component: React.lazy(() => import("@/components/docs/surfaces/show-more-orientation-demo")),
   },
   "surfaces/card-table-demo": {
     component: React.lazy(() => import("@/components/docs/surfaces/card-table-demo")),
@@ -667,6 +682,9 @@ export const previews: Record<string, any> = {
   },
   "surfaces/card-demo": {
     component: React.lazy(() => import("@/components/docs/surfaces/card-demo")),
+  },
+  "surfaces/show-more-demo": {
+    component: React.lazy(() => import("@/components/docs/surfaces/show-more-demo")),
   },
   "surfaces/grid-gap-x-y-demo": {
     component: React.lazy(() => import("@/components/docs/surfaces/grid-gap-x-y-demo")),
@@ -806,6 +824,9 @@ export const previews: Record<string, any> = {
   "collections/table-sorting-demo": {
     component: React.lazy(() => import("@/components/docs/collections/table-sorting-demo")),
   },
+  "collections/tag-group-shape-demo": {
+    component: React.lazy(() => import("@/components/docs/collections/tag-group-shape-demo")),
+  },
   "collections/table-bulk-demo": {
     component: React.lazy(() => import("@/components/docs/collections/table-bulk-demo")),
   },
@@ -853,6 +874,9 @@ export const previews: Record<string, any> = {
   },
   "collections/choicebox-demo": {
     component: React.lazy(() => import("@/components/docs/collections/choicebox-demo")),
+  },
+  "collections/tag-group-intent-demo": {
+    component: React.lazy(() => import("@/components/docs/collections/tag-group-intent-demo")),
   },
   "collections/grid-list-drag-demo": {
     component: React.lazy(() => import("@/components/docs/collections/grid-list-drag-demo")),

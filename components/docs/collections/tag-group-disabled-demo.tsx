@@ -1,5 +1,5 @@
 import { androidBrands } from '@/components/docs/collections/tag-group-demo'
-import { Tag, TagGroup } from 'ui'
+import { Tag, TagGroup, TagList } from 'ui'
 
 export default function TagGroupDisabledDemo() {
   return (
@@ -8,13 +8,14 @@ export default function TagGroupDisabledDemo() {
         disabledKeys={androidBrands.filter((brand) => !brand.available).map((brand) => brand.id)}
         label="Disabled Key"
         selectionMode="multiple"
-        items={androidBrands}
       >
-        {(item) => <Tag>{item.name}</Tag>}
+        <TagList items={androidBrands}>{(item) => <Tag>{item.name}</Tag>}</TagList>
       </TagGroup>
 
-      <TagGroup label="Disabled by Tag" selectionMode="multiple" items={androidBrands}>
-        {(item) => <Tag isDisabled={!item.available}>{item.name}</Tag>}
+      <TagGroup label="Disabled by Tag" selectionMode="multiple">
+        <TagList items={androidBrands}>
+          {(item) => <Tag isDisabled={item.available}>{item.name}</Tag>}
+        </TagList>
       </TagGroup>
     </div>
   )

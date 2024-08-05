@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-import { Description, Slider } from 'ui'
+import { Slider } from 'ui'
 
 export default function SliderControlledDemo() {
   const [temperature, setTemperature] = React.useState<number>(31)
@@ -14,20 +14,16 @@ export default function SliderControlledDemo() {
           value={temperature}
           onChange={(v) => setTemperature(v as number)}
           label="Temperature"
+          description={`Current temperature: ${temperature ?? '-'}`}
         />
-        <Description className="mt-2 block [&>strong]:text-fg">
-          Current temperature: <strong>{temperature ?? '-'}</strong>
-        </Description>
       </div>
       <div>
         <Slider
           value={saturation}
           onChange={(v) => setSaturation(v as number[])}
           label="Saturation"
+          description={`Current saturation: ${saturation ?? '-'}`}
         />
-        <Description className="mt-2 block [&>strong]:text-fg">
-          Current saturation: <strong>{saturation ?? '-'}</strong>
-        </Description>
       </div>
     </div>
   )

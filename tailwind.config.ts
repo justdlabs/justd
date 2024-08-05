@@ -57,6 +57,10 @@ const config = withTV({
           DEFAULT: 'hsl(var(--success))',
           fg: 'hsl(var(--success-fg))'
         },
+        info: {
+          DEFAULT: 'hsl(var(--info))',
+          fg: 'hsl(var(--info-fg))'
+        },
         danger: {
           DEFAULT: 'hsl(var(--danger))',
           fg: 'hsl(var(--danger-fg))'
@@ -72,10 +76,6 @@ const config = withTV({
         overlay: {
           DEFAULT: 'hsl(var(--overlay))',
           fg: 'hsl(var(--overlay-fg))'
-        },
-        card: {
-          DEFAULT: 'hsl(var(--card))',
-          header: 'hsl(var(--card-header))'
         }
       },
       borderRadius: {

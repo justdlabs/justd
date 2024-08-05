@@ -127,64 +127,69 @@ Start by adjusting your main CSS file. For example, if you are using Laravel, th
 ### Variables
 Below that, insert the following code:
 <PlainCode lang='css' code={`@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --fg: 240 10% 3.9%;
-    --card: 0 0% 100%;
-    --card-header: 240 5% 99%;
-    --overlay: 0 0% 100%;
-    --overlay-fg: 240 10% 3.9%;
+    :root {
+        --background: 0 0% 100%;
+        --fg: 240 10% 3.9%;
 
-    --primary: 216 98% 52%;
-    --primary-fg: 0 0% 100%;
+        --overlay: 0 0% 100%;
+        --overlay-fg: 240 10% 3.9%;
 
-    --secondary: 240 4.8% 95.9%;
-    --secondary-fg: 240 5.9% 10%;
+        --primary: 216 98% 52%;
+        --primary-fg: 0 0% 100%;
 
-    --tertiary: 240 4.8% 95.9%;
-    --tertiary-fg: 240 4% 16%;
+        --secondary: 240 4.8% 95.9%;
+        --secondary-fg: 240 5.9% 10%;
 
-    --success: 152 69% 31%;
-    --success-fg: 0 0% 100%;
+        --tertiary: 0 0% 100%;
+        --tertiary-fg: 240 4% 16%;
 
-    --muted: 240 4.8% 95.9%;
-    --muted-fg: 240 3.8% 46.1%;
+        --success: 152 69% 31%;
+        --success-fg: 0 0% 100%;
 
-    --danger: 347 77% 50%;
-    --danger-fg: 356 100% 97%;
+        --info: 84.91 100% 66.47%;
+        --info-fg: 120 100% 13.14%;
 
-    --warning: 46 97% 65%;
-    --warning-fg: 21 92% 14%;
+        --muted: 240 4.8% 95.9%;
+        --muted-fg: 240 3.8% 46.1%;
 
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 211 100% 58%;
-    --toggle: 240 5% 84%;
-    --radius: 0.55rem;
-  }
+        --danger: 347 77% 50%;
+        --danger-fg: 356 100% 97%;
 
-  .dark {
-    --background: 0 0% 0%;
-    --fg: 0 0% 98%;
+        --warning: 46 97% 65%;
+        --warning-fg: 21.71 77.78% 26.47%;
 
-    --card: 240 10% 3.9%;
-    --card-header: 240 6% 6%;
+        --border: 240 5.9% 90%;
+        --input: 240 5.9% 90%;
+        --ring: 211 100% 58%;
+        --toggle: 240 5% 84%;
+        --radius: 0.55rem;
+    }
 
-    --overlay: 240 6% 6%;
-    --overlay-fg: 0 0% 98%;
+    .dark {
+        --background: 0 0% 0%;
+        --fg: 0 0% 98%;
 
-    --secondary: 240 3.7% 15.9%;
-    --secondary-fg: 0 0% 98%;
+        --overlay: 240 6% 6%;
+        --overlay-fg: 0 0% 98%;
 
-    --tertiary: 240 10% 6%;
-    --tertiary-fg: 240 5% 96%;
+        --secondary: 240 3.7% 15.9%;
+        --secondary-fg: 0 0% 98%;
 
-    --muted: 240 3.7% 15.9%;
-    --muted-fg: 240 5% 64.9%;
-    --toggle: 240 5% 26%;
-    --border: 240 7% 15%;
-    --input: 240 3.7% 15.9%;
-  }
+        --warning: 46 97% 65%;
+        --warning-fg: 46 97% 65%;
+
+        --info: 84.91 100% 66.47%;
+        --info-fg: 120 100% 13.14%;
+
+        --tertiary: 240 10% 6%;
+        --tertiary-fg: 240 5% 96%;
+
+        --muted: 240 3.7% 15.9%;
+        --muted-fg: 240 5% 64.9%;
+        --toggle: 240 5% 26%;
+        --border: 240 7% 15%;
+        --input: 240 3.7% 15.9%;
+    }
 }
 `} />
 
@@ -232,8 +237,8 @@ export default withTV({
         border: 'hsl(var(--border))',
         link: 'hsl(var(--link))',
         input: 'hsl(var(--input))',
-        toggle: 'hsl(var(--toggle))',
         ring: 'hsl(var(--ring))',
+        toggle: 'hsl(var(--toggle))',
         background: 'hsl(var(--background))',
         fg: 'hsl(var(--fg))',
         primary: {
@@ -263,6 +268,10 @@ export default withTV({
           DEFAULT: 'hsl(var(--success))',
           fg: 'hsl(var(--success-fg))'
         },
+        info: {
+          DEFAULT: 'hsl(var(--info))',
+          fg: 'hsl(var(--info-fg))'
+        },
         danger: {
           DEFAULT: 'hsl(var(--danger))',
           fg: 'hsl(var(--danger-fg))'
@@ -278,7 +287,7 @@ export default withTV({
         overlay: {
           DEFAULT: 'hsl(var(--overlay))',
           fg: 'hsl(var(--overlay-fg))'
-        },
+        }
       },
       borderRadius: {
         xl: 'calc(var(--radius) + 2px)',

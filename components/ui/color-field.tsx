@@ -50,7 +50,7 @@ const ColorField = ({
         {prefix ? <span className="atrs isPfx">{prefix}</span> : null}
         <div className="flex items-center">
           {value && (
-            <>
+            <span>
               {enableColorPicker ? (
                 <ColorPicker
                   enableColorField={false}
@@ -62,7 +62,7 @@ const ColorField = ({
               ) : (
                 <ColorSwatch className="size-6 ml-2" color={value.toString()} />
               )}
-            </>
+            </span>
           )}
 
           <Input className="px-2.5" placeholder={placeholder} />

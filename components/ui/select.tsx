@@ -54,7 +54,6 @@ const Select = <T extends object>({
   children,
   items,
   className,
-  prefix,
   ...props
 }: SelectProps<T>) => {
   return (
@@ -69,7 +68,7 @@ const Select = <T extends object>({
             })
           )}
         >
-          {prefix && <span className="-mr-1">{prefix}</span>}
+          {props.prefix && <span className="-mr-1">{props.prefix}</span>}
           <SelectValue className="flex-1 [&_[slot=description]]:hidden text-base placeholder-shown:text-muted-fg lg:text-sm" />
 
           <IconChevronLgDown

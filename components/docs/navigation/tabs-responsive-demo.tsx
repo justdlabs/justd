@@ -19,7 +19,7 @@ const tabs = [
 export default function TabsResponsiveDemo() {
   const isMobile = useMediaQuery('(max-width: 600px)')
   return isMobile ? (
-    <Select className="sm:hidden block" prefix={<IconHamburger />} items={tabs}>
+    <Select className="sm:hidden flex" prefix={<IconHamburger />} items={tabs}>
       {(item) => <SelectItem textValue={item.title}>{item.title}</SelectItem>}
     </Select>
   ) : (

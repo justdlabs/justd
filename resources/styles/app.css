@@ -7,9 +7,6 @@
         --background: 0 0% 100%;
         --fg: 240 10% 3.9%;
 
-        --card: 0 0% 100%;
-        --card-header: 240 5% 99%;
-
         --overlay: 0 0% 100%;
         --overlay-fg: 240 10% 3.9%;
 
@@ -25,6 +22,9 @@
         --success: 152 69% 31%;
         --success-fg: 0 0% 100%;
 
+        --info: 84.91 100% 66.47%;
+        --info-fg: 120 100% 13.14%;
+
         --muted: 240 4.8% 95.9%;
         --muted-fg: 240 3.8% 46.1%;
 
@@ -32,7 +32,7 @@
         --danger-fg: 356 100% 97%;
 
         --warning: 46 97% 65%;
-        --warning-fg: 21 92% 14%;
+        --warning-fg: 21.71 77.78% 26.47%;
 
         --border: 240 5.9% 90%;
         --input: 240 5.9% 90%;
@@ -45,14 +45,17 @@
         --background: 0 0% 0%;
         --fg: 0 0% 98%;
 
-        --card: 240 10% 3.9%;
-        --card-header: 240 6% 6%;
-
         --overlay: 240 6% 6%;
         --overlay-fg: 0 0% 98%;
 
         --secondary: 240 3.7% 15.9%;
         --secondary-fg: 0 0% 98%;
+
+        --warning: 46 97% 65%;
+        --warning-fg: 46 97% 65%;
+
+        --info: 84.91 100% 66.47%;
+        --info-fg: 120 100% 13.14%;
 
         --tertiary: 240 10% 6%;
         --tertiary-fg: 240 5% 96%;
