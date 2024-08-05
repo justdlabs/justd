@@ -314,6 +314,9 @@ export const previews: Record<string, any> = {
   "overlays/sheet-position-demo": {
     component: React.lazy(() => import("@/components/docs/overlays/sheet-position-demo")),
   },
+  "overlays/modal-nested-demo": {
+    component: React.lazy(() => import("@/components/docs/overlays/modal-nested-demo")),
+  },
   "overlays/modal-size-demo": {
     component: React.lazy(() => import("@/components/docs/overlays/modal-size-demo")),
   },

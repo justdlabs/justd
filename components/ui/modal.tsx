@@ -42,7 +42,7 @@ const modalOverlayStyles = tv({
   variants: {
     isBlurred: {
       true: 'backdrop-blur',
-      false: 'bg-black/25 dark:bg-black/60'
+      false: 'bg-black/15 dark:bg-black/40'
     },
     isEntering: {
       true: 'ease-out animate-in fade-in'
@@ -75,7 +75,7 @@ const modalContentStyles = tv({
       xs: 'sm:max-w-xs',
       sm: 'sm:max-w-sm',
       md: 'sm:max-w-md',
-      lg: 'sm:max-w-lg sm:has-[[role=alertdialog]]:max-w-md sm:has-[[role=dialog]]:max-w-lg',
+      lg: 'sm:max-w-lg sm:has-[[role=alertdialog]]:max-w-lg sm:has-[[role=dialog]]:max-w-lg',
       xl: 'sm:max-w-xl',
       '2xl': 'sm:max-w-2xl',
       '3xl': 'sm:max-w-3xl',
