@@ -131,9 +131,6 @@ Below that, insert the following code:
         --background: 0 0% 100%;
         --fg: 240 10% 3.9%;
 
-        --card: 0 0% 100%;
-        --card-header: 240 5% 99%;
-
         --overlay: 0 0% 100%;
         --overlay-fg: 240 10% 3.9%;
 
@@ -171,9 +168,6 @@ Below that, insert the following code:
     .dark {
         --background: 0 0% 0%;
         --fg: 0 0% 98%;
-
-        --card: 240 10% 3.9%;
-        --card-header: 240 6% 6%;
 
         --overlay: 240 6% 6%;
         --overlay-fg: 0 0% 98%;
@@ -293,10 +287,6 @@ export default withTV({
         overlay: {
           DEFAULT: 'hsl(var(--overlay))',
           fg: 'hsl(var(--overlay-fg))'
-        },
-        card: {
-          DEFAULT: 'hsl(var(--card))',
-          header: 'hsl(var(--card-header))'
         }
       },
       borderRadius: {

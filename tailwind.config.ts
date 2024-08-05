@@ -77,10 +77,6 @@ const config = withTV({
           DEFAULT: 'hsl(var(--overlay))',
           fg: 'hsl(var(--overlay-fg))'
         },
-        card: {
-          DEFAULT: 'hsl(var(--card))',
-          header: 'hsl(var(--card-header))'
-        }
       },
       borderRadius: {
         lg: 'var(--radius)',
