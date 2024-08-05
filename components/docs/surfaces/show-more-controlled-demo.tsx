@@ -2,8 +2,8 @@
 
 import * as React from 'react'
 
-import { ShowMore } from '@/components/ui/show-more'
 import { IconChevronLgDown } from '@irsyadadl/paranoid'
+import { ShowMore } from 'ui'
 
 export default function ShowMoreControlledDemo() {
   const [isExpanded, setIsExpanded] = React.useState(false)

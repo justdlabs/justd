@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 
-import { ShowMore } from '@/components/ui/show-more'
+import { ShowMore } from 'ui'
 
 export default function ShowMoreAsTextDemo() {
   return (

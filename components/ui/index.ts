@@ -20,6 +20,7 @@ export * from './input-otp';
 export * from './tag-group';
 export * from './sheet';
 export * from './field';
+export * from './show-more';
 export * from './drop-zone';
 export * from './grid';
 export * from './meter';

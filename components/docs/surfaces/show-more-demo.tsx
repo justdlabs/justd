@@ -2,9 +2,8 @@
 
 import * as React from 'react'
 
-import { ShowMore } from '@/components/ui/show-more'
-import { cn } from '@/resources/lib/utils'
 import { IconChevronLgDown } from '@irsyadadl/paranoid'
+import { ShowMore, cn } from 'ui'
 
 export default function ShowMoreDemo() {
   return (
