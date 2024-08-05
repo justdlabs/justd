@@ -97,14 +97,16 @@ interface SheetContentProps
   extends Omit<React.ComponentProps<typeof Modal>, 'children'>,
     Omit<ModalOverlayPrimitiveProps, 'className'>,
     VariantProps<typeof sheetOverlayStyles> {
+  'aria-label'?: DialogProps['aria-label']
+  'aria-labelledby'?: DialogProps['aria-labelledby']
   role?: DialogProps['role']
   closeButton?: boolean
   isBlurred?: boolean
   isStack?: boolean
   side?: Sides
   classNames?: {
-    sheetOverlay?: ModalOverlayPrimitiveProps['className']
-    sheet?: ModalOverlayPrimitiveProps['className']
+    overlay?: ModalOverlayPrimitiveProps['className']
+    content?: ModalOverlayPrimitiveProps['className']
   }
 }
 
@@ -122,7 +124,7 @@ const SheetContent = ({
   return (
     <ModalOverlay
       isDismissable={_isDismissable}
-      className={composeRenderProps(classNames?.sheetOverlay, (className, renderProps) => {
+      className={composeRenderProps(classNames?.overlay, (className, renderProps) => {
         return sheetOverlayStyles({
           ...renderProps,
           isBlurred,
@@ -132,7 +134,7 @@ const SheetContent = ({
       {...props}
     >
       <ModalPrimitive
-        className={composeRenderProps(classNames?.sheet, (className, renderProps) =>
+        className={composeRenderProps(classNames?.content, (className, renderProps) =>
           sheetStyles({
             ...renderProps,
             side,

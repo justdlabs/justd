@@ -92,12 +92,14 @@ interface ModalContentProps
   extends Omit<React.ComponentProps<typeof Modal>, 'children'>,
     Omit<ModalOverlayPrimitiveProps, 'className'>,
     VariantProps<typeof modalContentStyles> {
+  'aria-label'?: DialogProps['aria-label']
+  'aria-labelledby'?: DialogProps['aria-labelledby']
   role?: DialogProps['role']
   closeButton?: boolean
   isBlurred?: boolean
   classNames?: {
-    modalOverlay?: ModalOverlayPrimitiveProps['className']
-    modal?: ModalOverlayPrimitiveProps['className']
+    overlay?: ModalOverlayPrimitiveProps['className']
+    content?: ModalOverlayPrimitiveProps['className']
   }
 }
 
@@ -115,7 +117,7 @@ const ModalContent = ({
   return (
     <ModalOverlayPrimitive
       isDismissable={_isDismissable}
-      className={composeRenderProps(classNames?.modalOverlay, (className, renderProps) => {
+      className={composeRenderProps(classNames?.overlay, (className, renderProps) => {
         return modalOverlayStyles({
           ...renderProps,
           isBlurred,
@@ -125,7 +127,7 @@ const ModalContent = ({
       {...props}
     >
       <ModalPrimitive
-        className={composeRenderProps(classNames?.modal, (className, renderProps) =>
+        className={composeRenderProps(classNames?.content, (className, renderProps) =>
           modalContentStyles({
             ...renderProps,
             size,
