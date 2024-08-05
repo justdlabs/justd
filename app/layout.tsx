@@ -36,7 +36,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ViewTransitions>
-        <body className={cn('min-h-svh [max-width:1850px] mx-auto bg-background font-sans antialiased', geistSans.variable, geistMono.variable)} suppressHydrationWarning>
+        <body
+          className={cn(
+            'min-h-svh [max-width:1850px] mx-auto bg-background font-sans antialiased',
+            geistSans.variable,
+            geistMono.variable
+          )}
+          suppressHydrationWarning
+        >
           <Providers>
             <div className="relative flex min-h-dvh flex-col bg-background">
               <Navbar />
@@ -46,7 +53,14 @@ export default function RootLayout({
               <Toast />
             </div>
             {process.env.NODE_ENV === 'production' && (
-              <OpenpanelProvider url={process.env.ANALYTICS_CLIENT_URL as string} clientSecret={process.env.ANALYTICS_CLIENT_SECRET as string} clientId={process.env.ANALYTICS_CLIENT_ID as string} trackScreenViews={true} trackAttributes={true} trackOutgoingLinks={true} />
+              <OpenpanelProvider
+                url={process.env.ANALYTICS_CLIENT_URL as string}
+                clientSecret={process.env.ANALYTICS_CLIENT_SECRET as string}
+                clientId={process.env.ANALYTICS_CLIENT_ID as string}
+                trackScreenViews={true}
+                trackAttributes={true}
+                trackOutgoingLinks={true}
+              />
             )}
           </Providers>
         </body>

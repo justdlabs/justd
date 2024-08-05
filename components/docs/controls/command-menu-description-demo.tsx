@@ -3,7 +3,16 @@
 import React from 'react'
 
 import { IconCube } from '@irsyadadl/paranoid'
-import { Button, CommandMenu, CommandMenuDescription, CommandMenuEmpty, CommandMenuInput, CommandMenuItem, CommandMenuList, CommandMenuSection } from 'ui'
+import {
+  Button,
+  CommandMenu,
+  CommandMenuDescription,
+  CommandMenuEmpty,
+  CommandMenuInput,
+  CommandMenuItem,
+  CommandMenuList,
+  CommandMenuSection
+} from 'ui'
 
 export default function CommandMenuDescriptionDemo() {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -12,7 +21,13 @@ export default function CommandMenuDescriptionDemo() {
       <Button appearance="outline" onPress={() => setIsOpen(true)}>
         Open
       </Button>
-      <CommandMenu messageOnEmpty={false} hideCloseButton hideSearchIndicator isOpen={isOpen} onOpenChange={setIsOpen}>
+      <CommandMenu
+        messageOnEmpty={false}
+        hideCloseButton
+        hideSearchIndicator
+        isOpen={isOpen}
+        onOpenChange={setIsOpen}
+      >
         <CommandMenuInput placeholder="Search for apps and commands..." />
         <CommandMenuEmpty className="grid place-content-center">
           <div className="text-center">

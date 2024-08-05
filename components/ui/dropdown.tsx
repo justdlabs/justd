@@ -1,7 +1,17 @@
 'use client'
 
 import { IconCheck } from '@irsyadadl/paranoid'
-import { Collection, composeRenderProps, Header, ListBoxItem as ListBoxItemPrimitive, type ListBoxItemProps, Section, type SectionProps, Text, type TextProps } from 'react-aria-components'
+import {
+  Collection,
+  composeRenderProps,
+  Header,
+  ListBoxItem as ListBoxItemPrimitive,
+  type ListBoxItemProps,
+  Section,
+  type SectionProps,
+  Text,
+  type TextProps
+} from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
 const dropdownItemStyles = tv({
@@ -19,7 +29,11 @@ const dropdownItemStyles = tv({
     },
     isFocused: {
       false: 'data-[danger=true]:text-danger',
-      true: ['bg-primary text-primary-fg forced-colors:bg-[Highlight] forced-colors:text-[HighlightText]', 'data-[danger=true]:bg-danger data-[danger=true]:text-danger-fg', '[&_.text-muted-fg]:text-primary-fg/80 [&[data-slot=label]]:text-primary-fg [&[data-slot=description]]:text-primary-fg']
+      true: [
+        'bg-primary text-primary-fg forced-colors:bg-[Highlight] forced-colors:text-[HighlightText]',
+        'data-[danger=true]:bg-danger data-[danger=true]:text-danger-fg',
+        '[&_.text-muted-fg]:text-primary-fg/80 [&[data-slot=label]]:text-primary-fg [&[data-slot=description]]:text-primary-fg'
+      ]
     }
   },
   compoundVariants: [
@@ -38,7 +52,8 @@ interface DropdownSectionProps<T> extends SectionProps<T> {
 const dropdownSectionStyles = tv({
   slots: {
     base: "first:-mt-[5px] xss3 after:content-[''] after:block after:h-[5px]",
-    header: 'text-sm font-medium text-muted-fg bg-tertiary px-4 py-2 truncate min-w-[--trigger-width] sticky -top-[5px] backdrop-blur -mt-px -mx-1 z-10 supports-[-moz-appearance:none]:bg-tertiary border-y [&+*]:mt-1'
+    header:
+      'text-sm font-medium text-muted-fg bg-tertiary px-4 py-2 truncate min-w-[--trigger-width] sticky -top-[5px] backdrop-blur -mt-px -mx-1 z-10 supports-[-moz-appearance:none]:bg-tertiary border-y [&+*]:mt-1'
   }
 })
 
@@ -54,13 +69,24 @@ const DropdownSection = <T extends object>({ className, ...props }: DropdownSect
 }
 
 const DropdownItem = ({ className, ...props }: ListBoxItemProps) => {
-  const textValue = props.textValue || (typeof props.children === 'string' ? props.children : undefined)
+  const textValue =
+    props.textValue || (typeof props.children === 'string' ? props.children : undefined)
   return (
-    <ListBoxItemPrimitive textValue={textValue} className={composeRenderProps(className, (className, renderProps) => dropdownItemStyles({ ...renderProps, className }))} {...props}>
+    <ListBoxItemPrimitive
+      textValue={textValue}
+      className={composeRenderProps(className, (className, renderProps) =>
+        dropdownItemStyles({ ...renderProps, className })
+      )}
+      {...props}
+    >
       {composeRenderProps(props.children, (children, { isSelected }) => (
         <>
-          <span className="flex flex-1 items-center gap-2 truncate font-normal group-selected:font-medium">{children}</span>
-          <span className="flex w-5 items-center">{isSelected && <IconCheck className="h-4 w-4" />}</span>
+          <span className="flex flex-1 items-center gap-2 truncate font-normal group-selected:font-medium">
+            {children}
+          </span>
+          <span className="flex w-5 items-center">
+            {isSelected && <IconCheck className="h-4 w-4" />}
+          </span>
         </>
       ))}
     </ListBoxItemPrimitive>
@@ -86,4 +112,10 @@ const DropdownItemDetails = ({ label, description, ...props }: DropdownItemSlot)
 }
 
 // Note: This is not exposed component, but it's used in other components to render dropdowns.
-export { DropdownItem, dropdownItemStyles, DropdownItemDetails, DropdownSection, type DropdownSectionProps }
+export {
+  DropdownItem,
+  dropdownItemStyles,
+  DropdownItemDetails,
+  DropdownSection,
+  type DropdownSectionProps
+}

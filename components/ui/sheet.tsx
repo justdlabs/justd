@@ -3,10 +3,27 @@
 import * as React from 'react'
 
 import type { Modal } from 'react-aria-components'
-import { Button, composeRenderProps, type DialogProps, DialogTrigger as DialogTriggerPrimitive, Modal as ModalPrimitive, ModalOverlay, type ModalOverlayProps as ModalOverlayPrimitiveProps } from 'react-aria-components'
+import {
+  Button,
+  composeRenderProps,
+  type DialogProps,
+  DialogTrigger as DialogTriggerPrimitive,
+  Modal as ModalPrimitive,
+  ModalOverlay,
+  type ModalOverlayProps as ModalOverlayPrimitiveProps
+} from 'react-aria-components'
 import { tv, type VariantProps } from 'tailwind-variants'
 
-import { Dialog, DialogBody, DialogClose, DialogCloseIndicator, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from './dialog'
+import {
+  Dialog,
+  DialogBody,
+  DialogClose,
+  DialogCloseIndicator,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle
+} from './dialog'
 
 const Sheet = DialogTriggerPrimitive
 const SheetTrigger = Button
@@ -18,7 +35,9 @@ const SheetBody = DialogBody
 const SheetClose = DialogClose
 
 const sheetOverlayStyles = tv({
-  base: ['fixed top-0 left-0 w-full h-[--visual-viewport-height] isolate z-50 flex items-center justify-center p-4'],
+  base: [
+    'fixed top-0 left-0 w-full h-[--visual-viewport-height] isolate z-50 flex items-center justify-center p-4'
+  ],
   variants: {
     isBlurred: {
       true: 'backdrop-blur',
@@ -38,7 +57,14 @@ const generateCompoundVariants = (sides: Array<Sides>) => {
   return sides.map((side) => ({
     side,
     isStack: true,
-    className: side === 'top' ? 'top-2 inset-x-2 rounded-lg border' : side === 'bottom' ? 'bottom-2 inset-x-2 rounded-lg border' : side === 'left' ? 'left-2 inset-y-2 rounded-lg border' : 'right-2 inset-y-2 rounded-lg border'
+    className:
+      side === 'top'
+        ? 'top-2 inset-x-2 rounded-lg border'
+        : side === 'bottom'
+          ? 'bottom-2 inset-x-2 rounded-lg border'
+          : side === 'left'
+            ? 'left-2 inset-y-2 rounded-lg border'
+            : 'right-2 inset-y-2 rounded-lg border'
   }))
 }
 
@@ -53,9 +79,11 @@ const sheetStyles = tv({
     },
     side: {
       top: 'inset-x-0 top-0 rounded-b-2xl border-b entering:slide-in-from-top exiting:slide-out-to-top',
-      bottom: 'inset-x-0 bottom-0 rounded-t-2xl border-t entering:slide-in-from-bottom exiting:slide-out-to-bottom',
+      bottom:
+        'inset-x-0 bottom-0 rounded-t-2xl border-t entering:slide-in-from-bottom exiting:slide-out-to-bottom',
       left: 'inset-y-0 left-0 h-auto w-72 sm:w-3/4 overflow-y-auto border-r entering:slide-in-from-left exiting:slide-out-to-left sm:max-w-xs',
-      right: 'inset-y-0 right-0 h-auto w-72 sm:w-3/4 overflow-y-auto border-l entering:slide-in-from-right exiting:slide-out-to-right sm:max-w-xs'
+      right:
+        'inset-y-0 right-0 h-auto w-72 sm:w-3/4 overflow-y-auto border-l entering:slide-in-from-right exiting:slide-out-to-right sm:max-w-xs'
     },
     isStack: {
       true: '',
@@ -65,7 +93,10 @@ const sheetStyles = tv({
   compoundVariants: generateCompoundVariants(['top', 'bottom', 'left', 'right'])
 })
 
-interface SheetContentProps extends Omit<React.ComponentProps<typeof Modal>, 'children'>, Omit<ModalOverlayPrimitiveProps, 'className'>, VariantProps<typeof sheetOverlayStyles> {
+interface SheetContentProps
+  extends Omit<React.ComponentProps<typeof Modal>, 'children'>,
+    Omit<ModalOverlayPrimitiveProps, 'className'>,
+    VariantProps<typeof sheetOverlayStyles> {
   role?: DialogProps['role']
   closeButton?: boolean
   isBlurred?: boolean
@@ -77,7 +108,16 @@ interface SheetContentProps extends Omit<React.ComponentProps<typeof Modal>, 'ch
   }
 }
 
-const SheetContent = ({ classNames, isBlurred = false, isDismissable = true, side = 'right', role = 'dialog', closeButton = true, isStack = true, ...props }: SheetContentProps) => {
+const SheetContent = ({
+  classNames,
+  isBlurred = false,
+  isDismissable = true,
+  side = 'right',
+  role = 'dialog',
+  closeButton = true,
+  isStack = true,
+  ...props
+}: SheetContentProps) => {
   const _isDismissable = role === 'alertdialog' ? false : isDismissable
   return (
     <ModalOverlay
@@ -106,7 +146,13 @@ const SheetContent = ({ classNames, isBlurred = false, isDismissable = true, sid
           {(values) => (
             <>
               {props.children}
-              {closeButton && <DialogCloseIndicator className="top-2.5 right-2.5" close={values.close} isDismissable={_isDismissable} />}
+              {closeButton && (
+                <DialogCloseIndicator
+                  className="top-2.5 right-2.5"
+                  close={values.close}
+                  isDismissable={_isDismissable}
+                />
+              )}
             </>
           )}
         </Dialog>
@@ -115,4 +161,14 @@ const SheetContent = ({ classNames, isBlurred = false, isDismissable = true, sid
   )
 }
 
-export { Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetBody, SheetTitle, SheetTrigger }
+export {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetBody,
+  SheetTitle,
+  SheetTrigger
+}

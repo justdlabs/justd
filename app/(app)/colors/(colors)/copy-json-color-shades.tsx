@@ -7,7 +7,15 @@ import { Heading } from 'react-aria-components'
 import { Button, ColorSwatch, Modal, ModalContent } from 'ui'
 import { copyToClipboard } from 'usemods'
 
-export function CopyJsonColorShades({ colorScales, name, color }: { name: string; color: string; colorScales: any }) {
+export function CopyJsonColorShades({
+  colorScales,
+  name,
+  color
+}: {
+  name: string
+  color: string
+  colorScales: any
+}) {
   const [open, setOpen] = useState(false)
   const [colorName, setColorName] = useState<string>(name || 'unknown')
   const [isCopied, setIsCopied] = useState(false)
@@ -17,7 +25,9 @@ export function CopyJsonColorShades({ colorScales, name, color }: { name: string
     setOpen(true)
   }
 
-  const codeString = colorScales.map(({ shade, color }: any) => `'${shade}': '${color}'`).join(',\n  ')
+  const codeString = colorScales
+    .map(({ shade, color }: any) => `'${shade}': '${color}'`)
+    .join(',\n  ')
   const renderColorScaleAsCode = (colorScales: any, colorName: string) => {
     const formattedColorName = colorName.includes('-') ? `'${colorName}'` : colorName
     return `${formattedColorName}: {\n  ${codeString}\n}`
@@ -44,7 +54,13 @@ export function CopyJsonColorShades({ colorScales, name, color }: { name: string
           </div>
           <div className="p-2">
             <div className="absolute top-2.5 right-2.5">
-              <Button onPress={handleCopy} className="size-7 rounded-sm backdrop-blur-lg" aria-label="Copy json color scale" size="square-petite" appearance="outline">
+              <Button
+                onPress={handleCopy}
+                className="size-7 rounded-sm backdrop-blur-lg"
+                aria-label="Copy json color scale"
+                size="square-petite"
+                appearance="outline"
+              >
                 {isCopied ? <IconCheck /> : <IconDuplicate />}
               </Button>
             </div>

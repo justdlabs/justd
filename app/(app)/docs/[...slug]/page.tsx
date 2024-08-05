@@ -61,11 +61,19 @@ export default async function PostPage({ params }: DocPageProps) {
       {doc.title === 'Toast' && <Toast />}
       <div className="min-w-0 max-w-2xl flex-auto pt-16 pb-32 lg:max-w-none px-4 lg:pl-8 lg:pr-0 xl:px-16">
         <main className="prose prose-pre:p-0 prose-headings:mb-[0.3rem] prose-headings:scroll-mt-24 prose-blue dark:prose-invert max-w-[inherit]">
-          <Heading className="mb-2 font-semibold tracking-tighter sm:tracking-tight text-2xl sm:text-3xl">{doc.title}</Heading>
-          {doc.description ? <p className="text-xl mt-0 text-muted-foreground">{doc.description}</p> : null}
+          <Heading className="mb-2 font-semibold tracking-tighter sm:tracking-tight text-2xl sm:text-3xl">
+            {doc.title}
+          </Heading>
+          {doc.description ? (
+            <p className="text-xl mt-0 text-muted-foreground">{doc.description}</p>
+          ) : null}
 
           <div className="not-prose">
-            <div className="flex gap-2 mt-0">{doc.references && doc.references?.length > 0 && <DocRefs references={doc.references} />}</div>
+            <div className="flex gap-2 mt-0">
+              {doc.references && doc.references?.length > 0 && (
+                <DocRefs references={doc.references} />
+              )}
+            </div>
             <Separator className="my-4 lg:my-10 not-prose" />
           </div>
           <TableOfContents className="mt-8 block xl:hidden" items={doc.toc} />
@@ -76,7 +84,9 @@ export default async function PostPage({ params }: DocPageProps) {
               slug: doc.slug,
               order: doc.order
             }}
-            docs={docs.filter((doc) => doc.slug.startsWith('docs/components')).map((doc) => ({ order: doc.order, slug: doc.slug, title: doc.title }))}
+            docs={docs
+              .filter((doc) => doc.slug.startsWith('docs/components'))
+              .map((doc) => ({ order: doc.order, slug: doc.slug, title: doc.title }))}
           />
         </main>
       </div>

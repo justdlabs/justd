@@ -34,11 +34,19 @@ const choiceboxStyles = tv({
   }
 })
 
-interface ChoiceboxProps<T extends object> extends GridListProps<T>, VariantProps<typeof choiceboxStyles> {
+interface ChoiceboxProps<T extends object>
+  extends GridListProps<T>,
+    VariantProps<typeof choiceboxStyles> {
   className?: string
 }
 
-const Choicebox = <T extends object>({ columns, gap, className, selectionMode = 'multiple', ...props }: ChoiceboxProps<T>) => {
+const Choicebox = <T extends object>({
+  columns,
+  gap,
+  className,
+  selectionMode = 'multiple',
+  ...props
+}: ChoiceboxProps<T>) => {
   return (
     <GridList
       layout={columns === 1 ? 'stack' : 'grid'}
@@ -59,7 +67,11 @@ const choiceboxItemStyles = tv({
   variants: {
     isSelected: {
       false: 'hover:bg-secondary/50',
-      true: ['z-20 border-primary/50 bg-primary/5 dark:bg-primary/15', '[&_[slot=title]]:text-primary-600 dark:[&_[slot=title]]:text-primary-300', '[&_[slot=description]]:text-primary-600 dark:[&_[slot=description]]:text-primary-300']
+      true: [
+        'z-20 border-primary/50 bg-primary/5 dark:bg-primary/15',
+        '[&_[slot=title]]:text-primary-600 dark:[&_[slot=title]]:text-primary-300',
+        '[&_[slot=description]]:text-primary-600 dark:[&_[slot=description]]:text-primary-300'
+      ]
     },
     isDisabled: {
       true: 'z-10 cursor-default opacity-80 [&_[slot=title]]:text-muted-fg forced-colors:text-[GrayText]'
@@ -93,7 +105,11 @@ const ChoiceboxItem = ({ children, className, ...props }: ChoiceboxItemProps) =>
             </Label>
             {props.description && <Description>{props.description}</Description>}
           </div>
-          <>{values.selectionMode === 'multiple' && values.selectionBehavior === 'toggle' && <Checkbox slot="selection" />}</>
+          <>
+            {values.selectionMode === 'multiple' && values.selectionBehavior === 'toggle' && (
+              <Checkbox slot="selection" />
+            )}
+          </>
         </div>
       )}
     </GridListItem>

@@ -4,7 +4,16 @@ import React from 'react'
 
 import { IconBill, IconCube, IconGear, IconHome, IconNotes, IconShield } from '@irsyadadl/paranoid'
 import Link from 'next/link'
-import { Avatar, Button, CommandMenu, CommandMenuInput, CommandMenuItem, CommandMenuKeyboard, CommandMenuList, CommandMenuSection } from 'ui'
+import {
+  Avatar,
+  Button,
+  CommandMenu,
+  CommandMenuInput,
+  CommandMenuItem,
+  CommandMenuKeyboard,
+  CommandMenuList,
+  CommandMenuSection
+} from 'ui'
 
 export default function CommandMenuDemo() {
   const [isOpen, setIsOpen] = React.useState(false)

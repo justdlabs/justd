@@ -1,7 +1,29 @@
 'use client'
 
 import { IconDotsVertical, IconEye, IconHighlight, IconTrash } from '@irsyadadl/paranoid'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, Menu, MenuContent, MenuItem, MenuSeparator, MenuTrigger, Pagination, PaginationItem, PaginationList, PaginationSection, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from 'ui'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+  Menu,
+  MenuContent,
+  MenuItem,
+  MenuSeparator,
+  MenuTrigger,
+  Pagination,
+  PaginationItem,
+  PaginationList,
+  PaginationSection,
+  Table,
+  TableBody,
+  TableCell,
+  TableColumn,
+  TableHeader,
+  TableRow
+} from 'ui'
 
 export default function CardTableDemo() {
   return (

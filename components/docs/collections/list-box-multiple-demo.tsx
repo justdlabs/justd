@@ -9,7 +9,13 @@ export default function ListBoxControlledDemo() {
   const [selected, setSelected] = React.useState<Selection>(new Set(['2']))
   return (
     <>
-      <ListBox selectedKeys={selected} onSelectionChange={setSelected} items={fruits} aria-label="Fruits" selectionMode="multiple">
+      <ListBox
+        selectedKeys={selected}
+        onSelectionChange={setSelected}
+        items={fruits}
+        aria-label="Fruits"
+        selectionMode="multiple"
+      >
         {(fruit) => (
           <ListBoxItem id={fruit.id} textValue={fruit.name}>
             {fruit.name}
@@ -17,7 +23,11 @@ export default function ListBoxControlledDemo() {
         )}
       </ListBox>
 
-      {[...selected].length > 0 && <Description className="mt-4 block">Selected: {selected === 'all' ? 'All selected' : [...selected].join(', ')}</Description>}
+      {[...selected].length > 0 && (
+        <Description className="mt-4 block">
+          Selected: {selected === 'all' ? 'All selected' : [...selected].join(', ')}
+        </Description>
+      )}
     </>
   )
 }

@@ -22,9 +22,18 @@ const commandStyles = tv({
       '[&_[cmdk-item]]:py-2.5 [&_[cmdk-item]]:pl-2.5 [&_[cmdk-item]]:pr-4'
     ],
     list: 'overflow-y-auto lg:pb-0 max-h-[calc(100vh-35%)] pb-16 [&:not(:has(.xda32kfseccmd))]:p-2 [&:not(:has(.xda32kfseccmd))_.s3xsprt]:my-2 overflow-x-hidden md:max-h-[456px]',
-    input: ['flex w-full rounded-md bg-transparent text-base placeholder:text-muted-fg', 'focus:outline-none', 'disabled:opacity-50 disabled:cursor-not-allowed'],
-    section: ['xda32kfseccmd overflow-hidden py-2 px-2 text-fg', '[&_[cmdk-group-heading]]:select-none [&_[cmdk-group-heading]]:ml-[1px] [&_[cmdk-group-heading]]:py-2 [&_[cmdk-group-heading]]:text-[0.8rem] [&_[cmdk-group-heading]]:text-muted-fg'],
-    modalOverlay: ['fixed inset-0 max-h-[--visual-viewport-height] z-50 bg-black/60 entering:animate-in entering:fade-in-0 exiting:animate-in exiting:fade-out-0'],
+    input: [
+      'flex w-full rounded-md bg-transparent text-base placeholder:text-muted-fg',
+      'focus:outline-none',
+      'disabled:opacity-50 disabled:cursor-not-allowed'
+    ],
+    section: [
+      'xda32kfseccmd overflow-hidden py-2 px-2 text-fg',
+      '[&_[cmdk-group-heading]]:select-none [&_[cmdk-group-heading]]:ml-[1px] [&_[cmdk-group-heading]]:py-2 [&_[cmdk-group-heading]]:text-[0.8rem] [&_[cmdk-group-heading]]:text-muted-fg'
+    ],
+    modalOverlay: [
+      'fixed inset-0 max-h-[--visual-viewport-height] z-50 bg-black/60 entering:animate-in entering:fade-in-0 exiting:animate-in exiting:fade-out-0'
+    ],
     modal: [
       'fixed bottom-0 left-[50%] top-auto z-50 grid h-[calc(100vh-35%)] w-full max-w-full translate-x-[-50%] gap-4 overflow-hidden rounded-t-xl bg-background shadow-lg ring-1 ring-border sm:bottom-auto sm:top-[6rem] sm:h-auto sm:w-full sm:max-w-2xl sm:rounded-xl',
       'sm:entering:slide-in-from-bottom-auto entering:duration-300 entering:animate-in entering:fade-in-0 entering:slide-in-from-bottom-1/2 entering:slide-in-from-left-1/2 entering:[transition-timing-function:ease-out] sm:entering:duration-300 sm:entering:slide-in-from-top-[2rem]',
@@ -37,7 +46,8 @@ const commandStyles = tv({
     ],
     empty: 'py-6 text-center text-sm text-muted-fg x3tmpy',
     kbdKeyboard: 'lg:block hidden group-data-[selected=true]:opacity-60',
-    description: 'sm:inline hidden text-sm group-data-[selected=true]:text-primary-fg/70 text-muted-fg ml-auto',
+    description:
+      'sm:inline hidden text-sm group-data-[selected=true]:text-primary-fg/70 text-muted-fg ml-auto',
     item: [
       'group relative flex cursor-default select-none items-center rounded-lg py-2 text-sm outline-none',
       // selected
@@ -59,7 +69,19 @@ const commandStyles = tv({
   }
 })
 
-const { command, empty, section, list, item, closeButton, modal, input, modalOverlay, kbdKeyboard, description } = commandStyles()
+const {
+  command,
+  empty,
+  section,
+  list,
+  item,
+  closeButton,
+  modal,
+  input,
+  modalOverlay,
+  kbdKeyboard,
+  description
+} = commandStyles()
 
 interface CommandMenuContextProps {
   hideSearchIndicator?: boolean
@@ -76,7 +98,15 @@ interface CommandMenuProps extends ModalOverlayProps, CommandMenuContextProps {
   onValueChange?: (value: string) => void
 }
 
-const CommandMenu = ({ hideSearchIndicator = false, hideCloseButton = false, messageOnEmpty, value, onValueChange, children, ...props }: CommandMenuProps) => {
+const CommandMenu = ({
+  hideSearchIndicator = false,
+  hideCloseButton = false,
+  messageOnEmpty,
+  value,
+  onValueChange,
+  children,
+  ...props
+}: CommandMenuProps) => {
   const isDesktop = useMediaQuery('(min-width: 1024px)')
   return (
     <CommandMenuContext.Provider value={{ hideSearchIndicator, hideCloseButton, messageOnEmpty }}>
@@ -106,14 +136,23 @@ const CommandMenu = ({ hideSearchIndicator = false, hideCloseButton = false, mes
   )
 }
 
-interface CommandMenuInputProps extends React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input> {}
+interface CommandMenuInputProps
+  extends React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input> {}
 
-const CommandMenuInput = React.forwardRef<React.ElementRef<typeof CommandPrimitive.Input>, CommandMenuInputProps>(({ className, ...props }, ref) => {
+const CommandMenuInput = React.forwardRef<
+  React.ElementRef<typeof CommandPrimitive.Input>,
+  CommandMenuInputProps
+>(({ className, ...props }, ref) => {
   const { hideSearchIndicator } = React.useContext(CommandMenuContext)
   return (
     <div className="flex border-b items-center px-3">
       {!hideSearchIndicator && <IconSearch className="mr-2 size-5 shrink-0 opacity-50" />}
-      <CommandPrimitive.Input autoFocus ref={ref} className={input({ className: hideSearchIndicator ? 'pl-1' : className })} {...props} />
+      <CommandPrimitive.Input
+        autoFocus
+        ref={ref}
+        className={input({ className: hideSearchIndicator ? 'pl-1' : className })}
+        {...props}
+      />
     </div>
   )
 })
@@ -126,7 +165,11 @@ const CommandMenuList = ({ className, ...props }: CommandMenuListProps) => {
   const { messageOnEmpty } = React.useContext(CommandMenuContext)
   return (
     <CommandPrimitive.List className={list({ className })} {...props}>
-      {messageOnEmpty !== false && <CommandMenuEmpty>{typeof messageOnEmpty === 'string' ? messageOnEmpty : 'No results found.'}</CommandMenuEmpty>}
+      {messageOnEmpty !== false && (
+        <CommandMenuEmpty>
+          {typeof messageOnEmpty === 'string' ? messageOnEmpty : 'No results found.'}
+        </CommandMenuEmpty>
+      )}
       {props.children}
     </CommandPrimitive.List>
   )
@@ -166,13 +209,31 @@ interface CommandItemProps extends React.ComponentProps<typeof CommandPrimitive.
 }
 
 const CommandMenuItem = ({ isDanger, className, ...props }: CommandItemProps) => {
-  return <CommandPrimitive.Item data-danger={isDanger ? 'true' : undefined} className={item({ isDanger, className })} {...props} />
+  return (
+    <CommandPrimitive.Item
+      data-danger={isDanger ? 'true' : undefined}
+      className={item({ isDanger, className })}
+      {...props}
+    />
+  )
 }
 
 const CommandMenuDescription = ({ className, ...props }: TextProps) => {
   return <Text {...props} slot="description" className={description({ className })} />
 }
 
-const CommandMenuKeyboard = (props: KeyboardProps) => <Keyboard classNames={{ kbd: kbdKeyboard(), base: '-mr-2.5' }} {...props} />
+const CommandMenuKeyboard = (props: KeyboardProps) => (
+  <Keyboard classNames={{ kbd: kbdKeyboard(), base: '-mr-2.5' }} {...props} />
+)
 
-export { CommandMenuEmpty, CommandMenuInput, CommandMenuItem, CommandMenuKeyboard, CommandMenuList, CommandMenu, CommandMenuSection, CommandMenuSeparator, CommandMenuDescription }
+export {
+  CommandMenuEmpty,
+  CommandMenuInput,
+  CommandMenuItem,
+  CommandMenuKeyboard,
+  CommandMenuList,
+  CommandMenu,
+  CommandMenuSection,
+  CommandMenuSeparator,
+  CommandMenuDescription
+}

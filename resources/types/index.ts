@@ -10,4 +10,5 @@ export interface ColorItemProps {
   children: ColorShade[]
 }
 
-export type FormatOnlyForTailwindVariableType = (typeof formatOnlyForTailwindVariable)[number]['format']
+export type FormatOnlyForTailwindVariableType =
+  (typeof formatOnlyForTailwindVariable)[number]['format']

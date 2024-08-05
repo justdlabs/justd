@@ -26,9 +26,18 @@ interface AccordionProps extends AccordionContextType {
   children: React.ReactNode
 }
 
-const Accordion = ({ children, disabledKeys, hideIndicator, hideBorder, defaultExpandedKeys, ...props }: AccordionProps) => {
+const Accordion = ({
+  children,
+  disabledKeys,
+  hideIndicator,
+  hideBorder,
+  defaultExpandedKeys,
+  ...props
+}: AccordionProps) => {
   return (
-    <AccordionContext.Provider value={{ hideIndicator, defaultExpandedKeys, hideBorder, disabledKeys }}>
+    <AccordionContext.Provider
+      value={{ hideIndicator, defaultExpandedKeys, hideBorder, disabledKeys }}
+    >
       <div {...props}>{children}</div>
     </AccordionContext.Provider>
   )
@@ -67,7 +76,12 @@ const AccordionItem = ({ className, children, currentId }: AccordionItemProps) =
   const isLocked = disabledKeys?.includes(currentId as number)
   return (
     <AccordionItemContext.Provider value={{ setExpanded, isOpen, currentId }}>
-      <div data-slot="ai-31kxlae0321lsd" data-locked={isLocked ?? undefined} data-open={isOpen ?? undefined} className={accordionItemStyles({ className })}>
+      <div
+        data-slot="ai-31kxlae0321lsd"
+        data-locked={isLocked ?? undefined}
+        data-open={isOpen ?? undefined}
+        className={accordionItemStyles({ className })}
+      >
         {children}
       </div>
     </AccordionItemContext.Provider>
@@ -101,12 +115,15 @@ const AccordionContent = ({ className, children }: AccordionContentProps) => {
   )
 }
 
-interface AccordionTriggerProps extends Omit<ButtonProps & React.RefAttributes<HTMLButtonElement> & MotionProps, 'ref'> {
+interface AccordionTriggerProps
+  extends Omit<ButtonProps & React.RefAttributes<HTMLButtonElement> & MotionProps, 'ref'> {
   children: React.ReactNode
 }
 
 const accordionTriggerStyles = tv({
-  base: ['flex flex-1 rounded-lg text-muted-fg hover:text-fg [&>[data-slot=icon]]:size-6 items-center gap-x-2 pt-3 font-medium'],
+  base: [
+    'flex flex-1 rounded-lg text-muted-fg hover:text-fg [&>[data-slot=icon]]:size-6 items-center gap-x-2 pt-3 font-medium'
+  ],
   variants: {
     isFocused: {
       true: 'outline-none text-fg'
@@ -165,7 +182,14 @@ const AccordionTrigger = ({ className, children, ...props }: AccordionTriggerPro
       )}
     >
       {children}
-      {!hideIndicator && <IconChevronDown className={twMerge('ml-auto transition duration-300 group-disabled:rotate-0', isOpen ? 'rotate-180' : 'rotate-0')} />}
+      {!hideIndicator && (
+        <IconChevronDown
+          className={twMerge(
+            'ml-auto transition duration-300 group-disabled:rotate-0',
+            isOpen ? 'rotate-180' : 'rotate-0'
+          )}
+        />
+      )}
     </Button>
   )
 }

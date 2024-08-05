@@ -9,7 +9,8 @@ import { Container } from 'ui'
 
 export const metadata: Metadata = {
   title: 'Components / ' + siteConfig.name,
-  description: 'Over 50 accessible components, neatly grouped into sections. Guaranteed usability for all!',
+  description:
+    'Over 50 accessible components, neatly grouped into sections. Guaranteed usability for all!',
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? siteConfig.url),
   applicationName: siteConfig.name
 }

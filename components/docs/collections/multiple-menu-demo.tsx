@@ -11,7 +11,12 @@ export default function MultipleMenuDemo() {
     <>
       <Menu>
         <Button appearance="outline">Open</Button>
-        <MenuContent placement="bottom" selectionMode="multiple" selectedKeys={selected} onSelectionChange={setSelected}>
+        <MenuContent
+          placement="bottom"
+          selectionMode="multiple"
+          selectedKeys={selected}
+          onSelectionChange={setSelected}
+        >
           <MenuSection items={menuItems} title="Content Preferences">
             {(item) => (
               <MenuCheckboxItem id={item.slug} textValue={item.name}>
@@ -22,7 +27,11 @@ export default function MultipleMenuDemo() {
         </MenuContent>
       </Menu>
 
-      {[...selected].length > 0 && <Description className="mt-4 block">Selected: {selected === 'all' ? 'All selected' : [...selected].join(', ')}</Description>}
+      {[...selected].length > 0 && (
+        <Description className="mt-4 block">
+          Selected: {selected === 'all' ? 'All selected' : [...selected].join(', ')}
+        </Description>
+      )}
     </>
   )
 }

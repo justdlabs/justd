@@ -11,13 +11,25 @@ interface PlainCodeProps extends React.HTMLAttributes<HTMLDivElement> {
   withImportCopy?: boolean
 }
 
-export function PlainCode({ title, withImportCopy = false, lang = 'tsx', code, ...props }: PlainCodeProps) {
+export function PlainCode({
+  title,
+  withImportCopy = false,
+  lang = 'tsx',
+  code,
+  ...props
+}: PlainCodeProps) {
   const [isOpened, setIsOpened] = React.useState(false)
   return (
     <section className="my-4 not-prose">
       {title && <figcaption data-rehype-pretty-code-title="">{title}</figcaption>}
       <CodeCollapsibleRoot>
-        <CodeCollapsible isOpened={isOpened} onOpenChange={setIsOpened} withImportCopy={withImportCopy} lang={lang} code={code} />
+        <CodeCollapsible
+          isOpened={isOpened}
+          onOpenChange={setIsOpened}
+          withImportCopy={withImportCopy}
+          lang={lang}
+          code={code}
+        />
       </CodeCollapsibleRoot>
     </section>
   )

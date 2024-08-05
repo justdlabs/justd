@@ -13,5 +13,13 @@ export default function DateRangePickerTimeDemo() {
     start: today,
     end: tomorrowWeek
   })
-  return <DateRangePicker hideTimeZone label="Date time range" value={value} onChange={setValue} hourCycle={24} />
+  return (
+    <DateRangePicker
+      hideTimeZone
+      label="Date time range"
+      value={value}
+      onChange={setValue}
+      hourCycle={24}
+    />
+  )
 }

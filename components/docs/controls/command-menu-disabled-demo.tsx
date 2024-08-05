@@ -2,7 +2,15 @@
 
 import React from 'react'
 
-import { Button, CommandMenu, CommandMenuDescription, CommandMenuInput, CommandMenuItem, CommandMenuList, CommandMenuSection } from 'ui'
+import {
+  Button,
+  CommandMenu,
+  CommandMenuDescription,
+  CommandMenuInput,
+  CommandMenuItem,
+  CommandMenuList,
+  CommandMenuSection
+} from 'ui'
 
 export default function CommandMenuDisabledDemo() {
   const [isOpen, setIsOpen] = React.useState(false)

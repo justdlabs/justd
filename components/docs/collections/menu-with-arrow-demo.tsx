@@ -2,8 +2,24 @@
 
 import React from 'react'
 
-import { IconHashtag, IconHeadphones, IconLogout, IconPlus, IconSettings } from '@irsyadadl/paranoid'
-import { Avatar, Menu, MenuContent, MenuHeader, MenuItem, MenuKeyboard, MenuSection, MenuSeparator, MenuTrigger } from 'ui'
+import {
+  IconHashtag,
+  IconHeadphones,
+  IconLogout,
+  IconPlus,
+  IconSettings
+} from '@irsyadadl/paranoid'
+import {
+  Avatar,
+  Menu,
+  MenuContent,
+  MenuHeader,
+  MenuItem,
+  MenuKeyboard,
+  MenuSection,
+  MenuSeparator,
+  MenuTrigger
+} from 'ui'
 
 export default function MenuWithArrowDemo() {
   return (

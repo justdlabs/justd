@@ -3,7 +3,13 @@
 import * as React from 'react'
 
 import jsonPreviews from '@/components/docs/generated/previews.json'
-import { Code, CodeCollapsible, CodeCollapsibleRoot, CodeContainer, CodeExpandButton } from '@/components/docs/rehype/code'
+import {
+  Code,
+  CodeCollapsible,
+  CodeCollapsibleRoot,
+  CodeContainer,
+  CodeExpandButton
+} from '@/components/docs/rehype/code'
 import { Collapsible } from '@radix-ui/react-collapsible'
 import { Tab, TabList, TabPanel, Tabs } from 'ui'
 
@@ -26,7 +32,10 @@ export function SourceCode({ title, message, ext = 'tsx', toShow, ...props }: So
       if (componentData) {
         return {
           name: show,
-          code: componentData.raw.replace(/export default function \w+\(\) \{/g, 'export default function App() {')
+          code: componentData.raw.replace(
+            /export default function \w+\(\) \{/g,
+            'export default function App() {'
+          )
         }
       } else {
         console.error('Component not found:', show)
@@ -44,10 +53,18 @@ export function SourceCode({ title, message, ext = 'tsx', toShow, ...props }: So
   if (codeStrings.length === 1) {
     return (
       <section className="my-6 not-prose">
-        <p className="mb-4 -mt-2">{message ? message : 'And next, you can copy the code below and paste it into your dopest component folder.'}</p>
+        <p className="mb-4 -mt-2">
+          {message
+            ? message
+            : 'And next, you can copy the code below and paste it into your dopest component folder.'}
+        </p>
         {title && <figcaption data-rehype-pretty-code-title="">{title}</figcaption>}
         <CodeCollapsibleRoot>
-          <CodeCollapsible isOpened={isOpened[0]} onOpenChange={(open) => handleOpenChange(0, open)} code={codeStrings[0]?.code || ''} />
+          <CodeCollapsible
+            isOpened={isOpened[0]}
+            onOpenChange={(open) => handleOpenChange(0, open)}
+            code={codeStrings[0]?.code || ''}
+          />
         </CodeCollapsibleRoot>
       </section>
     )
@@ -55,7 +72,11 @@ export function SourceCode({ title, message, ext = 'tsx', toShow, ...props }: So
 
   return (
     <section className="my-6 not-prose">
-      <p className="mb-4 -mt-2">{toShow.length > 1 ? "All these components are tight, so you gotta use 'em all together." : 'And next, you can copy the code below and paste it into your dopest component folder.'}</p>
+      <p className="mb-4 -mt-2">
+        {toShow.length > 1
+          ? "All these components are tight, so you gotta use 'em all together."
+          : 'And next, you can copy the code below and paste it into your dopest component folder.'}
+      </p>
 
       <Tabs>
         <TabList className="overflow-x-auto no-scrollbar">
@@ -67,8 +88,16 @@ export function SourceCode({ title, message, ext = 'tsx', toShow, ...props }: So
         </TabList>
         {codeStrings.map((code, index) => (
           <TabPanel key={index} id={`tab-${index}`}>
-            <Collapsible open={isOpened[index]} onOpenChange={(open) => handleOpenChange(index, open)}>
-              <div className={'relative rounded-lg border border-zinc-800 bg-[#0e0e10] overflow-hidden'} {...props}>
+            <Collapsible
+              open={isOpened[index]}
+              onOpenChange={(open) => handleOpenChange(index, open)}
+            >
+              <div
+                className={
+                  'relative rounded-lg border border-zinc-800 bg-[#0e0e10] overflow-hidden'
+                }
+                {...props}
+              >
                 <CodeContainer isOpened={isOpened[index]}>
                   <Code code={code.code} />
                 </CodeContainer>

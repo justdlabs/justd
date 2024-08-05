@@ -17,7 +17,13 @@ export default function SelectControlledDemo() {
   const [movie, setMovie] = React.useState<Key>('')
   return (
     <>
-      <Select selectedKey={movie} onSelectionChange={setMovie} label="Movies" placeholder="Select a movie" items={movies}>
+      <Select
+        selectedKey={movie}
+        onSelectionChange={setMovie}
+        label="Movies"
+        placeholder="Select a movie"
+        items={movies}
+      >
         {(item) => (
           <SelectItem id={item.id} textValue={item.title}>
             {item.title}

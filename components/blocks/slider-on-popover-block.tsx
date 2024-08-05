@@ -8,7 +8,12 @@ export function SliderOnPopoverBlock() {
   const [lineHeight, setLineHeight] = React.useState<number[]>([1.5, 1.75])
   return (
     <Popover>
-      <Button aria-label="Slider on Popover" size="square-petite" appearance="outline" className="[&>[data-slot=icon]]:text-fg">
+      <Button
+        aria-label="Slider on Popover"
+        size="square-petite"
+        appearance="outline"
+        className="[&>[data-slot=icon]]:text-fg"
+      >
         <IconAdjustment />
       </Button>
       <PopoverContent>
@@ -20,7 +25,11 @@ export function SliderOnPopoverBlock() {
             </Description>
           </div>
           <div>
-            <Slider value={lineHeight} onChange={(v) => setLineHeight(v as number[])} label="Line Height" />
+            <Slider
+              value={lineHeight}
+              onChange={(v) => setLineHeight(v as number[])}
+              label="Line Height"
+            />
             <Description className="mt-2 block [&>strong]:text-fg">
               Current line height: <strong>{lineHeight ?? '-'}</strong>
             </Description>

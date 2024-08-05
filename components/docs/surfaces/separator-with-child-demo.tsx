@@ -14,8 +14,16 @@ export default function SeparatorWithChildDemo() {
       </Separator>
       <Separator>Or continue with</Separator>
       <Separator>
-        <Button onPress={() => setIsOpen(!isOpen)} appearance="outline" size="extra-small" shape="circle">
-          Show more <IconChevronDown className={`${isOpen ? 'rotate-180' : ''} size-4 transition-transform duration-200`} />
+        <Button
+          onPress={() => setIsOpen(!isOpen)}
+          appearance="outline"
+          size="extra-small"
+          shape="circle"
+        >
+          Show more{' '}
+          <IconChevronDown
+            className={`${isOpen ? 'rotate-180' : ''} size-4 transition-transform duration-200`}
+          />
         </Button>
       </Separator>
     </div>

@@ -4,7 +4,14 @@ import type { FC, SVGProps } from 'react'
 
 import { Logo } from '@/components/logo'
 import { extractAndFormat } from '@/resources/lib/utils'
-import { IconBell, IconBrandAdobe, IconBrandFramer, IconBrandGithub, IconBrandParanoid, IconCommandFill } from '@irsyadadl/paranoid'
+import {
+  IconBell,
+  IconBrandAdobe,
+  IconBrandFramer,
+  IconBrandGithub,
+  IconBrandParanoid,
+  IconCommandFill
+} from '@irsyadadl/paranoid'
 import { Menu, MenuItem } from 'react-aria-components'
 import { buttonStyles, cn } from 'ui'
 
@@ -88,7 +95,12 @@ export function DocRefs({ references }: any) {
 
 function IconEmblaCarousel() {
   return (
-    <svg data-slot="icon" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="-5 -5 160 160">
+    <svg
+      data-slot="icon"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlnsXlink="http://www.w3.org/1999/xlink"
+      viewBox="-5 -5 160 160"
+    >
       <defs>
         <linearGradient id="dark-theme-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
           <stop offset="0%" stopColor="#8ab4f8" />

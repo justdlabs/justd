@@ -3,7 +3,17 @@
 import { useId } from 'react'
 
 import { LayoutGroup, motion } from 'framer-motion'
-import { composeRenderProps, Tab as TabPrimitive, TabList as TabListPrimitive, type TabListProps, TabPanel as TabPanelPrimitive, type TabPanelProps, type TabProps, Tabs as TabsPrimitive, type TabsProps } from 'react-aria-components'
+import {
+  composeRenderProps,
+  Tab as TabPrimitive,
+  TabList as TabListPrimitive,
+  type TabListProps,
+  TabPanel as TabPanelPrimitive,
+  type TabPanelProps,
+  type TabProps,
+  Tabs as TabsPrimitive,
+  type TabsProps
+} from 'react-aria-components'
 import { twJoin } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
 
@@ -47,7 +57,12 @@ const TabList = <T extends object>(props: TabListProps<T>) => {
   const id = useId()
   return (
     <LayoutGroup id={id}>
-      <TabListPrimitive {...props} className={composeRenderProps(props.className, (className, renderProps) => tabListStyles({ ...renderProps, className }))} />
+      <TabListPrimitive
+        {...props}
+        className={composeRenderProps(props.className, (className, renderProps) =>
+          tabListStyles({ ...renderProps, className })
+        )}
+      />
     </LayoutGroup>
   )
 }
@@ -115,7 +130,14 @@ const tabPanelStyles = tv({
 })
 
 const TabPanel = (props: TabPanelProps) => {
-  return <TabPanelPrimitive {...props} className={composeRenderProps(props.className, (className, renderProps) => tabPanelStyles({ ...renderProps, className }))} />
+  return (
+    <TabPanelPrimitive
+      {...props}
+      className={composeRenderProps(props.className, (className, renderProps) =>
+        tabPanelStyles({ ...renderProps, className })
+      )}
+    />
+  )
 }
 
 export { Tab, TabList, TabPanel, Tabs }

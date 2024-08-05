@@ -4,7 +4,8 @@ import { useEffect, useState } from 'react'
 
 import { CopyButton, Menu, MenuContent, MenuItem } from 'ui'
 
-export const snippetClassName = 'not-prose relative flex items-center justify-between rounded-lg border bg-[#0e0e10] py-2.5 pl-3 pr-2.5 font-mono text-sm [&>svg]:text-zinc-400 [&>svg]:transition [&_svg]:shrink-0'
+export const snippetClassName =
+  'not-prose relative flex items-center justify-between rounded-lg border bg-[#0e0e10] py-2.5 pl-3 pr-2.5 font-mono text-sm [&>svg]:text-zinc-400 [&>svg]:transition [&_svg]:shrink-0'
 export interface DocSnippetProps extends React.HTMLAttributes<HTMLDivElement> {
   text: string
 }

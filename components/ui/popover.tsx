@@ -2,11 +2,30 @@
 
 import * as React from 'react'
 
-import { Button, composeRenderProps, Dialog, type DialogProps, DialogTrigger, Modal, OverlayArrow, Popover as PopoverPrimitive, PopoverContext, type PopoverProps as PopoverPrimitiveProps, useSlottedContext } from 'react-aria-components'
+import {
+  Button,
+  composeRenderProps,
+  Dialog,
+  type DialogProps,
+  DialogTrigger,
+  Modal,
+  OverlayArrow,
+  Popover as PopoverPrimitive,
+  PopoverContext,
+  type PopoverProps as PopoverPrimitiveProps,
+  useSlottedContext
+} from 'react-aria-components'
 import { tv, type VariantProps } from 'tailwind-variants'
 
 import type { DialogTitleProps } from './dialog'
-import { DialogBody, DialogClose, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from './dialog'
+import {
+  DialogBody,
+  DialogClose,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle
+} from './dialog'
 import { cn, useMediaQuery } from './primitive'
 
 const Popover = DialogTrigger
@@ -14,19 +33,31 @@ const PopoverTrigger = Button
 const PopoverClose = DialogClose
 const PopoverDescription = DialogDescription
 
-const PopoverTitle = ({ className, ...props }: DialogTitleProps) => <DialogTitle className={cn('leading-none', className)} {...props} />
+const PopoverTitle = ({ className, ...props }: DialogTitleProps) => (
+  <DialogTitle className={cn('leading-none', className)} {...props} />
+)
 
-const PopoverHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => <DialogHeader className={cn('p-0', className)} {...props} />
+const PopoverHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
+  <DialogHeader className={cn('p-0', className)} {...props} />
+)
 
-const PopoverFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => <DialogFooter className={cn('pt-4 pb-0', className)} {...props} />
+const PopoverFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
+  <DialogFooter className={cn('pt-4 pb-0', className)} {...props} />
+)
 
-const PopoverBody = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => <DialogBody className={cn('p-0', className)} {...props} />
+const PopoverBody = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
+  <DialogBody className={cn('p-0', className)} {...props} />
+)
 
 const popoverContentStyles = tv({
-  base: ['max-w-xs min-w-80 p-4 rounded-lg border bg-overlay bg-clip-padding text-overlay-fg shadow-lg dark:backdrop-blur-2xl dark:backdrop-saturate-200 lg:text-sm sm:max-w-3xl forced-colors:bg-[Canvas]'],
+  base: [
+    'max-w-xs min-w-80 p-4 rounded-lg border bg-overlay bg-clip-padding text-overlay-fg shadow-lg dark:backdrop-blur-2xl dark:backdrop-saturate-200 lg:text-sm sm:max-w-3xl forced-colors:bg-[Canvas]'
+  ],
   variants: {
     isEntering: {
-      true: ['duration-200 ease-out animate-in fade-in lg:placement-left:slide-in-from-right-1 lg:placement-right:slide-in-from-left-1 lg:placement-top:slide-in-from-bottom-1 lg:placement-bottom:slide-in-from-top-1']
+      true: [
+        'duration-200 ease-out animate-in fade-in lg:placement-left:slide-in-from-right-1 lg:placement-right:slide-in-from-left-1 lg:placement-top:slide-in-from-bottom-1 lg:placement-bottom:slide-in-from-top-1'
+      ]
     },
     isExiting: {
       true: 'duration-150 ease-in animate-out fade-out placement-left:slide-out-to-right-1 placement-right:slide-out-to-left-1 placement-top:slide-out-to-bottom-1 placement-bottom:slide-out-to-top-1'
@@ -42,7 +73,10 @@ const drawerStyles = tv({
   ]
 })
 
-interface PopoverProps extends Omit<DialogProps, 'children' | 'className' | 'style'>, Omit<PopoverPrimitiveProps, 'children' | 'className'>, Omit<VariantProps<typeof drawerStyles>, 'className'> {
+interface PopoverProps
+  extends Omit<DialogProps, 'children' | 'className' | 'style'>,
+    Omit<PopoverPrimitiveProps, 'children' | 'className'>,
+    Omit<VariantProps<typeof drawerStyles>, 'className'> {
   className?: string | DialogProps['className'] | PopoverPrimitiveProps['className']
   children: React.ReactNode
   showArrow?: boolean
@@ -72,7 +106,12 @@ const PopoverContent = ({ children, showArrow = true, className, ...props }: Pop
     >
       {showArrow && (
         <OverlayArrow className="group">
-          <svg width={12} height={12} viewBox="0 0 12 12" className="block fill-overlay stroke-border group-placement-left:-rotate-90 group-placement-right:rotate-90 group-placement-bottom:rotate-180 forced-colors:fill-[Canvas] forced-colors:stroke-[ButtonBorder]">
+          <svg
+            width={12}
+            height={12}
+            viewBox="0 0 12 12"
+            className="block fill-overlay stroke-border group-placement-left:-rotate-90 group-placement-right:rotate-90 group-placement-bottom:rotate-180 forced-colors:fill-[Canvas] forced-colors:stroke-[ButtonBorder]"
+          >
             <path d="M0 0 L6 6 L12 0" />
           </svg>
         </OverlayArrow>
@@ -100,4 +139,16 @@ const PopoverPicker = ({ children, className, ...props }: PopoverProps) => {
 
 const PopoverContentPrimitive = PopoverPrimitive
 
-export { Popover, PopoverBody, PopoverClose, PopoverContent, PopoverContentPrimitive, PopoverDescription, PopoverFooter, PopoverHeader, PopoverPicker, PopoverTitle, PopoverTrigger }
+export {
+  Popover,
+  PopoverBody,
+  PopoverClose,
+  PopoverContent,
+  PopoverContentPrimitive,
+  PopoverDescription,
+  PopoverFooter,
+  PopoverHeader,
+  PopoverPicker,
+  PopoverTitle,
+  PopoverTrigger
+}

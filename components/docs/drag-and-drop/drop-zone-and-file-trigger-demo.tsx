@@ -11,7 +11,9 @@ export default function DropZoneAndFileTriggerDemo() {
   const [droppedImage, setDroppedImage] = React.useState<string | undefined>(undefined)
 
   const onDropHandler = async (e: DropEvent) => {
-    const item = e.items.filter(isFileDropItem).find((item) => item.type === 'image/jpeg' || item.type === 'image/png')
+    const item = e.items
+      .filter(isFileDropItem)
+      .find((item) => item.type === 'image/jpeg' || item.type === 'image/png')
     if (item) {
       const file = await item.getFile()
       setDroppedImage(URL.createObjectURL(file))
@@ -29,7 +31,12 @@ export default function DropZoneAndFileTriggerDemo() {
     }
   }
   return (
-    <DropZone getDropOperation={(types) => (types.has('image/jpeg') || types.has('image/png') ? 'copy' : 'cancel')} onDrop={onDropHandler}>
+    <DropZone
+      getDropOperation={(types) =>
+        types.has('image/jpeg') || types.has('image/png') ? 'copy' : 'cancel'
+      }
+      onDrop={onDropHandler}
+    >
       {droppedImage ? (
         <img alt="" src={droppedImage} className="aspect-square size-full object-contain" />
       ) : (
@@ -38,7 +45,11 @@ export default function DropZoneAndFileTriggerDemo() {
             <IconGallery className="size-5" />
           </div>
           <div className="justify-center flex">
-            <FileTrigger acceptedFileTypes={['image/png', 'image/jpeg']} allowsMultiple={false} onSelect={onSelectHandler}>
+            <FileTrigger
+              acceptedFileTypes={['image/png', 'image/jpeg']}
+              allowsMultiple={false}
+              onSelect={onSelectHandler}
+            >
               Upload a file
             </FileTrigger>
           </div>

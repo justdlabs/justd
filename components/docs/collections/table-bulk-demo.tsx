@@ -3,14 +3,28 @@
 import React from 'react'
 
 import type { Selection } from 'react-aria-components'
-import { Card, Description, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from 'ui'
+import {
+  Card,
+  Description,
+  Table,
+  TableBody,
+  TableCell,
+  TableColumn,
+  TableHeader,
+  TableRow
+} from 'ui'
 
 export default function TableBulkDemo() {
   const [selectedKeys, setSelectedKeys] = React.useState<Selection>(new Set())
   return (
     <>
       <Card>
-        <Table aria-label="Books" selectionMode="multiple" selectedKeys={selectedKeys} onSelectionChange={setSelectedKeys}>
+        <Table
+          aria-label="Books"
+          selectionMode="multiple"
+          selectedKeys={selectedKeys}
+          onSelectionChange={setSelectedKeys}
+        >
           <TableHeader>
             <TableColumn>#</TableColumn>
             <TableColumn isRowHeader>Title</TableColumn>

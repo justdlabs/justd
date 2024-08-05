@@ -11,7 +11,9 @@ import { Button, snippetVariants } from 'ui'
 export function TakeCurrentUrl() {
   const [copied, setCopied] = React.useState(false)
   const pathname = usePathname()
-  const text = pathname.includes('/docs') ? 'https://justd.co/d/' + pathname.split('/').pop() : 'https://justd.co' + pathname
+  const text = pathname.includes('/docs')
+    ? 'https://justd.co/d/' + pathname.split('/').pop()
+    : 'https://justd.co' + pathname
   const handleCopy = async () => {
     if (navigator.clipboard && window.isSecureContext) {
       try {
@@ -32,14 +34,32 @@ export function TakeCurrentUrl() {
     }
   }
   return (
-    <Button appearance="outline" size="square-petite" className="[&_[data-slot=icon]]:text-fg" aria-label={'Copy ' + text + ' to clipboard'} onPress={handleCopy}>
+    <Button
+      appearance="outline"
+      size="square-petite"
+      className="[&_[data-slot=icon]]:text-fg"
+      aria-label={'Copy ' + text + ' to clipboard'}
+      onPress={handleCopy}
+    >
       <AnimatePresence mode="wait" initial={false}>
         {copied ? (
-          <motion.span key="checkmark" variants={snippetVariants} initial="hidden" animate="visible" exit="hidden">
+          <motion.span
+            key="checkmark"
+            variants={snippetVariants}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+          >
             <IconCheck />
           </motion.span>
         ) : (
-          <motion.span key="copy" variants={snippetVariants} initial="hidden" animate="visible" exit="hidden">
+          <motion.span
+            key="copy"
+            variants={snippetVariants}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+          >
             <IconDuplicate />
           </motion.span>
         )}

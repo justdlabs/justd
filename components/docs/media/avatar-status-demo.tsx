@@ -7,7 +7,12 @@ export default function AvatarStatusDemo() {
     <div className="flex flex-col gap-6">
       <div className="flex justify-center gap-2">
         <Avatar status="online" initials="IR" src="https://i.pravatar.cc/150?img=58" />
-        <Avatar shape="square" status="online" initials="IR" src="https://i.pravatar.cc/150?img=57" />
+        <Avatar
+          shape="square"
+          status="online"
+          initials="IR"
+          src="https://i.pravatar.cc/150?img=57"
+        />
       </div>
       <div className="flex justify-center gap-2">
         <Avatar status="online" initials="IR" src="https://i.pravatar.cc/150?img=59" />

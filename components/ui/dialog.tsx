@@ -3,7 +3,11 @@
 import * as React from 'react'
 
 import { IconX } from '@irsyadadl/paranoid'
-import { Dialog as DialogPrimitive, type DialogProps, OverlayTriggerStateContext } from 'react-aria-components'
+import {
+  Dialog as DialogPrimitive,
+  type DialogProps,
+  OverlayTriggerStateContext
+} from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
 import type { ButtonProps } from './button'
@@ -21,7 +25,10 @@ const dialogStyles = tv({
     header: 'relative flex flex-col pb-2.5 gap-y-0.5 pt-6',
     title: 'flex flex-1 items-center',
     description: 'text-sm text-muted-fg',
-    body: ['flex flex-1 flex-col gap-2 overflow-auto px-6', 'max-h-[calc(var(--visual-viewport-height)-var(--visual-viewport-vertical-padding)-var(--dialog-header-height,0px)-var(--dialog-footer-height,0px))]'],
+    body: [
+      'flex flex-1 flex-col gap-2 overflow-auto px-6',
+      'max-h-[calc(var(--visual-viewport-height)-var(--visual-viewport-vertical-padding)-var(--dialog-header-height,0px)-var(--dialog-footer-height,0px))]'
+    ],
     footer: 'mt-auto flex flex-col-reverse justify-between gap-3 pb-6 pt-4 sm:flex-row',
     closeIndicator: 'close absolute right-2 top-2 size-6 z-50'
   }
@@ -44,7 +51,10 @@ const DialogHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivEleme
 
     const observer = new ResizeObserver((entries) => {
       for (const entry of entries) {
-        header.parentElement?.style.setProperty('--dialog-header-height', `${entry.target.clientHeight}px`)
+        header.parentElement?.style.setProperty(
+          '--dialog-header-height',
+          `${entry.target.clientHeight}px`
+        )
       }
     })
 
@@ -65,11 +75,23 @@ interface DialogTitleProps extends HeadingProps {
   className?: string
 }
 
-const DialogTitle = ({ tracking = 'tight', level = 2, className, ...props }: DialogTitleProps) => <Heading slot="title" tracking={tracking} level={level} className={title({ className })} {...props} />
+const DialogTitle = ({ tracking = 'tight', level = 2, className, ...props }: DialogTitleProps) => (
+  <Heading
+    slot="title"
+    tracking={tracking}
+    level={level}
+    className={title({ className })}
+    {...props}
+  />
+)
 
-const DialogDescription = ({ className, ...props }: HeadingProps) => <p className={description({ className })} {...props} />
+const DialogDescription = ({ className, ...props }: HeadingProps) => (
+  <p className={description({ className })} {...props} />
+)
 
-const DialogBody = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => <div data-slot="dialog-body" className={body({ className })} {...props} />
+const DialogBody = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
+  <div data-slot="dialog-body" className={body({ className })} {...props} />
+)
 
 const DialogFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => {
   const footerRef = React.useRef<HTMLDivElement>(null)
@@ -83,7 +105,10 @@ const DialogFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivEleme
 
     const observer = new ResizeObserver((entries) => {
       for (const entry of entries) {
-        footer.parentElement?.style.setProperty('--dialog-footer-height', `${entry.target.clientHeight}px`)
+        footer.parentElement?.style.setProperty(
+          '--dialog-footer-height',
+          `${entry.target.clientHeight}px`
+        )
       }
     })
 
@@ -92,12 +117,16 @@ const DialogFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivEleme
       observer.unobserve(footer)
     }
   }, [])
-  return <div ref={footerRef} data-slot="dialog-footer" className={footer({ className })} {...props} />
+  return (
+    <div ref={footerRef} data-slot="dialog-footer" className={footer({ className })} {...props} />
+  )
 }
 
 const DialogClose = ({ className, ...props }: ButtonProps) => {
   const state = React.useContext(OverlayTriggerStateContext)!
-  return <Button className={className} appearance="outline" onPress={() => state.close()} {...props} />
+  return (
+    <Button className={className} appearance="outline" onPress={() => state.close()} {...props} />
+  )
 }
 
 interface CloseButtonIndicatorProps {
@@ -116,10 +145,28 @@ const DialogCloseIndicator = ({ className, ...props }: CloseButtonIndicatorProps
     }
   }, [isMobile])
   return props.isDismissable ? (
-    <Button ref={buttonRef} {...(isMobile ? { autoFocus: true } : {})} appearance="plain" size="square-petite" aria-label="Close" onPress={props.close} className={closeIndicator({ className })}>
+    <Button
+      ref={buttonRef}
+      {...(isMobile ? { autoFocus: true } : {})}
+      appearance="plain"
+      size="square-petite"
+      aria-label="Close"
+      onPress={props.close}
+      className={closeIndicator({ className })}
+    >
       <IconX className="size-4" />
     </Button>
   ) : null
 }
 
-export { Dialog, DialogHeader, DialogTitle, DialogDescription, DialogBody, DialogFooter, DialogClose, DialogCloseIndicator, type DialogTitleProps }
+export {
+  Dialog,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogBody,
+  DialogFooter,
+  DialogClose,
+  DialogCloseIndicator,
+  type DialogTitleProps
+}

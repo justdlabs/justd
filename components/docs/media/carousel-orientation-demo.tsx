@@ -2,7 +2,17 @@
 
 import * as React from 'react'
 
-import { Card, CardDescription, CardHeader, CardTitle, Carousel, CarouselButton, CarouselContent, CarouselHandler, CarouselItem } from 'ui'
+import {
+  Card,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+  Carousel,
+  CarouselButton,
+  CarouselContent,
+  CarouselHandler,
+  CarouselItem
+} from 'ui'
 
 export default function CarouselOrientationDemo() {
   return (

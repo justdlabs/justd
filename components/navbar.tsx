@@ -7,12 +7,47 @@ import { CommandPalette, type OpenCloseProps } from '@/components/command-palett
 import { TakeCurrentUrl } from '@/components/take-current-url'
 import { ThemeSwitcher } from '@/components/theme-switcher'
 import { siteConfig } from '@/resources/config/site'
-import { IconBrandAdobe, IconBrandD, IconBrandGithub, IconBrandParanoid, IconBrandTailwindcss, IconBrandX, IconChevronDown, IconColors, IconCube, IconDeviceDesktop, IconHamburger, IconHome, IconMoon, IconSearch, IconSun } from '@irsyadadl/paranoid'
+import {
+  IconBrandAdobe,
+  IconBrandD,
+  IconBrandGithub,
+  IconBrandParanoid,
+  IconBrandTailwindcss,
+  IconBrandX,
+  IconChevronDown,
+  IconColors,
+  IconCube,
+  IconDeviceDesktop,
+  IconHamburger,
+  IconHome,
+  IconMoon,
+  IconSearch,
+  IconSun
+} from '@irsyadadl/paranoid'
 import { LayoutGroup } from 'framer-motion'
 import { useTheme } from 'next-themes'
 import { usePathname } from 'next/navigation'
 import { Collection } from 'react-aria-components'
-import { Button, buttonStyles, cn, Link, Menu, MenuContent, MenuHeader, MenuItem, MenuKeyboard, MenuSection, MenuSeparator, Separator, Sheet, SheetBody, SheetContent, SheetHeader, SubmenuTrigger, useMediaQuery } from 'ui'
+import {
+  Button,
+  buttonStyles,
+  cn,
+  Link,
+  Menu,
+  MenuContent,
+  MenuHeader,
+  MenuItem,
+  MenuKeyboard,
+  MenuSection,
+  MenuSeparator,
+  Separator,
+  Sheet,
+  SheetBody,
+  SheetContent,
+  SheetHeader,
+  SubmenuTrigger,
+  useMediaQuery
+} from 'ui'
 
 import { NavLink } from './nav-item'
 
@@ -42,10 +77,22 @@ export function Navbar() {
                     <NavLink isNextLink isActive={pathname === '/'} href="/">
                       Home
                     </NavLink>
-                    <NavLink isNextLink isActive={pathname?.startsWith('/docs') && !pathname?.includes('/docs/components')} href="/docs/getting-started/introduction">
+                    <NavLink
+                      isNextLink
+                      isActive={
+                        pathname?.startsWith('/docs') && !pathname?.includes('/docs/components')
+                      }
+                      href="/docs/getting-started/introduction"
+                    >
                       Docs
                     </NavLink>
-                    <NavLink isNextLink isActive={pathname?.startsWith('/docs/components') || pathname === '/components'} href="/components">
+                    <NavLink
+                      isNextLink
+                      isActive={
+                        pathname?.startsWith('/docs/components') || pathname === '/components'
+                      }
+                      href="/components"
+                    >
                       Components
                     </NavLink>
                     <NavLink isNextLink isActive={pathname === '/colors'} href="/colors">
@@ -62,7 +109,13 @@ export function Navbar() {
 
                 <div className="flex items-center gap-x-1">
                   <>
-                    <Button onPress={() => setOpen((open: boolean) => !open)} size="small" appearance="outline" className="h-9" aria-label="Open command palette">
+                    <Button
+                      onPress={() => setOpen((open: boolean) => !open)}
+                      size="small"
+                      appearance="outline"
+                      className="h-9"
+                      aria-label="Open command palette"
+                    >
                       <IconSearch />
 
                       <span className="text-muted-fg">Search...</span>
@@ -136,10 +189,20 @@ export function ResponsiveAside({ open, setOpen }: OpenCloseProps) {
     <nav className="sm:hidden z-10 relative">
       {!isDesktop && <CommandPalette setOpen={setOpen} open={open} />}
       <div className={cn('flex items-center justify-between pl-4 pr-2 -mb-2 pt-2')}>
-        <Button aria-label="Open Menu" className="-ml-2 [&_[data-slot=icon]]:text-fg" appearance="outline" size="square-petite" onPress={() => setOpenAside((open) => !open)}>
+        <Button
+          aria-label="Open Menu"
+          className="-ml-2 [&_[data-slot=icon]]:text-fg"
+          appearance="outline"
+          size="square-petite"
+          onPress={() => setOpenAside((open) => !open)}
+        >
           <IconHamburger />
         </Button>
-        <Link className="focus:outline-none -mr-6 focus:ring-1 focus:ring-primary-500 rounded" href="/" aria-label="Logo">
+        <Link
+          className="focus:outline-none -mr-6 focus:ring-1 focus:ring-primary-500 rounded"
+          href="/"
+          aria-label="Logo"
+        >
           <IconBrandD className="size-6" />
         </Link>
         <div className="flex items-center gap-x-1">
@@ -218,7 +281,10 @@ export function NavbarDropdown() {
             <IconBrandParanoid />
             Icons
           </MenuItem>
-          <MenuItem href="https://react-spectrum.adobe.com/react-aria/components.html" target="_blank">
+          <MenuItem
+            href="https://react-spectrum.adobe.com/react-aria/components.html"
+            target="_blank"
+          >
             <IconBrandAdobe />
             RAC
           </MenuItem>
@@ -230,7 +296,13 @@ export function NavbarDropdown() {
         <MenuSeparator />
         <SubmenuTrigger>
           <MenuItem>
-            {theme === 'system' ? <IconDeviceDesktop /> : theme === 'dark' ? <IconMoon /> : <IconSun />}
+            {theme === 'system' ? (
+              <IconDeviceDesktop />
+            ) : theme === 'dark' ? (
+              <IconMoon />
+            ) : (
+              <IconSun />
+            )}
             <span>Switch Theme</span>
           </MenuItem>
           <MenuContent>

@@ -1,8 +1,31 @@
 'use client'
 
 import { CardBlock } from '@/components/blocks'
-import { IconBrandBluesky, IconBrandTelegram, IconBrandTwitter, IconHashtag, IconHeadphones, IconLogout, IconMail, IconMessage, IconPersonAdd, IconPlus, IconSettings } from '@irsyadadl/paranoid'
-import { Avatar, Menu, MenuContent, MenuHeader, MenuItem, MenuKeyboard, MenuSection, MenuSeparator, MenuTrigger, SubmenuTrigger } from 'ui'
+import {
+  IconBrandBluesky,
+  IconBrandTelegram,
+  IconBrandTwitter,
+  IconHashtag,
+  IconHeadphones,
+  IconLogout,
+  IconMail,
+  IconMessage,
+  IconPersonAdd,
+  IconPlus,
+  IconSettings
+} from '@irsyadadl/paranoid'
+import {
+  Avatar,
+  Menu,
+  MenuContent,
+  MenuHeader,
+  MenuItem,
+  MenuKeyboard,
+  MenuSection,
+  MenuSeparator,
+  MenuTrigger,
+  SubmenuTrigger
+} from 'ui'
 
 export function Menus() {
   return (

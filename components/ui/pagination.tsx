@@ -2,20 +2,43 @@
 
 import * as React from 'react'
 
-import { IconChevronLgLeft, IconChevronLgRight, IconChevronsLgLeft, IconChevronsLgRight, IconDotsHorizontal } from '@irsyadadl/paranoid'
+import {
+  IconChevronLgLeft,
+  IconChevronLgRight,
+  IconChevronsLgLeft,
+  IconChevronsLgRight,
+  IconDotsHorizontal
+} from '@irsyadadl/paranoid'
 import type { ListBoxItemProps, ListBoxProps, SectionProps } from 'react-aria-components'
 import { ListBox, ListBoxItem, Section, Separator } from 'react-aria-components'
 
 import { buttonStyles } from './button'
 import { cn } from './primitive'
 
-const Pagination = ({ className, ...props }: React.ComponentProps<'nav'>) => <nav role="navigation" aria-label="pagination" className={cn('mx-auto flex w-full justify-center gap-1', className)} {...props} />
+const Pagination = ({ className, ...props }: React.ComponentProps<'nav'>) => (
+  <nav
+    role="navigation"
+    aria-label="pagination"
+    className={cn('mx-auto flex w-full justify-center gap-1', className)}
+    {...props}
+  />
+)
 
-const PaginationSection = <T extends object>({ className, ...props }: SectionProps<T>) => <Section {...props} className={cn('flex h-9 gap-1', className)} />
+const PaginationSection = <T extends object>({ className, ...props }: SectionProps<T>) => (
+  <Section {...props} className={cn('flex h-9 gap-1', className)} />
+)
 
 const PaginationList = <T extends object>({ className, ...props }: ListBoxProps<T>) => {
   const ariaLabel = props['aria-label'] || 'Pagination'
-  return <ListBox orientation="horizontal" aria-label={ariaLabel} layout="grid" className={cn('flex flex-row items-center gap-1', className)} {...props} />
+  return (
+    <ListBox
+      orientation="horizontal"
+      aria-label={ariaLabel}
+      layout="grid"
+      className={cn('flex flex-row items-center gap-1', className)}
+      {...props}
+    />
+  )
 }
 
 const renderListItem = (
@@ -31,7 +54,16 @@ const renderListItem = (
 interface PaginationItemProps extends ListBoxItemProps {
   children?: React.ReactNode
   className?: string
-  intent?: 'primary' | 'secondary' | 'danger' | 'warning' | 'info' | 'light/dark' | 'success' | 'light' | 'dark'
+  intent?:
+    | 'primary'
+    | 'secondary'
+    | 'danger'
+    | 'warning'
+    | 'info'
+    | 'light/dark'
+    | 'success'
+    | 'light'
+    | 'dark'
   size?: 'medium' | 'large' | 'square-petite' | 'extra-small' | 'small'
   shape?: 'square' | 'circle'
   appearance?: 'solid' | 'outline' | 'plain'
@@ -39,8 +71,23 @@ interface PaginationItemProps extends ListBoxItemProps {
   role?: 'label' | 'separator' | 'ellipsis' | 'default' | 'last' | 'first' | 'previous' | 'next'
 }
 
-const PaginationItem = ({ role = 'default', size = 'square-petite', appearance = 'outline', intent, shape = 'square', className, isCurrent, children, ...props }: PaginationItemProps) => {
-  const textValue = typeof children === 'string' ? children : typeof children === 'number' ? children.toString() : undefined
+const PaginationItem = ({
+  role = 'default',
+  size = 'square-petite',
+  appearance = 'outline',
+  intent,
+  shape = 'square',
+  className,
+  isCurrent,
+  children,
+  ...props
+}: PaginationItemProps) => {
+  const textValue =
+    typeof children === 'string'
+      ? children
+      : typeof children === 'number'
+        ? children.toString()
+        : undefined
 
   const renderPaginationIndicator = (indicator: React.ReactNode) =>
     renderListItem(
@@ -52,7 +99,8 @@ const PaginationItem = ({ role = 'default', size = 'square-petite', appearance =
           buttonStyles({
             appearance: 'outline',
             size: 'square-petite',
-            className: 'focus-visible:border-primary focus-visible:bg-primary/10 dark:focus-visible:text-primary-100 dark:[&>[data-slot=icon]]:text-primary-100 focus-visible:text-primary-900 [&>[data-slot=icon]]:text-primary-960 focus-visible:ring-4 focus-visible:ring-primary/20'
+            className:
+              'focus-visible:border-primary focus-visible:bg-primary/10 dark:focus-visible:text-primary-100 dark:[&>[data-slot=icon]]:text-primary-100 focus-visible:text-primary-900 [&>[data-slot=icon]]:text-primary-960 focus-visible:ring-4 focus-visible:ring-primary/20'
           }),
           className
         ),
@@ -78,7 +126,10 @@ const PaginationItem = ({ role = 'default', size = 'square-petite', appearance =
           className: 'h-9 grid place-content-center',
           ...props
         },
-        <Separator orientation="vertical" className="h-5 w-[1.5px] bg-zinc-300 dark:bg-zinc-700 rotate-[14deg] shrink-0" />
+        <Separator
+          orientation="vertical"
+          className="h-5 w-[1.5px] bg-zinc-300 dark:bg-zinc-700 rotate-[14deg] shrink-0"
+        />
       )
     case 'ellipsis':
       return renderListItem(

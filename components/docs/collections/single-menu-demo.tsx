@@ -36,7 +36,14 @@ export default function SingleMenuDemo() {
   return (
     <Menu>
       <Button appearance="outline">Placement</Button>
-      <MenuContent placement={Array.from(selected)[0] as Placement} selectionMode="single" selectedKeys={selected} onSelectionChange={setSelected} items={placements} className="max-h-72 min-w-52">
+      <MenuContent
+        placement={Array.from(selected)[0] as Placement}
+        selectionMode="single"
+        selectedKeys={selected}
+        onSelectionChange={setSelected}
+        items={placements}
+        className="max-h-72 min-w-52"
+      >
         {(item) => <MenuRadioItem id={item.name}>{item.name}</MenuRadioItem>}
       </MenuContent>
     </Menu>

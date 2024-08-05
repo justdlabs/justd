@@ -17,12 +17,14 @@ const separatorStyles = tv({
     {
       children: true,
       orientation: 'vertical',
-      className: 'mx-2 flex flex-col items-center before:border-l before:flex-1 before:mb-2 after:border-r after:flex-1 after:mt-2'
+      className:
+        'mx-2 flex flex-col items-center before:border-l before:flex-1 before:mb-2 after:border-r after:flex-1 after:mt-2'
     },
     {
       children: true,
       orientation: 'horizontal',
-      className: 'self-stretch my-2 flex items-center before:border-t before:flex-1 before:mr-2 after:border-t after:flex-1 after:ml-2'
+      className:
+        'self-stretch my-2 flex items-center before:border-t before:flex-1 before:mr-2 after:border-t after:flex-1 after:ml-2'
     },
     {
       children: false,
@@ -41,12 +43,19 @@ const separatorStyles = tv({
   }
 })
 
-interface SeparatorProps extends Omit<SeparatorPrimitiveProps, 'slot'>, Omit<React.HTMLAttributes<HTMLDivElement>, 'slot'> {
+interface SeparatorProps
+  extends Omit<SeparatorPrimitiveProps, 'slot'>,
+    Omit<React.HTMLAttributes<HTMLDivElement>, 'slot'> {
   children?: React.ReactNode
   slot?: string // Ensure this matches HTML standard if it's intended for slotting
 }
 
-const Separator = ({ orientation = 'horizontal', className, children, ...props }: SeparatorProps) => {
+const Separator = ({
+  orientation = 'horizontal',
+  className,
+  children,
+  ...props
+}: SeparatorProps) => {
   const { separatorProps } = useSeparator({ orientation })
   return (
     <div

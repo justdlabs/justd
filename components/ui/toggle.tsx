@@ -9,15 +9,20 @@ import { focusButtonStyles } from './primitive'
 
 const toggleStyles = tv({
   extend: focusButtonStyles,
-  base: ['inline-flex items-center bg-transparent justify-center border border-transparent rounded-lg text-sm font-medium ring-offset-background transition-colors', 'hover:bg-muted hover:text-muted-fg'],
+  base: [
+    'inline-flex items-center bg-transparent justify-center border border-transparent rounded-lg text-sm font-medium ring-offset-background transition-colors',
+    'hover:bg-muted hover:text-muted-fg'
+  ],
   variants: {
     isDisabled: {
       true: 'opacity-50 cursor-default forced-colors:border-[GrayText]'
     },
     appearance: {
       plain: 'selected:bg-secondary selected:text-secondary-fg',
-      solid: 'bg-white border-border hover:border-primary selected:border-primary hover:bg-primary hover:text-primary-fg text-zinc-900 selected:bg-primary selected:text-primary-fg',
-      outline: 'border-border selected:bg-secondary selected:backdrop-blur-sm selected:text-secondary-fg hover:bg-secondary hover:text-secondary-fg'
+      solid:
+        'bg-white border-border hover:border-primary selected:border-primary hover:bg-primary hover:text-primary-fg text-zinc-900 selected:bg-primary selected:text-primary-fg',
+      outline:
+        'border-border selected:bg-secondary selected:backdrop-blur-sm selected:text-secondary-fg hover:bg-secondary hover:text-secondary-fg'
     },
     size: {
       medium: 'h-10 px-3',

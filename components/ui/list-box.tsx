@@ -3,7 +3,13 @@
 import * as React from 'react'
 
 import { IconHamburger } from '@irsyadadl/paranoid'
-import { composeRenderProps, ListBox as ListBoxPrimitive, ListBoxItem as ListBoxItemPrimitive, type ListBoxItemProps as ListBoxItemPrimitiveProps, type ListBoxProps as ListBoxPrimitiveProps } from 'react-aria-components'
+import {
+  composeRenderProps,
+  ListBox as ListBoxPrimitive,
+  ListBoxItem as ListBoxItemPrimitive,
+  type ListBoxItemProps as ListBoxItemPrimitiveProps,
+  type ListBoxProps as ListBoxPrimitiveProps
+} from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
 import { DropdownItemDetails, DropdownSection } from './dropdown'
@@ -59,8 +65,19 @@ const ListBoxItem = <T extends object>({ children, className, ...props }: ListBo
       {(values) => (
         <div className="flex items-center gap-2">
           <>
-            {values.allowsDragging && <IconHamburger className={cn('size-4 shrink-0 text-muted-fg transition', values.isFocused && 'text-fg', values.isDragging && 'text-fg', values.isSelected && 'text-primary-fg/70')} />}
-            <div className="flex flex-col">{typeof children === 'function' ? children(values) : children}</div>
+            {values.allowsDragging && (
+              <IconHamburger
+                className={cn(
+                  'size-4 shrink-0 text-muted-fg transition',
+                  values.isFocused && 'text-fg',
+                  values.isDragging && 'text-fg',
+                  values.isSelected && 'text-primary-fg/70'
+                )}
+              />
+            )}
+            <div className="flex flex-col">
+              {typeof children === 'function' ? children(values) : children}
+            </div>
           </>
         </div>
       )}
@@ -74,7 +91,12 @@ const ListBoxItemDetails = DropdownItemDetails
 interface ListBoxPickerProps<T> extends ListBoxProps<T> {}
 
 const ListBoxPicker = <T extends object>({ className, ...props }: ListBoxPickerProps<T>) => {
-  return <ListBoxPrimitive className={cn('max-h-72 overflow-auto p-1 outline-none', className)} {...props} />
+  return (
+    <ListBoxPrimitive
+      className={cn('max-h-72 overflow-auto p-1 outline-none', className)}
+      {...props}
+    />
+  )
 }
 
 export { ListBox, listBoxStyles, ListBoxItem, ListBoxPicker, ListBoxSection, ListBoxItemDetails }
