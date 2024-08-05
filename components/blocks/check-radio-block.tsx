@@ -13,11 +13,7 @@ export function CheckRadioBlock() {
         <Radio value="highSecurity" description="Set security settings to high.">
           High Security
         </Radio>
-        <CheckboxGroup
-          defaultValue={['encryption']}
-          className="ml-6"
-          isDisabled={selectedRadio !== 'highSecurity'}
-        >
+        <CheckboxGroup defaultValue={['encryption']} className="ml-6" isDisabled={selectedRadio !== 'highSecurity'}>
           <Checkbox value="encryption" description="Enable encryption." isReadOnly>
             Encryption
           </Checkbox>

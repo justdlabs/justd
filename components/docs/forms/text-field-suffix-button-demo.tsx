@@ -3,17 +3,7 @@
 import React from 'react'
 
 import { IconPlus } from '@irsyadadl/paranoid'
-import {
-  Button,
-  ModalBody,
-  ModalClose,
-  ModalContent,
-  ModalDescription,
-  ModalFooter,
-  ModalHeader,
-  ModalTitle,
-  TextField
-} from 'ui'
+import { Button, ModalBody, ModalClose, ModalContent, ModalDescription, ModalFooter, ModalHeader, ModalTitle, TextField } from 'ui'
 
 export default function TextFieldSuffixButtonDemo() {
   const [open, setOpen] = React.useState(false)

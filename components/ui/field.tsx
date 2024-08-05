@@ -2,19 +2,7 @@
 
 import * as React from 'react'
 
-import {
-  composeRenderProps,
-  FieldError as FieldErrorPrimitive,
-  type FieldErrorProps,
-  Group,
-  type GroupProps,
-  Input as InputPrimitive,
-  type InputProps,
-  Label as LabelPrimitive,
-  type LabelProps,
-  Text,
-  type TextProps
-} from 'react-aria-components'
+import { composeRenderProps, FieldError as FieldErrorPrimitive, type FieldErrorProps, Group, type GroupProps, Input as InputPrimitive, type InputProps, Label as LabelPrimitive, type LabelProps, Text, type TextProps } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
 import { ctr } from './primitive'
@@ -45,9 +33,7 @@ const fieldStyles = tv({
     description: 'text-pretty text-base/6 text-muted-fg sm:text-sm/6',
     label: 'w-fit cursor-default font-medium text-secondary-fg text-sm',
     fieldError: 'text-sm text-danger forced-colors:text-[Mark]',
-    input: [
-      'w-full min-w-0 bg-transparent p-2 text-base text-fg placeholder-muted-fg focus:outline-none lg:text-sm'
-    ]
+    input: ['w-full min-w-0 bg-transparent p-2 text-base text-fg placeholder-muted-fg focus:outline-none lg:text-sm']
   }
 })
 
@@ -76,14 +62,7 @@ const fieldGroupStyles = tv({
 })
 
 const FieldGroup = (props: GroupProps) => {
-  return (
-    <Group
-      {...props}
-      className={composeRenderProps(props.className, (className, renderProps) =>
-        fieldGroupStyles({ ...renderProps, className })
-      )}
-    />
-  )
+  return <Group {...props} className={composeRenderProps(props.className, (className, renderProps) => fieldGroupStyles({ ...renderProps, className }))} />
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
@@ -91,14 +70,4 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
 })
 Input.displayName = 'Input'
 
-export {
-  Description,
-  fieldBorderStyles,
-  FieldError,
-  FieldGroup,
-  fieldGroupPrefixStyles,
-  fieldGroupStyles,
-  Input,
-  InputPrimitive,
-  Label
-}
+export { Description, fieldBorderStyles, FieldError, FieldGroup, fieldGroupPrefixStyles, fieldGroupStyles, Input, InputPrimitive, Label }

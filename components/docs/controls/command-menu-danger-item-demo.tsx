@@ -2,14 +2,7 @@
 
 import React from 'react'
 
-import {
-  Button,
-  CommandMenu,
-  CommandMenuInput,
-  CommandMenuItem,
-  CommandMenuList,
-  CommandMenuSection
-} from 'ui'
+import { Button, CommandMenu, CommandMenuInput, CommandMenuItem, CommandMenuList, CommandMenuSection } from 'ui'
 
 export default function CommandMenuDangerItemDemo() {
   const [isOpen, setIsOpen] = React.useState(false)

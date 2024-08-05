@@ -10,9 +10,7 @@ export function Footer() {
     <footer className="px-4 lg:[&_p]:mt-1 [&_strong]:font-medium [&_a]:font-medium border-t py-4 sm:py-8 lg:py-10 [&_strong]:text-fg [&_a]:text-fg text-muted-fg text-xs text-center lg:text-left lg:text-sm">
       <Container>
         <p>
-          <strong>{siteConfig.name} &trade; 2024</strong> - This project’s crafted with{' '}
-          <span className="font-[ui-sans-serif,-apple-system,system-ui] text-pink-500">♥</span> by{' '}
-          <Link href="https://twitter.com/irsyadadl">Irsyad</Link>. Peep the Source Code on{' '}
+          <strong>{siteConfig.name} &trade; 2024</strong> - This project’s crafted with <span className="font-[ui-sans-serif,-apple-system,system-ui] text-pink-500">♥</span> by <Link href="https://twitter.com/irsyadadl">Irsyad</Link>. Peep the Source Code on{' '}
           <Link href={siteConfig.repo}>GitHub</Link>.
         </p>
 
@@ -32,8 +30,7 @@ export function Footer() {
           <Link href="https://vercel.com" target="_blank">
             Vercel
           </Link>
-          . The source code's got the{' '}
-          <Link href="https://github.com/irsyadadl/d./blob/main/LICENSE">MIT</Link> license.
+          . The source code's got the <Link href="https://github.com/irsyadadl/d./blob/main/LICENSE">MIT</Link> license.
         </p>
       </Container>
     </footer>

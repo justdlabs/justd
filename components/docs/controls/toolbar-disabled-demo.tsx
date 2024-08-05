@@ -2,22 +2,7 @@
 
 import React from 'react'
 
-import {
-  IconAlignmentJustify,
-  IconAlignmentJustifyFill,
-  IconAlignmentRight,
-  IconAlignmentRightFill,
-  IconCamera,
-  IconCameraFill,
-  IconCursor,
-  IconCursorFill,
-  IconGallery,
-  IconGalleryFill,
-  IconPencilBox,
-  IconPencilBoxFill,
-  IconToolbox,
-  IconToolboxFill
-} from '@irsyadadl/paranoid'
+import { IconAlignmentJustify, IconAlignmentJustifyFill, IconAlignmentRight, IconAlignmentRightFill, IconCamera, IconCameraFill, IconCursor, IconCursorFill, IconGallery, IconGalleryFill, IconPencilBox, IconPencilBoxFill, IconToolbox, IconToolboxFill } from '@irsyadadl/paranoid'
 import { Toggle, Toolbar, ToolbarGroup, ToolbarItem, ToolbarSeparator } from 'ui'
 
 export default function ToolbarDisabledDemo() {
@@ -46,14 +31,10 @@ export default function ToolbarDisabledDemo() {
       <ToolbarSeparator />
       <ToolbarGroup aria-label="Alignment">
         <Toggle aria-label="Align Right" appearance="outline">
-          {({ isSelected }) => (
-            <>{isSelected ? <IconAlignmentRightFill /> : <IconAlignmentRight />}</>
-          )}
+          {({ isSelected }) => <>{isSelected ? <IconAlignmentRightFill /> : <IconAlignmentRight />}</>}
         </Toggle>
         <Toggle aria-label="Align Justify" appearance="outline">
-          {({ isSelected }) => (
-            <>{isSelected ? <IconAlignmentJustifyFill /> : <IconAlignmentJustify />}</>
-          )}
+          {({ isSelected }) => <>{isSelected ? <IconAlignmentJustifyFill /> : <IconAlignmentJustify />}</>}
         </Toggle>
       </ToolbarGroup>
     </Toolbar>

@@ -2,17 +2,7 @@
 
 import * as React from 'react'
 
-import {
-  Button,
-  Grid,
-  GridItem,
-  ModalContent,
-  type ModalContentProps,
-  ModalDescription,
-  ModalFooter,
-  ModalHeader,
-  ModalTitle
-} from 'ui'
+import { Button, Grid, GridItem, ModalContent, type ModalContentProps, ModalDescription, ModalFooter, ModalHeader, ModalTitle } from 'ui'
 
 type Size = Pick<ModalContentProps, 'size'>['size']
 const sizes: Size[] = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl']
@@ -39,10 +29,7 @@ export default function ModalSizeDemo() {
       <ModalContent isOpen={isOpen} onOpenChange={setIsOpen} size={modalSize}>
         <ModalHeader>
           <ModalTitle>Project Update</ModalTitle>
-          <ModalDescription>
-            Dive deep into our project’s latest updates where we've streamlined workflow and
-            improved user interfaces.
-          </ModalDescription>
+          <ModalDescription>Dive deep into our project’s latest updates where we've streamlined workflow and improved user interfaces.</ModalDescription>
         </ModalHeader>
         <ModalFooter>
           <Button appearance="outline" onPress={() => setIsOpen(false)}>

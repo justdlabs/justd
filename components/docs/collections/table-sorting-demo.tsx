@@ -40,12 +40,7 @@ export default function TableSortingDemo() {
   })
   return (
     <Card>
-      <Table
-        aria-label="Movies"
-        selectionMode="multiple"
-        sortDescriptor={list.sortDescriptor}
-        onSortChange={list.sort}
-      >
+      <Table aria-label="Movies" selectionMode="multiple" sortDescriptor={list.sortDescriptor} onSortChange={list.sort}>
         <TableHeader>
           <TableColumn id="title" isRowHeader allowsSorting>
             Title

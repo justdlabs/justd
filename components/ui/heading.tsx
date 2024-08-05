@@ -1,10 +1,7 @@
 'use client'
 
 import { isIOS } from '@react-aria/utils'
-import {
-  Heading as HeadingPrimitive,
-  type HeadingProps as HeadingPrimitiveProps
-} from 'react-aria-components'
+import { Heading as HeadingPrimitive, type HeadingProps as HeadingPrimitiveProps } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
 const headingStyles = tv({

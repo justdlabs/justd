@@ -6,13 +6,7 @@ import { Choicebox, ChoiceboxItem } from 'ui'
 
 export default function ChoiceboxColumnsDemo() {
   return (
-    <Choicebox
-      aria-label="Select prices"
-      gap={2}
-      columns={3}
-      selectionMode="multiple"
-      items={prices}
-    >
+    <Choicebox aria-label="Select prices" gap={2} columns={3} selectionMode="multiple" items={prices}>
       {(item) => <ChoiceboxItem {...item} />}
     </Choicebox>
   )

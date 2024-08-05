@@ -8,7 +8,5 @@ import { DateField } from 'ui'
 export default function DateTimeFieldDemo() {
   const today = parseZonedDateTime(now(getLocalTimeZone()).toString())
   const [value, setValue] = React.useState(today)
-  return (
-    <DateField hideTimeZone hourCycle={24} value={value} onChange={setValue} label="Event date" />
-  )
+  return <DateField hideTimeZone hourCycle={24} value={value} onChange={setValue} label="Event date" />
 }

@@ -2,23 +2,9 @@
 
 import React from 'react'
 
-import {
-  IconCreditCard,
-  IconCube,
-  IconGear,
-  IconHome2,
-  IconNotes,
-  IconShield
-} from '@irsyadadl/paranoid'
+import { IconCreditCard, IconCube, IconGear, IconHome2, IconNotes, IconShield } from '@irsyadadl/paranoid'
 import Link from 'next/link'
-import {
-  CommandMenu,
-  CommandMenuInput,
-  CommandMenuItem,
-  CommandMenuKeyboard,
-  CommandMenuList,
-  CommandMenuSection
-} from 'ui'
+import { CommandMenu, CommandMenuInput, CommandMenuItem, CommandMenuKeyboard, CommandMenuList, CommandMenuSection } from 'ui'
 
 export default function CommandMenuTriggerByKeyboardDemo() {
   const [isOpen, setIsOpen] = React.useState(false)

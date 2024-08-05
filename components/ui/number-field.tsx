@@ -1,13 +1,7 @@
 'use client'
 
 import { IconChevronDown, IconChevronUp, IconMinus, IconPlus } from '@irsyadadl/paranoid'
-import {
-  Button,
-  type ButtonProps,
-  NumberField as NumberFieldPrimitive,
-  type NumberFieldProps as NumberFieldPrimitiveProps,
-  type ValidationResult
-} from 'react-aria-components'
+import { Button, type ButtonProps, NumberField as NumberFieldPrimitive, type NumberFieldProps as NumberFieldPrimitiveProps, type ValidationResult } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
 import { Description, fieldBorderStyles, FieldError, FieldGroup, Input, Label } from './field'
@@ -16,8 +10,7 @@ import { ctr, useMediaQuery } from './primitive'
 const numberFieldStyles = tv({
   slots: {
     base: 'group flex flex-col gap-1',
-    stepperButton:
-      'h-10 cursor-default px-2 text-muted-fg pressed:bg-primary pressed:text-primary-fg group-disabled:bg-secondary forced-colors:group-disabled:text-[GrayText]'
+    stepperButton: 'h-10 cursor-default px-2 text-muted-fg pressed:bg-primary pressed:text-primary-fg group-disabled:bg-secondary forced-colors:group-disabled:text-[GrayText]'
   }
 })
 
@@ -30,14 +23,7 @@ interface NumberFieldProps extends NumberFieldPrimitiveProps {
   errorMessage?: string | ((validation: ValidationResult) => string)
 }
 
-const NumberField = ({
-  label,
-  placeholder,
-  description,
-  className,
-  errorMessage,
-  ...props
-}: NumberFieldProps) => {
+const NumberField = ({ label, placeholder, description, className, errorMessage, ...props }: NumberFieldProps) => {
   const isMobile = useMediaQuery('(max-width: 768px)')
   return (
     <NumberFieldPrimitive {...props} className={ctr(className, base())}>
@@ -83,24 +69,8 @@ interface StepperButtonProps extends ButtonProps {
   className?: string
 }
 
-const StepperButton = ({
-  slot,
-  className,
-  emblemType = 'default',
-  ...props
-}: StepperButtonProps) => {
-  const icon =
-    emblemType === 'chevron' ? (
-      slot === 'increment' ? (
-        <IconChevronUp className="size-5" />
-      ) : (
-        <IconChevronDown className="size-5" />
-      )
-    ) : slot === 'increment' ? (
-      <IconPlus />
-    ) : (
-      <IconMinus />
-    )
+const StepperButton = ({ slot, className, emblemType = 'default', ...props }: StepperButtonProps) => {
+  const icon = emblemType === 'chevron' ? slot === 'increment' ? <IconChevronUp className="size-5" /> : <IconChevronDown className="size-5" /> : slot === 'increment' ? <IconPlus /> : <IconMinus />
   return (
     <Button className={stepperButton({ className })} slot={slot} {...props}>
       {icon}

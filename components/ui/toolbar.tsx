@@ -2,11 +2,7 @@
 
 import * as React from 'react'
 
-import type {
-  GroupProps,
-  SeparatorProps,
-  ToolbarProps as ToolbarPrimitiveProps
-} from 'react-aria-components'
+import type { GroupProps, SeparatorProps, ToolbarProps as ToolbarPrimitiveProps } from 'react-aria-components'
 import { composeRenderProps, Group, Toolbar as ToolbarPrimitive } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
@@ -19,8 +15,7 @@ const toolbarStyles = tv({
   base: 'flex gap-2 group',
   variants: {
     orientation: {
-      horizontal:
-        'flex-row [&::-webkit-scrollbar]:hidden [scrollbar-width:none] [-ms-overflow-style:none]',
+      horizontal: 'flex-row [&::-webkit-scrollbar]:hidden [scrollbar-width:none] [-ms-overflow-style:none]',
       vertical: 'flex-col items-start'
     }
   }
@@ -29,13 +24,7 @@ const toolbarStyles = tv({
 const ToolbarSeparator = ({ className, ...props }: SeparatorProps) => {
   const { orientation } = React.useContext(ToolbarContext)
   const effectiveOrientation = orientation === 'vertical' ? 'horizontal' : 'vertical'
-  return (
-    <Separator
-      orientation={effectiveOrientation}
-      className={cn(effectiveOrientation === 'vertical' ? 'mx-1.5' : 'my-1.5 w-9', className)}
-      {...props}
-    />
-  )
+  return <Separator orientation={effectiveOrientation} className={cn(effectiveOrientation === 'vertical' ? 'mx-1.5' : 'my-1.5 w-9', className)} {...props} />
 }
 
 const ToolbarContext = React.createContext<{ orientation?: ToolbarProps['orientation'] }>({
@@ -47,13 +36,7 @@ interface ToolbarProps extends ToolbarPrimitiveProps {}
 const Toolbar = ({ orientation = 'horizontal', ...props }: ToolbarProps) => {
   return (
     <ToolbarContext.Provider value={{ orientation }}>
-      <ToolbarPrimitive
-        orientation={orientation}
-        {...props}
-        className={composeRenderProps(props.className, (className, renderProps) =>
-          toolbarStyles({ ...renderProps, className })
-        )}
-      />
+      <ToolbarPrimitive orientation={orientation} {...props} className={composeRenderProps(props.className, (className, renderProps) => toolbarStyles({ ...renderProps, className }))} />
     </ToolbarContext.Provider>
   )
 }

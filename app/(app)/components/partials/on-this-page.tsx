@@ -37,26 +37,9 @@ export function OnThisPage() {
   )
 }
 
-export function AsideLink({
-  text,
-  href,
-  activeId,
-  id
-}: {
-  id: string
-  activeId: string
-  text: string
-  href: string
-}) {
+export function AsideLink({ text, href, activeId, id }: { id: string; activeId: string; text: string; href: string }) {
   return (
-    <ListBoxItem
-      className={cn(
-        'focus:outline-none focus-visible:font-medium focus-visible:text-fg py-1.5 block hover:text-fg',
-        href.split('#')[1] === activeId ? 'text-fg font-medium' : 'text-muted-fg'
-      )}
-      href={href}
-      id={id}
-    >
+    <ListBoxItem className={cn('focus:outline-none focus-visible:font-medium focus-visible:text-fg py-1.5 block hover:text-fg', href.split('#')[1] === activeId ? 'text-fg font-medium' : 'text-muted-fg')} href={href} id={id}>
       {goodTitle(text)}
     </ListBoxItem>
   )

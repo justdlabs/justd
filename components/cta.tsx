@@ -12,16 +12,9 @@ export function Cta() {
           <Heading className="text-2xl sm:text-3xl" level={3}>
             Just D. is Open Source
           </Heading>
-          <p className="mt-2 mb-4 text-base lg:text-lg text-muted-fg">
-            Our code's chillin' on GitHub - dive in, peep it, or drop some hot commits if you're
-            feelin' it!
-          </p>
+          <p className="mt-2 mb-4 text-base lg:text-lg text-muted-fg">Our code's chillin' on GitHub - dive in, peep it, or drop some hot commits if you're feelin' it!</p>
 
-          <Link
-            target="_blank"
-            href={siteConfig.repo}
-            className={buttonStyles({ size: 'large', intent: 'light/dark' })}
-          >
+          <Link target="_blank" href={siteConfig.repo} className={buttonStyles({ size: 'large', intent: 'light/dark' })}>
             <IconBrandGithub />
             GitHub
           </Link>

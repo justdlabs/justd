@@ -31,12 +31,7 @@ const NavLink = ({ href, isActive, isNextLink, ...props }: NavLinkProps) => {
     <El href={href} className={navLinkStyles({ isActive })} {...props}>
       <>
         {props.children}
-        {isActive && (
-          <motion.span
-            layoutId="current-indicator-navlink"
-            className="absolute inset-x-0 bottom-[-0.550rem] h-0.5 w-full rounded bg-fg"
-          />
-        )}
+        {isActive && <motion.span layoutId="current-indicator-navlink" className="absolute inset-x-0 bottom-[-0.550rem] h-0.5 w-full rounded bg-fg" />}
       </>
     </El>
   )

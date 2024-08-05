@@ -4,15 +4,7 @@ import React from 'react'
 
 import { wait } from '@/resources/lib/utils'
 import { IconCircleCheckFill, IconTrash } from '@irsyadadl/paranoid'
-import {
-  Button,
-  Loader,
-  PopoverContent,
-  PopoverDescription,
-  PopoverFooter,
-  PopoverHeader,
-  PopoverTitle
-} from 'ui'
+import { Button, Loader, PopoverContent, PopoverDescription, PopoverFooter, PopoverHeader, PopoverTitle } from 'ui'
 
 export default function PopoverControlledDemo() {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -33,27 +25,16 @@ export default function PopoverControlledDemo() {
       <Button ref={triggerRef} onPress={() => setIsOpen(true)} intent="danger">
         Delete Account
       </Button>
-      <PopoverContent
-        triggerRef={triggerRef}
-        isOpen={isOpen}
-        onOpenChange={setIsOpen}
-        className="sm:max-w-sm"
-      >
+      <PopoverContent triggerRef={triggerRef} isOpen={isOpen} onOpenChange={setIsOpen} className="sm:max-w-sm">
         <PopoverHeader>
           <PopoverTitle>Confirm Deletion</PopoverTitle>
-          <PopoverDescription>
-            Are you sure you want to delete your account? This action cannot be undone.
-          </PopoverDescription>
+          <PopoverDescription>Are you sure you want to delete your account? This action cannot be undone.</PopoverDescription>
         </PopoverHeader>
         <PopoverFooter className="flex justify-end">
           <Button appearance="outline" onPress={() => setIsOpen(false)} className="mr-2">
             Cancel
           </Button>
-          <Button
-            isDisabled={loading === 'loading'}
-            onPress={deleteAccount}
-            intent={['loading', 'idle'].includes(loading) ? 'danger' : 'success'}
-          >
+          <Button isDisabled={loading === 'loading'} onPress={deleteAccount} intent={['loading', 'idle'].includes(loading) ? 'danger' : 'success'}>
             {loading === 'loading' ? (
               <>
                 <Loader variant="spin" />

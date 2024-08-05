@@ -37,40 +37,16 @@ const Snippet: React.FC<SnippetProps> = ({ className, text, ...props }) => {
   }
 
   return (
-    <div
-      {...props}
-      className={twMerge(
-        'relative flex items-center justify-between rounded-lg border bg-[#0e0e10] text-white py-2.5 pl-3 pr-2.5 font-mono text-sm [&>svg:hover]:text-white [&>svg]:text-muted-fg [&>svg]:transition [&_svg]:shrink-0',
-        className
-      )}
-    >
+    <div {...props} className={twMerge('relative flex items-center justify-between rounded-lg border bg-[#0e0e10] text-white py-2.5 pl-3 pr-2.5 font-mono text-sm [&>svg:hover]:text-white [&>svg]:text-muted-fg [&>svg]:transition [&_svg]:shrink-0', className)}>
       <span className="mr-6">{text}</span>
-      <Button
-        className="size-7 bx backdrop-blur-lg text-white bg-zinc-800 border hover:bg-zinc-700 border-zinc-700"
-        aria-label="Copy imports statement"
-        size="square-petite"
-        appearance="outline"
-        onPress={handleCopy}
-      >
+      <Button className="size-7 bx backdrop-blur-lg text-white bg-zinc-800 border hover:bg-zinc-700 border-zinc-700" aria-label="Copy imports statement" size="square-petite" appearance="outline" onPress={handleCopy}>
         <AnimatePresence mode="wait" initial={false}>
           {copied ? (
-            <motion.span
-              key="checkmark"
-              variants={snippetVariants}
-              initial="hidden"
-              animate="visible"
-              exit="hidden"
-            >
+            <motion.span key="checkmark" variants={snippetVariants} initial="hidden" animate="visible" exit="hidden">
               <IconCheck />
             </motion.span>
           ) : (
-            <motion.span
-              key="copy"
-              variants={snippetVariants}
-              initial="hidden"
-              animate="visible"
-              exit="hidden"
-            >
+            <motion.span key="copy" variants={snippetVariants} initial="hidden" animate="visible" exit="hidden">
               <IconDuplicate />
             </motion.span>
           )}
@@ -88,44 +64,16 @@ interface CopyButtonProps extends ButtonProps {
   className?: string
 }
 
-const CopyButton = ({
-  initialIcon,
-  copiedIcon,
-  ariaLabel = 'Copy',
-  isCopied,
-  className,
-  ...props
-}: CopyButtonProps) => {
+const CopyButton = ({ initialIcon, copiedIcon, ariaLabel = 'Copy', isCopied, className, ...props }: CopyButtonProps) => {
   return (
-    <Button
-      className={cn(
-        'size-7 backdrop-blur-lg rounded-md text-white bg-zinc-800 border hover:bg-zinc-700 border-zinc-700',
-        className
-      )}
-      aria-label={ariaLabel}
-      size="square-petite"
-      appearance="outline"
-      {...props}
-    >
+    <Button className={cn('size-7 backdrop-blur-lg rounded-md text-white bg-zinc-800 border hover:bg-zinc-700 border-zinc-700', className)} aria-label={ariaLabel} size="square-petite" appearance="outline" {...props}>
       <AnimatePresence mode="wait" initial={false}>
         {isCopied ? (
-          <motion.span
-            key="checkmark-import"
-            variants={snippetVariants}
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
-          >
+          <motion.span key="checkmark-import" variants={snippetVariants} initial="hidden" animate="visible" exit="hidden">
             {copiedIcon ?? <IconCheck />}
           </motion.span>
         ) : (
-          <motion.span
-            key="copy-import"
-            variants={snippetVariants}
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
-          >
+          <motion.span key="copy-import" variants={snippetVariants} initial="hidden" animate="visible" exit="hidden">
             {initialIcon ?? <IconDuplicate />}
           </motion.span>
         )}

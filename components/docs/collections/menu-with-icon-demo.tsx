@@ -2,30 +2,9 @@
 
 import React from 'react'
 
-import {
-  IconBag,
-  IconCommandRegular,
-  IconDashboard,
-  IconDeviceDesktop,
-  IconHeadphones,
-  IconHeart,
-  IconLogout,
-  IconMoon,
-  IconSettings,
-  IconSun
-} from '@irsyadadl/paranoid'
+import { IconBag, IconCommandRegular, IconDashboard, IconDeviceDesktop, IconHeadphones, IconHeart, IconLogout, IconMoon, IconSettings, IconSun } from '@irsyadadl/paranoid'
 import { useTheme } from 'next-themes'
-import {
-  Avatar,
-  Menu,
-  MenuContent,
-  MenuHeader,
-  MenuItem,
-  MenuSection,
-  MenuSeparator,
-  MenuTrigger,
-  SubmenuTrigger
-} from 'ui'
+import { Avatar, Menu, MenuContent, MenuHeader, MenuItem, MenuSection, MenuSeparator, MenuTrigger, SubmenuTrigger } from 'ui'
 
 export default function MenuWithIconDemo() {
   const { resolvedTheme, setTheme } = useTheme()
@@ -68,13 +47,7 @@ export default function MenuWithIconDemo() {
         </MenuItem>
         <SubmenuTrigger>
           <MenuItem>
-            {resolvedTheme === 'light' ? (
-              <IconSun />
-            ) : resolvedTheme === 'dark' ? (
-              <IconMoon />
-            ) : (
-              <IconDeviceDesktop />
-            )}
+            {resolvedTheme === 'light' ? <IconSun /> : resolvedTheme === 'dark' ? <IconMoon /> : <IconDeviceDesktop />}
             Switch theme
           </MenuItem>
           <MenuContent>

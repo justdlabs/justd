@@ -1,15 +1,6 @@
 'use client'
 
-import {
-  composeRenderProps,
-  DateField as DateFieldPrimitive,
-  type DateFieldProps as DateFieldPrimitiveProps,
-  DateInput as DateInputPrimitive,
-  type DateInputProps,
-  DateSegment,
-  type DateValue,
-  type ValidationResult
-} from 'react-aria-components'
+import { composeRenderProps, DateField as DateFieldPrimitive, type DateFieldProps as DateFieldPrimitiveProps, DateInput as DateInputPrimitive, type DateInputProps, DateSegment, type DateValue, type ValidationResult } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
 import { Description, FieldError, fieldGroupStyles, Label } from './field'
@@ -21,12 +12,7 @@ interface DateFieldProps<T extends DateValue> extends DateFieldPrimitiveProps<T>
   errorMessage?: string | ((validation: ValidationResult) => string)
 }
 
-const DateField = <T extends DateValue>({
-  label,
-  description,
-  errorMessage,
-  ...props
-}: DateFieldProps<T>) => {
+const DateField = <T extends DateValue>({ label, description, errorMessage, ...props }: DateFieldProps<T>) => {
   return (
     <DateFieldPrimitive {...props} className={ctr(props.className, 'flex flex-col gap-1')}>
       {label && <Label>{label}</Label>}
@@ -47,10 +33,7 @@ const segmentStyles = tv({
       true: 'text-fg/50 forced-colors:text-[GrayText]'
     },
     isFocused: {
-      true: [
-        'bg-primary text-primary-fg forced-colors:bg-[Highlight] forced-colors:text-[HighlightText]',
-        'invalid:bg-danger invalid:text-danger-fg'
-      ]
+      true: ['bg-primary text-primary-fg forced-colors:bg-[Highlight] forced-colors:text-[HighlightText]', 'invalid:bg-danger invalid:text-danger-fg']
     }
   }
 })
@@ -61,10 +44,7 @@ const DateInput = (props: Omit<DateInputProps, 'children'>) => {
       className={composeRenderProps(props.className, (className, renderProps) =>
         fieldGroupStyles({
           ...renderProps,
-          className: cn(
-            'min-w-sm block font-mono disabled:bg-secondary uppercase w-full py-2 px-2.5 text-base lg:text-sm/[1.4rem]',
-            className
-          )
+          className: cn('min-w-sm block font-mono disabled:bg-secondary uppercase w-full py-2 px-2.5 text-base lg:text-sm/[1.4rem]', className)
         })
       )}
       {...props}

@@ -16,37 +16,8 @@ import AvatarDemo from '@/components/docs/media/avatar-demo'
 import TooltipDelayDemo from '@/components/docs/overlays/tooltip-delay-demo'
 import ComboBoxAvatarDemo from '@/components/docs/pickers/combo-box-avatar-demo'
 import SelectDemo from '@/components/docs/pickers/select-demo'
-import {
-  IconCamera,
-  IconCameraFill,
-  IconCubeFill,
-  IconDuplicate,
-  IconDuplicateFill,
-  IconGallery,
-  IconGalleryFill,
-  IconHeart,
-  IconHeartFill,
-  IconMagic,
-  IconMagicFill,
-  IconVideoPlaylist,
-  IconVideoPlaylistFill
-} from '@irsyadadl/paranoid'
-import {
-  buttonStyles,
-  Card,
-  cn,
-  Grid,
-  GridItem,
-  GridList,
-  GridListItem,
-  Heading,
-  Link,
-  Note,
-  Toolbar,
-  ToolbarGroup,
-  ToolbarItem,
-  ToolbarSeparator
-} from 'ui'
+import { IconCamera, IconCameraFill, IconCubeFill, IconDuplicate, IconDuplicateFill, IconGallery, IconGalleryFill, IconHeart, IconHeartFill, IconMagic, IconMagicFill, IconVideoPlaylist, IconVideoPlaylistFill } from '@irsyadadl/paranoid'
+import { buttonStyles, Card, cn, Grid, GridItem, GridList, GridListItem, Heading, Link, Note, Toolbar, ToolbarGroup, ToolbarItem, ToolbarSeparator } from 'ui'
 
 export function Blocks() {
   return (
@@ -77,9 +48,7 @@ export function Blocks() {
                       {({ isSelected }) => <>{isSelected ? <IconHeartFill /> : <IconHeart />}</>}
                     </ToolbarItem>
                     <ToolbarItem aria-label="Duplicate" appearance="outline">
-                      {({ isSelected }) => (
-                        <>{isSelected ? <IconDuplicateFill /> : <IconDuplicate />}</>
-                      )}
+                      {({ isSelected }) => <>{isSelected ? <IconDuplicateFill /> : <IconDuplicate />}</>}
                     </ToolbarItem>
                     <ToolbarItem aria-label="Resolve with AI" appearance="outline">
                       {({ isSelected }) => <>{isSelected ? <IconMagicFill /> : <IconMagic />}</>}
@@ -92,25 +61,16 @@ export function Blocks() {
                       {({ isSelected }) => <>{isSelected ? <IconCameraFill /> : <IconCamera />}</>}
                     </ToolbarItem>
                     <ToolbarItem aria-label="Gallery" size="square-petite" appearance="outline">
-                      {({ isSelected }) => (
-                        <>{isSelected ? <IconGalleryFill /> : <IconGallery />}</>
-                      )}
+                      {({ isSelected }) => <>{isSelected ? <IconGalleryFill /> : <IconGallery />}</>}
                     </ToolbarItem>
                     <ToolbarItem aria-label="Playlist" size="square-petite" appearance="outline">
-                      {({ isSelected }) => (
-                        <>{isSelected ? <IconVideoPlaylistFill /> : <IconVideoPlaylist />}</>
-                      )}
+                      {({ isSelected }) => <>{isSelected ? <IconVideoPlaylistFill /> : <IconVideoPlaylist />}</>}
                     </ToolbarItem>
                   </ToolbarGroup>
                 </Toolbar>
               </div>
             </Card>
-            <GridList
-              items={items}
-              aria-label="Select items"
-              selectionMode="multiple"
-              className="min-w-64"
-            >
+            <GridList items={items} aria-label="Select items" selectionMode="multiple" className="min-w-64">
               {(item) => <GridListItem>{item.name}</GridListItem>}
             </GridList>
           </GridItem>
@@ -121,16 +81,10 @@ export function Blocks() {
             <CardBlock className="p-4 py-2 sm:p-4 lg:px-5 lg:py-0">
               <div>
                 <Note>Check out the latest updates on our dashboard!</Note>
-                <Note intent="primary">
-                  Complete your profile to get personalized recommendations.
-                </Note>
-                <Note intent="warning">
-                  Heads up! We'll be doing system maintenance this Sunday at 2 AM.
-                </Note>
+                <Note intent="primary">Complete your profile to get personalized recommendations.</Note>
+                <Note intent="warning">Heads up! We'll be doing system maintenance this Sunday at 2 AM.</Note>
                 <Note intent="danger">Your subscription expires in 3 days. Renew now!</Note>
-                <Note intent="info">
-                  Did you know? You can now export your reports in Excel format.
-                </Note>
+                <Note intent="info">Did you know? You can now export your reports in Excel format.</Note>
               </div>
             </CardBlock>
           </GridItem>
@@ -191,24 +145,13 @@ export function Blocks() {
   )
 }
 
-export function CardBlock({
-  className,
-  children,
-  ...props
-}: React.HtmlHTMLAttributes<HTMLDivElement>) {
+export function CardBlock({ className, children, ...props }: React.HtmlHTMLAttributes<HTMLDivElement>) {
   return (
     <div
       {...props}
       className="relative h-full w-full rounded-xl shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] bg-tertiary dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:-inset-px dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset] forced-colors:outline"
     >
-      <div
-        className={cn(
-          'grid h-full w-full justify-items-center overflow-hidden place-items-center p-6 py-8 sm:p-8 lg:p-12',
-          className
-        )}
-      >
-        {children}
-      </div>
+      <div className={cn('grid h-full w-full justify-items-center overflow-hidden place-items-center p-6 py-8 sm:p-8 lg:p-12', className)}>{children}</div>
     </div>
   )
 }

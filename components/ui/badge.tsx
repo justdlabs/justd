@@ -5,21 +5,15 @@ import React from 'react'
 import { tv, type VariantProps } from 'tailwind-variants'
 
 const badgeIntents = {
-  primary:
-    'ring-primary/30 bg-primary/10 dark:bg-primary/15 text-primary dark:text-primary-300 hover:bg-primary/15 dark:hover:bg-primary/10',
+  primary: 'ring-primary/30 bg-primary/10 dark:bg-primary/15 text-primary dark:text-primary-300 hover:bg-primary/15 dark:hover:bg-primary/10',
   secondary: 'bg-secondary/50 dark:bg-secondary/70 ring-secondary-fg/20 text-secondary-fg',
-  success:
-    'dark:ring-success/30 ring-success/40 bg-success/10 dark:bg-success/15 text-success hover:bg-success/15 dark:hover:bg-success/10',
+  success: 'dark:ring-success/30 ring-success/40 bg-success/10 dark:bg-success/15 text-success hover:bg-success/15 dark:hover:bg-success/10',
   info: 'dark:ring-info/30 ring-info/80 bg-info/20 dark:bg-info/15 text-info-fg dark:text-info hover:bg-info/15 dark:hover:bg-info/10',
-  warning:
-    'dark:ring-warning/40 ring-warning/50 bg-warning/10 dark:bg-warning/15 text-warning-fg hover:bg-warning/15 dark:hover:bg-warning/10',
-  danger:
-    'dark:ring-danger/30 ring-danger/40 bg-danger/10 dark:bg-danger/15 text-danger hover:bg-danger/15 dark:hover:bg-danger/10',
-  light:
-    'ring-zinc-300 dark:ring-white bg-white hover:bg-zinc-100 dark:hover:bg-zinc-200 dark:ring-inset text-zinc-900 dark:text-zinc-900',
+  warning: 'dark:ring-warning/40 ring-warning/50 bg-warning/10 dark:bg-warning/15 text-warning-fg hover:bg-warning/15 dark:hover:bg-warning/10',
+  danger: 'dark:ring-danger/30 ring-danger/40 bg-danger/10 dark:bg-danger/15 text-danger hover:bg-danger/15 dark:hover:bg-danger/10',
+  light: 'ring-zinc-300 dark:ring-white bg-white hover:bg-zinc-100 dark:hover:bg-zinc-200 dark:ring-inset text-zinc-900 dark:text-zinc-900',
   dark: 'bg-zinc-800 hover:bg-zinc-800/90 ring-inset ring-zinc-800 text-white dark:ring-zinc-600',
-  'light/dark':
-    'bg-white ring-zinc-200 text-zinc-900 dark:text-white dark:bg-zinc-800 dark:hover:bg-zinc-800/80 dark:ring-zinc-600'
+  'light/dark': 'bg-white ring-zinc-200 text-zinc-900 dark:text-white dark:bg-zinc-800 dark:hover:bg-zinc-800/80 dark:ring-zinc-600'
 }
 const badgeShapes = {
   square: 'rounded-md px-1.5',
@@ -37,9 +31,7 @@ const badgeStyles = tv({
   }
 })
 
-interface BadgeProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof badgeStyles> {
+interface BadgeProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof badgeStyles> {
   className?: string
   children: React.ReactNode
 }

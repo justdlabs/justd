@@ -9,15 +9,7 @@ import { goodTitle } from '@/resources/lib/utils'
 import { IconCube, IconHome, IconNotes } from '@irsyadadl/paranoid'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
-import {
-  Badge,
-  CommandMenu,
-  CommandMenuInput,
-  CommandMenuItem,
-  CommandMenuList,
-  CommandMenuSection,
-  useMediaQuery
-} from 'ui'
+import { Badge, CommandMenu, CommandMenuInput, CommandMenuItem, CommandMenuList, CommandMenuSection, useMediaQuery } from 'ui'
 
 export interface OpenCloseProps {
   open: boolean
@@ -79,34 +71,13 @@ export function CommandPalette({ open, setOpen }: OpenCloseProps) {
 
         {filteredNodeEntries.map(([key, value]) => (
           <React.Fragment key={key}>
-            <CommandMenuSection
-              key={`${key}-section`}
-              heading={key !== 'components' ? goodTitle(key) : undefined}
-            >
+            <CommandMenuSection key={`${key}-section`} heading={key !== 'components' ? goodTitle(key) : undefined}>
               {Object.entries(value as HierarchyNode).map(([subKey, subValue]) =>
                 typeof subValue === 'object' && 'title' in subValue ? (
-                  <CommandMenuItem
-                    value={goodTitle(key + ' ' + (subValue as Doc).title)}
-                    className="pl-[2rem] flex justify-between items-center"
-                    key={`${key}-${subKey}`}
-                    onSelect={() => router.push(`/${subValue.slug}`)}
-                  >
+                  <CommandMenuItem value={goodTitle(key + ' ' + (subValue as Doc).title)} className="pl-[2rem] flex justify-between items-center" key={`${key}-${subKey}`} onSelect={() => router.push(`/${subValue.slug}`)}>
                     {goodTitle((subValue as Doc).title)}
                     {subValue.status && (
-                      <Badge
-                        intent={
-                          subValue?.status === 'wip'
-                            ? 'warning'
-                            : subValue.status === 'beta'
-                              ? 'warning'
-                              : subValue.status === 'help'
-                                ? 'warning'
-                                : subValue.status === 'primitive'
-                                  ? 'secondary'
-                                  : 'info'
-                        }
-                        className="uppercase h-5 text-[0.5rem]"
-                      >
+                      <Badge intent={subValue?.status === 'wip' ? 'warning' : subValue.status === 'beta' ? 'warning' : subValue.status === 'help' ? 'warning' : subValue.status === 'primitive' ? 'secondary' : 'info'} className="uppercase h-5 text-[0.5rem]">
                         {subValue?.status as Doc['status']}
                       </Badge>
                     )}
@@ -117,37 +88,13 @@ export function CommandPalette({ open, setOpen }: OpenCloseProps) {
 
             {Object.entries(value as HierarchyNode).map(([subKey, subValue]) =>
               typeof subValue === 'object' && 'title' in subValue ? null : (
-                <CommandMenuSection
-                  key={`${key}-${subKey}-section`}
-                  value={goodTitle(subKey)}
-                  heading={goodTitle(subKey)}
-                >
+                <CommandMenuSection key={`${key}-${subKey}-section`} value={goodTitle(subKey)} heading={goodTitle(subKey)}>
                   {Object.entries(subValue as HierarchyNode).map(([childKey, childValue]) =>
                     typeof childValue === 'object' && 'title' in childValue ? (
-                      <CommandMenuItem
-                        className="justify-between"
-                        value={
-                          childValue.title === 'Text Field'
-                            ? 'Text Field Input'
-                            : goodTitle(subKey + ' ' + (childValue as Doc).title)
-                        }
-                        key={`${key}-${subKey}-${childKey}`}
-                        onSelect={() => router.push(`/${childValue.slug}`)}
-                      >
+                      <CommandMenuItem className="justify-between" value={childValue.title === 'Text Field' ? 'Text Field Input' : goodTitle(subKey + ' ' + (childValue as Doc).title)} key={`${key}-${subKey}-${childKey}`} onSelect={() => router.push(`/${childValue.slug}`)}>
                         {goodTitle((childValue as Doc).title)}
                         {childValue.status && (
-                          <Badge
-                            intent={
-                              childValue?.status === 'wip'
-                                ? 'primary'
-                                : childValue.status === 'beta'
-                                  ? 'warning'
-                                  : childValue.status === 'help'
-                                    ? 'warning'
-                                    : 'info'
-                            }
-                            className="uppercase h-5 text-[0.5rem]"
-                          >
+                          <Badge intent={childValue?.status === 'wip' ? 'primary' : childValue.status === 'beta' ? 'warning' : childValue.status === 'help' ? 'warning' : 'info'} className="uppercase h-5 text-[0.5rem]">
                             {childValue?.status as Doc['status']}
                           </Badge>
                         )}

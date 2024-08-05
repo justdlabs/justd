@@ -4,10 +4,7 @@ import { Radio, RadioGroup } from 'ui'
 
 export default function RadioGroupDescriptionDemo() {
   return (
-    <RadioGroup
-      description="Select your preferred shipping method for the delivery of your items."
-      label="Shipping Method"
-    >
+    <RadioGroup description="Select your preferred shipping method for the delivery of your items." label="Shipping Method">
       <Radio value="standard">Standard</Radio>
       <Radio value="express">Express</Radio>
       <Radio value="overnight">Overnight</Radio>

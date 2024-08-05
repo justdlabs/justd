@@ -15,22 +15,11 @@ export interface InstallCommandProps {
   isInDocsComponent?: boolean
 }
 
-const InstallCommand: React.FC<InstallCommandProps> = ({
-  items = [],
-  isAdd = false,
-  isInstall = false,
-  isManual = false,
-  isInDocsComponent = true,
-  isInit = false
-}) => {
+const InstallCommand: React.FC<InstallCommandProps> = ({ items = [], isAdd = false, isInstall = false, isManual = false, isInDocsComponent = true, isInit = false }) => {
   const addCommand = 'justd-cli@latest add'
   const initCommand = 'justd-cli@latest init'
   const commandArgs = items.join(' ')
-  const defaultCommand = isAdd
-    ? `npx ${addCommand} ${commandArgs}`
-    : isInit
-      ? `npx ${initCommand}`
-      : `npm i ${commandArgs}`
+  const defaultCommand = isAdd ? `npx ${addCommand} ${commandArgs}` : isInit ? `npx ${initCommand}` : `npm i ${commandArgs}`
 
   const [command, setCommand] = useState(defaultCommand)
   const [isCopied, setIsCopied] = useState(false)
@@ -80,34 +69,18 @@ const InstallCommand: React.FC<InstallCommandProps> = ({
       {isAdd && isInDocsComponent && (
         <p>
           If you hit any issues, make sure you check out the installation guide{' '}
-          <Link
-            className="not-prose font-medium"
-            intent="primary"
-            href="/docs/getting-started/installation"
-            target="_blank"
-            rel="noreferrer"
-          >
+          <Link className="not-prose font-medium" intent="primary" href="/docs/getting-started/installation" target="_blank" rel="noreferrer">
             here
           </Link>
           .
         </p>
       )}
-      {isManual && (
-        <p>
-          Sometimes, using the CLI is the way to go, so make sure you install the necessary
-          dependencies for the components you want to use.
-        </p>
-      )}
+      {isManual && <p>Sometimes, using the CLI is the way to go, so make sure you install the necessary dependencies for the components you want to use.</p>}
       <div className="not-prose relative flex items-center justify-between rounded-lg border bg-[#0e0e10] py-2.5 pl-4 pr-2.5 text-white font-mono text-sm [&>svg]:text-zinc-400 [&>svg]:transition [&_svg]:shrink-0">
         <code>{command}</code>
         <div className="pl-3">
           {isInit || isAdd ? (
-            <CopyButton
-              onPress={() => handleAction('NPM')}
-              className="rounded-sm"
-              ariaLabel={command}
-              isCopied={isCopied}
-            />
+            <CopyButton onPress={() => handleAction('NPM')} className="rounded-sm" ariaLabel={command} isCopied={isCopied} />
           ) : (
             <Menu>
               <CopyButton className="rounded-sm" ariaLabel={command} isCopied={isCopied} />

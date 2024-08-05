@@ -26,17 +26,7 @@ import {
   IconUnderlineFill,
   IconUndo
 } from '@irsyadadl/paranoid'
-import {
-  Button,
-  Checkbox,
-  Menu,
-  MenuContent,
-  MenuItem,
-  Toolbar,
-  ToolbarGroup,
-  ToolbarItem,
-  ToolbarSeparator
-} from 'ui'
+import { Button, Checkbox, Menu, MenuContent, MenuItem, Toolbar, ToolbarGroup, ToolbarItem, ToolbarSeparator } from 'ui'
 
 export default function ToolbarDemo() {
   return (
@@ -52,32 +42,22 @@ export default function ToolbarDemo() {
           {({ isSelected }) => <>{isSelected ? <IconUnderlineFill /> : <IconUnderline />}</>}
         </ToolbarItem>
         <ToolbarItem aria-label="Strikethrough" size="square-petite" appearance="outline">
-          {({ isSelected }) => (
-            <>{isSelected ? <IconStrikeThroughFill /> : <IconStrikeThrough />}</>
-          )}
+          {({ isSelected }) => <>{isSelected ? <IconStrikeThroughFill /> : <IconStrikeThrough />}</>}
         </ToolbarItem>
       </ToolbarGroup>
       <ToolbarSeparator />
       <ToolbarGroup aria-label="Alignment">
         <ToolbarItem aria-label="Align Left" size="square-petite" appearance="outline">
-          {({ isSelected }) => (
-            <>{isSelected ? <IconAlignmentLeftFill /> : <IconAlignmentLeft />}</>
-          )}
+          {({ isSelected }) => <>{isSelected ? <IconAlignmentLeftFill /> : <IconAlignmentLeft />}</>}
         </ToolbarItem>
         <ToolbarItem aria-label="Align Center" appearance="outline">
-          {({ isSelected }) => (
-            <>{isSelected ? <IconAlignmentCenterFill /> : <IconAlignmentCenter />}</>
-          )}
+          {({ isSelected }) => <>{isSelected ? <IconAlignmentCenterFill /> : <IconAlignmentCenter />}</>}
         </ToolbarItem>
         <ToolbarItem aria-label="Align Right" appearance="outline">
-          {({ isSelected }) => (
-            <>{isSelected ? <IconAlignmentRightFill /> : <IconAlignmentRight />}</>
-          )}
+          {({ isSelected }) => <>{isSelected ? <IconAlignmentRightFill /> : <IconAlignmentRight />}</>}
         </ToolbarItem>
         <ToolbarItem aria-label="Align Justify" appearance="outline">
-          {({ isSelected }) => (
-            <>{isSelected ? <IconAlignmentJustifyFill /> : <IconAlignmentJustify />}</>
-          )}
+          {({ isSelected }) => <>{isSelected ? <IconAlignmentJustifyFill /> : <IconAlignmentJustify />}</>}
         </ToolbarItem>
       </ToolbarGroup>
       <ToolbarSeparator />

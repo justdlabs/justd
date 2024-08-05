@@ -1,16 +1,6 @@
 'use client'
 
-import {
-  buttonStyles,
-  Modal,
-  ModalClose,
-  ModalContent,
-  ModalDescription,
-  ModalFooter,
-  ModalHeader,
-  ModalTitle,
-  ModalTrigger
-} from 'ui'
+import { buttonStyles, Modal, ModalClose, ModalContent, ModalDescription, ModalFooter, ModalHeader, ModalTitle, ModalTrigger } from 'ui'
 
 export default function AlertDialogDemo() {
   return (
@@ -19,9 +9,7 @@ export default function AlertDialogDemo() {
       <ModalContent role="alertdialog">
         <ModalHeader>
           <ModalTitle>Delete file</ModalTitle>
-          <ModalDescription>
-            This will permanently delete the selected file. Continue?
-          </ModalDescription>
+          <ModalDescription>This will permanently delete the selected file. Continue?</ModalDescription>
         </ModalHeader>
         <ModalFooter>
           <ModalClose appearance="outline">Cancel</ModalClose>

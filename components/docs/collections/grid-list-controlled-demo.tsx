@@ -9,14 +9,7 @@ export default function GridListControlledDemo() {
   const [selectedKeys, setSelectedKeys] = React.useState<Selection>(new Set([]))
   return (
     <div>
-      <GridList
-        selectedKeys={selectedKeys}
-        onSelectionChange={setSelectedKeys}
-        items={items}
-        aria-label="Select items"
-        selectionMode="multiple"
-        className="min-w-64"
-      >
+      <GridList selectedKeys={selectedKeys} onSelectionChange={setSelectedKeys} items={items} aria-label="Select items" selectionMode="multiple" className="min-w-64">
         {(item) => <GridListItem id={item.id}>{item.name}</GridListItem>}
       </GridList>
       <Description className="mt-2 block [&>strong]:text-fg text-muted-fg">

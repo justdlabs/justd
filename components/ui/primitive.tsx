@@ -9,10 +9,7 @@ import { tv } from 'tailwind-variants'
 
 const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs))
 
-const composeTailwindRenderProps = <T,>(
-  className: string | ((v: T) => string) | undefined,
-  tw: string
-): string | ((v: T) => string) => {
+const composeTailwindRenderProps = <T,>(className: string | ((v: T) => string) | undefined, tw: string): string | ((v: T) => string) => {
   return composeRenderProps(className, (className) => twMerge(tw, className))
 }
 
@@ -80,16 +77,4 @@ const ctr = composeTailwindRenderProps
 const tm = twMerge
 const cr = composeRenderProps
 
-export {
-  cn,
-  composeTailwindRenderProps,
-  cr,
-  ctr,
-  focusRing,
-  focusStyles,
-  focusButtonStyles,
-  tm,
-  twMerge,
-  useMediaQuery,
-  isIos
-}
+export { cn, composeTailwindRenderProps, cr, ctr, focusRing, focusStyles, focusButtonStyles, tm, twMerge, useMediaQuery, isIos }

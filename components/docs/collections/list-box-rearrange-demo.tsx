@@ -27,12 +27,7 @@ export default function ListBoxRearrangeDemo() {
   })
 
   return (
-    <ListBox
-      items={list.items}
-      aria-label="Bands"
-      selectionMode="multiple"
-      dragAndDropHooks={dragAndDropHooks}
-    >
+    <ListBox items={list.items} aria-label="Bands" selectionMode="multiple" dragAndDropHooks={dragAndDropHooks}>
       {(item) => <ListBoxItem key={item.id}>{item.name}</ListBoxItem>}
     </ListBox>
   )

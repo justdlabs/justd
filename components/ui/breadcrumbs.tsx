@@ -2,11 +2,7 @@
 
 import { IconChevronRight } from '@irsyadadl/paranoid'
 import type { BreadcrumbProps, BreadcrumbsProps } from 'react-aria-components'
-import {
-  Breadcrumb as BreadcrumbPrimitive,
-  Breadcrumbs as BreadcrumbsPrimitive,
-  type LinkProps
-} from 'react-aria-components'
+import { Breadcrumb as BreadcrumbPrimitive, Breadcrumbs as BreadcrumbsPrimitive, type LinkProps } from 'react-aria-components'
 
 import { Link } from './link'
 import { cn } from './primitive'

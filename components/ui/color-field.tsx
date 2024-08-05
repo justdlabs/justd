@@ -3,10 +3,7 @@
 import * as React from 'react'
 
 import { ctr } from '@/components/ui/primitive'
-import type {
-  ColorFieldProps as ColorFieldPrimitiveProps,
-  ValidationResult
-} from 'react-aria-components'
+import type { ColorFieldProps as ColorFieldPrimitiveProps, ValidationResult } from 'react-aria-components'
 import { ColorField as ColorFieldPrimitive } from 'react-aria-components'
 
 import { ColorSwatch } from './color'
@@ -24,46 +21,15 @@ interface ColorFieldProps extends ColorFieldPrimitiveProps {
   enableColorPicker?: boolean
 }
 
-const ColorField = ({
-  label,
-  description,
-  errorMessage,
-  placeholder,
-  prefix,
-  suffix,
-  isLoading,
-  enableColorPicker = true,
-  ...props
-}: ColorFieldProps) => {
+const ColorField = ({ label, description, errorMessage, placeholder, prefix, suffix, isLoading, enableColorPicker = true, ...props }: ColorFieldProps) => {
   const value = props.value ?? props.defaultValue
   return (
-    <ColorFieldPrimitive
-      {...props}
-      aria-label={props['aria-label'] ?? 'Color field'}
-      className={ctr(props.className, 'group w-full flex flex-col gap-1')}
-    >
+    <ColorFieldPrimitive {...props} aria-label={props['aria-label'] ?? 'Color field'} className={ctr(props.className, 'group w-full flex flex-col gap-1')}>
       {label && <Label>{label}</Label>}
-      <FieldGroup
-        data-loading={isLoading ? 'true' : undefined}
-        className={fieldGroupPrefixStyles()}
-      >
+      <FieldGroup data-loading={isLoading ? 'true' : undefined} className={fieldGroupPrefixStyles()}>
         {prefix ? <span className="atrs isPfx">{prefix}</span> : null}
         <div className="flex items-center">
-          {value && (
-            <span>
-              {enableColorPicker ? (
-                <ColorPicker
-                  enableColorField={false}
-                  onChange={props.onChange}
-                  defaultValue={value}
-                  className="size-9"
-                  trigger="color-field"
-                />
-              ) : (
-                <ColorSwatch className="size-6 ml-2" color={value.toString()} />
-              )}
-            </span>
-          )}
+          {value && <span>{enableColorPicker ? <ColorPicker enableColorField={false} onChange={props.onChange} defaultValue={value} className="size-9" trigger="color-field" /> : <ColorSwatch className="size-6 ml-2" color={value.toString()} />}</span>}
 
           <Input className="px-2.5" placeholder={placeholder} />
         </div>

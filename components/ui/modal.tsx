@@ -3,26 +3,10 @@
 import * as React from 'react'
 
 import type { ModalOverlayProps as ModalOverlayPrimitiveProps } from 'react-aria-components'
-import {
-  Button as ButtonPrimitive,
-  composeRenderProps,
-  type DialogProps,
-  DialogTrigger as DialogTriggerPrimitive,
-  Modal as ModalPrimitive,
-  ModalOverlay as ModalOverlayPrimitive
-} from 'react-aria-components'
+import { Button as ButtonPrimitive, composeRenderProps, type DialogProps, DialogTrigger as DialogTriggerPrimitive, Modal as ModalPrimitive, ModalOverlay as ModalOverlayPrimitive } from 'react-aria-components'
 import { tv, type VariantProps } from 'tailwind-variants'
 
-import {
-  Dialog,
-  DialogBody,
-  DialogClose,
-  DialogCloseIndicator,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle
-} from './dialog'
+import { Dialog, DialogBody, DialogClose, DialogCloseIndicator, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from './dialog'
 
 const Modal = DialogTriggerPrimitive
 const ModalTrigger = ButtonPrimitive
@@ -34,11 +18,7 @@ const ModalBody = DialogBody
 const ModalClose = DialogClose
 
 const modalOverlayStyles = tv({
-  base: [
-    'fixed left-0 top-0 isolate z-50 h-[--visual-viewport-height] w-full',
-    'flex items-end text-center sm:items-center sm:justify-center',
-    '[--visual-viewport-vertical-padding:16px] sm:[--visual-viewport-vertical-padding:32px]'
-  ],
+  base: ['fixed left-0 top-0 isolate z-50 h-[--visual-viewport-height] w-full', 'flex items-end text-center sm:items-center sm:justify-center', '[--visual-viewport-vertical-padding:16px] sm:[--visual-viewport-vertical-padding:32px]'],
   variants: {
     isBlurred: {
       true: 'backdrop-blur',
@@ -53,23 +33,13 @@ const modalOverlayStyles = tv({
   }
 })
 const modalContentStyles = tv({
-  base: [
-    'max-h-full w-full rounded-t-2xl sm:rounded-lg overflow-hidden bg-overlay text-overlay-fg text-left align-middle shadow-lg',
-    'ring-1 ring-zinc-950/5 dark:ring-white/15',
-    'w-full'
-  ],
+  base: ['max-h-full w-full rounded-t-2xl sm:rounded-lg overflow-hidden bg-overlay text-overlay-fg text-left align-middle shadow-lg', 'ring-1 ring-zinc-950/5 dark:ring-white/15', 'w-full'],
   variants: {
     isEntering: {
-      true: [
-        'animate-in duration-200 fade-in-0 slide-in-from-bottom-1/2',
-        'sm:slide-in-from-bottom-auto sm:slide-in-from-top-[20%]'
-      ]
+      true: ['animate-in duration-200 fade-in-0 slide-in-from-bottom-1/2', 'sm:slide-in-from-bottom-auto sm:slide-in-from-top-[20%]']
     },
     isExiting: {
-      true: [
-        'duration-200 ease-in animate-out slide-out-to-bottom ',
-        'sm:exiting:slide-out-to-top-[10%]'
-      ]
+      true: ['duration-200 ease-in animate-out slide-out-to-bottom ', 'sm:exiting:slide-out-to-top-[10%]']
     },
     size: {
       xs: 'sm:max-w-xs',
@@ -88,10 +58,7 @@ const modalContentStyles = tv({
   }
 })
 
-interface ModalContentProps
-  extends Omit<React.ComponentProps<typeof Modal>, 'children'>,
-    Omit<ModalOverlayPrimitiveProps, 'className'>,
-    VariantProps<typeof modalContentStyles> {
+interface ModalContentProps extends Omit<React.ComponentProps<typeof Modal>, 'children'>, Omit<ModalOverlayPrimitiveProps, 'className'>, VariantProps<typeof modalContentStyles> {
   role?: DialogProps['role']
   closeButton?: boolean
   isBlurred?: boolean
@@ -101,16 +68,7 @@ interface ModalContentProps
   }
 }
 
-const ModalContent = ({
-  classNames,
-  isDismissable = true,
-  isBlurred = false,
-  children,
-  size,
-  role,
-  closeButton = true,
-  ...props
-}: ModalContentProps) => {
+const ModalContent = ({ classNames, isDismissable = true, isBlurred = false, children, size, role, closeButton = true, ...props }: ModalContentProps) => {
   const _isDismissable = role === 'alertdialog' ? false : isDismissable
   return (
     <ModalOverlayPrimitive
@@ -147,17 +105,4 @@ const ModalContent = ({
   )
 }
 
-export {
-  modalContentStyles,
-  Modal,
-  ModalBody,
-  ModalClose,
-  ModalContent,
-  ModalDescription,
-  ModalFooter,
-  ModalHeader,
-  ModalTitle,
-  ModalTrigger,
-  type ModalContentProps,
-  modalOverlayStyles
-}
+export { modalContentStyles, Modal, ModalBody, ModalClose, ModalContent, ModalDescription, ModalFooter, ModalHeader, ModalTitle, ModalTrigger, type ModalContentProps, modalOverlayStyles }

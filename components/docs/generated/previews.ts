@@ -641,6 +641,9 @@ export const previews: Record<string, any> = {
   "surfaces/grid-basic-demo": {
     component: React.lazy(() => import("@/components/docs/surfaces/grid-basic-demo")),
   },
+  "surfaces/separator-with-child-demo": {
+    component: React.lazy(() => import("@/components/docs/surfaces/separator-with-child-demo")),
+  },
   "surfaces/heading-tracking-demo": {
     component: React.lazy(() => import("@/components/docs/surfaces/heading-tracking-demo")),
   },

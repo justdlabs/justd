@@ -2,20 +2,7 @@
 
 import { NumberFormatter } from '@internationalized/number'
 import { IconDotsVertical } from '@irsyadadl/paranoid'
-import {
-  Card,
-  Menu,
-  MenuContent,
-  MenuItem,
-  MenuSeparator,
-  MenuTrigger,
-  Table,
-  TableBody,
-  TableCell,
-  TableColumn,
-  TableHeader,
-  TableRow
-} from 'ui'
+import { Card, Menu, MenuContent, MenuItem, MenuSeparator, MenuTrigger, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from 'ui'
 
 export default function TableDemo() {
   const formatter = new NumberFormatter('en-US', { style: 'currency', currency: 'USD' })

@@ -148,10 +148,7 @@ const Grid = ({ className, gap, gapX, gapY, flow, columns, rows, ...props }: Gri
         flow: flow ?? 'row',
         columns: columns ?? 1,
         rows: rows ?? 1,
-        className:
-          'debug' in props
-            ? cn('[&>.grid-cell]:border [&>.grid-cell]:border-warning', className)
-            : className
+        className: 'debug' in props ? cn('[&>.grid-cell]:border [&>.grid-cell]:border-warning', className) : className
       })}
       {...props}
     >
@@ -267,23 +264,11 @@ const gridItemStyles = tv(
   }
 )
 
-interface GridItemProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof gridItemStyles> {
+interface GridItemProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof gridItemStyles> {
   className?: string
 }
 
-const GridItem = ({
-  children,
-  className,
-  colSpan,
-  rowSpan,
-  colStart,
-  colEnd,
-  rowStart,
-  rowEnd,
-  ...props
-}: GridItemProps) => {
+const GridItem = ({ children, className, colSpan, rowSpan, colStart, colEnd, rowStart, rowEnd, ...props }: GridItemProps) => {
   return (
     <div
       className={gridItemStyles({

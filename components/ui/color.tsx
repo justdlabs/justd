@@ -3,12 +3,7 @@
 import * as React from 'react'
 
 import { parseColor } from '@react-stately/color'
-import type {
-  ColorSliderProps as ColorSliderPrimitiveProps,
-  ColorSwatchPickerItemProps as ColorSwatchPickerItemPrimitiveProps,
-  ColorSwatchProps as ColorSwatchPrimitiveProps,
-  ColorThumbProps as ColorThumbPrimitiveProps
-} from 'react-aria-components'
+import type { ColorSliderProps as ColorSliderPrimitiveProps, ColorSwatchPickerItemProps as ColorSwatchPickerItemPrimitiveProps, ColorSwatchProps as ColorSwatchPrimitiveProps, ColorThumbProps as ColorThumbPrimitiveProps } from 'react-aria-components'
 import {
   ColorArea as ColorAreaPrimitive,
   ColorSlider as ColorSliderPrimitive,
@@ -98,19 +93,7 @@ interface ColorSwatchProps extends ColorSwatchPrimitiveProps {}
 
 const ColorSwatch = ({ className, ...props }: ColorSwatchProps) => {
   const needRing = props.color ? isBrightColor(props.color) : false
-  return (
-    <ColorSwatchPrimitive
-      aria-label={props['aria-label'] ?? 'Color swatch'}
-      className={cn(
-        'size-8 cs rounded-md shrink-0',
-        needRing
-          ? 'ring-1 ring-inset ring-black/10'
-          : 'dark:ring-1 dark:ring-inset dark:ring-white/10',
-        className
-      )}
-      {...props}
-    />
-  )
+  return <ColorSwatchPrimitive aria-label={props['aria-label'] ?? 'Color swatch'} className={cn('size-8 cs rounded-md shrink-0', needRing ? 'ring-1 ring-inset ring-black/10' : 'dark:ring-1 dark:ring-inset dark:ring-white/10', className)} {...props} />
 }
 
 const hexToRgb = (hex: string): { r: number; g: number; b: number } | null => {
@@ -188,12 +171,7 @@ const isBrightColor = (color: any): boolean => {
         return false
       }
     }
-  } else if (
-    typeof color === 'object' &&
-    'hue' in color &&
-    'saturation' in color &&
-    'brightness' in color
-  ) {
+  } else if (typeof color === 'object' && 'hue' in color && 'saturation' in color && 'brightness' in color) {
     const rgb = hsbToRgb(color.hue, color.saturation, color.brightness)
     r = rgb.r
     g = rgb.g
@@ -213,18 +191,9 @@ interface ColorSliderProps extends ColorSliderPrimitiveProps {
   showOutput?: boolean
 }
 
-const ColorSlider = ({
-  className,
-  showOutput = true,
-  label,
-  description,
-  ...props
-}: ColorSliderProps) => {
+const ColorSlider = ({ className, showOutput = true, label, description, ...props }: ColorSliderProps) => {
   return (
-    <ColorSliderPrimitive
-      className={cn('flex disabled:opacity-50 w-full flex-col gap-1', className)}
-      {...props}
-    >
+    <ColorSliderPrimitive className={cn('flex disabled:opacity-50 w-full flex-col gap-1', className)} {...props}>
       <div className="flex items-center gap-2">
         {label && <Label className="text-sm [grid-area:label]">{label}</Label>}
         {showOutput && <SliderOutput className="text-sm ml-auto [grid-area:output]" />}
@@ -241,15 +210,4 @@ const ColorWheel = ColorWheelPrimitive
 const ColorWheelTrack = ColorWheelTrackPrimitive
 const ColorSwatchPicker = ColorSwatchPickerPrimitive
 
-export {
-  ColorArea,
-  ColorSlider,
-  ColorSwatch,
-  ColorSwatchPicker,
-  ColorSwatchPickerItem,
-  ColorThumb,
-  ColorWheel,
-  ColorWheelTrack,
-  defaultColor,
-  isBrightColor
-}
+export { ColorArea, ColorSlider, ColorSwatch, ColorSwatchPicker, ColorSwatchPickerItem, ColorThumb, ColorWheel, ColorWheelTrack, defaultColor, isBrightColor }

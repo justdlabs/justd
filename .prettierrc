@@ -13,7 +13,7 @@
     "prettier-plugin-tailwindcss",
     "@trivago/prettier-plugin-sort-imports"
   ],
-  "printWidth": 100,
+  "printWidth": 300,
   "importOrder": [
     "^react$",
     "<THIRD_PARTY_MODULES>",

@@ -20,28 +20,17 @@ interface ColorRowProps extends React.HtmlHTMLAttributes<HTMLDivElement> {
 
 export function ColorRow({ showItem = false, swatchClassName, item }: ColorRowProps) {
   const [isForTailwindVariable, setIsForTailwindVariable] = React.useState(false)
-  const [selectedFormat, setSelectedFormat] = React.useState<
-    ColorFormat | null | FormatOnlyForTailwindVariableType
-  >('hex')
+  const [selectedFormat, setSelectedFormat] = React.useState<ColorFormat | null | FormatOnlyForTailwindVariableType>('hex')
   return (
     <div className="p-2 bg-tertiary border rounded-lg overflow-hidden">
       <div className="flex mb-2 items-center gap-x-1 justify-between">
-        <Heading
-          level={3}
-          className="tracking-tight text-muted-fg font-mono text-sm font-medium sm:text-sm"
-        >
+        <Heading level={3} className="tracking-tight text-muted-fg font-mono text-sm font-medium sm:text-sm">
           {item.name}
         </Heading>
         <div className="flex gap-x-1">
           <>
-            <CopyJsonColorShades
-              name={item.name}
-              color={item.children[4].color}
-              colorScales={item.children}
-            />
-            {['rgb', 'rgba', 'hsl', 'hsla', 'hsb', 'hsba'].includes(
-              selectedFormat as ColorFormat
-            ) && (
+            <CopyJsonColorShades name={item.name} color={item.children[4].color} colorScales={item.children} />
+            {['rgb', 'rgba', 'hsl', 'hsla', 'hsb', 'hsba'].includes(selectedFormat as ColorFormat) && (
               <Tooltip>
                 <ToggleButton
                   className={buttonStyles({
@@ -51,26 +40,16 @@ export function ColorRow({ showItem = false, swatchClassName, item }: ColorRowPr
                   })}
                   isSelected={isForTailwindVariable}
                   onChange={() => {
-                    if (
-                      !formatOnlyForTailwindVariableValues.includes(
-                        selectedFormat as FormatOnlyForTailwindVariableType
-                      )
-                    ) {
-                      toast(
-                        'You can only switch up the color format to RGB, RGBA, HSL, HSLA, HSB, or HSBA.'
-                      )
+                    if (!formatOnlyForTailwindVariableValues.includes(selectedFormat as FormatOnlyForTailwindVariableType)) {
+                      toast('You can only switch up the color format to RGB, RGBA, HSL, HSLA, HSB, or HSBA.')
                       return
                     }
                     setIsForTailwindVariable(!isForTailwindVariable)
                   }}
                 >
-                  {({ isSelected }) => (
-                    <IconBrandTailwindcss className={isSelected ? '!text-sky-500' : '!text-fg'} />
-                  )}
+                  {({ isSelected }) => <IconBrandTailwindcss className={isSelected ? '!text-sky-500' : '!text-fg'} />}
                 </ToggleButton>
-                <TooltipContent className="max-w-xs">
-                  You can switch up the color format to RGB, RGBA, HSL, HSLA, HSB, or HSBA.
-                </TooltipContent>
+                <TooltipContent className="max-w-xs">You can switch up the color format to RGB, RGBA, HSL, HSLA, HSB, or HSBA.</TooltipContent>
               </Tooltip>
             )}
             <Select

@@ -21,12 +21,7 @@ export default function GridListDragDemo() {
 
   return (
     <>
-      <GridList
-        items={list.items}
-        aria-label="Droppable list"
-        selectionMode="multiple"
-        dragAndDropHooks={dragAndDropHooks}
-      >
+      <GridList items={list.items} aria-label="Droppable list" selectionMode="multiple" dragAndDropHooks={dragAndDropHooks}>
         {(item) => <GridListItem id={item.id}>{item.name}</GridListItem>}
       </GridList>
     </>

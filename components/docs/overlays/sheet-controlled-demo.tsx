@@ -14,9 +14,7 @@ export default function SheetControlledDemo() {
           <SheetTitle>User Profile</SheetTitle>
           <SheetDescription>Manage your profile settings and preferences.</SheetDescription>
         </SheetHeader>
-        <div className="overflow-y-auto min-h-[calc(var(--visual-viewport-height)-11.5rem)]">
-          This is where you can update your username, email, and other personal details.
-        </div>
+        <div className="overflow-y-auto min-h-[calc(var(--visual-viewport-height)-11.5rem)]">This is where you can update your username, email, and other personal details.</div>
         <SheetFooter>
           <Button appearance="outline" onPress={() => setIsOpen(false)}>
             Close

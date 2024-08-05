@@ -11,13 +11,7 @@ export default function DatePickerInvalidDemo() {
   const [value, setValue] = React.useState(parseDate(ly.toString()))
   return (
     <Form onSubmit={(e) => e.preventDefault()}>
-      <DatePicker
-        validate={(date) => (date < now ? 'Select a future date, please.' : null)}
-        value={value}
-        onChange={setValue}
-        label="Delivery date"
-        className="mb-2"
-      />
+      <DatePicker validate={(date) => (date < now ? 'Select a future date, please.' : null)} value={value} onChange={setValue} label="Delivery date" className="mb-2" />
 
       <Button type="submit">Submit</Button>
     </Form>

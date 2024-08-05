@@ -2,14 +2,7 @@
 
 import React from 'react'
 
-import {
-  Button,
-  composeRenderProps,
-  OverlayArrow,
-  Tooltip as TooltipPrimitive,
-  type TooltipProps as TooltipPrimitiveProps,
-  TooltipTrigger as TooltipTriggerPrimitive
-} from 'react-aria-components'
+import { Button, composeRenderProps, OverlayArrow, Tooltip as TooltipPrimitive, type TooltipProps as TooltipPrimitiveProps, TooltipTrigger as TooltipTriggerPrimitive } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
 export interface TooltipProps extends Omit<TooltipPrimitiveProps, 'children'> {
@@ -47,12 +40,7 @@ const TooltipContent = ({ children, ...props }: TooltipProps) => {
       )}
     >
       <OverlayArrow>
-        <svg
-          width={8}
-          height={8}
-          viewBox="0 0 8 8"
-          className="fill-fg stroke-fg group-placement-left:-rotate-90 group-placement-right:rotate-90 group-placement-bottom:rotate-180 forced-colors:fill-[Canvas] forced-colors:stroke-[ButtonBorder]"
-        >
+        <svg width={8} height={8} viewBox="0 0 8 8" className="fill-fg stroke-fg group-placement-left:-rotate-90 group-placement-right:rotate-90 group-placement-bottom:rotate-180 forced-colors:fill-[Canvas] forced-colors:stroke-[ButtonBorder]">
           <path d="M0 0 L4 4 L8 0" />
         </svg>
       </OverlayArrow>

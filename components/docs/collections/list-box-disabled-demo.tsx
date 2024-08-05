@@ -5,12 +5,7 @@ import { ListBox, ListBoxItem } from 'ui'
 export default function ListBoxControlledDemo() {
   return (
     <>
-      <ListBox
-        disabledKeys={[2, 3, 4, 5]}
-        items={fruits}
-        aria-label="Fruits"
-        selectionMode="multiple"
-      >
+      <ListBox disabledKeys={[2, 3, 4, 5]} items={fruits} aria-label="Fruits" selectionMode="multiple">
         {(fruit) => <ListBoxItem id={fruit.id}>{fruit.name}</ListBoxItem>}
       </ListBox>
     </>

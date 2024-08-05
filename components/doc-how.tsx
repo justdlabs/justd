@@ -19,17 +19,7 @@ interface HowProps extends React.HTMLAttributes<HTMLDivElement> {
   withNoPadding?: boolean
 }
 
-export function DocHow({
-  toUse,
-  children,
-  className,
-  minW72 = false,
-  isCenter = true,
-  align = 'center',
-  description,
-  withNoPadding = false,
-  ...props
-}: HowProps) {
+export function DocHow({ toUse, children, className, minW72 = false, isCenter = true, align = 'center', description, withNoPadding = false, ...props }: HowProps) {
   const Preview = previews[toUse] ? previews[toUse].component : null
 
   // @ts-ignore
@@ -45,14 +35,7 @@ export function DocHow({
           <Tab id="code">Code</Tab>
         </TabList>
         <TabPanel className="w-full" id="preview">
-          <div
-            className={cn(
-              !withNoPadding && 'relative gap-4 rounded-lg border bg-popover p-6',
-              isCenter &&
-                'flex min-h-56 lg:min-h-80 items-center justify-center py-6 preview sm:py-24',
-              'overflow-x-auto py-3'
-            )}
-          >
+          <div className={cn(!withNoPadding && 'relative gap-4 rounded-lg border bg-popover p-6', isCenter && 'flex min-h-56 lg:min-h-80 items-center justify-center py-6 preview sm:py-24', 'overflow-x-auto py-3')}>
             <React.Suspense
               fallback={
                 <div className="flex items-center text-sm text-muted-foreground">
@@ -68,10 +51,7 @@ export function DocHow({
           </div>
         </TabPanel>
         <TabPanel id="code">
-          <Code
-            className="border [&_pre_span[data-line]:last-of-type]:hidden [&_pre]:!border-0 border-zinc-800 bg-[#0e0e10] rounded-lg"
-            code={codeString}
-          />
+          <Code className="border [&_pre_span[data-line]:last-of-type]:hidden [&_pre]:!border-0 border-zinc-800 bg-[#0e0e10] rounded-lg" code={codeString} />
         </TabPanel>
       </Tabs>
     </div>

@@ -9,13 +9,7 @@ export default function ChoiceboxControlledDemo() {
   const [selectedKeys, setSelectedKeys] = React.useState<Selection>(new Set([packages[0].id]))
   return (
     <>
-      <Choicebox
-        aria-label="Select packages"
-        selectionMode="multiple"
-        selectedKeys={selectedKeys}
-        onSelectionChange={setSelectedKeys}
-        items={packages}
-      >
+      <Choicebox aria-label="Select packages" selectionMode="multiple" selectedKeys={selectedKeys} onSelectionChange={setSelectedKeys} items={packages}>
         {(item) => <ChoiceboxItem {...item} />}
       </Choicebox>
 

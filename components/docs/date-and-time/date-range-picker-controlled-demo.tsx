@@ -19,11 +19,7 @@ export default function DateRangePickerControlledDemo() {
   return (
     <div className="space-y-3">
       <div className="divide-y [&_p]:py-2">
-        <p>
-          {value
-            ? `${formatter.format(value.start.toDate(getLocalTimeZone()))} to ${formatter.format(value.end.toDate(getLocalTimeZone()))}`
-            : '-- to --'}
-        </p>
+        <p>{value ? `${formatter.format(value.start.toDate(getLocalTimeZone()))} to ${formatter.format(value.end.toDate(getLocalTimeZone()))}` : '-- to --'}</p>
         <p>{value ? `${value.start.toString()} to ${value.end.toString()}` : '-- to --'}</p>
       </div>
       <DateRangePicker value={value} onChange={setValue} label="Event date" />

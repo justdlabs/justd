@@ -3,27 +3,8 @@
 import * as React from 'react'
 
 import { IconBulletFill, IconCheck, IconChevronLgRight } from '@irsyadadl/paranoid'
-import type {
-  ButtonProps,
-  MenuItemProps as MenuItemPrimitiveProps,
-  MenuProps,
-  PopoverProps,
-  SeparatorProps
-} from 'react-aria-components'
-import {
-  Button,
-  composeRenderProps,
-  Header,
-  Menu as MenuPrimitive,
-  MenuItem as MenuItemPrimitive,
-  MenuTrigger as MenuTriggerPrimitive,
-  OverlayArrow,
-  Popover,
-  PopoverContext,
-  Separator,
-  SubmenuTrigger as SubmenuTriggerPrimitive,
-  useSlottedContext
-} from 'react-aria-components'
+import type { ButtonProps, MenuItemProps as MenuItemPrimitiveProps, MenuProps, PopoverProps, SeparatorProps } from 'react-aria-components'
+import { Button, composeRenderProps, Header, Menu as MenuPrimitive, MenuItem as MenuItemPrimitive, MenuTrigger as MenuTriggerPrimitive, OverlayArrow, Popover, PopoverContext, Separator, SubmenuTrigger as SubmenuTriggerPrimitive, useSlottedContext } from 'react-aria-components'
 import type { VariantProps } from 'tailwind-variants'
 
 import { dropdownItemStyles, DropdownSection } from './dropdown'
@@ -31,36 +12,19 @@ import { Keyboard } from './keyboard'
 import { cn } from './primitive'
 
 const Menu = MenuTriggerPrimitive
-const MenuTrigger = ({ className, ...props }: ButtonProps) => (
-  <Button
-    aria-label="Open Menu"
-    className={cn(
-      'inline text-left focus:outline-none focus-visible:ring-1 focus-visible:ring-primary-500 pressed:outline-none',
-      className
-    )}
-    {...props}
-  />
-)
+const MenuTrigger = ({ className, ...props }: ButtonProps) => <Button aria-label="Open Menu" className={cn('inline text-left focus:outline-none focus-visible:ring-1 focus-visible:ring-primary-500 pressed:outline-none', className)} {...props} />
 
 const SubmenuTrigger = SubmenuTriggerPrimitive
 
 const MenuSection = DropdownSection
 
-export interface MenuContentProps<T>
-  extends Omit<PopoverProps, 'children' | 'style'>,
-    MenuProps<T> {
+export interface MenuContentProps<T> extends Omit<PopoverProps, 'children' | 'style'>, MenuProps<T> {
   className?: string
   popoverClassName?: string
   showArrow?: boolean
 }
 
-const MenuContent = <T extends object>({
-  className,
-  showArrow = false,
-  popoverClassName,
-  offset = 4,
-  ...props
-}: MenuContentProps<T>) => {
+const MenuContent = <T extends object>({ className, showArrow = false, popoverClassName, offset = 4, ...props }: MenuContentProps<T>) => {
   const popoverContext = useSlottedContext(PopoverContext)!
   const isSubmenu = popoverContext?.trigger === 'SubmenuTrigger'
   let currentOffset = showArrow ? 12 : 8
@@ -76,31 +40,17 @@ const MenuContent = <T extends object>({
     >
       {showArrow && (
         <OverlayArrow className="group">
-          <svg
-            width={12}
-            height={12}
-            viewBox="0 0 12 12"
-            className="block fill-overlay stroke-border group-placement-left:-rotate-90 group-placement-right:rotate-90 group-placement-bottom:rotate-180 forced-colors:fill-[Canvas] forced-colors:stroke-[ButtonBorder]"
-          >
+          <svg width={12} height={12} viewBox="0 0 12 12" className="block fill-overlay stroke-border group-placement-left:-rotate-90 group-placement-right:rotate-90 group-placement-bottom:rotate-180 forced-colors:fill-[Canvas] forced-colors:stroke-[ButtonBorder]">
             <path d="M0 0 L6 6 L12 0" />
           </svg>
         </OverlayArrow>
       )}
-      <MenuPrimitive
-        className={cn(
-          'z32kk',
-          'max-h-[inherit] overflow-auto rounded-xl p-1 outline outline-0 [clip-path:inset(0_0_0_0_round_calc(var(--radius)-2px))]',
-          className
-        )}
-        {...props}
-      />
+      <MenuPrimitive className={cn('z32kk', 'max-h-[inherit] overflow-auto rounded-xl p-1 outline outline-0 [clip-path:inset(0_0_0_0_round_calc(var(--radius)-2px))]', className)} {...props} />
     </Popover>
   )
 }
 
-interface MenuItemProps
-  extends Omit<MenuItemPrimitiveProps, 'isDanger'>,
-    VariantProps<typeof dropdownItemStyles> {
+interface MenuItemProps extends Omit<MenuItemPrimitiveProps, 'isDanger'>, VariantProps<typeof dropdownItemStyles> {
   isDanger?: boolean
 }
 
@@ -129,21 +79,9 @@ export interface MenuHeaderProps extends React.ComponentProps<typeof Header> {
   separator?: boolean
 }
 
-const MenuHeader = ({ className, inset, separator = false, ...props }: MenuHeaderProps) => (
-  <Header
-    className={cn(
-      'px-2 py-1.5 text-base font-semibold sm:text-sm',
-      inset && 'pl-8',
-      separator && '-mx-1 mb-1 border-b border-b-border px-3 pb-[0.625rem]',
-      className
-    )}
-    {...props}
-  />
-)
+const MenuHeader = ({ className, inset, separator = false, ...props }: MenuHeaderProps) => <Header className={cn('px-2 py-1.5 text-base font-semibold sm:text-sm', inset && 'pl-8', separator && '-mx-1 mb-1 border-b border-b-border px-3 pb-[0.625rem]', className)} {...props} />
 
-const MenuSeparator = ({ className, ...props }: SeparatorProps) => (
-  <Separator className={cn('-mx-1 my-1 h-px ms bg-muted', className)} {...props} />
-)
+const MenuSeparator = ({ className, ...props }: SeparatorProps) => <Separator className={cn('-mx-1 my-1 h-px ms bg-muted', className)} {...props} />
 
 const MenuKeyboard = Keyboard
 
@@ -151,9 +89,7 @@ const MenuCheckboxItem = ({ className, children, ...props }: MenuItemProps) => (
   <MenuItem className={cn('pr-8', className)} {...props}>
     {(values) => (
       <>
-        <span className="absolute right-2 flex size-4 items-center animate-in justify-center">
-          {values.isSelected && <IconCheck className="size-4" />}
-        </span>
+        <span className="absolute right-2 flex size-4 items-center animate-in justify-center">{values.isSelected && <IconCheck className="size-4" />}</span>
 
         {typeof children === 'function' ? children(values) : children}
       </>
@@ -165,28 +101,11 @@ const MenuRadioItem = ({ className, children, ...props }: MenuItemProps) => (
   <MenuItem className={cn('pr-8', className)} {...props}>
     {(values) => (
       <>
-        <span className="absolute right-2 flex size-2.5 items-center animate-in justify-center">
-          {values.isSelected && <IconBulletFill className="size-2.5" />}
-        </span>
+        <span className="absolute right-2 flex size-2.5 items-center animate-in justify-center">{values.isSelected && <IconBulletFill className="size-2.5" />}</span>
         {typeof children === 'function' ? children(values) : children}
       </>
     )}
   </MenuItem>
 )
 
-export {
-  Menu,
-  MenuCheckboxItem,
-  MenuContent,
-  MenuHeader,
-  MenuItem,
-  MenuItemPrimitive,
-  MenuKeyboard,
-  MenuPrimitive,
-  MenuRadioItem,
-  MenuSection,
-  MenuSeparator,
-  MenuTrigger,
-  SubmenuTrigger,
-  type MenuItemProps
-}
+export { Menu, MenuCheckboxItem, MenuContent, MenuHeader, MenuItem, MenuItemPrimitive, MenuKeyboard, MenuPrimitive, MenuRadioItem, MenuSection, MenuSeparator, MenuTrigger, SubmenuTrigger, type MenuItemProps }

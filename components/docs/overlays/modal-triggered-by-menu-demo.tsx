@@ -4,21 +4,7 @@ import React from 'react'
 
 import { wait } from '@/resources/lib/utils'
 import { IconDotsVertical } from '@irsyadadl/paranoid'
-import {
-  Button,
-  buttonStyles,
-  LoadingDots,
-  Menu,
-  MenuContent,
-  MenuItem,
-  MenuTrigger,
-  ModalClose,
-  ModalContent,
-  ModalDescription,
-  ModalFooter,
-  ModalHeader,
-  ModalTitle
-} from 'ui'
+import { Button, buttonStyles, LoadingDots, Menu, MenuContent, MenuItem, MenuTrigger, ModalClose, ModalContent, ModalDescription, ModalFooter, ModalHeader, ModalTitle } from 'ui'
 
 export default function ModalTriggeredByMenuDemo() {
   const [state, setState] = React.useState<string | null>(null)

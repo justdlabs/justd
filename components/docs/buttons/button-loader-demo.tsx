@@ -17,24 +17,9 @@ export default function ButtonLoaderDemo() {
   }
 
   return (
-    <Button
-      isDisabled={loading === 'loading'}
-      className="w-52 justify-between"
-      onPress={pressHandler}
-      intent="primary"
-    >
-      {loading === 'success' ? (
-        <IconCircleCheckFill />
-      ) : loading === 'loading' ? (
-        <Loader />
-      ) : (
-        <IconKey />
-      )}
-      {loading === 'loading'
-        ? 'Generating Key...'
-        : loading === 'success'
-          ? 'Key Generated!'
-          : 'Generate API Key'}
+    <Button isDisabled={loading === 'loading'} className="w-52 justify-between" onPress={pressHandler} intent="primary">
+      {loading === 'success' ? <IconCircleCheckFill /> : loading === 'loading' ? <Loader /> : <IconKey />}
+      {loading === 'loading' ? 'Generating Key...' : loading === 'success' ? 'Key Generated!' : 'Generate API Key'}
     </Button>
   )
 }

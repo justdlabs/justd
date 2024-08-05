@@ -14,13 +14,7 @@ export default function NoteIntentDemo() {
   return (
     <>
       <OptionPreview>
-        <Select
-          className="[&_button]:h-9"
-          selectedKey={selected}
-          onSelectionChange={setSelected}
-          placeholder="Choose an intent"
-          items={notes}
-        >
+        <Select className="[&_button]:h-9" selectedKey={selected} onSelectionChange={setSelected} placeholder="Choose an intent" items={notes}>
           {(item) => (
             <SelectItem id={item.name} textValue={item.name}>
               {item.name}
@@ -29,10 +23,7 @@ export default function NoteIntentDemo() {
         </Select>
       </OptionPreview>
       <div className="max-w-md">
-        <Note intent={selected as any}>
-          We hook you up with top-tier migration services in our startup plan. Wanna roll with it?
-          Hit us up here.
-        </Note>
+        <Note intent={selected as any}>We hook you up with top-tier migration services in our startup plan. Wanna roll with it? Hit us up here.</Note>
       </div>
     </>
   )

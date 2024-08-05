@@ -1,9 +1,6 @@
 'use client'
 
-import {
-  Switch as SwitchPrimitive,
-  type SwitchProps as SwitchPrimitiveProps
-} from 'react-aria-components'
+import { Switch as SwitchPrimitive, type SwitchProps as SwitchPrimitiveProps } from 'react-aria-components'
 import { tv, type VariantProps } from 'tailwind-variants'
 
 import { cn, focusRing } from './primitive'
@@ -30,16 +27,7 @@ interface SwitchProps extends SwitchPrimitiveProps, VariantProps<typeof trackSty
 
 const Switch = ({ children, intent, className, ...props }: SwitchProps) => {
   return (
-    <SwitchPrimitive
-      {...props}
-      className={(values) =>
-        cn(
-          'group inline-flex touch-none lg:text-sm items-center disabled:opacity-60 forced-colors:disabled:text-[GrayText]',
-          typeof className === 'function' ? className(values) : className
-        )
-      }
-      style={{ WebkitTapHighlightColor: 'transparent' }}
-    >
+    <SwitchPrimitive {...props} className={(values) => cn('group inline-flex touch-none lg:text-sm items-center disabled:opacity-60 forced-colors:disabled:text-[GrayText]', typeof className === 'function' ? className(values) : className)} style={{ WebkitTapHighlightColor: 'transparent' }}>
       {(values) => (
         <>
           <span className={trackStyles({ intent })}>

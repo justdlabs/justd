@@ -12,17 +12,8 @@ interface TableOfContentsProps {
   items?: TableOfContentsProps[]
 }
 
-export function TableOfContents({
-  className,
-  items
-}: {
-  className?: string
-  items: TableOfContentsProps[]
-}) {
-  const ids = items.flatMap((item) => [
-    item.url.split('#')[1],
-    ...(item.items ? item.items.map((subItem) => subItem.url.split('#')[1]) : [])
-  ])
+export function TableOfContents({ className, items }: { className?: string; items: TableOfContentsProps[] }) {
+  const ids = items.flatMap((item) => [item.url.split('#')[1], ...(item.items ? item.items.map((subItem) => subItem.url.split('#')[1]) : [])])
   const activeId = useActiveItem(ids)
   return (
     <div className={twJoin('not-prose', className)}>
@@ -41,10 +32,7 @@ export function TableOfContents({
             }
           >
             <>
-              <Heading
-                level={2}
-                className="text-base lg:text-lg font-medium leading-7 mb-6 text-fg"
-              >
+              <Heading level={2} className="text-base lg:text-lg font-medium leading-7 mb-6 text-fg">
                 On this page
               </Heading>
               {items.length > 0 && (
@@ -74,13 +62,7 @@ export function TableOfContents({
 function TocLink({ item, activeId }: { item: TableOfContentsProps; activeId: string | null }) {
   return (
     <li key={item.title}>
-      <Link
-        className={cn(
-          'outline-none block no-underline tracking-tight lg:text-[0.885rem]',
-          item.url.split('#')[1] === activeId ? 'text-fg' : 'text-muted-fg'
-        )}
-        href={item.url}
-      >
+      <Link className={cn('outline-none block no-underline tracking-tight lg:text-[0.885rem]', item.url.split('#')[1] === activeId ? 'text-fg' : 'text-muted-fg')} href={item.url}>
         {item.title}
       </Link>
     </li>
@@ -95,10 +77,7 @@ export function useActiveItem(itemIds: string[]) {
       (entries) => {
         let bestCandidate: IntersectionObserverEntry | null = null
         entries.forEach((entry) => {
-          if (
-            entry.isIntersecting &&
-            (!bestCandidate || bestCandidate.intersectionRatio < entry.intersectionRatio)
-          ) {
+          if (entry.isIntersecting && (!bestCandidate || bestCandidate.intersectionRatio < entry.intersectionRatio)) {
             bestCandidate = entry
           }
         })

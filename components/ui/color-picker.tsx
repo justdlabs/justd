@@ -2,27 +2,12 @@
 
 import * as React from 'react'
 
-import {
-  ColorPicker as ColorPickerPrimitive,
-  type ColorPickerProps as ColorPickerPrimitiveProps,
-  type ColorSpace,
-  DialogTrigger,
-  getColorChannels,
-  Group
-} from 'react-aria-components'
+import { ColorPicker as ColorPickerPrimitive, type ColorPickerProps as ColorPickerPrimitiveProps, type ColorSpace, DialogTrigger, getColorChannels, Group } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 import tailwindColors from 'tailwindcss/colors'
 
 import { Button, ButtonPrimitive } from './button'
-import {
-  ColorArea,
-  ColorSlider,
-  ColorSwatch,
-  ColorSwatchPicker,
-  ColorSwatchPickerItem,
-  ColorThumb,
-  defaultColor
-} from './color'
+import { ColorArea, ColorSlider, ColorSwatch, ColorSwatchPicker, ColorSwatchPickerItem, ColorThumb, defaultColor } from './color'
 import { ColorField } from './color-field'
 import { Description, Label } from './field'
 import { PopoverClose, PopoverContent } from './popover'
@@ -39,8 +24,7 @@ const colorPickerStyles = tv({
   }
 })
 
-const { base, triggerColorField, triggerColorPicker, colorArea, colorSlider, colorSwatchPicker } =
-  colorPickerStyles()
+const { base, triggerColorField, triggerColorPicker, colorArea, colorSlider, colorSwatchPicker } = colorPickerStyles()
 
 interface ColorPickerProps extends ColorPickerPrimitiveProps {
   space?: ColorSpace
@@ -87,34 +71,17 @@ const ColorPicker = ({
               <ColorSwatch color={value?.toString(space)} className="size-6" />
             </ButtonPrimitive>
           ) : trigger === 'color-picker' ? (
-            <Button
-              aria-label="Color picker"
-              isDisabled={isDisabled}
-              appearance="outline"
-              className={triggerColorPicker()}
-            >
+            <Button aria-label="Color picker" isDisabled={isDisabled} appearance="outline" className={triggerColorPicker()}>
               <ColorSwatch color={value?.toString(space)} className="-ml-1.5 size-6" />
               {value ? <span>{value.toString(space)}</span> : <span>{placeholder}</span>}
             </Button>
           ) : null}
           <PopoverContent showArrow={false} className="p-2 min-w-[--trigger-width]" {...props}>
             <div>
-              <ColorArea
-                aria-describedby={`${label ? `${label} color area` : 'Color slider'}`}
-                className={colorArea()}
-                colorSpace="hsb"
-                xChannel="saturation"
-                yChannel="brightness"
-              >
+              <ColorArea aria-describedby={`${label ? `${label} color area` : 'Color slider'}`} className={colorArea()} colorSpace="hsb" xChannel="saturation" yChannel="brightness">
                 <ColorThumb className="z-50" />
               </ColorArea>
-              <ColorSlider
-                aria-describedby={`${label ? `${label} color slider` : 'Color slider'}`}
-                showOutput={false}
-                className={colorSlider()}
-                colorSpace="hsb"
-                channel="hue"
-              />
+              <ColorSlider aria-describedby={`${label ? `${label} color slider` : 'Color slider'}`} showOutput={false} className={colorSlider()} colorSpace="hsb" channel="hue" />
             </div>
 
             <div className="grid gap-2">
@@ -137,31 +104,14 @@ const ColorPicker = ({
               )}
 
               {enableColorFormatSelection ? (
-                <div className="flex gap-1 w-[inherit]">
-                  {isHexFormat ? (
-                    <ColorField aria-label="Hex color" colorSpace={space} />
-                  ) : (
-                    getColorChannels(space).map((channel) => (
-                      <ColorField
-                        aria-describedby={label ?? 'Color field'}
-                        colorSpace={space}
-                        channel={channel}
-                        key={channel}
-                      />
-                    ))
-                  )}
-                </div>
+                <div className="flex gap-1 w-[inherit]">{isHexFormat ? <ColorField aria-label="Hex color" colorSpace={space} /> : getColorChannels(space).map((channel) => <ColorField aria-describedby={label ?? 'Color field'} colorSpace={space} channel={channel} key={channel} />)}</div>
               ) : enableColorField ? (
                 <ColorField aria-label={`Color in ${space} format`} colorSpace={space} />
               ) : null}
             </div>
 
             {enableColorSwatch && colors && colors.length > 0 && (
-              <ColorSwatchPicker
-                aria-label="Color swatch picker"
-                layout="grid"
-                className={colorSwatchPicker()}
-              >
+              <ColorSwatchPicker aria-label="Color swatch picker" layout="grid" className={colorSwatchPicker()}>
                 {colors.map((color) => (
                   <ColorSwatchPickerItem key={color} color={color} />
                 ))}

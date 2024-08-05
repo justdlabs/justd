@@ -1,10 +1,6 @@
 'use client'
 
-import {
-  composeRenderProps,
-  Link as LinkPrimitive,
-  type LinkProps as LinkPrimitiveProps
-} from 'react-aria-components'
+import { composeRenderProps, Link as LinkPrimitive, type LinkProps as LinkPrimitiveProps } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
 const linkStyles = tv({
@@ -12,12 +8,9 @@ const linkStyles = tv({
   variants: {
     intent: {
       unstyled: 'text-fg',
-      primary:
-        'text-primary-600 hover:text-primary-500 dark:text-primary-500 dark:hover:text-primary-400 forced-colors:disabled:text-[GrayText]',
-      danger:
-        'text-red-600 hover:text-red-500 dark:text-red-500 dark:hover:text-red-400 forced-colors:disabled:text-[GrayText]',
-      'lad/primary':
-        'text-fg hover:text-primary-500 dark:hover:text-primary-400 forced-colors:disabled:text-[GrayText]',
+      primary: 'text-primary-600 hover:text-primary-500 dark:text-primary-500 dark:hover:text-primary-400 forced-colors:disabled:text-[GrayText]',
+      danger: 'text-red-600 hover:text-red-500 dark:text-red-500 dark:hover:text-red-400 forced-colors:disabled:text-[GrayText]',
+      'lad/primary': 'text-fg hover:text-primary-500 dark:hover:text-primary-400 forced-colors:disabled:text-[GrayText]',
       secondary: 'text-zinc-800 dark:text-zinc-300 hover:text-zinc-700 dark:hover:text-zinc-white'
     }
   },
@@ -31,15 +24,7 @@ interface LinkProps extends LinkPrimitiveProps {
 }
 
 const Link = ({ className, ...props }: LinkProps) => {
-  return (
-    <LinkPrimitive
-      aria-label={props['aria-label'] ?? 'Link'}
-      {...props}
-      className={composeRenderProps(className, (className, ...renderProps) =>
-        linkStyles({ ...renderProps, intent: props.intent, className })
-      )}
-    />
-  )
+  return <LinkPrimitive aria-label={props['aria-label'] ?? 'Link'} {...props} className={composeRenderProps(className, (className, ...renderProps) => linkStyles({ ...renderProps, intent: props.intent, className }))} />
 }
 
 export { Link, LinkPrimitive, type LinkPrimitiveProps, type LinkProps }

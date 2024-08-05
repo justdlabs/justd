@@ -66,12 +66,7 @@ export function OtherEmptyList() {
   })
 
   return (
-    <GridList
-      aria-label="Droppable list"
-      items={list.items}
-      dragAndDropHooks={dragAndDropHooks}
-      renderEmptyState={() => <GridEmptyState>No bands selected</GridEmptyState>}
-    >
+    <GridList aria-label="Droppable list" items={list.items} dragAndDropHooks={dragAndDropHooks} renderEmptyState={() => <GridEmptyState>No bands selected</GridEmptyState>}>
       {(item) => <GridListItem>{item.name}</GridListItem>}
     </GridList>
   )

@@ -8,19 +8,7 @@ import type { InstallCommandProps } from '@/components/install-command'
 import { InstallCommand } from '@/components/install-command'
 import { useMDXComponent } from '@/resources/lib/hooks/use-mdx'
 import Image from 'next/image'
-import {
-  Card,
-  Link,
-  type LinkProps,
-  Table,
-  TableBody,
-  TableCell,
-  TableColumn,
-  type TableColumnProps,
-  TableHeader,
-  type TableProps,
-  TableRow
-} from 'ui'
+import { Card, Link, type LinkProps, Table, TableBody, TableCell, TableColumn, type TableColumnProps, TableHeader, type TableProps, TableRow } from 'ui'
 
 import { DocHow } from './doc-how'
 
@@ -48,18 +36,10 @@ export function MDXContent({ code }: MdxProps) {
         td: TableCell,
         Image,
         How: DocHow,
-        a: (props: LinkProps) => (
-          <Link
-            intent="primary"
-            {...props}
-            className="not-prose xd2432 font-medium hover:underline"
-          />
-        ),
+        a: (props: LinkProps) => <Link intent="primary" {...props} className="not-prose xd2432 font-medium hover:underline" />,
         SourceCode: SourceCode,
         PlainCode: PlainCode,
-        Code: (props: CodeProps) => (
-          <Code className="[&_.dxcode]:top-2 [&_.dxcode]:right-2" {...props} />
-        )
+        Code: (props: CodeProps) => <Code className="[&_.dxcode]:top-2 [&_.dxcode]:right-2" {...props} />
       }}
     />
   )

@@ -20,13 +20,7 @@ export default function ComboBoxControlledDemo() {
   const [sport, setSport] = React.useState('')
   return (
     <>
-      <ComboBox
-        onInputChange={setSport}
-        inputValue={sport}
-        placeholder="Select a sports"
-        label="Sports"
-        items={sports}
-      >
+      <ComboBox onInputChange={setSport} inputValue={sport} placeholder="Select a sports" label="Sports" items={sports}>
         {(item) => (
           <ComboBoxItem key={item.id} id={item.id} textValue={item.name}>
             {item.name}

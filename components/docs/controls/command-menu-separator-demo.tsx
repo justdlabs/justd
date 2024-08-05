@@ -2,14 +2,7 @@
 
 import React from 'react'
 
-import {
-  Button,
-  CommandMenu,
-  CommandMenuInput,
-  CommandMenuItem,
-  CommandMenuList,
-  CommandMenuSeparator
-} from 'ui'
+import { Button, CommandMenu, CommandMenuInput, CommandMenuItem, CommandMenuList, CommandMenuSeparator } from 'ui'
 
 export default function CommandMenuSeparatorDemo() {
   const [isOpen, setIsOpen] = React.useState(false)

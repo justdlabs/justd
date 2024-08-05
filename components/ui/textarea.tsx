@@ -2,13 +2,7 @@
 
 import * as React from 'react'
 
-import {
-  composeRenderProps,
-  TextArea as TextAreaPrimitive,
-  TextField as TextFieldPrimitive,
-  type TextFieldProps as TextFieldPrimitiveProps,
-  type ValidationResult
-} from 'react-aria-components'
+import { composeRenderProps, TextArea as TextAreaPrimitive, TextField as TextFieldPrimitive, type TextFieldProps as TextFieldPrimitiveProps, type ValidationResult } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
 import { Description, FieldError, Label } from './field'
@@ -28,14 +22,7 @@ interface TextareaProps extends TextFieldPrimitiveProps {
   className?: string
 }
 
-const Textarea = ({
-  className,
-  placeholder,
-  label,
-  description,
-  errorMessage,
-  ...props
-}: TextareaProps) => {
+const Textarea = ({ className, placeholder, label, description, errorMessage, ...props }: TextareaProps) => {
   return (
     <TextFieldPrimitive {...props} className={ctr(className, 'group flex flex-col gap-1')}>
       {label && <Label>{label}</Label>}

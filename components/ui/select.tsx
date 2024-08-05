@@ -4,15 +4,7 @@ import * as React from 'react'
 
 import { IconChevronLgDown } from '@irsyadadl/paranoid'
 import type { Placement } from '@react-types/overlays'
-import {
-  Button,
-  composeRenderProps,
-  Group,
-  Select as SelectPrimitive,
-  type SelectProps as SelectPrimitiveProps,
-  SelectValue,
-  type ValidationResult
-} from 'react-aria-components'
+import { Button, composeRenderProps, Group, Select as SelectPrimitive, type SelectProps as SelectPrimitiveProps, SelectValue, type ValidationResult } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
 import { DropdownItem, DropdownItemDetails, DropdownSection } from './dropdown'
@@ -28,8 +20,7 @@ const selectTriggerStyles = tv({
   ],
   variants: {
     isDisabled: {
-      false:
-        'text-fg group-invalid:border-danger group-invalid:ring-danger/20 forced-colors:group-invalid:border-[Mark]',
+      false: 'text-fg group-invalid:border-danger group-invalid:ring-danger/20 forced-colors:group-invalid:border-[Mark]',
       true: 'bg-secondary text-muted-fg forced-colors:border-[GrayText] forced-colors:text-[GrayText]'
     }
   }
@@ -46,16 +37,7 @@ interface SelectProps<T extends object> extends Omit<SelectPrimitiveProps<T>, 'c
   className?: string
 }
 
-const Select = <T extends object>({
-  label,
-  description,
-  placement,
-  errorMessage,
-  children,
-  items,
-  className,
-  ...props
-}: SelectProps<T>) => {
+const Select = <T extends object>({ label, description, placement, errorMessage, children, items, className, ...props }: SelectProps<T>) => {
   return (
     <SelectPrimitive {...props} className={ctr(className, 'group flex w-full flex-col gap-1')}>
       {label && <Label>{label}</Label>}
@@ -71,10 +53,7 @@ const Select = <T extends object>({
           {props.prefix && <span className="-mr-1">{props.prefix}</span>}
           <SelectValue className="flex-1 [&_[slot=description]]:hidden text-base placeholder-shown:text-muted-fg lg:text-sm" />
 
-          <IconChevronLgDown
-            aria-hidden
-            className="size-4 text-muted-fg duration-300 group-open:rotate-180 group-open:text-fg group-disabled:opacity-50 forced-colors:text-[ButtonText] forced-colors:group-disabled:text-[GrayText]"
-          />
+          <IconChevronLgDown aria-hidden className="size-4 text-muted-fg duration-300 group-open:rotate-180 group-open:text-fg group-disabled:opacity-50 forced-colors:text-[ButtonText] forced-colors:group-disabled:text-[GrayText]" />
         </Button>
       </Group>
       {description && <Description>{description}</Description>}

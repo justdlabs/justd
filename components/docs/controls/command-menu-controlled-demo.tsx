@@ -2,15 +2,7 @@
 
 import React from 'react'
 
-import {
-  Avatar,
-  Button,
-  CommandMenu,
-  CommandMenuDescription,
-  CommandMenuInput,
-  CommandMenuItem,
-  CommandMenuList
-} from 'ui'
+import { Avatar, Button, CommandMenu, CommandMenuDescription, CommandMenuInput, CommandMenuItem, CommandMenuList } from 'ui'
 
 export default function CommandMenuControlledDemo() {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -26,10 +18,7 @@ export default function CommandMenuControlledDemo() {
           {users.map((user) => (
             <CommandMenuItem key={user.id} value={user.name}>
               <Avatar src={user.image_url} />
-              {user.name}{' '}
-              {user.name === value && (
-                <CommandMenuDescription>Selected: {value}</CommandMenuDescription>
-              )}
+              {user.name} {user.name === value && <CommandMenuDescription>Selected: {value}</CommandMenuDescription>}
             </CommandMenuItem>
           ))}
         </CommandMenuList>

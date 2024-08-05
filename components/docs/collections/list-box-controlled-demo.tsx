@@ -9,13 +9,7 @@ export default function ListBoxControlledDemo() {
   const [selected, setSelected] = React.useState<Selection>(new Set(['2']))
   return (
     <>
-      <ListBox
-        selectedKeys={selected}
-        onSelectionChange={setSelected}
-        items={fruits}
-        selectionMode="single"
-        aria-label="Fruits"
-      >
+      <ListBox selectedKeys={selected} onSelectionChange={setSelected} items={fruits} selectionMode="single" aria-label="Fruits">
         {(fruit) => (
           <ListBoxItem id={fruit.id} textValue={fruit.name}>
             {fruit.name}

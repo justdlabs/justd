@@ -1,15 +1,6 @@
 'use client'
 
-import {
-  Badge,
-  badgeIntents,
-  Table,
-  TableBody,
-  TableCell,
-  TableColumn,
-  TableHeader,
-  TableRow
-} from 'ui'
+import { Badge, badgeIntents, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from 'ui'
 
 export default function TableOfBadges() {
   const colors = Object.keys(badgeIntents).map((i) => {

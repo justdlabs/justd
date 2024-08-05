@@ -2,49 +2,9 @@
 
 import React from 'react'
 
-import {
-  IconBook,
-  IconBookOpen,
-  IconBrandCopilot,
-  IconBrandGithub,
-  IconBuilding,
-  IconChart,
-  IconCodeBrackets,
-  IconFilter,
-  IconGear,
-  IconGlobe,
-  IconHeart,
-  IconLogout,
-  IconMessages,
-  IconPeople,
-  IconPerson,
-  IconStar
-} from '@irsyadadl/paranoid'
+import { IconBook, IconBookOpen, IconBrandCopilot, IconBrandGithub, IconBuilding, IconChart, IconCodeBrackets, IconFilter, IconGear, IconGlobe, IconHeart, IconLogout, IconMessages, IconPeople, IconPerson, IconStar } from '@irsyadadl/paranoid'
 import { Group, Menu } from 'react-aria-components'
-import {
-  Avatar,
-  Button,
-  Checkbox,
-  Description,
-  MenuItem,
-  MenuSection,
-  ModalBody,
-  ModalClose,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  ModalTitle,
-  Select,
-  SelectItem,
-  Sheet,
-  SheetBody,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-  TextField
-} from 'ui'
+import { Avatar, Button, Checkbox, Description, MenuItem, MenuSection, ModalBody, ModalClose, ModalContent, ModalFooter, ModalHeader, ModalTitle, Select, SelectItem, Sheet, SheetBody, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger, TextField } from 'ui'
 
 export default function SheetMenuDemo() {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -58,17 +18,10 @@ export default function SheetMenuDemo() {
         </ModalHeader>
         <ModalBody>
           <div className="space-y-4">
-            <TextField
-              prefix={<IconBrandGithub />}
-              label="Status"
-              placeholder="What's your status?"
-            />
+            <TextField prefix={<IconBrandGithub />} label="Status" placeholder="What's your status?" />
             <Group>
               <Checkbox>Busy</Checkbox>
-              <Description>
-                When others mention you, assign you, or request your review, GitHub will let them
-                know that you have limited availability.
-              </Description>
+              <Description>When others mention you, assign you, or request your review, GitHub will let them know that you have limited availability.</Description>
             </Group>
             <Select label="Clear Status">
               <SelectItem>Never</SelectItem>
