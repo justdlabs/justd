@@ -806,6 +806,9 @@ export const previews: Record<string, any> = {
   "collections/table-sorting-demo": {
     component: React.lazy(() => import("@/components/docs/collections/table-sorting-demo")),
   },
+  "collections/tag-group-shape-demo": {
+    component: React.lazy(() => import("@/components/docs/collections/tag-group-shape-demo")),
+  },
   "collections/table-bulk-demo": {
     component: React.lazy(() => import("@/components/docs/collections/table-bulk-demo")),
   },
@@ -853,6 +856,9 @@ export const previews: Record<string, any> = {
   },
   "collections/choicebox-demo": {
     component: React.lazy(() => import("@/components/docs/collections/choicebox-demo")),
+  },
+  "collections/tag-group-intent-demo": {
+    component: React.lazy(() => import("@/components/docs/collections/tag-group-intent-demo")),
   },
   "collections/grid-list-drag-demo": {
     component: React.lazy(() => import("@/components/docs/collections/grid-list-drag-demo")),

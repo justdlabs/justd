@@ -75,11 +75,12 @@ const drawerStyles = tv({
 
 interface PopoverProps
   extends Omit<DialogProps, 'children' | 'className' | 'style'>,
-    Omit<PopoverPrimitiveProps, 'children' | 'className' | 'style'>,
+    Omit<PopoverPrimitiveProps, 'children' | 'className'>,
     Omit<VariantProps<typeof drawerStyles>, 'className'> {
   className?: string | DialogProps['className'] | PopoverPrimitiveProps['className']
   children: React.ReactNode
   showArrow?: boolean
+  style?: React.CSSProperties
 }
 
 const PopoverContent = ({ children, showArrow = true, className, ...props }: PopoverProps) => {

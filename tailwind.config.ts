@@ -57,6 +57,10 @@ const config = withTV({
           DEFAULT: 'hsl(var(--success))',
           fg: 'hsl(var(--success-fg))'
         },
+        info: {
+          DEFAULT: 'hsl(var(--info))',
+          fg: 'hsl(var(--info-fg))'
+        },
         danger: {
           DEFAULT: 'hsl(var(--danger))',
           fg: 'hsl(var(--danger-fg))'
