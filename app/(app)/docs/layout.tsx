@@ -2,7 +2,6 @@ import React, { type ReactNode } from 'react'
 
 import { Aside } from '@/components/aside'
 import { SpeedInsights } from '@vercel/speed-insights/next'
-import { Toast } from 'ui'
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
@@ -14,7 +13,6 @@ export default function Layout({ children }: { children: ReactNode }) {
           <div className="absolute bottom-0 right-0 top-28 hidden w-px bg-zinc-800 dark:block" />
           <div className="sticky top-[1.75rem] -ml-0.5 h-[calc(100vh-4.75rem)] w-64 overflow-y-auto overflow-x-hidden py-16 pl-0.5 pr-8 xl:w-72">
             <Aside />
-            <Toast />
           </div>
         </div>
         {children}
