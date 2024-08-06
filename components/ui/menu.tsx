@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 
-import { PopoverContent } from '@/components/ui/popover'
+import { PopoverContent } from './popover'
 import { IconBulletFill, IconCheck, IconChevronLgRight } from '@irsyadadl/paranoid'
 import type {
   ButtonProps,
