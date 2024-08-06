@@ -68,7 +68,7 @@ const generateCompoundVariants = (sides: Array<Sides>) => {
   }))
 }
 
-const sheetStyles = tv({
+const sheetContentStyles = tv({
   base: 'fixed z-50 grid gap-4 bg-overlay text-overlay-fg shadow-lg transition ease-in-out',
   variants: {
     isEntering: {
@@ -81,9 +81,9 @@ const sheetStyles = tv({
       top: 'inset-x-0 top-0 rounded-b-2xl border-b entering:slide-in-from-top exiting:slide-out-to-top',
       bottom:
         'inset-x-0 bottom-0 rounded-t-2xl border-t entering:slide-in-from-bottom exiting:slide-out-to-bottom',
-      left: 'inset-y-0 left-0 h-auto w-72 sm:w-3/4 overflow-y-auto border-r entering:slide-in-from-left exiting:slide-out-to-left sm:max-w-xs',
+      left: 'inset-y-0 left-0 h-auto w-[19rem] sm:w-3/4 overflow-y-auto border-r entering:slide-in-from-left exiting:slide-out-to-left sm:max-w-xs',
       right:
-        'inset-y-0 right-0 h-auto w-72 sm:w-3/4 overflow-y-auto border-l entering:slide-in-from-right exiting:slide-out-to-right sm:max-w-xs'
+        'inset-y-0 right-0 h-auto w-[19rem] sm:w-3/4 overflow-y-auto border-l entering:slide-in-from-right exiting:slide-out-to-right sm:max-w-xs'
     },
     isStack: {
       true: '',
@@ -135,7 +135,7 @@ const SheetContent = ({
     >
       <ModalPrimitive
         className={composeRenderProps(classNames?.content, (className, renderProps) =>
-          sheetStyles({
+          sheetContentStyles({
             ...renderProps,
             side,
             isStack,

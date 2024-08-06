@@ -32,7 +32,7 @@ export default function ModalDemo() {
             type="password"
             placeholder="Enter your password"
           />
-          <ModalFooter className="pt-4">
+          <ModalFooter>
             <ModalClose>Cancel</ModalClose>
             <Button type="submit">Turn on 2FA</Button>
           </ModalFooter>

@@ -40,7 +40,12 @@ const Dialog = ({ role, className, ...props }: DialogProps) => {
   return <DialogPrimitive {...props} role={role ?? 'dialog'} className={root({ className })} />
 }
 
-const DialogHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => {
+interface DialogHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
+  title?: string
+  description?: string
+}
+
+const DialogHeader = ({ className, ...props }: DialogHeaderProps) => {
   const headerRef = React.useRef<HTMLHeadingElement>(null)
 
   React.useEffect(() => {
@@ -66,7 +71,13 @@ const DialogHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivEleme
 
   return (
     <div data-slot="dialog-header" ref={headerRef} className={header({ className })}>
-      {typeof props.children === 'string' ? <DialogTitle {...props} /> : props.children}
+      {props.title && <DialogTitle>{props.title}</DialogTitle>}
+      {props.description && <DialogDescription>{props.description}</DialogDescription>}
+      {!props.title && typeof props.children === 'string' ? (
+        <DialogTitle {...props} />
+      ) : (
+        props.children
+      )}
     </div>
   )
 }

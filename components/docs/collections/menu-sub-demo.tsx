@@ -14,7 +14,7 @@ export default function MenuSubDemo() {
         <MenuItem>Notifications</MenuItem>
         <SubmenuTrigger>
           <MenuItem>More</MenuItem>
-          <MenuContent offset={8}>
+          <MenuContent>
             <MenuItem>Documentation</MenuItem>
             <MenuItem>API Keys</MenuItem>
             <MenuSeparator />

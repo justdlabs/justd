@@ -2,26 +2,39 @@
 
 import React from 'react'
 
-import { Button, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle } from 'ui'
+import {
+  Button,
+  SheetBody,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  Textarea
+} from 'ui'
 
 export default function SheetControlledDemo() {
   const [isOpen, setIsOpen] = React.useState(false)
   return (
     <>
-      <Button onPress={() => setIsOpen(true)}>Profile</Button>
+      <Button onPress={() => setIsOpen(true)}>Feedback</Button>
       <SheetContent isOpen={isOpen} onOpenChange={setIsOpen}>
         <SheetHeader>
-          <SheetTitle>User Profile</SheetTitle>
-          <SheetDescription>Manage your profile settings and preferences.</SheetDescription>
+          <SheetTitle>Submit Feedback</SheetTitle>
+          <SheetDescription>
+            Please let us know your thoughts and how we can improve our service.
+          </SheetDescription>
         </SheetHeader>
-        <div className="overflow-y-auto min-h-[calc(var(--visual-viewport-height)-11.5rem)]">
-          This is where you can update your username, email, and other personal details.
-        </div>
+        <SheetBody>
+          <Textarea label="Your Feedback" placeholder="Type your feedback here..." />
+        </SheetBody>
         <SheetFooter>
           <Button appearance="outline" onPress={() => setIsOpen(false)}>
             Close
           </Button>
-          <Button>Save Changes</Button>
+          <Button intent="primary" onPress={() => setIsOpen(false)}>
+            Submit Feedback
+          </Button>
         </SheetFooter>
       </SheetContent>
     </>

@@ -25,6 +25,7 @@ import {
   useSlottedContext
 } from 'react-aria-components'
 import type { VariantProps } from 'tailwind-variants'
+import { tv } from 'tailwind-variants'
 
 import { dropdownItemStyles, DropdownSection } from './dropdown'
 import { Keyboard } from './keyboard'
@@ -45,6 +46,25 @@ const MenuTrigger = ({ className, ...props }: ButtonProps) => (
 const SubmenuTrigger = SubmenuTriggerPrimitive
 
 const MenuSection = DropdownSection
+
+const menuContentStyles = tv({
+  slots: {
+    popover: [
+      'z-50 min-w-40 rounded-xl border bg-overlay text-overlay-fg outline-none',
+      'entering:animate-in entering:fade-in-0',
+      'exiting:animate-out exiting:fade-out-0 exiting:zoom-out-95',
+      'data-[placement=bottom]:slide-in-from-top-2 data-[placement=left]:slide-in-from-right-2 data-[placement=right]:slide-in-from-left-2 data-[placement=top]:slide-in-from-bottom-2'
+    ],
+    arrow: [
+      'block fill-overlay stroke-border group-placement-left:-rotate-90 group-placement-right:rotate-90 group-placement-bottom:rotate-180 forced-colors:fill-[Canvas] forced-colors:stroke-[ButtonBorder]'
+    ],
+    menu: [
+      'z32kk max-h-[inherit] overflow-auto rounded-xl p-1 outline outline-0 [clip-path:inset(0_0_0_0_round_calc(var(--radius)-2px))]'
+    ]
+  }
+})
+
+const { popover, menu, arrow } = menuContentStyles()
 
 export interface MenuContentProps<T>
   extends Omit<PopoverProps, 'children' | 'style'>,
@@ -68,32 +88,17 @@ const MenuContent = <T extends object>({
   return (
     <Popover
       offset={currentOffset}
-      className={cn(
-        'z-50 min-w-40 rounded-xl border bg-overlay text-overlay-fg outline-none entering:animate-in exiting:animate-out entering:fade-in-0 exiting:fade-out-0 exiting:zoom-out-95 data-[placement=bottom]:slide-in-from-top-2 data-[placement=left]:slide-in-from-right-2 data-[placement=right]:slide-in-from-left-2 data-[placement=top]:slide-in-from-bottom-2',
-        popoverClassName
-      )}
+      className={popover({ className: [popoverClassName, className] })}
       {...props}
     >
       {showArrow && (
         <OverlayArrow className="group">
-          <svg
-            width={12}
-            height={12}
-            viewBox="0 0 12 12"
-            className="block fill-overlay stroke-border group-placement-left:-rotate-90 group-placement-right:rotate-90 group-placement-bottom:rotate-180 forced-colors:fill-[Canvas] forced-colors:stroke-[ButtonBorder]"
-          >
+          <svg width={12} height={12} viewBox="0 0 12 12" className={arrow()}>
             <path d="M0 0 L6 6 L12 0" />
           </svg>
         </OverlayArrow>
       )}
-      <MenuPrimitive
-        className={cn(
-          'z32kk',
-          'max-h-[inherit] overflow-auto rounded-xl p-1 outline outline-0 [clip-path:inset(0_0_0_0_round_calc(var(--radius)-2px))]',
-          className
-        )}
-        {...props}
-      />
+      <MenuPrimitive className={menu({ className })} {...props} />
     </Popover>
   )
 }

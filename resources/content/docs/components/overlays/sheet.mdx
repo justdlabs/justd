@@ -51,3 +51,23 @@ By default, the sheet will stack, but you can change this behavior by using the 
 ## Sticky
 You can use the `SheetBody` component to make the sheet sticky.
 <How toUse="overlays/sheet-sticky-demo" />
+
+## Header
+This setup’s super flexible. If you skip adding `SheetTitle` and just drop a string as its child, it'll auto-render as the title. Like this:
+```
+<SheetHeader>
+  Title
+</SheetHeader>
+```
+Wanna customize more? Throw in props like `title` and `description` for a tailored header:
+```
+<SheetHeader title='Title' description='Description' />
+```
+
+## Custom Styles
+To apply custom styles such as background colors or borders to the header, follow this guide:
+<How toUse="overlays/sheet-custom-style-demo" />
+
+## Class Names
+To add custom class names to your content or overlay, refer to this demonstration:
+<How toUse="overlays/sheet-classnames-demo" />

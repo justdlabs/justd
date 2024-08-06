@@ -278,6 +278,9 @@ export const previews: Record<string, any> = {
   "overlays/popover-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/overlays/popover-controlled-demo")),
   },
+  "overlays/sheet-custom-style-demo": {
+    component: React.lazy(() => import("@/components/docs/overlays/sheet-custom-style-demo")),
+  },
   "overlays/modal-triggered-by-menu-demo": {
     component: React.lazy(() => import("@/components/docs/overlays/modal-triggered-by-menu-demo")),
   },
@@ -320,6 +323,9 @@ export const previews: Record<string, any> = {
   "overlays/modal-size-demo": {
     component: React.lazy(() => import("@/components/docs/overlays/modal-size-demo")),
   },
+  "overlays/modal-classnames-demo": {
+    component: React.lazy(() => import("@/components/docs/overlays/modal-classnames-demo")),
+  },
   "overlays/drawer-basic-demo": {
     component: React.lazy(() => import("@/components/docs/overlays/drawer-basic-demo")),
   },
@@ -352,6 +358,12 @@ export const previews: Record<string, any> = {
   },
   "overlays/popover-demo": {
     component: React.lazy(() => import("@/components/docs/overlays/popover-demo")),
+  },
+  "overlays/modal-custom-style-demo": {
+    component: React.lazy(() => import("@/components/docs/overlays/modal-custom-style-demo")),
+  },
+  "overlays/sheet-classnames-demo": {
+    component: React.lazy(() => import("@/components/docs/overlays/sheet-classnames-demo")),
   },
   "overlays/modal-demo": {
     component: React.lazy(() => import("@/components/docs/overlays/modal-demo")),

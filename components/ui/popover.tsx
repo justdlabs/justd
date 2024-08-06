@@ -67,7 +67,7 @@ const popoverContentStyles = tv({
 
 const drawerStyles = tv({
   base: [
-    'fixed bottom-0 p-4 top-auto z-50 w-full bg-overlay max-w-2xl rounded-t-xl border border-b-transparent outline-none',
+    'fixed max-h-full bottom-0 p-4 top-auto z-50 w-full bg-overlay max-w-2xl rounded-t-xl border border-b-transparent outline-none',
     'entering:animate-in entering:fade-in-0 entering:slide-in-from-bottom-1/2 entering:[transition-timing-function:ease-out',
     'exiting:animate-out exiting:fade-out-0 exiting:slide-out-to-bottom-1/2 exiting:[transition-timing-function:ease]'
   ]

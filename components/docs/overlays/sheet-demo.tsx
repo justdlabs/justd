@@ -3,24 +3,37 @@
 import {
   Button,
   Sheet,
+  SheetBody,
+  SheetClose,
   SheetContent,
   SheetDescription,
   SheetFooter,
   SheetHeader,
-  SheetTitle
+  SheetTitle,
+  Switch,
+  TextField
 } from 'ui'
 
 export default function SheetDemo() {
   return (
     <Sheet>
-      <Button appearance="outline">Open sheet</Button>
+      <Button appearance="outline">Edit Settings</Button>
       <SheetContent>
         <SheetHeader>
-          <SheetTitle>Sheet Title</SheetTitle>
-          <SheetDescription>Sheet Description</SheetDescription>
+          <SheetTitle>Update User Settings</SheetTitle>
+          <SheetDescription>Adjust your preferences and configurations here.</SheetDescription>
         </SheetHeader>
-        Sheet Body
-        <SheetFooter>Sheet Footer</SheetFooter>
+        <SheetBody className="space-y-4">
+          <TextField label="Username" type="text" placeholder="Enter your username" />
+          <TextField label="Email" type="email" placeholder="Enter your email address" />
+          <Switch>Enable Notifications</Switch>
+        </SheetBody>
+        <SheetFooter>
+          <SheetClose>Cancel</SheetClose>
+          <Button intent="primary" type="submit">
+            Save Changes
+          </Button>
+        </SheetFooter>
       </SheetContent>
     </Sheet>
   )

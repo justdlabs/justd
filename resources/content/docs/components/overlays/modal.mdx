@@ -52,6 +52,26 @@ You can use the `ModalBody` component to make the modal sticky.
 You can also nest modals. Try open it and confirm!
 <How toUse="overlays/modal-nested-demo" />
 
+## Header
+This setup’s super flexible. If you skip adding `ModalTitle` and just drop a string as its child, it'll auto-render as the title. Like this:
+```
+<ModalHeader>
+  Title
+</ModalHeader>
+```
+Wanna customize more? Throw in props like `title` and `description` for a tailored header:
+```
+<ModalHeader title='Title' description='Description' />
+```
+
+## Custom Styles
+To apply custom styles such as background colors or borders to the header, follow this guide:
+<How toUse="overlays/modal-custom-style-demo" />
+
+## Class Names
+To add custom class names to your content or overlay, refer to this demonstration:
+<How toUse="overlays/modal-classnames-demo" />
+
 ## Triggered By Menu
 You can also trigger the modal by clicking on a menu item.
 <How toUse="overlays/modal-triggered-by-menu-demo" />

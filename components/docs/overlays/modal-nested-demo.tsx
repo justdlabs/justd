@@ -13,8 +13,7 @@ import {
   ModalFooter,
   ModalHeader,
   ModalTitle,
-  Textarea,
-  TextField
+  Textarea
 } from 'ui'
 
 export default function ModalNestedDemo() {

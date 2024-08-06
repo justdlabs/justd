@@ -1,5 +1,6 @@
 'use client'
 
+import * as React from 'react'
 import { type ReactNode } from 'react'
 
 import {
@@ -67,6 +68,7 @@ const boxStyles = tv({
 
 interface CheckboxProps extends CheckboxPrimitiveProps {
   description?: string
+  label?: string
 }
 
 const Checkbox = (props: CheckboxProps) => {
@@ -120,8 +122,10 @@ const Checkbox = (props: CheckboxProps) => {
           </div>
 
           <div className="flex flex-col gap-1">
-            <>{props.children}</>
-            {props.description && <Description>{props.description}</Description>}
+            <>
+              {props.label ? <Label>{props.label}</Label> : props.children}
+              {props.description && <Description>{props.description}</Description>}
+            </>
           </div>
         </div>
       )}
