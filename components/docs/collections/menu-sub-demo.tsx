@@ -8,7 +8,7 @@ export default function MenuSubDemo() {
   return (
     <Menu>
       <MenuTrigger className={buttonStyles({ appearance: 'outline' })}>Open</MenuTrigger>
-      <MenuContent className="sm:min-w-48">
+      <MenuContent placement="bottom" className="sm:min-w-48">
         <MenuItem>Dashboard</MenuItem>
         <MenuItem>Reports</MenuItem>
         <MenuSeparator />

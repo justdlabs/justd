@@ -1,8 +1,8 @@
 'use client'
 
 import * as React from 'react'
-import { useState } from 'react'
 
+import type { ModalOverlayProps } from 'react-aria-components'
 import {
   Button,
   composeRenderProps,
@@ -91,13 +91,16 @@ const drawerStyles = tv({
 })
 
 interface PopoverProps
-  extends Omit<DialogProps, 'children' | 'className' | 'style'>,
-    Omit<PopoverPrimitiveProps, 'children' | 'className'> {
-  className?: string
+  extends Omit<React.ComponentProps<typeof Modal>, 'children'>,
+    Omit<PopoverPrimitiveProps, 'children' | 'className'>,
+    ModalOverlayProps {
   children: React.ReactNode
+  className?: string | ((values: any & { defaultClassName?: string }) => string)
   showArrow?: boolean
   style?: React.CSSProperties
   respectScreen?: boolean
+  'aria-label'?: DialogProps['aria-label']
+  'aria-labelledby'?: DialogProps['aria-labelledby']
 }
 
 const PopoverContent = ({
@@ -114,7 +117,6 @@ const PopoverContent = ({
   const isMenu = isMenuTrigger || isSubmenuTrigger
   let offset = showArrow ? 12 : 8
   offset = isSubmenuTrigger ? offset - 6 : offset
-  const [value, setValue] = useState(false)
 
   return isMobile && respectScreen ? (
     <ModalOverlay
@@ -127,11 +129,7 @@ const PopoverContent = ({
     >
       <Modal
         className={composeRenderProps(className, (className, renderProps) =>
-          drawerStyles({
-            ...renderProps,
-            isMenu,
-            className
-          })
+          drawerStyles({ ...renderProps, isMenu, className })
         )}
       >
         <Dialog
