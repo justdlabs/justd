@@ -2,7 +2,6 @@
 
 import * as React from 'react'
 
-import { PopoverContent } from './popover'
 import { IconBulletFill, IconCheck, IconChevronLgRight } from '@irsyadadl/paranoid'
 import type {
   ButtonProps,
@@ -26,6 +25,7 @@ import { tv } from 'tailwind-variants'
 
 import { DropdownItemDetails, dropdownItemStyles, DropdownSection } from './dropdown'
 import { Keyboard } from './keyboard'
+import { PopoverContent } from './popover'
 import { cn } from './primitive'
 
 interface MenuContextProps {
