@@ -61,7 +61,7 @@ const ComboBox = <T extends object>({
       </FieldGroup>
       {description && <Description>{description}</Description>}
       <FieldError>{errorMessage}</FieldError>
-      <PopoverPicker>
+      <PopoverPicker trigger="ComboBox" isNonModal>
         <ListBoxPicker items={items}>{children}</ListBoxPicker>
       </PopoverPicker>
     </ComboboxPrimitive>

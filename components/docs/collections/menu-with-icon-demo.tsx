@@ -24,7 +24,7 @@ import {
   MenuSection,
   MenuSeparator,
   MenuTrigger,
-  SubmenuTrigger
+  SubMenu
 } from 'ui'
 
 export default function MenuWithIconDemo() {
@@ -66,7 +66,7 @@ export default function MenuWithIconDemo() {
           <IconCommandRegular />
           Command Menu
         </MenuItem>
-        <SubmenuTrigger>
+        <SubMenu>
           <MenuItem>
             {resolvedTheme === 'light' ? (
               <IconSun />
@@ -88,7 +88,7 @@ export default function MenuWithIconDemo() {
               <IconSun /> Light
             </MenuItem>
           </MenuContent>
-        </SubmenuTrigger>
+        </SubMenu>
         <MenuSeparator />
         <MenuItem href="#contact-s">
           <IconHeadphones />

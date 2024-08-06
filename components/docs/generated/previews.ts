@@ -809,6 +809,9 @@ export const previews: Record<string, any> = {
   "collections/table-demo": {
     component: React.lazy(() => import("@/components/docs/collections/table-demo")),
   },
+  "collections/menu-respect-screen-demo": {
+    component: React.lazy(() => import("@/components/docs/collections/menu-respect-screen-demo")),
+  },
   "collections/menu-danger-demo": {
     component: React.lazy(() => import("@/components/docs/collections/menu-danger-demo")),
   },
@@ -856,6 +859,9 @@ export const previews: Record<string, any> = {
   },
   "collections/tag-group-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/collections/tag-group-controlled-demo")),
+  },
+  "collections/menu-item-details-demo": {
+    component: React.lazy(() => import("@/components/docs/collections/menu-item-details-demo")),
   },
   "collections/tag-group-with-remove-demo": {
     component: React.lazy(() => import("@/components/docs/collections/tag-group-with-remove-demo")),

@@ -2,32 +2,26 @@
 
 import React from 'react'
 
-import { Menu, MenuContent, MenuItem, MenuSeparator, MenuTrigger, SubmenuTrigger } from 'ui'
+import { buttonStyles, Menu, MenuContent, MenuItem, MenuSeparator, MenuTrigger, SubMenu } from 'ui'
 
 export default function MenuSubDemo() {
   return (
     <Menu>
-      <MenuTrigger>Open</MenuTrigger>
-      <MenuContent className="min-w-48" placement="bottom">
-        <MenuItem>Profile</MenuItem>
-        <MenuItem>Settings</MenuItem>
-        <MenuItem>Notifications</MenuItem>
-        <SubmenuTrigger>
-          <MenuItem>More</MenuItem>
+      <MenuTrigger className={buttonStyles({ appearance: 'outline' })}>Open</MenuTrigger>
+      <MenuContent className="sm:min-w-48">
+        <MenuItem>Dashboard</MenuItem>
+        <MenuItem>Reports</MenuItem>
+        <MenuSeparator />
+        <SubMenu>
+          <MenuItem>Settings</MenuItem>
           <MenuContent>
-            <MenuItem>Documentation</MenuItem>
-            <MenuItem>API Keys</MenuItem>
-            <MenuSeparator />
-            <SubmenuTrigger>
-              <MenuItem>Advanced</MenuItem>
-              <MenuContent>
-                <MenuItem>System Logs</MenuItem>
-                <MenuItem>Export Data</MenuItem>
-                <MenuItem>User Roles</MenuItem>
-              </MenuContent>
-            </SubmenuTrigger>
+            <MenuItem>General</MenuItem>
+            <MenuItem>Security</MenuItem>
+            <MenuItem>Privacy</MenuItem>
+            <MenuItem>Data Sharing</MenuItem>
           </MenuContent>
-        </SubmenuTrigger>
+        </SubMenu>
+        <MenuItem>Help</MenuItem>
       </MenuContent>
     </Menu>
   )

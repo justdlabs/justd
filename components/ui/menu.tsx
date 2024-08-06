@@ -2,11 +2,12 @@
 
 import * as React from 'react'
 
+import { PopoverContent } from '@/components/ui/popover'
 import { IconBulletFill, IconCheck, IconChevronLgRight } from '@irsyadadl/paranoid'
 import type {
   ButtonProps,
   MenuItemProps as MenuItemPrimitiveProps,
-  MenuProps,
+  MenuProps as MenuPrimitiveProps,
   PopoverProps,
   SeparatorProps
 } from 'react-aria-components'
@@ -17,61 +18,73 @@ import {
   Menu as MenuPrimitive,
   MenuItem as MenuItemPrimitive,
   MenuTrigger as MenuTriggerPrimitive,
-  OverlayArrow,
-  Popover,
-  PopoverContext,
   Separator,
-  SubmenuTrigger as SubmenuTriggerPrimitive,
-  useSlottedContext
+  SubmenuTrigger as SubmenuTriggerPrimitive
 } from 'react-aria-components'
 import type { VariantProps } from 'tailwind-variants'
 import { tv } from 'tailwind-variants'
 
-import { dropdownItemStyles, DropdownSection } from './dropdown'
+import { DropdownItemDetails, dropdownItemStyles, DropdownSection } from './dropdown'
 import { Keyboard } from './keyboard'
 import { cn } from './primitive'
 
-const Menu = MenuTriggerPrimitive
-const MenuTrigger = ({ className, ...props }: ButtonProps) => (
-  <Button
-    aria-label="Open Menu"
-    className={cn(
-      'inline text-left focus:outline-none focus-visible:ring-1 focus-visible:ring-primary-500 pressed:outline-none',
-      className
-    )}
-    {...props}
-  />
+interface MenuContextProps {
+  respectScreen: boolean
+}
+
+const MenuContext = React.createContext<MenuContextProps>({ respectScreen: true })
+
+export const useMenuContext = () => React.useContext(MenuContext)
+
+interface MenuProps extends MenuTriggerProps {
+  respectScreen?: boolean
+}
+
+const Menu = ({ respectScreen = true, ...props }: MenuProps) => {
+  return (
+    <MenuContext.Provider value={{ respectScreen }}>
+      <MenuTriggerPrimitive {...props}>
+        <>{props.children}</>
+      </MenuTriggerPrimitive>
+    </MenuContext.Provider>
+  )
+}
+
+const SubMenu = ({ delay = 0, ...props }) => (
+  <SubmenuTriggerPrimitive {...props} delay={delay}>
+    {props.children}
+  </SubmenuTriggerPrimitive>
 )
 
-const SubmenuTrigger = SubmenuTriggerPrimitive
-
 const MenuSection = DropdownSection
+const MenuItemDetails = DropdownItemDetails
 
-const menuContentStyles = tv({
+const menuStyles = tv({
   slots: {
-    popover: [
-      'z-50 min-w-40 rounded-xl border bg-overlay text-overlay-fg outline-none',
-      'entering:animate-in entering:fade-in-0',
-      'exiting:animate-out exiting:fade-out-0 exiting:zoom-out-95',
-      'data-[placement=bottom]:slide-in-from-top-2 data-[placement=left]:slide-in-from-right-2 data-[placement=right]:slide-in-from-left-2 data-[placement=top]:slide-in-from-bottom-2'
-    ],
-    arrow: [
-      'block fill-overlay stroke-border group-placement-left:-rotate-90 group-placement-right:rotate-90 group-placement-bottom:rotate-180 forced-colors:fill-[Canvas] forced-colors:stroke-[ButtonBorder]'
-    ],
-    menu: [
-      'z32kk max-h-[inherit] overflow-auto rounded-xl p-1 outline outline-0 [clip-path:inset(0_0_0_0_round_calc(var(--radius)-2px))]'
-    ]
+    menu: 'z32kk max-h-[inherit] overflow-auto rounded-xl p-1 outline outline-0 [clip-path:inset(0_0_0_0_round_calc(var(--radius)-2px))]',
+    popover: 'z-50 min-w-40 p-0 outline-none shadow-sm',
+    trigger:
+      'inline text-left focus:outline-none focus-visible:ring-1 focus-visible:ring-primary-500 pressed:outline-none'
   }
 })
 
-const { popover, menu, arrow } = menuContentStyles()
+const { menu, popover, trigger } = menuStyles()
+
+interface MenuTriggerProps extends ButtonProps {
+  className?: string
+}
+
+const MenuTrigger = ({ className, ...props }: MenuTriggerProps) => (
+  <Button className={trigger({ className })} {...props} />
+)
 
 export interface MenuContentProps<T>
   extends Omit<PopoverProps, 'children' | 'style'>,
-    MenuProps<T> {
+    MenuPrimitiveProps<T> {
   className?: string
   popoverClassName?: string
   showArrow?: boolean
+  respectScreen?: boolean
 }
 
 const MenuContent = <T extends object>({
@@ -81,25 +94,16 @@ const MenuContent = <T extends object>({
   offset = 4,
   ...props
 }: MenuContentProps<T>) => {
-  const popoverContext = useSlottedContext(PopoverContext)!
-  const isSubmenu = popoverContext?.trigger === 'SubmenuTrigger'
-  let currentOffset = showArrow ? 12 : 8
-  currentOffset = isSubmenu ? currentOffset - 6 : currentOffset
+  const { respectScreen } = useMenuContext()
   return (
-    <Popover
-      offset={currentOffset}
-      className={popover({ className: [popoverClassName, className] })}
+    <PopoverContent
+      respectScreen={respectScreen}
+      showArrow={showArrow}
+      className={popover({ className: popoverClassName })}
       {...props}
     >
-      {showArrow && (
-        <OverlayArrow className="group">
-          <svg width={12} height={12} viewBox="0 0 12 12" className={arrow()}>
-            <path d="M0 0 L6 6 L12 0" />
-          </svg>
-        </OverlayArrow>
-      )}
       <MenuPrimitive className={menu({ className })} {...props} />
-    </Popover>
+    </PopoverContent>
   )
 }
 
@@ -109,25 +113,27 @@ interface MenuItemProps
   isDanger?: boolean
 }
 
-const MenuItem = ({ className, isDanger = false, children, ...props }: MenuItemProps) => (
-  <MenuItemPrimitive
-    className={composeRenderProps(className, (className, renderProps) =>
-      dropdownItemStyles({
-        ...renderProps,
-        className
-      })
-    )}
-    data-danger={isDanger ? 'true' : undefined}
-    {...props}
-  >
-    {(values) => (
-      <>
-        {typeof children === 'function' ? children(values) : children}
-        {values.hasSubmenu && <IconChevronLgRight className="gpfw ml-auto size-3.5" />}
-      </>
-    )}
-  </MenuItemPrimitive>
-)
+const MenuItem = ({ className, isDanger = false, children, ...props }: MenuItemProps) => {
+  return (
+    <MenuItemPrimitive
+      className={composeRenderProps(className, (className, renderProps) =>
+        dropdownItemStyles({
+          ...renderProps,
+          className
+        })
+      )}
+      data-danger={isDanger ? 'true' : undefined}
+      {...props}
+    >
+      {(values) => (
+        <>
+          {typeof children === 'function' ? children(values) : children}
+          {values.hasSubmenu && <IconChevronLgRight className="gpfw ml-auto size-3.5" />}
+        </>
+      )}
+    </MenuItemPrimitive>
+  )
+}
 
 export interface MenuHeaderProps extends React.ComponentProps<typeof Header> {
   inset?: boolean
@@ -137,9 +143,9 @@ export interface MenuHeaderProps extends React.ComponentProps<typeof Header> {
 const MenuHeader = ({ className, inset, separator = false, ...props }: MenuHeaderProps) => (
   <Header
     className={cn(
-      'px-2 py-1.5 text-base font-semibold sm:text-sm',
+      'p-2 text-base font-semibold sm:text-sm',
       inset && 'pl-8',
-      separator && '-mx-1 mb-1 border-b border-b-border px-3 pb-[0.625rem]',
+      separator && '-mx-1 border-b border-b-border px-3 pb-[0.625rem]',
       className
     )}
     {...props}
@@ -192,6 +198,7 @@ export {
   MenuSection,
   MenuSeparator,
   MenuTrigger,
-  SubmenuTrigger,
+  SubMenu,
+  MenuItemDetails,
   type MenuItemProps
 }

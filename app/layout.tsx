@@ -34,7 +34,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <ViewTransitions>
         <body
           className={cn(
@@ -42,7 +42,6 @@ export default function RootLayout({
             geistSans.variable,
             geistMono.variable
           )}
-          suppressHydrationWarning
         >
           <Providers>
             <div className="relative flex min-h-dvh flex-col bg-background">

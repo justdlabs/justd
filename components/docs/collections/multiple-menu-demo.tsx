@@ -3,36 +3,28 @@
 import React from 'react'
 
 import { type Selection } from '@react-types/shared'
-import { Button, Description, Menu, MenuCheckboxItem, MenuContent, MenuSection } from 'ui'
+import { Button, Menu, MenuCheckboxItem, MenuContent, MenuSection } from 'ui'
 
 export default function MultipleMenuDemo() {
   const [selected, setSelected] = React.useState<Selection>(new Set(['autoPlay']))
   return (
-    <>
-      <Menu>
-        <Button appearance="outline">Open</Button>
-        <MenuContent
-          placement="bottom"
-          selectionMode="multiple"
-          selectedKeys={selected}
-          onSelectionChange={setSelected}
-        >
-          <MenuSection items={menuItems} title="Content Preferences">
-            {(item) => (
-              <MenuCheckboxItem id={item.slug} textValue={item.name}>
-                {item.name}
-              </MenuCheckboxItem>
-            )}
-          </MenuSection>
-        </MenuContent>
-      </Menu>
-
-      {[...selected].length > 0 && (
-        <Description className="mt-4 block">
-          Selected: {selected === 'all' ? 'All selected' : [...selected].join(', ')}
-        </Description>
-      )}
-    </>
+    <Menu>
+      <Button appearance="outline">Open</Button>
+      <MenuContent
+        placement="bottom"
+        selectionMode="multiple"
+        selectedKeys={selected}
+        onSelectionChange={setSelected}
+      >
+        <MenuSection items={menuItems} title="Content Preferences">
+          {(item) => (
+            <MenuCheckboxItem id={item.slug} textValue={item.name}>
+              {item.name}
+            </MenuCheckboxItem>
+          )}
+        </MenuSection>
+      </MenuContent>
+    </Menu>
   )
 }
 

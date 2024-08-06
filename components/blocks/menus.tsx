@@ -24,7 +24,7 @@ import {
   MenuSection,
   MenuSeparator,
   MenuTrigger,
-  SubmenuTrigger
+  SubMenu
 } from 'ui'
 
 export function Menus() {
@@ -54,7 +54,7 @@ export function Menus() {
             Command Menu
             <MenuKeyboard keys="⌘K" />
           </MenuItem>
-          <SubmenuTrigger>
+          <SubMenu>
             <MenuItem>
               <IconPersonAdd />
               <span>Invite users</span>
@@ -69,7 +69,7 @@ export function Menus() {
                 <span>Message</span>
               </MenuItem>
               <MenuSeparator />
-              <SubmenuTrigger>
+              <SubMenu>
                 <MenuItem>
                   <IconPersonAdd />
                   <span>Others</span>
@@ -88,9 +88,9 @@ export function Menus() {
                     <span>Twitter</span>
                   </MenuItem>
                 </MenuContent>
-              </SubmenuTrigger>
+              </SubMenu>
             </MenuContent>
-          </SubmenuTrigger>
+          </SubMenu>
           <MenuSeparator />
           <MenuItem href="#">
             <IconHeadphones />

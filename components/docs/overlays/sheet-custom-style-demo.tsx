@@ -3,13 +3,13 @@
 import {
   Button,
   Form,
+  Note,
   Sheet,
   SheetBody,
   SheetClose,
   SheetContent,
   SheetFooter,
   SheetHeader,
-  Note,
   TextField
 } from 'ui'
 

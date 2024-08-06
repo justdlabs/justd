@@ -45,7 +45,7 @@ import {
   SheetBody,
   SheetContent,
   SheetHeader,
-  SubmenuTrigger,
+  SubMenu,
   useMediaQuery
 } from 'ui'
 
@@ -216,7 +216,6 @@ export function ResponsiveAside({ open, setOpen }: OpenCloseProps) {
             <IconSearch />
             <MenuKeyboard className="-mr-2 [&_kbd]:min-w-[3ch]" keys="⌘K" />
           </Button>
-
           <TakeCurrentUrl />
           <ThemeSwitcher />
         </div>
@@ -294,7 +293,7 @@ export function NavbarDropdown() {
           </MenuItem>
         </MenuSection>
         <MenuSeparator />
-        <SubmenuTrigger>
+        <SubMenu>
           <MenuItem>
             {theme === 'system' ? (
               <IconDeviceDesktop />
@@ -319,7 +318,7 @@ export function NavbarDropdown() {
               <span>Light</span>
             </MenuItem>
           </MenuContent>
-        </SubmenuTrigger>
+        </SubMenu>
       </MenuContent>
     </Menu>
   )

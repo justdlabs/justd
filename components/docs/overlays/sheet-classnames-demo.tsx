@@ -12,7 +12,7 @@ export default function SheetClassnamesDemo() {
           content: 'min-w-80'
         }}
       >
-        <SheetHeader title="Custom Classnames" description="This modal has custom class names." />
+        <SheetHeader title="Custom Classnames" description="This sheet has custom class names." />
         <SheetFooter>
           <SheetClose>Close</SheetClose>
         </SheetFooter>
