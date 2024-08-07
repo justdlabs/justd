@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/'
     },
-    sitemap: 'https://justd.co/sitemap.xml'
+    sitemap: 'https://getjustd.com/sitemap.xml'
   }
 }
