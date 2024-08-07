@@ -1,6 +1,6 @@
 'use client'
 
-import { IconBrandLaravel, IconBrandNextjs, IconBrandParanoid } from 'justd-icons'
+import { IconBrandJustd, IconBrandLaravel, IconBrandNextjs, IconBrandParanoid } from 'justd-icons'
 import {
   Badge,
   CardDescription,
@@ -105,12 +105,11 @@ export function Resources() {
             />
             <div className="flex-1">
               <div className="px-6 pt-6">
-                <IconBrandParanoid className="size-7" />
+                <IconBrandJustd className="size-7" />
               </div>
               <CardHeader>
-                <CardTitle level={3}>Paranoid</CardTitle>
+                <CardTitle level={3}>Icons</CardTitle>
                 <CardDescription className="line-clamp-2">
-                  {' '}
                   A library of beautifully crafted react icons, perfect for enhancing the visual
                   appeal and user experience of your web applications.{' '}
                 </CardDescription>

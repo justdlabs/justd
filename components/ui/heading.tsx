@@ -1,10 +1,6 @@
 'use client'
 
-import { isIOS } from '@react-aria/utils'
-import {
-  Heading as HeadingPrimitive,
-  type HeadingProps as HeadingPrimitiveProps
-} from 'react-aria-components'
+import { isIos } from '@/components/ui/primitive'
 import { tv } from 'tailwind-variants'
 
 const headingStyles = tv({
@@ -26,21 +22,23 @@ const headingStyles = tv({
     }
   }
 })
+type HeadingType = { level?: 1 | 2 | 3 | 4 } & React.ComponentPropsWithoutRef<
+  'h1' | 'h2' | 'h3' | 'h4'
+>
 
-interface HeadingProps extends HeadingPrimitiveProps {
-  level?: 1 | 2 | 3 | 4
+interface HeadingProps extends HeadingType {
   tracking?: 'tighter' | 'tight' | 'normal' | 'wide' | 'wider' | 'widest'
-  className?: string
+  className?: string | undefined
 }
 
 const Heading = ({ className, tracking = 'normal', level = 1, ...props }: HeadingProps) => {
+  const Element: `h${typeof level}` = `h${level}`
   return (
-    <HeadingPrimitive
-      level={level}
+    <Element
       className={headingStyles({
         level,
         tracking,
-        className: isIOS() ? 'font-medium' : className
+        className: isIos() ? 'font-medium' : className
       })}
       {...props}
     />

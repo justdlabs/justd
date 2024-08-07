@@ -12,7 +12,7 @@ import {
   IconBrandAdobe,
   IconBrandD,
   IconBrandGithub,
-  IconBrandParanoid,
+  IconBrandJustd,
   IconBrandTailwindcss,
   IconBrandX,
   IconChevronDown,
@@ -134,7 +134,7 @@ export function Navbar() {
                       })}
                       href="/icons"
                     >
-                      <IconBrandParanoid />
+                      <IconBrandJustd />
                     </Link>
                     <Link
                       aria-label="Github Repository"
@@ -274,7 +274,7 @@ export function NavbarDropdown() {
         <MenuSection>
           <MenuHeader separator>Refs</MenuHeader>
           <MenuItem href="/icons">
-            <IconBrandParanoid />
+            <IconBrandJustd />
             Icons
           </MenuItem>
           <MenuItem

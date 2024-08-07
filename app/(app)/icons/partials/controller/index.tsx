@@ -15,7 +15,7 @@ interface Props {
 
 export function Controller({ value, setValue, selectedSize, setSelectedSize }: Props) {
   return (
-    <div className="flex flex-col sm:flex-row items-center justify-between gap-2 mb-12">
+    <div className="flex flex-col sm:flex-row items-center justify-between gap-2 mb-6 sm:mb-12">
       <Install />
       <div className="flex gap-2 items-center">
         <Search value={value} onChange={setValue} />

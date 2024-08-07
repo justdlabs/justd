@@ -9,7 +9,7 @@ import {
   IconBrandAdobe,
   IconBrandFramer,
   IconBrandGithub,
-  IconBrandParanoid,
+  IconBrandJustd,
   IconCommandFill
 } from 'justd-icons'
 import { Menu, MenuItem } from 'react-aria-components'
@@ -27,7 +27,7 @@ export function DocRefs({ references }: any) {
         break
       case url.includes('paranoid'):
         title = 'Paranoid'
-        icon = IconBrandParanoid
+        icon = IconBrandJustd
         break
       case url.includes('framer'):
         title = 'Framer Motion'
