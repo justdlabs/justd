@@ -2,8 +2,8 @@
 
 import * as React from 'react'
 
-import { IconChevronLgDown } from '@irsyadadl/paranoid'
 import type { Placement } from '@react-types/overlays'
+import { IconChevronLgDown } from 'justd-icons'
 import {
   Button,
   composeRenderProps,

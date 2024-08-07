@@ -13,7 +13,7 @@ import {
   IconMoon,
   IconSettings,
   IconSun
-} from '@irsyadadl/paranoid'
+} from 'justd-icons'
 import { useTheme } from 'next-themes'
 import {
   Avatar,

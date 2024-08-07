@@ -17,7 +17,7 @@ import {
   IconPencilBoxFill,
   IconToolbox,
   IconToolboxFill
-} from '@irsyadadl/paranoid'
+} from 'justd-icons'
 import { Toggle, Toolbar, ToolbarGroup, ToolbarItem, ToolbarSeparator } from 'ui'
 
 export default function ToolbarDisabledDemo() {

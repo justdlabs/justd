@@ -1,6 +1,6 @@
 'use client'
 
-import { IconBrandX } from '@irsyadadl/paranoid'
+import { IconBrandX } from 'justd-icons'
 import { buttonStyles, Tooltip, TooltipContent, TooltipTrigger } from 'ui'
 
 export default function TooltipDemo() {

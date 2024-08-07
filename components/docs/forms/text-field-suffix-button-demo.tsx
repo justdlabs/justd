@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-import { IconPlus } from '@irsyadadl/paranoid'
+import { IconPlus } from 'justd-icons'
 import {
   Button,
   ModalBody,

@@ -1,7 +1,7 @@
 import type { SVGProps } from 'react'
 import React from 'react'
 
-import { IconLoader, IconLoader2 } from '@irsyadadl/paranoid'
+import { IconLoader, IconLoader2 } from 'justd-icons'
 import type { VariantProps } from 'tailwind-variants'
 import { tv } from 'tailwind-variants'
 

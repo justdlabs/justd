@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-import { IconBill, IconCube, IconGear, IconHome, IconNotes, IconShield } from '@irsyadadl/paranoid'
+import { IconBill, IconCube, IconGear, IconHome, IconNotes, IconShield } from 'justd-icons'
 import Link from 'next/link'
 import {
   Avatar,

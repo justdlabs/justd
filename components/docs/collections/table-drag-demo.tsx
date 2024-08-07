@@ -1,6 +1,6 @@
 'use client'
 
-import { IconStarFill } from '@irsyadadl/paranoid'
+import { IconStarFill } from 'justd-icons'
 import { useDragAndDrop } from 'react-aria-components'
 import { useListData } from 'react-stately'
 import { Card, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from 'ui'

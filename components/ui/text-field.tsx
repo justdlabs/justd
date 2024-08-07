@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 
-import { IconLoader } from '@irsyadadl/paranoid'
+import { IconLoader } from 'justd-icons'
 import {
   TextField as TextFieldPrimitive,
   type TextFieldProps as TextFieldPrimitiveProps,

@@ -2,8 +2,8 @@
 
 import * as React from 'react'
 
-import { IconBulletFill } from '@irsyadadl/paranoid'
 import { OTPInput, OTPInputContext } from 'input-otp'
+import { IconBulletFill } from 'justd-icons'
 
 import { cn } from './primitive'
 

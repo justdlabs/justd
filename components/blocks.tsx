@@ -30,7 +30,7 @@ import {
   IconMagicFill,
   IconVideoPlaylist,
   IconVideoPlaylistFill
-} from '@irsyadadl/paranoid'
+} from 'justd-icons'
 import {
   buttonStyles,
   Card,

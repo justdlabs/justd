@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import { getColorName } from '@/resources/lib/colors'
 import { wait } from '@/resources/lib/utils'
-import { IconBrackets2, IconCheck, IconDuplicate } from '@irsyadadl/paranoid'
+import { IconBrackets2, IconCheck, IconDuplicate } from 'justd-icons'
 import { Heading } from 'react-aria-components'
 import { Button, ColorSwatch, Modal, ModalContent } from 'ui'
 import { copyToClipboard } from 'usemods'

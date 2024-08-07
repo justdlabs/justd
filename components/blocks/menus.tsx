@@ -13,7 +13,7 @@ import {
   IconPersonAdd,
   IconPlus,
   IconSettings
-} from '@irsyadadl/paranoid'
+} from 'justd-icons'
 import {
   Avatar,
   Menu,

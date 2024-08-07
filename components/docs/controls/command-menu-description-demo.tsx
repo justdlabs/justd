@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-import { IconCube } from '@irsyadadl/paranoid'
+import { IconCube } from 'justd-icons'
 import {
   Button,
   CommandMenu,

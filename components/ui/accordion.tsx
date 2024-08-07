@@ -2,9 +2,9 @@
 
 import * as React from 'react'
 
-import { IconChevronDown } from '@irsyadadl/paranoid'
 import type { MotionProps } from 'framer-motion'
 import { AnimatePresence, motion } from 'framer-motion'
+import { IconChevronDown } from 'justd-icons'
 import type { ButtonProps } from 'react-aria-components'
 import { Button, composeRenderProps } from 'react-aria-components'
 import { twMerge } from 'tailwind-merge'

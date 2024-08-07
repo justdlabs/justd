@@ -6,7 +6,7 @@ import { previews } from '@/components/docs/generated/previews'
 import jsonPreviews from '@/components/docs/generated/previews.json'
 import { Code } from '@/components/docs/rehype/code'
 import { cn } from '@/resources/lib/utils'
-import { IconLoader } from '@irsyadadl/paranoid'
+import { IconLoader } from 'justd-icons'
 import { Tab, TabList, TabPanel, Tabs } from 'ui'
 
 interface HowProps extends React.HTMLAttributes<HTMLDivElement> {

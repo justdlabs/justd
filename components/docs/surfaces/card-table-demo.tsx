@@ -1,6 +1,6 @@
 'use client'
 
-import { IconDotsVertical, IconEye, IconHighlight, IconTrash } from '@irsyadadl/paranoid'
+import { IconDotsVertical, IconEye, IconHighlight, IconTrash } from 'justd-icons'
 import {
   Card,
   CardContent,

@@ -2,8 +2,8 @@
 
 import React, { useEffect, useState } from 'react'
 
-import { IconCircleInfo } from '@irsyadadl/paranoid'
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@radix-ui/react-collapsible'
+import { IconCircleInfo } from 'justd-icons'
 import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeStringify from 'rehype-stringify'
 import remarkParse from 'remark-parse'

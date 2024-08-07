@@ -3,8 +3,8 @@
 import * as React from 'react'
 
 import { cn } from '@/components/ui/primitive'
-import { IconCheck, IconDuplicate } from '@irsyadadl/paranoid'
 import { AnimatePresence, motion } from 'framer-motion'
+import { IconCheck, IconDuplicate } from 'justd-icons'
 import { toast } from 'sonner'
 import { twMerge } from 'tailwind-merge'
 

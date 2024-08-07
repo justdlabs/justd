@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 
-import { IconCircleCheck, IconCircleInfo, IconTriangleInfo } from '@irsyadadl/paranoid'
+import { IconCircleCheck, IconCircleInfo, IconTriangleInfo } from 'justd-icons'
 import { Text } from 'react-aria-components'
 import { tv, type VariantProps } from 'tailwind-variants'
 

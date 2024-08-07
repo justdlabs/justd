@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-import { IconVolumeFull, IconVolumeOff } from '@irsyadadl/paranoid'
+import { IconVolumeFull, IconVolumeOff } from 'justd-icons'
 import { Slider } from 'ui'
 
 export default function SliderPrefixSuffixDemo() {

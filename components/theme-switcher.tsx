@@ -1,6 +1,6 @@
 'use client'
 
-import { IconMoon, IconSun } from '@irsyadadl/paranoid'
+import { IconMoon, IconSun } from 'justd-icons'
 import { useTheme } from 'next-themes'
 import { Button } from 'ui'
 

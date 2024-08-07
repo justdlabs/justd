@@ -6,7 +6,7 @@ import { docs } from '#site/content'
 import type { Doc, HierarchyNode } from '@/components/aside'
 import { createHierarchy } from '@/components/aside'
 import { goodTitle } from '@/resources/lib/utils'
-import { IconCube, IconHome, IconNotes } from '@irsyadadl/paranoid'
+import { IconCube, IconHome, IconNotes } from 'justd-icons'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import {

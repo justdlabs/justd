@@ -7,6 +7,7 @@ import { CommandPalette, type OpenCloseProps } from '@/components/command-palett
 import { TakeCurrentUrl } from '@/components/take-current-url'
 import { ThemeSwitcher } from '@/components/theme-switcher'
 import { siteConfig } from '@/resources/config/site'
+import { LayoutGroup } from 'framer-motion'
 import {
   IconBrandAdobe,
   IconBrandD,
@@ -23,8 +24,7 @@ import {
   IconMoon,
   IconSearch,
   IconSun
-} from '@irsyadadl/paranoid'
-import { LayoutGroup } from 'framer-motion'
+} from 'justd-icons'
 import { useTheme } from 'next-themes'
 import { usePathname } from 'next/navigation'
 import { Collection } from 'react-aria-components'
@@ -101,9 +101,7 @@ export function Navbar() {
                     <NavLink isNextLink isActive={pathname === '/themes'} href="/themes">
                       Themes
                     </NavLink>
-                    <NavLink target="_blank" href="https://paranoid.irsyad.co">
-                      Icons
-                    </NavLink>
+                    <NavLink href="/icons">Icons</NavLink>
                   </Collection>
                 </div>
 
@@ -134,8 +132,7 @@ export function Navbar() {
                         size: 'square-petite',
                         className: '[&_[data-slot=icon]]:text-fg'
                       })}
-                      target="_blank"
-                      href="https://paranoid.irsyad.co"
+                      href="/icons"
                     >
                       <IconBrandParanoid />
                     </Link>
@@ -276,7 +273,7 @@ export function NavbarDropdown() {
         <MenuSeparator />
         <MenuSection>
           <MenuHeader separator>Refs</MenuHeader>
-          <MenuItem href="https://paranoid.irsyad.co" target="_blank">
+          <MenuItem href="/icons">
             <IconBrandParanoid />
             Icons
           </MenuItem>

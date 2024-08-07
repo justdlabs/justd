@@ -1,9 +1,9 @@
 import * as React from 'react'
 
 import { formatColorForTailwind, textColorBasedOnBg } from '@/resources/lib/colors'
-import { IconCheck, IconDuplicate } from '@irsyadadl/paranoid'
 import { parseColor } from '@react-stately/color'
 import type { ColorFormat } from '@react-types/color'
+import { IconCheck, IconDuplicate } from 'justd-icons'
 import type { ListBoxItemProps } from 'react-aria-components'
 import { ListBoxItem } from 'react-aria-components'
 import type { ColorShade, FormatOnlyForTailwindVariableType } from 'resources/types'

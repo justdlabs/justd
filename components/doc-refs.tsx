@@ -11,7 +11,7 @@ import {
   IconBrandGithub,
   IconBrandParanoid,
   IconCommandFill
-} from '@irsyadadl/paranoid'
+} from 'justd-icons'
 import { Menu, MenuItem } from 'react-aria-components'
 import { buttonStyles, cn } from 'ui'
 

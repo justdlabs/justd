@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 
-import { IconHamburger } from '@irsyadadl/paranoid'
+import { IconHamburger } from 'justd-icons'
 import {
   composeRenderProps,
   ListBox as ListBoxPrimitive,

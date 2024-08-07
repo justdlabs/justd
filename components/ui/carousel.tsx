@@ -2,8 +2,8 @@
 
 import * as React from 'react'
 
-import { IconChevronLgLeft, IconChevronLgRight } from '@irsyadadl/paranoid'
 import useEmblaCarousel, { type UseEmblaCarouselType } from 'embla-carousel-react'
+import { IconChevronLgLeft, IconChevronLgRight } from 'justd-icons'
 import type { ListBoxItemProps, SectionProps } from 'react-aria-components'
 import { ListBox, ListBoxItem, Section } from 'react-aria-components'
 

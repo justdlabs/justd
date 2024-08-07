@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-import { IconChevronLgDown, IconX } from '@irsyadadl/paranoid'
+import { IconChevronLgDown, IconX } from 'justd-icons'
 import {
   ComboBox as ComboboxPrimitive,
   type ComboBoxProps as ComboboxPrimitiveProps,

@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 
-import { IconChevronLgDown } from '@irsyadadl/paranoid'
+import { IconChevronLgDown } from 'justd-icons'
 import { cn, ShowMore } from 'ui'
 
 export default function ShowMoreDemo() {

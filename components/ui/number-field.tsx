@@ -1,6 +1,6 @@
 'use client'
 
-import { IconChevronDown, IconChevronUp, IconMinus, IconPlus } from '@irsyadadl/paranoid'
+import { IconChevronDown, IconChevronUp, IconMinus, IconPlus } from 'justd-icons'
 import {
   Button,
   type ButtonProps,

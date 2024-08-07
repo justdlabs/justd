@@ -1,7 +1,7 @@
 'use client'
 
 import { siteConfig } from '@/resources/config/site'
-import { IconBrandGithub } from '@irsyadadl/paranoid'
+import { IconBrandGithub } from 'justd-icons'
 import { buttonStyles, Container, Heading, Link } from 'ui'
 
 export function Cta() {

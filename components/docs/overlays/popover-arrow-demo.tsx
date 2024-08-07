@@ -1,6 +1,6 @@
 'use client'
 
-import { IconBell } from '@irsyadadl/paranoid'
+import { IconBell } from 'justd-icons'
 import { Button, Popover, PopoverContent } from 'ui'
 
 export default function PopoverArrowDemo() {

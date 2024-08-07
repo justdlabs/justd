@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-import { IconHamburger } from '@irsyadadl/paranoid'
+import { IconHamburger } from 'justd-icons'
 import { Collection } from 'react-aria-components'
 import { Select, SelectItem, Tab, TabList, TabPanel, Tabs, useMediaQuery } from 'ui'
 

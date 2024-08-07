@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-import { IconHamburger } from '@irsyadadl/paranoid'
+import { IconHamburger } from 'justd-icons'
 import {
   Button,
   GridList as GridListPrimitive,

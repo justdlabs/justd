@@ -1,6 +1,6 @@
 'use client'
 
-import { IconChevronLgLeft, IconChevronLgRight } from '@irsyadadl/paranoid'
+import { IconChevronLgLeft, IconChevronLgRight } from 'justd-icons'
 import {
   Calendar as CalendarPrimitive,
   CalendarCell,

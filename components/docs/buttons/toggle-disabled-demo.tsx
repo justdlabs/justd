@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-import { IconPin } from '@irsyadadl/paranoid'
+import { IconPin } from 'justd-icons'
 import { Toggle } from 'ui'
 
 export default function ToggleDisabledDemo() {

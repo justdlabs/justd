@@ -8,7 +8,7 @@ import {
   IconChevronsLgLeft,
   IconChevronsLgRight,
   IconDotsHorizontal
-} from '@irsyadadl/paranoid'
+} from 'justd-icons'
 import type { ListBoxItemProps, ListBoxProps, SectionProps } from 'react-aria-components'
 import { ListBox, ListBoxItem, Section, Separator } from 'react-aria-components'
 

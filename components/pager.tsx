@@ -1,7 +1,7 @@
 'use client'
 
 import { cn } from '@/resources/lib/utils'
-import { IconChevronLgLeft, IconChevronLgRight } from '@irsyadadl/paranoid'
+import { IconChevronLgLeft, IconChevronLgRight } from 'justd-icons'
 import Link from 'next/link'
 import { buttonStyles } from 'ui'
 

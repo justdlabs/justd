@@ -1,6 +1,6 @@
 'use client'
 
-import { IconChevronDown, IconChevronUp, IconHamburger } from '@irsyadadl/paranoid'
+import { IconChevronDown, IconChevronUp, IconHamburger } from 'justd-icons'
 import {
   Button,
   Cell,

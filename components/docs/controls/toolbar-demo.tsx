@@ -25,7 +25,7 @@ import {
   IconUnderline,
   IconUnderlineFill,
   IconUndo
-} from '@irsyadadl/paranoid'
+} from 'justd-icons'
 import {
   Button,
   Checkbox,

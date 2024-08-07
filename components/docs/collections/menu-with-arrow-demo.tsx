@@ -2,13 +2,7 @@
 
 import React from 'react'
 
-import {
-  IconHashtag,
-  IconHeadphones,
-  IconLogout,
-  IconPlus,
-  IconSettings
-} from '@irsyadadl/paranoid'
+import { IconHashtag, IconHeadphones, IconLogout, IconPlus, IconSettings } from 'justd-icons'
 import {
   Avatar,
   Menu,

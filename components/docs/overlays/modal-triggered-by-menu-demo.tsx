@@ -3,7 +3,7 @@
 import React from 'react'
 
 import { wait } from '@/resources/lib/utils'
-import { IconDotsVertical } from '@irsyadadl/paranoid'
+import { IconDotsVertical } from 'justd-icons'
 import {
   Button,
   buttonStyles,

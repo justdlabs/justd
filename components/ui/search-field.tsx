@@ -1,6 +1,6 @@
 'use client'
 
-import { IconSearch, IconX } from '@irsyadadl/paranoid'
+import { IconSearch, IconX } from 'justd-icons'
 import {
   SearchField as SearchFieldPrimitive,
   type SearchFieldProps as SearchFieldPrimitiveProps,

@@ -1,6 +1,6 @@
 'use client'
 
-import { IconBrandLaravel } from '@irsyadadl/paranoid'
+import { IconBrandLaravel } from 'justd-icons'
 import { Button } from 'ui'
 
 export default function ButtonIconDemo() {

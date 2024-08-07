@@ -2,8 +2,8 @@
 
 import React from 'react'
 
-import { IconCirclePerson } from '@irsyadadl/paranoid'
 import type { DropEvent } from '@react-types/shared'
+import { IconCirclePerson } from 'justd-icons'
 import { isFileDropItem } from 'react-aria-components'
 import { twJoin } from 'tailwind-merge'
 import { Avatar, DropZone, FileTrigger } from 'ui'

@@ -2,8 +2,8 @@
 
 import * as React from 'react'
 
-import { IconTriangleInfoFill } from '@irsyadadl/paranoid'
 import { motion } from 'framer-motion'
+import { IconTriangleInfoFill } from 'justd-icons'
 import type { MeterProps as AriaMeterProps } from 'react-aria-components'
 import { Meter as MeterPrimitive } from 'react-aria-components'
 

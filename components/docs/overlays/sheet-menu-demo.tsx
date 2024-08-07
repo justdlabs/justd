@@ -19,7 +19,7 @@ import {
   IconPeople,
   IconPerson,
   IconStar
-} from '@irsyadadl/paranoid'
+} from 'justd-icons'
 import { Group, Menu } from 'react-aria-components'
 import {
   Avatar,

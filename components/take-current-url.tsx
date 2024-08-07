@@ -2,8 +2,8 @@
 
 import * as React from 'react'
 
-import { IconCheck, IconDuplicate } from '@irsyadadl/paranoid'
 import { AnimatePresence, motion } from 'framer-motion'
+import { IconCheck, IconDuplicate } from 'justd-icons'
 import { usePathname } from 'next/navigation'
 import { toast } from 'sonner'
 import { Button, snippetVariants } from 'ui'

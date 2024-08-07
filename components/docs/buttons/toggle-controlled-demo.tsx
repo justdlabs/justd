@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-import { IconPin, IconUnpin } from '@irsyadadl/paranoid'
+import { IconPin, IconUnpin } from 'justd-icons'
 import { Toggle } from 'ui'
 
 export default function ToggleControlledDemo() {

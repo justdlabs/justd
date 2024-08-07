@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { IconAdjustment } from '@irsyadadl/paranoid'
+import { IconAdjustment } from 'justd-icons'
 import { Button, Description, Popover, PopoverContent, Slider } from 'ui'
 
 export function SliderOnPopoverBlock() {

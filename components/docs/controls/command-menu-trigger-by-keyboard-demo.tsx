@@ -2,14 +2,7 @@
 
 import React from 'react'
 
-import {
-  IconCreditCard,
-  IconCube,
-  IconGear,
-  IconHome2,
-  IconNotes,
-  IconShield
-} from '@irsyadadl/paranoid'
+import { IconCreditCard, IconCube, IconGear, IconHome2, IconNotes, IconShield } from 'justd-icons'
 import Link from 'next/link'
 import {
   CommandMenu,

@@ -1,6 +1,6 @@
 'use client'
 
-import { IconApple, IconClock, IconCut } from '@irsyadadl/paranoid'
+import { IconApple, IconClock, IconCut } from 'justd-icons'
 import { Tab, TabList, TabPanel, Tabs } from 'ui'
 
 export default function TabsIconsDemo() {

@@ -1,6 +1,6 @@
 'use client'
 
-import { IconAccessible, IconAccessibleFill } from '@irsyadadl/paranoid'
+import { IconAccessible, IconAccessibleFill } from 'justd-icons'
 import { Toggle } from 'ui'
 
 export default function ToggleSizeDemo() {

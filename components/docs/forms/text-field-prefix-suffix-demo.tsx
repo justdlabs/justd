@@ -1,6 +1,6 @@
 'use client'
 
-import { IconBrandTwitter } from '@irsyadadl/paranoid'
+import { IconBrandTwitter } from 'justd-icons'
 import { TextField } from 'ui'
 
 export default function TextFieldPrefixSuffixDemo() {

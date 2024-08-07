@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 
-import { IconCalendarDays } from '@irsyadadl/paranoid'
+import { IconCalendarDays } from 'justd-icons'
 import {
   DatePicker as DatePickerPrimitive,
   type DatePickerProps as DatePickerPrimitiveProps,

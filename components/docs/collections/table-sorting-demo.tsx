@@ -1,7 +1,7 @@
 'use client'
 
-import { IconLoader } from '@irsyadadl/paranoid'
 import { useAsyncList } from '@react-stately/data'
+import { IconLoader } from 'justd-icons'
 import { Card, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from 'ui'
 
 interface Character {

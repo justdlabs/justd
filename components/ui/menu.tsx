@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 
-import { IconBulletFill, IconCheck, IconChevronLgRight } from '@irsyadadl/paranoid'
+import { IconBulletFill, IconCheck, IconChevronLgRight } from 'justd-icons'
 import type {
   ButtonProps,
   MenuItemProps as MenuItemPrimitiveProps,

@@ -24,7 +24,7 @@ import {
   IconToolbox,
   IconToolboxFill,
   IconUndo
-} from '@irsyadadl/paranoid'
+} from 'justd-icons'
 import {
   Button,
   Menu,

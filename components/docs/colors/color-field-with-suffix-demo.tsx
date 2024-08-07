@@ -1,6 +1,6 @@
 'use client'
 
-import { IconColors } from '@irsyadadl/paranoid'
+import { IconColors } from 'justd-icons'
 import { ColorField } from 'ui'
 
 export default function ColorFieldWithSuffixDemo() {

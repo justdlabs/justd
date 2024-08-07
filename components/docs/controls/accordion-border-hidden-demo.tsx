@@ -9,7 +9,7 @@ import {
   IconSettings,
   IconShield,
   IconSupport
-} from '@irsyadadl/paranoid'
+} from 'justd-icons'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from 'ui'
 
 export default function AccordionWithIconDemo() {

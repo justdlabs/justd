@@ -1,7 +1,7 @@
 'use client'
 
 import { NumberFormatter } from '@internationalized/number'
-import { IconDotsVertical } from '@irsyadadl/paranoid'
+import { IconDotsVertical } from 'justd-icons'
 import {
   Card,
   Menu,

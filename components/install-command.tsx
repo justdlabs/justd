@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react'
 
+import { cn } from '@/resources/lib/utils'
 import { trackEvent } from '@openpanel/nextjs'
 import { CopyButton, Link, Menu, MenuContent, MenuItem } from 'ui'
 import { copyToClipboard } from 'usemods'
@@ -13,15 +14,23 @@ export interface InstallCommandProps {
   isManual?: boolean
   items?: string[]
   isInDocsComponent?: boolean
+  text?: string
+  className?: string
 }
 
+const defaultText =
+  'Sometimes, using the CLI is the way to go, so make sure you install the necessary\n' +
+  '          dependencies for the components you want to use.'
+
 const InstallCommand: React.FC<InstallCommandProps> = ({
+  text = defaultText,
   items = [],
   isAdd = false,
   isInstall = false,
   isManual = false,
   isInDocsComponent = true,
-  isInit = false
+  isInit = false,
+  className
 }) => {
   const addCommand = 'justd-cli@latest add'
   const initCommand = 'justd-cli@latest init'
@@ -92,13 +101,13 @@ const InstallCommand: React.FC<InstallCommandProps> = ({
           .
         </p>
       )}
-      {isManual && (
-        <p>
-          Sometimes, using the CLI is the way to go, so make sure you install the necessary
-          dependencies for the components you want to use.
-        </p>
-      )}
-      <div className="not-prose relative flex items-center justify-between rounded-lg border bg-[#0e0e10] py-2.5 pl-4 pr-2.5 text-white font-mono text-sm [&>svg]:text-zinc-400 [&>svg]:transition [&_svg]:shrink-0">
+      {isManual && text && <p>{text}</p>}
+      <div
+        className={cn(
+          'not-prose relative flex items-center justify-between rounded-lg border bg-[#0e0e10] py-2.5 pl-4 pr-2.5 text-white font-mono text-sm [&>svg]:text-zinc-400 [&>svg]:transition [&_svg]:shrink-0',
+          className
+        )}
+      >
         <code>{command}</code>
         <div className="pl-3">
           {isInit || isAdd ? (
