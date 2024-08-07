@@ -109,7 +109,7 @@ const InstallCommand: React.FC<InstallCommandProps> = ({
         )}
       >
         <code>{command}</code>
-        <div className="pl-3">
+        <div className="pl-3 xd">
           {isInit || isAdd ? (
             <CopyButton
               onPress={() => handleAction('NPM')}
