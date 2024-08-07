@@ -6,7 +6,7 @@ export const siteConfig = {
   author: 'irsyadadl',
   links: {
     twitter: 'https://x.com/intent/follow?screen_name=getjustdlabs',
-    github: 'https://github.com/irsyadadl/justd',
+    github: 'https://github.com/justdlabs',
     personalSite: 'https://irsyad.co'
   },
   repo: 'https://github.com/irsyadadl/justd'
