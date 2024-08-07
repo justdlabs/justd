@@ -1,5 +1,6 @@
 {
-  "name": "justd.co",
+  "name": "justd",
+  "author": "irsyadadl",
   "version": "1.0.0",
   "private": true,
   "scripts": {
