@@ -1,13 +1,14 @@
 import React from 'react'
 
-import { Controller } from '@/app/(app)/icons/partials/controller'
-import { box, item } from '@/app/(app)/icons/partials/styles'
 import * as icons from 'justd-icons'
 import type { Key } from 'react-aria-components'
 import { ListBox, ListBoxItem } from 'react-aria-components'
 import { toast } from 'sonner'
 import { useDebounce } from 'use-debounce'
 import { copyToClipboard } from 'usemods'
+
+import { Controller } from './controller'
+import { box, item } from './styles'
 
 export function IconsList() {
   const [selectedSize, setSelectedSize] = React.useState<Key>('size-5')

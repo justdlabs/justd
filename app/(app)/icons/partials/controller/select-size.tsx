@@ -19,7 +19,7 @@ export function SelectSize({ selectedKey, onSelectionChange }: SelectSizeProps) 
     <Select
       className="max-w-28 sm:max-w-40"
       aria-label="Select Icon Size"
-      placeholder="Select a size"
+      placeholder="Size 5"
       selectedKey={selectedKey}
       items={sizes}
       onSelectionChange={(key) => onSelectionChange(key as Key)}

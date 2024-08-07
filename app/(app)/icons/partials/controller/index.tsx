@@ -1,9 +1,10 @@
 import React from 'react'
 
-import { Search } from '@/app/(app)/icons/partials/controller/search'
-import { SelectSize } from '@/app/(app)/icons/partials/controller/select-size'
-import { Install } from '@/app/(app)/icons/partials/install'
 import type { Key } from 'react-aria-components'
+
+import { Install } from './install'
+import { Search } from './search'
+import { SelectSize } from './select-size'
 
 interface Props {
   value: string

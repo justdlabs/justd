@@ -20,6 +20,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: siteConfig.url + '/themes',
       lastModified: new Date()
     },
+    {
+      url: siteConfig.url + '/icons',
+      lastModified: new Date()
+    },
     ...docs.map((doc: Docs) => ({
       url: `${siteConfig.url}/${doc.slug}`,
       lastModified: new Date()

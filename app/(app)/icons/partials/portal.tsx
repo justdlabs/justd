@@ -1,7 +1,8 @@
 'use client'
 
-import { IconsList } from '@/app/(app)/icons/partials/icons-list'
 import { Container } from 'ui'
+
+import { IconsList } from './icons-list'
 
 export function Portal() {
   return (

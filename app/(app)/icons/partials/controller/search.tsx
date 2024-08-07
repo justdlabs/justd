@@ -10,9 +10,9 @@ interface SearchProps {
 export function Search({ value, onChange }: SearchProps) {
   return (
     <SearchField
-      aria-label="Search icons"
       value={value}
       onChange={onChange}
+      aria-label="Search icons"
       placeholder="Search icons..."
     />
   )
