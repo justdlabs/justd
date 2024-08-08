@@ -96,7 +96,7 @@ export default function SheetMenuDemo() {
           <Avatar src="https://github.com/irsyadadl.png" alt="irsyadadl" />
         </SheetTrigger>
         <SheetContent classNames={{ content: '[&_.dlc]:p-0' }} closeButton={false}>
-          <SheetHeader className="flex border-b p-4 sticky top-0 bg-popover flex-row items-center gap-x-3 mb-2">
+          <SheetHeader className="flex border-b p-4 sticky top-0 bg-overlay flex-row items-center gap-x-3 mb-2">
             <Avatar src="https://github.com/irsyadadl.png" alt="irsyadadl" />
             <div>
               <SheetTitle>irsyadadl</SheetTitle>

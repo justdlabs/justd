@@ -162,7 +162,7 @@ interface TagProps extends TagPrimitiveProps {
   shape?: Shape
 }
 
-const Tag = ({ children, intent, shape, ...props }: TagProps) => {
+const Tag = ({ children, className, intent, shape, ...props }: TagProps) => {
   const textValue = typeof children === 'string' ? children : undefined
   const groupContext = React.useContext(TagGroupContext)
 
@@ -170,7 +170,7 @@ const Tag = ({ children, intent, shape, ...props }: TagProps) => {
     <TagPrimitive
       textValue={textValue}
       {...props}
-      className={composeRenderProps(props.className, (className, renderProps) => {
+      className={composeRenderProps(className, (className, renderProps) => {
         const finalIntent = intent || groupContext.intent
         const finalShape = shape || groupContext.shape
 

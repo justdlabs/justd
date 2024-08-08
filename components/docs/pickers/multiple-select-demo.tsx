@@ -1,35 +1,27 @@
-import {
-  MultipleSelect,
-  MultipleSelectField,
-  MultipleSelectItem
-} from '@/components/ui/multiple-select'
 import { useListData } from 'react-stately'
-import { Tag } from 'ui'
+import type { SelectedKey } from 'ui'
+import { MultipleSelect, MultipleSelectItem, Tag } from 'ui'
 
 export default function MultipleSelectDemo() {
-  const selectedList = useListData<Fruit>({
-    initialItems: []
+  const selectedList = useListData<SelectedKey>({
+    initialItems: [fruits[0]]
   })
   return (
-    <MultipleSelectField label="Fruits">
-      <MultipleSelect
-        selectedList={selectedList}
-        items={fruits}
-        tag={(item) => <Tag textValue={item.textValue}>{item.textValue}</Tag>}
-      >
-        {(item) => {
-          return (
-            <MultipleSelectItem textValue={item.textValue}>{item.textValue}</MultipleSelectItem>
-          )
-        }}
-      </MultipleSelect>
-    </MultipleSelectField>
+    <MultipleSelect
+      className="max-w-xs"
+      label="Fruits"
+      selectedList={selectedList}
+      items={fruits}
+      tag={(item) => <Tag textValue={item.textValue}>{item.textValue}</Tag>}
+    >
+      {(item) => {
+        return <MultipleSelectItem textValue={item.textValue}>{item.textValue}</MultipleSelectItem>
+      }}
+    </MultipleSelect>
   )
 }
 
-type Fruit = { id: number; textValue: string }
-
-const fruits: Fruit[] = [
+const fruits: SelectedKey[] = [
   { id: 1, textValue: 'Apple' },
   { id: 2, textValue: 'Banana' },
   { id: 3, textValue: 'Cherry' },

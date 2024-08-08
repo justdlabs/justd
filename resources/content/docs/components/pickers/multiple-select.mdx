@@ -1,7 +1,7 @@
 ---
 title: Multiple Select
 description: Multiple select lets you pick more than one option from a list. It's like checking off items on your to-do list just click, click, click, and you're good to go!
-status: wip
+status: beta
 order: 3
 published: true
 ---
@@ -9,7 +9,7 @@ published: true
 ## Basic
 
 A combo box combines a text input with a listbox, allowing users to filter options to match what they're looking for.
-<How minW72 toUse="pickers/multiple-select-demo" />
+<How toUse="pickers/multiple-select-demo" />
 
 ## Installation
 <InstallCommand isAdd items={['multiple-select']} />
@@ -18,6 +18,14 @@ A combo box combines a text input with a listbox, allowing users to filter optio
 <Composed components={['button', 'field', 'list-box', 'popover', 'tag-group', 'visually-hidden']} />
 
 ## Manual Installation
-<InstallCommand isInstall isManual items={['react-aria-components', 'justd-icons']} />
+<InstallCommand isInstall isManual items={['react-aria-components', 'react-aria', 'justd-icons']} />
 
 <SourceCode toShow={['multiple-select']} />
+
+## Controlled
+This component lets you select tags dynamically, updating the list with callbacks on add and remove. It displays selected tags with Tag components and logs each action.
+<How toUse="pickers/multiple-select-controlled-demo" />
+
+## Min/Max
+This component lets you set a minimum and maximum number of tags that can be selected. It displays selected tags with Tag components and logs each action.
+<How toUse="pickers/multiple-select-min-max-demo" />
