@@ -106,7 +106,7 @@ interface PopoverProps
 const PopoverContent = ({
   respectScreen = true,
   children,
-  showArrow,
+  showArrow = true,
   className,
   ...props
 }: PopoverProps) => {

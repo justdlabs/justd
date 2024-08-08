@@ -185,9 +185,7 @@ const MultipleSelect = <T extends SelectedKey>({
 
   React.useEffect(() => {
     const trigger = triggerRef.current
-    if (!trigger) {
-      return
-    }
+    if (!trigger) return
 
     const observer = new ResizeObserver((entries) => {
       for (const entry of entries) {
