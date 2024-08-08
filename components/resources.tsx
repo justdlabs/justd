@@ -35,8 +35,8 @@ const resources = [
     icon: IconBrandRemix,
     name: 'Remix Starter Kit',
     url: 'https://justd-remix.netlify.app/',
-    description: "A Remix starter kit with Justd installed, ready for use in any application.",
-    label: "Starter Kit"
+    description: 'A Remix starter kit with Justd installed, ready for use in any application.',
+    label: 'Starter Kit'
   }
 ]
 
