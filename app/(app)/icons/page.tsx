@@ -3,8 +3,10 @@ import React from 'react'
 import { Header } from '@/components/header'
 import { siteConfig } from '@/resources/config/site'
 import type { Metadata } from 'next'
+import { Container } from 'ui'
 
-import { Portal } from './partials/portal'
+import type { SearchParamsProps } from './partials/icons-list'
+import { IconsList } from './partials/icons-list'
 
 export const metadata: Metadata = {
   title: 'Justd Icons / ' + siteConfig.name,
@@ -14,14 +16,18 @@ export const metadata: Metadata = {
   applicationName: siteConfig.name
 }
 
-export default function Page() {
+export default function Page({ searchParams }: SearchParamsProps) {
   return (
     <>
       <Header>
         Ico
         <span className="text-muted-fg">ns</span>
       </Header>
-      <Portal />
+      <div className="py-4 sm:py-16">
+        <Container>
+          <IconsList searchParams={searchParams} />
+        </Container>
+      </div>
     </>
   )
 }

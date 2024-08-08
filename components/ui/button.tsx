@@ -78,7 +78,7 @@ const buttonStyles = tv(
           'h-10 px-[calc(theme(spacing.4)-1px)] py-[calc(theme(spacing.2)-1px)] text-base lg:text-sm/6',
         large:
           'h-10 sm:h-11 px-[calc(theme(spacing.4)-1px)] sm:px-[calc(theme(spacing.5)-1px)] py-[calc(theme(spacing[2.5])-1px)] text-base lg:text-base/7 sm:[&>[data-slot=icon]]:size-5',
-        'square-petite': 'size-9 shrink-0'
+        'square-petite': 'size-9 shrink-0 [&_[data-slot=icon]]:text-current'
       },
       shape: {
         square:

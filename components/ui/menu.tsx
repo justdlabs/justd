@@ -114,8 +114,10 @@ interface MenuItemProps
 }
 
 const MenuItem = ({ className, isDanger = false, children, ...props }: MenuItemProps) => {
+  const textValue = props.textValue || (typeof children === 'string' ? children : undefined)
   return (
     <MenuItemPrimitive
+      textValue={textValue}
       className={composeRenderProps(className, (className, renderProps) =>
         dropdownItemStyles({
           ...renderProps,

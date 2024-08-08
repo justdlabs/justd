@@ -1,6 +1,6 @@
 'use client'
 
-import { IconBrandJustd, IconBrandLaravel, IconBrandNextjs, IconBrandParanoid } from 'justd-icons'
+import { IconBrandJustd, IconBrandLaravel, IconBrandNextjs } from 'justd-icons'
 import {
   Badge,
   CardDescription,
