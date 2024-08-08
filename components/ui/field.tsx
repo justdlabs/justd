@@ -46,7 +46,7 @@ const fieldStyles = tv({
     label: 'w-fit cursor-default font-medium text-secondary-fg text-sm',
     fieldError: 'text-sm text-danger forced-colors:text-[Mark]',
     input: [
-      'w-full min-w-0 bg-transparent p-2 text-base text-fg placeholder-muted-fg focus:outline-none lg:text-sm'
+      'w-full min-w-0 bg-transparent p-2 text-base text-fg placeholder-muted-fg outline-none focus:outline-none lg:text-sm'
     ]
   }
 })
@@ -86,8 +86,8 @@ const FieldGroup = (props: GroupProps) => {
   )
 }
 
-const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
-  return <InputPrimitive ref={ref} {...props} className={ctr(props.className, input())} />
+const Input = React.forwardRef<HTMLInputElement, InputProps>(({ className, ...props }, ref) => {
+  return <InputPrimitive ref={ref} {...props} className={ctr(className, input())} />
 })
 Input.displayName = 'Input'
 
