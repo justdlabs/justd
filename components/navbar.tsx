@@ -247,7 +247,7 @@ export function NavbarDropdown() {
           <span className="sr-only">Open menu</span>
         </span>
       </Button>
-      <MenuContent placement="bottom" className="w-64">
+      <MenuContent placement="bottom" className="sm:min-w-64">
         <MenuItem href="/">
           <IconHome />
           Home
