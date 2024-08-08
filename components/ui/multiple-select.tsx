@@ -41,7 +41,7 @@ const multiSelectStyles = tv({
 const { multiSelectField, multiSelect, chevronButton, input, comboBox, comboBoxChild } =
   multiSelectStyles()
 
-interface MultiSelectProps<T extends object>
+interface MultipleSelectProps<T extends object>
   extends Omit<
     ComboBoxPrimitiveProps<T>,
     | 'children'
@@ -70,7 +70,7 @@ interface MultiSelectFieldProps extends GroupProps {
   description?: string
 }
 
-const MultiSelectField = ({ children, className, ...props }: MultiSelectFieldProps) => {
+const MultipleSelectField = ({ children, className, ...props }: MultiSelectFieldProps) => {
   return (
     <Group role="presentation" {...props} className={ctr(className, multiSelectField())}>
       {props.label && <Label>{props.label}</Label>}
@@ -80,12 +80,12 @@ const MultiSelectField = ({ children, className, ...props }: MultiSelectFieldPro
   )
 }
 
-interface MultiSelectExtended {
+interface MultipleSelectExtended {
   id: Key
   textValue: string
 }
 
-const MultiSelect = <T extends MultiSelectExtended>({
+const MultipleSelect = <T extends MultipleSelectExtended>({
   children,
   items,
   selectedList,
@@ -95,7 +95,7 @@ const MultiSelect = <T extends MultiSelectExtended>({
   name,
   renderEmptyState,
   ...props
-}: MultiSelectProps<T>) => {
+}: MultipleSelectProps<T>) => {
   const { contains } = useFilter({ sensitivity: 'base' })
 
   const selectedKeys = selectedList.items.map((i) => i.id)
@@ -312,6 +312,6 @@ const MultiSelect = <T extends MultiSelectExtended>({
   )
 }
 
-const MultiSelectItem = ListBoxItem
+const MultipleSelectItem = ListBoxItem
 
-export { MultiSelectField, MultiSelect, MultiSelectItem }
+export { MultipleSelectField, MultipleSelect, MultipleSelectItem }

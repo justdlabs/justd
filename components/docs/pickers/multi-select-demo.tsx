@@ -1,4 +1,8 @@
-import { MultiSelect, MultiSelectField, MultiSelectItem } from '@/components/ui/multi-select'
+import {
+  MultipleSelect,
+  MultipleSelectField,
+  MultipleSelectItem
+} from '@/components/ui/multiple-select'
 import { useListData } from 'react-stately'
 import { Tag } from 'ui'
 
@@ -7,17 +11,19 @@ export default function MultiSelectDemo() {
     initialItems: []
   })
   return (
-    <MultiSelectField label="Fruits">
-      <MultiSelect
+    <MultipleSelectField label="Fruits">
+      <MultipleSelect
         selectedList={selectedList}
         items={fruits}
         tag={(item) => <Tag textValue={item.textValue}>{item.textValue}</Tag>}
       >
         {(item) => {
-          return <MultiSelectItem textValue={item.textValue}>{item.textValue}</MultiSelectItem>
+          return (
+            <MultipleSelectItem textValue={item.textValue}>{item.textValue}</MultipleSelectItem>
+          )
         }}
-      </MultiSelect>
-    </MultiSelectField>
+      </MultipleSelect>
+    </MultipleSelectField>
   )
 }
 
