@@ -103,7 +103,7 @@ const MultipleSelect = <T extends SelectedKey>({
     [contains, selectedKeys]
   )
 
-  const availableList = useListData({
+  const accessibleList = useListData({
     initialItems: items,
     filter
   })
@@ -131,7 +131,7 @@ const MultipleSelect = <T extends SelectedKey>({
   const onSelectionChange = (id: Key | null) => {
     if (!id) return
 
-    const item = availableList.getItem(id)
+    const item = accessibleList.getItem(id)
 
     if (!item) return
 
@@ -144,7 +144,7 @@ const MultipleSelect = <T extends SelectedKey>({
       onItemAdd?.(id)
     }
 
-    availableList.setFilterText('')
+    accessibleList.setFilterText('')
   }
 
   const onInputChange = (v: string) => {
@@ -153,7 +153,7 @@ const MultipleSelect = <T extends SelectedKey>({
       selectedKey: v === '' ? null : prevState.selectedKey
     }))
 
-    availableList.setFilterText(v)
+    accessibleList.setFilterText(v)
   }
 
   const deleteLast = React.useCallback(() => {
@@ -221,7 +221,7 @@ const MultipleSelect = <T extends SelectedKey>({
           aria-label="Available items"
           allowsEmptyCollection
           className={comboBox({ className })}
-          items={availableList.items}
+          items={accessibleList.items}
           selectedKey={fieldState.selectedKey}
           inputValue={fieldState.inputValue}
           onSelectionChange={onSelectionChange}
@@ -235,7 +235,7 @@ const MultipleSelect = <T extends SelectedKey>({
                   inputValue: '',
                   selectedKey: null
                 })
-                availableList.setFilterText('')
+                accessibleList.setFilterText('')
               }}
               onKeyDownCapture={onKeyDownCapture}
             />

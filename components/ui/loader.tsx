@@ -210,7 +210,14 @@ const Dots = (props: SVGProps<SVGSVGElement>) => (
 const Ring = (props: SVGProps<SVGSVGElement>) => <IconLoader {...props} />
 const Spin = (props: SVGProps<SVGSVGElement>) => <IconLoader2 {...props} />
 const Hot = (props: SVGProps<SVGSVGElement>) => (
-  <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 2400 2400" {...props}>
+  <svg
+    data-slot="icon"
+    xmlns="http://www.w3.org/2000/svg"
+    x="0px"
+    y="0px"
+    viewBox="0 0 2400 2400"
+    {...props}
+  >
     <g strokeWidth="200" strokeLinecap="round" fill="none">
       <line x1="1200" y1="600" x2="1200" y2="100" />
       <line opacity="0.5" x1="1200" y1="2300" x2="1200" y2="1800" />

@@ -45,7 +45,7 @@ export default function PopoverControlledDemo() {
             Are you sure you want to delete your account? This action cannot be undone.
           </PopoverDescription>
         </PopoverHeader>
-        <PopoverFooter className="flex justify-end">
+        <PopoverFooter>
           <Button appearance="outline" onPress={() => setIsOpen(false)} className="mr-2">
             Cancel
           </Button>
@@ -56,7 +56,7 @@ export default function PopoverControlledDemo() {
           >
             {loading === 'loading' ? (
               <>
-                <Loader variant="spin" />
+                <Loader variant="hot" />
                 Deleting...
               </>
             ) : loading === 'success' ? (
