@@ -7,6 +7,7 @@ export default function LoaderVariantDemo() {
       <Loader variant="bars" />
       <Loader variant="dots" />
       <Loader variant="spin" />
+      <Loader variant="hot" />
     </div>
   )
 }
