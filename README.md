@@ -1,7 +1,7 @@
 ## Just D.
 
 ![OG](https://getjustd.com/opengraph-image.png)
-Just D. is a chill set of React components, built on top of [React Aria Components](https://react-spectrum.adobe.com/react-aria/getting-started.html), all about keeping the web accessible. Super easy to customize and ready to just copy & paste into your React projects.
+Just D. is a chill set of React components, built on top of [React Aria Components](https://react-spectrum.adobe.com/react-aria/getting-started.html?ref=getjustd.com), all about keeping the web accessible. Easy to customize and just copy & paste into your React projects. Plus, it includes Tailwind CSS for sleek styling right out of the box.
 
 
 ## Documentation
