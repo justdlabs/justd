@@ -6,7 +6,7 @@ import {
 import { useListData } from 'react-stately'
 import { Tag } from 'ui'
 
-export default function MultiSelectDemo() {
+export default function MultipleSelectDemo() {
   const selectedList = useListData<Fruit>({
     initialItems: []
   })

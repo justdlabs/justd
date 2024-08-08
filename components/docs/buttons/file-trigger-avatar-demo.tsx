@@ -38,14 +38,14 @@ export default function FileTriggerAvatarDemo() {
         getDropOperation={() => 'copy'}
         onDrop={onDropHandler}
         className={twJoin(
-          'rounded-full bg-tertiary p-0 size-10 grid place-content-center overflow-hidden',
+          'rounded-full p-0 size-10 grid place-content-center overflow-hidden',
           droppedImage && 'border-solid border-fg/20'
         )}
       >
         {droppedImage ? (
           <Avatar src={droppedImage} size="large" />
         ) : (
-          <IconCirclePerson className="size-6 text-muted-fg" />
+          <Avatar initials='IA' size="large" />
         )}
         <input type="hidden" name="image" value={droppedImage} />
       </DropZone>

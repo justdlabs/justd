@@ -99,7 +99,7 @@ const Avatar = ({
         </svg>
       )}
       {src && <img src={src} alt={alt} />}
-      {status && <AvatarBadge size={size} status={status} aria-label="Available" />}
+      {status && <AvatarBadge size={size} status={status} aria-label={status} />}
     </span>
   )
 }

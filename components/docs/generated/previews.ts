@@ -611,11 +611,11 @@ export const previews: Record<string, any> = {
   "pickers/combo-box-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/pickers/combo-box-controlled-demo")),
   },
+  "pickers/multiple-select-demo": {
+    component: React.lazy(() => import("@/components/docs/pickers/multiple-select-demo")),
+  },
   "pickers/combo-box-readonly-demo": {
     component: React.lazy(() => import("@/components/docs/pickers/combo-box-readonly-demo")),
-  },
-  "pickers/multi-select-demo": {
-    component: React.lazy(() => import("@/components/docs/pickers/multi-select-demo")),
   },
   "pickers/combo-box-demo": {
     component: React.lazy(() => import("@/components/docs/pickers/combo-box-demo")),
