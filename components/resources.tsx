@@ -1,6 +1,6 @@
 'use client'
 
-import { IconBrandJustd, IconBrandLaravel, IconBrandNextjs } from 'justd-icons'
+import { IconBrandJustd, IconBrandLaravel, IconBrandNextjs, IconBrandRemix } from 'justd-icons'
 import {
   Badge,
   CardDescription,
@@ -18,7 +18,7 @@ const resources = [
   {
     icon: IconBrandNextjs,
     name: 'Next.js Starter Kit',
-    url: 'https://justd-nsk.vercel.app/',
+    url: 'https://justd-next.netlify.app/',
     description:
       "A Next.js starter kit with Justd installed. You don't need to set up anything, just run clone it and you're good to go!",
     label: 'Starter Kit'
@@ -26,9 +26,16 @@ const resources = [
   {
     icon: IconBrandLaravel,
     name: 'Laravel Starter Kit',
-    url: 'https://github.com/irsyadadl/inertia.ts',
+    url: 'https://github.com/justdlabs/inertia.ts',
     description:
       'A Laravel starter kit with Justd installed. It includes a authentication system out of the box.',
+    label: 'Starter Kit'
+  },
+  {
+    icon: IconBrandRemix,
+    name: 'Remix Starter Kit',
+    url: 'https://justd-remix.netlify.app/',
+    description: 'A Remix starter kit with Justd installed, ready for use in any application.',
     label: 'Starter Kit'
   }
 ]
