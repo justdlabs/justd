@@ -262,7 +262,7 @@ export function NavbarDropdown() {
         </MenuItem>
         <MenuSeparator />
         <MenuSection>
-          <MenuItem href="https://x.com/intent/follow?screen_name=getjustdlabs" target="_blank">
+          <MenuItem href="https://x.com/intent/follow?screen_name=getjustd" target="_blank">
             <IconBrandX />X / Twitter
           </MenuItem>
           <MenuItem href="https://github.com/justdlabs" target="_blank">
