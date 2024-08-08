@@ -3,12 +3,12 @@ import { Loader } from 'ui'
 export default function LoaderIntentDemo() {
   return (
     <div className="flex gap-6">
-      <Loader intent="current" />
-      <Loader intent="primary" />
-      <Loader intent="secondary" />
-      <Loader intent="success" />
-      <Loader intent="warning" />
-      <Loader intent="danger" />
+      <Loader variant="hot" intent="current" />
+      <Loader variant="hot" intent="primary" />
+      <Loader variant="hot" intent="secondary" />
+      <Loader variant="hot" intent="success" />
+      <Loader variant="hot" intent="warning" />
+      <Loader variant="hot" intent="danger" />
     </div>
   )
 }

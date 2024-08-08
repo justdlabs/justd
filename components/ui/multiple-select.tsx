@@ -1,13 +1,10 @@
+'use client'
+
 import React, { useState } from 'react'
 
-import { ctr } from '@/components/ui/primitive'
 import { IconChevronLgDown } from 'justd-icons'
 import { useFilter } from 'react-aria'
-import type {
-  ComboBoxProps as ComboBoxPrimitiveProps,
-  GroupProps,
-  Key
-} from 'react-aria-components'
+import type { ComboBoxProps as ComboBoxPrimitiveProps, Key } from 'react-aria-components'
 import { ComboBox, Group } from 'react-aria-components'
 import type { ListData } from 'react-stately'
 import { useListData } from 'react-stately'
@@ -18,28 +15,39 @@ import { Button } from './button'
 import { Description, Input, Label } from './field'
 import { ListBoxItem, ListBoxPicker } from './list-box'
 import { PopoverPicker } from './popover'
+import { ctr } from './primitive'
 import { TagGroup, TagList } from './tag-group'
 import { VisuallyHidden } from './visually-hidden'
 
 const multiSelectStyles = tv({
   slots: {
-    multiSelectField: 'group flex w-full flex-col gap-1',
+    multiSelectField: 'group flex w-full min-w-80 flex-col gap-1',
     multiSelect: [
-      'relative px-1 flex min-h-10 min-w-80 flex-row flex-wrap items-center rounded-lg shadow-sm border',
+      'relative px-1 flex min-h-10 flex-row flex-wrap items-center rounded-lg shadow-sm border',
       'has-[input[data-focused=true]]:border-primary',
       'has-[input[data-invalid=true][data-focused=true]]:border-danger has-[input[data-invalid=true]]:border-danger',
       'has-[input[data-focused=true]]:ring-4 has-[input[data-focused=true]]:ring-primary/20'
     ],
     chevronButton:
       'size-8 -mr-2 grid place-content-center rounded-sm hover:text-fg focus:text-fg text-muted-fg',
-    input: 'flex-1 py-1 border-0 px-0.5 ml-1 shadow-none ring-0',
+    input: 'flex-1 py-1 px-0.5 ml-1 shadow-none ring-0',
     comboBoxChild: 'inline-flex flex-1 flex-wrap items-center px-0',
-    comboBox: 'group peer -mt-1 flex flex-1'
+    comboBox: 'group peer flex flex-1'
   }
 })
 
 const { multiSelectField, multiSelect, chevronButton, input, comboBox, comboBoxChild } =
   multiSelectStyles()
+
+interface FieldState {
+  selectedKey: Key | null
+  inputValue: string
+}
+
+interface SelectedKey {
+  id: Key
+  textValue: string
+}
 
 interface MultipleSelectProps<T extends object>
   extends Omit<
@@ -54,6 +62,8 @@ interface MultipleSelectProps<T extends object>
     | 'onSelectionChange'
     | 'onInputChange'
   > {
+  label?: string
+  description?: string
   items: Array<T>
   selectedList: ListData<T>
   className?: string
@@ -62,30 +72,11 @@ interface MultipleSelectProps<T extends object>
   renderEmptyState?: (inputValue: string) => React.ReactNode
   tag: (item: T) => React.ReactNode
   children: React.ReactNode | ((item: T) => React.ReactNode)
+  max?: number
+  min?: number
 }
 
-interface MultiSelectFieldProps extends GroupProps {
-  children: React.ReactNode
-  label?: string
-  description?: string
-}
-
-const MultipleSelectField = ({ children, className, ...props }: MultiSelectFieldProps) => {
-  return (
-    <Group role="presentation" {...props} className={ctr(className, multiSelectField())}>
-      {props.label && <Label>{props.label}</Label>}
-      {children}
-      {props.description && <Description>{props.description}</Description>}
-    </Group>
-  )
-}
-
-interface MultipleSelectExtended {
-  id: Key
-  textValue: string
-}
-
-const MultipleSelect = <T extends MultipleSelectExtended>({
+const MultipleSelect = <T extends SelectedKey>({
   children,
   items,
   selectedList,
@@ -94,16 +85,21 @@ const MultipleSelect = <T extends MultipleSelectExtended>({
   className,
   name,
   renderEmptyState,
+
+  max,
+  min,
   ...props
 }: MultipleSelectProps<T>) => {
-  const { contains } = useFilter({ sensitivity: 'base' })
+  const tagGroupId = React.useId()
+  const triggerRef = React.useRef<HTMLDivElement | null>(null)
+  const [width, setWidth] = React.useState(0)
 
+  const { contains } = useFilter({ sensitivity: 'base' })
   const selectedKeys = selectedList.items.map((i) => i.id)
 
   const filter = React.useCallback(
-    (item: T, filterText: string) => {
-      return !selectedKeys.includes(item.id) && contains(item.textValue, filterText)
-    },
+    (item: T, filterText: string) =>
+      !selectedKeys.includes(item.id) && contains(item.textValue, filterText),
     [contains, selectedKeys]
   )
 
@@ -112,16 +108,15 @@ const MultipleSelect = <T extends MultipleSelectExtended>({
     filter
   })
 
-  const [fieldState, setFieldState] = useState<{
-    selectedKey: Key | null
-    inputValue: string
-  }>({
+  const [fieldState, setFieldState] = useState<FieldState>({
     selectedKey: null,
     inputValue: ''
   })
 
   const onRemove = React.useCallback(
     (keys: Set<Key>) => {
+      if (min !== undefined && selectedList.items.length <= min) return
+
       const key = keys.values().next().value
       selectedList.remove(key)
       setFieldState({
@@ -130,21 +125,17 @@ const MultipleSelect = <T extends MultipleSelectExtended>({
       })
       onItemRemove?.(key)
     },
-    [selectedList, onItemRemove]
+    [selectedList, onItemRemove, min]
   )
 
   const onSelectionChange = (id: Key | null) => {
-    if (!id) {
-      return
-    }
+    if (!id) return
 
     const item = availableList.getItem(id)
 
-    if (!item) {
-      return
-    }
+    if (!item) return
 
-    if (!selectedKeys.includes(id)) {
+    if (!selectedKeys.includes(id) && (max === undefined || selectedList.items.length < max)) {
       selectedList.append(item)
       setFieldState({
         inputValue: '',
@@ -156,17 +147,17 @@ const MultipleSelect = <T extends MultipleSelectExtended>({
     availableList.setFilterText('')
   }
 
-  const onInputChange = (value: string) => {
+  const onInputChange = (v: string) => {
     setFieldState((prevState) => ({
-      inputValue: value,
-      selectedKey: value === '' ? null : prevState.selectedKey
+      inputValue: v,
+      selectedKey: v === '' ? null : prevState.selectedKey
     }))
 
-    availableList.setFilterText(value)
+    availableList.setFilterText(v)
   }
 
   const deleteLast = React.useCallback(() => {
-    if (selectedList.items.length == 0) {
+    if (selectedList.items.length == 0 || (min !== undefined && selectedList.items.length <= min)) {
       return
     }
 
@@ -192,11 +183,6 @@ const MultipleSelect = <T extends MultipleSelectExtended>({
     [deleteLast, fieldState.inputValue]
   )
 
-  const tagGroupId = React.useId()
-  const triggerRef = React.useRef<HTMLDivElement | null>(null)
-
-  const [width, setWidth] = React.useState(0)
-
   React.useEffect(() => {
     const trigger = triggerRef.current
     if (!trigger) {
@@ -218,14 +204,15 @@ const MultipleSelect = <T extends MultipleSelectExtended>({
   const triggerButtonRef = React.useRef<HTMLButtonElement | null>(null)
 
   return (
-    <>
+    <Group className={ctr(className, multiSelectField())}>
+      {props.label && <Label>{props.label}</Label>}
       <div ref={triggerRef} className={multiSelect({ className })}>
-        <TagGroup id={tagGroupId} onRemove={onRemove}>
+        <TagGroup aria-label="Selected items" id={tagGroupId} onRemove={onRemove}>
           <TagList
             items={selectedList.items}
             className={twMerge(
-              selectedList.items.length !== 0 && 'px-1 py-2',
-              '[&_.jdt3lr2x]:rounded-sm outline-none gap-1.5'
+              selectedList.items.length !== 0 && 'px-1 py-1.5',
+              '[&_.jdt3lr2x]:rounded-[calc(var(--radius)-2.5px)] last:[&_.jdt3lr2x]:-mr-1 outline-none gap-1.5'
             )}
           >
             {props.tag}
@@ -233,6 +220,7 @@ const MultipleSelect = <T extends MultipleSelectExtended>({
         </TagGroup>
         <ComboBox
           {...props}
+          aria-label="Available items"
           allowsEmptyCollection
           className={comboBox({ className })}
           items={availableList.items}
@@ -308,10 +296,12 @@ const MultipleSelect = <T extends MultipleSelectExtended>({
       </div>
 
       {name && <input hidden name={name} value={selectedKeys.join(',')} readOnly />}
-    </>
+
+      {props.description && <Description>{props.description}</Description>}
+    </Group>
   )
 }
 
 const MultipleSelectItem = ListBoxItem
 
-export { MultipleSelectField, MultipleSelect, MultipleSelectItem }
+export { MultipleSelect, MultipleSelectItem, type SelectedKey }

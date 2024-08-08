@@ -51,6 +51,7 @@ export * from './button';
 export * from './modal';
 export * from './checkbox';
 export * from './select';
+export * from './multiple-select';
 export * from './textarea';
 export * from './loading-dots';
 export * from './loader';

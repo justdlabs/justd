@@ -3,7 +3,6 @@
 import React from 'react'
 
 import type { DropEvent } from '@react-types/shared'
-import { IconCirclePerson } from 'justd-icons'
 import { isFileDropItem } from 'react-aria-components'
 import { twJoin } from 'tailwind-merge'
 import { Avatar, DropZone, FileTrigger } from 'ui'
@@ -38,14 +37,13 @@ export default function FileTriggerAvatarDemo() {
         getDropOperation={() => 'copy'}
         onDrop={onDropHandler}
         className={twJoin(
-          'rounded-full bg-tertiary p-0 size-10 grid place-content-center overflow-hidden',
-          droppedImage && 'border-solid border-fg/20'
+          '[&_[data-slot=avatar]]:bg-transparent [&_[data-slot=avatar]]:outline-none rounded-full p-0 overflow-hidden size-10'
         )}
       >
         {droppedImage ? (
           <Avatar src={droppedImage} size="large" />
         ) : (
-          <IconCirclePerson className="size-6 text-muted-fg" />
+          <Avatar initials="IA" size="large" />
         )}
         <input type="hidden" name="image" value={droppedImage} />
       </DropZone>
