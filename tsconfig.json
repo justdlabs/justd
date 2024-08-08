@@ -23,6 +23,7 @@
     "paths": {
       "@/*": ["./*"],
       "ui": ["./components/ui"],
+      "hooks/*": ["./resources/hooks/*"],
       "#site/content": ["./.velite"]
     }
   },

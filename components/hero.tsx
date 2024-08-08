@@ -4,7 +4,7 @@ import { siteConfig } from '@/resources/config/site'
 import { IconBrandD, IconCube, IconStar } from 'justd-icons'
 import Link from 'next/link'
 import { Header, Text } from 'react-aria-components'
-import { buttonStyles, Container, Heading } from 'ui'
+import { buttonStyles, Container } from 'ui'
 
 export function Hero() {
   return (

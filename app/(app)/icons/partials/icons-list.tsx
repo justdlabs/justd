@@ -1,38 +1,55 @@
-import React from 'react'
+'use client'
+
+import React, { Suspense } from 'react'
 
 import * as icons from 'justd-icons'
-import type { Key } from 'react-aria-components'
+import { useSearchParams } from 'next/navigation'
 import { ListBox, ListBoxItem } from 'react-aria-components'
 import { toast } from 'sonner'
-import { useDebounce } from 'use-debounce'
+import { Loader } from 'ui'
 import { copyToClipboard } from 'usemods'
 
 import { Controller } from './controller'
 import { box, item } from './styles'
 
-export function IconsList() {
-  const [selectedSize, setSelectedSize] = React.useState<Key>('size-5')
-  const [value, setValue] = React.useState('')
-  const [debouncedValue] = useDebounce(value, 300)
+export interface SearchParamsProps {
+  searchParams: {
+    query: string
+    t: 'solid' | 'regular'
+  }
+}
 
-  const filteredIcons = Object.entries(icons).filter(([name]) =>
-    name.toLowerCase().includes(debouncedValue.toLowerCase())
-  )
+export function IconsList({ searchParams }: SearchParamsProps) {
+  const { query, t } = searchParams
+  const filterType = t ?? 'regular'
+
+  const filteredIcons = Object.entries(icons).filter(([name]) => {
+    const matchesSearch = query ? name.toLowerCase().includes(query.toLowerCase()) : true
+    const isSolid = name.toLowerCase().endsWith('fill')
+    const matchesFilter =
+      (filterType === 'solid' && isSolid) || (filterType === 'regular' && !isSolid)
+    return matchesSearch && matchesFilter
+  })
 
   return (
     <>
-      <Controller
-        value={value}
-        setValue={setValue}
-        selectedSize={selectedSize}
-        setSelectedSize={setSelectedSize}
-      />
+      <Controller searchParams={searchParams} />
 
-      <ListBox aria-label="List Icon" layout="grid" className={box()}>
-        {filteredIcons.map(([name, Icon]) => (
-          <IconListItem key={name} name={name} Icon={Icon} selectedSize={selectedSize} />
-        ))}
-      </ListBox>
+      <Suspense
+        fallback={
+          <div className="flex justify-center items-center min-h-96">
+            <Loader />
+          </div>
+        }
+      >
+        <div className="sm:-mx-2">
+          <ListBox aria-label="List Icon" layout="grid" className={box()}>
+            {filteredIcons.map(([name, Icon]) => (
+              <IconListItem key={name} name={name} Icon={Icon} />
+            ))}
+          </ListBox>
+        </div>
+      </Suspense>
     </>
   )
 }
@@ -40,10 +57,11 @@ export function IconsList() {
 interface IconListItemProps {
   name: string
   Icon: React.ComponentType<any>
-  selectedSize: Key
 }
 
-export function IconListItem({ name, Icon, selectedSize }: IconListItemProps) {
+export function IconListItem({ name, Icon }: IconListItemProps) {
+  const searchParams = useSearchParams()
+  const selectedSize = searchParams.get('s')
   const handleCopy = (type: 'text' | 'jsx') => {
     const textToCopy = type === 'jsx' ? `<${name} />` : name
     copyToClipboard(textToCopy).then(() => {

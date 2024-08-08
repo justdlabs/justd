@@ -143,13 +143,13 @@ const TagGroup = ({ children, ...props }: TagGroupProps) => {
   )
 }
 
-const TagList = <T extends object>(props: TagListProps<T>) => {
-  return <TagListPrimitive {...props} className={ctr(props.className, 'flex flex-wrap gap-2')} />
+const TagList = <T extends object>({ className, ...props }: TagListProps<T>) => {
+  return <TagListPrimitive {...props} className={ctr(className, 'flex flex-wrap gap-2')} />
 }
 
 const tagStyles = tv({
   extend: focusStyles,
-  base: [badgeStyles.base, 'cursor-pointer'],
+  base: [badgeStyles.base, 'cursor-pointer jdt3lr2x'],
   variants: {
     isFocused: { true: 'ring-2' },
     isDisabled: { true: 'opacity-50 cursor-default' },
@@ -179,7 +179,8 @@ const Tag = ({ children, intent, shape, ...props }: TagProps) => {
           className: cn([
             intents[finalIntent].base,
             renderProps.isSelected ? intents[finalIntent].selected : undefined,
-            badgeShapes[finalShape]
+            badgeShapes[finalShape],
+            className
           ])
         })
       })}
@@ -191,7 +192,7 @@ const Tag = ({ children, intent, shape, ...props }: TagProps) => {
             {allowsRemoving && (
               <Button
                 slot="remove"
-                className={composeRenderProps('', (className, renderProps) => {
+                className={composeRenderProps('', (className) => {
                   return twMerge(
                     'rounded focus:outline-none size-3.5 grid place-content-center -mr-0.5 focus-visible:ring-1 focus-visible:ring-primary',
                     className

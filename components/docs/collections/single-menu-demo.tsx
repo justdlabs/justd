@@ -3,7 +3,7 @@
 import React from 'react'
 
 import type { Placement } from '@react-types/overlays'
-import type { Selection } from '@react-types/shared'
+import type { Selection } from 'react-aria-components'
 import { Button, Menu, MenuContent, MenuRadioItem } from 'ui'
 
 export const placements = [
