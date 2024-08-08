@@ -41,30 +41,34 @@ If you're slapping this toast into your Next.js gig, you're gonna wanna roll wit
 
 <InstallCommand isInstall isManual items={['next-themes']}/>
 
-Don't forget to jam a theme provider component in there. Scope out the setup [here](/docs/dark-mode/next-js).
-
-## Remix
-If you're rocking this toast with Remix, you're gonna need setup somethings.
-
-First, create a file named sonner.css and then paste the code from [here]('https://github.com/emilkowalski/sonner/blob/main/src/styles.css') into it and import into `ui/toast.tsx`.
+Don't forget to include a theme provider component. Check out the setup [here](/docs/dark-mode/next-js).
 
 ## Inertia.js
-When you're rocking this toast with Inertia.js, it's all cool if you've got your theme provider locked down. If not, no sweat—catch the how to [right here](/docs/dark-mode/inertia-js).
+
+When using this toast with Inertia.js, everything will work smoothly if your theme provider is correctly set up. If not, you can find the setup guide [here](/docs/dark-mode/inertia-js).
 
 ## Description
-When you wanna flash a toast with a title and a description, the style game is strong. The title beefs up, gets all bold and big if there's a description. No stressin' over that it's handled for ya.
+
+To display a toast with a title and a description, the styling is automatically handled. The title will be bold and prominent if a description is included.
+
 <How toUse="statuses/toast-description-demo" />
 
 ## Positions
-Toast can be positioned in four different places.
+
+The toast can be positioned in four different locations.
+
 <How toUse="statuses/toast-positions-demo" />
 
 ## Status
-Toast can be positioned in four different positions.
+
+To show a warning or error toast, use the following approach.
+
 <How toUse="statuses/toast-status-demo" />
 
 ## Action
-Toast can be positioned in four different positions.
+
+To display a toast with an action, use the following method.
+
 <How toUse="statuses/toast-action-demo" />
 
 ## Expand
@@ -83,12 +87,15 @@ toast.success(`Copied ${text} to clipboard`, {
   }
 })
 ```
-You can shut it down straight from the component if you wanna nuke it completely. But sometimes it looks funky when you're dealing with toast promises or loading.
 
-## Don't close automatically
-Sometimes you don't want the toast to close automatically. For example, say you have a toast that waits for a user to click a button. You don't want the toast to close automatically when the user clicks the button.
+You can turn it off directly from the component to remove it completely. However, this approach may appear unusual when handling toast promises or loading states.
+
+## Don't Close Automatically
+
+Sometimes, you may not want the toast to close automatically. For example, if you have a toast that waits for a user to click a button, you would not want it to close automatically when the button is clicked.
 
 You can do it like this.
+
 ```tsx {2}
 toast('Someone requested to delete this product', {
     duration: Infinity,
@@ -102,3 +109,7 @@ toast('Someone requested to delete this product', {
     },
 })
 ```
+
+## Important Setup for Remix
+
+If you're using this toast with Remix, you'll need to set up a few things. You can find more details on the issue [here](https://github.com/remix-run/remix/discussions/9318).
