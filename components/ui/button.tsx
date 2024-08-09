@@ -46,12 +46,12 @@ const buttonStyles = tv(
           '[--btn-icon:theme(colors.dark/60%)] active:[--btn-icon:theme(colors.dark/80%)] hover:[--btn-icon:theme(colors.dark/80%)]'
         ],
         info: [
-          'text-lime-950 [--btn-bg:theme(colors.lime.400)] [--btn-border:theme(colors.lime.400/80%)] [--btn-hover-overlay:theme(colors.white/25%)]',
+          'text-info-fg [--btn-bg:theme(colors.info.DEFAULT)] [--btn-border:theme(colors.info.DEFAULT/80%)] [--btn-hover-overlay:theme(colors.white/25%)]',
           '[--btn-icon:theme(colors.info.fg/60%)] active:[--btn-icon:theme(colors.info.fg/80%)] hover:[--btn-icon:theme(colors.info.fg/80%)]'
         ],
         warning: [
           'text-warning-fg [--btn-bg:theme(colors.warning.DEFAULT)] [--btn-border:theme(colors.warning.DEFAULT)] [--btn-hover-overlay:theme(colors.white/10%)]',
-          '[--btn-icon:theme(colors.warning/60%)] active:[--btn-icon:theme(colors.warning/80%)] hover:[--btn-icon:theme(colors.warning/80%)]'
+          '[--btn-icon:theme(colors.warning.fg/60%)] active:[--btn-icon:theme(colors.warning.fg/80%)] hover:[--btn-icon:theme(colors.warning.fg/80%)]'
         ],
         danger: [
           'text-white [--btn-bg:theme(colors.danger.DEFAULT)] [--btn-border:theme(colors.danger.DEFAULT)] [--btn-hover-overlay:theme(colors.white/10%)]',
