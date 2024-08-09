@@ -36,7 +36,6 @@ const toggleStyles = tv({
     }
   },
   defaultVariants: {
-    intent: 'transparent',
     size: 'small',
     shape: 'square'
   }

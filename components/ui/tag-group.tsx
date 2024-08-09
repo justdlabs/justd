@@ -88,16 +88,6 @@ const intents = {
       'bg-dark hover:bg-dark text-dark-fg hover:text-dark-fg',
       '[&_[slot=remove]:hover]:bg-fg [&_[slot=remove]:hover]:text-background'
     ]
-  },
-  'light/dark': {
-    base: [
-      badgeIntents['light/dark'],
-      '[&_[slot=remove]:hover]:bg-fg [&_[slot=remove]:hover]:text-background'
-    ],
-    selected: [
-      'bg-fg text-background ring-inset ring-fg dark:bg-fg dark:text-background dark:ring-background dark:hover:bg-fg dark:hover:text-background',
-      '[&_[slot=remove]:hover]:bg-background [&_[slot=remove]:hover]:text-fg'
-    ]
   }
 }
 
