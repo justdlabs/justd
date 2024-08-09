@@ -1891,7 +1891,7 @@
   },
   "skeleton": {
     "component": "@/components/ui/skeleton",
-    "raw": "import React from 'react'\n\nimport { tv } from 'tailwind-variants'\n\nconst skeletonStyles = tv({\n  base: 'animate-pulse shrink-0',\n  variants: {\n    intent: {\n      muted: 'bg-muted/50',\n      lighter: 'bg-secondary'\n    },\n    shape: {\n      circle: 'rounded-full',\n      square: 'rounded-lg'\n    }\n  },\n  defaultVariants: {\n    intent: 'muted',\n    shape: 'square'\n  }\n})\n\ninterface SkeletonProps extends React.HTMLAttributes<HTMLDivElement> {\n  intent?: 'muted' | 'lighter'\n  shape?: 'circle' | 'square'\n}\nconst Skeleton = ({ shape, intent, className, ...props }: SkeletonProps) => {\n  return <div className={skeletonStyles({ shape, intent, className })} {...props} />\n}\n\nexport { Skeleton }\n",
+    "raw": "import React from 'react'\n\nimport { tv } from 'tailwind-variants'\n\nconst skeletonStyles = tv({\n  base: 'animate-pulse shrink-0',\n  variants: {\n    intent: {\n      muted: 'bg-fg/20',\n      lighter: 'bg-fg/15'\n    },\n    shape: {\n      circle: 'rounded-full',\n      square: 'rounded-lg'\n    }\n  },\n  defaultVariants: {\n    intent: 'muted',\n    shape: 'square'\n  }\n})\n\ninterface SkeletonProps extends React.HTMLAttributes<HTMLDivElement> {\n  intent?: 'muted' | 'lighter'\n  shape?: 'circle' | 'square'\n}\nconst Skeleton = ({ shape, intent, className, ...props }: SkeletonProps) => {\n  return <div className={skeletonStyles({ shape, intent, className })} {...props} />\n}\n\nexport { Skeleton }\n",
     "type": "ui"
   },
   "color-field": {
