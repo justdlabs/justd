@@ -131,6 +131,9 @@ export const previews: Record<string, any> = {
   "forms/textarea-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/forms/textarea-controlled-demo")),
   },
+  "forms/tag-field-max-demo": {
+    component: React.lazy(() => import("@/components/docs/forms/tag-field-max-demo")),
+  },
   "forms/textarea-readonly-demo": {
     component: React.lazy(() => import("@/components/docs/forms/textarea-readonly-demo")),
   },
@@ -139,6 +142,9 @@ export const previews: Record<string, any> = {
   },
   "forms/search-field-demo": {
     component: React.lazy(() => import("@/components/docs/forms/search-field-demo")),
+  },
+  "forms/tag-field-controlled-demo": {
+    component: React.lazy(() => import("@/components/docs/forms/tag-field-controlled-demo")),
   },
   "forms/radio-group-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/forms/radio-group-controlled-demo")),
@@ -607,6 +613,9 @@ export const previews: Record<string, any> = {
   },
   "pickers/select-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/pickers/select-disabled-demo")),
+  },
+  "pickers/multiple-select-disabled-demo": {
+    component: React.lazy(() => import("@/components/docs/pickers/multiple-select-disabled-demo")),
   },
   "pickers/multiple-select-min-max-demo": {
     component: React.lazy(() => import("@/components/docs/pickers/multiple-select-min-max-demo")),

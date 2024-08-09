@@ -1,17 +1,10 @@
 'use client'
 
-import ButtonIconDemo from '@/components/docs/buttons/button-icon-demo'
-import ButtonIntentDemo from '@/components/docs/buttons/button-intent-demo'
-import BadgeIntentDemo from '@/components/docs/statuses/badge-intent-demo'
-import { parseColor } from '@react-stately/color'
-import { IconBrandAppstore, IconBrandLaravel } from 'justd-icons'
-import colors from 'tailwindcss/colors'
-import { Button } from 'ui'
+import React from 'react'
+
+import TagFieldControlledDemo from '@/components/docs/forms/tag-field-controlled-demo'
+import TagFieldMaxDemo from '@/components/docs/forms/tag-field-max-demo'
 
 export default function Page() {
-  return (
-    <div>
-      <BadgeIntentDemo />
-    </div>
-  )
+  return <TagFieldControlledDemo />
 }
