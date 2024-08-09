@@ -93,9 +93,7 @@ export function SourceCode({ title, message, ext = 'tsx', toShow, ...props }: So
               onOpenChange={(open) => handleOpenChange(index, open)}
             >
               <div
-                className={
-                  'relative rounded-lg border border-zinc-800 bg-[#0e0e10] overflow-hidden'
-                }
+                className="relative rounded-lg border border-zinc-800 bg-[#0e0e10] overflow-hidden"
                 {...props}
               >
                 <CodeContainer isOpened={isOpened[index]}>

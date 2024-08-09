@@ -21,7 +21,7 @@ export default function CarouselWithCollectionDemo() {
       <CarouselContent items={items}>
         {(item) => (
           <CarouselItem id={item.id}>
-            <Card className="p-2">
+            <Card className="p-1">
               <Image
                 className="rounded-md h-40 object-center object-cover"
                 src={`/slides/slide-${item.id}.jpg`}
@@ -29,7 +29,7 @@ export default function CarouselWithCollectionDemo() {
                 width={400}
                 height={300}
               />
-              <CardHeader>
+              <CardHeader className="p-3">
                 <CardTitle className="line-clamp-1 sm:text-lg">{item.title}</CardTitle>
                 <CardDescription className="line-clamp-2">{item.description}</CardDescription>
               </CardHeader>

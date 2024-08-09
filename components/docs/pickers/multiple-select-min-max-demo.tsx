@@ -1,3 +1,5 @@
+'use client'
+
 import { useListData } from 'react-stately'
 import type { SelectedKey } from 'ui'
 import { MultipleSelect, MultipleSelectItem, Tag } from 'ui'
