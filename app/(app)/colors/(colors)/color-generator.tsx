@@ -8,14 +8,6 @@ import { parseColor } from '@react-stately/color'
 import { IconArrowWallRight } from 'justd-icons'
 import { ColorField, defaultColor, useMediaQuery } from 'ui'
 
-const renderColorScaleAsCode = (colorScales: any, colorName: string) => {
-  const codeString = colorScales
-    .map(({ shade, color }: any) => `'${shade}': '${color}'`)
-    .join(',\n  ')
-  const formattedColorName = colorName.includes('-') ? `'${colorName}'` : colorName
-  return `${formattedColorName}: {\n  ${codeString}\n}`
-}
-
 export function ColorGenerator() {
   const [colorObj, setColorObj] = useState<string>(defaultColor.toString('hex'))
   const handleChange = (newColor: any) => {

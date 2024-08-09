@@ -30,6 +30,7 @@ const ColorItem = ({
 }: ColorItemProps) => {
   const [copied, setCopied] = React.useState(false)
   const handleCopy = async (selectedColor: string) => {
+    console.log(selectedColor)
     const toCopy = isForTailwindVariable
       ? formatColorForTailwind(selectedColor, selectedFormat as FormatOnlyForTailwindVariableType)
       : selectedColor

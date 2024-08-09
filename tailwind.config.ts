@@ -23,6 +23,8 @@ const config = withTV({
         mono: ['var(--font-mono)', ...fontFamily.sans]
       },
       colors: {
+        light: 'hsl(var(--light))',
+        dark: 'hsl(var(--dark))',
         border: 'hsl(var(--border))',
         link: 'hsl(var(--link))',
         input: 'hsl(var(--input))',
