@@ -27,9 +27,9 @@ export function SelectSize() {
   }
 
   return (
-    <Menu className="group" aria-label="Select Icon Size">
+    <Menu aria-label="Select Icon Size">
       <Button
-        className="group-open:[&>[data-slot=icon]]:rotate-180 bg-background transition-transform"
+        className="[&[data-pressed]_[data-slot=icon]]:rotate-180 bg-background [&_[data-slot=icon]]:transition-transform"
         appearance="outline"
       >
         <span className="sm:hidden inline">

@@ -3,8 +3,9 @@
 import * as React from 'react'
 
 import { IconBulletFill, IconCheck, IconChevronLgRight } from 'justd-icons'
-import type {
+import {
   ButtonProps,
+  Group,
   MenuItemProps as MenuItemPrimitiveProps,
   MenuProps as MenuPrimitiveProps,
   MenuTriggerProps as MenuTriggerPrimitiveProps,
