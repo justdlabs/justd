@@ -16,6 +16,8 @@ export default function Page() {
         <span className="text-fg">Them</span>
         <span className="text-muted-fg">es</span>
       </Header>
+
+      {/*<Themes/>*/}
     </div>
   )
 }

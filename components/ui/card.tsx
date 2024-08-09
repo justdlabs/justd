@@ -11,7 +11,7 @@ import { Description } from './field'
 const card = tv({
   slots: {
     root: [
-      'xrkr rounded-lg xkd2 [&:has(table)_.ccvgs8x]:border-t [&:has(table)_.x32]:bg-tertiary [&:has(table)]:overflow-hidden border bg-background text-fg shadow-sm [&:has(.larhy3):not(:has(.yahnba))>.ccvgs8x]:pt-6 [&:has(.larhy3)]:overflow-hidden [&_table]:overflow-hidden'
+      'xrkr bg-background rounded-lg xkd2 [&:has(table)_.ccvgs8x]:border-t [&:has(table)_.x32]:bg-tertiary [&:has(table)]:overflow-hidden border text-fg shadow-sm [&:has(.larhy3):not(:has(.yahnba))>.ccvgs8x]:pt-6 [&:has(.larhy3)]:overflow-hidden [&_table]:overflow-hidden'
     ],
     header: 'flex xlw32 flex-col space-y-1.5 px-6 py-5',
     title: 'text-lg klda font-semibold leading-none tracking-tight',
@@ -28,8 +28,17 @@ const Card = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => 
   return <div className={root({ className })} {...props} />
 }
 
-const CardHeader = ({ className, ...props }: React.ComponentProps<typeof Header>) => (
-  <Header className={header({ className })} {...props} />
+interface CardHeaderProps extends React.ComponentProps<typeof Header> {
+  title?: string
+  description?: string
+}
+
+const CardHeader = ({ className, ...props }: CardHeaderProps) => (
+  <Header className={header({ className })} {...props}>
+    {props.title && <CardTitle>{props.title}</CardTitle>}
+    {props.description && <CardDescription>{props.description}</CardDescription>}
+    {!props.title && typeof props.children === 'string' ? <CardTitle {...props} /> : props.children}
+  </Header>
 )
 
 const CardTitle = ({ className, ...props }: HeadingProps) => {

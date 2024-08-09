@@ -4,7 +4,7 @@ import { Button, Card, CardContent, CardDescription, CardFooter, CardHeader, Car
 
 export default function CardDemo() {
   return (
-    <Card>
+    <Card className="max-w-lg">
       <CardHeader>
         <CardTitle>Monthly Report</CardTitle>
         <CardDescription>Financial summary for June</CardDescription>
