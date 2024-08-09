@@ -7,6 +7,7 @@ import type {
   ButtonProps,
   MenuItemProps as MenuItemPrimitiveProps,
   MenuProps as MenuPrimitiveProps,
+  MenuTriggerProps as MenuTriggerPrimitiveProps,
   PopoverProps,
   SeparatorProps
 } from 'react-aria-components'
@@ -36,7 +37,7 @@ const MenuContext = React.createContext<MenuContextProps>({ respectScreen: true 
 
 export const useMenuContext = () => React.useContext(MenuContext)
 
-interface MenuProps extends MenuTriggerProps {
+interface MenuProps extends MenuTriggerPrimitiveProps {
   respectScreen?: boolean
 }
 
