@@ -81,6 +81,7 @@ export function IconListItem({ name, Icon }: IconListItemProps) {
   const triggerRef = useRef<HTMLButtonElement>(null)
   return (
     <ListBoxItem
+      data-open={isSelected}
       ref={triggerRef}
       onAction={() => setSelected(true)}
       className={item()}
