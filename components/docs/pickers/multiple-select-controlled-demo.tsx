@@ -7,15 +7,15 @@ import type { SelectedKey } from 'ui'
 import { Description, MultipleSelect, MultipleSelectItem, Tag } from 'ui'
 
 const tags = [
-  { id: 1, textValue: 'Travel' },
-  { id: 2, textValue: 'Food' },
-  { id: 3, textValue: 'Fashion' },
-  { id: 4, textValue: 'Music' },
-  { id: 5, textValue: 'Photography' }
+  { id: 1, name: 'Travel' },
+  { id: 2, name: 'Food' },
+  { id: 3, name: 'Fashion' },
+  { id: 4, name: 'Music' },
+  { id: 5, name: 'Photography' }
 ]
 
 export default function MultipleSelectControlledDemo() {
-  const selectedList = useListData<SelectedKey>({
+  const selectedItems = useListData<SelectedKey>({
     initialItems: []
   })
 
@@ -23,25 +23,25 @@ export default function MultipleSelectControlledDemo() {
     <>
       <MultipleSelect
         className="max-w-xs"
-        onItemAdd={(key) => console.log('onItemAdd', key)}
-        onItemRemove={(key) => console.log('onItemRemove', key)}
+        onItemInserted={(key) => console.log('on item inserted', key)}
+        onItemCleared={(key) => console.log('on item cleared', key)}
         label="Select tags"
-        selectedList={selectedList}
+        selectedItems={selectedItems}
         items={tags}
-        tag={(item) => <Tag textValue={item.textValue}>{item.textValue}</Tag>}
+        tag={(item) => <Tag textValue={item.name}>{item.name}</Tag>}
       >
         {(item) => {
           return (
-            <MultipleSelectItem id={item.id} textValue={item.textValue}>
-              {item.textValue}
+            <MultipleSelectItem id={item.id} textValue={item.name}>
+              {item.name}
             </MultipleSelectItem>
           )
         }}
       </MultipleSelect>
-      {selectedList.items.length > 0 && (
+      {selectedItems.items.length > 0 && (
         <Description className="mt-2 max-w-xs block [&>strong]:text-fg text-muted-fg">
           You have selected:{' '}
-          <strong>{selectedList.items.map((item) => item.textValue).join(', ')}</strong>
+          <strong>{selectedItems.items.map((item) => item.name).join(', ')}</strong>
         </Description>
       )}
     </>

@@ -5,20 +5,20 @@ import type { SelectedKey } from 'ui'
 import { MultipleSelect, MultipleSelectItem, Tag } from 'ui'
 
 const tags = [
-  { id: 1, textValue: 'Cooking' },
-  { id: 2, textValue: 'Gardening' },
-  { id: 3, textValue: 'Meditation' },
-  { id: 4, textValue: 'Parenting' },
-  { id: 5, textValue: 'DIY Projects' },
-  { id: 6, textValue: 'Mindfulness' },
-  { id: 7, textValue: 'Travel Tips' },
-  { id: 8, textValue: 'Pet Care' },
-  { id: 9, textValue: 'Home Decor' },
-  { id: 10, textValue: 'Sustainable Living' }
+  { id: 1, name: 'Cooking' },
+  { id: 2, name: 'Gardening' },
+  { id: 3, name: 'Meditation' },
+  { id: 4, name: 'Parenting' },
+  { id: 5, name: 'DIY Projects' },
+  { id: 6, name: 'Mindfulness' },
+  { id: 7, name: 'Travel Tips' },
+  { id: 8, name: 'Pet Care' },
+  { id: 9, name: 'Home Decor' },
+  { id: 10, name: 'Sustainable Living' }
 ]
 
 export default function MultipleSelectMinMaxDemo() {
-  const selectedList = useListData<SelectedKey>({
+  const selectedItems = useListData<SelectedKey>({
     initialItems: [tags[0]]
   })
   return (
@@ -27,12 +27,12 @@ export default function MultipleSelectMinMaxDemo() {
       label="Select tags"
       description="You can select up to 4 tags"
       max={4}
-      selectedList={selectedList}
+      selectedItems={selectedItems}
       items={tags}
-      tag={(item) => <Tag textValue={item.textValue}>{item.textValue}</Tag>}
+      tag={(item) => <Tag textValue={item.name}>{item.name}</Tag>}
     >
       {(item) => {
-        return <MultipleSelectItem textValue={item.textValue}>{item.textValue}</MultipleSelectItem>
+        return <MultipleSelectItem textValue={item.name}>{item.name}</MultipleSelectItem>
       }}
     </MultipleSelect>
   )

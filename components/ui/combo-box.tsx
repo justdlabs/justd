@@ -50,7 +50,7 @@ const ComboBox = <T extends object>({
   ...props
 }: ComboBoxProps<T>) => {
   return (
-    <ComboboxPrimitive menuTrigger="focus" {...props} className={ctr(className, base())}>
+    <ComboboxPrimitive {...props} className={ctr(className, base())}>
       <Label>{label}</Label>
       <FieldGroup className="pl-0 relative">
         <Input className="pl-2.5" placeholder={placeholder} />
