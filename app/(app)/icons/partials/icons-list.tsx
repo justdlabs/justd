@@ -89,8 +89,8 @@ export function IconListItem({ name, Icon }: IconListItemProps) {
       <Icon className={selectedSize} key={name} />
       <Menu isOpen={isSelected} onOpenChange={setSelected}>
         <MenuContent triggerRef={triggerRef} showArrow>
-          <MenuItem onAction={() => copySvgToClipboard(Icon)}>Copy SVG</MenuItem>
           <MenuItem onAction={() => handleCopy('jsx')}>Copy JSX</MenuItem>
+          <MenuItem onAction={() => copySvgToClipboard(Icon)}>Copy SVG</MenuItem>
           <MenuItem onAction={() => handleCopy('text')}>Copy Name</MenuItem>
           <MenuSeparator />
           <MenuItem onAction={() => downloadSvg(Icon, name)}>
