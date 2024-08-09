@@ -29,7 +29,7 @@ const trackStyles = tv({
 
 const switchStyles = tv({
   slots: {
-    base: 'group inline-flex touch-none lg:text-sm items-center disabled:opacity-60 forced-colors:disabled:text-[GrayText]',
+    base: 'group inline-flex touch-none lg:text-sm items-center',
     ball: 'forced-colors:disabled:outline-[GrayText] group-selected:ml-3 group-selected:group-data-[pressed]:ml-2 group-pressed:w-5 block size-4 origin-right rounded-full bg-white shadow transition-all duration-200'
   }
 })
