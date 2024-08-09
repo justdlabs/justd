@@ -6,8 +6,8 @@ const skeletonStyles = tv({
   base: 'animate-pulse shrink-0',
   variants: {
     intent: {
-      muted: 'bg-muted/50',
-      lighter: 'bg-secondary'
+      muted: 'bg-fg/20',
+      lighter: 'bg-fg/15'
     },
     shape: {
       circle: 'rounded-full',
