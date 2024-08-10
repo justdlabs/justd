@@ -35,7 +35,7 @@ interface TagItemProps {
 }
 
 interface TagFieldProps extends Pick<TagGroupProps, 'shape'>, FieldProps {
-  intent: RestrictedIntent
+  intent?: RestrictedIntent
   isDisabled?: boolean
   max?: number
   className?: string

@@ -65,7 +65,7 @@ interface MultipleSelectProps<T extends object>
       | 'onInputChange'
     >,
     Pick<TagGroupProps, 'shape'> {
-  intent: RestrictedIntent
+  intent?: RestrictedIntent
   items: Array<T>
   selectedItems: ListData<T>
   className?: string
