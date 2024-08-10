@@ -34,7 +34,7 @@ const inertiaTransition: Inertia = {
   timeConstant: 300
 }
 const staticTransition = {
-  duration: 0.5,
+  duration: 0.4,
   ease: [0.32, 0.72, 0, 1]
 }
 const drawerMargin = 40
@@ -114,7 +114,7 @@ const DrawerContentPrimitive = ({ children, ...props }: DrawerOverlayPrimitivePr
           drag="y"
           dragConstraints={{ top: 0, bottom: h }}
           onDragEnd={(_e, { offset, velocity }) => {
-            if (offset.y > h * 0.5 || velocity.y > 10) {
+            if (offset.y > h * 0.4 || velocity.y > 10) {
               closeDrawer()
             } else {
               animate(y, 0, { ...inertiaTransition, min: 0, max: 0 })
