@@ -179,5 +179,7 @@ export {
   DialogFooter,
   DialogClose,
   DialogCloseIndicator,
-  type DialogTitleProps
+  type DialogTitleProps,
+  type DialogProps,
+  type DialogHeaderProps
 }
