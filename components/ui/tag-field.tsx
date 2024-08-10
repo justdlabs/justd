@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 
-import type { Key, ValidationResult } from 'react-aria-components'
+import type { Key, ValidationResult, TextFieldProps } from 'react-aria-components'
 import { Group, TextField } from 'react-aria-components'
 import type { ListData } from 'react-stately'
 import { tv } from 'tailwind-variants'
@@ -10,15 +10,9 @@ import { tv } from 'tailwind-variants'
 import { Description, Input, Label } from './field'
 import { cn, composeTailwindRenderProps, ctr } from './primitive'
 import { Tag, TagGroup, TagList } from './tag-group'
-import type { TextFieldProps } from './text-field'
 
 const tagFieldsStyles = tv({
-  base: [
-    'relative flex min-h-10 flex-row flex-wrap items-center',
-    'has-[input[data-focused=true]]:border-primary'
-    // 'has-[input[data-invalid=true][data-focused=true]]:border-danger has-[input[data-invalid=true]]:border-danger has-[input[data-invalid=true]]:ring-danger/20',
-    // 'has-[input[data-focused=true]]:ring-4 has-[input[data-focused=true]]:ring-primary/20'
-  ],
+  base: ['relative flex min-h-10 flex-row flex-wrap items-center'],
   variants: {
     appearance: {
       outline: [
@@ -32,7 +26,7 @@ const tagFieldsStyles = tv({
   }
 })
 
-interface TagItem {
+interface TagItemProps {
   id: number
   name: string
 }
@@ -50,9 +44,9 @@ interface TagFieldProps {
   className?: string
   children?: React.ReactNode
   name?: string
-  list: ListData<TagItem>
-  onItemInserted?: (tag: TagItem) => void
-  onItemCleared?: (tag: TagItem) => void
+  list: ListData<TagItemProps>
+  onItemInserted?: (tag: TagItemProps) => void
+  onItemCleared?: (tag: TagItemProps) => void
   appearance?: 'outline' | 'plain'
 }
 
@@ -185,4 +179,4 @@ const TagField = ({
   )
 }
 
-export { TagField }
+export { TagField, type TagItemProps }
