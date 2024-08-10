@@ -69,6 +69,7 @@ const DrawerOverlayPrimitive = (props: React.ComponentProps<typeof ModalOverlayP
   const bg = useMotionTemplate`rgba(0, 0, 0, ${bgOpacity})`
 
   const root = document.getElementsByTagName('main')[0] as HTMLElement
+
   const bodyBorderRadius = useTransform(y, [0, h], [drawerRadius, 0])
 
   useMotionValueEvent(bodyBorderRadius, 'change', (v) => (root.style.borderRadius = `${v}px`))

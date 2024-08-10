@@ -1,6 +1,6 @@
 'use client'
 
-import { isIos } from '@/components/ui/primitive'
+import { isIos } from './primitive'
 import { tv } from 'tailwind-variants'
 
 const headingStyles = tv({
