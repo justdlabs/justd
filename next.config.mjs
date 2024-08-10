@@ -1,4 +1,4 @@
-import { build } from "velite";
+import { build } from 'velite'
 
 /** @type {import('next').NextConfig} */
 export default {

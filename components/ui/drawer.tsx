@@ -122,7 +122,7 @@ const DrawerContentPrimitive = ({ children, ...props }: DrawerOverlayPrimitivePr
           }}
           {...props}
         >
-          <div className='overflow-hidden'>
+          <div className="overflow-hidden">
             {withNotch && (
               <div className="notch sticky top-0 mx-auto shrink-0 mt-2.5 h-1.5 w-10 rounded-full bg-fg/20" />
             )}
