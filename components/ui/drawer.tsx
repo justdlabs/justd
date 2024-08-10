@@ -90,7 +90,7 @@ const DrawerContentPrimitive = ({ children, ...props }: DrawerOverlayPrimitivePr
         onOpenChange={closeDrawer}
         className={twJoin([
           'fixed left-0 top-0 isolate z-50 h-[--visual-viewport-height] w-full',
-          'flex items-end [--visual-viewport-vertical-padding:80px]',
+          'flex items-end [--visual-viewport-vertical-padding:80px]'
         ])}
         style={{
           backgroundColor: bg as any
@@ -122,7 +122,7 @@ const DrawerContentPrimitive = ({ children, ...props }: DrawerOverlayPrimitivePr
           }}
           {...props}
         >
-          <>
+          <div className='overflow-hidden'>
             {withNotch && (
               <div className="notch sticky top-0 mx-auto shrink-0 mt-2.5 h-1.5 w-10 rounded-full bg-fg/20" />
             )}
@@ -142,7 +142,7 @@ const DrawerContentPrimitive = ({ children, ...props }: DrawerOverlayPrimitivePr
             >
               <>{children}</>
             </div>
-          </>
+          </div>
         </ModalPrimitive>
       </ModalOverlayPrimitive>
     </>
@@ -188,11 +188,11 @@ interface DrawerProps {
 }
 
 const Drawer = ({
-                  children,
-                  withNotch = true,
-                  isOpen: controlledIsOpen,
-                  onOpenChange
-                }: DrawerProps) => {
+  children,
+  withNotch = true,
+  isOpen: controlledIsOpen,
+  onOpenChange
+}: DrawerProps) => {
   const [internalIsOpen, setInternalIsOpen] = React.useState(false)
 
   const isControlled = controlledIsOpen !== undefined
@@ -226,10 +226,10 @@ const Drawer = ({
 }
 
 const DrawerContent = ({
-                         children,
-                         className,
-                         ...props
-                       }: React.ComponentProps<typeof DrawerPrimitive>) => {
+  children,
+  className,
+  ...props
+}: React.ComponentProps<typeof DrawerPrimitive>) => {
   return (
     <DrawerPrimitive>
       <DrawerContentPrimitive {...props}>
@@ -262,10 +262,10 @@ const DrawerBody = ({ children, className, ...props }: React.ComponentProps<type
 )
 
 const DrawerFooter = ({
-                        children,
-                        className,
-                        ...props
-                      }: React.ComponentProps<typeof DialogFooter>) => (
+  children,
+  className,
+  ...props
+}: React.ComponentProps<typeof DialogFooter>) => (
   <DialogFooter {...props} className={twJoin('pb-2', className)}>
     {children}
   </DialogFooter>
