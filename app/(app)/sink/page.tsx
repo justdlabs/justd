@@ -2,9 +2,14 @@
 
 import React from 'react'
 
-import TagFieldControlledDemo from '@/components/docs/forms/tag-field-controlled-demo'
-import TagFieldMaxDemo from '@/components/docs/forms/tag-field-max-demo'
+import TagFieldIntentDemo from '@/components/docs/forms/tag-field-intent-demo'
+import TagFieldShapeDemo from '@/components/docs/forms/tag-field-shape-demo'
 
 export default function Page() {
-  return <TagFieldControlledDemo />
+  return (
+    <div>
+      <TagFieldIntentDemo />
+      <TagFieldShapeDemo />
+    </div>
+  )
 }

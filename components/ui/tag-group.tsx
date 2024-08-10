@@ -52,46 +52,31 @@ const intents = {
       '[&_[slot=remove]:hover]:bg-success-fg/80 [&_[slot=remove]:hover]:text-success'
     ]
   },
-  info: {
+  warning: {
     base: [
-      badgeIntents.info,
-      '[&_[slot=remove]:hover]:bg-info [&_[slot=remove]:hover]:text-background'
+      badgeIntents.warning,
+      '[&_[slot=remove]:hover]:bg-warning [&_[slot=remove]:hover]:text-warning-fg'
     ],
     selected: [
-      'bg-info dark:bg-info dark:text-background/80 hover:bg-info dark:hover:bg-info',
-      '[&_[slot=remove]:hover]:bg-background/80 [&_[slot=remove]:hover]:text-info'
+      'bg-warning dark:hover:bg-warning dark:bg-warning dark:text-background hover:bg-warning text-warning-fg hover:text-warning-fg',
+      '[&_[slot=remove]:hover]:bg-warning-fg/80 [&_[slot=remove]:hover]:text-warning'
     ]
   },
-  warning: {
-    base: badgeIntents.warning,
-    selected:
-      'bg-warning dark:hover:bg-warning dark:bg-warning dark:text-background hover:bg-warning text-warning-fg hover:text-warning-fg'
-  },
   danger: {
-    base: badgeIntents.danger,
-    selected:
-      'bg-danger dark:bg-danger dark:text-danger-fg dark:hover:bg-danger hover:bg-danger text-danger-fg hover:text-danger-fg'
-  },
-  light: {
     base: [
-      badgeIntents.light,
-      '[&_[slot=remove]:hover]:bg-black [&_[slot=remove]:hover]:text-white'
-    ],
-    selected: ['bg-white ring-white text-zinc-900 ring-inset ring-fg']
-  },
-  dark: {
-    base: [
-      badgeIntents.dark,
-      '[&_[slot=remove]:hover]:bg-fg [&_[slot=remove]:hover]:text-background'
+      badgeIntents.danger,
+      '[&_[slot=remove]:hover]:bg-danger [&_[slot=remove]:hover]:text-danger-fg'
     ],
     selected: [
-      'bg-dark hover:bg-dark text-dark-fg hover:text-dark-fg',
-      '[&_[slot=remove]:hover]:bg-fg [&_[slot=remove]:hover]:text-background'
+      'bg-danger dark:bg-danger dark:hover:bg-danger/90 hover:bg-danger text-danger-fg ring-danger hover:text-danger-fg',
+      '[&_[slot=remove]:hover]:bg-danger-fg/80 [&_[slot=remove]:hover]:text-danger'
     ]
   }
 }
 
-type Intent = keyof typeof badgeIntents
+type RestrictedIntent = 'primary' | 'secondary'
+
+type Intent = 'primary' | 'secondary' | 'success' | 'warning' | 'danger'
 
 type Shape = keyof typeof badgeShapes
 
@@ -141,7 +126,7 @@ const tagStyles = tv({
   extend: focusStyles,
   base: [badgeStyles.base, 'cursor-pointer jdt3lr2x'],
   variants: {
-    isFocused: { true: 'ring-2' },
+    isFocused: { true: 'ring-1' },
     isDisabled: { true: 'opacity-50 cursor-default' },
     allowsRemoving: { true: 'pr-1' }
   }
@@ -160,17 +145,16 @@ const Tag = ({ children, className, intent, shape, ...props }: TagProps) => {
     <TagPrimitive
       textValue={textValue}
       {...props}
-      className={composeRenderProps(className, (className, renderProps) => {
+      className={composeRenderProps(className, (_, renderProps) => {
         const finalIntent = intent || groupContext.intent
         const finalShape = shape || groupContext.shape
 
         return tagStyles({
           ...renderProps,
           className: cn([
-            intents[finalIntent].base,
-            renderProps.isSelected ? intents[finalIntent].selected : undefined,
+            intents[finalIntent]?.base,
             badgeShapes[finalShape],
-            className
+            renderProps.isSelected ? intents[finalIntent].selected : undefined
           ])
         })
       })}
@@ -199,4 +183,4 @@ const Tag = ({ children, className, intent, shape, ...props }: TagProps) => {
   )
 }
 
-export { Tag, TagGroup, TagList }
+export { Tag, TagGroup, TagList, type RestrictedIntent }

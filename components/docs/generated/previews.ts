@@ -122,6 +122,9 @@ export const previews: Record<string, any> = {
   "forms/checkbox-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/forms/checkbox-controlled-demo")),
   },
+  "forms/tag-field-intent-demo": {
+    component: React.lazy(() => import("@/components/docs/forms/tag-field-intent-demo")),
+  },
   "forms/number-field-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/forms/number-field-controlled-demo")),
   },
@@ -131,6 +134,9 @@ export const previews: Record<string, any> = {
   "forms/textarea-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/forms/textarea-controlled-demo")),
   },
+  "forms/tag-field-disabled-demo": {
+    component: React.lazy(() => import("@/components/docs/forms/tag-field-disabled-demo")),
+  },
   "forms/tag-field-max-demo": {
     component: React.lazy(() => import("@/components/docs/forms/tag-field-max-demo")),
   },
@@ -139,6 +145,9 @@ export const previews: Record<string, any> = {
   },
   "forms/checkbox-invalid-demo": {
     component: React.lazy(() => import("@/components/docs/forms/checkbox-invalid-demo")),
+  },
+  "forms/tag-field-shape-demo": {
+    component: React.lazy(() => import("@/components/docs/forms/tag-field-shape-demo")),
   },
   "forms/search-field-demo": {
     component: React.lazy(() => import("@/components/docs/forms/search-field-demo")),
@@ -182,6 +191,9 @@ export const previews: Record<string, any> = {
   "forms/number-field-demo": {
     component: React.lazy(() => import("@/components/docs/forms/number-field-demo")),
   },
+  "forms/tag-field-demo": {
+    component: React.lazy(() => import("@/components/docs/forms/tag-field-demo")),
+  },
   "forms/checkbox-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/forms/checkbox-disabled-demo")),
   },
@@ -208,6 +220,9 @@ export const previews: Record<string, any> = {
   },
   "forms/checkbox-group-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/forms/checkbox-group-controlled-demo")),
+  },
+  "forms/tag-field-appearance-demo": {
+    component: React.lazy(() => import("@/components/docs/forms/tag-field-appearance-demo")),
   },
   "forms/search-field-validation-demo": {
     component: React.lazy(() => import("@/components/docs/forms/search-field-validation-demo")),
@@ -641,6 +656,9 @@ export const previews: Record<string, any> = {
   "pickers/select-validation-demo": {
     component: React.lazy(() => import("@/components/docs/pickers/select-validation-demo")),
   },
+  "pickers/multiple-select-intent-demo": {
+    component: React.lazy(() => import("@/components/docs/pickers/multiple-select-intent-demo")),
+  },
   "pickers/combo-box-avatar-demo": {
     component: React.lazy(() => import("@/components/docs/pickers/combo-box-avatar-demo")),
   },
@@ -649,6 +667,9 @@ export const previews: Record<string, any> = {
   },
   "pickers/select-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/pickers/select-controlled-demo")),
+  },
+  "pickers/multiple-select-shape-demo": {
+    component: React.lazy(() => import("@/components/docs/pickers/multiple-select-shape-demo")),
   },
   "pickers/combo-box-section-demo": {
     component: React.lazy(() => import("@/components/docs/pickers/combo-box-section-demo")),

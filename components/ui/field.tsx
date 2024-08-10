@@ -13,13 +13,24 @@ import {
   Label as LabelPrimitive,
   type LabelProps,
   Text,
-  type TextProps
+  type TextFieldProps as TextFieldPrimitiveProps,
+  type TextProps,
+  type ValidationResult
 } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
 import { ctr } from './primitive'
 
 // primitive styles
+
+interface FieldProps {
+  label?: string
+  placeholder?: string
+  description?: string
+  errorMessage?: string | ((validation: ValidationResult) => string)
+  'aria-label'?: TextFieldPrimitiveProps['aria-label']
+  'aria-labelledby'?: TextFieldPrimitiveProps['aria-labelledby']
+}
 
 // primitive styles
 const fieldBorderStyles = tv({
@@ -100,5 +111,6 @@ export {
   fieldGroupStyles,
   Input,
   InputPrimitive,
-  Label
+  Label,
+  type FieldProps
 }

@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import * as React from 'react'
 
 import { IconChevronLgDown } from 'justd-icons'
 import { useFilter } from 'react-aria'
@@ -11,10 +11,12 @@ import { useListData } from 'react-stately'
 import { tv } from 'tailwind-variants'
 
 import { Button } from './button'
+import type { FieldProps } from './field'
 import { Description, Input, Label } from './field'
 import { ListBoxItem, ListBoxPicker } from './list-box'
 import { PopoverPicker } from './popover'
 import { cn } from './primitive'
+import type { RestrictedIntent, TagGroupProps } from './tag-group'
 import { TagGroup, TagList } from './tag-group'
 import { VisuallyHidden } from './visually-hidden'
 
@@ -24,7 +26,7 @@ const multiSelectStyles = tv({
     multiSelect: [
       'relative px-1 flex min-h-10 flex-row flex-wrap items-center rounded-lg shadow-sm border',
       'has-[input[data-focused=true]]:border-primary',
-      'has-[input[data-invalid=true][data-focused=true]]:border-danger has-[input[data-invalid=true]]:border-danger',
+      'has-[input[data-invalid=true][data-focused=true]]:border-danger has-[input[data-invalid=true]]:border-danger has-[input[data-invalid=true]]:ring-danger/20',
       'has-[input[data-focused=true]]:ring-4 has-[input[data-focused=true]]:ring-primary/20'
     ],
     chevronButton:
@@ -49,20 +51,21 @@ interface SelectedKey {
 }
 
 interface MultipleSelectProps<T extends object>
-  extends Omit<
-    ComboBoxPrimitiveProps<T>,
-    | 'children'
-    | 'validate'
-    | 'allowsEmptyCollection'
-    | 'selectedKey'
-    | 'inputValue'
-    | 'className'
-    | 'value'
-    | 'onSelectionChange'
-    | 'onInputChange'
-  > {
-  label?: string
-  description?: string
+  extends FieldProps,
+    Omit<
+      ComboBoxPrimitiveProps<T>,
+      | 'children'
+      | 'validate'
+      | 'allowsEmptyCollection'
+      | 'selectedKey'
+      | 'inputValue'
+      | 'className'
+      | 'value'
+      | 'onSelectionChange'
+      | 'onInputChange'
+    >,
+    Pick<TagGroupProps, 'shape'> {
+  intent?: RestrictedIntent
   items: Array<T>
   selectedItems: ListData<T>
   className?: string
@@ -84,16 +87,24 @@ const MultipleSelect = <T extends SelectedKey>({
   className,
   name,
   renderEmptyState,
-  max,
-  min,
   ...props
 }: MultipleSelectProps<T>) => {
+  const [isInvalid, setIsInvalid] = React.useState(false)
   const tagGroupIdentifier = React.useId()
   const triggerRef = React.useRef<HTMLDivElement | null>(null)
   const [width, setWidth] = React.useState(0)
 
   const { contains } = useFilter({ sensitivity: 'base' })
   const selectedKeys = selectedItems.items.map((i) => i.id)
+
+  const existingTagCount = selectedItems.items.length
+  const maxTags = props.max !== undefined ? props.max : Infinity
+  const maxTagsToAdd = maxTags - existingTagCount
+
+  const updateInvalidState = (selectedCount: number) => {
+    const maxTags = props.max !== undefined ? props.max : Infinity
+    setIsInvalid(selectedCount >= maxTags)
+  }
 
   const filter = React.useCallback(
     (item: T, filterText: string) =>
@@ -106,34 +117,43 @@ const MultipleSelect = <T extends SelectedKey>({
     filter
   })
 
-  const [fieldState, setFieldState] = useState<FieldState>({
+  const [fieldState, setFieldState] = React.useState<FieldState>({
     selectedKey: null,
     inputValue: ''
   })
 
   const onRemove = React.useCallback(
     (keys: Set<Key>) => {
-      if (min !== undefined && selectedItems.items.length <= min) return
+      if (props.min !== undefined && selectedItems.items.length <= props.min) return
 
       const key = keys.values().next().value
       selectedItems.remove(key)
-      setFieldState({
-        inputValue: '',
-        selectedKey: null
-      })
+      setFieldState({ inputValue: '', selectedKey: null })
       onItemCleared?.(key)
+      updateInvalidState(selectedItems.items.length - 1)
     },
-    [selectedItems, onItemCleared, min]
+    [selectedItems, onItemCleared, props.min]
   )
 
   const onSelectionChange = (id: Key | null) => {
     if (!id) return
 
     const item = accessibleList.getItem(id)
+    const maxTags = props.max !== undefined ? props.max : Infinity
 
     if (!item) return
 
-    if (!selectedKeys.includes(id) && (max === undefined || selectedItems.items.length < max)) {
+    if (!selectedKeys.includes(id)) {
+      if (selectedItems.items.length >= maxTags) {
+        setIsInvalid(true)
+
+        const timeoutId = setTimeout(() => {
+          setIsInvalid(false)
+        }, 2000)
+
+        return () => clearTimeout(timeoutId)
+      }
+
       selectedItems.append(item)
       setFieldState({
         inputValue: '',
@@ -144,7 +164,6 @@ const MultipleSelect = <T extends SelectedKey>({
 
     accessibleList.setFilterText('')
   }
-
   const onInputChange = (v: string) => {
     setFieldState((prevState) => ({
       inputValue: v,
@@ -157,7 +176,7 @@ const MultipleSelect = <T extends SelectedKey>({
   const popLast = React.useCallback(() => {
     if (
       selectedItems.items.length == 0 ||
-      (min !== undefined && selectedItems.items.length <= min)
+      (props.min !== undefined && selectedItems.items.length <= props.min)
     ) {
       return
     }
@@ -167,6 +186,7 @@ const MultipleSelect = <T extends SelectedKey>({
     if (endKey !== null) {
       selectedItems.remove(endKey.id)
       onItemCleared?.(endKey.id)
+      updateInvalidState(selectedItems.items.length - 1)
     }
 
     setFieldState({
@@ -207,12 +227,19 @@ const MultipleSelect = <T extends SelectedKey>({
       {props.label && <Label>{props.label}</Label>}
       <Group className={props.isDisabled ? 'opacity-50' : ''}>
         <div ref={triggerRef} className={multiSelect({ className })}>
-          <TagGroup aria-label="Selected items" id={tagGroupIdentifier} onRemove={onRemove}>
+          <TagGroup
+            shape={props.shape}
+            intent={props.intent}
+            aria-label="Selected items"
+            id={tagGroupIdentifier}
+            onRemove={onRemove}
+          >
             <TagList
               items={selectedItems.items}
               className={cn(
                 selectedItems.items.length !== 0 && 'px-1 py-1.5',
-                '[&_.jdt3lr2x]:rounded-[calc(var(--radius)-2.5px)] last:[&_.jdt3lr2x]:-mr-1 outline-none gap-1.5'
+                'last:[&_.jdt3lr2x]:-mr-1 outline-none gap-1.5',
+                props.shape === 'square' && '[&_.jdt3lr2x]:rounded-[calc(var(--radius)-2.5px)]'
               )}
             >
               {props.tag}
@@ -220,6 +247,7 @@ const MultipleSelect = <T extends SelectedKey>({
           </TagGroup>
           <ComboBox
             {...props}
+            isInvalid={isInvalid}
             aria-label="Available items"
             allowsEmptyCollection
             className={comboBox()}
@@ -231,6 +259,7 @@ const MultipleSelect = <T extends SelectedKey>({
           >
             <div className={comboBoxChild({ className })}>
               <Input
+                placeholder={maxTagsToAdd <= 0 ? 'Remove one to add more' : props.placeholder}
                 className={input()}
                 onBlur={() => {
                   setFieldState({
@@ -269,7 +298,7 @@ const MultipleSelect = <T extends SelectedKey>({
                       {fieldState.inputValue ? (
                         <>
                           No results found for:{' '}
-                          <strong className="font-semibold">{fieldState.inputValue}</strong>
+                          <strong className="font-medium text-fg">{fieldState.inputValue}</strong>
                         </>
                       ) : (
                         `No options`

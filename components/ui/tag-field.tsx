@@ -2,29 +2,48 @@
 
 import * as React from 'react'
 
-import { Tag, TagGroup, TagList } from '@/components/ui/tag-group'
-import { TextFieldPrimitive, TextFieldProps } from '@/components/ui/text-field'
-import { TextField } from '@/components/ui/text-field'
 import type { Key } from 'react-aria-components'
-import { Group } from 'react-aria-components'
+import { Group, TextField } from 'react-aria-components'
 import type { ListData } from 'react-stately'
+import { twJoin } from 'tailwind-merge'
+import { tv } from 'tailwind-variants'
 
-import { cn, ctr } from './primitive'
+import type { FieldProps } from './field'
+import { Description, Input, Label } from './field'
+import { cn } from './primitive'
+import type { RestrictedIntent, TagGroupProps } from './tag-group'
+import { Tag, TagGroup, TagList } from './tag-group'
 
-interface TagItem {
+const tagFieldsStyles = tv({
+  base: ['relative flex min-h-10 flex-row flex-wrap items-center'],
+  variants: {
+    appearance: {
+      outline: [
+        'px-1 rounded-lg shadow-sm border',
+        'has-[input[data-focused=true]]:border-primary',
+        'has-[input[data-invalid=true][data-focused=true]]:border-danger has-[input[data-invalid=true]]:border-danger has-[input[data-invalid=true]]:ring-danger/20',
+        'has-[input[data-focused=true]]:ring-4 has-[input[data-focused=true]]:ring-primary/20'
+      ],
+      plain: ['has-[input[data-focused=true]]:border-transparent']
+    }
+  }
+})
+
+interface TagItemProps {
   id: number
   name: string
 }
 
-interface TagFieldProps extends Omit<TextFieldProps, 'isRequired'> {
+interface TagFieldProps extends Pick<TagGroupProps, 'shape'>, FieldProps {
+  intent?: RestrictedIntent
+  isDisabled?: boolean
   max?: number
-  min?: number
   className?: string
   children?: React.ReactNode
   name?: string
-  list: ListData<TagItem>
-  onItemInserted?: (tag: TagItem) => void
-  onItemCleared?: (tag: TagItem) => void
+  list: ListData<TagItemProps>
+  onItemInserted?: (tag: TagItemProps) => void
+  onItemCleared?: (tag: TagItemProps) => void
   appearance?: 'outline' | 'plain'
 }
 
@@ -45,11 +64,15 @@ const TagField = ({
   const maxTagsToAdd = maxTags - existingTagCount
 
   const insertTag = () => {
-    const tagNames = inputValue.split(/[,;]/)
-
+    const tagNames = inputValue.split(/,/)
     if (maxTagsToAdd <= 0) {
       setIsInvalid(true)
-      return
+      setInputValue('')
+      const timeoutId = setTimeout(() => {
+        setIsInvalid(false)
+      }, 2000)
+
+      return () => clearTimeout(timeoutId)
     }
 
     tagNames.slice(0, maxTagsToAdd).forEach((tagName) => {
@@ -88,7 +111,7 @@ const TagField = ({
   }
 
   const onKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter' || e.key === ',' || e.key === ';') {
+    if (e.key === 'Enter' || e.key === ',') {
       e.preventDefault()
       insertTag()
     }
@@ -111,35 +134,55 @@ const TagField = ({
       onItemCleared?.(list.getItem(endKey.id))
     }
   }, [list, onItemCleared])
-  const Element = appearance === 'outline' ? TextField : TextFieldPrimitive
+
   return (
-    <Group className={ctr(className, cn('flex flex-col gap-2', props.isDisabled && 'opacity-50'))}>
-      <Element
-        isDisabled={props.isDisabled}
-        label={props?.label ?? undefined}
-        aria-label={props?.label ?? props['aria-label']}
-        description={props?.description ?? undefined}
-        isInvalid={isInvalid}
-        errorMessage={
-          maxTagsToAdd === 0 && !props.errorMessage
-            ? `You can only add ${maxTags} items.`
-            : undefined
-        }
-        onKeyDown={onKeyDown}
-        onChange={setInputValue}
-        value={inputValue}
-        {...props}
-      />
-      <TagGroup aria-label="List tag inserted" selectionMode="multiple" onRemove={onRemove}>
-        <TagList items={list.items}>
-          {(item) => <Tag className="cursor-default selected:bg-transparent">{item.name}</Tag>}
-        </TagList>
-      </TagGroup>
-      {name && (
-        <input hidden name={name} value={list.items.map((i) => i.name).join(',')} readOnly />
-      )}
-    </Group>
+    <div className={cn('flex flex-col gap-1 w-full', className)}>
+      {props.label && <Label>{props.label}</Label>}
+      <Group className={twJoin('flex flex-col', props.isDisabled && 'opacity-50')}>
+        <TagGroup
+          intent={props.intent}
+          shape={props.shape}
+          aria-label="List item inserted"
+          onRemove={onRemove}
+        >
+          <div className={tagFieldsStyles({ appearance })}>
+            <div className="flex flex-1 flex-wrap items-center">
+              <TagList
+                items={list.items}
+                className={twJoin(
+                  list.items.length !== 0
+                    ? appearance === 'outline' && 'py-1.5 px-0.5 gap-1.5'
+                    : 'gap-0',
+                  props.shape === 'square' && '[&_.jdt3lr2x]:rounded-[calc(var(--radius)-4px)]',
+                  '[&_.jdt3lr2x]:cursor-default last:[&_.jdt3lr2x]:-mr-1 outline-none'
+                )}
+              >
+                {(item) => <Tag>{item.name}</Tag>}
+              </TagList>
+              <TextField
+                isDisabled={props.isDisabled}
+                aria-label={props?.label ?? (props['aria-label'] || props.placeholder)}
+                isInvalid={isInvalid}
+                onKeyDown={onKeyDown}
+                onChange={setInputValue}
+                value={inputValue}
+                {...props}
+              >
+                <Input
+                  className="w-auto inline"
+                  placeholder={maxTagsToAdd <= 0 ? 'Remove one to add more' : props.placeholder}
+                />
+              </TextField>
+            </div>
+          </div>
+        </TagGroup>
+        {name && (
+          <input hidden name={name} value={list.items.map((i) => i.name).join(',')} readOnly />
+        )}
+      </Group>
+      {props.description && <Description>{props.description}</Description>}
+    </div>
   )
 }
 
-export { TagField }
+export { TagField, type TagItemProps }

@@ -3,7 +3,7 @@
 import React from 'react'
 
 import { useListData } from 'react-stately'
-import { Button, Form, TagField } from 'ui'
+import { TagField } from 'ui'
 
 export default function TagFieldMaxDemo() {
   const selectedItems = useListData({
@@ -11,17 +11,12 @@ export default function TagFieldMaxDemo() {
   })
 
   return (
-    <Form
-      onSubmit={(e) => {
-        e.preventDefault()
-      }}
-      className="max-w-xs"
-    >
-      <TagField max={3} label="Add tag" list={selectedItems} />
-
-      <Button type="submit" className="mt-4">
-        Post
-      </Button>
-    </Form>
+    <TagField
+      className="max-w-sm"
+      max={3}
+      label="Add tag"
+      description="You can only add 3 tags"
+      list={selectedItems}
+    />
   )
 }

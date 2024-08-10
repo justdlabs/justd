@@ -16,7 +16,7 @@ export default function TagGroupIntentDemo() {
       <TagGroup shape="square" intent="danger" label="Car Models" selectionMode="multiple">
         <TagList items={carModels}>{(item) => <Tag>{item.name}</Tag>}</TagList>
       </TagGroup>
-      <TagGroup shape="circle" intent="info" label="Car Models" selectionMode="multiple">
+      <TagGroup shape="circle" intent="warning" label="Car Models" selectionMode="multiple">
         <TagList items={carModels}>{(item) => <Tag>{item.name}</Tag>}</TagList>
       </TagGroup>
     </div>
