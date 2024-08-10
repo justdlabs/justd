@@ -20,16 +20,17 @@ const dialogStyles = tv({
   slots: {
     root: [
       'dlc relative flex max-h-[inherit] [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin] flex-col overflow-hidden outline-none',
-      '[&:not(:has([data-slot=dialog-body]))]:px-6 [&:has([data-slot=dialog-body])_[data-slot=dialog-header]]:px-6 [&:has([data-slot=dialog-body])_[data-slot=dialog-footer]]:px-6'
+      'sm:[&:not(:has([data-slot=dialog-body]))]:px-6 sm:[&:has([data-slot=dialog-body])_[data-slot=dialog-header]]:px-6 sm:[&:has([data-slot=dialog-body])_[data-slot=dialog-footer]]:px-6',
+      '[&:not(:has([data-slot=dialog-body]))]:px-4 [&:has([data-slot=dialog-body])_[data-slot=dialog-header]]:px-4 [&:has([data-slot=dialog-body])_[data-slot=dialog-footer]]:px-4'
     ],
-    header: 'relative flex flex-col pb-2 pt-6',
+    header: 'relative flex flex-col pb-3 pt-4 sm:pt-6',
     title: 'flex flex-1 items-center',
-    description: 'text-sm text-muted-fg mt-1',
+    description: 'text-sm block text-muted-fg mt-0.5 sm:mt-1',
     body: [
-      'flex flex-1 flex-col gap-2 overflow-auto px-6 py-1',
+      'flex flex-1 flex-col gap-2 overflow-auto px-4 sm:px-6 py-1',
       'max-h-[calc(var(--visual-viewport-height)-var(--visual-viewport-vertical-padding)-var(--dialog-header-height,0px)-var(--dialog-footer-height,0px))]'
     ],
-    footer: 'mt-auto flex flex-col-reverse justify-between gap-3 pb-6 pt-4 sm:flex-row',
+    footer: 'mt-auto flex flex-col-reverse justify-between gap-3 pb-4 sm:pb-6 pt-4 sm:flex-row',
     closeIndicator: 'close absolute right-2 top-2 size-6 z-50'
   }
 })
