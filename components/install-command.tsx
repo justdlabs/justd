@@ -77,7 +77,6 @@ const InstallCommand: React.FC<InstallCommandProps> = ({
       newCommand = `${installMap[tool]} ${commandArgs}`
     }
     setCommand(newCommand)
-    console.log(newCommand)
     copyToClipboard(newCommand).then(() => {
       setIsCopied(true)
       trackEvent('cli pressed', { copy: newCommand })
