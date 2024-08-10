@@ -3,6 +3,7 @@
 import React from 'react'
 
 import {
+  buttonStyles,
   Drawer,
   DrawerBody,
   DrawerClose,
@@ -17,7 +18,9 @@ import {
 export default function DrawerBasicDemo() {
   return (
     <Drawer>
-      <DrawerTrigger>Open Drawer</DrawerTrigger>
+      <DrawerTrigger className={buttonStyles({ shape: 'circle', appearance: 'outline' })}>
+        Open
+      </DrawerTrigger>
       <DrawerContent>
         <DrawerHeader>
           <DrawerTitle>Nirvana: The Band</DrawerTitle>
@@ -32,7 +35,7 @@ export default function DrawerBasicDemo() {
           hit single "Smells Like Teen Spirit."
         </DrawerBody>
         <DrawerFooter>
-          <DrawerClose>Close</DrawerClose>
+          <DrawerClose shape="circle">Close</DrawerClose>
         </DrawerFooter>
       </DrawerContent>
     </Drawer>

@@ -12,13 +12,13 @@ import { ViewTransitions } from 'next-view-transitions'
 import localFont from 'next/font/local'
 import { Toast } from 'ui'
 
-const geistSans = localFont({
-  src: './fonts/GeistVF.woff',
+const fontSans = localFont({
+  src: [{ path: './fonts/GeistVF.woff' }, { path: './fonts/GeistVF.woff2' }],
   variable: '--font-sans'
 })
 
-const geistMono = localFont({
-  src: './fonts/GeistMonoVF.woff',
+const fontMono = localFont({
+  src: [{ path: './fonts/GeistMonoVF.woff' }, { path: './fonts/GeistMonoVF.woff2' }],
   variable: '--font-mono'
 })
 
@@ -39,8 +39,8 @@ export default function RootLayout({
         <body
           className={cn(
             'min-h-svh [max-width:1850px] mx-auto bg-background font-sans antialiased',
-            geistSans.variable,
-            geistMono.variable
+            fontSans.variable,
+            fontMono.variable
           )}
         >
           <Providers>

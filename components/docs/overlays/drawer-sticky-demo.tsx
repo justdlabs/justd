@@ -1,5 +1,7 @@
 'use client'
 
+import React from 'react'
+
 import {
   buttonStyles,
   Drawer,
@@ -14,7 +16,9 @@ import {
 export default function DrawerStickyDemo() {
   return (
     <Drawer>
-      <DrawerTrigger className={buttonStyles({ appearance: 'outline' })}>Open Drawer</DrawerTrigger>
+      <DrawerTrigger className={buttonStyles({ shape: 'circle', appearance: 'outline' })}>
+        Open
+      </DrawerTrigger>
       <DrawerContent>
         <DrawerHeader>The Beatles</DrawerHeader>
         <DrawerBody>
@@ -111,7 +115,7 @@ export default function DrawerStickyDemo() {
           </div>
         </DrawerBody>
         <DrawerFooter>
-          <DrawerClose>Close</DrawerClose>
+          <DrawerClose shape="circle">Close</DrawerClose>
         </DrawerFooter>
       </DrawerContent>
     </Drawer>
