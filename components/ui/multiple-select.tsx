@@ -239,7 +239,7 @@ const MultipleSelect = <T extends SelectedKey>({
               className={cn(
                 selectedItems.items.length !== 0 && 'px-1 py-1.5',
                 'last:[&_.jdt3lr2x]:-mr-1 outline-none gap-1.5',
-                props.shape === 'square' && '[&_.jdt3lr2x]:rounded-[calc(var(--radius)-2.5px)]'
+                props.shape === 'square' && '[&_.jdt3lr2x]:rounded-[calc(var(--radius)-4px)]'
               )}
             >
               {props.tag}
