@@ -2,6 +2,7 @@
 
 import React from 'react'
 
+import type { PanInfo } from 'framer-motion'
 import {
   animate,
   AnimatePresence,
@@ -30,14 +31,14 @@ import {
 const inertiaTransition: Inertia = {
   type: 'inertia',
   bounceStiffness: 300,
-  bounceDamping: 40,
+  bounceDamping: 60,
   timeConstant: 300
 }
 const staticTransition = {
   duration: 0.4,
   ease: [0.32, 0.72, 0, 1]
 }
-const drawerMargin = 40
+const drawerMargin = 60
 const drawerRadius = 32
 
 interface DrawerContextType {
@@ -82,6 +83,14 @@ const DrawerContentPrimitive = ({ children, ...props }: DrawerOverlayPrimitivePr
 
   useMotionValueEvent(bodyBorderRadius, 'change', (v) => (root.style.borderRadius = `${v}px`))
 
+  const onDragEnd = (_: any, { offset, velocity }: PanInfo) => {
+    if (offset.y > h * 0.4 || velocity.y > 10) {
+      closeDrawer()
+    } else {
+      animate(y, 0, { ...inertiaTransition, min: 0, max: 0 })
+    }
+  }
+
   return (
     <>
       <ModalOverlayPrimitive
@@ -89,8 +98,8 @@ const DrawerContentPrimitive = ({ children, ...props }: DrawerOverlayPrimitivePr
         isOpen
         onOpenChange={closeDrawer}
         className={twJoin([
-          'fixed left-0 top-0 isolate z-50 h-[--visual-viewport-height] w-full',
-          'flex items-end [--visual-viewport-vertical-padding:80px]'
+          'fixed touch-none will-change-transform left-0 top-0 isolate z-50 h-[--visual-viewport-height] w-full',
+          'flex items-end [--visual-viewport-vertical-padding:100px]'
         ])}
         style={{
           backgroundColor: bg as any
@@ -113,13 +122,7 @@ const DrawerContentPrimitive = ({ children, ...props }: DrawerOverlayPrimitivePr
           }}
           drag="y"
           dragConstraints={{ top: 0, bottom: h }}
-          onDragEnd={(_e, { offset, velocity }) => {
-            if (offset.y > h * 0.4 || velocity.y > 10) {
-              closeDrawer()
-            } else {
-              animate(y, 0, { ...inertiaTransition, min: 0, max: 0 })
-            }
-          }}
+          onDragEnd={onDragEnd}
           {...props}
         >
           <div className="overflow-hidden">
