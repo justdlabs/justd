@@ -12,18 +12,18 @@ import {
   useMotionValueEvent,
   useTransform
 } from 'framer-motion'
-import {
-  Button,
-  type ButtonProps,
-  Dialog,
-  type DialogProps,
-  Heading,
-  type HeadingProps,
-  Modal,
-  ModalOverlay
-} from 'react-aria-components'
+import type { DialogProps } from 'react-aria-components'
+import { Button, type ButtonProps, Modal, ModalOverlay } from 'react-aria-components'
 
-import { DialogClose, DialogDescription } from './dialog'
+import {
+  Dialog,
+  DialogBody,
+  DialogClose,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle
+} from './dialog'
 import { cn } from './primitive'
 
 const inertiaTransition: Inertia = {
@@ -69,16 +69,8 @@ const DrawerOverlayPrimitive = (props: React.ComponentProps<typeof ModalOverlayP
   const bg = useMotionTemplate`rgba(0, 0, 0, ${bgOpacity})`
 
   const root = document.getElementsByTagName('main')[0] as HTMLElement
-  const bodyScale = useTransform(
-    y,
-    [0, h],
-    [(window.innerWidth - drawerMargin) / window.innerWidth, 1]
-  )
-  const bodyTranslate = useTransform(y, [0, h], [drawerMargin - drawerRadius, 0])
   const bodyBorderRadius = useTransform(y, [0, h], [drawerRadius, 0])
 
-  useMotionValueEvent(bodyScale, 'change', (v: any) => (root.style.scale = `${v}`))
-  useMotionValueEvent(bodyTranslate, 'change', (v: any) => (root.style.translate = `0 ${v}px`))
   useMotionValueEvent(bodyBorderRadius, 'change', (v) => (root.style.borderRadius = `${v}px`))
 
   return (
@@ -92,7 +84,7 @@ const DrawerOverlayPrimitive = (props: React.ComponentProps<typeof ModalOverlayP
         <motion.section
           aria-hidden
           onTap={closeDrawer}
-          className="fixed inset-0 backdrop-blur-sm"
+          className="fixed inset-0"
           initial="collapsed"
           animate="open"
           exit="collapsed"
@@ -161,20 +153,11 @@ const DrawerContentPrimitive = (props: DrawerContentPrimitiveProps) => {
 
   const h = window.innerHeight - drawerMargin
   const y = useMotionValue(h)
-
-  const bodyScale = useTransform(
-    y,
-    [0, h],
-    [(window.innerWidth - drawerMargin) / window.innerWidth, 1]
-  )
-  const bodyTranslate = useTransform(y, [0, h], [drawerMargin - drawerRadius, 0])
   const bodyBorderRadius = useTransform(y, [0, h], [drawerRadius, 0])
   return (
     <motion.div
       style={{
-        scale: bodyScale,
         borderRadius: bodyBorderRadius,
-        y: bodyTranslate,
         transformOrigin: 'center 0'
       }}
     >
@@ -248,7 +231,7 @@ const DrawerContent = ({
   return (
     <DrawerContentPrimitive>
       <DrawerOverlayPrimitive {...props}>
-        <Dialog className="mx-auto flex max-w-3xl flex-col justify-between overflow-y-auto px-4 pt-4 outline-none">
+        <Dialog>
           {(values) => <>{typeof children === 'function' ? children(values) : children}</>}
         </Dialog>
       </DrawerOverlayPrimitive>
@@ -256,33 +239,11 @@ const DrawerContent = ({
   )
 }
 
-const DrawerHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className={cn('flex flex-col gap-y-1 text-center sm:text-left', className)} {...props} />
-)
-
-const DrawerTitle = ({ className, ...props }: HeadingProps) => (
-  <Heading
-    slot="title"
-    className={cn('text-lg font-semibold leading-none tracking-tight', className)}
-    {...props}
-  />
-)
-
+const DrawerHeader = DialogHeader
+const DrawerTitle = DialogTitle
 const DrawerDescription = DialogDescription
-
-const DrawerBody = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className={cn('flex-1 overflow-y-auto overflow-x-hidden py-4', className)} {...props} />
-)
-
-const DrawerFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div
-    className={cn(
-      'flex shrink-0 pb-1 flex-col-reverse gap-2 sm:flex-row sm:justify-between [&_button:first-child:nth-last-child(1)]:w-full',
-      className
-    )}
-    {...props}
-  />
-)
+const DrawerBody = DialogBody
+const DrawerFooter = DialogFooter
 
 const DrawerClose = (props: React.ComponentProps<typeof DialogClose>) => {
   return <DialogClose shape="circle" {...props} />
