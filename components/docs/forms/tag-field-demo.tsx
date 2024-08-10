@@ -7,8 +7,13 @@ import { TagField } from 'ui'
 
 export default function TagFieldDemo() {
   const selectedItems = useListData({
-    initialItems: []
+    initialItems: [
+      {
+        id: 1,
+        name: 'Laravel'
+      }
+    ]
   })
 
-  return <TagField label="Add tag" list={selectedItems} />
+  return <TagField className="max-w-xs" label="Add tag" list={selectedItems} />
 }

@@ -2,13 +2,14 @@
 
 import * as React from 'react'
 
-import type { Key, ValidationResult, TextFieldProps } from 'react-aria-components'
+import type { Key, TextFieldProps, ValidationResult } from 'react-aria-components'
 import { Group, TextField } from 'react-aria-components'
 import type { ListData } from 'react-stately'
+import { twJoin } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
 
 import { Description, Input, Label } from './field'
-import { cn, composeTailwindRenderProps, ctr } from './primitive'
+import { cn } from './primitive'
 import { Tag, TagGroup, TagList } from './tag-group'
 
 const tagFieldsStyles = tv({
@@ -139,27 +140,24 @@ const TagField = ({
   }, [list, onItemCleared])
 
   return (
-    <div className={cn('flex flex-col gap-2', className)}>
+    <div className={cn('flex flex-col gap-1 w-full', className)}>
       {props.label && <Label>{props.label}</Label>}
-      <Group
-        className={ctr(className, cn('flex flex-col gap-2', props.isDisabled && 'opacity-50'))}
-      >
-        <TagGroup onRemove={onRemove}>
+      <Group className={twJoin('flex flex-col', props.isDisabled && 'opacity-50')}>
+        <TagGroup aria-label="List item inserted" onRemove={onRemove}>
           <div className={tagFieldsStyles({ appearance })}>
-            <div className="inline-flex flex-1 flex-wrap items-center">
+            <div className="flex flex-1 flex-wrap items-center">
               <TagList
                 items={list.items}
-                className={cn(
-                  list.items.length !== 0 && 'px-1 py-1.5',
-                  '[&_.jdt3lr2x]:rounded-[calc(var(--radius)-2.5px)] [&_.jdt3lr2x]:cursor-default last:[&_.jdt3lr2x]:-mr-1 outline-none gap-1.5'
+                className={twJoin(
+                  list.items.length !== 0 && appearance === 'outline' && 'py-1.5 px-0.5',
+                  '[&_.jdt3lr2x]:rounded-[calc(var(--radius)-4px)] [&_.jdt3lr2x]:cursor-default last:[&_.jdt3lr2x]:-mr-1 outline-none gap-1.5'
                 )}
               >
                 {(item) => <Tag>{item.name}</Tag>}
               </TagList>
               <TextField
-                className={composeTailwindRenderProps(className, 'group flex flex-col gap-1')}
                 isDisabled={props.isDisabled}
-                aria-label={props?.label ?? props['aria-label']}
+                aria-label={props?.label ?? (props['aria-label'] || props.placeholder)}
                 isInvalid={isInvalid}
                 onKeyDown={onKeyDown}
                 onChange={setInputValue}
