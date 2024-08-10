@@ -60,17 +60,17 @@ export function CommandPalette({ open, setOpen }: OpenCloseProps) {
       <CommandMenuInput autoFocus={isDesktop} placeholder="Quick search..." />
       <CommandMenuList>
         <CommandMenuSection separator heading="Pages">
-          <CommandMenuItem asChild>
+          <CommandMenuItem value="Home" asChild>
             <Link href="/">
               <IconHome /> Home
             </Link>
           </CommandMenuItem>
-          <CommandMenuItem asChild>
-            <Link href="/docs">
+          <CommandMenuItem value="Docs" asChild>
+            <Link href="/docs/getting-started/installation">
               <IconNotes /> Docs
             </Link>
           </CommandMenuItem>
-          <CommandMenuItem asChild>
+          <CommandMenuItem value="Components" asChild>
             <Link href="/components">
               <IconCube /> Components
             </Link>

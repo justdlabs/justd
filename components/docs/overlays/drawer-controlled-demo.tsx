@@ -8,29 +8,40 @@ import {
   DrawerBody,
   DrawerClose,
   DrawerContent,
+  DrawerDescription,
   DrawerFooter,
   DrawerHeader,
-  DrawerTitle
+  DrawerTitle,
+  TextField
 } from 'ui'
 
-export default function DrawerBasicDemo() {
+export default function DrawerControlledDemo() {
   const [isOpen, setIsOpen] = React.useState(false)
   return (
     <>
       <Button onPress={() => setIsOpen(!isOpen)} appearance="outline">
-        Open Drawer
+        Login
       </Button>
       <Drawer isOpen={isOpen} onOpenChange={setIsOpen}>
         <DrawerContent>
           <DrawerHeader>
-            <DrawerTitle>The Beatles</DrawerTitle>
+            <DrawerTitle>Login</DrawerTitle>
+            <DrawerDescription>
+              Please enter your credentials to access your account.
+            </DrawerDescription>
           </DrawerHeader>
-          <DrawerBody>
-            The Beatles were an English rock band formed in Liverpool in 1960, comprising John
-            Lennon, Paul McCartney, George Harrison and Ringo Starr.
+          <DrawerBody className="flex flex-col gap-4">
+            <TextField label="Email" isRequired type="email" placeholder="Enter your email" />
+            <TextField
+              label="Password"
+              isRequired
+              type="password"
+              placeholder="Enter your password"
+            />
           </DrawerBody>
           <DrawerFooter>
             <DrawerClose>Close</DrawerClose>
+            <Button onPress={() => setIsOpen(false)}>Login</Button>
           </DrawerFooter>
         </DrawerContent>
       </Drawer>

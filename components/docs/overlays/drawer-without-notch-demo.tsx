@@ -3,30 +3,25 @@
 import {
   buttonStyles,
   Drawer,
-  DrawerBody,
-  DrawerClose,
   DrawerContent,
-  DrawerFooter,
+  DrawerDescription,
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger
 } from 'ui'
 
-export default function DrawerBasicDemo() {
+export default function DrawerWithoutNotchDemo() {
   return (
-    <Drawer>
+    <Drawer withNotch={false}>
       <DrawerTrigger className={buttonStyles({ appearance: 'outline' })}>Open Drawer</DrawerTrigger>
       <DrawerContent>
         <DrawerHeader>
           <DrawerTitle>The Beatles</DrawerTitle>
+          <DrawerDescription>
+            The Beatles were an English rock band formed in Liverpool in 1960, comprising John
+            Lennon, Paul McCartney, George Harrison and Ringo Starr.
+          </DrawerDescription>
         </DrawerHeader>
-        <DrawerBody>
-          The Beatles were an English rock band formed in Liverpool in 1960, comprising John Lennon,
-          Paul McCartney, George Harrison and Ringo Starr.
-        </DrawerBody>
-        <DrawerFooter>
-          <DrawerClose>Close</DrawerClose>
-        </DrawerFooter>
       </DrawerContent>
     </Drawer>
   )

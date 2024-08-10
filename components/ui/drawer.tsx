@@ -14,7 +14,9 @@ import {
 } from 'framer-motion'
 import type { DialogProps } from 'react-aria-components'
 import { Button, type ButtonProps, Modal, ModalOverlay } from 'react-aria-components'
+import { twJoin } from 'tailwind-merge'
 
+import type { DialogHeaderProps } from './dialog'
 import {
   Dialog,
   DialogBody,
@@ -24,7 +26,6 @@ import {
   DialogHeader,
   DialogTitle
 } from './dialog'
-import { cn } from './primitive'
 
 const inertiaTransition: Inertia = {
   type: 'inertia',
@@ -59,16 +60,24 @@ const useDrawerContext = () => {
 const ModalPrimitive = motion(Modal)
 const ModalOverlayPrimitive = motion(ModalOverlay)
 
-const DrawerOverlayPrimitive = (props: React.ComponentProps<typeof ModalOverlayPrimitive>) => {
+interface DrawerOverlayPrimitiveProps
+  extends Omit<React.ComponentProps<typeof ModalOverlayPrimitive>, 'isOpen' | 'onOpenChange'> {
+  'aria-label'?: DialogProps['aria-label']
+  'aria-labelledby'?: DialogProps['aria-labelledby']
+  role?: DialogProps['role']
+}
+
+const DrawerContentPrimitive = ({ children, ...props }: DrawerOverlayPrimitiveProps) => {
   const { closeDrawer, withNotch } = useDrawerContext()
   const [contentHeight, setContentHeight] = React.useState(0)
 
   const h = Math.min(contentHeight + drawerMargin, window.innerHeight - drawerMargin)
   const y = useMotionValue(h)
-  const bgOpacity = useTransform(y, [0, h], [0.5, 0])
+  const bgOpacity = useTransform(y, [0, h], [0.15, 0])
   const bg = useMotionTemplate`rgba(0, 0, 0, ${bgOpacity})`
 
   const root = document.getElementsByTagName('main')[0] as HTMLElement
+
   const bodyBorderRadius = useTransform(y, [0, h], [drawerRadius, 0])
 
   useMotionValueEvent(bodyBorderRadius, 'change', (v) => (root.style.borderRadius = `${v}px`))
@@ -76,28 +85,22 @@ const DrawerOverlayPrimitive = (props: React.ComponentProps<typeof ModalOverlayP
   return (
     <>
       <ModalOverlayPrimitive
+        isDismissable
         isOpen
         onOpenChange={closeDrawer}
-        className="fixed inset-0 z-50"
-        style={{ backgroundColor: bg as any }}
+        className={twJoin([
+          'fixed left-0 top-0 isolate z-50 h-[--visual-viewport-height] w-full',
+          'flex items-end',
+          `[--visual-viewport-vertical-padding:80px]`
+        ])}
+        style={{
+          backgroundColor: bg as any
+        }}
       >
-        <motion.section
-          aria-hidden
-          onTap={closeDrawer}
-          className="fixed inset-0"
-          initial="collapsed"
-          animate="open"
-          exit="collapsed"
-          variants={{
-            open: { opacity: 1 },
-            collapsed: { opacity: 0 }
-          }}
-          transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
-        />
         <ModalPrimitive
-          className={cn(
-            'absolute bottom-0 w-full rounded-t-2xl bg-tertiary shadow-lg ring-1 ring-fg/10',
-            props.className
+          className={twJoin(
+            'max-h-full flex flex-col w-full rounded-t-2xl sm:rounded-lg overflow-hidden bg-overlay text-overlay-fg text-left align-middle shadow-lg',
+            'ring-1 ring-zinc-950/5 dark:ring-white/15'
           )}
           initial={{ y: h }}
           animate={{ y: 0 }}
@@ -121,8 +124,11 @@ const DrawerOverlayPrimitive = (props: React.ComponentProps<typeof ModalOverlayP
           {...props}
         >
           <>
-            {withNotch && <div className="notch mx-auto mt-2 h-1.5 w-10 rounded-full bg-fg/20" />}
+            {withNotch && (
+              <div className="notch sticky top-0 mx-auto shrink-0 mt-2.5 h-1.5 w-10 rounded-full bg-fg/20" />
+            )}
             <div
+              className="overflow-y-auto mt-3"
               ref={(el) => {
                 if (el) {
                   const resizeObserver = new ResizeObserver((entries) => {
@@ -135,7 +141,7 @@ const DrawerOverlayPrimitive = (props: React.ComponentProps<typeof ModalOverlayP
                 }
               }}
             >
-              {props.children as React.ReactNode}
+              <>{children}</>
             </div>
           </>
         </ModalPrimitive>
@@ -144,11 +150,14 @@ const DrawerOverlayPrimitive = (props: React.ComponentProps<typeof ModalOverlayP
   )
 }
 
-interface DrawerContentPrimitiveProps extends Omit<React.ComponentProps<typeof Modal>, 'children'> {
+interface DrawerPrimitiveProps extends Omit<React.ComponentProps<typeof Modal>, 'children'> {
+  'aria-label'?: DialogProps['aria-label']
+  'aria-labelledby'?: DialogProps['aria-labelledby']
+  role?: DialogProps['role']
   children?: DialogProps['children']
 }
 
-const DrawerContentPrimitive = (props: DrawerContentPrimitiveProps) => {
+const DrawerPrimitive = (props: DrawerPrimitiveProps) => {
   const { isOpen } = useDrawerContext()
 
   const h = window.innerHeight - drawerMargin
@@ -190,12 +199,6 @@ const Drawer = ({
   const isControlled = controlledIsOpen !== undefined
   const isOpen = isControlled ? controlledIsOpen : internalIsOpen
 
-  React.useEffect(() => {
-    if (isControlled && onOpenChange) {
-      onOpenChange(isOpen)
-    }
-  }, [isOpen, isControlled, onOpenChange])
-
   const openDrawer = () => {
     if (isControlled && onOpenChange) {
       onOpenChange(true)
@@ -227,27 +230,47 @@ const DrawerContent = ({
   children,
   className,
   ...props
-}: React.ComponentProps<typeof DrawerContentPrimitive>) => {
+}: React.ComponentProps<typeof DrawerPrimitive>) => {
   return (
-    <DrawerContentPrimitive>
-      <DrawerOverlayPrimitive {...props}>
-        <Dialog>
+    <DrawerPrimitive>
+      <DrawerContentPrimitive {...props}>
+        <Dialog
+          role={props.role ?? 'dialog'}
+          aria-label={props['aria-label'] ?? undefined}
+          aria-labelledby={props['aria-labelledby'] ?? undefined}
+          className="sm:max-w-lg mx-auto [&:not(:has([data-slot=dialog-body]))]:px-4 [&:has([data-slot=dialog-body])_[data-slot=dialog-header]]:px-4 [&:has([data-slot=dialog-body])_[data-slot=dialog-footer]]:px-4"
+        >
           {(values) => <>{typeof children === 'function' ? children(values) : children}</>}
         </Dialog>
-      </DrawerOverlayPrimitive>
-    </DrawerContentPrimitive>
+      </DrawerContentPrimitive>
+    </DrawerPrimitive>
   )
 }
 
-const DrawerHeader = DialogHeader
 const DrawerTitle = DialogTitle
-const DrawerDescription = DialogDescription
-const DrawerBody = DialogBody
-const DrawerFooter = DialogFooter
 
-const DrawerClose = (props: React.ComponentProps<typeof DialogClose>) => {
-  return <DialogClose shape="circle" {...props} />
-}
+const DrawerDescription = DialogDescription
+const DrawerClose = DialogClose
+
+const DrawerHeader = ({ className, ...props }: DialogHeaderProps) => (
+  <DialogHeader className={twJoin('pt-2', className)} {...props} />
+)
+
+const DrawerBody = ({ children, className, ...props }: React.ComponentProps<typeof DialogBody>) => (
+  <DialogBody {...props} className={twJoin('px-4', className)}>
+    {children}
+  </DialogBody>
+)
+
+const DrawerFooter = ({
+  children,
+  className,
+  ...props
+}: React.ComponentProps<typeof DialogFooter>) => (
+  <DialogFooter {...props} className={twJoin('pb-2', className)}>
+    {children}
+  </DialogFooter>
+)
 
 export {
   Drawer,
