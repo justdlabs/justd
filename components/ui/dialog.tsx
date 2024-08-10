@@ -19,7 +19,7 @@ import { useMediaQuery } from './primitive'
 const dialogStyles = tv({
   slots: {
     root: [
-      'dlc peer relative flex max-h-[inherit] [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin] flex-col overflow-hidden outline-none peer',
+      'dlc relative flex max-h-[inherit] [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin] flex-col overflow-hidden outline-none',
       '[&:not(:has([data-slot=dialog-body]))]:px-6 [&:has([data-slot=dialog-body])_[data-slot=dialog-header]]:px-6 [&:has([data-slot=dialog-body])_[data-slot=dialog-footer]]:px-6'
     ],
     header: 'relative flex flex-col pb-2 pt-6',
@@ -64,9 +64,7 @@ const DialogHeader = ({ className, ...props }: DialogHeaderProps) => {
     })
 
     observer.observe(header)
-    return () => {
-      observer.unobserve(header)
-    }
+    return () => observer.unobserve(header)
   }, [])
 
   return (

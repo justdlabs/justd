@@ -1,10 +1,14 @@
 'use client'
 
+import React from 'react'
+
 import {
-  buttonStyles,
   Drawer,
+  DrawerBody,
+  DrawerClose,
   DrawerContent,
   DrawerDescription,
+  DrawerFooter,
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger
@@ -13,15 +17,23 @@ import {
 export default function DrawerBasicDemo() {
   return (
     <Drawer>
-      <DrawerTrigger className={buttonStyles({ appearance: 'outline' })}>Open Drawer</DrawerTrigger>
+      <DrawerTrigger>Open Drawer</DrawerTrigger>
       <DrawerContent>
         <DrawerHeader>
-          <DrawerTitle>The Beatles</DrawerTitle>
+          <DrawerTitle>Nirvana: The Band</DrawerTitle>
           <DrawerDescription>
-            The Beatles were an English rock band formed in Liverpool in 1960, comprising John
-            Lennon, Paul McCartney, George Harrison and Ringo Starr.
+            A brief overview of the influential rock band Nirvana.
           </DrawerDescription>
         </DrawerHeader>
+        <DrawerBody>
+          Nirvana was an American rock band formed in 1987, fronted by Kurt Cobain, with Krist
+          Novoselic on bass and Dave Grohl on drums. They played a key role in bringing grunge music
+          into the mainstream with their breakthrough album, *Nevermind* (1991), which featured the
+          hit single "Smells Like Teen Spirit."
+        </DrawerBody>
+        <DrawerFooter>
+          <DrawerClose>Close</DrawerClose>
+        </DrawerFooter>
       </DrawerContent>
     </Drawer>
   )

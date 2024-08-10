@@ -150,7 +150,6 @@ const ModalContent = ({
 }
 
 export {
-  modalContentStyles,
   Modal,
   ModalBody,
   ModalClose,
@@ -161,5 +160,6 @@ export {
   ModalTitle,
   ModalTrigger,
   type ModalContentProps,
-  modalOverlayStyles
+  modalOverlayStyles,
+  modalContentStyles
 }
