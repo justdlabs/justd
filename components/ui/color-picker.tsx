@@ -6,7 +6,6 @@ import {
   ColorPicker as ColorPickerPrimitive,
   type ColorPickerProps as ColorPickerPrimitiveProps,
   type ColorSpace,
-  DialogTrigger,
   getColorChannels,
   Group
 } from 'react-aria-components'
@@ -25,7 +24,7 @@ import {
 } from './color'
 import { ColorField } from './color-field'
 import { Description, Label } from './field'
-import { PopoverClose, PopoverContent } from './popover'
+import { Popover, PopoverClose, PopoverContent } from './popover'
 import { Select, SelectItem } from './select'
 
 const colorPickerStyles = tv({
@@ -34,7 +33,7 @@ const colorPickerStyles = tv({
     triggerColorField: 'size-10 -mr-2.5 grid place-content-center focus:outline-none',
     triggerColorPicker: 'w-full max-w-sm justify-start',
     colorArea: 'w-full sm:w-[calc(18rem-1.30rem)]',
-    colorSlider: 'mt-2 [&_.cstrk]:orientation-horizontal:h-3',
+    colorSlider: '[&_.cstrk]:orientation-horizontal:h-3',
     colorSwatchPicker: 'flex flex-wrap gap-x-2 gap-y-2.5'
   }
 })
@@ -78,108 +77,112 @@ const ColorPicker = ({
   const [isHexFormat, setIsHexFormat] = React.useState(false)
   const value = props.value ?? props.defaultValue
   return (
-    <Group className={base(className)}>
+    <div className={base({ className })}>
       {label && <Label>{label}</Label>}
-      <ColorPickerPrimitive defaultValue={defaultColor} {...props}>
-        <DialogTrigger>
-          {trigger === 'color-field' ? (
-            <ButtonPrimitive aria-label="Color swatch" className={triggerColorField()}>
-              <ColorSwatch color={value?.toString(space)} className="size-6" />
-            </ButtonPrimitive>
-          ) : trigger === 'color-picker' ? (
-            <Button
-              aria-label="Color picker"
-              isDisabled={isDisabled}
-              appearance="outline"
-              className={triggerColorPicker()}
+      <Group>
+        <ColorPickerPrimitive defaultValue={defaultColor} {...props}>
+          <Popover>
+            {trigger === 'color-field' ? (
+              <ButtonPrimitive aria-label="Color swatch" className={triggerColorField()}>
+                <ColorSwatch color={value?.toString(space)} className="size-6" />
+              </ButtonPrimitive>
+            ) : trigger === 'color-picker' ? (
+              <Button
+                aria-label="Color picker"
+                isDisabled={isDisabled}
+                appearance="outline"
+                className={triggerColorPicker()}
+              >
+                <ColorSwatch color={value?.toString(space)} className="-ml-1.5 size-6" />
+                {value ? <span>{value.toString(space)}</span> : <span>{placeholder}</span>}
+              </Button>
+            ) : null}
+            <PopoverContent
+              showArrow={false}
+              className="p-2 overflow-y-auto [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin] min-w-[--trigger-width] sm:max-w-[17.8rem]"
+              {...props}
             >
-              <ColorSwatch color={value?.toString(space)} className="-ml-1.5 size-6" />
-              {value ? <span>{value.toString(space)}</span> : <span>{placeholder}</span>}
-            </Button>
-          ) : null}
-          <PopoverContent showArrow={false} className="p-2 min-w-[--trigger-width]" {...props}>
-            <div>
-              <ColorArea
-                aria-describedby={`${label ? `${label} color area` : 'Color slider'}`}
-                className={colorArea()}
-                colorSpace="hsb"
-                xChannel="saturation"
-                yChannel="brightness"
-              >
-                <ColorThumb className="z-50" />
-              </ColorArea>
-              <ColorSlider
-                aria-describedby={`${label ? `${label} color slider` : 'Color slider'}`}
-                showOutput={false}
-                className={colorSlider()}
-                colorSpace="hsb"
-                channel="hue"
-              />
-            </div>
-
-            <div className="grid gap-2">
-              {enableColorFormatSelection && (
-                <Select
-                  aria-label="Color Space"
-                  selectedKey={space}
-                  defaultSelectedKey={space}
-                  onSelectionChange={(s) => {
-                    setSpace(s as ColorSpace)
-                    setIsHexFormat(s === 'hex')
-                  }}
+              <div className="grid gap-2">
+                <ColorArea
+                  aria-describedby={`${label ? `${label} color area` : 'Color slider'}`}
+                  className={colorArea()}
+                  colorSpace="hsb"
+                  xChannel="saturation"
+                  yChannel="brightness"
                 >
-                  {['rgb', 'hex', 'hsl', 'hsb'].map((s) => (
-                    <SelectItem key={s} id={s} textValue={s}>
-                      {s}
-                    </SelectItem>
-                  ))}
-                </Select>
-              )}
+                  <ColorThumb className="z-50" />
+                </ColorArea>
+                <ColorSlider
+                  aria-describedby={`${label ? `${label} color slider` : 'Color slider'}`}
+                  showOutput={false}
+                  className={colorSlider()}
+                  colorSpace="hsb"
+                  channel="hue"
+                />
 
-              {enableColorFormatSelection ? (
-                <div className="flex gap-1 w-[inherit]">
-                  {isHexFormat ? (
-                    <ColorField aria-label="Hex color" colorSpace={space} />
-                  ) : (
-                    getColorChannels(space).map((channel) => (
-                      <ColorField
-                        aria-describedby={label ?? 'Color field'}
-                        colorSpace={space}
-                        channel={channel}
-                        key={channel}
-                      />
-                    ))
-                  )}
-                </div>
-              ) : enableColorField ? (
-                <ColorField aria-label={`Color in ${space} format`} colorSpace={space} />
-              ) : null}
-            </div>
+                {enableColorFormatSelection && (
+                  <Select
+                    aria-label="Color Space"
+                    selectedKey={space}
+                    defaultSelectedKey={space}
+                    onSelectionChange={(s) => {
+                      setSpace(s as ColorSpace)
+                      setIsHexFormat(s === 'hex')
+                    }}
+                  >
+                    {['rgb', 'hex', 'hsl', 'hsb'].map((s) => (
+                      <SelectItem key={s} id={s} textValue={s}>
+                        {s}
+                      </SelectItem>
+                    ))}
+                  </Select>
+                )}
 
-            {enableColorSwatch && colors && colors.length > 0 && (
-              <ColorSwatchPicker
-                aria-label="Color swatch picker"
-                layout="grid"
-                className={colorSwatchPicker()}
-              >
-                {colors.map((color) => (
-                  <ColorSwatchPickerItem key={color} color={color} />
-                ))}
-              </ColorSwatchPicker>
-            )}
+                {enableColorFormatSelection ? (
+                  <div className="flex gap-2 max-w-[inherit]">
+                    {isHexFormat ? (
+                      <ColorField aria-label="Hex color" colorSpace={space} />
+                    ) : (
+                      getColorChannels(space).map((channel) => (
+                        <ColorField
+                          aria-describedby={label ?? 'Color field'}
+                          colorSpace={space}
+                          channel={channel}
+                          key={channel}
+                        />
+                      ))
+                    )}
+                  </div>
+                ) : enableColorField ? (
+                  <ColorField aria-label={`Color in ${space} format`} colorSpace={space} />
+                ) : null}
 
-            {closeButton && (
-              <div className="sm:hidden py-2.5 mx-auto w-full max-w-[inherit]">
-                <PopoverClose shape="circle" className="w-full">
-                  Close
-                </PopoverClose>
+                {enableColorSwatch && colors && colors.length > 0 && (
+                  <ColorSwatchPicker
+                    aria-label="Color swatch picker"
+                    layout="grid"
+                    className={colorSwatchPicker()}
+                  >
+                    {colors.map((color) => (
+                      <ColorSwatchPickerItem key={color} color={color} />
+                    ))}
+                  </ColorSwatchPicker>
+                )}
+
+                {closeButton && (
+                  <div className="sm:hidden py-2.5 mx-auto w-full max-w-[inherit]">
+                    <PopoverClose shape="circle" className="w-full">
+                      Close
+                    </PopoverClose>
+                  </div>
+                )}
               </div>
-            )}
-          </PopoverContent>
-        </DialogTrigger>
-      </ColorPickerPrimitive>
+            </PopoverContent>
+          </Popover>
+        </ColorPickerPrimitive>
+      </Group>
       {description && <Description>{description}</Description>}
-    </Group>
+    </div>
   )
 }
 

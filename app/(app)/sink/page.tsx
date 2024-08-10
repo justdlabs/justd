@@ -2,14 +2,15 @@
 
 import React from 'react'
 
-import TagFieldIntentDemo from '@/components/docs/forms/tag-field-intent-demo'
-import TagFieldShapeDemo from '@/components/docs/forms/tag-field-shape-demo'
+import ColorPickerCombinationDemo from '@/components/docs/colors/color-picker-combination-demo'
+import ColorPickerDemo from '@/components/docs/colors/color-picker-demo'
 
 export default function Page() {
   return (
     <div>
-      <TagFieldIntentDemo />
-      <TagFieldShapeDemo />
+      <div className="max-w-xs">
+        <ColorPickerCombinationDemo />
+      </div>
     </div>
   )
 }

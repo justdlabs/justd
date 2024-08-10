@@ -10,7 +10,8 @@
     "lint": "next lint",
     "format": "prettier --write \"**/*.{ts,tsx}\" && npm run b",
     "b": "bun run resources/scripts/create-pr-content.ts",
-    "preview": "bun run build && bun run start"
+    "preview": "bun run build && bun run start",
+    "prepare": "husky"
   },
   "dependencies": {
     "@openpanel/nextjs": "^0.0.10-beta",
@@ -62,6 +63,7 @@
     "eslint-config-next": "14.1.2",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
+    "husky": "^9.1.4",
     "postcss": "^8.4.41",
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.6",
