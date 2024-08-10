@@ -139,12 +139,12 @@ const TagField = ({
   }, [list, onItemCleared])
 
   return (
-    <>
-      {props.label && <Label className="mb-1">{props.label}</Label>}
+    <div className={cn('flex flex-col gap-2', className)}>
+      {props.label && <Label>{props.label}</Label>}
       <Group
         className={ctr(className, cn('flex flex-col gap-2', props.isDisabled && 'opacity-50'))}
       >
-        <TagGroup aria-label="List tag inserted" selectionMode="multiple" onRemove={onRemove}>
+        <TagGroup onRemove={onRemove}>
           <div className={tagFieldsStyles({ appearance })}>
             <div className="inline-flex flex-1 flex-wrap items-center">
               <TagList
@@ -178,8 +178,8 @@ const TagField = ({
           <input hidden name={name} value={list.items.map((i) => i.name).join(',')} readOnly />
         )}
       </Group>
-      {props.description && <Description className="block mt-1">{props.description}</Description>}
-    </>
+      {props.description && <Description>{props.description}</Description>}
+    </div>
   )
 }
 
