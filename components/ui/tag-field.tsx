@@ -71,7 +71,11 @@ const TagField = ({
     if (maxTagsToAdd <= 0) {
       setIsInvalid(true)
       setInputValue('')
-      return
+      const timeoutId = setTimeout(() => {
+        setIsInvalid(false)
+      }, 2000)
+
+      return () => clearTimeout(timeoutId)
     }
 
     tagNames.slice(0, maxTagsToAdd).forEach((tagName) => {

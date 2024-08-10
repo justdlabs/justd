@@ -145,12 +145,10 @@ const MultipleSelect = <T extends SelectedKey>({
       if (selectedItems.items.length >= maxTags) {
         setIsInvalid(true)
 
-        // Reset isInvalid to false after 2 seconds
         const timeoutId = setTimeout(() => {
           setIsInvalid(false)
         }, 2000)
 
-        // Clear timeout if component unmounts or action changes
         return () => clearTimeout(timeoutId)
       }
 

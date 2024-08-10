@@ -131,6 +131,9 @@ export const previews: Record<string, any> = {
   "forms/textarea-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/forms/textarea-controlled-demo")),
   },
+  "forms/tag-field-disabled-demo": {
+    component: React.lazy(() => import("@/components/docs/forms/tag-field-disabled-demo")),
+  },
   "forms/tag-field-max-demo": {
     component: React.lazy(() => import("@/components/docs/forms/tag-field-max-demo")),
   },

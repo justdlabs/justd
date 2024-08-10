@@ -5,12 +5,10 @@ import React from 'react'
 import { useListData } from 'react-stately'
 import { TagField } from 'ui'
 
-export default function TagFieldMaxDemo() {
+export default function TagFieldDisabledDemo() {
   const selectedItems = useListData({
     initialItems: []
   })
 
-  return (
-    <TagField max={3} label="Add tag" description="You can only add 3 tags" list={selectedItems} />
-  )
+  return <TagField isDisabled label="Add tag" list={selectedItems} />
 }
