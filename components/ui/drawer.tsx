@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useRef, useEffect } from 'react'
+import React from 'react'
 
 import {
   animate,
@@ -61,7 +61,7 @@ const ModalOverlayPrimitive = motion(ModalOverlay)
 
 const DrawerOverlayPrimitive = (props: React.ComponentProps<typeof ModalOverlayPrimitive>) => {
   const { closeDrawer, withNotch } = useDrawerContext()
-  const [contentHeight, setContentHeight] = useState(0)
+  const [contentHeight, setContentHeight] = React.useState(0)
 
   const h = Math.min(contentHeight + drawerMargin, window.innerHeight - drawerMargin)
   const y = useMotionValue(h)
