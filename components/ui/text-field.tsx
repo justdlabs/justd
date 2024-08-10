@@ -24,10 +24,10 @@ interface TextFieldProps extends TextFieldPrimitiveProps {
 }
 
 const TextField = ({
+  placeholder,
   label,
   description,
   errorMessage,
-  placeholder,
   prefix,
   suffix,
   isLoading,

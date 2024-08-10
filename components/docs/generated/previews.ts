@@ -182,6 +182,9 @@ export const previews: Record<string, any> = {
   "forms/number-field-demo": {
     component: React.lazy(() => import("@/components/docs/forms/number-field-demo")),
   },
+  "forms/tag-field-demo": {
+    component: React.lazy(() => import("@/components/docs/forms/tag-field-demo")),
+  },
   "forms/checkbox-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/forms/checkbox-disabled-demo")),
   },

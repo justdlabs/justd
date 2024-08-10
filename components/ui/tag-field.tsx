@@ -2,21 +2,42 @@
 
 import * as React from 'react'
 
-import { Tag, TagGroup, TagList } from '@/components/ui/tag-group'
-import { TextFieldPrimitive, TextFieldProps } from '@/components/ui/text-field'
-import { TextField } from '@/components/ui/text-field'
-import type { Key } from 'react-aria-components'
-import { Group } from 'react-aria-components'
+import type { Key, ValidationResult } from 'react-aria-components'
+import { Group, TextField } from 'react-aria-components'
 import type { ListData } from 'react-stately'
+import { tv } from 'tailwind-variants'
 
-import { cn, ctr } from './primitive'
+import { Input } from './field'
+import { cn, composeTailwindRenderProps, ctr } from './primitive'
+import { Tag, TagGroup, TagList } from './tag-group'
+import type { TextFieldProps } from './text-field'
+
+const tagFields = tv({
+  slots: {
+    base: [
+      'relative px-1 flex min-h-10 flex-row flex-wrap items-center rounded-lg shadow-sm border',
+      'has-[input[data-focused=true]]:border-primary',
+      'has-[input[data-invalid=true][data-focused=true]]:border-danger has-[input[data-invalid=true]]:border-danger has-[input[data-invalid=true]]:ring-danger/20',
+      'has-[input[data-focused=true]]:ring-4 has-[input[data-focused=true]]:ring-primary/20'
+    ]
+  }
+})
+
+const { base } = tagFields()
 
 interface TagItem {
   id: number
   name: string
 }
 
-interface TagFieldProps extends Omit<TextFieldProps, 'isRequired'> {
+interface TagFieldProps {
+  'aria-label'?: TextFieldProps['aria-label']
+  'aria-labelledby'?: TextFieldProps['aria-labelledby']
+  isDisabled?: boolean
+  label?: string
+  placeholder?: string
+  description?: string
+  errorMessage?: string | ((validation: ValidationResult) => string)
   max?: number
   min?: number
   className?: string
@@ -45,10 +66,10 @@ const TagField = ({
   const maxTagsToAdd = maxTags - existingTagCount
 
   const insertTag = () => {
-    const tagNames = inputValue.split(/[,;]/)
-
+    const tagNames = inputValue.split(/,/)
     if (maxTagsToAdd <= 0) {
       setIsInvalid(true)
+      setInputValue('')
       return
     }
 
@@ -88,7 +109,7 @@ const TagField = ({
   }
 
   const onKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter' || e.key === ',' || e.key === ';') {
+    if (e.key === 'Enter' || e.key === ',') {
       e.preventDefault()
       insertTag()
     }
@@ -111,29 +132,37 @@ const TagField = ({
       onItemCleared?.(list.getItem(endKey.id))
     }
   }, [list, onItemCleared])
-  const Element = appearance === 'outline' ? TextField : TextFieldPrimitive
+
   return (
     <Group className={ctr(className, cn('flex flex-col gap-2', props.isDisabled && 'opacity-50'))}>
-      <Element
-        isDisabled={props.isDisabled}
-        label={props?.label ?? undefined}
-        aria-label={props?.label ?? props['aria-label']}
-        description={props?.description ?? undefined}
-        isInvalid={isInvalid}
-        errorMessage={
-          maxTagsToAdd === 0 && !props.errorMessage
-            ? `You can only add ${maxTags} items.`
-            : undefined
-        }
-        onKeyDown={onKeyDown}
-        onChange={setInputValue}
-        value={inputValue}
-        {...props}
-      />
       <TagGroup aria-label="List tag inserted" selectionMode="multiple" onRemove={onRemove}>
-        <TagList items={list.items}>
-          {(item) => <Tag className="cursor-default selected:bg-transparent">{item.name}</Tag>}
-        </TagList>
+        <div className={base()}>
+          <div className="inline-flex flex-1 flex-wrap items-center">
+            <TagList
+              items={list.items}
+              className={cn(
+                list.items.length !== 0 && 'px-1 py-1.5',
+                '[&_.jdt3lr2x]:rounded-[calc(var(--radius)-2.5px)] [&_.jdt3lr2x]:cursor-default last:[&_.jdt3lr2x]:-mr-1 outline-none gap-1.5'
+              )}
+            >
+              {(item) => <Tag>{item.name}</Tag>}
+            </TagList>
+            <TextField
+              className={composeTailwindRenderProps(className, 'group flex flex-col gap-1')}
+              isDisabled={props.isDisabled}
+              aria-label={props?.label ?? props['aria-label']}
+              isInvalid={isInvalid}
+              onKeyDown={onKeyDown}
+              onChange={setInputValue}
+              value={inputValue}
+              {...props}
+            >
+              <Input
+                placeholder={maxTagsToAdd <= 0 ? 'Remove one to add more' : props.placeholder}
+              />
+            </TextField>
+          </div>
+        </div>
       </TagGroup>
       {name && (
         <input hidden name={name} value={list.items.map((i) => i.name).join(',')} readOnly />
