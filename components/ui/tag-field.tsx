@@ -7,23 +7,30 @@ import { Group, TextField } from 'react-aria-components'
 import type { ListData } from 'react-stately'
 import { tv } from 'tailwind-variants'
 
-import { Input } from './field'
+import { Description, Input, Label } from './field'
 import { cn, composeTailwindRenderProps, ctr } from './primitive'
 import { Tag, TagGroup, TagList } from './tag-group'
 import type { TextFieldProps } from './text-field'
 
-const tagFields = tv({
-  slots: {
-    base: [
-      'relative px-1 flex min-h-10 flex-row flex-wrap items-center rounded-lg shadow-sm border',
-      'has-[input[data-focused=true]]:border-primary',
-      'has-[input[data-invalid=true][data-focused=true]]:border-danger has-[input[data-invalid=true]]:border-danger has-[input[data-invalid=true]]:ring-danger/20',
-      'has-[input[data-focused=true]]:ring-4 has-[input[data-focused=true]]:ring-primary/20'
-    ]
+const tagFieldsStyles = tv({
+  base: [
+    'relative flex min-h-10 flex-row flex-wrap items-center',
+    'has-[input[data-focused=true]]:border-primary'
+    // 'has-[input[data-invalid=true][data-focused=true]]:border-danger has-[input[data-invalid=true]]:border-danger has-[input[data-invalid=true]]:ring-danger/20',
+    // 'has-[input[data-focused=true]]:ring-4 has-[input[data-focused=true]]:ring-primary/20'
+  ],
+  variants: {
+    appearance: {
+      outline: [
+        'px-1 rounded-lg shadow-sm border',
+        'has-[input[data-focused=true]]:border-primary',
+        'has-[input[data-invalid=true][data-focused=true]]:border-danger has-[input[data-invalid=true]]:border-danger has-[input[data-invalid=true]]:ring-danger/20',
+        'has-[input[data-focused=true]]:ring-4 has-[input[data-focused=true]]:ring-primary/20'
+      ],
+      plain: ['has-[input[data-focused=true]]:border-transparent']
+    }
   }
 })
-
-const { base } = tagFields()
 
 interface TagItem {
   id: number
@@ -134,40 +141,47 @@ const TagField = ({
   }, [list, onItemCleared])
 
   return (
-    <Group className={ctr(className, cn('flex flex-col gap-2', props.isDisabled && 'opacity-50'))}>
-      <TagGroup aria-label="List tag inserted" selectionMode="multiple" onRemove={onRemove}>
-        <div className={base()}>
-          <div className="inline-flex flex-1 flex-wrap items-center">
-            <TagList
-              items={list.items}
-              className={cn(
-                list.items.length !== 0 && 'px-1 py-1.5',
-                '[&_.jdt3lr2x]:rounded-[calc(var(--radius)-2.5px)] [&_.jdt3lr2x]:cursor-default last:[&_.jdt3lr2x]:-mr-1 outline-none gap-1.5'
-              )}
-            >
-              {(item) => <Tag>{item.name}</Tag>}
-            </TagList>
-            <TextField
-              className={composeTailwindRenderProps(className, 'group flex flex-col gap-1')}
-              isDisabled={props.isDisabled}
-              aria-label={props?.label ?? props['aria-label']}
-              isInvalid={isInvalid}
-              onKeyDown={onKeyDown}
-              onChange={setInputValue}
-              value={inputValue}
-              {...props}
-            >
-              <Input
-                placeholder={maxTagsToAdd <= 0 ? 'Remove one to add more' : props.placeholder}
-              />
-            </TextField>
+    <>
+      {props.label && <Label className="mb-1">{props.label}</Label>}
+      <Group
+        className={ctr(className, cn('flex flex-col gap-2', props.isDisabled && 'opacity-50'))}
+      >
+        <TagGroup aria-label="List tag inserted" selectionMode="multiple" onRemove={onRemove}>
+          <div className={tagFieldsStyles({ appearance })}>
+            <div className="inline-flex flex-1 flex-wrap items-center">
+              <TagList
+                items={list.items}
+                className={cn(
+                  list.items.length !== 0 && 'px-1 py-1.5',
+                  '[&_.jdt3lr2x]:rounded-[calc(var(--radius)-2.5px)] [&_.jdt3lr2x]:cursor-default last:[&_.jdt3lr2x]:-mr-1 outline-none gap-1.5'
+                )}
+              >
+                {(item) => <Tag>{item.name}</Tag>}
+              </TagList>
+              <TextField
+                className={composeTailwindRenderProps(className, 'group flex flex-col gap-1')}
+                isDisabled={props.isDisabled}
+                aria-label={props?.label ?? props['aria-label']}
+                isInvalid={isInvalid}
+                onKeyDown={onKeyDown}
+                onChange={setInputValue}
+                value={inputValue}
+                {...props}
+              >
+                <Input
+                  className="w-auto inline"
+                  placeholder={maxTagsToAdd <= 0 ? 'Remove one to add more' : props.placeholder}
+                />
+              </TextField>
+            </div>
           </div>
-        </div>
-      </TagGroup>
-      {name && (
-        <input hidden name={name} value={list.items.map((i) => i.name).join(',')} readOnly />
-      )}
-    </Group>
+        </TagGroup>
+        {name && (
+          <input hidden name={name} value={list.items.map((i) => i.name).join(',')} readOnly />
+        )}
+      </Group>
+      {props.description && <Description className="block mt-1">{props.description}</Description>}
+    </>
   )
 }
 

@@ -212,6 +212,9 @@ export const previews: Record<string, any> = {
   "forms/checkbox-group-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/forms/checkbox-group-controlled-demo")),
   },
+  "forms/tag-field-appearance-demo": {
+    component: React.lazy(() => import("@/components/docs/forms/tag-field-appearance-demo")),
+  },
   "forms/search-field-validation-demo": {
     component: React.lazy(() => import("@/components/docs/forms/search-field-validation-demo")),
   },
