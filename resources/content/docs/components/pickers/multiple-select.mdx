@@ -46,3 +46,22 @@ Customize the tag field’s shape using the `shape` prop.
 ## Disabled
 When the component is disabled, it prevents the user from adding or removing tags.
 <How toUse="pickers/multiple-select-disabled-demo" />
+
+## Props
+Here's the fixed table:
+
+| Prop           | Type                        | Default   | Description                                  |
+|----------------|-----------------------------|-----------|----------------------------------------------|
+| label          | string                      | -         | The label of the tag field                   |
+| description    | string                      | -         | The description of the tag field             |
+| placeholder    | string                      | -         | The placeholder of the tag field             |
+| min            | number                      | -         | The minimum number of tags that can be added |
+| max            | number                      | -         | The maximum number of tags that can be added |
+| className      | string                      | -         | The class name of the tag field              |
+| name           | string                      | -         | The name of the tag field                    |
+| list           | ListData                    | -         | The list of tags                             |
+| onItemInserted | (tag: TagItemProps) => void | -         | The callback function when a tag is inserted |
+| onItemCleared  | (tag: TagItemProps) => void | -         | The callback function when a tag is cleared  |
+| isDisabled     | boolean                     | -         | The disabled state of the tag field          |
+| intent         | string                      | 'primary' | 'primary', 'secondary'                       |
+| shape          | string                      | 'square'  | 'square', 'circle'                           |
