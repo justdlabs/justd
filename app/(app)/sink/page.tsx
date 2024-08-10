@@ -1,7 +1,11 @@
-'use client'
-
-import React from 'react'
+import DrawerStickyDemo from '@/components/docs/overlays/drawer-sticky-demo'
+import DrawerBasicDemo from '@/components/docs/overlays/drawer-basic-demo'
 
 export default function Page() {
-  return <div />
+  return (
+    <div>
+      <DrawerStickyDemo/>
+      <DrawerBasicDemo/>
+    </div>
+  )
 }

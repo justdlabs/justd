@@ -54,9 +54,8 @@ const modalOverlayStyles = tv({
 })
 const modalContentStyles = tv({
   base: [
-    'max-h-full w-full rounded-t-2xl sm:rounded-lg overflow-hidden bg-overlay text-overlay-fg text-left align-middle shadow-lg',
-    'ring-1 ring-zinc-950/5 dark:ring-white/15',
-    'w-full'
+    'max-h-full w-full rounded-t-2xl ring-1 ring-zinc-950/5 bg-overlay text-overlay-fg text-left align-middle shadow-lg',
+    'dark:ring-white/15 sm:rounded-lg overflow-hidden'
   ],
   variants: {
     isEntering: {
