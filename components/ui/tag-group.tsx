@@ -74,6 +74,8 @@ const intents = {
   }
 }
 
+type RestrictedIntent = 'primary' | 'secondary'
+
 type Intent = 'primary' | 'secondary' | 'success' | 'warning' | 'danger'
 
 type Shape = keyof typeof badgeShapes
@@ -181,4 +183,4 @@ const Tag = ({ children, className, intent, shape, ...props }: TagProps) => {
   )
 }
 
-export { Tag, TagGroup, TagList }
+export { Tag, TagGroup, TagList, type RestrictedIntent }

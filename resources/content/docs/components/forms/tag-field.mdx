@@ -55,6 +55,19 @@ Set a limit on the number of tags that can be added.
 
 <How toUse="forms/tag-field-max-demo" />
 
+## Intent
+
+By default, the tag field component uses the `primary` intent. But it has a `secondary` intent as well.
+
+<How minW72 toUse="forms/tag-field-intent-demo" />
+
+## Shape
+
+Customize the tag field’s shape using the `shape` prop.
+
+<How minW72 toUse="forms/tag-field-shape-demo" />
+
+
 ## Disabled
 
 Disable the tag field by using the `isDisabled` prop.
@@ -64,16 +77,18 @@ Disable the tag field by using the `isDisabled` prop.
 ## Props
 Here's the fixed table:
 
-| Prop           | Type                        | Description                                  |
-|----------------|-----------------------------|----------------------------------------------|
-| label          | string                      | The label of the tag field                   |
-| description    | string                      | The description of the tag field             |
-| placeholder    | string                      | The placeholder of the tag field             |
-| errorMessage   | string                      | The error message of the tag field           |
-| max            | number                      | The maximum number of tags that can be added |
-| className      | string                      | The class name of the tag field              |
-| name           | string                      | The name of the tag field                    |
-| list           | ListData                    | The list of tags                             |
-| onItemInserted | (tag: TagItemProps) => void | The callback function when a tag is inserted |
-| onItemCleared  | (tag: TagItemProps) => void | The callback function when a tag is cleared  |
-| isDisabled     | boolean                     | The disabled state of the tag field          |
+| Prop           | Type                        | Default   | Description                                  |
+|----------------|-----------------------------|-----------|----------------------------------------------|
+| label          | string                      | -         | The label of the tag field                   |
+| description    | string                      | -         | The description of the tag field             |
+| placeholder    | string                      | -         | The placeholder of the tag field             |
+| errorMessage   | string                      | -         | The error message of the tag field           |
+| max            | number                      | -         | The maximum number of tags that can be added |
+| className      | string                      | -         | The class name of the tag field              |
+| name           | string                      | -         | The name of the tag field                    |
+| list           | ListData                    | -         | The list of tags                             |
+| onItemInserted | (tag: TagItemProps) => void | -         | The callback function when a tag is inserted |
+| onItemCleared  | (tag: TagItemProps) => void | -         | The callback function when a tag is cleared  |
+| isDisabled     | boolean                     | -         | The disabled state of the tag field          |
+| intent         | string                      | 'primary' | 'primary', 'secondary', 'danger', 'warning'  |
+| shape          | string                      | 'square'  | 'square', 'circle'                           |

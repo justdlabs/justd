@@ -2,14 +2,16 @@
 
 import * as React from 'react'
 
-import type { Key, TextFieldProps, ValidationResult } from 'react-aria-components'
+import type { Key } from 'react-aria-components'
 import { Group, TextField } from 'react-aria-components'
 import type { ListData } from 'react-stately'
 import { twJoin } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
 
+import type { FieldProps } from './field'
 import { Description, Input, Label } from './field'
 import { cn } from './primitive'
+import type { RestrictedIntent, TagGroupProps } from './tag-group'
 import { Tag, TagGroup, TagList } from './tag-group'
 
 const tagFieldsStyles = tv({
@@ -32,16 +34,10 @@ interface TagItemProps {
   name: string
 }
 
-interface TagFieldProps {
-  'aria-label'?: TextFieldProps['aria-label']
-  'aria-labelledby'?: TextFieldProps['aria-labelledby']
+interface TagFieldProps extends Pick<TagGroupProps, 'shape'>, FieldProps {
+  intent: RestrictedIntent
   isDisabled?: boolean
-  label?: string
-  placeholder?: string
-  description?: string
-  errorMessage?: string | ((validation: ValidationResult) => string)
   max?: number
-  min?: number
   className?: string
   children?: React.ReactNode
   name?: string
@@ -143,14 +139,22 @@ const TagField = ({
     <div className={cn('flex flex-col gap-1 w-full', className)}>
       {props.label && <Label>{props.label}</Label>}
       <Group className={twJoin('flex flex-col', props.isDisabled && 'opacity-50')}>
-        <TagGroup aria-label="List item inserted" onRemove={onRemove}>
+        <TagGroup
+          intent={props.intent}
+          shape={props.shape}
+          aria-label="List item inserted"
+          onRemove={onRemove}
+        >
           <div className={tagFieldsStyles({ appearance })}>
             <div className="flex flex-1 flex-wrap items-center">
               <TagList
                 items={list.items}
                 className={twJoin(
-                  list.items.length !== 0 && appearance === 'outline' && 'py-1.5 px-0.5',
-                  '[&_.jdt3lr2x]:rounded-[calc(var(--radius)-4px)] [&_.jdt3lr2x]:cursor-default last:[&_.jdt3lr2x]:-mr-1 outline-none gap-1.5'
+                  list.items.length !== 0
+                    ? appearance === 'outline' && 'py-1.5 px-0.5 gap-1.5'
+                    : 'gap-0',
+                  props.shape === 'square' && '[&_.jdt3lr2x]:rounded-[calc(var(--radius)-4px)]',
+                  '[&_.jdt3lr2x]:cursor-default last:[&_.jdt3lr2x]:-mr-1 outline-none'
                 )}
               >
                 {(item) => <Tag>{item.name}</Tag>}

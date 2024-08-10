@@ -11,10 +11,12 @@ import { useListData } from 'react-stately'
 import { tv } from 'tailwind-variants'
 
 import { Button } from './button'
+import type { FieldProps } from './field'
 import { Description, Input, Label } from './field'
 import { ListBoxItem, ListBoxPicker } from './list-box'
 import { PopoverPicker } from './popover'
 import { cn } from './primitive'
+import type { RestrictedIntent, TagGroupProps } from './tag-group'
 import { TagGroup, TagList } from './tag-group'
 import { VisuallyHidden } from './visually-hidden'
 
@@ -49,21 +51,21 @@ interface SelectedKey {
 }
 
 interface MultipleSelectProps<T extends object>
-  extends Omit<
-    ComboBoxPrimitiveProps<T>,
-    | 'children'
-    | 'validate'
-    | 'allowsEmptyCollection'
-    | 'selectedKey'
-    | 'inputValue'
-    | 'className'
-    | 'value'
-    | 'onSelectionChange'
-    | 'onInputChange'
-  > {
-  label?: string
-  description?: string
-  placeholder?: string
+  extends FieldProps,
+    Omit<
+      ComboBoxPrimitiveProps<T>,
+      | 'children'
+      | 'validate'
+      | 'allowsEmptyCollection'
+      | 'selectedKey'
+      | 'inputValue'
+      | 'className'
+      | 'value'
+      | 'onSelectionChange'
+      | 'onInputChange'
+    >,
+    Pick<TagGroupProps, 'shape'> {
+  intent: RestrictedIntent
   items: Array<T>
   selectedItems: ListData<T>
   className?: string
@@ -225,12 +227,19 @@ const MultipleSelect = <T extends SelectedKey>({
       {props.label && <Label>{props.label}</Label>}
       <Group className={props.isDisabled ? 'opacity-50' : ''}>
         <div ref={triggerRef} className={multiSelect({ className })}>
-          <TagGroup aria-label="Selected items" id={tagGroupIdentifier} onRemove={onRemove}>
+          <TagGroup
+            shape={props.shape}
+            intent={props.intent}
+            aria-label="Selected items"
+            id={tagGroupIdentifier}
+            onRemove={onRemove}
+          >
             <TagList
               items={selectedItems.items}
               className={cn(
                 selectedItems.items.length !== 0 && 'px-1 py-1.5',
-                '[&_.jdt3lr2x]:rounded-[calc(var(--radius)-2.5px)] last:[&_.jdt3lr2x]:-mr-1 outline-none gap-1.5'
+                'last:[&_.jdt3lr2x]:-mr-1 outline-none gap-1.5',
+                props.shape === 'square' && '[&_.jdt3lr2x]:rounded-[calc(var(--radius)-2.5px)]'
               )}
             >
               {props.tag}

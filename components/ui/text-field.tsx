@@ -5,18 +5,14 @@ import * as React from 'react'
 import { IconLoader } from 'justd-icons'
 import {
   TextField as TextFieldPrimitive,
-  type TextFieldProps as TextFieldPrimitiveProps,
-  type ValidationResult
+  type TextFieldProps as TextFieldPrimitiveProps
 } from 'react-aria-components'
 
+import type { FieldProps } from './field'
 import { Description, FieldError, FieldGroup, fieldGroupPrefixStyles, Input, Label } from './field'
 import { ctr } from './primitive'
 
-interface TextFieldProps extends TextFieldPrimitiveProps {
-  label?: string
-  placeholder?: string
-  description?: string
-  errorMessage?: string | ((validation: ValidationResult) => string)
+interface TextFieldProps extends TextFieldPrimitiveProps, FieldProps {
   prefix?: React.ReactNode
   suffix?: React.ReactNode
   isLoading?: boolean

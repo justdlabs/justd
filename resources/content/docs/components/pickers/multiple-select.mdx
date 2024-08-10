@@ -16,7 +16,7 @@ The basic multiple select component lets you select multiple options from a list
 <InstallCommand isAdd items={['multiple-select']} />
 
 ## Composed Components
-<Composed components={['button', 'field', 'list-box', 'popover', 'tag-group', 'visually-hidden']} />
+<Composed components={['field', 'list-box', 'popover', 'tag-group', 'visually-hidden']} />
 
 ## Manual Installation
 <InstallCommand isInstall isManual items={['react-aria-components', 'react-aria', 'justd-icons']} />
@@ -30,6 +30,18 @@ This component lets you select tags dynamically, updating the list with callback
 ## Min/Max
 This component lets you set a minimum and maximum number of tags that can be selected. It displays selected tags with Tag components and logs each action.
 <How toUse="pickers/multiple-select-min-max-demo" />
+
+## Intent
+
+By default, the multiple select component uses the `primary` intent. But it has a `secondary` intent as well.
+
+<How minW72 toUse="pickers/multiple-select-intent-demo" />
+
+## Shape
+
+Customize the tag field’s shape using the `shape` prop.
+
+<How minW72 toUse="pickers/multiple-select-shape-demo" />
 
 ## Disabled
 When the component is disabled, it prevents the user from adding or removing tags.

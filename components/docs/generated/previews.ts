@@ -122,6 +122,9 @@ export const previews: Record<string, any> = {
   "forms/checkbox-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/forms/checkbox-controlled-demo")),
   },
+  "forms/tag-field-intent-demo": {
+    component: React.lazy(() => import("@/components/docs/forms/tag-field-intent-demo")),
+  },
   "forms/number-field-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/forms/number-field-controlled-demo")),
   },
@@ -142,6 +145,9 @@ export const previews: Record<string, any> = {
   },
   "forms/checkbox-invalid-demo": {
     component: React.lazy(() => import("@/components/docs/forms/checkbox-invalid-demo")),
+  },
+  "forms/tag-field-shape-demo": {
+    component: React.lazy(() => import("@/components/docs/forms/tag-field-shape-demo")),
   },
   "forms/search-field-demo": {
     component: React.lazy(() => import("@/components/docs/forms/search-field-demo")),
@@ -650,6 +656,9 @@ export const previews: Record<string, any> = {
   "pickers/select-validation-demo": {
     component: React.lazy(() => import("@/components/docs/pickers/select-validation-demo")),
   },
+  "pickers/multiple-select-intent-demo": {
+    component: React.lazy(() => import("@/components/docs/pickers/multiple-select-intent-demo")),
+  },
   "pickers/combo-box-avatar-demo": {
     component: React.lazy(() => import("@/components/docs/pickers/combo-box-avatar-demo")),
   },
@@ -658,6 +667,9 @@ export const previews: Record<string, any> = {
   },
   "pickers/select-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/pickers/select-controlled-demo")),
+  },
+  "pickers/multiple-select-shape-demo": {
+    component: React.lazy(() => import("@/components/docs/pickers/multiple-select-shape-demo")),
   },
   "pickers/combo-box-section-demo": {
     component: React.lazy(() => import("@/components/docs/pickers/combo-box-section-demo")),
