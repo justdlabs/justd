@@ -4,7 +4,7 @@ import React from 'react'
 
 import { useTheme } from '@/components/theme-provider'
 import { Loader } from '@/components/ui/loader'
-import { IconCheck, IconCircleInfoFill, IconLoader, IconTriangleInfoFill } from 'justd-icons'
+import { IconCheck, IconCircleInfoFill, IconTriangleInfoFill } from 'justd-icons'
 import { Toaster as ToasterPrimitive, type ToasterProps } from 'sonner'
 import { twJoin } from 'tailwind-merge'
 
@@ -21,7 +21,7 @@ const Toast = ({ ...props }: ToasterProps) => {
         success: <IconCheck />,
         warning: <IconTriangleInfoFill />,
         error: <IconTriangleInfoFill />,
-        loading: <Loader variant="hot" />
+        loading: <Loader variant="spin" />
       }}
       toastOptions={{
         unstyled: true,

@@ -56,7 +56,7 @@ export default function PopoverControlledDemo() {
           >
             {loading === 'loading' ? (
               <>
-                <Loader variant="hot" />
+                <Loader variant="spin" />
                 Deleting...
               </>
             ) : loading === 'success' ? (
