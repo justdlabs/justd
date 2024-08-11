@@ -5,10 +5,9 @@ import { useEffect, useState } from 'react'
 
 import { ColorGenerator } from '@/app/(app)/colors/(colors)/color-generator'
 import _colors from '@/app/(app)/colors/(colors)/colors.json'
-import { IconLoader } from 'justd-icons'
 import { useInView } from 'react-intersection-observer'
 import type { ColorItemProps } from 'resources/types'
-import { Container, gridStyles } from 'ui'
+import { Container, gridStyles, Loader } from 'ui'
 
 import { ColorRow } from './color-row'
 
@@ -54,8 +53,12 @@ export function ColorPalette() {
         </div>
 
         {hasMore && (
-          <div ref={ref} className="col-span-3 mt-8 text-center">
-            <IconLoader className="size-6 animate-spin mx-auto" />
+          <div ref={ref} className="mt-8 flex justify-center">
+            <Loader
+              variant="ring"
+              size="medium"
+              className="left-1/2 absolute bottom-0 -translate-x-1/2"
+            />
           </div>
         )}
       </Container>

@@ -1,25 +1,20 @@
-import * as React from 'react';
+import * as React from 'react'
 
-
-
-import { CopyJsonColorShades } from '@/app/(app)/colors/(colors)/copy-json-color-shades';
+import { CopyJsonColorShades } from '@/app/(app)/colors/(colors)/copy-json-color-shades'
 import {
   allFormats,
   formatOnlyForTailwindVariableValues,
   getColorName,
   tailwindColorNames
 } from '@/resources/lib/colors'
-import type { ColorFormat } from '@react-types/color';
-import { IconBrandTailwindcss } from 'justd-icons';
-import { ListBox, Text, ToggleButton } from 'react-aria-components';
-import type { ColorItemProps, FormatOnlyForTailwindVariableType } from 'resources/types';
-import { toast } from 'sonner';
-import { buttonStyles, gridStyles, Heading, Select, SelectItem, Tooltip, TooltipContent } from 'ui';
+import type { ColorFormat } from '@react-types/color'
+import { IconBrandTailwindcss } from 'justd-icons'
+import { ListBox, Text, ToggleButton } from 'react-aria-components'
+import type { ColorItemProps, FormatOnlyForTailwindVariableType } from 'resources/types'
+import { toast } from 'sonner'
+import { buttonStyles, gridStyles, Heading, Select, SelectItem, Tooltip, TooltipContent } from 'ui'
 
-
-
-import { ColorItem } from './color-item';
-
+import { ColorItem } from './color-item'
 
 interface ColorRowProps extends React.HtmlHTMLAttributes<HTMLDivElement> {
   item: ColorItemProps
@@ -28,7 +23,7 @@ interface ColorRowProps extends React.HtmlHTMLAttributes<HTMLDivElement> {
   showItem?: boolean
 }
 
-export function ColorRow({showItem = false, swatchClassName, item }: ColorRowProps) {
+export function ColorRow({ showItem = false, swatchClassName, item }: ColorRowProps) {
   const [isForTailwindVariable, setIsForTailwindVariable] = React.useState(false)
   const [selectedFormat, setSelectedFormat] = React.useState<
     ColorFormat | null | FormatOnlyForTailwindVariableType
@@ -40,7 +35,9 @@ export function ColorRow({showItem = false, swatchClassName, item }: ColorRowPro
           level={3}
           className="tracking-tight text-muted-fg font-mono text-sm font-medium sm:text-sm"
         >
-          {tailwindColorNames.includes(item.name) ? item.name : getColorName(item.children[4].color)}
+          {tailwindColorNames.includes(item.name)
+            ? item.name
+            : getColorName(item.children[4].color)}
         </Heading>
         <div className="flex gap-x-1">
           <>
