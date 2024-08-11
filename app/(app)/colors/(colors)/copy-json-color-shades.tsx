@@ -29,7 +29,7 @@ export function CopyJsonColorShades({
     .map(({ shade, color }: any) => `'${shade}': '${color}'`)
     .join(',\n  ')
   const renderColorScaleAsCode = (colorScales: any, colorName: string) => {
-    const formattedColorName = colorName.includes('-') ? `'${colorName}'` : colorName
+    const formattedColorName = colorName.includes('-') ? `'${getColorName(colorScales[4].color)}'` : colorName
     return `${formattedColorName}: {\n  ${codeString}\n}`
   }
 
