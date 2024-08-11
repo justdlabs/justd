@@ -8,6 +8,7 @@ import { Toaster as ToasterPrimitive, type ToasterProps } from 'sonner'
 import { twJoin } from 'tailwind-merge'
 
 import { buttonStyles } from './button'
+import { Loader } from '@/components/ui/loader'
 
 const Toast = ({ ...props }: ToasterProps) => {
   const { theme = 'system' } = useTheme()
@@ -20,7 +21,7 @@ const Toast = ({ ...props }: ToasterProps) => {
         success: <IconCheck />,
         warning: <IconTriangleInfoFill />,
         error: <IconTriangleInfoFill />,
-        loading: <IconLoader className="animate-spin size-4" />
+        loading: <Loader variant='hot'/>
       }}
       toastOptions={{
         unstyled: true,
