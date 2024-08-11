@@ -55,19 +55,19 @@ const modalOverlayStyles = tv({
 const modalContentStyles = tv({
   base: [
     'max-h-full w-full rounded-t-2xl ring-1 ring-zinc-950/5 bg-overlay text-overlay-fg text-left align-middle shadow-lg',
-    'dark:ring-white/15 sm:rounded-lg overflow-hidden'
+    'dark:ring-white/15 sm:rounded-xl overflow-hidden'
   ],
   variants: {
     isEntering: {
       true: [
-        'animate-in duration-200 fade-in-0 slide-in-from-bottom-1/2',
+        'animate-in duration-200 fade-in-0 slide-in-from-bottom-[20%]',
         'sm:slide-in-from-bottom-auto sm:slide-in-from-top-[20%]'
       ]
     },
     isExiting: {
       true: [
-        'duration-200 ease-in animate-out slide-out-to-bottom ',
-        'sm:exiting:slide-out-to-top-[10%]'
+        'duration-200 ease-in animate-out slide-out-to-bottom-56',
+        'sm:exiting:slide-out-to-top-[15%]'
       ]
     },
     size: {

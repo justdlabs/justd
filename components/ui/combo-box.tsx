@@ -81,7 +81,7 @@ const ComboBoxClearButton = () => {
         state?.open()
       }}
     >
-      <IconX className="size-4" />
+      <IconX className="size-4 animate-in" />
     </ButtonPrimitive>
   )
 }

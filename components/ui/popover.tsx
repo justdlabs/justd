@@ -41,11 +41,11 @@ const PopoverTitle = ({ className, ...props }: DialogTitleProps) => (
 )
 
 const PopoverHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <DialogHeader className={cn('p-0', className)} {...props} />
+  <DialogHeader className={cn('p-0 sm:pt-0', className)} {...props} />
 )
 
 const PopoverFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <DialogFooter className={cn('pt-4 pb-0', className)} {...props} />
+  <DialogFooter className={cn('pt-4 pb-0 sm:pb-0', className)} {...props} />
 )
 
 const PopoverBody = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
@@ -54,7 +54,7 @@ const PopoverBody = ({ className, ...props }: React.HTMLAttributes<HTMLDivElemen
 
 const popoverContentStyles = tv({
   base: [
-    'max-w-xs min-w-80 p-4 rounded-lg border bg-overlay bg-clip-padding text-overlay-fg shadow-lg dark:backdrop-blur-2xl dark:backdrop-saturate-200 lg:text-sm sm:max-w-3xl forced-colors:bg-[Canvas]'
+    'max-w-xs min-w-80 p-4 rounded-xl border bg-overlay bg-clip-padding text-overlay-fg shadow-lg dark:backdrop-blur-2xl dark:backdrop-saturate-200 lg:text-sm sm:max-w-3xl forced-colors:bg-[Canvas]'
   ],
   variants: {
     isMenu: {
@@ -75,17 +75,22 @@ const popoverContentStyles = tv({
 
 const drawerStyles = tv({
   base: [
-    'fixed max-h-full bottom-0 p-4 top-auto z-50 w-full bg-overlay max-w-2xl rounded-t-xl border border-b-transparent outline-none'
+    'fixed max-h-full bottom-0 p-4 top-auto z-50 w-full bg-overlay max-w-2xl rounded-t-2xl border border-b-transparent outline-none'
   ],
   variants: {
     isMenu: {
       true: 'p-0'
     },
     isEntering: {
-      true: 'animate-in fade-in-0 slide-in-from-bottom-1/2 [transition-timing-function:ease-out'
+      true: [
+        '[will-change:transform] [transition:transform_0.5s_cubic-bezier(0.32,_0.72,_0,_1)]',
+        'animate-in duration-200 fade-in-0 slide-in-from-bottom-56',
+        '[transition:translate3d(0,_100%,_0)]',
+        'sm:slide-in-from-bottom-auto sm:slide-in-from-top-[20%]'
+      ]
     },
     isExiting: {
-      true: 'animate-out fade-out-0 slide-out-to-bottom-1/2 [transition-timing-function:ease]'
+      true: 'duration-200 ease-in animate-out slide-out-to-bottom-56'
     }
   }
 })
