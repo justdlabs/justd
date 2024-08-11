@@ -36,7 +36,7 @@ const Toast = ({ ...props }: ToasterProps) => {
             '[&>[data-action=true]]:right-4',
             '[&>[data-cancel=true]]:left-4'
           ),
-          icon: 'absolute top-1/2 -translate-y-1/2',
+          icon: 'absolute top-[1.60rem]',
           content: '[&:not(:has(+button))]:pr-10 [&:has(+button)]:pb-11 md:[&:has(+button)]:pb-9',
           error:
             'bg-danger text-white ring-white/10 text-danger-fg dark:ring-inset [&>[data-close-button=true]>svg]:text-white [&>[data-close-button=true]:hover]:bg-white/20',
