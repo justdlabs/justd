@@ -16,7 +16,7 @@ export default function ModalStickyDemo() {
   return (
     <Modal>
       <Button>Read</Button>
-      <ModalContent>
+      <ModalContent size="xl">
         <ModalHeader>
           <ModalTitle>Terms of Use</ModalTitle>
           <ModalDescription>
