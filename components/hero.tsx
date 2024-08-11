@@ -11,7 +11,7 @@ export function Hero() {
     <div className="relative isolate overflow-hidden bg-background">
       <div
         aria-hidden="true"
-        className="absolute inset-x-0 -top-10 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-56"
+        className="absolute sm:block hidden inset-x-0 -top-10 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-56"
       >
         <div
           style={{
@@ -44,7 +44,7 @@ export function Hero() {
           strokeWidth={0}
         />
       </svg>
-      <div className="pt-10 pb-6 sm:py-16 md:py-20 lg:py-24 border-b">
+      <div className="pt-12 pb-6 sm:py-16 md:py-20 lg:py-24 border-b">
         <Container>
           <Header>
             <Link
