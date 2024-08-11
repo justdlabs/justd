@@ -55,7 +55,7 @@ export function DocHow({
             <React.Suspense
               fallback={
                 <div className="flex justify-center items-center text-sm text-muted-foreground">
-                  <Loader variant='hot' size='medium'/>
+                  <Loader variant="hot" size="medium" />
                   <span className="sr-only">Loading...</span>
                 </div>
               }
