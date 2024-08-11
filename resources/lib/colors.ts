@@ -73,7 +73,33 @@ const textColorBasedOnBg = (bgColor: string): string => {
   return luminance > 0.3 ? '#000000' : '#FFFFFF'
 }
 
+const tailwindColorNames = [
+  'slate',
+  'gray',
+  'zinc',
+  'neutral',
+  'stone',
+  'red',
+  'orange',
+  'amber',
+  'yellow',
+  'lime',
+  'green',
+  'emerald',
+  'teal',
+  'cyan',
+  'sky',
+  'blue',
+  'indigo',
+  'violet',
+  'purple',
+  'fuchsia',
+  'pink',
+  'rose'
+]
+
 export {
+  tailwindColorNames,
   getColorName,
   textColorBasedOnBg,
   allFormats,

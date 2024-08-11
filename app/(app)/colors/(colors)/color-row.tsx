@@ -1,7 +1,12 @@
 import * as React from 'react'
 
 import { CopyJsonColorShades } from '@/app/(app)/colors/(colors)/copy-json-color-shades'
-import { allFormats, formatOnlyForTailwindVariableValues } from '@/resources/lib/colors'
+import {
+  allFormats,
+  formatOnlyForTailwindVariableValues,
+  getColorName,
+  tailwindColorNames
+} from '@/resources/lib/colors'
 import type { ColorFormat } from '@react-types/color'
 import { IconBrandTailwindcss } from 'justd-icons'
 import { ListBox, Text, ToggleButton } from 'react-aria-components'
@@ -30,7 +35,9 @@ export function ColorRow({ showItem = false, swatchClassName, item }: ColorRowPr
           level={3}
           className="tracking-tight text-muted-fg font-mono text-sm font-medium sm:text-sm"
         >
-          {item.name}
+          {tailwindColorNames.includes(item.name)
+            ? item.name
+            : getColorName(item.children[4].color)}
         </Heading>
         <div className="flex gap-x-1">
           <>

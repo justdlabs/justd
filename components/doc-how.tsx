@@ -5,9 +5,9 @@ import * as React from 'react'
 import { previews } from '@/components/docs/generated/previews'
 import jsonPreviews from '@/components/docs/generated/previews.json'
 import { Code } from '@/components/docs/rehype/code'
-import { cn } from '@/resources/lib/utils'
+import { cn, wait } from '@/resources/lib/utils'
 import { IconLoader } from 'justd-icons'
-import { Tab, TabList, TabPanel, Tabs } from 'ui'
+import { Loader, Tab, TabList, TabPanel, Tabs } from 'ui'
 
 interface HowProps extends React.HTMLAttributes<HTMLDivElement> {
   toUse: string
@@ -36,7 +36,6 @@ export function DocHow({
   let codeString = jsonPreviews[toUse].raw ?? ''
 
   codeString = codeString.replace(/function\s+\w+\s*\(/g, 'function App(')
-
   return (
     <div className={cn('not-prose relative my-4', className)} {...props}>
       <Tabs aria-label="Packages">
@@ -55,8 +54,8 @@ export function DocHow({
           >
             <React.Suspense
               fallback={
-                <div className="flex items-center text-sm text-muted-foreground">
-                  <IconLoader className="mr-2 size-4 animate-spin" />
+                <div className="flex justify-center items-center text-sm text-muted-foreground">
+                  <Loader variant="hot" size="medium" />
                   <span className="sr-only">Loading...</span>
                 </div>
               }
