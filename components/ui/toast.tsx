@@ -4,7 +4,7 @@ import React from 'react'
 
 import { useTheme } from '@/components/theme-provider'
 import { Loader } from '@/components/ui/loader'
-import { IconCheck, IconCircleInfoFill, IconLoader, IconTriangleInfoFill } from 'justd-icons'
+import { IconCheck, IconCircleInfoFill, IconTriangleInfoFill } from 'justd-icons'
 import { Toaster as ToasterPrimitive, type ToasterProps } from 'sonner'
 import { twJoin } from 'tailwind-merge'
 

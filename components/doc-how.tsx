@@ -5,8 +5,7 @@ import * as React from 'react'
 import { previews } from '@/components/docs/generated/previews'
 import jsonPreviews from '@/components/docs/generated/previews.json'
 import { Code } from '@/components/docs/rehype/code'
-import { cn, wait } from '@/resources/lib/utils'
-import { IconLoader } from 'justd-icons'
+import { cn } from '@/resources/lib/utils'
 import { Loader, Tab, TabList, TabPanel, Tabs } from 'ui'
 
 interface HowProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -54,7 +53,7 @@ export function DocHow({
           >
             <React.Suspense
               fallback={
-                <div className="flex justify-center items-center text-sm text-muted-foreground">
+                <div className="flex py-6 justify-center items-center text-sm text-muted-foreground">
                   <Loader variant="spin" size="medium" />
                   <span className="sr-only">Loading...</span>
                 </div>
