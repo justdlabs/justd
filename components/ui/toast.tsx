@@ -21,7 +21,7 @@ const Toast = ({ ...props }: ToasterProps) => {
         success: <IconCheck />,
         warning: <IconTriangleInfoFill />,
         error: <IconTriangleInfoFill />,
-        loading: <Loader variant="hot" />
+        loading: <Loader variant="spin" />
       }}
       toastOptions={{
         unstyled: true,

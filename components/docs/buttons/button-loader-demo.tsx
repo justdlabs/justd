@@ -26,7 +26,7 @@ export default function ButtonLoaderDemo() {
       {loading === 'success' ? (
         <IconCircleCheckFill />
       ) : loading === 'loading' ? (
-        <Loader variant="hot" />
+        <Loader variant="spin" />
       ) : (
         <IconKey />
       )}
