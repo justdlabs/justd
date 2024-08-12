@@ -6,12 +6,6 @@ import { IconCube } from 'justd-icons'
 import {
   Button,
   CommandMenu,
-  CommandMenuDescription,
-  CommandMenuEmpty,
-  CommandMenuInput,
-  CommandMenuItem,
-  CommandMenuList,
-  CommandMenuSection
 } from 'ui'
 
 export default function CommandMenuDescriptionDemo() {
@@ -28,67 +22,67 @@ export default function CommandMenuDescriptionDemo() {
         isOpen={isOpen}
         onOpenChange={setIsOpen}
       >
-        <CommandMenuInput placeholder="Search for apps and commands..." />
-        <CommandMenuEmpty className="grid place-content-center">
+        <CommandMenu.Input placeholder="Search for apps and commands..." />
+        <CommandMenu.Empty className="grid place-content-center">
           <div className="text-center">
             <IconCube className="inline" />
             <p className="mt-2">No results found.</p>
           </div>
-        </CommandMenuEmpty>
+        </CommandMenu.Empty>
 
-        <CommandMenuList>
-          <CommandMenuSection separator heading="Suggestions">
-            <CommandMenuItem>
+        <CommandMenu.List>
+          <CommandMenu.Section separator heading="Suggestions">
+            <CommandMenu.Item>
               PhpStorm
-              <CommandMenuDescription>Application</CommandMenuDescription>
-            </CommandMenuItem>
-            <CommandMenuItem>
+              <CommandMenu.Description>Application</CommandMenu.Description>
+            </CommandMenu.Item>
+            <CommandMenu.Item>
               WebStorm
-              <CommandMenuDescription>Application</CommandMenuDescription>
-            </CommandMenuItem>
-            <CommandMenuItem>
+              <CommandMenu.Description>Application</CommandMenu.Description>
+            </CommandMenu.Item>
+            <CommandMenu.Item>
               Warp
-              <CommandMenuDescription>Application</CommandMenuDescription>
-            </CommandMenuItem>
-          </CommandMenuSection>
+              <CommandMenu.Description>Application</CommandMenu.Description>
+            </CommandMenu.Item>
+          </CommandMenu.Section>
 
-          <CommandMenuSection separator heading="Applications">
-            <CommandMenuItem>
+          <CommandMenu.Section separator heading="Applications">
+            <CommandMenu.Item>
               Terminal
-              <CommandMenuDescription>Application</CommandMenuDescription>
-            </CommandMenuItem>
-            <CommandMenuItem>
+              <CommandMenu.Description>Application</CommandMenu.Description>
+            </CommandMenu.Item>
+            <CommandMenu.Item>
               Docker
-              <CommandMenuDescription>Application</CommandMenuDescription>
-            </CommandMenuItem>
-          </CommandMenuSection>
+              <CommandMenu.Description>Application</CommandMenu.Description>
+            </CommandMenu.Item>
+          </CommandMenu.Section>
 
-          <CommandMenuSection separator heading="Commands">
-            <CommandMenuItem>
+          <CommandMenu.Section separator heading="Commands">
+            <CommandMenu.Item>
               git status
-              <CommandMenuDescription>Command</CommandMenuDescription>
-            </CommandMenuItem>
-            <CommandMenuItem>
+              <CommandMenu.Description>Command</CommandMenu.Description>
+            </CommandMenu.Item>
+            <CommandMenu.Item>
               bun add
-              <CommandMenuDescription>Command</CommandMenuDescription>
-            </CommandMenuItem>
-            <CommandMenuItem>
+              <CommandMenu.Description>Command</CommandMenu.Description>
+            </CommandMenu.Item>
+            <CommandMenu.Item>
               composer require
-              <CommandMenuDescription>Command</CommandMenuDescription>
-            </CommandMenuItem>
-          </CommandMenuSection>
+              <CommandMenu.Description>Command</CommandMenu.Description>
+            </CommandMenu.Item>
+          </CommandMenu.Section>
 
-          <CommandMenuSection heading="System Settings">
-            <CommandMenuItem>
+          <CommandMenu.Section heading="System Settings">
+            <CommandMenu.Item>
               Display Brightness
-              <CommandMenuDescription>System Settings</CommandMenuDescription>
-            </CommandMenuItem>
-            <CommandMenuItem>
+              <CommandMenu.Description>System Settings</CommandMenu.Description>
+            </CommandMenu.Item>
+            <CommandMenu.Item>
               Sound Output
-              <CommandMenuDescription>System Settings</CommandMenuDescription>
-            </CommandMenuItem>
-          </CommandMenuSection>
-        </CommandMenuList>
+              <CommandMenu.Description>System Settings</CommandMenu.Description>
+            </CommandMenu.Item>
+          </CommandMenu.Section>
+        </CommandMenu.List>
       </CommandMenu>
     </>
   )

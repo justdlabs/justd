@@ -3,13 +3,13 @@
 import * as React from 'react'
 
 import Image from 'next/image'
-import { Carousel, CarouselButton, CarouselContent, CarouselHandler, CarouselItem } from 'ui'
+import { Carousel } from 'ui'
 
 export default function CarouselDemo() {
   return (
     <Carousel className="w-full [&_.xrkr]:h-56 [&_.xrkr]:overflow-hidden [&_.xrkr]:flex [&_.xrkr]:flex-col max-w-xs">
-      <CarouselContent>
-        <CarouselItem className="basis-1/2">
+      <Carousel.Content>
+        <Carousel.Item className="basis-1/2">
           <Image
             className="rounded-xl"
             src="/slides/slide-1.jpg"
@@ -17,8 +17,8 @@ export default function CarouselDemo() {
             width={400}
             height={300}
           />
-        </CarouselItem>
-        <CarouselItem className="basis-1/2">
+        </Carousel.Item>
+        <Carousel.Item className="basis-1/2">
           <Image
             className="rounded-xl"
             src="/slides/slide-2.jpg"
@@ -26,8 +26,8 @@ export default function CarouselDemo() {
             width={400}
             height={300}
           />
-        </CarouselItem>
-        <CarouselItem className="basis-1/2">
+        </Carousel.Item>
+        <Carousel.Item className="basis-1/2">
           <Image
             className="rounded-xl"
             src="/slides/slide-3.jpg"
@@ -35,8 +35,8 @@ export default function CarouselDemo() {
             width={400}
             height={300}
           />
-        </CarouselItem>
-        <CarouselItem className="basis-1/2">
+        </Carousel.Item>
+        <Carousel.Item className="basis-1/2">
           <Image
             className="rounded-xl"
             src="/slides/slide-4.jpg"
@@ -44,8 +44,8 @@ export default function CarouselDemo() {
             width={400}
             height={300}
           />
-        </CarouselItem>
-        <CarouselItem className="basis-1/2">
+        </Carousel.Item>
+        <Carousel.Item className="basis-1/2">
           <Image
             className="rounded-xl"
             src="/slides/slide-5.jpg"
@@ -53,8 +53,8 @@ export default function CarouselDemo() {
             width={400}
             height={300}
           />
-        </CarouselItem>
-        <CarouselItem className="basis-1/2">
+        </Carousel.Item>
+        <Carousel.Item className="basis-1/2">
           <Image
             className="rounded-xl"
             src="/slides/slide-6.jpg"
@@ -62,8 +62,8 @@ export default function CarouselDemo() {
             width={400}
             height={300}
           />
-        </CarouselItem>
-        <CarouselItem className="basis-1/2">
+        </Carousel.Item>
+        <Carousel.Item className="basis-1/2">
           <Image
             className="rounded-xl"
             src="/slides/slide-7.jpg"
@@ -71,13 +71,13 @@ export default function CarouselDemo() {
             width={400}
             height={300}
           />
-        </CarouselItem>
-      </CarouselContent>
+        </Carousel.Item>
+      </Carousel.Content>
 
-      <CarouselHandler>
-        <CarouselButton slot="previous" />
-        <CarouselButton slot="next" />
-      </CarouselHandler>
+      <Carousel.Handler>
+        <Carousel.Button slot="previous" />
+        <Carousel.Button slot="next" />
+      </Carousel.Handler>
     </Carousel>
   )
 }

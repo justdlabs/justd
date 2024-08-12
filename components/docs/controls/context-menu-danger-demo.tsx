@@ -4,24 +4,20 @@ import React from 'react'
 
 import {
   ContextMenu,
-  ContextMenuContent,
-  ContextMenuItem,
-  ContextMenuSeparator,
-  ContextMenuTrigger
 } from 'ui'
 
 export default function ContextMenuDangerDemo() {
   return (
     <ContextMenu>
-      <ContextMenuTrigger>Right click me</ContextMenuTrigger>
-      <ContextMenuContent>
-        <ContextMenuItem>Open</ContextMenuItem>
-        <ContextMenuItem>Rename</ContextMenuItem>
-        <ContextMenuItem>Duplicate</ContextMenuItem>
-        <ContextMenuItem>Share</ContextMenuItem>
-        <ContextMenuSeparator />
-        <ContextMenuItem isDanger>Delete</ContextMenuItem>
-      </ContextMenuContent>
+      <ContextMenu.Trigger>Right click me</ContextMenu.Trigger>
+      <ContextMenu.Content>
+        <ContextMenu.Item>Open</ContextMenu.Item>
+        <ContextMenu.Item>Rename</ContextMenu.Item>
+        <ContextMenu.Item>Duplicate</ContextMenu.Item>
+        <ContextMenu.Item>Share</ContextMenu.Item>
+        <ContextMenu.Separator />
+        <ContextMenu.Item isDanger>Delete</ContextMenu.Item>
+      </ContextMenu.Content>
     </ContextMenu>
   )
 }

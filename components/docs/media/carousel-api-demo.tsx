@@ -9,9 +9,6 @@ import {
   CardContent,
   Carousel,
   type CarouselApi,
-  CarouselButton,
-  CarouselContent,
-  CarouselItem
 } from 'ui'
 
 export default function CarouselDApiDemo() {
@@ -40,17 +37,17 @@ export default function CarouselDApiDemo() {
 
   return (
     <Carousel setApi={setApi} className="w-full max-w-sm">
-      <CarouselContent items={Array.from({ length: 10 }, (_, id) => ({ id: id + 1 }))}>
+      <Carousel.Content items={Array.from({ length: 10 }, (_, id) => ({ id: id + 1 }))}>
         {({ id }) => (
-          <CarouselItem id={id}>
+          <Carousel.Item id={id}>
             <Card>
               <CardContent className="flex aspect-square items-center justify-center p-6">
                 <span className="text-4xl font-semibold">{id}</span>
               </CardContent>
             </Card>
-          </CarouselItem>
+          </Carousel.Item>
         )}
-      </CarouselContent>
+      </Carousel.Content>
       <div className="flex justify-between mt-4 items-center">
         <div className="py-2 gap-1 flex text-center text-sm text-muted-foreground">
           {Array.from({ length: 10 }).map((_, index) => (
@@ -69,8 +66,8 @@ export default function CarouselDApiDemo() {
         </div>
 
         <div className="space-x-2">
-          <CarouselButton slot="previous" />
-          <CarouselButton slot="next" />
+          <Carousel.Button slot="previous" />
+          <Carousel.Button slot="next" />
         </div>
       </div>
     </Carousel>

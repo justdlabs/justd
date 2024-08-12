@@ -4,10 +4,6 @@ import {
   Card,
   CardTitle,
   Carousel,
-  CarouselButton,
-  CarouselContent,
-  CarouselHandler,
-  CarouselItem
 } from 'ui'
 
 export default function CarouselOptionsDemo() {
@@ -19,20 +15,20 @@ export default function CarouselOptionsDemo() {
       }}
       className="w-full max-w-2xl"
     >
-      <CarouselContent items={Array.from({ length: 16 }, (_, id) => ({ id: id + 1 }))}>
+      <Carousel.Content items={Array.from({ length: 16 }, (_, id) => ({ id: id + 1 }))}>
         {({ id }) => (
-          <CarouselItem id={id} className="basis-1/2 lg:basis-1/3">
+          <Carousel.Item id={id} className="basis-1/2 lg:basis-1/3">
             <Card className="flex aspect-square items-center justify-center">
               <CardTitle>{id}</CardTitle>
             </Card>
-          </CarouselItem>
+          </Carousel.Item>
         )}
-      </CarouselContent>
+      </Carousel.Content>
 
-      <CarouselHandler>
-        <CarouselButton slot="previous" />
-        <CarouselButton slot="next" />
-      </CarouselHandler>
+      <Carousel.Handler>
+        <Carousel.Button slot="previous" />
+        <Carousel.Button slot="next" />
+      </Carousel.Handler>
     </Carousel>
   )
 }

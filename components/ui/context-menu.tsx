@@ -16,7 +16,7 @@ import {
 } from './menu'
 import { focusButtonStyles } from './primitive'
 
-type ContextMenuTriggerContextType = {
+interface ContextMenuTriggerContextType {
   buttonRef: React.RefObject<HTMLButtonElement>
   contextMenuOffset: { offset: number; crossOffset: number } | null
   setContextMenuOffset: React.Dispatch<
@@ -36,7 +36,19 @@ const useContextMenuTrigger = () => {
   return context
 }
 
-const ContextMenu: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+interface ContextMenuRootComponent {
+  Trigger?: typeof ContextMenuTrigger
+  Content?: typeof ContextMenuContent
+  Item?: typeof MenuItem
+  Separator?: typeof MenuSeparator
+  ItemDetails?: typeof MenuItemDetails
+  Section?: typeof MenuSection
+  Header?: typeof MenuHeader
+  Keyboard?: typeof MenuKeyboard
+  children: React.ReactNode
+}
+
+const ContextMenuRoot = ({ children }: ContextMenuRootComponent) => {
   const [contextMenuOffset, setContextMenuOffset] = useState<{
     offset: number
     crossOffset: number
@@ -110,21 +122,15 @@ const ContextMenuContent = <T extends object>(props: ContextMenuContentProps<T>)
   ) : null
 }
 
-const ContextMenuItem = MenuItem
-const ContextMenuSeparator = MenuSeparator
-const ContextMenuItemDetails = MenuItemDetails
-const ContextMenuSection = MenuSection
-const ContextMenuHeader = MenuHeader
-const ContextMenuKeyboard = MenuKeyboard
+ContextMenuRoot.Trigger = ContextMenuTrigger
+ContextMenuRoot.Content = ContextMenuContent
+ContextMenuRoot.Item = MenuItem
+ContextMenuRoot.Separator = MenuSeparator
+ContextMenuRoot.ItemDetails = MenuItemDetails
+ContextMenuRoot.Section = MenuSection
+ContextMenuRoot.Header = MenuHeader
+ContextMenuRoot.Keyboard = MenuKeyboard
 
-export {
-  ContextMenu,
-  ContextMenuContent,
-  ContextMenuTrigger,
-  ContextMenuItem,
-  ContextMenuSeparator,
-  ContextMenuItemDetails,
-  ContextMenuSection,
-  ContextMenuHeader,
-  ContextMenuKeyboard
-}
+const ContextMenu = ContextMenuRoot
+
+export { ContextMenu }

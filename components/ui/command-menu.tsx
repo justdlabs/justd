@@ -91,7 +91,18 @@ interface CommandMenuContextProps {
 
 const CommandMenuContext = React.createContext<CommandMenuContextProps>({})
 
-interface CommandMenuProps extends ModalOverlayProps, CommandMenuContextProps {
+interface CommandMenuRootProps {
+
+  CommandMenuEmpty?: typeof CommandMenuEmpty
+  CommandMenuInput?: typeof CommandMenuInput
+  CommandMenuItem?: typeof CommandMenuItem
+  CommandMenuKeyboard?: typeof CommandMenuKeyboard
+  CommandMenuList?: typeof CommandMenuList
+  CommandMenuSection?: typeof CommandMenuSection
+  CommandMenuSeparator?: typeof CommandMenuSeparator
+  CommandMenuDescription?: typeof CommandMenuDescription
+}
+interface CommandMenuProps extends ModalOverlayProps, CommandMenuRootProps, CommandMenuContextProps {
   children: React.ReactNode
   value?: string
   messageOnEmpty?: boolean | string
@@ -249,14 +260,13 @@ const CommandMenuKeyboard = (props: KeyboardProps) => (
   <Keyboard classNames={{ kbd: kbdKeyboard(), base: '-mr-2.5' }} {...props} />
 )
 
-export {
-  CommandMenuEmpty,
-  CommandMenuInput,
-  CommandMenuItem,
-  CommandMenuKeyboard,
-  CommandMenuList,
-  CommandMenu,
-  CommandMenuSection,
-  CommandMenuSeparator,
-  CommandMenuDescription
-}
+CommandMenu.Empty = CommandMenuEmpty
+CommandMenu.Input = CommandMenuInput
+CommandMenu.Item = CommandMenuItem
+CommandMenu.Keyboard = CommandMenuKeyboard
+CommandMenu.List = CommandMenuList
+CommandMenu.Section = CommandMenuSection
+CommandMenu.Separator = CommandMenuSeparator
+CommandMenu.Description = CommandMenuDescription
+
+export { CommandMenu }

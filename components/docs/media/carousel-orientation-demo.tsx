@@ -8,32 +8,28 @@ import {
   CardHeader,
   CardTitle,
   Carousel,
-  CarouselButton,
-  CarouselContent,
-  CarouselHandler,
-  CarouselItem
 } from 'ui'
 
 export default function CarouselOrientationDemo() {
   return (
     <Carousel orientation="vertical" className="w-full relative max-w-xs">
-      <CarouselContent items={items} className="h-64 py-4 snap-y">
+      <Carousel.Content items={items} className="h-64 py-4 snap-y">
         {(item) => (
-          <CarouselItem className="pt-1 basis-1/2 md:basis-1/3 snap-center">
+          <Carousel.Item className="pt-1 basis-1/2 md:basis-1/3 snap-center">
             <Card>
               <CardHeader>
                 <CardTitle>{item.title}</CardTitle>
                 <CardDescription>{item.description}</CardDescription>
               </CardHeader>
             </Card>
-          </CarouselItem>
+          </Carousel.Item>
         )}
-      </CarouselContent>
+      </Carousel.Content>
 
-      <CarouselHandler>
-        <CarouselButton slot="previous" />
-        <CarouselButton slot="next" />
-      </CarouselHandler>
+      <Carousel.Handler>
+        <Carousel.Button slot="previous" />
+        <Carousel.Button slot="next" />
+      </Carousel.Handler>
     </Carousel>
   )
 }

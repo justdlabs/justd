@@ -1,22 +1,16 @@
-import {
-  ContextMenu,
-  ContextMenuContent,
-  ContextMenuItem,
-  ContextMenuItemDetails,
-  ContextMenuTrigger
-} from 'ui'
+import { ContextMenu } from 'ui'
 
 export default function ContextMenuItemDetailsDemo() {
   return (
     <ContextMenu>
-      <ContextMenuTrigger>Right click me</ContextMenuTrigger>
-      <ContextMenuContent items={roles}>
+      <ContextMenu.Trigger>Right click me</ContextMenu.Trigger>
+      <ContextMenu.Content items={roles}>
         {(item) => (
-          <ContextMenuItem id={item.id} textValue={item.name}>
-            <ContextMenuItemDetails label={item.name} description={item.description} />
-          </ContextMenuItem>
+          <ContextMenu.Item id={item.id} textValue={item.name}>
+            <ContextMenu.ItemDetails label={item.name} description={item.description} />
+          </ContextMenu.Item>
         )}
-      </ContextMenuContent>
+      </ContextMenu.Content>
     </ContextMenu>
   )
 }

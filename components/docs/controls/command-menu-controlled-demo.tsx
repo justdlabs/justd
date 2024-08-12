@@ -6,10 +6,6 @@ import {
   Avatar,
   Button,
   CommandMenu,
-  CommandMenuDescription,
-  CommandMenuInput,
-  CommandMenuItem,
-  CommandMenuList
 } from 'ui'
 
 export default function CommandMenuControlledDemo() {
@@ -21,18 +17,18 @@ export default function CommandMenuControlledDemo() {
         Open
       </Button>
       <CommandMenu onValueChange={setValue} value={value} isOpen={isOpen} onOpenChange={setIsOpen}>
-        <CommandMenuInput defaultValue={value} placeholder="Quick search..." />
-        <CommandMenuList>
+        <CommandMenu.Input defaultValue={value} placeholder="Quick search..." />
+        <CommandMenu.List>
           {users.map((user) => (
-            <CommandMenuItem key={user.id} value={user.name}>
+            <CommandMenu.Item key={user.id} value={user.name}>
               <Avatar src={user.image_url} />
               {user.name}{' '}
               {user.name === value && (
-                <CommandMenuDescription>Selected: {value}</CommandMenuDescription>
+                <CommandMenu.Description>Selected: {value}</CommandMenu.Description>
               )}
-            </CommandMenuItem>
+            </CommandMenu.Item>
           ))}
-        </CommandMenuList>
+        </CommandMenu.List>
       </CommandMenu>
     </>
   )

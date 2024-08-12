@@ -5,10 +5,6 @@ import React from 'react'
 import {
   Button,
   CommandMenu,
-  CommandMenuInput,
-  CommandMenuItem,
-  CommandMenuKeyboard,
-  CommandMenuList
 } from 'ui'
 
 export default function CommandMenuKeyboardDemo() {
@@ -19,38 +15,38 @@ export default function CommandMenuKeyboardDemo() {
         Open
       </Button>
       <CommandMenu isOpen={isOpen} onOpenChange={setIsOpen}>
-        <CommandMenuInput placeholder="Quick search..." />
-        <CommandMenuList>
-          <CommandMenuItem>
+        <CommandMenu.Input placeholder="Quick search..." />
+        <CommandMenu.List>
+          <CommandMenu.Item>
             Account Settings
-            <CommandMenuKeyboard keys="⌘A" />
-          </CommandMenuItem>
+            <CommandMenu.Keyboard keys="⌘A" />
+          </CommandMenu.Item>
 
-          <CommandMenuItem>
+          <CommandMenu.Item>
             Profile
-            <CommandMenuKeyboard keys="⌘P" />
-          </CommandMenuItem>
+            <CommandMenu.Keyboard keys="⌘P" />
+          </CommandMenu.Item>
 
-          <CommandMenuItem>
+          <CommandMenu.Item>
             Notifications
-            <CommandMenuKeyboard keys="⌘N" />
-          </CommandMenuItem>
+            <CommandMenu.Keyboard keys="⌘N" />
+          </CommandMenu.Item>
 
-          <CommandMenuItem>
+          <CommandMenu.Item>
             Privacy Settings
-            <CommandMenuKeyboard keys="⌘S" />
-          </CommandMenuItem>
+            <CommandMenu.Keyboard keys="⌘S" />
+          </CommandMenu.Item>
 
-          <CommandMenuItem>
+          <CommandMenu.Item>
             Billing Information
-            <CommandMenuKeyboard keys="⌘B" />
-          </CommandMenuItem>
+            <CommandMenu.Keyboard keys="⌘B" />
+          </CommandMenu.Item>
 
-          <CommandMenuItem>
+          <CommandMenu.Item>
             Logout
-            <CommandMenuKeyboard keys="⌘L" />
-          </CommandMenuItem>
-        </CommandMenuList>
+            <CommandMenu.Keyboard keys="⌘L" />
+          </CommandMenu.Item>
+        </CommandMenu.List>
       </CommandMenu>
     </>
   )

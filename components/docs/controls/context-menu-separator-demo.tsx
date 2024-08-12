@@ -2,24 +2,18 @@
 
 import React from 'react'
 
-import {
-  ContextMenu,
-  ContextMenuContent,
-  ContextMenuItem,
-  ContextMenuSeparator,
-  ContextMenuTrigger
-} from 'ui'
+import { ContextMenu } from 'ui'
 
 export default function ContextMenuSeparatorDemo() {
   return (
     <ContextMenu>
-      <ContextMenuTrigger>Right click me</ContextMenuTrigger>
-      <ContextMenuContent>
-        <ContextMenuItem id="view">View</ContextMenuItem>
-        <ContextMenuItem id="edit">Edit</ContextMenuItem>
-        <ContextMenuSeparator />
-        <ContextMenuItem id="gsu">Generate Short URL</ContextMenuItem>
-      </ContextMenuContent>
+      <ContextMenu.Trigger>Right click me</ContextMenu.Trigger>
+      <ContextMenu.Content>
+        <ContextMenu.Item id="view">View</ContextMenu.Item>
+        <ContextMenu.Item id="edit">Edit</ContextMenu.Item>
+        <ContextMenu.Separator />
+        <ContextMenu.Item id="gsu">Generate Short URL</ContextMenu.Item>
+      </ContextMenu.Content>
     </ContextMenu>
   )
 }

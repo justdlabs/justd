@@ -33,12 +33,6 @@ import {
   buttonStyles,
   cn,
   ContextMenu,
-  ContextMenuContent,
-  ContextMenuHeader,
-  ContextMenuItem,
-  ContextMenuSection,
-  ContextMenuSeparator,
-  ContextMenuTrigger,
   Link,
   Menu,
   MenuContent,
@@ -331,7 +325,7 @@ export function NavbarDropdown() {
 export function NavbarContextMenu() {
   return (
     <ContextMenu>
-      <ContextMenuTrigger
+      <ContextMenu.Trigger
         aria-label="Context Menu"
         className={buttonStyles({ appearance: 'plain' })}
       >
@@ -339,50 +333,50 @@ export function NavbarContextMenu() {
           <IconBrandD className="-ml-1 size-6" />
           <span className="font-mono text-base tracking-tight sm:text-sm">{siteConfig.name}</span>
         </span>
-      </ContextMenuTrigger>
-      <ContextMenuContent className="sm:min-w-64">
-        <ContextMenuItem href="/">
+      </ContextMenu.Trigger>
+      <ContextMenu.Content className="sm:min-w-64">
+        <ContextMenu.Item href="/">
           <IconHome />
           Home
-        </ContextMenuItem>
-        <ContextMenuItem href="/components">
+        </ContextMenu.Item>
+        <ContextMenu.Item href="/components">
           <IconCube />
           Components
-        </ContextMenuItem>
-        <ContextMenuItem href="/colors">
+        </ContextMenu.Item>
+        <ContextMenu.Item href="/colors">
           <IconColors />
           Colors
-        </ContextMenuItem>
-        <ContextMenuSeparator />
-        <ContextMenuSection>
-          <ContextMenuItem href="https://x.com/intent/follow?screen_name=getjustd" target="_blank">
+        </ContextMenu.Item>
+        <ContextMenu.Separator />
+        <ContextMenu.Section>
+          <ContextMenu.Item href="https://x.com/intent/follow?screen_name=getjustd" target="_blank">
             <IconBrandX />X / Twitter
-          </ContextMenuItem>
-          <ContextMenuItem href="https://github.com/justdlabs" target="_blank">
+          </ContextMenu.Item>
+          <ContextMenu.Item href="https://github.com/justdlabs" target="_blank">
             <IconBrandGithub />
             Github
-          </ContextMenuItem>
-        </ContextMenuSection>
-        <ContextMenuSeparator />
-        <ContextMenuSection>
-          <ContextMenuHeader separator>Refs</ContextMenuHeader>
-          <ContextMenuItem href="/icons">
+          </ContextMenu.Item>
+        </ContextMenu.Section>
+        <ContextMenu.Separator />
+        <ContextMenu.Section>
+          <ContextMenu.Header separator>Refs</ContextMenu.Header>
+          <ContextMenu.Item href="/icons">
             <IconBrandJustd />
             Icons
-          </ContextMenuItem>
-          <ContextMenuItem
+          </ContextMenu.Item>
+          <ContextMenu.Item
             href="https://react-spectrum.adobe.com/react-aria/components.html"
             target="_blank"
           >
             <IconBrandAdobe />
             RAC
-          </ContextMenuItem>
-          <ContextMenuItem href="https://tailwindcss.com" target="_blank">
+          </ContextMenu.Item>
+          <ContextMenu.Item href="https://tailwindcss.com" target="_blank">
             <IconBrandTailwindcss />
             Tailwind CSS
-          </ContextMenuItem>
-        </ContextMenuSection>
-      </ContextMenuContent>
+          </ContextMenu.Item>
+        </ContextMenu.Section>
+      </ContextMenu.Content>
     </ContextMenu>
   )
 }

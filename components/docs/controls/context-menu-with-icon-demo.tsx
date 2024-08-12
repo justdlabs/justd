@@ -5,39 +5,35 @@ import React from 'react'
 import { IconDuplicate, IconFolder, IconHighlight, IconTrash, IconUpload } from 'justd-icons'
 import {
   ContextMenu,
-  ContextMenuContent,
-  ContextMenuItem,
-  ContextMenuSeparator,
-  ContextMenuTrigger
 } from 'ui'
 
 export default function ContextMenuWithIconDemo() {
   return (
     <ContextMenu>
-      <ContextMenuTrigger>Right click me</ContextMenuTrigger>
-      <ContextMenuContent>
-        <ContextMenuItem>
+      <ContextMenu.Trigger>Right click me</ContextMenu.Trigger>
+      <ContextMenu.Content>
+        <ContextMenu.Item>
           <IconFolder />
           Open
-        </ContextMenuItem>
-        <ContextMenuItem>
+        </ContextMenu.Item>
+        <ContextMenu.Item>
           <IconHighlight />
           Rename
-        </ContextMenuItem>
-        <ContextMenuItem>
+        </ContextMenu.Item>
+        <ContextMenu.Item>
           <IconDuplicate />
           Duplicate
-        </ContextMenuItem>
-        <ContextMenuItem>
+        </ContextMenu.Item>
+        <ContextMenu.Item>
           <IconUpload />
           Share
-        </ContextMenuItem>
-        <ContextMenuSeparator />
-        <ContextMenuItem isDanger>
+        </ContextMenu.Item>
+        <ContextMenu.Separator />
+        <ContextMenu.Item isDanger>
           <IconTrash />
           Delete
-        </ContextMenuItem>
-      </ContextMenuContent>
+        </ContextMenu.Item>
+      </ContextMenu.Content>
     </ContextMenu>
   )
 }

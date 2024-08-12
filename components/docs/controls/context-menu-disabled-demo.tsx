@@ -2,19 +2,19 @@
 
 import React from 'react'
 
-import { ContextMenu, ContextMenuContent, ContextMenuItem, ContextMenuTrigger } from 'ui'
+import { ContextMenu } from 'ui'
 
 export default function ContextMenuDisabledDemo() {
   return (
     <ContextMenu>
-      <ContextMenuTrigger>Right click me</ContextMenuTrigger>
-      <ContextMenuContent>
-        <ContextMenuItem id="view">View</ContextMenuItem>
-        <ContextMenuItem id="edit">Edit</ContextMenuItem>
-        <ContextMenuItem id="gsu" isDisabled>
+      <ContextMenu.Trigger>Right click me</ContextMenu.Trigger>
+      <ContextMenu.Content>
+        <ContextMenu.Item id="view">View</ContextMenu.Item>
+        <ContextMenu.Item id="edit">Edit</ContextMenu.Item>
+        <ContextMenu.Item id="gsu" isDisabled>
           Generate Short URL
-        </ContextMenuItem>
-      </ContextMenuContent>
+        </ContextMenu.Item>
+      </ContextMenu.Content>
     </ContextMenu>
   )
 }
