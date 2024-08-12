@@ -2,41 +2,32 @@
 
 import React from 'react'
 
-import {
-  Button,
-  SheetBody,
-  SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
-  Textarea
-} from 'ui'
+import { Button, Sheet, Textarea } from 'ui'
 
 export default function SheetControlledDemo() {
   const [isOpen, setIsOpen] = React.useState(false)
   return (
     <>
       <Button onPress={() => setIsOpen(true)}>Feedback</Button>
-      <SheetContent isOpen={isOpen} onOpenChange={setIsOpen}>
-        <SheetHeader>
-          <SheetTitle>Submit Feedback</SheetTitle>
-          <SheetDescription>
+      <Sheet.Content isOpen={isOpen} onOpenChange={setIsOpen}>
+        <Sheet.Header>
+          <Sheet.Title>Submit Feedback</Sheet.Title>
+          <Sheet.Description>
             Please let us know your thoughts and how we can improve our service.
-          </SheetDescription>
-        </SheetHeader>
-        <SheetBody>
+          </Sheet.Description>
+        </Sheet.Header>
+        <Sheet.Body>
           <Textarea label="Your Feedback" placeholder="Type your feedback here..." />
-        </SheetBody>
-        <SheetFooter>
+        </Sheet.Body>
+        <Sheet.Footer>
           <Button appearance="outline" onPress={() => setIsOpen(false)}>
             Close
           </Button>
           <Button intent="primary" onPress={() => setIsOpen(false)}>
             Submit Feedback
           </Button>
-        </SheetFooter>
-      </SheetContent>
+        </Sheet.Footer>
+      </Sheet.Content>
     </>
   )
 }

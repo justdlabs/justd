@@ -57,4 +57,10 @@ const CardFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement
   return <div className={footer({ className })} {...props} />
 }
 
-export { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
+Card.Content = CardContent
+Card.Description = CardDescription
+Card.Footer = CardFooter
+Card.Header = CardHeader
+Card.Title = CardTitle
+
+export { Card }

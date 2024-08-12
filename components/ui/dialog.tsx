@@ -5,7 +5,7 @@ import * as React from 'react'
 import { IconX } from 'justd-icons'
 import {
   Dialog as DialogPrimitive,
-  type DialogProps,
+  type DialogProps as DialogPrimitiveProps,
   OverlayTriggerStateContext
 } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
@@ -37,7 +37,7 @@ const dialogStyles = tv({
 
 const { root, header, title, description, body, footer, closeIndicator } = dialogStyles()
 
-const Dialog = ({ role, className, ...props }: DialogProps) => {
+const Dialog = ({ role, className, ...props }: DialogPrimitiveProps) => {
   return <DialogPrimitive {...props} role={role ?? 'dialog'} className={root({ className })} />
 }
 
@@ -169,16 +169,12 @@ const DialogCloseIndicator = ({ className, ...props }: CloseButtonIndicatorProps
   ) : null
 }
 
-export {
-  Dialog,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-  DialogBody,
-  DialogFooter,
-  DialogClose,
-  DialogCloseIndicator,
-  type DialogTitleProps,
-  type DialogProps,
-  type DialogHeaderProps
-}
+Dialog.Header = DialogHeader
+Dialog.Title = DialogTitle
+Dialog.Description = DialogDescription
+Dialog.Body = DialogBody
+Dialog.Footer = DialogFooter
+Dialog.Close = DialogClose
+Dialog.CloseIndicator = DialogCloseIndicator
+
+export { Dialog }

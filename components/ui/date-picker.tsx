@@ -17,7 +17,7 @@ import { Button } from './button'
 import { Calendar, RangeCalendar } from './calendar'
 import { DateInput } from './date-field'
 import { Description, FieldError, FieldGroup, Label } from './field'
-import { PopoverClose, PopoverContent } from './popover'
+import { Popover } from './popover'
 import { ctr } from './primitive'
 
 const datePickerStyles = tv({
@@ -47,7 +47,7 @@ interface DatePickerOverlayProps
 
 const DatePickerOverlay = ({ closeButton = true, range, ...props }: DatePickerOverlayProps) => {
   return (
-    <PopoverContent
+    <Popover.Content
       showArrow={false}
       className="flex justify-center min-w-[--trigger-width]"
       {...props}
@@ -55,12 +55,12 @@ const DatePickerOverlay = ({ closeButton = true, range, ...props }: DatePickerOv
       {range ? <RangeCalendar /> : <Calendar />}
       {closeButton && (
         <div className="sm:hidden py-2.5 mx-auto w-full max-w-[inherit]">
-          <PopoverClose shape="circle" className="w-full">
+          <Popover.Close shape="circle" className="w-full">
             Close
-          </PopoverClose>
+          </Popover.Close>
         </div>
       )}
-    </PopoverContent>
+    </Popover.Content>
   )
 }
 

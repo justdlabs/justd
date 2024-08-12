@@ -14,94 +14,83 @@ import {
   IconPlus,
   IconSettings
 } from 'justd-icons'
-import {
-  Avatar,
-  Menu,
-  MenuContent,
-  MenuHeader,
-  MenuItem,
-  MenuKeyboard,
-  MenuSection,
-  MenuSeparator,
-  MenuTrigger,
-  SubMenu
-} from 'ui'
+import { Avatar, Menu } from 'ui'
 
 export function Menus() {
   return (
     <CardBlock>
       <Menu>
-        <MenuTrigger aria-label="Open Menu">
+        <Menu.Trigger aria-label="Open Menu">
           <Avatar shape="square" size="medium" src="https://github.com/irsyadadl.png" />
-        </MenuTrigger>
-        <MenuContent showArrow placement="bottom" className="min-w-64">
-          <MenuSection>
-            <MenuHeader separator>
+        </Menu.Trigger>
+        <Menu.Content showArrow placement="bottom" className="min-w-64">
+          <Menu.Section>
+            <Menu.Header separator>
               <span className="block">Irsyad A. Panjaitan</span>
               <span className="font-normal text-muted-fg">@irsyadadl</span>
-            </MenuHeader>
-          </MenuSection>
-          <MenuItem>
+            </Menu.Header>
+          </Menu.Section>
+          <Menu.Item>
             <IconSettings />
             Settings
-          </MenuItem>
-          <MenuItem href="#">
+          </Menu.Item>
+          <Menu.Item href="#">
             <IconPlus />
             Create Team
-          </MenuItem>
-          <MenuItem href="#">
+          </Menu.Item>
+          <Menu.Item href="#">
             <IconHashtag />
             Command Menu
-            <MenuKeyboard keys="⌘K" />
-          </MenuItem>
-          <SubMenu>
-            <MenuItem>
+            <Menu.Keyboard keys="⌘K" />
+          </Menu.Item>
+          <Menu.Submenu>
+            <Menu.Item>
               <IconPersonAdd />
               <span>Invite users</span>
-            </MenuItem>
-            <MenuContent offset={8}>
-              <MenuItem>
+            </Menu.Item>
+            <Menu.Content offset={8}>
+              <Menu.Item>
                 <IconMail />
                 <span>Email</span>
-              </MenuItem>
-              <MenuItem>
+              </Menu.Item>
+              <Menu.Item>
                 <IconMessage />
                 <span>Message</span>
-              </MenuItem>
-              <MenuSeparator />
-              <SubMenu>
-                <MenuItem>
+              </Menu.Item>
+              <Menu.Separator />
+              <Menu.Submenu>
+                <Menu.Item>
                   <IconPersonAdd />
                   <span>Others</span>
-                </MenuItem>
-                <MenuContent offset={8}>
-                  <MenuItem>
+                </Menu.Item>
+                <Menu.Content offset={8}>
+                  <Menu.Item>
                     <IconBrandTelegram />
                     <span>Telegram</span>
-                  </MenuItem>
-                  <MenuItem>
+                  </Menu.Item>
+                  <Menu.Item>
                     <IconBrandBluesky />
                     <span>Bluesky</span>
-                  </MenuItem>
-                  <MenuItem>
+                  </Menu.Item>
+                  <Menu.Item>
                     <IconBrandTwitter />
                     <span>Twitter</span>
-                  </MenuItem>
-                </MenuContent>
-              </SubMenu>
-            </MenuContent>
-          </SubMenu>
-          <MenuSeparator />
-          <MenuItem href="#">
+                  </Menu.Item>
+                </Menu.Content>
+              </Menu.Submenu>
+            </Menu.Content>
+          </Menu.Submenu>
+          <Menu.Separator />
+          <Menu.Item href="#">
             <IconHeadphones />
             Contact Support
-          </MenuItem>
-          <MenuSeparator />
-          <MenuItem>
+          </Menu.Item>
+          <Menu.Separator />
+          <Menu.Item>
             <IconLogout />
             Log out
-          </MenuItem>
-        </MenuContent>
+          </Menu.Item>
+        </Menu.Content>
       </Menu>
     </CardBlock>
   )

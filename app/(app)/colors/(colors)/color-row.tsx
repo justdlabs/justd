@@ -12,7 +12,7 @@ import { IconBrandTailwindcss } from 'justd-icons'
 import { ListBox, Text, ToggleButton } from 'react-aria-components'
 import type { ColorItemProps, FormatOnlyForTailwindVariableType } from 'resources/types'
 import { toast } from 'sonner'
-import { buttonStyles, gridStyles, Heading, Select, SelectItem, Tooltip, TooltipContent } from 'ui'
+import { buttonStyles, gridStyles, Heading, Select, Tooltip, TooltipContent } from 'ui'
 
 import { ColorItem } from './color-item'
 
@@ -88,14 +88,15 @@ export function ColorRow({ showItem = false, swatchClassName, item }: ColorRowPr
               className="[&_.btr]:min-w-24 [&_.btr]:h-8 flex-1"
               aria-label="Select Format"
               placeholder="hex"
-              items={allFormats}
-              placement="bottom right"
             >
-              {(item) => (
-                <SelectItem textValue={item.format} id={item.format}>
-                  <Text slot="label">{item.format}</Text>
-                </SelectItem>
-              )}
+              <Select.Trigger />
+              <Select.List placement="bottom right" items={allFormats}>
+                {(item) => (
+                  <Select.Option textValue={item.format} id={item.format}>
+                    <Text slot="label">{item.format}</Text>
+                  </Select.Option>
+                )}
+              </Select.List>
             </Select>
           </>
         </div>

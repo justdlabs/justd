@@ -1,7 +1,7 @@
 'use client'
 
 import { type TooltipProps } from 'react-aria-components'
-import { Button, Popover, PopoverContent } from 'ui'
+import { Button, Popover } from 'ui'
 
 type Placement = Pick<TooltipProps, 'placement'>['placement']
 const placements: Placement[] = ['bottom', 'top', 'left', 'start', 'right', 'end']
@@ -13,9 +13,9 @@ export default function PopoverPlacementDemo() {
           <Button className="mx-auto" size="small" appearance="outline">
             {placement}
           </Button>
-          <PopoverContent placement={placement}>
+          <Popover.Content placement={placement}>
             Popover shown at <strong>{placement}</strong>.
-          </PopoverContent>
+          </Popover.Content>
         </Popover>
       ))}
     </div>

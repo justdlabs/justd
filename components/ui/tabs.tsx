@@ -139,5 +139,8 @@ const TabPanel = (props: TabPanelProps) => {
     />
   )
 }
+Tabs.List = TabList
+Tabs.Tab = Tab
+Tabs.Panel = TabPanel
 
-export { Tab, TabList, TabPanel, Tabs }
+export { Tabs }

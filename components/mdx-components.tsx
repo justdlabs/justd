@@ -8,7 +8,7 @@ import type { InstallCommandProps } from '@/components/install-command'
 import { InstallCommand } from '@/components/install-command'
 import { useMDXComponent } from '@/resources/hooks/use-mdx'
 import Image from 'next/image'
-import { Card, Link, type LinkProps, Table, type TableColumnProps, type TableProps } from 'ui'
+import { Link, type LinkProps } from 'ui'
 
 import { DocHow } from './doc-how'
 
@@ -22,18 +22,8 @@ export function MDXContent({ code }: MdxProps) {
     <Component
       components={{
         InstallCommand: (props: InstallCommandProps) => <InstallCommand {...props} />,
-        table: (props: TableProps) => (
-          <Card className="not-prose">
-            <Table aria-label="Table" {...props} />
-          </Card>
-        ),
         Note: DocNote,
         Composed: DocComposed,
-        thead: <Table.Header/>,
-        tbody: <Table.Body/>,
-        th: (props: TableColumnProps) => <Table.Column isRowHeader {...props} />,
-        tr: () => <Table.Row/>,
-        td: <Table.Cell/>,
         Image,
         How: DocHow,
         a: (props: LinkProps) => (

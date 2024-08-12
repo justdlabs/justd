@@ -3,10 +3,14 @@
 import React from 'react'
 
 import { IconChevronLgDown, IconX } from 'justd-icons'
+import type { InputProps } from 'react-aria-components'
 import {
   ComboBox as ComboboxPrimitive,
+  ComboBoxContext,
   type ComboBoxProps as ComboboxPrimitiveProps,
   ComboBoxStateContext,
+  type PopoverProps as PopoverPrimitiveProps,
+  useSlottedContext,
   type ValidationResult
 } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
@@ -14,8 +18,8 @@ import { tv } from 'tailwind-variants'
 import { Button, ButtonPrimitive } from './button'
 import { DropdownItem, DropdownSection } from './dropdown'
 import { Description, FieldError, FieldGroup, Input, Label } from './field'
-import { ListBoxPicker } from './list-box'
-import { PopoverPicker } from './popover'
+import { ListBox } from './list-box'
+import { Popover } from './popover'
 import { ctr } from './primitive'
 
 const comboboxStyles = tv({
@@ -36,7 +40,7 @@ interface ComboBoxProps<T extends object> extends Omit<ComboboxPrimitiveProps<T>
   placeholder?: string
   description?: string | null
   errorMessage?: string | ((validation: ValidationResult) => string)
-  children: React.ReactNode | ((item: T) => React.ReactNode)
+  children: React.ReactNode
 }
 
 const ComboBox = <T extends object>({
@@ -44,27 +48,47 @@ const ComboBox = <T extends object>({
   description,
   errorMessage,
   children,
-  placeholder,
   className,
-  items,
   ...props
 }: ComboBoxProps<T>) => {
   return (
     <ComboboxPrimitive {...props} className={ctr(className, base())}>
       <Label>{label}</Label>
-      <FieldGroup className="pl-0 relative">
-        <Input className="pl-2.5" placeholder={placeholder} />
-        <Button size="square-petite" appearance="plain" className={chevronButton()}>
-          {!props?.inputValue && <IconChevronLgDown className={chevronIcon()} />}
-        </Button>
-        {props?.inputValue && <ComboBoxClearButton />}
-      </FieldGroup>
+      <>{children}</>
       {description && <Description>{description}</Description>}
       <FieldError>{errorMessage}</FieldError>
-      <PopoverPicker trigger="ComboBox" isNonModal>
-        <ListBoxPicker items={items}>{children}</ListBoxPicker>
-      </PopoverPicker>
     </ComboboxPrimitive>
+  )
+}
+
+interface ListBoxPickerProps<T extends object> extends React.ComponentProps<typeof ListBox<T>> {}
+
+interface ComboBoxListProps<T extends object>
+  extends ListBoxPickerProps<T>,
+    Omit<PopoverPrimitiveProps, 'children' | 'className' | 'style'> {}
+
+const ComboBoxList = <T extends object>({ children, items, ...props }: ComboBoxListProps<T>) => {
+  return (
+    <Popover.Picker trigger="ComboBox" isNonModal placement={props.placement}>
+      <ListBox.Picker items={items} {...props}>
+        {children}
+      </ListBox.Picker>
+    </Popover.Picker>
+  )
+}
+
+interface ComboBoxInputProps extends InputProps {}
+
+const ComboBoxInput = (props: ComboBoxInputProps) => {
+  const context = useSlottedContext(ComboBoxContext)!
+  return (
+    <FieldGroup className="pl-0 relative">
+      <Input {...props} className="pl-2.5" placeholder={props?.placeholder} />
+      <Button size="square-petite" appearance="plain" className={chevronButton()}>
+        {!context?.inputValue && <IconChevronLgDown className={chevronIcon()} />}
+      </Button>
+      {context?.inputValue && <ComboBoxClearButton />}
+    </FieldGroup>
   )
 }
 
@@ -86,7 +110,9 @@ const ComboBoxClearButton = () => {
   )
 }
 
-const ComboBoxItem = DropdownItem
-const ComboBoxSection = DropdownSection
+ComboBox.Input = ComboBoxInput
+ComboBox.List = ComboBoxList
+ComboBox.Option = DropdownItem
+ComboBox.Section = DropdownSection
 
-export { ComboBox, ComboBoxItem, ComboBoxSection, type ComboBoxProps }
+export { ComboBox, type ComboBoxProps }

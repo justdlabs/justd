@@ -3,7 +3,7 @@
 import React from 'react'
 
 import { Collection } from 'react-aria-components'
-import { Tab, TabList, TabPanel, Tabs } from 'ui'
+import { Tabs } from 'ui'
 
 const tabs = [
   { id: 1, title: 'Overview', content: 'This is the overview tab content.' },
@@ -15,12 +15,12 @@ const tabs = [
 export default function TabsCollectionsDemo() {
   return (
     <Tabs aria-label="Project Management">
-      <TabList aria-label="Dynamic tabs" items={tabs}>
-        {(item) => <Tab>{item.title}</Tab>}
-      </TabList>
+      <Tabs.List aria-label="Dynamic tabs" items={tabs}>
+        {(item) => <Tabs.Tab>{item.title}</Tabs.Tab>}
+      </Tabs.List>
 
       <Collection items={tabs}>
-        {(item) => <TabPanel key={item.id}>{item.content}</TabPanel>}
+        {(item) => <Tabs.Panel key={item.id}>{item.content}</Tabs.Panel>}
       </Collection>
     </Tabs>
   )

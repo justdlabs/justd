@@ -3,7 +3,7 @@
 import React from 'react'
 
 import { OptionPreview } from '@/components/docs/outside/option-preview'
-import { Select, SelectItem, Switch } from 'ui'
+import { Select, Switch } from 'ui'
 
 const items = ['primary', 'secondary', 'success', 'danger', 'warning', 'info'].map((item) => ({
   value: item,
@@ -15,12 +15,15 @@ export default function SwitchVariantDemo() {
   return (
     <>
       <OptionPreview>
-        <Select items={items} selectedKey={intent} onSelectionChange={(v) => setIntent(v as any)}>
-          {(item) => (
-            <SelectItem id={item.value} textValue={item.value}>
-              {item.label}
-            </SelectItem>
-          )}
+        <Select selectedKey={intent} onSelectionChange={(v) => setIntent(v as any)}>
+          <Select.Trigger />
+          <Select.List items={items}>
+            {(item) => (
+              <Select.Option id={item.value} textValue={item.value}>
+                {item.label}
+              </Select.Option>
+            )}
+          </Select.List>
         </Select>
       </OptionPreview>
       <Switch defaultSelected intent={intent as any}>

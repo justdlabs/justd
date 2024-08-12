@@ -1,4 +1,4 @@
-import { Grid, GridItem } from 'ui'
+import { Grid } from 'ui'
 
 export default function GridGapDemo() {
   return (
@@ -13,24 +13,24 @@ export default function GridGapDemo() {
         sm: 4
       }}
     >
-      <GridItem>
+      <Grid.Item>
         <div className="p-4 border h-24" />
-      </GridItem>
-      <GridItem>
+      </Grid.Item>
+      <Grid.Item>
         <div className="p-4 border h-24" />
-      </GridItem>
-      <GridItem>
+      </Grid.Item>
+      <Grid.Item>
         <div className="p-4 border h-24" />
-      </GridItem>
-      <GridItem>
+      </Grid.Item>
+      <Grid.Item>
         <div className="p-4 border h-24" />
-      </GridItem>
-      <GridItem>
+      </Grid.Item>
+      <Grid.Item>
         <div className="p-4 border h-24" />
-      </GridItem>
-      <GridItem>
+      </Grid.Item>
+      <Grid.Item>
         <div className="p-4 border h-24" />
-      </GridItem>
+      </Grid.Item>
     </Grid>
   )
 }

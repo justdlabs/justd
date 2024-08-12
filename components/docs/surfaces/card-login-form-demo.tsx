@@ -1,29 +1,17 @@
 'use client'
 
-import {
-  Button,
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-  Checkbox,
-  Form,
-  Link,
-  TextField
-} from 'ui'
+import { Button, Card, Checkbox, Form, Link, TextField } from 'ui'
 
 export default function CardLoginFormDemo() {
   return (
     <div className="py-3">
       <Card>
-        <CardHeader>
-          <CardTitle>Login</CardTitle>
-          <CardDescription>Don't loose the level, just keep on going.</CardDescription>
-        </CardHeader>
+        <Card.Header>
+          <Card.Title>Login</Card.Title>
+          <Card.Description>Don't loose the level, just keep on going.</Card.Description>
+        </Card.Header>
         <Form onSubmit={() => {}}>
-          <CardContent className="space-y-6">
+          <Card.Content className="space-y-6">
             <TextField isRequired label="Email" placeholder="Enter your email" />
             <TextField
               isRequired
@@ -37,10 +25,10 @@ export default function CardLoginFormDemo() {
                 Forgot password?
               </Link>
             </div>
-          </CardContent>
-          <CardFooter>
+          </Card.Content>
+          <Card.Footer>
             <Button type="submit">Login</Button>
-          </CardFooter>
+          </Card.Footer>
         </Form>
       </Card>
     </div>

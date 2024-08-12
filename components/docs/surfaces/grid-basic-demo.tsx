@@ -1,29 +1,29 @@
 'use client'
 
-import { Grid, GridItem } from 'ui'
+import { Grid } from 'ui'
 
 export default function GridBasicDemo() {
   return (
     <div>
       <Grid columns={6}>
-        <GridItem>
+        <Grid.Item>
           <div className="p-4 border-l border-y h-32" />
-        </GridItem>
-        <GridItem>
+        </Grid.Item>
+        <Grid.Item>
           <div className="p-4 border-l border-y h-32" />
-        </GridItem>
-        <GridItem>
+        </Grid.Item>
+        <Grid.Item>
           <div className="p-4 border-l border-y h-32" />
-        </GridItem>
-        <GridItem>
+        </Grid.Item>
+        <Grid.Item>
           <div className="p-4 border-l border-y h-32" />
-        </GridItem>
-        <GridItem>
+        </Grid.Item>
+        <Grid.Item>
           <div className="p-4 border-l border-y h-32" />
-        </GridItem>
-        <GridItem>
+        </Grid.Item>
+        <Grid.Item>
           <div className="p-4 border-l border-y h-32 border-r" />
-        </GridItem>
+        </Grid.Item>
       </Grid>
     </div>
   )

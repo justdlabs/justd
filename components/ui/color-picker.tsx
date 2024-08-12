@@ -24,8 +24,8 @@ import {
 } from './color'
 import { ColorField } from './color-field'
 import { Description, Label } from './field'
-import { Popover, PopoverClose, PopoverContent } from './popover'
-import { Select, SelectItem } from './select'
+import { Popover } from './popover'
+import { Select } from './select'
 
 const colorPickerStyles = tv({
   slots: {
@@ -97,7 +97,7 @@ const ColorPicker = ({
                 {value ? <span>{value.toString(space)}</span> : <span>{placeholder}</span>}
               </Button>
             ) : null}
-            <PopoverContent
+            <Popover.Content
               showArrow={false}
               className="p-2 overflow-y-auto [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin] min-w-[--trigger-width] sm:max-w-[17.8rem]"
               {...props}
@@ -130,11 +130,14 @@ const ColorPicker = ({
                       setIsHexFormat(s === 'hex')
                     }}
                   >
-                    {['rgb', 'hex', 'hsl', 'hsb'].map((s) => (
-                      <SelectItem key={s} id={s} textValue={s}>
-                        {s}
-                      </SelectItem>
-                    ))}
+                    <Select.Trigger />
+                    <Select.List>
+                      {['rgb', 'hex', 'hsl', 'hsb'].map((s) => (
+                        <Select.Option key={s} id={s} textValue={s}>
+                          {s}
+                        </Select.Option>
+                      ))}
+                    </Select.List>
                   </Select>
                 )}
 
@@ -171,13 +174,13 @@ const ColorPicker = ({
 
                 {closeButton && (
                   <div className="sm:hidden py-2.5 mx-auto w-full max-w-[inherit]">
-                    <PopoverClose shape="circle" className="w-full">
+                    <Popover.Close shape="circle" className="w-full">
                       Close
-                    </PopoverClose>
+                    </Popover.Close>
                   </div>
                 )}
               </div>
-            </PopoverContent>
+            </Popover.Content>
           </Popover>
         </ColorPickerPrimitive>
       </Group>

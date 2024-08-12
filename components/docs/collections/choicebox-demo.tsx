@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-import { Choicebox, ChoiceboxItem } from 'ui'
+import { Choicebox } from 'ui'
 
 const packages = [
   {
@@ -30,15 +30,15 @@ const packages = [
 export default function ChoiceboxDemo() {
   return (
     <Choicebox aria-label="Select items" selectionMode="multiple">
-      <ChoiceboxItem title="Basic" description="Just the essentials to get started." />
-      <ChoiceboxItem title="Standard" description="A step up with more features and support." />
-      <ChoiceboxItem title="Premium" description="Advanced options for growing needs." />
-      <ChoiceboxItem title="Deluxe" description="Top-tier features for maximum performance." />
-      <ChoiceboxItem
+      <Choicebox.Item title="Basic" description="Just the essentials to get started." />
+      <Choicebox.Item title="Standard" description="A step up with more features and support." />
+      <Choicebox.Item title="Premium" description="Advanced options for growing needs." />
+      <Choicebox.Item title="Deluxe" description="Top-tier features for maximum performance." />
+      <Choicebox.Item
         title="Ultimate"
         description="All-inclusive plan with every feature available."
       />
-      <ChoiceboxItem
+      <Choicebox.Item
         title="Enterprise"
         description="Custom solutions for large-scale operations."
       />

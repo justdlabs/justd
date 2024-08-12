@@ -2,16 +2,7 @@
 
 import { docs } from '#site/content'
 import { usePathname } from 'next/navigation'
-import {
-  Card,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-  Grid,
-  GridCollection,
-  GridItem,
-  Link
-} from 'ui'
+import { Card, Grid, Link } from 'ui'
 
 const simplifiedDocs = docs.map(({ title, slug, description }) => ({ title, slug, description }))
 
@@ -54,9 +45,9 @@ export function DocComposed({
           sm: 2
         }}
       >
-        <GridCollection items={filteredComponents}>
+        <Grid.Collection items={filteredComponents}>
           {(item) => (
-            <GridItem className="relative" id={item.slug}>
+            <Grid.Item className="relative" id={item.slug}>
               <Link
                 aria-label={`Open ${item.title}`}
                 rel="noopener noreferrer"
@@ -64,16 +55,16 @@ export function DocComposed({
                 className="absolute inset-0 rounded-lg size-full"
               />
               <Card className="overflow-hidden hover:bg-secondary/40 focus:bg-secondary/40 transition-colors">
-                <CardHeader className="p-4">
-                  <CardTitle className="sm:text-lg text-base line-clamp-1 font-medium">
+                <Card.Header className="p-4">
+                  <Card.Title className="sm:text-lg text-base line-clamp-1 font-medium">
                     {item.title}
-                  </CardTitle>
-                  <CardDescription className="line-clamp-2">{item.description}</CardDescription>
-                </CardHeader>
+                  </Card.Title>
+                  <Card.Description className="line-clamp-2">{item.description}</Card.Description>
+                </Card.Header>
               </Card>
-            </GridItem>
+            </Grid.Item>
           )}
-        </GridCollection>
+        </Grid.Collection>
       </Grid>
     </div>
   )

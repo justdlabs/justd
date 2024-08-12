@@ -1,15 +1,18 @@
 'use client'
 
-import { ComboBox, ComboBoxItem } from 'ui'
+import { ComboBox } from 'ui'
 
 export default function ComboBoxDemo() {
   return (
-    <ComboBox placeholder="Select a user" label="Users" items={users}>
-      {(item) => (
-        <ComboBoxItem key={item.id} id={item.id} textValue={item.name}>
-          {item.name}
-        </ComboBoxItem>
-      )}
+    <ComboBox placeholder="Select a user" label="Users">
+      <ComboBox.Input />
+      <ComboBox.List items={users}>
+        {(item) => (
+          <ComboBox.Option id={item.id} textValue={item.name}>
+            {item.name}
+          </ComboBox.Option>
+        )}
+      </ComboBox.List>
     </ComboBox>
   )
 }

@@ -2,7 +2,7 @@
 
 import { NumberFormatter } from '@internationalized/number'
 import { IconDotsVertical } from 'justd-icons'
-import { Card, Menu, MenuContent, MenuItem, MenuSeparator, MenuTrigger, Table } from 'ui'
+import { Card, Menu, Table } from 'ui'
 
 export default function TableDemo() {
   const formatter = new NumberFormatter('en-US', { style: 'currency', currency: 'USD' })
@@ -30,15 +30,15 @@ export default function TableDemo() {
               <Table.Cell>
                 <div className="flex justify-end">
                   <Menu>
-                    <MenuTrigger>
+                    <Menu.Trigger>
                       <IconDotsVertical />
-                    </MenuTrigger>
-                    <MenuContent aria-label="Actions" showArrow placement="left">
-                      <MenuItem>View</MenuItem>
-                      <MenuItem>Edit</MenuItem>
-                      <MenuSeparator />
-                      <MenuItem isDanger>Delete</MenuItem>
-                    </MenuContent>
+                    </Menu.Trigger>
+                    <Menu.Content aria-label="Actions" showArrow placement="left">
+                      <Menu.Item>View</Menu.Item>
+                      <Menu.Item>Edit</Menu.Item>
+                      <Menu.Separator />
+                      <Menu.Item isDanger>Delete</Menu.Item>
+                    </Menu.Content>
                   </Menu>
                 </div>
               </Table.Cell>

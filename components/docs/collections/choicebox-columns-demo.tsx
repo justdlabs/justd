@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-import { Choicebox, ChoiceboxItem } from 'ui'
+import { Choicebox } from 'ui'
 
 export default function ChoiceboxColumnsDemo() {
   return (
@@ -13,7 +13,7 @@ export default function ChoiceboxColumnsDemo() {
       selectionMode="multiple"
       items={prices}
     >
-      {(item) => <ChoiceboxItem {...item} />}
+      {(item) => <Choicebox.Item {...item} />}
     </Choicebox>
   )
 }

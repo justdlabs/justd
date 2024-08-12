@@ -22,13 +22,7 @@ interface AccordionContextType extends React.HtmlHTMLAttributes<HTMLDivElement> 
 const AccordionContext = React.createContext<AccordionContextType>({})
 const useAccordion = () => React.useContext(AccordionContext)
 
-interface AccordionRootProps {
-  AccordionItem?: typeof AccordionItem
-  AccordionContent?: typeof AccordionContent
-  AccordionTrigger?: typeof AccordionTrigger
-}
-
-interface AccordionProps extends AccordionContextType, AccordionRootProps {
+interface AccordionProps extends AccordionContextType {
   children: React.ReactNode
 }
 

@@ -4,7 +4,7 @@ import * as React from 'react'
 
 import { Button } from 'react-aria-components'
 import { twJoin } from 'tailwind-merge'
-import { Card, CardContent, Carousel, type CarouselApi } from 'ui'
+import { Card, Carousel, type CarouselApi } from 'ui'
 
 export default function CarouselDApiDemo() {
   const [api, setApi] = React.useState<CarouselApi>()
@@ -36,9 +36,9 @@ export default function CarouselDApiDemo() {
         {({ id }) => (
           <Carousel.Item id={id}>
             <Card>
-              <CardContent className="flex aspect-square items-center justify-center p-6">
+              <Card.Content className="flex aspect-square items-center justify-center p-6">
                 <span className="text-4xl font-semibold">{id}</span>
-              </CardContent>
+              </Card.Content>
             </Card>
           </Carousel.Item>
         )}

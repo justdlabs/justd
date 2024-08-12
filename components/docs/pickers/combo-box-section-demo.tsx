@@ -1,15 +1,18 @@
 'use client'
 
-import { ComboBox, ComboBoxItem, ComboBoxSection } from 'ui'
+import { ComboBox } from 'ui'
 
 export default function ComboBoxSectionDemo() {
   return (
-    <ComboBox placeholder="Select a author" label="Authors" items={movies}>
-      {(movie) => (
-        <ComboBoxSection title={movie.title} items={movie.genres}>
-          {(genre) => <ComboBoxItem textValue={genre.name}>{genre.name}</ComboBoxItem>}
-        </ComboBoxSection>
-      )}
+    <ComboBox placeholder="Select a author" label="Authors">
+      <ComboBox.Input />
+      <ComboBox.List items={movies}>
+        {(movie) => (
+          <ComboBox.Section title={movie.title} items={movie.genres}>
+            {(genre) => <ComboBox.Option textValue={genre.name}>{genre.name}</ComboBox.Option>}
+          </ComboBox.Section>
+        )}
+      </ComboBox.List>
     </ComboBox>
   )
 }

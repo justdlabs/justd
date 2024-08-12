@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { IconCheck, IconDuplicate } from 'justd-icons'
-import { Button, Menu, MenuContent, MenuItem } from 'ui'
+import { Button, Menu } from 'ui'
 import { copyToClipboard } from 'usemods'
 
 type Tool = 'Bun' | 'Yarn' | 'PNPM' | 'NPM'
@@ -39,12 +39,12 @@ export function Install() {
         >
           {isCopied ? <IconCheck /> : <IconDuplicate />}
         </Button>
-        <MenuContent showArrow placement="bottom end">
-          <MenuItem onAction={() => handleCopy('Bun')}>Bun</MenuItem>
-          <MenuItem onAction={() => handleCopy('Yarn')}>Yarn</MenuItem>
-          <MenuItem onAction={() => handleCopy('PNPM')}>PNPM</MenuItem>
-          <MenuItem onAction={() => handleCopy('NPM')}>NPM</MenuItem>
-        </MenuContent>
+        <Menu.Content showArrow placement="bottom end">
+          <Menu.Item onAction={() => handleCopy('Bun')}>Bun</Menu.Item>
+          <Menu.Item onAction={() => handleCopy('Yarn')}>Yarn</Menu.Item>
+          <Menu.Item onAction={() => handleCopy('PNPM')}>PNPM</Menu.Item>
+          <Menu.Item onAction={() => handleCopy('NPM')}>NPM</Menu.Item>
+        </Menu.Content>
       </Menu>
     </div>
   )

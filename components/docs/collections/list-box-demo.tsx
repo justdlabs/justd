@@ -1,11 +1,11 @@
 'use client'
 
-import { ListBox, ListBoxItem } from 'ui'
+import { ListBox } from 'ui'
 
 export default function ListBoxDemo() {
   return (
     <ListBox items={rockPopBands} selectionMode="single" aria-label="Bands">
-      {(item) => <ListBoxItem id={item.id}>{item.name}</ListBoxItem>}
+      {(item) => <ListBox.Item id={item.id}>{item.name}</ListBox.Item>}
     </ListBox>
   )
 }

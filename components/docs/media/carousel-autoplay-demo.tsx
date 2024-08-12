@@ -3,7 +3,7 @@
 import * as React from 'react'
 
 import Autoplay from 'embla-carousel-autoplay'
-import { Card, CardDescription, CardHeader, CardTitle, Carousel } from 'ui'
+import { Card, Carousel } from 'ui'
 
 export default function CarouselAutoplayDemo() {
   const plugin = React.useRef(Autoplay({ delay: 1000, stopOnInteraction: true }))
@@ -25,10 +25,10 @@ export default function CarouselAutoplayDemo() {
             <div className="p-1">
               <Card>
                 <div className="bg-fg/5 border-b flex-1 relative" />
-                <CardHeader>
-                  <CardTitle className="line-clamp-1 sm:text-lg">{item.title}</CardTitle>
-                  <CardDescription className="line-clamp-2">{item.description}</CardDescription>
-                </CardHeader>
+                <Card.Header>
+                  <Card.Title className="line-clamp-1 sm:text-lg">{item.title}</Card.Title>
+                  <Card.Description className="line-clamp-2">{item.description}</Card.Description>
+                </Card.Header>
               </Card>
             </div>
           </Carousel.Item>

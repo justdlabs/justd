@@ -1,7 +1,7 @@
 'use client'
 
 import { IconBell } from 'justd-icons'
-import { Button, Popover, PopoverContent } from 'ui'
+import { Button, Popover } from 'ui'
 
 export default function PopoverArrowDemo() {
   return (
@@ -9,9 +9,9 @@ export default function PopoverArrowDemo() {
       <Button appearance="outline" size="square-petite">
         <IconBell />
       </Button>
-      <PopoverContent showArrow={false} className="min-w-72">
+      <Popover.Content showArrow={false} className="min-w-72">
         You have 3 new notifications.
-      </PopoverContent>
+      </Popover.Content>
     </Popover>
   )
 }

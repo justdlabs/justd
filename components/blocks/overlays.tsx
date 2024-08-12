@@ -1,37 +1,22 @@
 'use client'
 
 import { CardBlock } from '@/components/blocks'
-import {
-  Button,
-  Modal,
-  ModalClose,
-  ModalContent,
-  ModalDescription,
-  ModalFooter,
-  ModalHeader,
-  ModalTitle,
-  Popover,
-  PopoverContent,
-  PopoverDescription,
-  PopoverFooter,
-  PopoverHeader,
-  PopoverTitle
-} from 'ui'
+import { Button, Modal, Popover } from 'ui'
 
 export function PopoverOverlays() {
   return (
     <CardBlock>
       <Popover>
         <Button appearance="outline">Forgot Password</Button>
-        <PopoverContent className="max-w-[28rem]">
-          <PopoverHeader>
-            <PopoverTitle>Email</PopoverTitle>
-            <PopoverDescription>We'll send you an email to log in.</PopoverDescription>
-          </PopoverHeader>
-          <PopoverFooter>
+        <Popover.Content className="max-w-[28rem]">
+          <Popover.Header>
+            <Popover.Title>Email</Popover.Title>
+            <Popover.Description>We'll send you an email to log in.</Popover.Description>
+          </Popover.Header>
+          <Popover.Footer>
             <Button>Send Login Link</Button>
-          </PopoverFooter>
-        </PopoverContent>
+          </Popover.Footer>
+        </Popover.Content>
       </Popover>
     </CardBlock>
   )
@@ -42,16 +27,16 @@ export function ModalOverlays() {
     <CardBlock>
       <Modal>
         <Button>Install Update</Button>
-        <ModalContent>
-          <ModalHeader>
-            <ModalTitle>Install Update</ModalTitle>
-            <ModalDescription>An update is available for your application.</ModalDescription>
-          </ModalHeader>
-          <ModalFooter>
-            <ModalClose>Later</ModalClose>
-            <ModalClose appearance="solid">Update Now</ModalClose>
-          </ModalFooter>
-        </ModalContent>
+        <Modal.Content>
+          <Modal.Header>
+            <Modal.Title>Install Update</Modal.Title>
+            <Modal.Description>An update is available for your application.</Modal.Description>
+          </Modal.Header>
+          <Modal.Footer>
+            <Modal.Close>Later</Modal.Close>
+            <Modal.Close appearance="solid">Update Now</Modal.Close>
+          </Modal.Footer>
+        </Modal.Content>
       </Modal>
     </CardBlock>
   )

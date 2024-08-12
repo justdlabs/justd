@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-import { ComboBox, ComboBoxItem, Description } from 'ui'
+import { ComboBox, Description } from 'ui'
 
 const sports = [
   { id: 1, name: 'Football' },
@@ -25,13 +25,15 @@ export default function ComboBoxControlledDemo() {
         inputValue={sport}
         placeholder="Select a sports"
         label="Sports"
-        items={sports}
       >
-        {(item) => (
-          <ComboBoxItem key={item.id} id={item.id} textValue={item.name}>
-            {item.name}
-          </ComboBoxItem>
-        )}
+        <ComboBox.Input />
+        <ComboBox.List items={sports}>
+          {(item) => (
+            <ComboBox.Option key={item.id} id={item.id} textValue={item.name}>
+              {item.name}
+            </ComboBox.Option>
+          )}
+        </ComboBox.List>
       </ComboBox>
       <Description className="mt-2 block [&>strong]:text-fg text-muted-fg">
         You have selected: <strong>{sport}</strong>

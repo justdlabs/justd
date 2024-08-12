@@ -1,14 +1,14 @@
 'use client'
 
-import { ListBox, ListBoxItem, ListBoxSection } from 'ui'
+import { ListBox } from 'ui'
 
 export default function ListBoxSectionDemo() {
   return (
     <ListBox items={bands} aria-label="Bands" selectionMode="multiple">
       {(item) => (
-        <ListBoxSection items={item.albums} title={item.name} id={item.id}>
-          {(album) => <ListBoxItem key={album.id}>{album.name}</ListBoxItem>}
-        </ListBoxSection>
+        <ListBox.Section items={item.albums} title={item.name} id={item.id}>
+          {(album) => <ListBox.Item key={album.id}>{album.name}</ListBox.Item>}
+        </ListBox.Section>
       )}
     </ListBox>
   )

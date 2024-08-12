@@ -2,15 +2,15 @@
 
 import React from 'react'
 
-import { Button, Menu, MenuContent, MenuItem } from 'ui'
+import { Button, Menu } from 'ui'
 
 export default function MenuCollectionDemo() {
   return (
     <Menu>
       <Button appearance="outline">Open</Button>
-      <MenuContent className="min-w-64" placement="bottom" items={categories}>
-        {(item) => <MenuItem id={item.slug}>{item.name}</MenuItem>}
-      </MenuContent>
+      <Menu.Content className="min-w-64" placement="bottom" items={categories}>
+        {(item) => <Menu.Item id={item.slug}>{item.name}</Menu.Item>}
+      </Menu.Content>
     </Menu>
   )
 }

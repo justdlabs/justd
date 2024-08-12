@@ -4,7 +4,7 @@ import { getColorName } from '@/resources/lib/colors'
 import { wait } from '@/resources/lib/utils'
 import { IconBrackets2, IconCheck, IconDuplicate } from 'justd-icons'
 import { Heading } from 'react-aria-components'
-import { Button, ColorSwatch, Modal, ModalContent } from 'ui'
+import { Button, ColorSwatch, Modal } from 'ui'
 import { copyToClipboard } from 'usemods'
 
 export function CopyJsonColorShades({
@@ -48,7 +48,7 @@ export function CopyJsonColorShades({
       <Button className="size-8" size="square-petite" appearance="outline" onPress={handleOpen}>
         <IconBrackets2 />
       </Button>
-      <ModalContent closeButton={false} size="2xl" classNames={{ content: 'p-0 [&>.dlc]:p-0' }}>
+      <Modal.Content closeButton={false} size="2xl" classNames={{ content: 'p-0 [&>.dlc]:p-0' }}>
         <Heading className="sr-only">{name}</Heading>
         <div className="relative grid sm:grid-cols-2 divide-x">
           <div className="hidden sm:grid place-content-center font-mono text-sm relative">
@@ -71,7 +71,7 @@ export function CopyJsonColorShades({
             </pre>
           </div>
         </div>
-      </ModalContent>
+      </Modal.Content>
     </Modal>
   )
 }

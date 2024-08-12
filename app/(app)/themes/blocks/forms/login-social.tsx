@@ -1,11 +1,11 @@
 import { IconBrandGithub, IconBrandThreads, IconBrandX } from 'justd-icons'
-import { Button, Card, CardContent, CardFooter, CardHeader, Link, ShowMore } from 'ui'
+import { Button, Card, Link, ShowMore } from 'ui'
 
 export function LoginSocial() {
   return (
     <Card>
-      <CardHeader className="text-center">Log in</CardHeader>
-      <CardContent className="flex flex-col gap-y-3">
+      <Card.Header className="text-center">Log in</Card.Header>
+      <Card.Content className="flex flex-col gap-y-3">
         <Button shape="circle" size="large" intent="dark">
           <IconBrandGithub />
           Continue with Github
@@ -27,12 +27,12 @@ export function LoginSocial() {
         <Button shape="circle" size="large" appearance="outline">
           Continue with Passkey
         </Button>
-      </CardContent>
-      <CardFooter className="justify-center">
+      </Card.Content>
+      <Card.Footer className="justify-center">
         <Link intent="primary" href="#">
           Continue with Email
         </Link>
-      </CardFooter>
+      </Card.Footer>
     </Card>
   )
 }

@@ -18,12 +18,12 @@ import {
   IconToolbox,
   IconToolboxFill
 } from 'justd-icons'
-import { Toggle, Toolbar, ToolbarGroup, ToolbarItem, ToolbarSeparator } from 'ui'
+import { Toggle, Toolbar } from 'ui'
 
 export default function ToolbarDisabledDemo() {
   return (
     <Toolbar aria-label="Toolbox">
-      <ToolbarGroup aria-label="Toolbox">
+      <Toolbar.Group aria-label="Toolbox">
         <Toggle isDisabled aria-label="Cursor" size="square-petite" appearance="outline">
           {({ isSelected }) => <>{isSelected ? <IconCursorFill /> : <IconCursor />}</>}
         </Toggle>
@@ -33,18 +33,18 @@ export default function ToolbarDisabledDemo() {
         <Toggle aria-label="Pencil Box" size="square-petite" appearance="outline">
           {({ isSelected }) => <>{isSelected ? <IconToolboxFill /> : <IconToolbox />}</>}
         </Toggle>
-      </ToolbarGroup>
-      <ToolbarSeparator />
-      <ToolbarGroup isDisabled aria-label="Gallery">
-        <ToolbarItem aria-label="Camera" size="square-petite" appearance="outline">
+      </Toolbar.Group>
+      <Toolbar.Separator />
+      <Toolbar.Group isDisabled aria-label="Gallery">
+        <Toolbar.Item aria-label="Camera" size="square-petite" appearance="outline">
           {({ isSelected }) => <>{isSelected ? <IconCameraFill /> : <IconCamera />}</>}
-        </ToolbarItem>
-        <ToolbarItem aria-label="Gallery" size="square-petite" appearance="outline">
+        </Toolbar.Item>
+        <Toolbar.Item aria-label="Gallery" size="square-petite" appearance="outline">
           {({ isSelected }) => <>{isSelected ? <IconGalleryFill /> : <IconGallery />}</>}
-        </ToolbarItem>
-      </ToolbarGroup>
-      <ToolbarSeparator />
-      <ToolbarGroup aria-label="Alignment">
+        </Toolbar.Item>
+      </Toolbar.Group>
+      <Toolbar.Separator />
+      <Toolbar.Group aria-label="Alignment">
         <Toggle aria-label="Align Right" appearance="outline">
           {({ isSelected }) => (
             <>{isSelected ? <IconAlignmentRightFill /> : <IconAlignmentRight />}</>
@@ -55,7 +55,7 @@ export default function ToolbarDisabledDemo() {
             <>{isSelected ? <IconAlignmentJustifyFill /> : <IconAlignmentJustify />}</>
           )}
         </Toggle>
-      </ToolbarGroup>
+      </Toolbar.Group>
     </Toolbar>
   )
 }

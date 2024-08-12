@@ -5,15 +5,7 @@ import React, { useRef, useState } from 'react'
 import { tv } from 'tailwind-variants'
 
 import type { MenuContentProps } from './menu'
-import {
-  MenuContent,
-  MenuHeader,
-  MenuItem,
-  MenuItemDetails,
-  MenuKeyboard,
-  MenuSection,
-  MenuSeparator
-} from './menu'
+import { Menu } from './menu'
 import { focusButtonStyles } from './primitive'
 
 interface ContextMenuTriggerContextType {
@@ -37,18 +29,10 @@ const useContextMenuTrigger = () => {
 }
 
 interface ContextMenuRootComponent {
-  Trigger?: typeof ContextMenuTrigger
-  Content?: typeof ContextMenuContent
-  Item?: typeof MenuItem
-  Separator?: typeof MenuSeparator
-  ItemDetails?: typeof MenuItemDetails
-  Section?: typeof MenuSection
-  Header?: typeof MenuHeader
-  Keyboard?: typeof MenuKeyboard
   children: React.ReactNode
 }
 
-const ContextMenuRoot = ({ children }: ContextMenuRootComponent) => {
+const ContextMenu = ({ children }: ContextMenuRootComponent) => {
   const [contextMenuOffset, setContextMenuOffset] = useState<{
     offset: number
     crossOffset: number
@@ -108,7 +92,7 @@ interface ContextMenuContentProps<T>
 const ContextMenuContent = <T extends object>(props: ContextMenuContentProps<T>) => {
   const { contextMenuOffset, setContextMenuOffset, buttonRef } = useContextMenuTrigger()
   return contextMenuOffset ? (
-    <MenuContent
+    <Menu.Content
       isOpen={!!contextMenuOffset}
       onOpenChange={() => setContextMenuOffset(null)}
       triggerRef={buttonRef}
@@ -122,15 +106,13 @@ const ContextMenuContent = <T extends object>(props: ContextMenuContentProps<T>)
   ) : null
 }
 
-ContextMenuRoot.Trigger = ContextMenuTrigger
-ContextMenuRoot.Content = ContextMenuContent
-ContextMenuRoot.Item = MenuItem
-ContextMenuRoot.Separator = MenuSeparator
-ContextMenuRoot.ItemDetails = MenuItemDetails
-ContextMenuRoot.Section = MenuSection
-ContextMenuRoot.Header = MenuHeader
-ContextMenuRoot.Keyboard = MenuKeyboard
-
-const ContextMenu = ContextMenuRoot
+ContextMenu.Trigger = ContextMenuTrigger
+ContextMenu.Content = ContextMenuContent
+ContextMenu.Item = Menu.Item
+ContextMenu.Separator = Menu.Separator
+ContextMenu.ItemDetails = Menu.ItemDetails
+ContextMenu.Section = Menu.Section
+ContextMenu.Header = Menu.Header
+ContextMenu.Keyboard = Menu.Keyboard
 
 export { ContextMenu }

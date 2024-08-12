@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 
-import type { Modal } from 'react-aria-components'
+import type { DialogTriggerProps, Modal } from 'react-aria-components'
 import {
   Button,
   composeRenderProps,
@@ -14,25 +14,7 @@ import {
 } from 'react-aria-components'
 import { tv, type VariantProps } from 'tailwind-variants'
 
-import {
-  Dialog,
-  DialogBody,
-  DialogClose,
-  DialogCloseIndicator,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle
-} from './dialog'
-
-const Sheet = DialogTriggerPrimitive
-const SheetTrigger = Button
-const SheetFooter = DialogFooter
-const SheetHeader = DialogHeader
-const SheetTitle = DialogTitle
-const SheetDescription = DialogDescription
-const SheetBody = DialogBody
-const SheetClose = DialogClose
+import { Dialog } from './dialog'
 
 const sheetOverlayStyles = tv({
   base: [
@@ -93,6 +75,11 @@ const sheetContentStyles = tv({
   compoundVariants: generateCompoundVariants(['top', 'bottom', 'left', 'right'])
 })
 
+interface SheetProps extends DialogTriggerProps {}
+const Sheet = ({ children }: SheetProps) => {
+  return <DialogTriggerPrimitive>{children}</DialogTriggerPrimitive>
+}
+
 interface SheetContentProps
   extends Omit<React.ComponentProps<typeof Modal>, 'children' | 'className'>,
     Omit<ModalOverlayPrimitiveProps, 'className'>,
@@ -149,7 +136,7 @@ const SheetContent = ({
             <>
               {props.children}
               {closeButton && (
-                <DialogCloseIndicator
+                <Dialog.CloseIndicator
                   className="top-2.5 right-2.5"
                   close={values.close}
                   isDismissable={_isDismissable}
@@ -163,14 +150,13 @@ const SheetContent = ({
   )
 }
 
-export {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetBody,
-  SheetTitle,
-  SheetTrigger
-}
+Sheet.Trigger = Button
+Sheet.Footer = Dialog.Footer
+Sheet.Content = SheetContent
+Sheet.Header = Dialog.Header
+Sheet.Title = Dialog.Title
+Sheet.Description = Dialog.Description
+Sheet.Body = Dialog.Body
+Sheet.Close = Dialog.Close
+
+export { Sheet }

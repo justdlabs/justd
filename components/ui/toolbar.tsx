@@ -95,4 +95,8 @@ const ToolbarItem = ({ isDisabled, ...props }: ToggleProps) => {
   )
 }
 
-export { Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarItem, ToolbarGroupContext }
+Toolbar.Group = ToolbarGroup
+Toolbar.Separator = ToolbarSeparator
+Toolbar.Item = ToolbarItem
+
+export { Toolbar }

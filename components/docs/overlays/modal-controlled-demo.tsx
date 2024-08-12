@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-import { Button, ModalContent, ModalDescription, ModalFooter, ModalHeader, ModalTitle } from 'ui'
+import { Button, Modal } from 'ui'
 
 export default function ModalControlledDemo() {
   const [open, setOpen] = useState(false)
@@ -11,15 +11,17 @@ export default function ModalControlledDemo() {
       <Button onPress={() => setOpen(true)} intent="primary">
         Subscribe
       </Button>
-      <ModalContent isOpen={open} onOpenChange={setOpen}>
-        <ModalHeader>
-          <ModalTitle>Subscribe to Our Newsletter</ModalTitle>
-          <ModalDescription>Get the latest news and updates right to your inbox.</ModalDescription>
-        </ModalHeader>
-        <ModalFooter>
+      <Modal.Content isOpen={open} onOpenChange={setOpen}>
+        <Modal.Header>
+          <Modal.Title>Subscribe to Our Newsletter</Modal.Title>
+          <Modal.Description>
+            Get the latest news and updates right to your inbox.
+          </Modal.Description>
+        </Modal.Header>
+        <Modal.Footer>
           <Button onPress={() => setOpen(false)}>Sign Up</Button>
-        </ModalFooter>
-      </ModalContent>
+        </Modal.Footer>
+      </Modal.Content>
     </>
   )
 }

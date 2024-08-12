@@ -26,7 +26,7 @@ import { tv } from 'tailwind-variants'
 
 import { DropdownItemDetails, dropdownItemStyles, DropdownSection } from './dropdown'
 import { Keyboard } from './keyboard'
-import { PopoverContent } from './popover'
+import { Popover } from './popover'
 import { cn } from './primitive'
 
 interface MenuContextProps {
@@ -56,9 +56,6 @@ const SubMenu = ({ delay = 0, ...props }) => (
     {props.children}
   </SubmenuTriggerPrimitive>
 )
-
-const MenuSection = DropdownSection
-const MenuItemDetails = DropdownItemDetails
 
 const menuStyles = tv({
   slots: {
@@ -97,14 +94,14 @@ const MenuContent = <T extends object>({
 }: MenuContentProps<T>) => {
   const { respectScreen } = useMenuContext()
   return (
-    <PopoverContent
+    <Popover.Content
       respectScreen={respectScreen}
       showArrow={showArrow}
       className={popover({ className: popoverClassName })}
       {...props}
     >
       <MenuPrimitive className={menu({ className })} {...props} />
-    </PopoverContent>
+    </Popover.Content>
   )
 }
 
@@ -160,7 +157,7 @@ const MenuSeparator = ({ className, ...props }: SeparatorProps) => (
 
 const MenuKeyboard = Keyboard
 
-const MenuCheckboxItem = ({ className, children, ...props }: MenuItemProps) => (
+const MenuCheckbox = ({ className, children, ...props }: MenuItemProps) => (
   <MenuItem className={cn('pr-8', className)} {...props}>
     {(values) => (
       <>
@@ -174,7 +171,7 @@ const MenuCheckboxItem = ({ className, children, ...props }: MenuItemProps) => (
   </MenuItem>
 )
 
-const MenuRadioItem = ({ className, children, ...props }: MenuItemProps) => (
+const MenuRadio = ({ className, children, ...props }: MenuItemProps) => (
   <MenuItem className={cn('pr-8', className)} {...props}>
     {(values) => (
       <>
@@ -187,21 +184,20 @@ const MenuRadioItem = ({ className, children, ...props }: MenuItemProps) => (
   </MenuItem>
 )
 
-export {
-  Menu,
-  MenuCheckboxItem,
-  MenuContent,
-  MenuHeader,
-  MenuItem,
-  MenuItemPrimitive,
-  MenuKeyboard,
-  MenuPrimitive,
-  MenuRadioItem,
-  MenuSection,
-  MenuSeparator,
-  MenuTrigger,
-  SubMenu,
-  MenuItemDetails,
-  type MenuItemProps,
-  type MenuContentProps
-}
+Menu.Checkbox = MenuCheckbox
+Menu.Content = MenuContent
+Menu.Header = MenuHeader
+Menu.Item = MenuItem
+Menu.Content = MenuContent
+Menu.Keyboard = MenuKeyboard
+Menu.ItemPrimitive = MenuItemPrimitive
+Menu.Keyboard = MenuKeyboard
+Menu.Primitive = MenuPrimitive
+Menu.Radio = MenuRadio
+Menu.Section = DropdownSection
+Menu.Separator = MenuSeparator
+Menu.Trigger = MenuTrigger
+Menu.ItemDetails = DropdownItemDetails
+Menu.Submenu = SubMenu
+
+export { Menu, type MenuItemProps, type MenuContentProps }

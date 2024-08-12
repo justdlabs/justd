@@ -1,29 +1,19 @@
 'use client'
 
-import {
-  Button,
-  Sheet,
-  SheetBody,
-  SheetClose,
-  SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle
-} from 'ui'
+import { Button, Sheet } from 'ui'
 
 export default function SheetStickyDemo() {
   return (
     <Sheet>
       <Button>Read</Button>
-      <SheetContent>
-        <SheetHeader>
-          <SheetTitle>Terms of Use</SheetTitle>
-          <SheetDescription>
+      <Sheet.Content>
+        <Sheet.Header>
+          <Sheet.Title>Terms of Use</Sheet.Title>
+          <Sheet.Description>
             If you do not agree to these terms, please refrain from using our services.
-          </SheetDescription>
-        </SheetHeader>
-        <SheetBody>
+          </Sheet.Description>
+        </Sheet.Header>
+        <Sheet.Body>
           <div className="prose dark:prose-invert prose-zinc">
             <p>
               Welcome to our Terms of Use. By accessing or using our services, you agree to be bound
@@ -116,12 +106,12 @@ export default function SheetStickyDemo() {
             If you have any questions about these terms, please contact us at [Your Contact
             Information].
           </div>
-        </SheetBody>
-        <SheetFooter>
-          <SheetClose>Close</SheetClose>
+        </Sheet.Body>
+        <Sheet.Footer>
+          <Sheet.Close>Close</Sheet.Close>
           <Button>Accept</Button>
-        </SheetFooter>
-      </SheetContent>
+        </Sheet.Footer>
+      </Sheet.Content>
     </Sheet>
   )
 }

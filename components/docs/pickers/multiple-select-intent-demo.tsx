@@ -2,7 +2,7 @@
 
 import { useListData } from 'react-stately'
 import type { SelectedKey } from 'ui'
-import { MultipleSelect, MultipleSelectItem, Tag } from 'ui'
+import { MultipleSelect, Tag } from 'ui'
 
 export default function MultipleSelectIntentDemo() {
   const selectedItems = useListData<SelectedKey>({
@@ -18,7 +18,7 @@ export default function MultipleSelectIntentDemo() {
       tag={(item) => <Tag textValue={item.name}>{item.name}</Tag>}
     >
       {(item) => {
-        return <MultipleSelectItem textValue={item.name}>{item.name}</MultipleSelectItem>
+        return <MultipleSelect.Option textValue={item.name}>{item.name}</MultipleSelect.Option>
       }}
     </MultipleSelect>
   )

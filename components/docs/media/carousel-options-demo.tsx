@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { Card, CardTitle, Carousel } from 'ui'
+import { Card, Carousel } from 'ui'
 
 export default function CarouselOptionsDemo() {
   return (
@@ -15,7 +15,7 @@ export default function CarouselOptionsDemo() {
         {({ id }) => (
           <Carousel.Item id={id} className="basis-1/2 lg:basis-1/3">
             <Card className="flex aspect-square items-center justify-center">
-              <CardTitle>{id}</CardTitle>
+              <Card.Title>{id}</Card.Title>
             </Card>
           </Carousel.Item>
         )}

@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 
-import { Card, CardDescription, CardHeader, CardTitle, Carousel } from 'ui'
+import { Card, Carousel } from 'ui'
 
 export default function CarouselOrientationDemo() {
   return (
@@ -11,10 +11,10 @@ export default function CarouselOrientationDemo() {
         {(item) => (
           <Carousel.Item className="pt-1 basis-1/2 md:basis-1/3 snap-center">
             <Card>
-              <CardHeader>
-                <CardTitle>{item.title}</CardTitle>
-                <CardDescription>{item.description}</CardDescription>
-              </CardHeader>
+              <Card.Header>
+                <Card.Title>{item.title}</Card.Title>
+                <Card.Description>{item.description}</Card.Description>
+              </Card.Header>
             </Card>
           </Carousel.Item>
         )}

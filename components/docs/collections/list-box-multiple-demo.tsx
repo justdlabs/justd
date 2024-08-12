@@ -3,7 +3,7 @@
 import React from 'react'
 
 import type { Selection } from 'react-aria-components'
-import { Description, ListBox, ListBoxItem } from 'ui'
+import { Description, ListBox } from 'ui'
 
 export default function ListBoxControlledDemo() {
   const [selected, setSelected] = React.useState<Selection>(new Set(['2']))
@@ -17,9 +17,9 @@ export default function ListBoxControlledDemo() {
         selectionMode="multiple"
       >
         {(fruit) => (
-          <ListBoxItem id={fruit.id} textValue={fruit.name}>
+          <ListBox.Item id={fruit.id} textValue={fruit.name}>
             {fruit.name}
-          </ListBoxItem>
+          </ListBox.Item>
         )}
       </ListBox>
 

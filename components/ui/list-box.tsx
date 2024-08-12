@@ -85,9 +85,6 @@ const ListBoxItem = <T extends object>({ children, className, ...props }: ListBo
   )
 }
 
-const ListBoxSection = DropdownSection
-const ListBoxItemDetails = DropdownItemDetails
-
 interface ListBoxPickerProps<T> extends ListBoxProps<T> {}
 
 const ListBoxPicker = <T extends object>({ className, ...props }: ListBoxPickerProps<T>) => {
@@ -99,4 +96,9 @@ const ListBoxPicker = <T extends object>({ className, ...props }: ListBoxPickerP
   )
 }
 
-export { ListBox, listBoxStyles, ListBoxItem, ListBoxPicker, ListBoxSection, ListBoxItemDetails }
+ListBox.Section = DropdownSection
+ListBox.ItemDetails = DropdownItemDetails
+ListBox.Item = ListBoxItem
+ListBox.Picker = ListBoxPicker
+
+export { ListBox, listBoxStyles, type ListBoxPickerProps }

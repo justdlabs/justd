@@ -1,15 +1,18 @@
 'use client'
 
-import { Select, SelectItem, SelectItemDetails } from 'ui'
+import { Select } from 'ui'
 
 export default function SelectItemDetailsDemo() {
   return (
-    <Select label="Roles" placeholder="Select a role" items={roles}>
-      {(item) => (
-        <SelectItem id={item.id} textValue={item.name}>
-          <SelectItemDetails label={item.name} description={item.description} />
-        </SelectItem>
-      )}
+    <Select label="Roles" placeholder="Select a role">
+      <Select.Trigger />
+      <Select.List items={roles}>
+        {(item) => (
+          <Select.Option id={item.id} textValue={item.name}>
+            <Select.OptionDetails label={item.name} description={item.description} />
+          </Select.Option>
+        )}
+      </Select.List>
     </Select>
   )
 }

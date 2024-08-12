@@ -1,18 +1,18 @@
 'use client'
 
-import { Menu, MenuContent, MenuItem, MenuSection, MenuTrigger } from 'ui'
+import { Menu } from 'ui'
 
 export default function MenuSectionDemo() {
   return (
     <Menu>
-      <MenuTrigger>Open</MenuTrigger>
-      <MenuContent className="min-w-64" items={cities} placement="bottom">
+      <Menu.Trigger>Open</Menu.Trigger>
+      <Menu.Content className="min-w-64" items={cities} placement="bottom">
         {(city) => (
-          <MenuSection title={city.name} items={city.landmarks}>
-            {(landmark) => <MenuItem textValue={landmark.name}>{landmark.name}</MenuItem>}
-          </MenuSection>
+          <Menu.Section title={city.name} items={city.landmarks}>
+            {(landmark) => <Menu.Item textValue={landmark.name}>{landmark.name}</Menu.Item>}
+          </Menu.Section>
         )}
-      </MenuContent>
+      </Menu.Content>
     </Menu>
   )
 }

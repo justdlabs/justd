@@ -1,6 +1,6 @@
 'use client'
 
-import { Grid, GridItem } from 'ui'
+import { Grid } from 'ui'
 
 export default function GridResponsiveDemo() {
   return (
@@ -17,24 +17,24 @@ export default function GridResponsiveDemo() {
         lg: 4
       }}
     >
-      <GridItem>
+      <Grid.Item>
         <div className="p-4 border h-32" />
-      </GridItem>
-      <GridItem>
+      </Grid.Item>
+      <Grid.Item>
         <div className="p-4 border h-32" />
-      </GridItem>
-      <GridItem>
+      </Grid.Item>
+      <Grid.Item>
         <div className="p-4 border h-32" />
-      </GridItem>
-      <GridItem>
+      </Grid.Item>
+      <Grid.Item>
         <div className="p-4 border h-32" />
-      </GridItem>
-      <GridItem>
+      </Grid.Item>
+      <Grid.Item>
         <div className="p-4 border h-32" />
-      </GridItem>
-      <GridItem>
+      </Grid.Item>
+      <Grid.Item>
         <div className="p-4 border h-32" />
-      </GridItem>
+      </Grid.Item>
     </Grid>
   )
 }

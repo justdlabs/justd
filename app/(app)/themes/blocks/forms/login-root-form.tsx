@@ -1,32 +1,23 @@
 'use client'
 
-import {
-  Button,
-  Card,
-  CardContent,
-  CardHeader,
-  Choicebox,
-  ChoiceboxItem,
-  Form,
-  TextField
-} from 'ui'
+import { Button, Card, Choicebox, Form, TextField } from 'ui'
 
 export function LoginRootForm() {
   return (
     <Card>
-      <CardHeader
+      <Card.Header
         title="Sign in "
         description="This site uses essential cookies. See our Cookie Notice for more information."
       />
       <Form onSubmit={() => {}}>
-        <CardContent className="space-y-4">
+        <Card.Content className="space-y-4">
           <Choicebox selectionMode="single" columns={1} gap={2}>
-            <ChoiceboxItem
+            <Choicebox.Item
               id="root"
               description="Account owner that performs tasks requiring unrestricted access. Learn more"
               title="Root"
             />
-            <ChoiceboxItem
+            <Choicebox.Item
               id="iam"
               description="User within an account that performs daily tasks. Learn more"
               title="IAM user"
@@ -34,7 +25,7 @@ export function LoginRootForm() {
           </Choicebox>
           <TextField isRequired label="Account ID (12 digits)" />
           <Button type="submit">Next</Button>
-        </CardContent>
+        </Card.Content>
       </Form>
     </Card>
   )

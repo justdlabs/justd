@@ -17,16 +17,7 @@ import type { DialogProps } from 'react-aria-components'
 import { Button, type ButtonProps, Modal, ModalOverlay } from 'react-aria-components'
 import { twJoin } from 'tailwind-merge'
 
-import type { DialogHeaderProps } from './dialog'
-import {
-  Dialog,
-  DialogBody,
-  DialogClose,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle
-} from './dialog'
+import { Dialog } from './dialog'
 
 const inertiaTransition: Inertia = {
   type: 'inertia',
@@ -183,18 +174,7 @@ const DrawerTrigger = (props: ButtonProps) => {
   return <Button onPress={openDrawer} {...props} />
 }
 
-interface DrawerRootProps {
-  DrawerBody?: typeof DrawerBody
-  DrawerClose?: typeof DrawerClose
-  DrawerContent?: typeof DrawerContent
-  DrawerDescription?: typeof DrawerDescription
-  DrawerFooter?: typeof DrawerFooter
-  DrawerHeader?: typeof DrawerHeader
-  DrawerTitle?: typeof DrawerTitle
-  DrawerTrigger?: typeof DrawerTrigger
-}
-
-interface DrawerProps extends DrawerRootProps {
+interface DrawerProps {
   children: React.ReactNode
   isOpen?: boolean
   withNotch?: boolean
@@ -260,38 +240,37 @@ const DrawerContent = ({
   )
 }
 
-const DrawerTitle = DialogTitle
-
-const DrawerDescription = DialogDescription
-const DrawerClose = DialogClose
-
-const DrawerHeader = ({ className, ...props }: DialogHeaderProps) => (
-  <DialogHeader className={twJoin('pt-2', className)} {...props} />
+const DrawerHeader = ({ className, ...props }: React.ComponentProps<typeof Dialog.Header>) => (
+  <Dialog.Header className={twJoin('pt-2', className)} {...props} />
 )
 
-const DrawerBody = ({ children, className, ...props }: React.ComponentProps<typeof DialogBody>) => (
-  <DialogBody {...props} className={twJoin('px-4', className)}>
+const DrawerBody = ({
+  children,
+  className,
+  ...props
+}: React.ComponentProps<typeof Dialog.Body>) => (
+  <Dialog.Body {...props} className={twJoin('px-4', className)}>
     {children}
-  </DialogBody>
+  </Dialog.Body>
 )
 
 const DrawerFooter = ({
   children,
   className,
   ...props
-}: React.ComponentProps<typeof DialogFooter>) => (
-  <DialogFooter {...props} className={twJoin('pb-2', className)}>
+}: React.ComponentProps<typeof Dialog.Footer>) => (
+  <Dialog.Footer {...props} className={twJoin('pb-2', className)}>
     {children}
-  </DialogFooter>
+  </Dialog.Footer>
 )
 
 Drawer.Body = DrawerBody
-Drawer.Close = DrawerClose
+Drawer.Close = Dialog.Close
 Drawer.Content = DrawerContent
-Drawer.Description = DrawerDescription
+Drawer.Description = Dialog.Description
 Drawer.Footer = DrawerFooter
 Drawer.Header = DrawerHeader
-Drawer.Title = DrawerTitle
+Drawer.Title = Dialog.Title
 Drawer.Trigger = DrawerTrigger
 
 export { Drawer }

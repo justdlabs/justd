@@ -2,31 +2,22 @@
 
 import React from 'react'
 
-import {
-  Button,
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle
-} from 'ui'
+import { Button, Sheet } from 'ui'
 
 export default function SheetStackDemo() {
   return (
     <Sheet>
       <Button appearance="outline">Stack</Button>
-      <SheetContent isStack={false}>
-        <SheetHeader>
-          <SheetTitle>Not Stacked</SheetTitle>
-          <SheetDescription>This sheet is not stacked.</SheetDescription>
-        </SheetHeader>
-        <SheetFooter>
-          <SheetClose>Cancel</SheetClose>
+      <Sheet.Content isStack={false}>
+        <Sheet.Header>
+          <Sheet.Title>Not Stacked</Sheet.Title>
+          <Sheet.Description>This sheet is not stacked.</Sheet.Description>
+        </Sheet.Header>
+        <Sheet.Footer>
+          <Sheet.Close>Cancel</Sheet.Close>
           <Button intent="primary">Save Changes</Button>
-        </SheetFooter>
-      </SheetContent>
+        </Sheet.Footer>
+      </Sheet.Content>
     </Sheet>
   )
 }

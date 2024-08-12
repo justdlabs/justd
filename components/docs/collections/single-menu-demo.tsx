@@ -4,7 +4,7 @@ import React from 'react'
 
 import type { Placement } from '@react-types/overlays'
 import type { Selection } from 'react-aria-components'
-import { Button, Menu, MenuContent, MenuRadioItem } from 'ui'
+import { Button, Menu } from 'ui'
 
 export const placements = [
   'bottom',
@@ -36,7 +36,7 @@ export default function SingleMenuDemo() {
   return (
     <Menu>
       <Button appearance="outline">Placement</Button>
-      <MenuContent
+      <Menu.Content
         placement={Array.from(selected)[0] as Placement}
         selectionMode="single"
         selectedKeys={selected}
@@ -44,8 +44,8 @@ export default function SingleMenuDemo() {
         items={placements}
         className="max-h-72 min-w-52"
       >
-        {(item) => <MenuRadioItem id={item.name}>{item.name}</MenuRadioItem>}
-      </MenuContent>
+        {(item) => <Menu.Radio id={item.name}>{item.name}</Menu.Radio>}
+      </Menu.Content>
     </Menu>
   )
 }

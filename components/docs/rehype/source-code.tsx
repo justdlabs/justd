@@ -11,7 +11,7 @@ import {
   CodeExpandButton
 } from '@/components/docs/rehype/code'
 import { Collapsible } from '@radix-ui/react-collapsible'
-import { Tab, TabList, TabPanel, Tabs } from 'ui'
+import { Tabs } from 'ui'
 
 interface SourceCodeProps extends React.HTMLAttributes<HTMLDivElement> {
   toShow: string | string[]
@@ -79,15 +79,15 @@ export function SourceCode({ title, message, ext = 'tsx', toShow, ...props }: So
       </p>
 
       <Tabs>
-        <TabList className="overflow-x-auto no-scrollbar">
+        <Tabs.List className="overflow-x-auto no-scrollbar">
           {codeStrings.map((code, index) => (
-            <Tab className="whitespace-nowrap" key={index} id={`tab-${index}`}>
+            <Tabs.Tab className="whitespace-nowrap" key={index} id={`tab-${index}`}>
               {code.name}.{ext}
-            </Tab>
+            </Tabs.Tab>
           ))}
-        </TabList>
+        </Tabs.List>
         {codeStrings.map((code, index) => (
-          <TabPanel key={index} id={`tab-${index}`}>
+          <Tabs.Panel key={index} id={`tab-${index}`}>
             <Collapsible
               open={isOpened[index]}
               onOpenChange={(open) => handleOpenChange(index, open)}
@@ -102,7 +102,7 @@ export function SourceCode({ title, message, ext = 'tsx', toShow, ...props }: So
                 <CodeExpandButton isOpened={isOpened[index]} />
               </div>
             </Collapsible>
-          </TabPanel>
+          </Tabs.Panel>
         ))}
       </Tabs>
     </section>

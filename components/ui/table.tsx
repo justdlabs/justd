@@ -152,5 +152,4 @@ Table.Column = TableColumn
 Table.Header = TableHeader
 Table.Row = TableRow
 
-export type { TableProps, TableColumnProps }
 export { Table }

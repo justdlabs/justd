@@ -3,7 +3,7 @@
 import React from 'react'
 
 import { OptionPreview } from '@/components/docs/outside/option-preview'
-import { Note, Select, SelectItem } from 'ui'
+import { Note, Select } from 'ui'
 
 const notes = ['info', 'primary', 'secondary', 'warning', 'danger', 'success'].map((n) => ({
   name: n
@@ -19,13 +19,15 @@ export default function NoteIntentDemo() {
           selectedKey={selected}
           onSelectionChange={setSelected}
           placeholder="Choose an intent"
-          items={notes}
         >
-          {(item) => (
-            <SelectItem id={item.name} textValue={item.name}>
-              {item.name}
-            </SelectItem>
-          )}
+          <Select.Trigger />
+          <Select.List items={notes}>
+            {(item) => (
+              <Select.Option id={item.name} textValue={item.name}>
+                {item.name}
+              </Select.Option>
+            )}
+          </Select.List>
         </Select>
       </OptionPreview>
       <div className="max-w-md">

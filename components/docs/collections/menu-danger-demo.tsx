@@ -2,18 +2,18 @@
 
 import React from 'react'
 
-import { Menu, MenuContent, MenuItem, MenuSeparator, MenuTrigger } from 'ui'
+import { Menu } from 'ui'
 
 export default function MenuDangerDemo() {
   return (
     <Menu>
-      <MenuTrigger>Open</MenuTrigger>
-      <MenuContent className="min-w-48" placement="bottom">
-        <MenuItem>View</MenuItem>
-        <MenuItem>Edit</MenuItem>
-        <MenuSeparator />
-        <MenuItem isDanger>Delete</MenuItem>
-      </MenuContent>
+      <Menu.Trigger>Open</Menu.Trigger>
+      <Menu.Content className="min-w-48" placement="bottom">
+        <Menu.Item>View</Menu.Item>
+        <Menu.Item>Edit</Menu.Item>
+        <Menu.Separator />
+        <Menu.Item isDanger>Delete</Menu.Item>
+      </Menu.Content>
     </Menu>
   )
 }

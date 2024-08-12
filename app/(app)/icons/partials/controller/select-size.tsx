@@ -5,7 +5,7 @@ import { IconChevronLgDown } from 'justd-icons'
 import { usePathname, useRouter } from 'next/navigation'
 import type { Selection } from 'react-aria-components'
 import title from 'title'
-import { Button, Menu, MenuContent, MenuRadioItem } from 'ui'
+import { Button, Menu } from 'ui'
 
 const sizes = [
   { id: 'size-4', name: 'Size 4' },
@@ -40,7 +40,7 @@ export function SelectSize() {
         </span>
         <IconChevronLgDown />
       </Button>
-      <MenuContent
+      <Menu.Content
         selectionMode="single"
         selectedKeys={selectedSize}
         onSelectionChange={onSelectionChange}
@@ -48,12 +48,12 @@ export function SelectSize() {
         items={sizes}
       >
         {(item) => (
-          <MenuRadioItem textValue={item.name}>
+          <Menu.Radio textValue={item.name}>
             {item.name} /{' '}
             {item.name === 'Size 4' ? '20px' : item.name === 'Size 5' ? '24px' : '28px'}
-          </MenuRadioItem>
+          </Menu.Radio>
         )}
-      </MenuContent>
+      </Menu.Content>
     </Menu>
   )
 }

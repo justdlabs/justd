@@ -36,16 +36,12 @@ import {
   Card,
   cn,
   Grid,
-  GridItem,
   GridList,
   GridListItem,
   Heading,
   Link,
   Note,
-  Toolbar,
-  ToolbarGroup,
-  ToolbarItem,
-  ToolbarSeparator
+  Toolbar
 } from 'ui'
 
 export function Blocks() {
@@ -56,52 +52,52 @@ export function Blocks() {
       </Heading>
       <div className="space-y-2">
         <Grid columns={{ initial: 1, sm: 2, lg: 5 }} gap={2}>
-          <GridItem colSpan={{ initial: 1, lg: 3 }}>
+          <Grid.Item colSpan={{ initial: 1, lg: 3 }}>
             <CardBlock>
               <TableDemo />
             </CardBlock>
-          </GridItem>
-          <GridItem colSpan={{ initial: 1, lg: 2 }}>
+          </Grid.Item>
+          <Grid.Item colSpan={{ initial: 1, lg: 2 }}>
             <CardBlock>
               <LoginForm />
             </CardBlock>
-          </GridItem>
+          </Grid.Item>
         </Grid>
         <Grid columns={{ initial: 1, sm: 2, lg: 3 }} gap={2}>
-          <GridItem className="flex flex-col gap-y-4 lg:gap-y-8">
+          <Grid.Item className="flex flex-col gap-y-4 lg:gap-y-8">
             <Card className="p-6">
               <div className="flex justify-center gap-2">
                 <Toolbar aria-label="Toolbars" className="flex justify-between">
-                  <ToolbarGroup aria-label="Actions">
-                    <ToolbarItem aria-label="Support" appearance="outline">
+                  <Toolbar.Group aria-label="Actions">
+                    <Toolbar.Item aria-label="Support" appearance="outline">
                       {({ isSelected }) => <>{isSelected ? <IconHeartFill /> : <IconHeart />}</>}
-                    </ToolbarItem>
-                    <ToolbarItem aria-label="Duplicate" appearance="outline">
+                    </Toolbar.Item>
+                    <Toolbar.Item aria-label="Duplicate" appearance="outline">
                       {({ isSelected }) => (
                         <>{isSelected ? <IconDuplicateFill /> : <IconDuplicate />}</>
                       )}
-                    </ToolbarItem>
-                    <ToolbarItem aria-label="Resolve with AI" appearance="outline">
+                    </Toolbar.Item>
+                    <Toolbar.Item aria-label="Resolve with AI" appearance="outline">
                       {({ isSelected }) => <>{isSelected ? <IconMagicFill /> : <IconMagic />}</>}
-                    </ToolbarItem>
+                    </Toolbar.Item>
                     <SliderOnPopoverBlock />
-                  </ToolbarGroup>
-                  <ToolbarSeparator className="sm:flex hidden" />
-                  <ToolbarGroup className="sm:flex hidden" aria-label="Gallery">
-                    <ToolbarItem aria-label="Camera" size="square-petite" appearance="outline">
+                  </Toolbar.Group>
+                  <Toolbar.Separator className="sm:flex hidden" />
+                  <Toolbar.Group className="sm:flex hidden" aria-label="Gallery">
+                    <Toolbar.Item aria-label="Camera" size="square-petite" appearance="outline">
                       {({ isSelected }) => <>{isSelected ? <IconCameraFill /> : <IconCamera />}</>}
-                    </ToolbarItem>
-                    <ToolbarItem aria-label="Gallery" size="square-petite" appearance="outline">
+                    </Toolbar.Item>
+                    <Toolbar.Item aria-label="Gallery" size="square-petite" appearance="outline">
                       {({ isSelected }) => (
                         <>{isSelected ? <IconGalleryFill /> : <IconGallery />}</>
                       )}
-                    </ToolbarItem>
-                    <ToolbarItem aria-label="Playlist" size="square-petite" appearance="outline">
+                    </Toolbar.Item>
+                    <Toolbar.Item aria-label="Playlist" size="square-petite" appearance="outline">
                       {({ isSelected }) => (
                         <>{isSelected ? <IconVideoPlaylistFill /> : <IconVideoPlaylist />}</>
                       )}
-                    </ToolbarItem>
-                  </ToolbarGroup>
+                    </Toolbar.Item>
+                  </Toolbar.Group>
                 </Toolbar>
               </div>
             </Card>
@@ -113,11 +109,11 @@ export function Blocks() {
             >
               {(item) => <GridListItem>{item.name}</GridListItem>}
             </GridList>
-          </GridItem>
-          <GridItem>
+          </Grid.Item>
+          <Grid.Item>
             <CheckRadioBlock />
-          </GridItem>
-          <GridItem>
+          </Grid.Item>
+          <Grid.Item>
             <CardBlock className="p-4 py-2 sm:p-4 lg:px-5 lg:py-0">
               <div>
                 <Note>Check out the latest updates on our dashboard!</Note>
@@ -133,52 +129,52 @@ export function Blocks() {
                 </Note>
               </div>
             </CardBlock>
-          </GridItem>
-          <GridItem>
+          </Grid.Item>
+          <Grid.Item>
             <CardBlock>
               <SelectDemo />
             </CardBlock>
-          </GridItem>
-          <GridItem>
+          </Grid.Item>
+          <Grid.Item>
             <CardBlock>
               <ComboBoxAvatarDemo />
             </CardBlock>
-          </GridItem>
-          <GridItem>
+          </Grid.Item>
+          <Grid.Item>
             <CardBlock>
               <ColorPickerCombinationDemo />
             </CardBlock>
-          </GridItem>
-          <GridItem>
+          </Grid.Item>
+          <Grid.Item>
             <ModalOverlays />
-          </GridItem>
-          <GridItem>
+          </Grid.Item>
+          <Grid.Item>
             <PopoverOverlays />
-          </GridItem>
-          <GridItem>
+          </Grid.Item>
+          <Grid.Item>
             <CardBlock>
               <TooltipDelayDemo />
             </CardBlock>
-          </GridItem>
-          <GridItem>
+          </Grid.Item>
+          <Grid.Item>
             <Buttons />
-          </GridItem>
-          <GridItem>
+          </Grid.Item>
+          <Grid.Item>
             <CardBlock>
               <AvatarDemo />
             </CardBlock>
-          </GridItem>
-          <GridItem>
+          </Grid.Item>
+          <Grid.Item>
             <CardBlock>
               <SwitchDemo />
             </CardBlock>
-          </GridItem>
-          <GridItem colSpan={{ initial: 1, lg: 2 }}>
+          </Grid.Item>
+          <Grid.Item colSpan={{ initial: 1, lg: 2 }}>
             <GridListDragBlock />
-          </GridItem>
-          <GridItem>
+          </Grid.Item>
+          <Grid.Item>
             <Menus />
-          </GridItem>
+          </Grid.Item>
         </Grid>
       </div>
 

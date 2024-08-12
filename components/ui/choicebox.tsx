@@ -116,4 +116,5 @@ const ChoiceboxItem = ({ children, className, ...props }: ChoiceboxItemProps) =>
   )
 }
 
-export { Choicebox, ChoiceboxItem }
+Choicebox.Item = ChoiceboxItem
+export { Choicebox }

@@ -3,7 +3,7 @@
 import * as React from 'react'
 
 import Image from 'next/image'
-import { Card, CardDescription, CardHeader, CardTitle, Carousel } from 'ui'
+import { Card, Carousel } from 'ui'
 
 export default function CarouselWithCollectionDemo() {
   return (
@@ -19,10 +19,10 @@ export default function CarouselWithCollectionDemo() {
                 width={400}
                 height={300}
               />
-              <CardHeader className="p-3">
-                <CardTitle className="line-clamp-1 sm:text-lg">{item.title}</CardTitle>
-                <CardDescription className="line-clamp-2">{item.description}</CardDescription>
-              </CardHeader>
+              <Card.Header className="p-3">
+                <Card.Title className="line-clamp-1 sm:text-lg">{item.title}</Card.Title>
+                <Card.Description className="line-clamp-2">{item.description}</Card.Description>
+              </Card.Header>
             </Card>
           </Carousel.Item>
         )}

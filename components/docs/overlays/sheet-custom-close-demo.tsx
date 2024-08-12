@@ -2,30 +2,18 @@
 
 import React from 'react'
 
-import {
-  Button,
-  Checkbox,
-  CheckboxGroup,
-  Sheet,
-  SheetBody,
-  SheetClose,
-  SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle
-} from 'ui'
+import { Button, Checkbox, CheckboxGroup, Sheet } from 'ui'
 
 export default function SheetControlledDemo() {
   return (
     <Sheet>
       <Button appearance="outline">Notifications</Button>
-      <SheetContent aria-label="Notifications">
-        <SheetHeader>
-          <SheetTitle>Manage Notifications</SheetTitle>
-          <SheetDescription>Adjust your notification settings below.</SheetDescription>
-        </SheetHeader>
-        <SheetBody>
+      <Sheet.Content aria-label="Notifications">
+        <Sheet.Header>
+          <Sheet.Title>Manage Notifications</Sheet.Title>
+          <Sheet.Description>Adjust your notification settings below.</Sheet.Description>
+        </Sheet.Header>
+        <Sheet.Body>
           <CheckboxGroup aria-label="Notification Settings">
             <Checkbox
               value="n1"
@@ -43,12 +31,12 @@ export default function SheetControlledDemo() {
               description="Receive real-time notifications on your device."
             />
           </CheckboxGroup>
-        </SheetBody>
-        <SheetFooter>
-          <SheetClose>Cancel</SheetClose>
+        </Sheet.Body>
+        <Sheet.Footer>
+          <Sheet.Close>Cancel</Sheet.Close>
           <Button intent="primary">Save Settings</Button>
-        </SheetFooter>
-      </SheetContent>
+        </Sheet.Footer>
+      </Sheet.Content>
     </Sheet>
   )
 }
