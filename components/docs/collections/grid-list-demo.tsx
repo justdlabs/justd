@@ -1,11 +1,11 @@
 'use client'
 
-import { GridList, GridListItem } from 'ui'
+import { GridList } from 'ui'
 
 export default function GridListDemo() {
   return (
     <GridList items={items} aria-label="Select your favorite bands" className="min-w-64">
-      {(item) => <GridListItem id={item.id}>{item.name}</GridListItem>}
+      {(item) => <GridList.Item id={item.id}>{item.name}</GridList.Item>}
     </GridList>
   )
 }

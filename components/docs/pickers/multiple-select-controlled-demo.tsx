@@ -28,7 +28,7 @@ export default function MultipleSelectControlledDemo() {
         label="Select tags"
         selectedItems={selectedItems}
         items={tags}
-        tag={(item) => <Tag textValue={item.name}>{item.name}</Tag>}
+        tag={(item) => <Tag.Item textValue={item.name}>{item.name}</Tag.Item>}
       >
         {(item) => {
           return (

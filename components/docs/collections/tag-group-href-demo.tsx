@@ -1,6 +1,6 @@
 'use client'
 
-import { Tag, TagGroup, TagList } from 'ui'
+import { Tag } from 'ui'
 
 const articles = [
   { name: 'React Tutorial', url: '#' },
@@ -10,14 +10,14 @@ const articles = [
 
 export default function TagGroupControlledDemo() {
   return (
-    <TagGroup>
-      <TagList items={articles}>
+    <Tag.Group>
+      <Tag.List items={articles}>
         {(item) => (
-          <Tag id={item.name} href={item.url}>
+          <Tag.Item id={item.name} href={item.url}>
             {item.name}
-          </Tag>
+          </Tag.Item>
         )}
-      </TagList>
-    </TagGroup>
+      </Tag.List>
+    </Tag.Group>
   )
 }

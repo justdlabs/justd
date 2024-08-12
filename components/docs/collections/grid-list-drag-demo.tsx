@@ -2,7 +2,7 @@
 
 import { useDragAndDrop } from 'react-aria-components'
 import { useListData } from 'react-stately'
-import { GridList, GridListItem } from 'ui'
+import { GridList } from 'ui'
 
 export default function GridListDragDemo() {
   const list = useListData({
@@ -27,7 +27,7 @@ export default function GridListDragDemo() {
         selectionMode="multiple"
         dragAndDropHooks={dragAndDropHooks}
       >
-        {(item) => <GridListItem id={item.id}>{item.name}</GridListItem>}
+        {(item) => <GridList.Item id={item.id}>{item.name}</GridList.Item>}
       </GridList>
     </>
   )

@@ -25,7 +25,7 @@ export function getAllRefs(docs: Array<Docs>) {
   const references: Record<string, number> = {}
   docs.forEach((doc) => {
     if (doc.published) {
-      doc.references?.forEach((tag) => {
+      doc.references?.forEach((tag: string | number) => {
         references[tag] = (references[tag] ?? 0) + 1
       })
     }
@@ -34,26 +34,9 @@ export function getAllRefs(docs: Array<Docs>) {
   return references
 }
 
-export function sortReferencesByCount(references: Record<string, number>) {
-  return Object.keys(references).sort((a, b) => references[b] - references[a])
-}
-
-export function getDocsByTagReferences(docs: Array<Docs>, tag: string) {
-  return docs.filter((doc) => {
-    if (!doc.references) return false
-    const slugifiedTags = doc.references.map((tag) => slug(tag))
-    return slugifiedTags.includes(tag)
-  })
-}
 
 export function goodTitle(str: string) {
   return titlePrimitive(str.replaceAll('-', ' '))
-}
-
-export function toTitleCase(input: string): string {
-  return input
-    .replace(/([-_][a-z])/g, (group) => group.toUpperCase().replace('-', '').replace('_', ''))
-    .replace(/^[a-z]/, (group) => group.toUpperCase())
 }
 
 export function wait(number: number) {

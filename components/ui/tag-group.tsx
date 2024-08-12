@@ -137,7 +137,7 @@ interface TagProps extends TagPrimitiveProps {
   shape?: Shape
 }
 
-const Tag = ({ children, className, intent, shape, ...props }: TagProps) => {
+const TagItem = ({ children, className, intent, shape, ...props }: TagProps) => {
   const textValue = typeof children === 'string' ? children : undefined
   const groupContext = React.useContext(TagGroupContext)
 
@@ -183,4 +183,10 @@ const Tag = ({ children, className, intent, shape, ...props }: TagProps) => {
   )
 }
 
-export { Tag, TagGroup, TagList, type RestrictedIntent }
+const Tag = {
+  Group: TagGroup,
+  Item: TagItem,
+  List: TagList
+}
+
+export { Tag, type RestrictedIntent }

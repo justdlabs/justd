@@ -1,6 +1,6 @@
 'use client'
 
-import { Tag, TagGroup, TagList } from 'ui'
+import { Tag } from 'ui'
 
 export const androidBrands = [
   { id: '1', name: 'Samsung', available: false },
@@ -11,8 +11,8 @@ export const androidBrands = [
 
 export default function TagGroupDemo() {
   return (
-    <TagGroup label="Android Brands" selectionMode="multiple">
-      <TagList items={androidBrands}>{(item) => <Tag>{item.name}</Tag>}</TagList>
-    </TagGroup>
+    <Tag.Group label="Android Brands" selectionMode="multiple">
+      <Tag.List items={androidBrands}>{(item) => <Tag.Item>{item.name}</Tag.Item>}</Tag.List>
+    </Tag.Group>
   )
 }

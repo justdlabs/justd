@@ -1,6 +1,6 @@
 'use client'
 
-import { GridList, GridListItem } from 'ui'
+import { GridList } from 'ui'
 
 export default function GridListMultipleDemo() {
   return (
@@ -11,7 +11,7 @@ export default function GridListMultipleDemo() {
         selectionMode="multiple"
         className="min-w-64"
       >
-        {(item) => <GridListItem>{item.name}</GridListItem>}
+        {(item) => <GridList.Item>{item.name}</GridList.Item>}
       </GridList>
     </div>
   )

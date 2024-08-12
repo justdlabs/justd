@@ -73,4 +73,7 @@ const GridEmptyState = (props: React.HTMLAttributes<HTMLDivElement>) => (
   <div className="p-6" {...props} />
 )
 
-export { GridList, GridListItem, GridEmptyState }
+GridList.Item = GridListItem
+GridList.EmptyState = GridEmptyState
+
+export { GridList }

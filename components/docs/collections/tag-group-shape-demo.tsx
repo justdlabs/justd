@@ -1,6 +1,6 @@
 'use client'
 
-import { Tag, TagGroup, TagList } from 'ui'
+import { Tag } from 'ui'
 
 const carModels = [
   { id: '1', name: 'Tesla Model S', available: true },
@@ -13,12 +13,12 @@ const carModels = [
 export default function TagGroupIntentDemo() {
   return (
     <div className="space-y-6 max-w-sm">
-      <TagGroup shape="square" intent="danger" label="Car Models" selectionMode="multiple">
-        <TagList items={carModels}>{(item) => <Tag>{item.name}</Tag>}</TagList>
-      </TagGroup>
-      <TagGroup shape="circle" intent="warning" label="Car Models" selectionMode="multiple">
-        <TagList items={carModels}>{(item) => <Tag>{item.name}</Tag>}</TagList>
-      </TagGroup>
+      <Tag.Group shape="square" intent="danger" label="Car Models" selectionMode="multiple">
+        <Tag.List items={carModels}>{(item) => <Tag.Item>{item.name}</Tag.Item>}</Tag.List>
+      </Tag.Group>
+      <Tag.Group shape="circle" intent="warning" label="Car Models" selectionMode="multiple">
+        <Tag.List items={carModels}>{(item) => <Tag.Item>{item.name}</Tag.Item>}</Tag.List>
+      </Tag.Group>
     </div>
   )
 }

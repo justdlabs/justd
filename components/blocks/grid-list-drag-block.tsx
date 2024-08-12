@@ -7,7 +7,7 @@ import { OtherEmptyList } from '@/components/docs/collections/grid-list-drag-bet
 import GridListDragDemo from '@/components/docs/collections/grid-list-drag-demo'
 import { useDragAndDrop } from 'react-aria-components'
 import { useListData } from 'react-stately'
-import { GridList, GridListItem } from 'ui'
+import { GridList } from 'ui'
 
 export function GridListDragBlock() {
   const list = useListData({
@@ -43,7 +43,7 @@ export function GridListDragBlock() {
           items={list.items}
           dragAndDropHooks={dragAndDropHooks}
         >
-          {(item) => <GridListItem>{item.name}</GridListItem>}
+          {(item) => <GridList.Item>{item.name}</GridList.Item>}
         </GridList>
         <OtherEmptyList />
       </div>

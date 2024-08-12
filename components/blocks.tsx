@@ -31,18 +31,7 @@ import {
   IconVideoPlaylist,
   IconVideoPlaylistFill
 } from 'justd-icons'
-import {
-  buttonStyles,
-  Card,
-  cn,
-  Grid,
-  GridList,
-  GridListItem,
-  Heading,
-  Link,
-  Note,
-  Toolbar
-} from 'ui'
+import { buttonStyles, Card, cn, Grid, GridList, Heading, Link, Note, Toolbar } from 'ui'
 
 export function Blocks() {
   return (
@@ -107,7 +96,7 @@ export function Blocks() {
               selectionMode="multiple"
               className="min-w-64"
             >
-              {(item) => <GridListItem>{item.name}</GridListItem>}
+              {(item) => <GridList.Item>{item.name}</GridList.Item>}
             </GridList>
           </Grid.Item>
           <Grid.Item>

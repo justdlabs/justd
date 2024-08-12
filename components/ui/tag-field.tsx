@@ -12,7 +12,7 @@ import type { FieldProps } from './field'
 import { Description, Input, Label } from './field'
 import { cn } from './primitive'
 import type { RestrictedIntent, TagGroupProps } from './tag-group'
-import { Tag, TagGroup, TagList } from './tag-group'
+import { Tag } from './tag-group'
 
 const tagFieldsStyles = tv({
   base: ['relative flex min-h-10 flex-row flex-wrap items-center'],
@@ -139,7 +139,7 @@ const TagField = ({
     <div className={cn('flex flex-col gap-1 w-full', className)}>
       {props.label && <Label>{props.label}</Label>}
       <Group className={twJoin('flex flex-col', props.isDisabled && 'opacity-50')}>
-        <TagGroup
+        <Tag.Group
           intent={props.intent}
           shape={props.shape}
           aria-label="List item inserted"
@@ -147,7 +147,7 @@ const TagField = ({
         >
           <div className={tagFieldsStyles({ appearance })}>
             <div className="flex flex-1 flex-wrap items-center">
-              <TagList
+              <Tag.List
                 items={list.items}
                 className={twJoin(
                   list.items.length !== 0
@@ -157,8 +157,8 @@ const TagField = ({
                   '[&_.jdt3lr2x]:cursor-default last:[&_.jdt3lr2x]:-mr-1 outline-none'
                 )}
               >
-                {(item) => <Tag>{item.name}</Tag>}
-              </TagList>
+                {(item) => <Tag.Item>{item.name}</Tag.Item>}
+              </Tag.List>
               <TextField
                 isDisabled={props.isDisabled}
                 aria-label={props?.label ?? (props['aria-label'] || props.placeholder)}
@@ -175,7 +175,7 @@ const TagField = ({
               </TextField>
             </div>
           </div>
-        </TagGroup>
+        </Tag.Group>
         {name && (
           <input hidden name={name} value={list.items.map((i) => i.name).join(',')} readOnly />
         )}
