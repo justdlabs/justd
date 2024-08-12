@@ -3,7 +3,10 @@
 import * as React from 'react'
 
 import { ctr } from '@/components/ui/primitive'
-import type { ColorFieldProps as ColorFieldPrimitiveProps, ValidationResult } from 'react-aria-components'
+import type {
+  ColorFieldProps as ColorFieldPrimitiveProps,
+  ValidationResult
+} from 'react-aria-components'
 import { ColorField as ColorFieldPrimitive } from 'react-aria-components'
 
 import { ColorSwatch } from './color'

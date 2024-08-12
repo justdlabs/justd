@@ -2,7 +2,10 @@
 
 import * as React from 'react'
 
-import type { DialogTriggerProps, ModalOverlayProps as ModalOverlayPrimitiveProps } from 'react-aria-components'
+import type {
+  DialogTriggerProps,
+  ModalOverlayProps as ModalOverlayPrimitiveProps
+} from 'react-aria-components'
 import {
   Button as ButtonPrimitive,
   composeRenderProps,

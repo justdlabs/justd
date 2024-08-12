@@ -34,7 +34,6 @@ export function getAllRefs(docs: Array<Docs>) {
   return references
 }
 
-
 export function goodTitle(str: string) {
   return titlePrimitive(str.replaceAll('-', ' '))
 }
