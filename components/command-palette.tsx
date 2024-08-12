@@ -10,8 +10,8 @@ import { IconCube, IconHome, IconNotes } from 'justd-icons'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import {
-  Badge,
   CommandMenu,
+  CommandMenuDescription,
   CommandMenuInput,
   CommandMenuItem,
   CommandMenuList,
@@ -93,22 +93,22 @@ export function CommandPalette({ open, setOpen }: OpenCloseProps) {
                   >
                     {goodTitle((subValue as Doc).title)}
                     {subValue.status && (
-                      <Badge
+                      <CommandMenuDescription
                         intent={
                           subValue?.status === 'wip'
                             ? 'warning'
                             : subValue.status === 'beta'
                               ? 'warning'
-                              : subValue.status === 'help'
-                                ? 'warning'
-                                : subValue.status === 'primitive'
-                                  ? 'secondary'
-                                  : 'info'
+                              : subValue.status === 'alpha'
+                                ? 'danger'
+                                : subValue.status === 'new'
+                                  ? 'primary'
+                                  : 'secondary'
                         }
-                        className="uppercase h-5 text-[0.5rem]"
+                        className="uppercase text-[0.65rem]"
                       >
                         {subValue?.status as Doc['status']}
-                      </Badge>
+                      </CommandMenuDescription>
                     )}
                   </CommandMenuItem>
                 ) : null
@@ -136,20 +136,22 @@ export function CommandPalette({ open, setOpen }: OpenCloseProps) {
                       >
                         {goodTitle((childValue as Doc).title)}
                         {childValue.status && (
-                          <Badge
+                          <CommandMenuDescription
                             intent={
                               childValue?.status === 'wip'
                                 ? 'primary'
                                 : childValue.status === 'beta'
                                   ? 'warning'
-                                  : childValue.status === 'help'
-                                    ? 'warning'
-                                    : 'info'
+                                  : childValue.status === 'alpha'
+                                    ? 'danger'
+                                    : childValue.status === 'new'
+                                      ? 'primary'
+                                      : 'secondary'
                             }
-                            className="uppercase h-5 text-[0.5rem]"
+                            className="uppercase text-[0.65rem]"
                           >
                             {childValue?.status as Doc['status']}
-                          </Badge>
+                          </CommandMenuDescription>
                         )}
                       </CommandMenuItem>
                     ) : null

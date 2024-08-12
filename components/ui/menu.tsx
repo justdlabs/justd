@@ -79,7 +79,7 @@ const MenuTrigger = ({ className, ...props }: MenuTriggerProps) => (
   <Button className={trigger({ className })} {...props} />
 )
 
-export interface MenuContentProps<T>
+interface MenuContentProps<T>
   extends Omit<PopoverProps, 'children' | 'style'>,
     MenuPrimitiveProps<T> {
   className?: string
@@ -147,7 +147,6 @@ const MenuHeader = ({ className, inset, separator = false, ...props }: MenuHeade
   <Header
     className={cn(
       'p-2 text-base font-semibold sm:text-sm',
-      inset && 'pl-8',
       separator && '-mx-1 border-b border-b-border px-3 pb-[0.625rem]',
       className
     )}
@@ -203,5 +202,6 @@ export {
   MenuTrigger,
   SubMenu,
   MenuItemDetails,
-  type MenuItemProps
+  type MenuItemProps,
+  type MenuContentProps
 }

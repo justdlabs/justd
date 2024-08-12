@@ -15,7 +15,7 @@ import {
   IconBrandJustd,
   IconBrandTailwindcss,
   IconBrandX,
-  IconChevronDown,
+  IconChevronLgDown,
   IconColors,
   IconCube,
   IconDeviceDesktop,
@@ -32,6 +32,13 @@ import {
   Button,
   buttonStyles,
   cn,
+  ContextMenu,
+  ContextMenuContent,
+  ContextMenuHeader,
+  ContextMenuItem,
+  ContextMenuSection,
+  ContextMenuSeparator,
+  ContextMenuTrigger,
   Link,
   Menu,
   MenuContent,
@@ -61,7 +68,7 @@ export function Navbar() {
   const pathname = usePathname()
 
   const [open, setOpen] = React.useState(false)
-
+  const isDesktop = useMediaQuery('(min-width: 1024px)')
   return (
     <>
       <CommandPalette setOpen={setOpen} open={open} />
@@ -71,7 +78,7 @@ export function Navbar() {
             <div className="mx-auto max-w-screen-2xl px-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-x-6">
-                  <NavbarDropdown />
+                  {isDesktop ? <NavbarContextMenu /> : <NavbarDropdown />}
                   <Separator orientation="vertical" className="h-6" />
                   <Collection items={menuItems}>
                     <NavLink isNextLink isActive={pathname === '/'} href="/">
@@ -239,11 +246,11 @@ export function NavbarDropdown() {
   const { theme, setTheme } = useTheme()
   return (
     <Menu>
-      <Button aria-label="Menu" appearance="plain" className="group -ml-1 [&_svg]:size-5">
+      <Button aria-label="Menu" appearance="plain" className="group -ml-1">
         <span className="flex items-center gap-x-2">
-          <IconBrandD className="-ml-1 size-6" />
+          <IconBrandJustd className="-ml-1 size-6" />
           <span className="font-mono text-base tracking-tight sm:text-sm">{siteConfig.name}</span>
-          <IconChevronDown className="-mr-2 ml-1 size-4 text-muted-fg transition duration-300 group-hover:text-fg group-pressed:rotate-180 group-pressed:text-fg" />
+          <IconChevronLgDown className="-mr-2 size-3.5 text-muted-fg transition duration-300 group-hover:text-fg group-pressed:rotate-180 group-pressed:text-fg" />
           <span className="sr-only">Open menu</span>
         </span>
       </Button>
@@ -318,5 +325,64 @@ export function NavbarDropdown() {
         </SubMenu>
       </MenuContent>
     </Menu>
+  )
+}
+
+export function NavbarContextMenu() {
+  return (
+    <ContextMenu>
+      <ContextMenuTrigger
+        aria-label="Context Menu"
+        className={buttonStyles({ appearance: 'plain' })}
+      >
+        <span className="flex items-center gap-x-2">
+          <IconBrandD className="-ml-1 size-6" />
+          <span className="font-mono text-base tracking-tight sm:text-sm">{siteConfig.name}</span>
+        </span>
+      </ContextMenuTrigger>
+      <ContextMenuContent className="sm:min-w-64">
+        <ContextMenuItem href="/">
+          <IconHome />
+          Home
+        </ContextMenuItem>
+        <ContextMenuItem href="/components">
+          <IconCube />
+          Components
+        </ContextMenuItem>
+        <ContextMenuItem href="/colors">
+          <IconColors />
+          Colors
+        </ContextMenuItem>
+        <ContextMenuSeparator />
+        <ContextMenuSection>
+          <ContextMenuItem href="https://x.com/intent/follow?screen_name=getjustd" target="_blank">
+            <IconBrandX />X / Twitter
+          </ContextMenuItem>
+          <ContextMenuItem href="https://github.com/justdlabs" target="_blank">
+            <IconBrandGithub />
+            Github
+          </ContextMenuItem>
+        </ContextMenuSection>
+        <ContextMenuSeparator />
+        <ContextMenuSection>
+          <ContextMenuHeader separator>Refs</ContextMenuHeader>
+          <ContextMenuItem href="/icons">
+            <IconBrandJustd />
+            Icons
+          </ContextMenuItem>
+          <ContextMenuItem
+            href="https://react-spectrum.adobe.com/react-aria/components.html"
+            target="_blank"
+          >
+            <IconBrandAdobe />
+            RAC
+          </ContextMenuItem>
+          <ContextMenuItem href="https://tailwindcss.com" target="_blank">
+            <IconBrandTailwindcss />
+            Tailwind CSS
+          </ContextMenuItem>
+        </ContextMenuSection>
+      </ContextMenuContent>
+    </ContextMenu>
   )
 }

@@ -6,6 +6,7 @@ import { Command as CommandPrimitive } from 'cmdk'
 import { IconSearch, IconX } from 'justd-icons'
 import type { ModalOverlayProps, SeparatorProps, TextProps } from 'react-aria-components'
 import { Button, Dialog, Modal, ModalOverlay, Text } from 'react-aria-components'
+import { twJoin } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
 
 import type { KeyboardProps } from './keyboard'
@@ -46,8 +47,7 @@ const commandStyles = tv({
     ],
     empty: 'py-6 text-center text-sm text-muted-fg x3tmpy',
     kbdKeyboard: 'lg:block hidden group-data-[selected=true]:opacity-60',
-    description:
-      'sm:inline hidden text-sm group-data-[selected=true]:text-primary-fg/70 text-muted-fg ml-auto',
+    description: 'sm:inline hidden text-sm ml-auto',
     item: [
       'group relative flex cursor-default select-none items-center rounded-lg py-2 text-sm outline-none',
       // selected
@@ -218,8 +218,31 @@ const CommandMenuItem = ({ isDanger, className, ...props }: CommandItemProps) =>
   )
 }
 
-const CommandMenuDescription = ({ className, ...props }: TextProps) => {
-  return <Text {...props} slot="description" className={description({ className })} />
+interface CommandMenuDescriptionProps extends TextProps {
+  intent?: 'danger' | 'warning' | 'success' | 'primary' | 'secondary'
+}
+
+const CommandMenuDescription = ({ intent, className, ...props }: CommandMenuDescriptionProps) => {
+  return (
+    <Text
+      {...props}
+      slot="description"
+      className={description({
+        className: twJoin(
+          intent === 'danger'
+            ? 'group-data-[selected=true]:text-primary-fg/70 text-danger/90'
+            : intent === 'warning'
+              ? 'group-data-[selected=true]:text-primary-fg/70 text-warning/90'
+              : intent === 'success'
+                ? 'group-data-[selected=true]:text-primary-fg/70 text-success/90'
+                : intent === 'primary'
+                  ? 'group-data-[selected=true]:text-white/70 text-primary/90'
+                  : 'group-data-[selected=true]:text-primary-fg/70 text-muted-fg',
+          className
+        )
+      })}
+    />
+  )
 }
 
 const CommandMenuKeyboard = (props: KeyboardProps) => (

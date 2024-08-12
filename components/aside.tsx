@@ -15,7 +15,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, Badge, cn
 export interface Doc {
   slug: string
   title: string
-  status?: 'wip' | 'new' | 'beta' | 'help' | 'primitive' | 'rc'
+  status?: 'wip' | 'new' | 'beta' | 'help' | 'primitive' | 'alpha'
 }
 
 export interface HierarchyNode {
@@ -77,7 +77,7 @@ const renderHierarchy = (node: HierarchyNode, defaultValues: string[]) => {
             ) : (
               <Accordion defaultExpandedKeys={defaultValues} className="w-full relative">
                 <div className="h-full absolute left-0 bg-zinc-200 dark:bg-zinc-800 w-px ml-4" />
-                {Object.entries(value as HierarchyNode).map(([subKey, subValue], xi) =>
+                {Object.entries(value as HierarchyNode).map(([subKey, subValue]) =>
                   typeof subValue === 'object' && 'title' in subValue ? (
                     <AsideLink
                       className="pl-[2rem] flex justify-between items-center"
@@ -90,8 +90,8 @@ const renderHierarchy = (node: HierarchyNode, defaultValues: string[]) => {
                           intent={
                             subValue?.status === 'wip'
                               ? 'warning'
-                              : subValue?.status === 'rc'
-                                ? 'primary'
+                              : subValue?.status === 'alpha'
+                                ? 'danger'
                                 : subValue.status === 'beta'
                                   ? 'warning'
                                   : subValue.status === 'help'
@@ -133,11 +133,13 @@ const renderHierarchy = (node: HierarchyNode, defaultValues: string[]) => {
                                       ? 'primary'
                                       : childValue.status === 'beta'
                                         ? 'warning'
-                                        : childValue.status === 'help'
-                                          ? 'warning'
-                                          : childValue.status === 'primitive'
-                                            ? 'secondary'
-                                            : 'info'
+                                        : childValue.status === 'alpha'
+                                          ? 'danger'
+                                          : childValue.status === 'help'
+                                            ? 'warning'
+                                            : childValue.status === 'primitive'
+                                              ? 'secondary'
+                                              : 'info'
                                   }
                                   className="uppercase h-5 text-[0.5rem]"
                                 >

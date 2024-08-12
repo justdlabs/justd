@@ -3,12 +3,10 @@
 import React from 'react'
 
 import {
-  IconBag,
   IconCommandRegular,
   IconDashboard,
   IconDeviceDesktop,
   IconHeadphones,
-  IconHeart,
   IconLogout,
   IconMoon,
   IconSettings,
@@ -34,33 +32,22 @@ export default function MenuWithIconDemo() {
       <MenuTrigger>
         <Avatar className="size-10" src="https://github.com/irsyadadl.png" />
       </MenuTrigger>
-      <MenuContent placement="bottom" showArrow className="min-w-64">
+      <MenuContent placement="bottom" showArrow className="sm:min-w-64">
         <MenuSection>
           <MenuHeader separator>
             <span className="block">Irsyad A. Panjaitan</span>
             <span className="font-normal text-muted-fg">@irsyadadl</span>
           </MenuHeader>
-          <MenuItem href="#dashboard">
-            <IconDashboard />
-            Dashboard
-          </MenuItem>
-          <MenuItem href="#settings">
-            <IconSettings />
-            Settings
-          </MenuItem>
-        </MenuSection>
-        <MenuSeparator />
-        <MenuSection>
-          <MenuItem href="#wishlist">
-            <IconHeart />
-            My Wishlist
-          </MenuItem>
-          <MenuItem href="#orders">
-            <IconBag />
-            Orders
-          </MenuItem>
         </MenuSection>
 
+        <MenuItem href="#dashboard">
+          <IconDashboard />
+          Dashboard
+        </MenuItem>
+        <MenuItem href="#settings">
+          <IconSettings />
+          Settings
+        </MenuItem>
         <MenuSeparator />
         <MenuItem>
           <IconCommandRegular />
