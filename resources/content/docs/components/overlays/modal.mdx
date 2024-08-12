@@ -89,20 +89,18 @@ interface ModalActionProps {
 
 export function ModalAction(props: ModalActionProps) {
   return (
-    <ModalOverlay isOpen={props.isOpen} onOpenChange={props.closeModal}>
-      <ModalContent>
-        <ModalHeader>
-          <ModalTitle>{props.title}</ModalTitle>
-          <ModalDescription>{props.description}</ModalDescription>
-        </ModalHeader>
-        <ModalFooter>
-          <ModalClose>Cancel</ModalClose>
-          <Button className="min-w-24" isDisabled={props.loading} onPress={props.action}>
-            {props.loading ? <LoadingDots className={'bg-fg'} /> : props.confirmText}
-          </Button>
-        </ModalFooter>
-      </ModalContent>
-    </ModalOverlay>
+    <Modal.Content isOpen={props.isOpen} onOpenChange={props.closeModal}>
+      <Modal.Header>
+        <Modal.Title>{props.title}</Modal.Title>
+        <Modal.Description>{props.description}</Modal.Description>
+      </Modal.Header>
+      <Modal.Footer>
+        <Modal.Close>Cancel</Modal.Close>
+        <Button className="min-w-24" isDisabled={props.loading} onPress={props.action}>
+          {props.loading ? <LoadingDots className={'bg-fg'} /> : props.confirmText}
+        </Button>
+      </Modal.Footer>
+    </Modal.Content>
   )
 }
 ```
