@@ -17,12 +17,7 @@ import {
   PaginationItem,
   PaginationList,
   PaginationSection,
-  Table,
-  TableBody,
-  TableCell,
-  TableColumn,
-  TableHeader,
-  TableRow
+  Table
 } from 'ui'
 
 export default function CardTableDemo() {
@@ -34,23 +29,22 @@ export default function CardTableDemo() {
       </CardHeader>
       <CardContent>
         <Table aria-label="Users">
-          <TableHeader>
-            <TableColumn>#</TableColumn>
-            <TableColumn isRowHeader>Name</TableColumn>
-            <TableColumn>Genre</TableColumn>
-            <TableColumn>Age</TableColumn>
-            <TableColumn>Occupation</TableColumn>
-            <TableColumn />
-          </TableHeader>
-          <TableBody items={users}>
+          <Table.Header>
+            <Table.Column isRowHeader>Name</Table.Column>
+            <Table.Column>Genre</Table.Column>
+            <Table.Column>Age</Table.Column>
+            <Table.Column>Occupation</Table.Column>
+            <Table.Column />
+          </Table.Header>
+          <Table.Body items={users}>
             {(item) => (
-              <TableRow id={item.id}>
-                <TableCell>{item.id}</TableCell>
-                <TableCell>{item.name}</TableCell>
-                <TableCell>{item.gender}</TableCell>
-                <TableCell>{item.age}</TableCell>
-                <TableCell>{item.occupation}</TableCell>
-                <TableCell className="flex justify-end">
+              <Table.Row id={item.id}>
+                <Table.Cell>{item.id}</Table.Cell>
+                <Table.Cell>{item.name}</Table.Cell>
+                <Table.Cell>{item.gender}</Table.Cell>
+                <Table.Cell>{item.age}</Table.Cell>
+                <Table.Cell>{item.occupation}</Table.Cell>
+                <Table.Cell className="flex justify-end">
                   <Menu>
                     <MenuTrigger>
                       <IconDotsVertical />
@@ -68,10 +62,10 @@ export default function CardTableDemo() {
                       </MenuItem>
                     </MenuContent>
                   </Menu>
-                </TableCell>
-              </TableRow>
+                </Table.Cell>
+              </Table.Row>
             )}
-          </TableBody>
+          </Table.Body>
         </Table>
       </CardContent>
       <CardFooter>

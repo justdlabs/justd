@@ -2,9 +2,7 @@
 
 import React from 'react'
 
-import {
-  ContextMenu,
-} from 'ui'
+import { ContextMenu } from 'ui'
 
 export default function ContextMenuDangerDemo() {
   return (

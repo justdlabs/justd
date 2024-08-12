@@ -2,20 +2,7 @@
 
 import { NumberFormatter } from '@internationalized/number'
 import { IconDotsVertical } from 'justd-icons'
-import {
-  Card,
-  Menu,
-  MenuContent,
-  MenuItem,
-  MenuSeparator,
-  MenuTrigger,
-  Table,
-  TableBody,
-  TableCell,
-  TableColumn,
-  TableHeader,
-  TableRow
-} from 'ui'
+import { Card, Menu, MenuContent, MenuItem, MenuSeparator, MenuTrigger, Table } from 'ui'
 
 export default function TableDemo() {
   const formatter = new NumberFormatter('en-US', { style: 'currency', currency: 'USD' })
@@ -24,23 +11,23 @@ export default function TableDemo() {
   return (
     <Card>
       <Table aria-label="Products">
-        <TableHeader>
-          <TableColumn>#</TableColumn>
-          <TableColumn isRowHeader>Name</TableColumn>
-          <TableColumn>Category</TableColumn>
-          <TableColumn>Price</TableColumn>
-          <TableColumn>Stock</TableColumn>
-          <TableColumn />
-        </TableHeader>
-        <TableBody items={products}>
+        <Table.Header>
+          <Table.Column>#</Table.Column>
+          <Table.Column isRowHeader>Name</Table.Column>
+          <Table.Column>Category</Table.Column>
+          <Table.Column>Price</Table.Column>
+          <Table.Column>Stock</Table.Column>
+          <Table.Column />
+        </Table.Header>
+        <Table.Body items={products}>
           {(item) => (
-            <TableRow href="/collections/table-demo" id={item.id}>
-              <TableCell>{item.id}</TableCell>
-              <TableCell>{item.name}</TableCell>
-              <TableCell>{item.category}</TableCell>
-              <TableCell>{priceFormat(item.price)}</TableCell>
-              <TableCell>{item.stock}</TableCell>
-              <TableCell>
+            <Table.Row href="/collections/table-demo" id={item.id}>
+              <Table.Cell>{item.id}</Table.Cell>
+              <Table.Cell>{item.name}</Table.Cell>
+              <Table.Cell>{item.category}</Table.Cell>
+              <Table.Cell>{priceFormat(item.price)}</Table.Cell>
+              <Table.Cell>{item.stock}</Table.Cell>
+              <Table.Cell>
                 <div className="flex justify-end">
                   <Menu>
                     <MenuTrigger>
@@ -54,10 +41,10 @@ export default function TableDemo() {
                     </MenuContent>
                   </Menu>
                 </div>
-              </TableCell>
-            </TableRow>
+              </Table.Cell>
+            </Table.Row>
           )}
-        </TableBody>
+        </Table.Body>
       </Table>
     </Card>
   )

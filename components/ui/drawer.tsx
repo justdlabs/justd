@@ -183,7 +183,18 @@ const DrawerTrigger = (props: ButtonProps) => {
   return <Button onPress={openDrawer} {...props} />
 }
 
-interface DrawerProps {
+interface DrawerRootProps {
+  DrawerBody?: typeof DrawerBody
+  DrawerClose?: typeof DrawerClose
+  DrawerContent?: typeof DrawerContent
+  DrawerDescription?: typeof DrawerDescription
+  DrawerFooter?: typeof DrawerFooter
+  DrawerHeader?: typeof DrawerHeader
+  DrawerTitle?: typeof DrawerTitle
+  DrawerTrigger?: typeof DrawerTrigger
+}
+
+interface DrawerProps extends DrawerRootProps {
   children: React.ReactNode
   isOpen?: boolean
   withNotch?: boolean
@@ -274,14 +285,13 @@ const DrawerFooter = ({
   </DialogFooter>
 )
 
-export {
-  Drawer,
-  DrawerBody,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger
-}
+Drawer.Body = DrawerBody
+Drawer.Close = DrawerClose
+Drawer.Content = DrawerContent
+Drawer.Description = DrawerDescription
+Drawer.Footer = DrawerFooter
+Drawer.Header = DrawerHeader
+Drawer.Title = DrawerTitle
+Drawer.Trigger = DrawerTrigger
+
+export { Drawer }

@@ -2,11 +2,7 @@
 
 import React from 'react'
 
-import {
-  Avatar,
-  Button,
-  CommandMenu,
-} from 'ui'
+import { Avatar, Button, CommandMenu } from 'ui'
 
 export default function CommandMenuControlledDemo() {
   const [isOpen, setIsOpen] = React.useState(false)

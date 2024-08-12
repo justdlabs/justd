@@ -3,10 +3,7 @@
 import React from 'react'
 
 import { IconCube } from 'justd-icons'
-import {
-  Button,
-  CommandMenu,
-} from 'ui'
+import { Button, CommandMenu } from 'ui'
 
 export default function CommandMenuDescriptionDemo() {
   const [isOpen, setIsOpen] = React.useState(false)

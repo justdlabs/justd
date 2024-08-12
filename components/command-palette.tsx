@@ -9,10 +9,7 @@ import { goodTitle } from '@/resources/lib/utils'
 import { IconCube, IconHome, IconNotes } from 'justd-icons'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
-import {
-  CommandMenu,
-  useMediaQuery
-} from 'ui'
+import { CommandMenu, useMediaQuery } from 'ui'
 
 export interface OpenCloseProps {
   open: boolean

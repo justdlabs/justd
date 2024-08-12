@@ -2,10 +2,7 @@
 
 import React from 'react'
 
-import {
-  Button,
-  CommandMenu,
-} from 'ui'
+import { Button, CommandMenu } from 'ui'
 
 export default function CommandMenuKeyboardDemo() {
   const [isOpen, setIsOpen] = React.useState(false)

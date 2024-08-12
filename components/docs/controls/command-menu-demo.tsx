@@ -4,11 +4,7 @@ import React from 'react'
 
 import { IconBill, IconCube, IconGear, IconHome, IconNotes, IconShield } from 'justd-icons'
 import Link from 'next/link'
-import {
-  Avatar,
-  Button,
-  CommandMenu,
-} from 'ui'
+import { Avatar, Button, CommandMenu } from 'ui'
 
 export default function CommandMenuDemo() {
   const [isOpen, setIsOpen] = React.useState(false)

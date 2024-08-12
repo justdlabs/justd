@@ -204,5 +204,4 @@ Accordion.Item = AccordionItem
 Accordion.Content = AccordionContent
 Accordion.Trigger = AccordionTrigger
 
-
-export { Accordion, type  AccordionTriggerProps }
+export { Accordion, type AccordionTriggerProps }

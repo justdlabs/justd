@@ -92,7 +92,6 @@ interface CommandMenuContextProps {
 const CommandMenuContext = React.createContext<CommandMenuContextProps>({})
 
 interface CommandMenuRootProps {
-
   CommandMenuEmpty?: typeof CommandMenuEmpty
   CommandMenuInput?: typeof CommandMenuInput
   CommandMenuItem?: typeof CommandMenuItem
@@ -102,7 +101,10 @@ interface CommandMenuRootProps {
   CommandMenuSeparator?: typeof CommandMenuSeparator
   CommandMenuDescription?: typeof CommandMenuDescription
 }
-interface CommandMenuProps extends ModalOverlayProps, CommandMenuRootProps, CommandMenuContextProps {
+interface CommandMenuProps
+  extends ModalOverlayProps,
+    CommandMenuRootProps,
+    CommandMenuContextProps {
   children: React.ReactNode
   value?: string
   messageOnEmpty?: boolean | string

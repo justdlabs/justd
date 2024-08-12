@@ -773,9 +773,6 @@ export const previews: Record<string, any> = {
   "statuses/meter-decimal-format-demo": {
     component: React.lazy(() => import("@/components/docs/statuses/meter-decimal-format-demo")),
   },
-  "statuses/table-of-badges": {
-    component: React.lazy(() => import("@/components/docs/statuses/table-of-badges")),
-  },
   "statuses/badge-demo": {
     component: React.lazy(() => import("@/components/docs/statuses/badge-demo")),
   },

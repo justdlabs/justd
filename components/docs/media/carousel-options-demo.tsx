@@ -1,10 +1,6 @@
 import * as React from 'react'
 
-import {
-  Card,
-  CardTitle,
-  Carousel,
-} from 'ui'
+import { Card, CardTitle, Carousel } from 'ui'
 
 export default function CarouselOptionsDemo() {
   return (

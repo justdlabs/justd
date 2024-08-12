@@ -2,18 +2,7 @@
 
 import React from 'react'
 
-import {
-  Button,
-  Drawer,
-  DrawerBody,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-  TextField
-} from 'ui'
+import { Button, Drawer, TextField } from 'ui'
 
 export default function DrawerControlledDemo() {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -23,14 +12,14 @@ export default function DrawerControlledDemo() {
         Login
       </Button>
       <Drawer isOpen={isOpen} onOpenChange={setIsOpen}>
-        <DrawerContent>
-          <DrawerHeader>
-            <DrawerTitle>Login</DrawerTitle>
-            <DrawerDescription>
+        <Drawer.Content>
+          <Drawer.Header>
+            <Drawer.Title>Login</Drawer.Title>
+            <Drawer.Description>
               Please enter your credentials to access your account.
-            </DrawerDescription>
-          </DrawerHeader>
-          <DrawerBody className="flex flex-col gap-4">
+            </Drawer.Description>
+          </Drawer.Header>
+          <Drawer.Body className="flex flex-col gap-4">
             <TextField label="Email" isRequired type="email" placeholder="Enter your email" />
             <TextField
               label="Password"
@@ -38,12 +27,12 @@ export default function DrawerControlledDemo() {
               type="password"
               placeholder="Enter your password"
             />
-          </DrawerBody>
-          <DrawerFooter>
-            <DrawerClose>Close</DrawerClose>
+          </Drawer.Body>
+          <Drawer.Footer>
+            <Drawer.Close>Close</Drawer.Close>
             <Button onPress={() => setIsOpen(false)}>Login</Button>
-          </DrawerFooter>
-        </DrawerContent>
+          </Drawer.Footer>
+        </Drawer.Content>
       </Drawer>
     </>
   )

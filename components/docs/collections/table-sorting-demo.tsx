@@ -2,7 +2,7 @@
 
 import { useAsyncList } from '@react-stately/data'
 import { IconLoader } from 'justd-icons'
-import { Card, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from 'ui'
+import { Card, Table } from 'ui'
 
 interface Character {
   title: string
@@ -46,21 +46,21 @@ export default function TableSortingDemo() {
         sortDescriptor={list.sortDescriptor}
         onSortChange={list.sort}
       >
-        <TableHeader>
-          <TableColumn id="title" isRowHeader allowsSorting>
+        <Table.Header>
+          <Table.Column id="title" isRowHeader allowsSorting>
             Title
-          </TableColumn>
-          <TableColumn id="director" allowsSorting>
+          </Table.Column>
+          <Table.Column id="director" allowsSorting>
             Director
-          </TableColumn>
-          <TableColumn id="producer" allowsSorting>
+          </Table.Column>
+          <Table.Column id="producer" allowsSorting>
             Producer
-          </TableColumn>
-          <TableColumn id="release_date" allowsSorting>
+          </Table.Column>
+          <Table.Column id="release_date" allowsSorting>
             Release Date
-          </TableColumn>
-        </TableHeader>
-        <TableBody
+          </Table.Column>
+        </Table.Header>
+        <Table.Body
           items={list.items}
           renderEmptyState={() => (
             <div className="grid place-content-center p-10">
@@ -69,74 +69,15 @@ export default function TableSortingDemo() {
           )}
         >
           {(item) => (
-            <TableRow id={item.title}>
-              <TableCell>{item.title}</TableCell>
-              <TableCell>{item.director}</TableCell>
-              <TableCell>{item.producer}</TableCell>
-              <TableCell>{item.release_date}</TableCell>
-            </TableRow>
+            <Table.Row id={item.title}>
+              <Table.Cell>{item.title}</Table.Cell>
+              <Table.Cell>{item.director}</Table.Cell>
+              <Table.Cell>{item.producer}</Table.Cell>
+              <Table.Cell>{item.release_date}</Table.Cell>
+            </Table.Row>
           )}
-        </TableBody>
+        </Table.Body>
       </Table>
     </Card>
   )
 }
-
-const movies = [
-  {
-    id: '1',
-    name: 'The Matrix',
-    genre: 'Sci-Fi',
-    releaseYear: 1999,
-    director: 'Wachowskis',
-    rating: 8.7
-  },
-  {
-    id: '2',
-    name: 'Inception',
-    genre: 'Sci-Fi',
-    releaseYear: 2010,
-    director: 'Christopher Nolan',
-    rating: 8.8
-  },
-  {
-    id: '3',
-    name: 'The Godfather',
-    genre: 'Crime',
-    releaseYear: 1972,
-    director: 'Francis Ford Coppola',
-    rating: 9.2
-  },
-  {
-    id: '4',
-    name: 'Pulp Fiction',
-    genre: 'Crime',
-    releaseYear: 1994,
-    director: 'Quentin Tarantino',
-    rating: 8.9
-  },
-  {
-    id: '5',
-    name: 'The Dark Knight',
-    genre: 'Action',
-    releaseYear: 2008,
-    director: 'Christopher Nolan',
-    rating: 9.0
-  },
-  {
-    id: '6',
-    name: 'Fight Club',
-    genre: 'Drama',
-    releaseYear: 1999,
-    director: 'David Fincher',
-    rating: 8.8
-  },
-  {
-    id: '7',
-    name: 'Forrest Gump',
-    genre: 'Drama',
-    releaseYear: 1994,
-    director: 'Robert Zemeckis',
-    rating: 8.8
-  }
-]
