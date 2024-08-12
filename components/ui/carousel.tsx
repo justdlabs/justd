@@ -37,7 +37,14 @@ const useCarousel = () => {
   return context
 }
 
-interface CarouselProps extends React.HTMLAttributes<HTMLDivElement> {
+interface CarouselRootProps {
+  CarouselContent?: typeof CarouselContent
+  CarouselHandler?: typeof CarouselHandler
+  CarouselItem?: typeof CarouselItem
+  CarouselButton?: typeof CarouselButton
+}
+
+interface CarouselProps extends React.HTMLAttributes<HTMLDivElement>, CarouselRootProps {
   opts?: CarouselOptions
   plugins?: CarouselPlugin
   orientation?: 'horizontal' | 'vertical'
@@ -228,11 +235,9 @@ const CarouselButton = ({
   )
 }
 
-export {
-  Carousel,
-  CarouselContent,
-  CarouselHandler,
-  CarouselItem,
-  CarouselButton,
-  type CarouselApi
-}
+Carousel.Content = CarouselContent
+Carousel.Handler = CarouselHandler
+Carousel.Item = CarouselItem
+Carousel.Button = CarouselButton
+
+export { Carousel, type CarouselApi }

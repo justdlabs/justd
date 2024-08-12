@@ -3,7 +3,7 @@
 import React from 'react'
 
 import type { Selection } from 'react-aria-components'
-import { Choicebox, ChoiceboxItem, Description } from 'ui'
+import { Choicebox, Description } from 'ui'
 
 export default function ChoiceboxControlledDemo() {
   const [selectedKeys, setSelectedKeys] = React.useState<Selection>(new Set([packages[0].id]))
@@ -16,7 +16,7 @@ export default function ChoiceboxControlledDemo() {
         onSelectionChange={setSelectedKeys}
         items={packages}
       >
-        {(item) => <ChoiceboxItem {...item} />}
+        {(item) => <Choicebox.Item {...item} />}
       </Choicebox>
 
       <Description className="mt-2 block [&>strong]:text-fg text-muted-fg">

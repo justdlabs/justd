@@ -1,23 +1,13 @@
 'use client'
 
-import {
-  Button,
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  Checkbox,
-  Form,
-  Link,
-  TextField
-} from 'ui'
+import { Button, Card, Checkbox, Form, Link, TextField } from 'ui'
 
 export function LoginForm() {
   return (
     <Card>
-      <CardHeader title="Login" description="Don't loose the level, just keep on going." />
+      <Card.Header title="Login" description="Don't loose the level, just keep on going." />
       <Form onSubmit={() => {}}>
-        <CardContent className="space-y-6">
+        <Card.Content className="space-y-6">
           <TextField isRequired label="Email" placeholder="Enter your email" />
           <TextField
             isRequired
@@ -31,10 +21,10 @@ export function LoginForm() {
               Forgot password?
             </Link>
           </div>
-        </CardContent>
-        <CardFooter>
+        </Card.Content>
+        <Card.Footer>
           <Button type="submit">Login</Button>
-        </CardFooter>
+        </Card.Footer>
       </Form>
     </Card>
   )

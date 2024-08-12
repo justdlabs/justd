@@ -3,16 +3,7 @@
 import React from 'react'
 
 import type { Selection } from 'react-aria-components'
-import {
-  Card,
-  Description,
-  Table,
-  TableBody,
-  TableCell,
-  TableColumn,
-  TableHeader,
-  TableRow
-} from 'ui'
+import { Card, Description, Table } from 'ui'
 
 export default function TableBulkDemo() {
   const [selectedKeys, setSelectedKeys] = React.useState<Selection>(new Set())
@@ -25,24 +16,24 @@ export default function TableBulkDemo() {
           selectedKeys={selectedKeys}
           onSelectionChange={setSelectedKeys}
         >
-          <TableHeader>
-            <TableColumn>#</TableColumn>
-            <TableColumn isRowHeader>Title</TableColumn>
-            <TableColumn>Author</TableColumn>
-            <TableColumn>Genre</TableColumn>
-            <TableColumn>Published</TableColumn>
-          </TableHeader>
-          <TableBody items={books}>
+          <Table.Header>
+            <Table.Column>#</Table.Column>
+            <Table.Column isRowHeader>Title</Table.Column>
+            <Table.Column>Author</Table.Column>
+            <Table.Column>Genre</Table.Column>
+            <Table.Column>Published</Table.Column>
+          </Table.Header>
+          <Table.Body items={books}>
             {(item) => (
-              <TableRow>
-                <TableCell>{item.id}</TableCell>
-                <TableCell>{item.title}</TableCell>
-                <TableCell>{item.author}</TableCell>
-                <TableCell>{item.genre}</TableCell>
-                <TableCell>{item.publishedYear}</TableCell>
-              </TableRow>
+              <Table.Row>
+                <Table.Cell>{item.id}</Table.Cell>
+                <Table.Cell>{item.title}</Table.Cell>
+                <Table.Cell>{item.author}</Table.Cell>
+                <Table.Cell>{item.genre}</Table.Cell>
+                <Table.Cell>{item.publishedYear}</Table.Cell>
+              </Table.Row>
             )}
-          </TableBody>
+          </Table.Body>
         </Table>
       </Card>
       <Description className="block mt-2 [&>strong]:text-fg text-muted-fg">

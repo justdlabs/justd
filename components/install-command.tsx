@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 
 import { cn } from '@/resources/lib/utils'
 import { trackEvent } from '@openpanel/nextjs'
-import { CopyButton, Link, Menu, MenuContent, MenuItem } from 'ui'
+import { CopyButton, Link, Menu } from 'ui'
 import { copyToClipboard } from 'usemods'
 
 export interface InstallCommandProps {
@@ -119,12 +119,12 @@ const InstallCommand: React.FC<InstallCommandProps> = ({
           ) : (
             <Menu>
               <CopyButton className="rounded-sm" ariaLabel={command} isCopied={isCopied} />
-              <MenuContent showArrow placement="bottom end">
-                <MenuItem onAction={() => handleAction('Bun')}>Bun</MenuItem>
-                <MenuItem onAction={() => handleAction('Yarn')}>Yarn</MenuItem>
-                <MenuItem onAction={() => handleAction('PNPM')}>PNPM</MenuItem>
-                <MenuItem onAction={() => handleAction('NPM')}>NPM</MenuItem>
-              </MenuContent>
+              <Menu.Content showArrow placement="bottom end">
+                <Menu.Item onAction={() => handleAction('Bun')}>Bun</Menu.Item>
+                <Menu.Item onAction={() => handleAction('Yarn')}>Yarn</Menu.Item>
+                <Menu.Item onAction={() => handleAction('PNPM')}>PNPM</Menu.Item>
+                <Menu.Item onAction={() => handleAction('NPM')}>NPM</Menu.Item>
+              </Menu.Content>
             </Menu>
           )}
         </div>

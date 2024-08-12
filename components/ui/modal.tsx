@@ -2,7 +2,10 @@
 
 import * as React from 'react'
 
-import type { ModalOverlayProps as ModalOverlayPrimitiveProps } from 'react-aria-components'
+import type {
+  DialogTriggerProps,
+  ModalOverlayProps as ModalOverlayPrimitiveProps
+} from 'react-aria-components'
 import {
   Button as ButtonPrimitive,
   composeRenderProps,
@@ -13,25 +16,7 @@ import {
 } from 'react-aria-components'
 import { tv, type VariantProps } from 'tailwind-variants'
 
-import {
-  Dialog,
-  DialogBody,
-  DialogClose,
-  DialogCloseIndicator,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle
-} from './dialog'
-
-const Modal = DialogTriggerPrimitive
-const ModalTrigger = ButtonPrimitive
-const ModalHeader = DialogHeader
-const ModalTitle = DialogTitle
-const ModalDescription = DialogDescription
-const ModalFooter = DialogFooter
-const ModalBody = DialogBody
-const ModalClose = DialogClose
+import { Dialog } from './dialog'
 
 const modalOverlayStyles = tv({
   base: [
@@ -87,6 +72,11 @@ const modalContentStyles = tv({
   }
 })
 
+interface ModalProps extends DialogTriggerProps {}
+const Modal = ({ children }: ModalProps) => {
+  return <DialogTriggerPrimitive>{children}</DialogTriggerPrimitive>
+}
+
 interface ModalContentProps
   extends Omit<React.ComponentProps<typeof Modal>, 'children'>,
     Omit<ModalOverlayPrimitiveProps, 'className'>,
@@ -139,7 +129,9 @@ const ModalContent = ({
           {({ close }) => (
             <>
               {children}
-              {closeButton && <DialogCloseIndicator close={close} isDismissable={_isDismissable} />}
+              {closeButton && (
+                <Dialog.CloseIndicator close={close} isDismissable={_isDismissable} />
+              )}
             </>
           )}
         </Dialog>
@@ -148,17 +140,13 @@ const ModalContent = ({
   )
 }
 
-export {
-  Modal,
-  ModalBody,
-  ModalClose,
-  ModalContent,
-  ModalDescription,
-  ModalFooter,
-  ModalHeader,
-  ModalTitle,
-  ModalTrigger,
-  type ModalContentProps,
-  modalOverlayStyles,
-  modalContentStyles
-}
+Modal.Trigger = ButtonPrimitive
+Modal.Header = Dialog.Header
+Modal.Title = Dialog.Title
+Modal.Description = Dialog.Description
+Modal.Footer = Dialog.Footer
+Modal.Body = Dialog.Body
+Modal.Close = Dialog.Close
+Modal.Content = ModalContent
+
+export { Modal, modalOverlayStyles, modalContentStyles }

@@ -4,21 +4,7 @@ import React from 'react'
 
 import { wait } from '@/resources/lib/utils'
 import { IconDotsVertical } from 'justd-icons'
-import {
-  Button,
-  buttonStyles,
-  LoadingDots,
-  Menu,
-  MenuContent,
-  MenuItem,
-  MenuTrigger,
-  ModalClose,
-  ModalContent,
-  ModalDescription,
-  ModalFooter,
-  ModalHeader,
-  ModalTitle
-} from 'ui'
+import { Button, buttonStyles, LoadingDots, Menu, Modal } from 'ui'
 
 export default function ModalTriggeredByMenuDemo() {
   const [state, setState] = React.useState<string | null>(null)
@@ -65,28 +51,28 @@ export default function ModalTriggeredByMenuDemo() {
   return (
     <>
       <Menu>
-        <MenuTrigger className={buttonStyles({ appearance: 'outline' })}>
+        <Menu.Trigger className={buttonStyles({ appearance: 'outline' })}>
           <IconDotsVertical />
-        </MenuTrigger>
-        <MenuContent placement="bottom">
-          <MenuItem onAction={() => setState('delete')}>Delete</MenuItem>
-          <MenuItem onAction={() => setState('ban')}>Ban</MenuItem>
-          <MenuItem onAction={() => setState('restore')}>Restore</MenuItem>
-        </MenuContent>
+        </Menu.Trigger>
+        <Menu.Content placement="bottom">
+          <Menu.Item onAction={() => setState('delete')}>Delete</Menu.Item>
+          <Menu.Item onAction={() => setState('ban')}>Ban</Menu.Item>
+          <Menu.Item onAction={() => setState('restore')}>Restore</Menu.Item>
+        </Menu.Content>
       </Menu>
 
-      <ModalContent isOpen={state !== null} onOpenChange={closeModal}>
-        <ModalHeader>
-          <ModalTitle>{actionType(state)?.title}</ModalTitle>
-          <ModalDescription>{actionType(state)?.description}</ModalDescription>
-        </ModalHeader>
-        <ModalFooter>
-          <ModalClose>Cancel</ModalClose>
+      <Modal.Content isOpen={state !== null} onOpenChange={closeModal}>
+        <Modal.Header>
+          <Modal.Title>{actionType(state)?.title}</Modal.Title>
+          <Modal.Description>{actionType(state)?.description}</Modal.Description>
+        </Modal.Header>
+        <Modal.Footer>
+          <Modal.Close>Cancel</Modal.Close>
           <Button className="min-w-24" isDisabled={loading} onPress={actionType(state)?.action}>
             {loading ? <LoadingDots className={'bg-fg'} /> : actionType(state)?.confirmText}
           </Button>
-        </ModalFooter>
-      </ModalContent>
+        </Modal.Footer>
+      </Modal.Content>
     </>
   )
 }

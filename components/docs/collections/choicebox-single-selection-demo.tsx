@@ -2,12 +2,12 @@
 
 import React from 'react'
 
-import { Choicebox, ChoiceboxItem } from 'ui'
+import { Choicebox } from 'ui'
 
 export default function ChoiceboxSingleSelectionDemo() {
   return (
     <Choicebox aria-label="Select packages" selectionMode="single" items={packages}>
-      {(item) => <ChoiceboxItem {...item} />}
+      {(item) => <Choicebox.Item {...item} />}
     </Choicebox>
   )
 }

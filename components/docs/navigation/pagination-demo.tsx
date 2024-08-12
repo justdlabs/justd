@@ -1,21 +1,21 @@
 'use client'
 
-import { Pagination, PaginationItem, PaginationList } from 'ui'
+import { Pagination } from 'ui'
 
 export default function PaginationDemo() {
   return (
     <Pagination>
-      <PaginationList>
-        <PaginationItem role="first" href="#" />
-        <PaginationItem role="previous" href="#" />
-        <PaginationItem href="#">1</PaginationItem>
-        <PaginationItem href="#" isCurrent>
+      <Pagination.List>
+        <Pagination.Item role="first" href="#" />
+        <Pagination.Item role="previous" href="#" />
+        <Pagination.Item href="#">1</Pagination.Item>
+        <Pagination.Item href="#" isCurrent>
           2
-        </PaginationItem>
-        <PaginationItem role="ellipsis" />
-        <PaginationItem role="next" href="#" />
-        <PaginationItem role="last" href="#" />
-      </PaginationList>
+        </Pagination.Item>
+        <Pagination.Item role="ellipsis" />
+        <Pagination.Item role="next" href="#" />
+        <Pagination.Item role="last" href="#" />
+      </Pagination.List>
     </Pagination>
   )
 }

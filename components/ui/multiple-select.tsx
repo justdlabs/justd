@@ -13,8 +13,8 @@ import { tv } from 'tailwind-variants'
 import { Button } from './button'
 import type { FieldProps } from './field'
 import { Description, Input, Label } from './field'
-import { ListBoxItem, ListBoxPicker } from './list-box'
-import { PopoverPicker } from './popover'
+import { ListBox } from './list-box'
+import { Popover } from './popover'
 import { cn } from './primitive'
 import type { RestrictedIntent, TagGroupProps } from './tag-group'
 import { TagGroup, TagList } from './tag-group'
@@ -283,13 +283,13 @@ const MultipleSelect = <T extends SelectedKey>({
                 </Button>
               </VisuallyHidden>
             </div>
-            <PopoverPicker
+            <Popover.Picker
               className="max-w-none"
               style={{ width: `${width}px` }}
               triggerRef={triggerRef}
               trigger="ComboBox"
             >
-              <ListBoxPicker
+              <ListBox.Picker
                 renderEmptyState={() =>
                   renderEmptyState ? (
                     renderEmptyState(fieldState.inputValue)
@@ -309,8 +309,8 @@ const MultipleSelect = <T extends SelectedKey>({
                 selectionMode="multiple"
               >
                 {children}
-              </ListBoxPicker>
-            </PopoverPicker>
+              </ListBox.Picker>
+            </Popover.Picker>
           </ComboBox>
           <div className="relative px-1 ml-auto flex items-center justify-center" aria-hidden>
             <button
@@ -330,6 +330,6 @@ const MultipleSelect = <T extends SelectedKey>({
   )
 }
 
-const MultipleSelectItem = ListBoxItem
+MultipleSelect.Option = ListBox.Item
 
-export { MultipleSelect, MultipleSelectItem, type SelectedKey }
+export { MultipleSelect, type SelectedKey }

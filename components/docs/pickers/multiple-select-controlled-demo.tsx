@@ -4,7 +4,7 @@ import React from 'react'
 
 import { useListData } from 'react-stately'
 import type { SelectedKey } from 'ui'
-import { Description, MultipleSelect, MultipleSelectItem, Tag } from 'ui'
+import { Description, MultipleSelect, Tag } from 'ui'
 
 const tags = [
   { id: 1, name: 'Travel' },
@@ -32,9 +32,9 @@ export default function MultipleSelectControlledDemo() {
       >
         {(item) => {
           return (
-            <MultipleSelectItem id={item.id} textValue={item.name}>
+            <MultipleSelect.Option id={item.id} textValue={item.name}>
               {item.name}
-            </MultipleSelectItem>
+            </MultipleSelect.Option>
           )
         }}
       </MultipleSelect>

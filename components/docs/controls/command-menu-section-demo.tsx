@@ -2,15 +2,7 @@
 
 import React from 'react'
 
-import {
-  Button,
-  CommandMenu,
-  CommandMenuInput,
-  CommandMenuItem,
-  CommandMenuList,
-  CommandMenuSection,
-  CommandMenuSeparator
-} from 'ui'
+import { Button, CommandMenu } from 'ui'
 
 export default function CommandMenuSectionDemo() {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -20,26 +12,26 @@ export default function CommandMenuSectionDemo() {
         Open
       </Button>
       <CommandMenu isOpen={isOpen} onOpenChange={setIsOpen}>
-        <CommandMenuInput placeholder="Quick search..." />
-        <CommandMenuList>
-          <CommandMenuSection heading="Pages">
-            <CommandMenuItem asChild>
+        <CommandMenu.Input placeholder="Quick search..." />
+        <CommandMenu.List>
+          <CommandMenu.Section heading="Pages">
+            <CommandMenu.Item asChild>
               <a href="/">Home</a>
-            </CommandMenuItem>
-            <CommandMenuItem asChild>
+            </CommandMenu.Item>
+            <CommandMenu.Item asChild>
               <a href="/docs/getting-started/installation">Docs</a>
-            </CommandMenuItem>
-            <CommandMenuItem asChild>
+            </CommandMenu.Item>
+            <CommandMenu.Item asChild>
               <a href="/components">Components</a>
-            </CommandMenuItem>
-          </CommandMenuSection>
-          <CommandMenuSeparator />
-          <CommandMenuSection heading="Users">
+            </CommandMenu.Item>
+          </CommandMenu.Section>
+          <CommandMenu.Separator />
+          <CommandMenu.Section heading="Users">
             {users.map((user) => (
-              <CommandMenuItem key={user.id}>{user.name}</CommandMenuItem>
+              <CommandMenu.Item key={user.id}>{user.name}</CommandMenu.Item>
             ))}
-          </CommandMenuSection>
-        </CommandMenuList>
+          </CommandMenu.Section>
+        </CommandMenu.List>
       </CommandMenu>
     </>
   )

@@ -146,5 +146,10 @@ const TableRow = <T extends object>({
   )
 }
 
-export type { TableProps, TableCellProps, TableColumnProps }
-export { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow }
+Table.Body = TableBody
+Table.Cell = TableCell
+Table.Column = TableColumn
+Table.Header = TableHeader
+Table.Row = TableRow
+
+export { Table }

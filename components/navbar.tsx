@@ -15,7 +15,7 @@ import {
   IconBrandJustd,
   IconBrandTailwindcss,
   IconBrandX,
-  IconChevronDown,
+  IconChevronLgDown,
   IconColors,
   IconCube,
   IconDeviceDesktop,
@@ -32,20 +32,11 @@ import {
   Button,
   buttonStyles,
   cn,
+  ContextMenu,
   Link,
   Menu,
-  MenuContent,
-  MenuHeader,
-  MenuItem,
-  MenuKeyboard,
-  MenuSection,
-  MenuSeparator,
   Separator,
   Sheet,
-  SheetBody,
-  SheetContent,
-  SheetHeader,
-  SubMenu,
   useMediaQuery
 } from 'ui'
 
@@ -61,7 +52,7 @@ export function Navbar() {
   const pathname = usePathname()
 
   const [open, setOpen] = React.useState(false)
-
+  const isDesktop = useMediaQuery('(min-width: 1024px)')
   return (
     <>
       <CommandPalette setOpen={setOpen} open={open} />
@@ -71,7 +62,7 @@ export function Navbar() {
             <div className="mx-auto max-w-screen-2xl px-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-x-6">
-                  <NavbarDropdown />
+                  {isDesktop ? <NavbarContextMenu /> : <NavbarDropdown />}
                   <Separator orientation="vertical" className="h-6" />
                   <Collection items={menuItems}>
                     <NavLink isNextLink isActive={pathname === '/'} href="/">
@@ -116,9 +107,9 @@ export function Navbar() {
                     >
                       <IconSearch />
 
-                      <span className="text-muted-fg">Search...</span>
+                      <span className="text-muted-fg">Search..</span>
 
-                      <MenuKeyboard className="-mr-2" keys="⌘K" />
+                      <Menu.Keyboard className="-mr-2" keys="⌘K" />
                     </Button>
                     <TakeCurrentUrl />
                     <ThemeSwitcher />
@@ -187,7 +178,7 @@ export function ResponsiveAside({ open, setOpen }: OpenCloseProps) {
       {!isDesktop && <CommandPalette setOpen={setOpen} open={open} />}
       <div className={cn('flex items-center justify-between pl-4 pr-2 -mb-2 pt-2')}>
         <Button
-          aria-label="Open Menu"
+          aria-label="Open Menu."
           className="-ml-2 [&_[data-slot=icon]]:text-fg"
           appearance="outline"
           size="square-petite"
@@ -211,7 +202,7 @@ export function ResponsiveAside({ open, setOpen }: OpenCloseProps) {
             aria-label="Open command palette"
           >
             <IconSearch />
-            <MenuKeyboard className="-mr-2 [&_kbd]:min-w-[3ch]" keys="⌘K" />
+            <Menu.Keyboard className="-mr-2 [&_kbd]:min-w-[3ch]" keys="⌘K" />
           </Button>
           <TakeCurrentUrl />
           <ThemeSwitcher />
@@ -219,16 +210,16 @@ export function ResponsiveAside({ open, setOpen }: OpenCloseProps) {
       </div>
       {!isDesktop && (
         <Sheet isOpen={openAside} onOpenChange={setOpenAside}>
-          <SheetContent classNames={{ content: 'w-[19rem]' }} side="left" closeButton={true}>
-            <SheetHeader className="mb-4 flex flex-row justify-between py-2">
+          <Sheet.Content classNames={{ content: 'w-[19rem]' }} side="left" closeButton={true}>
+            <Sheet.Header className="mb-4 flex flex-row justify-between py-2">
               <NavbarDropdown />
-            </SheetHeader>
-            <SheetBody className="px-2">
+            </Sheet.Header>
+            <Sheet.Body className="px-2">
               <LayoutGroup id={id}>
                 <Aside />
               </LayoutGroup>
-            </SheetBody>
-          </SheetContent>
+            </Sheet.Body>
+          </Sheet.Content>
         </Sheet>
       )}
     </nav>
@@ -239,59 +230,59 @@ export function NavbarDropdown() {
   const { theme, setTheme } = useTheme()
   return (
     <Menu>
-      <Button aria-label="Menu" appearance="plain" className="group -ml-1 [&_svg]:size-5">
+      <Button aria-label="Menu." appearance="plain" className="group -ml-1">
         <span className="flex items-center gap-x-2">
-          <IconBrandD className="-ml-1 size-6" />
+          <IconBrandJustd className="-ml-1 size-6" />
           <span className="font-mono text-base tracking-tight sm:text-sm">{siteConfig.name}</span>
-          <IconChevronDown className="-mr-2 ml-1 size-4 text-muted-fg transition duration-300 group-hover:text-fg group-pressed:rotate-180 group-pressed:text-fg" />
+          <IconChevronLgDown className="-mr-2 size-3.5 text-muted-fg transition duration-300 group-hover:text-fg group-pressed:rotate-180 group-pressed:text-fg" />
           <span className="sr-only">Open menu</span>
         </span>
       </Button>
-      <MenuContent placement="bottom" className="sm:min-w-64">
-        <MenuItem href="/">
+      <Menu.Content placement="bottom" className="sm:min-w-64">
+        <Menu.Item href="/">
           <IconHome />
           Home
-        </MenuItem>
-        <MenuItem href="/components">
+        </Menu.Item>
+        <Menu.Item href="/components">
           <IconCube />
           Components
-        </MenuItem>
-        <MenuItem href="/colors">
+        </Menu.Item>
+        <Menu.Item href="/colors">
           <IconColors />
           Colors
-        </MenuItem>
-        <MenuSeparator />
-        <MenuSection>
-          <MenuItem href="https://x.com/intent/follow?screen_name=getjustd" target="_blank">
+        </Menu.Item>
+        <Menu.Separator />
+        <Menu.Section>
+          <Menu.Item href="https://x.com/intent/follow?screen_name=getjustd" target="_blank">
             <IconBrandX />X / Twitter
-          </MenuItem>
-          <MenuItem href="https://github.com/justdlabs" target="_blank">
+          </Menu.Item>
+          <Menu.Item href="https://github.com/justdlabs" target="_blank">
             <IconBrandGithub />
             Github
-          </MenuItem>
-        </MenuSection>
-        <MenuSeparator />
-        <MenuSection>
-          <MenuHeader separator>Refs</MenuHeader>
-          <MenuItem href="/icons">
+          </Menu.Item>
+        </Menu.Section>
+        <Menu.Separator />
+        <Menu.Section>
+          <Menu.Header separator>Refs</Menu.Header>
+          <Menu.Item href="/icons">
             <IconBrandJustd />
             Icons
-          </MenuItem>
-          <MenuItem
+          </Menu.Item>
+          <Menu.Item
             href="https://react-spectrum.adobe.com/react-aria/components.html"
             target="_blank"
           >
             <IconBrandAdobe />
             RAC
-          </MenuItem>
-          <MenuItem href="https://tailwindcss.com" target="_blank">
+          </Menu.Item>
+          <Menu.Item href="https://tailwindcss.com" target="_blank">
             <IconBrandTailwindcss />
             Tailwind CSS
-          </MenuItem>
-        </MenuSection>
-        <MenuSeparator />
-        <SubMenu>
-          <MenuItem>
+          </Menu.Item>
+        </Menu.Section>
+        <Menu.Separator />
+        <Menu.Submenu>
+          <Menu.Item>
             {theme === 'system' ? (
               <IconDeviceDesktop />
             ) : theme === 'dark' ? (
@@ -300,23 +291,82 @@ export function NavbarDropdown() {
               <IconSun />
             )}
             <span>Switch Theme</span>
-          </MenuItem>
-          <MenuContent>
-            <MenuItem onAction={() => setTheme('system')}>
+          </Menu.Item>
+          <Menu.Content>
+            <Menu.Item onAction={() => setTheme('system')}>
               <IconDeviceDesktop />
               <span>System</span>
-            </MenuItem>
-            <MenuItem onAction={() => setTheme('dark')}>
+            </Menu.Item>
+            <Menu.Item onAction={() => setTheme('dark')}>
               <IconMoon />
               <span>Dark</span>
-            </MenuItem>
-            <MenuItem onAction={() => setTheme('light')}>
+            </Menu.Item>
+            <Menu.Item onAction={() => setTheme('light')}>
               <IconSun />
               <span>Light</span>
-            </MenuItem>
-          </MenuContent>
-        </SubMenu>
-      </MenuContent>
+            </Menu.Item>
+          </Menu.Content>
+        </Menu.Submenu>
+      </Menu.Content>
     </Menu>
+  )
+}
+
+export function NavbarContextMenu() {
+  return (
+    <ContextMenu>
+      <ContextMenu.Trigger
+        aria-label="Context Menu."
+        className={buttonStyles({ appearance: 'plain' })}
+      >
+        <span className="flex items-center gap-x-2">
+          <IconBrandD className="-ml-1 size-6" />
+          <span className="font-mono text-base tracking-tight sm:text-sm">{siteConfig.name}</span>
+        </span>
+      </ContextMenu.Trigger>
+      <ContextMenu.Content className="sm:min-w-64">
+        <ContextMenu.Item href="/">
+          <IconHome />
+          Home
+        </ContextMenu.Item>
+        <ContextMenu.Item href="/components">
+          <IconCube />
+          Components
+        </ContextMenu.Item>
+        <ContextMenu.Item href="/colors">
+          <IconColors />
+          Colors
+        </ContextMenu.Item>
+        <ContextMenu.Separator />
+        <ContextMenu.Section>
+          <ContextMenu.Item href="https://x.com/intent/follow?screen_name=getjustd" target="_blank">
+            <IconBrandX />X / Twitter
+          </ContextMenu.Item>
+          <ContextMenu.Item href="https://github.com/justdlabs" target="_blank">
+            <IconBrandGithub />
+            Github
+          </ContextMenu.Item>
+        </ContextMenu.Section>
+        <ContextMenu.Separator />
+        <ContextMenu.Section>
+          <ContextMenu.Header separator>Refs</ContextMenu.Header>
+          <ContextMenu.Item href="/icons">
+            <IconBrandJustd />
+            Icons
+          </ContextMenu.Item>
+          <ContextMenu.Item
+            href="https://react-spectrum.adobe.com/react-aria/components.html"
+            target="_blank"
+          >
+            <IconBrandAdobe />
+            RAC
+          </ContextMenu.Item>
+          <ContextMenu.Item href="https://tailwindcss.com" target="_blank">
+            <IconBrandTailwindcss />
+            Tailwind CSS
+          </ContextMenu.Item>
+        </ContextMenu.Section>
+      </ContextMenu.Content>
+    </ContextMenu>
   )
 }

@@ -1,15 +1,18 @@
 'use client'
 
-import { Select, SelectItem, SelectSection } from 'ui'
+import { Select } from 'ui'
 
 export default function SelectSectionDemo() {
   return (
-    <Select label="Countries" placeholder="Select a country" items={countries}>
-      {(country) => (
-        <SelectSection title={country.name} items={country.cities}>
-          {(city) => <SelectItem textValue={city.name}>{city.name}</SelectItem>}
-        </SelectSection>
-      )}
+    <Select label="Countries" placeholder="Select a country">
+      <Select.Trigger />
+      <Select.List items={countries}>
+        {(country) => (
+          <Select.Section title={country.name} items={country.cities}>
+            {(city) => <Select.Option textValue={city.name}>{city.name}</Select.Option>}
+          </Select.Section>
+        )}
+      </Select.List>
     </Select>
   )
 }

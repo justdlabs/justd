@@ -1,6 +1,6 @@
 'use client'
 
-import { ListBox, ListBoxItem } from 'ui'
+import { ListBox } from 'ui'
 
 export default function ListBoxControlledDemo() {
   return (
@@ -11,7 +11,7 @@ export default function ListBoxControlledDemo() {
         aria-label="Fruits"
         selectionMode="multiple"
       >
-        {(fruit) => <ListBoxItem id={fruit.id}>{fruit.name}</ListBoxItem>}
+        {(fruit) => <ListBox.Item id={fruit.id}>{fruit.name}</ListBox.Item>}
       </ListBox>
     </>
   )

@@ -1,29 +1,18 @@
 'use client'
 
-import {
-  Button,
-  Form,
-  Modal,
-  ModalClose,
-  ModalContent,
-  ModalDescription,
-  ModalFooter,
-  ModalHeader,
-  ModalTitle,
-  TextField
-} from 'ui'
+import { Button, Form, Modal, TextField } from 'ui'
 
 export default function ModalBlurDemo() {
   return (
     <Modal>
       <Button>Turn on 2FA</Button>
-      <ModalContent isBlurred>
-        <ModalHeader>
-          <ModalTitle>Nice! Let's beef up your account.</ModalTitle>
-          <ModalDescription>
+      <Modal.Content isBlurred>
+        <Modal.Header>
+          <Modal.Title>Nice! Let's beef up your account.</Modal.Title>
+          <Modal.Description>
             2FA beefs up your account's defense. Pop in your password to keep going.
-          </ModalDescription>
-        </ModalHeader>
+          </Modal.Description>
+        </Modal.Header>
         <Form onSubmit={() => {}}>
           <TextField
             isRequired
@@ -32,12 +21,12 @@ export default function ModalBlurDemo() {
             type="password"
             placeholder="Enter your password"
           />
-          <ModalFooter>
-            <ModalClose>Cancel</ModalClose>
+          <Modal.Footer>
+            <Modal.Close>Cancel</Modal.Close>
             <Button type="submit">Turn on 2FA</Button>
-          </ModalFooter>
+          </Modal.Footer>
         </Form>
-      </ModalContent>
+      </Modal.Content>
     </Modal>
   )
 }

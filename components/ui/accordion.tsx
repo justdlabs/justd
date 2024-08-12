@@ -194,5 +194,8 @@ const AccordionTrigger = ({ className, children, ...props }: AccordionTriggerPro
   )
 }
 
-export type { AccordionTriggerProps }
-export { Accordion, AccordionItem, AccordionContent, AccordionTrigger }
+Accordion.Item = AccordionItem
+Accordion.Content = AccordionContent
+Accordion.Trigger = AccordionTrigger
+
+export { Accordion, type AccordionTriggerProps }

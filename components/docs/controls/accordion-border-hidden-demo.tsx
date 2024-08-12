@@ -10,16 +10,16 @@ import {
   IconShield,
   IconSupport
 } from 'justd-icons'
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from 'ui'
+import { Accordion } from 'ui'
 
 export default function AccordionWithIconDemo() {
   return (
     <Accordion hideBorder>
       {items.map((item, index) => (
-        <AccordionItem key={index} currentId={index}>
-          <AccordionTrigger>{item.title}</AccordionTrigger>
-          <AccordionContent>{item.description}</AccordionContent>
-        </AccordionItem>
+        <Accordion.Item key={index} currentId={index}>
+          <Accordion.Trigger>{item.title}</Accordion.Trigger>
+          <Accordion.Content>{item.description}</Accordion.Content>
+        </Accordion.Item>
       ))}
     </Accordion>
   )

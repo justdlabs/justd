@@ -1,29 +1,29 @@
 'use client'
 
 import { IconApple, IconClock, IconCut } from 'justd-icons'
-import { Tab, TabList, TabPanel, Tabs } from 'ui'
+import { Tabs } from 'ui'
 
 export default function TabsIconsDemo() {
   return (
     <Tabs aria-label="Fitness App">
-      <TabList>
-        <Tab id="w">
+      <Tabs.List>
+        <Tabs.Tab id="w">
           <IconCut /> Workouts
-        </Tab>
-        <Tab id="n">
+        </Tabs.Tab>
+        <Tabs.Tab id="n">
           <IconApple /> Nutrition
-        </Tab>
-        <Tab id="t">
+        </Tabs.Tab>
+        <Tabs.Tab id="t">
           <IconClock /> Tracker
-        </Tab>
-      </TabList>
-      <TabPanel id="w">
+        </Tabs.Tab>
+      </Tabs.List>
+      <Tabs.Panel id="w">
         Find a variety of workout plans tailored to your fitness level and goals.
-      </TabPanel>
-      <TabPanel id="n">
+      </Tabs.Panel>
+      <Tabs.Panel id="n">
         Get nutrition tips and meal plans to complement your fitness journey.
-      </TabPanel>
-      <TabPanel id="t">Track your progress with detailed statistics and analytics.</TabPanel>
+      </Tabs.Panel>
+      <Tabs.Panel id="t">Track your progress with detailed statistics and analytics.</Tabs.Panel>
     </Tabs>
   )
 }

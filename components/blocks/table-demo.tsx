@@ -1,29 +1,29 @@
 'use client'
 
 import { books } from '@/components/docs/collections/table-bulk-demo'
-import { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from 'ui'
+import { Table } from 'ui'
 
 export function TableDemo() {
   return (
     <Table aria-label="Books">
-      <TableHeader>
-        <TableColumn>#</TableColumn>
-        <TableColumn isRowHeader>Title</TableColumn>
-        <TableColumn>Author</TableColumn>
-        <TableColumn>Genre</TableColumn>
-        <TableColumn>Published</TableColumn>
-      </TableHeader>
-      <TableBody items={books.slice(0, 6)}>
+      <Table.Header>
+        <Table.Column>#</Table.Column>
+        <Table.Column isRowHeader>Title</Table.Column>
+        <Table.Column>Author</Table.Column>
+        <Table.Column>Genre</Table.Column>
+        <Table.Column>Published</Table.Column>
+      </Table.Header>
+      <Table.Body items={books.slice(0, 6)}>
         {(item) => (
-          <TableRow id={item.id}>
-            <TableCell>{item.id}</TableCell>
-            <TableCell>{item.title}</TableCell>
-            <TableCell>{item.author}</TableCell>
-            <TableCell>{item.genre}</TableCell>
-            <TableCell>{item.publishedYear}</TableCell>
-          </TableRow>
+          <Table.Row id={item.id}>
+            <Table.Cell>{item.id}</Table.Cell>
+            <Table.Cell>{item.title}</Table.Cell>
+            <Table.Cell>{item.author}</Table.Cell>
+            <Table.Cell>{item.genre}</Table.Cell>
+            <Table.Cell>{item.publishedYear}</Table.Cell>
+          </Table.Row>
         )}
-      </TableBody>
+      </Table.Body>
     </Table>
   )
 }

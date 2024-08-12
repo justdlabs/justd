@@ -10,12 +10,12 @@ import { Link as NextLink } from 'next-view-transitions'
 import type { LinkProps as NextLinkProps } from 'next/link'
 import { usePathname } from 'next/navigation'
 import { tv } from 'tailwind-variants'
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, Badge, cn } from 'ui'
+import { Accordion, Badge, cn } from 'ui'
 
 export interface Doc {
   slug: string
   title: string
-  status?: 'wip' | 'new' | 'beta' | 'help' | 'primitive' | 'rc'
+  status?: 'wip' | 'new' | 'beta' | 'help' | 'primitive' | 'alpha'
 }
 
 export interface HierarchyNode {
@@ -56,7 +56,7 @@ const renderHierarchy = (node: HierarchyNode, defaultValues: string[]) => {
       className="w-full [&_.dk32xd]:p-0 [&_.zwx3ai]:p-0 [&_.zwx3ai]:border-none"
     >
       {filteredNodeEntries.map(([key, value]) => (
-        <AccordionItem key={key} currentId={key}>
+        <Accordion.Item key={key} currentId={key}>
           <Trigger className="[&_.jr131]:size-4 text-fg groud-data-[open]:text-muted-fg [&_.jr131]:text-primary [&_.jr131]:fill-primary/10 dark:[&_.jr131]:fill-primary/30">
             {key === 'getting-started' ? (
               <IconLayers className="jr131" />
@@ -69,7 +69,7 @@ const renderHierarchy = (node: HierarchyNode, defaultValues: string[]) => {
             )}
             {goodTitle(key)}
           </Trigger>
-          <AccordionContent className="py-0">
+          <Accordion.Content className="py-0">
             {typeof value === 'object' && 'title' in value ? (
               <AsideLink href={`/${(value as Doc).slug}`}>
                 {goodTitle((value as Doc).title)}
@@ -77,7 +77,7 @@ const renderHierarchy = (node: HierarchyNode, defaultValues: string[]) => {
             ) : (
               <Accordion defaultExpandedKeys={defaultValues} className="w-full relative">
                 <div className="h-full absolute left-0 bg-zinc-200 dark:bg-zinc-800 w-px ml-4" />
-                {Object.entries(value as HierarchyNode).map(([subKey, subValue], xi) =>
+                {Object.entries(value as HierarchyNode).map(([subKey, subValue]) =>
                   typeof subValue === 'object' && 'title' in subValue ? (
                     <AsideLink
                       className="pl-[2rem] flex justify-between items-center"
@@ -90,8 +90,8 @@ const renderHierarchy = (node: HierarchyNode, defaultValues: string[]) => {
                           intent={
                             subValue?.status === 'wip'
                               ? 'warning'
-                              : subValue?.status === 'rc'
-                                ? 'primary'
+                              : subValue?.status === 'alpha'
+                                ? 'danger'
                                 : subValue.status === 'beta'
                                   ? 'warning'
                                   : subValue.status === 'help'
@@ -107,13 +107,13 @@ const renderHierarchy = (node: HierarchyNode, defaultValues: string[]) => {
                       )}
                     </AsideLink>
                   ) : (
-                    <AccordionItem
+                    <Accordion.Item
                       key={subKey}
                       currentId={subKey}
                       className="[&[data-open]_.ex]:text-red-500"
                     >
                       <Trigger className="pl-[2rem]">{goodTitle(subKey)}</Trigger>
-                      <AccordionContent className="py-0">
+                      <Accordion.Content className="py-0">
                         {Object.entries(subValue as HierarchyNode).map(([childKey, childValue]) =>
                           typeof childValue === 'object' && 'title' in childValue ? (
                             <AsideLink
@@ -133,11 +133,13 @@ const renderHierarchy = (node: HierarchyNode, defaultValues: string[]) => {
                                       ? 'primary'
                                       : childValue.status === 'beta'
                                         ? 'warning'
-                                        : childValue.status === 'help'
-                                          ? 'warning'
-                                          : childValue.status === 'primitive'
-                                            ? 'secondary'
-                                            : 'info'
+                                        : childValue.status === 'alpha'
+                                          ? 'danger'
+                                          : childValue.status === 'help'
+                                            ? 'warning'
+                                            : childValue.status === 'primitive'
+                                              ? 'secondary'
+                                              : 'info'
                                   }
                                   className="uppercase h-5 text-[0.5rem]"
                                 >
@@ -147,14 +149,14 @@ const renderHierarchy = (node: HierarchyNode, defaultValues: string[]) => {
                             </AsideLink>
                           ) : null
                         )}
-                      </AccordionContent>
-                    </AccordionItem>
+                      </Accordion.Content>
+                    </Accordion.Item>
                   )
                 )}
               </Accordion>
             )}
-          </AccordionContent>
-        </AccordionItem>
+          </Accordion.Content>
+        </Accordion.Item>
       ))}
     </Accordion>
   )
@@ -195,14 +197,14 @@ export const Aside = () => {
 
 const Trigger = ({ children, className }: { children: React.ReactNode; className?: string }) => {
   return (
-    <AccordionTrigger
+    <Accordion.Trigger
       className={cn(
         'pt-0 py-1.5 focus-visible:ring-1 focus-visible:ring-primary ring-inset outline-0 outline-offset-0 font-normal hover:bg-secondary/70 focus-visible:bg-secondary/70 rounded-lg px-2 lg:text-sm',
         className
       )}
     >
       {children}
-    </AccordionTrigger>
+    </Accordion.Trigger>
   )
 }
 

@@ -3,32 +3,32 @@
 import React from 'react'
 
 import { type Selection } from '@react-types/shared'
-import { Button, Menu, MenuCheckboxItem, MenuContent, MenuSection } from 'ui'
+import { Button, Menu } from 'ui'
 
 export default function MultipleMenuDemo() {
   const [selected, setSelected] = React.useState<Selection>(new Set(['autoPlay']))
   return (
     <Menu>
       <Button appearance="outline">Open</Button>
-      <MenuContent
+      <Menu.Content
         placement="bottom"
         selectionMode="multiple"
         selectedKeys={selected}
         onSelectionChange={setSelected}
       >
-        <MenuSection items={menuItems} title="Content Preferences">
+        <Menu.Section items={items} title="Content Preferences">
           {(item) => (
-            <MenuCheckboxItem id={item.slug} textValue={item.name}>
+            <Menu.Checkbox id={item.slug} textValue={item.name}>
               {item.name}
-            </MenuCheckboxItem>
+            </Menu.Checkbox>
           )}
-        </MenuSection>
-      </MenuContent>
+        </Menu.Section>
+      </Menu.Content>
     </Menu>
   )
 }
 
-const menuItems = [
+const items = [
   {
     name: 'Auto-Play Videos',
     slug: 'autoPlay'

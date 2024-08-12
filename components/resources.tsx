@@ -1,18 +1,7 @@
 'use client'
 
 import { IconBrandJustd, IconBrandLaravel, IconBrandNextjs, IconBrandRemix } from 'justd-icons'
-import {
-  Badge,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-  Grid,
-  GridCollection,
-  GridItem,
-  Heading,
-  Link
-} from 'ui'
+import { Badge, Card, Grid, Heading, Link } from 'ui'
 
 const resources = [
   {
@@ -55,9 +44,9 @@ export function Resources() {
           gap={2}
           aria-label="Resources"
         >
-          <GridCollection items={resources}>
+          <Grid.Collection items={resources}>
             {(item) => (
-              <GridItem
+              <Grid.Item
                 aria-label={item.name}
                 id={item.name.toLowerCase().replaceAll(' ', '-')}
                 className="relative focus:outline-none p-4 lg:p-6 h-full flex flex-col w-full focus-visible:outline-none focus-visible:outline-primary rounded-xl bg-tertiary shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:-inset-px dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset] forced-colors:outline"
@@ -73,17 +62,17 @@ export function Resources() {
                   <div className="px-6 pt-6">
                     <item.icon className="size-7" />
                   </div>
-                  <CardHeader>
-                    <CardTitle level={3}>{item.name}</CardTitle>
-                    <CardDescription className="line-clamp-2">{item.description}</CardDescription>
-                  </CardHeader>
+                  <Card.Header>
+                    <Card.Title level={3}>{item.name}</Card.Title>
+                    <Card.Description className="line-clamp-2">{item.description}</Card.Description>
+                  </Card.Header>
                 </div>
-                <CardFooter>
+                <Card.Footer>
                   <Badge>{item.label}</Badge>
-                </CardFooter>
-              </GridItem>
+                </Card.Footer>
+              </Grid.Item>
             )}
-          </GridCollection>
+          </Grid.Collection>
         </Grid>
       </section>
       <section id="icons" className="mb-12">
@@ -98,7 +87,7 @@ export function Resources() {
           gap={2}
           aria-label="Icons"
         >
-          <GridItem
+          <Grid.Item
             aria-label="Paranoid icons"
             id="paranoid-icons"
             className="relative focus:outline-none p-4 lg:p-6 h-full flex flex-col w-full focus-visible:outline-none focus-visible:outline-primary rounded-xl bg-tertiary shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:-inset-px dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset] forced-colors:outline"
@@ -114,18 +103,18 @@ export function Resources() {
               <div className="px-6 pt-6">
                 <IconBrandJustd className="size-7" />
               </div>
-              <CardHeader>
-                <CardTitle level={3}>Icons</CardTitle>
-                <CardDescription className="line-clamp-2">
+              <Card.Header>
+                <Card.Title level={3}>Icons</Card.Title>
+                <Card.Description className="line-clamp-2">
                   A library of beautifully crafted react icons, perfect for enhancing the visual
                   appeal and user experience of your web applications.{' '}
-                </CardDescription>
-              </CardHeader>
+                </Card.Description>
+              </Card.Header>
             </div>
-            <CardFooter>
+            <Card.Footer>
               <Badge>icons</Badge>
-            </CardFooter>
-          </GridItem>
+            </Card.Footer>
+          </Grid.Item>
         </Grid>
       </section>
     </>

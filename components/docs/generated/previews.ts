@@ -446,6 +446,9 @@ export const previews: Record<string, any> = {
   "controls/slider-range-demo": {
     component: React.lazy(() => import("@/components/docs/controls/slider-range-demo")),
   },
+  "controls/context-menu-disabled-demo": {
+    component: React.lazy(() => import("@/components/docs/controls/context-menu-disabled-demo")),
+  },
   "controls/toolbar-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/controls/toolbar-disabled-demo")),
   },
@@ -470,6 +473,9 @@ export const previews: Record<string, any> = {
   "controls/accordion-default-expand-demo": {
     component: React.lazy(() => import("@/components/docs/controls/accordion-default-expand-demo")),
   },
+  "controls/context-menu-separator-demo": {
+    component: React.lazy(() => import("@/components/docs/controls/context-menu-separator-demo")),
+  },
   "controls/accordion-demo": {
     component: React.lazy(() => import("@/components/docs/controls/accordion-demo")),
   },
@@ -491,14 +497,23 @@ export const previews: Record<string, any> = {
   "controls/slider-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/controls/slider-disabled-demo")),
   },
+  "controls/context-menu-demo": {
+    component: React.lazy(() => import("@/components/docs/controls/context-menu-demo")),
+  },
   "controls/command-menu-demo": {
     component: React.lazy(() => import("@/components/docs/controls/command-menu-demo")),
+  },
+  "controls/context-menu-danger-demo": {
+    component: React.lazy(() => import("@/components/docs/controls/context-menu-danger-demo")),
   },
   "controls/slider-step-demo": {
     component: React.lazy(() => import("@/components/docs/controls/slider-step-demo")),
   },
   "controls/switch-demo": {
     component: React.lazy(() => import("@/components/docs/controls/switch-demo")),
+  },
+  "controls/context-menu-item-details-demo": {
+    component: React.lazy(() => import("@/components/docs/controls/context-menu-item-details-demo")),
   },
   "controls/command-menu-separator-demo": {
     component: React.lazy(() => import("@/components/docs/controls/command-menu-separator-demo")),
@@ -517,6 +532,9 @@ export const previews: Record<string, any> = {
   },
   "controls/switch-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/controls/switch-controlled-demo")),
+  },
+  "controls/context-menu-with-icon-demo": {
+    component: React.lazy(() => import("@/components/docs/controls/context-menu-with-icon-demo")),
   },
   "controls/accordion-hide-indicator-demo": {
     component: React.lazy(() => import("@/components/docs/controls/accordion-hide-indicator-demo")),
@@ -754,9 +772,6 @@ export const previews: Record<string, any> = {
   },
   "statuses/meter-decimal-format-demo": {
     component: React.lazy(() => import("@/components/docs/statuses/meter-decimal-format-demo")),
-  },
-  "statuses/table-of-badges": {
-    component: React.lazy(() => import("@/components/docs/statuses/table-of-badges")),
   },
   "statuses/badge-demo": {
     component: React.lazy(() => import("@/components/docs/statuses/badge-demo")),

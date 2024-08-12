@@ -4,10 +4,10 @@ import * as React from 'react'
 
 import type { Placement } from '@react-types/overlays'
 import { IconChevronLgDown } from 'justd-icons'
+import type { ButtonProps } from 'react-aria-components'
 import {
   Button,
   composeRenderProps,
-  Group,
   Select as SelectPrimitive,
   type SelectProps as SelectPrimitiveProps,
   SelectValue,
@@ -17,8 +17,8 @@ import { tv } from 'tailwind-variants'
 
 import { DropdownItem, DropdownItemDetails, DropdownSection } from './dropdown'
 import { Description, FieldError, Label } from './field'
-import { ListBoxPicker } from './list-box'
-import { PopoverPicker } from './popover'
+import { ListBox } from './list-box'
+import { Popover } from './popover'
 import { ctr, focusStyles } from './primitive'
 
 const selectTriggerStyles = tv({
@@ -35,61 +35,83 @@ const selectTriggerStyles = tv({
   }
 })
 
-interface SelectProps<T extends object> extends Omit<SelectPrimitiveProps<T>, 'children'> {
+interface SelectProps<T extends object> extends SelectPrimitiveProps<T> {
   label?: string
   description?: string
   errorMessage?: string | ((validation: ValidationResult) => string)
   items?: Iterable<T>
-  children: React.ReactNode | ((item: T) => React.ReactNode)
-  placement?: Placement
-  prefix?: React.ReactNode
   className?: string
 }
 
 const Select = <T extends object>({
   label,
   description,
-  placement,
   errorMessage,
   children,
-  items,
   className,
   ...props
 }: SelectProps<T>) => {
   return (
     <SelectPrimitive {...props} className={ctr(className, 'group flex w-full flex-col gap-1')}>
       {label && <Label>{label}</Label>}
-      <Group className="relative">
-        <Button
-          className={composeRenderProps(className, (className, renderProps) =>
-            selectTriggerStyles({
-              ...renderProps,
-              className
-            })
-          )}
-        >
-          {props.prefix && <span className="-mr-1">{props.prefix}</span>}
-          <SelectValue className="flex-1 [&_[slot=description]]:hidden text-base placeholder-shown:text-muted-fg lg:text-sm" />
-
-          <IconChevronLgDown
-            aria-hidden
-            className="text-muted-fg duration-300 group-open:rotate-180 group-open:text-fg group-disabled:opacity-50 forced-colors:text-[ButtonText] forced-colors:group-disabled:text-[GrayText]"
-          />
-        </Button>
-      </Group>
+      <>{children}</>
       {description && <Description>{description}</Description>}
       <FieldError>{errorMessage}</FieldError>
-      <PopoverPicker trigger="Select" placement={placement}>
-        <ListBoxPicker aria-label="items" items={items}>
-          {children}
-        </ListBoxPicker>
-      </PopoverPicker>
     </SelectPrimitive>
   )
 }
 
-const SelectItemDetails = DropdownItemDetails
-const SelectItem = DropdownItem
-const SelectSection = DropdownSection
+interface SelectListProps<T extends object> {
+  items?: Iterable<T>
+  placement?: Placement
+  children: React.ReactNode | ((item: T) => React.ReactNode)
+  className?: string
+}
 
-export { Select, SelectItem, SelectItemDetails, SelectSection }
+const SelectList = <T extends object>({
+  className,
+  children,
+  items,
+  placement
+}: SelectListProps<T>) => {
+  return (
+    <Popover.Picker className={className} trigger="Select" placement={placement}>
+      <ListBox.Picker aria-label="items" items={items}>
+        {children}
+      </ListBox.Picker>
+    </Popover.Picker>
+  )
+}
+
+interface SelectTriggerProps extends ButtonProps {
+  prefix?: React.ReactNode
+  className?: string
+}
+
+const SelectTrigger = ({ className, ...props }: SelectTriggerProps) => {
+  return (
+    <Button
+      className={composeRenderProps(className, (className, renderProps) =>
+        selectTriggerStyles({
+          ...renderProps,
+          className
+        })
+      )}
+    >
+      {props.prefix && <span className="-mr-1">{props.prefix}</span>}
+      <SelectValue className="flex-1 [&_[slot=description]]:hidden text-base placeholder-shown:text-muted-fg lg:text-sm" />
+      <IconChevronLgDown
+        aria-hidden
+        className="text-muted-fg duration-300 group-open:rotate-180 group-open:text-fg group-disabled:opacity-50 forced-colors:text-[ButtonText] forced-colors:group-disabled:text-[GrayText]"
+      />
+    </Button>
+  )
+}
+
+Select.OptionDetails = DropdownItemDetails
+Select.Option = DropdownItem
+Select.Section = DropdownSection
+Select.Trigger = SelectTrigger
+Select.List = SelectList
+
+export { Select }

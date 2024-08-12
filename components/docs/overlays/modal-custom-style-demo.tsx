@@ -1,32 +1,21 @@
 'use client'
 
-import {
-  Button,
-  Form,
-  Modal,
-  ModalBody,
-  ModalClose,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  Note,
-  TextField
-} from 'ui'
+import { Button, Form, Modal, Note, TextField } from 'ui'
 
 export default function ModalCustomStyleDemo() {
   return (
     <Modal>
       <Button intent="danger">Delete Project</Button>
-      <ModalContent role="alertdialog">
-        <ModalHeader
+      <Modal.Content role="alertdialog">
+        <Modal.Header
           className="bg-background border-b mb-4"
           title="Delete Project"
           description="This project’s gonna get wiped, including all its Deployments, Domains, Env Variables, Serverless Functions, and Settings."
         >
           <Note intent="danger">No undo button here, so be sure!</Note>
-        </ModalHeader>
+        </Modal.Header>
         <Form onSubmit={() => {}}>
-          <ModalBody className="space-y-4">
+          <Modal.Body className="space-y-4">
             <TextField
               isRequired
               autoFocus
@@ -35,15 +24,15 @@ export default function ModalCustomStyleDemo() {
               placeholder="team/project-name"
             />
             <TextField isRequired label='To verify, type "delete my project" below' type="text" />
-          </ModalBody>
-          <ModalFooter>
-            <ModalClose>Cancel</ModalClose>
+          </Modal.Body>
+          <Modal.Footer>
+            <Modal.Close>Cancel</Modal.Close>
             <Button intent="danger" type="submit">
               Delete Project
             </Button>
-          </ModalFooter>
+          </Modal.Footer>
         </Form>
-      </ModalContent>
+      </Modal.Content>
     </Modal>
   )
 }

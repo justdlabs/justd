@@ -26,7 +26,7 @@ import { tv } from 'tailwind-variants'
 
 import { DropdownItemDetails, dropdownItemStyles, DropdownSection } from './dropdown'
 import { Keyboard } from './keyboard'
-import { PopoverContent } from './popover'
+import { Popover } from './popover'
 import { cn } from './primitive'
 
 interface MenuContextProps {
@@ -57,9 +57,6 @@ const SubMenu = ({ delay = 0, ...props }) => (
   </SubmenuTriggerPrimitive>
 )
 
-const MenuSection = DropdownSection
-const MenuItemDetails = DropdownItemDetails
-
 const menuStyles = tv({
   slots: {
     menu: 'z32kk max-h-[calc(var(--visual-viewport-height)-10rem)] sm:max-h-[inherit] overflow-auto rounded-xl p-1 outline outline-0 [clip-path:inset(0_0_0_0_round_calc(var(--radius)-2px))]',
@@ -79,7 +76,7 @@ const MenuTrigger = ({ className, ...props }: MenuTriggerProps) => (
   <Button className={trigger({ className })} {...props} />
 )
 
-export interface MenuContentProps<T>
+interface MenuContentProps<T>
   extends Omit<PopoverProps, 'children' | 'style'>,
     MenuPrimitiveProps<T> {
   className?: string
@@ -97,14 +94,14 @@ const MenuContent = <T extends object>({
 }: MenuContentProps<T>) => {
   const { respectScreen } = useMenuContext()
   return (
-    <PopoverContent
+    <Popover.Content
       respectScreen={respectScreen}
       showArrow={showArrow}
       className={popover({ className: popoverClassName })}
       {...props}
     >
       <MenuPrimitive className={menu({ className })} {...props} />
-    </PopoverContent>
+    </Popover.Content>
   )
 }
 
@@ -147,7 +144,6 @@ const MenuHeader = ({ className, inset, separator = false, ...props }: MenuHeade
   <Header
     className={cn(
       'p-2 text-base font-semibold sm:text-sm',
-      inset && 'pl-8',
       separator && '-mx-1 border-b border-b-border px-3 pb-[0.625rem]',
       className
     )}
@@ -161,7 +157,7 @@ const MenuSeparator = ({ className, ...props }: SeparatorProps) => (
 
 const MenuKeyboard = Keyboard
 
-const MenuCheckboxItem = ({ className, children, ...props }: MenuItemProps) => (
+const MenuCheckbox = ({ className, children, ...props }: MenuItemProps) => (
   <MenuItem className={cn('pr-8', className)} {...props}>
     {(values) => (
       <>
@@ -175,7 +171,7 @@ const MenuCheckboxItem = ({ className, children, ...props }: MenuItemProps) => (
   </MenuItem>
 )
 
-const MenuRadioItem = ({ className, children, ...props }: MenuItemProps) => (
+const MenuRadio = ({ className, children, ...props }: MenuItemProps) => (
   <MenuItem className={cn('pr-8', className)} {...props}>
     {(values) => (
       <>
@@ -188,20 +184,20 @@ const MenuRadioItem = ({ className, children, ...props }: MenuItemProps) => (
   </MenuItem>
 )
 
-export {
-  Menu,
-  MenuCheckboxItem,
-  MenuContent,
-  MenuHeader,
-  MenuItem,
-  MenuItemPrimitive,
-  MenuKeyboard,
-  MenuPrimitive,
-  MenuRadioItem,
-  MenuSection,
-  MenuSeparator,
-  MenuTrigger,
-  SubMenu,
-  MenuItemDetails,
-  type MenuItemProps
-}
+Menu.Checkbox = MenuCheckbox
+Menu.Content = MenuContent
+Menu.Header = MenuHeader
+Menu.Item = MenuItem
+Menu.Content = MenuContent
+Menu.Keyboard = MenuKeyboard
+Menu.ItemPrimitive = MenuItemPrimitive
+Menu.Keyboard = MenuKeyboard
+Menu.Primitive = MenuPrimitive
+Menu.Radio = MenuRadio
+Menu.Section = DropdownSection
+Menu.Separator = MenuSeparator
+Menu.Trigger = MenuTrigger
+Menu.ItemDetails = DropdownItemDetails
+Menu.Submenu = SubMenu
+
+export { Menu, type MenuItemProps, type MenuContentProps }

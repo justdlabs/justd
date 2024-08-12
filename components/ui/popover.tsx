@@ -6,9 +6,8 @@ import type { ModalOverlayProps } from 'react-aria-components'
 import {
   Button,
   composeRenderProps,
-  Dialog,
   type DialogProps,
-  DialogTrigger,
+  DialogTrigger as DialogTriggerPrimitive,
   Modal,
   ModalOverlay,
   OverlayArrow,
@@ -20,36 +19,27 @@ import {
 import { twJoin } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
 
-import type { DialogTitleProps } from './dialog'
-import {
-  DialogBody,
-  DialogClose,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle
-} from './dialog'
+import { Dialog } from './dialog'
 import { cn, useMediaQuery } from './primitive'
 
-const Popover = DialogTrigger
-const PopoverTrigger = Button
-const PopoverClose = DialogClose
-const PopoverDescription = DialogDescription
+const Popover = ({ children }: { children: React.ReactNode }) => {
+  return <DialogTriggerPrimitive>{children}</DialogTriggerPrimitive>
+}
 
-const PopoverTitle = ({ className, ...props }: DialogTitleProps) => (
-  <DialogTitle className={cn('leading-none', className)} {...props} />
+const PopoverTitle = ({ className, ...props }: React.ComponentProps<typeof Dialog.Title>) => (
+  <Dialog.Title className={cn('leading-none', className)} {...props} />
 )
 
 const PopoverHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <DialogHeader className={cn('p-0 sm:pt-0', className)} {...props} />
+  <Dialog.Header className={cn('p-0 sm:pt-0', className)} {...props} />
 )
 
 const PopoverFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <DialogFooter className={cn('pt-4 pb-0 sm:pb-0', className)} {...props} />
+  <Dialog.Footer className={cn('pt-4 pb-0 sm:pb-0', className)} {...props} />
 )
 
 const PopoverBody = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <DialogBody className={cn('p-0', className)} {...props} />
+  <Dialog.Body className={cn('p-0', className)} {...props} />
 )
 
 const popoverContentStyles = tv({
@@ -189,20 +179,15 @@ const PopoverPicker = ({ children, className, ...props }: PopoverProps) => {
   )
 }
 
-const PopoverContentPrimitive = PopoverPrimitive
+Popover.Primitive = PopoverPrimitive
+Popover.Trigger = Button
+Popover.Close = Dialog.Close
+Popover.Content = PopoverContent
+Popover.Description = Dialog.Description
+Popover.Body = PopoverBody
+Popover.Footer = PopoverFooter
+Popover.Header = PopoverHeader
+Popover.Picker = PopoverPicker
+Popover.Title = PopoverTitle
 
-export {
-  Popover,
-  PopoverBody,
-  PopoverClose,
-  PopoverContent,
-  PopoverContentPrimitive,
-  PopoverDescription,
-  PopoverFooter,
-  PopoverHeader,
-  PopoverPicker,
-  PopoverTitle,
-  PopoverTrigger,
-  drawerStyles,
-  popoverContentStyles
-}
+export { Popover, drawerStyles, popoverContentStyles }

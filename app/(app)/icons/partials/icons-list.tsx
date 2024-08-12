@@ -8,7 +8,7 @@ import { useSearchParams } from 'next/navigation'
 import { ListBox, ListBoxItem } from 'react-aria-components'
 import * as ReactDOMServer from 'react-dom/server'
 import { toast } from 'sonner'
-import { Loader, Menu, MenuContent, MenuItem, MenuSeparator } from 'ui'
+import { Loader, Menu } from 'ui'
 import { copyToClipboard } from 'usemods'
 
 import { Controller } from './controller'
@@ -89,16 +89,16 @@ export function IconListItem({ name, Icon }: IconListItemProps) {
     >
       <Icon className={selectedSize} key={name} />
       <Menu isOpen={isSelected} onOpenChange={setSelected}>
-        <MenuContent triggerRef={triggerRef} showArrow>
-          <MenuItem onAction={() => handleCopy('jsx')}>Copy JSX</MenuItem>
-          <MenuItem onAction={() => copySvgToClipboard(Icon)}>Copy SVG</MenuItem>
-          <MenuItem onAction={() => handleCopy('text')}>Copy Name</MenuItem>
-          <MenuSeparator />
-          <MenuItem onAction={() => downloadSvg(Icon, name)}>
+        <Menu.Content triggerRef={triggerRef} showArrow>
+          <Menu.Item onAction={() => handleCopy('jsx')}>Copy JSX</Menu.Item>
+          <Menu.Item onAction={() => copySvgToClipboard(Icon)}>Copy SVG</Menu.Item>
+          <Menu.Item onAction={() => handleCopy('text')}>Copy Name</Menu.Item>
+          <Menu.Separator />
+          <Menu.Item onAction={() => downloadSvg(Icon, name)}>
             Download SVG
             <IconDownload className="ml-auto" />
-          </MenuItem>
-        </MenuContent>
+          </Menu.Item>
+        </Menu.Content>
       </Menu>
     </ListBoxItem>
   )

@@ -2,33 +2,19 @@
 
 import React from 'react'
 
-import {
-  Button,
-  Checkbox,
-  Form,
-  Link,
-  Popover,
-  PopoverBody,
-  PopoverClose,
-  PopoverContent,
-  PopoverDescription,
-  PopoverFooter,
-  PopoverHeader,
-  PopoverTitle,
-  TextField
-} from 'ui'
+import { Button, Checkbox, Form, Link, Popover, TextField } from 'ui'
 
 export default function PopoverCustomClose() {
   return (
     <Popover>
       <Button>Login</Button>
-      <PopoverContent className="sm:min-w-96">
-        <PopoverHeader className="mb-4">
-          <PopoverTitle>Login</PopoverTitle>
-          <PopoverDescription>Enter your credentials to sign in.</PopoverDescription>
-        </PopoverHeader>
+      <Popover.Content className="sm:min-w-96">
+        <Popover.Header className="mb-4">
+          <Popover.Title>Login</Popover.Title>
+          <Popover.Description>Enter your credentials to sign in.</Popover.Description>
+        </Popover.Header>
         <Form onSubmit={() => {}}>
-          <PopoverBody>
+          <Popover.Body>
             <div className="space-y-4">
               <TextField isRequired type="email" label="Email" placeholder="Enter your email" />
               <TextField
@@ -44,13 +30,13 @@ export default function PopoverCustomClose() {
                 </Link>
               </div>
             </div>
-          </PopoverBody>
-          <PopoverFooter>
-            <PopoverClose>Cancel</PopoverClose>
+          </Popover.Body>
+          <Popover.Footer>
+            <Popover.Close>Cancel</Popover.Close>
             <Button type="submit">Login</Button>
-          </PopoverFooter>
+          </Popover.Footer>
         </Form>
-      </PopoverContent>
+      </Popover.Content>
     </Popover>
   )
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { IconAdjustment } from 'justd-icons'
-import { Button, Description, Popover, PopoverContent, Slider } from 'ui'
+import { Button, Description, Popover, Slider } from 'ui'
 
 export function SliderOnPopoverBlock() {
   const [fontSize, setFontSize] = React.useState<number>(16)
@@ -16,7 +16,7 @@ export function SliderOnPopoverBlock() {
       >
         <IconAdjustment />
       </Button>
-      <PopoverContent>
+      <Popover.Content>
         <>
           <div>
             <Slider value={fontSize} onChange={(v) => setFontSize(v as number)} label="Font Size" />
@@ -35,7 +35,7 @@ export function SliderOnPopoverBlock() {
             </Description>
           </div>
         </>
-      </PopoverContent>
+      </Popover.Content>
     </Popover>
   )
 }

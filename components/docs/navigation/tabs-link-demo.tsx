@@ -1,6 +1,6 @@
 'use client'
 
-import { Tab, TabList, Tabs } from 'ui'
+import { Tabs } from 'ui'
 
 const navs = [
   { url: '/', label: 'Home' },
@@ -12,13 +12,13 @@ const navs = [
 export default function TabsLinkDemo() {
   return (
     <Tabs aria-label="Navbar">
-      <TabList items={navs}>
+      <Tabs.List items={navs}>
         {(item) => (
-          <Tab id={item.label} href={item.url}>
+          <Tabs.Tab id={item.label} href={item.url}>
             {item.label}
-          </Tab>
+          </Tabs.Tab>
         )}
-      </TabList>
+      </Tabs.List>
     </Tabs>
   )
 }

@@ -2,14 +2,7 @@
 
 import React from 'react'
 
-import {
-  Button,
-  CommandMenu,
-  CommandMenuInput,
-  CommandMenuItem,
-  CommandMenuList,
-  CommandMenuSection
-} from 'ui'
+import { Button, CommandMenu } from 'ui'
 
 export default function CommandMenuDangerItemDemo() {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -19,18 +12,18 @@ export default function CommandMenuDangerItemDemo() {
         Open
       </Button>
       <CommandMenu isOpen={isOpen} onOpenChange={setIsOpen}>
-        <CommandMenuInput placeholder="Quick search..." />
-        <CommandMenuList>
-          <CommandMenuSection>
-            <CommandMenuItem>System Shutdown</CommandMenuItem>
-            <CommandMenuItem isDanger>Format Disk</CommandMenuItem>
-            <CommandMenuItem>Restart Service</CommandMenuItem>
-            <CommandMenuItem>Empty Trash</CommandMenuItem>
-            <CommandMenuItem>Overwrite File</CommandMenuItem>
-            <CommandMenuItem isDanger>Reset Factory Settings</CommandMenuItem>
-            <CommandMenuItem>Disconnect Network</CommandMenuItem>
-          </CommandMenuSection>
-        </CommandMenuList>
+        <CommandMenu.Input placeholder="Quick search..." />
+        <CommandMenu.List>
+          <CommandMenu.Section>
+            <CommandMenu.Item>System Shutdown</CommandMenu.Item>
+            <CommandMenu.Item isDanger>Format Disk</CommandMenu.Item>
+            <CommandMenu.Item>Restart Service</CommandMenu.Item>
+            <CommandMenu.Item>Empty Trash</CommandMenu.Item>
+            <CommandMenu.Item>Overwrite File</CommandMenu.Item>
+            <CommandMenu.Item isDanger>Reset Factory Settings</CommandMenu.Item>
+            <CommandMenu.Item>Disconnect Network</CommandMenu.Item>
+          </CommandMenu.Section>
+        </CommandMenu.List>
       </CommandMenu>
     </>
   )

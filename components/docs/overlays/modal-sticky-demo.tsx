@@ -1,29 +1,19 @@
 'use client'
 
-import {
-  Button,
-  Modal,
-  ModalBody,
-  ModalClose,
-  ModalContent,
-  ModalDescription,
-  ModalFooter,
-  ModalHeader,
-  ModalTitle
-} from 'ui'
+import { Button, Modal } from 'ui'
 
 export default function ModalStickyDemo() {
   return (
     <Modal>
       <Button>Read</Button>
-      <ModalContent size="xl">
-        <ModalHeader>
-          <ModalTitle>Terms of Use</ModalTitle>
-          <ModalDescription>
+      <Modal.Content size="xl">
+        <Modal.Header>
+          <Modal.Title>Terms of Use</Modal.Title>
+          <Modal.Description>
             If you do not agree to these terms, please refrain from using our services.
-          </ModalDescription>
-        </ModalHeader>
-        <ModalBody>
+          </Modal.Description>
+        </Modal.Header>
+        <Modal.Body>
           <div className="prose dark:prose-invert prose-zinc">
             <p>
               Welcome to our Terms of Use. By accessing or using our services, you agree to be bound
@@ -116,12 +106,12 @@ export default function ModalStickyDemo() {
             If you have any questions about these terms, please contact us at [Your Contact
             Information].
           </div>
-        </ModalBody>
-        <ModalFooter>
-          <ModalClose>Close</ModalClose>
+        </Modal.Body>
+        <Modal.Footer>
+          <Modal.Close>Close</Modal.Close>
           <Button>Accept</Button>
-        </ModalFooter>
-      </ModalContent>
+        </Modal.Footer>
+      </Modal.Content>
     </Modal>
   )
 }

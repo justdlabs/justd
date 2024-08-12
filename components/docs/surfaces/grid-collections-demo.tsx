@@ -1,22 +1,22 @@
 'use client'
 
-import { Card, CardDescription, CardHeader, CardTitle, Grid, GridCollection, GridItem } from 'ui'
+import { Card, Grid } from 'ui'
 
 export default function GridCollectionsDemo() {
   return (
     <Grid aria-label="List articles" columns={{ initial: 1, sm: 2, '2xl': 3 }} gap={2}>
-      <GridCollection items={articles}>
+      <Grid.Collection items={articles}>
         {(item) => (
-          <GridItem>
+          <Grid.Item>
             <Card>
-              <CardHeader>
-                <CardTitle>{item.title}</CardTitle>
-                <CardDescription>{item.description}</CardDescription>
-              </CardHeader>
+              <Card.Header>
+                <Card.Title>{item.title}</Card.Title>
+                <Card.Description>{item.description}</Card.Description>
+              </Card.Header>
             </Card>
-          </GridItem>
+          </Grid.Item>
         )}
-      </GridCollection>
+      </Grid.Collection>
     </Grid>
   )
 }

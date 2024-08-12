@@ -6,7 +6,7 @@ import { previews } from '@/components/docs/generated/previews'
 import jsonPreviews from '@/components/docs/generated/previews.json'
 import { Code } from '@/components/docs/rehype/code'
 import { cn } from '@/resources/lib/utils'
-import { Loader, Tab, TabList, TabPanel, Tabs } from 'ui'
+import { Loader, Tabs } from 'ui'
 
 interface HowProps extends React.HTMLAttributes<HTMLDivElement> {
   toUse: string
@@ -38,17 +38,17 @@ export function DocHow({
   return (
     <div className={cn('not-prose relative my-4', className)} {...props}>
       <Tabs aria-label="Packages">
-        <TabList>
-          <Tab id="preview">Preview</Tab>
-          <Tab id="code">Code</Tab>
-        </TabList>
-        <TabPanel className="w-full" id="preview">
+        <Tabs.List>
+          <Tabs.Tab id="preview">Preview</Tabs.Tab>
+          <Tabs.Tab id="code">Code</Tabs.Tab>
+        </Tabs.List>
+        <Tabs.Panel className="w-full" id="preview">
           <div
             className={cn(
               !withNoPadding && 'relative gap-4 rounded-lg border bg-overlay p-6',
               isCenter &&
                 'flex min-h-56 lg:min-h-80 items-center justify-center py-6 preview sm:py-24',
-              'overflow-x-auto py-6'
+              'overflow-x-auto'
             )}
           >
             <React.Suspense
@@ -64,13 +64,13 @@ export function DocHow({
               </div>
             </React.Suspense>
           </div>
-        </TabPanel>
-        <TabPanel id="code">
+        </Tabs.Panel>
+        <Tabs.Panel id="code">
           <Code
             className="border [&_pre_span[data-line]:last-of-type]:hidden [&_pre]:!border-0 border-zinc-800 bg-[#0e0e10] rounded-lg"
             code={codeString}
           />
-        </TabPanel>
+        </Tabs.Panel>
       </Tabs>
     </div>
   )

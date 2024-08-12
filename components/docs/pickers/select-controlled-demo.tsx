@@ -3,7 +3,7 @@
 import React from 'react'
 
 import type { Key } from 'react-aria-components'
-import { Description, Select, SelectItem } from 'ui'
+import { Description, Select } from 'ui'
 
 export const movies = [
   { id: 1, title: 'Inception' },
@@ -22,13 +22,15 @@ export default function SelectControlledDemo() {
         onSelectionChange={setMovie}
         label="Movies"
         placeholder="Select a movie"
-        items={movies}
       >
-        {(item) => (
-          <SelectItem id={item.id} textValue={item.title}>
-            {item.title}
-          </SelectItem>
-        )}
+        <Select.Trigger />
+        <Select.List items={movies}>
+          {(item) => (
+            <Select.Option id={item.id} textValue={item.title}>
+              {item.title}
+            </Select.Option>
+          )}
+        </Select.List>
       </Select>
       <Description className="mt-2 block [&>strong]:text-fg text-muted-fg">
         You have selected: <strong>{movie}</strong>

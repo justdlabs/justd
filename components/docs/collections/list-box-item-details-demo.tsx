@@ -1,14 +1,14 @@
 'use client'
 
-import { ListBox, ListBoxItem, ListBoxItemDetails } from 'ui'
+import { ListBox } from 'ui'
 
 export default function ListBoxItemDetailsDemo() {
   return (
     <ListBox defaultSelectedKeys={[2]} items={roles} aria-label="Bands">
       {(item) => (
-        <ListBoxItem id={item.id}>
-          <ListBoxItemDetails label={item.name} description={item.description} />
-        </ListBoxItem>
+        <ListBox.Item id={item.id}>
+          <ListBox.ItemDetails label={item.name} description={item.description} />
+        </ListBox.Item>
       )}
     </ListBox>
   )

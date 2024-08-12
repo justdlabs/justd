@@ -44,7 +44,7 @@ If you want to blur the background, you can use `isBlurred` prop.
 <How toUse="overlays/modal-blur-demo" />
 
 ## Sticky
-You can use the `ModalBody` component to make the modal sticky.
+You can use the `Modal.Body` component to make the modal sticky.
 <How toUse="overlays/modal-sticky-demo" />
 
 ## Nested
@@ -54,13 +54,13 @@ You can also nest modals. Try open it and confirm!
 ## Header
 This setup’s super flexible. If you skip adding `ModalTitle` and just drop a string as its child, it'll auto-render as the title. Like this:
 ```
-<ModalHeader>
+<Modal.Header>
   Title
-</ModalHeader>
+</Modal.Header>
 ```
 Wanna customize more? Throw in props like `title` and `description` for a tailored header:
 ```
-<ModalHeader title='Title' description='Description' />
+<Modal.Header title='Title' description='Description' />
 ```
 
 ## Custom Styles
@@ -89,20 +89,18 @@ interface ModalActionProps {
 
 export function ModalAction(props: ModalActionProps) {
   return (
-    <ModalOverlay isOpen={props.isOpen} onOpenChange={props.closeModal}>
-      <ModalContent>
-        <ModalHeader>
-          <ModalTitle>{props.title}</ModalTitle>
-          <ModalDescription>{props.description}</ModalDescription>
-        </ModalHeader>
-        <ModalFooter>
-          <ModalClose>Cancel</ModalClose>
-          <Button className="min-w-24" isDisabled={props.loading} onPress={props.action}>
-            {props.loading ? <LoadingDots className={'bg-fg'} /> : props.confirmText}
-          </Button>
-        </ModalFooter>
-      </ModalContent>
-    </ModalOverlay>
+    <Modal.Content isOpen={props.isOpen} onOpenChange={props.closeModal}>
+      <Modal.Header>
+        <Modal.Title>{props.title}</Modal.Title>
+        <Modal.Description>{props.description}</Modal.Description>
+      </Modal.Header>
+      <Modal.Footer>
+        <Modal.Close>Cancel</Modal.Close>
+        <Button className="min-w-24" isDisabled={props.loading} onPress={props.action}>
+          {props.loading ? <LoadingDots className={'bg-fg'} /> : props.confirmText}
+        </Button>
+      </Modal.Footer>
+    </Modal.Content>
   )
 }
 ```

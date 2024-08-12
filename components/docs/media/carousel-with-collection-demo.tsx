@@ -3,24 +3,14 @@
 import * as React from 'react'
 
 import Image from 'next/image'
-import {
-  Card,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-  Carousel,
-  CarouselButton,
-  CarouselContent,
-  CarouselHandler,
-  CarouselItem
-} from 'ui'
+import { Card, Carousel } from 'ui'
 
 export default function CarouselWithCollectionDemo() {
   return (
     <Carousel className="w-full [&_.xrkr]:overflow-hidden [&_.xrkr]:flex [&_.xrkr]:flex-col max-w-xs">
-      <CarouselContent items={items}>
+      <Carousel.Content items={items}>
         {(item) => (
-          <CarouselItem id={item.id}>
+          <Carousel.Item id={item.id}>
             <Card className="p-1">
               <Image
                 className="rounded-md h-40 object-center object-cover"
@@ -29,19 +19,19 @@ export default function CarouselWithCollectionDemo() {
                 width={400}
                 height={300}
               />
-              <CardHeader className="p-3">
-                <CardTitle className="line-clamp-1 sm:text-lg">{item.title}</CardTitle>
-                <CardDescription className="line-clamp-2">{item.description}</CardDescription>
-              </CardHeader>
+              <Card.Header className="p-3">
+                <Card.Title className="line-clamp-1 sm:text-lg">{item.title}</Card.Title>
+                <Card.Description className="line-clamp-2">{item.description}</Card.Description>
+              </Card.Header>
             </Card>
-          </CarouselItem>
+          </Carousel.Item>
         )}
-      </CarouselContent>
+      </Carousel.Content>
 
-      <CarouselHandler>
-        <CarouselButton slot="previous" />
-        <CarouselButton slot="next" />
-      </CarouselHandler>
+      <Carousel.Handler>
+        <Carousel.Button slot="previous" />
+        <Carousel.Button slot="next" />
+      </Carousel.Handler>
     </Carousel>
   )
 }

@@ -35,6 +35,7 @@ export * from './switch';
 export * from './calendar';
 export * from './grid-list';
 export * from './command-menu';
+export * from './context-menu';
 export * from './dropdown';
 export * from './avatar';
 export * from './combo-box';

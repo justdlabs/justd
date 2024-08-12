@@ -20,31 +20,8 @@ import {
   IconPerson,
   IconStar
 } from 'justd-icons'
-import { Group, Menu } from 'react-aria-components'
-import {
-  Avatar,
-  Button,
-  Checkbox,
-  Description,
-  MenuItem,
-  MenuSection,
-  ModalBody,
-  ModalClose,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  ModalTitle,
-  Select,
-  SelectItem,
-  Sheet,
-  SheetBody,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-  TextField
-} from 'ui'
+import { Group } from 'react-aria-components'
+import { Avatar, Button, Checkbox, Description, Menu, Modal, Select, Sheet, TextField } from 'ui'
 
 export default function SheetMenuDemo() {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -52,11 +29,11 @@ export default function SheetMenuDemo() {
   const closeModal = () => setIsOpen(false)
   return (
     <>
-      <ModalContent isOpen={isOpen} onOpenChange={setIsOpen}>
-        <ModalHeader>
-          <ModalTitle>Edit status</ModalTitle>
-        </ModalHeader>
-        <ModalBody>
+      <Modal.Content isOpen={isOpen} onOpenChange={setIsOpen}>
+        <Modal.Header>
+          <Modal.Title>Edit status</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
           <div className="space-y-4">
             <TextField
               prefix={<IconBrandGithub />}
@@ -71,105 +48,110 @@ export default function SheetMenuDemo() {
               </Description>
             </Group>
             <Select label="Clear Status">
-              <SelectItem>Never</SelectItem>
-              <SelectItem>in 30 Minutes</SelectItem>
-              <SelectItem>in 1 Hour</SelectItem>
-              <SelectItem>in 8 Hours</SelectItem>
-              <SelectItem>after Today</SelectItem>
-              <SelectItem>after a Week</SelectItem>
-              <SelectItem>after a Month</SelectItem>
+              <Select.Trigger />
+              <Select.List>
+                <Select.Option>Never</Select.Option>
+                <Select.Option>in 30 Minutes</Select.Option>
+                <Select.Option>in 1 Hour</Select.Option>
+                <Select.Option>in 8 Hours</Select.Option>
+                <Select.Option>after Today</Select.Option>
+                <Select.Option>after a Week</Select.Option>
+                <Select.Option>after a Month</Select.Option>
+              </Select.List>
             </Select>
             <Select label="Visible to">
-              <SelectItem>Everyone</SelectItem>
-              <SelectItem>Organization</SelectItem>
-              <SelectItem>Public</SelectItem>
+              <Select.List>
+                <Select.Option>Everyone</Select.Option>
+                <Select.Option>Organization</Select.Option>
+                <Select.Option>Public</Select.Option>
+              </Select.List>
             </Select>
           </div>
-        </ModalBody>
-        <ModalFooter>
-          <ModalClose>Clear Status</ModalClose>
+        </Modal.Body>
+        <Modal.Footer>
+          <Modal.Close>Clear Status</Modal.Close>
           <Button onPress={closeModal}>Set Status</Button>
-        </ModalFooter>
-      </ModalContent>
+        </Modal.Footer>
+      </Modal.Content>
       <Sheet>
-        <SheetTrigger aria-label="Open menu">
+        <Sheet.Trigger aria-label="Open menu">
           <Avatar src="https://github.com/irsyadadl.png" alt="irsyadadl" />
-        </SheetTrigger>
-        <SheetContent classNames={{ content: '[&_.dlc]:p-0' }} closeButton={false}>
-          <SheetHeader className="flex border-b p-4 sticky top-0 bg-overlay flex-row items-center gap-x-3 mb-2">
+        </Sheet.Trigger>
+        <Sheet.Content classNames={{ content: '[&_.dlc]:p-0' }} closeButton={false}>
+          <Sheet.Header className="flex border-b p-4 sticky top-0 bg-overlay flex-row items-center gap-x-3 mb-2">
             <Avatar src="https://github.com/irsyadadl.png" alt="irsyadadl" />
             <div>
-              <SheetTitle>irsyadadl</SheetTitle>
-              <SheetDescription>Irsyad A. Panjaitan</SheetDescription>
+              <Sheet.Title>irsyadadl</Sheet.Title>
+              <Sheet.Description>Irsyad A. Panjaitan</Sheet.Description>
             </div>
-          </SheetHeader>
-          <SheetBody className="px-0">
-            <Menu className="divide-y [&_.xss3]:p-2">
-              <MenuSection>
-                <MenuItem onAction={openModal}>
+          </Sheet.Header>
+          <Sheet.Body className="px-0">
+            <Menu.Content className="divide-y [&_.xss3]:p-2">
+              <Menu.Section>
+                <Menu.Item onAction={openModal}>
                   <IconBrandGithub />
                   Edit Status
-                </MenuItem>
-              </MenuSection>
-              <MenuSection>
-                <MenuItem>
+                </Menu.Item>
+              </Menu.Section>
+              <Menu.Section>
+                <Menu.Item>
                   <IconPerson />
                   Your profile
-                </MenuItem>
-                <MenuItem>
+                </Menu.Item>
+                <Menu.Item>
                   <IconBook /> Your repositories
-                </MenuItem>
-                <MenuItem>
+                </Menu.Item>
+                <Menu.Item>
                   <IconBrandCopilot /> Your Copilot
-                </MenuItem>
-                <MenuItem>
+                </Menu.Item>
+                <Menu.Item>
                   <IconChart /> Your projects
-                </MenuItem>
-                <MenuItem>
+                </Menu.Item>
+                <Menu.Item>
                   <IconStar /> Your stars
-                </MenuItem>
-                <MenuItem>
+                </Menu.Item>
+                <Menu.Item>
                   <IconCodeBrackets /> Your gists
-                </MenuItem>
-                <MenuItem>
+                </Menu.Item>
+                <Menu.Item>
                   <IconBuilding /> Your organizations
-                </MenuItem>
-                <MenuItem>
+                </Menu.Item>
+                <Menu.Item>
                   <IconGlobe /> Your enterprises
-                </MenuItem>
-                <MenuItem>
+                </Menu.Item>
+                <Menu.Item>
                   <IconHeart />
                   Your sponsors
-                </MenuItem>
-              </MenuSection>
-              <MenuSection>
-                <MenuItem>
+                </Menu.Item>
+              </Menu.Section>
+              <Menu.Section>
+                <Menu.Item>
                   <IconFilter /> Feature preview
-                </MenuItem>
-                <MenuItem>
+                </Menu.Item>
+                <Menu.Item>
                   <IconGear />
                   Settings
-                </MenuItem>
-              </MenuSection>
-              <MenuSection>
-                <MenuItem>
+                </Menu.Item>
+              </Menu.Section>
+              <Menu.Section>
+                <Menu.Item>
                   <IconBookOpen /> GitHub Docs
-                </MenuItem>
-                <MenuItem>
+                </Menu.Item>
+                <Menu.Item>
                   <IconPeople /> GitHub Support
-                </MenuItem>
-                <MenuItem>
+                </Menu.Item>
+                <Menu.Item>
                   <IconMessages /> GitHub Community
-                </MenuItem>
-              </MenuSection>
-              <MenuSection>
-                <MenuItem>
+                </Menu.Item>
+              </Menu.Section>
+              <Menu.Section>
+                <Menu.Item>
                   <IconLogout /> Sign out
-                </MenuItem>
-              </MenuSection>
-            </Menu>
-          </SheetBody>
-        </SheetContent>
+                </Menu.Item>
+              </Menu.Section>
+            </Menu.Content>
+          </Sheet.Body>
+        </Sheet.Content>
       </Sheet>
     </>
   )

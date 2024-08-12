@@ -3,56 +3,46 @@
 import React from 'react'
 
 import { IconHashtag, IconHeadphones, IconLogout, IconPlus, IconSettings } from 'justd-icons'
-import {
-  Avatar,
-  Menu,
-  MenuContent,
-  MenuHeader,
-  MenuItem,
-  MenuKeyboard,
-  MenuSection,
-  MenuSeparator,
-  MenuTrigger
-} from 'ui'
+import { Avatar, Menu } from 'ui'
 
 export default function MenuWithArrowDemo() {
   return (
     <>
       <Menu>
-        <MenuTrigger aria-label="Open Menu">
+        <Menu.Trigger aria-label="Open Menu">
           <Avatar className="size-10" src="https://github.com/irsyadadl.png" />
-        </MenuTrigger>
-        <MenuContent placement="bottom" showArrow className="min-w-64">
-          <MenuSection>
-            <MenuHeader separator>
+        </Menu.Trigger>
+        <Menu.Content placement="bottom" showArrow className="min-w-64">
+          <Menu.Section>
+            <Menu.Header separator>
               <span className="block">Irsyad A. Panjaitan</span>
               <span className="font-normal text-muted-fg">@irsyadadl</span>
-            </MenuHeader>
-          </MenuSection>
-          <MenuItem>
+            </Menu.Header>
+          </Menu.Section>
+          <Menu.Item>
             <IconSettings />
             Settings
-          </MenuItem>
-          <MenuItem href="#">
+          </Menu.Item>
+          <Menu.Item href="#">
             <IconPlus />
             Create Team
-          </MenuItem>
-          <MenuItem href="#">
+          </Menu.Item>
+          <Menu.Item href="#">
             <IconHashtag />
             Command Menu
-            <MenuKeyboard keys="⌘K" />
-          </MenuItem>
-          <MenuSeparator />
-          <MenuItem href="#">
+            <Menu.Keyboard keys="⌘K" />
+          </Menu.Item>
+          <Menu.Separator />
+          <Menu.Item href="#">
             <IconHeadphones />
             Contact Support
-          </MenuItem>
-          <MenuSeparator />
-          <MenuItem>
+          </Menu.Item>
+          <Menu.Separator />
+          <Menu.Item>
             <IconLogout />
             Log out
-          </MenuItem>
-        </MenuContent>
+          </Menu.Item>
+        </Menu.Content>
       </Menu>
     </>
   )

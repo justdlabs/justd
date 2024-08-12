@@ -2,12 +2,12 @@
 
 import React from 'react'
 
-import { Choicebox, ChoiceboxItem } from 'ui'
+import { Choicebox } from 'ui'
 
 export default function ChoiceboxDisabledDemo() {
   return (
     <Choicebox aria-label="Select packages" selectionMode="multiple" items={packages}>
-      {(item) => <ChoiceboxItem isDisabled={['sm', 'lg'].includes(item.id)} {...item} />}
+      {(item) => <Choicebox.Item isDisabled={['sm', 'lg'].includes(item.id)} {...item} />}
     </Choicebox>
   )
 }

@@ -1,6 +1,6 @@
 'use client'
 
-import { Select, SelectItem } from 'ui'
+import { Select } from 'ui'
 
 const software = [
   { id: 1, name: 'Adobe Photoshop' }
@@ -9,12 +9,15 @@ const software = [
 
 export default function SelectDisabledDemo() {
   return (
-    <Select label="Design software" isDisabled placeholder="Select a software" items={software}>
-      {(item) => (
-        <SelectItem id={item.id} textValue={item.name}>
-          {item.name}
-        </SelectItem>
-      )}
+    <Select label="Design software" isDisabled placeholder="Select a software">
+      <Select.Trigger />
+      <Select.List items={software}>
+        {(item) => (
+          <Select.Option id={item.id} textValue={item.name}>
+            {item.name}
+          </Select.Option>
+        )}
+      </Select.List>
     </Select>
   )
 }

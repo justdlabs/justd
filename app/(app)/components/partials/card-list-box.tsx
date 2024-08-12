@@ -4,7 +4,7 @@ import React from 'react'
 
 import { docs } from '#site/content'
 import { goodTitle } from '@/resources/lib/utils'
-import { buttonStyles, Description, Grid, GridCollection, GridItem, Heading, Link } from 'ui'
+import { buttonStyles, Description, Grid, Heading, Link } from 'ui'
 
 type GroupedComponents = {
   [category: string]: {
@@ -58,9 +58,9 @@ export function CardListBox() {
               sm: 2
             }}
           >
-            <GridCollection items={components}>
+            <Grid.Collection items={components}>
               {(component) => (
-                <GridItem
+                <Grid.Item
                   className="relative focus:outline-none p-4 lg:p-6 h-full flex flex-col w-full focus-visible:outline-none focus-visible:outline-primary rounded-xl bg-white shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:bg-zinc-900 dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:-inset-px dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset] forced-colors:outline"
                   aria-label={component.title}
                   id={component.slug}
@@ -76,9 +76,9 @@ export function CardListBox() {
                       View
                     </Link>
                   </div>
-                </GridItem>
+                </Grid.Item>
               )}
-            </GridCollection>
+            </Grid.Collection>
           </Grid>
         </div>
       ))}

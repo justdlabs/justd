@@ -3,71 +3,48 @@
 import React from 'react'
 
 import {
-  IconBag,
   IconCommandRegular,
   IconDashboard,
   IconDeviceDesktop,
   IconHeadphones,
-  IconHeart,
   IconLogout,
   IconMoon,
   IconSettings,
   IconSun
 } from 'justd-icons'
 import { useTheme } from 'next-themes'
-import {
-  Avatar,
-  Menu,
-  MenuContent,
-  MenuHeader,
-  MenuItem,
-  MenuSection,
-  MenuSeparator,
-  MenuTrigger,
-  SubMenu
-} from 'ui'
+import { Avatar, Menu } from 'ui'
 
 export default function MenuWithIconDemo() {
   const { resolvedTheme, setTheme } = useTheme()
   return (
     <Menu>
-      <MenuTrigger>
+      <Menu.Trigger>
         <Avatar className="size-10" src="https://github.com/irsyadadl.png" />
-      </MenuTrigger>
-      <MenuContent placement="bottom" showArrow className="min-w-64">
-        <MenuSection>
-          <MenuHeader separator>
+      </Menu.Trigger>
+      <Menu.Content placement="bottom" showArrow className="sm:min-w-64">
+        <Menu.Section>
+          <Menu.Header separator>
             <span className="block">Irsyad A. Panjaitan</span>
             <span className="font-normal text-muted-fg">@irsyadadl</span>
-          </MenuHeader>
-          <MenuItem href="#dashboard">
-            <IconDashboard />
-            Dashboard
-          </MenuItem>
-          <MenuItem href="#settings">
-            <IconSettings />
-            Settings
-          </MenuItem>
-        </MenuSection>
-        <MenuSeparator />
-        <MenuSection>
-          <MenuItem href="#wishlist">
-            <IconHeart />
-            My Wishlist
-          </MenuItem>
-          <MenuItem href="#orders">
-            <IconBag />
-            Orders
-          </MenuItem>
-        </MenuSection>
+          </Menu.Header>
+        </Menu.Section>
 
-        <MenuSeparator />
-        <MenuItem>
+        <Menu.Item href="#dashboard">
+          <IconDashboard />
+          Dashboard
+        </Menu.Item>
+        <Menu.Item href="#settings">
+          <IconSettings />
+          Settings
+        </Menu.Item>
+        <Menu.Separator />
+        <Menu.Item>
           <IconCommandRegular />
           Command Menu
-        </MenuItem>
-        <SubMenu>
-          <MenuItem>
+        </Menu.Item>
+        <Menu.Submenu>
+          <Menu.Item>
             {resolvedTheme === 'light' ? (
               <IconSun />
             ) : resolvedTheme === 'dark' ? (
@@ -76,30 +53,30 @@ export default function MenuWithIconDemo() {
               <IconDeviceDesktop />
             )}
             Switch theme
-          </MenuItem>
-          <MenuContent>
-            <MenuItem onAction={() => setTheme('system')}>
+          </Menu.Item>
+          <Menu.Content>
+            <Menu.Item onAction={() => setTheme('system')}>
               <IconDeviceDesktop /> System
-            </MenuItem>
-            <MenuItem onAction={() => setTheme('dark')}>
+            </Menu.Item>
+            <Menu.Item onAction={() => setTheme('dark')}>
               <IconMoon /> Dark
-            </MenuItem>
-            <MenuItem onAction={() => setTheme('light')}>
+            </Menu.Item>
+            <Menu.Item onAction={() => setTheme('light')}>
               <IconSun /> Light
-            </MenuItem>
-          </MenuContent>
-        </SubMenu>
-        <MenuSeparator />
-        <MenuItem href="#contact-s">
+            </Menu.Item>
+          </Menu.Content>
+        </Menu.Submenu>
+        <Menu.Separator />
+        <Menu.Item href="#contact-s">
           <IconHeadphones />
           Contact Support
-        </MenuItem>
-        <MenuSeparator />
-        <MenuItem href="#logout">
+        </Menu.Item>
+        <Menu.Separator />
+        <Menu.Item href="#logout">
           <IconLogout />
           Log out
-        </MenuItem>
-      </MenuContent>
+        </Menu.Item>
+      </Menu.Content>
     </Menu>
   )
 }

@@ -1,20 +1,20 @@
 'use client'
 
-import { Button, Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from 'ui'
+import { Button, Card } from 'ui'
 
 export default function CardDemo() {
   return (
     <Card className="max-w-lg">
-      <CardHeader>
-        <CardTitle>Monthly Report</CardTitle>
-        <CardDescription>Financial summary for June</CardDescription>
-      </CardHeader>
-      <CardContent>
+      <Card.Header>
+        <Card.Title>Monthly Report</Card.Title>
+        <Card.Description>Financial summary for June</Card.Description>
+      </Card.Header>
+      <Card.Content>
         The monthly financial report shows a 15% increase in revenue compared to last month.
-      </CardContent>
-      <CardFooter>
+      </Card.Content>
+      <Card.Footer>
         <Button>View Details</Button>
-      </CardFooter>
+      </Card.Footer>
     </Card>
   )
 }

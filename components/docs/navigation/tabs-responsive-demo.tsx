@@ -4,7 +4,7 @@ import React from 'react'
 
 import { IconHamburger } from 'justd-icons'
 import { Collection } from 'react-aria-components'
-import { Select, SelectItem, Tab, TabList, TabPanel, Tabs, useMediaQuery } from 'ui'
+import { Select, Tabs, useMediaQuery } from 'ui'
 
 const tabs = [
   { id: 1, title: 'Overview', content: 'This is the overview tab content.' },
@@ -19,16 +19,19 @@ const tabs = [
 export default function TabsResponsiveDemo() {
   const isMobile = useMediaQuery('(max-width: 600px)')
   return isMobile ? (
-    <Select className="sm:hidden flex" prefix={<IconHamburger />} items={tabs}>
-      {(item) => <SelectItem textValue={item.title}>{item.title}</SelectItem>}
+    <Select className="sm:hidden flex">
+      <Select.Trigger prefix={<IconHamburger />} />
+      <Select.List items={tabs}>
+        {(item) => <Select.Option textValue={item.title}>{item.title}</Select.Option>}
+      </Select.List>
     </Select>
   ) : (
     <Tabs className="sm:flex hidden" aria-label="Project Management">
-      <TabList aria-label="Dynamic tabs" items={tabs}>
-        {(item) => <Tab>{item.title}</Tab>}
-      </TabList>
+      <Tabs.List aria-label="Dynamic tabs" items={tabs}>
+        {(item) => <Tabs.Tab>{item.title}</Tabs.Tab>}
+      </Tabs.List>
       <Collection items={tabs}>
-        {(item) => <TabPanel key={item.id}>{item.content}</TabPanel>}
+        {(item) => <Tabs.Panel key={item.id}>{item.content}</Tabs.Panel>}
       </Collection>
     </Tabs>
   )

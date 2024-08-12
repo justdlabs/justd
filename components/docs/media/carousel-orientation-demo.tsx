@@ -2,38 +2,28 @@
 
 import * as React from 'react'
 
-import {
-  Card,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-  Carousel,
-  CarouselButton,
-  CarouselContent,
-  CarouselHandler,
-  CarouselItem
-} from 'ui'
+import { Card, Carousel } from 'ui'
 
 export default function CarouselOrientationDemo() {
   return (
     <Carousel orientation="vertical" className="w-full relative max-w-xs">
-      <CarouselContent items={items} className="h-64 py-4 snap-y">
+      <Carousel.Content items={items} className="h-64 py-4 snap-y">
         {(item) => (
-          <CarouselItem className="pt-1 basis-1/2 md:basis-1/3 snap-center">
+          <Carousel.Item className="pt-1 basis-1/2 md:basis-1/3 snap-center">
             <Card>
-              <CardHeader>
-                <CardTitle>{item.title}</CardTitle>
-                <CardDescription>{item.description}</CardDescription>
-              </CardHeader>
+              <Card.Header>
+                <Card.Title>{item.title}</Card.Title>
+                <Card.Description>{item.description}</Card.Description>
+              </Card.Header>
             </Card>
-          </CarouselItem>
+          </Carousel.Item>
         )}
-      </CarouselContent>
+      </Carousel.Content>
 
-      <CarouselHandler>
-        <CarouselButton slot="previous" />
-        <CarouselButton slot="next" />
-      </CarouselHandler>
+      <Carousel.Handler>
+        <Carousel.Button slot="previous" />
+        <Carousel.Button slot="next" />
+      </Carousel.Handler>
     </Carousel>
   )
 }

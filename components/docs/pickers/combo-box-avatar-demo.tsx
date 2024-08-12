@@ -1,16 +1,19 @@
 'use client'
 
-import { Avatar, ComboBox, ComboBoxItem } from 'ui'
+import { Avatar, ComboBox } from 'ui'
 
 export default function ComboBoxAvatarDemo() {
   return (
-    <ComboBox placeholder="Select a user" label="Users" isRequired items={users}>
-      {(item) => (
-        <ComboBoxItem id={item.id} textValue={item.name}>
-          <Avatar src={item.image_url} />
-          {item.name}
-        </ComboBoxItem>
-      )}
+    <ComboBox placeholder="Select a user" label="Users" isRequired>
+      <ComboBox.Input />
+      <ComboBox.List items={users}>
+        {(item) => (
+          <ComboBox.Option id={item.id} textValue={item.name}>
+            <Avatar src={item.image_url} />
+            {item.name}
+          </ComboBox.Option>
+        )}
+      </ComboBox.List>
     </ComboBox>
   )
 }

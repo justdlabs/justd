@@ -1,103 +1,81 @@
 'use client'
 
 import { IconDotsVertical, IconEye, IconHighlight, IconTrash } from 'justd-icons'
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-  Menu,
-  MenuContent,
-  MenuItem,
-  MenuSeparator,
-  MenuTrigger,
-  Pagination,
-  PaginationItem,
-  PaginationList,
-  PaginationSection,
-  Table,
-  TableBody,
-  TableCell,
-  TableColumn,
-  TableHeader,
-  TableRow
-} from 'ui'
+import { Card, Menu, Pagination, Table } from 'ui'
 
 export default function CardTableDemo() {
   return (
     <Card>
-      <CardHeader>
-        <CardTitle>Users</CardTitle>
-        <CardDescription>Manage users, groups, and roles.</CardDescription>
-      </CardHeader>
-      <CardContent>
+      <Card.Header>
+        <Card.Title>Users</Card.Title>
+        <Card.Description>Manage users, groups, and roles.</Card.Description>
+      </Card.Header>
+      <Card.Content>
         <Table aria-label="Users">
-          <TableHeader>
-            <TableColumn>#</TableColumn>
-            <TableColumn isRowHeader>Name</TableColumn>
-            <TableColumn>Genre</TableColumn>
-            <TableColumn>Age</TableColumn>
-            <TableColumn>Occupation</TableColumn>
-            <TableColumn />
-          </TableHeader>
-          <TableBody items={users}>
+          <Table.Header>
+            <Table.Column>#</Table.Column>
+            <Table.Column isRowHeader>Name</Table.Column>
+            <Table.Column>Gender</Table.Column>
+            <Table.Column>Age</Table.Column>
+            <Table.Column>Occupation</Table.Column>
+            <Table.Column />
+          </Table.Header>
+          <Table.Body items={users}>
             {(item) => (
-              <TableRow id={item.id}>
-                <TableCell>{item.id}</TableCell>
-                <TableCell>{item.name}</TableCell>
-                <TableCell>{item.gender}</TableCell>
-                <TableCell>{item.age}</TableCell>
-                <TableCell>{item.occupation}</TableCell>
-                <TableCell className="flex justify-end">
+              <Table.Row id={item.id}>
+                <Table.Cell>{item.id}</Table.Cell>
+                <Table.Cell>{item.name}</Table.Cell>
+                <Table.Cell>{item.gender}</Table.Cell>
+                <Table.Cell>{item.age}</Table.Cell>
+                <Table.Cell>{item.occupation}</Table.Cell>
+                <Table.Cell className="flex justify-end">
                   <Menu>
-                    <MenuTrigger>
+                    <Menu.Trigger>
                       <IconDotsVertical />
-                    </MenuTrigger>
-                    <MenuContent showArrow placement="left">
-                      <MenuItem>
+                    </Menu.Trigger>
+                    <Menu.Content showArrow placement="left">
+                      <Menu.Item>
                         <IconEye /> View
-                      </MenuItem>
-                      <MenuItem>
+                      </Menu.Item>
+                      <Menu.Item>
                         <IconHighlight /> Edit
-                      </MenuItem>
-                      <MenuSeparator />
-                      <MenuItem isDanger>
+                      </Menu.Item>
+                      <Menu.Separator />
+                      <Menu.Item isDanger>
                         <IconTrash /> Delete
-                      </MenuItem>
-                    </MenuContent>
+                      </Menu.Item>
+                    </Menu.Content>
                   </Menu>
-                </TableCell>
-              </TableRow>
+                </Table.Cell>
+              </Table.Row>
             )}
-          </TableBody>
+          </Table.Body>
         </Table>
-      </CardContent>
-      <CardFooter>
+      </Card.Content>
+      <Card.Footer>
         <Pagination>
-          <PaginationList>
-            <PaginationItem role="first" />
-            <PaginationItem role="previous" />
-            <PaginationSection className="lg:hidden rounded-lg border">
-              <PaginationItem role="label">1</PaginationItem>
-              <PaginationItem role="separator" />
-              <PaginationItem className="text-muted-fg" role="label">
+          <Pagination.List>
+            <Pagination.Item role="first" />
+            <Pagination.Item role="previous" />
+            <Pagination.Section className="lg:hidden rounded-lg border">
+              <Pagination.Item role="label">1</Pagination.Item>
+              <Pagination.Item role="separator" />
+              <Pagination.Item className="text-muted-fg" role="label">
                 {users.length}
-              </PaginationItem>
-            </PaginationSection>
-            <PaginationSection className="lg:flex hidden" items={pages}>
+              </Pagination.Item>
+            </Pagination.Section>
+            <Pagination.Section className="lg:flex hidden" items={pages}>
               {(item) => (
-                <PaginationItem id={item.value.toString()} isCurrent={item.value === 4} href="#">
+                <Pagination.Item id={item.value.toString()} isCurrent={item.value === 4} href="#">
                   {item.value}
-                </PaginationItem>
+                </Pagination.Item>
               )}
-            </PaginationSection>
-            <PaginationItem role="next" />
-            <PaginationItem role="last" />
-          </PaginationList>
+            </Pagination.Section>
+            <Pagination.Item role="next" />
+            <Pagination.Item role="last" />
+          </Pagination.List>
         </Pagination>
-      </CardFooter>
+      </Card.Footer>
     </Card>
   )
 }

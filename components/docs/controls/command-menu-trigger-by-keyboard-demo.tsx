@@ -4,14 +4,7 @@ import React from 'react'
 
 import { IconCreditCard, IconCube, IconGear, IconHome2, IconNotes, IconShield } from 'justd-icons'
 import Link from 'next/link'
-import {
-  CommandMenu,
-  CommandMenuInput,
-  CommandMenuItem,
-  CommandMenuKeyboard,
-  CommandMenuList,
-  CommandMenuSection
-} from 'ui'
+import { CommandMenu } from 'ui'
 
 export default function CommandMenuTriggerByKeyboardDemo() {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -31,45 +24,45 @@ export default function CommandMenuTriggerByKeyboardDemo() {
     <>
       ⌘ /
       <CommandMenu isOpen={isOpen} onOpenChange={setIsOpen}>
-        <CommandMenuInput placeholder="Quick search..." />
-        <CommandMenuList>
-          <CommandMenuSection separator heading="Pages">
-            <CommandMenuItem asChild>
+        <CommandMenu.Input placeholder="Quick search..." />
+        <CommandMenu.List>
+          <CommandMenu.Section separator heading="Pages">
+            <CommandMenu.Item asChild>
               <Link href="#">
                 <IconHome2 /> Home
               </Link>
-            </CommandMenuItem>
-            <CommandMenuItem asChild>
+            </CommandMenu.Item>
+            <CommandMenu.Item asChild>
               <Link href="#">
                 <IconNotes /> Docs
-                <CommandMenuKeyboard keys="⌘k" />
+                <CommandMenu.Keyboard keys="⌘k" />
               </Link>
-            </CommandMenuItem>
-            <CommandMenuItem asChild>
+            </CommandMenu.Item>
+            <CommandMenu.Item asChild>
               <Link href="#">
                 <IconCube /> Components
               </Link>
-            </CommandMenuItem>
-          </CommandMenuSection>
-          <CommandMenuSection heading="Dashboard">
-            <CommandMenuItem asChild>
+            </CommandMenu.Item>
+          </CommandMenu.Section>
+          <CommandMenu.Section heading="Dashboard">
+            <CommandMenu.Item asChild>
               <Link href="#">
                 <IconCreditCard /> Billing
               </Link>
-            </CommandMenuItem>
-            <CommandMenuItem asChild>
+            </CommandMenu.Item>
+            <CommandMenu.Item asChild>
               <Link href="#">
                 <IconGear /> Settings
-                <CommandMenuKeyboard keys="⌘s" />
+                <CommandMenu.Keyboard keys="⌘s" />
               </Link>
-            </CommandMenuItem>
-            <CommandMenuItem asChild>
+            </CommandMenu.Item>
+            <CommandMenu.Item asChild>
               <Link href="#">
                 <IconShield /> Security
               </Link>
-            </CommandMenuItem>
-          </CommandMenuSection>
-        </CommandMenuList>
+            </CommandMenu.Item>
+          </CommandMenu.Section>
+        </CommandMenu.List>
       </CommandMenu>
     </>
   )

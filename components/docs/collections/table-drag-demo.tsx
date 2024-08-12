@@ -3,7 +3,7 @@
 import { IconStarFill } from 'justd-icons'
 import { useDragAndDrop } from 'react-aria-components'
 import { useListData } from 'react-stately'
-import { Card, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from 'ui'
+import { Card, Table } from 'ui'
 
 export default function TableDragDemo() {
   const list = useListData({
@@ -26,28 +26,28 @@ export default function TableDragDemo() {
   return (
     <Card>
       <Table aria-label="Movies" selectionMode="multiple" dragAndDropHooks={dragAndDropHooks}>
-        <TableHeader>
-          <TableColumn>#</TableColumn>
-          <TableColumn isRowHeader>Name</TableColumn>
-          <TableColumn>Genre</TableColumn>
-          <TableColumn>Release</TableColumn>
-          <TableColumn>Rating</TableColumn>
-        </TableHeader>
-        <TableBody items={list.items}>
+        <Table.Header>
+          <Table.Column>#</Table.Column>
+          <Table.Column isRowHeader>Name</Table.Column>
+          <Table.Column>Genre</Table.Column>
+          <Table.Column>Release</Table.Column>
+          <Table.Column>Rating</Table.Column>
+        </Table.Header>
+        <Table.Body items={list.items}>
           {(item) => (
-            <TableRow>
-              <TableCell>{item.id}</TableCell>
-              <TableCell>{item.name}</TableCell>
-              <TableCell>{item.genre}</TableCell>
-              <TableCell>{item.releaseYear}</TableCell>
-              <TableCell>
+            <Table.Row>
+              <Table.Cell>{item.id}</Table.Cell>
+              <Table.Cell>{item.name}</Table.Cell>
+              <Table.Cell>{item.genre}</Table.Cell>
+              <Table.Cell>{item.releaseYear}</Table.Cell>
+              <Table.Cell>
                 <div className="flex items-center gap-x-2">
                   <IconStarFill className="text-warning size-3.5" /> <span>{item.rating}</span>
                 </div>
-              </TableCell>
-            </TableRow>
+              </Table.Cell>
+            </Table.Row>
           )}
-        </TableBody>
+        </Table.Body>
       </Table>
     </Card>
   )

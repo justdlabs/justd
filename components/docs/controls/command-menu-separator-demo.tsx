@@ -2,14 +2,7 @@
 
 import React from 'react'
 
-import {
-  Button,
-  CommandMenu,
-  CommandMenuInput,
-  CommandMenuItem,
-  CommandMenuList,
-  CommandMenuSeparator
-} from 'ui'
+import { Button, CommandMenu } from 'ui'
 
 export default function CommandMenuSeparatorDemo() {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -19,39 +12,39 @@ export default function CommandMenuSeparatorDemo() {
         Open
       </Button>
       <CommandMenu isOpen={isOpen} onOpenChange={setIsOpen}>
-        <CommandMenuInput placeholder="Quick search..." />
-        <CommandMenuList>
-          <CommandMenuItem asChild>
+        <CommandMenu.Input placeholder="Quick search..." />
+        <CommandMenu.List>
+          <CommandMenu.Item asChild>
             <a href="#">Profile Overview</a>
-          </CommandMenuItem>
-          <CommandMenuItem asChild>
+          </CommandMenu.Item>
+          <CommandMenu.Item asChild>
             <a href="#">Profile Settings</a>
-          </CommandMenuItem>
-          <CommandMenuItem asChild>
+          </CommandMenu.Item>
+          <CommandMenu.Item asChild>
             <a href="#">Security Settings</a>
-          </CommandMenuItem>
-          <CommandMenuSeparator />
-          <CommandMenuItem asChild>
+          </CommandMenu.Item>
+          <CommandMenu.Separator />
+          <CommandMenu.Item asChild>
             <a href="#">Notification Preferences</a>
-          </CommandMenuItem>
-          <CommandMenuItem asChild>
+          </CommandMenu.Item>
+          <CommandMenu.Item asChild>
             <a href="#">Privacy Settings</a>
-          </CommandMenuItem>
-          <CommandMenuSeparator />
-          <CommandMenuItem asChild>
+          </CommandMenu.Item>
+          <CommandMenu.Separator />
+          <CommandMenu.Item asChild>
             <a href="#">Billing Information</a>
-          </CommandMenuItem>
-          <CommandMenuItem asChild>
+          </CommandMenu.Item>
+          <CommandMenu.Item asChild>
             <a href="#">Subscription Plans</a>
-          </CommandMenuItem>
-          <CommandMenuSeparator />
-          <CommandMenuItem asChild>
+          </CommandMenu.Item>
+          <CommandMenu.Separator />
+          <CommandMenu.Item asChild>
             <a href="#">Connected Apps</a>
-          </CommandMenuItem>
-          <CommandMenuItem asChild>
+          </CommandMenu.Item>
+          <CommandMenu.Item asChild>
             <a href="#">Logout</a>
-          </CommandMenuItem>
-        </CommandMenuList>
+          </CommandMenu.Item>
+        </CommandMenu.List>
       </CommandMenu>
     </>
   )

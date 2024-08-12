@@ -2,26 +2,17 @@
 
 import React from 'react'
 
-import {
-  buttonStyles,
-  Drawer,
-  DrawerBody,
-  DrawerClose,
-  DrawerContent,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTrigger
-} from 'ui'
+import { buttonStyles, Drawer } from 'ui'
 
 export default function DrawerStickyDemo() {
   return (
     <Drawer>
-      <DrawerTrigger className={buttonStyles({ shape: 'circle', appearance: 'outline' })}>
+      <Drawer.Trigger className={buttonStyles({ shape: 'circle', appearance: 'outline' })}>
         Open
-      </DrawerTrigger>
-      <DrawerContent>
-        <DrawerHeader>The Beatles</DrawerHeader>
-        <DrawerBody>
+      </Drawer.Trigger>
+      <Drawer.Content>
+        <Drawer.Header>The Beatles</Drawer.Header>
+        <Drawer.Body>
           <div className="prose dark:prose-invert prose-zinc">
             <p>
               Welcome to our Terms of Use. By accessing or using our services, you agree to be bound
@@ -113,11 +104,11 @@ export default function DrawerStickyDemo() {
             <h3> Contact Information</h3>
             If you have any questions about these terms, please contact us at xxx@example.com.
           </div>
-        </DrawerBody>
-        <DrawerFooter>
-          <DrawerClose shape="circle">Close</DrawerClose>
-        </DrawerFooter>
-      </DrawerContent>
+        </Drawer.Body>
+        <Drawer.Footer>
+          <Drawer.Close shape="circle">Close</Drawer.Close>
+        </Drawer.Footer>
+      </Drawer.Content>
     </Drawer>
   )
 }

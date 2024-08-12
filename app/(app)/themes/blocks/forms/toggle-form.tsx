@@ -1,15 +1,15 @@
 'use client'
 
-import { Button, Card, CardContent, CardFooter, CardHeader, Checkbox, Link, TextField } from 'ui'
+import { Button, Card, Checkbox, Link, TextField } from 'ui'
 
 export function ToggleForm() {
   return (
     <Card>
-      <CardHeader
+      <Card.Header
         title="Team members"
         description="Share this link with your team to give them access to your organization."
       />
-      <CardContent className="space-y-6">
+      <Card.Content className="space-y-6">
         <div className="flex gap-2 w-full">
           <TextField isRequired placeholder="Enter your email" />
           <Button type="submit">Send link</Button>
@@ -20,10 +20,10 @@ export function ToggleForm() {
             Forgot password?
           </Link>
         </div>
-      </CardContent>
-      <CardFooter>
+      </Card.Content>
+      <Card.Footer>
         <Button type="submit">Login</Button>
-      </CardFooter>
+      </Card.Footer>
     </Card>
   )
 }

@@ -3,18 +3,7 @@
 import React from 'react'
 
 import { toast } from 'sonner'
-import {
-  Button,
-  Form,
-  ModalBody,
-  ModalClose,
-  ModalContent,
-  ModalDescription,
-  ModalFooter,
-  ModalHeader,
-  ModalTitle,
-  Textarea
-} from 'ui'
+import { Button, Form, Modal, Textarea } from 'ui'
 
 export default function ModalNestedDemo() {
   const [isRegistrationModalOpen, setIsRegistrationModalOpen] = React.useState(false)
@@ -25,17 +14,17 @@ export default function ModalNestedDemo() {
     <>
       <Button onPress={() => setIsRegistrationModalOpen(true)}>Register</Button>
 
-      <ModalContent
+      <Modal.Content
         isOpen={isRegistrationModalOpen}
         onOpenChange={() => setIsRegistrationModalOpen(false)}
         aria-label="Confirm Registration"
       >
-        <ModalHeader>
-          <ModalTitle>Confirm Registration</ModalTitle>
-          <ModalDescription>Please confirm your registration details.</ModalDescription>
-        </ModalHeader>
-        <ModalFooter>
-          <ModalClose>Cancel</ModalClose>
+        <Modal.Header>
+          <Modal.Title>Confirm Registration</Modal.Title>
+          <Modal.Description>Please confirm your registration details.</Modal.Description>
+        </Modal.Header>
+        <Modal.Footer>
+          <Modal.Close>Cancel</Modal.Close>
           <Button
             onPress={() => {
               setIsProfileSetupModalOpen(true)
@@ -43,10 +32,10 @@ export default function ModalNestedDemo() {
           >
             Confirm
           </Button>
-        </ModalFooter>
-      </ModalContent>
+        </Modal.Footer>
+      </Modal.Content>
 
-      <ModalContent
+      <Modal.Content
         isOpen={isProfileSetupModalOpen}
         onOpenChange={(isOpen) => {
           if (!isOpen && isTyping) {
@@ -56,12 +45,12 @@ export default function ModalNestedDemo() {
         }}
         aria-label="Profile Setup"
       >
-        <ModalHeader>
-          <ModalTitle>Set Up Your Profile</ModalTitle>
-          <ModalDescription>
+        <Modal.Header>
+          <Modal.Title>Set Up Your Profile</Modal.Title>
+          <Modal.Description>
             We need a bit more information before you can get started.
-          </ModalDescription>
-        </ModalHeader>
+          </Modal.Description>
+        </Modal.Header>
         <Form
           onSubmit={(e) => {
             e.preventDefault()
@@ -70,20 +59,20 @@ export default function ModalNestedDemo() {
             setIsRegistrationModalOpen(false)
           }}
         >
-          <ModalBody className="space-y-4">
+          <Modal.Body className="space-y-4">
             <Textarea
               isRequired
               label="Bio"
               placeholder="Tell us something about yourself"
               onInput={() => setIsTyping(true)}
             />
-          </ModalBody>
-          <ModalFooter>
-            <ModalClose>Skip for now</ModalClose>
+          </Modal.Body>
+          <Modal.Footer>
+            <Modal.Close>Skip for now</Modal.Close>
             <Button type="submit">Complete Setup</Button>
-          </ModalFooter>
+          </Modal.Footer>
         </Form>
-      </ModalContent>
+      </Modal.Content>
     </>
   )
 }

@@ -1,35 +1,25 @@
 'use client'
 
-import {
-  buttonStyles,
-  Modal,
-  ModalClose,
-  ModalContent,
-  ModalDescription,
-  ModalFooter,
-  ModalHeader,
-  ModalTitle,
-  ModalTrigger
-} from 'ui'
+import { buttonStyles, Modal } from 'ui'
 
 export default function AlertDialogDemo() {
   return (
     <Modal>
-      <ModalTrigger className={buttonStyles({ intent: 'danger' })}>Delete</ModalTrigger>
-      <ModalContent role="alertdialog">
-        <ModalHeader>
-          <ModalTitle>Delete file</ModalTitle>
-          <ModalDescription>
+      <Modal.Trigger className={buttonStyles({ intent: 'danger' })}>Delete</Modal.Trigger>
+      <Modal.Content role="alertdialog">
+        <Modal.Header>
+          <Modal.Title>Delete file</Modal.Title>
+          <Modal.Description>
             This will permanently delete the selected file. Continue?
-          </ModalDescription>
-        </ModalHeader>
-        <ModalFooter>
-          <ModalClose appearance="outline">Cancel</ModalClose>
-          <ModalClose appearance="solid" intent="danger">
+          </Modal.Description>
+        </Modal.Header>
+        <Modal.Footer>
+          <Modal.Close appearance="outline">Cancel</Modal.Close>
+          <Modal.Close appearance="solid" intent="danger">
             Continue
-          </ModalClose>
-        </ModalFooter>
-      </ModalContent>
+          </Modal.Close>
+        </Modal.Footer>
+      </Modal.Content>
     </Modal>
   )
 }

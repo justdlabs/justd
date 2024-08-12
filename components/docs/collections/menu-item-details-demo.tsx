@@ -1,16 +1,16 @@
-import { Button, Menu, MenuContent, MenuItem, MenuItemDetails } from 'ui'
+import { Button, Menu } from 'ui'
 
 export default function MenuItemDetailsDemo() {
   return (
     <Menu>
       <Button appearance="outline">Open</Button>
-      <MenuContent placement="bottom" items={roles}>
+      <Menu.Content placement="bottom" items={roles}>
         {(item) => (
-          <MenuItem id={item.id} textValue={item.name}>
-            <MenuItemDetails label={item.name} description={item.description} />
-          </MenuItem>
+          <Menu.Item id={item.id} textValue={item.name}>
+            <Menu.ItemDetails label={item.name} description={item.description} />
+          </Menu.Item>
         )}
-      </MenuContent>
+      </Menu.Content>
     </Menu>
   )
 }
