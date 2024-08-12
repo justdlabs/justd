@@ -4,8 +4,7 @@ import React, { useRef, useState } from 'react'
 
 import { tv } from 'tailwind-variants'
 
-import type {
-  MenuContentProps} from './menu';
+import type { MenuContentProps } from './menu'
 import {
   MenuContent,
   MenuHeader,
