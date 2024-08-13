@@ -65,11 +65,12 @@ const popoverContentStyles = tv({
 
 const drawerStyles = tv({
   base: [
-    'fixed max-h-full bottom-0 p-4 top-auto z-50 w-full bg-overlay max-w-2xl rounded-t-2xl border border-b-transparent outline-none'
+    'fixed max-h-full bottom-0 top-auto z-50 w-full bg-overlay max-w-2xl border border-b-transparent outline-none'
   ],
   variants: {
     isMenu: {
-      true: 'p-0'
+      true: 'p-0 [&_[role=dialog]]:px-0 rounded-t-xl',
+      false: 'p-4 rounded-t-2xl'
     },
     isEntering: {
       true: [
@@ -112,7 +113,6 @@ const PopoverContent = ({
   const isMenu = isMenuTrigger || isSubmenuTrigger
   let offset = showArrow ? 12 : 8
   offset = isSubmenuTrigger ? offset - 6 : offset
-
   return isMobile && respectScreen ? (
     <ModalOverlay
       className={twJoin(
