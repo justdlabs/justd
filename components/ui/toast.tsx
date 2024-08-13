@@ -3,12 +3,12 @@
 import React from 'react'
 
 import { useTheme } from '@/components/theme-provider'
-import { Loader } from './loader'
 import { IconCheck, IconCircleInfoFill, IconTriangleInfoFill } from 'justd-icons'
 import { Toaster as ToasterPrimitive, type ToasterProps } from 'sonner'
 import { twJoin } from 'tailwind-merge'
 
 import { buttonStyles } from './button'
+import { Loader } from './loader'
 
 const Toast = ({ ...props }: ToasterProps) => {
   const { theme = 'system' } = useTheme()

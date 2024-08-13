@@ -41,18 +41,22 @@ function Code({ className, lang = 'tsx', code, withImportCopy = true }: CodeProp
         className
       )}
     >
-      <div className="sticky dxcode z-20 bottom-auto left-full right-3 mr-3 top-3 inline-flex gap-1.5 justify-end">
-        {withImportCopy && (
-          <CopyButton
-            ariaLabel="Copy imports statement"
-            initialIcon={<IconCircleInfo />}
-            isCopied={copied === 'imports'}
-            onPress={copyImportsToClipboard}
-          />
-        )}
-        <CopyRawButton code={code} />
+      <div className="relative -mt-6">
+        <div className="sticky top-3 right-3 mr-3 z-20 flex gap-1.5 justify-end">
+          {withImportCopy && (
+            <CopyButton
+              ariaLabel="Copy imports statement"
+              initialIcon={<IconCircleInfo />}
+              isCopied={copied === 'imports'}
+              onPress={copyImportsToClipboard}
+            />
+          )}
+          <CopyRawButton code={code} />
+        </div>
+        <div className="overflow-x-auto">
+          <CodeHighlighter lang={lang} code={code} />
+        </div>
       </div>
-      <CodeHighlighter lang={lang} code={code} />
     </div>
   )
 }
@@ -173,7 +177,7 @@ const CodeHighlighter: React.FC<CodeProps> = ({ lang = 'tsx', code }) => {
     return <p>Error: {error}</p>
   }
 
-  return <div className="[&>figure]:-mt-6" dangerouslySetInnerHTML={{ __html: formattedCode }} />
+  return <div dangerouslySetInnerHTML={{ __html: formattedCode }} />
 }
 
 export { CodeContainer, CodeExpandButton, CodeCollapsible, Code }
