@@ -3,7 +3,7 @@
 import * as React from 'react'
 
 import type { HeadingProps, TextProps } from 'react-aria-components'
-import { Header, Heading } from 'react-aria-components'
+import { Heading } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
 import { Description } from './field'
@@ -28,17 +28,17 @@ const Card = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => 
   return <div className={root({ className })} {...props} />
 }
 
-interface CardHeaderProps extends React.ComponentProps<typeof Header> {
+interface CardHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   title?: string
   description?: string
 }
 
 const CardHeader = ({ className, ...props }: CardHeaderProps) => (
-  <Header className={header({ className })} {...props}>
+  <div className={header({ className })} {...props}>
     {props.title && <CardTitle>{props.title}</CardTitle>}
     {props.description && <CardDescription>{props.description}</CardDescription>}
     {!props.title && typeof props.children === 'string' ? <CardTitle {...props} /> : props.children}
-  </Header>
+  </div>
 )
 
 const CardTitle = ({ className, ...props }: HeadingProps) => {

@@ -2,11 +2,7 @@
 
 import React from 'react'
 
-import {
-  composeRenderProps,
-  DropZone as DropPrimitiveZone,
-  type DropZoneProps
-} from 'react-aria-components'
+import { composeRenderProps, DropZone as DropPrimitiveZone, type DropZoneProps } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
 import { focusStyles } from './primitive'

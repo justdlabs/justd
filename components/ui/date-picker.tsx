@@ -14,11 +14,12 @@ import {
 import { tv } from 'tailwind-variants'
 
 import { Button } from './button'
-import { Calendar, RangeCalendar } from './calendar'
+import { Calendar } from './calendar'
 import { DateInput } from './date-field'
 import { Description, FieldError, FieldGroup, Label } from './field'
 import { Popover } from './popover'
 import { ctr } from './primitive'
+import { RangeCalendar } from './range-calendar'
 
 const datePickerStyles = tv({
   slots: {
@@ -49,12 +50,12 @@ const DatePickerOverlay = ({ closeButton = true, range, ...props }: DatePickerOv
   return (
     <Popover.Content
       showArrow={false}
-      className="flex justify-center sm:max-w-[17.6rem] sm:min-w-[17.6rem]"
+      className="flex justify-center p-4 sm:p-2 sm:max-w-[17.2rem] sm:min-w-[17.2rem]"
       {...props}
     >
       {range ? <RangeCalendar /> : <Calendar />}
       {closeButton && (
-        <div className="sm:hidden py-2.5 mx-auto w-full max-w-[inherit]">
+        <div className="sm:hidden py-2.5 flex justify-center mx-auto w-full max-w-[inherit]">
           <Popover.Close shape="circle" className="w-full">
             Close
           </Popover.Close>

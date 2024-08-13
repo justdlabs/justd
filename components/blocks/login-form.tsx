@@ -13,12 +13,7 @@ export function LoginForm() {
       </Card.Header>
       <div className="space-y-6 mb-6">
         <TextField isRequired type="email" label="Email" placeholder="Enter your email" />
-        <TextField
-          isRequired
-          label="Password"
-          type="password"
-          placeholder="Enter your password"
-        />
+        <TextField isRequired label="Password" type="password" placeholder="Enter your password" />
         <div className="flex justify-between items-center">
           <Checkbox name="remember-me">Remember me</Checkbox>
           <Link intent="primary" href="#">
@@ -27,7 +22,9 @@ export function LoginForm() {
         </div>
       </div>
       <Card.Footer className="px-0">
-        <Button className="w-full" type="submit">Login</Button>
+        <Button className="w-full" type="submit">
+          Login
+        </Button>
       </Card.Footer>
     </div>
   )

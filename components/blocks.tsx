@@ -10,12 +10,17 @@ import { Menus } from '@/components/blocks/menus'
 import { ModalOverlays, PopoverOverlays } from '@/components/blocks/overlays'
 import { SliderOnPopoverBlock } from '@/components/blocks/slider-on-popover-block'
 import { TableDemo } from '@/components/blocks/table-demo'
+import FileTriggerAvatarDemo from '@/components/docs/buttons/file-trigger-avatar-demo'
+import TagGroupDemo from '@/components/docs/collections/tag-group-demo'
 import ColorPickerCombinationDemo from '@/components/docs/colors/color-picker-combination-demo'
 import SwitchDemo from '@/components/docs/controls/switch-demo'
+import TagFieldDemo from '@/components/docs/forms/tag-field-demo'
 import AvatarDemo from '@/components/docs/media/avatar-demo'
 import TooltipDelayDemo from '@/components/docs/overlays/tooltip-delay-demo'
 import ComboBoxAvatarDemo from '@/components/docs/pickers/combo-box-avatar-demo'
+import MultipleSelectDemo from '@/components/docs/pickers/multiple-select-demo'
 import SelectDemo from '@/components/docs/pickers/select-demo'
+import BadgeIntentDemo from '@/components/docs/statuses/badge-intent-demo'
 import {
   IconCamera,
   IconCameraFill,
@@ -32,11 +37,6 @@ import {
   IconVideoPlaylistFill
 } from 'justd-icons'
 import { buttonStyles, Card, cn, Grid, GridList, Heading, Link, Note, Toolbar } from 'ui'
-import MultipleSelectDemo from '@/components/docs/pickers/multiple-select-demo'
-import TagFieldDemo from '@/components/docs/forms/tag-field-demo'
-import BadgeIntentDemo from '@/components/docs/statuses/badge-intent-demo'
-import TagGroupDemo from '@/components/docs/collections/tag-group-demo'
-import FileTriggerAvatarDemo from '@/components/docs/buttons/file-trigger-avatar-demo'
 
 export function Blocks() {
   return (
@@ -58,7 +58,7 @@ export function Blocks() {
           </Grid.Item>
           <Grid.Item>
             <CardBlock>
-              <MultipleSelectDemo/>
+              <MultipleSelectDemo />
             </CardBlock>
           </Grid.Item>
         </Grid>
@@ -178,12 +178,12 @@ export function Blocks() {
           </Grid.Item>
           <Grid.Item>
             <CardBlock>
-              <TagGroupDemo/>
+              <TagGroupDemo />
             </CardBlock>
           </Grid.Item>
           <Grid.Item>
             <CardBlock>
-              <FileTriggerAvatarDemo/>
+              <FileTriggerAvatarDemo />
             </CardBlock>
           </Grid.Item>
         </Grid>

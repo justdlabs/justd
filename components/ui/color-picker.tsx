@@ -59,20 +59,20 @@ interface ColorPickerProps extends ColorPickerPrimitiveProps {
 }
 
 const ColorPicker = ({
-                       closeButton = true,
-                       enableColorSwatch = false,
-                       enableColorFormatSelection = false,
-                       enableColorField = true,
-                       label,
-                       description,
-                       colors = [...Object.values(tailwindColors.zinc)],
-                       placeholder = 'Fill Color',
-                       isHex = true,
-                       isDisabled = false,
-                       className,
-                       trigger = 'color-picker',
-                       ...props
-                     }: ColorPickerProps) => {
+  closeButton = true,
+  enableColorSwatch = false,
+  enableColorFormatSelection = false,
+  enableColorField = true,
+  label,
+  description,
+  colors = [...Object.values(tailwindColors.zinc)],
+  placeholder = 'Fill Color',
+  isHex = true,
+  isDisabled = false,
+  className,
+  trigger = 'color-picker',
+  ...props
+}: ColorPickerProps) => {
   const [space, setSpace] = React.useState<ColorSpace>('rgb')
   const [isHexFormat, setIsHexFormat] = React.useState(false)
   const value = props.value ?? props.defaultValue
