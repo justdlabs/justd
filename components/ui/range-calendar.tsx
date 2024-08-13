@@ -1,6 +1,9 @@
 'use client'
 
-import type { DateValue, RangeCalendarProps as RangeCalendarPrimitiveProps } from 'react-aria-components'
+import type {
+  DateValue,
+  RangeCalendarProps as RangeCalendarPrimitiveProps
+} from 'react-aria-components'
 import {
   CalendarCell,
   CalendarGrid,
@@ -39,9 +42,16 @@ interface RangeCalendarProps<T extends DateValue>
   errorMessage?: string
 }
 
-const RangeCalendar = <T extends DateValue>({ errorMessage, className, ...props }: RangeCalendarProps<T>) => {
+const RangeCalendar = <T extends DateValue>({
+  errorMessage,
+  className,
+  ...props
+}: RangeCalendarProps<T>) => {
   return (
-      <RangeCalendarPrimitive className={ctr(className, 'max-w-[17.5rem] sm:max-w-[15.8rem]')} {...props}>
+    <RangeCalendarPrimitive
+      className={ctr(className, 'max-w-[17.5rem] sm:max-w-[15.8rem]')}
+      {...props}
+    >
       <Calendar.Header />
       <CalendarGrid className="[&_td]:border-collapse [&_td]:px-0">
         <Calendar.GridHeader />
@@ -57,12 +67,12 @@ const RangeCalendar = <T extends DateValue>({ errorMessage, className, ...props 
               ])}
             >
               {({
-                  formattedDate,
-                  isSelected,
-                  isSelectionStart,
-                  isSelectionEnd,
-                  ...renderProps
-                }) => (
+                formattedDate,
+                isSelected,
+                isSelectionStart,
+                isSelectionEnd,
+                ...renderProps
+              }) => (
                 <span
                   className={cellRangeStyles({
                     ...renderProps,

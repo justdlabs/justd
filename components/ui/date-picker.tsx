@@ -50,7 +50,7 @@ const DatePickerOverlay = ({ closeButton = true, range, ...props }: DatePickerOv
   return (
     <Popover.Content
       showArrow={false}
-      className="flex justify-center p-4 sm:p-2 sm:max-w-[17.2rem] sm:min-w-[17.2rem]"
+      className="flex justify-center p-4 sm:p-2 sm:pt-3 sm:max-w-[17.2rem] sm:min-w-[17rem]"
       {...props}
     >
       {range ? <RangeCalendar /> : <Calendar />}

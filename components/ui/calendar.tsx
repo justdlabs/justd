@@ -44,7 +44,7 @@ interface CalendarProps<T extends DateValue>
 const Calendar = <T extends DateValue>({ errorMessage, className, ...props }: CalendarProps<T>) => {
   return (
     <CalendarPrimitive className={ctr(className, 'max-w-[17.5rem] sm:max-w-[15.8rem]')} {...props}>
-      <CalendarHeader/>
+      <CalendarHeader />
       <CalendarGrid className="[&_td]:border-collapse [&_td]:px-0">
         <CalendarGridHeader />
         <CalendarGridBody>
