@@ -26,7 +26,7 @@ export function ColorGenerator() {
             onChange={handleChange}
             placeholder={defaultColor.toString('hex')}
             suffix={
-              <span className="text-xs sm:border-0 sm:p-0 px-2 bg-tertiary cursor-pointer pressed:bg-secondary py-1.5 border rounded-sm absolute right-[4px] sm:right-2.5 font-mono top-[0.3rem] sm:top-3">
+              <span className="text-xs sm:border-0 sm:p-0 px-2 cursor-pointer py-1.5 border rounded-sm absolute right-[4px] sm:right-2.5 font-mono top-[0.3rem] sm:top-3">
                 <IconArrowWallRight className="hidden sm:inline" />
                 <span className="sm:hidden inline">generate</span>
               </span>

@@ -2,14 +2,7 @@
 
 import React from 'react'
 
-import {
-  IconBell,
-  IconCreditCard,
-  IconDownload,
-  IconSettings,
-  IconShield,
-  IconSupport
-} from 'justd-icons'
+import { IconBell, IconCreditCard, IconDownload, IconSettings, IconShield, IconSupport } from 'justd-icons'
 import { Accordion } from 'ui'
 
 export default function AccordionWithIconDemo() {

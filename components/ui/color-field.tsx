@@ -3,10 +3,7 @@
 import * as React from 'react'
 
 import { ctr } from '@/components/ui/primitive'
-import type {
-  ColorFieldProps as ColorFieldPrimitiveProps,
-  ValidationResult
-} from 'react-aria-components'
+import type { ColorFieldProps as ColorFieldPrimitiveProps, ValidationResult } from 'react-aria-components'
 import { ColorField as ColorFieldPrimitive } from 'react-aria-components'
 
 import { ColorSwatch } from './color'
@@ -56,7 +53,7 @@ const ColorField = ({
                   enableColorField={false}
                   onChange={props.onChange}
                   defaultValue={value}
-                  className="size-9"
+                  className="size-9 [&_.tcf]:size-9"
                   trigger="color-field"
                 />
               ) : (

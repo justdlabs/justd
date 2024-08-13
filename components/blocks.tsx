@@ -8,7 +8,6 @@ import { GridListDragBlock } from '@/components/blocks/grid-list-drag-block'
 import { LoginForm } from '@/components/blocks/login-form'
 import { Menus } from '@/components/blocks/menus'
 import { ModalOverlays, PopoverOverlays } from '@/components/blocks/overlays'
-import { SliderOnPopoverBlock } from '@/components/blocks/slider-on-popover-block'
 import { TableDemo } from '@/components/blocks/table-demo'
 import FileTriggerAvatarDemo from '@/components/docs/buttons/file-trigger-avatar-demo'
 import TagGroupDemo from '@/components/docs/collections/tag-group-demo'
@@ -19,24 +18,10 @@ import AvatarDemo from '@/components/docs/media/avatar-demo'
 import TooltipDelayDemo from '@/components/docs/overlays/tooltip-delay-demo'
 import ComboBoxAvatarDemo from '@/components/docs/pickers/combo-box-avatar-demo'
 import MultipleSelectDemo from '@/components/docs/pickers/multiple-select-demo'
-import SelectDemo from '@/components/docs/pickers/select-demo'
-import BadgeIntentDemo from '@/components/docs/statuses/badge-intent-demo'
-import {
-  IconCamera,
-  IconCameraFill,
-  IconCubeFill,
-  IconDuplicate,
-  IconDuplicateFill,
-  IconGallery,
-  IconGalleryFill,
-  IconHeart,
-  IconHeartFill,
-  IconMagic,
-  IconMagicFill,
-  IconVideoPlaylist,
-  IconVideoPlaylistFill
-} from 'justd-icons'
-import { buttonStyles, Card, cn, Grid, GridList, Heading, Link, Note, Toolbar } from 'ui'
+import { IconCubeFill } from 'justd-icons'
+import { buttonStyles, cn, DatePicker, DateRangePicker, Grid, Heading, Link, Note } from 'ui'
+import { ToolbarBlock } from '@/components/blocks/toolbar-block'
+import CalendarDemo from '@/components/docs/date-and-time/calendar-demo'
 
 export function Blocks() {
   return (
@@ -76,71 +61,34 @@ export function Blocks() {
         </Grid>
         <Grid columns={{ initial: 1, sm: 2, lg: 3 }} gap={2}>
           <Grid.Item className="flex flex-col gap-y-4 lg:gap-y-2">
-            <Card className="p-4 bg-tertiary">
-              <div className="flex justify-center gap-2">
-                <Toolbar aria-label="Toolbars" className="flex justify-between">
-                  <Toolbar.Group aria-label="Actions">
-                    <Toolbar.Item aria-label="Support" appearance="outline">
-                      {({ isSelected }) => <>{isSelected ? <IconHeartFill /> : <IconHeart />}</>}
-                    </Toolbar.Item>
-                    <Toolbar.Item aria-label="Duplicate" appearance="outline">
-                      {({ isSelected }) => (
-                        <>{isSelected ? <IconDuplicateFill /> : <IconDuplicate />}</>
-                      )}
-                    </Toolbar.Item>
-                    <Toolbar.Item aria-label="Resolve with AI" appearance="outline">
-                      {({ isSelected }) => <>{isSelected ? <IconMagicFill /> : <IconMagic />}</>}
-                    </Toolbar.Item>
-                    <SliderOnPopoverBlock />
-                  </Toolbar.Group>
-                  <Toolbar.Separator className="sm:flex hidden" />
-                  <Toolbar.Group className="sm:flex gap-2 hidden" aria-label="Gallery">
-                    <Toolbar.Item aria-label="Camera" size="square-petite" appearance="outline">
-                      {({ isSelected }) => <>{isSelected ? <IconCameraFill /> : <IconCamera />}</>}
-                    </Toolbar.Item>
-                    <Toolbar.Item aria-label="Gallery" size="square-petite" appearance="outline">
-                      {({ isSelected }) => (
-                        <>{isSelected ? <IconGalleryFill /> : <IconGallery />}</>
-                      )}
-                    </Toolbar.Item>
-                    <Toolbar.Item aria-label="Playlist" size="square-petite" appearance="outline">
-                      {({ isSelected }) => (
-                        <>{isSelected ? <IconVideoPlaylistFill /> : <IconVideoPlaylist />}</>
-                      )}
-                    </Toolbar.Item>
-                  </Toolbar.Group>
-                </Toolbar>
-              </div>
-            </Card>
-            <GridList
-              items={items}
-              aria-label="Select items"
-              selectionMode="multiple"
-              className="min-w-64"
-            >
-              {(item) => <GridList.Item>{item.name}</GridList.Item>}
-            </GridList>
+            <ToolbarBlock/>
+            <CardBlock>
+              <CalendarDemo/>
+            </CardBlock>
+          </Grid.Item>
+          <Grid.Item>
+            <div className="grid gap-2">
+              <CardBlock className='grid gap-6'>
+                <DatePicker className='w-full' label="Event date" />
+                <DateRangePicker className='w-full' label="Event date" />
+              </CardBlock>
+              <CardBlock className="p-4 py-2 sm:p-4 lg:px-5 lg:py-0">
+                <div>
+                  <Note>Check out the latest updates on our dashboard!</Note>
+                  <Note intent="danger">
+                    Complete your profile to get personalized recommendations.
+                  </Note>
+                  <Note intent="warning">
+                    Heads up! We'll be doing system maintenance this Sunday at 2 AM.
+                  </Note>
+                </div>
+              </CardBlock>
+            </div>
           </Grid.Item>
           <Grid.Item>
             <CheckRadioBlock />
           </Grid.Item>
-          <Grid.Item>
-            <CardBlock className="p-4 py-2 sm:p-4 lg:px-5 lg:py-0">
-              <div>
-                <Note>Check out the latest updates on our dashboard!</Note>
-                <Note intent="primary">
-                  Complete your profile to get personalized recommendations.
-                </Note>
-                <Note intent="warning">
-                  Heads up! We'll be doing system maintenance this Sunday at 2 AM.
-                </Note>
-                <Note intent="danger">Your subscription expires in 3 days. Renew now!</Note>
-                <Note intent="info">
-                  Did you know? You can now export your reports in Excel format.
-                </Note>
-              </div>
-            </CardBlock>
-          </Grid.Item>
+
           <Grid.Item>
             <CardBlock>
               <ColorPickerCombinationDemo />
