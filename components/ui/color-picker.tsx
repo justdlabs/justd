@@ -99,10 +99,10 @@ const ColorPicker = ({
             ) : null}
             <Popover.Content
               showArrow={false}
-              className="p-2 overflow-y-auto [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin] min-w-[--trigger-width] sm:max-w-[17.8rem]"
+              className="px-0 pt-2 pb-4 overflow-y-auto [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin] min-w-[--trigger-width] sm:max-w-[17.8rem]"
               {...props}
             >
-              <div className="grid gap-2">
+              <div className="grid mt-2 gap-2">
                 <ColorArea
                   aria-describedby={`${label ? `${label} color area` : 'Color slider'}`}
                   className={colorArea()}
@@ -173,7 +173,7 @@ const ColorPicker = ({
                 )}
 
                 {closeButton && (
-                  <div className="sm:hidden py-2.5 mx-auto w-full max-w-[inherit]">
+                  <div className="sm:hidden mt-2.5 mx-auto w-full max-w-[inherit]">
                     <Popover.Close shape="circle" className="w-full">
                       Close
                     </Popover.Close>
