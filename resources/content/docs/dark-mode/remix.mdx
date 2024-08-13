@@ -1,3 +1,4 @@
+import { PlainCode } from '../../../../components/docs/rehype/plain-code'
 ---
 title: Remix
 description: Ready to remix your project with some dark mode flair? Dive into this guide and get your app groovin’ in the dark.
@@ -10,119 +11,37 @@ published: true
 Remix themes is a slick way to handle themes in your Remix app. Read more about it [here](https://github.com/abereghici/remix-themes).
 <InstallCommand isInstall items={['remix-themes']}/>
 
-Next, modify your `tailwind.css` file to include the following:
-
-```css
-.dark,
-[data-theme='dark'] {
-  color-scheme: dark;
-}
-
-.light,
-[data-theme='light'] {
-  color-scheme: light;
-}
-
-[data-theme='dark'] {
-  background-color: hsl(var(--background));
-  color: hsl(var(--fg));
-  transition: background-color 2s ease, color 2s ease;
-}
-
-[data-theme='light'] {
-  background-color: hsl(var(--background));
-  color: hsl(var(--fg));
-  transition: background-color 2s ease, color 2s ease;
-}
-
-.dark {
-  background-color: hsl(var(--background));
-  color: hsl(var(--fg));
-  transition: background-color 2s ease, color 2s ease;
-}
-
-.light {
-  background-color: hsl(var(--background));
-  color: hsl(var(--fg));
-  transition: background-color 2s ease, color 2s ease;
-}
-```
-
 ## Session Storage
-And next, in your `app/session.server.tsx` file, add the following:
-<PlainCode code={`import { createCookieSessionStorage } from "@remix-run/node";
-import { createThemeSessionResolver } from "remix-themes"
+And next, in your `app/sessions.server.tsx` file, add the following:
+<PlainCode code={`import { createCookieSessionStorage } from '@remix-run/node'
+import { createThemeSessionResolver } from 'remix-themes'
 
-const isProduction = process.env.NODE_ENV === "production"
+const isProduction = process.env.NODE_ENV === 'production'
 
 const sessionStorage = createCookieSessionStorage({
   cookie: {
-    name: "theme",
-    path: "/",
+    name: 'theme',
+    path: '/',
     httpOnly: true,
-    sameSite: "lax",
-    secrets: ["s3cr3t"],
-    ...(isProduction
-      ? { domain: "domain.com", secure: true }
-      : {}),
-  },
+    sameSite: 'lax',
+    secrets: ['s3cr3t'],
+    ...(isProduction ? { domain: 'your-production-domain.com', secure: true } : {})
+  }
 })
 
-export const themeSessionResolver = createThemeSessionResolver(sessionStorage)`} />
+export const themeSessionResolver = createThemeSessionResolver(sessionStorage)
+`} />
 
 ## Providers
 Next to add the `ThemeProvider` to your root layout like so:
-<PlainCode code={`import clsx from "clsx"
-import { PreventFlashOnWrongTheme, ThemeProvider, useTheme } from "remix-themes"
-
-import { themeSessionResolver } from "./session.server"
-import { LoaderFunctionArgs } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
-
-export async function loader({ request }: LoaderFunctionArgs) {
-  const { getTheme } = await themeSessionResolver(request)
-  return {
-    theme: getTheme(),
-  }
-}
-
-export default function AppWithProviders() {
-  const data = useLoaderData<typeof loader>()
-  return (
-    <ThemeProvider specifiedTheme={data.theme} themeAction="/action/set-theme">
-      <App />
-    </ThemeProvider>
-  )
-}
-
-export function App() {
-  const data = useLoaderData<typeof loader>()
-  const [theme] = useTheme()
-  return (
-    <html lang="en" className={clsx(theme)}>
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <Meta />
-        <PreventFlashOnWrongTheme ssrTheme={Boolean(data.theme)} />
-        <Links />
-      </head>
-      <body>
-        <Outlet />
-        <ScrollRestoration />
-        <Scripts />
-        <LiveReload />
-      </body>
-    </html>
-  )
-}`} />
+<PlainCode code={`export { Theme, useTheme } from 'remix-themes'`} />
 
 ## Action Route
 Create a file in `/routes/action.set-theme.ts`. Make sure you pass the filename to the `ThemeProvider` component. This route stores the preferred theme in session storage when the user switches it up.
 
 ```tsx
-import { createThemeAction } from "remix-themes"
-import { themeSessionResolver } from "./sessions.server"
+import { themeSessionResolver } from '@/sessions.server'
+import { createThemeAction } from 'remix-themes'
 
 export const action = createThemeAction(themeSessionResolver)
 ```
@@ -132,29 +51,31 @@ For theme switcher, you can use the `useTheme` hook from `remix-themes` to get t
 <InstallCommand isInstall items={['justd-icons']} />
 Then, make sure you import the icons you want to use.
 
-```tsx
+<PlainCode code={`import { Button } from '@/components/ui/button'
 import { IconMoon, IconSun } from 'justd-icons'
-import { Theme, useTheme } from "remix-themes"
-import { Button } from 'ui'
+import { Theme, useTheme } from '@/components/theme-provider'
 
 export function ThemeSwitcher() {
   const [theme, setTheme] = useTheme()
   const switchTheme = () => {
-    setTheme((prevTheme) => (prevTheme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT));
-  };
+    if (theme === 'dark') {
+      setTheme(Theme.LIGHT)
+    } else {
+      setTheme(Theme.DARK)
+    }
+  }
 
   return (
     <Button
       appearance="outline"
       size="square-petite"
-      aria-label='Switch theme'
+      aria-label="Switch theme"
       onPress={switchTheme}
     >
       <IconSun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
       <IconMoon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
     </Button>
   )
-}
-```
+}`} />
 
 If you spot typos or wrong implementations, feel free to [contribute here](https://github.com/irsyadadl/d./blob/main/content/docs/dark-mode/remix.mdx).

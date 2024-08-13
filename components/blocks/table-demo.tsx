@@ -21,10 +21,7 @@ export function TableDemo() {
             <Table.Cell>{item.author}</Table.Cell>
             <Table.Cell>{item.genre}</Table.Cell>
             <Table.Cell className="text-right">
-              {Math.floor(Math.random() * (7 - 1 + 1)) + 1}
-              {' '}
-              August
-              , {item.publishedYear}
+              {Math.floor(Math.random() * (7 - 1 + 1)) + 1} August , {item.publishedYear}
             </Table.Cell>
           </Table.Row>
         )}

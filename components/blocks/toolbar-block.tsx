@@ -1,4 +1,6 @@
-import { Card, Toolbar } from 'ui'
+import React from 'react'
+
+import { SliderOnPopoverBlock } from '@/components/blocks/slider-on-popover-block'
 import {
   IconCamera,
   IconCameraFill,
@@ -13,8 +15,7 @@ import {
   IconVideoPlaylist,
   IconVideoPlaylistFill
 } from 'justd-icons'
-import { SliderOnPopoverBlock } from '@/components/blocks/slider-on-popover-block'
-import React from 'react'
+import { Card, Toolbar } from 'ui'
 
 export function ToolbarBlock() {
   return (
@@ -26,9 +27,7 @@ export function ToolbarBlock() {
               {({ isSelected }) => <>{isSelected ? <IconHeartFill /> : <IconHeart />}</>}
             </Toolbar.Item>
             <Toolbar.Item aria-label="Duplicate" appearance="outline">
-              {({ isSelected }) => (
-                <>{isSelected ? <IconDuplicateFill /> : <IconDuplicate />}</>
-              )}
+              {({ isSelected }) => <>{isSelected ? <IconDuplicateFill /> : <IconDuplicate />}</>}
             </Toolbar.Item>
             <Toolbar.Item aria-label="Resolve with AI" appearance="outline">
               {({ isSelected }) => <>{isSelected ? <IconMagicFill /> : <IconMagic />}</>}
@@ -41,9 +40,7 @@ export function ToolbarBlock() {
               {({ isSelected }) => <>{isSelected ? <IconCameraFill /> : <IconCamera />}</>}
             </Toolbar.Item>
             <Toolbar.Item aria-label="Gallery" size="square-petite" appearance="outline">
-              {({ isSelected }) => (
-                <>{isSelected ? <IconGalleryFill /> : <IconGallery />}</>
-              )}
+              {({ isSelected }) => <>{isSelected ? <IconGalleryFill /> : <IconGallery />}</>}
             </Toolbar.Item>
             <Toolbar.Item aria-label="Playlist" size="square-petite" appearance="outline">
               {({ isSelected }) => (
