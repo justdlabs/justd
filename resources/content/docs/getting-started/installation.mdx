@@ -4,6 +4,7 @@ description: Start by installing the necessary packages and setting up your proj
 order: 2
 published: true
 ---
+
 ## Installation via CLI
 Before executing the command, ensure that **tailwind** is installed. If not, follow the instructions [here](https://tailwindcss.com/docs/installation) for installation.
 
@@ -11,14 +12,15 @@ Before executing the command, ensure that **tailwind** is installed. If not, fol
   Running this command will overwrite your **tailwind config** and **css** file. It is recommended to use this in a **new project** rather than an existing one to avoid manual file additions.
 </Note>
 
+### Initial Setup
 Begin by executing this command:
 
 <InstallCommand isInit />
 
 Then, select your project type. Choose Next.js if you’re using **Next.js**, or select Laravel if you're working with **Laravel and Inertia.js**. If neither applies, select the **other** option.
 
+### Add Components
 Next, use `add [component-name]` to include a specific component in your project. This allows for selective installation without the need for a full setup. If you need a file-trigger or even a button, this command facilitates that. Install only what you need, or refer to the documentation to manually include components. Here's how to add a `combo-box`:
-
 <InstallCommand isInDocsComponent={false} isAdd items={['combo-box']} />
 
 This command will ensure all necessary components are installed:
@@ -48,9 +50,13 @@ Using this command, you will install all components under the overlays namespace
 ✓ tooltip created
 ```
 
+### Override
+You can override the existing components by using the `-o` flag. This will overwrite the existing files with the new ones.
+<InstallCommand isInDocsComponent={false} isAdd items={['button modal -o']} />
+
+### Select and Add Components
 You might prefer to select the components you want to include by adding them without specifying any items. Just use the following command to add components:
 <InstallCommand isInDocsComponent={false} isAdd items={['']} />
-
 This command will present a list of available components, which you can navigate and select using the arrow keys and spacebar.
 ```bash
 ? Select components to add: (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter> to proceed)
@@ -62,7 +68,14 @@ This command will present a list of available components, which you can navigate
  ◯ date-and-time
 ```
 
-## Starter Kit
+  ### Diff
+  <InstallCommand isInDocsComponent={false} isManual text='You can see the differences between your current setup and the new one by using the following command:' isDiff items={['']} />
+  You can see this [tweet](https://x.com/irsyadadl/status/1823355475020402781) if you're not sure.
+
+
+  <InstallCommand isInDocsComponent={false} isManual isDiff text='You can also doing a diff to specific components by using the following command:' items={['multiple-select menu modal']} />
+
+  ## Starter Kit
 I offer two starter kits, one for Next.js and one for Laravel. Choose the one that suits your project needs.
 
 <Note intent='primary'>
