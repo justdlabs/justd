@@ -3,7 +3,10 @@
 import * as React from 'react'
 
 import { IconLoader } from 'justd-icons'
-import { TextField as TextFieldPrimitive, type TextFieldProps as TextFieldPrimitiveProps } from 'react-aria-components'
+import {
+  TextField as TextFieldPrimitive,
+  type TextFieldProps as TextFieldPrimitiveProps
+} from 'react-aria-components'
 
 import type { FieldProps } from './field'
 import { Description, FieldError, FieldGroup, fieldGroupPrefixStyles, Input, Label } from './field'
