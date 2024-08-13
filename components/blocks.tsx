@@ -32,6 +32,11 @@ import {
   IconVideoPlaylistFill
 } from 'justd-icons'
 import { buttonStyles, Card, cn, Grid, GridList, Heading, Link, Note, Toolbar } from 'ui'
+import MultipleSelectDemo from '@/components/docs/pickers/multiple-select-demo'
+import TagFieldDemo from '@/components/docs/forms/tag-field-demo'
+import BadgeIntentDemo from '@/components/docs/statuses/badge-intent-demo'
+import TagGroupDemo from '@/components/docs/collections/tag-group-demo'
+import FileTriggerAvatarDemo from '@/components/docs/buttons/file-trigger-avatar-demo'
 
 export function Blocks() {
   return (
@@ -40,6 +45,23 @@ export function Blocks() {
         Blocks
       </Heading>
       <div className="space-y-2">
+        <Grid columns={{ initial: 1, sm: 2, lg: 3 }} gap={2}>
+          <Grid.Item>
+            <CardBlock>
+              <TagFieldDemo />
+            </CardBlock>
+          </Grid.Item>
+          <Grid.Item>
+            <CardBlock>
+              <ComboBoxAvatarDemo />
+            </CardBlock>
+          </Grid.Item>
+          <Grid.Item>
+            <CardBlock>
+              <MultipleSelectDemo/>
+            </CardBlock>
+          </Grid.Item>
+        </Grid>
         <Grid columns={{ initial: 1, sm: 2, lg: 5 }} gap={2}>
           <Grid.Item colSpan={{ initial: 1, lg: 3 }}>
             <CardBlock>
@@ -53,8 +75,8 @@ export function Blocks() {
           </Grid.Item>
         </Grid>
         <Grid columns={{ initial: 1, sm: 2, lg: 3 }} gap={2}>
-          <Grid.Item className="flex flex-col gap-y-4 lg:gap-y-8">
-            <Card className="p-6">
+          <Grid.Item className="flex flex-col gap-y-4 lg:gap-y-2">
+            <Card className="p-4 bg-tertiary">
               <div className="flex justify-center gap-2">
                 <Toolbar aria-label="Toolbars" className="flex justify-between">
                   <Toolbar.Group aria-label="Actions">
@@ -72,7 +94,7 @@ export function Blocks() {
                     <SliderOnPopoverBlock />
                   </Toolbar.Group>
                   <Toolbar.Separator className="sm:flex hidden" />
-                  <Toolbar.Group className="sm:flex hidden" aria-label="Gallery">
+                  <Toolbar.Group className="sm:flex gap-2 hidden" aria-label="Gallery">
                     <Toolbar.Item aria-label="Camera" size="square-petite" appearance="outline">
                       {({ isSelected }) => <>{isSelected ? <IconCameraFill /> : <IconCamera />}</>}
                     </Toolbar.Item>
@@ -121,16 +143,6 @@ export function Blocks() {
           </Grid.Item>
           <Grid.Item>
             <CardBlock>
-              <SelectDemo />
-            </CardBlock>
-          </Grid.Item>
-          <Grid.Item>
-            <CardBlock>
-              <ComboBoxAvatarDemo />
-            </CardBlock>
-          </Grid.Item>
-          <Grid.Item>
-            <CardBlock>
               <ColorPickerCombinationDemo />
             </CardBlock>
           </Grid.Item>
@@ -163,6 +175,16 @@ export function Blocks() {
           </Grid.Item>
           <Grid.Item>
             <Menus />
+          </Grid.Item>
+          <Grid.Item>
+            <CardBlock>
+              <TagGroupDemo/>
+            </CardBlock>
+          </Grid.Item>
+          <Grid.Item>
+            <CardBlock>
+              <FileTriggerAvatarDemo/>
+            </CardBlock>
           </Grid.Item>
         </Grid>
       </div>
