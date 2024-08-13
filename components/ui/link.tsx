@@ -1,10 +1,6 @@
 'use client'
 
-import {
-  composeRenderProps,
-  Link as LinkPrimitive,
-  type LinkProps as LinkPrimitiveProps
-} from 'react-aria-components'
+import { composeRenderProps, Link as LinkPrimitive, type LinkProps as LinkPrimitiveProps } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
 const linkStyles = tv({

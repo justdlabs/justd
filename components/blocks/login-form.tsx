@@ -2,35 +2,30 @@
 
 import React from 'react'
 
-import { Button, Card, Checkbox, Form, Link, TextField } from 'ui'
+import { Button, Card, Checkbox, Link, TextField } from 'ui'
 
 export function LoginForm() {
   return (
     <div className="w-full">
-      <div className="mb-6 flex flex-col gap-y-1.5">
+      <Card.Header className="px-0">
         <Card.Title>Login</Card.Title>
         <Card.Description>Don't loose the level, just keep on going.</Card.Description>
+      </Card.Header>
+      <div className="space-y-6 mb-6">
+        <TextField isRequired type="email" label="Email" placeholder="Enter your email" />
+        <TextField isRequired label="Password" type="password" placeholder="Enter your password" />
+        <div className="flex justify-between items-center">
+          <Checkbox name="remember-me">Remember me</Checkbox>
+          <Link intent="primary" href="#">
+            Forgot password?
+          </Link>
+        </div>
       </div>
-      <Form onSubmit={() => {}} className="space-y-6">
-        <div className="space-y-6">
-          <TextField isRequired type="email" label="Email" placeholder="Enter your email" />
-          <TextField
-            isRequired
-            label="Password"
-            type="password"
-            placeholder="Enter your password"
-          />
-          <div className="flex justify-between items-center">
-            <Checkbox name="remember-me">Remember me</Checkbox>
-            <Link intent="primary" href="#">
-              Forgot password?
-            </Link>
-          </div>
-        </div>
-        <div>
-          <Button type="submit">Login</Button>
-        </div>
-      </Form>
+      <Card.Footer className="px-0">
+        <Button className="w-full" type="submit">
+          Login
+        </Button>
+      </Card.Footer>
     </div>
   )
 }

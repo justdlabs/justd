@@ -11,7 +11,7 @@ export function TableDemo() {
         <Table.Column isRowHeader>Title</Table.Column>
         <Table.Column>Author</Table.Column>
         <Table.Column>Genre</Table.Column>
-        <Table.Column>Published</Table.Column>
+        <Table.Column className="flex justify-end">Published</Table.Column>
       </Table.Header>
       <Table.Body items={books.slice(0, 6)}>
         {(item) => (
@@ -20,7 +20,12 @@ export function TableDemo() {
             <Table.Cell>{item.title}</Table.Cell>
             <Table.Cell>{item.author}</Table.Cell>
             <Table.Cell>{item.genre}</Table.Cell>
-            <Table.Cell>{item.publishedYear}</Table.Cell>
+            <Table.Cell className="text-right">
+              {Math.floor(Math.random() * (7 - 1 + 1)) + 1}
+              {' '}
+              August
+              , {item.publishedYear}
+            </Table.Cell>
           </Table.Row>
         )}
       </Table.Body>

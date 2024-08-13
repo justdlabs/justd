@@ -89,14 +89,13 @@ export function Resources() {
         >
           <Grid.Item
             aria-label="Paranoid icons"
-            id="paranoid-icons"
+            id="justd-icons"
             className="relative focus:outline-none p-4 lg:p-6 h-full flex flex-col w-full focus-visible:outline-none focus-visible:outline-primary rounded-xl bg-tertiary shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:-inset-px dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset] forced-colors:outline"
           >
             <Link
-              aria-label={`Paranoid icons`}
-              target="_blank"
+              aria-label={`Justd icons`}
               rel="noopener noreferrer"
-              href="https://paranoid.irsyad.co"
+              href="/icons"
               className="absolute inset-0 size-full"
             />
             <div className="flex-1">
@@ -107,7 +106,7 @@ export function Resources() {
                 <Card.Title level={3}>Icons</Card.Title>
                 <Card.Description className="line-clamp-2">
                   A library of beautifully crafted react icons, perfect for enhancing the visual
-                  appeal and user experience of your web applications.{' '}
+                  appeal and user experience of your web applications.
                 </Card.Description>
               </Card.Header>
             </div>

@@ -30,9 +30,9 @@ import { Select } from './select'
 const colorPickerStyles = tv({
   slots: {
     base: 'flex w-full flex-col gap-1',
-    triggerColorField: 'size-10 -mr-2.5 grid place-content-center focus:outline-none',
-    triggerColorPicker: 'w-full max-w-sm justify-start',
-    colorArea: 'w-full sm:w-[calc(18rem-1.30rem)]',
+    triggerColorField: 'size-10 -mr-2.5 tcf bg-background grid place-content-center focus:outline-none',
+    triggerColorPicker: 'w-full hover:bg-tertiary tcp max-w-sm bg-background justify-start',
+    colorArea: 'w-full',
     colorSlider: '[&_.cstrk]:orientation-horizontal:h-3',
     colorSwatchPicker: 'flex flex-wrap gap-x-2 gap-y-2.5'
   }
@@ -99,10 +99,10 @@ const ColorPicker = ({
             ) : null}
             <Popover.Content
               showArrow={false}
-              className="px-0 pt-2 pb-4 overflow-y-auto [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin] min-w-[--trigger-width] sm:max-w-[17.8rem]"
+              className="overflow-y-auto sm:max-w-xs p-2 [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin]"
               {...props}
             >
-              <div className="grid mt-2 gap-2">
+              <div className="grid gap-2">
                 <ColorArea
                   aria-describedby={`${label ? `${label} color area` : 'Color slider'}`}
                   className={colorArea()}

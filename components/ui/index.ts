@@ -33,6 +33,7 @@ export * from './file-trigger';
 export * from './heading';
 export * from './switch';
 export * from './calendar';
+export * from './range-calendar';
 export * from './grid-list';
 export * from './command-menu';
 export * from './context-menu';
