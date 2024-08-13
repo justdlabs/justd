@@ -11,6 +11,7 @@ export interface InstallCommandProps {
   isAdd?: boolean
   isInstall?: boolean
   isInit?: boolean
+  isDiff?: boolean
   isManual?: boolean
   items?: string[]
   isInDocsComponent?: boolean
@@ -30,16 +31,20 @@ const InstallCommand: React.FC<InstallCommandProps> = ({
   isManual = false,
   isInDocsComponent = true,
   isInit = false,
+  isDiff = false,
   className
 }) => {
+  const diffCommand = 'justd-cli@latest diff'
   const addCommand = 'justd-cli@latest add'
   const initCommand = 'justd-cli@latest init'
   const commandArgs = items.join(' ')
   const defaultCommand = isAdd
     ? `npx ${addCommand} ${commandArgs}`
-    : isInit
-      ? `npx ${initCommand}`
-      : `npm i ${commandArgs}`
+    : isDiff
+      ? `npx ${diffCommand} ${commandArgs}`
+      : isInit
+        ? `npx ${initCommand}`
+        : `npm i ${commandArgs}`
 
   const [command, setCommand] = useState(defaultCommand)
   const [isCopied, setIsCopied] = useState(false)
@@ -66,6 +71,12 @@ const InstallCommand: React.FC<InstallCommandProps> = ({
       }
       // @ts-ignore
       newCommand = `${initMap[tool]} ${initCommand}`
+    } else if (isDiff) {
+      const initMap = {
+        NPM: 'npx'
+      }
+      // @ts-ignore
+      newCommand = `${diffCommand} ${commandArgs}`
     } else if (isInstall) {
       const installMap = {
         Bun: 'bun add',
@@ -109,7 +120,7 @@ const InstallCommand: React.FC<InstallCommandProps> = ({
       >
         <code>{command}</code>
         <div className="pl-3 xd">
-          {isInit || isAdd ? (
+          {isInit || isDiff || isAdd ? (
             <CopyButton
               onPress={() => handleAction('NPM')}
               className="rounded-sm"
