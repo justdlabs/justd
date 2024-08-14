@@ -19,7 +19,7 @@ import { ctr, focusRing } from './primitive'
 
 const cellRangeStyles = tv({
   extend: focusRing,
-  base: 'flex h-full w-full items-center font-medium justify-center rounded-full forced-color-adjust-none',
+  base: 'flex h-full w-full items-center font-medium justify-center rounded-md forced-color-adjust-none',
   variants: {
     selectionState: {
       none: 'group-hover:bg-gray-100 group-pressed:bg-gray-200 dark:group-hover:bg-zinc-700 dark:group-pressed:bg-zinc-600 forced-colors:group-pressed:bg-[Highlight]',
@@ -60,9 +60,9 @@ const RangeCalendar = <T extends DateValue>({
             <CalendarCell
               date={date}
               className={twJoin([
-                'group size-10 lg:size-9 cursor-default lg:text-sm outline outline-0 outside-month:text-zinc-300 selection-start:rounded-s-full selection-end:rounded-e-full forced-colors:selected:bg-[Highlight] forced-colors:invalid:selected:bg-[Mark]',
-                'selected:bg-primary/10 dark:selected:bg-primary-600/20 selected:text-primary-600 dark:selected:text-primary-500 forced-colors:selected:text-[HighlightText]',
-                '[td:first-child_&]:rounded-s-full [td:last-child_&]:rounded-e-full',
+                'group size-10 lg:size-9 cursor-default lg:text-sm outline outline-0 outside-month:text-zinc-300 selection-start:rounded-s-md selection-end:rounded-e-md forced-colors:selected:bg-[Highlight] forced-colors:invalid:selected:bg-[Mark]',
+                'selected:bg-primary/10 dark:selected:bg-primary/20 selected:text-primary forced-colors:selected:text-[HighlightText]',
+                '[td:first-child_&]:rounded-s-md [td:last-child_&]:rounded-e-md',
                 'invalid:selected:bg-red-100 dark:invalid:selected:bg-red-700/30'
               ])}
             >
