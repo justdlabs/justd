@@ -26,19 +26,19 @@ const Popover = ({ children }: { children: React.ReactNode }) => {
   return <DialogTriggerPrimitive>{children}</DialogTriggerPrimitive>
 }
 
-const PopoverTitle = ({ className, ...props }: React.ComponentProps<typeof Dialog.Title>) => (
+const Title = ({ className, ...props }: React.ComponentProps<typeof Dialog.Title>) => (
   <Dialog.Title className={cn('leading-none', className)} {...props} />
 )
 
-const PopoverHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
+const Header = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
   <Dialog.Header className={cn('p-0 sm:pt-0', className)} {...props} />
 )
 
-const PopoverFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
+const Footer = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
   <Dialog.Footer className={cn('pt-4 pb-0 sm:pb-0', className)} {...props} />
 )
 
-const PopoverBody = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
+const Body = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
   <Dialog.Body className={cn('p-0', className)} {...props} />
 )
 
@@ -99,7 +99,7 @@ interface PopoverProps
   'aria-labelledby'?: DialogProps['aria-labelledby']
 }
 
-const PopoverContent = ({
+const Content = ({
   respectScreen = true,
   children,
   showArrow = true,
@@ -163,7 +163,7 @@ const PopoverContent = ({
   )
 }
 
-const PopoverPicker = ({ children, className, ...props }: PopoverProps) => {
+const Picker = ({ children, className, ...props }: PopoverProps) => {
   return (
     <PopoverPrimitive
       {...props}
@@ -182,12 +182,12 @@ const PopoverPicker = ({ children, className, ...props }: PopoverProps) => {
 Popover.Primitive = PopoverPrimitive
 Popover.Trigger = Button
 Popover.Close = Dialog.Close
-Popover.Content = PopoverContent
+Popover.Content = Content
 Popover.Description = Dialog.Description
-Popover.Body = PopoverBody
-Popover.Footer = PopoverFooter
-Popover.Header = PopoverHeader
-Popover.Picker = PopoverPicker
-Popover.Title = PopoverTitle
+Popover.Body = Body
+Popover.Footer = Footer
+Popover.Header = Header
+Popover.Picker = Picker
+Popover.Title = Title
 
 export { Popover, drawerStyles, popoverContentStyles }
