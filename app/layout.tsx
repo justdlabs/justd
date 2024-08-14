@@ -34,6 +34,7 @@ export const metadata: Metadata = {
   keywords: [
     'React',
     'Next.js',
+    'Inertia.js',
     'Tailwind CSS',
     'UI Components',
     'UI Kit',
@@ -45,7 +46,24 @@ export const metadata: Metadata = {
     'Server Components',
     'React Components',
     'Next UI Components',
-    'UI Design System'
+    'UI Design System',
+    'UI for Laravel Inertia',
+    'Laravel Inertia UI',
+    'Laravel Inertia Components',
+    'Laravel Inertia UI Components',
+    'Laravel Inertia UI Kit',
+    'Laravel Inertia UI Library',
+    'Laravel Inertia UI Framework',
+    'Laravel Inertia Justd',
+    'Laravel Justd',
+    'Justd Components',
+    'Justd UI Components',
+    'Justd UI Kit',
+    'Justd UI Library',
+    'Justd UI Framework',
+    'Justd Laravel Inertia',
+    'Justd Laravel',
+    'Justd Inertia'
   ],
   manifest: '/manifest.json',
   authors: [

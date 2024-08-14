@@ -178,8 +178,8 @@ const MenuRadio = ({ className, children, ...props }: MenuItemProps) => (
     {(values) => (
       <>
         {values.isSelected && (
-          <span className="absolute left-2.5 flex size-2.5 items-center animate-in justify-center">
-            <IconBulletFill className="size-2.5" />
+          <span className="absolute left-3.5 flex size-[0.650rem] items-center animate-in justify-center">
+            <IconBulletFill className="size-[0.650rem]" />
           </span>
         )}
 
