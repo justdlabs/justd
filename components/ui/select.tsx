@@ -61,19 +61,14 @@ const Select = <T extends object>({
   )
 }
 
-interface SelectListProps<T extends object> {
+interface ListProps<T extends object> {
   items?: Iterable<T>
   placement?: Placement
   children: React.ReactNode | ((item: T) => React.ReactNode)
   className?: string
 }
 
-const SelectList = <T extends object>({
-  className,
-  children,
-  items,
-  placement
-}: SelectListProps<T>) => {
+const List = <T extends object>({ className, children, items, placement }: ListProps<T>) => {
   return (
     <Popover.Picker className={className} trigger="Select" placement={placement}>
       <ListBox.Picker aria-label="items" items={items}>
@@ -83,12 +78,12 @@ const SelectList = <T extends object>({
   )
 }
 
-interface SelectTriggerProps extends ButtonProps {
+interface TriggerProps extends ButtonProps {
   prefix?: React.ReactNode
   className?: string
 }
 
-const SelectTrigger = ({ className, ...props }: SelectTriggerProps) => {
+const Trigger = ({ className, ...props }: TriggerProps) => {
   return (
     <Button
       className={composeRenderProps(className, (className, renderProps) =>
@@ -111,7 +106,7 @@ const SelectTrigger = ({ className, ...props }: SelectTriggerProps) => {
 Select.OptionDetails = DropdownItemDetails
 Select.Option = DropdownItem
 Select.Section = DropdownSection
-Select.Trigger = SelectTrigger
-Select.List = SelectList
+Select.Trigger = Trigger
+Select.List = List
 
 export { Select }

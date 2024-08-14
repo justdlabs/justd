@@ -8,7 +8,7 @@ import type { ListBoxItemProps } from 'react-aria-components'
 import { ListBoxItem } from 'react-aria-components'
 import type { ColorShade, FormatOnlyForTailwindVariableType } from 'resources/types'
 import { toast } from 'sonner'
-import { cn, ColorSwatch, Tooltip, TooltipContent, TooltipTrigger } from 'ui'
+import { cn, ColorSwatch, Tooltip } from 'ui'
 import { copyToClipboard } from 'usemods'
 
 interface ColorItemProps extends ListBoxItemProps {
@@ -65,7 +65,7 @@ const ColorItem = ({
         <div className="absolute bottom-0 block line-clamp-1 p-1 text-[0.70rem] font-mono">
           <span className="w-fit mb-1">{item.shade}</span>
           <Tooltip>
-            <TooltipTrigger className="w-full text-left focus:outline-none">
+            <Tooltip.Trigger className="w-full text-left focus:outline-none">
               {isForTailwindVariable &&
                 selectedFormat !== 'hexa' &&
                 selectedFormat !== 'hex' &&
@@ -73,10 +73,10 @@ const ColorItem = ({
               {selectedFormat === 'hex'
                 ? parseColor(item.color as string)?.toString(selectedFormat)
                 : selectedFormat}
-            </TooltipTrigger>
-            <TooltipContent>
+            </Tooltip.Trigger>
+            <Tooltip.Content>
               {parseColor(item.color as string)?.toString(selectedFormat)}
-            </TooltipContent>
+            </Tooltip.Content>
           </Tooltip>
         </div>
       )}

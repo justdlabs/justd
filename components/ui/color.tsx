@@ -25,7 +25,7 @@ import { tv } from 'tailwind-variants'
 
 import { Description, Label } from './field'
 import { cn, focusStyles } from './primitive'
-import { SliderTrack } from './slider'
+import { Slider } from './slider'
 
 const colorAreaStyles = tv({
   base: 'size-48 rounded-md border border-background shrink-0 disabled:opacity-50'
@@ -229,9 +229,9 @@ const ColorSlider = ({
         {label && <Label className="text-sm [grid-area:label]">{label}</Label>}
         {showOutput && <SliderOutput className="text-sm ml-auto [grid-area:output]" />}
       </div>
-      <SliderTrack className="cstrk rounded-md orientation-horizontal:h-8">
+      <Slider.Track className="cstrk rounded-md orientation-horizontal:h-8">
         <ColorThumb className="csth top-1/2" />
-      </SliderTrack>
+      </Slider.Track>
       {description && <Description>{description}</Description>}
     </ColorSliderPrimitive>
   )

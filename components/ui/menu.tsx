@@ -16,7 +16,7 @@ import {
   composeRenderProps,
   Header,
   Menu as MenuPrimitive,
-  MenuItem as MenuItemPrimitive,
+  MenuItem,
   MenuTrigger as MenuTriggerPrimitive,
   Separator,
   SubmenuTrigger as SubmenuTriggerPrimitive
@@ -34,8 +34,6 @@ interface MenuContextProps {
 }
 
 const MenuContext = React.createContext<MenuContextProps>({ respectScreen: true })
-
-export const useMenuContext = () => React.useContext(MenuContext)
 
 interface MenuProps extends MenuTriggerPrimitiveProps {
   respectScreen?: boolean
@@ -72,7 +70,7 @@ interface MenuTriggerProps extends ButtonProps {
   className?: string
 }
 
-const MenuTrigger = ({ className, ...props }: MenuTriggerProps) => (
+const Trigger = ({ className, ...props }: MenuTriggerProps) => (
   <Button className={trigger({ className })} {...props} />
 )
 
@@ -85,14 +83,14 @@ interface MenuContentProps<T>
   respectScreen?: boolean
 }
 
-const MenuContent = <T extends object>({
+const Content = <T extends object>({
   className,
   showArrow = false,
   popoverClassName,
   offset = 4,
   ...props
 }: MenuContentProps<T>) => {
-  const { respectScreen } = useMenuContext()
+  const { respectScreen } = React.useContext(MenuContext)
   return (
     <Popover.Content
       respectScreen={respectScreen}
@@ -111,10 +109,10 @@ interface MenuItemProps
   isDanger?: boolean
 }
 
-const MenuItem = ({ className, isDanger = false, children, ...props }: MenuItemProps) => {
+const Item = ({ className, isDanger = false, children, ...props }: MenuItemProps) => {
   const textValue = props.textValue || (typeof children === 'string' ? children : undefined)
   return (
-    <MenuItemPrimitive
+    <MenuItem
       textValue={textValue}
       className={composeRenderProps(className, (className, renderProps) =>
         dropdownItemStyles({
@@ -131,7 +129,7 @@ const MenuItem = ({ className, isDanger = false, children, ...props }: MenuItemP
           {values.hasSubmenu && <IconChevronLgRight className="gpfw ml-auto size-3.5" />}
         </>
       )}
-    </MenuItemPrimitive>
+    </MenuItem>
   )
 }
 
@@ -155,10 +153,8 @@ const MenuSeparator = ({ className, ...props }: SeparatorProps) => (
   <Separator className={cn('-mx-1 my-1 h-px ms bg-muted', className)} {...props} />
 )
 
-const MenuKeyboard = Keyboard
-
-const MenuCheckbox = ({ className, children, ...props }: MenuItemProps) => (
-  <MenuItem className={cn('pl-8', className)} {...props}>
+const Checkbox = ({ className, children, ...props }: MenuItemProps) => (
+  <Item className={cn('pl-8', className)} {...props}>
     {(values) => (
       <>
         {values.isSelected && (
@@ -170,11 +166,11 @@ const MenuCheckbox = ({ className, children, ...props }: MenuItemProps) => (
         {typeof children === 'function' ? children(values) : children}
       </>
     )}
-  </MenuItem>
+  </Item>
 )
 
-const MenuRadio = ({ className, children, ...props }: MenuItemProps) => (
-  <MenuItem className={cn('pl-8', className)} {...props}>
+const Radio = ({ className, children, ...props }: MenuItemProps) => (
+  <Item className={cn('pl-8', className)} {...props}>
     {(values) => (
       <>
         {values.isSelected && (
@@ -186,22 +182,19 @@ const MenuRadio = ({ className, children, ...props }: MenuItemProps) => (
         {typeof children === 'function' ? children(values) : children}
       </>
     )}
-  </MenuItem>
+  </Item>
 )
 
-Menu.Checkbox = MenuCheckbox
-Menu.Content = MenuContent
+Menu.Content = Content
 Menu.Header = MenuHeader
-Menu.Item = MenuItem
-Menu.Content = MenuContent
-Menu.Keyboard = MenuKeyboard
-Menu.ItemPrimitive = MenuItemPrimitive
-Menu.Keyboard = MenuKeyboard
-Menu.Primitive = MenuPrimitive
-Menu.Radio = MenuRadio
+Menu.Item = Item
+Menu.Content = Content
+Menu.Keyboard = Keyboard
+Menu.Checkbox = Checkbox
+Menu.Radio = Radio
 Menu.Section = DropdownSection
 Menu.Separator = MenuSeparator
-Menu.Trigger = MenuTrigger
+Menu.Trigger = Trigger
 Menu.ItemDetails = DropdownItemDetails
 Menu.Submenu = SubMenu
 

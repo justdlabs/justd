@@ -8,11 +8,11 @@ import {
   OverlayArrow,
   Tooltip as TooltipPrimitive,
   type TooltipProps as TooltipPrimitiveProps,
-  TooltipTrigger as TooltipTriggerPrimitive
+  TooltipTrigger
 } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
-export interface TooltipProps extends Omit<TooltipPrimitiveProps, 'children'> {
+interface TooltipProps extends Omit<TooltipPrimitiveProps, 'children'> {
   children: React.ReactNode
 }
 
@@ -31,10 +31,11 @@ const tooltipStyles = tv({
   }
 })
 
-const TooltipTrigger = Button
-const Tooltip = TooltipTriggerPrimitive
+const Tooltip = (props: React.ComponentProps<typeof TooltipTrigger>) => (
+  <TooltipTrigger {...props}>{props.children}</TooltipTrigger>
+)
 
-const TooltipContent = ({ children, ...props }: TooltipProps) => {
+const Content = ({ children, ...props }: TooltipProps) => {
   return (
     <TooltipPrimitive
       {...props}
@@ -61,4 +62,7 @@ const TooltipContent = ({ children, ...props }: TooltipProps) => {
   )
 }
 
-export { Tooltip, TooltipContent, TooltipTrigger }
+Tooltip.Trigger = Button
+Tooltip.Content = Content
+
+export { Tooltip }

@@ -3,20 +3,22 @@
 import * as React from 'react'
 
 import { useSlotId } from '@react-aria/utils'
+import type {
+  LabelProps,
+  SliderOutputProps,
+  SliderProps as SliderPrimitiveProps,
+  SliderThumbProps,
+  SliderTrackProps,
+  TextProps
+} from 'react-aria-components'
 import {
   composeRenderProps,
-  type LabelProps,
   Slider as SliderPrimitive,
-  SliderOutput as SliderOutputPrimitive,
-  type SliderOutputProps as SliderOutputPrimitiveProps,
-  type SliderProps as SliderPrimitiveProps,
-  SliderStateContext as SliderStateContextPrimitive,
-  SliderThumb as SliderThumbPrimitive,
-  type SliderThumbProps as SliderThumbPrimitiveProps,
-  SliderTrack as SliderTrackPrimitive,
-  type SliderTrackProps as SliderTrackPrimitiveProps,
-  TextContext as TextContextPrimitive,
-  type TextProps
+  SliderOutput,
+  SliderStateContext,
+  SliderThumb,
+  SliderTrack,
+  TextContext
 } from 'react-aria-components'
 import { tv, type VariantProps } from 'tailwind-variants'
 
@@ -47,6 +49,22 @@ const sliderStyles = tv({
 
 const { track, filler, thumb, root, valueLabel } = sliderStyles()
 
+interface SliderRootProps extends SliderPrimitiveProps {}
+
+const Root = (props: SliderPrimitiveProps) => {
+  const descriptionId = useSlotId()
+  return (
+    <TextContext.Provider value={{ slots: { description: { id: descriptionId } } }}>
+      <SliderPrimitive
+        data-slot="root"
+        aria-describedby={descriptionId}
+        {...props}
+        className={composeRenderProps(props.className, (className) => root({ className }))}
+      />
+    </TextContext.Provider>
+  )
+}
+
 interface SliderProps extends SliderRootProps, VariantProps<typeof sliderStyles> {
   label?: LabelProps['children']
   description?: TextProps['children']
@@ -54,65 +72,43 @@ interface SliderProps extends SliderRootProps, VariantProps<typeof sliderStyles>
 }
 
 const Slider = ({ label, description, showValue = true, ...props }: SliderProps) => (
-  <SliderRoot {...props}>
+  <Root {...props}>
     <div className="flex items-center justify-between gap-2">
       {label && <Label>{label}</Label>}
       {(showValue || typeof showValue === 'function') && (
-        <SliderValueLabel>
+        <Output>
           {({ state }) => (typeof showValue === 'function' ? showValue(state.values) : undefined)}
-        </SliderValueLabel>
+        </Output>
       )}
     </div>
-    <SliderControls />
+    <Controls />
     {description && <Description>{description}</Description>}
-  </SliderRoot>
+  </Root>
 )
 
-interface SliderRootProps extends SliderPrimitiveProps {}
-
-const SliderRoot = (props: SliderRootProps) => {
-  const descriptionId = useSlotId()
+const Controls = (props: SliderTrackProps) => {
+  const { values } = React.useContext(SliderStateContext)
   return (
-    <TextContextPrimitive.Provider value={{ slots: { description: { id: descriptionId } } }}>
-      <SliderPrimitive
-        data-slot="root"
-        aria-describedby={descriptionId}
-        {...props}
-        className={composeRenderProps(props.className, (className) => root({ className }))}
-      />
-    </TextContextPrimitive.Provider>
-  )
-}
-
-interface SliderControlsProps extends SliderTrackProps, VariantProps<typeof sliderStyles> {}
-
-const SliderControls = (props: SliderControlsProps) => {
-  const { values } = React.useContext(SliderStateContextPrimitive)
-  return (
-    <SliderTrack {...props}>
-      <SliderFiller />
+    <Track {...props}>
+      <Filler />
       {values.map((_, i) => (
-        <SliderThumb key={i} index={i} />
+        <Thumb key={i} index={i} />
       ))}
-    </SliderTrack>
+    </Track>
   )
 }
 
-interface SliderTrackProps extends SliderTrackPrimitiveProps, VariantProps<typeof sliderStyles> {}
-
-const SliderTrack = (props: SliderTrackProps) => {
+const Track = (props: SliderTrackProps) => {
   return (
-    <SliderTrackPrimitive
+    <SliderTrack
       {...props}
       className={composeRenderProps(props.className, (className) => track({ className }))}
     />
   )
 }
 
-interface SliderFillerProps extends React.HTMLAttributes<HTMLDivElement> {}
-
-const SliderFiller = (props: SliderFillerProps) => {
-  const { orientation, getThumbPercent, values } = React.useContext(SliderStateContextPrimitive)
+const Filler = (props: React.HTMLAttributes<HTMLDivElement>) => {
+  const { orientation, getThumbPercent, values } = React.useContext(SliderStateContext)
   return (
     <div
       {...props}
@@ -136,22 +132,18 @@ const SliderFiller = (props: SliderFillerProps) => {
   )
 }
 
-interface SliderThumbProps extends SliderThumbPrimitiveProps, VariantProps<typeof sliderStyles> {}
-
-const SliderThumb = ({ className, ...props }: SliderThumbProps) => {
+const Thumb = ({ className, ...props }: SliderThumbProps) => {
   return (
-    <SliderThumbPrimitive
+    <SliderThumb
       {...props}
       className={composeRenderProps(className, (className) => thumb({ className }))}
     />
   )
 }
 
-interface SliderValueLabelProps extends SliderOutputPrimitiveProps {}
-
-const SliderValueLabel = ({ className, ...props }: SliderValueLabelProps) => {
+const Output = ({ className, ...props }: SliderOutputProps) => {
   return (
-    <SliderOutputPrimitive
+    <SliderOutput
       {...props}
       className={composeRenderProps(className, (className) => valueLabel({ className }))}
     >
@@ -160,16 +152,14 @@ const SliderValueLabel = ({ className, ...props }: SliderValueLabelProps) => {
         (children, { state }) =>
           children ?? state.values.map((_, i) => state.getThumbValueLabel(i)).join(' - ')
       )}
-    </SliderOutputPrimitive>
+    </SliderOutput>
   )
 }
 
-export {
-  Slider,
-  SliderControls,
-  SliderFiller,
-  SliderRoot,
-  SliderThumb,
-  SliderTrack,
-  SliderValueLabel
-}
+Slider.Controls = Controls
+Slider.Filler = Filler
+Slider.Root = Root
+Slider.Thumb = Thumb
+Slider.Track = Track
+Slider.Output = Output
+export { Slider }

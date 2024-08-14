@@ -1,7 +1,7 @@
 'use client'
 
 import { type TooltipProps } from 'react-aria-components'
-import { Button, Tooltip, TooltipContent } from 'ui'
+import { Button, Tooltip } from 'ui'
 
 type Placement = Pick<TooltipProps, 'placement'>['placement']
 const placements: Placement[] = ['bottom', 'top', 'left', 'start', 'right', 'end']
@@ -13,9 +13,9 @@ export default function TooltipPlacementDemo() {
           <Button className="mx-auto" size="small" appearance="outline">
             {placement}
           </Button>
-          <TooltipContent placement={placement}>
+          <Tooltip.Content placement={placement}>
             Tooltip shown at <strong>{placement}</strong>.
-          </TooltipContent>
+          </Tooltip.Content>
         </Tooltip>
       ))}
     </div>

@@ -33,7 +33,7 @@ const colorPickerStyles = tv({
     triggerColorField:
       'size-10 -mr-2.5 tcf bg-background grid place-content-center focus:outline-none',
     triggerColorPicker: 'w-full hover:bg-tertiary tcp max-w-sm bg-background justify-start',
-    colorArea: 'w-full',
+    colorArea: 'w-full mt-2 sm:mt-0',
     colorSlider: '[&_.cstrk]:orientation-horizontal:h-3',
     colorSwatchPicker: 'flex flex-wrap gap-x-2 gap-y-2.5'
   }
@@ -100,7 +100,7 @@ const ColorPicker = ({
             ) : null}
             <Popover.Content
               showArrow={false}
-              className="overflow-y-auto sm:max-w-xs p-2 [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin]"
+              className="overflow-y-auto sm:min-w-56 w-full sm:max-w-[16rem] px-0 pt-2 pb-3 sm:p-2.5 [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin]"
               {...props}
             >
               <div className="grid gap-2">
@@ -111,7 +111,7 @@ const ColorPicker = ({
                   xChannel="saturation"
                   yChannel="brightness"
                 >
-                  <ColorThumb className="z-50" />
+                  <ColorThumb className="z-40" />
                 </ColorArea>
                 <ColorSlider
                   aria-describedby={`${label ? `${label} color slider` : 'Color slider'}`}

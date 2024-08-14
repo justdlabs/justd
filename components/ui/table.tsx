@@ -1,21 +1,23 @@
 'use client'
 
 import { IconChevronDown, IconChevronUp, IconHamburger } from 'justd-icons'
+import type {
+  CellProps as CellPrimitiveProps,
+  ColumnProps as ColumnPrimitiveProps,
+  RowProps as RowPrimitiveProps,
+  TableBodyProps,
+  TableHeaderProps as TableHeaderPrimitiveProps,
+  TableProps as TablePrimitiveProps
+} from 'react-aria-components'
 import {
   Button,
-  Cell,
-  type CellProps,
+  Cell as CellPrimitive,
   Collection,
-  Column,
-  type ColumnProps,
-  Row,
-  type RowProps,
+  Column as ColumnPrimitive,
+  Row as RowPrimitive,
   Table as TablePrimitive,
   TableBody as TableBodyPrimitive,
-  type TableBodyProps,
-  TableHeader as TableHeaderPrimitive,
-  type TableHeaderProps,
-  type TableProps as TablePrimitiveProps,
+  TableHeader,
   useTableOptions
 } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
@@ -36,10 +38,6 @@ const table = tv({
 
 const { root, header, column, row, cell } = table()
 
-const TableBody = <T extends object>(props: TableBodyProps<T>) => (
-  <TableBodyPrimitive {...props} className={cn('[&_.tr:last-child]:border-0')} />
-)
-
 interface TableProps extends TablePrimitiveProps {
   className?: string
 }
@@ -52,29 +50,33 @@ const Table = ({ children, className, ...props }: TableProps) => (
   </div>
 )
 
-interface TableCellProps extends CellProps {
-  className?: string
-}
-
-const TableCell = ({ children, className, ...props }: TableCellProps) => (
-  <Cell {...props} className={cell({ className })}>
-    {children}
-  </Cell>
+const Body = <T extends object>(props: TableBodyProps<T>) => (
+  <TableBodyPrimitive {...props} className={cn('[&_.tr:last-child]:border-0')} />
 )
 
-interface TableColumnProps extends ColumnProps {
+interface CellProps extends CellPrimitiveProps {
   className?: string
 }
 
-const TableColumn = ({ children, className, ...props }: TableColumnProps) => (
-  <Column {...props} className={column({ className })}>
+const Cell = ({ children, className, ...props }: CellProps) => (
+  <CellPrimitive {...props} className={cell({ className })}>
+    {children}
+  </CellPrimitive>
+)
+
+interface ColumnProps extends ColumnPrimitiveProps {
+  className?: string
+}
+
+const Column = ({ children, className, ...props }: ColumnProps) => (
+  <ColumnPrimitive {...props} className={column({ className })}>
     {({ allowsSorting, sortDirection }) => (
       <div className="flex [&>[data-slot=icon]]:shrink-0 items-center gap-2">
         <>
           {children}
           {allowsSorting &&
             (sortDirection === undefined ? (
-              <div className="w-6" />
+              <span>daf</span>
             ) : sortDirection === 'ascending' ? (
               <IconChevronUp />
             ) : (
@@ -83,18 +85,17 @@ const TableColumn = ({ children, className, ...props }: TableColumnProps) => (
         </>
       </div>
     )}
-  </Column>
+  </ColumnPrimitive>
 )
 
-const TableHeader = <T extends object>({
-  children,
-  className,
-  columns,
-  ...props
-}: TableHeaderProps<T> & { className?: string }) => {
+interface HeaderProps<T extends object> extends TableHeaderPrimitiveProps<T> {
+  className?: string
+}
+
+const Header = <T extends object>({ children, className, columns, ...props }: HeaderProps<T>) => {
   const { selectionBehavior, selectionMode, allowsDragging } = useTableOptions()
   return (
-    <TableHeaderPrimitive {...props} className={header({ className })}>
+    <TableHeader {...props} className={header({ className })}>
       {allowsDragging && <Column />}
       {selectionBehavior === 'toggle' && (
         <Column className="pl-4">
@@ -102,20 +103,18 @@ const TableHeader = <T extends object>({
         </Column>
       )}
       <Collection items={columns}>{children}</Collection>
-    </TableHeaderPrimitive>
+    </TableHeader>
   )
 }
 
-const TableRow = <T extends object>({
-  children,
-  className,
-  columns,
-  id,
-  ...props
-}: RowProps<T> & { className?: string }) => {
+interface RowProps<T extends object> extends RowPrimitiveProps<T> {
+  className?: string
+}
+
+const Row = <T extends object>({ children, className, columns, id, ...props }: RowProps<T>) => {
   const { selectionBehavior, allowsDragging } = useTableOptions()
   return (
-    <Row
+    <RowPrimitive
       id={id}
       {...props}
       className={row({
@@ -142,14 +141,14 @@ const TableRow = <T extends object>({
         </Cell>
       )}
       <Collection items={columns}>{children}</Collection>
-    </Row>
+    </RowPrimitive>
   )
 }
 
-Table.Body = TableBody
-Table.Cell = TableCell
-Table.Column = TableColumn
-Table.Header = TableHeader
-Table.Row = TableRow
+Table.Body = Body
+Table.Cell = Cell
+Table.Column = Column
+Table.Header = Header
+Table.Row = Row
 
 export { Table }
