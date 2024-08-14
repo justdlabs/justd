@@ -3,12 +3,14 @@
 import React from 'react'
 
 import { IconHamburger } from 'justd-icons'
+import type {
+  GridListItemProps,
+  GridListProps as GridListPrimitiveProps
+} from 'react-aria-components';
 import {
   Button,
   GridList as GridListPrimitive,
-  GridListItem as GridListItemPrimitive,
-  type GridListItemProps,
-  type GridListProps as GridListPrimitiveProps
+  GridListItem
 } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
@@ -48,10 +50,10 @@ const itemStyles = tv({
   }
 })
 
-const GridListItem = ({ children, ...props }: GridListItemProps) => {
+const Item = ({ children, ...props }: GridListItemProps) => {
   const textValue = typeof children === 'string' ? children : undefined
   return (
-    <GridListItemPrimitive textValue={textValue} {...props} className={itemStyles}>
+    <GridListItem textValue={textValue} {...props} className={itemStyles}>
       {({ selectionMode, selectionBehavior, allowsDragging }) => (
         <>
           {allowsDragging && (
@@ -65,15 +67,15 @@ const GridListItem = ({ children, ...props }: GridListItemProps) => {
           {children}
         </>
       )}
-    </GridListItemPrimitive>
+    </GridListItem>
   )
 }
 
-const GridEmptyState = (props: React.HTMLAttributes<HTMLDivElement>) => (
+const EmptyState = (props: React.HTMLAttributes<HTMLDivElement>) => (
   <div className="p-6" {...props} />
 )
 
-GridList.Item = GridListItem
-GridList.EmptyState = GridEmptyState
+GridList.Item = Item
+GridList.EmptyState = EmptyState
 
 export { GridList }

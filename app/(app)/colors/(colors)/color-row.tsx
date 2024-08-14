@@ -12,7 +12,7 @@ import { IconBrandTailwindcss } from 'justd-icons'
 import { ListBox, Text, ToggleButton } from 'react-aria-components'
 import type { ColorItemProps, FormatOnlyForTailwindVariableType } from 'resources/types'
 import { toast } from 'sonner'
-import { buttonStyles, gridStyles, Heading, Select, Tooltip, TooltipContent } from 'ui'
+import { buttonStyles, gridStyles, Heading, Select, Tooltip } from 'ui'
 
 import { ColorItem } from './color-item'
 
@@ -75,9 +75,9 @@ export function ColorRow({ showItem = false, swatchClassName, item }: ColorRowPr
                     <IconBrandTailwindcss className={isSelected ? '!text-sky-500' : '!text-fg'} />
                   )}
                 </ToggleButton>
-                <TooltipContent className="max-w-xs">
+                <Tooltip.Content className="max-w-xs">
                   You can switch up the color format to RGB, RGBA, HSL, HSLA, HSB, or HSBA.
-                </TooltipContent>
+                </Tooltip.Content>
               </Tooltip>
             )}
             <Select

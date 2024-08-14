@@ -116,6 +116,5 @@ export {
   DropdownItem,
   dropdownItemStyles,
   DropdownItemDetails,
-  DropdownSection,
-  type DropdownSectionProps
+  DropdownSection
 }

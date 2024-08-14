@@ -1,13 +1,13 @@
 'use client'
 
 import { IconBrandX } from 'justd-icons'
-import { buttonStyles, Tooltip, TooltipContent, TooltipTrigger } from 'ui'
+import { buttonStyles, Tooltip } from 'ui'
 
 export default function TooltipDemo() {
   return (
     <div className="flex gap-2">
       <Tooltip>
-        <TooltipTrigger
+        <Tooltip.Trigger
           aria-label="Follow My Twitter"
           className={buttonStyles({
             appearance: 'outline',
@@ -15,8 +15,8 @@ export default function TooltipDemo() {
           })}
         >
           <IconBrandX />
-        </TooltipTrigger>
-        <TooltipContent>Follow me on X @irsyadadl</TooltipContent>
+        </Tooltip.Trigger>
+        <Tooltip.Content>Follow me on X @irsyadadl</Tooltip.Content>
       </Tooltip>
     </div>
   )

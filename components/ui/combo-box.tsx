@@ -63,11 +63,11 @@ const ComboBox = <T extends object>({
 
 interface ListBoxPickerProps<T extends object> extends React.ComponentProps<typeof ListBox<T>> {}
 
-interface ComboBoxListProps<T extends object>
+interface ListProps<T extends object>
   extends ListBoxPickerProps<T>,
     Omit<PopoverPrimitiveProps, 'children' | 'className' | 'style'> {}
 
-const ComboBoxList = <T extends object>({ children, items, ...props }: ComboBoxListProps<T>) => {
+const List = <T extends object>({ children, items, ...props }: ListProps<T>) => {
   return (
     <Popover.Picker trigger="ComboBox" isNonModal placement={props.placement}>
       <ListBox.Picker items={items} {...props}>
@@ -77,9 +77,7 @@ const ComboBoxList = <T extends object>({ children, items, ...props }: ComboBoxL
   )
 }
 
-interface ComboBoxInputProps extends InputProps {}
-
-const ComboBoxInput = (props: ComboBoxInputProps) => {
+const ComboBoxInput = (props: InputProps) => {
   const context = useSlottedContext(ComboBoxContext)!
   return (
     <FieldGroup className="pl-0 relative">
@@ -111,7 +109,7 @@ const ComboBoxClearButton = () => {
 }
 
 ComboBox.Input = ComboBoxInput
-ComboBox.List = ComboBoxList
+ComboBox.List = List
 ComboBox.Option = DropdownItem
 ComboBox.Section = DropdownSection
 
