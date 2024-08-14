@@ -39,6 +39,7 @@ export const metadata: Metadata = {
     'UI Library',
     'UI Framework',
     'Justd',
+    'Just D.',
     'React Aria',
     'React Aria Components',
     'Server Components',
