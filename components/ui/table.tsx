@@ -123,9 +123,9 @@ const TableRow = <T extends object>({
       })}
     >
       {allowsDragging && (
-        <Cell className="ring-primary group cursor-grab dragging:cursor-grabbing">
+        <Cell className="ring-primary pr-0 group cursor-grab dragging:cursor-grabbing">
           <Button
-            className="bg-transparent pl-1.5 py-1.5 text-muted-fg pressed:text-fg"
+            className="bg-transparent pl-3.5 py-1.5 text-muted-fg pressed:text-fg"
             slot="drag"
           >
             <IconHamburger />
