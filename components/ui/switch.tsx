@@ -1,6 +1,9 @@
 'use client'
 
-import { Switch as SwitchPrimitive, type SwitchProps as SwitchPrimitiveProps } from 'react-aria-components'
+import {
+  Switch as SwitchPrimitive,
+  type SwitchProps as SwitchPrimitiveProps
+} from 'react-aria-components'
 import { tv, type VariantProps } from 'tailwind-variants'
 
 import { focusRing } from './primitive'
