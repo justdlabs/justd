@@ -2,11 +2,7 @@
 
 import * as React from 'react'
 
-import type {
-  GroupProps,
-  SeparatorProps,
-  ToolbarProps as ToolbarPrimitiveProps
-} from 'react-aria-components'
+import type { GroupProps, SeparatorProps, ToolbarProps as ToolbarPrimitiveProps } from 'react-aria-components'
 import { composeRenderProps, Group, Toolbar as ToolbarPrimitive } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
