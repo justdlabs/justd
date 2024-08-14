@@ -41,7 +41,37 @@ export async function generateMetadata({ params }: DocPageProps): Promise<Metada
       card: 'summary_large_image',
       title: `${doc.title} / ${siteConfig.name}`,
       description: doc.description
-    }
+    },
+    keywords: [
+      `${doc.title}`,
+      `${doc.title} components`,
+      `${doc.title} component`,
+      `${doc.title} on React`,
+      'React',
+      'Next.js',
+      'Inertia.js',
+      'Tailwind CSS',
+      'UI Components',
+      'UI Kit',
+      'UI Library',
+      'UI Framework',
+      'Justd',
+      'React Aria',
+      'React Aria Components',
+      'Server Components',
+      'React Components',
+      'Next UI Components',
+      'UI Design System',
+      'UI for Laravel Inertia',
+      'Justd Components',
+      'Justd UI Components',
+      'Justd UI Kit',
+      'Justd UI Library',
+      'Justd UI Framework',
+      'Justd Laravel Inertia',
+      'Justd Laravel',
+      'Justd Inertia'
+    ],
   }
 }
 
