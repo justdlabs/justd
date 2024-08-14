@@ -12,7 +12,10 @@ import { CommandPalette } from './command-palette'
 import { NavbarDropdown } from './navbar'
 import { ThemeSwitcher } from './theme-switcher'
 
-export function ResponsiveAside({ openCmd, setOpenCmd }: {
+export function ResponsiveAside({
+  openCmd,
+  setOpenCmd
+}: {
   openCmd: boolean
   setOpenCmd: (open: boolean) => void
 }) {
@@ -55,7 +58,13 @@ export function ResponsiveAside({ openCmd, setOpenCmd }: {
           <ThemeSwitcher />
         </div>
       </div>
-      <Sheet.Content isOpen={openAside} onOpenChange={setOpenAside} classNames={{ content: 'w-[19rem]' }} side="left" closeButton={true}>
+      <Sheet.Content
+        isOpen={openAside}
+        onOpenChange={setOpenAside}
+        classNames={{ content: 'w-[19rem]' }}
+        side="left"
+        closeButton={true}
+      >
         <Sheet.Header className="mb-4 flex flex-row justify-between py-2">
           <NavbarDropdown />
         </Sheet.Header>

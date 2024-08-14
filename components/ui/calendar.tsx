@@ -73,7 +73,7 @@ const Calendar = <T extends DateValue>({ errorMessage, className, ...props }: Ca
 const calendarHeaderStyles = tv({
   slots: {
     header: 'flex w-full justify-center gap-1 px-1 pb-5 sm:pb-4',
-    heading: 'mr-2 text-muted-fg flex-1 text-left font-medium',
+    heading: 'mr-2 text-muted-fg tracking-tight flex-1 text-left font-medium',
     calendarGridHeaderCell: 'text-sm lg:text-xs font-semibold text-muted-fg'
   }
 })
