@@ -12,11 +12,11 @@ import { usePathname, useRouter } from 'next/navigation'
 import { CommandMenu, useMediaQuery } from 'ui'
 
 export interface OpenCloseProps {
-  open: boolean
+  openCmd: boolean
   setOpen?: (isOpen: boolean) => void
 }
 
-export function CommandPalette({ open, setOpen }: OpenCloseProps) {
+export function CommandPalette({ openCmd, setOpen }: OpenCloseProps) {
   const router = useRouter()
   const pathname = usePathname()
   React.useEffect(() => {
@@ -48,7 +48,7 @@ export function CommandPalette({ open, setOpen }: OpenCloseProps) {
   })
 
   return (
-    <CommandMenu isOpen={open} onOpenChange={setOpen}>
+    <CommandMenu isOpen={openCmd} onOpenChange={setOpen}>
       <CommandMenu.Input autoFocus={isDesktop} placeholder="Quick search..." />
       <CommandMenu.List>
         <CommandMenu.Section separator heading="Pages">

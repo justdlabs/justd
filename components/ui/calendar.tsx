@@ -72,36 +72,40 @@ const Calendar = <T extends DateValue>({ errorMessage, className, ...props }: Ca
 
 const calendarHeaderStyles = tv({
   slots: {
-    base: 'flex w-full justify-center items-center gap-1 px-1 pb-5 sm:pb-4',
-    heading: 'mx-2 flex-1 text-center text-base font-medium text-fg',
+    header: 'flex w-full justify-center gap-1 px-1 pb-5 sm:pb-4',
+    heading: 'mr-2 text-muted-fg tracking-tight flex-1 text-left font-medium',
     calendarGridHeaderCell: 'text-sm lg:text-xs font-semibold text-muted-fg'
   }
 })
 
-const { base, heading, calendarGridHeaderCell } = calendarHeaderStyles()
+const { header, heading, calendarGridHeaderCell } = calendarHeaderStyles()
 
 const CalendarHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => {
   const { direction } = useLocale()
 
   return (
-    <header className={base({ className })} {...props}>
-      <Button
-        size="square-petite"
-        className="[&_[data-slot=icon]]:text-fg"
-        appearance="outline"
-        slot="previous"
-      >
-        {direction === 'rtl' ? <IconChevronLgRight /> : <IconChevronLgLeft aria-hidden />}
-      </Button>
+    <header className={header({ className })} {...props}>
       <Heading className={heading()} />
-      <Button
-        size="square-petite"
-        className="[&_[data-slot=icon]]:text-fg"
-        appearance="outline"
-        slot="next"
-      >
-        {direction === 'rtl' ? <IconChevronLgLeft /> : <IconChevronLgRight />}
-      </Button>
+      <div className="flex items-center gap-1">
+        <Button
+          size="square-petite"
+          className="[&_[data-slot=icon]]:text-fg size-8 sm:size-7"
+          shape="circle"
+          appearance="plain"
+          slot="previous"
+        >
+          {direction === 'rtl' ? <IconChevronLgRight /> : <IconChevronLgLeft aria-hidden />}
+        </Button>
+        <Button
+          size="square-petite"
+          className="[&_[data-slot=icon]]:text-fg size-8 sm:size-7"
+          shape="circle"
+          appearance="plain"
+          slot="next"
+        >
+          {direction === 'rtl' ? <IconChevronLgLeft /> : <IconChevronLgRight />}
+        </Button>
+      </div>
     </header>
   )
 }

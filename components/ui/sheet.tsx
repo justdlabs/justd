@@ -75,8 +75,7 @@ const sheetContentStyles = tv({
   compoundVariants: generateCompoundVariants(['top', 'bottom', 'left', 'right'])
 })
 
-interface SheetProps extends DialogTriggerProps {}
-const Sheet = ({ children }: SheetProps) => {
+const Sheet = ({ children }: DialogTriggerProps) => {
   return <DialogTriggerPrimitive>{children}</DialogTriggerPrimitive>
 }
 

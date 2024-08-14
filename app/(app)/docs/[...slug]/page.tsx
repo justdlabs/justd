@@ -71,7 +71,7 @@ export async function generateMetadata({ params }: DocPageProps): Promise<Metada
       'Justd Laravel Inertia',
       'Justd Laravel',
       'Justd Inertia'
-    ],
+    ]
   }
 }
 

@@ -39,7 +39,7 @@ const modalOverlayStyles = tv({
 })
 const modalContentStyles = tv({
   base: [
-    'max-h-full w-full rounded-t-2xl ring-1 ring-zinc-950/5 bg-overlay text-overlay-fg text-left align-middle shadow-lg',
+    'max-h-full w-full rounded-t-2xl ring-1 ring-dark/5 bg-overlay text-overlay-fg text-left align-middle shadow-lg',
     'dark:ring-white/15 sm:rounded-xl overflow-hidden'
   ],
   variants: {
