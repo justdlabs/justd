@@ -101,25 +101,12 @@ export function Blocks() {
             <PopoverOverlays />
           </Grid.Item>
           <Grid.Item>
-            <CardBlock>
-              <TooltipDelayDemo />
-            </CardBlock>
-          </Grid.Item>
-          <Grid.Item>
             <Buttons />
-          </Grid.Item>
-          <Grid.Item>
-            <CardBlock>
-              <AvatarDemo />
-            </CardBlock>
           </Grid.Item>
           <Grid.Item>
             <CardBlock>
               <SwitchDemo />
             </CardBlock>
-          </Grid.Item>
-          <Grid.Item colSpan={{ initial: 1, lg: 2 }}>
-            <GridListDragBlock />
           </Grid.Item>
           <Grid.Item>
             <Menus />
