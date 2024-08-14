@@ -1,11 +1,8 @@
 'use client'
 
-import React, { useEffect, useId, useState } from 'react'
+import React from 'react'
 
-import { Aside } from '@/components/aside'
-import { CommandPalette, type OpenCloseProps } from '@/components/command-palette'
-import { TakeCurrentUrl } from '@/components/take-current-url'
-import { ThemeSwitcher } from '@/components/theme-switcher'
+import { ResponsiveAside } from '@/components/responsive-aside'
 import { siteConfig } from '@/resources/config/site'
 import { LayoutGroup } from 'framer-motion'
 import {
@@ -19,7 +16,6 @@ import {
   IconColors,
   IconCube,
   IconDeviceDesktop,
-  IconHamburger,
   IconHome,
   IconMoon,
   IconSearch,
@@ -28,19 +24,12 @@ import {
 import { useTheme } from 'next-themes'
 import { usePathname } from 'next/navigation'
 import { Collection } from 'react-aria-components'
-import {
-  Button,
-  buttonStyles,
-  cn,
-  ContextMenu,
-  Link,
-  Menu,
-  Separator,
-  Sheet,
-  useMediaQuery
-} from 'ui'
+import { Button, buttonStyles, ContextMenu, Link, Menu, Separator, useMediaQuery } from 'ui'
 
+import { CommandPalette } from './command-palette'
 import { NavLink } from './nav-item'
+import { TakeCurrentUrl } from './take-current-url'
+import { ThemeSwitcher } from './theme-switcher'
 
 const menuItems = [
   { id: 1, label: 'Home', url: '/' },
@@ -48,14 +37,14 @@ const menuItems = [
 ]
 
 export function Navbar() {
-  const id = useId()
+  const id = React.useId()
   const pathname = usePathname()
 
   const [open, setOpen] = React.useState(false)
   const isDesktop = useMediaQuery('(min-width: 1024px)')
   return (
     <>
-      <CommandPalette setOpen={setOpen} open={open} />
+      <CommandPalette setOpen={setOpen} openCmd={open} />
       <LayoutGroup id={`navigation-${id}`}>
         <div className="sticky xnw2 top-0 z-30 hidden overflow-hidden pb-0 sm:block">
           <nav className="border-b bg-background/95 py-2 backdrop-blur-lg supports-[backdrop-filter]:bg-background/60">
@@ -123,17 +112,6 @@ export function Navbar() {
                         size: 'square-petite',
                         className: '[&_[data-slot=icon]]:text-fg'
                       })}
-                      href="/icons"
-                    >
-                      <IconBrandJustd />
-                    </Link>
-                    <Link
-                      aria-label="Github Repository"
-                      className={buttonStyles({
-                        appearance: 'outline',
-                        size: 'square-petite',
-                        className: '[&_[data-slot=icon]]:text-fg'
-                      })}
                       target="_blank"
                       href={siteConfig.repo}
                     >
@@ -158,71 +136,8 @@ export function Navbar() {
           </nav>
         </div>
       </LayoutGroup>
-      <ResponsiveAside open={open} setOpen={setOpen} />
+      {!isDesktop && <ResponsiveAside openCmd={open} setOpenCmd={setOpen} />}
     </>
-  )
-}
-
-export function ResponsiveAside({ open, setOpen }: OpenCloseProps) {
-  const id = useId()
-  const [openAside, setOpenAside] = useState(false)
-  const pathname = usePathname()
-
-  useEffect(() => {
-    setOpenAside(false)
-  }, [pathname])
-
-  const isDesktop = useMediaQuery('(min-width: 1024px)')
-  return (
-    <nav className="sm:hidden z-10 relative">
-      {!isDesktop && <CommandPalette setOpen={setOpen} open={open} />}
-      <div className={cn('flex items-center justify-between pl-4 pr-2 -mb-2 pt-2')}>
-        <Button
-          aria-label="Open Menu."
-          className="-ml-2 [&_[data-slot=icon]]:text-fg"
-          appearance="outline"
-          size="square-petite"
-          onPress={() => setOpenAside((open) => !open)}
-        >
-          <IconHamburger />
-        </Button>
-        <Link
-          className="focus:outline-none -mr-6 focus:ring-1 focus:ring-primary-500 rounded"
-          href="/"
-          aria-label="Logo"
-        >
-          <IconBrandD className="size-6" />
-        </Link>
-        <div className="flex items-center gap-x-1">
-          <Button
-            // @ts-expect-error - TODO: fix types
-            onPress={() => setOpen((open: boolean) => !open)}
-            size="square-petite"
-            appearance="outline"
-            aria-label="Open command palette"
-          >
-            <IconSearch />
-            <Menu.Keyboard className="-mr-2 [&_kbd]:min-w-[3ch]" keys="⌘K" />
-          </Button>
-          <TakeCurrentUrl />
-          <ThemeSwitcher />
-        </div>
-      </div>
-      {!isDesktop && (
-        <Sheet isOpen={openAside} onOpenChange={setOpenAside}>
-          <Sheet.Content classNames={{ content: 'w-[19rem]' }} side="left" closeButton={true}>
-            <Sheet.Header className="mb-4 flex flex-row justify-between py-2">
-              <NavbarDropdown />
-            </Sheet.Header>
-            <Sheet.Body className="px-2">
-              <LayoutGroup id={id}>
-                <Aside />
-              </LayoutGroup>
-            </Sheet.Body>
-          </Sheet.Content>
-        </Sheet>
-      )}
-    </nav>
   )
 }
 

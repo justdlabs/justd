@@ -90,7 +90,7 @@ const CalendarHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivEle
         <Button
           size="square-petite"
           className="[&_[data-slot=icon]]:text-fg size-8 sm:size-7"
-          shape='circle'
+          shape="circle"
           appearance="plain"
           slot="previous"
         >
@@ -99,7 +99,7 @@ const CalendarHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivEle
         <Button
           size="square-petite"
           className="[&_[data-slot=icon]]:text-fg size-8 sm:size-7"
-          shape='circle'
+          shape="circle"
           appearance="plain"
           slot="next"
         >

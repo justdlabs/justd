@@ -78,13 +78,13 @@ interface DatePickerProps<T extends DateValue> extends DatePickerPrimitiveProps<
 }
 
 const DatePicker = <T extends DateValue>({
-                                           label,
-                                           className,
-                                           description,
-                                           children,
-                                           errorMessage,
-                                           ...props
-                                         }: DatePickerProps<T>) => {
+  label,
+  className,
+  description,
+  children,
+  errorMessage,
+  ...props
+}: DatePickerProps<T>) => {
   return (
     <DatePickerPrimitive {...props} className={ctr(className, base())}>
       {label && <Label>{label}</Label>}
