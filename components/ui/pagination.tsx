@@ -19,10 +19,10 @@ import {
   type SectionProps,
   Separator
 } from 'react-aria-components'
+import { tv } from 'tailwind-variants'
 
 import { buttonStyles } from './button'
 import { cn } from './primitive'
-import { tv } from 'tailwind-variants'
 
 const paginationStyles = tv({
   slots: {
@@ -88,7 +88,16 @@ const renderListItem = (
 interface PaginationItemProps extends ListBoxItemProps {
   children?: React.ReactNode
   className?: string
-  intent?: 'primary' | 'secondary' | 'danger' | 'warning' | 'info' | 'light/dark' | 'success' | 'light' | 'dark'
+  intent?:
+    | 'primary'
+    | 'secondary'
+    | 'danger'
+    | 'warning'
+    | 'info'
+    | 'light/dark'
+    | 'success'
+    | 'light'
+    | 'dark'
   size?: 'medium' | 'large' | 'square-petite' | 'extra-small' | 'small'
   shape?: 'square' | 'circle'
   appearance?: 'solid' | 'outline' | 'plain'
@@ -108,7 +117,11 @@ const PaginationItem = ({
   ...props
 }: PaginationItemProps) => {
   const textValue =
-    typeof children === 'string' ? children : typeof children === 'number' ? children.toString() : undefined
+    typeof children === 'string'
+      ? children
+      : typeof children === 'number'
+        ? children.toString()
+        : undefined
 
   const renderPaginationIndicator = (indicator: React.ReactNode) =>
     renderListItem(
