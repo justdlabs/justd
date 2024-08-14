@@ -33,7 +33,9 @@ export const themeSessionResolver = createThemeSessionResolver(sessionStorage)
 
 ## Providers
 Next to add the `ThemeProvider` to your root layout like so:
-<PlainCode code={`export { Theme, useTheme } from 'remix-themes'`} />
+```
+export { Theme, useTheme } from 'remix-themes'
+```
 
 ## Action Route
 Create a file in `/routes/action.set-theme.ts`. Make sure you pass the filename to the `ThemeProvider` component. This route stores the preferred theme in session storage when the user switches it up.

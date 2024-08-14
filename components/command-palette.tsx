@@ -6,7 +6,7 @@ import { docs } from '#site/content'
 import type { Doc, HierarchyNode } from '@/components/aside'
 import { createHierarchy } from '@/components/aside'
 import { goodTitle } from '@/resources/lib/utils'
-import { IconCube, IconHome, IconNotes } from 'justd-icons'
+import { IconBrandJustd, IconColors, IconCube, IconHome, IconNotes } from 'justd-icons'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import { CommandMenu, useMediaQuery } from 'ui'
@@ -65,6 +65,16 @@ export function CommandPalette({ openCmd, setOpen }: OpenCloseProps) {
           <CommandMenu.Item value="Components" asChild>
             <Link href="/components">
               <IconCube /> Components
+            </Link>
+          </CommandMenu.Item>
+          <CommandMenu.Item value="Colors" asChild>
+            <Link href="/colors">
+              <IconColors /> Colors
+            </Link>
+          </CommandMenu.Item>
+          <CommandMenu.Item value="Icons" asChild>
+            <Link href="/icons">
+              <IconBrandJustd /> Icons
             </Link>
           </CommandMenu.Item>
         </CommandMenu.Section>
