@@ -53,7 +53,6 @@ export function ResponsiveAside({
             aria-label="Open command palette"
           >
             <IconSearch />
-            <Menu.Keyboard className="-mr-2 [&_kbd]:min-w-[3ch]" keys="⌘K" />
           </Button>
           <ThemeSwitcher />
         </div>
