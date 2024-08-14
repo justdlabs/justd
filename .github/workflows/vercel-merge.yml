@@ -5,6 +5,7 @@ on:
       - main
 jobs:
   build_and_deploy:
+    permissions: write-all
     runs-on: ubuntu-latest
     environment: Preview
     steps:
