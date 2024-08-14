@@ -4,7 +4,6 @@ import React from 'react'
 
 import { Buttons } from '@/components/blocks/buttons'
 import { CheckRadioBlock } from '@/components/blocks/check-radio-block'
-import { GridListDragBlock } from '@/components/blocks/grid-list-drag-block'
 import { LoginForm } from '@/components/blocks/login-form'
 import { Menus } from '@/components/blocks/menus'
 import { ModalOverlays, PopoverOverlays } from '@/components/blocks/overlays'
@@ -16,8 +15,6 @@ import ColorPickerCombinationDemo from '@/components/docs/colors/color-picker-co
 import SwitchDemo from '@/components/docs/controls/switch-demo'
 import CalendarDemo from '@/components/docs/date-and-time/calendar-demo'
 import TagFieldDemo from '@/components/docs/forms/tag-field-demo'
-import AvatarDemo from '@/components/docs/media/avatar-demo'
-import TooltipDelayDemo from '@/components/docs/overlays/tooltip-delay-demo'
 import ComboBoxAvatarDemo from '@/components/docs/pickers/combo-box-avatar-demo'
 import MultipleSelectDemo from '@/components/docs/pickers/multiple-select-demo'
 import { IconCubeFill } from 'justd-icons'
@@ -154,16 +151,3 @@ export function CardBlock({
     </div>
   )
 }
-
-const items = [
-  { id: '1', name: 'The Beatles' },
-  { id: '2', name: 'Led Zeppelin' },
-  { id: '3', name: 'Pink Floyd' },
-  { id: '4', name: 'Queen' },
-  { id: '5', name: 'The Rolling Stones' },
-  { id: '6', name: 'The Who' },
-  { id: '7', name: 'Nirvana' },
-  { id: '8', name: 'The Doors' },
-  { id: '9', name: 'Radiohead' },
-  { id: '10', name: 'AC/DC' }
-]
