@@ -7,10 +7,55 @@ import { siteConfig } from '@/resources/config/site'
 import { cn } from '@/resources/lib/utils'
 import '@/resources/styles/app.css'
 import { OpenpanelProvider } from '@openpanel/nextjs'
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { ViewTransitions } from 'next-view-transitions'
 import localFont from 'next/font/local'
 import { Toast } from 'ui'
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: 'white' },
+    { media: '(prefers-color-scheme: dark)', color: 'black' }
+  ],
+  viewportFit: 'cover',
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false
+}
+
+export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? siteConfig.url),
+  title: {
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`
+  },
+  description: siteConfig.description,
+  keywords: [
+    'React',
+    'Next.js',
+    'Tailwind CSS',
+    'UI Components',
+    'UI Kit',
+    'UI Library',
+    'UI Framework',
+    'Justd',
+    'React Aria',
+    'React Aria Components',
+    'Server Components',
+    'React Components',
+    'Next UI Components',
+    'UI Design System'
+  ],
+  manifest: '/manifest.json',
+  authors: [
+    {
+      name: 'irsyadadl',
+      url: 'https://x.com/irsyadadl'
+    }
+  ],
+  creator: 'irsyadadl'
+}
 
 const fontSans = localFont({
   src: [{ path: './fonts/GeistVF.woff' }, { path: './fonts/GeistVF.woff2' }],
@@ -22,19 +67,13 @@ const fontMono = localFont({
   variable: '--font-mono'
 })
 
-export const metadata: Metadata = {
-  title: siteConfig.name,
-  description: siteConfig.description,
-  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? siteConfig.url)
-}
-
 export default function RootLayout({
   children
 }: Readonly<{
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html dir="ltr" lang="en" suppressHydrationWarning>
       <ViewTransitions>
         <body
           className={cn(

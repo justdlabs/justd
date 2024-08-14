@@ -6,12 +6,6 @@ import { siteConfig } from '@/resources/config/site'
 import type { Metadata } from 'next'
 import { Container } from 'ui'
 
-export const metadata: Metadata = {
-  title: siteConfig.name + ' is a Chill Set of React Components',
-  description: siteConfig.description,
-  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? siteConfig.url)
-}
-
 export default function Page() {
   return (
     <>
