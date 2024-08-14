@@ -86,12 +86,12 @@ interface MenuContentProps<T>
 }
 
 const MenuContent = <T extends object>({
-  className,
-  showArrow = false,
-  popoverClassName,
-  offset = 4,
-  ...props
-}: MenuContentProps<T>) => {
+                                         className,
+                                         showArrow = false,
+                                         popoverClassName,
+                                         offset = 4,
+                                         ...props
+                                       }: MenuContentProps<T>) => {
   const { respectScreen } = useMenuContext()
   return (
     <Popover.Content
@@ -158,12 +158,14 @@ const MenuSeparator = ({ className, ...props }: SeparatorProps) => (
 const MenuKeyboard = Keyboard
 
 const MenuCheckbox = ({ className, children, ...props }: MenuItemProps) => (
-  <MenuItem className={cn('pr-8', className)} {...props}>
+  <MenuItem className={cn('pl-8', className)} {...props}>
     {(values) => (
       <>
-        <span className="absolute right-2 flex size-4 items-center animate-in justify-center">
-          {values.isSelected && <IconCheck className="size-4" />}
-        </span>
+        {values.isSelected &&
+          <span className="absolute left-2.5 flex size-4 items-center animate-in justify-center"><IconCheck
+            className="size-4" />
+          </span>}
+
 
         {typeof children === 'function' ? children(values) : children}
       </>
@@ -172,12 +174,14 @@ const MenuCheckbox = ({ className, children, ...props }: MenuItemProps) => (
 )
 
 const MenuRadio = ({ className, children, ...props }: MenuItemProps) => (
-  <MenuItem className={cn('pr-8', className)} {...props}>
+  <MenuItem className={cn('pl-8', className)} {...props}>
     {(values) => (
       <>
-        <span className="absolute right-2 flex size-2.5 items-center animate-in justify-center">
-          {values.isSelected && <IconBulletFill className="size-2.5" />}
-        </span>
+
+        {values.isSelected &&
+          <span className="absolute left-2.5 flex size-2.5 items-center animate-in justify-center"><IconBulletFill
+            className="size-2.5" /></span>}
+
         {typeof children === 'function' ? children(values) : children}
       </>
     )}
