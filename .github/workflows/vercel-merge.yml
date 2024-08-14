@@ -6,7 +6,7 @@ on:
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
-    environment: myenvironment
+    environment: Preview
     steps:
       - uses: actions/checkout@v4
       - uses: amondnet/vercel-action@v25
