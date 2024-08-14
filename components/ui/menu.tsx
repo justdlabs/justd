@@ -9,7 +9,8 @@ import type {
   MenuProps as MenuPrimitiveProps,
   MenuTriggerProps as MenuTriggerPrimitiveProps,
   PopoverProps,
-  SeparatorProps} from 'react-aria-components';
+  SeparatorProps
+} from 'react-aria-components'
 import {
   Button,
   composeRenderProps,

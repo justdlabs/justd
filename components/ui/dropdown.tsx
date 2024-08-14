@@ -112,9 +112,4 @@ const DropdownItemDetails = ({ label, description, ...props }: DropdownItemSlot)
 }
 
 // Note: This is not exposed component, but it's used in other components to render dropdowns.
-export {
-  DropdownItem,
-  dropdownItemStyles,
-  DropdownItemDetails,
-  DropdownSection
-}
+export { DropdownItem, dropdownItemStyles, DropdownItemDetails, DropdownSection }

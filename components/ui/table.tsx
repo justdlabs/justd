@@ -11,9 +11,9 @@ import type {
 } from 'react-aria-components'
 import {
   Button,
+  Cell as CellPrimitive,
   Collection,
   Column as ColumnPrimitive,
-  Cell as CellPrimitive,
   Row as RowPrimitive,
   Table as TablePrimitive,
   TableBody as TableBodyPrimitive,
