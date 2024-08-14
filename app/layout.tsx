@@ -68,41 +68,41 @@ const fontMono = localFont({
 })
 
 export default function RootLayout({
-                                     children
-                                   }: Readonly<{
+  children
+}: Readonly<{
   children: React.ReactNode
 }>) {
   return (
-    <html dir='ltr' lang="en" suppressHydrationWarning>
-    <ViewTransitions>
-      <body
-        className={cn(
-          'min-h-svh [max-width:1850px] mx-auto bg-background font-sans antialiased',
-          fontSans.variable,
-          fontMono.variable
-        )}
-      >
-      <Providers>
-        <div className="relative flex min-h-dvh flex-col bg-background">
-          <Navbar />
-          <main className="flex-1">{children}</main>
+    <html dir="ltr" lang="en" suppressHydrationWarning>
+      <ViewTransitions>
+        <body
+          className={cn(
+            'min-h-svh [max-width:1850px] mx-auto bg-background font-sans antialiased',
+            fontSans.variable,
+            fontMono.variable
+          )}
+        >
+          <Providers>
+            <div className="relative flex min-h-dvh flex-col bg-background">
+              <Navbar />
+              <main className="flex-1">{children}</main>
 
-          <Footer />
-          <Toast />
-        </div>
-        {process.env.NODE_ENV === 'production' && (
-          <OpenpanelProvider
-            url={process.env.ANALYTICS_CLIENT_URL as string}
-            clientSecret={process.env.ANALYTICS_CLIENT_SECRET as string}
-            clientId={process.env.ANALYTICS_CLIENT_ID as string}
-            trackScreenViews={true}
-            trackAttributes={true}
-            trackOutgoingLinks={true}
-          />
-        )}
-      </Providers>
-      </body>
-    </ViewTransitions>
+              <Footer />
+              <Toast />
+            </div>
+            {process.env.NODE_ENV === 'production' && (
+              <OpenpanelProvider
+                url={process.env.ANALYTICS_CLIENT_URL as string}
+                clientSecret={process.env.ANALYTICS_CLIENT_SECRET as string}
+                clientId={process.env.ANALYTICS_CLIENT_ID as string}
+                trackScreenViews={true}
+                trackAttributes={true}
+                trackOutgoingLinks={true}
+              />
+            )}
+          </Providers>
+        </body>
+      </ViewTransitions>
     </html>
   )
 }
