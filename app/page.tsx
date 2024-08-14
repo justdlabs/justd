@@ -2,8 +2,6 @@ import { Blocks } from '@/components/blocks'
 import { Cta } from '@/components/cta'
 import { Hero } from '@/components/hero'
 import { Resources } from '@/components/resources'
-import { siteConfig } from '@/resources/config/site'
-import type { Metadata } from 'next'
 import { Container } from 'ui'
 
 export default function Page() {
