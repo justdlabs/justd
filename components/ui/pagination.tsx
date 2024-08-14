@@ -1,5 +1,4 @@
 'use client'
-
 import * as React from 'react'
 
 import {
@@ -13,7 +12,8 @@ import type { ListBoxItemProps, ListBoxProps, SectionProps } from 'react-aria-co
 import { ListBox, ListBoxItem, Section, Separator } from 'react-aria-components'
 
 import { buttonStyles } from './button'
-import { cn } from './primitive'
+import {cn, twMerge} from './primitive'
+import {twJoin} from "tailwind-merge";
 
 const Pagination = ({ className, ...props }: React.ComponentProps<'nav'>) => (
   <nav
@@ -44,7 +44,7 @@ const PaginationList = <T extends object>({ className, ...props }: ListBoxProps<
 const renderListItem = (
   props: ListBoxItemProps & {
     textValue?: string
-    ariaCurrent?: string | undefined
+    'aria-current'?: string | undefined
     isDisabled?: boolean
     className?: string
   },
@@ -54,16 +54,7 @@ const renderListItem = (
 interface PaginationItemProps extends ListBoxItemProps {
   children?: React.ReactNode
   className?: string
-  intent?:
-    | 'primary'
-    | 'secondary'
-    | 'danger'
-    | 'warning'
-    | 'info'
-    | 'light/dark'
-    | 'success'
-    | 'light'
-    | 'dark'
+  intent?: 'primary' | 'secondary' | 'danger' | 'warning' | 'info' | 'light/dark' | 'success' | 'light' | 'dark'
   size?: 'medium' | 'large' | 'square-petite' | 'extra-small' | 'small'
   shape?: 'square' | 'circle'
   appearance?: 'solid' | 'outline' | 'plain'
@@ -83,24 +74,21 @@ const PaginationItem = ({
   ...props
 }: PaginationItemProps) => {
   const textValue =
-    typeof children === 'string'
-      ? children
-      : typeof children === 'number'
-        ? children.toString()
-        : undefined
+    typeof children === 'string' ? children : typeof children === 'number' ? children.toString() : undefined
 
   const renderPaginationIndicator = (indicator: React.ReactNode) =>
     renderListItem(
       {
         textValue: role,
-        ariaCurrent: isCurrent ? 'page' : undefined,
+        'aria-current': isCurrent ? 'page' : undefined,
         isDisabled: isCurrent,
         className: cn(
           buttonStyles({
             appearance: 'outline',
             size: 'square-petite',
-            className:
-              'focus-visible:border-primary focus-visible:bg-primary/10 dark:focus-visible:text-primary-100 dark:[&>[data-slot=icon]]:text-primary-100 focus-visible:text-primary-900 [&>[data-slot=icon]]:text-primary-960 focus-visible:ring-4 focus-visible:ring-primary/20'
+            className: twMerge([
+              'focus-visible:border-primary focus-visible:bg-primary/10 dark:focus-visible:text-primary-100 dark:[&>[data-slot=icon]]:text-primary-100 focus-visible:text-primary-900 [&>[data-slot=icon]]:text-primary-960 focus-visible:ring-4 focus-visible:ring-primary/20',
+            ])
           }),
           className
         ),
@@ -157,7 +145,7 @@ const PaginationItem = ({
       return renderListItem(
         {
           textValue: textValue,
-          ariaCurrent: isCurrent ? 'page' : undefined,
+          'aria-current': isCurrent ? 'page' : undefined,
           isDisabled: isCurrent,
           className: cn(
             buttonStyles({
@@ -165,7 +153,7 @@ const PaginationItem = ({
               appearance: isCurrent ? 'solid' : appearance,
               size,
               className:
-                'focus-visible:border-primary focus-visible:bg-primary/10 dark:focus-visible:text-primary-100 dark:[&>[data-slot=icon]]:text-primary-100 focus-visible:text-primary-900 [&>[data-slot=icon]]:text-primary-960 focus-visible:ring-4 focus-visible:ring-primary/20 disabled:opacity-100'
+                'focus-visible:border-primary disabled:cursor-default focus-visible:bg-primary/10 dark:focus-visible:text-primary-100 dark:[&>[data-slot=icon]]:text-primary-100 focus-visible:text-primary-900 [&>[data-slot=icon]]:text-primary-960 focus-visible:ring-4 focus-visible:ring-primary/20 disabled:opacity-100'
             }),
             className
           ),

@@ -3,6 +3,7 @@
 import * as React from 'react'
 import { type ReactNode } from 'react'
 
+import { IconCheck, IconMinus } from 'justd-icons'
 import {
   Checkbox as CheckboxPrimitive,
   CheckboxGroup as CheckboxGroupPrimitive,
@@ -15,7 +16,6 @@ import { tv } from 'tailwind-variants'
 
 import { Description, FieldError, Label } from './field'
 import { ctr } from './primitive'
-import { IconCheck, IconMinus } from 'justd-icons'
 
 interface CheckboxGroupProps extends Omit<CheckboxGroupPrimitiveProps, 'children'> {
   label?: string
@@ -89,11 +89,7 @@ const Checkbox = (props: CheckboxProps) => {
               ...renderProps
             })}
           >
-            {isIndeterminate ? (
-              <IconMinus/>
-            ) : isSelected ? (
-              <IconCheck/>
-            ) : null}
+            {isIndeterminate ? <IconMinus /> : isSelected ? <IconCheck /> : null}
           </div>
 
           <div className="flex flex-col gap-1">
