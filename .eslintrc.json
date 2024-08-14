@@ -8,7 +8,6 @@
   "plugins": [
     "@typescript-eslint"
   ],
-  "parser": "@typescript-eslint/parser",
   "rules": {
     "react-hooks/exhaustive-deps": "off",
     "react/jsx-uses-react": "warn",
