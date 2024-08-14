@@ -72,11 +72,7 @@ const Header = ({ className, ...props }: DialogHeaderProps) => {
     <div data-slot="dialog-header" ref={headerRef} className={header({ className })}>
       {props.title && <Title>{props.title}</Title>}
       {props.description && <Description>{props.description}</Description>}
-      {!props.title && typeof props.children === 'string' ? (
-        <Title {...props} />
-      ) : (
-        props.children
-      )}
+      {!props.title && typeof props.children === 'string' ? <Title {...props} /> : props.children}
     </div>
   )
 }
