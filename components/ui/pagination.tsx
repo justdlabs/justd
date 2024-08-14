@@ -1,4 +1,3 @@
-'use client'
 import * as React from 'react'
 
 import {
@@ -8,34 +7,67 @@ import {
   IconChevronsLgRight,
   IconDotsHorizontal
 } from 'justd-icons'
-import type { ListBoxItemProps, ListBoxProps, SectionProps } from 'react-aria-components'
-import { ListBox, ListBoxItem, Section, Separator } from 'react-aria-components'
+import {
+  composeRenderProps,
+  ListBox,
+  ListBoxItem,
+  ListBoxItemProps,
+  ListBoxProps,
+  Section,
+  SectionProps,
+  Separator
+} from 'react-aria-components'
 
 import { buttonStyles } from './button'
-import {cn, twMerge} from './primitive'
-import {twJoin} from "tailwind-merge";
+import { cn } from './primitive'
+import { tv } from 'tailwind-variants'
+
+const paginationStyles = tv({
+  slots: {
+    pagination: 'mx-auto flex w-full justify-center gap-1',
+    section: 'flex h-9 gap-1',
+    list: 'flex flex-row items-center gap-1',
+    itemButton:
+      'focus-visible:border-primary focus-visible:bg-primary/10 dark:focus-visible:text-primary-100 dark:[&>[data-slot=icon]]:text-primary-100 focus-visible:text-primary-900 [&>[data-slot=icon]]:text-primary-960 focus-visible:ring-4 focus-visible:ring-primary/20',
+    itemLabel: 'h-9 px-3.5 grid place-content-center',
+    itemSeparator: 'h-9 grid place-content-center',
+    itemEllipsis:
+      'flex items-center justify-center focus-visible:border-primary rounded-lg border border-transparent focus:outline-none size-9 focus-visible:bg-primary/10 dark:focus-visible:text-primary-100 dark:[&>[data-slot=icon]]:text-primary-100 focus-visible:text-primary-900 [&>[data-slot=icon]]:text-primary-960 focus-visible:ring-4 focus-visible:ring-primary/20',
+    itemEllipsisIcon: 'flex size-9 items-center justify-center',
+    defaultItem:
+      'focus-visible:border-primary disabled:cursor-default focus-visible:bg-primary/10 dark:focus-visible:text-primary-100 dark:[&>[data-slot=icon]]:text-primary-100 focus-visible:text-primary-900 [&>[data-slot=icon]]:text-primary-960 focus-visible:ring-4 focus-visible:ring-primary/20 disabled:opacity-100',
+    itemSeparatorLine: 'h-5 w-[1.5px] bg-zinc-300 dark:bg-zinc-700 rotate-[14deg] shrink-0'
+  }
+})
+
+const {
+  pagination,
+  section,
+  list,
+  itemButton,
+  itemLabel,
+  itemSeparator,
+  itemEllipsis,
+  itemEllipsisIcon,
+  defaultItem,
+  itemSeparatorLine
+} = paginationStyles()
 
 const Pagination = ({ className, ...props }: React.ComponentProps<'nav'>) => (
-  <nav
-    role="navigation"
-    aria-label="pagination"
-    className={cn('mx-auto flex w-full justify-center gap-1', className)}
-    {...props}
-  />
+  <nav role="navigation" aria-label="pagination" className={pagination({ className })} {...props} />
 )
 
 const PaginationSection = <T extends object>({ className, ...props }: SectionProps<T>) => (
-  <Section {...props} className={cn('flex h-9 gap-1', className)} />
+  <Section {...props} className={section({ className })} />
 )
 
 const PaginationList = <T extends object>({ className, ...props }: ListBoxProps<T>) => {
-  const ariaLabel = props['aria-label'] || 'Pagination'
   return (
     <ListBox
       orientation="horizontal"
-      aria-label={ariaLabel}
+      aria-label={props['aria-label'] || 'Pagination'}
       layout="grid"
-      className={cn('flex flex-row items-center gap-1', className)}
+      className={composeRenderProps(className, (className) => list({ className }))}
       {...props}
     />
   )
@@ -86,9 +118,7 @@ const PaginationItem = ({
           buttonStyles({
             appearance: 'outline',
             size: 'square-petite',
-            className: twMerge([
-              'focus-visible:border-primary focus-visible:bg-primary/10 dark:focus-visible:text-primary-100 dark:[&>[data-slot=icon]]:text-primary-100 focus-visible:text-primary-900 [&>[data-slot=icon]]:text-primary-960 focus-visible:ring-4 focus-visible:ring-primary/20',
-            ])
+            className: itemButton()
           }),
           className
         ),
@@ -102,7 +132,7 @@ const PaginationItem = ({
       return renderListItem(
         {
           textValue: textValue,
-          className: cn('h-9 px-3.5 grid place-content-center', className),
+          className: itemLabel({ className }),
           ...props
         },
         children
@@ -111,25 +141,19 @@ const PaginationItem = ({
       return renderListItem(
         {
           textValue: 'Separator',
-          className: 'h-9 grid place-content-center',
+          className: itemSeparator({ className }),
           ...props
         },
-        <Separator
-          orientation="vertical"
-          className="h-5 w-[1.5px] bg-zinc-300 dark:bg-zinc-700 rotate-[14deg] shrink-0"
-        />
+        <Separator orientation="vertical" className={itemSeparatorLine()} />
       )
     case 'ellipsis':
       return renderListItem(
         {
           textValue: 'More pages',
-          className: cn(
-            'flex items-center justify-center focus-visible:border-primary rounded-lg border border-transparent focus:outline-none size-9 focus-visible:bg-primary/10 dark:focus-visible:text-primary-100 dark:[&>[data-slot=icon]]:text-primary-100 focus-visible:text-primary-900 [&>[data-slot=icon]]:text-primary-960 focus-visible:ring-4 focus-visible:ring-primary/20',
-            className
-          ),
+          className: itemEllipsis({ className }),
           ...props
         },
-        <span aria-hidden className={cn('flex size-9 items-center justify-center', className)}>
+        <span aria-hidden className={itemEllipsisIcon({ className })}>
           <IconDotsHorizontal />
         </span>
       )
@@ -152,8 +176,7 @@ const PaginationItem = ({
               intent: isCurrent ? 'primary' : intent,
               appearance: isCurrent ? 'solid' : appearance,
               size,
-              className:
-                'focus-visible:border-primary disabled:cursor-default focus-visible:bg-primary/10 dark:focus-visible:text-primary-100 dark:[&>[data-slot=icon]]:text-primary-100 focus-visible:text-primary-900 [&>[data-slot=icon]]:text-primary-960 focus-visible:ring-4 focus-visible:ring-primary/20 disabled:opacity-100'
+              className: defaultItem({ className })
             }),
             className
           ),
