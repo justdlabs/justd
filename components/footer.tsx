@@ -33,7 +33,7 @@ export function Footer() {
             Vercel
           </Link>
           . The source code's got the{' '}
-          <Link href="https://github.com/irsyadadl/justd/blob/main/LICENSE">MIT</Link> license.
+          <Link href="https://github.com/justdlabs/justd/blob/main/LICENSE">MIT</Link> license.
         </p>
       </Container>
     </footer>
