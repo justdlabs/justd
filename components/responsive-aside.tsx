@@ -3,9 +3,9 @@
 import React from 'react'
 
 import { LayoutGroup } from 'framer-motion'
-import { IconBrandJustd, IconHamburger, IconSearch } from 'justd-icons'
+import { IconBrandJustd, IconBrandX, IconHamburger, IconSearch } from 'justd-icons'
 import { usePathname } from 'next/navigation'
-import { Button, cn, Link, Menu, Sheet } from 'ui'
+import { Button, buttonStyles, cn, Link, Sheet } from 'ui'
 
 import { Aside } from './aside'
 import { CommandPalette } from './command-palette'
@@ -55,6 +55,13 @@ export function ResponsiveAside({
             <IconSearch />
           </Button>
           <ThemeSwitcher />
+          <Link
+            href="https://x.com/irsyadadl"
+            aria-label="Follow me on twitter"
+            className={buttonStyles({ appearance: 'outline', size: 'square-petite' })}
+          >
+            <IconBrandX />
+          </Link>
         </div>
       </div>
       <Sheet.Content
