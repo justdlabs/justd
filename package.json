@@ -9,6 +9,7 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write \"**/*.{ts,tsx}\" && npm run b",
+    "generate-preview": "bun run resources/scripts/create-pr-content.ts",
     "b": "bun run resources/scripts/create-pr-content.ts",
     "preview": "bun run build && bun run start",
     "prepare": "husky"
