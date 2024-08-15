@@ -12,6 +12,9 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install Bun
         run: curl -fsSL https://bun.sh/install | bash
+      - name: Add Bun to PATH
+        run: echo "export BUN_INSTALL=\"$HOME/.bun\"" >> $GITHUB_ENV
+        shell: bash
       - name: Install Vercel CLI
         run: bun install --global vercel@latest
       - name: Pull Vercel Environment Information
