@@ -77,7 +77,7 @@ export default function SheetMenuDemo() {
         <Sheet.Trigger aria-label="Open menu">
           <Avatar src="https://github.com/irsyadadl.png" alt="irsyadadl" />
         </Sheet.Trigger>
-        <Sheet.Content classNames={{ content: '[&_.dlc]:p-0' }} closeButton={false}>
+        <Sheet.Content closeButton={false}>
           <Sheet.Header className="flex border-b p-4 sticky top-0 bg-overlay flex-row items-center gap-x-3 mb-2">
             <Avatar src="https://github.com/irsyadadl.png" alt="irsyadadl" />
             <div>
@@ -85,8 +85,8 @@ export default function SheetMenuDemo() {
               <Sheet.Description>Irsyad A. Panjaitan</Sheet.Description>
             </div>
           </Sheet.Header>
-          <Sheet.Body className="px-0">
-            <Menu.Content className="divide-y [&_.xss3]:p-2">
+          <Sheet.Body className="px-0 sm:px-0">
+            <Menu.Primitive className="divide-y [&_.xss3]:p-2">
               <Menu.Section>
                 <Menu.Item onAction={openModal}>
                   <IconBrandGithub />
@@ -149,7 +149,7 @@ export default function SheetMenuDemo() {
                   <IconLogout /> Sign out
                 </Menu.Item>
               </Menu.Section>
-            </Menu.Content>
+            </Menu.Primitive>
           </Sheet.Body>
         </Sheet.Content>
       </Sheet>

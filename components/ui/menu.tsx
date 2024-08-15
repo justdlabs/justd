@@ -184,6 +184,7 @@ const Radio = ({ className, children, ...props }: MenuItemProps) => (
   </Item>
 )
 
+Menu.Primitive = MenuPrimitive
 Menu.Content = Content
 Menu.Header = MenuHeader
 Menu.Item = Item
