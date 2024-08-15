@@ -8,10 +8,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write \"**/*.{ts,tsx}\" && npm run b",
+    "format": "prettier --write \"**/*.{ts,tsx}\" && npm run generate-preview",
     "generate-preview": "bun run resources/scripts/create-pr-content.ts",
-    "b": "bun run resources/scripts/create-pr-content.ts",
-    "preview": "bun run build && bun run start",
+    "b": "bun run generate-preview",
+    "preview": "npm run build && npm run start",
     "prepare": "husky"
   },
   "dependencies": {

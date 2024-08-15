@@ -11,11 +11,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install Vercel CLI
-        run: npm install --global vercel@latest
+        run: bun install --global vercel@latest
       - name: Pull Vercel Environment Information
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Install Bun
+        run: curl -fsSL https://bun.sh/install | bash
       - name: Generate Source Code Preview
-        run: npm run generate-preview
+        run: bun run generate-preview
       - name: Build Project Artifacts
         run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
         env:
