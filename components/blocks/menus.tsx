@@ -15,7 +15,7 @@ import {
   IconPlus,
   IconSettings
 } from 'justd-icons'
-import { Avatar, Button, Menu } from 'ui'
+import { Button, Menu } from 'ui'
 
 export function Menus() {
   return (
