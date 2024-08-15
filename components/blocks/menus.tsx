@@ -5,6 +5,7 @@ import {
   IconBrandBluesky,
   IconBrandTelegram,
   IconBrandTwitter,
+  IconChevronLgDown,
   IconHashtag,
   IconHeadphones,
   IconLogout,
@@ -14,15 +15,15 @@ import {
   IconPlus,
   IconSettings
 } from 'justd-icons'
-import { Avatar, Menu } from 'ui'
+import { Avatar, Button, Menu } from 'ui'
 
 export function Menus() {
   return (
     <CardBlock>
       <Menu>
-        <Menu.Trigger aria-label="Open Menu">
-          <Avatar shape="square" size="medium" src="https://github.com/irsyadadl.png" />
-        </Menu.Trigger>
+        <Button className="group" appearance="outline">
+          Account <IconChevronLgDown className="group-pressed:rotate-180 duration-300" />
+        </Button>
         <Menu.Content showArrow placement="bottom" className="min-w-64">
           <Menu.Section>
             <Menu.Header separator>

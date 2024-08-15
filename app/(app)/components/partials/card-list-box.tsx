@@ -46,7 +46,7 @@ export function CardListBox() {
             tracking="tight"
             level={2}
             id={category}
-            className="mb-3 scroll-mt-28 font-medium text-fg"
+            className="mb-4 scroll-mt-28 font-medium text-fg"
           >
             {goodTitle(category)}
           </Heading>
