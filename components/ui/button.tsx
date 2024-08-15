@@ -4,12 +4,11 @@ import * as React from 'react'
 
 import {
   Button as ButtonPrimitive,
-  type ButtonProps as ButtonPrimitiveProps,
-  composeRenderProps
+  type ButtonProps as ButtonPrimitiveProps
 } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
-import { focusButtonStyles } from './primitive'
+import { cr, focusButtonStyles } from './primitive'
 
 const buttonStyles = tv(
   {
@@ -144,7 +143,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <ButtonPrimitive
         ref={ref}
         {...props}
-        className={composeRenderProps(className, (className, renderProps) =>
+        className={cr(className, (className, renderProps) =>
           buttonStyles({
             ...renderProps,
             intent,

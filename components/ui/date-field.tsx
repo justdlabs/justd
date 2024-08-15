@@ -1,7 +1,6 @@
 'use client'
 
 import {
-  composeRenderProps,
   DateField as DateFieldPrimitive,
   type DateFieldProps as DateFieldPrimitiveProps,
   DateInput as DateInputPrimitive,
@@ -13,7 +12,7 @@ import {
 import { tv } from 'tailwind-variants'
 
 import { Description, FieldError, fieldGroupStyles, Label } from './field'
-import { cn, ctr } from './primitive'
+import { cn, cr, ctr } from './primitive'
 
 interface DateFieldProps<T extends DateValue> extends DateFieldPrimitiveProps<T> {
   label?: string
@@ -58,7 +57,7 @@ const segmentStyles = tv({
 const DateInput = (props: Omit<DateInputProps, 'children'>) => {
   return (
     <DateInputPrimitive
-      className={composeRenderProps(props.className, (className, renderProps) =>
+      className={cr(props.className, (className, renderProps) =>
         fieldGroupStyles({
           ...renderProps,
           className: cn(

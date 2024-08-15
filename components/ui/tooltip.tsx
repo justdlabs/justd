@@ -4,13 +4,14 @@ import React from 'react'
 
 import {
   Button,
-  composeRenderProps,
   OverlayArrow,
   Tooltip as TooltipPrimitive,
   type TooltipProps as TooltipPrimitiveProps,
   TooltipTrigger
 } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
+
+import { cr } from './primitive'
 
 interface TooltipProps extends Omit<TooltipPrimitiveProps, 'children'> {
   children: React.ReactNode
@@ -40,7 +41,7 @@ const Content = ({ children, ...props }: TooltipProps) => {
     <TooltipPrimitive
       {...props}
       offset={10}
-      className={composeRenderProps(props.className, (className, renderProps) =>
+      className={cr(props.className, (className, renderProps) =>
         tooltipStyles({
           ...renderProps,
           className

@@ -9,8 +9,6 @@ import { Menus } from '@/components/blocks/menus'
 import { ModalOverlays, PopoverOverlays } from '@/components/blocks/overlays'
 import { TableDemo } from '@/components/blocks/table-demo'
 import { ToolbarBlock } from '@/components/blocks/toolbar-block'
-import FileTriggerAvatarDemo from '@/components/docs/buttons/file-trigger-avatar-demo'
-import TagGroupDemo from '@/components/docs/collections/tag-group-demo'
 import ColorPickerCombinationDemo from '@/components/docs/colors/color-picker-combination-demo'
 import SwitchDemo from '@/components/docs/controls/switch-demo'
 import CalendarDemo from '@/components/docs/date-and-time/calendar-demo'
@@ -92,7 +90,7 @@ export function Blocks() {
             </CardBlock>
           </Grid.Item>
           <Grid.Item>
-            <ModalOverlays />
+            <Menus />
           </Grid.Item>
           <Grid.Item>
             <PopoverOverlays />
@@ -106,17 +104,7 @@ export function Blocks() {
             </CardBlock>
           </Grid.Item>
           <Grid.Item>
-            <Menus />
-          </Grid.Item>
-          <Grid.Item>
-            <CardBlock>
-              <TagGroupDemo />
-            </CardBlock>
-          </Grid.Item>
-          <Grid.Item>
-            <CardBlock>
-              <FileTriggerAvatarDemo />
-            </CardBlock>
+            <ModalOverlays />
           </Grid.Item>
         </Grid>
       </div>

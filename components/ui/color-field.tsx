@@ -2,7 +2,6 @@
 
 import * as React from 'react'
 
-import { ctr } from '@/components/ui/primitive'
 import type {
   ColorFieldProps as ColorFieldPrimitiveProps,
   ValidationResult
@@ -12,6 +11,7 @@ import { ColorField as ColorFieldPrimitive } from 'react-aria-components'
 import { ColorSwatch } from './color'
 import { ColorPicker } from './color-picker'
 import { Description, FieldError, FieldGroup, fieldGroupPrefixStyles, Input, Label } from './field'
+import { ctr } from './primitive'
 
 interface ColorFieldProps extends ColorFieldPrimitiveProps {
   label?: string
@@ -33,6 +33,7 @@ const ColorField = ({
   suffix,
   isLoading,
   enableColorPicker = true,
+  className,
   ...props
 }: ColorFieldProps) => {
   const value = props.value ?? props.defaultValue
@@ -40,7 +41,7 @@ const ColorField = ({
     <ColorFieldPrimitive
       {...props}
       aria-label={props['aria-label'] ?? 'Color field'}
-      className={ctr(props.className, 'group w-full flex flex-col gap-1')}
+      className={ctr(className, 'group w-full flex flex-col gap-1')}
     >
       {label && <Label>{label}</Label>}
       <FieldGroup

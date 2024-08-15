@@ -18,13 +18,12 @@ import {
   ColorThumb as ColorThumbPrimitive,
   ColorWheel as ColorWheelPrimitive,
   ColorWheelTrack as ColorWheelTrackPrimitive,
-  composeRenderProps,
   SliderOutput
 } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
 import { Description, Label } from './field'
-import { cn, focusStyles } from './primitive'
+import { cn, cr, focusStyles } from './primitive'
 import { Slider } from './slider'
 
 const colorAreaStyles = tv({
@@ -38,7 +37,7 @@ const ColorArea = ({ className, ...props }: ColorAreaProps) => {
     <ColorAreaPrimitive
       aria-label={props['aria-label'] ?? 'Color area'}
       {...props}
-      className={composeRenderProps(className, (className, renderProps) =>
+      className={cr(className, (className, renderProps) =>
         colorAreaStyles({
           ...renderProps,
           className
@@ -62,7 +61,7 @@ const colorThumbStyles = tv({
 const ColorThumb = ({ className, ...props }: ColorThumbProps) => {
   return (
     <ColorThumbPrimitive
-      className={composeRenderProps(className, (className, renderProps) =>
+      className={cr(className, (className, renderProps) =>
         colorThumbStyles({
           ...renderProps,
           className
@@ -81,7 +80,7 @@ const colorSwatchPickerItemStyles = tv({
 const ColorSwatchPickerItem = ({ className, ...props }: ColorSwatchPickerItemPrimitiveProps) => {
   return (
     <ColorSwatchPickerItemPrimitive
-      className={composeRenderProps(className, (className, renderProps) =>
+      className={cr(className, (className, renderProps) =>
         colorSwatchPickerItemStyles({
           ...renderProps,
           className

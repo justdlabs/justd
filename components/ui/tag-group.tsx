@@ -9,7 +9,6 @@ import type {
 } from 'react-aria-components'
 import {
   Button,
-  composeRenderProps,
   Tag as TagPrimitive,
   TagGroup as TagGroupPrimitive,
   TagList as TagListPrimitive
@@ -19,7 +18,7 @@ import { tv } from 'tailwind-variants'
 
 import { badgeIntents, badgeShapes, badgeStyles } from './badge'
 import { Description, Label } from './field'
-import { cn, ctr, focusStyles } from './primitive'
+import { cn, cr, ctr, focusStyles } from './primitive'
 
 const intents = {
   primary: {
@@ -145,7 +144,7 @@ const TagItem = ({ children, className, intent, shape, ...props }: TagProps) => 
     <TagPrimitive
       textValue={textValue}
       {...props}
-      className={composeRenderProps(className, (_, renderProps) => {
+      className={cr(className, (_, renderProps) => {
         const finalIntent = intent || groupContext.intent
         const finalShape = shape || groupContext.shape
 
@@ -166,7 +165,7 @@ const TagItem = ({ children, className, intent, shape, ...props }: TagProps) => 
             {allowsRemoving && (
               <Button
                 slot="remove"
-                className={composeRenderProps('', (className) => {
+                className={cr('', (className) => {
                   return twMerge(
                     'rounded focus:outline-none size-3.5 grid place-content-center -mr-0.5 focus-visible:ring-1 focus-visible:ring-primary',
                     className

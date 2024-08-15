@@ -10,7 +10,6 @@ import {
   IconDotsHorizontal
 } from 'justd-icons'
 import {
-  composeRenderProps,
   ListBox,
   ListBoxItem,
   type ListBoxItemProps,
@@ -22,7 +21,7 @@ import {
 import { tv } from 'tailwind-variants'
 
 import { buttonStyles } from './button'
-import { cn } from './primitive'
+import { cn, cr } from './primitive'
 
 const paginationStyles = tv({
   slots: {
@@ -69,7 +68,7 @@ const PaginationList = <T extends object>({ className, ...props }: ListBoxProps<
       orientation="horizontal"
       aria-label={props['aria-label'] || 'Pagination'}
       layout="grid"
-      className={composeRenderProps(className, (className) => list({ className }))}
+      className={cr(className, (className) => list({ className }))}
       {...props}
     />
   )

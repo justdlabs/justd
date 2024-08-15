@@ -3,7 +3,6 @@
 import * as React from 'react'
 
 import {
-  composeRenderProps,
   FieldError as FieldErrorPrimitive,
   type FieldErrorProps,
   Group,
@@ -19,7 +18,7 @@ import {
 } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
-import { ctr } from './primitive'
+import { cr, ctr } from './primitive'
 
 // primitive styles
 
@@ -86,11 +85,11 @@ const fieldGroupStyles = tv({
   ]
 })
 
-const FieldGroup = (props: GroupProps) => {
+const FieldGroup = ({ className, ...props }: GroupProps) => {
   return (
     <Group
       {...props}
-      className={composeRenderProps(props.className, (className, renderProps) =>
+      className={cr(className, (className, renderProps) =>
         fieldGroupStyles({ ...renderProps, className })
       )}
     />

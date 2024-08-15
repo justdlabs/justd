@@ -3,13 +3,13 @@
 import * as React from 'react'
 
 import type { GridListItemProps, GridListProps } from 'react-aria-components'
-import { composeRenderProps, GridList, GridListItem } from 'react-aria-components'
+import { GridList, GridListItem } from 'react-aria-components'
 import type { VariantProps } from 'tailwind-variants'
 import { tv } from 'tailwind-variants'
 
 import { Checkbox } from './checkbox'
 import { Description, Label } from './field'
-import { focusStyles } from './primitive'
+import { cr, focusStyles } from './primitive'
 
 const choiceboxStyles = tv({
   base: 'grid',
@@ -90,7 +90,7 @@ const ChoiceboxItem = ({ children, className, ...props }: ChoiceboxItemProps) =>
     <GridListItem
       textValue={textValue}
       {...props}
-      className={composeRenderProps(className, (className, renderProps) =>
+      className={cr(className, (className, renderProps) =>
         choiceboxItemStyles({
           ...renderProps,
           className
