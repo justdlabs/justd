@@ -2,13 +2,13 @@
 
 import { Button, Modal } from 'ui'
 
-export default function ModalClassnamesDemo() {
+export default function ModalCustomClassnamesDemo() {
   return (
     <Modal>
       <Button>Open</Button>
       <Modal.Content
         classNames={{
-          overlay: 'bg-white/50 dark:bg-black/50 backdrop-blur',
+          overlay: 'bg-white/40 dark:bg-black/40 backdrop-blur',
           content: 'bg-background'
         }}
       >

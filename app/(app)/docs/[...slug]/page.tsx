@@ -91,7 +91,7 @@ export default async function PostPage({ params }: DocPageProps) {
       {doc.title === 'Toast' && <Toast />}
       <div className="min-w-0 max-w-2xl flex-auto pt-16 pb-32 lg:max-w-none px-4 lg:pl-8 lg:pr-0 xl:px-16">
         <main className="prose prose-pre:p-0 prose-headings:mb-[0.3rem] prose-headings:scroll-mt-24 prose-blue dark:prose-invert max-w-[inherit]">
-          <h1 className="mb-2 font-semibold tracking-tighter sm:tracking-tight text-2xl sm:text-3xl">
+          <h1 className="mb-2 font-semibold tracking-tight sm:tracking-tight text-2xl sm:text-3xl">
             {doc.title}
           </h1>
           {doc.description ? (

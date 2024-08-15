@@ -429,3 +429,58 @@ Ensure you configure the `paths` property correctly if your project includes a `
   }
 }
 ```
+
+## Fonts
+This is is currently using the [Inter font](https://rsms.me/inter/). If you want to use a different font, you can adjust the font-sans variable in the tailwind config to point to your font file.
+### Stylesheet
+When you're working with a stylesheet, you can adjust the font-family property in the tailwind config to point to your font file.
+
+```css
+@font-face {
+  font-family: InterVariable;
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("InterVariable.woff2") format("woff2");
+}
+@font-face {
+  font-family: InterVariable;
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("InterVariable-Italic.woff2") format("woff2");
+}
+```
+
+### Next.js
+If you're using Next.js, you don't event need css files. Just adjust the font-sans variable in the tailwind config to point to your font file.
+
+```tsx
+import localFont from 'next/font/local'
+
+const fontSans = localFont({
+  src: [{ path: './fonts/Inter.woff2' }],
+  variable: '--font-sans'
+})
+```
+Then, apply the `fontSans` to the `body` tag like this:
+```
+<body
+  className={cn(
+    'min-h-svh font-sans antialiased',
+    fontSans.variable,
+  )}
+>
+```
+Then, you can use the variable in your tailwind config like this:
+```
+import { fontFamily } from 'tailwindcss/defaultTheme'
+theme: {
+  extend: {
+    fontFamily: {
+    sans: ['var(--font-sans)', ...fontFamily.sans],
+    mono: ['var(--font-mono)', ...fontFamily.sans]
+  },
+},
+```
+For more information, refer to the [Tailwind documentation](https://tailwindcss.com/docs/font-family#customizing-the-default-font) and [Next.js documentation](https://nextjs.org/docs/app/building-your-application/optimizing/fonts).

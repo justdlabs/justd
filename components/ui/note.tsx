@@ -55,7 +55,7 @@ const Note = ({ hideIndicator = false, intent = 'primary', className, ...props }
     <div className={noteStyles({ intent, className })} {...props}>
       <div className="flex items-start gap-x-2.5">
         {!hideIndicator && (
-          <div className="w-5 mt-[3.5px]">
+          <div className="w-5 shrink-0 mt-px">
             {['info', 'primary', 'secondary'].includes(intent) ? (
               <IconCircleInfo />
             ) : intent === 'success' ? (

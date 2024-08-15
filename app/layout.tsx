@@ -12,16 +12,6 @@ import { ViewTransitions } from 'next-view-transitions'
 import localFont from 'next/font/local'
 import { Toast } from 'ui'
 
-export const viewport: Viewport = {
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: 'white' },
-    { media: '(prefers-color-scheme: dark)', color: 'black' }
-  ],
-  viewportFit: 'cover',
-  width: 'device-width',
-  initialScale: 1
-}
-
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? siteConfig.url),
   title: {
@@ -77,9 +67,19 @@ export const metadata: Metadata = {
   creator: 'irsyadadl'
 }
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: 'white' },
+    { media: '(prefers-color-scheme: dark)', color: 'black' }
+  ],
+  viewportFit: 'cover',
+  width: 'device-width',
+  initialScale: 1
+}
+
 const fontSans = localFont({
-  src: [{ path: './fonts/GeistVF.woff' }, { path: './fonts/GeistVF.woff2' }],
-  variable: '--font-sans'
+  src: [{ path: './fonts/Inter.woff2' }],
+  variable: '--font-sans',
 })
 
 const fontMono = localFont({
