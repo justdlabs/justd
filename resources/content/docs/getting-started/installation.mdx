@@ -68,14 +68,13 @@ This command will present a list of available components, which you can navigate
  ◯ date-and-time
 ```
 
-  ### Diff
-  <InstallCommand isInDocsComponent={false} isManual text='You can see the differences between your current setup and the new one by using the following command:' isDiff items={['']} />
+### Diff
+<InstallCommand isInDocsComponent={false} isManual text='You can see the differences between your current setup and the new one by using the following command:' isDiff items={['']} />
   You can see this [tweet](https://x.com/irsyadadl/status/1823355475020402781) if you're not sure.
 
+<InstallCommand isInDocsComponent={false} isManual isDiff text='You can also doing a diff to specific components by using the following command:' items={['multiple-select menu modal']} />
 
-  <InstallCommand isInDocsComponent={false} isManual isDiff text='You can also doing a diff to specific components by using the following command:' items={['multiple-select menu modal']} />
-
-  ## Starter Kit
+## Starter Kit
 I offer two starter kits, one for Next.js and one for Laravel. Choose the one that suits your project needs.
 
 <Note intent='primary'>
@@ -98,7 +97,17 @@ npx create-next-app@latest -e https://github.com/justdlabs/next.js project-name
 ```
 
 ### Remix
-Remix caught your eye? Kick things off with the [Remix Starter Kit](https://justd-remix.netlify.app/), crafted by [José Miguel](https://github.com/m1guer). It’s like Next.js but with that Remix spin. Grab the repo here: [justdlabs/remix](https://github.com/justdlabs/remix).
+Remix caught your eye? Kick things off with the [Remix Starter Kit](https://justd-remix.netlify.app/), crafted by [José Miguel](https://github.com/m1guer). It’s like Next.js but with that Remix spin. Grab the repo here: [justdlabs/remix](https://github.com/justdlabs/remix). To get started, run the following command:
+```bash
+npx create-remix@latest --template justdlabs/remix
+```
+
+### Astro
+  This starter is already in production, and you can check it out [here](https://justd-astro.netlify.app/). The repository is available [here](https://github.com/justdlabs/astro). To get started, run the following command:
+```bash
+npm create astro@latest -- --template justdlabs/astro
+```
+
 
 
 ## React Server Component
