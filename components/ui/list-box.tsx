@@ -4,7 +4,6 @@ import * as React from 'react'
 
 import { IconHamburger } from 'justd-icons'
 import {
-  composeRenderProps,
   ListBox as ListBoxPrimitive,
   ListBoxItem as ListBoxItemPrimitive,
   type ListBoxItemProps as ListBoxItemPrimitiveProps,
@@ -13,7 +12,7 @@ import {
 import { tv } from 'tailwind-variants'
 
 import { DropdownItemDetails, DropdownSection } from './dropdown'
-import { cn } from './primitive'
+import { cn, cr } from './primitive'
 
 const listBoxStyles = tv({
   base: 'flex max-h-96 w-full min-w-72 flex-col overflow-y-auto rounded-xl border p-1 shadow-xl outline-none'
@@ -55,7 +54,7 @@ const ListBoxItem = <T extends object>({ children, className, ...props }: ListBo
     <ListBoxItemPrimitive
       textValue={textValue}
       {...props}
-      className={composeRenderProps(className, (className, renderProps) =>
+      className={cr(className, (className, renderProps) =>
         listBoxItemStyles({
           ...renderProps,
           className

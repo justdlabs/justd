@@ -9,13 +9,12 @@ import {
   CheckboxGroup as CheckboxGroupPrimitive,
   type CheckboxGroupProps as CheckboxGroupPrimitiveProps,
   type CheckboxProps as CheckboxPrimitiveProps,
-  composeRenderProps,
   type ValidationResult
 } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
 import { Description, FieldError, Label } from './field'
-import { ctr } from './primitive'
+import { cr, ctr } from './primitive'
 
 interface CheckboxGroupProps extends Omit<CheckboxGroupPrimitiveProps, 'children'> {
   label?: string
@@ -76,7 +75,7 @@ const Checkbox = (props: CheckboxProps) => {
   return (
     <CheckboxPrimitive
       {...props}
-      className={composeRenderProps(props.className, (className, renderProps) =>
+      className={cr(props.className, (className, renderProps) =>
         checkboxStyles({ ...renderProps, className })
       )}
     >

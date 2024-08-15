@@ -3,7 +3,6 @@
 import * as React from 'react'
 
 import {
-  composeRenderProps,
   TextArea as TextAreaPrimitive,
   TextField as TextFieldPrimitive,
   type TextFieldProps as TextFieldPrimitiveProps,
@@ -12,7 +11,7 @@ import {
 import { tv } from 'tailwind-variants'
 
 import { Description, FieldError, Label } from './field'
-import { ctr, focusStyles } from './primitive'
+import { cr, ctr, focusStyles } from './primitive'
 
 const textareaStyles = tv({
   extend: focusStyles,
@@ -41,7 +40,7 @@ const Textarea = ({
       {label && <Label>{label}</Label>}
       <TextAreaPrimitive
         placeholder={placeholder}
-        className={composeRenderProps(className, (className, renderProps) =>
+        className={cr(className, (className, renderProps) =>
           textareaStyles({
             ...renderProps,
             className

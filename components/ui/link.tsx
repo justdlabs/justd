@@ -1,11 +1,9 @@
 'use client'
 
-import {
-  composeRenderProps,
-  Link as LinkPrimitive,
-  type LinkProps as LinkPrimitiveProps
-} from 'react-aria-components'
+import { Link as LinkPrimitive, type LinkProps as LinkPrimitiveProps } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
+
+import { cr } from './primitive'
 
 const linkStyles = tv({
   base: 'forced-colors:outline-[Highlight] focus-visible:outline-2 outline outline-offset-2 disabled:focus-visible:outline-0 outline-0 outline-primary rounded disabled:opacity-60 forced-colors:disabled:text-[GrayText] border-transparent transition-colors disabled:cursor-default',
@@ -35,7 +33,7 @@ const Link = ({ className, ...props }: LinkProps) => {
     <LinkPrimitive
       aria-label={props['aria-label'] ?? 'Link'}
       {...props}
-      className={composeRenderProps(className, (className, ...renderProps) =>
+      className={cr(className, (className, ...renderProps) =>
         linkStyles({ ...renderProps, intent: props.intent, className })
       )}
     />

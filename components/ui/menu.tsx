@@ -13,7 +13,6 @@ import type {
 } from 'react-aria-components'
 import {
   Button,
-  composeRenderProps,
   Header,
   Menu as MenuPrimitive,
   MenuItem,
@@ -27,7 +26,7 @@ import { tv } from 'tailwind-variants'
 import { DropdownItemDetails, dropdownItemStyles, DropdownSection } from './dropdown'
 import { Keyboard } from './keyboard'
 import { Popover } from './popover'
-import { cn } from './primitive'
+import { cn, cr } from './primitive'
 
 interface MenuContextProps {
   respectScreen: boolean
@@ -114,7 +113,7 @@ const Item = ({ className, isDanger = false, children, ...props }: MenuItemProps
   return (
     <MenuItem
       textValue={textValue}
-      className={composeRenderProps(className, (className, renderProps) =>
+      className={cr(className, (className, renderProps) =>
         dropdownItemStyles({
           ...renderProps,
           className

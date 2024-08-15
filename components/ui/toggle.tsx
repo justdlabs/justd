@@ -1,11 +1,11 @@
 'use client'
 
 import type { ToggleButtonProps } from 'react-aria-components'
-import { composeRenderProps, ToggleButton as ToggleButtonPrimitive } from 'react-aria-components'
+import { ToggleButton as ToggleButtonPrimitive } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
 import { type ButtonProps } from './button'
-import { focusButtonStyles } from './primitive'
+import { cr, focusButtonStyles } from './primitive'
 
 const toggleStyles = tv({
   extend: focusButtonStyles,
@@ -51,7 +51,7 @@ const Toggle = ({ className, ...props }: ToggleProps) => {
   return (
     <ToggleButtonPrimitive
       {...props}
-      className={composeRenderProps(className, (className, renderProps) =>
+      className={cr(className, (className, renderProps) =>
         toggleStyles({
           ...renderProps,
           appearance: props.appearance,

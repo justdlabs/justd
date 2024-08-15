@@ -2,13 +2,13 @@
 
 import * as React from 'react'
 
-import { cn } from '@/components/ui/primitive'
 import { AnimatePresence, motion } from 'framer-motion'
 import { IconCheck, IconDuplicate } from 'justd-icons'
 import { toast } from 'sonner'
 import { twMerge } from 'tailwind-merge'
 
 import { Button, type ButtonProps } from './button'
+import { cn } from './primitive'
 
 const snippetVariants = {
   hidden: { opacity: 0, scale: 0.5 },

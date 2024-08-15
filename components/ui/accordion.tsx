@@ -6,11 +6,11 @@ import type { MotionProps } from 'framer-motion'
 import { AnimatePresence, motion } from 'framer-motion'
 import { IconChevronDown } from 'justd-icons'
 import type { ButtonProps } from 'react-aria-components'
-import { Button, composeRenderProps } from 'react-aria-components'
+import { Button } from 'react-aria-components'
 import { twMerge } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
 
-import { cn } from './primitive'
+import { cn, cr } from './primitive'
 
 interface AccordionContextType extends React.HtmlHTMLAttributes<HTMLDivElement> {
   hideBorder?: boolean
@@ -173,7 +173,7 @@ const AccordionTrigger = ({ className, children, ...props }: AccordionTriggerPro
       isDisabled={isLocked}
       onKeyDown={onKeyDownHandler}
       onPress={handlePress}
-      className={composeRenderProps(className, (className, renderProps) =>
+      className={cr(className, (className, renderProps) =>
         accordionTriggerStyles({
           ...renderProps,
           isOpen,

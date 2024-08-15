@@ -1,25 +1,16 @@
-'use client'
+'use client';
 
-import * as React from 'react'
+import * as React from 'react';
 
-import {
-  composeRenderProps,
-  FieldError as FieldErrorPrimitive,
-  type FieldErrorProps,
-  Group,
-  type GroupProps,
-  Input as InputPrimitive,
-  type InputProps,
-  Label as LabelPrimitive,
-  type LabelProps,
-  Text,
-  type TextFieldProps as TextFieldPrimitiveProps,
-  type TextProps,
-  type ValidationResult
-} from 'react-aria-components'
-import { tv } from 'tailwind-variants'
 
-import { ctr } from './primitive'
+
+import { FieldError as FieldErrorPrimitive, type FieldErrorProps, Group, type GroupProps, Input as InputPrimitive, type InputProps, Label as LabelPrimitive, type LabelProps, Text, type TextFieldProps as TextFieldPrimitiveProps, type TextProps, type ValidationResult } from 'react-aria-components';
+import { tv } from 'tailwind-variants';
+
+
+
+import { cr, ctr } from './primitive';
+
 
 // primitive styles
 
@@ -86,11 +77,11 @@ const fieldGroupStyles = tv({
   ]
 })
 
-const FieldGroup = (props: GroupProps) => {
+const FieldGroup = ({ className, ...props }: GroupProps) => {
   return (
     <Group
       {...props}
-      className={composeRenderProps(props.className, (className, renderProps) =>
+      className={cr(className, (className, renderProps) =>
         fieldGroupStyles({ ...renderProps, className })
       )}
     />

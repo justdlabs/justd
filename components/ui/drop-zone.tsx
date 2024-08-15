@@ -2,14 +2,10 @@
 
 import React from 'react'
 
-import {
-  composeRenderProps,
-  DropZone as DropPrimitiveZone,
-  type DropZoneProps
-} from 'react-aria-components'
+import { DropZone as DropPrimitiveZone, type DropZoneProps } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
-import { focusStyles } from './primitive'
+import { cr, focusStyles } from './primitive'
 
 const dropZoneStyles = tv({
   extend: focusStyles,
@@ -23,7 +19,7 @@ const dropZoneStyles = tv({
 
 const DropZone = ({ className, ...props }: DropZoneProps) => (
   <DropPrimitiveZone
-    className={composeRenderProps(className, (className, renderProps) =>
+    className={cr(className, (className, renderProps) =>
       dropZoneStyles({ ...renderProps, className })
     )}
     {...props}

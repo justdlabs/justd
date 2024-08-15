@@ -5,7 +5,6 @@ import * as React from 'react'
 import type { ModalOverlayProps } from 'react-aria-components'
 import {
   Button,
-  composeRenderProps,
   type DialogProps,
   DialogTrigger as DialogTriggerPrimitive,
   Modal,
@@ -20,7 +19,7 @@ import { twJoin } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
 
 import { Dialog } from './dialog'
-import { cn, useMediaQuery } from './primitive'
+import { cn, cr, useMediaQuery } from './primitive'
 
 const Popover = ({ children }: { children: React.ReactNode }) => {
   return <DialogTriggerPrimitive>{children}</DialogTriggerPrimitive>
@@ -123,7 +122,7 @@ const Content = ({
       isDismissable
     >
       <Modal
-        className={composeRenderProps(className, (className, renderProps) =>
+        className={cr(className, (className, renderProps) =>
           drawerStyles({ ...renderProps, isMenu, className })
         )}
       >
@@ -139,7 +138,7 @@ const Content = ({
     <PopoverPrimitive
       offset={offset}
       {...props}
-      className={composeRenderProps(className, (className, renderProps) =>
+      className={cr(className, (className, renderProps) =>
         popoverContentStyles({
           ...renderProps,
           className
@@ -167,7 +166,7 @@ const Picker = ({ children, className, ...props }: PopoverProps) => {
   return (
     <PopoverPrimitive
       {...props}
-      className={composeRenderProps(className, (className, renderProps) =>
+      className={cr(className, (className, renderProps) =>
         popoverContentStyles({
           ...renderProps,
           className: cn('max-h-72 overflow-y-auto min-w-[--trigger-width] p-0', className)
