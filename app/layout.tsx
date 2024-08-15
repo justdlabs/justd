@@ -79,7 +79,7 @@ export const viewport: Viewport = {
 
 const fontSans = localFont({
   src: [{ path: './fonts/Inter.woff2' }],
-  variable: '--font-sans',
+  variable: '--font-sans'
 })
 
 const fontMono = localFont({

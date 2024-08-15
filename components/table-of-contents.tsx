@@ -77,7 +77,9 @@ function TocLink({ item, activeId }: { item: TableOfContentsProps; activeId: str
       <Link
         className={cn(
           'outline-none block no-underline tracking-tight lg:text-[0.885rem] duration-200',
-          item.url.split('#')[1] === activeId ? 'dark:text-primary-400 text-primary-600' : 'text-muted-fg hover:text-primary-600 dark:hover:text-primary-400',
+          item.url.split('#')[1] === activeId
+            ? 'dark:text-primary-400 text-primary-600'
+            : 'text-muted-fg hover:text-primary-600 dark:hover:text-primary-400'
         )}
         href={item.url}
       >
