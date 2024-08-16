@@ -33,7 +33,7 @@ interface FieldProps {
 
 // primitive styles
 const fieldBorderStyles = tv({
-  base: 'group-focus-within:border-primary forced-colors:border-[Highlight]',
+  base: 'group-focus-within:border-ring forced-colors:border-[Highlight]',
   variants: {
     isInvalid: {
       true: 'border-danger/70 group-focus-within:border-danger/70 forced-colors:border-[Mark]'
@@ -78,7 +78,7 @@ const FieldError = ({ className, ...props }: FieldErrorProps) => {
 const fieldGroupStyles = tv({
   base: [
     'group flex h-10 items-center overflow-hidden rounded-lg border border-input bg-background transition disabled:opacity-50 disabled:bg-secondary forced-colors:bg-[Field]',
-    'focus-within:border-primary focus-within:ring-4 focus-within:ring-primary/20',
+    'focus-within:border-ring focus-within:ring-4 focus-within:ring-ring/20',
     'focus-within:invalid:border-danger focus-within:invalid:ring-4 focus-within:invalid:ring-danger/20',
     'invalid:border-danger',
     'has-[.isPfx]:pl-2.5 has-[.isSfx]:pr-2.5 [&_[data-slot=icon]]:size-4 has-[.atrs]:shrink-0 has-[.atrs]:text-muted-fg'

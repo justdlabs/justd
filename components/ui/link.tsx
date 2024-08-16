@@ -11,12 +11,12 @@ const linkStyles = tv({
     intent: {
       unstyled: 'text-fg',
       primary:
-        'text-primary-600 hover:text-primary-500 dark:text-primary-500 dark:hover:text-primary-400 forced-colors:disabled:text-[GrayText]',
+        'text-primary hover:text-primary/80 forced-colors:disabled:text-[GrayText]',
       danger:
-        'text-red-600 hover:text-red-500 dark:text-red-500 dark:hover:text-red-400 forced-colors:disabled:text-[GrayText]',
+        'text-danger hover:text-danger/80 forced-colors:disabled:text-[GrayText]',
       'lad/primary':
-        'text-fg hover:text-primary-500 dark:hover:text-primary-400 forced-colors:disabled:text-[GrayText]',
-      secondary: 'text-zinc-800 dark:text-zinc-300 hover:text-zinc-700 dark:hover:text-zinc-white'
+        'text-fg hover:text-primary dark:hover:text-primary/80 forced-colors:disabled:text-[GrayText]',
+      secondary: 'text-secondary-fg hover:text-secondary-fg/80'
     }
   },
   defaultVariants: {

@@ -38,7 +38,7 @@
 
         --border: 240 5.9% 90%;
         --input: 240 5.9% 90%;
-        --ring: 211 100% 58%;
+        --ring: var(--primary);
         --toggle: 240 5% 84%;
         --radius: 0.55rem;
     }
@@ -58,7 +58,7 @@
 
         --tertiary: 240 10% 5.5%;
         --tertiary-fg: 240 5% 96%;
-
+        --ring: var(--primary);
         --muted: 240 3.7% 15.9%;
         --muted-fg: 240 5% 64.9%;
         --toggle: 240 5% 26%;
@@ -130,10 +130,6 @@
 
 .react-aria-DropIndicator[data-drop-target] {
     outline: 1px solid hsl(var(--primary));
-}
-
-.recharts-rectangle.recharts-tooltip-cursor {
-    @apply fill-zinc-300/10;
 }
 
 @layer components {

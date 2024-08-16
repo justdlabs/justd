@@ -12,7 +12,7 @@ import { IconBrandTailwindcss } from 'justd-icons'
 import { ListBox, Text, ToggleButton } from 'react-aria-components'
 import type { ColorItemProps, FormatOnlyForTailwindVariableType } from 'resources/types'
 import { toast } from 'sonner'
-import { buttonStyles, gridStyles, Heading, Select, Tooltip } from 'ui'
+import { buttonStyles, gridStyles, Select, Tooltip } from 'ui'
 
 import { ColorItem } from './color-item'
 
@@ -31,14 +31,11 @@ export function ColorRow({ showItem = false, swatchClassName, item }: ColorRowPr
   return (
     <div className="p-2 bg-tertiary border rounded-lg overflow-hidden">
       <div className="flex mb-2 items-center gap-x-1 justify-between">
-        <Heading
-          level={3}
-          className="tracking-tight text-muted-fg font-mono text-sm font-medium sm:text-sm"
-        >
+        <h3 className="tracking-tight text-muted-fg font-mono text-sm font-medium sm:text-sm">
           {tailwindColorNames.includes(item.name)
             ? item.name
             : getColorName(item.children[4].color)}
-        </Heading>
+        </h3>
         <div className="flex gap-x-1">
           <>
             <CopyJsonColorShades

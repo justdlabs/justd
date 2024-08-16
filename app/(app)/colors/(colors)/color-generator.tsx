@@ -36,8 +36,6 @@ export function ColorGenerator() {
 
         <div className="lg:col-span-2">
           <ColorRow
-            showItem={isDesktop}
-            swatchClassName="sm:w-full lg:h-32 lg:w-full size-10"
             item={{
               name: getColorName(defaultColor.toString('hex')),
               children: colorScales as any
