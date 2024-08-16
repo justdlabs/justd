@@ -1,14 +1,14 @@
-'use client'
+"use client"
 
-import * as React from 'react'
+import * as React from "react"
 
-import { parseColor } from '@react-stately/color'
+import { parseColor } from "@react-stately/color"
 import type {
   ColorSliderProps as ColorSliderPrimitiveProps,
   ColorSwatchPickerItemProps as ColorSwatchPickerItemPrimitiveProps,
   ColorSwatchProps as ColorSwatchPrimitiveProps,
   ColorThumbProps as ColorThumbPrimitiveProps
-} from 'react-aria-components'
+} from "react-aria-components"
 import {
   ColorArea as ColorAreaPrimitive,
   ColorSlider as ColorSliderPrimitive,
@@ -19,15 +19,15 @@ import {
   ColorWheel as ColorWheelPrimitive,
   ColorWheelTrack as ColorWheelTrackPrimitive,
   SliderOutput
-} from 'react-aria-components'
-import { tv } from 'tailwind-variants'
+} from "react-aria-components"
+import { tv } from "tailwind-variants"
 
-import { Description, Label } from './field'
-import { cn, cr, focusStyles } from './primitive'
-import { Slider } from './slider'
+import { Description, Label } from "./field"
+import { cn, cr, focusStyles } from "./primitive"
+import { Slider } from "./slider"
 
 const colorAreaStyles = tv({
-  base: 'size-48 rounded-md border border-background shrink-0 disabled:opacity-50'
+  base: "size-48 rounded-md border border-background shrink-0 disabled:opacity-50"
 })
 
 interface ColorAreaProps extends React.ComponentProps<typeof ColorAreaPrimitive> {}
@@ -35,7 +35,7 @@ interface ColorAreaProps extends React.ComponentProps<typeof ColorAreaPrimitive>
 const ColorArea = ({ className, ...props }: ColorAreaProps) => {
   return (
     <ColorAreaPrimitive
-      aria-label={props['aria-label'] ?? 'Color area'}
+      aria-label={props["aria-label"] ?? "Color area"}
       {...props}
       className={cr(className, (className, renderProps) =>
         colorAreaStyles({
@@ -50,10 +50,10 @@ const ColorArea = ({ className, ...props }: ColorAreaProps) => {
 interface ColorThumbProps extends ColorThumbPrimitiveProps {}
 
 const colorThumbStyles = tv({
-  base: 'size-5 shadow rounded-full ring-1 ring-inset ring-offset-2 ring-black/50 border border-black/50',
+  base: "size-5 shadow rounded-full ring-1 ring-inset ring-offset-2 ring-black/50 border border-black/50",
   variants: {
     isFocusVisible: {
-      true: 'size-6'
+      true: "size-6"
     }
   }
 })
@@ -74,7 +74,7 @@ const ColorThumb = ({ className, ...props }: ColorThumbProps) => {
 
 const colorSwatchPickerItemStyles = tv({
   extend: focusStyles,
-  base: 'size-8 rounded-md cspis disabled:opacity-50'
+  base: "size-8 rounded-md cspis disabled:opacity-50"
 })
 
 const ColorSwatchPickerItem = ({ className, ...props }: ColorSwatchPickerItemPrimitiveProps) => {
@@ -99,12 +99,12 @@ const ColorSwatch = ({ className, ...props }: ColorSwatchProps) => {
   const needRing = props.color ? isBrightColor(props.color) : false
   return (
     <ColorSwatchPrimitive
-      aria-label={props['aria-label'] ?? 'Color swatch'}
+      aria-label={props["aria-label"] ?? "Color swatch"}
       className={cn(
-        'size-8 cs rounded-md shrink-0',
+        "size-8 cs rounded-md shrink-0",
         needRing
-          ? 'ring-1 ring-inset ring-black/10'
-          : 'dark:ring-1 dark:ring-inset dark:ring-white/10',
+          ? "ring-1 ring-inset ring-black/10"
+          : "dark:ring-1 dark:ring-inset dark:ring-white/10",
         className
       )}
       {...props}
@@ -149,8 +149,8 @@ const luminance = (r: number, g: number, b: number): number => {
 const isBrightColor = (color: any): boolean => {
   let r, g, b
 
-  if (typeof color === 'string') {
-    if (color.startsWith('#')) {
+  if (typeof color === "string") {
+    if (color.startsWith("#")) {
       const rgb = hexToRgb(color)
       if (rgb) {
         r = rgb.r
@@ -159,7 +159,7 @@ const isBrightColor = (color: any): boolean => {
       } else {
         return false
       }
-    } else if (color.startsWith('rgb')) {
+    } else if (color.startsWith("rgb")) {
       const rgbValues = color.match(/\d+/g)
       if (rgbValues) {
         r = parseInt(rgbValues[0], 10)
@@ -170,8 +170,8 @@ const isBrightColor = (color: any): boolean => {
       }
     } else {
       const namedColors: Record<string, string> = {
-        white: '#ffffff',
-        black: '#000000'
+        white: "#ffffff",
+        black: "#000000"
       }
       const hex = namedColors[color.toLowerCase()]
       if (hex) {
@@ -188,10 +188,10 @@ const isBrightColor = (color: any): boolean => {
       }
     }
   } else if (
-    typeof color === 'object' &&
-    'hue' in color &&
-    'saturation' in color &&
-    'brightness' in color
+    typeof color === "object" &&
+    "hue" in color &&
+    "saturation" in color &&
+    "brightness" in color
   ) {
     const rgb = hsbToRgb(color.hue, color.saturation, color.brightness)
     r = rgb.r
@@ -205,7 +205,7 @@ const isBrightColor = (color: any): boolean => {
   return lum > 0.75
 }
 
-const defaultColor = parseColor('hsl(216, 98%, 52%)')
+const defaultColor = parseColor("hsl(216, 98%, 52%)")
 interface ColorSliderProps extends ColorSliderPrimitiveProps {
   label?: string
   description?: string
@@ -221,7 +221,7 @@ const ColorSlider = ({
 }: ColorSliderProps) => {
   return (
     <ColorSliderPrimitive
-      className={cn('flex disabled:opacity-50 w-full flex-col gap-1', className)}
+      className={cn("flex disabled:opacity-50 w-full flex-col gap-1", className)}
       {...props}
     >
       <div className="flex items-center gap-2">

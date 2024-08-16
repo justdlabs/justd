@@ -1,12 +1,12 @@
-'use client'
+"use client"
 
-import { Tabs } from 'ui'
+import { Tabs } from "ui"
 
 const navs = [
-  { url: '/', label: 'Home' },
-  { url: '/docs/getting-started/introduction', label: 'Docs' },
-  { url: '/components', label: 'Components' },
-  { url: 'https://paranoid.irsyad.co', label: 'Paranoid' }
+  { url: "/", label: "Home" },
+  { url: "/docs/getting-started/introduction", label: "Docs" },
+  { url: "/components", label: "Components" },
+  { url: "https://paranoid.irsyad.co", label: "Paranoid" }
 ]
 
 export default function TabsLinkDemo() {

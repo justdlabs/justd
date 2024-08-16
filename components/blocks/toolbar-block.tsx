@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react"
 
-import { SliderOnPopoverBlock } from '@/components/blocks/slider-on-popover-block'
+import { SliderOnPopoverBlock } from "@/components/blocks/slider-on-popover-block"
 import {
   IconCamera,
   IconCameraFill,
@@ -14,8 +14,8 @@ import {
   IconMagicFill,
   IconVideoPlaylist,
   IconVideoPlaylistFill
-} from 'justd-icons'
-import { Card, Toolbar } from 'ui'
+} from "justd-icons"
+import { Card, Toolbar } from "ui"
 
 export function ToolbarBlock() {
   return (

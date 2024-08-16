@@ -1,14 +1,14 @@
-'use client'
+"use client"
 
-import * as React from 'react'
+import * as React from "react"
 
-import { Button, Grid, Modal } from 'ui'
+import { Button, Grid, Modal } from "ui"
 
-type Size = Pick<React.ComponentProps<typeof Modal.Content>, 'size'>['size']
-const sizes: Size[] = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl']
+type Size = Pick<React.ComponentProps<typeof Modal.Content>, "size">["size"]
+const sizes: Size[] = ["xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "5xl"]
 export default function ModalSizeDemo() {
   const [isOpen, setIsOpen] = React.useState(false)
-  const [modalSize, setModalSize] = React.useState<Size>('md')
+  const [modalSize, setModalSize] = React.useState<Size>("md")
 
   const handlePress = (size: Size, open: boolean) => {
     setModalSize(size)

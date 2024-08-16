@@ -1,13 +1,13 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import { useListData } from 'react-stately'
-import { Description, TagField } from 'ui'
+import { useListData } from "react-stately"
+import { Description, TagField } from "ui"
 
 export default function TagFieldControlledDemo() {
   const selectedItems = useListData({
-    initialItems: [{ id: 1, name: 'Ferrari' }]
+    initialItems: [{ id: 1, name: "Ferrari" }]
   })
 
   return (
@@ -15,8 +15,8 @@ export default function TagFieldControlledDemo() {
       <TagField
         appearance="outline"
         label="Add tag"
-        onItemInserted={(key) => console.log('on item inserted', key)}
-        onItemCleared={(key) => console.log('on item cleared', key)}
+        onItemInserted={(key) => console.log("on item inserted", key)}
+        onItemCleared={(key) => console.log("on item cleared", key)}
         description="You can add multiple tags"
         list={selectedItems}
       />

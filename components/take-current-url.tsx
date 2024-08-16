@@ -1,36 +1,36 @@
-'use client'
+"use client"
 
-import * as React from 'react'
+import * as React from "react"
 
-import { AnimatePresence, motion } from 'framer-motion'
-import { IconCheck, IconDuplicate } from 'justd-icons'
-import { usePathname } from 'next/navigation'
-import { toast } from 'sonner'
-import { Button, snippetVariants } from 'ui'
+import { AnimatePresence, motion } from "framer-motion"
+import { IconCheck, IconDuplicate } from "justd-icons"
+import { usePathname } from "next/navigation"
+import { toast } from "sonner"
+import { Button, snippetVariants } from "ui"
 
 export function TakeCurrentUrl() {
   const [copied, setCopied] = React.useState(false)
   const pathname = usePathname()
-  const text = pathname.includes('/docs')
-    ? 'https://getjustd.com/d/' + pathname.split('/').pop()
-    : 'https://getjustd.com' + pathname
+  const text = pathname.includes("/docs")
+    ? "https://getjustd.com/d/" + pathname.split("/").pop()
+    : "https://getjustd.com" + pathname
   const handleCopy = async () => {
     if (navigator.clipboard && window.isSecureContext) {
       try {
         await navigator.clipboard.writeText(text as string)
         toast.success(`Copied ${text} to clipboard`, {
           classNames: {
-            toast: '[&:has([data-icon])_[data-content]]:!ml-0',
-            icon: 'hidden'
+            toast: "[&:has([data-icon])_[data-content]]:!ml-0",
+            icon: "hidden"
           }
         })
         setCopied(true)
         setTimeout(() => setCopied(false), 2000) // Reset the copied state after 2 seconds
       } catch (error) {
-        toast.error('Failed to copy to clipboard')
+        toast.error("Failed to copy to clipboard")
       }
     } else {
-      toast.error('Failed to copy to clipboard')
+      toast.error("Failed to copy to clipboard")
     }
   }
   return (
@@ -38,7 +38,7 @@ export function TakeCurrentUrl() {
       appearance="outline"
       size="square-petite"
       className="[&_[data-slot=icon]]:text-fg"
-      aria-label={'Copy ' + text + ' to clipboard'}
+      aria-label={"Copy " + text + " to clipboard"}
       onPress={handleCopy}
     >
       <AnimatePresence mode="wait" initial={false}>

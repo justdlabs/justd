@@ -1,12 +1,12 @@
-'use client'
+"use client"
 
-import React, { useState } from 'react'
+import React, { useState } from "react"
 
-import { CardBlock } from '@/components/blocks'
-import { Checkbox, CheckboxGroup, Radio, RadioGroup } from 'ui'
+import { CardBlock } from "@/components/blocks"
+import { Checkbox, CheckboxGroup, Radio, RadioGroup } from "ui"
 
 export function CheckRadioBlock() {
-  const [selectedRadio, setSelectedRadio] = useState('lowSecurity')
+  const [selectedRadio, setSelectedRadio] = useState("lowSecurity")
   return (
     <CardBlock>
       <RadioGroup value={selectedRadio} onChange={setSelectedRadio}>
@@ -14,9 +14,9 @@ export function CheckRadioBlock() {
           High Security
         </Radio>
         <CheckboxGroup
-          defaultValue={['encryption']}
+          defaultValue={["encryption"]}
           className="ml-6"
-          isDisabled={selectedRadio !== 'highSecurity'}
+          isDisabled={selectedRadio !== "highSecurity"}
         >
           <Checkbox value="encryption" description="Enable encryption." isReadOnly>
             Encryption

@@ -1,9 +1,9 @@
-'use client'
+"use client"
 
-import type { FC, SVGProps } from 'react'
+import type { FC, SVGProps } from "react"
 
-import { Logo } from '@/components/logo'
-import { extractAndFormat } from '@/resources/lib/utils'
+import { Logo } from "@/components/logo"
+import { extractAndFormat } from "@/resources/lib/utils"
 import {
   IconBell,
   IconBrandAdobe,
@@ -11,46 +11,46 @@ import {
   IconBrandGithub,
   IconBrandJustd,
   IconCommandFill
-} from 'justd-icons'
-import { Menu, MenuItem } from 'react-aria-components'
-import { buttonStyles, cn } from 'ui'
+} from "justd-icons"
+import { Menu, MenuItem } from "react-aria-components"
+import { buttonStyles, cn } from "ui"
 
 export function DocRefs({ references }: any) {
   const urls = references.map((url: string) => {
-    let title = ''
+    let title = ""
     let icon: FC<SVGProps<SVGSVGElement>>
 
     switch (true) {
-      case url.includes('react-spectrum'):
-        title = extractAndFormat(url) + ' Props'
+      case url.includes("react-spectrum"):
+        title = extractAndFormat(url) + " Props"
         icon = IconBrandAdobe
         break
-      case url.includes('paranoid'):
-        title = 'Paranoid'
+      case url.includes("paranoid"):
+        title = "Paranoid"
         icon = IconBrandJustd
         break
-      case url.includes('framer'):
-        title = 'Framer Motion'
+      case url.includes("framer"):
+        title = "Framer Motion"
         icon = IconBrandFramer
         break
-      case url.includes('docs/components'):
-        title = 'Internal'
+      case url.includes("docs/components"):
+        title = "Internal"
         icon = Logo
         break
-      case url.includes('sonner'):
-        title = 'Toaster'
+      case url.includes("sonner"):
+        title = "Toaster"
         icon = IconBell
         break
-      case url.includes('cmdk'):
-        title = 'Cmdk'
+      case url.includes("cmdk"):
+        title = "Cmdk"
         icon = IconCommandFill
         break
-      case url.includes('github'):
-        title = 'Github'
+      case url.includes("github"):
+        title = "Github"
         icon = IconBrandGithub
         break
-      case url.includes('embla-carousel'):
-        title = 'Embla Carousel'
+      case url.includes("embla-carousel"):
+        title = "Embla Carousel"
         icon = IconEmblaCarousel
         break
       default:
@@ -71,16 +71,16 @@ export function DocRefs({ references }: any) {
           target="_blank"
           className={cn(
             buttonStyles({
-              appearance: 'outline',
-              size: 'small',
-              className: 'focus:outline-0'
+              appearance: "outline",
+              size: "small",
+              className: "focus:outline-0"
             })
           )}
           id={item.url}
           href={item.url}
         >
           <item.icon />
-          {item.title === 'Props Reference' ? (
+          {item.title === "Props Reference" ? (
             <span>
               Props <span className="sm:inline hidden">Reference</span>
             </span>

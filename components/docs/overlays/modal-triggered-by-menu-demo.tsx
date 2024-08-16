@@ -1,10 +1,10 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import { wait } from '@/resources/lib/utils'
-import { IconDotsVertical } from 'justd-icons'
-import { Button, buttonStyles, LoadingDots, Menu, Modal } from 'ui'
+import { wait } from "@/resources/lib/utils"
+import { IconDotsVertical } from "justd-icons"
+import { Button, buttonStyles, LoadingDots, Menu, Modal } from "ui"
 
 export default function ModalTriggeredByMenuDemo() {
   const [state, setState] = React.useState<string | null>(null)
@@ -21,27 +21,27 @@ export default function ModalTriggeredByMenuDemo() {
 
   const actionType = (t: string | null) => {
     switch (t) {
-      case 'delete':
+      case "delete":
         return {
-          title: 'Delete User',
-          description: 'Are you sure you want to delete this item?',
-          confirmText: 'Delete',
+          title: "Delete User",
+          description: "Are you sure you want to delete this item?",
+          confirmText: "Delete",
           action: () => executeAction(t)
         }
 
-      case 'ban':
+      case "ban":
         return {
-          title: 'Ban User',
-          description: 'Are you sure you want to ban this user?',
-          confirmText: 'Ban',
+          title: "Ban User",
+          description: "Are you sure you want to ban this user?",
+          confirmText: "Ban",
           action: () => executeAction(t)
         }
 
-      case 'restore':
+      case "restore":
         return {
-          title: 'Restore User',
-          description: 'Are you sure you want to restore this user?',
-          confirmText: 'Restore',
+          title: "Restore User",
+          description: "Are you sure you want to restore this user?",
+          confirmText: "Restore",
           action: () => executeAction(t)
         }
       default:
@@ -51,13 +51,13 @@ export default function ModalTriggeredByMenuDemo() {
   return (
     <>
       <Menu>
-        <Menu.Trigger className={buttonStyles({ appearance: 'outline' })}>
+        <Menu.Trigger className={buttonStyles({ appearance: "outline" })}>
           <IconDotsVertical />
         </Menu.Trigger>
         <Menu.Content placement="bottom">
-          <Menu.Item onAction={() => setState('delete')}>Delete</Menu.Item>
-          <Menu.Item onAction={() => setState('ban')}>Ban</Menu.Item>
-          <Menu.Item onAction={() => setState('restore')}>Restore</Menu.Item>
+          <Menu.Item onAction={() => setState("delete")}>Delete</Menu.Item>
+          <Menu.Item onAction={() => setState("ban")}>Ban</Menu.Item>
+          <Menu.Item onAction={() => setState("restore")}>Restore</Menu.Item>
         </Menu.Content>
       </Menu>
 
@@ -69,7 +69,7 @@ export default function ModalTriggeredByMenuDemo() {
         <Modal.Footer>
           <Modal.Close>Cancel</Modal.Close>
           <Button className="min-w-24" isDisabled={loading} onPress={actionType(state)?.action}>
-            {loading ? <LoadingDots className={'bg-fg'} /> : actionType(state)?.confirmText}
+            {loading ? <LoadingDots className={"bg-fg"} /> : actionType(state)?.confirmText}
           </Button>
         </Modal.Footer>
       </Modal.Content>

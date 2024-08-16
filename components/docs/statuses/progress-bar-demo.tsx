@@ -1,8 +1,8 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import { ProgressBar } from 'ui'
+import { ProgressBar } from "ui"
 
 export default function ProgressBarDemo() {
   const [value, setValue] = React.useState(1)

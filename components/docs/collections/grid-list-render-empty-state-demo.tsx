@@ -1,6 +1,6 @@
-'use client'
+"use client"
 
-import { GridList } from 'ui'
+import { GridList } from "ui"
 
 export default function GridListRenderEmptyStateDemo() {
   return (

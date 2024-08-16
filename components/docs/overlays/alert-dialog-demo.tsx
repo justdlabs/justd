@@ -1,11 +1,11 @@
-'use client'
+"use client"
 
-import { buttonStyles, Modal } from 'ui'
+import { buttonStyles, Modal } from "ui"
 
 export default function AlertDialogDemo() {
   return (
     <Modal>
-      <Modal.Trigger className={buttonStyles({ intent: 'danger' })}>Delete</Modal.Trigger>
+      <Modal.Trigger className={buttonStyles({ intent: "danger" })}>Delete</Modal.Trigger>
       <Modal.Content role="alertdialog">
         <Modal.Header>
           <Modal.Title>Delete file</Modal.Title>

@@ -1,13 +1,13 @@
-import React from 'react'
+import React from "react"
 
-import type { Selection } from 'react-aria-components'
-import { Description, Tag } from 'ui'
+import type { Selection } from "react-aria-components"
+import { Description, Tag } from "ui"
 
 const fruitList = [
-  { id: '1', name: 'Apple', available: false },
-  { id: '2', name: 'Banana', available: true },
-  { id: '3', name: 'Cherry', available: true },
-  { id: '4', name: 'Date', available: false }
+  { id: "1", name: "Apple", available: false },
+  { id: "2", name: "Banana", available: true },
+  { id: "3", name: "Cherry", available: true },
+  { id: "4", name: "Date", available: false }
 ]
 
 export default function TagGroupControlledDemo() {
@@ -19,7 +19,7 @@ export default function TagGroupControlledDemo() {
       </Tag.Group>
 
       <Description className="mt-2 block [&>strong]:text-fg text-muted-fg">
-        You have selected: <strong>{Array.from(selected).join(', ')}</strong>
+        You have selected: <strong>{Array.from(selected).join(", ")}</strong>
       </Description>
     </div>
   )

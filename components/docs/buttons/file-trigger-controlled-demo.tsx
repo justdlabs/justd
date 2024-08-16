@@ -1,8 +1,8 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import { Description, FileTrigger } from 'ui'
+import { Description, FileTrigger } from "ui"
 
 export default function FileTriggerDemo() {
   const [file, setFile] = React.useState<string[] | null>(null)

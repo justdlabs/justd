@@ -1,8 +1,8 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import { Button, Menu } from 'ui'
+import { Button, Menu } from "ui"
 
 export default function MenuCollectionDemo() {
   return (
@@ -17,43 +17,43 @@ export default function MenuCollectionDemo() {
 
 const categories = [
   {
-    name: 'Technology',
-    slug: 'technology'
+    name: "Technology",
+    slug: "technology"
   },
   {
-    name: 'Health',
-    slug: 'health'
+    name: "Health",
+    slug: "health"
   },
   {
-    name: 'Business',
-    slug: 'business'
+    name: "Business",
+    slug: "business"
   },
   {
-    name: 'Travel',
-    slug: 'travel'
+    name: "Travel",
+    slug: "travel"
   },
   {
-    name: 'Education',
-    slug: 'education'
+    name: "Education",
+    slug: "education"
   },
   {
-    name: 'Entertainment',
-    slug: 'entertainment'
+    name: "Entertainment",
+    slug: "entertainment"
   },
   {
-    name: 'Sports',
-    slug: 'sports'
+    name: "Sports",
+    slug: "sports"
   },
   {
-    name: 'Fashion',
-    slug: 'fashion'
+    name: "Fashion",
+    slug: "fashion"
   },
   {
-    name: 'Food',
-    slug: 'food'
+    name: "Food",
+    slug: "food"
   },
   {
-    name: 'Science',
-    slug: 'science'
+    name: "Science",
+    slug: "science"
   }
 ]

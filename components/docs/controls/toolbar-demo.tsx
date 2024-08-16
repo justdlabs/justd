@@ -1,6 +1,6 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
 import {
   IconAlignmentCenter,
@@ -25,8 +25,8 @@ import {
   IconUnderline,
   IconUnderlineFill,
   IconUndo
-} from 'justd-icons'
-import { Button, Checkbox, Menu, Toolbar } from 'ui'
+} from "justd-icons"
+import { Button, Checkbox, Menu, Toolbar } from "ui"
 
 export default function ToolbarDemo() {
   return (

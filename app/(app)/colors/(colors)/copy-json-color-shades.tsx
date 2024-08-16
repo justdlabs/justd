@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState } from "react"
 
-import { getColorName } from '@/resources/lib/colors'
-import { wait } from '@/resources/lib/utils'
-import { IconBrackets2, IconCheck, IconDuplicate } from 'justd-icons'
-import { Heading } from 'react-aria-components'
-import { Button, ColorSwatch, Modal } from 'ui'
-import { copyToClipboard } from 'usemods'
+import { getColorName } from "@/resources/lib/colors"
+import { wait } from "@/resources/lib/utils"
+import { IconBrackets2, IconCheck, IconDuplicate } from "justd-icons"
+import { Heading } from "react-aria-components"
+import { Button, ColorSwatch, Modal } from "ui"
+import { copyToClipboard } from "usemods"
 
 export function CopyJsonColorShades({
   colorScales,
@@ -17,7 +17,7 @@ export function CopyJsonColorShades({
   colorScales: any
 }) {
   const [open, setOpen] = useState(false)
-  const [colorName, setColorName] = useState<string>(name || 'unknown')
+  const [colorName, setColorName] = useState<string>(name || "unknown")
   const [isCopied, setIsCopied] = useState(false)
 
   const handleOpen = () => {
@@ -27,9 +27,9 @@ export function CopyJsonColorShades({
 
   const codeString = colorScales
     .map(({ shade, color }: any) => `'${shade}': '${color}'`)
-    .join(',\n  ')
+    .join(",\n  ")
   const renderColorScaleAsCode = (colorScales: any, colorName: string) => {
-    const formattedColorName = colorName.includes('-')
+    const formattedColorName = colorName.includes("-")
       ? `'${getColorName(colorScales[4].color)}'`
       : colorName
     return `${formattedColorName}: {\n  ${codeString}\n}`
@@ -48,7 +48,7 @@ export function CopyJsonColorShades({
       <Button className="size-8" size="square-petite" appearance="outline" onPress={handleOpen}>
         <IconBrackets2 />
       </Button>
-      <Modal.Content closeButton={false} size="2xl" classNames={{ content: 'p-0 [&>.dlc]:p-0' }}>
+      <Modal.Content closeButton={false} size="2xl" classNames={{ content: "p-0 [&>.dlc]:p-0" }}>
         <Heading className="sr-only">{name}</Heading>
         <div className="relative grid sm:grid-cols-2 divide-x">
           <div className="hidden sm:grid place-content-center font-mono text-sm relative">

@@ -1,33 +1,24 @@
-import * as React from 'react'
+import * as React from "react"
 
-import { formatColorForTailwind, textColorBasedOnBg } from '@/resources/lib/colors'
-import { parseColor } from '@react-stately/color'
-import type { ColorFormat } from '@react-types/color'
-import { IconCheck, IconDuplicate } from 'justd-icons'
-import type { ListBoxItemProps } from 'react-aria-components'
-import { ListBoxItem } from 'react-aria-components'
-import type { ColorShade, FormatOnlyForTailwindVariableType } from 'resources/types'
-import { toast } from 'sonner'
-import { cn, ColorSwatch, Tooltip } from 'ui'
-import { copyToClipboard } from 'usemods'
+import { formatColorForTailwind, textColorBasedOnBg } from "@/resources/lib/colors"
+import { parseColor } from "@react-stately/color"
+import type { ColorFormat } from "@react-types/color"
+import { IconCheck, IconDuplicate } from "justd-icons"
+import type { ListBoxItemProps } from "react-aria-components"
+import { ListBoxItem } from "react-aria-components"
+import type { ColorShade, FormatOnlyForTailwindVariableType } from "resources/types"
+import { toast } from "sonner"
+import { cn, isBrightColor } from "ui"
+import { copyToClipboard } from "usemods"
 
 interface ColorItemProps extends ListBoxItemProps {
   item: ColorShade
   name: string
   isForTailwindVariable: boolean
   selectedFormat: FormatOnlyForTailwindVariableType | ColorFormat
-  swatchClassName?: string
-  showItem?: boolean
 }
 
-const ColorItem = ({
-  showItem,
-  swatchClassName,
-  item,
-  name,
-  isForTailwindVariable,
-  selectedFormat
-}: ColorItemProps) => {
+const ColorItem = ({ item, name, isForTailwindVariable, selectedFormat }: ColorItemProps) => {
   const [copied, setCopied] = React.useState(false)
   const handleCopy = async (selectedColor: string) => {
     const toCopy = isForTailwindVariable
@@ -38,48 +29,39 @@ const ColorItem = ({
     setTimeout(() => {
       setCopied(false)
     }, 2000)
-    toast('Copied to clipboard!')
+    toast.success(`Copy ${toCopy} to clipboard.`, {
+      classNames: {
+        toast: "[&:has([data-icon])_[data-content]]:ml-0",
+        icon: "hidden"
+      }
+    })
   }
   return (
     <ListBoxItem
       textValue={name}
       className={cn(
-        'group w-full focus:outline-none cursor-pointer focus-visible:outline-primary-600 focus-visible:outline-2 focus-visible:outline-offset-1 rounded-md relative'
+        "w-full h-14 sm:h-24 group focus:outline-none focus:rounded-sm cursor-pointer rounded relative",
+        isBrightColor(item.color)
+          ? "ring-1 ring-inset ring-black/10"
+          : "dark:ring-1 dark:ring-inset dark:ring-white/10"
       )}
       onAction={() => handleCopy(parseColor(item.color as string)?.toString(selectedFormat))}
       style={{
-        color: textColorBasedOnBg(item.color)
+        color: textColorBasedOnBg(item.color),
+        backgroundColor: item.color
       }}
     >
-      <ColorSwatch
-        aria-label={`${name} of ${item.shade}`}
-        colorName={name}
-        color={item.color}
-        className={cn('size-10 sm:w-full lg:size-8', swatchClassName)}
-      />
-      <div className="absolute lg:left-1/2 lg:-translate-x-1/2 group-hover:block group-focus:block hidden group-pressed:block lg:top-4 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+      <span
+        className={cn(
+          "group-hover:block hidden text-xs left-1/2 -translate-x-1/2 top-2 absolute font-mono",
+          copied && "block"
+        )}
+      >
         {copied ? <IconCheck /> : <IconDuplicate />}
-      </div>
-
-      {showItem && (
-        <div className="absolute bottom-0 block line-clamp-1 p-1 text-[0.70rem] font-mono">
-          <span className="w-fit mb-1">{item.shade}</span>
-          <Tooltip>
-            <Tooltip.Trigger className="w-full text-left focus:outline-none">
-              {isForTailwindVariable &&
-                selectedFormat !== 'hexa' &&
-                selectedFormat !== 'hex' &&
-                'tw/'}
-              {selectedFormat === 'hex'
-                ? parseColor(item.color as string)?.toString(selectedFormat)
-                : selectedFormat}
-            </Tooltip.Trigger>
-            <Tooltip.Content>
-              {parseColor(item.color as string)?.toString(selectedFormat)}
-            </Tooltip.Content>
-          </Tooltip>
-        </div>
-      )}
+      </span>
+      <span className="text-xs left-1/2 -translate-x-1/2 bottom-2 absolute font-mono block">
+        {item.shade}
+      </span>
     </ListBoxItem>
   )
 }

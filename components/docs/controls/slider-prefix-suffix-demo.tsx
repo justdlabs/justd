@@ -1,9 +1,9 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import { IconVolumeFull, IconVolumeOff } from 'justd-icons'
-import { Slider } from 'ui'
+import { IconVolumeFull, IconVolumeOff } from "justd-icons"
+import { Slider } from "ui"
 
 export default function SliderPrefixSuffixDemo() {
   const [volume, setVolume] = React.useState<number>(0.5)

@@ -1,10 +1,10 @@
-'use client'
+"use client"
 
-import { Tabs } from 'ui'
+import { Tabs } from "ui"
 
 export default function TabsDisabledDemo() {
   return (
-    <Tabs disabledKeys={['c', 'a']} aria-label="Services">
+    <Tabs disabledKeys={["c", "a"]} aria-label="Services">
       <Tabs.List>
         <Tabs.Tab id="o">Overview</Tabs.Tab>
         <Tabs.Tab id="c">Contact</Tabs.Tab>

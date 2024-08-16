@@ -1,6 +1,6 @@
-'use client'
+"use client"
 
-import { Button, Card } from 'ui'
+import { Button, Card } from "ui"
 
 export default function CardDemo() {
   return (

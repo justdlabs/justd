@@ -1,6 +1,6 @@
-'use client'
+"use client"
 
-import { ComboBox } from 'ui'
+import { ComboBox } from "ui"
 
 export default function ComboBoxSectionDemo() {
   return (
@@ -20,71 +20,71 @@ export default function ComboBoxSectionDemo() {
 const movies = [
   {
     id: 1,
-    title: 'Inception',
+    title: "Inception",
     genres: [
       {
         id: 101,
-        name: 'Sci-Fi'
+        name: "Sci-Fi"
       },
       {
         id: 102,
-        name: 'Thriller'
+        name: "Thriller"
       }
     ]
   },
   {
     id: 2,
-    title: 'Titanic',
+    title: "Titanic",
     genres: [
       {
         id: 201,
-        name: 'Romance'
+        name: "Romance"
       },
       {
         id: 202,
-        name: 'Drama'
+        name: "Drama"
       }
     ]
   },
   {
     id: 3,
-    title: 'The Matrix',
+    title: "The Matrix",
     genres: [
       {
         id: 301,
-        name: 'Action'
+        name: "Action"
       },
       {
         id: 302,
-        name: 'Sci-Fi'
+        name: "Sci-Fi"
       }
     ]
   },
   {
     id: 4,
-    title: 'Gladiator',
+    title: "Gladiator",
     genres: [
       {
         id: 401,
-        name: 'Action'
+        name: "Action"
       },
       {
         id: 402,
-        name: 'Drama'
+        name: "Drama"
       }
     ]
   },
   {
     id: 5,
-    title: 'Casablanca',
+    title: "Casablanca",
     genres: [
       {
         id: 501,
-        name: 'Romance'
+        name: "Romance"
       },
       {
         id: 502,
-        name: 'Drama'
+        name: "Drama"
       }
     ]
   }

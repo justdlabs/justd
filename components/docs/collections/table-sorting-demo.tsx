@@ -1,8 +1,8 @@
-'use client'
+"use client"
 
-import { useAsyncList } from '@react-stately/data'
-import { IconLoader } from 'justd-icons'
-import { Card, Table } from 'ui'
+import { useAsyncList } from "@react-stately/data"
+import { IconLoader } from "justd-icons"
+import { Card, Table } from "ui"
 
 interface Character {
   title: string
@@ -30,7 +30,7 @@ export default function TableSortingDemo() {
           // @ts-ignore
           const second = b[sortDescriptor.column]
           let cmp = (parseInt(first) || first) < (parseInt(second) || second) ? -1 : 1
-          if (sortDescriptor.direction === 'descending') {
+          if (sortDescriptor.direction === "descending") {
             cmp *= -1
           }
           return cmp

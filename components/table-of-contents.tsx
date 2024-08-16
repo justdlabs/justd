@@ -1,10 +1,10 @@
-'use client'
+"use client"
 
-import React, { Suspense } from 'react'
+import React, { Suspense } from "react"
 
-import { Heading } from 'react-aria-components'
-import { twJoin } from 'tailwind-merge'
-import { cn, Link, Skeleton } from 'ui'
+import { Heading } from "react-aria-components"
+import { twJoin } from "tailwind-merge"
+import { cn, Link, Skeleton } from "ui"
 
 interface TableOfContentsProps {
   title: string
@@ -20,12 +20,12 @@ export function TableOfContents({
   items: TableOfContentsProps[]
 }) {
   const ids = items.flatMap((item) => [
-    item.url.split('#')[1],
-    ...(item.items ? item.items.map((subItem) => subItem.url.split('#')[1]) : [])
+    item.url.split("#")[1],
+    ...(item.items ? item.items.map((subItem) => subItem.url.split("#")[1]) : [])
   ])
   const activeId = useActiveItem(ids)
   return (
-    <div className={twJoin('not-prose', className)}>
+    <div className={twJoin("not-prose", className)}>
       <aside className="xl:sticky xl:top-[1.75rem] xl:-mr-6 xl:h-[calc(100vh-4.75rem)] xl:flex-none xl:overflow-y-auto xl:py-16 xl:pr-6">
         <nav aria-labelledby="on-this-page-title" className="w-56">
           <Suspense
@@ -76,10 +76,10 @@ function TocLink({ item, activeId }: { item: TableOfContentsProps; activeId: str
     <li key={item.title}>
       <Link
         className={cn(
-          'outline-none block no-underline tracking-tight lg:text-[0.885rem] duration-200',
-          item.url.split('#')[1] === activeId
-            ? 'dark:text-primary-400 text-primary-600'
-            : 'text-muted-fg hover:text-primary-600 dark:hover:text-primary-400'
+          "outline-none block no-underline tracking-tight lg:text-[0.885rem] duration-200",
+          item.url.split("#")[1] === activeId
+            ? "dark:text-primary-400 text-primary-600"
+            : "text-muted-fg hover:text-primary-600 dark:hover:text-primary-400"
         )}
         href={item.url}
       >
@@ -109,7 +109,7 @@ export function useActiveItem(itemIds: string[]) {
           setActiveId(bestCandidate.target.id)
         }
       },
-      { rootMargin: '0% 0% -25% 0%', threshold: 0.1 }
+      { rootMargin: "0% 0% -25% 0%", threshold: 0.1 }
     )
 
     itemIds.forEach((id) => {

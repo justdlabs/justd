@@ -1,6 +1,6 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
 import {
   Button,
@@ -8,26 +8,26 @@ import {
   Tooltip as TooltipPrimitive,
   type TooltipProps as TooltipPrimitiveProps,
   TooltipTrigger
-} from 'react-aria-components'
-import { tv } from 'tailwind-variants'
+} from "react-aria-components"
+import { tv } from "tailwind-variants"
 
-import { cr } from './primitive'
+import { cr } from "./primitive"
 
-interface TooltipProps extends Omit<TooltipPrimitiveProps, 'children'> {
+interface TooltipProps extends Omit<TooltipPrimitiveProps, "children"> {
   children: React.ReactNode
 }
 
 const tooltipStyles = tv({
   base: [
-    'group rounded-md [&_strong]:font-medium bg-fg border border-fg text-background px-2 py-1.5 text-sm will-change-transform dark:shadow-none',
-    'placement-left:slide-in-from-right-1 placement-right:slide-in-from-left-1 placement-top:slide-in-from-bottom-1 placement-bottom:slide-in-from-top-1'
+    "group rounded-md [&_strong]:font-medium bg-fg border border-fg text-background px-2 py-1.5 text-sm will-change-transform dark:shadow-none",
+    "placement-left:slide-in-from-right-1 placement-right:slide-in-from-left-1 placement-top:slide-in-from-bottom-1 placement-bottom:slide-in-from-top-1"
   ],
   variants: {
     isEntering: {
-      true: 'animate-in fade-in'
+      true: "animate-in fade-in"
     },
     isExiting: {
-      true: 'animate-in fade-in direction-reverse'
+      true: "animate-in fade-in direction-reverse"
     }
   }
 })

@@ -1,6 +1,6 @@
-'use client'
+"use client"
 
-import * as React from 'react'
+import * as React from "react"
 
 import {
   ColorPicker as ColorPickerPrimitive,
@@ -8,11 +8,11 @@ import {
   type ColorSpace,
   getColorChannels,
   Group
-} from 'react-aria-components'
-import { tv } from 'tailwind-variants'
-import tailwindColors from 'tailwindcss/colors'
+} from "react-aria-components"
+import { tv } from "tailwind-variants"
+import tailwindColors from "tailwindcss/colors"
 
-import { Button, ButtonPrimitive } from './button'
+import { Button, ButtonPrimitive } from "./button"
 import {
   ColorArea,
   ColorSlider,
@@ -21,21 +21,21 @@ import {
   ColorSwatchPickerItem,
   ColorThumb,
   defaultColor
-} from './color'
-import { ColorField } from './color-field'
-import { Description, Label } from './field'
-import { Popover } from './popover'
-import { Select } from './select'
+} from "./color"
+import { ColorField } from "./color-field"
+import { Description, Label } from "./field"
+import { Popover } from "./popover"
+import { Select } from "./select"
 
 const colorPickerStyles = tv({
   slots: {
-    base: 'flex w-full flex-col gap-1',
+    base: "flex w-full flex-col gap-1",
     triggerColorField:
-      'size-10 -mr-2.5 tcf bg-background grid place-content-center focus:outline-none',
-    triggerColorPicker: 'w-full hover:bg-tertiary tcp max-w-sm bg-background justify-start',
-    colorArea: 'w-full mt-2 sm:mt-0',
-    colorSlider: '[&_.cstrk]:orientation-horizontal:h-3',
-    colorSwatchPicker: 'flex flex-wrap gap-x-2 gap-y-2.5'
+      "size-10 -mr-2.5 tcf bg-background grid place-content-center focus:outline-none",
+    triggerColorPicker: "w-full hover:bg-tertiary tcp max-w-sm bg-background justify-start",
+    colorArea: "w-full mt-2 sm:mt-0",
+    colorSlider: "[&_.cstrk]:orientation-horizontal:h-3",
+    colorSwatchPicker: "flex flex-wrap gap-x-2 gap-y-2.5"
   }
 })
 
@@ -54,7 +54,7 @@ interface ColorPickerProps extends ColorPickerPrimitiveProps {
   colors?: string[]
   isDisabled?: boolean
   className?: string
-  trigger?: 'color-picker' | 'color-field'
+  trigger?: "color-picker" | "color-field"
   enableColorField?: boolean
   closeButton?: boolean
 }
@@ -67,14 +67,14 @@ const ColorPicker = ({
   label,
   description,
   colors = [...Object.values(tailwindColors.zinc)],
-  placeholder = 'Fill Color',
+  placeholder = "Fill Color",
   isHex = true,
   isDisabled = false,
   className,
-  trigger = 'color-picker',
+  trigger = "color-picker",
   ...props
 }: ColorPickerProps) => {
-  const [space, setSpace] = React.useState<ColorSpace>('rgb')
+  const [space, setSpace] = React.useState<ColorSpace>("rgb")
   const [isHexFormat, setIsHexFormat] = React.useState(false)
   const value = props.value ?? props.defaultValue
   return (
@@ -83,11 +83,11 @@ const ColorPicker = ({
       <Group>
         <ColorPickerPrimitive defaultValue={defaultColor} {...props}>
           <Popover>
-            {trigger === 'color-field' ? (
+            {trigger === "color-field" ? (
               <ButtonPrimitive aria-label="Color swatch" className={triggerColorField()}>
                 <ColorSwatch color={value?.toString(space)} className="size-6" />
               </ButtonPrimitive>
-            ) : trigger === 'color-picker' ? (
+            ) : trigger === "color-picker" ? (
               <Button
                 aria-label="Color picker"
                 isDisabled={isDisabled}
@@ -105,7 +105,7 @@ const ColorPicker = ({
             >
               <div className="grid gap-2">
                 <ColorArea
-                  aria-describedby={`${label ? `${label} color area` : 'Color slider'}`}
+                  aria-describedby={`${label ? `${label} color area` : "Color slider"}`}
                   className={colorArea()}
                   colorSpace="hsb"
                   xChannel="saturation"
@@ -114,7 +114,7 @@ const ColorPicker = ({
                   <ColorThumb className="z-40" />
                 </ColorArea>
                 <ColorSlider
-                  aria-describedby={`${label ? `${label} color slider` : 'Color slider'}`}
+                  aria-describedby={`${label ? `${label} color slider` : "Color slider"}`}
                   showOutput={false}
                   className={colorSlider()}
                   colorSpace="hsb"
@@ -128,12 +128,12 @@ const ColorPicker = ({
                     defaultSelectedKey={space}
                     onSelectionChange={(s) => {
                       setSpace(s as ColorSpace)
-                      setIsHexFormat(s === 'hex')
+                      setIsHexFormat(s === "hex")
                     }}
                   >
                     <Select.Trigger />
                     <Select.List>
-                      {['rgb', 'hex', 'hsl', 'hsb'].map((s) => (
+                      {["rgb", "hex", "hsl", "hsb"].map((s) => (
                         <Select.Option key={s} id={s} textValue={s}>
                           {s}
                         </Select.Option>
@@ -149,7 +149,7 @@ const ColorPicker = ({
                     ) : (
                       getColorChannels(space).map((channel) => (
                         <ColorField
-                          aria-describedby={label ?? 'Color field'}
+                          aria-describedby={label ?? "Color field"}
                           colorSpace={space}
                           channel={channel}
                           key={channel}

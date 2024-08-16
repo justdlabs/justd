@@ -1,10 +1,10 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import { ControlledValues } from '@/components/docs/colors/controlled-values'
-import { type Color } from 'react-aria-components'
-import { ColorPicker, defaultColor } from 'ui'
+import { ControlledValues } from "@/components/docs/colors/controlled-values"
+import { type Color } from "react-aria-components"
+import { ColorPicker, defaultColor } from "ui"
 
 export default function ColorPickerControlledDemo() {
   const [color, setColor] = React.useState(defaultColor)

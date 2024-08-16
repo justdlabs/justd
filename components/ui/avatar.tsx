@@ -1,13 +1,13 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import { tv, type VariantProps } from 'tailwind-variants'
+import { tv, type VariantProps } from "tailwind-variants"
 
-import { VisuallyHidden } from './visually-hidden'
+import { VisuallyHidden } from "./visually-hidden"
 
 const avatarGroupStyles = tv({
-  base: 'flex items-center justify-center -space-x-2 [&_[data-slot=avatar]]:ring-2 [&_[data-slot=avatar]]:ring-background'
+  base: "flex items-center justify-center -space-x-2 [&_[data-slot=avatar]]:ring-2 [&_[data-slot=avatar]]:ring-background"
 })
 
 interface AvatarGroupProps
@@ -22,32 +22,32 @@ const AvatarGroup = ({ className, ...props }: AvatarGroupProps) => {
 
 const avatarStyles = tv({
   base: [
-    'inline-grid relative shrink-0 bg-secondary align-middle [--avatar-radius:20%] [--ring-opacity:20%] *:col-start-1 *:row-start-1',
-    'loo2ppvkxrcah38e outline outline-1 -outline-offset-1 outline-black/[--ring-opacity] dark:outline-white/[--ring-opacity]'
+    "inline-grid relative shrink-0 bg-secondary align-middle [--avatar-radius:20%] [--ring-opacity:20%] *:col-start-1 *:row-start-1",
+    "loo2ppvkxrcah38e outline outline-1 -outline-offset-1 outline-black/[--ring-opacity] dark:outline-white/[--ring-opacity]"
   ],
   variants: {
     size: {
-      small: 'size-6',
-      medium: 'size-8',
-      large: 'size-10'
+      small: "size-6",
+      medium: "size-8",
+      large: "size-10"
     },
     shape: {
       square:
-        'rounded-[--avatar-radius] *:rounded-[--avatar-radius] [&_[data-slot=badge]]:rounded-full',
-      circle: 'rounded-full *:rounded-full'
+        "rounded-[--avatar-radius] *:rounded-[--avatar-radius] [&_[data-slot=badge]]:rounded-full",
+      circle: "rounded-full *:rounded-full"
     }
   },
 
   defaultVariants: {
-    shape: 'circle',
-    size: 'medium'
+    shape: "circle",
+    size: "medium"
   }
 })
 
-type Status = 'away' | 'online' | 'offline' | 'dnd' | 'idle'
+type Status = "away" | "online" | "offline" | "dnd" | "idle"
 
 interface AvatarProps
-  extends React.ComponentPropsWithoutRef<'span'>,
+  extends React.ComponentPropsWithoutRef<"span">,
     VariantProps<typeof avatarStyles> {
   src?: string | null
   initials?: string
@@ -61,16 +61,16 @@ const Avatar = ({
   status,
   src = null,
   initials,
-  alt = '',
+  alt = "",
   children,
   className,
   shape,
   size,
-  role = 'avatar',
+  role = "avatar",
   ...props
 }: AvatarProps) => {
   const badgeId = React.useId()
-  const ariaLabelledby = [badgeId, children ? badgeId : ''].join(' ')
+  const ariaLabelledby = [badgeId, children ? badgeId : ""].join(" ")
   return (
     <span
       aria-labelledby={ariaLabelledby}
@@ -83,7 +83,7 @@ const Avatar = ({
         <svg
           className="select-none fill-current text-[48px] font-medium uppercase"
           viewBox="0 0 100 100"
-          aria-hidden={alt ? undefined : 'true'}
+          aria-hidden={alt ? undefined : "true"}
         >
           {alt && <title>{alt}</title>}
           <text
@@ -108,31 +108,31 @@ type AvatarBadgeProps = {
   className?: string
   status?: Status
   fillBackground?: boolean
-  'aria-label': string
-  size?: AvatarProps['size']
+  "aria-label": string
+  size?: AvatarProps["size"]
 }
 
 const avatarBadgeStyles = tv({
   base: [
-    'size-3 z-1 absolute bottom-0 right-0 z-10 rounded-full ring-[1.5px] ring-background bg-background'
+    "size-3 z-1 absolute bottom-0 right-0 z-10 rounded-full ring-[1.5px] ring-background bg-background"
   ],
   variants: {
     size: {
-      small: 'size-1.5 translate-x-[0%] translate-y-[0%]',
-      medium: 'size-2 translate-x-[5%] translate-y-[5%]',
-      large: 'size-2.5 translate-x-[5%] translate-y-[5%]'
+      small: "size-1.5 translate-x-[0%] translate-y-[0%]",
+      medium: "size-2 translate-x-[5%] translate-y-[5%]",
+      large: "size-2.5 translate-x-[5%] translate-y-[5%]"
     },
     status: {
-      away: 'bg-red-500',
-      online: 'bg-green-500',
-      offline: 'bg-gray-500',
-      dnd: 'bg-yellow-500',
-      idle: 'bg-gray-500'
+      away: "bg-red-500",
+      online: "bg-green-500",
+      offline: "bg-gray-500",
+      dnd: "bg-yellow-500",
+      idle: "bg-gray-500"
     }
   },
   defaultVariants: {
-    size: 'medium',
-    status: 'idle'
+    size: "medium",
+    status: "idle"
   }
 })
 

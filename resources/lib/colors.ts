@@ -1,26 +1,26 @@
-import type { FormatOnlyForTailwindVariableType } from '@/resources/types'
-import chroma from 'chroma-js'
-import ntc from 'ntcjs'
-import { slugify } from 'usemods'
+import type { FormatOnlyForTailwindVariableType } from "@/resources/types"
+import chroma from "chroma-js"
+import ntc from "ntcjs"
+import { slugify } from "usemods"
 
 const allFormats = [
-  { id: 1, format: 'hex' },
-  { id: 2, format: 'hexa' },
-  { id: 3, format: 'rgb' },
-  { id: 4, format: 'rgba' },
-  { id: 5, format: 'hsl' },
-  { id: 6, format: 'hsla' },
-  { id: 7, format: 'hsb' },
-  { id: 8, format: 'hsba' }
+  { id: 1, format: "hex" },
+  { id: 2, format: "hexa" },
+  { id: 3, format: "rgb" },
+  { id: 4, format: "rgba" },
+  { id: 5, format: "hsl" },
+  { id: 6, format: "hsla" },
+  { id: 7, format: "hsb" },
+  { id: 8, format: "hsba" }
 ] as const
 
 const formatOnlyForTailwindVariable = [
-  { id: 1, format: 'rgb' },
-  { id: 2, format: 'rgba' },
-  { id: 3, format: 'hsl' },
-  { id: 4, format: 'hsla' },
-  { id: 5, format: 'hsb' },
-  { id: 6, format: 'hsba' }
+  { id: 1, format: "rgb" },
+  { id: 2, format: "rgba" },
+  { id: 3, format: "hsl" },
+  { id: 4, format: "hsla" },
+  { id: 5, format: "hsb" },
+  { id: 6, format: "hsba" }
 ] as const
 
 const formatOnlyForTailwindVariableValues = formatOnlyForTailwindVariable.map(
@@ -33,9 +33,9 @@ const formatColorForTailwind = (
 ): string => {
   return formatOnlyForTailwindVariableValues.includes(format)
     ? colorString
-        .replace(/(rgb|rgba|hsl|hsla|hsb|hsba)[(a]?/g, '')
-        .replace(/[()]/g, '')
-        .replace(/,\s*/g, ' ')
+        .replace(/(rgb|rgba|hsl|hsla|hsb|hsba)[(a]?/g, "")
+        .replace(/[()]/g, "")
+        .replace(/,\s*/g, " ")
         .trim()
     : colorString
 }
@@ -70,32 +70,32 @@ const getColorName = (hex: string, slug = true) => {
 
 const textColorBasedOnBg = (bgColor: string): string => {
   const luminance = chroma(bgColor).luminance()
-  return luminance > 0.3 ? '#000000' : '#FFFFFF'
+  return luminance > 0.3 ? "#000000" : "#FFFFFF"
 }
 
 const tailwindColorNames = [
-  'slate',
-  'gray',
-  'zinc',
-  'neutral',
-  'stone',
-  'red',
-  'orange',
-  'amber',
-  'yellow',
-  'lime',
-  'green',
-  'emerald',
-  'teal',
-  'cyan',
-  'sky',
-  'blue',
-  'indigo',
-  'violet',
-  'purple',
-  'fuchsia',
-  'pink',
-  'rose'
+  "slate",
+  "gray",
+  "zinc",
+  "neutral",
+  "stone",
+  "red",
+  "orange",
+  "amber",
+  "yellow",
+  "lime",
+  "green",
+  "emerald",
+  "teal",
+  "cyan",
+  "sky",
+  "blue",
+  "indigo",
+  "violet",
+  "purple",
+  "fuchsia",
+  "pink",
+  "rose"
 ]
 
 export {

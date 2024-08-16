@@ -1,15 +1,15 @@
-'use client'
+"use client"
 
-import * as React from 'react'
-import { useEffect, useState } from 'react'
+import * as React from "react"
+import { useEffect, useState } from "react"
 
-import { ColorGenerator } from '@/app/(app)/colors/(colors)/color-generator'
-import _colors from '@/app/(app)/colors/(colors)/colors.json'
-import { useInView } from 'react-intersection-observer'
-import type { ColorItemProps } from 'resources/types'
-import { Container, gridStyles, Loader } from 'ui'
+import { ColorGenerator } from "@/app/(app)/colors/(colors)/color-generator"
+import _colors from "@/app/(app)/colors/(colors)/colors.json"
+import { useInView } from "react-intersection-observer"
+import type { ColorItemProps } from "resources/types"
+import { Container, gridStyles, Loader } from "ui"
 
-import { ColorRow } from './color-row'
+import { ColorRow } from "./color-row"
 
 const filteredColors = _colors.map(([name, colorShades]) => ({
   name,
@@ -28,7 +28,7 @@ export function ColorPalette() {
 
   useEffect(() => {
     if (inView && hasMore) {
-      const nextPage = colors.length + 9
+      const nextPage = colors.length + 8
       const newColors = filteredColors.slice(0, nextPage)
       setColors(newColors)
       if (newColors.length >= filteredColors.length) {
@@ -43,7 +43,7 @@ export function ColorPalette() {
         <ColorGenerator />
         <div
           className={gridStyles({
-            columns: { initial: 1, sm: 2, lg: 3 },
+            columns: { initial: 1, sm: 2 },
             gap: { initial: 2 }
           })}
         >

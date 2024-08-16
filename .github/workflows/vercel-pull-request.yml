@@ -5,8 +5,21 @@ on:
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
       - uses: actions/checkout@v4
+
+      - name: Install Bun
+        run: |
+          curl -fsSL https://bun.sh/install | bash
+          echo "$HOME/.bun/bin" >> $GITHUB_PATH
+
+      - name: Install Global Package with Bun
+        run: bun install --global vercel@latest
+
+      - name: Generate Source Code Preview
+        run: bun run generate-preview
+
       - uses: amondnet/vercel-action@v25
         id: vercel-deploy
         with:

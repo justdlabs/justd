@@ -1,8 +1,8 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import type { PanInfo } from 'framer-motion'
+import type { PanInfo } from "framer-motion"
 import {
   animate,
   AnimatePresence,
@@ -12,15 +12,15 @@ import {
   useMotionValue,
   useMotionValueEvent,
   useTransform
-} from 'framer-motion'
-import type { DialogProps } from 'react-aria-components'
-import { Button, type ButtonProps, Modal, ModalOverlay } from 'react-aria-components'
-import { twJoin } from 'tailwind-merge'
+} from "framer-motion"
+import type { DialogProps } from "react-aria-components"
+import { Button, type ButtonProps, Modal, ModalOverlay } from "react-aria-components"
+import { twJoin } from "tailwind-merge"
 
-import { Dialog } from './dialog'
+import { Dialog } from "./dialog"
 
 const inertiaTransition: Inertia = {
-  type: 'inertia',
+  type: "inertia",
   bounceStiffness: 300,
   bounceDamping: 60,
   timeConstant: 300
@@ -44,7 +44,7 @@ const DrawerContext = React.createContext<DrawerContextType | undefined>(undefin
 const useDrawerContext = () => {
   const context = React.useContext(DrawerContext)
   if (context === undefined) {
-    throw new Error('useDrawerContext must be used within a Drawer')
+    throw new Error("useDrawerContext must be used within a Drawer")
   }
   return context
 }
@@ -53,10 +53,10 @@ const ModalPrimitive = motion(Modal)
 const ModalOverlayPrimitive = motion(ModalOverlay)
 
 interface DrawerOverlayPrimitiveProps
-  extends Omit<React.ComponentProps<typeof ModalOverlayPrimitive>, 'isOpen' | 'onOpenChange'> {
-  'aria-label'?: DialogProps['aria-label']
-  'aria-labelledby'?: DialogProps['aria-labelledby']
-  role?: DialogProps['role']
+  extends Omit<React.ComponentProps<typeof ModalOverlayPrimitive>, "isOpen" | "onOpenChange"> {
+  "aria-label"?: DialogProps["aria-label"]
+  "aria-labelledby"?: DialogProps["aria-labelledby"]
+  role?: DialogProps["role"]
 }
 
 const DrawerContentPrimitive = ({ children, ...props }: DrawerOverlayPrimitiveProps) => {
@@ -68,11 +68,11 @@ const DrawerContentPrimitive = ({ children, ...props }: DrawerOverlayPrimitivePr
   const bgOpacity = useTransform(y, [0, h], [0.15, 0])
   const bg = useMotionTemplate`rgba(0, 0, 0, ${bgOpacity})`
 
-  const root = document.getElementsByTagName('main')[0] as HTMLElement
+  const root = document.getElementsByTagName("main")[0] as HTMLElement
 
   const bodyBorderRadius = useTransform(y, [0, h], [drawerRadius, 0])
 
-  useMotionValueEvent(bodyBorderRadius, 'change', (v) => (root.style.borderRadius = `${v}px`))
+  useMotionValueEvent(bodyBorderRadius, "change", (v) => (root.style.borderRadius = `${v}px`))
 
   const onDragEnd = (_: any, { offset, velocity }: PanInfo) => {
     if (offset.y > h * 0.4 || velocity.y > 10) {
@@ -89,8 +89,8 @@ const DrawerContentPrimitive = ({ children, ...props }: DrawerOverlayPrimitivePr
         isOpen
         onOpenChange={closeDrawer}
         className={twJoin([
-          'fixed touch-none will-change-transform left-0 top-0 isolate z-50 h-[--visual-viewport-height] w-full',
-          'flex items-end [--visual-viewport-vertical-padding:100px]'
+          "fixed touch-none will-change-transform left-0 top-0 isolate z-50 h-[--visual-viewport-height] w-full",
+          "flex items-end [--visual-viewport-vertical-padding:100px]"
         ])}
         style={{
           backgroundColor: bg as any
@@ -98,8 +98,8 @@ const DrawerContentPrimitive = ({ children, ...props }: DrawerOverlayPrimitivePr
       >
         <ModalPrimitive
           className={twJoin(
-            'max-h-full flex flex-col w-full rounded-t-2xl sm:rounded-lg overflow-hidden bg-overlay text-overlay-fg text-left align-middle shadow-lg',
-            'ring-1 ring-zinc-950/5 dark:ring-white/15'
+            "max-h-full flex flex-col w-full rounded-t-2xl sm:rounded-lg overflow-hidden bg-overlay text-overlay-fg text-left align-middle shadow-lg",
+            "ring-1 ring-zinc-950/5 dark:ring-white/15"
           )}
           initial={{ y: h }}
           animate={{ y: 0 }}
@@ -107,8 +107,8 @@ const DrawerContentPrimitive = ({ children, ...props }: DrawerOverlayPrimitivePr
           transition={staticTransition}
           style={{
             y,
-            top: 'auto',
-            height: contentHeight > 0 ? `${contentHeight + drawerMargin}px` : 'auto',
+            top: "auto",
+            height: contentHeight > 0 ? `${contentHeight + drawerMargin}px` : "auto",
             maxHeight: `calc(100% - ${drawerMargin}px)`
           }}
           drag="y"
@@ -143,11 +143,11 @@ const DrawerContentPrimitive = ({ children, ...props }: DrawerOverlayPrimitivePr
   )
 }
 
-interface DrawerPrimitiveProps extends Omit<React.ComponentProps<typeof Modal>, 'children'> {
-  'aria-label'?: DialogProps['aria-label']
-  'aria-labelledby'?: DialogProps['aria-labelledby']
-  role?: DialogProps['role']
-  children?: DialogProps['children']
+interface DrawerPrimitiveProps extends Omit<React.ComponentProps<typeof Modal>, "children"> {
+  "aria-label"?: DialogProps["aria-label"]
+  "aria-labelledby"?: DialogProps["aria-labelledby"]
+  role?: DialogProps["role"]
+  children?: DialogProps["children"]
 }
 
 const DrawerPrimitive = (props: DrawerPrimitiveProps) => {
@@ -160,7 +160,7 @@ const DrawerPrimitive = (props: DrawerPrimitiveProps) => {
     <motion.div
       style={{
         borderRadius: bodyBorderRadius,
-        transformOrigin: 'center 0'
+        transformOrigin: "center 0"
       }}
     >
       <AnimatePresence>{isOpen && <>{props.children}</>}</AnimatePresence>
@@ -208,7 +208,7 @@ const Drawer = ({
     }
   }
 
-  if (typeof window === 'undefined') {
+  if (typeof window === "undefined") {
     return null
   }
 
@@ -228,12 +228,12 @@ const DrawerContent = ({
     <DrawerPrimitive>
       <DrawerContentPrimitive {...props}>
         <Dialog
-          role={props.role ?? 'dialog'}
-          aria-label={props['aria-label'] ?? undefined}
-          aria-labelledby={props['aria-labelledby'] ?? undefined}
+          role={props.role ?? "dialog"}
+          aria-label={props["aria-label"] ?? undefined}
+          aria-labelledby={props["aria-labelledby"] ?? undefined}
           className="sm:max-w-lg mx-auto"
         >
-          {(values) => <>{typeof children === 'function' ? children(values) : children}</>}
+          {(values) => <>{typeof children === "function" ? children(values) : children}</>}
         </Dialog>
       </DrawerContentPrimitive>
     </DrawerPrimitive>
@@ -241,7 +241,7 @@ const DrawerContent = ({
 }
 
 const DrawerHeader = ({ className, ...props }: React.ComponentProps<typeof Dialog.Header>) => (
-  <Dialog.Header className={twJoin('pt-2', className)} {...props} />
+  <Dialog.Header className={twJoin("pt-2", className)} {...props} />
 )
 
 const DrawerBody = ({
@@ -249,7 +249,7 @@ const DrawerBody = ({
   className,
   ...props
 }: React.ComponentProps<typeof Dialog.Body>) => (
-  <Dialog.Body {...props} className={twJoin('px-4', className)}>
+  <Dialog.Body {...props} className={twJoin("px-4", className)}>
     {children}
   </Dialog.Body>
 )
@@ -259,7 +259,7 @@ const DrawerFooter = ({
   className,
   ...props
 }: React.ComponentProps<typeof Dialog.Footer>) => (
-  <Dialog.Footer {...props} className={twJoin('pb-2', className)}>
+  <Dialog.Footer {...props} className={twJoin("pb-2", className)}>
     {children}
   </Dialog.Footer>
 )

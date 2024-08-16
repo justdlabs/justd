@@ -1,8 +1,8 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import { Description, Switch } from 'ui'
+import { Description, Switch } from "ui"
 
 export default function SwitchControlledDemo() {
   const [darkMode, setDarkMode] = React.useState(false)
@@ -13,7 +13,7 @@ export default function SwitchControlledDemo() {
       </Switch>
 
       <Description className="mt-2 block [&>strong]:text-fg">
-        Dark Mode is <strong>{darkMode ? 'enabled' : 'disabled'}</strong>
+        Dark Mode is <strong>{darkMode ? "enabled" : "disabled"}</strong>
       </Description>
     </>
   )

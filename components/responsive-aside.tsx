@@ -1,16 +1,16 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import { LayoutGroup } from 'framer-motion'
-import { IconBrandJustd, IconBrandX, IconHamburger, IconSearch } from 'justd-icons'
-import { usePathname } from 'next/navigation'
-import { Button, buttonStyles, cn, Link, Sheet } from 'ui'
+import { LayoutGroup } from "framer-motion"
+import { IconBrandJustd, IconBrandX, IconHamburger, IconSearch } from "justd-icons"
+import { usePathname } from "next/navigation"
+import { Button, buttonStyles, cn, Link, Sheet } from "ui"
 
-import { Aside } from './aside'
-import { CommandPalette } from './command-palette'
-import { NavbarDropdown } from './navbar'
-import { ThemeSwitcher } from './theme-switcher'
+import { Aside } from "./aside"
+import { CommandPalette } from "./command-palette"
+import { NavbarDropdown } from "./navbar"
+import { ThemeSwitcher } from "./theme-switcher"
 
 export function ResponsiveAside({
   openCmd,
@@ -26,7 +26,7 @@ export function ResponsiveAside({
   return (
     <nav className="sm:hidden z-10 relative">
       <CommandPalette setOpen={setOpenCmd} openCmd={openCmd} />
-      <div className={cn('flex items-center justify-between pl-4 pr-2 -mb-2 pt-2')}>
+      <div className={cn("flex items-center justify-between pl-4 pr-2 -mb-2 pt-2")}>
         <Button
           aria-label="Open Menu."
           className="-ml-2 [&_[data-slot=icon]]:text-fg"
@@ -58,7 +58,7 @@ export function ResponsiveAside({
           <Link
             href="https://x.com/irsyadadl"
             aria-label="Follow me on twitter"
-            className={buttonStyles({ appearance: 'outline', size: 'square-petite' })}
+            className={buttonStyles({ appearance: "outline", size: "square-petite" })}
           >
             <IconBrandX />
           </Link>
@@ -67,7 +67,7 @@ export function ResponsiveAside({
       <Sheet.Content
         isOpen={openAside}
         onOpenChange={setOpenAside}
-        classNames={{ content: 'w-[19rem]' }}
+        classNames={{ content: "w-[19rem]" }}
         side="left"
         closeButton={true}
       >

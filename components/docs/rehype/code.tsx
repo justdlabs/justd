@@ -1,16 +1,16 @@
-'use client'
+"use client"
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react"
 
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@radix-ui/react-collapsible'
-import { IconCircleInfo } from 'justd-icons'
-import rehypePrettyCode from 'rehype-pretty-code'
-import rehypeStringify from 'rehype-stringify'
-import remarkParse from 'remark-parse'
-import remarkRehype from 'remark-rehype'
-import { Button, cn, CopyButton } from 'ui'
-import { unified } from 'unified'
-import { copyToClipboard } from 'usemods'
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@radix-ui/react-collapsible"
+import { IconCircleInfo } from "justd-icons"
+import rehypePrettyCode from "rehype-pretty-code"
+import rehypeStringify from "rehype-stringify"
+import remarkParse from "remark-parse"
+import remarkRehype from "remark-rehype"
+import { Button, cn, CopyButton } from "ui"
+import { unified } from "unified"
+import { copyToClipboard } from "usemods"
 
 export interface CodeProps {
   lang?: string
@@ -19,25 +19,25 @@ export interface CodeProps {
   className?: string
 }
 
-function Code({ className, lang = 'tsx', code, withImportCopy = true }: CodeProps) {
-  const [copied, setCopied] = React.useState<string>('')
+function Code({ className, lang = "tsx", code, withImportCopy = true }: CodeProps) {
+  const [copied, setCopied] = React.useState<string>("")
 
   function copyImportsToClipboard(): void {
     const importRegex = /import[\s\S]+?from\s+['"][\s\S]+?['"];?\n*/g
     const _imports = code.match(importRegex) || []
-    const imports = _imports.map((importStatement: string) => importStatement.trim()).join('\n')
+    const imports = _imports.map((importStatement: string) => importStatement.trim()).join("\n")
     copyToClipboard(imports)
       .then(() => {
-        setCopied('imports')
-        setTimeout(() => setCopied(''), 2000)
+        setCopied("imports")
+        setTimeout(() => setCopied(""), 2000)
       })
-      .catch((err) => console.error('Copy failed: ', err))
+      .catch((err) => console.error("Copy failed: ", err))
   }
 
   return (
     <div
       className={cn(
-        'dfakdpxe2941 not-prose group relative max-h-96 overflow-y-auto rounded-lg font-mono text-sm',
+        "dfakdpxe2941 not-prose group relative max-h-96 overflow-y-auto rounded-lg font-mono text-sm",
         className
       )}
     >
@@ -47,7 +47,7 @@ function Code({ className, lang = 'tsx', code, withImportCopy = true }: CodeProp
             <CopyButton
               ariaLabel="Copy imports statement"
               initialIcon={<IconCircleInfo />}
-              isCopied={copied === 'imports'}
+              isCopied={copied === "imports"}
               onPress={copyImportsToClipboard}
             />
           )}
@@ -63,11 +63,11 @@ function Code({ className, lang = 'tsx', code, withImportCopy = true }: CodeProp
 
 function CodeContainer({ children, isOpened }: { children: React.ReactNode; isOpened: boolean }) {
   return (
-    <CollapsibleContent forceMount className={!isOpened ? 'h-32' : ''}>
+    <CollapsibleContent forceMount className={!isOpened ? "h-32" : ""}>
       <div
         className={cn(
-          '[&_pre]:my-0 [&_pre]:!border-0 [&_pre]:h-[32rem] [&_pre]:pb-[100px]',
-          !isOpened ? '[&_pre]:overflow-hidden' : '[&_pre]:overflow-auto'
+          "[&_pre]:my-0 [&_pre]:!border-0 [&_pre]:h-[32rem] [&_pre]:pb-[100px]",
+          !isOpened ? "[&_pre]:overflow-hidden" : "[&_pre]:overflow-auto"
         )}
       >
         {children}
@@ -80,13 +80,13 @@ function CodeExpandButton({ isOpened }: { isOpened: boolean }) {
   return (
     <div
       className={cn(
-        'absolute flex items-center justify-center bg-gradient-to-b from-[#0e0e10]/50 to-black',
-        isOpened ? 'inset-x-0 bottom-0 h-16' : 'inset-0'
+        "absolute flex items-center justify-center bg-gradient-to-b from-[#0e0e10]/50 to-black",
+        isOpened ? "inset-x-0 bottom-0 h-16" : "inset-0"
       )}
     >
       <CollapsibleTrigger asChild>
         <Button intent="secondary" size="small">
-          {isOpened ? 'Collapse' : 'Expand'}
+          {isOpened ? "Collapse" : "Expand"}
         </Button>
       </CollapsibleTrigger>
     </div>
@@ -105,14 +105,14 @@ function CodeCollapsible({
   children,
   isOpened,
   onOpenChange,
-  lang = 'tsx',
+  lang = "tsx",
   withImportCopy = true,
   code,
   ...props
 }: React.PropsWithChildren<CodeCollapsibleProps>) {
   return (
     <Collapsible open={isOpened} onOpenChange={onOpenChange}>
-      <div className={'relative overflow-hidden'} {...props}>
+      <div className={"relative overflow-hidden"} {...props}>
         <CodeContainer isOpened={isOpened}>
           <Code code={code} lang={lang} withImportCopy={withImportCopy} />
         </CodeContainer>
@@ -129,23 +129,23 @@ export function CodeCollapsibleRoot({ children }: React.PropsWithChildren<{}>) {
 }
 
 export function CopyRawButton({ code }: { className?: string; code: any }) {
-  const [copied, setCopied] = React.useState<string>('')
+  const [copied, setCopied] = React.useState<string>("")
   const copyRaw = () => {
     copyToClipboard(code)
       .then(() => {
-        setCopied('raw')
-        setTimeout(() => setCopied(''), 2000)
+        setCopied("raw")
+        setTimeout(() => setCopied(""), 2000)
       })
       .catch((err) => {
-        console.error('Copy failed: ', err)
+        console.error("Copy failed: ", err)
       })
   }
-  return <CopyButton ariaLabel="Copy raw code" isCopied={copied === 'raw'} onPress={copyRaw} />
+  return <CopyButton ariaLabel="Copy raw code" isCopied={copied === "raw"} onPress={copyRaw} />
 }
 
-const CodeHighlighter: React.FC<CodeProps> = ({ lang = 'tsx', code }) => {
-  const [formattedCode, setFormattedCode] = useState('')
-  const [error, setError] = useState('')
+const CodeHighlighter: React.FC<CodeProps> = ({ lang = "tsx", code }) => {
+  const [formattedCode, setFormattedCode] = useState("")
+  const [error, setError] = useState("")
 
   useEffect(() => {
     const processCode = async () => {
@@ -155,17 +155,17 @@ const CodeHighlighter: React.FC<CodeProps> = ({ lang = 'tsx', code }) => {
           .use(remarkRehype, { allowDangerousHtml: true })
           .use(rehypePrettyCode, {
             keepBackground: false,
-            theme: 'vesper',
+            theme: "vesper",
             defaultLang: {
               block: lang,
-              inline: 'plaintext'
+              inline: "plaintext"
             }
           })
           .use(rehypeStringify, { allowDangerousHtml: true })
           .process(`\`\`\`${lang}\n${code}\n\`\`\``)
         setFormattedCode(String(file))
       } catch (err) {
-        setError('Failed to process code. Please check the configuration.')
+        setError("Failed to process code. Please check the configuration.")
         console.error(err)
       }
     }

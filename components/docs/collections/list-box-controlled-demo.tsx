@@ -1,12 +1,12 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import type { Selection } from 'react-aria-components'
-import { Description, ListBox } from 'ui'
+import type { Selection } from "react-aria-components"
+import { Description, ListBox } from "ui"
 
 export default function ListBoxControlledDemo() {
-  const [selected, setSelected] = React.useState<Selection>(new Set(['2']))
+  const [selected, setSelected] = React.useState<Selection>(new Set(["2"]))
   return (
     <>
       <ListBox
@@ -31,30 +31,30 @@ export default function ListBoxControlledDemo() {
 const fruits = [
   {
     id: 1,
-    name: 'Apple'
+    name: "Apple"
   },
   {
     id: 2,
-    name: 'Banana'
+    name: "Banana"
   },
   {
     id: 3,
-    name: 'Orange'
+    name: "Orange"
   },
   {
     id: 4,
-    name: 'Strawberry'
+    name: "Strawberry"
   },
   {
     id: 5,
-    name: 'Grapes'
+    name: "Grapes"
   },
   {
     id: 6,
-    name: 'Mango'
+    name: "Mango"
   },
   {
     id: 7,
-    name: 'Pineapple'
+    name: "Pineapple"
   }
 ]

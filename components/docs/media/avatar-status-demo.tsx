@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react"
 
-import { Avatar } from 'ui'
+import { Avatar } from "ui"
 
 export default function AvatarStatusDemo() {
   return (

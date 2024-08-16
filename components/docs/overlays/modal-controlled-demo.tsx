@@ -1,8 +1,8 @@
-'use client'
+"use client"
 
-import { useState } from 'react'
+import { useState } from "react"
 
-import { Button, Modal } from 'ui'
+import { Button, Modal } from "ui"
 
 export default function ModalControlledDemo() {
   const [open, setOpen] = useState(false)

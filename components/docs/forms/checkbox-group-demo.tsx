@@ -1,8 +1,8 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import { Checkbox, CheckboxGroup } from 'ui'
+import { Checkbox, CheckboxGroup } from "ui"
 
 export default function CheckboxGroupDemo() {
   return (

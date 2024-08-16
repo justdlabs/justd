@@ -1,9 +1,9 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import { type Color } from 'react-aria-components'
-import { ColorPicker, defaultColor } from 'ui'
+import { type Color } from "react-aria-components"
+import { ColorPicker, defaultColor } from "ui"
 
 export default function ColorPickerEnableSwatchDemo() {
   const [color, setColor] = React.useState(defaultColor)

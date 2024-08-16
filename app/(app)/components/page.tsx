@@ -1,16 +1,16 @@
-import React from 'react'
+import React from "react"
 
-import { CardListBox } from '@/app/(app)/components/partials/card-list-box'
-import { OnThisPage } from '@/app/(app)/components/partials/on-this-page'
-import { Header } from '@/components/header'
-import { siteConfig } from '@/resources/config/site'
-import type { Metadata } from 'next'
-import { Container } from 'ui'
+import { CardListBox } from "@/app/(app)/components/partials/card-list-box"
+import { OnThisPage } from "@/app/(app)/components/partials/on-this-page"
+import { Header } from "@/components/header"
+import { siteConfig } from "@/resources/config/site"
+import type { Metadata } from "next"
+import { Container } from "ui"
 
 export const metadata: Metadata = {
-  title: 'Components / ' + siteConfig.name,
+  title: "Components / " + siteConfig.name,
   description:
-    'Over 50 accessible components, neatly grouped into sections. Guaranteed usability for all!',
+    "Over 50 accessible components, neatly grouped into sections. Guaranteed usability for all!",
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? siteConfig.url),
   applicationName: siteConfig.name
 }

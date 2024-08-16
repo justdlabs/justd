@@ -12,7 +12,7 @@
         --overlay: 0 0% 100%;
         --overlay-fg: 240 10% 3.9%;
 
-        --primary: 216 98% 52%;
+        --primary: 216.74 100% 50%;
         --primary-fg: 0 0% 100%;
 
         --secondary: 240 4.8% 95.9%;
@@ -38,7 +38,7 @@
 
         --border: 240 5.9% 90%;
         --input: 240 5.9% 90%;
-        --ring: 211 100% 58%;
+        --ring: var(--primary);
         --toggle: 240 5% 84%;
         --radius: 0.55rem;
     }
@@ -50,6 +50,9 @@
         --overlay: 240 6% 6%;
         --overlay-fg: 0 0% 98%;
 
+        --primary: 216 98% 52%;
+        --primary-fg: 0 0% 100%;
+
         --secondary: 240 3.7% 15.9%;
         --secondary-fg: 0 0% 98%;
 
@@ -58,7 +61,7 @@
 
         --tertiary: 240 10% 5.5%;
         --tertiary-fg: 240 5% 96%;
-
+        --ring: var(--primary);
         --muted: 240 3.7% 15.9%;
         --muted-fg: 240 5% 64.9%;
         --toggle: 240 5% 26%;
@@ -95,12 +98,12 @@
     /* dark mode */
     .dark {
         scrollbar-width: thin;
-        scrollbar-color: #3f3f46 transparent;
+        scrollbar-color: var(--secondary) transparent;
 
         @media (prefers-color-scheme: dark) {
             * {
                 scrollbar-width: thin;
-                scrollbar-color: #3f3f46 transparent;
+                scrollbar-color: var(--secondary) transparent;
             }
         }
     }
@@ -130,10 +133,6 @@
 
 .react-aria-DropIndicator[data-drop-target] {
     outline: 1px solid hsl(var(--primary));
-}
-
-.recharts-rectangle.recharts-tooltip-cursor {
-    @apply fill-zinc-300/10;
 }
 
 @layer components {
