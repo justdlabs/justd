@@ -1,17 +1,12 @@
-'use client';
+'use client'
 
-import React from 'react';
+import React from 'react'
 
+import { Button, Container } from 'ui'
 
-
-import { Button, Container } from 'ui';
-
-
-
-import { Blocks } from './blocks';
+import { Blocks } from './blocks'
 import type { ThemeProps } from './themes-list'
-import { themesList } from './themes-list';
-
+import { themesList } from './themes-list'
 
 export function Themes() {
   const themeContainerRef = React.useRef<HTMLDivElement>(null)
@@ -31,21 +26,27 @@ export function Themes() {
         })
       }
     }
-    localStorage.setItem('theme-id', theme);
+    localStorage.setItem('theme-id', theme)
   }
   React.useEffect(() => {
-    const savedTheme = localStorage.getItem('theme-id') as ThemeProps;
+    const savedTheme = localStorage.getItem('theme-id') as ThemeProps
     if (savedTheme) {
-      applyTheme(savedTheme);
+      applyTheme(savedTheme)
     }
-  }, []);
+  }, [])
   return (
     <div ref={themeContainerRef}>
       <Container className="sm:py-16 bg-background py-8">
         <div className="flex border rounded-lg p-2 mb-2 items-center gap-2">
-          <Button appearance='outline' onPress={() => applyTheme('default')}>Default</Button>
-          <Button appearance='outline' onPress={() => applyTheme('zinc')}>Zinc</Button>
-          <Button appearance='outline' onPress={() => applyTheme('slate')}>Slate</Button>
+          <Button appearance="outline" onPress={() => applyTheme('default')}>
+            Default
+          </Button>
+          <Button appearance="outline" onPress={() => applyTheme('zinc')}>
+            Zinc
+          </Button>
+          <Button appearance="outline" onPress={() => applyTheme('slate')}>
+            Slate
+          </Button>
         </div>
         <Blocks />
       </Container>

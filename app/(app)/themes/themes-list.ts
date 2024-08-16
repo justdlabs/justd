@@ -1,7 +1,7 @@
 type ThemeProps = 'default' | 'zinc' | 'slate'
 type ThemeVariables = {
-  [key: string]: string;
-};
+  [key: string]: string
+}
 const themesList: Record<ThemeProps, { root: ThemeVariables; dark: ThemeVariables }> = {
   default: {
     root: {
@@ -31,7 +31,7 @@ const themesList: Record<ThemeProps, { root: ThemeVariables; dark: ThemeVariable
       '--input': '240 5.9% 90%',
       '--ring': 'var(--primary)',
       '--toggle': '240 5% 84%',
-      '--radius': '0.55rem',
+      '--radius': '0.55rem'
     },
     dark: {
       '--background': '0 0% 0%',
@@ -49,8 +49,8 @@ const themesList: Record<ThemeProps, { root: ThemeVariables; dark: ThemeVariable
       '--muted-fg': '240 5% 64.9%',
       '--toggle': '240 5% 26%',
       '--border': '240 7% 15%',
-      '--input': '240 3.7% 15.9%',
-    },
+      '--input': '240 3.7% 15.9%'
+    }
   },
   zinc: {
     root: {
@@ -73,7 +73,7 @@ const themesList: Record<ThemeProps, { root: ThemeVariables; dark: ThemeVariable
       '--border': '240 5.9% 90%',
       '--input': '240 5.9% 90%',
       '--ring': 'var(--primary)',
-      '--toggle': '240 5% 84%',
+      '--toggle': '240 5% 84%'
     },
     dark: {
       '--background': '0 0% 0%',
@@ -89,8 +89,8 @@ const themesList: Record<ThemeProps, { root: ThemeVariables; dark: ThemeVariable
       '--muted-fg': '240 5% 64.9%',
       '--toggle': '240 5% 26%',
       '--border': '240 7% 15%',
-      '--input': '240 3.7% 15.9%',
-    },
+      '--input': '240 3.7% 15.9%'
+    }
   },
   slate: {
     root: {
@@ -103,7 +103,7 @@ const themesList: Record<ThemeProps, { root: ThemeVariables; dark: ThemeVariable
       '--secondary': '210 40% 96.08%',
       '--secondary-fg': '228.57 84% 4.9%',
       '--border': '215.38 16.32% 46.86%',
-      '--input': '212.73 26.83% 83.92%',
+      '--input': '212.73 26.83% 83.92%'
     },
     dark: {
       '--background': '228.57 84% 4.9%',
@@ -113,10 +113,10 @@ const themesList: Record<ThemeProps, { root: ThemeVariables; dark: ThemeVariable
       '--secondary': '222.22 47.37% 11.18%',
       '--secondary-fg': '210 40% 96.08%',
       '--border': '215 20.22% 65.1%',
-      '--input': '215.29 25% 26.67%',
-    },
-  },
-};
+      '--input': '215.29 25% 26.67%'
+    }
+  }
+}
 
-export type {ThemeProps}
-export {themesList}
+export type { ThemeProps }
+export { themesList }

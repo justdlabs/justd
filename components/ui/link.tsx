@@ -10,10 +10,8 @@ const linkStyles = tv({
   variants: {
     intent: {
       unstyled: 'text-fg',
-      primary:
-        'text-primary hover:text-primary/80 forced-colors:disabled:text-[GrayText]',
-      danger:
-        'text-danger hover:text-danger/80 forced-colors:disabled:text-[GrayText]',
+      primary: 'text-primary hover:text-primary/80 forced-colors:disabled:text-[GrayText]',
+      danger: 'text-danger hover:text-danger/80 forced-colors:disabled:text-[GrayText]',
       'lad/primary':
         'text-fg hover:text-primary dark:hover:text-primary/80 forced-colors:disabled:text-[GrayText]',
       secondary: 'text-secondary-fg hover:text-secondary-fg/80'

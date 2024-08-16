@@ -18,12 +18,7 @@ interface ColorItemProps extends ListBoxItemProps {
   selectedFormat: FormatOnlyForTailwindVariableType | ColorFormat
 }
 
-const ColorItem = ({
-  item,
-  name,
-  isForTailwindVariable,
-  selectedFormat
-}: ColorItemProps) => {
+const ColorItem = ({ item, name, isForTailwindVariable, selectedFormat }: ColorItemProps) => {
   const [copied, setCopied] = React.useState(false)
   const handleCopy = async (selectedColor: string) => {
     const toCopy = isForTailwindVariable

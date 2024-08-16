@@ -16,10 +16,14 @@ export function Buttons() {
         </div>
       </Card>
       <Card className="grid place-content-center">
-        <Checkbox isReadOnly defaultSelected>Remember me</Checkbox>
+        <Checkbox isReadOnly defaultSelected>
+          Remember me
+        </Checkbox>
       </Card>
       <Card className="grid place-content-center">
-        <Switch isReadOnly defaultSelected>Toggle Theme</Switch>
+        <Switch isReadOnly defaultSelected>
+          Toggle Theme
+        </Switch>
       </Card>
     </div>
   )
