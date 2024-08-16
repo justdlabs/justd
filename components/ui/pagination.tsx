@@ -101,11 +101,11 @@ interface PaginationItemProps extends ListBoxItemProps {
   shape?: 'square' | 'circle'
   appearance?: 'solid' | 'outline' | 'plain'
   isCurrent?: boolean
-  role?: 'label' | 'separator' | 'ellipsis' | 'default' | 'last' | 'first' | 'previous' | 'next'
+  variant?: 'label' | 'separator' | 'ellipsis' | 'default' | 'last' | 'first' | 'previous' | 'next'
 }
 
 const PaginationItem = ({
-  role = 'default',
+  variant = 'default',
   size = 'square-petite',
   appearance = 'outline',
   intent,
@@ -125,7 +125,7 @@ const PaginationItem = ({
   const renderPaginationIndicator = (indicator: React.ReactNode) =>
     renderListItem(
       {
-        textValue: role,
+        textValue: variant,
         'aria-current': isCurrent ? 'page' : undefined,
         isDisabled: isCurrent,
         className: cn(
@@ -141,7 +141,7 @@ const PaginationItem = ({
       indicator
     )
 
-  switch (role) {
+  switch (variant) {
     case 'label':
       return renderListItem(
         {

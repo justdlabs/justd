@@ -55,12 +55,12 @@ export default function CardTableDemo() {
       <Card.Footer>
         <Pagination>
           <Pagination.List>
-            <Pagination.Item role="first" />
-            <Pagination.Item role="previous" />
+            <Pagination.Item variant="first" />
+            <Pagination.Item variant="previous" />
             <Pagination.Section className="lg:hidden rounded-lg border">
-              <Pagination.Item role="label">1</Pagination.Item>
-              <Pagination.Item role="separator" />
-              <Pagination.Item className="text-muted-fg" role="label">
+              <Pagination.Item variant="label">1</Pagination.Item>
+              <Pagination.Item variant="separator" />
+              <Pagination.Item className="text-muted-fg" variant="label">
                 {users.length}
               </Pagination.Item>
             </Pagination.Section>
@@ -71,8 +71,8 @@ export default function CardTableDemo() {
                 </Pagination.Item>
               )}
             </Pagination.Section>
-            <Pagination.Item role="next" />
-            <Pagination.Item role="last" />
+            <Pagination.Item variant="next" />
+            <Pagination.Item variant="last" />
           </Pagination.List>
         </Pagination>
       </Card.Footer>
