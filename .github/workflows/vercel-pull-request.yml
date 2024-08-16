@@ -5,6 +5,7 @@ on:
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
       - uses: actions/checkout@v4
 
