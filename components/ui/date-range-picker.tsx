@@ -1,27 +1,27 @@
-'use client'
+"use client"
 
-import * as React from 'react'
+import * as React from "react"
 
 import {
   DateRangePicker as DateRangePickerPrimitive,
   type DateRangePickerProps as DateRangePickerPrimitiveProps,
   type DateValue,
   type ValidationResult
-} from 'react-aria-components'
-import { tv } from 'tailwind-variants'
+} from "react-aria-components"
+import { tv } from "tailwind-variants"
 
-import { DateInput } from './date-field'
-import { DatePickerIcon, DatePickerOverlay } from './date-picker'
-import { Description, FieldError, FieldGroup, Label } from './field'
-import { ctr } from './primitive'
+import { DateInput } from "./date-field"
+import { DatePickerIcon, DatePickerOverlay } from "./date-picker"
+import { Description, FieldError, FieldGroup, Label } from "./field"
+import { ctr } from "./primitive"
 
 const dateRangePickerStyles = tv({
   slots: {
-    base: 'group flex flex-col gap-1',
-    dateRangePickerInputStart: 'px-2 lg:text-sm font-mono uppercase text-base',
-    dateRangePickerInputEnd: 'flex-1 px-2 py-1.5 font-mono uppercase text-base lg:text-sm',
+    base: "group flex flex-col gap-1",
+    dateRangePickerInputStart: "px-2 lg:text-sm font-mono uppercase text-base",
+    dateRangePickerInputEnd: "flex-1 px-2 py-1.5 font-mono uppercase text-base lg:text-sm",
     dateRangePickerDash:
-      'text-zinc-800 group-disabled:text-zinc-200 dark:text-zinc-200 group-disabled:dark:text-zinc-600 forced-colors:text-[ButtonText] group-disabled:forced-colors:text-[GrayText]'
+      "text-zinc-800 group-disabled:text-zinc-200 dark:text-zinc-200 group-disabled:dark:text-zinc-600 forced-colors:text-[ButtonText] group-disabled:forced-colors:text-[GrayText]"
   }
 })
 const { base, dateRangePickerInputStart, dateRangePickerInputEnd, dateRangePickerDash } =

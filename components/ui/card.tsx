@@ -1,24 +1,24 @@
-'use client'
+"use client"
 
-import * as React from 'react'
+import * as React from "react"
 
-import type { HeadingProps, TextProps } from 'react-aria-components'
-import { Heading } from 'react-aria-components'
-import { tv } from 'tailwind-variants'
+import type { HeadingProps, TextProps } from "react-aria-components"
+import { Heading } from "react-aria-components"
+import { tv } from "tailwind-variants"
 
-import { Description } from './field'
+import { Description } from "./field"
 
 const card = tv({
   slots: {
     root: [
-      'xrkr bg-background rounded-lg xkd2 [&:has(table)_.ccvgs8x]:border-t [&:has(table)_.x32]:bg-tertiary [&:has(table)]:overflow-hidden border text-fg shadow-sm [&:has(.larhy3):not(:has(.yahnba))>.ccvgs8x]:pt-6 [&:has(.larhy3)]:overflow-hidden [&_table]:overflow-hidden'
+      "xrkr bg-background rounded-lg xkd2 [&:has(table)_.ccvgs8x]:border-t [&:has(table)_.x32]:bg-tertiary [&:has(table)]:overflow-hidden border text-fg shadow-sm [&:has(.larhy3):not(:has(.yahnba))>.ccvgs8x]:pt-6 [&:has(.larhy3)]:overflow-hidden [&_table]:overflow-hidden"
     ],
-    header: 'flex xlw32 flex-col space-y-1.5 px-6 py-5',
-    title: 'text-lg klda font-semibold leading-none tracking-tight',
-    description: 'text-base dl2 text-muted-fg sm:text-sm',
+    header: "flex xlw32 flex-col space-y-1.5 px-6 py-5",
+    title: "text-lg klda font-semibold leading-none tracking-tight",
+    description: "text-base dl2 text-muted-fg sm:text-sm",
     content:
-      'yahnba px-6 pb-6 has-[.t-hea]:bg-secondary/40 has-[table]:p-0 [&:has(table)+.ccvgs8x]:py-5 [&:has(table)]:border-t [&_.t-cel]:px-6 [&_.t-col]:px-6',
-    footer: 'ccvgs8x flex items-center p-6 pt-0'
+      "yahnba px-6 pb-6 has-[.t-hea]:bg-secondary/40 has-[table]:p-0 [&:has(table)+.ccvgs8x]:py-5 [&:has(table)]:border-t [&_.t-cel]:px-6 [&_.t-col]:px-6",
+    footer: "ccvgs8x flex items-center p-6 pt-0"
   }
 })
 
@@ -37,7 +37,7 @@ const CardHeader = ({ className, ...props }: CardHeaderProps) => (
   <div className={header({ className })} {...props}>
     {props.title && <CardTitle>{props.title}</CardTitle>}
     {props.description && <CardDescription>{props.description}</CardDescription>}
-    {!props.title && typeof props.children === 'string' ? <CardTitle {...props} /> : props.children}
+    {!props.title && typeof props.children === "string" ? <CardTitle {...props} /> : props.children}
   </div>
 )
 

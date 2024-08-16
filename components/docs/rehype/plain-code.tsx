@@ -1,8 +1,8 @@
-'use client'
+"use client"
 
-import * as React from 'react'
+import * as React from "react"
 
-import { CodeCollapsible, CodeCollapsibleRoot } from '@/components/docs/rehype/code'
+import { CodeCollapsible, CodeCollapsibleRoot } from "@/components/docs/rehype/code"
 
 interface PlainCodeProps extends React.HTMLAttributes<HTMLDivElement> {
   code: string
@@ -14,7 +14,7 @@ interface PlainCodeProps extends React.HTMLAttributes<HTMLDivElement> {
 export function PlainCode({
   title,
   withImportCopy = false,
-  lang = 'tsx',
+  lang = "tsx",
   code,
   ...props
 }: PlainCodeProps) {

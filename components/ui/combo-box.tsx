@@ -1,9 +1,9 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import { IconChevronLgDown, IconX } from 'justd-icons'
-import type { InputProps } from 'react-aria-components'
+import { IconChevronLgDown, IconX } from "justd-icons"
+import type { InputProps } from "react-aria-components"
 import {
   ComboBox as ComboboxPrimitive,
   ComboBoxContext,
@@ -12,30 +12,30 @@ import {
   type PopoverProps as PopoverPrimitiveProps,
   useSlottedContext,
   type ValidationResult
-} from 'react-aria-components'
-import { tv } from 'tailwind-variants'
+} from "react-aria-components"
+import { tv } from "tailwind-variants"
 
-import { Button, ButtonPrimitive } from './button'
-import { DropdownItem, DropdownSection } from './dropdown'
-import { Description, FieldError, FieldGroup, Input, Label } from './field'
-import { ListBox } from './list-box'
-import { Popover } from './popover'
-import { ctr } from './primitive'
+import { Button, ButtonPrimitive } from "./button"
+import { DropdownItem, DropdownSection } from "./dropdown"
+import { Description, FieldError, FieldGroup, Input, Label } from "./field"
+import { ListBox } from "./list-box"
+import { Popover } from "./popover"
+import { ctr } from "./primitive"
 
 const comboboxStyles = tv({
   slots: {
-    base: 'group w-full flex flex-col gap-1',
+    base: "group w-full flex flex-col gap-1",
     chevronButton:
-      'h-7 w-8 [&_[data-slot=icon]]:text-muted-fg hover:[&_[data-slot=icon]]:text-fg pressed:[&_[data-slot=icon]]:text-fg rounded outline-offset-0 active:bg-transparent hover:bg-transparent pressed:bg-transparent',
-    chevronIcon: 'transition duration-200 group-open:rotate-180 group-open:text-fg',
+      "h-7 w-8 [&_[data-slot=icon]]:text-muted-fg hover:[&_[data-slot=icon]]:text-fg pressed:[&_[data-slot=icon]]:text-fg rounded outline-offset-0 active:bg-transparent hover:bg-transparent pressed:bg-transparent",
+    chevronIcon: "transition duration-200 group-open:rotate-180 group-open:text-fg",
     clearButton:
-      'focus:outline-none absolute inset-y-0 right-0 flex items-center pr-2 text-muted-fg hover:text-fg'
+      "focus:outline-none absolute inset-y-0 right-0 flex items-center pr-2 text-muted-fg hover:text-fg"
   }
 })
 
 const { base, chevronButton, chevronIcon, clearButton } = comboboxStyles()
 
-interface ComboBoxProps<T extends object> extends Omit<ComboboxPrimitiveProps<T>, 'children'> {
+interface ComboBoxProps<T extends object> extends Omit<ComboboxPrimitiveProps<T>, "children"> {
   label?: string
   placeholder?: string
   description?: string | null
@@ -65,7 +65,7 @@ interface ListBoxPickerProps<T extends object> extends React.ComponentProps<type
 
 interface ListProps<T extends object>
   extends ListBoxPickerProps<T>,
-    Omit<PopoverPrimitiveProps, 'children' | 'className' | 'style'> {}
+    Omit<PopoverPrimitiveProps, "children" | "className" | "style"> {}
 
 const List = <T extends object>({ children, items, ...props }: ListProps<T>) => {
   return (

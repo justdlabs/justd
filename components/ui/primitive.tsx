@@ -1,11 +1,11 @@
-'use client'
+"use client"
 
-import * as React from 'react'
+import * as React from "react"
 
-import { type ClassValue, clsx } from 'clsx'
-import { composeRenderProps } from 'react-aria-components'
-import { twMerge } from 'tailwind-merge'
-import { tv } from 'tailwind-variants'
+import { type ClassValue, clsx } from "clsx"
+import { composeRenderProps } from "react-aria-components"
+import { twMerge } from "tailwind-merge"
+import { tv } from "tailwind-variants"
 
 const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs))
 
@@ -17,18 +17,18 @@ const composeTailwindRenderProps = <T,>(
 }
 
 const focusRing = tv({
-  base: 'outline-none focus:outline-none forced-colors:outline-[Highlight]',
+  base: "outline-none focus:outline-none forced-colors:outline-[Highlight]",
   variants: {
-    isFocused: { true: 'ring-4 ring-ring/20' },
-    isInvalid: { true: 'ring-4 ring-danger/20' }
+    isFocused: { true: "ring-4 ring-ring/20" },
+    isInvalid: { true: "ring-4 ring-danger/20" }
   }
 })
 
 const isServerSide = (): boolean => {
-  if (typeof window !== 'undefined') {
+  if (typeof window !== "undefined") {
     return false
   }
-  if (typeof process !== 'undefined' && process.versions && process.versions.node) {
+  if (typeof process !== "undefined" && process.versions && process.versions.node) {
     return true
   }
   return true
@@ -43,17 +43,17 @@ const isIos = (userAgent?: string): boolean => {
 const focusStyles = tv({
   extend: focusRing,
   variants: {
-    isFocused: { true: 'border-ring' },
-    isInvalid: { true: 'border-danger' }
+    isFocused: { true: "border-ring" },
+    isInvalid: { true: "border-danger" }
   }
 })
 
 const focusButtonStyles = tv({
-  base: 'outline outline-ring forced-colors:outline-[Highlight] outline-offset-2',
+  base: "outline outline-ring forced-colors:outline-[Highlight] outline-offset-2",
   variants: {
     isFocusVisible: {
-      false: 'outline-0',
-      true: 'outline-2'
+      false: "outline-0",
+      true: "outline-2"
     }
   }
 })
@@ -67,10 +67,10 @@ const useMediaQuery = (query: string) => {
     }
 
     const result = matchMedia(query)
-    result.addEventListener('change', onChange)
+    result.addEventListener("change", onChange)
     setValue(result.matches)
 
-    return () => result.removeEventListener('change', onChange)
+    return () => result.removeEventListener("change", onChange)
   }, [query])
 
   return value

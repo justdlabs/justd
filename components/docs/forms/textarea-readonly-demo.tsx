@@ -1,6 +1,6 @@
-'use client'
+"use client"
 
-import { Textarea } from 'ui'
+import { Textarea } from "ui"
 
 export default function TextareaReadonlyDemo() {
   return <Textarea isReadOnly label="Address" />

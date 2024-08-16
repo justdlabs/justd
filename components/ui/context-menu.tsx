@@ -1,12 +1,12 @@
-'use client'
+"use client"
 
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState } from "react"
 
-import { tv } from 'tailwind-variants'
+import { tv } from "tailwind-variants"
 
-import type { MenuContentProps } from './menu'
-import { Menu } from './menu'
-import { focusButtonStyles } from './primitive'
+import type { MenuContentProps } from "./menu"
+import { Menu } from "./menu"
+import { focusButtonStyles } from "./primitive"
 
 interface ContextMenuTriggerContextType {
   buttonRef: React.RefObject<HTMLButtonElement>
@@ -23,7 +23,7 @@ const ContextMenuTriggerContext = React.createContext<ContextMenuTriggerContextT
 const useContextMenuTrigger = () => {
   const context = React.useContext(ContextMenuTriggerContext)
   if (!context) {
-    throw new Error('useContextMenuTrigger must be used within a ContextMenuTrigger')
+    throw new Error("useContextMenuTrigger must be used within a ContextMenuTrigger")
   }
   return context
 }
@@ -50,11 +50,11 @@ const ContextMenu = ({ children }: ContextMenuRootComponent) => {
 
 const contextMenuTriggerStyles = tv({
   extend: focusButtonStyles,
-  base: 'focus:outline-none cursor-default',
+  base: "focus:outline-none cursor-default",
   variants: {
     isDisabled: {
-      false: 'forced-colors:disabled:text-[GrayText]',
-      true: 'cursor-default opacity-60 forced-colors:disabled:text-[GrayText]'
+      false: "forced-colors:disabled:text-[GrayText]",
+      true: "cursor-default opacity-60 forced-colors:disabled:text-[GrayText]"
     }
   }
 })
@@ -86,7 +86,7 @@ const ContextMenuTrigger = ({ className, ...props }: ContextMenuTriggerProps) =>
 interface ContextMenuContentProps<T>
   extends Omit<
     MenuContentProps<T>,
-    'showArrow' | 'isOpen' | 'onOpenChange' | 'triggerRef' | 'placement' | 'shouldFlip'
+    "showArrow" | "isOpen" | "onOpenChange" | "triggerRef" | "placement" | "shouldFlip"
   > {}
 
 const ContextMenuContent = <T extends object>(props: ContextMenuContentProps<T>) => {

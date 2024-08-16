@@ -1,7 +1,7 @@
-'use client'
+"use client"
 
-import { IconBrandX } from 'justd-icons'
-import { buttonStyles, Tooltip } from 'ui'
+import { IconBrandX } from "justd-icons"
+import { buttonStyles, Tooltip } from "ui"
 
 export default function TooltipDemo() {
   return (
@@ -10,8 +10,8 @@ export default function TooltipDemo() {
         <Tooltip.Trigger
           aria-label="Follow My Twitter"
           className={buttonStyles({
-            appearance: 'outline',
-            size: 'square-petite'
+            appearance: "outline",
+            size: "square-petite"
           })}
         >
           <IconBrandX />

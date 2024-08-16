@@ -1,8 +1,8 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import { Description, NumberField } from 'ui'
+import { Description, NumberField } from "ui"
 
 export default function NumberFieldControlledDemo() {
   const [number, setNumber] = React.useState(1280)
@@ -11,7 +11,7 @@ export default function NumberFieldControlledDemo() {
       <NumberField label="Width" value={number} onChange={setNumber} />
 
       <Description className="mt-2 block [&>strong]:text-fg">
-        You have typed: <strong>{number ?? '-'}</strong>
+        You have typed: <strong>{number ?? "-"}</strong>
       </Description>
     </div>
   )

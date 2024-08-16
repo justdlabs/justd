@@ -1,8 +1,8 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import { Button, CommandMenu } from 'ui'
+import { Button, CommandMenu } from "ui"
 
 export default function CommandMenuDisabledDemo() {
   const [isOpen, setIsOpen] = React.useState(false)

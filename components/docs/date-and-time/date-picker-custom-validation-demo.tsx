@@ -1,9 +1,9 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import { getLocalTimeZone, parseDate, startOfYear, today } from '@internationalized/date'
-import { Button, DatePicker, Form } from 'ui'
+import { getLocalTimeZone, parseDate, startOfYear, today } from "@internationalized/date"
+import { Button, DatePicker, Form } from "ui"
 
 export default function DatePickerInvalidDemo() {
   const ly = startOfYear(today(getLocalTimeZone()))
@@ -12,7 +12,7 @@ export default function DatePickerInvalidDemo() {
   return (
     <Form onSubmit={(e) => e.preventDefault()}>
       <DatePicker
-        validate={(date) => (date < now ? 'Select a future date, please.' : null)}
+        validate={(date) => (date < now ? "Select a future date, please." : null)}
         value={value}
         onChange={setValue}
         label="Delivery date"

@@ -1,8 +1,8 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import { Meter } from 'ui'
+import { Meter } from "ui"
 
 export default function MeterDemo() {
   const [value, setValue] = React.useState(1)

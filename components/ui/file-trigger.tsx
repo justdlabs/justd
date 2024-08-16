@@ -1,38 +1,38 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import { IconCamera, IconFolder, IconPaperclip } from 'justd-icons'
+import { IconCamera, IconFolder, IconPaperclip } from "justd-icons"
 import {
   FileTrigger as FileTriggerPrimitive,
   type FileTriggerProps as FileTriggerPrimitiveProps
-} from 'react-aria-components'
+} from "react-aria-components"
 
-import { Button } from './button'
+import { Button } from "./button"
 
 interface FileTriggerProps extends FileTriggerPrimitiveProps {
   withIcon?: boolean
   isDisabled?: boolean
   intent?:
-    | 'primary'
-    | 'secondary'
-    | 'danger'
-    | 'warning'
-    | 'info'
-    | 'light/dark'
-    | 'success'
-    | 'light'
-    | 'dark'
-  size?: 'medium' | 'large' | 'square-petite' | 'extra-small' | 'small'
-  shape?: 'square' | 'circle'
-  appearance?: 'solid' | 'outline' | 'plain'
+    | "primary"
+    | "secondary"
+    | "danger"
+    | "warning"
+    | "info"
+    | "light/dark"
+    | "success"
+    | "light"
+    | "dark"
+  size?: "medium" | "large" | "square-petite" | "extra-small" | "small"
+  shape?: "square" | "circle"
+  appearance?: "solid" | "outline" | "plain"
 }
 
 const FileTrigger = ({
-  intent = 'primary',
-  appearance = 'outline',
-  size = 'medium',
-  shape = 'square',
+  intent = "primary",
+  appearance = "outline",
+  size = "medium",
+  shape = "square",
   withIcon = true,
   ...props
 }: FileTriggerProps) => {
@@ -62,10 +62,10 @@ const FileTrigger = ({
           ) : (
             <>
               {props.allowsMultiple
-                ? 'Browse a files'
+                ? "Browse a files"
                 : props.acceptDirectory
-                  ? 'Browse'
-                  : 'Browse a file'}
+                  ? "Browse"
+                  : "Browse a file"}
               ...
             </>
           )}

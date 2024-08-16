@@ -1,11 +1,11 @@
-'use client'
+"use client"
 
-import { Badge } from 'ui'
+import { Badge } from "ui"
 
 export default function BadgeIntentDemo() {
   return (
     <div className="flex flex-wrap gap-2">
-      {['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'].map(
+      {["primary", "secondary", "success", "info", "warning", "danger", "light", "dark"].map(
         (intent, index) => (
           <Badge key={index} intent={intent as any}>
             {intent}

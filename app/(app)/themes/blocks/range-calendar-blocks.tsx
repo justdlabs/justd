@@ -1,10 +1,9 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import { getLocalTimeZone, parseDate, today } from '@internationalized/date'
-import { useDateFormatter } from '@react-aria/i18n'
-import { Button, Calendar, Card, Checkbox, Link, RangeCalendar, TextField } from 'ui'
+import { getLocalTimeZone, today } from "@internationalized/date"
+import { Card, RangeCalendar } from "ui"
 
 export function RangeCalendarBlocks() {
   const now = today(getLocalTimeZone())
@@ -15,7 +14,7 @@ export function RangeCalendarBlocks() {
     end: tomorrowWeek
   })
   return (
-    <Card className="grid place-content-center">
+    <Card className="grid place-content-center p-6">
       <RangeCalendar value={value} onChange={setValue} aria-label="Event date" />
     </Card>
   )

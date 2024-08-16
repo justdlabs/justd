@@ -1,6 +1,6 @@
-'use client'
+"use client"
 
-import { Button, Card, Checkbox, Link, TextField } from 'ui'
+import { Button, Card, Checkbox, Link, TextField } from "ui"
 
 export function LoginForm() {
   return (

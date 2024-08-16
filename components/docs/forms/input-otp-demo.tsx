@@ -1,6 +1,6 @@
-'use client'
+"use client"
 
-import { InputOTP, InputOTPGroup, InputOTPSlot } from 'ui'
+import { InputOTP, InputOTPGroup, InputOTPSlot } from "ui"
 
 export default function InputOtpDemo() {
   return (

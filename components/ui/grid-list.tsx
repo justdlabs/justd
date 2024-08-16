@@ -1,22 +1,22 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import { IconHamburger } from 'justd-icons'
+import { IconHamburger } from "justd-icons"
 import type {
   GridListItemProps,
   GridListProps as GridListPrimitiveProps
-} from 'react-aria-components'
-import { Button, GridList as GridListPrimitive, GridListItem } from 'react-aria-components'
-import { tv } from 'tailwind-variants'
+} from "react-aria-components"
+import { Button, GridList as GridListPrimitive, GridListItem } from "react-aria-components"
+import { tv } from "tailwind-variants"
 
-import { Checkbox } from './checkbox'
-import { composeTailwindRenderProps, focusRing } from './primitive'
+import { Checkbox } from "./checkbox"
+import { composeTailwindRenderProps, focusRing } from "./primitive"
 
 interface GridListProps<T extends object> extends GridListPrimitiveProps<T> {}
 
 const GridList = <T extends object>({
-  selectionMode = 'single',
+  selectionMode = "single",
   children,
   ...props
 }: GridListProps<T>) => (
@@ -25,7 +25,7 @@ const GridList = <T extends object>({
     {...props}
     className={composeTailwindRenderProps(
       props.className,
-      'relative overflow-auto rounded-lg border'
+      "relative overflow-auto rounded-lg border"
     )}
   >
     {children}
@@ -34,20 +34,20 @@ const GridList = <T extends object>({
 
 const itemStyles = tv({
   extend: focusRing,
-  base: 'relative -mb-px flex cursor-default select-none gap-3 border-y px-3 py-2 text-sm text-fg -outline-offset-2 first:rounded-t-md first:border-t-0 last:mb-0 last:rounded-b-md last:border-b-0',
+  base: "relative -mb-px flex cursor-default select-none gap-3 border-y px-3 py-2 text-sm text-fg -outline-offset-2 first:rounded-t-md first:border-t-0 last:mb-0 last:rounded-b-md last:border-b-0",
   variants: {
     isSelected: {
-      false: 'hover:bg-secondary',
-      true: 'z-20 border-y-primary/50 bg-primary/20'
+      false: "hover:bg-secondary",
+      true: "z-20 border-y-primary/50 bg-primary/20"
     },
     isDisabled: {
-      true: 'z-10 text-muted-fg forced-colors:text-[GrayText]'
+      true: "z-10 text-muted-fg forced-colors:text-[GrayText]"
     }
   }
 })
 
 const Item = ({ children, ...props }: GridListItemProps) => {
-  const textValue = typeof children === 'string' ? children : undefined
+  const textValue = typeof children === "string" ? children : undefined
   return (
     <GridListItem textValue={textValue} {...props} className={itemStyles}>
       {({ selectionMode, selectionBehavior, allowsDragging }) => (
@@ -57,7 +57,7 @@ const Item = ({ children, ...props }: GridListItemProps) => {
               <IconHamburger />
             </Button>
           )}
-          {selectionMode === 'multiple' && selectionBehavior === 'toggle' && (
+          {selectionMode === "multiple" && selectionBehavior === "toggle" && (
             <Checkbox slot="selection" />
           )}
           {children}

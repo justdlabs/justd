@@ -1,11 +1,11 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import { Description, Radio, RadioGroup } from 'ui'
+import { Description, Radio, RadioGroup } from "ui"
 
 export default function RadioGroupControlledDemo() {
-  const [selected, setSelected] = React.useState('')
+  const [selected, setSelected] = React.useState("")
   return (
     <>
       <RadioGroup label="Features" value={selected} onChange={setSelected}>
@@ -16,7 +16,7 @@ export default function RadioGroupControlledDemo() {
         <Radio value="privacy">Privacy</Radio>
       </RadioGroup>
       <Description className="mt-2 block [&>strong]:text-fg">
-        You have selected: <strong>{selected ?? '-'}</strong>
+        You have selected: <strong>{selected ?? "-"}</strong>
       </Description>
     </>
   )

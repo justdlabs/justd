@@ -1,8 +1,8 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import { ColorPicker, defaultColor } from 'ui'
+import { ColorPicker, defaultColor } from "ui"
 
 export default function ColorPickerWithPlaceholderDemo() {
   const [color, setColor] = React.useState(defaultColor)

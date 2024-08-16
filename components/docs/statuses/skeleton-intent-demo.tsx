@@ -1,4 +1,4 @@
-import { Card, Skeleton } from 'ui'
+import { Card, Skeleton } from "ui"
 
 export default function SkeletonIntentDemo() {
   return (

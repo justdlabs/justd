@@ -1,17 +1,17 @@
-'use client'
+"use client"
 
-import * as React from 'react'
+import * as React from "react"
 
 import type {
   ColorFieldProps as ColorFieldPrimitiveProps,
   ValidationResult
-} from 'react-aria-components'
-import { ColorField as ColorFieldPrimitive } from 'react-aria-components'
+} from "react-aria-components"
+import { ColorField as ColorFieldPrimitive } from "react-aria-components"
 
-import { ColorSwatch } from './color'
-import { ColorPicker } from './color-picker'
-import { Description, FieldError, FieldGroup, fieldGroupPrefixStyles, Input, Label } from './field'
-import { ctr } from './primitive'
+import { ColorSwatch } from "./color"
+import { ColorPicker } from "./color-picker"
+import { Description, FieldError, FieldGroup, fieldGroupPrefixStyles, Input, Label } from "./field"
+import { ctr } from "./primitive"
 
 interface ColorFieldProps extends ColorFieldPrimitiveProps {
   label?: string
@@ -40,12 +40,12 @@ const ColorField = ({
   return (
     <ColorFieldPrimitive
       {...props}
-      aria-label={props['aria-label'] ?? 'Color field'}
-      className={ctr(className, 'group w-full flex flex-col gap-1')}
+      aria-label={props["aria-label"] ?? "Color field"}
+      className={ctr(className, "group w-full flex flex-col gap-1")}
     >
       {label && <Label>{label}</Label>}
       <FieldGroup
-        data-loading={isLoading ? 'true' : undefined}
+        data-loading={isLoading ? "true" : undefined}
         className={fieldGroupPrefixStyles()}
       >
         {prefix ? <span className="atrs isPfx">{prefix}</span> : null}

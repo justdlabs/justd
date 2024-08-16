@@ -1,15 +1,15 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import { Textarea } from 'ui'
+import { Textarea } from "ui"
 
 export default function TextareaControlledDemo() {
-  const [value, setValue] = React.useState('')
+  const [value, setValue] = React.useState("")
   return (
     <>
       <Textarea value={value} onChange={setValue} label="Address" className="mb-2" />
-      <p className="mt-2">You have typed: {value ?? '-'}</p>
+      <p className="mt-2">You have typed: {value ?? "-"}</p>
     </>
   )
 }

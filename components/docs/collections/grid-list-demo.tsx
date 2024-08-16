@@ -1,6 +1,6 @@
-'use client'
+"use client"
 
-import { GridList } from 'ui'
+import { GridList } from "ui"
 
 export default function GridListDemo() {
   return (
@@ -11,9 +11,9 @@ export default function GridListDemo() {
 }
 
 const items = [
-  { id: '1', name: 'The Beatles' },
-  { id: '2', name: 'Led Zeppelin' },
-  { id: '3', name: 'Pink Floyd' },
-  { id: '4', name: 'Queen' },
-  { id: '5', name: 'The Rolling Stones' }
+  { id: "1", name: "The Beatles" },
+  { id: "2", name: "Led Zeppelin" },
+  { id: "3", name: "Pink Floyd" },
+  { id: "4", name: "Queen" },
+  { id: "5", name: "The Rolling Stones" }
 ]

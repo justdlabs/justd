@@ -1,6 +1,6 @@
-'use client'
+"use client"
 
-import { IconCheck } from 'justd-icons'
+import { IconCheck } from "justd-icons"
 import {
   Collection,
   Header,
@@ -10,30 +10,30 @@ import {
   type SectionProps,
   Text,
   type TextProps
-} from 'react-aria-components'
-import { tv } from 'tailwind-variants'
+} from "react-aria-components"
+import { tv } from "tailwind-variants"
 
-import { cr } from './primitive'
+import { cr } from "./primitive"
 
 const dropdownItemStyles = tv({
   base: [
-    'group flex cursor-default select-none items-center gap-x-1.5 rounded-md py-2 pl-2.5 pr-1 text-base outline outline-0 forced-color-adjust-none lg:text-sm',
-    '[&_[data-slot=avatar]]:-mr-0.5 [&_[data-slot=avatar]]:size-6 sm:[&_[data-slot=avatar]]:size-5',
-    '[&_[data-slot=icon]]:size-4',
-    'has-submenu:open:data-[danger=true]:bg-danger/20 has-submenu:open:data-[danger=true]:text-danger',
-    'has-submenu:open:bg-primary has-submenu:open:text-primary-fg'
+    "group flex cursor-default select-none items-center gap-x-1.5 rounded-md py-2 pl-2.5 pr-1 text-base outline outline-0 forced-color-adjust-none lg:text-sm",
+    "[&_[data-slot=avatar]]:-mr-0.5 [&_[data-slot=avatar]]:size-6 sm:[&_[data-slot=avatar]]:size-5",
+    "[&_[data-slot=icon]]:size-4",
+    "has-submenu:open:data-[danger=true]:bg-danger/20 has-submenu:open:data-[danger=true]:text-danger",
+    "has-submenu:open:bg-primary has-submenu:open:text-primary-fg"
   ],
   variants: {
     isDisabled: {
-      false: 'text-fg',
-      true: 'text-muted-fg forced-colors:text-[GrayText]'
+      false: "text-fg",
+      true: "text-muted-fg forced-colors:text-[GrayText]"
     },
     isFocused: {
-      false: 'data-[danger=true]:text-danger',
+      false: "data-[danger=true]:text-danger",
       true: [
-        'bg-primary text-primary-fg forced-colors:bg-[Highlight] forced-colors:text-[HighlightText]',
-        'data-[danger=true]:bg-danger data-[danger=true]:text-danger-fg',
-        '[&_.text-muted-fg]:text-primary-fg/80 [&[data-slot=label]]:text-primary-fg [&[data-slot=description]]:text-primary-fg'
+        "bg-primary text-primary-fg forced-colors:bg-[Highlight] forced-colors:text-[HighlightText]",
+        "data-[danger=true]:bg-danger data-[danger=true]:text-danger-fg",
+        "[&_.text-muted-fg]:text-primary-fg/80 [&[data-slot=label]]:text-primary-fg [&[data-slot=description]]:text-primary-fg"
       ]
     }
   },
@@ -41,7 +41,7 @@ const dropdownItemStyles = tv({
     {
       isFocused: false,
       isOpen: true,
-      className: 'bg-zinc-100 dark:bg-zinc-700/60'
+      className: "bg-zinc-100 dark:bg-zinc-700/60"
     }
   ]
 })
@@ -54,7 +54,7 @@ const dropdownSectionStyles = tv({
   slots: {
     base: "first:-mt-[5px] xss3 after:content-[''] after:block after:h-[5px]",
     header:
-      'text-sm font-medium text-muted-fg bg-tertiary px-4 py-2 truncate min-w-[--trigger-width] sticky -top-[5px] backdrop-blur -mt-px -mx-1 z-10 supports-[-moz-appearance:none]:bg-tertiary border-y [&+*]:mt-1'
+      "text-sm font-medium text-muted-fg bg-tertiary px-4 py-2 truncate min-w-[--trigger-width] sticky -top-[5px] backdrop-blur -mt-px -mx-1 z-10 supports-[-moz-appearance:none]:bg-tertiary border-y [&+*]:mt-1"
   }
 })
 
@@ -63,7 +63,7 @@ const { base, header } = dropdownSectionStyles()
 const DropdownSection = <T extends object>({ className, ...props }: DropdownSectionProps<T>) => {
   return (
     <Section className={base(className)}>
-      {'title' in props && <Header className={header()}>{props.title}</Header>}
+      {"title" in props && <Header className={header()}>{props.title}</Header>}
       <Collection items={props.items}>{props.children}</Collection>
     </Section>
   )
@@ -71,7 +71,7 @@ const DropdownSection = <T extends object>({ className, ...props }: DropdownSect
 
 const DropdownItem = ({ className, ...props }: ListBoxItemProps) => {
   const textValue =
-    props.textValue || (typeof props.children === 'string' ? props.children : undefined)
+    props.textValue || (typeof props.children === "string" ? props.children : undefined)
   return (
     <ListBoxItemPrimitive
       textValue={textValue}
@@ -95,8 +95,8 @@ const DropdownItem = ({ className, ...props }: ListBoxItemProps) => {
 }
 
 interface DropdownItemSlot extends TextProps {
-  label?: TextProps['children']
-  description?: TextProps['children']
+  label?: TextProps["children"]
+  description?: TextProps["children"]
 }
 
 const DropdownItemDetails = ({ label, description, ...props }: DropdownItemSlot) => {

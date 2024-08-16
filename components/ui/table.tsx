@@ -1,6 +1,6 @@
-'use client'
+"use client"
 
-import { IconChevronDown, IconChevronUp, IconHamburger } from 'justd-icons'
+import { IconChevronDown, IconChevronUp, IconHamburger } from "justd-icons"
 import type {
   CellProps as CellPrimitiveProps,
   ColumnProps as ColumnPrimitiveProps,
@@ -8,7 +8,7 @@ import type {
   TableBodyProps,
   TableHeaderProps as TableHeaderPrimitiveProps,
   TableProps as TablePrimitiveProps
-} from 'react-aria-components'
+} from "react-aria-components"
 import {
   Button,
   Cell as CellPrimitive,
@@ -19,20 +19,20 @@ import {
   TableBody as TableBodyPrimitive,
   TableHeader,
   useTableOptions
-} from 'react-aria-components'
-import { tv } from 'tailwind-variants'
+} from "react-aria-components"
+import { tv } from "tailwind-variants"
 
-import { Checkbox } from './checkbox'
-import { cn } from './primitive'
+import { Checkbox } from "./checkbox"
+import { cn } from "./primitive"
 
 const table = tv({
   slots: {
-    root: 'table w-full caption-bottom border-spacing-0 text-sm outline-none',
+    root: "table w-full caption-bottom border-spacing-0 text-sm outline-none",
     column:
-      'whitespace-nowrap allows-sorting:cursor-pointer px-3 py-3 text-left dragging:cursor-grabbing font-medium outline-none [&:has([slot=selection])]:pr-0',
-    header: 'border-b x32',
-    row: 'tr group relative cursor-default border-b text-fg/70 outline-none ring-primary focus-visible:ring-1 selected:bg-primary/15',
-    cell: 'whitespace-nowrap px-3 py-3 outline-none'
+      "whitespace-nowrap allows-sorting:cursor-pointer px-3 py-3 text-left dragging:cursor-grabbing font-medium outline-none [&:has([slot=selection])]:pr-0",
+    header: "border-b x32",
+    row: "tr group relative cursor-default border-b text-fg/70 outline-none ring-primary focus-visible:ring-1 selected:bg-primary/15",
+    cell: "whitespace-nowrap px-3 py-3 outline-none"
   }
 })
 
@@ -51,7 +51,7 @@ const Table = ({ children, className, ...props }: TableProps) => (
 )
 
 const Body = <T extends object>(props: TableBodyProps<T>) => (
-  <TableBodyPrimitive {...props} className={cn('[&_.tr:last-child]:border-0')} />
+  <TableBodyPrimitive {...props} className={cn("[&_.tr:last-child]:border-0")} />
 )
 
 interface CellProps extends CellPrimitiveProps {
@@ -77,7 +77,7 @@ const Column = ({ children, className, ...props }: ColumnProps) => (
           {allowsSorting &&
             (sortDirection === undefined ? (
               <span>daf</span>
-            ) : sortDirection === 'ascending' ? (
+            ) : sortDirection === "ascending" ? (
               <IconChevronUp />
             ) : (
               <IconChevronDown />
@@ -97,9 +97,9 @@ const Header = <T extends object>({ children, className, columns, ...props }: He
   return (
     <TableHeader {...props} className={header({ className })}>
       {allowsDragging && <Column />}
-      {selectionBehavior === 'toggle' && (
+      {selectionBehavior === "toggle" && (
         <Column className="pl-4">
-          {selectionMode === 'multiple' && <Checkbox slot="selection" />}
+          {selectionMode === "multiple" && <Checkbox slot="selection" />}
         </Column>
       )}
       <Collection items={columns}>{children}</Collection>
@@ -118,7 +118,7 @@ const Row = <T extends object>({ children, className, columns, id, ...props }: R
       id={id}
       {...props}
       className={row({
-        className: 'href' in props ? cn('cursor-pointer hover:bg-secondary/50', className) : ''
+        className: "href" in props ? cn("cursor-pointer hover:bg-secondary/50", className) : ""
       })}
     >
       {allowsDragging && (
@@ -131,7 +131,7 @@ const Row = <T extends object>({ children, className, columns, id, ...props }: R
           </Button>
         </Cell>
       )}
-      {selectionBehavior === 'toggle' && (
+      {selectionBehavior === "toggle" && (
         <Cell className="pl-4">
           <span
             aria-hidden

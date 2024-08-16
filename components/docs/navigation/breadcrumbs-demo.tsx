@@ -1,6 +1,6 @@
-'use client'
+"use client"
 
-import { Breadcrumb, Breadcrumbs } from 'ui'
+import { Breadcrumb, Breadcrumbs } from "ui"
 
 export default function BreadcrumbsDemo() {
   return (

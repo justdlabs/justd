@@ -1,11 +1,11 @@
-'use client'
+"use client"
 
-import { Button, Card, Checkbox, Switch } from 'ui'
+import { Button, Card, Checkbox, Switch } from "ui"
 
 export function Buttons() {
   return (
     <div className="gap-2 grid">
-      <Card className="grid place-content-center gap-2">
+      <Card className="grid py-4 place-content-center [&>div]:px-4 gap-2">
         <div className="grid grid-cols-2 gap-2">
           <Button>Label</Button>
           <Button intent="secondary">Label</Button>
@@ -15,15 +15,11 @@ export function Buttons() {
           <Button appearance="plain">Label</Button>
         </div>
       </Card>
-      <Card className="grid place-content-center">
-        <Checkbox isReadOnly defaultSelected>
-          Remember me
-        </Checkbox>
+      <Card className="grid place-content-center p-4">
+        <Checkbox defaultSelected>Remember me</Checkbox>
       </Card>
-      <Card className="grid place-content-center">
-        <Switch isReadOnly defaultSelected>
-          Toggle Theme
-        </Switch>
+      <Card className="grid place-content-center p-4">
+        <Switch defaultSelected>Toggle Theme</Switch>
       </Card>
     </div>
   )

@@ -1,6 +1,6 @@
-'use client'
+"use client"
 
-import { Checkbox, CheckboxGroup } from 'ui'
+import { Checkbox, CheckboxGroup } from "ui"
 
 export default function CheckboxGroupDescriptionDemo() {
   return (

@@ -1,8 +1,8 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import { Accordion } from 'ui'
+import { Accordion } from "ui"
 
 export default function AccordionDemo() {
   return (

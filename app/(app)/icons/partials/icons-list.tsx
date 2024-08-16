@@ -1,35 +1,35 @@
-'use client'
+"use client"
 
-import React, { Suspense, useRef } from 'react'
+import React, { Suspense, useRef } from "react"
 
-import * as icons from 'justd-icons'
-import { IconDownload } from 'justd-icons'
-import { useSearchParams } from 'next/navigation'
-import { ListBox, ListBoxItem } from 'react-aria-components'
-import * as ReactDOMServer from 'react-dom/server'
-import { toast } from 'sonner'
-import { Loader, Menu } from 'ui'
-import { copyToClipboard } from 'usemods'
+import * as icons from "justd-icons"
+import { IconDownload } from "justd-icons"
+import { useSearchParams } from "next/navigation"
+import { ListBox, ListBoxItem } from "react-aria-components"
+import * as ReactDOMServer from "react-dom/server"
+import { toast } from "sonner"
+import { Loader, Menu } from "ui"
+import { copyToClipboard } from "usemods"
 
-import { Controller } from './controller'
-import { box, item } from './styles'
+import { Controller } from "./controller"
+import { box, item } from "./styles"
 
 export interface SearchParamsProps {
   searchParams: {
     query: string
-    t: 'solid' | 'regular'
+    t: "solid" | "regular"
   }
 }
 
 export function IconsList({ searchParams }: SearchParamsProps) {
   const { query, t } = searchParams
-  const filterType = t ?? 'regular'
+  const filterType = t ?? "regular"
 
   const filteredIcons = Object.entries(icons).filter(([name]) => {
     const matchesSearch = query ? name.toLowerCase().includes(query.toLowerCase()) : true
-    const isSolid = name.toLowerCase().endsWith('fill')
+    const isSolid = name.toLowerCase().endsWith("fill")
     const matchesFilter =
-      (filterType === 'solid' && isSolid) || (filterType === 'regular' && !isSolid)
+      (filterType === "solid" && isSolid) || (filterType === "regular" && !isSolid)
     return matchesSearch && matchesFilter
   })
 
@@ -64,9 +64,9 @@ interface IconListItemProps {
 export function IconListItem({ name, Icon }: IconListItemProps) {
   const [isSelected, setSelected] = React.useState(false)
   const searchParams = useSearchParams()
-  const selectedSize = searchParams.get('s') ?? 'size-5'
-  const handleCopy = (type: 'text' | 'jsx') => {
-    const textToCopy = type === 'jsx' ? `<${name} />` : name
+  const selectedSize = searchParams.get("s") ?? "size-5"
+  const handleCopy = (type: "text" | "jsx") => {
+    const textToCopy = type === "jsx" ? `<${name} />` : name
     copyToClipboard(textToCopy).then(() => {
       toast(
         <>
@@ -90,9 +90,9 @@ export function IconListItem({ name, Icon }: IconListItemProps) {
       <Icon className={selectedSize} key={name} />
       <Menu isOpen={isSelected} onOpenChange={setSelected}>
         <Menu.Content triggerRef={triggerRef} showArrow>
-          <Menu.Item onAction={() => handleCopy('jsx')}>Copy JSX</Menu.Item>
+          <Menu.Item onAction={() => handleCopy("jsx")}>Copy JSX</Menu.Item>
           <Menu.Item onAction={() => copySvgToClipboard(Icon)}>Copy SVG</Menu.Item>
-          <Menu.Item onAction={() => handleCopy('text')}>Copy Name</Menu.Item>
+          <Menu.Item onAction={() => handleCopy("text")}>Copy Name</Menu.Item>
           <Menu.Separator />
           <Menu.Item onAction={() => downloadSvg(Icon, name)}>
             Download SVG
@@ -107,16 +107,16 @@ export function IconListItem({ name, Icon }: IconListItemProps) {
 const copySvgToClipboard = (IconComponent: React.ComponentType) => {
   const svgString = ReactDOMServer.renderToStaticMarkup(<IconComponent />)
   navigator.clipboard.writeText(svgString).then(() => {
-    toast('SVG copied to clipboard')
+    toast("SVG copied to clipboard")
   })
 }
 
 const downloadSvg = (IconComponent: React.ComponentType, fileName: string) => {
   const svgString = ReactDOMServer.renderToStaticMarkup(<IconComponent />)
-  const blob = new Blob([svgString], { type: 'image/svg+xml' })
+  const blob = new Blob([svgString], { type: "image/svg+xml" })
   const url = URL.createObjectURL(blob)
 
-  const link = document.createElement('a')
+  const link = document.createElement("a")
   link.href = url
   link.download = `${fileName}.svg`
   document.body.appendChild(link)

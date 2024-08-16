@@ -1,6 +1,6 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
 import {
   IconBook,
@@ -19,9 +19,9 @@ import {
   IconPeople,
   IconPerson,
   IconStar
-} from 'justd-icons'
-import { Group } from 'react-aria-components'
-import { Avatar, Button, Checkbox, Description, Menu, Modal, Select, Sheet, TextField } from 'ui'
+} from "justd-icons"
+import { Group } from "react-aria-components"
+import { Avatar, Button, Checkbox, Description, Menu, Modal, Select, Sheet, TextField } from "ui"
 
 export default function SheetMenuDemo() {
   const [isOpen, setIsOpen] = React.useState(false)

@@ -1,6 +1,6 @@
-'use client'
+"use client"
 
-import { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot } from 'ui'
+import { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot } from "ui"
 
 export default function InputOtpSeparatorDemo() {
   return (

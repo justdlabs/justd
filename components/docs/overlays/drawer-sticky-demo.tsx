@@ -1,13 +1,13 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import { buttonStyles, Drawer } from 'ui'
+import { buttonStyles, Drawer } from "ui"
 
 export default function DrawerStickyDemo() {
   return (
     <Drawer>
-      <Drawer.Trigger className={buttonStyles({ shape: 'circle', appearance: 'outline' })}>
+      <Drawer.Trigger className={buttonStyles({ shape: "circle", appearance: "outline" })}>
         Open
       </Drawer.Trigger>
       <Drawer.Content>
@@ -24,7 +24,7 @@ export default function DrawerStickyDemo() {
             <p>
               When you create an account with us, you are responsible for maintaining the
               confidentiality of your account and password.
-            </p>{' '}
+            </p>{" "}
             <p>
               You agree to accept responsibility for all activities that occur under your account.
               You must notify us immediately of any breach of security or unauthorized use of your

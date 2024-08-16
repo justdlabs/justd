@@ -1,6 +1,6 @@
-'use client'
+"use client"
 
-import { Button, Form, Modal, TextField } from 'ui'
+import { Button, Form, Modal, TextField } from "ui"
 
 export default function ModalDemo() {
   return (

@@ -1,12 +1,12 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import { type Color } from 'react-aria-components'
-import { ColorPicker } from 'ui'
+import { type Color } from "react-aria-components"
+import { ColorPicker } from "ui"
 
 export default function ColorPickerCombinationDemo() {
-  const [color, setColor] = React.useState('')
+  const [color, setColor] = React.useState("")
 
   const handleChange = (value: Color) => {
     setColor(value as unknown as string)

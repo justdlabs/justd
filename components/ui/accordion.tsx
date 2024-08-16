@@ -1,16 +1,16 @@
-'use client'
+"use client"
 
-import * as React from 'react'
+import * as React from "react"
 
-import type { MotionProps } from 'framer-motion'
-import { AnimatePresence, motion } from 'framer-motion'
-import { IconChevronDown } from 'justd-icons'
-import type { ButtonProps } from 'react-aria-components'
-import { Button } from 'react-aria-components'
-import { twMerge } from 'tailwind-merge'
-import { tv } from 'tailwind-variants'
+import type { MotionProps } from "framer-motion"
+import { AnimatePresence, motion } from "framer-motion"
+import { IconChevronDown } from "justd-icons"
+import type { ButtonProps } from "react-aria-components"
+import { Button } from "react-aria-components"
+import { twMerge } from "tailwind-merge"
+import { tv } from "tailwind-variants"
 
-import { cn, cr } from './primitive'
+import { cn, cr } from "./primitive"
 
 interface AccordionContextType extends React.HtmlHTMLAttributes<HTMLDivElement> {
   hideBorder?: boolean
@@ -44,7 +44,7 @@ const Accordion = ({
 }
 
 const accordionItemStyles = tv({
-  base: 'zwx3ai flex group pb-3 relative w-full flex-col border-b'
+  base: "zwx3ai flex group pb-3 relative w-full flex-col border-b"
 })
 
 interface AccordionItemContextProps {
@@ -57,7 +57,7 @@ const AccordionItemContext = React.createContext<AccordionItemContextProps | und
 const useAccordionItem = () => {
   const context = React.useContext(AccordionItemContext)
   if (!context) {
-    throw new Error('AccordionItem must be used within an Accordion')
+    throw new Error("AccordionItem must be used within an Accordion")
   }
   return context
 }
@@ -98,12 +98,12 @@ const AccordionContent = ({ className, children }: AccordionContentProps) => {
     <AnimatePresence initial={false}>
       {isOpen && (
         <motion.section
-          className={cn('overflow-hidden pr-6 dk32xd', className)}
+          className={cn("overflow-hidden pr-6 dk32xd", className)}
           initial="collapsed"
           animate="open"
           exit="collapsed"
           variants={{
-            open: { opacity: 1, height: 'initial' },
+            open: { opacity: 1, height: "initial" },
             collapsed: { opacity: 0, height: 0 }
           }}
           transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
@@ -116,23 +116,23 @@ const AccordionContent = ({ className, children }: AccordionContentProps) => {
 }
 
 interface AccordionTriggerProps
-  extends Omit<ButtonProps & React.RefAttributes<HTMLButtonElement> & MotionProps, 'ref'> {
+  extends Omit<ButtonProps & React.RefAttributes<HTMLButtonElement> & MotionProps, "ref"> {
   children: React.ReactNode
 }
 
 const accordionTriggerStyles = tv({
   base: [
-    'flex flex-1 rounded-lg text-muted-fg hover:text-fg [&>[data-slot=icon]]:size-6 items-center gap-x-2 pt-3 font-medium'
+    "flex flex-1 rounded-lg text-muted-fg hover:text-fg [&>[data-slot=icon]]:size-6 items-center gap-x-2 pt-3 font-medium"
   ],
   variants: {
     isFocused: {
-      true: 'outline-none text-fg'
+      true: "outline-none text-fg"
     },
     isOpen: {
-      true: 'text-fg'
+      true: "text-fg"
     },
     isDisabled: {
-      true: 'opacity-50 cursor-default'
+      true: "opacity-50 cursor-default"
     }
   }
 })
@@ -149,13 +149,13 @@ const AccordionTrigger = ({ className, children, ...props }: AccordionTriggerPro
   }
 
   const onKeyDownHandler = (e: React.KeyboardEvent<HTMLButtonElement>) => {
-    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+    if (e.key === "ArrowDown" || e.key === "ArrowUp") {
       e.preventDefault()
       const buttons = document.querySelectorAll('div[data-slot="ai-31kxlae0321lsd"] > button')
       const currentButton = e.currentTarget
       const currentIndex = Array.from(buttons).indexOf(currentButton)
       const totalItems = buttons.length
-      let nextIndex = currentIndex + (e.key === 'ArrowDown' ? 1 : -1)
+      let nextIndex = currentIndex + (e.key === "ArrowDown" ? 1 : -1)
 
       if (nextIndex >= totalItems) {
         nextIndex = 0
@@ -185,8 +185,8 @@ const AccordionTrigger = ({ className, children, ...props }: AccordionTriggerPro
       {!hideIndicator && (
         <IconChevronDown
           className={twMerge(
-            'ml-auto transition duration-300 group-disabled:rotate-0',
-            isOpen ? 'rotate-180' : 'rotate-0'
+            "ml-auto transition duration-300 group-disabled:rotate-0",
+            isOpen ? "rotate-180" : "rotate-0"
           )}
         />
       )}

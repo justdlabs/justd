@@ -1,16 +1,16 @@
-import React from 'react'
+import React from "react"
 
-import { useQueryString } from 'hooks/use-query-string'
-import { IconChevronLgDown } from 'justd-icons'
-import { usePathname, useRouter } from 'next/navigation'
-import type { Selection } from 'react-aria-components'
-import title from 'title'
-import { Button, Menu } from 'ui'
+import { useQueryString } from "hooks/use-query-string"
+import { IconChevronLgDown } from "justd-icons"
+import { usePathname, useRouter } from "next/navigation"
+import type { Selection } from "react-aria-components"
+import title from "title"
+import { Button, Menu } from "ui"
 
 const sizes = [
-  { id: 'size-4', name: 'Size 4' },
-  { id: 'size-5', name: 'Size 5' },
-  { id: 'size-6', name: 'Size 6' }
+  { id: "size-4", name: "Size 4" },
+  { id: "size-5", name: "Size 5" },
+  { id: "size-6", name: "Size 6" }
 ]
 
 export function SelectSize() {
@@ -18,9 +18,9 @@ export function SelectSize() {
   const pathname = usePathname()
   const { createQueryString } = useQueryString()
 
-  const [selectedSize, setSelectSize] = React.useState<Selection>(new Set(['size-5']))
+  const [selectedSize, setSelectSize] = React.useState<Selection>(new Set(["size-5"]))
   const onSelectionChange = (size: Selection) => {
-    router.push(pathname + '?' + createQueryString('s', [...size].join(',')), {
+    router.push(pathname + "?" + createQueryString("s", [...size].join(",")), {
       scroll: false
     })
     setSelectSize(size)
@@ -33,10 +33,10 @@ export function SelectSize() {
         appearance="outline"
       >
         <span className="sm:hidden inline">
-          {title([...selectedSize].join(', ').replace('size-', ' ')) || '5'}
+          {title([...selectedSize].join(", ").replace("size-", " ")) || "5"}
         </span>
         <span className="sm:inline hidden">
-          {title([...selectedSize].join(', ').replace('-', ' ')) || 'Size 5'}
+          {title([...selectedSize].join(", ").replace("-", " ")) || "Size 5"}
         </span>
         <IconChevronLgDown />
       </Button>
@@ -49,8 +49,8 @@ export function SelectSize() {
       >
         {(item) => (
           <Menu.Radio textValue={item.name}>
-            {item.name} /{' '}
-            {item.name === 'Size 4' ? '20px' : item.name === 'Size 5' ? '24px' : '28px'}
+            {item.name} /{" "}
+            {item.name === "Size 4" ? "20px" : item.name === "Size 5" ? "24px" : "28px"}
           </Menu.Radio>
         )}
       </Menu.Content>

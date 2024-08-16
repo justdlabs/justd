@@ -1,10 +1,10 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import { Note } from 'ui'
+import { Note } from "ui"
 
-const notes = ['info', 'primary', 'secondary', 'warning', 'danger', 'success'].map((n) => ({
+const notes = ["info", "primary", "secondary", "warning", "danger", "success"].map((n) => ({
   name: n
 }))
 
