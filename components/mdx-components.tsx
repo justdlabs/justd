@@ -1,16 +1,16 @@
-import { DocComposed } from '@/components/doc-composed'
-import { DocNote } from '@/components/doc-note'
-import type { CodeProps } from '@/components/docs/rehype/code'
-import { Code } from '@/components/docs/rehype/code'
-import { PlainCode } from '@/components/docs/rehype/plain-code'
-import { SourceCode } from '@/components/docs/rehype/source-code'
-import type { InstallCommandProps } from '@/components/install-command'
-import { InstallCommand } from '@/components/install-command'
-import { useMDXComponent } from '@/resources/hooks/use-mdx'
-import Image from 'next/image'
-import { Link, type LinkProps } from 'ui'
+import { DocComposed } from "@/components/doc-composed"
+import { DocNote } from "@/components/doc-note"
+import type { CodeProps } from "@/components/docs/rehype/code"
+import { Code } from "@/components/docs/rehype/code"
+import { PlainCode } from "@/components/docs/rehype/plain-code"
+import { SourceCode } from "@/components/docs/rehype/source-code"
+import type { InstallCommandProps } from "@/components/install-command"
+import { InstallCommand } from "@/components/install-command"
+import { useMDXComponent } from "@/resources/hooks/use-mdx"
+import Image from "next/image"
+import { Link, type LinkProps } from "ui"
 
-import { DocHow } from './doc-how'
+import { DocHow } from "./doc-how"
 
 interface MdxProps {
   code: string

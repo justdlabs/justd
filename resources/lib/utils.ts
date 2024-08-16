@@ -1,8 +1,8 @@
-import { type Docs } from '@/.velite'
-import { type ClassValue, clsx } from 'clsx'
-import { slug } from 'github-slugger'
-import { twMerge } from 'tailwind-merge'
-import titlePrimitive from 'title'
+import { type Docs } from "@/.velite"
+import { type ClassValue, clsx } from "clsx"
+import { slug } from "github-slugger"
+import { twMerge } from "tailwind-merge"
+import titlePrimitive from "title"
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -10,10 +10,10 @@ export function cn(...inputs: ClassValue[]) {
 
 export function formatDate(input: string | number): string {
   const date = new Date(input)
-  return date.toLocaleDateString('en-US', {
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric'
+  return date.toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric"
   })
 }
 
@@ -35,7 +35,7 @@ export function getAllRefs(docs: Array<Docs>) {
 }
 
 export function goodTitle(str: string) {
-  return titlePrimitive(str.replaceAll('-', ' '))
+  return titlePrimitive(str.replaceAll("-", " "))
 }
 
 export function wait(number: number) {
@@ -45,7 +45,7 @@ export function wait(number: number) {
 export function extractAndFormat(url: string): string {
   const match = url.match(/\/([^/]+)\.html/)
   if (match) {
-    return match[1].replace(/([a-z])([A-Z])/g, '$1 $2')
+    return match[1].replace(/([a-z])([A-Z])/g, "$1 $2")
   }
-  return ''
+  return ""
 }

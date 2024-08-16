@@ -1,11 +1,11 @@
-'use client'
+"use client"
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react"
 
-import { cn } from '@/resources/lib/utils'
-import { trackEvent } from '@openpanel/nextjs'
-import { CopyButton, Link, Menu } from 'ui'
-import { copyToClipboard } from 'usemods'
+import { cn } from "@/resources/lib/utils"
+import { trackEvent } from "@openpanel/nextjs"
+import { CopyButton, Link, Menu } from "ui"
+import { copyToClipboard } from "usemods"
 
 export interface InstallCommandProps {
   isAdd?: boolean
@@ -20,8 +20,8 @@ export interface InstallCommandProps {
 }
 
 const defaultText =
-  'Sometimes, using the CLI is the way to go, so make sure you install the necessary\n' +
-  '          dependencies for the components you want to use.'
+  "Sometimes, using the CLI is the way to go, so make sure you install the necessary\n" +
+  "          dependencies for the components you want to use."
 
 const InstallCommand: React.FC<InstallCommandProps> = ({
   text = defaultText,
@@ -34,10 +34,10 @@ const InstallCommand: React.FC<InstallCommandProps> = ({
   isDiff = false,
   className
 }) => {
-  const diffCommand = 'justd-cli@latest diff'
-  const addCommand = 'justd-cli@latest add'
-  const initCommand = 'justd-cli@latest init'
-  const commandArgs = items.join(' ')
+  const diffCommand = "justd-cli@latest diff"
+  const addCommand = "justd-cli@latest add"
+  const initCommand = "justd-cli@latest init"
+  const commandArgs = items.join(" ")
   const defaultCommand = isAdd
     ? `npx ${addCommand} ${commandArgs}`
     : isDiff
@@ -58,31 +58,31 @@ const InstallCommand: React.FC<InstallCommandProps> = ({
   }, [isCopied])
 
   const handleAction = (tool: string) => {
-    let newCommand = ''
+    let newCommand = ""
     if (isAdd) {
       const addMap = {
-        NPM: 'npx'
+        NPM: "npx"
       }
       // @ts-ignore
       newCommand = `${addMap[tool]} ${addCommand} ${commandArgs}`
     } else if (isInit) {
       const initMap = {
-        NPM: 'npx'
+        NPM: "npx"
       }
       // @ts-ignore
       newCommand = `${initMap[tool]} ${initCommand}`
     } else if (isDiff) {
       const initMap = {
-        NPM: 'npx'
+        NPM: "npx"
       }
       // @ts-ignore
       newCommand = `${diffCommand} ${commandArgs}`
     } else if (isInstall) {
       const installMap = {
-        Bun: 'bun add',
-        Yarn: 'yarn add',
-        PNPM: 'pnpm add',
-        NPM: 'npm i'
+        Bun: "bun add",
+        Yarn: "yarn add",
+        PNPM: "pnpm add",
+        NPM: "npm i"
       }
       // @ts-ignore
       newCommand = `${installMap[tool]} ${commandArgs}`
@@ -90,7 +90,7 @@ const InstallCommand: React.FC<InstallCommandProps> = ({
     setCommand(newCommand)
     copyToClipboard(newCommand).then(() => {
       setIsCopied(true)
-      trackEvent('cli pressed', { copy: newCommand })
+      trackEvent("cli pressed", { copy: newCommand })
     })
   }
 
@@ -98,7 +98,7 @@ const InstallCommand: React.FC<InstallCommandProps> = ({
     <>
       {isAdd && isInDocsComponent && (
         <p>
-          If you hit any issues, make sure you check out the installation guide{' '}
+          If you hit any issues, make sure you check out the installation guide{" "}
           <Link
             className="not-prose font-medium"
             intent="primary"
@@ -114,7 +114,7 @@ const InstallCommand: React.FC<InstallCommandProps> = ({
       {isManual && text && <p>{text}</p>}
       <div
         className={cn(
-          'not-prose relative flex items-center justify-between rounded-lg border bg-[#0e0e10] py-2.5 pl-4 pr-2.5 text-white font-mono text-sm [&>svg]:text-zinc-400 [&>svg]:transition [&_svg]:shrink-0',
+          "not-prose relative flex items-center justify-between rounded-lg border bg-[#0e0e10] py-2.5 pl-4 pr-2.5 text-white font-mono text-sm [&>svg]:text-zinc-400 [&>svg]:transition [&_svg]:shrink-0",
           className
         )}
       >
@@ -122,7 +122,7 @@ const InstallCommand: React.FC<InstallCommandProps> = ({
         <div className="pl-3 xd">
           {isInit || isDiff || isAdd ? (
             <CopyButton
-              onPress={() => handleAction('NPM')}
+              onPress={() => handleAction("NPM")}
               className="rounded-sm"
               ariaLabel={command}
               isCopied={isCopied}
@@ -131,10 +131,10 @@ const InstallCommand: React.FC<InstallCommandProps> = ({
             <Menu>
               <CopyButton className="rounded-sm" ariaLabel={command} isCopied={isCopied} />
               <Menu.Content showArrow placement="bottom end">
-                <Menu.Item onAction={() => handleAction('Bun')}>Bun</Menu.Item>
-                <Menu.Item onAction={() => handleAction('Yarn')}>Yarn</Menu.Item>
-                <Menu.Item onAction={() => handleAction('PNPM')}>PNPM</Menu.Item>
-                <Menu.Item onAction={() => handleAction('NPM')}>NPM</Menu.Item>
+                <Menu.Item onAction={() => handleAction("Bun")}>Bun</Menu.Item>
+                <Menu.Item onAction={() => handleAction("Yarn")}>Yarn</Menu.Item>
+                <Menu.Item onAction={() => handleAction("PNPM")}>PNPM</Menu.Item>
+                <Menu.Item onAction={() => handleAction("NPM")}>NPM</Menu.Item>
               </Menu.Content>
             </Menu>
           )}

@@ -1,13 +1,13 @@
-'use client'
+"use client"
 
-import { Select } from 'ui'
+import { Select } from "ui"
 
 export const software = [
-  { id: 1, name: 'Adobe Photoshop' },
-  { id: 2, name: 'Sketch' },
-  { id: 3, name: 'Figma' },
-  { id: 4, name: 'Adobe XD' },
-  { id: 5, name: 'InVision' }
+  { id: 1, name: "Adobe Photoshop" },
+  { id: 2, name: "Sketch" },
+  { id: 3, name: "Figma" },
+  { id: 4, name: "Adobe XD" },
+  { id: 5, name: "InVision" }
 ]
 export default function SelectDemo() {
   return (

@@ -1,6 +1,6 @@
 import React from "react"
 
-import { Key } from "react-aria-components"
+import type { Key } from "react-aria-components"
 import { toast } from "sonner"
 import { Button, Select, Sheet } from "ui"
 import { copyToClipboard } from "usemods"

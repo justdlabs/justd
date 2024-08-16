@@ -1,8 +1,8 @@
-'use client'
+"use client"
 
-import { docs } from '#site/content'
-import { usePathname } from 'next/navigation'
-import { Card, Grid, Link } from 'ui'
+import { docs } from "#site/content"
+import { usePathname } from "next/navigation"
+import { Card, Grid, Link } from "ui"
 
 const simplifiedDocs = docs.map(({ title, slug, description }) => ({ title, slug, description }))
 
@@ -16,8 +16,8 @@ export function DocComposed({
   const pathname = usePathname()
   const name = getLatestOfString(pathname)
   const filteredComponents = simplifiedDocs.filter((component) => {
-    const lastSegment = component.slug.split('/').pop()
-    return components.includes(lastSegment || '')
+    const lastSegment = component.slug.split("/").pop()
+    return components.includes(lastSegment || "")
   })
   return (
     <div className="not-prose">
@@ -71,6 +71,6 @@ export function DocComposed({
 }
 
 const getLatestOfString = (path: string): string => {
-  const lastSegment = path.split('/').pop() || ''
-  return lastSegment.replace(/-/g, ' ').replace(/\b\w/g, (letter) => letter.toUpperCase())
+  const lastSegment = path.split("/").pop() || ""
+  return lastSegment.replace(/-/g, " ").replace(/\b\w/g, (letter) => letter.toUpperCase())
 }

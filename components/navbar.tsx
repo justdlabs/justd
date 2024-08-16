@@ -1,10 +1,10 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import { ResponsiveAside } from '@/components/responsive-aside'
-import { siteConfig } from '@/resources/config/site'
-import { LayoutGroup } from 'framer-motion'
+import { ResponsiveAside } from "@/components/responsive-aside"
+import { siteConfig } from "@/resources/config/site"
+import { LayoutGroup } from "framer-motion"
 import {
   IconBrandAdobe,
   IconBrandD,
@@ -20,20 +20,20 @@ import {
   IconMoon,
   IconSearch,
   IconSun
-} from 'justd-icons'
-import { useTheme } from 'next-themes'
-import { usePathname } from 'next/navigation'
-import { Collection } from 'react-aria-components'
-import { Button, buttonStyles, ContextMenu, Link, Menu, Separator, useMediaQuery } from 'ui'
+} from "justd-icons"
+import { useTheme } from "next-themes"
+import { usePathname } from "next/navigation"
+import { Collection } from "react-aria-components"
+import { Button, buttonStyles, ContextMenu, Link, Menu, Separator, useMediaQuery } from "ui"
 
-import { CommandPalette } from './command-palette'
-import { NavLink } from './nav-item'
-import { TakeCurrentUrl } from './take-current-url'
-import { ThemeSwitcher } from './theme-switcher'
+import { CommandPalette } from "./command-palette"
+import { NavLink } from "./nav-item"
+import { TakeCurrentUrl } from "./take-current-url"
+import { ThemeSwitcher } from "./theme-switcher"
 
 const menuItems = [
-  { id: 1, label: 'Home', url: '/' },
-  { id: 2, label: 'Components', url: '/docs/getting-started/introduction' }
+  { id: 1, label: "Home", url: "/" },
+  { id: 2, label: "Components", url: "/docs/getting-started/introduction" }
 ]
 
 export function Navbar() {
@@ -41,7 +41,7 @@ export function Navbar() {
   const pathname = usePathname()
 
   const [open, setOpen] = React.useState(false)
-  const isDesktop = useMediaQuery('(min-width: 1024px)')
+  const isDesktop = useMediaQuery("(min-width: 1024px)")
   return (
     <>
       <CommandPalette setOpen={setOpen} openCmd={open} />
@@ -54,13 +54,13 @@ export function Navbar() {
                   {isDesktop ? <NavbarContextMenu /> : <NavbarDropdown />}
                   <Separator orientation="vertical" className="h-6" />
                   <Collection items={menuItems}>
-                    <NavLink isNextLink isActive={pathname === '/'} href="/">
+                    <NavLink isNextLink isActive={pathname === "/"} href="/">
                       Home
                     </NavLink>
                     <NavLink
                       isNextLink
                       isActive={
-                        pathname?.startsWith('/docs') && !pathname?.includes('/docs/components')
+                        pathname?.startsWith("/docs") && !pathname?.includes("/docs/components")
                       }
                       href="/docs/getting-started/introduction"
                     >
@@ -69,17 +69,17 @@ export function Navbar() {
                     <NavLink
                       isNextLink
                       isActive={
-                        pathname?.startsWith('/docs/components') || pathname === '/components'
+                        pathname?.startsWith("/docs/components") || pathname === "/components"
                       }
                       href="/components"
                     >
                       Components
                     </NavLink>
-                    <NavLink isNextLink isActive={pathname === '/colors'} href="/colors">
+                    <NavLink isNextLink isActive={pathname === "/colors"} href="/colors">
                       Colors
                     </NavLink>
                     <NavLink href="/icons">Icons</NavLink>
-                    <NavLink isActive={pathname === '/themes'} href="/themes">
+                    <NavLink isActive={pathname === "/themes"} href="/themes">
                       Themes
                     </NavLink>
                   </Collection>
@@ -108,9 +108,9 @@ export function Navbar() {
                     <Link
                       aria-label="Github Repository"
                       className={buttonStyles({
-                        appearance: 'outline',
-                        size: 'square-petite',
-                        className: '[&_[data-slot=icon]]:text-fg'
+                        appearance: "outline",
+                        size: "square-petite",
+                        className: "[&_[data-slot=icon]]:text-fg"
                       })}
                       target="_blank"
                       href={siteConfig.repo}
@@ -120,9 +120,9 @@ export function Navbar() {
                     <Link
                       aria-label="Follow Update on X"
                       className={buttonStyles({
-                        appearance: 'outline',
-                        size: 'square-petite',
-                        className: '[&_[data-slot=icon]]:text-fg'
+                        appearance: "outline",
+                        size: "square-petite",
+                        className: "[&_[data-slot=icon]]:text-fg"
                       })}
                       target="_blank"
                       href="https://x.com/irsyadadl"
@@ -198,9 +198,9 @@ export function NavbarDropdown() {
         <Menu.Separator />
         <Menu.Submenu>
           <Menu.Item>
-            {theme === 'system' ? (
+            {theme === "system" ? (
               <IconDeviceDesktop />
-            ) : theme === 'dark' ? (
+            ) : theme === "dark" ? (
               <IconMoon />
             ) : (
               <IconSun />
@@ -208,15 +208,15 @@ export function NavbarDropdown() {
             <span>Switch Theme</span>
           </Menu.Item>
           <Menu.Content>
-            <Menu.Item onAction={() => setTheme('system')}>
+            <Menu.Item onAction={() => setTheme("system")}>
               <IconDeviceDesktop />
               <span>System</span>
             </Menu.Item>
-            <Menu.Item onAction={() => setTheme('dark')}>
+            <Menu.Item onAction={() => setTheme("dark")}>
               <IconMoon />
               <span>Dark</span>
             </Menu.Item>
-            <Menu.Item onAction={() => setTheme('light')}>
+            <Menu.Item onAction={() => setTheme("light")}>
               <IconSun />
               <span>Light</span>
             </Menu.Item>
@@ -232,7 +232,7 @@ export function NavbarContextMenu() {
     <ContextMenu>
       <ContextMenu.Trigger
         aria-label="Context Menu."
-        className={buttonStyles({ appearance: 'plain' })}
+        className={buttonStyles({ appearance: "plain" })}
       >
         <span className="flex items-center gap-x-2">
           <IconBrandD className="-ml-1 size-6" />

@@ -1,7 +1,7 @@
-'use client'
+"use client"
 
-import { IconBackspace } from 'justd-icons'
-import { Button, gridStyles } from 'ui'
+import { IconBackspace } from "justd-icons"
+import { Button, gridStyles } from "ui"
 
 export default function ButtonIntentDemo() {
   return (

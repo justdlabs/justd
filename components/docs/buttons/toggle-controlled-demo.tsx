@@ -1,9 +1,9 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import { IconPin, IconUnpin } from 'justd-icons'
-import { Toggle } from 'ui'
+import { IconPin, IconUnpin } from "justd-icons"
+import { Toggle } from "ui"
 
 export default function ToggleControlledDemo() {
   const [isSelected, setSelected] = React.useState(false)

@@ -1,9 +1,9 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import { IconPin } from 'justd-icons'
-import { Toggle } from 'ui'
+import { IconPin } from "justd-icons"
+import { Toggle } from "ui"
 
 export default function ToggleDisabledDemo() {
   return (

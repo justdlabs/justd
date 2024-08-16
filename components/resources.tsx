@@ -1,31 +1,31 @@
-'use client'
+"use client"
 
-import { IconBrandJustd, IconBrandLaravel, IconBrandNextjs, IconBrandRemix } from 'justd-icons'
-import { Badge, Card, Grid, Heading, Link } from 'ui'
+import { IconBrandJustd, IconBrandLaravel, IconBrandNextjs, IconBrandRemix } from "justd-icons"
+import { Badge, Card, Grid, Heading, Link } from "ui"
 
 const resources = [
   {
     icon: IconBrandNextjs,
-    name: 'Next.js Starter Kit',
-    url: 'https://justd-next.netlify.app/',
+    name: "Next.js Starter Kit",
+    url: "https://justd-next.netlify.app/",
     description:
       "A Next.js starter kit with Justd installed. You don't need to set up anything, just run clone it and you're good to go!",
-    label: 'Starter Kit'
+    label: "Starter Kit"
   },
   {
     icon: IconBrandLaravel,
-    name: 'Laravel Starter Kit',
-    url: 'https://github.com/justdlabs/inertia.ts',
+    name: "Laravel Starter Kit",
+    url: "https://github.com/justdlabs/inertia.ts",
     description:
-      'A Laravel starter kit with Justd installed. It includes a authentication system out of the box.',
-    label: 'Starter Kit'
+      "A Laravel starter kit with Justd installed. It includes a authentication system out of the box.",
+    label: "Starter Kit"
   },
   {
     icon: IconBrandRemix,
-    name: 'Remix Starter Kit',
-    url: 'https://justd-remix.netlify.app/',
-    description: 'A Remix starter kit with Justd installed, ready for use in any application.',
-    label: 'Starter Kit'
+    name: "Remix Starter Kit",
+    url: "https://justd-remix.netlify.app/",
+    description: "A Remix starter kit with Justd installed, ready for use in any application.",
+    label: "Starter Kit"
   }
 ]
 
@@ -48,7 +48,7 @@ export function Resources() {
             {(item) => (
               <Grid.Item
                 aria-label={item.name}
-                id={item.name.toLowerCase().replaceAll(' ', '-')}
+                id={item.name.toLowerCase().replaceAll(" ", "-")}
                 className="relative focus:outline-none p-4 lg:p-6 h-full flex flex-col w-full focus-visible:outline-none focus-visible:outline-primary rounded-xl bg-tertiary shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:-inset-px dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset] forced-colors:outline"
               >
                 <Link
