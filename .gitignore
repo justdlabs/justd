@@ -13,7 +13,6 @@ ignore
 /coverage
 
 /components/docs/generated/previews.json
-/components/docs/generated/previews.ts
 # next.js
 /.next/
 /out/
