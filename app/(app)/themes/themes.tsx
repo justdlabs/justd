@@ -15,34 +15,36 @@ export function Themes() {
   const [themeId, setThemeId] = React.useState<ThemeProps>("default")
   const themeContainerRef = React.useRef<HTMLDivElement>(null)
 
-  // Apply theme for current page
   const applyTheme = (theme: ThemeProps) => {
-    const themeVars = themesList[theme].root
-    const darkThemeVars = themesList[theme].dark
+    const themeVars = themesList[theme]?.root
+    const darkThemeVars = themesList[theme]?.dark
     localStorage.setItem("theme-id", theme)
     setThemeId(theme)
     const themeElement = themeContainerRef.current
     if (themeElement) {
       const themeVarsToApply = resolvedTheme === "dark" ? darkThemeVars : themeVars
-      Object.keys(themeVarsToApply).forEach((key) => {
-        themeElement.style.setProperty(key, themeVarsToApply[key])
-      })
+      if (themeVarsToApply) {
+        Object.keys(themeVarsToApply).forEach((key) => {
+          themeElement.style.setProperty(key, themeVarsToApply[key])
+        })
+      }
     }
   }
 
   // Apply theme for whole page
   // function applyTheme(theme: ThemeProps) {
-  //   const themeVars = themesList[theme].root
-  //   const darkThemeVars = themesList[theme].dark
-  //   localStorage.setItem('theme-id', theme)
-  //   setThemeId(theme)
-  //   const themeElement = document.documentElement
-  //   if (themeElement) {
-  //     const themeVarsToApply = resolvedTheme === 'dark' ? darkThemeVars : themeVars
-  //     Object.keys(themeVarsToApply).forEach((key) => {
-  //       themeElement.style.setProperty(key, themeVarsToApply[key])
-  //     })
-  //   }
+  // 	const themeVars = themesList[theme].root;
+  // 	const darkThemeVars = themesList[theme].dark;
+  // 	localStorage.setItem("theme-id", theme);
+  // 	setThemeId(theme);
+  // 	const themeElement = document.documentElement;
+  // 	if (themeElement) {
+  // 		const themeVarsToApply =
+  // 			resolvedTheme === "dark" ? darkThemeVars : themeVars;
+  // 		Object.keys(themeVarsToApply).forEach((key) => {
+  // 			themeElement.style.setProperty(key, themeVarsToApply[key]);
+  // 		});
+  // 	}
   // }
 
   React.useEffect(() => {
