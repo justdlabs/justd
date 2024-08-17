@@ -4,7 +4,7 @@ import { Select } from "ui"
 
 export default function SelectSectionDemo() {
   return (
-    <Select label="Countries" placeholder="Select a country">
+    <Select aria-label="Countries" placeholder="Select a country">
       <Select.Trigger />
       <Select.List items={countries}>
         {(country) => (

@@ -158,7 +158,7 @@ const Checkbox = ({ className, children, ...props }: MenuItemProps) => (
     {(values) => (
       <>
         {values.isSelected && (
-          <span className="absolute left-2.5 flex size-4 items-center animate-in justify-center">
+          <span className="absolute left-2 flex size-4 shrink-0 items-center animate-in justify-center">
             <IconCheck className="size-4" />
           </span>
         )}

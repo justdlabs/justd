@@ -67,7 +67,7 @@ interface AccordionItemProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const AccordionItem = ({ className, children, currentId }: AccordionItemProps) => {
-  const { defaultExpandedKeys, disabledKeys } = useAccordion()
+  const { defaultExpandedKeys, hideBorder, disabledKeys } = useAccordion()
   const [expanded, setExpanded] = React.useState<any>(
     // @ts-ignore - TS doesn't know that defaultExpandedKeys is an array of numbers
     defaultExpandedKeys?.includes(currentId) ? currentId : false
@@ -80,7 +80,7 @@ const AccordionItem = ({ className, children, currentId }: AccordionItemProps) =
         data-slot="ai-31kxlae0321lsd"
         data-locked={isLocked ?? undefined}
         data-open={isOpen ?? undefined}
-        className={accordionItemStyles({ className })}
+        className={accordionItemStyles({ className: cn(hideBorder && "border-none", className) })}
       >
         {children}
       </div>
@@ -185,7 +185,7 @@ const AccordionTrigger = ({ className, children, ...props }: AccordionTriggerPro
       {!hideIndicator && (
         <IconChevronDown
           className={twMerge(
-            "ml-auto transition duration-300 group-disabled:rotate-0",
+            "ml-auto transition shrink-0 duration-300 group-disabled:rotate-0",
             isOpen ? "rotate-180" : "rotate-0"
           )}
         />

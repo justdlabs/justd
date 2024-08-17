@@ -6,7 +6,14 @@ import { docs } from "#site/content"
 import type { Doc, HierarchyNode } from "@/components/aside"
 import { createHierarchy } from "@/components/aside"
 import { goodTitle } from "@/resources/lib/utils"
-import { IconBrandJustd, IconColors, IconCube, IconHome, IconNotes } from "justd-icons"
+import {
+  IconBrandJustd,
+  IconColors,
+  IconColorSwatch,
+  IconCube,
+  IconHome,
+  IconNotes
+} from "justd-icons"
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
 import { CommandMenu, useMediaQuery } from "ui"
@@ -52,29 +59,34 @@ export function CommandPalette({ openCmd, setOpen }: OpenCloseProps) {
       <CommandMenu.Input autoFocus={isDesktop} placeholder="Quick search..." />
       <CommandMenu.List>
         <CommandMenu.Section separator heading="Pages">
-          <CommandMenu.Item value="Home" asChild>
+          <CommandMenu.Item value="home" asChild>
             <Link href="/">
               <IconHome /> Home
             </Link>
           </CommandMenu.Item>
-          <CommandMenu.Item value="Docs" asChild>
+          <CommandMenu.Item value="documenation" asChild>
             <Link href="/docs/getting-started/installation">
               <IconNotes /> Docs
             </Link>
           </CommandMenu.Item>
-          <CommandMenu.Item value="Components" asChild>
+          <CommandMenu.Item value="components" asChild>
             <Link href="/components">
               <IconCube /> Components
             </Link>
           </CommandMenu.Item>
-          <CommandMenu.Item value="Colors" asChild>
+          <CommandMenu.Item value="colors" asChild>
             <Link href="/colors">
               <IconColors /> Colors
             </Link>
           </CommandMenu.Item>
-          <CommandMenu.Item value="Icons" asChild>
+          <CommandMenu.Item value="icons" asChild>
             <Link href="/icons">
               <IconBrandJustd /> Icons
+            </Link>
+          </CommandMenu.Item>
+          <CommandMenu.Item value="themes" asChild>
+            <Link href="/themes">
+              <IconColorSwatch /> Themes
             </Link>
           </CommandMenu.Item>
         </CommandMenu.Section>

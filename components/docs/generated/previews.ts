@@ -683,6 +683,9 @@ export const previews: Record<string, any> = {
   "pickers/select-validation-demo": {
     component: React.lazy(() => import("@/components/docs/pickers/select-validation-demo")),
   },
+  "pickers/select-with-icon-demo": {
+    component: React.lazy(() => import("@/components/docs/pickers/select-with-icon-demo")),
+  },
   "pickers/multiple-select-intent-demo": {
     component: React.lazy(() => import("@/components/docs/pickers/multiple-select-intent-demo")),
   },
