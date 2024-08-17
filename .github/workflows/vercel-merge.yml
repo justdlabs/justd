@@ -19,11 +19,11 @@ jobs:
           curl -fsSL https://bun.sh/install | bash
           echo "$HOME/.bun/bin" >> $GITHUB_PATH
 
-      - name: Generate Source Code Preview
-        run: bun run generate-preview
-
       - name: Install Global Package with Bun
         run: bun install --global vercel@latest
+
+      - name: Generate Source Code Preview
+        run: bun run generate-preview
 
       - name: Pull Vercel Environment Information
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
