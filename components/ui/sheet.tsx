@@ -60,7 +60,7 @@ const sheetContentStyles = tv({
       true: "duration-200 animate-out"
     },
     side: {
-      top: "inset-x-0 top-0 rounded-b-2xl border-b entering:slide-in-from-top exiting:slide-out-to-top",
+      top: "inset-x-0 top-0 rounded-b-3xl border-b entering:slide-in-from-top exiting:slide-out-to-top",
       bottom:
         "inset-x-0 bottom-0 rounded-t-2xl border-t entering:slide-in-from-bottom exiting:slide-out-to-bottom",
       left: "inset-y-0 left-0 h-auto w-[19rem] sm:w-3/4 overflow-y-auto border-r entering:slide-in-from-left exiting:slide-out-to-left sm:max-w-xs",

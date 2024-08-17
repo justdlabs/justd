@@ -15,7 +15,7 @@ import {
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
-import { cn, cr } from './primitive'
+import { cn, cr } from "./primitive"
 
 const dropdownItemStyles = tv({
   base: [
@@ -110,17 +110,25 @@ interface DropdownItemSlot extends TextProps {
 }
 
 const DropdownItemDetails = ({ label, description, classNames, ...props }: DropdownItemSlot) => {
-  const { slot, children, title, ...restProps } = props;
+  const { slot, children, title, ...restProps } = props
 
   return (
     <div className="flex flex-col gap-1" {...restProps}>
       {label && (
-        <Text slot={slot ?? "label"} className={cn("font-medium lg:text-sm", classNames?.label)} {...restProps}>
+        <Text
+          slot={slot ?? "label"}
+          className={cn("font-medium lg:text-sm", classNames?.label)}
+          {...restProps}
+        >
           {label}
         </Text>
       )}
       {description && (
-        <Text slot={slot ?? "description"} className={cn("text-muted-fg text-xs", classNames?.description)} {...restProps}>
+        <Text
+          slot={slot ?? "description"}
+          className={cn("text-muted-fg text-xs", classNames?.description)}
+          {...restProps}
+        >
           {description}
         </Text>
       )}
@@ -128,7 +136,6 @@ const DropdownItemDetails = ({ label, description, classNames, ...props }: Dropd
     </div>
   )
 }
-
 
 // Note: This is not exposed component, but it's used in other components to render dropdowns.
 export { DropdownItem, dropdownItemStyles, DropdownItemDetails, DropdownSection }
