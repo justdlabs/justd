@@ -34,7 +34,7 @@ const buttonStyles = tv(
         "light/dark": [
           "text-bg [--btn-bg:theme(colors.dark)] [--btn-border:theme(colors.dark/90%)] [--btn-hover-overlay:theme(colors.white/10%)]",
           "dark:[--btn-bg:white] dark:[--btn-hover-overlay:theme(colors.dark/5%)]",
-          "[--btn-icon:theme(colors.muted.fg)] active:[--btn-icon:theme(colors.background/85%)] hover:[--btn-icon:theme(colors.background/85%)]"
+          "[--btn-icon:theme(colors.muted.fg)] active:[--btn-icon:theme(colors.bg/85%)] hover:[--btn-icon:theme(colors.bg/85%)]"
         ],
         dark: [
           "text-light [--btn-bg:theme(colors.dark)] [--btn-border:theme(colors.dark)] [--btn-hover-overlay:theme(colors.light/2.5%)]",
