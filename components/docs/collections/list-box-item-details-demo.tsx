@@ -1,10 +1,19 @@
 "use client"
 
+import React from "react"
+
+import type { Selection } from "react-aria-components"
 import { ListBox } from "ui"
 
 export default function ListBoxItemDetailsDemo() {
+  const [selected, setSelected] = React.useState<Selection>(new Set([1]))
   return (
-    <ListBox defaultSelectedKeys={[2]} items={roles} aria-label="Bands">
+    <ListBox
+      selectedKeys={selected}
+      onSelectionChange={setSelected}
+      items={roles}
+      aria-label="Bands"
+    >
       {(item) => (
         <ListBox.Item id={item.id}>
           <ListBox.ItemDetails label={item.name} description={item.description} />

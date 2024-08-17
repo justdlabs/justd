@@ -2,7 +2,7 @@
 
 import { ListBox } from "ui"
 
-export default function ListBoxControlledDemo() {
+export default function ListBoxDisabledDemo() {
   return (
     <>
       <ListBox

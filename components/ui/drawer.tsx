@@ -98,7 +98,7 @@ const DrawerContentPrimitive = ({ children, ...props }: DrawerOverlayPrimitivePr
       >
         <ModalPrimitive
           className={twJoin(
-            "max-h-full flex flex-col w-full rounded-t-2xl sm:rounded-lg overflow-hidden bg-overlay text-overlay-fg text-left align-middle shadow-lg",
+            "max-h-full flex flex-col w-full rounded-t-3xl sm:rounded-lg overflow-hidden bg-overlay text-overlay-fg text-left align-middle shadow-lg",
             "ring-1 ring-zinc-950/5 dark:ring-white/15"
           )}
           initial={{ y: h }}

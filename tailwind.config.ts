@@ -84,9 +84,12 @@ const config = withTV({
         }
       },
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)"
+        "3xl": "calc(var(--radius) + 7.5px)",
+        "2xl": "calc(var(--radius) + 5px)",
+        xl: "calc(var(--radius) + 2.5px)",
+        lg: "calc(var(--radius))",
+        md: "calc(var(--radius) - 2.5px)",
+        sm: "calc(var(--radius) - 5px)"
       },
       keyframes: {
         blink: {

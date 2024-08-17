@@ -6,15 +6,15 @@ import type { Selection } from "react-aria-components"
 import { Description, ListBox } from "ui"
 
 export default function ListBoxControlledDemo() {
-  const [selected, setSelected] = React.useState<Selection>(new Set(["2"]))
+  const [selected, setSelected] = React.useState<Selection>(new Set([1]))
   return (
     <>
       <ListBox
         selectedKeys={selected}
         onSelectionChange={setSelected}
         items={fruits}
-        selectionMode="single"
         aria-label="Fruits"
+        selectionMode="single"
       >
         {(fruit) => (
           <ListBox.Item id={fruit.id} textValue={fruit.name}>
@@ -23,7 +23,11 @@ export default function ListBoxControlledDemo() {
         )}
       </ListBox>
 
-      {selected && <Description className="mt-4 block">Selected: {selected}</Description>}
+      {selected && (
+        <Description className="mt-4 block [&>strong]:font-medium [&>strong]:text-fg">
+          Selected: <strong>{selected}</strong>
+        </Description>
+      )}
     </>
   )
 }

@@ -22,7 +22,7 @@ A basic grid list is an excellent way for users to browse through items, perfect
 <SourceCode toShow={['grid-list']}/>
 
 ## Multiple Selection
-By default, the selection mode is set to single selection unless you change the `selectionMode` prop to allow for multiple selections.
+To enable multiple selections, set the `selectionMode` prop to `multiple`. Since this prop has no default value, you must define it explicitly.
 <How minW72 toUse="collections/grid-list-multiple-demo" />
 Note that I haven't set an `id` for the grid list item as the items already have default IDs. However, you should specify the `id` prop for each grid list item like this:
 ```
@@ -37,13 +37,13 @@ The grid list supports drag and drop functionalities if you use the `dragAndDrop
 You can move items between positions within the grid list.
 <How withNoPadding isCenter={false} toUse="collections/grid-list-drag-between-item-demo" />
 
-## Controlled
-The grid list can be controlled, which means the parent component manages the selection state of each item.
-<How minW72 toUse="collections/grid-list-controlled-demo" />
-
 ## Render Empty State
 The grid list can display an empty state when no items are available using the `renderEmptyState` prop.
 <How minW72 toUse="collections/grid-list-render-empty-state-demo" />
+
+## Controlled
+The grid list can be controlled, which means the parent component manages the selection state of each item.
+<How minW72 toUse="collections/grid-list-controlled-demo" />
 
 ## Disabled
 Similar to how the [Tag Group](/docs/components/collections/tag-group) component can be disabled using `isDisabled` for children and `disabledKeys` for the parent, the Grid List supports similar functionality. For example, items "Led Zeppelin" and "The Rolling Stones" are disabled.

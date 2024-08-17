@@ -21,12 +21,8 @@ ListBoxes can be enhanced with features like multi-selection, filtering, and dyn
 
 <SourceCode toShow={['list-box']}/>
 
-## Controlled
-Manage the ListBox selection by using the `selectedKey` prop.
-<How toUse="collections/list-box-controlled-demo" />
-
 ## Multiple Selection
-Enable multiple selections by setting the `selectionMode` prop.
+To enable multiple selections, set the `selectionMode` prop to `multiple`. Since this prop has no default value, you must define it explicitly.
 <How toUse="collections/list-box-multiple-demo" />
 
 ## Item Details
@@ -40,6 +36,10 @@ Display items in a ListBox grouped by sections.
 ## Rearrange
 Enable drag and drop functionality in the ListBox using the `dragAndDropHooks` prop with the `useDragAndDrop` hook. This allows for rearranging items, adding new entries between existing ones, or managing data across the entire list.
 <How toUse="collections/list-box-rearrange-demo" />
+
+## Controlled
+Make sure you set the `selectionMode` prop to `single` to enable controlled mode. This will allow you to manage the ListBox selection by using the `selectedKey` prop.
+<How toUse="collections/list-box-controlled-demo" />
 
 ## Disabled
 Disable specific ListBox items.

@@ -6,7 +6,7 @@ export default function ComboBoxSectionDemo() {
   return (
     <ComboBox placeholder="Select a author" label="Authors">
       <ComboBox.Input />
-      <ComboBox.List items={movies}>
+      <ComboBox.List defaultSelectedKeys={[1]} items={movies}>
         {(movie) => (
           <ComboBox.Section title={movie.title} items={movie.genres}>
             {(genre) => <ComboBox.Option textValue={genre.name}>{genre.name}</ComboBox.Option>}

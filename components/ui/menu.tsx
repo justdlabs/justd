@@ -154,16 +154,15 @@ const MenuSeparator = ({ className, ...props }: SeparatorProps) => (
 )
 
 const Checkbox = ({ className, children, ...props }: MenuItemProps) => (
-  <Item className={cn("pl-8 relative", className)} {...props}>
+  <Item className={cn("relative pr-8", className)} {...props}>
     {(values) => (
       <>
+        {typeof children === "function" ? children(values) : children}
         {values.isSelected && (
-          <span className="absolute left-2 flex size-4 shrink-0 items-center animate-in justify-center">
-            <IconCheck className="size-4" />
+          <span className="absolute right-2 flex size-4 shrink-0 items-center animate-in justify-center">
+            <IconCheck />
           </span>
         )}
-
-        {typeof children === "function" ? children(values) : children}
       </>
     )}
   </Item>

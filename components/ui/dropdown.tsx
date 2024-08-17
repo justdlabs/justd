@@ -19,7 +19,7 @@ import { cn, cr } from "./primitive"
 
 const dropdownItemStyles = tv({
   base: [
-    "group flex cursor-default select-none items-center gap-x-1.5 rounded-md py-2 pl-8 relative pr-1 text-base outline outline-0 forced-color-adjust-none lg:text-sm",
+    "group flex cursor-default select-none items-center gap-x-1.5 rounded-[calc(var(--radius)-1px)] py-2 pl-2.5 relative pr-1.5 text-base outline outline-0 forced-color-adjust-none lg:text-sm",
     "[&_[data-slot=avatar]]:-mr-0.5 [&_[data-slot=avatar]]:size-6 sm:[&_[data-slot=avatar]]:size-5",
     "[&>[data-slot=icon]]:size-4 [&>[data-slot=icon]]:shrink-0",
     "has-submenu:open:data-[danger=true]:bg-danger/20 has-submenu:open:data-[danger=true]:text-danger",
@@ -55,17 +55,18 @@ interface DropdownSectionProps<T> extends SectionProps<T> {
 
 const dropdownSectionStyles = tv({
   slots: {
-    base: "first:-mt-[5px] xss3 after:content-[''] after:block after:h-[5px]",
+    section:
+      "first:-mt-[5px] xss3 flex flex-col gap-y-0.5 after:content-[''] after:block after:h-[5px]",
     header:
-      "text-sm font-medium text-muted-fg bg-tertiary px-4 py-2 truncate min-w-[--trigger-width] sticky -top-[5px] backdrop-blur -mt-px -mx-1 z-10 supports-[-moz-appearance:none]:bg-tertiary border-y [&+*]:mt-1"
+      "text-sm font-medium text-muted-fg bg-tertiary px-4 py-2 truncate min-w-[--trigger-width] sticky -top-[5px] backdrop-blur -mt-px -mb-0.5 -mx-1 z-10 supports-[-moz-appearance:none]:bg-tertiary border-y [&+*]:mt-1"
   }
 })
 
-const { base, header } = dropdownSectionStyles()
+const { section, header } = dropdownSectionStyles()
 
 const DropdownSection = <T extends object>({ className, ...props }: DropdownSectionProps<T>) => {
   return (
-    <Section className={base(className)}>
+    <Section className={section({ className })}>
       {"title" in props && <Header className={header()}>{props.title}</Header>}
       <Collection items={props.items}>{props.children}</Collection>
     </Section>
@@ -85,15 +86,15 @@ const DropdownItem = ({ className, ...props }: ListBoxItemProps) => {
     >
       {cr(props.children, (children, { isSelected }) => (
         <>
-          {isSelected && (
-            <span className="absolute left-2 top-3 lg:top-2.5">
-              <IconCheck />
-            </span>
-          )}
-
           <span className="flex flex-1 items-center gap-2 truncate font-normal group-selected:font-medium">
             {children}
           </span>
+
+          {isSelected && (
+            <span className="absolute right-2 top-3 lg:top-2.5">
+              <IconCheck />
+            </span>
+          )}
         </>
       ))}
     </ListBoxItemPrimitive>

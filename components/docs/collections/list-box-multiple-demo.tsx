@@ -5,8 +5,8 @@ import React from "react"
 import type { Selection } from "react-aria-components"
 import { Description, ListBox } from "ui"
 
-export default function ListBoxControlledDemo() {
-  const [selected, setSelected] = React.useState<Selection>(new Set(["2"]))
+export default function ListBoxMultipleDemo() {
+  const [selected, setSelected] = React.useState<Selection>(new Set([3]))
   return (
     <>
       <ListBox

@@ -22,10 +22,6 @@ The Choicebox is an enhanced version of a Radio or Checkbox, offering users a la
 
 <SourceCode toShow={['choicebox']} />
 
-## Controlled
-This component can function as either controlled or uncontrolled. For controlled use, provide the `selectedKeys` prop and manage updates with the `onSelectionChange` event handler.
-<How isCenter={false} toUse="collections/choicebox-controlled-demo" />
-
 ## Single Selection
 Although the Choicebox defaults to allowing multiple selections, it can be configured for single selection by setting the `selectionMode` prop.
 <How isCenter={false} toUse="collections/choicebox-single-selection-demo" />
@@ -33,6 +29,10 @@ Although the Choicebox defaults to allowing multiple selections, it can be confi
 ## Columns and Gap
 The default layout for the Choicebox includes two columns with a 16px gap between items. These settings can be adjusted by passing the `columns` and `gap` props.
 <How isCenter={false} withNoPadding={true} toUse="collections/choicebox-columns-demo" />
+
+## Controlled
+This component can function as either controlled or uncontrolled. For controlled use, provide the `selectedKeys` prop and manage updates with the `onSelectionChange` event handler.
+<How isCenter={false} toUse="collections/choicebox-controlled-demo" />
 
 ## Disabled
 Disable the entire Choicebox by applying the `isDisabled` prop.
