@@ -1,5 +1,7 @@
 "use client"
 
+import * as React from "react"
+
 import { IconCheck } from "justd-icons"
 import {
   Collection,
@@ -13,7 +15,7 @@ import {
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
-import { cr } from "./primitive"
+import { cn, cr } from './primitive'
 
 const dropdownItemStyles = tv({
   base: [
@@ -101,20 +103,32 @@ const DropdownItem = ({ className, ...props }: ListBoxItemProps) => {
 interface DropdownItemSlot extends TextProps {
   label?: TextProps["children"]
   description?: TextProps["children"]
+  classNames?: {
+    label?: TextProps["className"]
+    description?: TextProps["className"]
+  }
 }
 
-const DropdownItemDetails = ({ label, description, ...props }: DropdownItemSlot) => {
+const DropdownItemDetails = ({ label, description, classNames, ...props }: DropdownItemSlot) => {
+  const { slot, children, title, ...restProps } = props;
+
   return (
-    <div className="flex flex-col gap-1">
-      <Text slot="label" className="font-medium lg:text-sm" {...props}>
-        {label}
-      </Text>
-      <Text slot="description" className="text-muted-fg text-xs" {...props}>
-        {description}
-      </Text>
+    <div className="flex flex-col gap-1" {...restProps}>
+      {label && (
+        <Text slot={slot ?? "label"} className={cn("font-medium lg:text-sm", classNames?.label)} {...restProps}>
+          {label}
+        </Text>
+      )}
+      {description && (
+        <Text slot={slot ?? "description"} className={cn("text-muted-fg text-xs", classNames?.description)} {...restProps}>
+          {description}
+        </Text>
+      )}
+      {!title && children}
     </div>
   )
 }
+
 
 // Note: This is not exposed component, but it's used in other components to render dropdowns.
 export { DropdownItem, dropdownItemStyles, DropdownItemDetails, DropdownSection }

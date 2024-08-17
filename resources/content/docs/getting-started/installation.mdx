@@ -442,9 +442,10 @@ Ensure you configure the `paths` property correctly if your project includes a `
 ```
 
 ## Fonts
-This is is currently using the [Inter font](https://rsms.me/inter/). If you want to use a different font, you can adjust the font-sans variable in the tailwind config to point to your font file.
+This is is currently using the [Inter font](https://rsms.me/inter/). If you want to use a different font, you can define your font-family in your js or css file.
+
 ### Stylesheet
-When you're working with a stylesheet, you can adjust the font-family property in the tailwind config to point to your font file.
+When you're working with a stylesheet, you can define your `@font-face` in your css file.
 
 ```css
 @font-face {
@@ -464,7 +465,7 @@ When you're working with a stylesheet, you can adjust the font-family property i
 ```
 
 ### Next.js
-If you're using Next.js, you don't event need css files. Just adjust the font-sans variable in the tailwind config to point to your font file.
+If you're using Next.js, you don't event need css files. Just define your font in your layout file.
 
 ```tsx
 import localFont from 'next/font/local'
@@ -490,8 +491,11 @@ theme: {
   extend: {
     fontFamily: {
     sans: ['var(--font-sans)', ...fontFamily.sans],
-    mono: ['var(--font-mono)', ...fontFamily.sans]
   },
 },
 ```
+
 For more information, refer to the [Tailwind documentation](https://tailwindcss.com/docs/font-family#customizing-the-default-font) and [Next.js documentation](https://nextjs.org/docs/app/building-your-application/optimizing/fonts).
+
+## InteliSense
+If you want your development environment to be more intelligent, you can follow instructions here at [Tailwind Variants](https://www.tailwind-variants.org/docs/getting-started#intellisense-setup-optional).

@@ -33,11 +33,11 @@ interface CardHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   description?: string
 }
 
-const CardHeader = ({ className, ...props }: CardHeaderProps) => (
+const CardHeader = ({ className, title, description, children, ...props }: CardHeaderProps) => (
   <div className={header({ className })} {...props}>
-    {props.title && <CardTitle>{props.title}</CardTitle>}
-    {props.description && <CardDescription>{props.description}</CardDescription>}
-    {!props.title && typeof props.children === "string" ? <CardTitle {...props} /> : props.children}
+    {title && <CardTitle>{title}</CardTitle>}
+    {description && <CardDescription>{description}</CardDescription>}
+    {!title && typeof children === "string" ? <CardTitle>{children}</CardTitle> : children}
   </div>
 )
 
