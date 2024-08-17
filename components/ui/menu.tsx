@@ -117,7 +117,7 @@ const Item = ({ className, isDanger = false, children, ...props }: MenuItemProps
       className={cr(className, (className, renderProps) =>
         dropdownItemStyles({
           ...renderProps,
-          className
+          className: cn("pl-2.5", className)
         })
       )}
       data-danger={isDanger ? "true" : undefined}
@@ -174,7 +174,7 @@ const Radio = ({ className, children, ...props }: MenuItemProps) => (
     {(values) => (
       <>
         {values.isSelected && (
-          <span className="absolute left-3.5 flex size-[0.650rem] items-center animate-in justify-center">
+          <span className="absolute left-3 flex size-[0.650rem] items-center animate-in justify-center">
             <IconBulletFill className="size-[0.650rem]" />
           </span>
         )}

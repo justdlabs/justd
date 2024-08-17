@@ -110,8 +110,8 @@ const Content = ({
   const isMenuTrigger = popoverContext?.trigger === "MenuTrigger"
   const isSubmenuTrigger = popoverContext?.trigger === "SubmenuTrigger"
   const isMenu = isMenuTrigger || isSubmenuTrigger
-  let offset = showArrow ? 12 : 8
-  offset = isSubmenuTrigger ? offset - 6 : offset
+  const offset = showArrow ? 12 : 8
+  const effectiveOffset = isSubmenuTrigger ? offset - 5 : offset
   return isMobile && respectScreen ? (
     <ModalOverlay
       className={twJoin(
@@ -136,7 +136,7 @@ const Content = ({
     </ModalOverlay>
   ) : (
     <PopoverPrimitive
-      offset={offset}
+      offset={effectiveOffset}
       {...props}
       className={cr(className, (className, renderProps) =>
         popoverContentStyles({
