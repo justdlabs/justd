@@ -15,14 +15,13 @@ export default function MultipleMenuDemo() {
         selectionMode="multiple"
         selectedKeys={selected}
         onSelectionChange={setSelected}
+        items={items}
       >
-        <Menu.Section items={items} title="Content Preferences">
-          {(item) => (
-            <Menu.Checkbox id={item.slug} textValue={item.name}>
-              {item.name}
-            </Menu.Checkbox>
-          )}
-        </Menu.Section>
+        {(item) => (
+          <Menu.Checkbox id={item.slug} textValue={item.name}>
+            {item.name}
+          </Menu.Checkbox>
+        )}
       </Menu.Content>
     </Menu>
   )

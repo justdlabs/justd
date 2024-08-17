@@ -1,34 +1,26 @@
 "use client"
 
+import { IconDeviceDesktop, IconDevicePhone, IconMacbook } from "justd-icons"
 import { Select } from "ui"
-import {
-  IconAlignmentJustify,
-  IconAlignmentLeft,
-  IconClock,
-  IconDeviceDesktop,
-  IconDevicePhone,
-  IconMacbook
-} from 'justd-icons'
 
-export default function SelectDemo() {
+export default function SelectWithIconDemo() {
   return (
-    <Select aria-label='Devices' defaultSelectedKey='desktop' placeholder="Select a device">
+    <Select aria-label="Devices" defaultSelectedKey="desktop" placeholder="Select a device">
       <Select.Trigger />
       <Select.List>
-        <Select.Option id='desktop' textValue='Desktop'>
-          <IconDeviceDesktop/>
+        <Select.Option id="desktop" textValue="Desktop">
+          <IconDeviceDesktop />
           Desktop
         </Select.Option>
-        <Select.Option id='laptop' textValue='Laptop'>
-          <IconMacbook/>
+        <Select.Option id="laptop" textValue="Laptop">
+          <IconMacbook />
           Laptop
         </Select.Option>
-        <Select.Option id='smartphone' textValue='Smartphone'>
+        <Select.Option id="smartphone" textValue="Smartphone">
           <IconDevicePhone />
           Smartphone
         </Select.Option>
       </Select.List>
-
     </Select>
   )
 }
