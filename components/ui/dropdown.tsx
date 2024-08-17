@@ -21,7 +21,7 @@ const dropdownItemStyles = tv({
     "[&_[data-slot=avatar]]:-mr-0.5 [&_[data-slot=avatar]]:size-6 sm:[&_[data-slot=avatar]]:size-5",
     "[&_[data-slot=icon]]:size-4",
     "has-submenu:open:data-[danger=true]:bg-danger/20 has-submenu:open:data-[danger=true]:text-danger",
-    "has-submenu:open:bg-primary has-submenu:open:text-primary-fg"
+    "has-submenu:open:bg-accent has-submenu:open:text-accent-fg"
   ],
   variants: {
     isDisabled: {
@@ -31,9 +31,9 @@ const dropdownItemStyles = tv({
     isFocused: {
       false: "data-[danger=true]:text-danger",
       true: [
-        "bg-primary text-primary-fg forced-colors:bg-[Highlight] forced-colors:text-[HighlightText]",
+        "bg-accent text-accent-fg forced-colors:bg-[Highlight] forced-colors:text-[HighlightText]",
         "data-[danger=true]:bg-danger data-[danger=true]:text-danger-fg",
-        "[&_.text-muted-fg]:text-primary-fg/80 [&[data-slot=label]]:text-primary-fg [&[data-slot=description]]:text-primary-fg"
+        "[&_.text-muted-fg]:text-accent-fg/80 [&[data-slot=label]]:text-accent-fg [&[data-slot=description]]:text-accent-fg"
       ]
     }
   },
@@ -41,7 +41,7 @@ const dropdownItemStyles = tv({
     {
       isFocused: false,
       isOpen: true,
-      className: "bg-zinc-100 dark:bg-zinc-700/60"
+      className: "bg-secondary"
     }
   ]
 })

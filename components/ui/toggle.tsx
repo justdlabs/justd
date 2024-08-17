@@ -10,7 +10,7 @@ import { cr, focusButtonStyles } from "./primitive"
 const toggleStyles = tv({
   extend: focusButtonStyles,
   base: [
-    "inline-flex items-center bg-transparent justify-center border border-transparent rounded-lg text-sm font-medium ring-offset-background transition-colors",
+    "inline-flex items-center bg-transparent justify-center border border-transparent rounded-lg text-sm font-medium ring-offset-bg transition-colors",
     "hover:bg-muted hover:text-muted-fg"
   ],
   variants: {

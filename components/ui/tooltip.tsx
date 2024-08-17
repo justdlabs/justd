@@ -19,7 +19,7 @@ interface TooltipProps extends Omit<TooltipPrimitiveProps, "children"> {
 
 const tooltipStyles = tv({
   base: [
-    "group rounded-md [&_strong]:font-medium bg-fg border border-fg text-background px-2 py-1.5 text-sm will-change-transform dark:shadow-none",
+    "group rounded-md [&_strong]:font-medium bg-fg border border-fg text-bg px-2 py-1.5 text-sm will-change-transform dark:shadow-none",
     "placement-left:slide-in-from-right-1 placement-right:slide-in-from-left-1 placement-top:slide-in-from-bottom-1 placement-bottom:slide-in-from-top-1"
   ],
   variants: {

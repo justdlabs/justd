@@ -7,7 +7,7 @@ import { tv, type VariantProps } from "tailwind-variants"
 import { VisuallyHidden } from "./visually-hidden"
 
 const avatarGroupStyles = tv({
-  base: "flex items-center justify-center -space-x-2 [&_[data-slot=avatar]]:ring-2 [&_[data-slot=avatar]]:ring-background"
+  base: "flex items-center justify-center -space-x-2 [&_[data-slot=avatar]]:ring-2 [&_[data-slot=avatar]]:ring-bg"
 })
 
 interface AvatarGroupProps
@@ -113,9 +113,7 @@ type AvatarBadgeProps = {
 }
 
 const avatarBadgeStyles = tv({
-  base: [
-    "size-3 z-1 absolute bottom-0 right-0 z-10 rounded-full ring-[1.5px] ring-background bg-background"
-  ],
+  base: ["size-3 z-1 absolute bottom-0 right-0 z-10 rounded-full ring-[1.5px] ring-bg bg-bg"],
   variants: {
     size: {
       small: "size-1.5 translate-x-[0%] translate-y-[0%]",

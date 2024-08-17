@@ -8,7 +8,7 @@ import { buttonStyles, Container } from "ui"
 
 export function Hero() {
   return (
-    <div className="relative isolate overflow-hidden bg-background">
+    <div className="relative isolate overflow-hidden bg-bg">
       <div
         aria-hidden="true"
         className="absolute sm:block hidden inset-x-0 -top-10 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-56"

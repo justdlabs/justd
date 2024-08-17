@@ -9,7 +9,7 @@ export default function ModalCustomClassnamesDemo() {
       <Modal.Content
         classNames={{
           overlay: "bg-white/40 dark:bg-black/40 backdrop-blur",
-          content: "bg-background"
+          content: "bg-bg"
         }}
       >
         <Modal.Header title="Custom Classnames" description="This modal has custom class names." />

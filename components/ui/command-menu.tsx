@@ -36,7 +36,7 @@ const commandStyles = tv({
       "fixed inset-0 max-h-[--visual-viewport-height] z-50 bg-black/15 dark:bg-black/40 entering:animate-in entering:fade-in-0 exiting:animate-in exiting:fade-out-0"
     ],
     modal: [
-      "fixed bottom-0 left-[50%] top-auto z-50 grid h-[calc(100vh-35%)] w-full max-w-full translate-x-[-50%] gap-4 overflow-hidden rounded-t-xl bg-background shadow-lg ring-1 ring-dark/5 dark:ring-border sm:bottom-auto sm:top-[6rem] sm:h-auto sm:w-full sm:max-w-2xl sm:rounded-xl",
+      "fixed bottom-0 left-[50%] top-auto z-50 grid h-[calc(100vh-35%)] w-full max-w-full translate-x-[-50%] gap-4 overflow-hidden rounded-t-xl bg-bg shadow-lg ring-1 ring-dark/5 dark:ring-border sm:bottom-auto sm:top-[6rem] sm:h-auto sm:w-full sm:max-w-2xl sm:rounded-xl",
       "sm:entering:slide-in-from-bottom-auto entering:duration-300 entering:animate-in entering:fade-in-0 entering:slide-in-from-bottom-1/2 entering:slide-in-from-left-1/2 entering:[transition-timing-function:ease-out] sm:entering:duration-300 sm:entering:slide-in-from-top-[2rem]",
       "exiting:duration-300 exiting:animate-out exiting:fade-out-0 exiting:slide-out-to-bottom-1/2 exiting:slide-out-to-left-1/2 exiting:[transition-timing-function:ease] sm:exiting:slide-out-to-top-[4rem]"
     ],
@@ -51,7 +51,7 @@ const commandStyles = tv({
     item: [
       "group relative flex cursor-default select-none items-center rounded-lg py-2 text-sm outline-none",
       // selected
-      "data-[selected=true]:bg-primary data-[selected=true]:text-primary-fg [&[data-selected=true]_[data-slot=icon]]:text-primary-fg",
+      "data-[selected=true]:bg-accent data-[selected=true]:text-accent-fg [&[data-selected=true]_[data-slot=icon]]:text-accent-fg",
       // danger
       "data-[danger=true]:text-danger data-[danger=true]:data-[selected=true]:bg-danger data-[danger=true]:data-[selected=true]:text-danger-fg",
       // disabled
@@ -243,14 +243,14 @@ const CommandMenuDescription = ({ intent, className, ...props }: CommandMenuDesc
       className={description({
         className: twJoin(
           intent === "danger"
-            ? "group-data-[selected=true]:text-primary-fg/70 text-danger/90"
+            ? "group-data-[selected=true]:text-accent-fg/70 text-danger/90"
             : intent === "warning"
-              ? "group-data-[selected=true]:text-primary-fg/70 text-warning/90"
+              ? "group-data-[selected=true]:text-accent-fg/70 text-warning/90"
               : intent === "success"
-                ? "group-data-[selected=true]:text-primary-fg/70 text-success/90"
+                ? "group-data-[selected=true]:text-accent-fg/70 text-success/90"
                 : intent === "primary"
-                  ? "group-data-[selected=true]:text-white/70 text-primary/90"
-                  : "group-data-[selected=true]:text-primary-fg/70 text-muted-fg",
+                  ? "group-data-[selected=true]:text-white/70 text-accent/90"
+                  : "group-data-[selected=true]:text-accent-fg/70 text-muted-fg",
           className
         )
       })}

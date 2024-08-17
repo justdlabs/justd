@@ -1,24 +1,16 @@
-"use client"
+'use client';
 
-import * as React from "react"
+import * as React from 'react';
 
-import {
-  FieldError as FieldErrorPrimitive,
-  type FieldErrorProps,
-  Group,
-  type GroupProps,
-  Input as InputPrimitive,
-  type InputProps,
-  Label as LabelPrimitive,
-  type LabelProps,
-  Text,
-  type TextFieldProps as TextFieldPrimitiveProps,
-  type TextProps,
-  type ValidationResult
-} from "react-aria-components"
-import { tv } from "tailwind-variants"
 
-import { cr, ctr } from "./primitive"
+
+import { FieldError as FieldErrorPrimitive, type FieldErrorProps, Group, type GroupProps, Input as InputPrimitive, type InputProps, Label as LabelPrimitive, type LabelProps, Text, type TextFieldProps as TextFieldPrimitiveProps, type TextProps, type ValidationResult } from 'react-aria-components';
+import { tv } from 'tailwind-variants';
+
+
+
+import { cr, ctr } from './primitive';
+
 
 // primitive styles
 
@@ -77,7 +69,7 @@ const FieldError = ({ className, ...props }: FieldErrorProps) => {
 
 const fieldGroupStyles = tv({
   base: [
-    "group flex h-10 items-center overflow-hidden rounded-lg border border-input bg-background transition disabled:opacity-50 disabled:bg-secondary forced-colors:bg-[Field]",
+    "group flex h-10 items-center overflow-hidden rounded-lg border border-input bg-bg transition disabled:opacity-50 disabled:bg-secondary forced-colors:bg-[Field]",
     "focus-within:border-ring/85 focus-within:ring-4 focus-within:ring-ring/20",
     "focus-within:invalid:border-danger focus-within:invalid:ring-4 focus-within:invalid:ring-danger/20",
     "invalid:border-danger",

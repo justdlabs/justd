@@ -1,4 +1,3 @@
-import { Themes } from "@/app/(app)/themes/themes"
 import { Header } from "@/components/header"
 import { siteConfig } from "@/resources/config/site"
 import type { Metadata } from "next"

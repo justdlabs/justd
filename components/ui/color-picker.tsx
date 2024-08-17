@@ -30,9 +30,8 @@ import { Select } from "./select"
 const colorPickerStyles = tv({
   slots: {
     base: "flex w-full flex-col gap-1",
-    triggerColorField:
-      "size-10 -mr-2.5 tcf bg-background grid place-content-center focus:outline-none",
-    triggerColorPicker: "w-full hover:bg-tertiary tcp max-w-sm bg-background justify-start",
+    triggerColorField: "size-10 -mr-2.5 tcf bg-bg grid place-content-center focus:outline-none",
+    triggerColorPicker: "w-full hover:bg-tertiary tcp max-w-sm bg-bg justify-start",
     colorArea: "w-full mt-2 sm:mt-0",
     colorSlider: "[&_.cstrk]:orientation-horizontal:h-3",
     colorSwatchPicker: "flex flex-wrap gap-x-2 gap-y-2.5"

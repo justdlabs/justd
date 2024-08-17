@@ -32,13 +32,10 @@ const intents = {
     ]
   },
   secondary: {
-    base: [
-      badgeIntents.secondary,
-      "[&_[slot=remove]:hover]:bg-fg [&_[slot=remove]:hover]:text-background"
-    ],
+    base: [badgeIntents.secondary, "[&_[slot=remove]:hover]:bg-fg [&_[slot=remove]:hover]:text-bg"],
     selected: [
-      "bg-fg ring-fg/50 text-background dark:bg-fg/90 dark:text-secondary ring-inset",
-      "[&_[slot=remove]:hover]:bg-background [&_[slot=remove]:hover]:text-secondary-fg"
+      "bg-fg ring-fg/50 text-bg dark:bg-fg/90 dark:text-secondary ring-inset",
+      "[&_[slot=remove]:hover]:bg-bg [&_[slot=remove]:hover]:text-secondary-fg"
     ]
   },
   success: {
@@ -57,7 +54,7 @@ const intents = {
       "[&_[slot=remove]:hover]:bg-warning [&_[slot=remove]:hover]:text-warning-fg"
     ],
     selected: [
-      "bg-warning dark:hover:bg-warning dark:bg-warning dark:text-background hover:bg-warning text-warning-fg hover:text-warning-fg",
+      "bg-warning dark:hover:bg-warning dark:bg-warning dark:text-bg hover:bg-warning text-warning-fg hover:text-warning-fg",
       "[&_[slot=remove]:hover]:bg-warning-fg/80 [&_[slot=remove]:hover]:text-warning"
     ]
   },

@@ -159,7 +159,7 @@ Below that, insert the following code:
     :root {
         --light: 0 0% 98.04%;
         --dark: 240 10% 6%;
-        --background: 0 0% 100%;
+        --bg: 0 0% 100%;
         --fg: 240 10% 3.9%;
 
         --overlay: 0 0% 100%;
@@ -173,6 +173,9 @@ Below that, insert the following code:
 
         --tertiary: 0 0% 100%;
         --tertiary-fg: 240 4% 16%;
+
+        --accent: 216 98% 52%;
+        --accent-fg: 0 0% 100%;
 
         --success: 152 69% 31%;
         --success-fg: 0 0% 100%;
@@ -197,11 +200,14 @@ Below that, insert the following code:
     }
 
     .dark {
-        --background: 0 0% 0%;
+        --bg: 0 0% 0%;
         --fg: 0 0% 98%;
 
         --overlay: 240 6% 6%;
         --overlay-fg: 0 0% 98%;
+
+        --primary: 216 98% 52%;
+        --primary-fg: 0 0% 100%;
 
         --secondary: 240 3.7% 15.9%;
         --secondary-fg: 0 0% 98%;
@@ -212,8 +218,12 @@ Below that, insert the following code:
         --tertiary: 240 10% 5.5%;
         --tertiary-fg: 240 5% 96%;
 
+        --accent: 216 98% 52%;
+        --accent-fg: 0 0% 100%;
+
         --muted: 240 3.7% 15.9%;
         --muted-fg: 240 5% 64.9%;
+
         --ring: var(--primary);
         --toggle: 240 5% 26%;
         --border: 240 7% 15%;
@@ -232,7 +242,7 @@ Include this for the default set of utilities:
   }
 
   body {
-    @apply bg-background text-fg;
+    @apply bg-bg text-fg;
   }
 }
 `} />
@@ -269,7 +279,7 @@ export default withTV({
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
         toggle: 'hsl(var(--toggle))',
-        background: 'hsl(var(--background))',
+        background: 'hsl(var(--bg))',
         fg: 'hsl(var(--fg))',
         primary: {
           DEFAULT: 'hsl(var(--primary))',

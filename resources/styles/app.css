@@ -6,7 +6,7 @@
     :root {
         --light: 0 0% 98.04%;
         --dark: 240 10% 6%;
-        --background: 0 0% 100%;
+        --bg: 0 0% 100%;
         --fg: 240 10% 3.9%;
 
         --overlay: 0 0% 100%;
@@ -20,6 +20,9 @@
 
         --tertiary: 0 0% 100%;
         --tertiary-fg: 240 4% 16%;
+
+        --accent: 216.74 100% 50%;
+        --accent-fg: 0 0% 100%;
 
         --success: 152 69% 31%;
         --success-fg: 0 0% 100%;
@@ -44,7 +47,7 @@
     }
 
     .dark {
-        --background: 0 0% 0%;
+        --bg: 0 0% 0%;
         --fg: 0 0% 98%;
 
         --overlay: 240 6% 6%;
@@ -59,11 +62,16 @@
         --info: 84.91 100% 66.47%;
         --info-fg: 120 100% 13.14%;
 
+        --accent: 216 98% 52%;
+        --accent-fg: 0 0% 100%;
+
         --tertiary: 240 10% 5.5%;
         --tertiary-fg: 240 5% 96%;
-        --ring: var(--primary);
+
         --muted: 240 3.7% 15.9%;
         --muted-fg: 240 5% 64.9%;
+
+        --ring: var(--primary);
         --toggle: 240 5% 26%;
         --border: 240 7% 15%;
         --input: 240 3.7% 15.9%;
@@ -82,7 +90,7 @@
     }
 
     body {
-        @apply bg-background text-fg;
+        @apply bg-bg text-fg;
         font-feature-settings: 'rlig' 1, 'calt' 1;
         text-rendering: optimizeLegibility;
     }

@@ -97,13 +97,13 @@ export default function RootLayout({
       <ViewTransitions>
         <body
           className={cn(
-            "min-h-svh [max-width:1850px] mx-auto bg-background font-sans antialiased",
+            "min-h-svh [max-width:1850px] mx-auto bg-bg font-sans antialiased",
             fontSans.variable,
             fontMono.variable
           )}
         >
           <Providers>
-            <div className="relative flex min-h-dvh flex-col bg-background">
+            <div className="relative flex min-h-dvh flex-col bg-bg">
               <Navbar />
               <main className="flex-1">{children}</main>
 

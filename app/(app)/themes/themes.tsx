@@ -55,7 +55,7 @@ export function Themes() {
         <Controller themeId={themeId} applyTheme={applyTheme} />
       </Container>
       <div
-        className="bg-background border-y border-dashed py-12 mb-6 border-secondary-fg/10 text-fg"
+        className="bg-bg border-y border-dashed py-12 mb-6 border-secondary-fg/10 text-fg"
         ref={themeContainerRef}
       >
         <Container>

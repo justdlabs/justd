@@ -16,8 +16,8 @@ const badgeIntents = {
   danger:
     "dark:ring-danger/30 ring-danger/40 bg-danger/10 dark:bg-danger/15 text-danger hover:bg-danger/15 dark:hover:bg-danger/10",
   light:
-    "ring-zinc-300 dark:ring-white bg-white hover:bg-zinc-100 dark:hover:bg-zinc-200 dark:ring-inset text-zinc-900 dark:text-zinc-900",
-  dark: "bg-zinc-800 hover:bg-zinc-800/90 ring-inset ring-zinc-800 text-white dark:ring-zinc-600"
+    "ring-border dark:ring-light bg-light hover:bg-secondary dark:hover:bg-fg/90 dark:ring-inset text-fg dark:text-bg",
+  dark: "bg-dark hover:bg-dark/90 ring-inset ring-dark text-light dark:ring-border"
 }
 const badgeShapes = {
   square: "rounded-md px-1.5",

@@ -7,7 +7,7 @@ const themesList: Record<ThemeProps, { root: ThemeVariables; dark: ThemeVariable
     root: {
       "--light": "0 0% 98.04%",
       "--dark": "240 10% 6%",
-      "--background": "0 0% 100%",
+      "--bg": "0 0% 100%",
       "--fg": "240 10% 3.9%",
       "--overlay": "0 0% 100%",
       "--overlay-fg": "240 10% 3.9%",
@@ -34,7 +34,7 @@ const themesList: Record<ThemeProps, { root: ThemeVariables; dark: ThemeVariable
       "--radius": "0.55rem"
     },
     dark: {
-      "--background": "0 0% 0%",
+      "--bg": "0 0% 0%",
       "--fg": "0 0% 98%",
       "--overlay": "240 6% 6%",
       "--overlay-fg": "0 0% 98%",
@@ -58,7 +58,7 @@ const themesList: Record<ThemeProps, { root: ThemeVariables; dark: ThemeVariable
     root: {
       "--light": "0 0% 98.04%",
       "--dark": "240 10% 6%",
-      "--background": "0 0% 100%",
+      "--bg": "0 0% 100%",
       "--fg": "240 10% 3.9%",
       "--overlay": "0 0% 100%",
       "--overlay-fg": "240 10% 3.9%",
@@ -78,7 +78,7 @@ const themesList: Record<ThemeProps, { root: ThemeVariables; dark: ThemeVariable
       "--toggle": "240 5% 84%"
     },
     dark: {
-      "--background": "0 0% 0%",
+      "--bg": "0 0% 0%",
       "--fg": "0 0% 98.04%",
       "--overlay": "240 6% 6%",
       "--overlay-fg": "0 0% 98%",
@@ -102,7 +102,7 @@ const themesList: Record<ThemeProps, { root: ThemeVariables; dark: ThemeVariable
     root: {
       "--light": "210 40% 98.04%",
       "--dark": "228.57 84% 4.9%",
-      "--background": "0 0% 100%",
+      "--bg": "0 0% 100%",
       "--fg": "228.57 84% 4.9%",
       "--overlay": "210 40% 98.04%",
       "--overlay-fg": "222.22 47.37% 11.18%",
@@ -122,7 +122,7 @@ const themesList: Record<ThemeProps, { root: ThemeVariables; dark: ThemeVariable
       "--toggle": "212.73 26.83% 83.92%"
     },
     dark: {
-      "--background": "228.57 84% 3%",
+      "--bg": "228.57 84% 3%",
       "--fg": "210 40% 98.04%",
       "--overlay": "228.57 84% 4.5%",
       "--overlay-fg": "210 40% 98.04%",
@@ -146,7 +146,7 @@ const themesList: Record<ThemeProps, { root: ThemeVariables; dark: ThemeVariable
     root: {
       "--light": "210 15% 92.16%",
       "--dark": "210 13.64% 8.63%",
-      "--background": "0 0% 100%",
+      "--bg": "0 0% 100%",
       "--fg": "210 13.64% 8.63%",
       "--overlay": "210 15% 99%",
       "--overlay-fg": "210 13.64% 8.63%",
@@ -166,7 +166,7 @@ const themesList: Record<ThemeProps, { root: ThemeVariables; dark: ThemeVariable
       "--toggle": "211.76 14.29% 80%"
     },
     dark: {
-      "--background": "210 13.64% 4%",
+      "--bg": "210 13.64% 4%",
       "--fg": "210 15% 92.16%",
       "--overlay": "240 6% 6%",
       "--overlay-fg": "0 0% 98%",
