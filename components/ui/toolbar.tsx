@@ -74,7 +74,7 @@ const ToolbarGroup = ({ isDisabled, ...props }: GroupProps) => {
   )
 }
 
-const ToolbarItem = ({ isDisabled, ...props }: ToggleProps) => {
+const Item = ({ isDisabled, ...props }: ToggleProps) => {
   const context = React.useContext(ToolbarGroupContext)
   const effectiveIsDisabled = isDisabled || context.isDisabled
 
@@ -97,6 +97,6 @@ const ToolbarItem = ({ isDisabled, ...props }: ToggleProps) => {
 
 Toolbar.Group = ToolbarGroup
 Toolbar.Separator = ToolbarSeparator
-Toolbar.Item = ToolbarItem
+Toolbar.Item = Item
 
 export { Toolbar }

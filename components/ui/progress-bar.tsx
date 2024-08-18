@@ -51,4 +51,4 @@ const ProgressBar = ({ label, ...props }: ProgressBarProps) => {
   )
 }
 
-export { ProgressBar, type ProgressBarProps }
+export { ProgressBar }
