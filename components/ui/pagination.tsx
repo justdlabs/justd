@@ -29,14 +29,14 @@ const paginationStyles = tv({
     section: "flex h-9 gap-1",
     list: "flex flex-row items-center gap-1",
     itemButton:
-      "focus-visible:border-primary focus-visible:bg-primary/10 dark:focus-visible:text-primary-100 dark:[&>[data-slot=icon]]:text-primary-100 focus-visible:text-primary-900 [&>[data-slot=icon]]:text-primary-960 focus-visible:ring-4 focus-visible:ring-primary/20",
+      "focus-visible:border-primary cursor-pointer focus-visible:bg-primary/10 dark:focus-visible:text-primary-100 dark:[&>[data-slot=icon]]:text-primary-100 focus-visible:text-primary-900 [&>[data-slot=icon]]:text-primary-960 focus-visible:ring-4 focus-visible:ring-primary/20",
     itemLabel: "h-9 px-3.5 grid place-content-center",
     itemSeparator: "h-9 grid place-content-center",
     itemEllipsis:
       "flex items-center justify-center focus-visible:border-primary rounded-lg border border-transparent focus:outline-none size-9 focus-visible:bg-primary/10 dark:focus-visible:text-primary-100 dark:[&>[data-slot=icon]]:text-primary-100 focus-visible:text-primary-900 [&>[data-slot=icon]]:text-primary-960 focus-visible:ring-4 focus-visible:ring-primary/20",
     itemEllipsisIcon: "flex size-9 items-center justify-center",
     defaultItem:
-      "focus-visible:border-primary disabled:cursor-default focus-visible:bg-primary/10 dark:focus-visible:text-primary-100 dark:[&>[data-slot=icon]]:text-primary-100 focus-visible:text-primary-900 [&>[data-slot=icon]]:text-primary-960 focus-visible:ring-4 focus-visible:ring-primary/20 disabled:opacity-100",
+      "focus-visible:border-primary cursor-pointer disabled:cursor-default focus-visible:bg-primary/10 dark:focus-visible:text-primary-100 dark:[&>[data-slot=icon]]:text-primary-100 focus-visible:text-primary-900 [&>[data-slot=icon]]:text-primary-960 focus-visible:ring-4 focus-visible:ring-primary/20 disabled:opacity-100",
     itemSeparatorLine: "h-5 w-[1.5px] bg-zinc-300 dark:bg-zinc-700 rotate-[14deg] shrink-0"
   }
 })
