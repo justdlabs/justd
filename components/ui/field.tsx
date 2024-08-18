@@ -1,16 +1,24 @@
-'use client';
+"use client"
 
-import * as React from 'react';
+import * as React from "react"
 
+import {
+  FieldError as FieldErrorPrimitive,
+  type FieldErrorProps,
+  Group,
+  type GroupProps,
+  Input as InputPrimitive,
+  type InputProps,
+  Label as LabelPrimitive,
+  type LabelProps,
+  Text,
+  type TextFieldProps as TextFieldPrimitiveProps,
+  type TextProps,
+  type ValidationResult
+} from "react-aria-components"
+import { tv } from "tailwind-variants"
 
-
-import { FieldError as FieldErrorPrimitive, type FieldErrorProps, Group, type GroupProps, Input as InputPrimitive, type InputProps, Label as LabelPrimitive, type LabelProps, Text, type TextFieldProps as TextFieldPrimitiveProps, type TextProps, type ValidationResult } from 'react-aria-components';
-import { tv } from 'tailwind-variants';
-
-
-
-import { cr, ctr } from './primitive';
-
+import { cr, ctr } from "./primitive"
 
 // primitive styles
 
@@ -59,8 +67,19 @@ const Label = ({ className, ...props }: LabelProps) => {
   return <LabelPrimitive {...props} className={label({ className })} />
 }
 
-const Description = ({ className, ...props }: TextProps) => {
-  return <Text {...props} slot="description" className={description({ className })} />
+interface DescriptionProps extends TextProps {
+  isWarning?: boolean
+}
+
+const Description = ({ className, ...props }: DescriptionProps) => {
+  const isWarning = props.isWarning ?? false
+  return (
+    <Text
+      {...props}
+      slot="description"
+      className={description({ className: isWarning ? "text-warning" : className })}
+    />
+  )
 }
 
 const FieldError = ({ className, ...props }: FieldErrorProps) => {

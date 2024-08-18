@@ -7,7 +7,6 @@ import { siteConfig } from "@/resources/config/site"
 import { LayoutGroup } from "framer-motion"
 import {
   IconBrandAdobe,
-  IconBrandD,
   IconBrandGithub,
   IconBrandJustd,
   IconBrandTailwindcss,
@@ -235,7 +234,7 @@ export function NavbarContextMenu() {
         className={buttonStyles({ appearance: "plain" })}
       >
         <span className="flex items-center gap-x-2">
-          <IconBrandD className="-ml-1 size-6" />
+          <IconBrandJustd className="-ml-1 size-6" />
           <span className="font-mono text-base tracking-tight sm:text-sm">{siteConfig.name}</span>
         </span>
       </ContextMenu.Trigger>
