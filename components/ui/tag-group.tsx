@@ -2,7 +2,7 @@
 
 import React from "react"
 
-import { IconPlus, IconX } from "justd-icons"
+import { IconX } from "justd-icons"
 import type {
   TagGroupProps as TagGroupPrimitiveProps,
   TagListProps,

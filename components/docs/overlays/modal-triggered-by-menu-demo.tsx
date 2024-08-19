@@ -4,7 +4,7 @@ import React from "react"
 
 import { wait } from "@/resources/lib/utils"
 import { IconDotsVertical } from "justd-icons"
-import { Button, buttonStyles, LoadingDots, Menu, Modal } from "ui"
+import { Button, buttonStyles, Loader, Menu, Modal } from "ui"
 
 export default function ModalTriggeredByMenuDemo() {
   const [state, setState] = React.useState<string | null>(null)
@@ -56,7 +56,9 @@ export default function ModalTriggeredByMenuDemo() {
         </Menu.Trigger>
         <Menu.Content placement="bottom">
           <Menu.Item onAction={() => setState("delete")}>Delete</Menu.Item>
-          <Menu.Item onAction={() => setState("ban")}>Ban</Menu.Item>
+          <Menu.Item isDanger onAction={() => setState("ban")}>
+            Ban
+          </Menu.Item>
           <Menu.Item onAction={() => setState("restore")}>Restore</Menu.Item>
         </Menu.Content>
       </Menu>
@@ -68,8 +70,13 @@ export default function ModalTriggeredByMenuDemo() {
         </Modal.Header>
         <Modal.Footer>
           <Modal.Close>Cancel</Modal.Close>
-          <Button className="min-w-24" isDisabled={loading} onPress={actionType(state)?.action}>
-            {loading ? <LoadingDots className={"bg-fg"} /> : actionType(state)?.confirmText}
+          <Button
+            intent={state === "ban" ? "danger" : "primary"}
+            className="min-w-24"
+            isDisabled={loading}
+            onPress={actionType(state)?.action}
+          >
+            {loading ? <Loader variant="spin" /> : actionType(state)?.confirmText}
           </Button>
         </Modal.Footer>
       </Modal.Content>

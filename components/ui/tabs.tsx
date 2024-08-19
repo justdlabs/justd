@@ -5,9 +5,9 @@ import { useId } from "react"
 import { LayoutGroup, motion } from "framer-motion"
 import {
   Tab as TabPrimitive,
-  TabList as TabListPrimitive,
+  TabList,
   type TabListProps,
-  TabPanel as TabPanelPrimitive,
+  TabPanel,
   type TabPanelProps,
   type TabProps,
   Tabs as TabsPrimitive,
@@ -52,11 +52,11 @@ const tabListStyles = tv({
   }
 })
 
-const TabList = <T extends object>(props: TabListProps<T>) => {
+const List = <T extends object>(props: TabListProps<T>) => {
   const id = useId()
   return (
     <LayoutGroup id={id}>
-      <TabListPrimitive
+      <TabList
         {...props}
         className={cr(props.className, (className, renderProps) =>
           tabListStyles({ ...renderProps, className })
@@ -128,9 +128,9 @@ const tabPanelStyles = tv({
   }
 })
 
-const TabPanel = (props: TabPanelProps) => {
+const Panel = (props: TabPanelProps) => {
   return (
-    <TabPanelPrimitive
+    <TabPanel
       {...props}
       className={cr(props.className, (className, renderProps) =>
         tabPanelStyles({ ...renderProps, className })
@@ -138,8 +138,9 @@ const TabPanel = (props: TabPanelProps) => {
     />
   )
 }
-Tabs.List = TabList
+
+Tabs.List = List
 Tabs.Tab = Tab
-Tabs.Panel = TabPanel
+Tabs.Panel = Panel
 
 export { Tabs }

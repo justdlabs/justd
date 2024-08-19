@@ -123,7 +123,7 @@ const InstallCommand: React.FC<InstallCommandProps> = ({
           {isInit || isDiff || isAdd ? (
             <CopyButton
               onPress={() => handleAction("NPM")}
-              className="rounded-sm"
+              className="rounded-md"
               ariaLabel={command}
               isCopied={isCopied}
             />

@@ -121,11 +121,11 @@ const avatarBadgeStyles = tv({
       large: "size-2.5 translate-x-[5%] translate-y-[5%]"
     },
     status: {
-      away: "bg-red-500",
-      online: "bg-green-500",
-      offline: "bg-gray-500",
-      dnd: "bg-yellow-500",
-      idle: "bg-gray-500"
+      away: "bg-danger",
+      online: "bg-success",
+      offline: "bg-muted-fg",
+      dnd: "bg-warning",
+      idle: "bg-muted-fg"
     }
   },
   defaultVariants: {
