@@ -2,6 +2,7 @@
 
 import React from "react"
 
+import { IconPlus, IconX } from "justd-icons"
 import type {
   TagGroupProps as TagGroupPrimitiveProps,
   TagListProps,
@@ -169,7 +170,9 @@ const TagItem = ({ children, className, intent, shape, ...props }: TagProps) => 
                   )
                 })}
               >
-                <span className="rotate-45 text-base/4 -mr-px">+</span>
+                <span className="shrink-0 text-base/4 -mr-px">
+                  <IconX className="size-3" />
+                </span>
               </Button>
             )}
           </>

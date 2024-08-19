@@ -6,7 +6,7 @@ import { tv, type VariantProps } from "tailwind-variants"
 
 const badgeIntents = {
   primary:
-    "ring-primary/30 bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary hover:bg-primary/15 dark:hover:bg-primary/10",
+    "ring-primary/30 bg-primary/10 dark:bg-primary/10 text-primary dark:text-primary hover:bg-primary/15 dark:hover:bg-primary/10",
   secondary: "bg-secondary/50 dark:bg-secondary/70 ring-secondary-fg/20 text-secondary-fg",
   success:
     "dark:ring-success/30 ring-success/40 bg-success/10 dark:bg-success/15 text-success hover:bg-success/15 dark:hover:bg-success/10",

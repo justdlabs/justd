@@ -111,7 +111,7 @@ export function Resources() {
               </Card.Header>
             </div>
             <Card.Footer>
-              <Badge>icons</Badge>
+              <Badge>justd-icons</Badge>
             </Card.Footer>
           </Grid.Item>
         </Grid>
