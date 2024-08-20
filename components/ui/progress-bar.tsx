@@ -1,17 +1,12 @@
 "use client"
 
-import * as React from "react"
-
-import { motion } from "framer-motion"
-import {
-  ProgressBar as ProgressBarPrimitive,
-  type ProgressBarProps as ProgressBarPrimitiveProps
-} from "react-aria-components"
+import type { ProgressBarProps as ProgressBarPrimitiveProps } from "react-aria-components"
+import { ProgressBar as ProgressBarPrimitive } from "react-aria-components"
 
 import { Label } from "./field"
-import { ctr } from "./primitive"
+import { cn, ctr } from "./primitive"
 
-interface ProgressBarProps extends ProgressBarPrimitiveProps {
+export interface ProgressBarProps extends ProgressBarPrimitiveProps {
   label?: string
 }
 
@@ -25,25 +20,15 @@ const ProgressBar = ({ label, ...props }: ProgressBarProps) => {
             <span className="text-sm text-muted-fg">{valueText}</span>
           </div>
           <div className="relative h-2 min-w-64 overflow-hidden rounded-full bg-secondary outline outline-1 -outline-offset-1 outline-transparent">
-            {!isIndeterminate ? (
-              <motion.div
-                className="absolute left-0 top-0 h-full rounded-full bg-primary forced-colors:bg-[Highlight]"
-                initial={{ width: "0%" }}
-                animate={{ width: `${percentage}%` }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
-              />
-            ) : (
-              <motion.div
-                className="absolute top-0 h-full rounded-full bg-primary forced-colors:bg-[Highlight]"
-                initial={{ left: "0%", width: "40%" }}
-                animate={{ left: ["0%", "100%", "0%"] }}
-                transition={{
-                  repeat: Infinity,
-                  duration: 2,
-                  ease: "easeInOut"
-                }}
-              />
-            )}
+            <div
+              className={cn(
+                "absolute top-0 h-full rounded-full bg-accent forced-colors:bg-[Highlight]",
+                isIndeterminate
+                  ? "left-full duration-1000 ease-out animate-in slide-out-to-right-full repeat-infinite [--tw-enter-translate-x:calc(-16rem-100%)]"
+                  : "left-0 duration-300"
+              )}
+              style={{ width: (isIndeterminate ? 30 : percentage) + "%" }}
+            />
           </div>
         </>
       )}
