@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: DocPageProps): Promise<Metada
   ogSearchParams.set("title", doc.title)
 
   return {
-    title: `${doc.title} / ${siteConfig.name}`,
+    title: `${doc.title}`,
     description: doc.description,
     applicationName: siteConfig.name,
     category: "Docs",
