@@ -14,15 +14,15 @@ export const metadata: Metadata = {
   category: "Colors",
   twitter: {
     card: "summary_large_image",
-    title: "Colors / " + siteConfig.name,
+    title: "Colors",
     description:
       "A stash of over 154 colors blending TailwindCSS vibes with HTML color names, served up in 8 slick formats."
   },
   openGraph: {
-    title: "Colors / " + siteConfig.name,
+    title: "Colors",
     images: [
       {
-        url: "https://getjustd.com/colors/opengraph-image.png?v=1",
+        url: "https://getjustd.com/og-colors.png?v=1",
         width: 1200,
         height: 630,
         alt: "Justd Colors"
