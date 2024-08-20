@@ -22,6 +22,21 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "./"
   },
+  openGraph: {
+    title: {
+      default: siteConfig.name,
+      template: `%s | ${siteConfig.name}`
+    },
+    description: siteConfig.description,
+    images: [
+      {
+        url: "https://getjustd.com/opengraph-image.png?v=1",
+        width: 1200,
+        height: 630,
+        alt: "Justd"
+      }
+    ]
+  },
   keywords: [
     "React",
     "Next.js",
@@ -32,7 +47,6 @@ export const metadata: Metadata = {
     "UI Library",
     "UI Framework",
     "Justd",
-    "Just D.",
     "React Aria",
     "React Aria Components",
     "Server Components",

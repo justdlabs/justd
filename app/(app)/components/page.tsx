@@ -12,7 +12,56 @@ export const metadata: Metadata = {
   description:
     "Over 50 accessible components, neatly grouped into sections. Guaranteed usability for all!",
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? siteConfig.url),
-  applicationName: siteConfig.name
+  applicationName: siteConfig.name,
+  openGraph: {
+    title: "Components / " + siteConfig.name,
+    description:
+      "Over 50 accessible components, neatly grouped into sections. Guaranteed usability for all!",
+    url: "https://getjustd.com/components",
+    type: "website",
+    images: [
+      {
+        url: "https://getjustd.com/components/opengraph-image.png?v=1",
+        width: 1200,
+        height: 630,
+        alt: "Justd Components"
+      }
+    ]
+  },
+  keywords: [
+    "Components",
+    "Justd Components",
+    "Tailwind CSS",
+    "UI Components",
+    "UI Kit",
+    "UI Library",
+    "UI Framework",
+    "Justd",
+    "Next.js 15",
+    "React Aria",
+    "React Aria Components",
+    "Server Components",
+    "React Components",
+    "Next UI Components",
+    "UI Design System",
+    "UI for Laravel Inertia",
+    "Laravel Inertia UI",
+    "Laravel Inertia Components",
+    "Laravel Inertia UI Components",
+    "Laravel Inertia UI Kit",
+    "Laravel Inertia UI Library",
+    "Laravel Inertia UI Framework",
+    "Laravel Inertia Justd",
+    "Laravel Justd",
+    "Justd Components",
+    "Justd UI Components",
+    "Justd UI Kit",
+    "Justd UI Library",
+    "Justd UI Framework",
+    "Justd Laravel Inertia",
+    "Justd Laravel",
+    "Justd Inertia"
+  ]
 }
 
 export default function Page() {

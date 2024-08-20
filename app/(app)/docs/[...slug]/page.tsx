@@ -42,6 +42,12 @@ export async function generateMetadata({ params }: DocPageProps): Promise<Metada
       title: `${doc.title} / ${siteConfig.name}`,
       description: doc.description
     },
+    openGraph: {
+      title: `${doc.title} / ${siteConfig.name}`,
+      description: doc.description,
+      url: `https://getjustd.com/docs/${doc.slugAsParams}`,
+      type: "article"
+    },
     keywords: [
       `${doc.title}`,
       `${doc.title} components`,
