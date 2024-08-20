@@ -9,28 +9,20 @@ import type { SearchParamsProps } from "./partials/icons-list"
 import { IconsList } from "./partials/icons-list"
 
 export const metadata: Metadata = {
-  title: "Icons",
+  title: "Justd Icons",
   description:
     " A library of beautifully crafted react icons, perfect for enhancing the visual appeal and user experience of your web applications. ",
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? siteConfig.url),
   applicationName: siteConfig.name,
   openGraph: {
-    title: "Icons",
-    images: [
-      {
-        url: "https://getjustd.com/og-icons.png?v=1",
-        width: 1200,
-        height: 630,
-        alt: "Justd Icons"
-      }
-    ],
+    title: "Justd Icons",
     description:
       " A library of beautifully crafted react icons, perfect for enhancing the visual appeal and user experience of your web applications. ",
     url: "https://getjustd.com/icons",
     type: "website"
   },
   keywords: [
-    "Icons",
+    "Justd Icons",
     "Tailwind CSS",
     "UI Components",
     "UI Kit",

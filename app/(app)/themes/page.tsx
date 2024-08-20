@@ -16,7 +16,7 @@ export default function Page() {
 }
 
 export const metadata: Metadata = {
-  title: "Themes",
+  title: "JustdThemes",
   description:
     "Curated themes, carefully selected just for you, ready to be copied, pasted, and seamlessly integrated into your apps, giving your projects a polished and custom vibe without the hassle.",
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? siteConfig.url),
@@ -24,20 +24,12 @@ export const metadata: Metadata = {
   category: "Themes",
   twitter: {
     card: "summary_large_image",
-    title: "Themes / " + siteConfig.name,
+    title: "Themes",
     description:
       "Curated themes, carefully selected just for you, ready to be copied, pasted, and seamlessly integrated into your apps, giving your projects a polished and custom vibe without the hassle."
   },
   openGraph: {
-    title: "Themes / " + siteConfig.name,
-    images: [
-      {
-        url: "https://getjustd.com/themes/opengraph-image.png?v=1",
-        width: 1200,
-        height: 630,
-        alt: "Justd Themes"
-      }
-    ],
+    title: "Justd Themes",
     description:
       "Curated themes, carefully selected just for you, ready to be copied, pasted, and seamlessly integrated into your apps, giving your projects a polished and custom vibe without the hassle.",
     url: "https://getjustd.com/themes",

@@ -25,8 +25,8 @@ export function DocRefs({ references }: any) {
         title = extractAndFormat(url) + " Props"
         icon = IconBrandAdobe
         break
-      case url.includes("paranoid"):
-        title = "Paranoid"
+      case url.includes("icons"):
+        title = "Justd Icons"
         icon = IconBrandJustd
         break
       case url.includes("framer"):

@@ -6,35 +6,27 @@ import { siteConfig } from "@/resources/config/site"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Colors",
+  title: "Justd Colors",
   description:
     "A stash of over 154 colors blending TailwindCSS vibes with HTML color names, served up in 8 slick formats.",
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? siteConfig.url),
   applicationName: siteConfig.name,
-  category: "Colors",
+  category: "Justd Colors",
   twitter: {
     card: "summary_large_image",
-    title: "Colors",
+    title: "Justd Colors",
     description:
       "A stash of over 154 colors blending TailwindCSS vibes with HTML color names, served up in 8 slick formats."
   },
   openGraph: {
-    title: "Colors",
-    images: [
-      {
-        url: "https://getjustd.com/og-colors.png?v=1",
-        width: 1200,
-        height: 630,
-        alt: "Justd Colors"
-      }
-    ],
+    title: "Justd Colors",
     description:
       "A stash of over 154 colors blending TailwindCSS vibes with HTML color names, served up in 8 slick formats.",
     url: "https://getjustd.com/colors",
     type: "website"
   },
   keywords: [
-    "Colors",
+    "Justd Colors",
     "Tailwind CSS",
     "UI Components",
     "UI Kit",
