@@ -33,23 +33,12 @@ export async function generateMetadata({ params }: DocPageProps): Promise<Metada
   ogSearchParams.set("title", doc.title)
 
   return {
-    title: `${doc.title}`,
+    title: doc.title,
     description: doc.description,
     applicationName: siteConfig.name,
     category: "Docs",
-    twitter: {
-      card: "summary_large_image",
-      title: `${doc.title} / ${siteConfig.name}`,
-      description: doc.description
-    },
-    openGraph: {
-      title: `${doc.title} / ${siteConfig.name}`,
-      description: doc.description,
-      url: `https://getjustd.com/docs/${doc.slugAsParams}`,
-      type: "article"
-    },
     keywords: [
-      `${doc.title}`,
+      doc.title,
       `${doc.title} components`,
       `${doc.title} component`,
       `${doc.title} on React`,

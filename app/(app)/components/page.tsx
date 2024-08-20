@@ -8,15 +8,15 @@ import type { Metadata } from "next"
 import { Container } from "ui"
 
 export const metadata: Metadata = {
-  title: "Components / " + siteConfig.name,
+  title: "Components",
   description:
     "Over 50 accessible components, neatly grouped into sections. Guaranteed usability for all!",
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? siteConfig.url),
   applicationName: siteConfig.name,
   openGraph: {
-    title: "Components / " + siteConfig.name,
+    title: "Components",
     description:
-      "Over 50 accessible components, neatly grouped into sections. Guaranteed usability for all!",
+      "Discover over 50 accessible components, meticulously organized into sections to ensure seamless usability for everyone. Experience guaranteed functionality and ease of use!",
     url: "https://getjustd.com/components",
     type: "website",
     images: [
