@@ -1,6 +1,6 @@
 "use client"
 
-import { IconBrandJustd, IconBrandLaravel, IconBrandNextjs, IconBrandRemix } from "justd-icons"
+import { IconBrandJustd, IconBrandLaravel, IconBrandAstro, IconBrandNextjs, IconBrandRemix } from "justd-icons"
 import { Badge, Card, Grid, Heading, Link } from "ui"
 
 const resources = [
@@ -25,6 +25,13 @@ const resources = [
     name: "Remix Starter Kit",
     url: "https://justd-remix.netlify.app/",
     description: "A Remix starter kit with Justd installed, ready for use in any application.",
+    label: "Starter Kit"
+  },
+  {
+    icon: IconBrandAstro,
+    name: "Astro Starter Kit",
+    url: "https://justd-astro.netlify.app/",
+    description: "A Astro starter kit with Justd installed, ready for use in any application.",
     label: "Starter Kit"
   }
 ]
