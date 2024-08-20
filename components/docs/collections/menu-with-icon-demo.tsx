@@ -20,7 +20,7 @@ export default function MenuWithIconDemo() {
   return (
     <Menu>
       <Menu.Trigger>
-        <Avatar className="size-10" src="https://github.com/irsyadadl.png" />
+        <Avatar alt="irsyadadl" className="size-10" src="https://github.com/irsyadadl.png" />
       </Menu.Trigger>
       <Menu.Content placement="bottom" showArrow className="sm:min-w-64">
         <Menu.Section>

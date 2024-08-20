@@ -5,8 +5,8 @@ import { Avatar, Button, Popover } from "ui"
 export default function PopoverTriggerDemo() {
   return (
     <Popover>
-      <Popover.Trigger>
-        <Avatar src="https://github.com/irsyadadl.png" />
+      <Popover.Trigger aria-label="Open Popover">
+        <Avatar alt="irsyadadl" src="https://github.com/irsyadadl.png" />
       </Popover.Trigger>
       <Popover.Content className="min-w-72">
         <Popover.Header>
