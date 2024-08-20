@@ -14,13 +14,6 @@ export const metadata: Metadata = {
     " A library of beautifully crafted react icons, perfect for enhancing the visual appeal and user experience of your web applications. ",
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? siteConfig.url),
   applicationName: siteConfig.name,
-  openGraph: {
-    title: "Justd Icons",
-    description:
-      " A library of beautifully crafted react icons, perfect for enhancing the visual appeal and user experience of your web applications. ",
-    url: "https://getjustd.com/icons",
-    type: "website"
-  },
   keywords: [
     "Justd Icons",
     "Tailwind CSS",

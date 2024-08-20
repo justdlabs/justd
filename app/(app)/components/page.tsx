@@ -13,21 +13,6 @@ export const metadata: Metadata = {
     "Over 50 accessible components, neatly grouped into sections. Guaranteed usability for all!",
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? siteConfig.url),
   applicationName: siteConfig.name,
-  openGraph: {
-    title: "Components",
-    description:
-      "Discover over 50 accessible components, meticulously organized into sections to ensure seamless usability for everyone. Experience guaranteed functionality and ease of use!",
-    url: "https://getjustd.com/components",
-    type: "website",
-    images: [
-      {
-        url: "https://getjustd.com/components/opengraph-image.png?v=1",
-        width: 1200,
-        height: 630,
-        alt: "Justd Components"
-      }
-    ]
-  },
   keywords: [
     "Components",
     "Justd Components",
