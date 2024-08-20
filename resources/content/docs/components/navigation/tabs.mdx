@@ -75,7 +75,7 @@ const List = <T extends object>(props: TabListProps<T>) => {
 ```
 
 And then modify the `Tab` component to use the `motion` component.
-```tsx {8}
+```tsx {8-10}
 const Tab = ({ children, ...props }: TabProps) => {
   return (
     <TabPrimitive...>
@@ -84,6 +84,8 @@ const Tab = ({ children, ...props }: TabProps) => {
           {children}
           {isSelected && (
             <motion.span
+              layoutId='current_indicator'
+              transition={{ type: "spring", bounce: 0.25, duration: 0.5 }}
               className={cn('...')}
             />
           )}

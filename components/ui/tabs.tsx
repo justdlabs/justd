@@ -99,7 +99,7 @@ const Tab = ({ children, ...props }: TabProps) => {
           {isSelected && (
             <span
               className={cn(
-                "absolute duration-300 ease-in-out rounded bg-fg",
+                "absolute rounded bg-fg",
                 // horizontal
                 "group-orientation-horizontal:inset-x-0 group-orientation-horizontal:-bottom-px group-orientation-horizontal:h-0.5 group-orientation-horizontal:w-full",
                 // vertical
