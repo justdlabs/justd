@@ -128,7 +128,7 @@ export function CodeCollapsibleRoot({ children }: React.PropsWithChildren<{}>) {
   )
 }
 
-export function CopyRawButton({ code }: { className?: string; code: any }) {
+export function CopyRawButton({ code }: { className?: string; code: string }) {
   const [copied, setCopied] = React.useState<string>("")
   const copyRaw = () => {
     copyToClipboard(code)

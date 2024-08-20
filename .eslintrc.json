@@ -24,6 +24,7 @@
     "@typescript-eslint/ban-ts-comment": "off",
     "react/no-unescaped-entities": "off",
     "@typescript-eslint/ban-types": "off",
-    "react/no-unknown-property": "off"
+    "react/no-unknown-property": "off",
+    "import/no-anonymous-default-export": "off"
   }
 }

@@ -1,5 +1,5 @@
 import type { SVGProps } from "react"
-import React from "react"
+import * as React from "react"
 
 import { IconLoader } from "justd-icons"
 import type { VariantProps } from "tailwind-variants"
@@ -179,7 +179,7 @@ export interface LoaderProps
   variant?: keyof typeof LOADERS
 }
 
-const Loader = (props: LoaderProps, ref: React.ForwardedRef<SVGSVGElement>) => {
+const Loader = React.forwardRef<SVGSVGElement, LoaderProps>((props, ref) => {
   const { className, variant = DEFAULT_SPINNER, intent, size, ...spinnerProps } = props
   const LoaderPrimitive = LOADERS[variant in LOADERS ? variant : DEFAULT_SPINNER]
 
@@ -199,6 +199,7 @@ const Loader = (props: LoaderProps, ref: React.ForwardedRef<SVGSVGElement>) => {
       {...spinnerProps}
     />
   )
-}
+})
+Loader.displayName = "Loader"
 
 export { Loader }

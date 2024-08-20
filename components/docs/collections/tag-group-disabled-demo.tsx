@@ -1,3 +1,5 @@
+"use client"
+
 import { androidBrands } from "@/components/docs/collections/tag-group-demo"
 import { Tag } from "ui"
 

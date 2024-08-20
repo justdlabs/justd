@@ -1,3 +1,5 @@
+"use client"
+
 import { Card, Skeleton } from "ui"
 
 export default function SkeletonDemo() {

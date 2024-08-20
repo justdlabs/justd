@@ -7,7 +7,7 @@ import jsonPreviews from "@/components/docs/generated/previews.json"
 import { Code } from "@/components/docs/rehype/code"
 import { cn } from "@/resources/lib/utils"
 import { LayoutGroup, motion } from "framer-motion"
-import { Tab as TabPrimitive, TabProps } from "react-aria-components"
+import { Tab as TabPrimitive, type TabProps } from "react-aria-components"
 import { twJoin } from "tailwind-merge"
 import { tv } from "tailwind-variants"
 import { cr, Loader, Tabs } from "ui"
@@ -39,16 +39,11 @@ export function DocHow({
   let codeString = jsonPreviews[toUse].raw ?? ""
 
   codeString = codeString.replace(/function\s+\w+\s*\(/g, "function App(")
-  const id = React.useId()
+  const divProps = { ...props } as React.HTMLProps<HTMLDivElement>
   return (
-    <div className={cn("not-prose relative my-4", className)} {...props}>
+    <div className={cn("not-prose relative my-4", className)} {...divProps}>
       <Tabs aria-label="Packages">
-        <LayoutGroup id={id}>
-          <Tabs.List>
-            <Tab id="preview">Preview</Tab>
-            <Tab id="code">Code</Tab>
-          </Tabs.List>
-        </LayoutGroup>
+        <TabsList />
         <Tabs.Panel className="w-full" id="preview">
           <div
             className={cn(
@@ -128,5 +123,17 @@ const Tab = ({ children, ...props }: TabProps) => {
         </>
       )}
     </TabPrimitive>
+  )
+}
+
+const TabsList = () => {
+  const id = React.useId()
+  return (
+    <LayoutGroup id={id}>
+      <Tabs.List>
+        <Tab id="preview">Preview</Tab>
+        <Tab id="code">Code</Tab>
+      </Tabs.List>
+    </LayoutGroup>
   )
 }

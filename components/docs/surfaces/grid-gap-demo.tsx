@@ -1,3 +1,5 @@
+"use client"
+
 import { Grid } from "ui"
 
 export default function GridGapDemo() {

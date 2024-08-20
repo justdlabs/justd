@@ -9,7 +9,7 @@ export function CheckRadioBlock() {
   const [selectedRadio, setSelectedRadio] = useState("lowSecurity")
   return (
     <CardBlock>
-      <RadioGroup value={selectedRadio} onChange={setSelectedRadio}>
+      <RadioGroup aria-label="Security" value={selectedRadio} onChange={setSelectedRadio}>
         <Radio value="highSecurity" description="Set security settings to high.">
           High Security
         </Radio>

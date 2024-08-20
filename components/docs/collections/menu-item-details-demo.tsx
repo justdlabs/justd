@@ -1,3 +1,5 @@
+"use client"
+
 import { Button, Menu } from "ui"
 
 export default function MenuItemDetailsDemo() {

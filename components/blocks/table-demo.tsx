@@ -13,9 +13,9 @@ export function TableDemo() {
         <Table.Column>Genre</Table.Column>
         <Table.Column className="flex justify-end">Published</Table.Column>
       </Table.Header>
-      <Table.Body items={books.slice(0, 6)}>
+      <Table.Body items={books.slice(1, 6)}>
         {(item) => (
-          <Table.Row id={item.id}>
+          <Table.Row>
             <Table.Cell>{item.id}</Table.Cell>
             <Table.Cell>{item.title}</Table.Cell>
             <Table.Cell>{item.author}</Table.Cell>

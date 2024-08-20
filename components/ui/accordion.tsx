@@ -3,6 +3,7 @@
 import * as React from "react"
 
 import type { MotionProps } from "framer-motion"
+import { AnimatePresence, motion } from "framer-motion"
 import { IconChevronDown } from "justd-icons"
 import type { ButtonProps } from "react-aria-components"
 import { Button } from "react-aria-components"
@@ -43,7 +44,7 @@ const Accordion = ({
 }
 
 const accordionItemStyles = tv({
-  base: "zwx3ai flex group pb-3 transition-all relative w-full flex-col border-b"
+  base: "zwx3ai flex group pb-3 relative w-full flex-col border-b"
 })
 
 interface AccordionItemContextProps {
@@ -93,28 +94,24 @@ interface AccordionContentProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const AccordionContent = ({ className, children }: AccordionContentProps) => {
   const { isOpen } = useAccordionItem()
-  const [height, setHeight] = React.useState<string | number>(0)
-  const contentRef = React.useRef<HTMLDivElement | null>(null)
-
-  React.useEffect(() => {
-    if (isOpen && contentRef.current) {
-      setHeight(contentRef.current.scrollHeight)
-    } else {
-      setHeight(0)
-    }
-  }, [isOpen])
   return (
-    <section
-      className={cn(
-        "overflow-hidden transition-[height] duration-300 ease-in-out pr-6 dk32xd",
-        className
+    <AnimatePresence initial={false}>
+      {isOpen && (
+        <motion.section
+          className={cn("overflow-hidden pr-6 dk32xd", className)}
+          initial="collapsed"
+          animate="open"
+          exit="collapsed"
+          variants={{
+            open: { opacity: 1, height: "initial" },
+            collapsed: { opacity: 0, height: 0 }
+          }}
+          transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
+        >
+          <div className="pb-0 pt-1">{children}</div>
+        </motion.section>
       )}
-      style={{ height: isOpen ? `${height}px` : "0px" }}
-    >
-      <div ref={contentRef} className="pb-0 pt-1">
-        {children}
-      </div>
-    </section>
+    </AnimatePresence>
   )
 }
 

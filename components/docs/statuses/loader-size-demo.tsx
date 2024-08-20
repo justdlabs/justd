@@ -1,3 +1,5 @@
+"use client"
+
 import { Loader } from "ui"
 
 export default function LoaderSizeDemo() {

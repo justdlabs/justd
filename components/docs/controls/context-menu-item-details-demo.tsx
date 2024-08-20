@@ -1,3 +1,5 @@
+"use client"
+
 import { ContextMenu } from "ui"
 
 export default function ContextMenuItemDetailsDemo() {
