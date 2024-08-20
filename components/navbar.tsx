@@ -12,6 +12,7 @@ import {
   IconBrandTailwindcss,
   IconBrandX,
   IconChevronLgDown,
+  IconColorPalette,
   IconColors,
   IconCube,
   IconDeviceDesktop,
@@ -23,7 +24,7 @@ import {
 import { useTheme } from "next-themes"
 import { usePathname } from "next/navigation"
 import { Collection } from "react-aria-components"
-import { Button, buttonStyles, ContextMenu, Link, Menu, Separator, useMediaQuery } from "ui"
+import { Button, buttonStyles, Link, Menu, Separator, useMediaQuery } from "ui"
 
 import { CommandPalette } from "./command-palette"
 import { NavLink } from "./nav-item"
@@ -50,7 +51,7 @@ export function Navbar() {
             <div className="mx-auto max-w-screen-2xl px-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-x-6">
-                  {isDesktop ? <NavbarContextMenu /> : <NavbarDropdown />}
+                  <NavbarDropdown />
                   <Separator orientation="vertical" className="h-6" />
                   <Collection items={menuItems}>
                     <NavLink isNextLink isActive={pathname === "/"} href="/">
@@ -77,7 +78,9 @@ export function Navbar() {
                     <NavLink isNextLink isActive={pathname === "/colors"} href="/colors">
                       Colors
                     </NavLink>
-                    <NavLink href="/icons">Icons</NavLink>
+                    <NavLink isActive={pathname === "/icons"} href="/icons">
+                      Icons
+                    </NavLink>
                     <NavLink isActive={pathname === "/themes"} href="/themes">
                       Themes
                     </NavLink>
@@ -146,9 +149,9 @@ export function NavbarDropdown() {
     <Menu>
       <Button aria-label="Menu." appearance="plain" className="group -ml-1">
         <span className="flex items-center gap-x-2">
-          <IconBrandJustd className="-ml-1 size-6" />
+          <IconBrandJustd className="-ml-1 size-5" />
           <span className="font-mono text-base tracking-tight sm:text-sm">{siteConfig.name}</span>
-          <IconChevronLgDown className="-mr-2 size-3.5 text-muted-fg transition duration-300 group-hover:text-fg group-pressed:rotate-180 group-pressed:text-fg" />
+          <IconChevronLgDown className="-mr-1 ml-3 size-3.5 text-muted-fg transition duration-300 group-hover:text-fg group-pressed:rotate-180 group-pressed:text-fg" />
           <span className="sr-only">Open menu</span>
         </span>
       </Button>
@@ -165,22 +168,21 @@ export function NavbarDropdown() {
           <IconColors />
           Colors
         </Menu.Item>
-        <Menu.Separator />
-        <Menu.Section>
+        <Menu.Item href="/icons">
+          <IconBrandJustd />
+          Icons
+        </Menu.Item>
+        <Menu.Item href="/themes">
+          <IconColorPalette />
+          Themes
+        </Menu.Item>
+        <Menu.Section title="Refs">
           <Menu.Item href="https://x.com/intent/follow?screen_name=getjustd" target="_blank">
             <IconBrandX />X / Twitter
           </Menu.Item>
           <Menu.Item href="https://github.com/justdlabs" target="_blank">
             <IconBrandGithub />
             Github
-          </Menu.Item>
-        </Menu.Section>
-        <Menu.Separator />
-        <Menu.Section>
-          <Menu.Header separator>Refs</Menu.Header>
-          <Menu.Item href="/icons">
-            <IconBrandJustd />
-            Icons
           </Menu.Item>
           <Menu.Item
             href="https://react-spectrum.adobe.com/react-aria/components.html"
@@ -194,93 +196,35 @@ export function NavbarDropdown() {
             Tailwind CSS
           </Menu.Item>
         </Menu.Section>
-        <Menu.Separator />
-        <Menu.Submenu>
-          <Menu.Item>
-            {theme === "system" ? (
-              <IconDeviceDesktop />
-            ) : theme === "dark" ? (
-              <IconMoon />
-            ) : (
-              <IconSun />
-            )}
-            <span>Switch Theme</span>
-          </Menu.Item>
-          <Menu.Content>
-            <Menu.Item onAction={() => setTheme("system")}>
-              <IconDeviceDesktop />
-              <span>System</span>
+        <Menu.Section title="Preferences">
+          <Menu.Submenu>
+            <Menu.Item>
+              {theme === "system" ? (
+                <IconDeviceDesktop />
+              ) : theme === "dark" ? (
+                <IconMoon />
+              ) : (
+                <IconSun />
+              )}
+              <span>Switch Theme</span>
             </Menu.Item>
-            <Menu.Item onAction={() => setTheme("dark")}>
-              <IconMoon />
-              <span>Dark</span>
-            </Menu.Item>
-            <Menu.Item onAction={() => setTheme("light")}>
-              <IconSun />
-              <span>Light</span>
-            </Menu.Item>
-          </Menu.Content>
-        </Menu.Submenu>
+            <Menu.Content>
+              <Menu.Item onAction={() => setTheme("system")}>
+                <IconDeviceDesktop />
+                <span>System</span>
+              </Menu.Item>
+              <Menu.Item onAction={() => setTheme("dark")}>
+                <IconMoon />
+                <span>Dark</span>
+              </Menu.Item>
+              <Menu.Item onAction={() => setTheme("light")}>
+                <IconSun />
+                <span>Light</span>
+              </Menu.Item>
+            </Menu.Content>
+          </Menu.Submenu>
+        </Menu.Section>
       </Menu.Content>
     </Menu>
-  )
-}
-
-export function NavbarContextMenu() {
-  return (
-    <ContextMenu>
-      <ContextMenu.Trigger
-        aria-label="Context Menu."
-        className={buttonStyles({ appearance: "plain" })}
-      >
-        <span className="flex items-center gap-x-2">
-          <IconBrandJustd className="-ml-1 size-6" />
-          <span className="font-mono text-base tracking-tight sm:text-sm">{siteConfig.name}</span>
-        </span>
-      </ContextMenu.Trigger>
-      <ContextMenu.Content className="sm:min-w-64">
-        <ContextMenu.Item href="/">
-          <IconHome />
-          Home
-        </ContextMenu.Item>
-        <ContextMenu.Item href="/components">
-          <IconCube />
-          Components
-        </ContextMenu.Item>
-        <ContextMenu.Item href="/colors">
-          <IconColors />
-          Colors
-        </ContextMenu.Item>
-        <ContextMenu.Separator />
-        <ContextMenu.Section>
-          <ContextMenu.Item href="https://x.com/intent/follow?screen_name=getjustd" target="_blank">
-            <IconBrandX />X / Twitter
-          </ContextMenu.Item>
-          <ContextMenu.Item href="https://github.com/justdlabs" target="_blank">
-            <IconBrandGithub />
-            Github
-          </ContextMenu.Item>
-        </ContextMenu.Section>
-        <ContextMenu.Separator />
-        <ContextMenu.Section>
-          <ContextMenu.Header separator>Refs</ContextMenu.Header>
-          <ContextMenu.Item href="/icons">
-            <IconBrandJustd />
-            Icons
-          </ContextMenu.Item>
-          <ContextMenu.Item
-            href="https://react-spectrum.adobe.com/react-aria/components.html"
-            target="_blank"
-          >
-            <IconBrandAdobe />
-            RAC
-          </ContextMenu.Item>
-          <ContextMenu.Item href="https://tailwindcss.com" target="_blank">
-            <IconBrandTailwindcss />
-            Tailwind CSS
-          </ContextMenu.Item>
-        </ContextMenu.Section>
-      </ContextMenu.Content>
-    </ContextMenu>
   )
 }

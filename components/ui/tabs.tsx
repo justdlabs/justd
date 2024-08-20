@@ -1,5 +1,7 @@
 "use client"
 
+import React from "react"
+
 import {
   Tab as TabPrimitive,
   TabList,
@@ -97,7 +99,7 @@ const Tab = ({ children, ...props }: TabProps) => {
           {isSelected && (
             <span
               className={cn(
-                "absolute rounded bg-fg",
+                "absolute duration-300 ease-in-out rounded bg-fg",
                 // horizontal
                 "group-orientation-horizontal:inset-x-0 group-orientation-horizontal:-bottom-px group-orientation-horizontal:h-0.5 group-orientation-horizontal:w-full",
                 // vertical

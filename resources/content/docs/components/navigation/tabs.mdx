@@ -3,7 +3,7 @@ title: "Tabs"
 description: Switch between views like flipping through file folders at a desk, organizing content without clutter.
 order: 3
 published: true
-references: ["https://react-spectrum.adobe.com/react-aria/Tabs.html#props", "https://www.framer.com/motion/layout-animations/"]
+references: ["https://react-spectrum.adobe.com/react-aria/Tabs.html#props"]
 ---
 
 
@@ -15,7 +15,7 @@ Tabs divide content into sections, allowing users to easily switch between them.
 <InstallCommand isAdd items={['tabs']} />
 
 ## Manual Installation
-<InstallCommand isInstall isManual items={['react-aria-components', 'framer-motion']} />
+<InstallCommand isInstall isManual items={['react-aria-components']} />
 
 <SourceCode toShow='tabs' />
 
@@ -50,4 +50,46 @@ You can also disable individual tabs by setting the `isDisabled` prop for each o
 ```tsx
 <Tab isDisabled id="c">Contact</Tab>
 <Tab isDisabled id="a">About Us</Tab>
+```
+
+## Framer motion
+<InstallCommand isInstall isManual text='To animate the current indicator, use the motion and LayoutGroup components. First, install the package:' items={['framer-motion']} />
+
+Next, import it in your `Tabs` component.
+```tsx {1} {4} {6} {13}
+import { LayoutGroup, motion } from "framer-motion"
+
+const List = <T extends object>(props: TabListProps<T>) => {
+  const id = React.useId()
+  return (
+    <LayoutGroup id={id}>
+      <TabList
+        {...props}
+        className={cr(props.className, (className, renderProps) =>
+          tabListStyles({ ...renderProps, className })
+        )}
+      />
+    </LayoutGroup>
+  )
+}
+```
+
+And then modify the `Tab` component to use the `motion` component.
+```tsx {8}
+const Tab = ({ children, ...props }: TabProps) => {
+  return (
+    <TabPrimitive...>
+      {({ isSelected }) => (
+        <>
+          {children}
+          {isSelected && (
+            <motion.span
+              className={cn('...')}
+            />
+          )}
+        </>
+      )}
+    </TabPrimitive>
+  )
+}
 ```
