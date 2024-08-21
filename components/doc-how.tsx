@@ -56,7 +56,7 @@ export function DocHow({
             <React.Suspense
               fallback={
                 <div className="flex py-6 justify-center items-center text-sm text-muted-foreground">
-                  <Loader variant="spin" size="medium" />
+                  <Loader variant="spin" />
                   <span className="sr-only">Loading...</span>
                 </div>
               }

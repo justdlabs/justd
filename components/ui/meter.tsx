@@ -1,54 +1,45 @@
 "use client"
 
-import { IconCircleInfo, IconTriangleInfo } from "justd-icons"
-import type { MeterProps as MeterPrimitiveProps } from "react-aria-components"
+import * as React from "react"
+
+import { motion } from "framer-motion"
+import { IconTriangleInfo } from "justd-icons"
+import type { MeterProps as AriaMeterProps } from "react-aria-components"
 import { Meter as MeterPrimitive } from "react-aria-components"
 
 import { Label } from "./field"
 import { ctr } from "./primitive"
 
-export interface MeterProps extends MeterPrimitiveProps {
+export interface MeterProps extends AriaMeterProps {
   label?: string
 }
 
-export function Meter({
-  label,
-  positive,
-  informative,
-  ...props
-}: MeterProps &
-  (
-    | {
-        positive?: true
-        informative?: never
-      }
-    | { positive?: never; informative?: true }
-  )) {
+const Meter = ({ label, ...props }: MeterProps) => {
   return (
     <MeterPrimitive {...props} className={ctr(props.className, "flex flex-col gap-1")}>
       {({ percentage, valueText }) => (
         <>
-          <div className="flex justify-between gap-2">
+          <div className="flex w-full justify-between gap-2">
             <Label>{label}</Label>
-            <span className="text-sm text-muted-fg">
-              {percentage >= 90 ? (
+            <span className={`text-sm ${percentage >= 80 ? "text-danger" : "text-muted-fg"}`}>
+              {percentage >= 80 && (
                 <IconTriangleInfo
                   aria-label="Alert"
-                  className="inline-block size-4 animate-in slide-in-from-left align-text-bottom fill-danger/20 text-danger"
+                  className="inline-block fill-danger/20 text-danger size-4 align-text-bottom"
                 />
-              ) : percentage >= 80 ? (
-                <IconCircleInfo
-                  aria-label="Alert"
-                  className="inline-block size-4 animate-in slide-in-from-right align-text-bottom fill-warning/20 text-warning"
-                />
-              ) : null}
-              <span className="inline-flex ml-2 w-8 justify-end">{valueText}</span>
+              )}
+              {" " + valueText}
             </span>
           </div>
-          <div className="relative h-2 min-w-64 w-full overflow-hidden rounded-full bg-secondary outline outline-1 -outline-offset-1 outline-transparent">
-            <div
-              className="absolute left-0 top-0 mr-1 h-full rounded-full"
-              style={{ width: percentage + "%", backgroundColor: getColor(percentage) }}
+          <div className="relative h-2 min-w-64 rounded-full bg-muted outline outline-1 -outline-offset-1 outline-transparent">
+            <motion.div
+              className="absolute left-0 top-0 h-full rounded-full forced-colors:bg-[Highlight]"
+              initial={{ width: "0%", backgroundColor: getColor(0) }}
+              animate={{
+                width: `${percentage}%`,
+                backgroundColor: getColor(percentage)
+              }}
+              transition={{ duration: 0.5 }}
             />
           </div>
         </>
@@ -58,17 +49,23 @@ export function Meter({
 }
 
 const getColor = (percentage: number) => {
+  if (percentage < 30) {
+    return "hsl(var(--primary))" // Blue
+  }
+
   if (percentage < 50) {
-    return "#0d6efd" // Green
+    return "hsl(var(--success))" // Green
   }
 
   if (percentage < 70) {
-    return "#ffc107" // Yellow
+    return "#eab308" // Yellow
   }
 
   if (percentage < 80) {
-    return "#f97316" // Orange
+    return "hsl(var(--warning))" // Orange
   }
 
-  return "#e11d48" // Red
+  return "hsl(var(--danger))" // Red
 }
+
+export { Meter }

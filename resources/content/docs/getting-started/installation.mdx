@@ -156,79 +156,82 @@ Start by adjusting your main CSS file. For example, if you are using Laravel, th
 ### Variables
 Below that, insert the following code:
 <PlainCode lang='css' code={`@layer base {
-    :root {
-        --light: 0 0% 98.04%;
-        --dark: 240 10% 6%;
-        --bg: 0 0% 100%;
-        --fg: 240 10% 3.9%;
+  :root {
+    --light: 0 0% 98.04%;
+    --dark: 240 10% 6%;
+    --bg: 0 0% 100%;
+    --fg: 240 10% 3.9%;
 
-        --overlay: 0 0% 100%;
-        --overlay-fg: 240 10% 3.9%;
+    --overlay: 0 0% 100%;
+    --overlay-fg: 240 10% 3.9%;
 
-        --primary: 216 98% 52%;
-        --primary-fg: 0 0% 100%;
+    --primary: 216.74 100% 50%;
+    --primary-fg: 0 0% 100%;
 
-        --secondary: 240 4.8% 95.9%;
-        --secondary-fg: 240 5.9% 10%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-fg: 240 5.9% 10%;
 
-        --tertiary: 0 0% 100%;
-        --tertiary-fg: 240 4% 16%;
+    --tertiary: 0 0% 100%;
+    --tertiary-fg: 240 4% 16%;
 
-        --accent: 216 98% 52%;
-        --accent-fg: 0 0% 100%;
+    --accent: 216.74 100% 50%;
+    --accent-fg: 0 0% 100%;
 
-        --success: 152 69% 31%;
-        --success-fg: 0 0% 100%;
+    --success: 161.38 93.55% 30.39%;
+    --success-fg: 151.76 80.95% 95.88%;
 
-        --info: 81.97 84.52% 67.06%;
-        --info-fg: 89.27 80.39% 10%;
+    --info: 81.97 84.52% 67.06%;
+    --info-fg: 89.27 80.39% 10%;
 
-        --muted: 240 4.8% 95.9%;
-        --muted-fg: 240 3.8% 46.1%;
+    --muted: 240 4.8% 95.9%;
+    --muted-fg: 240 3.8% 46.1%;
 
-        --danger: 0 72.22% 50.59%;
-        --danger-fg: 0 85.71% 97.25%;
+    --danger: 0 72.22% 50.59%;
+    --danger-fg: 0 85.71% 97.25%;
 
-        --warning: 43.26 96.41% 56.27%;
-        --warning-fg: 20.91 91.67% 14.12%;
+    --warning: 43.26 96.41% 56.27%;
+    --warning-fg: 20.91 91.67% 14.12%;
 
-        --border: 240 5.9% 90%;
-        --input: 240 5.9% 90%;
-        --ring: var(--primary);
-        --toggle: 240 5% 84%;
-        --radius: 0.55rem;
-    }
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: var(--primary);
+    --toggle: 240 5% 84%;
+    --radius: 0.5rem;
+  }
 
-    .dark {
-        --bg: 0 0% 0%;
-        --fg: 0 0% 98%;
+  .dark {
+    --bg: 0 0% 0%;
+    --fg: 0 0% 98%;
 
-        --overlay: 240 6% 6%;
-        --overlay-fg: 0 0% 98%;
+    --overlay: 240 6% 6%;
+    --overlay-fg: 0 0% 98%;
 
-        --primary: 216 98% 52%;
-        --primary-fg: 0 0% 100%;
+    --primary: 216 98% 52%;
+    --primary-fg: 0 0% 100%;
 
-        --secondary: 240 3.7% 15.9%;
-        --secondary-fg: 0 0% 98%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-fg: 0 0% 98%;
 
-        --info: 84.91 100% 66.47%;
-        --info-fg: 120 100% 13.14%;
+    --info: 84.91 100% 66.47%;
+    --info-fg: 120 100% 13.14%;
 
-        --tertiary: 240 10% 5.5%;
-        --tertiary-fg: 240 5% 96%;
+    --success: 161.38 93.55% 30.39%;
+    --success-fg: 151.76 80.95% 95.88%;
 
-        --accent: 216 98% 52%;
-        --accent-fg: 0 0% 100%;
+    --accent: 216 98% 52%;
+    --accent-fg: 0 0% 100%;
 
-        --muted: 240 3.7% 15.9%;
-        --muted-fg: 240 5% 64.9%;
+    --tertiary: 240 10% 5.5%;
+    --tertiary-fg: 240 5% 96%;
 
-        --ring: var(--primary);
-        --toggle: 240 5% 26%;
-        --border: 240 7% 15%;
-        --input: 240 3.7% 15.9%;
-    }
+    --muted: 240 3.7% 15.9%;
+    --muted-fg: 240 5% 64.9%;
+
+    --ring: var(--primary);
+    --toggle: 240 5% 26%;
+    --border: 240 7% 15%;
+    --input: 240 3.7% 15.9%;
+  }
 }
 `} />
 
@@ -451,14 +454,14 @@ When you're working with a stylesheet, you can define your `@font-face` in your 
 
 ```css
 @font-face {
-  font-family: InterVariable;
+  font-family: 'Inter';
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
   src: url("InterVariable.woff2") format("woff2");
 }
 @font-face {
-  font-family: InterVariable;
+  font-family: 'Inter';
   font-style: italic;
   font-weight: 100 900;
   font-display: swap;

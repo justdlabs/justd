@@ -28,7 +28,7 @@ const buttonStyles = tv(
           "[--btn-icon:theme(colors.muted.fg)] active:[--btn-icon:theme(colors.fg)] hover:[--btn-icon:theme(colors.fg)]"
         ],
         success: [
-          "text-white [--btn-bg:theme(colors.success.DEFAULT)] [--btn-border:theme(colors.success.DEFAULT)] [--btn-hover-overlay:theme(colors.white/10%)]",
+          "text-success-fg [--btn-bg:theme(colors.success.DEFAULT)] [--btn-border:theme(colors.success.DEFAULT)] [--btn-hover-overlay:theme(colors.white/10%)]",
           "[--btn-icon:theme(colors.white/60%)] active:[--btn-icon:theme(colors.white/80%)] hover:[--btn-icon:theme(colors.white/80%)]"
         ],
         "light/dark": [
