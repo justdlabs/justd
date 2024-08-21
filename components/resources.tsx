@@ -1,6 +1,12 @@
 "use client"
 
-import { IconBrandJustd, IconBrandLaravel, IconBrandAstro, IconBrandNextjs, IconBrandRemix } from "justd-icons"
+import {
+  IconBrandJustd,
+  IconBrandLaravel,
+  IconBrandAstro,
+  IconBrandNextjs,
+  IconBrandRemix
+} from "justd-icons"
 import { Badge, Card, Grid, Heading, Link } from "ui"
 
 const resources = [
