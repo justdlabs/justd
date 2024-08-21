@@ -3,12 +3,118 @@
 import React from "react"
 
 import { siteConfig } from "@/resources/config/site"
+import { IconBrandJustd } from "justd-icons"
 import { Container, Link } from "ui"
+
+const navigation = {
+  starterKits: [
+    { name: "Inertia.js", href: "https://github.com/justdlabs/inertia.ts/" },
+    { name: "Next.js", href: "https://github.com/justdlabs/next" },
+    { name: "Remix", href: "https://github.com/justdlabs/remix" },
+    { name: "Astro", href: "https://github.com/justdlabs/astro" }
+  ],
+  resources: [
+    { name: "Icons", href: "/icons" },
+    { name: "Colors", href: "/colors" },
+    { name: "Themes", href: "/themes" },
+    { name: "CLI", href: "https://github.com/justdlabs/cli" }
+  ],
+  labs: [
+    { name: "Github", href: "https://github.com/justdlabs" },
+    { name: "X / Formerly Twitter", href: "https://x.com/getjustd" }
+  ],
+  legal: [{ name: "MIT", href: "https://github.com/justdlabs/justd/blob/main/LICENSE" }]
+}
 
 export function Footer() {
   return (
-    <footer className="px-4 lg:[&_p]:mt-1 [&_strong]:font-medium [&_a]:font-medium border-t py-4 sm:py-8 lg:py-10 [&_strong]:text-fg [&_a]:text-fg text-muted-fg text-xs text-center lg:text-left lg:text-sm">
-      <Container>
+    <footer aria-labelledby="footer-heading" className="border-t bg-bg text-bg-fg">
+      <h2 id="footer-heading" className="sr-only">
+        Footer
+      </h2>
+      <div className="mx-auto relative z-20 max-w-7xl px-6 py-16 sm:py-24 lg:px-8 lg:pb-32 lg:pt-16">
+        <div className="xl:grid xl:grid-cols-3 xl:gap-8">
+          <IconBrandJustd className="size-7" />
+          <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
+            <div className="md:grid md:grid-cols-2 md:gap-8">
+              <div>
+                <h3 className="text-sm font-semibold leading-6 text-fg">Resources</h3>
+                <ul role="list" className="mt-6 space-y-4">
+                  {navigation.resources.map((item) => (
+                    <li key={item.name}>
+                      <Link
+                        href={item.href}
+                        className="text-sm leading-6 text-muted-fg hover:text-fg"
+                      >
+                        {item.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="mt-10 md:mt-0">
+                <h3 className="text-sm font-semibold leading-6 text-fg">Starter Kits</h3>
+                <ul role="list" className="mt-6 space-y-4">
+                  {navigation.starterKits.map((item) => (
+                    <li key={item.name}>
+                      <Link
+                        target="_blank"
+                        href={item.href}
+                        className="text-sm leading-6 text-muted-fg hover:text-fg"
+                      >
+                        {item.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            <div className="md:grid md:grid-cols-2 md:gap-8">
+              <div>
+                <h3 className="text-sm font-semibold leading-6 text-fg">Labs</h3>
+                <ul role="list" className="mt-6 space-y-4">
+                  {navigation.labs.map((item) => (
+                    <li key={item.name}>
+                      <Link
+                        target="_blank"
+                        href={item.href}
+                        className="text-sm leading-6 text-muted-fg hover:text-fg"
+                      >
+                        {item.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="mt-10 md:mt-0">
+                <h3 className="text-sm font-semibold leading-6 text-fg">Legal</h3>
+                <ul role="list" className="mt-6 space-y-4">
+                  {navigation.legal.map((item) => (
+                    <li key={item.name}>
+                      <Link
+                        target="_blank"
+                        href={item.href}
+                        className="text-sm leading-6 text-muted-fg hover:text-fg"
+                      >
+                        {item.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="text-center relative z-10 h-[14rem] flex -mb-20 -mt-28 sm:-mt-32 items-center flex-col justify-center overflow-hidden">
+        <div className="absolute w-full sm:w-1/2 lg:w-1/4 h-32 bg-gradient-to-b from-bg dark:via-fg blur-xl to-bg" />
+        <strong className="dark:[text-shadow:1px_1px_0_hsl(var(--fg)),_-1px_-1px_0_hsl(var(--fg)),_1px_-1px_0_hsl(var(--fg)),_-1px_1px_0_hsl(var(--fg)),_1px_0_0_hsl(var(--fg)),_-1px_0_0_hsl(var(--fg)),_0_1px_0_hsl(var(--fg)),_0_-1px_0_hsl(var(--fg))] text-muted-fg/20 dark:text-bg inline-flex text-[7rem] sm:text-[10rem] leading-none bg-clip-text bg-gradient-to-b from-bg to-muted relative z-10 font-bold">
+          JUSTD
+        </strong>
+      </div>
+
+      <Container className="text-sm relative z-20 text-center py-6 bg-bg text-muted-fg [&_strong]:text-fg [&_strong]:font-semibold  [&_a]:text-fg [&_a]:font-semibold space-y-1.5 border-t">
         <p>
           <strong>{siteConfig.name} &trade; 2024</strong> - This project’s crafted with{" "}
           <span className="font-[ui-sans-serif,-apple-system,system-ui] text-pink-500">♥</span> by{" "}
@@ -17,7 +123,11 @@ export function Footer() {
         </p>
 
         <p>
-          Cooked up with <strong>Next.js</strong>,{" "}
+          Cooked up with{" "}
+          <Link href="https://nextjs.org" target="_blank">
+            Next.js
+          </Link>
+          ,
           <Link href="https://tailwindcss.com" target="_blank">
             Tailwind CSS
           </Link>

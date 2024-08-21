@@ -1,9 +1,9 @@
 "use client"
 
 import {
+  IconBrandAstro,
   IconBrandJustd,
   IconBrandLaravel,
-  IconBrandAstro,
   IconBrandNextjs,
   IconBrandRemix
 } from "justd-icons"
