@@ -29,7 +29,7 @@ export default function MultipleSelectMinMaxDemo() {
       max={4}
       selectedItems={selectedItems}
       items={tags}
-      tag={(item) => <Tag.Item textValue={item.name}>{item.name}</Tag.Item>}
+      tag={(item) => <MultipleSelect.Tag textValue={item.name}>{item.name}</MultipleSelect.Tag>}
     >
       {(item) => {
         return <MultipleSelect.Option textValue={item.name}>{item.name}</MultipleSelect.Option>

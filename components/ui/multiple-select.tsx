@@ -330,6 +330,7 @@ const MultipleSelect = <T extends SelectedKey>({
   )
 }
 
+MultipleSelect.Tag = Tag.Item
 MultipleSelect.Option = ListBox.Item
 
 export { MultipleSelect, type SelectedKey }

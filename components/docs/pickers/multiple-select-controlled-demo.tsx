@@ -4,7 +4,7 @@ import React from "react"
 
 import { useListData } from "react-stately"
 import type { SelectedKey } from "ui"
-import { Description, MultipleSelect, Tag } from "ui"
+import { Description, MultipleSelect } from "ui"
 
 const tags = [
   { id: 1, name: "Travel" },
@@ -28,7 +28,7 @@ export default function MultipleSelectControlledDemo() {
         label="Select tags"
         selectedItems={selectedItems}
         items={tags}
-        tag={(item) => <Tag.Item textValue={item.name}>{item.name}</Tag.Item>}
+        tag={(item) => <MultipleSelect.Tag textValue={item.name}>{item.name}</MultipleSelect.Tag>}
       >
         {(item) => {
           return (
