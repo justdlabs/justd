@@ -35,8 +35,16 @@ If a user submits the form without selecting an item, an error message will appe
 <How minW72 toUse="pickers/combo-box-validation-demo" />
 
 ## Controlled
-You can control the combo box by passing the `selectedKey` prop.
+There are two ways to control the combo box: using the `onInputChange` prop or the `onSelectionChange` prop. These methods serve different purposes, as illustrated in the examples below. Both examples follow the same approach, defining `id` and `textValue` for the options.
+
+When you only need the `textValue` of the selected option, use the `onInputChange` prop. However, if you need to obtain the actual `id` of the selected option, the `onSelectionChange` prop is the appropriate choice.
+### Input
+This combo box is controlled by the `onInputChange` prop.
 <How minW72 toUse="pickers/combo-box-controlled-demo" />
+
+### Selection
+This combo box is controlled by the `onSelectionChange` prop.
+<How minW72 toUse="pickers/combo-box-controlled-selection-demo" />
 
 ## Readonly
 When the combo box is in a readonly state, it cannot be edited.

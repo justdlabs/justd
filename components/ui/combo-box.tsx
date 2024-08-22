@@ -113,4 +113,4 @@ ComboBox.List = List
 ComboBox.Option = DropdownItem
 ComboBox.Section = DropdownSection
 
-export { ComboBox, type ComboBoxProps }
+export { ComboBox }

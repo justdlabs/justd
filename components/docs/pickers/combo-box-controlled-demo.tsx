@@ -29,7 +29,7 @@ export default function ComboBoxControlledDemo() {
         <ComboBox.Input />
         <ComboBox.List items={sports}>
           {(item) => (
-            <ComboBox.Option key={item.id} id={item.id} textValue={item.name}>
+            <ComboBox.Option id={item.id} textValue={item.name}>
               {item.name}
             </ComboBox.Option>
           )}

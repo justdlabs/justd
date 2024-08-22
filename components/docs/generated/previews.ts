@@ -689,6 +689,9 @@ export const previews: Record<string, any> = {
   "pickers/multiple-select-intent-demo": {
     component: React.lazy(() => import("@/components/docs/pickers/multiple-select-intent-demo")),
   },
+  "pickers/combo-box-controlled-selection-demo": {
+    component: React.lazy(() => import("@/components/docs/pickers/combo-box-controlled-selection-demo")),
+  },
   "pickers/combo-box-avatar-demo": {
     component: React.lazy(() => import("@/components/docs/pickers/combo-box-avatar-demo")),
   },
