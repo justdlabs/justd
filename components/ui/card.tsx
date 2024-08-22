@@ -2,10 +2,11 @@
 
 import * as React from "react"
 
-import { cn } from "@/components/ui/primitive"
 import type { HeadingProps, TextProps } from "react-aria-components"
 import { Heading, Text } from "react-aria-components"
 import { tv } from "tailwind-variants"
+
+import { cn } from "./primitive"
 
 const card = tv({
   slots: {

@@ -86,6 +86,9 @@ export const previews: Record<string, any> = {
   "forms/checkbox-group-demo": {
     component: React.lazy(() => import("@/components/docs/forms/checkbox-group-demo")),
   },
+  "forms/checkbox-group-validation-demo": {
+    component: React.lazy(() => import("@/components/docs/forms/checkbox-group-validation-demo")),
+  },
   "forms/search-field-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/forms/search-field-controlled-demo")),
   },
@@ -163,6 +166,9 @@ export const previews: Record<string, any> = {
   },
   "forms/text-field-prefix-suffix-demo": {
     component: React.lazy(() => import("@/components/docs/forms/text-field-prefix-suffix-demo")),
+  },
+  "forms/checkbox-group-indeterminate-demo": {
+    component: React.lazy(() => import("@/components/docs/forms/checkbox-group-indeterminate-demo")),
   },
   "forms/textarea-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/forms/textarea-disabled-demo")),
