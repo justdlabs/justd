@@ -66,12 +66,17 @@ const choiceboxItemStyles = tv({
   base: "rounded-lg cursor-pointer border p-4 [&_[slot=title]]:font-medium",
   variants: {
     isSelected: {
-      false: "hover:bg-secondary/50",
       true: [
-        "z-20 border-primary/50 bg-primary/5 dark:bg-primary/15",
-        "[&_[slot=title]]:text-primary-600 dark:[&_[slot=title]]:text-primary-300",
-        "[&_[slot=description]]:text-primary-600 dark:[&_[slot=description]]:text-primary-300"
+        "z-20 bg-accent-subtle hover:bg-accent-subtle hover:border-ring border-ring/75",
+        "[&_[slot=title]]:text-accent-subtle-fg",
+        "[&_[slot=description]]:text-accent-subtle-fg/70"
       ]
+    },
+    isFocused: {
+      true: "border-ring/80"
+    },
+    isHovered: {
+      true: "bg-secondary/50"
     },
     isDisabled: {
       true: "z-10 cursor-default opacity-80 [&_[slot=title]]:text-muted-fg forced-colors:text-[GrayText]"
@@ -99,7 +104,7 @@ const ChoiceboxItem = ({ children, className, ...props }: ChoiceboxItemProps) =>
     >
       {(values) => (
         <div className="flex items-center w-full justify-between gap-2">
-          <div className="pr-8 flex flex-col space-y-1">
+          <div className="pr-8 flex flex-col">
             <Label slot="title" htmlFor={textValue}>
               {props.title}
             </Label>

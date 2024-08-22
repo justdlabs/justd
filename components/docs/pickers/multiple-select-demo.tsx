@@ -2,7 +2,7 @@
 
 import { useListData } from "react-stately"
 import type { SelectedKey } from "ui"
-import { MultipleSelect, Tag } from "ui"
+import { MultipleSelect } from "ui"
 
 export default function MultipleSelectDemo() {
   const selectedItems = useListData<SelectedKey>({

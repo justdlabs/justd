@@ -56,7 +56,9 @@ const config = withTV({
         },
         accent: {
           DEFAULT: "hsl(var(--accent))",
-          fg: "hsl(var(--accent-fg))"
+          fg: "hsl(var(--accent-fg))",
+          subtle: "hsl(var(--accent-subtle))",
+          "subtle-fg": "hsl(var(--accent-subtle-fg))"
         },
         success: {
           DEFAULT: "hsl(var(--success))",

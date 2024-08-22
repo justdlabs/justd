@@ -6,9 +6,11 @@ import { Choicebox } from "ui"
 
 export default function ChoiceboxDisabledDemo() {
   return (
-    <Choicebox aria-label="Select packages" selectionMode="multiple" items={packages}>
-      {(item) => <Choicebox.Item isDisabled={["sm", "lg"].includes(item.id)} {...item} />}
-    </Choicebox>
+    <div className="p-1">
+      <Choicebox aria-label="Select packages" selectionMode="multiple" items={packages}>
+        {(item) => <Choicebox.Item isDisabled={["sm", "lg"].includes(item.id)} {...item} />}
+      </Choicebox>
+    </div>
   )
 }
 

@@ -24,6 +24,9 @@
     --accent: 216.74 100% 50%;
     --accent-fg: 0 0% 100%;
 
+    --accent-subtle: 216.92 100% 97.45%;
+    --accent-subtle-fg: 216.74 100% 40%;
+
     --success: 161.38 93.55% 30.39%;
     --success-fg: 151.76 80.95% 95.88%;
 
@@ -67,6 +70,9 @@
 
     --accent: 216 98% 52%;
     --accent-fg: 0 0% 100%;
+
+    --accent-subtle: 216 93.75% 6.27%;
+    --accent-subtle-fg: 204.92 100% 76.86%;
 
     --tertiary: 240 10% 5.5%;
     --tertiary-fg: 240 5% 96%;
