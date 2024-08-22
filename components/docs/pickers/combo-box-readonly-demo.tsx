@@ -8,7 +8,8 @@ const users = [
 ]
 export default function ComboBoxReadonlyDemo() {
   return (
-    <ComboBox placeholder="Select a user" label="Users" isReadOnly>
+    <ComboBox defaultSelectedKey={1} placeholder="Select a user" label="Users" isReadOnly>
+      <ComboBox.Input />
       <ComboBox.List items={users}>
         {(item) => (
           <ComboBox.Option key={item.id} id={item.id} textValue={item.name}>
