@@ -17,7 +17,7 @@ interface GridListProps<T extends object> extends GridListPrimitiveProps<T> {}
 
 const GridList = <T extends object>({ children, className, ...props }: GridListProps<T>) => (
   <GridListPrimitive
-    className={ctr(className, "relative overflow-auto rounded-lg border")}
+    className={ctr(className, "relative max-h-96 overflow-auto rounded-lg border")}
     {...props}
   >
     {children}
@@ -28,12 +28,12 @@ const itemStyles = tv({
   extend: focusRing,
   base: "relative -mb-px flex cursor-default select-none gap-3 border-y px-3 py-2 text-sm text-fg -outline-offset-2 first:rounded-t-md first:border-t-0 last:mb-0 last:rounded-b-md last:border-b-0",
   variants: {
-    isHovered: { true: "bg-secondary dark:bg-secondary/60" },
+    isHovered: { true: "bg-accent-subtle" },
     isSelected: {
-      true: "z-20 border-y-accent/50 bg-accent/10 hover:bg-accent/15 dark:bg-accent/20 dark:hover:bg-accent/25"
+      true: "z-20 border-y-accent-subtle-fg/70 bg-accent-subtle hover:bg-accent-subtle/80"
     },
     isFocusVisible: {
-      true: "z-20 border-y-accent bg-accent/5 selected:bg-accent/10 hover:bg-accent/15 dark:selected:bg-accent/20 dark:hover:bg-accent/25"
+      true: "z-20 border-y-accent bg-accent-subtle selected:bg-accent-subtle/80 hover:bg-accent-subtle/70"
     },
     isDisabled: {
       true: "z-10 text-muted-fg forced-colors:text-[GrayText]"
