@@ -49,7 +49,7 @@ const sliderStyles = tv({
 
 const { track, filler, thumb, root, valueLabel } = sliderStyles()
 
-interface SliderRootProps extends SliderPrimitiveProps {}
+type SliderRootProps = SliderPrimitiveProps
 
 const Root = (props: SliderPrimitiveProps) => {
   const descriptionId = useSlotId()

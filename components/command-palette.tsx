@@ -55,7 +55,11 @@ export function CommandPalette({ openCmd, setOpen }: OpenCloseProps) {
   })
 
   return (
-    <CommandMenu isOpen={openCmd} onOpenChange={setOpen}>
+    <CommandMenu
+      classNames={{ content: "backdrop-blur bg-overlay/90" }}
+      isOpen={openCmd}
+      onOpenChange={setOpen}
+    >
       <CommandMenu.Input autoFocus={isDesktop} placeholder="Quick search..." />
       <CommandMenu.List>
         <CommandMenu.Section separator heading="Pages">

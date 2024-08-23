@@ -122,7 +122,7 @@ function CodeCollapsible({
   )
 }
 
-export function CodeCollapsibleRoot({ children }: React.PropsWithChildren<{}>) {
+export function CodeCollapsibleRoot({ children }: React.PropsWithChildren<object>) {
   return (
     <div className="overflow-hidden border border-zinc-800 bg-[#0e0e10] rounded-lg">{children}</div>
   )

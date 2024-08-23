@@ -46,7 +46,7 @@ const listBoxItemStyles = tv({
   }
 })
 
-interface ListBoxItemProps<T extends Object> extends ListBoxItemPrimitiveProps<T> {
+interface ListBoxItemProps<T extends object> extends ListBoxItemPrimitiveProps<T> {
   className?: string
 }
 
@@ -93,7 +93,7 @@ const ListBoxItem = <T extends object>({ children, className, ...props }: ListBo
   )
 }
 
-interface ListBoxPickerProps<T> extends ListBoxProps<T> {}
+type ListBoxPickerProps<T> = ListBoxProps<T>
 
 const ListBoxPicker = <T extends object>({ className, ...props }: ListBoxPickerProps<T>) => {
   return (

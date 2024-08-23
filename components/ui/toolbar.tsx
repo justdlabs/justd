@@ -2,11 +2,7 @@
 
 import * as React from "react"
 
-import type {
-  GroupProps,
-  SeparatorProps,
-  ToolbarProps as ToolbarPrimitiveProps
-} from "react-aria-components"
+import type { GroupProps, SeparatorProps, ToolbarProps } from "react-aria-components"
 import { Group, Toolbar as ToolbarPrimitive } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
@@ -41,8 +37,6 @@ const ToolbarSeparator = ({ className, ...props }: SeparatorProps) => {
 const ToolbarContext = React.createContext<{ orientation?: ToolbarProps["orientation"] }>({
   orientation: "horizontal"
 })
-
-interface ToolbarProps extends ToolbarPrimitiveProps {}
 
 const Toolbar = ({ orientation = "horizontal", ...props }: ToolbarProps) => {
   return (

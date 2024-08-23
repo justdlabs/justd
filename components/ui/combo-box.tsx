@@ -61,7 +61,7 @@ const ComboBox = <T extends object>({
   )
 }
 
-interface ListBoxPickerProps<T extends object> extends React.ComponentProps<typeof ListBox<T>> {}
+type ListBoxPickerProps<T extends object> = React.ComponentProps<typeof ListBox<T>>
 
 interface ListProps<T extends object>
   extends ListBoxPickerProps<T>,

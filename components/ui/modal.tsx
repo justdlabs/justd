@@ -72,7 +72,7 @@ const modalContentStyles = tv({
   }
 })
 
-interface ModalProps extends DialogTriggerProps {}
+type ModalProps = DialogTriggerProps
 const Modal = ({ children, ...props }: ModalProps) => {
   return <DialogTriggerPrimitive {...props}>{children}</DialogTriggerPrimitive>
 }

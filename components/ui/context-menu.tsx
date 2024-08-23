@@ -59,7 +59,7 @@ const contextMenuTriggerStyles = tv({
   }
 })
 
-interface ContextMenuTriggerProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
+type ContextMenuTriggerProps = React.ButtonHTMLAttributes<HTMLButtonElement>
 
 const ContextMenuTrigger = ({ className, ...props }: ContextMenuTriggerProps) => {
   const { buttonRef, setContextMenuOffset } = useContextMenuTrigger()
@@ -83,11 +83,10 @@ const ContextMenuTrigger = ({ className, ...props }: ContextMenuTriggerProps) =>
   )
 }
 
-interface ContextMenuContentProps<T>
-  extends Omit<
-    MenuContentProps<T>,
-    "showArrow" | "isOpen" | "onOpenChange" | "triggerRef" | "placement" | "shouldFlip"
-  > {}
+type ContextMenuContentProps<T> = Omit<
+  MenuContentProps<T>,
+  "showArrow" | "isOpen" | "onOpenChange" | "triggerRef" | "placement" | "shouldFlip"
+>
 
 const ContextMenuContent = <T extends object>(props: ContextMenuContentProps<T>) => {
   const { contextMenuOffset, setContextMenuOffset, buttonRef } = useContextMenuTrigger()

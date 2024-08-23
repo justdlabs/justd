@@ -17,7 +17,7 @@ import { Separator } from "./separator"
 const commandStyles = tv({
   slots: {
     command: [
-      "flex h-svh w-full flex-col overflow-hidden rounded-md bg-overlay text-overlay-fg sm:h-full",
+      "flex h-svh w-full flex-col overflow-hidden rounded-md sm:h-full",
       "[&_[cmdk-group-heading]]:ml-1 [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:-mb-1.5 [&_[cmdk-group-heading]]:text-muted-fg [&_[cmdk-group]:not([hidden])_~[cmdk-group]]:pt-0 [&_[cmdk-input-wrapper]_[data-slot=icon]]:size-5 [&_[cmdk-input]]:h-12",
       // for specific properties, it has to be controlled by the command
       "[&_[cmdk-item]]:py-2.5 [&_[cmdk-item]]:pl-2.5 [&_[cmdk-item]]:pr-4"
@@ -36,7 +36,7 @@ const commandStyles = tv({
       "fixed inset-0 max-h-[--visual-viewport-height] z-50 bg-black/15 dark:bg-black/40 entering:animate-in entering:fade-in-0 exiting:animate-in exiting:fade-out-0"
     ],
     modal: [
-      "fixed bottom-0 left-[50%] top-auto z-50 grid h-[calc(100vh-35%)] w-full max-w-full translate-x-[-50%] gap-4 overflow-hidden rounded-t-xl bg-bg shadow-lg ring-1 ring-dark/5 dark:ring-border sm:bottom-auto sm:top-[6rem] sm:h-auto sm:w-full sm:max-w-2xl sm:rounded-xl",
+      "fixed bottom-0 left-[50%] top-auto z-50 grid h-[calc(100vh-35%)] w-full max-w-full translate-x-[-50%] gap-4 overflow-hidden rounded-t-xl bg-overlay text-overlay-fg shadow-lg ring-1 ring-dark/5 dark:ring-border sm:bottom-auto sm:top-[6rem] sm:h-auto sm:w-full sm:max-w-2xl sm:rounded-xl",
       "sm:entering:slide-in-from-bottom-auto entering:duration-300 entering:animate-in entering:fade-in-0 entering:slide-in-from-bottom-1/2 entering:slide-in-from-left-1/2 entering:[transition-timing-function:ease-out] sm:entering:duration-300 sm:entering:slide-in-from-top-[2rem]",
       "exiting:duration-300 exiting:animate-out exiting:fade-out-0 exiting:slide-out-to-bottom-1/2 exiting:slide-out-to-left-1/2 exiting:[transition-timing-function:ease] sm:exiting:slide-out-to-top-[4rem]"
     ],
@@ -52,6 +52,7 @@ const commandStyles = tv({
       "group relative flex cursor-default select-none items-center rounded-lg py-2 text-sm outline-none",
       // selected
       "data-[selected=true]:bg-accent data-[selected=true]:text-accent-fg [&[data-selected=true]_[data-slot=icon]]:text-accent-fg",
+      "focus-visible:bg-accent focus-visible:text-accent-fg [&:focus-visible_[data-slot=icon]]:text-accent-fg",
       // danger
       "data-[danger=true]:text-danger data-[danger=true]:data-[selected=true]:bg-danger data-[danger=true]:data-[selected=true]:text-danger-fg",
       // disabled
@@ -101,6 +102,7 @@ interface CommandMenuRootProps {
   CommandMenuSeparator?: typeof CommandMenuSeparator
   CommandMenuDescription?: typeof CommandMenuDescription
 }
+
 interface CommandMenuProps
   extends ModalOverlayProps,
     CommandMenuRootProps,
@@ -109,9 +111,14 @@ interface CommandMenuProps
   value?: string
   messageOnEmpty?: boolean | string
   onValueChange?: (value: string) => void
+  classNames?: {
+    overlay?: string
+    content?: string
+  }
 }
 
 const CommandMenu = ({
+  classNames,
   hideSearchIndicator = false,
   hideCloseButton = false,
   messageOnEmpty,
@@ -123,8 +130,12 @@ const CommandMenu = ({
   const isDesktop = useMediaQuery("(min-width: 1024px)")
   return (
     <CommandMenuContext.Provider value={{ hideSearchIndicator, hideCloseButton, messageOnEmpty }}>
-      <ModalOverlay isDismissable className={modalOverlay()} {...props}>
-        <Modal className={modal()}>
+      <ModalOverlay
+        isDismissable
+        className={modalOverlay({ className: classNames?.overlay })}
+        {...props}
+      >
+        <Modal className={modal({ className: classNames?.content })}>
           <Dialog className="outline-none" aria-label="Command Palette">
             {({ close }) => (
               <>
@@ -149,8 +160,7 @@ const CommandMenu = ({
   )
 }
 
-interface CommandMenuInputProps
-  extends React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input> {}
+type CommandMenuInputProps = React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input>
 
 const CommandMenuInput = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Input>,
@@ -172,7 +182,7 @@ const CommandMenuInput = React.forwardRef<
 
 CommandMenuInput.displayName = CommandPrimitive.Input.displayName
 
-interface CommandMenuListProps extends React.ComponentProps<typeof CommandPrimitive.List> {}
+type CommandMenuListProps = React.ComponentProps<typeof CommandPrimitive.List>
 
 const CommandMenuList = ({ className, ...props }: CommandMenuListProps) => {
   const { messageOnEmpty } = React.useContext(CommandMenuContext)
@@ -188,7 +198,7 @@ const CommandMenuList = ({ className, ...props }: CommandMenuListProps) => {
   )
 }
 
-interface CommandMenuEmptyProps extends React.ComponentProps<typeof CommandPrimitive.Empty> {}
+type CommandMenuEmptyProps = React.ComponentProps<typeof CommandPrimitive.Empty>
 
 const CommandMenuEmpty = ({ className, ...props }: CommandMenuEmptyProps) => {
   return <CommandPrimitive.Empty className={empty({ className })} {...props} />

@@ -13,7 +13,7 @@ import { tv } from "tailwind-variants"
 import { Checkbox } from "./checkbox"
 import { cr, ctr, focusRing } from "./primitive"
 
-interface GridListProps<T extends object> extends GridListPrimitiveProps<T> {}
+type GridListProps<T extends object> = GridListPrimitiveProps<T>
 
 const GridList = <T extends object>({ children, className, ...props }: GridListProps<T>) => (
   <GridListPrimitive

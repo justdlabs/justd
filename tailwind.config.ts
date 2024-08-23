@@ -1,5 +1,8 @@
+import tt from "@tailwindcss/typography"
 import { withTV } from "tailwind-variants/transformer"
 import type { Config } from "tailwindcss"
+import ta from "tailwindcss-animate"
+import trac from "tailwindcss-react-aria-components"
 import { fontFamily } from "tailwindcss/defaultTheme"
 
 const config = withTV({
@@ -105,11 +108,7 @@ const config = withTV({
       }
     }
   },
-  plugins: [
-    require("tailwindcss-animate"),
-    require("@tailwindcss/typography"),
-    require("tailwindcss-react-aria-components")
-  ]
+  plugins: [ta, tt, trac]
 }) satisfies Config
 
 export default config

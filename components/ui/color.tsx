@@ -30,7 +30,7 @@ const colorAreaStyles = tv({
   base: "size-48 rounded-md border border-bg shrink-0 disabled:opacity-50"
 })
 
-interface ColorAreaProps extends React.ComponentProps<typeof ColorAreaPrimitive> {}
+type ColorAreaProps = React.ComponentProps<typeof ColorAreaPrimitive>
 
 const ColorArea = ({ className, ...props }: ColorAreaProps) => {
   return (
@@ -47,7 +47,7 @@ const ColorArea = ({ className, ...props }: ColorAreaProps) => {
   )
 }
 
-interface ColorThumbProps extends ColorThumbPrimitiveProps {}
+type ColorThumbProps = ColorThumbPrimitiveProps
 
 const colorThumbStyles = tv({
   base: "size-5 shadow rounded-full ring-1 ring-inset ring-offset-2 ring-black/50 border border-black/50",
@@ -93,7 +93,7 @@ const ColorSwatchPickerItem = ({ className, ...props }: ColorSwatchPickerItemPri
   )
 }
 
-interface ColorSwatchProps extends ColorSwatchPrimitiveProps {}
+type ColorSwatchProps = ColorSwatchPrimitiveProps
 
 const ColorSwatch = ({ className, ...props }: ColorSwatchProps) => {
   const needRing = props.color ? isBrightColor(props.color) : false

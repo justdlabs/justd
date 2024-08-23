@@ -1,8 +1,8 @@
 import type { SVGProps } from "react"
 
-interface Props extends SVGProps<SVGSVGElement> {}
+type LogoProps = SVGProps<SVGSVGElement>
 
-const Logo = (props: Props) => (
+const Logo = (props: LogoProps) => (
   <svg
     width={24}
     height={24}
