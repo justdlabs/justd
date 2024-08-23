@@ -30,7 +30,7 @@ const itemStyles = tv({
   variants: {
     isHovered: { true: "bg-accent-subtle" },
     isSelected: {
-      true: "z-20 border-y-accent-subtle-fg/70 bg-accent-subtle hover:bg-accent-subtle/80"
+      true: "z-20 border-y-primary/70 bg-accent-subtle hover:bg-accent-subtle/80"
     },
     isFocusVisible: {
       true: "z-20 border-y-accent bg-accent-subtle selected:bg-accent-subtle/80 hover:bg-accent-subtle/70"
