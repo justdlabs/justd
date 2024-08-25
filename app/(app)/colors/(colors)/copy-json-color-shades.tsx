@@ -1,33 +1,41 @@
 import React, { useState } from "react"
 
-import { getColorName } from "@/resources/lib/colors"
+import { getColorName, rgbToOklch } from "@/resources/lib/colors"
 import { wait } from "@/resources/lib/utils"
+import { parseColor } from "@react-stately/color"
+import type { ColorFormat } from "@react-types/color"
 import { IconBrackets2, IconCheck, IconDuplicate } from "justd-icons"
 import { Heading } from "react-aria-components"
 import { Button, ColorSwatch, Modal } from "ui"
 import { copyToClipboard } from "usemods"
 
-export function CopyJsonColorShades({
-  colorScales,
-  name,
-  color
-}: {
+import type { ColorSelectorType } from "./color-row"
+
+interface CopyJsonColorShadesProps {
+  selectedFormat: ColorSelectorType
   name: string
   color: string
   colorScales: any
-}) {
+}
+
+export function CopyJsonColorShades({
+  selectedFormat,
+  colorScales,
+  name,
+  color
+}: CopyJsonColorShadesProps) {
   const [open, setOpen] = useState(false)
   const [colorName, setColorName] = useState<string>(name || "unknown")
   const [isCopied, setIsCopied] = useState(false)
-
   const handleOpen = () => {
     setColorName(getColorName(color))
     setOpen(true)
   }
-
-  const codeString = colorScales
-    .map(({ shade, color }: any) => `'${shade}': '${color}'`)
-    .join(",\n  ")
+  const _selected =
+    selectedFormat === "oklch"
+      ? rgbToOklch(parseColor(color).toString("rgb"))
+      : parseColor(color).toString(selectedFormat as ColorFormat)
+  const codeString = colorScales.map(({ shade }: any) => `'${shade}': '${_selected}'`).join(",\n  ")
   const renderColorScaleAsCode = (colorScales: any, colorName: string) => {
     const formattedColorName = colorName.includes("-")
       ? `'${getColorName(colorScales[4].color)}'`

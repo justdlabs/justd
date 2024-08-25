@@ -23,11 +23,11 @@ interface ColorRowProps extends React.HtmlHTMLAttributes<HTMLDivElement> {
   showItem?: boolean
 }
 
+export type ColorSelectorType = ColorFormat | null | FormatOnlyForTailwindVariableType
+
 export function ColorRow({ showItem = false, swatchClassName, item }: ColorRowProps) {
   const [isForTailwindVariable, setIsForTailwindVariable] = React.useState(true)
-  const [selectedFormat, setSelectedFormat] = React.useState<
-    ColorFormat | null | FormatOnlyForTailwindVariableType
-  >("hsl")
+  const [selectedFormat, setSelectedFormat] = React.useState<ColorSelectorType>("hex")
   return (
     <div className="p-2 bg-tertiary border rounded-lg overflow-hidden">
       <div className="flex mb-2 items-center gap-x-1 justify-between">
@@ -41,9 +41,10 @@ export function ColorRow({ showItem = false, swatchClassName, item }: ColorRowPr
             <CopyJsonColorShades
               name={item.name}
               color={item.children[4].color}
+              selectedFormat={selectedFormat}
               colorScales={item.children}
             />
-            {["rgb", "rgba", "hsl", "hsla", "hsb", "hsba"].includes(
+            {["rgb", "rgba", "hsl", "hsla", "hsb", "hsba", "oklch"].includes(
               selectedFormat as ColorFormat
             ) && (
               <Tooltip>
@@ -61,7 +62,7 @@ export function ColorRow({ showItem = false, swatchClassName, item }: ColorRowPr
                       )
                     ) {
                       toast(
-                        "You can only switch up the color format to RGB, RGBA, HSL, HSLA, HSB, or HSBA."
+                        "You can only switch up the color format to rgb, hsl, hsb, hsla, hsba, or oklch."
                       )
                       return
                     }
@@ -73,7 +74,7 @@ export function ColorRow({ showItem = false, swatchClassName, item }: ColorRowPr
                   )}
                 </ToggleButton>
                 <Tooltip.Content className="max-w-xs">
-                  You can switch up the color format to RGB, RGBA, HSL, HSLA, HSB, or HSBA.
+                  You can switch up the color format to rgb, hsl, hsb, hsla, hsba, or oklch.
                 </Tooltip.Content>
               </Tooltip>
             )}
@@ -89,7 +90,7 @@ export function ColorRow({ showItem = false, swatchClassName, item }: ColorRowPr
               <Select.Trigger />
               <Select.List placement="bottom right" items={allFormats}>
                 {(item) => (
-                  <Select.Option textValue={item.format} id={item.format}>
+                  <Select.Option textValue={item.format} id={item.format.toLowerCase()}>
                     <Text slot="label">{item.format}</Text>
                   </Select.Option>
                 )}

@@ -36,6 +36,7 @@ export function ColorGenerator() {
 
         <div className="lg:col-span-2">
           <ColorRow
+            showItem={isDesktop}
             item={{
               name: getColorName(defaultColor.toString("hex")),
               children: colorScales as any

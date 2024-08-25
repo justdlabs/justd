@@ -154,92 +154,92 @@ Start by adjusting your main CSS file. For example, if you are using Laravel, th
 ```
 
 ### Variables
-Below that, insert the following code:
+You can customize your colors using these variables. By default, Justd utilizes OKLCH colors, but you have the option to switch to RGB, HSL, or HSB. If OKLCH isn't your preference, you can easily switch to another color format in the [Color Generator](/colors).
+
 <PlainCode lang='css' code={`@layer base {
   :root {
-    --light: 0 0% 98.04%;
-    --dark: 240 10% 6%;
-    --bg: 0 0% 100%;
-    --fg: 240 10% 3.9%;
+    --light: 98.51% 0 0;
+    --dark: 16.41% 0.006 285.68;
+    --bg: 100% 3.5594404384177905e-8 106.37411429114086;
+    --fg: 14.05% 0.004 285.82;
 
-    --overlay: 0 0% 100%;
-    --overlay-fg: 240 10% 3.9%;
+    --overlay: 100% 3.5594404384177905e-8 106.37411429114086;
+    --overlay-fg: 14.05% 0.004 285.82;
 
-    --primary: 216.74 100% 50%;
-    --primary-fg: 0 0% 100%;
+    --primary: 55.76% 0.244 261.22;
+    --primary-fg: 100% 3.5594404384177905e-8 106.37411429114086;
 
-    --secondary: 240 4.8% 95.9%;
-    --secondary-fg: 240 5.9% 10%;
+    --secondary: 96.76% 0.001 286.38;
+    --secondary-fg: 21.03% 0.006 285.88;
 
-    --tertiary: 0 0% 100%;
-    --tertiary-fg: 240 4% 16%;
+    --tertiary: 100% 3.5594404384177905e-8 106.37411429114086;
+    --tertiary-fg: 27.47% 0.006 286;
 
-    --accent: 216.74 100% 50%;
-    --accent-fg: 0 0% 100%;
+    --accent: 55.76% 0.244 261.22;
+    --accent-fg: 100% 3.5594404384177905e-8 106.37411429114086;
 
-    --accent-subtle: 216.92 100% 97.45%;
-    --accent-subtle-fg: 216.74 100% 40%;
+    --accent-subtle: 97.47% 0.011951506905820171 259.81768693271533;
+    --accent-subtle-fg: 47.45% 0.2046280151598458 260.967449727105;
 
-    --success: 161.38 93.55% 30.39%;
-    --success-fg: 151.76 80.95% 95.88%;
+    --success: 59.59% 0.127 163.23;
+    --success-fg: 97.93% 0.021 166.11;
 
-    --info: 81.97 84.52% 67.06%;
-    --info-fg: 89.27 80.39% 10%;
+    --info: 89.72% 0.179 126.66;
+    --info-fg: 27.41% 0.069 132.11;
 
-    --muted: 240 4.8% 95.9%;
-    --muted-fg: 240 3.8% 46.1%;
+    --muted: 96.76% 0.001 286.38;
+    --muted-fg: 55.19% 0.014 285.94;
 
-    --danger: 0 72.22% 50.59%;
-    --danger-fg: 0 85.71% 97.25%;
+    --danger: 57.71% 0.215 27.32;
+    --danger-fg: 97.05% 0.013 17.38;
 
-    --warning: 43.26 96.41% 56.27%;
-    --warning-fg: 20.91 91.67% 14.12%;
+    --warning: 83.69% 0.164 84.43;
+    --warning-fg: 27.92% 0.074 45.64;
 
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
+    --border: 91.97% 0.004 286.32;
+    --input: 91.97% 0.004 286.32;
     --ring: var(--primary);
-    --toggle: 240 5% 84%;
+    --toggle: 87.16% 0.006 286.28;
     --radius: 0.5rem;
   }
 
   .dark {
-    --bg: 0 0% 0%;
-    --fg: 0 0% 98%;
+    --bg: 0% 0 0;
+    --fg: 98.48% 0 0;
 
-    --overlay: 240 6% 6%;
-    --overlay-fg: 0 0% 98%;
+    --overlay: 16.64% 0.004 285.98;
+    --overlay-fg: 98.48% 0 0;
 
-    --primary: 216 98% 52%;
-    --primary-fg: 0 0% 100%;
+    --primary: 57.51% 0.229 260.21;
+    --primary-fg: 100% 3.5594404384177905e-8 106.37411429114086;
 
-    --secondary: 240 3.7% 15.9%;
-    --secondary-fg: 0 0% 98%;
+    --secondary: 27.41% 0.005 286.03;
+    --secondary-fg: 98.48% 0 0;
 
-    --info: 84.91 100% 66.47%;
-    --info-fg: 120 100% 13.14%;
+    --info: 92.15% 0.209 129.31;
+    --info-fg: 33.18% 0.1128435250344563 142.49533888780988;
 
-    --success: 161.38 93.55% 30.39%;
-    --success-fg: 151.76 80.95% 95.88%;
+    --success: 59.59% 0.127 163.23;
+    --success-fg: 97.93% 0.021 166.11;
 
-    --accent: 216 98% 52%;
-    --accent-fg: 0 0% 100%;
+    --accent: 57.51% 0.229 260.21;
+    --accent-fg: 100% 3.5594404384177905e-8 106.37411429114086;
 
-    --accent-subtle: 216 93.75% 6.27%;
-    --accent-subtle-fg: 204.92 100% 76.86%;
+    --accent-subtle: 15.82% 0.044 253.07;
+    --accent-subtle-fg: 82.36% 0.098 240.42;
 
-    --tertiary: 240 10% 5.5%;
-    --tertiary-fg: 240 5% 96%;
+    --tertiary: 15.86% 0.006 285.71;
+    --tertiary-fg: 96.83% 0.001 286.37;
 
-    --muted: 240 3.7% 15.9%;
-    --muted-fg: 240 5% 64.9%;
+    --muted: 27.41% 0.005 286.03;
+    --muted-fg: 71.19% 0.013 286.07;
 
     --ring: var(--primary);
-    --toggle: 240 5% 26%;
-    --border: 240 7% 15%;
-    --input: 240 3.7% 15.9%;
+    --toggle: 37.01% 0.011 285.84;
+    --border: 26.08% 0.01 285.69;
+    --input: 27.41% 0.005 286.03;
   }
-}
-`} />
+}`} />
 
 ### Default Utilities
 Include this for the default set of utilities:
@@ -261,7 +261,7 @@ Then, add this section for react-aria-components:
 
 ```css
 .react-aria-DropIndicator[data-drop-target] {
-  outline: 1px solid hsl(var(--primary));
+  outline: 1px solid oklch(var(--primary));
 }
 ```
 
@@ -282,66 +282,66 @@ export default withTV({
   theme: {
     extend: {
       colors: {
-        light: 'hsl(var(--light))',
-        dark: 'hsl(var(--dark))',
-        border: 'hsl(var(--border))',
-        input: 'hsl(var(--input))',
-        ring: 'hsl(var(--ring))',
-        toggle: 'hsl(var(--toggle))',
-        background: 'hsl(var(--bg))',
-        fg: 'hsl(var(--fg))',
+        light: "oklch(var(--light) / <alpha-value>)",
+        dark: "oklch(var(--dark) / <alpha-value>)",
+        border: "oklch(var(--border) / <alpha-value>)",
+        input: "oklch(var(--input) / <alpha-value>)",
+        ring: "oklch(var(--ring) / <alpha-value>)",
+        toggle: "oklch(var(--toggle) / <alpha-value>)",
+        bg: "oklch(var(--bg) / <alpha-value>)",
+        fg: "oklch(var(--fg) / <alpha-value>)",
         primary: {
-          DEFAULT: 'hsl(var(--primary))',
-          fg: 'hsl(var(--primary-fg))',
-          '50': '#eef8ff',
-          '100': '#d8eeff',
-          '200': '#b9e0ff',
-          '300': '#89cfff',
-          '400': '#52b4ff',
-          '500': '#2a91ff',
-          '600': '#0d6efd',
-          '700': '#0c5ae9',
-          '800': '#1149bc',
-          '900': '#144194',
-          '950': '#11295a'
+          DEFAULT: "oklch(var(--primary) / <alpha-value>)",
+          fg: "oklch(var(--primary-fg) / <alpha-value>)",
+          '50': 'oklch(97.37% 0.014 238)',
+          '100': 'oklch(93.81% 0.03280649558828209 241.06746081081621)',
+          '200': 'oklch(88.9% 0.059 242.33)',
+          '300': 'oklch(82.58% 0.09763750297234024 239.47890979942932)',
+          '400': 'oklch(74.36% 0.142 244.63)',
+          '500': 'oklch(65.63% 0.18687681791257255 253.9987240551966)',
+          '600': 'oklch(57.82% 0.228 260.03)',
+          '700': 'oklch(52.27% 0.227 261.8)',
+          '800': 'oklch(45.04% 0.19 262.37)',
+          '900': 'oklch(39.92% 0.145 261.36)',
+          '950': 'oklch(29.38% 0.093 262.52)',
         },
         secondary: {
-          DEFAULT: 'hsl(var(--secondary))',
-          fg: 'hsl(var(--secondary-fg))'
+          DEFAULT: "oklch(var(--secondary) / <alpha-value>)",
+          fg: "oklch(var(--secondary-fg) / <alpha-value>)"
         },
         tertiary: {
-          DEFAULT: 'hsl(var(--tertiary))',
-          fg: 'hsl(var(--tertiary-fg))'
+          DEFAULT: "oklch(var(--tertiary) / <alpha-value>)",
+          fg: "oklch(var(--tertiary-fg) / <alpha-value>)"
         },
         accent: {
-          DEFAULT: "hsl(var(--accent))",
-          fg: "hsl(var(--accent-fg))",
-          subtle: "hsl(var(--accent-subtle))",
-          'subtle-fg': "hsl(var(--accent-subtle-fg))"
+          DEFAULT: "oklch(var(--accent) / <alpha-value>)",
+          fg: "oklch(var(--accent-fg) / <alpha-value>)",
+          subtle: "oklch(var(--accent-subtle) / <alpha-value>)",
+          "subtle-fg": "oklch(var(--accent-subtle-fg) / <alpha-value>)"
         },
         success: {
-          DEFAULT: 'hsl(var(--success))',
-          fg: 'hsl(var(--success-fg))'
+          DEFAULT: "oklch(var(--success) / <alpha-value>)",
+          fg: "oklch(var(--success-fg) / <alpha-value>)"
         },
         info: {
-          DEFAULT: 'hsl(var(--info))',
-          fg: 'hsl(var(--info-fg))'
+          DEFAULT: "oklch(var(--info) / <alpha-value>)",
+          fg: "oklch(var(--info-fg) / <alpha-value>)"
         },
         danger: {
-          DEFAULT: 'hsl(var(--danger))',
-          fg: 'hsl(var(--danger-fg))'
+          DEFAULT: "oklch(var(--danger) / <alpha-value>)",
+          fg: "oklch(var(--danger-fg) / <alpha-value>)"
         },
         warning: {
-          DEFAULT: 'hsl(var(--warning))',
-          fg: 'hsl(var(--warning-fg))'
+          DEFAULT: "oklch(var(--warning) / <alpha-value>)",
+          fg: "oklch(var(--warning-fg) / <alpha-value>)"
         },
         muted: {
-          DEFAULT: 'hsl(var(--muted))',
-          fg: 'hsl(var(--muted-fg))'
+          DEFAULT: "oklch(var(--muted) / <alpha-value>)",
+          fg: "oklch(var(--muted-fg) / <alpha-value>)"
         },
         overlay: {
-          DEFAULT: 'hsl(var(--overlay))',
-          fg: 'hsl(var(--overlay-fg))'
+          DEFAULT: "oklch(var(--overlay) / <alpha-value>)",
+          fg: "oklch(var(--overlay-fg) / <alpha-value>)"
         }
       },
       borderRadius: {
