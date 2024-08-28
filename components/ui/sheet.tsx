@@ -41,17 +41,17 @@ const generateCompoundVariants = (sides: Array<Sides>) => {
     isStack: true,
     className:
       side === "top"
-        ? "top-2 inset-x-2 rounded-lg border"
+        ? "top-2 inset-x-2 rounded-xl ring-1 border-b-0 ring-dark/5 dark:ring-border"
         : side === "bottom"
-          ? "bottom-2 inset-x-2 rounded-lg border"
+          ? "bottom-2 inset-x-2 rounded-xl ring-1 border-t-0 ring-dark/5 dark:ring-border"
           : side === "left"
-            ? "left-2 inset-y-2 rounded-lg border"
-            : "right-2 inset-y-2 rounded-lg border"
+            ? "left-2 inset-y-2 rounded-xl ring-1 border-r-0 ring-dark/5 dark:ring-border"
+            : "right-2 inset-y-2 rounded-xl ring-1 border-l-0 ring-dark/5 dark:ring-border"
   }))
 }
 
 const sheetContentStyles = tv({
-  base: "fixed z-50 grid gap-4 bg-overlay text-overlay-fg shadow-lg transition ease-in-out",
+  base: "fixed z-50 grid gap-4 bg-overlay border-dark/5 dark:border-border text-overlay-fg shadow-lg transition ease-in-out",
   variants: {
     isEntering: {
       true: "duration-300 animate-in "
