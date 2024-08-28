@@ -29,10 +29,14 @@ const ListBox = <T extends object>({ children, className, ...props }: ListBoxPro
 )
 
 const listBoxItemStyles = tv({
-  base: "lbi cursor-pointer relative rounded-[calc(var(--radius)-1px)] p-2 text-base outline-none transition lg:text-sm",
+  base: "lbi cursor-pointer relative rounded-[calc(var(--radius)-1px)] p-2 text-base outline-none lg:text-sm",
   variants: {
-    isFocusVisible: { true: "bg-secondary text-secondary-fg" },
-    isHovered: { true: "bg-accent text-accent-fg" },
+    isFocusVisible: {
+      true: "bg-secondary [&:focus-visible_[slot=label]]:text-accent-fg [&:focus-visible_[slot=description]]:text-accent-fg/70 text-secondary-fg"
+    },
+    isHovered: {
+      true: "bg-accent [&:hover_[slot=label]]:text-accent-fg [&:hover_[slot=description]]:text-accent-fg/70 text-accent-fg"
+    },
     isFocused: {
       true: "[&_[data-slot=icon]]:text-accent-fg [&_[data-slot=label]]:text-accent-fg [&_.text-muted-fg]:text-accent-fg/80 bg-accent text-accent-fg"
     },
