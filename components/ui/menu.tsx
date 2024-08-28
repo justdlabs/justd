@@ -87,7 +87,6 @@ const Content = <T extends object>({
   className,
   showArrow = false,
   popoverClassName,
-  offset = 4,
   ...props
 }: MenuContentProps<T>) => {
   const { respectScreen } = React.useContext(MenuContext)
@@ -134,11 +133,10 @@ const Item = ({ className, isDanger = false, children, ...props }: MenuItemProps
 }
 
 export interface MenuHeaderProps extends React.ComponentProps<typeof Header> {
-  inset?: boolean
   separator?: boolean
 }
 
-const MenuHeader = ({ className, inset, separator = false, ...props }: MenuHeaderProps) => (
+const MenuHeader = ({ className, separator = false, ...props }: MenuHeaderProps) => (
   <Header
     className={cn(
       "p-2 text-base font-semibold sm:text-sm",

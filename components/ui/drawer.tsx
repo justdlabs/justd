@@ -219,11 +219,7 @@ const Drawer = ({
   )
 }
 
-const DrawerContent = ({
-  children,
-  className,
-  ...props
-}: React.ComponentProps<typeof DrawerPrimitive>) => {
+const DrawerContent = ({ children, ...props }: React.ComponentProps<typeof DrawerPrimitive>) => {
   return (
     <DrawerPrimitive>
       <DrawerContentPrimitive {...props}>

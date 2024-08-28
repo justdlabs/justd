@@ -4,29 +4,6 @@ import React from "react"
 
 import { Choicebox } from "ui"
 
-const packages = [
-  {
-    id: 1,
-    title: "Small",
-    description: "Perfect for beginners. Basic resources for light projects."
-  },
-  {
-    id: 2,
-    title: "Medium",
-    description: "Great for growing sites. More power and storage."
-  },
-  {
-    id: 3,
-    title: "Large",
-    description: "Ideal for busy sites. Lots of resources and support."
-  },
-  {
-    id: 4,
-    title: "Extra Large",
-    description: "Max power for demanding applications. Top-tier performance."
-  }
-]
-
 export default function ChoiceboxDemo() {
   return (
     <Choicebox aria-label="Select items" selectionMode="multiple">

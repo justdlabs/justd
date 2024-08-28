@@ -81,7 +81,6 @@ const DatePicker = <T extends DateValue>({
   label,
   className,
   description,
-  children,
   errorMessage,
   ...props
 }: DatePickerProps<T>) => {

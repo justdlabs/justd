@@ -102,7 +102,6 @@ interface CodeCollapsibleProps {
 }
 
 function CodeCollapsible({
-  children,
   isOpened,
   onOpenChange,
   lang = "tsx",

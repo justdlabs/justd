@@ -15,7 +15,6 @@ import { cr, Loader, Tabs } from "ui"
 interface HowProps extends React.HTMLAttributes<HTMLDivElement> {
   toUse: string
   minW72?: boolean
-  align?: "center" | "start" | "end"
   description?: string
   isCenter?: boolean
   className?: string
@@ -24,12 +23,9 @@ interface HowProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export function DocHow({
   toUse,
-  children,
   className,
   minW72 = false,
   isCenter = true,
-  align = "center",
-  description,
   withNoPadding = false,
   ...props
 }: HowProps) {

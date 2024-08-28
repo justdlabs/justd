@@ -24,13 +24,9 @@ const Snippet: React.FC<SnippetProps> = ({ className, text, ...props }) => {
 
   const handleCopy = async () => {
     if (navigator.clipboard && window.isSecureContext) {
-      try {
-        await navigator.clipboard.writeText(text)
-        setCopied(true)
-        setTimeout(() => setCopied(false), 2000) // Reset the copied state after 2 seconds
-      } catch (error) {
-        toast.error("Failed to copy to clipboard")
-      }
+      await navigator.clipboard.writeText(text)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000) // Reset the copied state after 2 seconds
     } else {
       toast.error("Failed to copy to clipboard")
     }

@@ -71,12 +71,6 @@ const InstallCommand: React.FC<InstallCommandProps> = ({
       }
       // @ts-ignore
       newCommand = `${initMap[tool]} ${initCommand}`
-    } else if (isDiff) {
-      const initMap = {
-        NPM: "npx"
-      }
-      // @ts-ignore
-      newCommand = `${diffCommand} ${commandArgs}`
     } else if (isInstall) {
       const installMap = {
         Bun: "bun add",

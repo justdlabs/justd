@@ -4,10 +4,6 @@ import React from "react"
 
 import { Note } from "ui"
 
-const notes = ["info", "primary", "secondary", "warning", "danger", "success"].map((n) => ({
-  name: n
-}))
-
 export default function NoteDemo() {
   return (
     <Note>

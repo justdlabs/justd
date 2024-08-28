@@ -109,7 +109,6 @@ const PaginationItem = ({
   size = "square-petite",
   appearance = "outline",
   intent,
-  shape = "square",
   className,
   isCurrent,
   children,

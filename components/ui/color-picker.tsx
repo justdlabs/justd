@@ -80,7 +80,6 @@ const ColorPicker = ({
   description,
   colors = [...zincColors],
   placeholder = "Fill Color",
-  isHex = true,
   isDisabled = false,
   className,
   trigger = "color-picker",

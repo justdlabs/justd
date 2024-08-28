@@ -14,7 +14,7 @@
     "@typescript-eslint/prefer-nullish-coalescing": "off",
     "@typescript-eslint/consistent-type-imports": "error",
     "@typescript-eslint/require-await": "off",
-    "@typescript-eslint/no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
     "react/react-in-jsx-scope": "off",
     "react/no-children-prop": "off",
     "@typescript-eslint/no-explicit-any": "off",

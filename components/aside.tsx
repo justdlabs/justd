@@ -225,7 +225,7 @@ const asideLinkStyles = tv({
   }
 })
 
-function AsideLink({ indicatorClassName, className, children, active, ...props }: AsideLinkProps) {
+function AsideLink({ indicatorClassName, className, children, ...props }: AsideLinkProps) {
   const pathname = usePathname()
   const isActive = pathname === props.href
   return (
