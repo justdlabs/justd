@@ -77,9 +77,9 @@ const Header = ({ className, ...props }: DialogHeaderProps) => {
   )
 }
 
-interface DialogTitleProps extends HeadingProps {
-  className?: string
-}
+type DialogTitleProps = HeadingProps & {
+  className?: string;
+};
 
 const Title = ({ tracking = "tight", level = 2, className, ...props }: DialogTitleProps) => (
   <Heading
