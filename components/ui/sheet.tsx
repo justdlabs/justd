@@ -130,7 +130,7 @@ const SheetContent = ({
         )}
         {...props}
       >
-        <Dialog role={role} className="h-full">
+        <Dialog role={role} aria-label={props["aria-label"] ?? undefined} className="h-full">
           {(values) => (
             <>
               {props.children}
