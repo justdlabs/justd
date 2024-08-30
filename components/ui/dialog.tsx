@@ -78,8 +78,8 @@ const Header = ({ className, ...props }: DialogHeaderProps) => {
 }
 
 type DialogTitleProps = HeadingProps & {
-  className?: string;
-};
+  className?: string
+}
 
 const Title = ({ tracking = "tight", level = 2, className, ...props }: DialogTitleProps) => (
   <Heading

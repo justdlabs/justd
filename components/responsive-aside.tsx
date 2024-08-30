@@ -5,7 +5,7 @@ import React from "react"
 import { LayoutGroup } from "framer-motion"
 import { IconBrandJustd, IconBrandX, IconHamburger, IconSearch } from "justd-icons"
 import { usePathname } from "next/navigation"
-import { Button, buttonStyles, cn, Link, Sheet } from "ui"
+import { Button, buttonStyles, Link, Sheet } from "ui"
 
 import { Aside } from "./aside"
 import { CommandPalette } from "./command-palette"
@@ -24,9 +24,9 @@ export function ResponsiveAside({
   const pathname = usePathname()
   React.useEffect(() => setOpenAside(false), [pathname])
   return (
-    <nav className="sm:hidden z-10 relative">
+    <nav className="lg:hidden z-10 relative">
       <CommandPalette setOpen={setOpenCmd} openCmd={openCmd} />
-      <div className={cn("flex items-center justify-between pl-4 pr-2 -mb-2 pt-2")}>
+      <div className="flex items-center justify-between pl-4 pr-2 -mb-2 pt-2">
         <Button
           aria-label="Open Menu."
           className="-ml-2 [&_[data-slot=icon]]:text-fg"
@@ -38,11 +38,7 @@ export function ResponsiveAside({
         >
           <IconHamburger />
         </Button>
-        <Link
-          className="focus:outline-none -mr-6 focus:ring-1 focus:ring-primary-500 rounded"
-          href="/"
-          aria-label="Logo"
-        >
+        <Link className="focus:outline-none -mr-6 rounded" href="/" aria-label="Logo">
           <IconBrandJustd className="size-6" />
         </Link>
         <div className="flex items-center gap-x-1">
