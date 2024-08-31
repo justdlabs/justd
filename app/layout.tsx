@@ -1,7 +1,5 @@
 import React from "react"
 
-import { Footer } from "@/components/footer"
-import { Navbar } from "@/components/navbar"
 import { Providers } from "@/components/providers"
 import { siteConfig } from "@/resources/config/site"
 import { cn } from "@/resources/lib/utils"
@@ -10,7 +8,6 @@ import { OpenpanelProvider } from "@openpanel/nextjs"
 import type { Metadata, Viewport } from "next"
 import { ViewTransitions } from "next-view-transitions"
 import localFont from "next/font/local"
-import { Toast } from "ui"
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? siteConfig.url),
@@ -102,13 +99,7 @@ export default function RootLayout({
           )}
         >
           <Providers>
-            <div className="relative flex min-h-dvh flex-col bg-bg">
-              <Navbar />
-              <main className="flex-1">{children}</main>
-
-              <Footer />
-              <Toast />
-            </div>
+            {children}
             {process.env.NODE_ENV === "production" && (
               <OpenpanelProvider
                 url={process.env.ANALYTICS_CLIENT_URL as string}

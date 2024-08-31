@@ -27,6 +27,7 @@ const avatarStyles = tv({
   ],
   variants: {
     size: {
+      "extra-small": "size-5",
       small: "size-6",
       medium: "size-8",
       large: "size-10"
@@ -116,6 +117,7 @@ const avatarBadgeStyles = tv({
   base: ["size-3 z-1 absolute bottom-0 right-0 z-10 rounded-full ring-[1.5px] ring-bg bg-bg"],
   variants: {
     size: {
+      "extra-small": "size-[0.360rem] translate-x-[0%] translate-y-[0%]",
       small: "size-1.5 translate-x-[0%] translate-y-[0%]",
       medium: "size-2 translate-x-[5%] translate-y-[5%]",
       large: "size-2.5 translate-x-[5%] translate-y-[5%]"

@@ -56,7 +56,7 @@ export function SourceCode({ title, message, ext = "tsx", toShow, ...props }: So
         <p className="mb-4 -mt-2">
           {message
             ? message
-            : "And next, you can copy the code below and paste it into your dopest component folder."}
+            : "And next, you can copy the code below and paste it into your component folder."}
         </p>
         {title && <figcaption data-rehype-pretty-code-title="">{title}</figcaption>}
         <CodeCollapsibleRoot>

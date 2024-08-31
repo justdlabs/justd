@@ -1,0 +1,286 @@
+---
+title: "Sidebar"
+description: "A sidebar is a component that helps you organize your content and navigation."
+order: 1
+published: true
+references: ["https://react-spectrum.adobe.com/react-aria/ListBox.html#props"]
+---
+
+## Basic
+I can't display a live example here. Click on the image to view it in full screen, or <a href='/aside' target='_blank'>here</a>.
+<a href='/aside' className='group' target='_blank'>
+  <Image src="/images/aside/example-aside.jpg" className='aspect-video hover:grayscale-0 grayscale transition-transform' alt="Sidebar" width={1200} height={800} />
+</a>
+
+## Installation
+<InstallCommand isAdd items={['aside']}/>
+
+## Composed Components
+<Composed components={['button', 'sheet']}/>
+
+## Manual Installation
+<InstallCommand isInstall isManual items={['react-aria-components justd-icons']}/>
+<SourceCode toShow={['aside']}/>
+
+## Layout
+If we're only considering the sidebar, the layout might not seem like a concern. However, to ensure everything works smoothly, especially in terms of responsiveness, we need to use the `Layout` component. Within the `Layout` component, we can call `Aside.Layout` and pass the `navbar` and `aside` props. The `navbar` prop represents the navigation bar displayed in mobile view, while the `aside` prop represents the sidebar displayed in both desktop and mobile views.
+
+
+<PlainCode code={`"use client"
+
+import React from "react"
+
+import { useTheme } from "@/components/theme-provider"
+import { ThemeSwitcher } from "@/components/theme-switcher"
+import {
+  IconBell,
+  IconBook,
+  IconBrandJustd,
+  IconChevronLgDown,
+  IconCirclePerson,
+  IconCreditCard,
+  IconDashboard,
+  IconEnvelope,
+  IconLogout,
+  IconMessage,
+  IconMoon,
+  IconSearch,
+  IconSettings,
+  IconShield,
+  IconSun,
+  IconSupport
+} from "justd-icons"
+import { Aside, Avatar, Button, Link, Menu } from "ui"
+
+export default function Layout({ children }: { children: React.ReactNode }) {
+  const { theme, setTheme } = useTheme()
+  return (
+    <Aside.Layout
+      navbar={
+        <Aside.Responsive>
+          <Button aria-label="Inbox" appearance="plain" shape="circle" size="square-petite">
+            <IconBell />
+          </Button>
+          <Button aria-label="Search" appearance="plain" shape="circle" size="square-petite">
+            <IconSearch />
+          </Button>
+          <ThemeSwitcher shape="circle" appearance="plain" />
+          <Menu>
+            <Button
+              appearance="plain"
+              size="square-petite"
+              shape="circle"
+              aria-label="Profile"
+              className="group"
+            >
+              <Avatar size="medium" src="https://github.com/irsyadadl.png" />
+            </Button>
+            <Menu.Content placement="top" className="min-w-[--trigger-width]">
+              <Menu.Item href="#">
+                <IconCirclePerson />
+                Profile
+              </Menu.Item>
+              <Menu.Item href="#">
+                <IconSettings />
+                Settings
+              </Menu.Item>
+              <Menu.Item href="#">
+                <IconShield />
+                Security
+              </Menu.Item>
+              <Menu.Separator />
+              <Menu.Item href="#">
+                <IconBook />
+                Documentation
+              </Menu.Item>
+              <Menu.Item href="#">
+                <IconSupport />
+                Contact Support
+              </Menu.Item>
+              <Menu.Separator />
+              <Menu.Item href="#">
+                <IconLogout />
+                Log out
+              </Menu.Item>
+            </Menu.Content>
+          </Menu>
+        </Aside.Responsive>
+      }
+      aside={
+        <>
+          <Aside.Header>
+            <Link className="flex items-center gap-x-2" href="#">
+              <IconBrandJustd />
+              <strong>Justd</strong>
+            </Link>
+          </Aside.Header>
+          <Aside.Content>
+            <Aside.Section>
+              <Aside.Item isCurrent icon={IconDashboard} href="#">
+                Overview
+              </Aside.Item>
+              <Aside.Item icon={IconSettings} href="#">
+                Settings
+              </Aside.Item>
+              <Aside.Item icon={IconCreditCard} href="#">
+                Billing
+              </Aside.Item>
+              <Aside.Item icon={IconEnvelope} href="#" badge="49.67K">
+                Newsletter
+              </Aside.Item>
+              <Aside.Item icon={IconMessage} href="#" badge={35}>
+                Messages
+              </Aside.Item>
+            </Aside.Section>
+            <Aside.Section title="Projects" items={projects}>
+              {(item) => (
+                <Aside.Item id={item.name} href={item.href}>
+                  {item.name}
+                </Aside.Item>
+              )}
+            </Aside.Section>
+          </Aside.Content>
+          <Aside.Footer className="lg:flex lg:flex-row hidden items-center">
+            <Menu>
+              <Button
+                appearance="plain"
+                aria-label="Profile"
+                className="group w-full justify-start flex"
+              >
+                <Avatar
+                  size="extra-small"
+                  shape="square"
+                  className="-ml-1.5"
+                  src="https://github.com/irsyadadl.png"
+                />
+                Irsyad A. Panjaitan
+                <IconChevronLgDown className="right-3 absolute group-pressed:rotate-180 transition-transform" />
+              </Button>
+              <Menu.Content placement="top" className="min-w-[--trigger-width]">
+                <Menu.Item href="#">
+                  <IconCirclePerson />
+                  Profile
+                </Menu.Item>
+                <Menu.Item href="#">
+                  <IconSettings />
+                  Settings
+                </Menu.Item>
+                <Menu.Item href="#">
+                  <IconShield />
+                  Security
+                </Menu.Item>
+                <Menu.Separator />
+                <Menu.Item onAction={() => setTheme(theme === "light" ? "dark" : "light")}>
+                  {theme === "light" ? <IconMoon /> : <IconSun />}
+                  Preferences
+                </Menu.Item>
+                <Menu.Separator />
+                <Menu.Item href="#">
+                  <IconLogout />
+                  Log out
+                </Menu.Item>
+              </Menu.Content>
+            </Menu>
+          </Aside.Footer>
+        </>
+      }
+    >
+      <main className="relative">{children}</main>
+    </Aside.Layout>
+  )
+}
+
+const projects = [
+  { name: "Website Redesign", href: "#" },
+  { name: "New Product Launch", href: "#" },
+  { name: "Market Research", href: "#" },
+  { name: "Sales Dashboard", href: "#" },
+  { name: "Customer Feedback System", href: "#" },
+  { name: "Mobile App Development", href: "#" }
+]`}/>
+
+If you're using Next.js, you don't have to do anything. But if you're using a different framework, you can use the `Layout` component to wrap your entire application. This is how it looks like:
+```
+<AppLayout>
+  You can put your entire application here.
+</AppLayout>
+```
+
+## Inertia.js
+Inertia.js comes with a built-in persistent layout, so you can do it like this:
+
+```
+Home.layout = (page: React.ReactNode) => <AppLayout children={page} />
+```
+## Badge
+
+Sometimes you need to display a total number of items in a list. You can use the `badge` prop within the `Aside.Item` component like this:
+
+```tsx
+<Aside.Item href="#" badge="5.67K">
+  Newsletter
+</Aside.Item>
+<Aside.Item href="#" badge={35}>
+  Messages
+</Aside.Item>
+```
+
+## Icon
+
+The icon is provided as a prop to maintain simplicity, especially since `ListBoxItem` requires a `textValue`. By default, if the child element is a string, it will automatically be used as the `textValue`:
+
+```tsx
+const textValue = typeof children === "string" ? children : undefined;
+```
+
+This is why the icon is passed as a prop, allowing you to include it like this:
+
+```tsx
+<Aside.Item href="#" icon={IconEnvelope}>
+  Newsletter
+</Aside.Item>
+```
+
+If you prefer to pass the icon as a child element, remember to manually provide the `textValue` prop:
+
+```tsx
+<Aside.Item href="#" textValue="Newsletter">
+  <IconEnvelope />
+  Newsletter
+</Aside.Item>
+```
+
+Failing to provide `textValue` when using non-plain text children will result in the following warning:
+
+```
+A `textValue` prop is required for <ListBoxItem> elements with non-plain text children in order to support accessibility features such as type to select.
+```
+
+## Blurred
+
+The `isBlurred` prop can be used to blur the background of the `Aside.Content` component. To do that, simply add the prop to the `Aside.Layout` component:
+
+```
+<Aside.Layout
+  isBlurred
+```
+
+## Is Stack
+By default, the Layout will be stacked on mobile. However, if you don't want that, you can use the `isStack` prop to change that:
+
+```
+<Aside.Layout
+  isStack={false}
+```
+
+## Side
+
+The `side` prop can be used to change the side of the `Aside.Content` component. By default, it's set to `left`, but you can change it to `right` by adding the prop:
+
+```
+<Aside.Layout
+  side="right"
+```
+
+## Carefully
+Under the hood, `Aside.Content` and `Aside.Item` utilizes `ListBox`, so be aware of any caveats associated with it.

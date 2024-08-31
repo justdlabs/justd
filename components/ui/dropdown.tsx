@@ -49,10 +49,6 @@ const dropdownItemStyles = tv({
   ]
 })
 
-interface DropdownSectionProps<T> extends SectionProps<T> {
-  title?: string
-}
-
 const dropdownSectionStyles = tv({
   slots: {
     section:
@@ -63,6 +59,10 @@ const dropdownSectionStyles = tv({
 })
 
 const { section, header } = dropdownSectionStyles()
+
+interface DropdownSectionProps<T> extends SectionProps<T> {
+  title?: string
+}
 
 const DropdownSection = <T extends object>({ className, ...props }: DropdownSectionProps<T>) => {
   return (
