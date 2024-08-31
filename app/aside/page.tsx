@@ -14,7 +14,7 @@ export default function Page() {
         columns={{ initial: 1, lg: 4 }}
       >
         {Object.values(data).map((item, index) => (
-          <Card key={index} className="border-y-0 border-x-0 rounded-none py-4 lg:px-6">
+          <Card key={index} className="border-y-0 shadow-none border-x-0 rounded-none py-4 lg:px-6">
             <Card.Header className="p-0" title={item.value} description={item.description} />
           </Card>
         ))}
