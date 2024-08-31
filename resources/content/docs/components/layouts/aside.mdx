@@ -282,5 +282,13 @@ The `side` prop can be used to change the side of the `Aside.Content` component.
   side="right"
 ```
 
+## Current Active Item
+
+The `isCurrent` prop can be used to highlight the current active item. To do that, simply add the prop to the `Aside.Item` component:
+
+```
+<Aside.Item isCurrent/>
+```
+
 ## Carefully
 Under the hood, `Aside.Content` and `Aside.Item` utilizes `ListBox`, so be aware of any caveats associated with it.
