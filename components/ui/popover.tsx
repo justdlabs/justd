@@ -25,8 +25,8 @@ const Popover = ({ children, ...props }: { children: React.ReactNode }) => {
   return <DialogTriggerPrimitive {...props}>{children}</DialogTriggerPrimitive>
 }
 
-const Title = ({ className, ...props }: React.ComponentProps<typeof Dialog.Title>) => (
-  <Dialog.Title className={cn("leading-none", className)} {...props} />
+const Title = ({ level = 2, className, ...props }: React.ComponentProps<typeof Dialog.Title>) => (
+  <Dialog.Title className={cn("sm:leading-none", level === 2 && 'sm:text-lg', className)} {...props} />
 )
 
 const Header = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
@@ -69,7 +69,7 @@ const drawerStyles = tv({
   variants: {
     isMenu: {
       true: "p-0 [&_[role=dialog]]:px-0 rounded-t-xl",
-      false: "p-4 rounded-t-3xl"
+      false: "py-4 rounded-t-3xl"
     },
     isEntering: {
       true: [
