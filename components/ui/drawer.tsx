@@ -18,6 +18,7 @@ import { Button, type ButtonProps, Modal, ModalOverlay } from "react-aria-compon
 import { twJoin } from "tailwind-merge"
 
 import { Dialog } from "./dialog"
+import { cn } from "./primitive"
 
 const inertiaTransition: Inertia = {
   type: "inertia",
@@ -97,7 +98,7 @@ const DrawerContentPrimitive = ({ children, ...props }: DrawerOverlayPrimitivePr
         }}
       >
         <ModalPrimitive
-          className={twJoin(
+          className={cn(
             "max-h-full flex flex-col w-full rounded-t-3xl sm:rounded-lg overflow-hidden bg-overlay text-overlay-fg text-left align-middle shadow-lg",
             "ring-1 ring-zinc-950/5 dark:ring-white/15"
           )}
@@ -237,7 +238,7 @@ const DrawerContent = ({ children, ...props }: React.ComponentProps<typeof Drawe
 }
 
 const DrawerHeader = ({ className, ...props }: React.ComponentProps<typeof Dialog.Header>) => (
-  <Dialog.Header className={twJoin("pt-2", className)} {...props} />
+  <Dialog.Header className={cn("pt-2", className)} {...props} />
 )
 
 const DrawerBody = ({
@@ -245,7 +246,7 @@ const DrawerBody = ({
   className,
   ...props
 }: React.ComponentProps<typeof Dialog.Body>) => (
-  <Dialog.Body {...props} className={twJoin("px-4", className)}>
+  <Dialog.Body {...props} className={cn("px-4", className)}>
     {children}
   </Dialog.Body>
 )
@@ -255,7 +256,7 @@ const DrawerFooter = ({
   className,
   ...props
 }: React.ComponentProps<typeof Dialog.Footer>) => (
-  <Dialog.Footer {...props} className={twJoin("pb-2", className)}>
+  <Dialog.Footer {...props} className={cn("pb-2", className)}>
     {children}
   </Dialog.Footer>
 )

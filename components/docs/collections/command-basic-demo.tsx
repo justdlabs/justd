@@ -3,7 +3,7 @@
 import React, { useState } from "react"
 
 export default function CommandBasicDemo() {
-  const [open, setOpen] = useState(false)
+  const [, setOpen] = useState(false)
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
       if (e.key === "e") {

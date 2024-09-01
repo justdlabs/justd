@@ -26,7 +26,7 @@ export function TakeCurrentUrl() {
         })
         setCopied(true)
         setTimeout(() => setCopied(false), 2000) // Reset the copied state after 2 seconds
-      } catch (error) {
+      } catch {
         toast.error("Failed to copy to clipboard")
       }
     } else {

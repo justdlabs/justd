@@ -21,7 +21,7 @@ interface Props {
 }
 
 export function Controller({ themeId, applyTheme }: Props) {
-  const [selectedTheme, setSelectedTheme] = React.useState<Key>(themeId)
+  const [, setSelectedTheme] = React.useState<Key>(themeId)
   const [open, setOpen] = React.useState(false)
   return (
     <div className="flex justify-end mb-6">
