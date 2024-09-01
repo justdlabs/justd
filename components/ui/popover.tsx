@@ -26,7 +26,10 @@ const Popover = ({ children, ...props }: { children: React.ReactNode }) => {
 }
 
 const Title = ({ level = 2, className, ...props }: React.ComponentProps<typeof Dialog.Title>) => (
-  <Dialog.Title className={cn("sm:leading-none", level === 2 && 'sm:text-lg', className)} {...props} />
+  <Dialog.Title
+    className={cn("sm:leading-none", level === 2 && "sm:text-lg", className)}
+    {...props}
+  />
 )
 
 const Header = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
