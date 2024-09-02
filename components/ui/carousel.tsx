@@ -191,7 +191,7 @@ const CarouselHandler = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HT
       <div
         ref={ref}
         className={cn(
-          "mt-6 z-1 relative flex items-center gap-x-2",
+          "mt-6 z-10 relative flex items-center gap-x-2",
           orientation === "horizontal" ? "justify-end" : "justify-center",
           className
         )}

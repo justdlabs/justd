@@ -114,7 +114,7 @@ type AvatarBadgeProps = {
 }
 
 const avatarBadgeStyles = tv({
-  base: ["size-3 z-1 absolute bottom-0 right-0 rounded-full ring-[1.5px] ring-bg bg-bg"],
+  base: ["size-3 z-10 absolute bottom-0 right-0 rounded-full ring-[1.5px] ring-bg bg-bg"],
   variants: {
     size: {
       "extra-small": "size-[0.360rem] translate-x-[0%] translate-y-[0%]",
