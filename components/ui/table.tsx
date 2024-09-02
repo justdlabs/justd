@@ -107,7 +107,7 @@ const Header = <T extends object>({ children, className, columns, ...props }: He
   )
 }
 
-interface TableRow<T extends object> extends RowProps<T> {
+interface TableRowProps<T extends object> extends RowProps<T> {
   className?: string
 }
 
@@ -117,7 +117,7 @@ const TableRow = <T extends object>({
   columns,
   id,
   ...props
-}: TableRow<T>) => {
+}: TableRowProps<T>) => {
   const { selectionBehavior, allowsDragging } = useTableOptions()
   return (
     <Row

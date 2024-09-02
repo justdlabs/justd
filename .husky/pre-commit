@@ -1,1 +1,1 @@
-npx tsc && npm run format && npm run lint
+npx tsc && npm run lint
