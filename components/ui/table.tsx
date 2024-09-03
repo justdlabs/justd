@@ -1,6 +1,6 @@
 "use client"
 
-import { IconChevronDown, IconChevronUp, IconHamburger } from "justd-icons"
+import { IconChevronLgDown, IconChevronLgUp, IconFilterAsc, IconHamburger } from "justd-icons"
 import type {
   CellProps,
   ColumnProps,
@@ -76,11 +76,11 @@ const TableColumn = ({ children, className, ...props }: TableColumnProps) => (
           {children}
           {allowsSorting &&
             (sortDirection === undefined ? (
-              <span>daf</span>
+              <IconFilterAsc className="h-3" />
             ) : sortDirection === "ascending" ? (
-              <IconChevronUp />
+              <IconChevronLgUp className="h-3" />
             ) : (
-              <IconChevronDown />
+              <IconChevronLgDown className="h-3" />
             ))}
         </>
       </div>
