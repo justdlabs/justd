@@ -156,26 +156,28 @@ export function NavbarDropdown() {
         </span>
       </Button>
       <Menu.Content placement="bottom" className="sm:min-w-64">
-        <Menu.Item href="/">
-          <IconHome />
-          Home
-        </Menu.Item>
-        <Menu.Item href="/components">
-          <IconCube />
-          Components
-        </Menu.Item>
-        <Menu.Item href="/colors">
-          <IconColors />
-          Colors
-        </Menu.Item>
-        <Menu.Item href="/icons">
-          <IconBrandJustd />
-          Icons
-        </Menu.Item>
-        <Menu.Item href="/themes">
-          <IconColorPalette />
-          Themes
-        </Menu.Item>
+        <Menu.Section>
+          <Menu.Item href="/">
+            <IconHome />
+            Home
+          </Menu.Item>
+          <Menu.Item href="/components">
+            <IconCube />
+            Components
+          </Menu.Item>
+          <Menu.Item href="/colors">
+            <IconColors />
+            Colors
+          </Menu.Item>
+          <Menu.Item href="/icons">
+            <IconBrandJustd />
+            Icons
+          </Menu.Item>
+          <Menu.Item href="/themes">
+            <IconColorPalette />
+            Themes
+          </Menu.Item>
+        </Menu.Section>
         <Menu.Section title="Refs">
           <Menu.Item href="https://x.com/intent/follow?screen_name=getjustd" target="_blank">
             <IconBrandX />X / Twitter
