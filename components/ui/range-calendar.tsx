@@ -19,7 +19,7 @@ import { ctr, focusRing } from "./primitive"
 
 const cellRangeStyles = tv({
   extend: focusRing,
-  base: "flex h-full w-full items-center font-medium justify-center rounded-full forced-color-adjust-none",
+  base: "flex h-full w-full items-center tabular-nums justify-center rounded-full forced-color-adjust-none",
   variants: {
     selectionState: {
       none: "group-hover:bg-secondary-fg/15 group-pressed:bg-secondary-fg/20 forced-colors:group-pressed:bg-[Highlight]",

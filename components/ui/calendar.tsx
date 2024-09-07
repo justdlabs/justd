@@ -21,7 +21,7 @@ import { cr, ctr, focusRing } from "./primitive"
 
 const cellStyles = tv({
   extend: focusRing,
-  base: "flex size-10 sm:size-9 cursor-default items-center justify-center font-medium rounded-full lg:text-sm forced-color-adjust-none",
+  base: "flex size-10 sm:size-9 cursor-default tabular-nums items-center justify-center rounded-full lg:text-sm forced-color-adjust-none",
   variants: {
     isSelected: {
       false: "text-fg hover:bg-secondary-fg/15 pressed:bg-secondary-fg/20",

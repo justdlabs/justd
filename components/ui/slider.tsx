@@ -43,7 +43,7 @@ const sliderStyles = tv({
       "orientation-vertical:w-2 orientation-horizontal:h-2",
       "size-[1.15rem] dragging:size-[1.30rem] dragging:border-primary"
     ],
-    valueLabel: "text-muted-fg text-sm"
+    valueLabel: "text-muted-fg tabular-nums text-sm"
   }
 })
 

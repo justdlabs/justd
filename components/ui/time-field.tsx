@@ -22,7 +22,7 @@ export interface TimeFieldProps<T extends TimeValue> extends TimeFieldPrimitiveP
 
 const timeFieldStyles = tv({
   extend: fieldGroupStyles,
-  base: "flex w-fit font-mono min-w-28 justify-around whitespace-nowrap p-2 lg:text-sm"
+  base: "flex w-fit min-w-28 justify-around whitespace-nowrap p-2 lg:text-sm"
 })
 
 const TimeField = <T extends TimeValue>({

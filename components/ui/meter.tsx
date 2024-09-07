@@ -21,7 +21,9 @@ const Meter = ({ label, ...props }: MeterProps) => {
         <>
           <div className="flex w-full justify-between gap-2">
             <Label>{label}</Label>
-            <span className={`text-sm ${percentage >= 80 ? "text-danger" : "text-muted-fg"}`}>
+            <span
+              className={`text-sm tabular-nums ${percentage >= 80 ? "text-danger" : "text-muted-fg"}`}
+            >
               {percentage >= 80 && (
                 <IconTriangleInfo
                   aria-label="Alert"

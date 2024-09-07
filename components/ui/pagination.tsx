@@ -25,19 +25,19 @@ import { cn, cr } from "./primitive"
 
 const paginationStyles = tv({
   slots: {
-    pagination: "mx-auto flex w-full justify-center gap-1",
-    section: "flex h-9 gap-1",
-    list: "flex flex-row items-center gap-1",
+    pagination: "mx-auto flex w-full justify-center gap-[5px]",
+    section: "flex h-9 gap-[5px]",
+    list: "flex flex-row items-center gap-[5px]",
     itemButton:
-      "focus-visible:border-primary cursor-pointer focus-visible:bg-primary/10 dark:focus-visible:text-primary-100 dark:[&>[data-slot=icon]]:text-primary-100 focus-visible:text-primary-900 [&>[data-slot=icon]]:text-primary-960 focus-visible:ring-4 focus-visible:ring-primary/20",
-    itemLabel: "h-9 px-3.5 grid place-content-center",
+      "focus-visible:border-primary text-fg font-normal cursor-pointer focus-visible:bg-primary/10 focus-visible:ring-4 focus-visible:ring-primary/20",
+    itemLabel: "h-9 px-3.5 tabular-nums grid place-content-center",
     itemSeparator: "h-9 grid place-content-center",
     itemEllipsis:
-      "flex items-center justify-center focus-visible:border-primary rounded-lg border border-transparent focus:outline-none size-9 focus-visible:bg-primary/10 dark:focus-visible:text-primary-100 dark:[&>[data-slot=icon]]:text-primary-100 focus-visible:text-primary-900 [&>[data-slot=icon]]:text-primary-960 focus-visible:ring-4 focus-visible:ring-primary/20",
+      "flex items-center justify-center focus-visible:border-primary rounded-lg border border-transparent focus:outline-none size-9 focus-visible:bg-primary/10 focus-visible:ring-4 focus-visible:ring-primary/20",
     itemEllipsisIcon: "flex size-9 items-center justify-center",
     defaultItem:
-      "focus-visible:border-primary cursor-pointer disabled:cursor-default focus-visible:bg-primary/10 dark:focus-visible:text-primary-100 dark:[&>[data-slot=icon]]:text-primary-100 focus-visible:text-primary-900 [&>[data-slot=icon]]:text-primary-960 focus-visible:ring-4 focus-visible:ring-primary/20 disabled:opacity-100",
-    itemSeparatorLine: "h-5 w-[1.5px] bg-zinc-300 dark:bg-zinc-700 rotate-[14deg] shrink-0"
+      "focus-visible:border-primary tabular-nums font-normal cursor-pointer disabled:cursor-default focus-visible:bg-primary/10 focus-visible:ring-4 focus-visible:ring-primary/20 disabled:opacity-100",
+    itemSeparatorLine: "h-5 w-[1.5px] bg-secondary-fg/40 rotate-[14deg] shrink-0"
   }
 })
 
@@ -62,7 +62,7 @@ const PaginationSection = <T extends object>({ className, ...props }: SectionPro
   <Section {...props} className={section({ className })} />
 )
 
-const PaginationList = <T extends object>({ className, ...props }: ListBoxProps<T>) => {
+const List = <T extends object>({ className, ...props }: ListBoxProps<T>) => {
   return (
     <ListBox
       orientation="horizontal"
@@ -104,7 +104,7 @@ interface PaginationItemProps extends ListBoxItemProps {
   variant?: "label" | "separator" | "ellipsis" | "default" | "last" | "first" | "previous" | "next"
 }
 
-const PaginationItem = ({
+const Item = ({
   variant = "default",
   size = "square-petite",
   appearance = "outline",
@@ -200,8 +200,8 @@ const PaginationItem = ({
   }
 }
 
-Pagination.Item = PaginationItem
-Pagination.List = PaginationList
+Pagination.Item = Item
+Pagination.List = List
 Pagination.Section = PaginationSection
 
 export { Pagination }
