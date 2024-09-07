@@ -107,7 +107,6 @@ export default function RootLayout({
                 clientId={process.env.ANALYTICS_CLIENT_ID as string}
                 trackScreenViews={true}
                 trackAttributes={true}
-                trackOutgoingLinks={true}
               />
             )}
           </Providers>
