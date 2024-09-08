@@ -50,11 +50,25 @@ const useDrawerContext = () => {
   return context
 }
 
-const ModalPrimitive = motion(Modal)
-const ModalOverlayPrimitive = motion(ModalOverlay)
+const ModalWrapper = React.forwardRef<HTMLDivElement, React.ComponentProps<typeof Modal>>(
+  (props, ref) => <Modal ref={ref} {...props} />
+)
+ModalWrapper.displayName = "ModalWrapper"
+
+const ModalOverlayWrapper = React.forwardRef<
+  HTMLDivElement,
+  React.ComponentProps<typeof ModalOverlay>
+>((props, ref) => <ModalOverlay ref={ref} {...props} />)
+ModalOverlayWrapper.displayName = "ModalOverlayWrapper"
+
+const ModalPrimitive = motion(ModalWrapper)
+const ModalOverlayPrimitive = motion(ModalOverlayWrapper)
 
 interface DrawerOverlayPrimitiveProps
-  extends Omit<React.ComponentProps<typeof ModalOverlayPrimitive>, "isOpen" | "onOpenChange"> {
+  extends Omit<
+    React.ComponentProps<typeof ModalOverlayPrimitive>,
+    "isOpen" | "onOpenChange" | "style"
+  > {
   "aria-label"?: DialogProps["aria-label"]
   "aria-labelledby"?: DialogProps["aria-labelledby"]
   role?: DialogProps["role"]
@@ -220,7 +234,7 @@ const Drawer = ({
   )
 }
 
-const DrawerContent = ({ children, ...props }: React.ComponentProps<typeof DrawerPrimitive>) => {
+const Content = ({ children, ...props }: React.ComponentProps<typeof DrawerPrimitive>) => {
   return (
     <DrawerPrimitive>
       <DrawerContentPrimitive {...props}>
@@ -263,7 +277,7 @@ const DrawerFooter = ({
 
 Drawer.Body = DrawerBody
 Drawer.Close = Dialog.Close
-Drawer.Content = DrawerContent
+Drawer.Content = Content
 Drawer.Description = Dialog.Description
 Drawer.Footer = DrawerFooter
 Drawer.Header = DrawerHeader

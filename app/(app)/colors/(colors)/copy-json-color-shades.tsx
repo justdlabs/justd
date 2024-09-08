@@ -40,6 +40,12 @@ export function CopyJsonColorShades({
     const formattedColorName = colorName.includes("-")
       ? `'${getColorName(colorScales[4].color)}'`
       : colorName
+    const codeString = colorScales
+      .map(
+        ({ shade, color }: any) =>
+          `'${shade}': '${parseColor(color).toString(selectedFormat as ColorFormat)}'`
+      )
+      .join(",\n  ")
     return `${formattedColorName}: {\n  ${codeString}\n}`
   }
 
