@@ -1,6 +1,6 @@
 "use client"
 
-import { IconChevronLgDown, IconChevronLgUp, IconFilterAsc, IconHamburger } from "justd-icons"
+import { IconChevronLgDown, IconHamburger } from "justd-icons"
 import type {
   CellProps,
   ColumnProps,
@@ -32,11 +32,13 @@ const table = tv({
       "whitespace-nowrap allows-sorting:cursor-pointer px-3 py-3 text-left dragging:cursor-grabbing font-medium outline-none [&:has([slot=selection])]:pr-0",
     header: "border-b x32",
     row: "tr group relative cursor-default border-b text-fg/70 outline-none ring-primary focus-visible:ring-1 selected:bg-primary/15",
-    cell: "whitespace-nowrap px-3 py-3 outline-none"
+    cell: "whitespace-nowrap group px-3 py-3 outline-none",
+    cellIcon:
+      "flex-none rounded bg-secondary text-fg [&>[data-slot=icon]]:shrink-0 [&>[data-slot=icon]]:size-3.5 [&>[data-slot=icon]]:transition-transform [&>[data-slot=icon]]:duration-200 size-[1.15rem] grid place-content-center shrink-0"
   }
 })
 
-const { root, header, column, row, cell } = table()
+const { root, header, column, row, cell, cellIcon } = table()
 
 interface TableProps extends TablePrimitiveProps {
   className?: string
@@ -70,18 +72,15 @@ interface TableColumnProps extends ColumnProps {
 
 const TableColumn = ({ children, className, ...props }: TableColumnProps) => (
   <Column {...props} className={column({ className })}>
-    {({ allowsSorting, sortDirection }) => (
-      <div className="flex [&>[data-slot=icon]]:shrink-0 items-center gap-2">
+    {({ allowsSorting, sortDirection, isHovered }) => (
+      <div className="flex [&_[data-slot=icon]]:shrink-0 items-center gap-2">
         <>
           {children}
-          {allowsSorting &&
-            (sortDirection === undefined ? (
-              <IconFilterAsc className="h-3" />
-            ) : sortDirection === "ascending" ? (
-              <IconChevronLgUp className="h-3" />
-            ) : (
-              <IconChevronLgDown className="h-3" />
-            ))}
+          {allowsSorting && (
+            <span className={cellIcon({ className: isHovered ? "bg-secondary-fg/10" : "" })}>
+              <IconChevronLgDown className={sortDirection === "ascending" ? "rotate-180" : ""} />
+            </span>
+          )}
         </>
       </div>
     )}

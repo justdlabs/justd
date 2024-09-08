@@ -47,15 +47,13 @@ export default function TableSortingDemo() {
         onSortChange={list.sort}
       >
         <Table.Header>
-          <Table.Column id="title" isRowHeader allowsSorting>
+          <Table.Column id="title" isRowHeader>
             Title
           </Table.Column>
           <Table.Column id="director" allowsSorting>
             Director
           </Table.Column>
-          <Table.Column id="producer" allowsSorting>
-            Producer
-          </Table.Column>
+          <Table.Column id="producer">Producer</Table.Column>
           <Table.Column id="release_date" allowsSorting>
             Release Date
           </Table.Column>
