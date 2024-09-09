@@ -9,9 +9,9 @@ import { Container, Link } from "ui"
 const navigation = {
   starterKits: [
     { name: "Inertia.js", href: "https://github.com/justdlabs/inertia.ts/" },
-    { name: "Next.js", href: "https://github.com/justdlabs/next" },
-    { name: "Remix", href: "https://github.com/justdlabs/remix" },
-    { name: "Astro", href: "https://github.com/justdlabs/astro" }
+    { name: "Next.js", href: "https://next.getjustd.com/" },
+    { name: "Remix", href: "https://remix.getjustd.com/" },
+    { name: "Astro", href: "https://astro.getjustd.com/" }
   ],
   resources: [
     { name: "Icons", href: "/icons" },

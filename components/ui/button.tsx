@@ -14,8 +14,9 @@ const buttonStyles = tv(
   {
     extend: focusButtonStyles,
     base: [
-      "kbt32x relative no-underline isolate inline-flex items-center justify-center gap-x-2 border font-medium",
-      "forced-colors:[--btn-icon:ButtonText] forced-colors:hover:[--btn-icon:ButtonText] [&>[data-slot=icon]]:-mx-0.5 [&>[data-slot=icon]]:my-1 [&>[data-slot=icon]]:size-4 [&>[data-slot=icon]]:shrink-0 [&>[data-slot=icon]]:text-[--btn-icon]"
+      "kbt32x before:absolute after:absolute box-border relative no-underline isolate inline-flex items-center justify-center gap-x-2 border font-medium",
+      "forced-colors:[--btn-icon:ButtonText] forced-colors:hover:[--btn-icon:ButtonText]",
+      "[&>[data-slot=icon]]:-mx-0.5 [&>[data-slot=icon]]:my-1 [&>[data-slot=icon]]:size-4 [&>[data-slot=icon]]:shrink-0 [&>[data-slot=icon]]:text-[--btn-icon]"
     ],
     variants: {
       intent: {
@@ -58,12 +59,23 @@ const buttonStyles = tv(
         ]
       },
       appearance: {
-        solid:
-          "border-transparent bg-[--btn-border] dark:bg-[--btn-bg] before:absolute before:inset-0 before:-z-10 before:bg-[--btn-bg] before:shadow dark:before:hidden dark:border-white/5 after:absolute after:inset-0 after:-z-10 after:shadow-[shadow:inset_0_1px_theme(colors.white/15%)] after:active:bg-[--btn-hover-overlay] after:hover:bg-[--btn-hover-overlay] dark:after:-inset-px before:data-[disabled]:shadow-none after:data-[disabled]:shadow-none",
-        outline:
-          "border-border hover:bg-secondary/90 active:bg-secondary/90 text-fg [--btn-icon:theme(colors.zinc.400)] active:[--btn-icon:theme(colors.fg)] hover:[--btn-icon:theme(colors.fg)]",
-        plain:
-          "border-transparent text-fg pressed:bg-secondary/90 active:bg-secondary/90 hover:bg-secondary/90 [--btn-icon:theme(colors.muted.fg)] active:[--btn-icon:theme(colors.fg)] hover:[--btn-icon:theme(colors.fg)]"
+        solid: [
+          "border-transparent bg-[--btn-border]",
+          "before:inset-0 before:-z-10 before:bg-[--btn-bg] before:shadow before:data-[disabled]:shadow-none",
+          "after:shadow-[shadow:inset_0_1px_theme(colors.white/15%)] after:active:bg-[--btn-hover-overlay] after:hover:bg-[--btn-hover-overlay] after:data-[disabled]:shadow-none after:inset-0 after:-z-10",
+          "dark:after:-inset-px dark:before:hidden dark:border-white/5 dark:bg-[--btn-bg]"
+        ],
+        outline: [
+          "border-border text-fg [--btn-icon:theme(colors.muted.fg)]",
+          "hover:[--btn-icon:theme(colors.fg)] hover:bg-secondary/90",
+          "active:bg-secondary/90 active:[--btn-icon:theme(colors.fg)]"
+        ],
+        plain: [
+          "border-transparent text-fg [--btn-icon:theme(colors.muted.fg)]",
+          "pressed:bg-secondary/90",
+          "active:[--btn-icon:theme(colors.fg)] active:bg-secondary/90",
+          "hover:[--btn-icon:theme(colors.fg)] hover:bg-secondary/90"
+        ]
       },
       size: {
         "extra-small":
@@ -92,32 +104,10 @@ const buttonStyles = tv(
       appearance: "solid",
       size: "medium",
       shape: "square"
-    },
-    compoundVariants: [
-      {
-        appearance: ["outline", "plain"],
-        className: "px-1",
-        size: "extra-small"
-      },
-      {
-        appearance: ["outline", "plain"],
-        className: "px-[calc(theme(spacing.1)-1px)]",
-        size: "small"
-      },
-      {
-        appearance: ["outline", "plain"],
-        className: "px-[calc(theme(spacing.2)-1px)]",
-        size: "medium"
-      },
-      {
-        appearance: ["outline", "plain"],
-        className: "px-[calc(theme(spacing.3)-1px)]",
-        size: "large"
-      }
-    ]
+    }
   },
   {
-    responsiveVariants: ["sm", "md", "lg", "xl"]
+    responsiveVariants: ["sm", "lg"]
   }
 )
 
@@ -138,7 +128,7 @@ interface ButtonProps extends ButtonPrimitiveProps {
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, intent, appearance, size, shape, ...props }, ref) => {
+  ({ className, intent, children, appearance, size, shape, ...props }, ref) => {
     return (
       <ButtonPrimitive
         ref={ref}
@@ -153,7 +143,17 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             className
           })
         )}
-      />
+      >
+        {cr(children, (children) => (
+          <>
+            <span
+              className="absolute left-1/2 top-1/2 size-[max(100%,2.75rem)] -translate-x-1/2 -translate-y-1/2 [@media(pointer:fine)]:hidden"
+              aria-hidden="true"
+            />
+            {children}
+          </>
+        ))}
+      </ButtonPrimitive>
     )
   }
 )
