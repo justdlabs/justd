@@ -1,4 +1,5 @@
 export * from './primitive';
+export * from './touch-target';
 export * from './aside';
 export * from './accordion';
 export * from './note';

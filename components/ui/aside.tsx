@@ -18,6 +18,7 @@ import { tv } from "tailwind-variants"
 import { Button } from "./button"
 import { cr, useMediaQuery } from "./primitive"
 import { Sheet } from "./sheet"
+import { TouchTarget } from "./touch-target"
 
 const aside = tv({
   slots: {
@@ -187,7 +188,9 @@ const Item = <T extends object>({
         <div className="flex items-center gap-2">
           <>
             {Icon && <Icon className="shrink-0 size-4" />}
-            {typeof children === "function" ? children(values) : children}
+            <TouchTarget>
+              {typeof children === "function" ? children(values) : children}
+            </TouchTarget>
             {props.badge && (
               <div className="bdx h-[1.30rem] px-1 rounded-md text-muted-fg text-xs font-medium ring-1 ring-fg/20 grid place-content-center w-auto inset-y-1/2 -translate-y-1/2 absolute right-1.5 bg-fg/[0.02] dark:bg-fg/10">
                 {props.badge}

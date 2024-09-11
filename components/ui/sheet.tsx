@@ -4,7 +4,6 @@ import * as React from "react"
 
 import type { DialogTriggerProps, Modal } from "react-aria-components"
 import {
-  Button,
   type DialogProps,
   DialogTrigger as DialogTriggerPrimitive,
   Modal as ModalPrimitive,
@@ -149,7 +148,7 @@ const SheetContent = ({
   )
 }
 
-Sheet.Trigger = Button
+Sheet.Trigger = Dialog.Trigger
 Sheet.Footer = Dialog.Footer
 Sheet.Content = SheetContent
 Sheet.Header = Dialog.Header

@@ -59,7 +59,9 @@ export function DocComposed({
                   <Card.Title className="sm:text-lg text-base line-clamp-1 font-medium">
                     {item.title}
                   </Card.Title>
-                  <Card.Description className="line-clamp-2">{item.description}</Card.Description>
+                  <Card.Description className="line-clamp-2 sm:text-sm text-xs">
+                    {item.description}
+                  </Card.Description>
                 </Card.Header>
               </Card>
             </Grid.Item>

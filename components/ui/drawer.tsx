@@ -14,7 +14,7 @@ import {
   useTransform
 } from "framer-motion"
 import type { DialogProps } from "react-aria-components"
-import { Button, type ButtonProps, Modal, ModalOverlay } from "react-aria-components"
+import { type ButtonProps, Modal, ModalOverlay } from "react-aria-components"
 import { twJoin } from "tailwind-merge"
 
 import { Dialog } from "./dialog"
@@ -186,7 +186,7 @@ const DrawerPrimitive = (props: DrawerPrimitiveProps) => {
 const DrawerTrigger = (props: ButtonProps) => {
   const { openDrawer } = useDrawerContext()
 
-  return <Button onPress={openDrawer} {...props} />
+  return <Dialog.Trigger onPress={openDrawer} {...props} />
 }
 
 interface DrawerProps {

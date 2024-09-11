@@ -7,7 +7,6 @@ import type {
   ModalOverlayProps as ModalOverlayPrimitiveProps
 } from "react-aria-components"
 import {
-  Button as ButtonPrimitive,
   type DialogProps,
   DialogTrigger as DialogTriggerPrimitive,
   Modal as ModalPrimitive,
@@ -140,7 +139,7 @@ const ModalContent = ({
   )
 }
 
-Modal.Trigger = ButtonPrimitive
+Modal.Trigger = Dialog.Trigger
 Modal.Header = Dialog.Header
 Modal.Title = Dialog.Title
 Modal.Description = Dialog.Description

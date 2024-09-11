@@ -1,14 +1,17 @@
 "use client"
 
+import * as React from "react"
+
 import { ToggleButton as ToggleButtonPrimitive, ToggleButtonProps } from "react-aria-components"
 import { tv, VariantProps } from "tailwind-variants"
 
 import { cr, focusButtonStyles } from "./primitive"
+import { TouchTarget } from "./touch-target"
 
 const toggleStyles = tv({
   extend: focusButtonStyles,
   base: [
-    "inline-flex items-center bg-transparent justify-center border border-transparent rounded-lg text-sm font-medium ring-offset-bg transition-colors",
+    "inline-flex relative items-center bg-transparent justify-center border border-transparent rounded-lg text-sm font-medium ring-offset-bg transition-colors",
     "hover:bg-muted hover:text-muted-fg"
   ],
   variants: {
@@ -54,7 +57,11 @@ const Toggle = ({ className, ...props }: ToggleProps) => {
           className
         })
       )}
-    />
+    >
+      {cr(props.children, (children) => (
+        <TouchTarget>{children}</TouchTarget>
+      ))}
+    </ToggleButtonPrimitive>
   )
 }
 

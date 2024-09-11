@@ -9,6 +9,7 @@ import {
 import { tv } from "tailwind-variants"
 
 import { cr, focusButtonStyles } from "./primitive"
+import { TouchTarget } from "./touch-target"
 
 const buttonStyles = tv(
   {
@@ -145,13 +146,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         )}
       >
         {cr(children, (children) => (
-          <>
-            <span
-              className="absolute left-1/2 top-1/2 size-[max(100%,2.75rem)] -translate-x-1/2 -translate-y-1/2 [@media(pointer:fine)]:hidden"
-              aria-hidden="true"
-            />
-            {children}
-          </>
+          <TouchTarget>{children}</TouchTarget>
         ))}
       </ButtonPrimitive>
     )

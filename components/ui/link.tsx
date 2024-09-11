@@ -4,12 +4,13 @@ import { Link as LinkPrimitive, type LinkProps as LinkPrimitiveProps } from "rea
 import { tv } from "tailwind-variants"
 
 import { cr } from "./primitive"
+import { TouchTarget } from "./touch-target"
 
 const linkStyles = tv({
-  base: "forced-colors:outline-[Highlight] focus-visible:outline-2 outline outline-offset-2 disabled:focus-visible:outline-0 outline-0 outline-primary rounded disabled:opacity-60 forced-colors:disabled:text-[GrayText] border-transparent transition-colors disabled:cursor-default",
+  base: "forced-colors:outline-[Highlight] relative focus-visible:outline-2 outline outline-offset-2 disabled:focus-visible:outline-0 outline-0 outline-primary rounded disabled:opacity-60 forced-colors:disabled:text-[GrayText] border-transparent transition-colors disabled:cursor-default",
   variants: {
     intent: {
-      unstyled: "text-fg",
+      unstyled: "text-current",
       primary: "text-primary hover:text-primary/80 forced-colors:disabled:text-[GrayText]",
       danger: "text-danger hover:text-danger/80 forced-colors:disabled:text-[GrayText]",
       "lad/primary":
@@ -34,7 +35,11 @@ const Link = ({ className, ...props }: LinkProps) => {
       className={cr(className, (className, ...renderProps) =>
         linkStyles({ ...renderProps, intent: props.intent, className })
       )}
-    />
+    >
+      <TouchTarget>
+        <>{props.children}</>
+      </TouchTarget>
+    </LinkPrimitive>
   )
 }
 

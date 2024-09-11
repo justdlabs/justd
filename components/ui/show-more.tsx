@@ -1,5 +1,9 @@
 "use client"
 
+import * as React from "react"
+
+import { cr } from "@/components/ui/primitive"
+import { TouchTarget } from "@/components/ui/touch-target"
 import { Text, ToggleButton } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
@@ -49,7 +53,11 @@ const ShowMore = ({
         <ToggleButton
           {...props}
           className={buttonStyles({ shape: "circle", appearance: "outline", size: "small" })}
-        />
+        >
+          {cr(props.children, (children) => (
+            <TouchTarget>{children}</TouchTarget>
+          ))}
+        </ToggleButton>
       ) : (
         <Text slot="description">{props.text}</Text>
       )}
