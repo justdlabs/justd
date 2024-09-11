@@ -61,8 +61,8 @@ const ModalOverlayWrapper = React.forwardRef<
 >((props, ref) => <ModalOverlay ref={ref} {...props} />)
 ModalOverlayWrapper.displayName = "ModalOverlayWrapper"
 
-const ModalPrimitive = motion(ModalWrapper)
-const ModalOverlayPrimitive = motion(ModalOverlayWrapper)
+const ModalPrimitive = motion.create(ModalWrapper)
+const ModalOverlayPrimitive = motion.create(ModalOverlayWrapper)
 
 interface DrawerOverlayPrimitiveProps
   extends Omit<

@@ -35,16 +35,20 @@ export function CopyJsonColorShades({
     selectedFormat === "oklch"
       ? rgbToOklch(parseColor(color).toString("rgb"))
       : parseColor(color).toString(selectedFormat as ColorFormat)
-  const codeString = colorScales.map(({ shade }: any) => `'${shade}': '${_selected}'`).join(",\n  ")
+  // const codeString = colorScales.map(({ shade }: any) => `'${shade}': '${_selected}'`).join(",\n  ")
   const renderColorScaleAsCode = (colorScales: any, colorName: string) => {
     const formattedColorName = colorName.includes("-")
       ? `'${getColorName(colorScales[4].color)}'`
       : colorName
+
     const codeString = colorScales
-      .map(
-        ({ shade, color }: any) =>
-          `'${shade}': '${parseColor(color).toString(selectedFormat as ColorFormat)}'`
-      )
+      .map(({ shade, color }: any) => {
+        const parsedColor =
+          selectedFormat === "oklch"
+            ? rgbToOklch(parseColor(color).toString("rgb"))
+            : parseColor(color).toString(selectedFormat as ColorFormat)
+        return `'${shade}': '${parsedColor}'`
+      })
       .join(",\n  ")
     return `${formattedColorName}: {\n  ${codeString}\n}`
   }

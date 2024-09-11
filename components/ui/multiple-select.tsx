@@ -127,9 +127,9 @@ const MultipleSelect = <T extends SelectedKey>({
       if (props.min !== undefined && selectedItems.items.length <= props.min) return
 
       const key = keys.values().next().value
-      selectedItems.remove(key)
+      selectedItems.remove(key as Key)
       setFieldState({ inputValue: "", selectedKey: null })
-      onItemCleared?.(key)
+      onItemCleared?.(key as Key)
       updateInvalidState(selectedItems.items.length - 1)
     },
     [selectedItems, onItemCleared, props.min]
