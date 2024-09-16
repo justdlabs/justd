@@ -31,7 +31,7 @@ If we're only considering the sidebar, the layout might not seem like a concern.
 import React from "react"
 
 import { useTheme } from "@/components/theme-provider"
-import { ThemeSwitcher } from "@/components/theme-switcher"
+// import { ThemeSwitcher } from "@/components/theme-switcher"
 import {
   IconBell,
   IconBook,
@@ -64,7 +64,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <Button aria-label="Search" appearance="plain" shape="circle" size="square-petite">
             <IconSearch />
           </Button>
-          <ThemeSwitcher shape="circle" appearance="plain" />
+          {/*<ThemeSwitcher />*/}
           <Menu>
             <Button
               appearance="plain"

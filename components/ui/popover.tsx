@@ -5,7 +5,7 @@ import * as React from "react"
 import type { ModalOverlayProps } from "react-aria-components"
 import {
   type DialogProps,
-  DialogTrigger as DialogTriggerPrimitive,
+  DialogTrigger,
   Modal,
   ModalOverlay,
   OverlayArrow,
@@ -21,7 +21,7 @@ import { Dialog } from "./dialog"
 import { cn, cr, useMediaQuery } from "./primitive"
 
 const Popover = ({ children, ...props }: { children: React.ReactNode }) => {
-  return <DialogTriggerPrimitive {...props}>{children}</DialogTriggerPrimitive>
+  return <DialogTrigger {...props}>{children}</DialogTrigger>
 }
 
 const Title = ({ level = 2, className, ...props }: React.ComponentProps<typeof Dialog.Title>) => (
@@ -90,14 +90,14 @@ const drawerStyles = tv({
 interface PopoverProps
   extends Omit<React.ComponentProps<typeof Modal>, "children">,
     Omit<PopoverPrimitiveProps, "children" | "className">,
-    ModalOverlayProps {
+    Omit<ModalOverlayProps, "className"> {
   children: React.ReactNode
-  className?: string | ((values: any & { defaultClassName?: string }) => string)
   showArrow?: boolean
   style?: React.CSSProperties
   respectScreen?: boolean
   "aria-label"?: DialogProps["aria-label"]
   "aria-labelledby"?: DialogProps["aria-labelledby"]
+  className?: string | ((values: { defaultClassName?: string }) => string)
 }
 
 const Content = ({
@@ -168,7 +168,7 @@ const Picker = ({ children, className, ...props }: PopoverProps) => {
   return (
     <PopoverPrimitive
       {...props}
-      className={cr(className, (className, renderProps) =>
+      className={cr(className as PopoverPrimitiveProps["className"], (className, renderProps) =>
         popoverContentStyles({
           ...renderProps,
           className: cn("max-h-72 overflow-y-auto min-w-[--trigger-width] p-0", className)

@@ -40,7 +40,7 @@ const { base, datePickerIcon, calendarIcon, datePickerInput } = datePickerStyles
 interface DatePickerOverlayProps
   extends Omit<DialogProps, "children" | "className" | "style">,
     Omit<PopoverProps, "children" | "className" | "style"> {
-  className?: string | DialogProps["className"] | PopoverProps["className"]
+  className?: string | ((values: { defaultClassName?: string }) => string)
   children?: React.ReactNode
   closeButton?: boolean
   range?: boolean

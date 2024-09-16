@@ -64,8 +64,8 @@ export function Blocks() {
           <Grid.Item>
             <div className="grid gap-2">
               <CardBlock className="grid gap-6">
+                <DateRangePicker className="w-full" label="Reservations date" />
                 <DatePicker className="w-full" label="Event date" />
-                <DateRangePicker className="w-full" label="Event date" />
               </CardBlock>
               <CardBlock className="p-4 py-2 sm:p-4 lg:px-5 lg:py-0">
                 <div>
