@@ -452,6 +452,72 @@ export const previews: Record<string, any> = {
   "navigation/tabs-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/navigation/tabs-disabled-demo")),
   },
+  "anatomies/table-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/table-anatomy")),
+  },
+  "anatomies/radio-group-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/radio-group-anatomy")),
+  },
+  "anatomies/list-box-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/list-box-anatomy")),
+  },
+  "anatomies/tooltip-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/tooltip-anatomy")),
+  },
+  "anatomies/breadcrumbs-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/breadcrumbs-anatomy")),
+  },
+  "anatomies/modal-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/modal-anatomy")),
+  },
+  "anatomies/toolbar-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/toolbar-anatomy")),
+  },
+  "anatomies/grid-list-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/grid-list-anatomy")),
+  },
+  "anatomies/sheet-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/sheet-anatomy")),
+  },
+  "anatomies/skeleton-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/skeleton-anatomy")),
+  },
+  "anatomies/drawer-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/drawer-anatomy")),
+  },
+  "anatomies/grid-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/grid-anatomy")),
+  },
+  "anatomies/accordion-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/accordion-anatomy")),
+  },
+  "anatomies/choicebox-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/choicebox-anatomy")),
+  },
+  "anatomies/loader-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/loader-anatomy")),
+  },
+  "anatomies/select-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/select-anatomy")),
+  },
+  "anatomies/card-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/card-anatomy")),
+  },
+  "anatomies/multiple-select-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/multiple-select-anatomy")),
+  },
+  "anatomies/menu-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/menu-anatomy")),
+  },
+  "anatomies/command-menu-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/command-menu-anatomy")),
+  },
+  "anatomies/combo-box-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/combo-box-anatomy")),
+  },
+  "anatomies/popover-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/popover-anatomy")),
+  },
   "controls/slider-range-demo": {
     component: React.lazy(() => import("@/components/docs/controls/slider-range-demo")),
   },

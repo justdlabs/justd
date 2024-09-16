@@ -126,7 +126,7 @@ const Item = ({ className, isDanger = false, children, ...props }: MenuItemProps
       className={cr(className, (className, renderProps) =>
         dropdownItemStyles({
           ...renderProps,
-          className: cn("pl-2.5", className)
+          className
         })
       )}
       data-danger={isDanger ? "true" : undefined}

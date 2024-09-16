@@ -20,6 +20,7 @@
     "react/no-unescaped-entities": "off",
     "@typescript-eslint/ban-types": "off",
     "react/no-unknown-property": "off",
-    "import/no-anonymous-default-export": "off"
+    "import/no-anonymous-default-export": "off",
+    "react/display-name": "off"
   }
 }

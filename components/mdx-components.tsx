@@ -1,5 +1,6 @@
 import { DocComposed } from "@/components/doc-composed"
 import { DocNote } from "@/components/doc-note"
+import { Anatomy } from "@/components/docs/rehype/anatomy"
 import type { CodeProps } from "@/components/docs/rehype/code"
 import { Code } from "@/components/docs/rehype/code"
 import { PlainCode } from "@/components/docs/rehype/plain-code"
@@ -22,6 +23,7 @@ export function MDXContent({ code }: MdxProps) {
       components={{
         Installation: (props: InstallationProps) => <Installation {...props} />,
         Note: DocNote,
+        Anatomy: Anatomy,
         Composed: DocComposed,
         Image,
         How: DocHow,

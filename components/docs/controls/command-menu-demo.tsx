@@ -3,6 +3,7 @@
 import React from "react"
 
 import { IconBill, IconCube, IconGear, IconHome, IconNotes, IconShield } from "justd-icons"
+// Replace with your router link component
 import Link from "next/link"
 import { Avatar, Button, CommandMenu } from "ui"
 

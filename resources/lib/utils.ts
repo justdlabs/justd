@@ -1,6 +1,5 @@
 import { type Docs } from "@/.velite"
 import { type ClassValue, clsx } from "clsx"
-import { slug } from "github-slugger"
 import { twMerge } from "tailwind-merge"
 import titlePrimitive from "title"
 
@@ -49,3 +48,54 @@ export function extractAndFormat(url: string): string {
   }
   return ""
 }
+
+export function extractJSX(code: string) {
+  const match = code.match(/return\s*\(\s*([\s\S]*?)\s*\);?\s*}/)
+  if (match && match[1]) {
+    const jsx = match[1]
+    const lines = jsx.split("\n")
+
+    return lines
+      .map((line) => {
+        // @ts-ignore
+        const indent = line.match(/^\s*/)[0]
+        return indent.slice(4) + line.trim()
+      })
+      .join("\n")
+      .trim()
+  }
+  return null
+}
+
+// export function extractJSX(code: string) {
+//   const match = code.match(/return\s*\(\s*([\s\S]*?)\s*\);?\s*}/)
+//   if (match && match[1]) {
+//     const jsx = match[1]
+//     const lines = jsx
+//       .split("\n")
+//       .map((line) => line.trim())
+//       .filter((line) => line)
+//
+//     let indent = 0
+//     const result = lines.map((line, index) => {
+//       if (line.startsWith("</")) {
+//         indent = Math.max(0, indent - 1)
+//       }
+//
+//       const safeIndent = Math.max(0, indent)
+//       let indentedLine = "  ".repeat(safeIndent) + line
+//
+//       const openTags = (line.match(/<[^/][^>]*>/g) || []).length
+//       const closeTags = (line.match(/<\/[^>]+>/g) || []).length
+//
+//       indent += openTags - closeTags
+//
+//       indent = Math.max(0, indent)
+//
+//       return indentedLine
+//     })
+//
+//     return result.join("\n")
+//   }
+//   return null
+// }
