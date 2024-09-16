@@ -4,8 +4,6 @@ import type { CodeProps } from "@/components/docs/rehype/code"
 import { Code } from "@/components/docs/rehype/code"
 import { PlainCode } from "@/components/docs/rehype/plain-code"
 import { SourceCode } from "@/components/docs/rehype/source-code"
-import type { InstallCommandProps } from "@/components/install-command"
-import { InstallCommand } from "@/components/install-command"
 import { Installation, InstallationProps } from "@/components/installation"
 import { useMDXComponent } from "@/resources/hooks/use-mdx"
 import Image from "next/image"
@@ -22,7 +20,6 @@ export function MDXContent({ code }: MdxProps) {
   return (
     <Component
       components={{
-        InstallCommand: (props: InstallCommandProps) => <InstallCommand {...props} />,
         Installation: (props: InstallationProps) => <Installation {...props} />,
         Note: DocNote,
         Composed: DocComposed,
