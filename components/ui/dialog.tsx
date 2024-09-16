@@ -50,9 +50,11 @@ type DialogHeaderProps = React.HTMLAttributes<HTMLDivElement> & {
 
 const Trigger = (props: ButtonPrimitiveProps) => (
   <ButtonPrimitive {...props}>
-    {cr(props.children, (children) => (
-      <TouchTarget>{children}</TouchTarget>
-    ))}
+    {(values) => (
+      <TouchTarget>
+        {typeof props.children === "function" ? props.children(values) : props.children}
+      </TouchTarget>
+    )}
   </ButtonPrimitive>
 )
 

@@ -8,7 +8,7 @@ published: true
 
 ## Remix Themes
 Remix themes is a slick way to handle themes in your Remix app. Read more about it [here](https://github.com/abereghici/remix-themes).
-<InstallCommand isInstall items={['remix-themes']}/>
+<Installation options={{ isManual: true }}  items={['remix-themes']}/>
 
 ## Session Storage
 And next, in your `app/sessions.server.tsx` file, add the following:
@@ -49,7 +49,7 @@ export const action = createThemeAction(themeSessionResolver)
 
 ## Theme Switcher
 For theme switcher, you can use the `useTheme` hook from `remix-themes` to get the current theme.
-<InstallCommand isInstall items={['justd-icons']} />
+<Installation options={{ isManual: true }}  items={['justd-icons']} />
 Then, make sure you import the icons you want to use.
 
 <PlainCode code={`import { Button } from '@/components/ui/button'

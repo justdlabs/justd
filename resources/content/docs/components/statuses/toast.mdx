@@ -25,20 +25,20 @@ And next, just use the `toast()` function to show a toast.
 <How toUse="statuses/toast-demo" />
 
 ## Installation
-<InstallCommand isAdd items={['toast']}/>
+<Installation options={{ isComponent: true }} items={['toast']}/>
 
 ## Composed Components
 <Composed components={['button', 'loader']}/>
 
 ## Manual Installation
-<InstallCommand isInstall isManual items={['react-aria-components', 'sonner', 'justd-icons']}/>
+<Installation options={{ isManual: true }} items={['react-aria-components', 'sonner', 'justd-icons']}/>
 <SourceCode toShow={['toast']}/>
 
 
 ## Next.js
 If you're slapping this toast into your Next.js gig, you're gonna wanna roll with the `next-themes` package to flip the theme on that toast. Peep how you hook it up:
 
-<InstallCommand isInstall isManual items={['next-themes']}/>
+<Installation options={{ isManual: true }} items={['next-themes']}/>
 
 Don't forget to include a theme provider component. Check out the setup [here](/docs/dark-mode/next-js).
 

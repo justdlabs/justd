@@ -63,10 +63,10 @@ function Code({ className, lang = "tsx", code, withImportCopy = true }: CodeProp
 
 function CodeContainer({ children, isOpened }: { children: React.ReactNode; isOpened: boolean }) {
   return (
-    <CollapsibleContent forceMount className={!isOpened ? "h-32" : ""}>
+    <CollapsibleContent forceMount className={!isOpened ? "max-h-32" : ""}>
       <div
         className={cn(
-          "[&_pre]:my-0 [&_pre]:!border-0 [&_pre]:h-[32rem] [&_pre]:pb-[100px]",
+          "[&_pre]:my-0 [&_pre]:!border-0 [&_pre]:max-h-[32rem] [&_pre]:pb-[100px]",
           !isOpened ? "[&_pre]:overflow-hidden" : "[&_pre]:overflow-auto"
         )}
       >
@@ -142,7 +142,7 @@ export function CopyRawButton({ code }: { className?: string; code: string }) {
   return <CopyButton ariaLabel="Copy raw code" isCopied={copied === "raw"} onPress={copyRaw} />
 }
 
-const CodeHighlighter: React.FC<CodeProps> = ({ lang = "tsx", code }) => {
+const CodeHighlighter = ({ lang = "tsx", code, ...props }: CodeProps) => {
   const [formattedCode, setFormattedCode] = useState("")
   const [error, setError] = useState("")
 
@@ -176,7 +176,7 @@ const CodeHighlighter: React.FC<CodeProps> = ({ lang = "tsx", code }) => {
     return <p>Error: {error}</p>
   }
 
-  return <div dangerouslySetInnerHTML={{ __html: formattedCode }} />
+  return <div {...props} dangerouslySetInnerHTML={{ __html: formattedCode }} />
 }
 
-export { CodeContainer, CodeExpandButton, CodeCollapsible, Code }
+export { CodeHighlighter, CodeContainer, CodeExpandButton, CodeCollapsible, Code }

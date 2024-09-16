@@ -71,9 +71,11 @@ interface MenuTriggerProps extends ButtonProps {
 
 const Trigger = ({ className, ...props }: MenuTriggerProps) => (
   <Button className={trigger({ className })} {...props}>
-    {cr(props.children, (children) => (
-      <TouchTarget>{children}</TouchTarget>
-    ))}
+    {(values) => (
+      <TouchTarget>
+        {typeof props.children === "function" ? props.children(values) : props.children}
+      </TouchTarget>
+    )}
   </Button>
 )
 

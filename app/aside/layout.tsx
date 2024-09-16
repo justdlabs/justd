@@ -81,7 +81,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       aside={
         <>
           <Aside.Header>
-            <Link className="flex items-center gap-x-2" href="#">
+            <Link
+              className="flex items-center gap-x-2"
+              href="https://getjustd.com/docs/components/layouts/aside"
+            >
               <IconBrandJustd />
               <strong>Justd</strong>
             </Link>

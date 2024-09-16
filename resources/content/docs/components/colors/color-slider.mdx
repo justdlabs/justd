@@ -1,3 +1,4 @@
+import { Installation } from '../../../../../components/installation'
 ---
 title: "Color Slider"
 description: Slide through gradients, picking the intensity or shade you need, as smoothly as sliding into your favorite jeans.
@@ -12,13 +13,13 @@ Glide through gradients to select the perfect intensity or shade, as effortlessl
 <How minW72 toUse="colors/color-slider-demo" />
 
 ## Installation
-<InstallCommand isAdd items={['color-slider']}/>
+<Installation options={{isComponent: true}} items={['color']}/>
 
 ## Composed Components
 <Composed components={['slider', 'field']}/>
 
 ## Manual Installation
-<InstallCommand isInstall isManual items={['react-aria-components']}/>
+<Installation options={{isManual: true}} items={['react-aria-components']}/>
 <SourceCode toShow={['color']}/>
 
 ## With Label

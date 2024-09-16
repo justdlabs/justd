@@ -1,3 +1,4 @@
+import { Installation } from '../../../../../components/installation'
 ---
 title: "Color Wheel"
 description: Spin through the color spectrum on this wheel, picking hues like a game show contestant spins for a prize—fun and functional.
@@ -12,13 +13,13 @@ A color wheel allows users to select a color through an interactive circular int
 <How toUse="colors/color-wheel-demo" />
 
 ## Installation
-<InstallCommand isAdd items={['color']}/>
+<Installation options={{isComponent: true}} items={['color']}/>
 
 ## Composed Components
 <Composed components={['slider', 'field']}/>
 
 ## Manual Installation
-<InstallCommand isInstall isManual items={['react-aria-components']}/>
+<Installation options={{isManual: true}} items={['react-aria-components']}/>
 <SourceCode toShow={['color']}/>
 
 ## Controlled

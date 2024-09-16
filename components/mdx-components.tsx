@@ -6,6 +6,7 @@ import { PlainCode } from "@/components/docs/rehype/plain-code"
 import { SourceCode } from "@/components/docs/rehype/source-code"
 import type { InstallCommandProps } from "@/components/install-command"
 import { InstallCommand } from "@/components/install-command"
+import { Installation, InstallationProps } from "@/components/installation"
 import { useMDXComponent } from "@/resources/hooks/use-mdx"
 import Image from "next/image"
 import { Link, type LinkProps } from "ui"
@@ -22,6 +23,7 @@ export function MDXContent({ code }: MdxProps) {
     <Component
       components={{
         InstallCommand: (props: InstallCommandProps) => <InstallCommand {...props} />,
+        Installation: (props: InstallationProps) => <Installation {...props} />,
         Note: DocNote,
         Composed: DocComposed,
         Image,

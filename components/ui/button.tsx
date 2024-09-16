@@ -129,7 +129,7 @@ interface ButtonProps extends ButtonPrimitiveProps {
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, intent, children, appearance, size, shape, ...props }, ref) => {
+  ({ className, intent, appearance, size, shape, ...props }, ref) => {
     return (
       <ButtonPrimitive
         ref={ref}
@@ -145,9 +145,11 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           })
         )}
       >
-        {cr(children, (children) => (
-          <TouchTarget>{children}</TouchTarget>
-        ))}
+        {(values) => (
+          <TouchTarget>
+            {typeof props.children === "function" ? props.children(values) : props.children}
+          </TouchTarget>
+        )}
       </ButtonPrimitive>
     )
   }
