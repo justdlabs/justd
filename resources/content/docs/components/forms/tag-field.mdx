@@ -32,6 +32,24 @@ For manual installation, use:
 
 <SourceCode toShow={['tag-field']} />
 
+## Anatomy
+Import the components and use them as shown below, adapting the structure to fit each component.
+```
+import { TagField } from 'ui'
+
+const selectedItems = useListData({
+  initialItems: [
+    {
+      id: 1,
+      name: "Laravel"
+    },
+    // ...
+  ]
+})
+
+<TagField className="max-w-xs" label="Add tag" list={selectedItems} />
+```
+
 ## Appearance
 
 Customize the tag field’s appearance using the `appearance` prop.

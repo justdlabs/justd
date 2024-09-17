@@ -17,6 +17,27 @@ The `ShowMore` component is primarily used to encapsulate content that can be ex
 <Installation options={{ isManual: true }} items={['react-aria-components']}/>
 <SourceCode toShow={['show-more']}/>
 
+## Anatomy
+Import the components and use them as shown below, adapting the structure to fit each component.
+```
+import { IconChevronLgDown } from "justd-icons"
+import { cn, ShowMore } from "ui"
+
+<ShowMore>
+  {({ isSelected }) => (
+    <>
+      Show {isSelected ? "less" : "more"}
+      <IconChevronLgDown
+        className={cn(
+          isSelected ? "rotate-180" : "",
+          "size-4 transition-transform duration-200"
+        )}
+      />
+    </>
+  )}
+</ShowMore>
+```
+
 ## As Text
 While the default behavior utilizes a button for interactions, the `ShowMore` component can also be configured to function as a clickable text element.
 <How isCenter={false} toUse="surfaces/show-more-as-text-demo" />

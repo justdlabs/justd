@@ -31,7 +31,6 @@ export function Anatomy({ title, message, ext = "tsx", show, ...props }: Anatomy
           : "Import the components and use them as shown below, adapting the structure to fit each component."}
       </p>
       {title && <figcaption data-rehype-pretty-code-title="">{title}</figcaption>}
-      {/* I don't know why this not by default. Otherwise, you get extra new line which weird */}
       <Code
         className="max-h-none [&_pre]:overflow-auto"
         code={extractImports(actualCode as any)}

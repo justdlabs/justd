@@ -1,16 +1,16 @@
 "use client"
 
-import { InputOTP, InputOTPGroup, InputOTPSlot } from "ui"
+import { InputOTP } from "ui"
 
 export default function InputOtpDemo() {
   return (
     <div>
       <InputOTP maxLength={6}>
-        <InputOTPGroup>
+        <InputOTP.Group>
           {[...Array(6)].map((_, index) => (
-            <InputOTPSlot key={index} index={index} />
+            <InputOTP.Slot key={index} index={index} />
           ))}
-        </InputOTPGroup>
+        </InputOTP.Group>
       </InputOTP>
     </div>
   )

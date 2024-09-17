@@ -13,7 +13,7 @@ export default function TableAnatomy() {
           <Table.Cell>Nirvana</Table.Cell>
         </Table.Row>
         <Table.Row>
-          <Table.Cell>1</Table.Cell>
+          <Table.Cell>2</Table.Cell>
           <Table.Cell>The Beatles</Table.Cell>
         </Table.Row>
       </Table.Body>

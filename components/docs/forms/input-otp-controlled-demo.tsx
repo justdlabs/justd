@@ -2,18 +2,18 @@
 
 import React from "react"
 
-import { InputOTP, InputOTPGroup, InputOTPSlot } from "ui"
+import { InputOTP } from "ui"
 
 export default function InputOtpControlledDemo() {
   const [value, setValue] = React.useState("")
   return (
     <div className="space-y-2">
       <InputOTP maxLength={6} value={value} onChange={setValue}>
-        <InputOTPGroup>
+        <InputOTP.Group>
           {[...Array(6)].map((_, index) => (
-            <InputOTPSlot key={index} index={index} />
+            <InputOTP.Slot key={index} index={index} />
           ))}
-        </InputOTPGroup>
+        </InputOTP.Group>
       </InputOTP>
 
       <div className="text-center text-sm">

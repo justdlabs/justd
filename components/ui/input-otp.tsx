@@ -7,6 +7,15 @@ import { IconBulletFill } from "justd-icons"
 
 import { cn } from "./primitive"
 
+interface InputOTPType
+  extends React.ForwardRefExoticComponent<
+    React.ComponentPropsWithoutRef<typeof OTPInput> & React.RefAttributes<HTMLInputElement>
+  > {
+  Group: typeof InputOTPGroup
+  Slot: typeof InputOTPSlot
+  Separator: typeof InputOTPSeparator
+}
+
 const InputOTP = React.forwardRef<
   React.ElementRef<typeof OTPInput>,
   React.ComponentPropsWithoutRef<typeof OTPInput>
@@ -21,7 +30,7 @@ const InputOTP = React.forwardRef<
     className={cn("disabled:cursor-not-allowed", className)}
     {...props}
   />
-))
+)) as InputOTPType
 InputOTP.displayName = "InputOTP"
 
 const InputOTPGroup = React.forwardRef<
@@ -70,4 +79,8 @@ const InputOTPSeparator = React.forwardRef<
 ))
 InputOTPSeparator.displayName = "InputOTPSeparator"
 
-export { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot }
+InputOTP.Group = InputOTPGroup
+InputOTP.Slot = InputOTPSlot
+InputOTP.Separator = InputOTPSeparator
+
+export { InputOTP }

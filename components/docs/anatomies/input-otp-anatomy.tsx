@@ -1,8 +1,6 @@
-"use client"
-
 import { InputOTP } from "ui"
 
-export default function InputOtpSeparatorDemo() {
+export default function InputOtpAnatomy() {
   return (
     <InputOTP maxLength={6}>
       <InputOTP.Group>

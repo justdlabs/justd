@@ -48,12 +48,15 @@ export function extractAndFormat(url: string): string {
   }
   return ""
 }
-
 export function extractJSX(code: string) {
-  const match = code.match(/return\s*\(\s*([\s\S]*?)\s*\);?\s*}/)
+  const match = code.match(/return\s*(\([^]*?\)|.*?);?\s*}/)
   if (match && match[1]) {
-    const jsx = match[1]
+    const jsx = match[1].replace(/^\(|\)$/g, "").trim()
     const lines = jsx.split("\n")
+
+    if (lines.length === 1) {
+      return jsx
+    }
 
     return lines
       .map((line) => {
@@ -66,36 +69,3 @@ export function extractJSX(code: string) {
   }
   return null
 }
-
-// export function extractJSX(code: string) {
-//   const match = code.match(/return\s*\(\s*([\s\S]*?)\s*\);?\s*}/)
-//   if (match && match[1]) {
-//     const jsx = match[1]
-//     const lines = jsx
-//       .split("\n")
-//       .map((line) => line.trim())
-//       .filter((line) => line)
-//
-//     let indent = 0
-//     const result = lines.map((line, index) => {
-//       if (line.startsWith("</")) {
-//         indent = Math.max(0, indent - 1)
-//       }
-//
-//       const safeIndent = Math.max(0, indent)
-//       let indentedLine = "  ".repeat(safeIndent) + line
-//
-//       const openTags = (line.match(/<[^/][^>]*>/g) || []).length
-//       const closeTags = (line.match(/<\/[^>]+>/g) || []).length
-//
-//       indent += openTags - closeTags
-//
-//       indent = Math.max(0, indent)
-//
-//       return indentedLine
-//     })
-//
-//     return result.join("\n")
-//   }
-//   return null
-// }

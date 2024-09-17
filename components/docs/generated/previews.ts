@@ -452,6 +452,9 @@ export const previews: Record<string, any> = {
   "navigation/tabs-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/navigation/tabs-disabled-demo")),
   },
+  "anatomies/pagination-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/pagination-anatomy")),
+  },
   "anatomies/table-anatomy": {
     component: React.lazy(() => import("@/components/docs/anatomies/table-anatomy")),
   },
@@ -460,6 +463,12 @@ export const previews: Record<string, any> = {
   },
   "anatomies/list-box-anatomy": {
     component: React.lazy(() => import("@/components/docs/anatomies/list-box-anatomy")),
+  },
+  "anatomies/file-trigger-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/file-trigger-anatomy")),
+  },
+  "anatomies/number-field-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/number-field-anatomy")),
   },
   "anatomies/tooltip-anatomy": {
     component: React.lazy(() => import("@/components/docs/anatomies/tooltip-anatomy")),
@@ -470,8 +479,23 @@ export const previews: Record<string, any> = {
   "anatomies/modal-anatomy": {
     component: React.lazy(() => import("@/components/docs/anatomies/modal-anatomy")),
   },
+  "anatomies/carousel-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/carousel-anatomy")),
+  },
+  "anatomies/drop-zone-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/drop-zone-anatomy")),
+  },
+  "anatomies/tag-group-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/tag-group-anatomy")),
+  },
   "anatomies/toolbar-anatomy": {
     component: React.lazy(() => import("@/components/docs/anatomies/toolbar-anatomy")),
+  },
+  "anatomies/heading-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/heading-anatomy")),
+  },
+  "anatomies/tabs-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/tabs-anatomy")),
   },
   "anatomies/grid-list-anatomy": {
     component: React.lazy(() => import("@/components/docs/anatomies/grid-list-anatomy")),
@@ -488,8 +512,14 @@ export const previews: Record<string, any> = {
   "anatomies/grid-anatomy": {
     component: React.lazy(() => import("@/components/docs/anatomies/grid-anatomy")),
   },
+  "anatomies/checkbox-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/checkbox-anatomy")),
+  },
   "anatomies/accordion-anatomy": {
     component: React.lazy(() => import("@/components/docs/anatomies/accordion-anatomy")),
+  },
+  "anatomies/avatar-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/avatar-anatomy")),
   },
   "anatomies/choicebox-anatomy": {
     component: React.lazy(() => import("@/components/docs/anatomies/choicebox-anatomy")),
@@ -497,8 +527,23 @@ export const previews: Record<string, any> = {
   "anatomies/loader-anatomy": {
     component: React.lazy(() => import("@/components/docs/anatomies/loader-anatomy")),
   },
+  "anatomies/visually-hidden-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/visually-hidden-anatomy")),
+  },
+  "anatomies/search-field-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/search-field-anatomy")),
+  },
+  "anatomies/checkbox-group-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/checkbox-group-anatomy")),
+  },
+  "anatomies/textarea-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/textarea-anatomy")),
+  },
   "anatomies/select-anatomy": {
     component: React.lazy(() => import("@/components/docs/anatomies/select-anatomy")),
+  },
+  "anatomies/input-otp-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/input-otp-anatomy")),
   },
   "anatomies/card-anatomy": {
     component: React.lazy(() => import("@/components/docs/anatomies/card-anatomy")),
@@ -514,6 +559,18 @@ export const previews: Record<string, any> = {
   },
   "anatomies/combo-box-anatomy": {
     component: React.lazy(() => import("@/components/docs/anatomies/combo-box-anatomy")),
+  },
+  "anatomies/text-field-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/text-field-anatomy")),
+  },
+  "anatomies/button-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/button-anatomy")),
+  },
+  "anatomies/link-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/link-anatomy")),
+  },
+  "anatomies/separator-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/separator-anatomy")),
   },
   "anatomies/popover-anatomy": {
     component: React.lazy(() => import("@/components/docs/anatomies/popover-anatomy")),
