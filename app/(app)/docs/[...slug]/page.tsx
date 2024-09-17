@@ -7,7 +7,7 @@ import { siteConfig } from "@/resources/config/site"
 import "@/resources/styles/code.css"
 import { type Metadata } from "next"
 import { notFound } from "next/navigation"
-import { Separator, Toast } from "ui"
+import { Separator } from "ui"
 
 export interface DocPageProps {
   params: {

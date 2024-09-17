@@ -1,7 +1,8 @@
 "use client"
 
-import React from "react"
+import * as React from "react"
 
+import { LayoutGroup, motion } from "framer-motion"
 import {
   Tab as TabPrimitive,
   TabList,
@@ -52,13 +53,16 @@ const tabListStyles = tv({
 })
 
 const List = <T extends object>(props: TabListProps<T>) => {
+  const id = React.useId()
   return (
-    <TabList
-      {...props}
-      className={cr(props.className, (className, renderProps) =>
-        tabListStyles({ ...renderProps, className })
-      )}
-    />
+    <LayoutGroup id={id}>
+      <TabList
+        {...props}
+        className={cr(props.className, (className, renderProps) =>
+          tabListStyles({ ...renderProps, className })
+        )}
+      />
+    </LayoutGroup>
   )
 }
 
@@ -97,7 +101,7 @@ const Tab = ({ children, ...props }: TabProps) => {
         <>
           {children}
           {isSelected && (
-            <span
+            <motion.span
               className={cn(
                 "absolute rounded bg-fg",
                 // horizontal
@@ -105,6 +109,8 @@ const Tab = ({ children, ...props }: TabProps) => {
                 // vertical
                 "group-orientation-vertical:left-0 group-orientation-vertical:h-[calc(100%-10%)] group-orientation-vertical:w-0.5 group-orientation-vertical:transform"
               )}
+              layoutId="current-selected"
+              transition={{ type: "spring", stiffness: 500, damping: 40 }}
             />
           )}
         </>
