@@ -81,44 +81,49 @@ It might be a good idea to extract the modal into a separate component for bette
 
 ```
 interface ModalActionProps {
-  title: string
-  description: string
-  confirmText: string
-  action: () => void
-  closeModal: () => void
-  loading: boolean
-  isOpen: boolean
+  state: string | null
+  onOpenChange: () => void
+  actionType: { description: string; action: () => void; confirmText: string; title: string }
+  disabled: boolean
 }
 
-export function ModalAction(props: ModalActionProps) {
-  return (
-    <Modal.Content isOpen={props.isOpen} onOpenChange={props.closeModal}>
-      <Modal.Header>
-        <Modal.Title>{props.title}</Modal.Title>
-        <Modal.Description>{props.description}</Modal.Description>
-      </Modal.Header>
-      <Modal.Footer>
-        <Modal.Close>Cancel</Modal.Close>
-        <Button intent={state ==='ban' ? 'danger' : 'primary'} className="min-w-24" isDisabled={loading} onPress={actionType(state)?.action}>
-          {loading ? <Loader variant="spin" /> : actionType(state)?.confirmText}
-        </Button>
-      </Modal.Footer>
-    </Modal.Content>
-  )
-}
+const ModalAction = (props: ModalActionProps) => (
+  <Modal.Content isOpen={props.state !== null} onOpenChange={props.onOpenChange}>
+    <Modal.Header>
+      <Modal.Title>{props.actionType?.title}</Modal.Title>
+      <Modal.Description>{props.actionType?.description}</Modal.Description>
+    </Modal.Header>
+    <Modal.Footer>
+      <Modal.Close>Cancel</Modal.Close>
+      <Button
+        intent={props.state === "ban" ? "danger" : "primary"}
+        className="min-w-24"
+        isDisabled={props.disabled}
+        onPress={props.actionType?.action}
+      >
+        {props.disabled ? <Loader variant="spin" /> : props.actionType?.confirmText}
+      </Button>
+    </Modal.Footer>
+  </Modal.Content>
+)
 ```
 
 Then you can use it like this.
 
 ```
-<ModalAction {...actionType(state)} closeModal={closeModal} loading={loading} isOpen={!!state} />
+<ModalAction
+  state={state}
+  onOpenChange={closeModal}
+  actionType={actionType(state)}
+  disabled={loading}
+/>
 ```
 
 With that, now we can modify the `actionType` function to return the initial state.
 
 ```tsx
 const actionType = (t: string | null) => {
-  let initialsState = {
+  const initialsState = {
     title: '',
     description: '',
     confirmText: '',
