@@ -1,3 +1,4 @@
+import { Themes } from "@/app/(app)/themes/themes"
 import { Header } from "@/components/header"
 import { siteConfig } from "@/resources/config/site"
 import type { Metadata } from "next"
@@ -10,7 +11,7 @@ export default function Page() {
         <span className="text-muted-fg">es</span>
       </Header>
 
-      {/*<Themes />*/}
+      <Themes />
     </div>
   )
 }

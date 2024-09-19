@@ -12,7 +12,7 @@ const availableThemes = [
   { id: "default", textValue: "Default" },
   { id: "zinc", textValue: "Zinc" },
   { id: "slate", textValue: "Slate" },
-  { id: "regent", textValue: "Regent" }
+  { id: "azure", textValue: "Azure" }
 ]
 
 interface Props {
@@ -20,9 +20,85 @@ interface Props {
   applyTheme: (theme: ThemeProps) => void
 }
 
+function formatThemeData(themeId: ThemeProps) {
+  return `@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base ${JSON.stringify(themesList[themeId], null, 2)
+    .replace(/"root":/g, ":root")
+    .replace(/"dark":/g, ".dark")
+    .replace(/},\n\s+\.dark/g, "}\n\n  .dark")
+    .replaceAll(",", ";")
+    .replaceAll('"', "")}
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  * {
+    @apply border-border;
+    font-feature-settings: 'cv11', 'ss01';
+    font-variation-settings: 'opsz' 850;
+    text-rendering: optimizeLegibility;
+    scrollbar-width: thin;
+    scrollbar-color: #d4d4d8 transparent;
+  }
+
+  body {
+    @apply bg-bg text-fg;
+  }
+
+  /* dark mode */
+  .dark {
+    scrollbar-width: thin;
+    scrollbar-color: var(--secondary) transparent;
+
+    @media (prefers-color-scheme: dark) {
+      * {
+        scrollbar-width: thin;
+        scrollbar-color: var(--secondary) transparent;
+      }
+    }
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 5px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    @apply bg-muted;
+    border-radius: 14px;
+    border: 3px solid transparent;
+  }
+}`
+}
+
 export function Controller({ themeId, applyTheme }: Props) {
   const [, setSelectedTheme] = React.useState<Key>(themeId)
   const [open, setOpen] = React.useState(false)
+
+  const handleCopy = () => {
+    const themeData = formatThemeData(themeId)
+    copyToClipboard(themeData).then(() => {
+      toast.success("Copied to clipboard", {
+        classNames: {
+          toast: "[&:has([data-icon])_[data-content]]:!ml-0",
+          icon: "hidden"
+        }
+      })
+      setOpen(false)
+    })
+  }
+
   return (
     <div className="flex justify-end mb-6">
       <div className="flex items-center gap-2">
@@ -39,26 +115,12 @@ export function Controller({ themeId, applyTheme }: Props) {
                 className="font-mono text-sm p-4 overflow-x-auto bg-secondary border border-fg/10 rounded-lg"
                 lang="json"
               >
-                {JSON.stringify(themesList[themeId], null, 2)}
+                {formatThemeData(themeId)}
               </pre>
             </Sheet.Body>
             <Sheet.Footer>
               <Sheet.Close>Close</Sheet.Close>
-              <Button
-                onPress={() => {
-                  copyToClipboard(JSON.stringify(themesList[themeId], null, 2)).then(() => {
-                    toast.success("Copied to clipboard", {
-                      classNames: {
-                        toast: "[&:has([data-icon])_[data-content]]:!ml-0",
-                        icon: "hidden"
-                      }
-                    })
-                    setOpen(false)
-                  })
-                }}
-              >
-                Copy
-              </Button>
+              <Button onPress={handleCopy}>Copy</Button>
             </Sheet.Footer>
           </Sheet.Content>
         </Sheet>
@@ -67,7 +129,6 @@ export function Controller({ themeId, applyTheme }: Props) {
           selectedKey={themeId}
           onSelectionChange={(value) => {
             setSelectedTheme(value)
-            console.log(value)
             applyTheme(value as ThemeProps)
           }}
         >
@@ -81,7 +142,7 @@ export function Controller({ themeId, applyTheme }: Props) {
                   <div
                     className="size-4 mr-0 rounded ring-1 ring-inset ring-fg/20"
                     style={{
-                      backgroundColor: `hsl(${primaryColor})`
+                      backgroundColor: `oklch(${primaryColor})`
                     }}
                   />
                   {item.textValue}

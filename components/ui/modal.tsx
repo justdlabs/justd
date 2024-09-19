@@ -44,7 +44,7 @@ const modalContentStyles = tv({
   variants: {
     isEntering: {
       true: [
-        "animate-in duration-200 fade-in-0 slide-in-from-bottom-[20%]",
+        "animate-in ease-out duration-200 slide-in-from-bottom-[20%]",
         "sm:slide-in-from-bottom-auto sm:slide-in-from-top-[20%]"
       ]
     },

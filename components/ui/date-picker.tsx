@@ -25,13 +25,13 @@ const datePickerStyles = tv({
   slots: {
     base: "group flex flex-col gap-1",
     datePickerIcon:
-      "group mr-1 h-7 dark:[&>[data-slot=icon]]:text-zinc-400 [&>[data-slot=icon]]:text-zinc-800 w-8 rounded outline-offset-0 hover:bg-transparent pressed:bg-transparent",
+      "group mr-1 h-7 [&>[data-slot=icon]]:text-muted-fg w-8 rounded outline-offset-0 hover:bg-transparent pressed:bg-transparent",
     calendarIcon: "size-4 text-muted-fg group-open:text-fg",
     datePickerInput: "w-full px-2 uppercase text-base lg:text-sm",
     dateRangePickerInputStart: "px-2 lg:text-sm uppercase text-base",
     dateRangePickerInputEnd: "flex-1 px-2 py-1.5 lg:text-sm uppercase text-base",
     dateRangePickerDash:
-      "text-zinc-800 group-disabled:text-zinc-200 dark:text-zinc-200 group-disabled:dark:text-zinc-600 forced-colors:text-[ButtonText] group-disabled:forced-colors:text-[GrayText]"
+      "text-fg group-disabled:opacity-50 forced-colors:text-[ButtonText] group-disabled:forced-colors:text-[GrayText]"
   }
 })
 

@@ -52,7 +52,7 @@ export function Hero() {
               href={siteConfig.repo}
               className={buttonStyles({
                 size: "extra-small",
-                intent: "light",
+                intent: "secondary",
                 shape: "circle",
                 className: "[&_[data-slot=icon]]:text-warning"
               })}
@@ -87,7 +87,7 @@ export function Hero() {
             <Link
               className={buttonStyles({
                 size: "large",
-                intent: "light"
+                intent: "secondary"
               })}
               href="/components"
             >

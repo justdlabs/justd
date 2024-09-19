@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --light: 100% 3.5594404384177905e-8 106.37411429114086;
+    --dark: 12.88% 0.041 264.70;
+    --bg: 100% 3.5594404384177905e-8 106.37411429114086;
+    --fg: 20.77% 0.040 265.75;
+    --overlay: 98.42% 0.003 247.86;
+    --overlay-fg: 12.88% 0.041 264.70;
+    --primary: 12.88% 0.041 264.7;
+    --primary-fg: 100% 3.5594404384177905e-8 106.37411429114086;
+    --secondary: 96.76% 0.001 286.38;
+    --secondary-fg: 21.03% 0.006 285.88;
+    --tertiary: 100% 3.5594404384177905e-8 106.37411429114086;
+    --tertiary-fg: 27.47% 0.006 286;
+    --accent: 92.88% 0.013 255.51;
+    --accent-fg: 12.88% 0.041 264.70;
+    --accent-subtle: 96.83% 0.007 247.90;
+    --accent-subtle-fg: 12.88% 0.041 264.70;
+    --success: 59.59% 0.127 163.23;
+    --success-fg: 97.93% 0.021 166.11;
+    --info: 65.08% 0.1906793232945444 251.28316095209283;
+    --info-fg: 100% 3.5594404384177905e-8 106.37411429114086;
+    --muted: 20.77% 0.040 265.75;
+    --muted-fg: 55.44% 0.041 257.42;
+    --danger: 57.71% 0.215 27.32;
+    --danger-fg: 97.05% 0.013 17.38;
+    --warning: 83.69% 0.164 84.43;
+    --warning-fg: 27.92% 0.074 45.64;
+    --border: 92.88% 0.013 255.51;
+    --input: 92.88% 0.013 255.51;
+    --ring: 20.77% 0.040 265.75;
+    --toggle: 86.90% 0.020 252.89;
+    --radius: 0.5rem
+  }
+
+  .dark {
+    --bg: 9% 0.041 264.70;
+    --fg: 98.48% 0 0;
+    --overlay: 12% 0.041 264.70;
+    --overlay-fg: 98.42% 0.003 247.86;
+    --primary: 100% 3.5594404384177905e-8 106.37411429114086;
+    --primary-fg: 12.88% 0.041 264.7;
+    --secondary: 20.77% 0.040 265.75;
+    --secondary-fg: 98.42% 0.003 247.86;
+    --info: 65.08% 0.1906793232945444 251.28316095209283;
+    --info-fg: 100% 3.5594404384177905e-8 106.37411429114086;
+    --success: 59.59% 0.127 163.23;
+    --success-fg: 97.93% 0.021 166.11;
+    --accent: 20.77% 0.040 265.75;
+    --accent-fg: 98.42% 0.003 247.86;
+    --accent-subtle: 15.82% 0.044 253.07;
+    --accent-subtle-fg: 98.42% 0.003 247.86;
+    --tertiary: 27.95% 0.037 260.03;
+    --tertiary-fg: 98.42% 0.003 247.86;
+    --muted: 27.95% 0.037 260.03;
+    --muted-fg: 71.07% 0.035 256.79;
+    --ring: 96.83% 0.007 247.90;
+    --toggle: 30% 0.039 257.29;
+    --border: 27.95% 0.037 260.03;
+    --input: 27.95% 0.037 260.03
+  }
+}
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  * {
+    @apply border-border;
+    font-feature-settings: 'cv11', 'ss01';
+    font-variation-settings: 'opsz' 850;
+  }
+
+  body {
+    @apply bg-bg text-fg;
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+    text-rendering: optimizeLegibility;
+  }
+
+
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #d4d4d8 transparent;
+  }
+
+  /* dark mode */
+  .dark {
+    scrollbar-width: thin;
+    scrollbar-color: var(--secondary) transparent;
+
+    @media (prefers-color-scheme: dark) {
+      * {
+        scrollbar-width: thin;
+        scrollbar-color: var(--secondary) transparent;
+      }
+    }
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 5px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    @apply bg-muted;
+    border-radius: 14px;
+    border: 3px solid transparent;
+  }
+}

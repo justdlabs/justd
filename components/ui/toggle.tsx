@@ -12,7 +12,7 @@ const toggleStyles = tv({
   extend: focusButtonStyles,
   base: [
     "inline-flex relative items-center bg-transparent justify-center border border-transparent rounded-lg text-sm font-medium ring-offset-bg transition-colors",
-    "hover:bg-muted hover:text-muted-fg"
+    "hover:bg-secondary hover:text-secondary-fg"
   ],
   variants: {
     isDisabled: {

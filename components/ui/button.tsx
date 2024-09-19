@@ -26,29 +26,12 @@ const buttonStyles = tv(
           "[--btn-icon:theme(colors.primary.fg/60%)] active:[--btn-icon:theme(colors.primary.fg/80%)] hover:[--btn-icon:theme(colors.primary.fg/80%)]"
         ],
         secondary: [
-          "text-secondary-fg [--btn-bg:white] dark:[--btn-bg:theme(colors.secondary.DEFAULT)] [--btn-border:theme(colors.secondary.fg/10%)] [--btn-hover-overlay:theme(colors.secondary.fg/2.5%)] data-[active]:[--btn-border:theme(colors.secondary.fg/15%)] hover:[--btn-border:theme(colors.secondary.fg/15%)]",
+          "text-secondary-fg [--btn-bg:theme(colors.secondary.DEFAULT)] dark:[--btn-bg:theme(colors.secondary.DEFAULT)] [--btn-border:theme(colors.secondary.fg/10%)] [--btn-hover-overlay:theme(colors.secondary.fg/2.5%)] data-[active]:[--btn-border:theme(colors.secondary.fg/15%)] hover:[--btn-border:theme(colors.secondary.fg/15%)]",
           "[--btn-icon:theme(colors.muted.fg)] active:[--btn-icon:theme(colors.fg)] hover:[--btn-icon:theme(colors.fg)]"
         ],
         success: [
           "text-success-fg [--btn-bg:theme(colors.success.DEFAULT)] [--btn-border:theme(colors.success.DEFAULT)] [--btn-hover-overlay:theme(colors.white/10%)]",
           "[--btn-icon:theme(colors.white/60%)] active:[--btn-icon:theme(colors.white/80%)] hover:[--btn-icon:theme(colors.white/80%)]"
-        ],
-        "light/dark": [
-          "text-bg [--btn-bg:theme(colors.dark)] [--btn-border:theme(colors.dark/90%)] [--btn-hover-overlay:theme(colors.white/10%)]",
-          "dark:[--btn-bg:white] dark:[--btn-hover-overlay:theme(colors.dark/5%)]",
-          "[--btn-icon:theme(colors.muted.fg)] active:[--btn-icon:theme(colors.bg/85%)] hover:[--btn-icon:theme(colors.bg/85%)]"
-        ],
-        dark: [
-          "text-light [--btn-bg:theme(colors.dark)] [--btn-border:theme(colors.dark)] [--btn-hover-overlay:theme(colors.light/2.5%)]",
-          "[--btn-icon:theme(colors.light/60%)] active:[--btn-icon:theme(colors.light/80%)] hover:[--btn-icon:theme(colors.light/80%)]"
-        ],
-        light: [
-          "text-dark [--btn-bg:white] [--btn-border:theme(colors.dark/10%)] [--btn-hover-overlay:theme(colors.dark/2.5%)] active:[--btn-border:theme(colors.dark/15%)] hover:[--btn-border:theme(colors.dark/15%)]",
-          "[--btn-icon:theme(colors.dark/60%)] active:[--btn-icon:theme(colors.dark/80%)] hover:[--btn-icon:theme(colors.dark/80%)]"
-        ],
-        info: [
-          "text-info-fg [--btn-bg:theme(colors.info.DEFAULT)] [--btn-border:theme(colors.info.DEFAULT/80%)] [--btn-hover-overlay:theme(colors.white/25%)]",
-          "[--btn-icon:theme(colors.info.fg/60%)] active:[--btn-icon:theme(colors.info.fg/80%)] hover:[--btn-icon:theme(colors.info.fg/80%)]"
         ],
         warning: [
           "text-warning-fg [--btn-bg:theme(colors.warning.DEFAULT)] [--btn-border:theme(colors.warning.DEFAULT)] [--btn-hover-overlay:theme(colors.white/10%)]",
@@ -113,16 +96,7 @@ const buttonStyles = tv(
 )
 
 interface ButtonProps extends ButtonPrimitiveProps {
-  intent?:
-    | "primary"
-    | "secondary"
-    | "danger"
-    | "warning"
-    | "info"
-    | "light/dark"
-    | "success"
-    | "light"
-    | "dark"
+  intent?: "primary" | "secondary" | "danger" | "warning" | "success"
   size?: "medium" | "large" | "square-petite" | "extra-small" | "small"
   shape?: "square" | "circle"
   appearance?: "solid" | "outline" | "plain"

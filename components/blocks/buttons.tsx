@@ -9,7 +9,7 @@ export function Buttons() {
       <div className="flex gap-4">
         <Button appearance="plain">Label</Button>
         <Button appearance="outline">Label</Button>
-        <Button intent="light">Label</Button>
+        <Button intent="secondary">Label</Button>
       </div>
     </CardBlock>
   )

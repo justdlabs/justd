@@ -13,16 +13,7 @@ import { Button } from "./button"
 interface FileTriggerProps extends FileTriggerPrimitiveProps {
   withIcon?: boolean
   isDisabled?: boolean
-  intent?:
-    | "primary"
-    | "secondary"
-    | "danger"
-    | "warning"
-    | "info"
-    | "light/dark"
-    | "success"
-    | "light"
-    | "dark"
+  intent?: "primary" | "secondary" | "danger" | "warning" | "success"
   size?: "medium" | "large" | "square-petite" | "extra-small" | "small"
   shape?: "square" | "circle"
   appearance?: "solid" | "outline" | "plain"

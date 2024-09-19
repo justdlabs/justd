@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --light: 98.51% 0 0;
+    --dark: 16.41% 0.006 285.68;
+    --bg: 100% 3.5594404384177905e-8 106.37411429114086;
+    --fg: 14.05% 0.004 285.82;
+
+    --overlay: 100% 3.5594404384177905e-8 106.37411429114086;
+    --overlay-fg: 14.05% 0.004 285.82;
+
+    --primary: 55.76% 0.244 261.22;
+    --primary-fg: 100% 3.5594404384177905e-8 106.37411429114086;
+
+    --secondary: 96.76% 0.001 286.38;
+    --secondary-fg: 21.03% 0.006 285.88;
+
+    --tertiary: 100% 3.5594404384177905e-8 106.37411429114086;
+    --tertiary-fg: 27.47% 0.006 286;
+
+    --accent: 55.76% 0.244 261.22;
+    --accent-fg: 100% 3.5594404384177905e-8 106.37411429114086;
+
+    --accent-subtle: 97.47% 0.011951506905820171 259.81768693271533;
+    --accent-subtle-fg: 47.45% 0.2046280151598458 260.967449727105;
+
+    --success: 59.59% 0.127 163.23;
+    --success-fg: 97.93% 0.021 166.11;
+
+    --info: 65.08% 0.1906793232945444 251.28316095209283;
+    --info-fg: 100% 3.5594404384177905e-8 106.37411429114086;
+
+    --muted: 96.76% 0.001 286.38;
+    --muted-fg: 55.19% 0.014 285.94;
+
+    --danger: 57.71% 0.215 27.32;
+    --danger-fg: 97.05% 0.013 17.38;
+
+    --warning: 83.69% 0.164 84.43;
+    --warning-fg: 27.92% 0.074 45.64;
+
+    --border: 91.97% 0.004 286.32;
+    --input: 91.97% 0.004 286.32;
+    --ring: var(--primary);
+    --toggle: 87.16% 0.006 286.28;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --bg: 0% 0 0;
+    --fg: 98.48% 0 0;
+
+    --overlay: 16.64% 0.004 285.98;
+    --overlay-fg: 98.48% 0 0;
+
+    --primary: 57.51% 0.229 260.21;
+    --primary-fg: 100% 3.5594404384177905e-8 106.37411429114086;
+
+    --secondary: 22% 0.005 286.03;
+    --secondary-fg: 98.48% 0 0;
+
+    --info: 65.08% 0.1906793232945444 251.28316095209283;
+    --info-fg: 100% 3.5594404384177905e-8 106.37411429114086;
+
+    --success: 59.59% 0.127 163.23;
+    --success-fg: 97.93% 0.021 166.11;
+
+    --accent: 57.51% 0.229 260.21;
+    --accent-fg: 100% 3.5594404384177905e-8 106.37411429114086;
+
+    --accent-subtle: 15.82% 0.044 253.07;
+    --accent-subtle-fg: 82.36% 0.098 240.42;
+
+    --tertiary: 15.86% 0.006 285.71;
+    --tertiary-fg: 96.83% 0.001 286.37;
+
+    --muted: 27.41% 0.005 286.03;
+    --muted-fg: 71.19% 0.013 286.07;
+
+    --ring: var(--primary);
+    --toggle: 37.01% 0.011 285.84;
+    --border: 26.08% 0.01 285.69;
+    --input: 27.41% 0.005 286.03;
+  }
+}
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  * {
+    @apply border-border;
+    font-feature-settings: 'cv11', 'ss01';
+    font-variation-settings: 'opsz' 850;
+    text-rendering: optimizeLegibility;
+    scrollbar-width: thin;
+    scrollbar-color: #d4d4d8 transparent;
+  }
+
+  body {
+    @apply bg-bg text-fg;
+  }
+
+
+  /* dark mode */
+  .dark {
+    scrollbar-width: thin;
+    scrollbar-color: var(--secondary) transparent;
+
+    @media (prefers-color-scheme: dark) {
+      * {
+        scrollbar-width: thin;
+        scrollbar-color: var(--secondary) transparent;
+      }
+    }
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 5px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    @apply bg-muted;
+    border-radius: 14px;
+    border: 3px solid transparent;
+  }
+}
+
+.react-aria-DropIndicator[data-drop-target] {
+  outline: 1px solid oklch(var(--primary));
+}
+
+@layer components {
+  .no-scrollbar {
+    -ms-overflow-style: none; /* Internet Explorer and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
+}

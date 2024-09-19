@@ -7,12 +7,12 @@ export function Buttons() {
     <div className="gap-2 grid">
       <Card className="grid py-4 place-content-center [&>div]:px-4 gap-2">
         <div className="grid grid-cols-2 gap-2">
-          <Button>Label</Button>
-          <Button intent="secondary">Label</Button>
+          <Button>Primary</Button>
+          <Button intent="secondary">Secondary</Button>
         </div>
         <div className="grid grid-cols-2 gap-2">
-          <Button appearance="outline">Label</Button>
-          <Button appearance="plain">Label</Button>
+          <Button appearance="outline">Outline</Button>
+          <Button appearance="plain">Plain</Button>
         </div>
       </Card>
       <Card className="grid place-content-center p-4">

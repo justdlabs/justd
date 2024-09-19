@@ -23,7 +23,7 @@ const AvatarGroup = ({ className, ...props }: AvatarGroupProps) => {
 const avatarStyles = tv({
   base: [
     "inline-grid relative shrink-0 bg-secondary align-middle [--avatar-radius:20%] [--ring-opacity:20%] *:col-start-1 *:row-start-1",
-    "loo2ppvkxrcah38e outline outline-1 -outline-offset-1 outline-black/[--ring-opacity] dark:outline-white/[--ring-opacity]"
+    "loo2ppvkxrcah38e outline outline-1 -outline-offset-1 outline-fg/[--ring-opacity]"
   ],
   variants: {
     size: {
