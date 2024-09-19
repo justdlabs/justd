@@ -43,7 +43,6 @@ function formatThemeData(themeId: ThemeProps) {
     font-variation-settings: 'opsz' 850;
     text-rendering: optimizeLegibility;
     scrollbar-width: thin;
-    scrollbar-color: #d4d4d8 transparent;
   }
 
   body {
@@ -53,12 +52,10 @@ function formatThemeData(themeId: ThemeProps) {
   /* dark mode */
   .dark {
     scrollbar-width: thin;
-    scrollbar-color: var(--secondary) transparent;
 
     @media (prefers-color-scheme: dark) {
       * {
         scrollbar-width: thin;
-        scrollbar-color: var(--secondary) transparent;
       }
     }
   }
