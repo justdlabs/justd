@@ -73,7 +73,7 @@ const intents = {
 
 type RestrictedIntent = "primary" | "secondary"
 
-type Intent = "primary" | "secondary" | "success" | "warning" | "danger"
+type Intent = "primary" | "secondary" | "warning" | "danger" | "success"
 
 type Shape = keyof typeof badgeShapes
 

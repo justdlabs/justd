@@ -5,7 +5,7 @@ import { buttonStyles, Link } from "ui"
 export default function ButtonLinkDemo() {
   return (
     <Link
-      className={buttonStyles({ intent: "success" })}
+      className={buttonStyles({ intent: "primary" })}
       href="/docs/components/collections/choicebox"
     >
       Choicebox

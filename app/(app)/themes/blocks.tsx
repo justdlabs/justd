@@ -2,10 +2,7 @@
 
 import { Buttons } from "@/app/(app)/themes/blocks/buttons"
 import { RangeCalendarBlocks } from "@/app/(app)/themes/blocks/range-calendar-blocks"
-import ChoiceboxDemo from "@/components/docs/collections/choicebox-demo"
-import GridListMultipleDemo from "@/components/docs/collections/grid-list-multiple-demo"
-import ListBoxDemo from "@/components/docs/collections/list-box-demo"
-import { cn, Heading, Tooltip } from "ui"
+import { Tooltip } from "ui"
 
 import { LoginForm } from "./blocks/login-form"
 
@@ -56,27 +53,10 @@ export function Blocks() {
           </Tooltip.Content>
         </Tooltip>
       </div>
-      <div className="grid sm:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-2">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2">
         <LoginForm />
         <RangeCalendarBlocks />
         <Buttons />
-        <div
-          className={cn([
-            "max-h-full w-full rounded-t-3xl ring-1 ring-dark/5 bg-overlay text-overlay-fg text-left align-middle shadow-lg",
-            "dark:ring-border sm:rounded-2xl overflow-hidden",
-            "p-6"
-          ])}
-        >
-          <Heading>What's up?</Heading>
-          <p className="text-sm text-muted-fg">
-            When you open modal, it will be the background color of it.
-          </p>
-        </div>
-        <ListBoxDemo />
-        <GridListMultipleDemo />
-        <div className="col-span-2 border rounded-lg p-6">
-          <ChoiceboxDemo />
-        </div>
       </div>
     </div>
   )

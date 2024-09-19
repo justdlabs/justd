@@ -242,7 +242,7 @@ const CommandMenuItem = ({ isDanger, className, ...props }: CommandItemProps) =>
 }
 
 interface CommandMenuDescriptionProps extends TextProps {
-  intent?: "danger" | "warning" | "success" | "primary" | "secondary"
+  intent?: "danger" | "warning" | "primary" | "secondary" | "success"
 }
 
 const CommandMenuDescription = ({ intent, className, ...props }: CommandMenuDescriptionProps) => {

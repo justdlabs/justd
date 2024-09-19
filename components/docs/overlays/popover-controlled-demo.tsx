@@ -44,7 +44,7 @@ export default function PopoverControlledDemo() {
           <Button
             isDisabled={loading === "loading"}
             onPress={deleteAccount}
-            intent={["loading", "idle"].includes(loading) ? "danger" : "success"}
+            intent={["loading", "idle"].includes(loading) ? "danger" : "primary"}
           >
             {loading === "loading" ? (
               <>
