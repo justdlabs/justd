@@ -92,5 +92,26 @@ export const books = [
     author: "J.K. Rowling",
     genre: "Fantasy",
     publishedYear: 1997
+  },
+  {
+    id: "8",
+    title: "The Hobbit",
+    author: "J.R.R. Tolkien",
+    genre: "Fantasy",
+    publishedYear: 1937
+  },
+  {
+    id: "9",
+    title: "And Then There Were None",
+    author: "Agatha Christie",
+    genre: "Mystery",
+    publishedYear: 1939
+  },
+  {
+    id: "10",
+    title: "The Sound and the Fury",
+    author: "William Faulkner",
+    genre: "Mystery",
+    publishedYear: 1929
   }
 ]

@@ -11,8 +11,11 @@ import { themesList } from "./themes-list"
 const availableThemes = [
   { id: "default", textValue: "Default" },
   { id: "zinc", textValue: "Zinc" },
+  { id: "gray", textValue: "Gray" },
   { id: "slate", textValue: "Slate" },
-  { id: "azure", textValue: "Azure" }
+  { id: "azure", textValue: "Azure" },
+  { id: "amber", textValue: "Amber" },
+  { id: "violet", textValue: "Violet" }
 ]
 
 interface Props {

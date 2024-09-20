@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --light: 98.51% 0 0;
+    --dark: 14.48% 0 0;
+    --bg: 100% 3.5594404384177905e-8 106.37411429114086;
+    --fg: 14.48% 0 0;
+    --overlay: 100% 3.5594404384177905e-8 106.37411429114086;
+    --overlay-fg: 14.05% 0.004 285.82;
+    --primary: 55.13% 0.247 293.01;
+    --primary-fg: 99.91% 0.016 293.76;
+    --secondary: 96.29% 0.004 271.37;
+    --secondary-fg: 14.48% 0.000 0;
+    --tertiary: 99.27% 0.003 286.35;
+    --tertiary-fg: 20.44% 0.004 264.47;
+    --accent: 55.13% 0.247 293.01;
+    --accent-fg: 99.91% 0.016 293.76;
+    --accent-subtle: 95.3% 0.025 301.07;
+    --accent-subtle-fg: 45.20% 0.211 292.76;
+    --success: 59.59% 0.127 163.23;
+    --success-fg: 97.93% 0.021 166.11;
+    --info: 65.08% 0.1906793232945444 251.28316095209283;
+    --info-fg: 100% 3.5594404384177905e-8 106.37411429114086;
+    --muted: 98.17% 0.006 264.53;
+    --muted-fg: 59.60% 0.018 266.20;
+    --danger: 57.71% 0.215 27.32;
+    --danger-fg: 97.05% 0.013 17.38;
+    --warning: 83.69% 0.164 84.43;
+    --warning-fg: 27.92% 0.074 45.64;
+    --border: 90.17% 0.006 264.53;
+    --input: 89.98% 0.009 264.51;
+    --ring: var(--primary);
+    --toggle: 82.98% 0.009 264.51;
+    --radius: 0.5rem
+  }
+
+  .dark {
+    --bg: 13.44% 0.004 264.47;
+    --fg: 99.27% 0.003 286.35;
+    --overlay: 16.64% 0.004 285.98;
+    --overlay-fg: 98.48% 0 0;
+    --primary: 60.56% 0.219 292.72;
+    --primary-fg: 98.91% 0.016 293.76;
+    --secondary: 22.53% 0.006 258.36;
+    --secondary-fg: 95.27% 0.003 286.35;
+    --info: 65.08% 0.1906793232945444 251.28316095209283;
+    --info-fg: 100% 3.5594404384177905e-8 106.37411429114086;
+    --success: 59.59% 0.127 163.23;
+    --success-fg: 97.93% 0.021 166.11;
+    --accent: 60.56% 0.219 292.72;
+    --accent-fg: 98.91% 0.016 293.76;
+    --accent-subtle: 22.54% 0.044 296.7;
+    --accent-subtle-fg: 96.91% 0.016 293.76;
+    --tertiary: 15.44% 0.004 264.47;
+    --tertiary-fg: 97.27% 0.003 286.35;
+    --muted: 24.45% 0.009 268.40;
+    --muted-fg: 68.25% 0.014 266.66;
+    --ring: var(--primary);
+    --toggle: 34.88% 0.014 269.37;
+    --border: 24.45% 0.009 268.40;
+    --input: 25.45% 0.009 268.40
+  }
+}
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  * {
+    @apply border-border;
+    font-feature-settings: 'cv11', 'ss01';
+    font-variation-settings: 'opsz' 850;
+    text-rendering: optimizeLegibility;
+    scrollbar-width: thin;
+  }
+
+  body {
+    @apply bg-bg text-fg;
+  }
+
+  /* dark mode */
+  .dark {
+    scrollbar-width: thin;
+
+    @media (prefers-color-scheme: dark) {
+      * {
+        scrollbar-width: thin;
+      }
+    }
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 5px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    @apply bg-muted;
+    border-radius: 14px;
+    border: 3px solid transparent;
+  }
+}

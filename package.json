@@ -8,7 +8,7 @@
     "cuc": "bun run resources/scripts/check-use-client.ts",
     "dev": "next dev --turbo",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 3001",
     "lint": "next lint",
     "format": "prettier --write \"**/*.{ts,tsx}\" && bun run generate-preview",
     "generate-preview": "bun run resources/scripts/create-pr-content.ts",

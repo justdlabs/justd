@@ -32,7 +32,7 @@ const table = tv({
     column:
       "whitespace-nowrap allows-sorting:cursor-pointer px-3 py-3 text-left dragging:cursor-grabbing font-medium outline-none [&:has([slot=selection])]:pr-0",
     header: "border-b x32",
-    row: "tr group relative cursor-default border-b text-fg/70 outline-none ring-primary focus-visible:ring-1 selected:bg-primary/15",
+    row: "tr group relative cursor-default border-b text-fg/70 outline-none ring-primary focus-visible:ring-1 selected:bg-accent-subtle selected:hover:bg-accent-subtle/50 dark:selected:hover:bg-accent-subtle/60",
     cell: "whitespace-nowrap group px-3 py-3 outline-none",
     cellIcon:
       "flex-none rounded bg-secondary text-fg [&>[data-slot=icon]]:shrink-0 [&>[data-slot=icon]]:size-3.5 [&>[data-slot=icon]]:transition-transform [&>[data-slot=icon]]:duration-200 size-[1.15rem] grid place-content-center shrink-0"

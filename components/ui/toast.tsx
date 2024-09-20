@@ -45,7 +45,7 @@ const Toast = ({ ...props }: ToasterProps) => {
           warning:
             "bg-warning text-warning-fg ring-warning-fg/10 ring-inset [&>[data-close-button=true]>svg]:text-amber-950 [&>[data-close-button=true]:hover]:bg-white/20",
           success:
-            "bg-primary-600 ring-primary-700/50 text-white ring-inset [&>[data-close-button=true]>svg]:text-white [&>[data-close-button=true]:hover]:bg-white/20",
+            "bg-primary ring-primary/50 text-primary-fg ring-inset [&>[data-close-button=true]>svg]:text-primary-fg [&>[data-close-button=true]:hover]:bg-primary-fg/20",
           cancelButton: buttonStyles({
             className: "",
             size: "extra-small",

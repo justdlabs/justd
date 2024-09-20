@@ -1,10 +1,13 @@
 "use client"
 
+import React from "react"
+
 import { Buttons } from "@/app/(app)/themes/blocks/buttons"
 import { RangeCalendarBlocks } from "@/app/(app)/themes/blocks/range-calendar-blocks"
-import { clsx } from "clsx"
+import ChoiceboxDemo from "@/components/docs/collections/choicebox-demo"
+import TableBulkDemo from "@/components/docs/collections/table-bulk-demo"
 import { twJoin } from "tailwind-merge"
-import { cn, Tooltip } from "ui"
+import { Choicebox, Tooltip } from "ui"
 
 import { LoginForm } from "./blocks/login-form"
 
@@ -45,6 +48,50 @@ export function Blocks() {
         <LoginForm />
         <RangeCalendarBlocks />
         <Buttons />
+
+        <div className="col-span-full grid grid-cols-3 gap-2">
+          <div className="col-span-2">
+            <TableBulkDemo />
+          </div>
+          <div>
+            <Choicebox
+              gap={2}
+              columns={1}
+              defaultSelectedKeys={["standard"]}
+              aria-label="Select items"
+              selectionMode="multiple"
+            >
+              <Choicebox.Item
+                id="basic"
+                title="Basic"
+                description="Just the essentials to get started."
+              />
+              <Choicebox.Item
+                id="standard"
+                title="Standard"
+                description="A step up with more features and support."
+              />
+              <Choicebox.Item
+                id="premium"
+                title="Premium"
+                description="Advanced options for growing needs."
+              />
+              <Choicebox.Item
+                id="deluxe"
+                title="Deluxe"
+                description="Top-tier features for maximum performance."
+              />
+              <Choicebox.Item
+                title="Ultimate"
+                description="All-inclusive plan with every feature available."
+              />
+              <Choicebox.Item
+                title="Enterprise"
+                description="Custom solutions for large-scale operations."
+              />
+            </Choicebox>
+          </div>
+        </div>
       </div>
     </div>
   )
