@@ -10,7 +10,7 @@ const badgeIntents = {
   secondary: "bg-secondary/50 dark:bg-secondary/70 ring-secondary-fg/20 text-secondary-fg",
   success:
     "bg-emerald-500/15 text-emerald-700 ring-success/50 dark:ring-success/80 group-hover:bg-emerald-500/25 dark:bg-emerald-500/10 dark:text-emerald-400 dark:group-hover:bg-emerald-500/20",
-  info: "dark:ring-info/30 ring-info/80 bg-info/20 dark:bg-info/15 text-info-fg dark:text-info hover:bg-info/15 dark:hover:bg-info/10",
+  info: "dark:ring-info/30 ring-info/80 bg-info/20 dark:bg-info/15 text-info hover:bg-info/15 dark:hover:bg-info/10",
   warning:
     "dark:ring-warning/40 ring-warning/50 bg-warning/10 dark:bg-warning/15 text-warning-fg dark:text-warning hover:bg-warning/15 dark:hover:bg-warning/10",
   danger:
