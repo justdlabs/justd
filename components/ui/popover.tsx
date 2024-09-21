@@ -2,7 +2,11 @@
 
 import * as React from "react"
 
-import type { ModalOverlayProps } from "react-aria-components"
+import type {
+  DialogTriggerProps,
+  ModalOverlayProps,
+  PopoverProps as PopoverPrimitiveProps
+} from "react-aria-components"
 import {
   type DialogProps,
   DialogTrigger,
@@ -11,7 +15,6 @@ import {
   OverlayArrow,
   Popover as PopoverPrimitive,
   PopoverContext,
-  type PopoverProps as PopoverPrimitiveProps,
   useSlottedContext
 } from "react-aria-components"
 import { twJoin } from "tailwind-merge"
@@ -20,7 +23,7 @@ import { tv } from "tailwind-variants"
 import { Dialog } from "./dialog"
 import { cn, cr, useMediaQuery } from "./primitive"
 
-const Popover = ({ children, ...props }: { children: React.ReactNode }) => {
+const Popover = ({ children, ...props }: DialogTriggerProps) => {
   return <DialogTrigger {...props}>{children}</DialogTrigger>
 }
 
@@ -36,7 +39,7 @@ const Header = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) =
 )
 
 const Footer = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <Dialog.Footer className={cn("pt-4 pb-0 sm:pb-0", className)} {...props} />
+  <Dialog.Footer className={cn("pb-0 pt-4 sm:pb-0", className)} {...props} />
 )
 
 const Body = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
@@ -117,7 +120,7 @@ const Content = ({
   return isMobile && respectScreen ? (
     <ModalOverlay
       className={twJoin(
-        "fixed left-0 top-0 bg-overlay/10 isolate z-50 h-[--visual-viewport-height] w-full [--visual-viewport-vertical-padding:16px]",
+        "fixed left-0 top-0 isolate z-50 h-[--visual-viewport-height] w-full bg-overlay/10 [--visual-viewport-vertical-padding:16px]",
         isSubmenuTrigger ? "bg-overlay/10" : ""
       )}
       {...props}
@@ -130,7 +133,7 @@ const Content = ({
       >
         <Dialog
           aria-label={isMenu ? "Menu" : props["aria-label"]}
-          className="focus:outline-none touch-none"
+          className="touch-none focus:outline-none"
         >
           {children}
         </Dialog>
@@ -171,7 +174,7 @@ const Picker = ({ children, className, ...props }: PopoverProps) => {
       className={cr(className as PopoverPrimitiveProps["className"], (className, renderProps) =>
         popoverContentStyles({
           ...renderProps,
-          className: cn("max-h-72 overflow-y-auto min-w-[--trigger-width] p-0", className)
+          className: cn("max-h-72 min-w-[--trigger-width] overflow-y-auto p-0", className)
         })
       )}
     >
