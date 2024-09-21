@@ -3,7 +3,7 @@ import { DescriptionList, Heading } from "ui"
 export default function DescriptionListHeadingDemo() {
   return (
     <div>
-      <Heading>Product Details</Heading>
+      <Heading className="sm:text-lg">Product Details</Heading>
       <DescriptionList>
         <DescriptionList.Term>Product Name</DescriptionList.Term>
         <DescriptionList.Details>Wireless Headphones</DescriptionList.Details>

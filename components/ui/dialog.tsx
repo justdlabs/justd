@@ -33,7 +33,8 @@ const dialogStyles = tv({
       "max-h-[calc(var(--visual-viewport-height)-var(--visual-viewport-vertical-padding)-var(--dialog-header-height,0px)-var(--dialog-footer-height,0px))]"
     ],
     footer: "mt-auto flex flex-col-reverse justify-between gap-3 pb-4 sm:pb-6 pt-4 sm:flex-row",
-    closeIndicator: "close absolute right-2 top-2 size-6 z-50"
+    closeIndicator:
+      "close absolute right-1 top-1 sm:right-2 sm:top-2 focus:outline-none focus:bg-secondary hover:bg-secondary grid place-content-center rounded-xl sm:rounded-md focus-visible:ring-1 focus-visible:ring-primary size-8 sm:size-7 z-50"
   }
 })
 
@@ -164,17 +165,15 @@ const CloseIndicator = ({ className, ...props }: CloseButtonIndicatorProps) => {
     }
   }, [isMobile])
   return props.isDismissable ? (
-    <Button
+    <ButtonPrimitive
       ref={buttonRef}
       {...(isMobile ? { autoFocus: true } : {})}
-      appearance="plain"
-      size="square-petite"
       aria-label="Close"
       onPress={props.close}
       className={closeIndicator({ className })}
     >
       <IconX className="size-4" />
-    </Button>
+    </ButtonPrimitive>
   ) : null
 }
 
