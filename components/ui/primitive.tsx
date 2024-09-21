@@ -24,22 +24,6 @@ const focusRing = tv({
   }
 })
 
-const isServerSide = (): boolean => {
-  if (typeof window !== "undefined") {
-    return false
-  }
-  if (typeof process !== "undefined" && process.versions && process.versions.node) {
-    return true
-  }
-  return true
-}
-
-const isIos = (userAgent?: string): boolean => {
-  if (isServerSide() && !userAgent) return false
-  const result = userAgent || navigator.userAgent
-  return /iPad|iPhone|iPod|iPadOS|iPhoneOS/.test(result)
-}
-
 const focusStyles = tv({
   extend: focusRing,
   variants: {
@@ -90,6 +74,5 @@ export {
   focusButtonStyles,
   tm,
   twMerge,
-  useMediaQuery,
-  isIos
+  useMediaQuery
 }
