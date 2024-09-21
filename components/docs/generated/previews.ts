@@ -476,6 +476,9 @@ export const previews: Record<string, any> = {
   "anatomies/breadcrumbs-anatomy": {
     component: React.lazy(() => import("@/components/docs/anatomies/breadcrumbs-anatomy")),
   },
+  "anatomies/description-list-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/description-list-anatomy")),
+  },
   "anatomies/modal-anatomy": {
     component: React.lazy(() => import("@/components/docs/anatomies/modal-anatomy")),
   },
@@ -863,6 +866,9 @@ export const previews: Record<string, any> = {
   "surfaces/card-login-form-demo": {
     component: React.lazy(() => import("@/components/docs/surfaces/card-login-form-demo")),
   },
+  "surfaces/description-list-demo": {
+    component: React.lazy(() => import("@/components/docs/surfaces/description-list-demo")),
+  },
   "surfaces/grid-basic-demo": {
     component: React.lazy(() => import("@/components/docs/surfaces/grid-basic-demo")),
   },
@@ -884,6 +890,9 @@ export const previews: Record<string, any> = {
   "surfaces/separator-orientation-demo": {
     component: React.lazy(() => import("@/components/docs/surfaces/separator-orientation-demo")),
   },
+  "surfaces/description-list-heading-demo": {
+    component: React.lazy(() => import("@/components/docs/surfaces/description-list-heading-demo")),
+  },
   "surfaces/grid-responsive-demo": {
     component: React.lazy(() => import("@/components/docs/surfaces/grid-responsive-demo")),
   },
@@ -892,6 +901,9 @@ export const previews: Record<string, any> = {
   },
   "surfaces/grid-debug-demo": {
     component: React.lazy(() => import("@/components/docs/surfaces/grid-debug-demo")),
+  },
+  "surfaces/description-list-card-demo": {
+    component: React.lazy(() => import("@/components/docs/surfaces/description-list-card-demo")),
   },
   "surfaces/heading-demo": {
     component: React.lazy(() => import("@/components/docs/surfaces/heading-demo")),
