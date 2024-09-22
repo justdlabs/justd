@@ -189,11 +189,11 @@ const Loader = React.forwardRef<SVGSVGElement, LoaderProps>((props, ref) => {
       className={loaderStyles({
         intent,
         size,
-        className: ["ring"].includes(variant)
-          ? "animate-spin"
-          : variant === "spin"
-            ? "stroke-current"
-            : className
+        className: cn([
+          ["ring"].includes(variant) && "animate-spin",
+          variant === "spin" && "stroke-current",
+          className
+        ])
       })}
       ref={ref}
       {...spinnerProps}
