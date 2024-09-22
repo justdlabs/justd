@@ -55,7 +55,10 @@ const ColorItem = ({
       onAction={() =>
         handleCopy(
           selectedFormat === "oklch"
-            ? rgbToOklch(parseColor(item.color as string)?.toString("rgb" as ColorFormat))
+            ? rgbToOklch(parseColor(item.color as string)?.toString("rgb")).replaceAll(
+                "0.000 NaN",
+                "0 0"
+              )
             : parseColor(item.color as string)?.toString(selectedFormat as ColorFormat)
         )
       }

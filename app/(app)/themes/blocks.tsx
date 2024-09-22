@@ -2,12 +2,15 @@
 
 import React from "react"
 
+import { BlockOfCard } from "@/app/(app)/themes/blocks/block-of-card"
 import { Buttons } from "@/app/(app)/themes/blocks/buttons"
+import { Control } from "@/app/(app)/themes/blocks/control"
 import { RangeCalendarBlocks } from "@/app/(app)/themes/blocks/range-calendar-blocks"
-import ChoiceboxDemo from "@/components/docs/collections/choicebox-demo"
-import TableBulkDemo from "@/components/docs/collections/table-bulk-demo"
+import { TableBulk } from "@/app/(app)/themes/blocks/table-bulk"
+import GridListMultipleDemo from "@/components/docs/collections/grid-list-multiple-demo"
+import ListBoxMultipleDemo from "@/components/docs/collections/list-box-multiple-demo"
 import { twJoin } from "tailwind-merge"
-import { Choicebox, Tooltip } from "ui"
+import { Choicebox, Description, Tooltip } from "ui"
 
 import { LoginForm } from "./blocks/login-form"
 
@@ -34,7 +37,10 @@ export function Blocks() {
         {colors.map((color) => (
           <Tooltip key={color} delay={0}>
             <Tooltip.Trigger
-              className={twJoin("clr ring-1 focus:ring-bg ring-fg/10 ring-inset", color)}
+              className={twJoin(
+                "clr ring-1 focus:outline-none ring-fg/15 focus:ring-fg/30 ring-inset",
+                color
+              )}
             />
             <Tooltip.Content>
               <span className="text-xs font-mono capitalize">
@@ -51,7 +57,7 @@ export function Blocks() {
 
         <div className="col-span-full grid grid-cols-3 gap-2">
           <div className="col-span-2">
-            <TableBulkDemo />
+            <TableBulk />
           </div>
           <div>
             <Choicebox
@@ -76,22 +82,13 @@ export function Blocks() {
                 title="Premium"
                 description="Advanced options for growing needs."
               />
-              <Choicebox.Item
-                id="deluxe"
-                title="Deluxe"
-                description="Top-tier features for maximum performance."
-              />
-              <Choicebox.Item
-                title="Ultimate"
-                description="All-inclusive plan with every feature available."
-              />
-              <Choicebox.Item
-                title="Enterprise"
-                description="Custom solutions for large-scale operations."
-              />
             </Choicebox>
           </div>
         </div>
+        <Control />
+        <BlockOfCard />
+        <ListBoxMultipleDemo />
+        <GridListMultipleDemo />
       </div>
     </div>
   )

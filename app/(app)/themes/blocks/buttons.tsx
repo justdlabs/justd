@@ -1,6 +1,8 @@
 "use client"
 
-import { Button, Card, Checkbox, Switch } from "ui"
+import React, { useState } from "react"
+
+import { Button, Card, Checkbox, CheckboxGroup, Radio, RadioGroup, Switch } from "ui"
 
 export function Buttons() {
   return (
@@ -14,9 +16,6 @@ export function Buttons() {
           <Button appearance="outline">Outline</Button>
           <Button appearance="plain">Plain</Button>
         </div>
-      </Card>
-      <Card className="grid place-content-center p-4">
-        <Checkbox defaultSelected>Remember me</Checkbox>
       </Card>
       <Card className="grid place-content-center p-4">
         <Switch defaultSelected>Toggle Theme</Switch>

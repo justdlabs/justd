@@ -31,11 +31,6 @@ export function CopyJsonColorShades({
     setColorName(getColorName(color))
     setOpen(true)
   }
-  const _selected =
-    selectedFormat === "oklch"
-      ? rgbToOklch(parseColor(color).toString("rgb"))
-      : parseColor(color).toString(selectedFormat as ColorFormat)
-  // const codeString = colorScales.map(({ shade }: any) => `'${shade}': '${_selected}'`).join(",\n  ")
   const renderColorScaleAsCode = (colorScales: any, colorName: string) => {
     const formattedColorName = colorName.includes("-")
       ? `'${getColorName(colorScales[4].color)}'`
@@ -45,7 +40,7 @@ export function CopyJsonColorShades({
       .map(({ shade, color }: any) => {
         const parsedColor =
           selectedFormat === "oklch"
-            ? rgbToOklch(parseColor(color).toString("rgb"))
+            ? rgbToOklch(parseColor(color).toString("rgb")).replaceAll("0.000 NaN", "0 0")
             : parseColor(color).toString(selectedFormat as ColorFormat)
         return `'${shade}': '${parsedColor}'`
       })

@@ -5,7 +5,7 @@ import React from "react"
 import type { Selection } from "react-aria-components"
 import { Card, Description, Table } from "ui"
 
-export default function TableBulkDemo() {
+export function TableBulk() {
   const [selectedKeys, setSelectedKeys] = React.useState<Selection>(new Set())
   return (
     <>
@@ -36,15 +36,6 @@ export default function TableBulkDemo() {
           </Table.Body>
         </Table>
       </Card>
-      <Description className="block mt-2 [&>strong]:text-fg text-muted-fg">
-        {Array.from(selectedKeys).length > 0 ? (
-          <>
-            You have selected: <strong>{Array.from(selectedKeys).join(", ")}</strong>
-          </>
-        ) : (
-          "You have not selected anything."
-        )}
-      </Description>
     </>
   )
 }
@@ -78,19 +69,5 @@ export const books = [
     author: "Jane Austen",
     genre: "Romance",
     publishedYear: 1813
-  },
-  {
-    id: "6",
-    title: "The Lord of the Rings",
-    author: "J.R.R. Tolkien",
-    genre: "Fantasy",
-    publishedYear: 1954
-  },
-  {
-    id: "7",
-    title: "Harry Potter and the Sorcerer's Stone",
-    author: "J.K. Rowling",
-    genre: "Fantasy",
-    publishedYear: 1997
   }
 ]
