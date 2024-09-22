@@ -347,6 +347,9 @@ export const previews: Record<string, any> = {
   "overlays/sheet-position-demo": {
     component: React.lazy(() => import("@/components/docs/overlays/sheet-position-demo")),
   },
+  "overlays/tooltip-without-arrow-demo": {
+    component: React.lazy(() => import("@/components/docs/overlays/tooltip-without-arrow-demo")),
+  },
   "overlays/modal-nested-demo": {
     component: React.lazy(() => import("@/components/docs/overlays/modal-nested-demo")),
   },
@@ -361,6 +364,9 @@ export const previews: Record<string, any> = {
   },
   "overlays/sheet-demo": {
     component: React.lazy(() => import("@/components/docs/overlays/sheet-demo")),
+  },
+  "overlays/tooltip-intent-demo": {
+    component: React.lazy(() => import("@/components/docs/overlays/tooltip-intent-demo")),
   },
   "overlays/drawer-sticky-demo": {
     component: React.lazy(() => import("@/components/docs/overlays/drawer-sticky-demo")),

@@ -1,4 +1,4 @@
-import { buttonStyles, Card, DescriptionList, Heading, Link } from "ui"
+import { buttonStyles, Card, DescriptionList, Link } from "ui"
 
 export default function DescriptionListCardDemo() {
   return (
