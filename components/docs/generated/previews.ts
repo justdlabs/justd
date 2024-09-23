@@ -5,8 +5,20 @@
 import React from 'react';
 
 export const previews: Record<string, any> = {
+  "date-and-time/date-field/date-field-demo": {
+    component: React.lazy(() => import("@/components/docs/date-and-time/date-field/date-field-demo")),
+  },
+  "date-and-time/date-field/date-field-controlled-demo": {
+    component: React.lazy(() => import("@/components/docs/date-and-time/date-field/date-field-controlled-demo")),
+  },
+  "date-and-time/date-field/date-field-disabled-demo": {
+    component: React.lazy(() => import("@/components/docs/date-and-time/date-field/date-field-disabled-demo")),
+  },
   "date-and-time/date-field/date-time-field-demo": {
     component: React.lazy(() => import("@/components/docs/date-and-time/date-field/date-time-field-demo")),
+  },
+  "date-and-time/date-field/date-field-validation-demo": {
+    component: React.lazy(() => import("@/components/docs/date-and-time/date-field/date-field-validation-demo")),
   },
   "date-and-time/calendar/range-calendar-demo": {
     component: React.lazy(() => import("@/components/docs/date-and-time/calendar/range-calendar-demo")),
