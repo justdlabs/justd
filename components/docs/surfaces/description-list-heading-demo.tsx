@@ -1,3 +1,5 @@
+"use client"
+
 import { DescriptionList, Heading } from "ui"
 
 export default function DescriptionListHeadingDemo() {

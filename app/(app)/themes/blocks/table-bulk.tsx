@@ -3,7 +3,7 @@
 import React from "react"
 
 import type { Selection } from "react-aria-components"
-import { Card, Description, Table } from "ui"
+import { Card, Table } from "ui"
 
 export function TableBulk() {
   const [selectedKeys, setSelectedKeys] = React.useState<Selection>(new Set())

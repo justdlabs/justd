@@ -10,7 +10,7 @@ import { TableBulk } from "@/app/(app)/themes/blocks/table-bulk"
 import GridListMultipleDemo from "@/components/docs/collections/grid-list-multiple-demo"
 import ListBoxMultipleDemo from "@/components/docs/collections/list-box-multiple-demo"
 import { twJoin } from "tailwind-merge"
-import { Choicebox, Description, Tooltip } from "ui"
+import { Choicebox, Tooltip } from "ui"
 
 import { LoginForm } from "./blocks/login-form"
 

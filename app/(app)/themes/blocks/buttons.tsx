@@ -1,8 +1,8 @@
 "use client"
 
-import React, { useState } from "react"
+import React from "react"
 
-import { Button, Card, Checkbox, CheckboxGroup, Radio, RadioGroup, Switch } from "ui"
+import { Button, Card, Switch } from "ui"
 
 export function Buttons() {
   return (
