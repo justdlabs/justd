@@ -2,13 +2,9 @@
 
 import React from "react"
 
-import { BlockOfCard } from "@/app/(app)/themes/blocks/block-of-card"
 import { Buttons } from "@/app/(app)/themes/blocks/buttons"
-import { Control } from "@/app/(app)/themes/blocks/control"
 import { RangeCalendarBlocks } from "@/app/(app)/themes/blocks/range-calendar-blocks"
 import { TableBulk } from "@/app/(app)/themes/blocks/table-bulk"
-import GridListMultipleDemo from "@/components/docs/collections/grid-list-multiple-demo"
-import ListBoxMultipleDemo from "@/components/docs/collections/list-box-multiple-demo"
 import { twJoin } from "tailwind-merge"
 import { Choicebox, Tooltip } from "ui"
 
@@ -85,10 +81,10 @@ export function Blocks() {
             </Choicebox>
           </div>
         </div>
-        <Control />
-        <BlockOfCard />
-        <ListBoxMultipleDemo />
-        <GridListMultipleDemo />
+        {/*<Control />*/}
+        {/*<BlockOfCard />*/}
+        {/*<ListBoxMultipleDemo />*/}
+        {/*<GridListMultipleDemo />*/}
       </div>
     </div>
   )
