@@ -1,7 +1,7 @@
 "use client"
 
 import { siteConfig } from "@/resources/config/site"
-import { IconBrandJustd, IconCube, IconStar, IconStarFill } from "justd-icons"
+import { IconBrandJustd, IconCube, IconStar } from "justd-icons"
 import Link from "next/link"
 import { Header, Text } from "react-aria-components"
 import { buttonStyles, Container } from "ui"
