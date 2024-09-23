@@ -16,7 +16,7 @@ export default function CommandMenuSectionDemo() {
         <CommandMenu.List>
           <CommandMenu.Section heading="Pages">
             <CommandMenu.Item asChild>
-              <a href="/">Home</a>
+              <a href="/public">Home</a>
             </CommandMenu.Item>
             <CommandMenu.Item asChild>
               <a href="/docs/getting-started/installation">Docs</a>

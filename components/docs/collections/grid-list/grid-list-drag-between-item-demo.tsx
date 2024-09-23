@@ -2,7 +2,7 @@
 
 import React from "react"
 
-import GridListDragDemo from "@/components/docs/collections/grid-list-drag-demo"
+import GridListDragDemo from "@/components/docs/collections/grid-list/grid-list-drag-demo"
 import { useDragAndDrop } from "react-aria-components"
 import { useListData } from "react-stately"
 import { GridList } from "ui"

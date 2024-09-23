@@ -42,13 +42,12 @@ export function Themes() {
       <Container className="sm:pt-16 pt-8">
         <Controller themeId={themeId} applyTheme={applyTheme} />
       </Container>
-      <div
-        className="bg-bg border-y border-dashed py-12 mb-6 border-secondary-fg/10 text-fg"
-        ref={themeContainerRef}
-      >
-        <Container>
-          <Blocks />
-        </Container>
+      <div ref={themeContainerRef} className="p-4 bg-[oklch(var(--secondary)/80%)] border-y -mb-px">
+        <div className="max-w-screen-2xl mx-auto">
+          <div className="bg-bg rounded-xl p-10 border border-fg/15 text-fg">
+            <Blocks />
+          </div>
+        </div>
       </div>
     </div>
   )

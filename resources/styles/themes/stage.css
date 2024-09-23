@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --light: 98.51% 0 0;
+    --dark: 14.48% 0 0;
+    --bg: 100% 3.5594404384177905e-8 106.37411429114086;
+    --fg: 14.48% 0 0;
+    --primary: 73.86% 0.165 70.08;
+    --primary-fg: 99.69% 0.021 95.28;
+    --secondary: 98.02% 0.000 0;
+    --secondary-fg: 14.48% 0.000 0;
+    --tertiary: 99.51% 0 0;
+    --tertiary-fg: 20.46% 0 0;
+    --accent: 91.19% 0 0;
+    --accent-fg: 20.46% 0 0;
+    --accent-subtle: 98.11% 0.01765659332359609 59.48456416169169;
+    --accent-subtle-fg: 41.37% 0.105 45.90;
+    --overlay: 100% 3.5594404384177905e-8 106.37411429114086;
+    --overlay-fg: 14.05% 0.004 285.82;
+    --muted: 98.19% 0 0;
+    --muted-fg: 55.55% 0 0;
+    --success: 59.59% 0.127 163.23;
+    --success-fg: 97.93% 0.021 166.11;
+    --info: 65.08% 0.1906793232945444 251.28316095209283;
+    --info-fg: 100% 3.5594404384177905e-8 106.37411429114086;
+    --danger: 57.71% 0.215 27.32;
+    --danger-fg: 97.05% 0.013 17.38;
+    --warning: 83.69% 0.164 84.43;
+    --warning-fg: 27.92% 0.074 45.64;
+    --border: 92.19% 0.000 0;
+    --input: 91.99% 0.000 0;
+    --ring: var(--primary);
+    --toggle: 85.99% 0.000 0;
+    --radius: 0.5rem
+  }
+
+  .dark {
+    --bg: 13.48% 0 0;
+    --fg: 98.48% 0 0;
+    --primary: 83.69% 0.164 84.43;
+    --primary-fg: 12.91% 0.074 45.64;
+    --secondary: 21.46% 0 0;
+    --secondary-fg: 99.51% 0 0;
+    --tertiary: 16.46% 0 0;
+    --tertiary-fg: 98.51% 0 0;
+    --accent: 29.15% 0 0;
+    --accent-fg: 97.02% 0 0;
+    --accent-subtle: 21.77% 0.037 89.08;
+    --accent-subtle-fg: 97.19% 0.058 95.62;
+    --overlay: 16.64% 0.004 285.98;
+    --overlay-fg: 98.48% 0 0;
+    --muted: 24.86% 0 0;
+    --muted-fg: 71.55% 0 0;
+    --info: 65.08% 0.1906793232945444 251.28316095209283;
+    --info-fg: 100% 3.5594404384177905e-8 106.37411429114086;
+    --success: 59.59% 0.127 163.23;
+    --success-fg: 97.93% 0.021 166.11;
+    --ring: var(--primary);
+    --toggle: 29.01% 0.011 285.84;
+    --border: 26.08% 0.01 285.69;
+    --input: 27.41% 0.005 286.03
+  }
+}
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  * {
+    @apply border-border;
+    font-feature-settings: 'cv11', 'ss01';
+    font-variation-settings: 'opsz' 850;
+    text-rendering: optimizeLegibility;
+    scrollbar-width: thin;
+  }
+
+  body {
+    @apply bg-bg text-fg;
+  }
+
+  /* dark mode */
+  .dark {
+    scrollbar-width: thin;
+
+    @media (prefers-color-scheme: dark) {
+      * {
+        scrollbar-width: thin;
+      }
+    }
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 5px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    @apply bg-muted;
+    border-radius: 14px;
+    border: 3px solid transparent;
+  }
+}

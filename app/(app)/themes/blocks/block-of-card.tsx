@@ -37,8 +37,8 @@ export function BlockOfCard() {
         </Description>
       </div>
 
-      <div className="bg-accent p-4 rounded-xl border">
-        <h3 className="text-accent-fg text-lg font-semibold">Music Gear Essentials</h3>
+      <div className="bg-accent-subtle p-4 rounded-xl border border-accent-subtle-fg/20">
+        <h3 className="text-accent-subtle-fg text-lg font-semibold">Music Gear Essentials</h3>
         <Description className="text-accent-subtle-fg">
           Discover must-have gear for musicians, from instruments to audio equipment for any
           performance.

@@ -1,7 +1,7 @@
 "use client"
 
 import { siteConfig } from "@/resources/config/site"
-import { IconBrandJustd, IconCube, IconStar } from "justd-icons"
+import { IconBrandJustd, IconCube, IconStar, IconStarFill } from "justd-icons"
 import Link from "next/link"
 import { Header, Text } from "react-aria-components"
 import { buttonStyles, Container } from "ui"
@@ -52,12 +52,14 @@ export function Hero() {
               href={siteConfig.repo}
               className={buttonStyles({
                 size: "extra-small",
-                intent: "secondary",
+                appearance: "outline",
                 shape: "circle",
-                className: "[&_[data-slot=icon]]:text-warning"
+                className:
+                  "[&_[data-slot=icon]]:text-warning group bg-white text-zinc-900 hover:bg-zinc-100"
               })}
             >
-              <IconStar /> Stars sustain energy
+              <IconStar className="group-hover:text-yellow-500 group-hover:fill-yellow-500" /> Stars
+              sustain energy
             </Link>
             <h1 className="max-w-xl mt-4 text-2xl font-bold lg:text-4xl mb-4 lg:mb-6 tracking-tight">
               Accessible React UI Components. Copy, Customize, and Make Them Yours.

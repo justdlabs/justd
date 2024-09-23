@@ -2,7 +2,7 @@
 
 import React from "react"
 
-import TableDemo from "@/components/docs/collections/table-demo"
+import TableDemo from "@/components/docs/collections/table/table-demo"
 import { Card, Grid } from "ui"
 
 export default function Page() {

@@ -37,6 +37,7 @@
     "react-dom": "^18.3.1",
     "react-intersection-observer": "^9.13.1",
     "react-use-measure": "^2.1.1",
+    "recharts": "^2.12.7",
     "rehype-pretty-code": "^0.13.2",
     "rehype-stringify": "^10.0.0",
     "sharp": "^0.33.5",

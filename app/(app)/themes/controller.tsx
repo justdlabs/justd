@@ -19,7 +19,8 @@ const availableThemes = [
   { id: "violet", textValue: "Violet" },
   { id: "emerald", textValue: "Emerald" },
   { id: "rose", textValue: "Rose" },
-  { id: "turquoise", textValue: "Turquoise" }
+  { id: "turquoise", textValue: "Turquoise" },
+  { id: "orange", textValue: "Orange" }
 ]
 
 interface Props {
