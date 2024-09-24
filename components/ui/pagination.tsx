@@ -87,7 +87,7 @@ const renderListItem = (
 interface PaginationItemProps extends ListBoxItemProps {
   children?: React.ReactNode
   className?: string
-  intent?: "primary" | "secondary" | "danger" | "warning"
+  intent?: "primary" | "secondary"
   size?: "medium" | "large" | "square-petite" | "extra-small" | "small"
   shape?: "square" | "circle"
   appearance?: "solid" | "outline" | "plain"
@@ -97,7 +97,7 @@ interface PaginationItemProps extends ListBoxItemProps {
 
 const Item = ({
   variant = "default",
-  size = "square-petite",
+  size = "small",
   appearance = "outline",
   intent,
   className,
