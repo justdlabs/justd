@@ -2,11 +2,8 @@
 
 import * as React from "react"
 
-import type { HeadingProps, TextProps } from "react-aria-components"
-import { Heading, Text } from "react-aria-components"
+import { cn } from "@/utils/classes"
 import { tv } from "tailwind-variants"
-
-import { cn } from "./primitive"
 
 const card = tv({
   slots: {
@@ -49,12 +46,16 @@ const Header = ({
   </div>
 )
 
-const Title = ({ className, ...props }: HeadingProps) => {
-  return <Heading slot="title" className={title({ className })} {...props} />
+interface TitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
+  level?: 1 | 2 | 3 | 4
+}
+const Title = ({ className, level = 2, ...props }: TitleProps) => {
+  let Element: `h${typeof level}` = `h${level}`
+  return <Element slot="title" className={title({ className })} {...props} />
 }
 
-const Description = ({ className, ...props }: TextProps) => {
-  return <Text {...props} slot="description" className={description({ className })} {...props} />
+const Description = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => {
+  return <div {...props} slot="description" className={description({ className })} {...props} />
 }
 
 const Content = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => {

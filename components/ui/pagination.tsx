@@ -121,7 +121,7 @@ const Item = ({
         className: cn(
           buttonStyles({
             appearance: "outline",
-            size: "square-petite",
+            size: "small",
             className: itemButton()
           }),
           className
