@@ -4,9 +4,7 @@ import { IconTrendingChart3 } from "justd-icons"
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
 import { Card, Chart, type ChartConfig } from "ui"
 
-export const description = "An area chart with gradient fill"
-
-const chartData = [
+const data = [
   { month: "January", sales: 186, profit: 80 },
   { month: "February", sales: 305, profit: 200 },
   { month: "March", sales: 237, profit: 120 },
@@ -36,17 +34,17 @@ export default function BasicChartDemo() {
   return (
     <Card>
       <Card.Header>
-        <Card.Title>Visitors</Card.Title>
-        <Card.Description>Showing total visitors for the this year</Card.Description>
+        <Card.Title>Sales</Card.Title>
+        <Card.Description>Showing sales for the last year</Card.Description>
       </Card.Header>
       <Card.Content>
         <Chart className="min-h-[250px] max-h-[250px] w-full" config={config}>
           <AreaChart
             accessibilityLayer
-            data={chartData}
+            data={data}
             margin={{
-              left: 12,
-              right: 12
+              left: 10,
+              right: 10
             }}
           >
             <CartesianGrid vertical={false} />
@@ -84,6 +82,7 @@ export default function BasicChartDemo() {
               stroke="var(--color-sales)"
               stackId="a"
             />
+            <Chart.Legend content={<Chart.LegendContent />} className="mt-6" />
           </AreaChart>
         </Chart>
       </Card.Content>

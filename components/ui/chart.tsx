@@ -61,7 +61,12 @@ const Chart = React.forwardRef<HTMLDivElement, ChartProps>(
 )
 Chart.displayName = "Chart"
 
-const Style = ({ id, config }: { id: string; config: ChartConfig }) => {
+interface StyleProps {
+  id: string
+  config: ChartConfig
+}
+
+const Style = ({ id, config }: StyleProps) => {
   const colorConfig = Object.entries(config).filter(([_, config]) => config.theme || config.color)
   if (!colorConfig.length) return null
 
@@ -148,7 +153,7 @@ const TooltipContent = React.forwardRef<
       <div
         ref={ref}
         className={cn(
-          "grid min-w-[8rem] items-start gap-1.5 rounded-lg border border-border/50 bg-overlay text-overlay-fg px-2.5 py-1.5 text-xs shadow-xl",
+          "grid min-w-[8rem] items-start gap-1.5 rounded-lg border border-border/60 bg-overlay text-overlay-fg px-2.5 py-1.5 text-xs shadow-xl",
           className
         )}
       >
