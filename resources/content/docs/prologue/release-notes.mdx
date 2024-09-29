@@ -11,6 +11,18 @@ If you don't see the release you're looking for, please run `npx justd-cli@lates
 ## 2024
 This all changes are made on the 2024 release.
 
+## September 29
+- Add Chart component [Chart](/docs/components/surfaces/chart)
+- Card now use native HTML Element with `utils/classes`
+
+```ts title="utils/classes.ts"
+import {twMerge} from 'tailwind-merge'
+import {type ClassValue, clsx} from 'clsx'
+
+export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs))
+```
+If you're using initial setup (`npx justd-cli@latest init`), do not worry about this. It will be automatically added to your project.
+
 ## September 19
 - Feel free to change your theme [here](/themes)
 - Light/Dark, Light, Dark, Info has been

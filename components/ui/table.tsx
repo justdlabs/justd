@@ -100,7 +100,7 @@ const Header = <T extends object>({ children, className, columns, ...props }: He
     <TableHeader {...props} className={header({ className })}>
       {allowsDragging && <Column />}
       {selectionBehavior === "toggle" && (
-        <Column className="pl-4">
+        <Column className="pl-4 w-0">
           {selectionMode === "multiple" && <Checkbox slot="selection" />}
         </Column>
       )}

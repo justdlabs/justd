@@ -2,7 +2,7 @@ import { Breadcrumb, Breadcrumbs } from "ui"
 
 export default function BreadcrumbsAnatomy() {
   return (
-    <Breadcrumbs onAction={() => {}}>
+    <Breadcrumbs>
       <Breadcrumb href="#">Home</Breadcrumb>
       <Breadcrumb href="#">Design System</Breadcrumb>
       <Breadcrumb>Collections</Breadcrumb>

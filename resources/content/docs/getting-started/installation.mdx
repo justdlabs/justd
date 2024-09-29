@@ -106,279 +106,266 @@ This command will present a list of available components, which you can navigate
   [justdlabs/remix](https://github.com/justdlabs/remix). To get started, run the following command:
   <Installation command='npx create-remix@latest --template justdlabs/remix' items={['']}/>
 
-  ### Astro
-  This starter is already in production, and you can check it out [here](https://astro.getjustd.com/). The repository is
-  available [here](https://github.com/justdlabs/astro). To get started, run the following command:
-  <Installation command='npm create astro@latest -- --template justdlabs/astro' items={['']}/>
+### Astro
+This starter is already in production, and you can check it out [here](https://astro.getjustd.com/). The repository is
+available [here](https://github.com/justdlabs/astro). To get started, run the following command:
+<Installation command='npm create astro@latest -- --template justdlabs/astro' items={['']}/>
 
+## Classes / CN
+By default, components are saved in the `components/ui` folder of your project. These components include essential
+functions like `cn` for className handling and `composeTailwindRenderProps`. However, these functions are not
+compatible with server components. If you need to use `cn` outside of the typical environment, you should isolate it
+in a separate file like this:
 
-  ## React Server Component
-  By default, components are saved in the `components/ui` folder of your project. These components include essential
-  functions like `cn` for className handling and `composeTailwindRenderProps`. However, these functions are not
-  compatible with server components. If you need to use `cn` outside of the typical environment, you should isolate it
-  in a separate file like this:
+```ts title="utils/classes.ts"
+import {twMerge} from 'tailwind-merge'
+import {type ClassValue, clsx} from 'clsx'
 
-  ```ts title="utils/classes.ts"
-  import {twMerge} from 'tailwind-merge'
-  import {type ClassValue, clsx} from 'clsx'
+export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs))
+```
 
-  export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs))
-  ```
+## Manual Installation
+To begin setting up the design system, start by installing these packages:
 
-  If I were in your position, I would save this in a file named `classes.ts` within the `utils` folder. Then, whenever
-  you need to use it, you can import it like this:
-  ```tsx
-  import {cn} from '@/utils/classes'
+<Installation options={{isManual: true}} items={['react-aria-components', 'tailwindcss-react-aria-components']}/>
 
-  export default function page() {
-    return (
-    <span className={cn('...')} />
-  )
-  }
-  ```
+Next, add Tailwind Variant, Tailwind Merge, and clsx for utility functions:
 
-  ## Manual Installation
-  To begin setting up the design system, start by installing these packages:
+<Installation options={{isManual: true}} items={['tailwind-variants', 'tailwind-merge', 'clsx']} />
 
-  <Installation options={{isManual: true}} items={['react-aria-components', 'tailwindcss-react-aria-components']}/>
+Following that, include the animation package for managing animations and Paranoid for icons:
 
-  Next, add Tailwind Variant, Tailwind Merge, and clsx for utility functions:
+<Installation options={{isManual: true}} items={['justd-icons', 'tailwindcss-animate']} />
 
-  <Installation options={{isManual: true}} items={['tailwind-variants', 'tailwind-merge', 'clsx']} />
+### CSS
+Start by adjusting your main CSS file. For example, if you are using Laravel, this would be **resources/css/app.css**.
+You should add the following code:
 
-  Following that, include the animation package for managing animations and Paranoid for icons:
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
 
-  <Installation options={{isManual: true}} items={['justd-icons', 'tailwindcss-animate']} />
+### Variables
+You can customize your colors using these variables. By default, Justd utilizes OKLCH colors, but you have the option
+to switch to RGB, HSL, or HSB. If OKLCH isn't your preference, you can easily switch to another color format in the
+[Color Generator](/colors).
 
-  ### CSS
-  Start by adjusting your main CSS file. For example, if you are using Laravel, this would be **resources/css/app.css**.
-  You should add the following code:
+<PlainCode lang='css' code={`@layer base {
+:root {
+  --light: 98.51% 0 0;
+  --dark: 16.41% 0.006 285.68;
+  --bg: 100% 3.5594404384177905e-8 106.37411429114086;
+  --fg: 14.05% 0.004 285.82;
 
-  ```css
-  @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
-  ```
+    --overlay: 100% 3.5594404384177905e-8 106.37411429114086;
+    --overlay-fg: 14.05% 0.004 285.82;
 
-  ### Variables
-  You can customize your colors using these variables. By default, Justd utilizes OKLCH colors, but you have the option
-  to switch to RGB, HSL, or HSB. If OKLCH isn't your preference, you can easily switch to another color format in the
-  [Color Generator](/colors).
+    --primary: 55.76% 0.244 261.22;
+    --primary-fg: 100% 3.5594404384177905e-8 106.37411429114086;
 
-  <PlainCode lang='css' code={`@layer base {
-  :root {
-    --light: 98.51% 0 0;
-    --dark: 16.41% 0.006 285.68;
-    --bg: 100% 3.5594404384177905e-8 106.37411429114086;
-    --fg: 14.05% 0.004 285.82;
+    --secondary: 96.76% 0.001 286.38;
+    --secondary-fg: 21.03% 0.006 285.88;
 
-      --overlay: 100% 3.5594404384177905e-8 106.37411429114086;
-      --overlay-fg: 14.05% 0.004 285.82;
+    --tertiary: 100% 3.5594404384177905e-8 106.37411429114086;
+    --tertiary-fg: 27.47% 0.006 286;
 
-      --primary: 55.76% 0.244 261.22;
-      --primary-fg: 100% 3.5594404384177905e-8 106.37411429114086;
+    --accent: 55.76% 0.244 261.22;
+    --accent-fg: 100% 3.5594404384177905e-8 106.37411429114086;
 
-      --secondary: 96.76% 0.001 286.38;
-      --secondary-fg: 21.03% 0.006 285.88;
+    --accent-subtle: 97.47% 0.011951506905820171 259.81768693271533;
+    --accent-subtle-fg: 47.45% 0.2046280151598458 260.967449727105;
 
-      --tertiary: 100% 3.5594404384177905e-8 106.37411429114086;
-      --tertiary-fg: 27.47% 0.006 286;
+    --success: 59.59% 0.127 163.23;
+    --success-fg: 97.93% 0.021 166.11;
 
-      --accent: 55.76% 0.244 261.22;
-      --accent-fg: 100% 3.5594404384177905e-8 106.37411429114086;
+    --info: 89.72% 0.179 126.66;
+    --info-fg: 27.41% 0.069 132.11;
 
-      --accent-subtle: 97.47% 0.011951506905820171 259.81768693271533;
-      --accent-subtle-fg: 47.45% 0.2046280151598458 260.967449727105;
+    --muted: 96.76% 0.001 286.38;
+    --muted-fg: 55.19% 0.014 285.94;
 
-      --success: 59.59% 0.127 163.23;
-      --success-fg: 97.93% 0.021 166.11;
+    --danger: 57.71% 0.215 27.32;
+    --danger-fg: 97.05% 0.013 17.38;
 
-      --info: 89.72% 0.179 126.66;
-      --info-fg: 27.41% 0.069 132.11;
+    --warning: 83.69% 0.164 84.43;
+    --warning-fg: 27.92% 0.074 45.64;
 
-      --muted: 96.76% 0.001 286.38;
-      --muted-fg: 55.19% 0.014 285.94;
-
-      --danger: 57.71% 0.215 27.32;
-      --danger-fg: 97.05% 0.013 17.38;
-
-      --warning: 83.69% 0.164 84.43;
-      --warning-fg: 27.92% 0.074 45.64;
-
-      --border: 91.97% 0.004 286.32;
-      --input: 91.97% 0.004 286.32;
-      --ring: var(--primary);
-      --toggle: 87.16% 0.006 286.28;
-      --radius: 0.5rem;
-    }
-
-    .dark {
-      --bg: 0% 0 0;
-      --fg: 98.48% 0 0;
-
-      --overlay: 16.64% 0.004 285.98;
-      --overlay-fg: 98.48% 0 0;
-
-      --primary: 57.51% 0.229 260.21;
-      --primary-fg: 100% 3.5594404384177905e-8 106.37411429114086;
-
-      --secondary: 27.41% 0.005 286.03;
-      --secondary-fg: 98.48% 0 0;
-
-      --info: 92.15% 0.209 129.31;
-      --info-fg: 33.18% 0.1128435250344563 142.49533888780988;
-
-      --success: 59.59% 0.127 163.23;
-      --success-fg: 97.93% 0.021 166.11;
-
-      --accent: 57.51% 0.229 260.21;
-      --accent-fg: 100% 3.5594404384177905e-8 106.37411429114086;
-
-      --accent-subtle: 15.82% 0.044 253.07;
-      --accent-subtle-fg: 82.36% 0.098 240.42;
-
-      --tertiary: 15.86% 0.006 285.71;
-      --tertiary-fg: 96.83% 0.001 286.37;
-
-      --muted: 27.41% 0.005 286.03;
-      --muted-fg: 71.19% 0.013 286.07;
-
-      --ring: var(--primary);
-      --toggle: 37.01% 0.011 285.84;
-      --border: 26.08% 0.01 285.69;
-      --input: 27.41% 0.005 286.03;
-    }
-  }`} />
-
-  ### Default Utilities
-  Include this for the default set of utilities:
-  <PlainCode lang='css' code={`@layer base {
-  * {
-    @apply border-border;
-    font-feature-settings: 'cv11', 'ss01';
-    font-variation-settings: 'opsz' 850;
+    --border: 91.97% 0.004 286.32;
+    --input: 91.97% 0.004 286.32;
+    --ring: var(--primary);
+    --toggle: 87.16% 0.006 286.28;
+    --radius: 0.5rem;
   }
 
-    body {
-      @apply bg-bg text-fg;
-    }
+  .dark {
+    --bg: 0% 0 0;
+    --fg: 98.48% 0 0;
+
+    --overlay: 16.64% 0.004 285.98;
+    --overlay-fg: 98.48% 0 0;
+
+    --primary: 57.51% 0.229 260.21;
+    --primary-fg: 100% 3.5594404384177905e-8 106.37411429114086;
+
+    --secondary: 27.41% 0.005 286.03;
+    --secondary-fg: 98.48% 0 0;
+
+    --info: 92.15% 0.209 129.31;
+    --info-fg: 33.18% 0.1128435250344563 142.49533888780988;
+
+    --success: 59.59% 0.127 163.23;
+    --success-fg: 97.93% 0.021 166.11;
+
+    --accent: 57.51% 0.229 260.21;
+    --accent-fg: 100% 3.5594404384177905e-8 106.37411429114086;
+
+    --accent-subtle: 15.82% 0.044 253.07;
+    --accent-subtle-fg: 82.36% 0.098 240.42;
+
+    --tertiary: 15.86% 0.006 285.71;
+    --tertiary-fg: 96.83% 0.001 286.37;
+
+    --muted: 27.41% 0.005 286.03;
+    --muted-fg: 71.19% 0.013 286.07;
+
+    --ring: var(--primary);
+    --toggle: 37.01% 0.011 285.84;
+    --border: 26.08% 0.01 285.69;
+    --input: 27.41% 0.005 286.03;
   }
-`} />
+}`} />
 
-  ### React Aria Components
-  Then, add this section for react-aria-components:
-
-  ```css
-  .react-aria-DropIndicator[data-drop-target] {
-    outline: 1px solid oklch(var(--primary));
+### Default Utilities
+Include this for the default set of utilities:
+<PlainCode lang='css' code={`@layer base {
+* {
+  @apply border-border;
+  font-feature-settings: 'cv11', 'ss01';
+  font-variation-settings: 'opsz' 850;
 }
-  ```
 
-
-  ### Tailwind Configuration
-  Configure your Tailwind setup by wrapping your tailwind config with withTV from tailwind-variants. Also, make sure to
-  integrate the plugins we've just installed.
-  <PlainCode lang='js' code={`/** @type {import('tailwindcss').Config} */
-
-  import { withTV } from 'tailwind-variants/transformer'
-  import ta from 'tailwindcss-animate'
-  import trac from 'tailwindcss-react-aria-components'
-
-  export default withTV({
-    darkMode: 'class',
-    content: [...],
-
-    plugins: [ ta, trac ],
-    theme: {
-      extend: {
-        colors: {
-          light: "oklch(var(--light) / <alpha-value>)",
-          dark: "oklch(var(--dark) / <alpha-value>)",
-          border: "oklch(var(--border) / <alpha-value>)",
-          input: "oklch(var(--input) / <alpha-value>)",
-          ring: "oklch(var(--ring) / <alpha-value>)",
-          toggle: "oklch(var(--toggle) / <alpha-value>)",
-          bg: "oklch(var(--bg) / <alpha-value>)",
-          fg: "oklch(var(--fg) / <alpha-value>)",
-          primary: {
-            DEFAULT: "oklch(var(--primary) / <alpha-value>)",
-            fg: "oklch(var(--primary-fg) / <alpha-value>)",
-            '50': 'oklch(97.37% 0.014 238)',
-            '100': 'oklch(93.81% 0.03280649558828209 241.06746081081621)',
-            '200': 'oklch(88.9% 0.059 242.33)',
-            '300': 'oklch(82.58% 0.09763750297234024 239.47890979942932)',
-            '400': 'oklch(74.36% 0.142 244.63)',
-            '500': 'oklch(65.63% 0.18687681791257255 253.9987240551966)',
-            '600': 'oklch(57.82% 0.228 260.03)',
-            '700': 'oklch(52.27% 0.227 261.8)',
-            '800': 'oklch(45.04% 0.19 262.37)',
-            '900': 'oklch(39.92% 0.145 261.36)',
-            '950': 'oklch(29.38% 0.093 262.52)',
-          },
-          secondary: {
-            DEFAULT: "oklch(var(--secondary) / <alpha-value>)",
-            fg: "oklch(var(--secondary-fg) / <alpha-value>)"
-          },
-          tertiary: {
-            DEFAULT: "oklch(var(--tertiary) / <alpha-value>)",
-            fg: "oklch(var(--tertiary-fg) / <alpha-value>)"
-          },
-          accent: {
-            DEFAULT: "oklch(var(--accent) / <alpha-value>)",
-            fg: "oklch(var(--accent-fg) / <alpha-value>)",
-            subtle: "oklch(var(--accent-subtle) / <alpha-value>)",
-            "subtle-fg": "oklch(var(--accent-subtle-fg) / <alpha-value>)"
-          },
-          success: {
-            DEFAULT: "oklch(var(--success) / <alpha-value>)",
-            fg: "oklch(var(--success-fg) / <alpha-value>)"
-          },
-          info: {
-            DEFAULT: "oklch(var(--info) / <alpha-value>)",
-            fg: "oklch(var(--info-fg) / <alpha-value>)"
-          },
-          danger: {
-            DEFAULT: "oklch(var(--danger) / <alpha-value>)",
-            fg: "oklch(var(--danger-fg) / <alpha-value>)"
-          },
-          warning: {
-            DEFAULT: "oklch(var(--warning) / <alpha-value>)",
-            fg: "oklch(var(--warning-fg) / <alpha-value>)"
-          },
-          muted: {
-            DEFAULT: "oklch(var(--muted) / <alpha-value>)",
-            fg: "oklch(var(--muted-fg) / <alpha-value>)"
-          },
-          overlay: {
-            DEFAULT: "oklch(var(--overlay) / <alpha-value>)",
-            fg: "oklch(var(--overlay-fg) / <alpha-value>)"
-          }
-        },
-        borderRadius: {
-          '3xl': "calc(var(--radius) + 6px)",
-          '2xl': "calc(var(--radius) + 4px)",
-          xl: "calc(var(--radius) + 2px)",
-          lg: "calc(var(--radius))",
-          md: "calc(var(--radius) - 2px)",
-          sm: "calc(var(--radius) - 4px)"
-        },
-      }
-    },
-  })
+  body {
+    @apply bg-bg text-fg;
+  }
+}
 `} />
 
-  ### Primitive
-  <SourceCode title='ui/primitive.tsx' toShow={['primitive']} />
+### React Aria Components
+Then, add this section for react-aria-components:
 
-  ## Simple Import
-  Indeed, it's efficient because the index.ts file in your UI folder serves as a hub. Even if the button and badge
-  components are in separate files, you can import them together easily:
-  ```tsx
-  import { Button, VisuallyHidden, Badge } from 'ui'
-  ```
-  So, here's the scoop: your UI folder contains an index.ts file, right? This file consolidates all your components for
-  straightforward access. Simply import them as needed, hassle-free!
-  <PlainCode title="ui/index.ts" lang='tsx' code={`export * from './primitive';
+```css
+.react-aria-DropIndicator[data-drop-target] {
+  outline: 1px solid oklch(var(--primary));
+}
+```
+
+
+### Tailwind Configuration
+Configure your Tailwind setup by wrapping your tailwind config with withTV from tailwind-variants. Also, make sure to
+integrate the plugins we've just installed.
+<PlainCode lang='js' code={`/** @type {import('tailwindcss').Config} */
+
+import { withTV } from 'tailwind-variants/transformer'
+import ta from 'tailwindcss-animate'
+import trac from 'tailwindcss-react-aria-components'
+
+export default withTV({
+  darkMode: 'class',
+  content: [...],
+
+  plugins: [ ta, trac ],
+  theme: {
+    extend: {
+      colors: {
+        light: "oklch(var(--light) / <alpha-value>)",
+        dark: "oklch(var(--dark) / <alpha-value>)",
+        border: "oklch(var(--border) / <alpha-value>)",
+        input: "oklch(var(--input) / <alpha-value>)",
+        ring: "oklch(var(--ring) / <alpha-value>)",
+        toggle: "oklch(var(--toggle) / <alpha-value>)",
+        bg: "oklch(var(--bg) / <alpha-value>)",
+        fg: "oklch(var(--fg) / <alpha-value>)",
+        primary: {
+          DEFAULT: "oklch(var(--primary) / <alpha-value>)",
+          fg: "oklch(var(--primary-fg) / <alpha-value>)",
+          '50': 'oklch(97.37% 0.014 238)',
+          '100': 'oklch(93.81% 0.03280649558828209 241.06746081081621)',
+          '200': 'oklch(88.9% 0.059 242.33)',
+          '300': 'oklch(82.58% 0.09763750297234024 239.47890979942932)',
+          '400': 'oklch(74.36% 0.142 244.63)',
+          '500': 'oklch(65.63% 0.18687681791257255 253.9987240551966)',
+          '600': 'oklch(57.82% 0.228 260.03)',
+          '700': 'oklch(52.27% 0.227 261.8)',
+          '800': 'oklch(45.04% 0.19 262.37)',
+          '900': 'oklch(39.92% 0.145 261.36)',
+          '950': 'oklch(29.38% 0.093 262.52)',
+        },
+        secondary: {
+          DEFAULT: "oklch(var(--secondary) / <alpha-value>)",
+          fg: "oklch(var(--secondary-fg) / <alpha-value>)"
+        },
+        tertiary: {
+          DEFAULT: "oklch(var(--tertiary) / <alpha-value>)",
+          fg: "oklch(var(--tertiary-fg) / <alpha-value>)"
+        },
+        accent: {
+          DEFAULT: "oklch(var(--accent) / <alpha-value>)",
+          fg: "oklch(var(--accent-fg) / <alpha-value>)",
+          subtle: "oklch(var(--accent-subtle) / <alpha-value>)",
+          "subtle-fg": "oklch(var(--accent-subtle-fg) / <alpha-value>)"
+        },
+        success: {
+          DEFAULT: "oklch(var(--success) / <alpha-value>)",
+          fg: "oklch(var(--success-fg) / <alpha-value>)"
+        },
+        info: {
+          DEFAULT: "oklch(var(--info) / <alpha-value>)",
+          fg: "oklch(var(--info-fg) / <alpha-value>)"
+        },
+        danger: {
+          DEFAULT: "oklch(var(--danger) / <alpha-value>)",
+          fg: "oklch(var(--danger-fg) / <alpha-value>)"
+        },
+        warning: {
+          DEFAULT: "oklch(var(--warning) / <alpha-value>)",
+          fg: "oklch(var(--warning-fg) / <alpha-value>)"
+        },
+        muted: {
+          DEFAULT: "oklch(var(--muted) / <alpha-value>)",
+          fg: "oklch(var(--muted-fg) / <alpha-value>)"
+        },
+        overlay: {
+          DEFAULT: "oklch(var(--overlay) / <alpha-value>)",
+          fg: "oklch(var(--overlay-fg) / <alpha-value>)"
+        }
+      },
+      borderRadius: {
+        '3xl': "calc(var(--radius) + 6px)",
+        '2xl': "calc(var(--radius) + 4px)",
+        xl: "calc(var(--radius) + 2px)",
+        lg: "calc(var(--radius))",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)"
+      },
+    }
+  },
+})
+`} />
+
+### Primitive
+<SourceCode title='ui/primitive.tsx' toShow={['primitive']} />
+
+## Simple Import
+Indeed, it's efficient because the index.ts file in your UI folder serves as a hub. Even if the button and badge
+components are in separate files, you can import them together easily:
+```tsx
+import { Button, VisuallyHidden, Badge } from 'ui'
+```
+So, here's the scoop: your UI folder contains an index.ts file, right? This file consolidates all your components for
+straightforward access. Simply import them as needed, hassle-free!
+<PlainCode title="ui/index.ts" lang='tsx' code={`export * from './primitive';
 export * from './note';
 export * from './list-box';
 export * from './choicebox';
@@ -433,101 +420,101 @@ export * from './visually-hidden';
 `} />
 
 
-  If you're not using all those components, feel free to remove the ones you don't need. Later, when you introduce a new
-  component, simply add it to your setup. It's straightforward!
+If you're not using all those components, feel free to remove the ones you don't need. Later, when you introduce a new
+component, simply add it to your setup. It's straightforward!
 
-  ### TS Config
-  Next, incorporate the following settings into your `tsconfig.json` file:
-  ```json title="tsconfig.json" {6}
-      {
-        "compilerOptions": {
-        // ...
-        "paths": {
-        "@/*": ["./*"],
-        "ui": ["./components/ui"]
-      }
+### TS Config
+Next, incorporate the following settings into your `tsconfig.json` file:
+```json title="tsconfig.json" {6}
+    {
+      "compilerOptions": {
+      // ...
+      "paths": {
+      "@/*": ["./*"],
+      "ui": ["./components/ui"]
     }
   }
-  ```
-
-  ### TS Config with src Folder
-  Ensure you configure the `paths` property correctly if your project includes a `src` folder. If you want to organize
-  the UI folder, adjust your paths accordingly like this:
-
-  ```json title="tsconfig.json" {6}
-      {
-        "compilerOptions": {
-        // ...
-        "paths": {
-        "@/*": ["./src/*"],
-        "ui": ["./src/components/ui"]
-      }
-    }
-  }
-  ```
-
-  ## Fonts
-  This is is currently using the [Inter font](https://rsms.me/inter/). If you want to use a different font, you can
-  define your font-family in your js or css file.
-
-  ### Stylesheet
-  When you're working with a stylesheet, you can define your `@font-face` in your css file.
-
-  ```
-  @font-face {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 100 900;
-    font-display: swap;
-    src: url("InterVariable.woff2") format("woff2");
 }
 ```
 
-  ### Next.js
-  If you're using Next.js, you don't event need css files. Just define your font in your layout file.
+### TS Config with src Folder
+Ensure you configure the `paths` property correctly if your project includes a `src` folder. If you want to organize
+the UI folder, adjust your paths accordingly like this:
+
+```json title="tsconfig.json" {6}
+    {
+      "compilerOptions": {
+      // ...
+      "paths": {
+      "@/*": ["./src/*"],
+      "ui": ["./src/components/ui"]
+    }
+  }
+}
+```
+
+## Fonts
+This is is currently using the [Inter font](https://rsms.me/inter/). If you want to use a different font, you can
+define your font-family in your js or css file.
+
+### Stylesheet
+When you're working with a stylesheet, you can define your `@font-face` in your css file.
+
+```
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("InterVariable.woff2") format("woff2");
+}
+```
+
+### Next.js
+If you're using Next.js, you don't event need css files. Just define your font in your layout file.
 
 ```tsx
 import localFont from 'next/font/local'
 
 const fontSans = localFont({
-  src: [{path: './fonts/Inter.woff2'}],
-  variable: '--font-sans'
+src: [{path: './fonts/Inter.woff2'}],
+variable: '--font-sans'
 })
 ```
 
 Then, apply the `fontSans` to the `body` tag like this:
 ```
 <body
-  className={cn(
-    'min-h-svh font-sans antialiased',
-    fontSans.variable,
-  )}
+className={cn(
+  'min-h-svh font-sans antialiased',
+  fontSans.variable,
+)}
 >
 ```
 Then, you can use the variable in your tailwind config like this:
 ```
 import {fontFamily} from 'tailwindcss/defaultTheme'
 theme: {
-  extend: {
-    fontFamily: {
-    sans: ['var(--font-sans)', ...fontFamily.sans],
-  },
+extend: {
+  fontFamily: {
+  sans: ['var(--font-sans)', ...fontFamily.sans],
 },
-  ```
+},
+```
 
-  For more information, refer to the [Tailwind documentation](https://tailwindcss.com/docs/font-family#customizing-the-default-font) and [Next.js documentation](https://nextjs.org/docs/app/building-your-application/optimizing/fonts).
+For more information, refer to the [Tailwind documentation](https://tailwindcss.com/docs/font-family#customizing-the-default-font) and [Next.js documentation](https://nextjs.org/docs/app/building-your-application/optimizing/fonts).
 
-  ## InteliSense
-  If you want your development environment to be more intelligent, you can follow instructions here at [Tailwind Variants](https://www.tailwind-variants.org/docs/getting-started#intellisense-setup-optional).
+## InteliSense
+If you want your development environment to be more intelligent, you can follow instructions here at [Tailwind Variants](https://www.tailwind-variants.org/docs/getting-started#intellisense-setup-optional).
 
-  ## Dark Mode
-  Justd supports dark mode out of the box. Every framework has its own way of implementing dark mode. So you better check the docs list below:
-  - [Vite](/docs/dark-mode/vite)
-  - [Inertia.js](/docs/dark-mode/inertia-js)
-  - [Next.js](/docs/dark-mode/next-js)
-  - [Remix](/docs/dark-mode/remix)
-  - [Astro](/docs/dark-mode/astro)
+## Dark Mode
+Justd supports dark mode out of the box. Every framework has its own way of implementing dark mode. So you better check the docs list below:
+- [Vite](/docs/dark-mode/vite)
+- [Inertia.js](/docs/dark-mode/inertia-js)
+- [Next.js](/docs/dark-mode/next-js)
+- [Remix](/docs/dark-mode/remix)
+- [Astro](/docs/dark-mode/astro)
 
-  ## Prologue
-  - [Contribution Guide](/docs/prologue/contribution-guide)
-  - [Release Notes](/docs/prologue/release-notes)
+## Prologue
+- [Contribution Guide](/docs/prologue/contribution-guide)
+- [Release Notes](/docs/prologue/release-notes)

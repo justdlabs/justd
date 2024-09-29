@@ -1,6 +1,7 @@
 export * from './primitive';
 export * from './touch-target';
 export * from './aside';
+export * from './chart';
 export * from './accordion';
 export * from './note';
 export * from './list-box';

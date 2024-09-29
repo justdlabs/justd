@@ -141,7 +141,7 @@ const renderHierarchy = (node: HierarchyNode, defaultValues: string[]) => {
                                               ? "secondary"
                                               : "info"
                                   }
-                                  className="uppercase h-5 text-[0.5rem]"
+                                  className="capitalize h-5 text-[0.65rem]"
                                 >
                                   {childValue?.status as Doc["status"]}
                                 </Badge>

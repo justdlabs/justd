@@ -10,6 +10,7 @@ import {
   IconBrandFramer,
   IconBrandGithub,
   IconBrandJustd,
+  IconChart2,
   IconCommandFill
 } from "justd-icons"
 import { Menu, MenuItem } from "react-aria-components"
@@ -28,6 +29,10 @@ export function DocRefs({ references }: any) {
       case url.includes("icons"):
         title = "Justd Icons"
         icon = IconBrandJustd
+        break
+      case url.includes("recharts"):
+        title = "Recharts"
+        icon = IconChart2
         break
       case url.includes("framer"):
         title = "Framer Motion"

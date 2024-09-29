@@ -4,7 +4,10 @@ import React from "react"
 
 import { Buttons } from "@/app/(app)/themes/blocks/buttons"
 import { RangeCalendarBlocks } from "@/app/(app)/themes/blocks/range-calendar-blocks"
+import { RevenueChart } from "@/app/(app)/themes/blocks/revenue-chart"
+import { SubscriptionChart } from "@/app/(app)/themes/blocks/subscription-chart"
 import { TableBulk } from "@/app/(app)/themes/blocks/table-bulk"
+import { TrafficChart } from "@/app/(app)/themes/blocks/traffic-chart"
 import { twJoin } from "tailwind-merge"
 import { Choicebox, Tooltip } from "ui"
 
@@ -47,10 +50,13 @@ export function Blocks() {
         ))}
       </div>
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2">
-        <LoginForm />
+        <RevenueChart />
         <RangeCalendarBlocks />
+        <LoginForm />
+        <SubscriptionChart />
         <Buttons />
 
+        <TrafficChart />
         <div className="col-span-full grid grid-cols-3 gap-2">
           <div className="col-span-2">
             <TableBulk />

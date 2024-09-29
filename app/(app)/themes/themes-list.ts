@@ -44,7 +44,13 @@ const themesList = {
       "--input": "91.97% 0.004 286.32",
       "--ring": "var(--primary)",
       "--toggle": "87.16% 0.006 286.28",
-      "--radius": "0.5rem"
+      "--radius": "0.5rem",
+
+      "--primary-chart": "51.24% 0.22272067527197015 261.09713650910066",
+      "--secondary-chart": "76.58% 0.119 263.28",
+      "--tertiary-chart": "63.25% 0.184 258.64",
+      "--highlight-chart": "81.17% 0.097 249.1",
+      "--accent-chart": "81.17% 0.097 249.1"
     },
     dark: {
       "--bg": "0% 0 0",
@@ -70,7 +76,13 @@ const themesList = {
       "--ring": "var(--primary)",
       "--toggle": "37.01% 0.011 285.84",
       "--border": "26.08% 0.01 285.69",
-      "--input": "27.41% 0.005 286.03"
+      "--input": "27.41% 0.005 286.03",
+
+      "--primary-chart": "54.6% 0.215 262.87",
+      "--secondary-chart": "72.11% 0.142 253.1",
+      "--tertiary-chart": "63.25% 0.184 258.64",
+      "--highlight-chart": "81.17% 0.097 249.1",
+      "--accent-chart": "88.29% 0.057 251.91"
     }
   },
 
@@ -118,7 +130,13 @@ const themesList = {
       "--input": "91.97% 0.004 286.32",
       "--ring": "var(--primary)",
       "--toggle": "87.16% 0.006 286.28",
-      "--radius": "0.5rem"
+      "--radius": "0.5rem",
+
+      "--primary-chart": "35.03% 0.012 285.81",
+      "--secondary-chart": "60.17% 0.014 285.94",
+      "--tertiary-chart": "71.18% 0.013 286.07",
+      "--highlight-chart": "87.11% 0.005 286.29",
+      "--accent-chart": "96.74% 0.001 286.38"
     },
     dark: {
       "--bg": "0% 0 0",
@@ -144,7 +162,13 @@ const themesList = {
       "--ring": "var(--primary)",
       "--toggle": "37.01% 0.011 285.84",
       "--border": "26.08% 0.01 285.69",
-      "--input": "27.41% 0.005 286.03"
+      "--input": "27.41% 0.005 286.03",
+
+      "--primary-chart": "40.03% 0.012 285.81",
+      "--secondary-chart": "64.17% 0.014 285.94",
+      "--tertiary-chart": "73.18% 0.013 286.07",
+      "--highlight-chart": "87.11% 0.005 286.29",
+      "--accent-chart": "96.74% 0.001 286.38"
     }
   },
 
@@ -180,7 +204,13 @@ const themesList = {
       "--input": "92.19% 0 0",
       "--ring": "26.86% 0 0",
       "--toggle": "86.99% 0 0",
-      "--radius": "0.5rem"
+      "--radius": "0.5rem",
+
+      "--primary-chart": "37.15% 0 0",
+      "--secondary-chart": "86.99% 0 0",
+      "--tertiary-chart": "55.55% 0 0",
+      "--highlight-chart": "86.99% 0 0",
+      "--accent-chart": "92.19% 0 0"
     },
     dark: {
       "--bg": "10.48% 0 0",
@@ -206,7 +236,13 @@ const themesList = {
       "--ring": "92.19% 0 0",
       "--toggle": "38.15% 0 0",
       "--border": "27.86% 0 0",
-      "--input": "28.15% 0 0"
+      "--input": "28.15% 0 0",
+
+      "--primary-chart": "37.15% 0 0",
+      "--secondary-chart": "86.99% 0 0",
+      "--tertiary-chart": "55.55% 0 0",
+      "--highlight-chart": "86.99% 0 0",
+      "--accent-chart": "92.19% 0 0"
     }
   },
 
@@ -254,7 +290,13 @@ const themesList = {
       "--input": "87.17% 0.009 258.34",
       "--ring": "65.08% 0.191 251.28",
       "--toggle": "87.17% 0.009 258.34",
-      "--radius": "0.5rem"
+      "--radius": "0.5rem",
+
+      "--primary-chart": " 65.08% 0.1906793232945444 251.28316095209283",
+      "--secondary-chart": " 85.08% 0.123 241.41",
+      "--tertiary-chart": " 71.53% 0.156 248.08",
+      "--highlight-chart": " 82.76% 0.101 230.32",
+      "--accent-chart": " 90.14% 0.055 230.9"
     },
     dark: {
       "--bg": "9% 0.027 261.69",
@@ -280,7 +322,13 @@ const themesList = {
       "--ring": "65.08% 0.191 251.28",
       "--toggle": "30% 0.030 256.85",
       "--border": "23.95% 0.037 260.03",
-      "--input": "24% 0.030 256.85"
+      "--input": "24% 0.030 256.85",
+
+      "--primary-chart": "54.08% 0.1906793232945444 251.28316095209283",
+      "--secondary-chart": "81.08% 0.123 241.41",
+      "--tertiary-chart": "67.53% 0.156 248.08",
+      "--highlight-chart": "78.76% 0.101 230.32",
+      "--accent-chart": "90.14% 0.055 230.9"
     }
   },
 
@@ -316,7 +364,13 @@ const themesList = {
       "--input": "92.88% 0.013 255.51",
       "--ring": "20.77% 0.040 265.75",
       "--toggle": "86.90% 0.020 252.89",
-      "--radius": "0.5rem"
+      "--radius": "0.5rem",
+
+      "--primary-chart": "44.55% 0.037 257.28",
+      "--secondary-chart": "86.90% 0.020 252.89",
+      "--tertiary-chart": "71.07% 0.035 256.79",
+      "--highlight-chart": "86.90% 0.020 252.89",
+      "--accent-chart": "92.88% 0.013 255.51"
     },
     dark: {
       "--bg": "9% 0.041 264.70",
@@ -342,7 +396,12 @@ const themesList = {
       "--ring": "96.83% 0.007 247.90",
       "--toggle": "30% 0.039 257.29",
       "--border": "23% 0.037 260.03",
-      "--input": "27.95% 0.037 260.03"
+      "--input": "27.95% 0.037 260.03",
+      "--primary-chart": "42.55% 0.037 257.28",
+      "--secondary-chart": "86.90% 0.020 252.89",
+      "--tertiary-chart": "55.44% 0.041 257.42",
+      "--highlight-chart": "82.90% 0.020 252.89",
+      "--accent-chart": "89.88% 0.013 255.51"
     }
   },
 
@@ -378,7 +437,12 @@ const themesList = {
       "--input": "92.76% 0.006 264.53",
       "--ring": "12.96% 0.027 261.69",
       "--toggle": "87.17% 0.009 258.34",
-      "--radius": "0.5rem"
+      "--radius": "0.5rem",
+      "--primary-chart": "52.1% 0.023 264.36",
+      "--secondary-chart": "75.37% 0.019 261.32",
+      "--tertiary-chart": "65.10% 0.023 264.36",
+      "--highlight-chart": "87.17% 0.009 258.34",
+      "--accent-chart": "92.76% 0.006 264.53"
     },
 
     dark: {
@@ -405,7 +469,13 @@ const themesList = {
       "--ring": "98.46% 0.002 247.84",
       "--toggle": "35.29% 0.031 259.73",
       "--border": "27.81% 0.03 256.85",
-      "--input": "28.29% 0.031 259.73"
+      "--input": "28.29% 0.031 259.73",
+
+      "--primary-chart": "36.29% 0.031 259.73",
+      "--secondary-chart": "83.37% 0.019 261.32",
+      "--tertiary-chart": "44.61% 0.026 256.8",
+      "--highlight-chart": "71.37% 0.019 261.32",
+      "--accent-chart": "90.76% 0.006 264.53"
     }
   },
 
@@ -441,7 +511,13 @@ const themesList = {
       "--input": "91.99% 0.000 0",
       "--ring": "var(--primary)",
       "--toggle": "85.99% 0.000 0",
-      "--radius": "0.5rem"
+      "--radius": "0.5rem",
+
+      "--primary-chart": "76.86% 0.165 70.08",
+      "--secondary-chart": "87.90% 0.153 91.61",
+      "--tertiary-chart": "83.69% 0.164 84.43",
+      "--highlight-chart": "92.43% 0.115 95.75",
+      "--accent-chart": "96.19% 0.058 95.62"
     },
     dark: {
       "--bg": "13.48% 0 0",
@@ -467,7 +543,13 @@ const themesList = {
       "--ring": "var(--primary)",
       "--toggle": "29.01% 0.011 285.84",
       "--border": "26.08% 0.01 285.69",
-      "--input": "27.41% 0.005 286.03"
+      "--input": "27.41% 0.005 286.03",
+
+      "--primary-chart": "70.86% 0.165 70.08",
+      "--secondary-chart": "87.90% 0.153 91.61",
+      "--tertiary-chart": "83.69% 0.164 84.43",
+      "--highlight-chart": "92.43% 0.115 95.75",
+      "--accent-chart": "96.19% 0.058 95.62"
     }
   },
 
@@ -504,7 +586,13 @@ const themesList = {
       "--input": "89.98% 0.009 264.51",
       "--ring": "var(--primary)",
       "--toggle": "82.98% 0.009 264.51",
-      "--radius": "0.5rem"
+      "--radius": "0.5rem",
+
+      "--primary-chart": "57.13% 0.247 293.01",
+      "--secondary-chart": "81.12% 0.101 293.57",
+      "--tertiary-chart": "65.90% 0.159 293.54",
+      "--highlight-chart": "86.43% 0.055 293.28",
+      "--accent-chart": "94.33% 0.028 294.59"
     },
     dark: {
       "--bg": "13.44% 0.004 264.47",
@@ -530,7 +618,13 @@ const themesList = {
       "--ring": "var(--primary)",
       "--toggle": "34.88% 0.014 269.37",
       "--border": "24.45% 0.009 268.40",
-      "--input": "25.45% 0.009 268.40"
+      "--input": "25.45% 0.009 268.40",
+
+      "--primary-chart": "50.13% 0.247 293.01",
+      "--secondary-chart": "81.12% 0.101 293.57",
+      "--tertiary-chart": "65.90% 0.159 293.54",
+      "--highlight-chart": "82.68% 0.108 306.38",
+      "--accent-chart": "90.24% 0.060 306.70"
     }
   },
 
@@ -566,7 +660,12 @@ const themesList = {
       "--input": "91.97% 0.004 286.32",
       "--ring": "var(--primary)",
       "--toggle": "87.16% 0.006 286.28",
-      "--radius": "0.5rem"
+      "--radius": "0.5rem",
+      "--primary-chart": "65.59% 0.149 162.48",
+      "--secondary-chart": "85.49% 0.089 164.15",
+      "--tertiary-chart": "73.29% 0.153 163.22",
+      "--highlight-chart": "90.49% 0.089 164.15",
+      "--accent-chart": "95.05% 0.051 163.05"
     },
     dark: {
       "--bg": "0% 0 0",
@@ -592,7 +691,13 @@ const themesList = {
       "--ring": "var(--primary)",
       "--toggle": "37.01% 0.011 285.84",
       "--border": "26.08% 0.01 285.69",
-      "--input": "27.41% 0.005 286.03"
+      "--input": "27.41% 0.005 286.03",
+
+      "--primary-chart": "55.59% 0.149 162.48",
+      "--secondary-chart": "85.49% 0.089 164.15",
+      "--tertiary-chart": "79.29% 0.153 163.22",
+      "--highlight-chart": "85.49% 0.089 164.15",
+      "--accent-chart": "90.05% 0.051 163.0"
     }
   },
 
@@ -628,7 +733,13 @@ const themesList = {
       "--input": "91.97% 0.004 286.32",
       "--ring": "var(--primary)",
       "--toggle": "87.16% 0.006 286.28",
-      "--radius": "0.5rem"
+      "--radius": "0.5rem",
+
+      "--primary-chart": "59.6% 0.127 163.23",
+      "--secondary-chart": "85.65% 0.043 8.9",
+      "--tertiary-chart": "72.75% 0.141 10.65",
+      "--highlight-chart": "81.72% 0.091 9.38",
+      "--accent-chart": "65.06% 0.184 12.95"
     },
     dark: {
       "--bg": "0% 0 0",
@@ -654,7 +765,13 @@ const themesList = {
       "--ring": "var(--primary)",
       "--toggle": "37.01% 0.011 285.84",
       "--border": "26.08% 0.01 285.69",
-      "--input": "27.41% 0.005 286.03"
+      "--input": "27.41% 0.005 286.03",
+
+      "--primary-chart": "58.72% 0.222 17.72",
+      "--secondary-chart": "73.06% 0.184 12.95",
+      "--tertiary-chart": "75.75% 0.141 10.65",
+      "--highlight-chart": "85.72% 0.091 9.38",
+      "--accent-chart": "93.65% 0.043 8.9"
     }
   },
 
@@ -690,7 +807,12 @@ const themesList = {
       "--input": "92.88% 0.013 255.51",
       "--ring": "var(--primary)",
       "--toggle": "86.90% 0.020 252.89",
-      "--radius": "0.5rem"
+      "--radius": "0.5rem",
+      "--primary-chart": "60.89% 0.111 221.72",
+      "--secondary-chart": "86.51% 0.115 207.08",
+      "--tertiary-chart": "79.71% 0.134 211.53",
+      "--highlight-chart": "91.67% 0.077 205.04",
+      "--accent-chart": "95.63% 0.044 203.39"
     },
 
     dark: {
@@ -717,7 +839,12 @@ const themesList = {
       "--ring": "var(--primary)",
       "--toggle": "30% 0.039 257.29",
       "--border": "23% 0.037 260.03",
-      "--input": "27.95% 0.037 260.03"
+      "--input": "27.95% 0.037 260.03",
+      "--primary-chart": "57.89% 0.111 221.72",
+      "--secondary-chart": "86.51% 0.115 207.08",
+      "--tertiary-chart": "79.71% 0.134 211.53",
+      "--highlight-chart": "91.67% 0.077 205.04",
+      "--accent-chart": "95.63% 0.044 203.39"
     }
   },
 
@@ -753,7 +880,12 @@ const themesList = {
       "--input": "89.87% 0.004 56.37",
       "--ring": "64.61% 0.194 41.12",
       "--toggle": "86.87% 0.004 56.37",
-      "--radius": "0.5rem"
+      "--radius": "0.5rem",
+      "--primary-chart": "65.61% 0.194 41.12",
+      "--secondary-chart": "90.76% 0.159 55.93",
+      "--tertiary-chart": "75.76% 0.159 55.93",
+      "--highlight-chart": "90.15% 0.073 70.70",
+      "--accent-chart": "95.42% 0.037 75.16"
     },
     dark: {
       "--bg": "10.69% 0.004 49.25",
@@ -779,7 +911,12 @@ const themesList = {
       "--ring": "70.49% 0.187 47.60",
       "--toggle": "30.41% 0.009 67.56",
       "--border": "22.85% 0.006 34.30",
-      "--input": "23.85% 0.006 34.30"
+      "--input": "23.85% 0.006 34.30",
+      "--primary-chart": "65.61% 0.194 41.12",
+      "--secondary-chart": "82.76% 0.159 55.93",
+      "--tertiary-chart": "75.76% 0.159 55.93",
+      "--highlight-chart": "90.15% 0.073 70.70",
+      "--accent-chart": "95.42% 0.037 75.16"
     }
   }
 }

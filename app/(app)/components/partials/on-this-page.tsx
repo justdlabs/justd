@@ -5,7 +5,7 @@ import React from "react"
 import { groupedComponents } from "@/app/(app)/components/partials/card-list-box"
 import { useActiveItem } from "@/components/table-of-contents"
 import { goodTitle } from "@/resources/lib/utils"
-import { ListBox, ListBoxItem } from "react-aria-components"
+import { ListBox, ListBoxItem, ListBoxItemProps } from "react-aria-components"
 import { cn, Heading, useMediaQuery } from "ui"
 
 const navigations = Object.keys(groupedComponents).map((x) => {
@@ -37,17 +37,13 @@ export function OnThisPage() {
   )
 }
 
-export function AsideLink({
-  text,
-  href,
-  activeId,
-  id
-}: {
-  id: string
+interface AsideLinkProps extends ListBoxItemProps {
   activeId: string
   text: string
   href: string
-}) {
+}
+
+export function AsideLink({ text, href, activeId }: AsideLinkProps) {
   return (
     <ListBoxItem
       className={cn(
@@ -55,7 +51,6 @@ export function AsideLink({
         href.split("#")[1] === activeId ? "text-fg font-medium" : "text-muted-fg"
       )}
       href={href}
-      id={id}
     >
       {goodTitle(text)}
     </ListBoxItem>

@@ -33,7 +33,8 @@ import { ThemeSwitcher } from "./theme-switcher"
 
 const menuItems = [
   { id: 1, label: "Home", url: "/" },
-  { id: 2, label: "Components", url: "/docs/getting-started/introduction" }
+  { id: 3, label: "Charts", url: "/charts" },
+  { id: 4, label: "Components", url: "/docs/getting-started/introduction" }
 ]
 
 export function Navbar() {
@@ -74,6 +75,13 @@ export function Navbar() {
                       href="/components"
                     >
                       Components
+                    </NavLink>
+                    <NavLink
+                      isNextLink
+                      isActive={pathname?.startsWith("/charts") || pathname === "/charts"}
+                      href="/charts"
+                    >
+                      Charts
                     </NavLink>
                     <NavLink isNextLink isActive={pathname === "/colors"} href="/colors">
                       Colors
