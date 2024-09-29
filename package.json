@@ -18,6 +18,7 @@
   "dependencies": {
     "@openpanel/nextjs": "^0.0.10-beta",
     "@radix-ui/react-collapsible": "^1.1.0",
+    "@shikijs/transformers": "^1.21.0",
     "chroma-js": "^2.6.0",
     "clsx": "^2.1.1",
     "cmdk": "^1.0.0",
