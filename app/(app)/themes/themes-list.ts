@@ -735,11 +735,11 @@ const themesList = {
       "--toggle": "87.16% 0.006 286.28",
       "--radius": "0.5rem",
 
-      "--primary-chart": "59.6% 0.127 163.23",
-      "--secondary-chart": "85.65% 0.043 8.9",
-      "--tertiary-chart": "72.75% 0.141 10.65",
-      "--highlight-chart": "81.72% 0.091 9.38",
-      "--accent-chart": "65.06% 0.184 12.95"
+      "--primary-chart": "58.72% 0.222 17.72",
+      "--secondary-chart": "73.06% 0.184 12.95",
+      "--tertiary-chart": "75.75% 0.141 10.65",
+      "--highlight-chart": "85.72% 0.091 9.38",
+      "--accent-chart": "93.65% 0.043 8.9"
     },
     dark: {
       "--bg": "0% 0 0",
