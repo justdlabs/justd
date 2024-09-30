@@ -34,15 +34,10 @@ export default function Layout() {
 ### Inertia.js
 To integrate with Inertia.js, you must first declare it in your `.d.ts` file, such as in `global.d.ts`.
 
-
-
 ```tsx
-import {
-  type FormDataConvertible,
-  type Method,
-  type PreserveStateOption,
-  type Progress
-} from '@inertiajs/core'
+import type { FormDataConvertible, Method, PreserveStateOption, Progress } from "@inertiajs/core"
+import { PageProps as InertiaPageProps } from "@inertiajs/core"
+import { PageProps as AppPageProps } from "./"
 
 declare module 'react-aria-components' {
   interface RouterConfig {
@@ -64,6 +59,12 @@ declare module 'react-aria-components' {
     }
   }
 }
+
+declare module "@inertiajs/core" {
+    interface PageProps extends InertiaPageProps, AppPageProps {
+    }
+}
+
 ```
 Next, execute `php artisan ziggy:generate` to generate the Ziggy routes.
 
