@@ -91,7 +91,7 @@ export function TrafficChart() {
               Trending up by 5.2% this month <IconTrendingChart3 />
             </div>
             <div className="flex items-center gap-2 leading-none text-muted-fg">
-              January - June 2024
+              August - October 2024
             </div>
           </div>
         </div>

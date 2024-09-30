@@ -9,11 +9,11 @@ import { Card, Chart, ChartConfig } from "ui"
 export const description = "A donut chart with subscription plan distribution"
 
 const chartData = [
-  { plan: "Basic", subscribers: 450, fill: "var(--color-basic)" },
-  { plan: "Standard", subscribers: 300, fill: "var(--color-standard)" },
-  { plan: "Premium", subscribers: 200, fill: "var(--color-premium)" },
-  { plan: "Pro", subscribers: 150, fill: "var(--color-pro)" },
-  { plan: "Enterprise", subscribers: 100, fill: "var(--color-enterprise)" }
+  { plan: "Basic", subscribers: 1450, fill: "var(--color-basic)" },
+  { plan: "Standard", subscribers: 1300, fill: "var(--color-standard)" },
+  { plan: "Premium", subscribers: 1200, fill: "var(--color-premium)" },
+  { plan: "Pro", subscribers: 1250, fill: "var(--color-pro)" },
+  { plan: "Enterprise", subscribers: 1100, fill: "var(--color-enterprise)" }
 ]
 
 const chartConfig = {

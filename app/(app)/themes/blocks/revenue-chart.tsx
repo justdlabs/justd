@@ -6,13 +6,19 @@ import { Card, Chart, type ChartConfig } from "ui"
 
 export const description = "An area chart with gradient fill"
 
-const chartData = [
-  { month: "May", sales: 186, profit: 80 },
-  { month: "June", sales: 305, profit: 200 },
-  { month: "July", sales: 237, profit: 120 },
-  { month: "August", sales: 73, profit: 190 },
-  { month: "September", sales: 209, profit: 130 },
-  { month: "October", sales: 214, profit: 140 }
+const data = [
+  { month: "Jan", sales: 186, profit: 160 },
+  { month: "Feb", sales: 185, profit: 170 },
+  { month: "Mar", sales: 207, profit: 180 },
+  { month: "Apr", sales: 173, profit: 160 },
+  { month: "May", sales: 160, profit: 190 },
+  { month: "Jun", sales: 174, profit: 204 },
+  { month: "Jul", sales: 186, profit: 80 },
+  { month: "Aug", sales: 305, profit: 200 },
+  { month: "Sep", sales: 237, profit: 120 },
+  { month: "Oct", sales: 73, profit: 190 },
+  { month: "Nov", sales: 209, profit: 130 },
+  { month: "Dec", sales: 214, profit: 140 }
 ]
 
 const chartConfig = {
@@ -31,13 +37,13 @@ export function RevenueChart() {
     <Card>
       <Card.Header>
         <Card.Title>Revenue</Card.Title>
-        <Card.Description>Showing total revenue for the last 6 months</Card.Description>
+        <Card.Description>Showing total revenue for last year</Card.Description>
       </Card.Header>
       <Card.Content>
         <Chart config={chartConfig}>
           <AreaChart
             accessibilityLayer
-            data={chartData}
+            data={data}
             margin={{
               left: 12,
               right: 12
@@ -85,10 +91,10 @@ export function RevenueChart() {
         <div className="flex w-full items-start gap-2 text-sm">
           <div className="grid gap-2">
             <div className="flex items-center gap-2 font-medium leading-none">
-              Trending up by 5.2% this month <IconTrendingChart3 />
+              Profit increased by 5.2% this year <IconTrendingChart3 />
             </div>
             <div className="flex items-center gap-2 leading-none text-muted-fg">
-              January - June 2024
+              January - December {new Date().getFullYear() - 1}
             </div>
           </div>
         </div>
