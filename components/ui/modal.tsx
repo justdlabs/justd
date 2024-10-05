@@ -124,16 +124,14 @@ const ModalContent = ({
         )}
         {...props}
       >
-        <Dialog role={role}>
-          {({ close }) => (
-            <>
-              {children}
-              {closeButton && (
-                <Dialog.CloseIndicator close={close} isDismissable={_isDismissable} />
-              )}
-            </>
-          )}
-        </Dialog>
+        {(values) => (
+          <Dialog role={role}>
+            {typeof children === "function" ? children(values) : children}
+            {closeButton && (
+              <Dialog.CloseIndicator close={values.state.close} isDismissable={_isDismissable} />
+            )}
+          </Dialog>
+        )}
       </ModalPrimitive>
     </ModalOverlayPrimitive>
   )
