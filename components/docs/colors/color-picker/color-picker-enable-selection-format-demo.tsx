@@ -12,7 +12,7 @@ export default function ColorPickerEnableSelectionFormatDemo() {
   return (
     <ColorPicker label={color.toString(space)} value={color} onChange={setColor}>
       <>
-        <ColorArea colorSpace="hsb" xChannel="saturation" yChannel="brightness" />
+        <ColorArea />
         <Select
           aria-label="Color Space"
           selectedKey={space}
