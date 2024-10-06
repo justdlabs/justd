@@ -22,27 +22,30 @@ const trackStyles = tv({
       vertical: "w-6 h-56 ml-[50%] -translate-x-[50%]"
     },
     isDisabled: {
-      true: "opacity-50 bg-muted forced-colors:bg-[GrayText]"
+      true: "opacity-75 bg-muted forced-colors:bg-[GrayText]"
     }
   }
 })
 
 interface ColorSliderProps extends ColorSliderPrimitiveProps {
   label?: string
+  showOutput?: boolean
 }
 
-const ColorSlider = ({ label, ...props }: ColorSliderProps) => {
+const ColorSlider = ({ showOutput = true, label, className, ...props }: ColorSliderProps) => {
   return (
     <ColorSliderPrimitive
       {...props}
       data-slot="color-slider"
       className={ctr(
-        props.className,
-        "orientation-horizontal:grid orientation-vertical:flex grid-cols-[1fr_auto] flex-col items-center gap-2 orientation-horizontal:w-56"
+        className,
+        "group orientation-horizontal:grid orientation-vertical:flex relative orientation-horizontal:grid-cols-[1fr_auto] orientation-vertical:flex-col orientation-vertical:justify-center orientation-vertical:items-center gap-2 orientation-horizontal:w-56"
       )}
     >
-      <Label>{label}</Label>
-      <SliderOutput className="text-sm text-gray-500 dark:text-zinc-400 font-medium orientation-vertical:hidden" />
+      <div className="flex items-center">
+        {label && <Label className="text-sm [grid-area:label]">{label}</Label>}
+        {showOutput && <SliderOutput className="text-sm ml-auto [grid-area:output]" />}
+      </div>
       <SliderTrack
         className={trackStyles}
         style={({ defaultStyle, isDisabled }) => ({

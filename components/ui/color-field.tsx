@@ -58,7 +58,7 @@ const ColorField = ({
               {enableColorPicker ? (
                 <ColorPicker onChange={props.onChange} defaultValue={value} />
               ) : (
-                <ColorSwatch className="size-6" color={value.toString()} />
+                <ColorSwatch className="size-6" color={value.toString("hex")} />
               )}
             </span>
           )}

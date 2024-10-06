@@ -219,7 +219,7 @@ const ColorSlider = ({
 }: ColorSliderProps) => {
   return (
     <ColorSliderPrimitive
-      className={cn("flex disabled:opacity-50 w-full flex-col gap-1", className)}
+      className={cn("flex shrink-0 disabled:opacity-50 w-full flex-col gap-1", className)}
       {...props}
     >
       <div className="flex items-center gap-2">

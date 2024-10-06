@@ -17,7 +17,7 @@ const ColorWheel = (props: ColorWheelProps) => {
   return (
     <ColorWheelPrimitive {...props} outerRadius={100} innerRadius={74}>
       <ColorWheelTrack
-        className="disabled:bg-gray-300 disabled:dark:bg-zinc-800 disabled:forced-colors:bg-[GrayText]"
+        className="disabled:bg-muted/75 disabled:forced-colors:bg-[GrayText]"
         style={({ defaultStyle, isDisabled }) => ({
           ...defaultStyle,
           background: isDisabled

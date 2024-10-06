@@ -9,8 +9,8 @@ export default function ColorPickerCombinationDemo() {
   const [space, setSpace] = React.useState<ColorSpace>("rgb")
   return (
     <ColorPicker label="Color picker" defaultValue="#0d6efd">
-      <ColorArea colorSpace="hsb" xChannel="saturation" yChannel="brightness" />
-      <ColorSlider colorSpace="hsb" channel="hue" />
+      <ColorArea colorSpace={space} xChannel="saturation" yChannel="brightness" />
+      <ColorSlider colorSpace={space} channel="hue" />
       <Select
         aria-label="Color space"
         selectedKey={space}
