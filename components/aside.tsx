@@ -5,12 +5,12 @@ import React from "react"
 import { type Docs, docs } from "#site/content"
 import { goodTitle, sortDocs } from "@/resources/lib/utils"
 import { LayoutGroup, motion } from "framer-motion"
-import { IconCircleHalf, IconCube, IconHighlight, IconLayers } from "justd-icons"
+import { IconChevronRight, IconCircleHalf, IconCube, IconHighlight, IconLayers } from "justd-icons"
 import { Link as NextLink } from "next-view-transitions"
 import type { LinkProps as NextLinkProps } from "next/link"
 import { usePathname } from "next/navigation"
 import { tv } from "tailwind-variants"
-import { Accordion, Badge, cn } from "ui"
+import { Badge, cn, Disclosure, DisclosureGroup } from "ui"
 
 export interface Doc {
   slug: string
@@ -51,13 +51,16 @@ const renderHierarchy = (node: HierarchyNode, defaultValues: string[]) => {
     return order.indexOf(a) - order.indexOf(b)
   })
   return (
-    <Accordion
+    <DisclosureGroup
+      hideBorder
+      hideIndicator
+      allowsMultipleExpanded
       defaultExpandedKeys={["getting-started", "components"]}
       className="w-full [&_.dk32xd]:p-0 [&_.zwx3ai]:p-0 [&_.zwx3ai]:border-none"
     >
       {filteredNodeEntries.map(([key, value]) => (
-        <Accordion.Item key={key} currentId={key}>
-          <Trigger className="[&_.jr131]:size-4 text-fg groud-data-[open]:text-muted-fg [&_.jr131]:text-primary [&_.jr131]:fill-primary/10 dark:[&_.jr131]:fill-primary/30">
+        <Disclosure key={key} id={key}>
+          <Trigger className="[&_.jr131]:size-4 py-1.5 text-fg groud-data-[open]:text-muted-fg [&_.jr131]:text-primary [&_.jr131]:fill-primary/10 dark:[&_.jr131]:fill-primary/30">
             {key === "getting-started" ? (
               <IconLayers className="jr131" />
             ) : key === "prologue" ? (
@@ -69,13 +72,19 @@ const renderHierarchy = (node: HierarchyNode, defaultValues: string[]) => {
             )}
             {goodTitle(key)}
           </Trigger>
-          <Accordion.Content className="py-0">
+          <Disclosure.Panel>
             {typeof value === "object" && "title" in value ? (
               <AsideLink href={`/${(value as Doc).slug}`}>
                 {goodTitle((value as Doc).title)}
               </AsideLink>
             ) : (
-              <Accordion defaultExpandedKeys={defaultValues} className="w-full relative">
+              <DisclosureGroup
+                allowsMultipleExpanded
+                hideBorder
+                hideIndicator
+                defaultExpandedKeys={defaultValues}
+                className="w-full relative"
+              >
                 <div className="h-full absolute left-0 bg-zinc-200 dark:bg-zinc-800 w-px ml-4" />
                 {Object.entries(value as HierarchyNode).map(([subKey, subValue]) =>
                   typeof subValue === "object" && "title" in subValue ? (
@@ -107,13 +116,9 @@ const renderHierarchy = (node: HierarchyNode, defaultValues: string[]) => {
                       )}
                     </AsideLink>
                   ) : (
-                    <Accordion.Item
-                      key={subKey}
-                      currentId={subKey}
-                      className="[&[data-open]_.ex]:text-red-500"
-                    >
+                    <Disclosure key={subKey} id={subKey}>
                       <Trigger className="pl-[2rem]">{goodTitle(subKey)}</Trigger>
-                      <Accordion.Content className="py-0">
+                      <Disclosure.Panel>
                         {Object.entries(subValue as HierarchyNode).map(([childKey, childValue]) =>
                           typeof childValue === "object" && "title" in childValue ? (
                             <AsideLink
@@ -125,7 +130,9 @@ const renderHierarchy = (node: HierarchyNode, defaultValues: string[]) => {
                               href={`/${childValue.slug}`}
                               indicatorClassName=""
                             >
-                              {goodTitle((childValue as Doc).title)}
+                              {(childValue as Doc).title === "Disclosure Group aka Accordion"
+                                ? "Disclosure Group"
+                                : goodTitle((childValue as Doc).title)}
                               {childValue.status && (
                                 <Badge
                                   intent={
@@ -134,7 +141,7 @@ const renderHierarchy = (node: HierarchyNode, defaultValues: string[]) => {
                                       : childValue.status === "beta"
                                         ? "warning"
                                         : childValue.status === "alpha"
-                                          ? "danger"
+                                          ? "primary"
                                           : childValue.status === "help"
                                             ? "warning"
                                             : childValue.status === "primitive"
@@ -149,16 +156,16 @@ const renderHierarchy = (node: HierarchyNode, defaultValues: string[]) => {
                             </AsideLink>
                           ) : null
                         )}
-                      </Accordion.Content>
-                    </Accordion.Item>
+                      </Disclosure.Panel>
+                    </Disclosure>
                   )
                 )}
-              </Accordion>
+              </DisclosureGroup>
             )}
-          </Accordion.Content>
-        </Accordion.Item>
+          </Disclosure.Panel>
+        </Disclosure>
       ))}
-    </Accordion>
+    </DisclosureGroup>
   )
 }
 
@@ -197,14 +204,10 @@ export const Aside = () => {
 
 const Trigger = ({ children, className }: { children: React.ReactNode; className?: string }) => {
   return (
-    <Accordion.Trigger
-      className={cn(
-        "pt-0 py-1.5 focus-visible:ring-1 focus-visible:ring-primary ring-inset outline-0 outline-offset-0 font-normal hover:bg-secondary/70 focus-visible:bg-secondary/70 rounded-lg px-2 lg:text-sm",
-        className
-      )}
-    >
+    <Disclosure.Trigger className={cn("group py-2", className)}>
       {children}
-    </Accordion.Trigger>
+      <IconChevronRight className="ml-auto group-aria-expanded:rotate-90 transition shrink-0 duration-300" />
+    </Disclosure.Trigger>
   )
 }
 

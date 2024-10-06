@@ -9,10 +9,10 @@ import { tv } from "tailwind-variants"
 
 const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs))
 
-const composeTailwindRenderProps = <T,>(
+function composeTailwindRenderProps<T>(
   className: string | ((v: T) => string) | undefined,
-  tw: string
-): string | ((v: T) => string) => {
+  tw: string | Array<string | undefined>
+): string | ((v: T) => string) {
   return composeRenderProps(className, (className) => twMerge(tw, className))
 }
 

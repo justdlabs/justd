@@ -3,10 +3,11 @@
 import React, { useState } from "react"
 
 import { ColorRow } from "@/app/(app)/colors/(colors)/color-row"
+import { defaultColor } from "@/components/color"
 import { generateColorScale, getColorName } from "@/resources/lib/colors"
 import { parseColor } from "@react-stately/color"
 import { IconArrowWallRight } from "justd-icons"
-import { ColorField, defaultColor, useMediaQuery } from "ui"
+import { useMediaQuery, ColorField } from "ui"
 
 export function ColorGenerator() {
   const [colorObj, setColorObj] = useState<string>(defaultColor.toString("hex"))

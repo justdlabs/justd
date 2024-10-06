@@ -1,11 +1,7 @@
 "use client"
 
-import { ColorArea, ColorThumb as Thumb } from "ui"
+import { ColorArea } from "ui"
 
 export default function ColorAreaDemo() {
-  return (
-    <ColorArea>
-      <Thumb />
-    </ColorArea>
-  )
+  return <ColorArea />
 }

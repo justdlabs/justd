@@ -24,6 +24,11 @@ export default {
         permanent: false
       },
       {
+        source: "/docs/components/collections/accordion",
+        destination: "/docs/components/navigation/disclosure-group",
+        permanent: true
+      },
+      {
         source: "/docs/components/controls/command",
         destination: "/docs/components/controls/command-menu",
         permanent: false

@@ -3,7 +3,6 @@ title: "Color Area"
 description: A color area lets users tweak two channels of an RGB, HSL, or HSB color against a 2D gradient backdrop.
 order: 3
 published: true
-status: beta
 references: ["https://react-spectrum.adobe.com/react-aria/ColorArea.html#props"]
 ---
 
@@ -12,14 +11,14 @@ A color area allows users to select a color interactively.
 <How toUse="colors/color-area/color-area-demo" />
 
 ## Composed Components
-<Composed components={['field', 'slider']}/>
+<Composed components={['color-thumb']}/>
 
 ## Installation
-<Installation options={{isComponent: true}} items={['color']}/>
+<Installation options={{isComponent: true}} items={['color-area']}/>
 
 ## Manual Installation
 <Installation options={{isManual: true}} items={['react-aria-components']}/>
-<SourceCode toShow={['color']}/>
+<SourceCode toShow={['color-area']}/>
 
 ## Channel
 Specify the color channels for the horizontal and vertical axes using the `xChannel` and `yChannel` properties.

@@ -77,6 +77,9 @@ const buttonStyles = tv(
       isDisabled: {
         false: "forced-colors:disabled:text-[GrayText]",
         true: "cursor-default opacity-60 forced-colors:disabled:text-[GrayText]"
+      },
+      isPending: {
+        true: "cursor-default"
       }
     },
     defaultVariants: {

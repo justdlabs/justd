@@ -2,18 +2,18 @@
 
 import React from "react"
 
-import { Accordion } from "ui"
+import { Disclosure, DisclosureGroup } from "ui"
 
-export default function AccordionDisabledDemo() {
+export default function DisclosureGroupDisabledDemo() {
   return (
-    <Accordion disabledKeys={[1, 2, 4]}>
+    <DisclosureGroup>
       {faqs.map((item, index) => (
-        <Accordion.Item key={index} currentId={index}>
-          <Accordion.Trigger>{item.q}</Accordion.Trigger>
-          <Accordion.Content>{item.a}</Accordion.Content>
-        </Accordion.Item>
+        <Disclosure isDisabled={index === 2} key={index} id={index}>
+          <Disclosure.Trigger>{item.q}</Disclosure.Trigger>
+          <Disclosure.Panel>{item.a}</Disclosure.Panel>
+        </Disclosure>
       ))}
-    </Accordion>
+    </DisclosureGroup>
   )
 }
 

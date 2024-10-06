@@ -311,6 +311,9 @@ export const previews: Record<string, any> = {
   "buttons/button/button-basic-demo": {
     component: React.lazy(() => import("@/components/docs/buttons/button/button-basic-demo")),
   },
+  "buttons/button/button-pending-demo": {
+    component: React.lazy(() => import("@/components/docs/buttons/button/button-pending-demo")),
+  },
   "buttons/button/button-appearance-demo": {
     component: React.lazy(() => import("@/components/docs/buttons/button/button-appearance-demo")),
   },
@@ -422,53 +425,77 @@ export const previews: Record<string, any> = {
   "overlays/sheet/sheet-classnames-demo": {
     component: React.lazy(() => import("@/components/docs/overlays/sheet/sheet-classnames-demo")),
   },
-  "navigation/tabs-demo": {
-    component: React.lazy(() => import("@/components/docs/navigation/tabs-demo")),
+  "navigation/disclosure/disclosure-demo": {
+    component: React.lazy(() => import("@/components/docs/navigation/disclosure/disclosure-demo")),
   },
-  "navigation/tabs-icons-demo": {
-    component: React.lazy(() => import("@/components/docs/navigation/tabs-icons-demo")),
+  "navigation/disclosure/disclosure-disabled-demo": {
+    component: React.lazy(() => import("@/components/docs/navigation/disclosure/disclosure-disabled-demo")),
   },
-  "navigation/link-intent-demo": {
-    component: React.lazy(() => import("@/components/docs/navigation/link-intent-demo")),
+  "navigation/tabs/tabs-demo": {
+    component: React.lazy(() => import("@/components/docs/navigation/tabs/tabs-demo")),
   },
-  "navigation/tabs-link-demo": {
-    component: React.lazy(() => import("@/components/docs/navigation/tabs-link-demo")),
+  "navigation/tabs/tabs-icons-demo": {
+    component: React.lazy(() => import("@/components/docs/navigation/tabs/tabs-icons-demo")),
   },
-  "navigation/tabs-collections-demo": {
-    component: React.lazy(() => import("@/components/docs/navigation/tabs-collections-demo")),
+  "navigation/tabs/tabs-link-demo": {
+    component: React.lazy(() => import("@/components/docs/navigation/tabs/tabs-link-demo")),
   },
-  "navigation/pagination-dynamic-demo": {
-    component: React.lazy(() => import("@/components/docs/navigation/pagination-dynamic-demo")),
+  "navigation/tabs/tabs-collections-demo": {
+    component: React.lazy(() => import("@/components/docs/navigation/tabs/tabs-collections-demo")),
   },
-  "navigation/tabs-responsive-demo": {
-    component: React.lazy(() => import("@/components/docs/navigation/tabs-responsive-demo")),
+  "navigation/tabs/tabs-responsive-demo": {
+    component: React.lazy(() => import("@/components/docs/navigation/tabs/tabs-responsive-demo")),
   },
-  "navigation/pagination-demo": {
-    component: React.lazy(() => import("@/components/docs/navigation/pagination-demo")),
+  "navigation/tabs/tabs-orientation-demo": {
+    component: React.lazy(() => import("@/components/docs/navigation/tabs/tabs-orientation-demo")),
   },
-  "navigation/simple-pagination-demo": {
-    component: React.lazy(() => import("@/components/docs/navigation/simple-pagination-demo")),
+  "navigation/tabs/tabs-disabled-demo": {
+    component: React.lazy(() => import("@/components/docs/navigation/tabs/tabs-disabled-demo")),
   },
-  "navigation/link-unstyled-demo": {
-    component: React.lazy(() => import("@/components/docs/navigation/link-unstyled-demo")),
+  "navigation/pagination/pagination-dynamic-demo": {
+    component: React.lazy(() => import("@/components/docs/navigation/pagination/pagination-dynamic-demo")),
   },
-  "navigation/tabs-orientation-demo": {
-    component: React.lazy(() => import("@/components/docs/navigation/tabs-orientation-demo")),
+  "navigation/pagination/pagination-demo": {
+    component: React.lazy(() => import("@/components/docs/navigation/pagination/pagination-demo")),
   },
-  "navigation/link-button-demo": {
-    component: React.lazy(() => import("@/components/docs/navigation/link-button-demo")),
+  "navigation/pagination/simple-pagination-demo": {
+    component: React.lazy(() => import("@/components/docs/navigation/pagination/simple-pagination-demo")),
   },
-  "navigation/link-demo": {
-    component: React.lazy(() => import("@/components/docs/navigation/link-demo")),
+  "navigation/disclosure-group/disclosure-group-hide-indicator-demo": {
+    component: React.lazy(() => import("@/components/docs/navigation/disclosure-group/disclosure-group-hide-indicator-demo")),
+  },
+  "navigation/disclosure-group/disclosure-group-disabled-demo": {
+    component: React.lazy(() => import("@/components/docs/navigation/disclosure-group/disclosure-group-disabled-demo")),
+  },
+  "navigation/disclosure-group/disclosure-group-border-hidden-demo": {
+    component: React.lazy(() => import("@/components/docs/navigation/disclosure-group/disclosure-group-border-hidden-demo")),
+  },
+  "navigation/disclosure-group/disclosure-group-demo": {
+    component: React.lazy(() => import("@/components/docs/navigation/disclosure-group/disclosure-group-demo")),
+  },
+  "navigation/disclosure-group/disclosure-group-allow-multiple-expand-demo": {
+    component: React.lazy(() => import("@/components/docs/navigation/disclosure-group/disclosure-group-allow-multiple-expand-demo")),
+  },
+  "navigation/disclosure-group/disclosure-group-default-expand-demo": {
+    component: React.lazy(() => import("@/components/docs/navigation/disclosure-group/disclosure-group-default-expand-demo")),
+  },
+  "navigation/link/link-intent-demo": {
+    component: React.lazy(() => import("@/components/docs/navigation/link/link-intent-demo")),
+  },
+  "navigation/link/link-unstyled-demo": {
+    component: React.lazy(() => import("@/components/docs/navigation/link/link-unstyled-demo")),
+  },
+  "navigation/link/link-button-demo": {
+    component: React.lazy(() => import("@/components/docs/navigation/link/link-button-demo")),
+  },
+  "navigation/link/link-demo": {
+    component: React.lazy(() => import("@/components/docs/navigation/link/link-demo")),
+  },
+  "navigation/link/link-disabled-demo": {
+    component: React.lazy(() => import("@/components/docs/navigation/link/link-disabled-demo")),
   },
   "navigation/breadcrumbs-demo": {
     component: React.lazy(() => import("@/components/docs/navigation/breadcrumbs-demo")),
-  },
-  "navigation/link-disabled-demo": {
-    component: React.lazy(() => import("@/components/docs/navigation/link-disabled-demo")),
-  },
-  "navigation/tabs-disabled-demo": {
-    component: React.lazy(() => import("@/components/docs/navigation/tabs-disabled-demo")),
   },
   "anatomies/pagination-anatomy": {
     component: React.lazy(() => import("@/components/docs/anatomies/pagination-anatomy")),
@@ -518,6 +545,9 @@ export const previews: Record<string, any> = {
   "anatomies/heading-anatomy": {
     component: React.lazy(() => import("@/components/docs/anatomies/heading-anatomy")),
   },
+  "anatomies/disclosure-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/disclosure-anatomy")),
+  },
   "anatomies/tabs-anatomy": {
     component: React.lazy(() => import("@/components/docs/anatomies/tabs-anatomy")),
   },
@@ -539,8 +569,8 @@ export const previews: Record<string, any> = {
   "anatomies/checkbox-anatomy": {
     component: React.lazy(() => import("@/components/docs/anatomies/checkbox-anatomy")),
   },
-  "anatomies/accordion-anatomy": {
-    component: React.lazy(() => import("@/components/docs/anatomies/accordion-anatomy")),
+  "anatomies/disclosure-group-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/disclosure-group-anatomy")),
   },
   "anatomies/avatar-anatomy": {
     component: React.lazy(() => import("@/components/docs/anatomies/avatar-anatomy")),
@@ -707,9 +737,6 @@ export const previews: Record<string, any> = {
   "colors/color-slider/color-slider-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/colors/color-slider/color-slider-controlled-demo")),
   },
-  "colors/color-slider/color-slider-without-output-demo": {
-    component: React.lazy(() => import("@/components/docs/colors/color-slider/color-slider-without-output-demo")),
-  },
   "colors/color-area/color-area-channel-demo": {
     component: React.lazy(() => import("@/components/docs/colors/color-area/color-area-channel-demo")),
   },
@@ -751,12 +778,6 @@ export const previews: Record<string, any> = {
   },
   "colors/color-swatch/color-swatch-picker-demo": {
     component: React.lazy(() => import("@/components/docs/colors/color-swatch/color-swatch-picker-demo")),
-  },
-  "colors/color-picker/color-picker-custom-colors-demo": {
-    component: React.lazy(() => import("@/components/docs/colors/color-picker/color-picker-custom-colors-demo")),
-  },
-  "colors/color-picker/color-picker-with-placeholder-demo": {
-    component: React.lazy(() => import("@/components/docs/colors/color-picker/color-picker-with-placeholder-demo")),
   },
   "colors/color-picker/color-picker-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/colors/color-picker/color-picker-controlled-demo")),
@@ -1099,21 +1120,6 @@ export const previews: Record<string, any> = {
   },
   "collections/choicebox/choicebox-demo": {
     component: React.lazy(() => import("@/components/docs/collections/choicebox/choicebox-demo")),
-  },
-  "collections/accordion/accordion-default-expand-demo": {
-    component: React.lazy(() => import("@/components/docs/collections/accordion/accordion-default-expand-demo")),
-  },
-  "collections/accordion/accordion-demo": {
-    component: React.lazy(() => import("@/components/docs/collections/accordion/accordion-demo")),
-  },
-  "collections/accordion/accordion-disabled-demo": {
-    component: React.lazy(() => import("@/components/docs/collections/accordion/accordion-disabled-demo")),
-  },
-  "collections/accordion/accordion-border-hidden-demo": {
-    component: React.lazy(() => import("@/components/docs/collections/accordion/accordion-border-hidden-demo")),
-  },
-  "collections/accordion/accordion-hide-indicator-demo": {
-    component: React.lazy(() => import("@/components/docs/collections/accordion/accordion-hide-indicator-demo")),
   },
   "collections/table/table-demo": {
     component: React.lazy(() => import("@/components/docs/collections/table/table-demo")),

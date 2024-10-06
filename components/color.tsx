@@ -21,10 +21,7 @@ import {
   SliderOutput
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
-
-import { Description, Label } from "./field"
-import { cn, cr, focusStyles } from "./primitive"
-import { Slider } from "./slider"
+import { cn, cr, Description, focusStyles, Label, Slider } from "ui"
 
 const colorAreaStyles = tv({
   base: "size-48 rounded-md border border-bg shrink-0 disabled:opacity-50"
@@ -206,6 +203,7 @@ const isBrightColor = (color: any): boolean => {
 }
 
 const defaultColor = parseColor("hsl(216, 98%, 52%)")
+
 interface ColorSliderProps extends ColorSliderPrimitiveProps {
   label?: string
   description?: string

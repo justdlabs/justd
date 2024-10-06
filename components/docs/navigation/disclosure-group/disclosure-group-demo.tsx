@@ -2,43 +2,43 @@
 
 import React from "react"
 
-import { Accordion } from "ui"
+import { Disclosure, DisclosureGroup } from "ui"
 
-export default function AccordionDemo() {
+export default function DisclosureGroupDemo() {
   return (
-    <Accordion>
-      <Accordion.Item currentId={1}>
-        <Accordion.Trigger>What is a VPS?</Accordion.Trigger>
-        <Accordion.Content>
+    <DisclosureGroup>
+      <Disclosure id={1}>
+        <Disclosure.Trigger>What is a VPS?</Disclosure.Trigger>
+        <Disclosure.Panel>
           A VPS is a Virtual Private Server, which provides dedicated resources on a server shared
           with other users, offering more control and customization than shared hosting.
-        </Accordion.Content>
-      </Accordion.Item>
+        </Disclosure.Panel>
+      </Disclosure>
 
-      <Accordion.Item currentId={2}>
-        <Accordion.Trigger>What is cloud hosting?</Accordion.Trigger>
-        <Accordion.Content>
+      <Disclosure id={2}>
+        <Disclosure.Trigger>What is cloud hosting?</Disclosure.Trigger>
+        <Disclosure.Panel>
           Cloud hosting utilizes multiple servers to balance load and maximize uptime. Instead of
           being hosted on a single server, your data and resources are spread across multiple
           servers.
-        </Accordion.Content>
-      </Accordion.Item>
+        </Disclosure.Panel>
+      </Disclosure>
 
-      <Accordion.Item currentId={3}>
-        <Accordion.Trigger>What is shared hosting?</Accordion.Trigger>
-        <Accordion.Content>
+      <Disclosure id={3}>
+        <Disclosure.Trigger>What is shared hosting?</Disclosure.Trigger>
+        <Disclosure.Panel>
           Shared hosting is a type of web hosting where multiple websites share the same server and
           its resources. It's an affordable option, but may have limitations on performance and
           customization.
-        </Accordion.Content>
-      </Accordion.Item>
-      <Accordion.Item currentId={4}>
-        <Accordion.Trigger>What is dedicated hosting?</Accordion.Trigger>
-        <Accordion.Content>
+        </Disclosure.Panel>
+      </Disclosure>
+      <Disclosure id={4}>
+        <Disclosure.Trigger>What is dedicated hosting?</Disclosure.Trigger>
+        <Disclosure.Panel>
           Dedicated hosting means your website is hosted on a single server exclusively reserved for
           your site. This provides maximum performance and customization, but at a higher cost.
-        </Accordion.Content>
-      </Accordion.Item>
-    </Accordion>
+        </Disclosure.Panel>
+      </Disclosure>
+    </DisclosureGroup>
   )
 }

@@ -8,8 +8,8 @@ import type {
 } from "react-aria-components"
 import { ColorField as ColorFieldPrimitive } from "react-aria-components"
 
-import { ColorSwatch } from "./color"
 import { ColorPicker } from "./color-picker"
+import { ColorSwatch } from "./color-swatch"
 import { Description, FieldError, FieldGroup, fieldGroupPrefixStyles, Input, Label } from "./field"
 import { ctr } from "./primitive"
 
@@ -41,7 +41,10 @@ const ColorField = ({
     <ColorFieldPrimitive
       {...props}
       aria-label={props["aria-label"] ?? "Color field"}
-      className={ctr(className, "group w-full flex flex-col gap-1")}
+      className={ctr(
+        className,
+        "[&_[data-slot=color-swatch]]:ml-2 group w-full flex flex-col gap-y-1"
+      )}
     >
       {label && <Label>{label}</Label>}
       <FieldGroup
@@ -53,15 +56,9 @@ const ColorField = ({
           {value && (
             <span>
               {enableColorPicker ? (
-                <ColorPicker
-                  enableColorField={false}
-                  onChange={props.onChange}
-                  defaultValue={value}
-                  className="size-9 [&_.tcf]:size-9"
-                  trigger="color-field"
-                />
+                <ColorPicker onChange={props.onChange} defaultValue={value} />
               ) : (
-                <ColorSwatch className="size-6 ml-2" color={value.toString()} />
+                <ColorSwatch className="size-6" color={value.toString()} />
               )}
             </span>
           )}

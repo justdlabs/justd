@@ -31,8 +31,6 @@ const fruits: SelectedKey[] = [
   { id: 4, name: "Date" },
   { id: 5, name: "Elderberry" },
   { id: 6, name: "Fig" },
-  { id: 7, name: "Grape" },
-  { id: 8, name: "Honeydew" },
   { id: 9, name: "Kiwi" },
   { id: 10, name: "Lemon" },
   { id: 11, name: "Mango" },

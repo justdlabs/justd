@@ -3,7 +3,6 @@ title: "Color Field"
 description: "A color field allows users to adjust a hex color or fine-tune individual color channels, offering precise control over color customization."
 order: 2
 published: true
-status: beta
 references: ["https://react-spectrum.adobe.com/react-aria/ColorField.html"]
 ---
 
@@ -12,15 +11,15 @@ A color field allows users to adjust a hex color or manipulate individual color 
 <How toUse="colors/color-field/color-field-demo" />
 
 ## Installation
-<Installation options={{isComponent: true}} items={['color']}/>
+<Installation options={{isComponent: true}} items={['color-field']}/>
 
 ## Composed Components
-<Composed components={['field', 'slider', 'color-picker']}/>
+<Composed components={['field', 'color-swatch', 'color-picker']}/>
 
 ## Manual Installation
 <Installation options={{isManual: true}} items={['react-aria-components']}/>
 
-<SourceCode toShow={['color']}/>
+<SourceCode toShow={['color-field']}/>
 
 ## Prefix
 A color field can include a prefix to provide context or functionality.
@@ -45,13 +44,13 @@ You can disable the color field, making it non-interactive.
 ## Props
 The `ColorField` component includes all standard props from `react-aria-components`, plus these additional features:
 
-| Property           | Type                                                    | Optional |
-|--------------------|---------------------------------------------------------|----------|
-| label            | string                                                | Yes      |
-| description      | string                                                | Yes      |
-| errorMessage     | string \| ((validation: ValidationResult) => string)   | Yes      |
-| placeholder      | string                                                | Yes      |
-| prefix           | React.ReactNode                                       | Yes      |
-| suffix           | React.ReactNode                                       | Yes      |
-| isLoading        | boolean                                               | Yes      |
-| enableColorPicker| boolean                                               | Yes      |
+| Property          | Type                                                 | Optional            |
+|-------------------|------------------------------------------------------|---------------------|
+| label             | string                                               | Yes                 |
+| description       | string                                               | Yes                 |
+| errorMessage      | string \| ((validation: ValidationResult) => string) | Yes                 |
+| placeholder       | string                                               | Yes                 |
+| prefix            | React.ReactNode                                      | Yes                 |
+| suffix            | React.ReactNode                                      | Yes                 |
+| isLoading         | boolean                                              | Yes                 |
+| enableColorPicker | boolean                                              | Yes ( default: true) |

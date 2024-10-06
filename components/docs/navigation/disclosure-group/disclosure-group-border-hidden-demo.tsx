@@ -10,18 +10,18 @@ import {
   IconShield,
   IconSupport
 } from "justd-icons"
-import { Accordion } from "ui"
+import { Disclosure, DisclosureGroup } from "ui"
 
-export default function AccordionWithIconDemo() {
+export default function DisclosureGroupBorderHiddenDemo() {
   return (
-    <Accordion hideBorder>
+    <DisclosureGroup hideBorder>
       {items.map((item, index) => (
-        <Accordion.Item key={index} currentId={index}>
-          <Accordion.Trigger>{item.title}</Accordion.Trigger>
-          <Accordion.Content>{item.description}</Accordion.Content>
-        </Accordion.Item>
+        <Disclosure key={index} id={index}>
+          <Disclosure.Trigger>{item.title}</Disclosure.Trigger>
+          <Disclosure.Panel>{item.description}</Disclosure.Panel>
+        </Disclosure>
       ))}
-    </Accordion>
+    </DisclosureGroup>
   )
 }
 

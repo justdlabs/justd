@@ -137,7 +137,6 @@ const MultipleSelect = <T extends SelectedKey>({
 
   const onSelectionChange = (id: Key | null) => {
     if (!id) return
-
     const item = accessibleList.getItem(id)
     const maxTags = props.max !== undefined ? props.max : Infinity
 
@@ -164,6 +163,7 @@ const MultipleSelect = <T extends SelectedKey>({
 
     accessibleList.setFilterText("")
   }
+
   const onInputChange = (v: string) => {
     setFieldState((prevState) => ({
       inputValue: v,

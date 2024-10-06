@@ -2,18 +2,18 @@
 
 import React from "react"
 
-import { Accordion } from "ui"
+import { Disclosure, DisclosureGroup } from "ui"
 
-export default function AccordionDefaultExpandDemo() {
+export default function DisclosureGroupAllowMultipleExpandDemo() {
   return (
-    <Accordion defaultExpandedKeys={[1, 2]}>
+    <DisclosureGroup allowsMultipleExpanded defaultExpandedKeys={[1, 2]}>
       {faqs.map((item, index) => (
-        <Accordion.Item key={index} currentId={index}>
-          <Accordion.Trigger>{item.q}</Accordion.Trigger>
-          <Accordion.Content>{item.a}</Accordion.Content>
-        </Accordion.Item>
+        <Disclosure key={index} id={index}>
+          <Disclosure.Trigger>{item.q}</Disclosure.Trigger>
+          <Disclosure.Panel>{item.a}</Disclosure.Panel>
+        </Disclosure>
       ))}
-    </Accordion>
+    </DisclosureGroup>
   )
 }
 

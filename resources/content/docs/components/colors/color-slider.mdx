@@ -3,7 +3,6 @@ title: "Color Slider"
 description: Slide through gradients, picking the intensity or shade you need, as smoothly as sliding into your favorite jeans.
 order: 4
 published: true
-status: beta
 references: ["https://react-spectrum.adobe.com/react-aria/ColorSlider.html#props"]
 ---
 
@@ -12,22 +11,18 @@ Glide through gradients to select the perfect intensity or shade, as effortlessl
 <How minW72 toUse="colors/color-slider/color-slider-demo" />
 
 ## Installation
-<Installation options={{isComponent: true}} items={['color']}/>
+<Installation options={{isComponent: true}} items={['color-slider']}/>
 
 ## Composed Components
-<Composed components={['slider', 'field']}/>
+<Composed components={['color-thumb', 'field']}/>
 
 ## Manual Installation
 <Installation options={{isManual: true}} items={['react-aria-components']}/>
-<SourceCode toShow={['color']}/>
+<SourceCode toShow={['color-slider']}/>
 
 ## With Label
 Enhance the color slider by adding a label for clarity and accessibility.
 <How minW72 toUse="colors/color-slider/color-slider-with-label-demo" />
-
-## Without Output
-The color slider typically displays the selected value. To hide this output, set `showOutput` to `false`.
-<How minW72 toUse="colors/color-slider/color-slider-without-output-demo" />
 
 ## Controlled
 Take direct control over the color slider's value.
