@@ -5,7 +5,7 @@ import React from "react"
 import { type Docs, docs } from "#site/content"
 import { goodTitle, sortDocs } from "@/resources/lib/utils"
 import { LayoutGroup, motion } from "framer-motion"
-import { IconChevronRight, IconCircleHalf, IconCube, IconHighlight, IconLayers } from "justd-icons"
+import { IconChevronLeft, IconCircleHalf, IconCube, IconHighlight, IconLayers } from "justd-icons"
 import { Link as NextLink } from "next-view-transitions"
 import type { LinkProps as NextLinkProps } from "next/link"
 import { usePathname } from "next/navigation"
@@ -132,7 +132,9 @@ const renderHierarchy = (node: HierarchyNode, defaultValues: string[]) => {
                             >
                               {(childValue as Doc).title === "Disclosure Group aka Accordion"
                                 ? "Disclosure Group"
-                                : goodTitle((childValue as Doc).title)}
+                                : (childValue as Doc).title === "Disclosure aka Collapsible"
+                                  ? "Disclosure"
+                                  : goodTitle((childValue as Doc).title)}
                               {childValue.status && (
                                 <Badge
                                   intent={
@@ -204,9 +206,11 @@ export const Aside = () => {
 
 const Trigger = ({ children, className }: { children: React.ReactNode; className?: string }) => {
   return (
-    <Disclosure.Trigger className={cn("group py-2", className)}>
+    <Disclosure.Trigger
+      className={cn("group py-2 pressed:text-fg aria-expanded:text-fg text-muted-fg", className)}
+    >
       {children}
-      <IconChevronRight className="ml-auto group-aria-expanded:rotate-90 transition shrink-0 duration-300" />
+      <IconChevronLeft className="ml-auto group-aria-expanded:-rotate-90 transition shrink-0 duration-300" />
     </Disclosure.Trigger>
   )
 }

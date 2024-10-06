@@ -428,6 +428,9 @@ export const previews: Record<string, any> = {
   "navigation/disclosure/disclosure-demo": {
     component: React.lazy(() => import("@/components/docs/navigation/disclosure/disclosure-demo")),
   },
+  "navigation/disclosure/disclosure-controlled-demo": {
+    component: React.lazy(() => import("@/components/docs/navigation/disclosure/disclosure-controlled-demo")),
+  },
   "navigation/disclosure/disclosure-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/navigation/disclosure/disclosure-disabled-demo")),
   },
@@ -472,6 +475,9 @@ export const previews: Record<string, any> = {
   },
   "navigation/disclosure-group/disclosure-group-demo": {
     component: React.lazy(() => import("@/components/docs/navigation/disclosure-group/disclosure-group-demo")),
+  },
+  "navigation/disclosure-group/disclosure-group-hide-everything-demo": {
+    component: React.lazy(() => import("@/components/docs/navigation/disclosure-group/disclosure-group-hide-everything-demo")),
   },
   "navigation/disclosure-group/disclosure-group-allow-multiple-expand-demo": {
     component: React.lazy(() => import("@/components/docs/navigation/disclosure-group/disclosure-group-allow-multiple-expand-demo")),

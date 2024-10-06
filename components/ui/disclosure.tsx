@@ -25,6 +25,8 @@ interface DisclosureGroupProps extends DisclosureGroupPrimitiveProps {
   hideIndicator?: boolean
 }
 
+const DisclosureGroupContext = React.createContext<DisclosureGroupProps>({})
+
 const DisclosureGroup = ({
   children,
   hideIndicator,
@@ -37,20 +39,20 @@ const DisclosureGroup = ({
       {...props}
       className={({ isDisabled }) =>
         cn([
+          isDisabled ? "cursor-not-allowed opacity-75" : "cursor-pointer",
           hideBorder
             ? "[&_[data-slot=accordion-item]]:border-none"
             : "[&_[data-slot=accordion-item]]:border-b",
-          isDisabled ? "cursor-not-allowed opacity-75" : "cursor-pointer",
-          hideIndicator
-            ? "[&_[slot=trigger]>.triginr]:hidden"
-            : "[&_[slot=trigger]>.triginr]:inline",
+
           className
         ])
       }
     >
       {(values) => (
         <div data-slot="accordion-item-content">
-          {typeof children === "function" ? children(values) : children}
+          <DisclosureGroupContext.Provider value={{ hideIndicator, hideBorder }}>
+            {typeof children === "function" ? children(values) : children}
+          </DisclosureGroupContext.Provider>
         </div>
       )}
     </DisclosureGroupPrimitive>
@@ -65,17 +67,29 @@ const disclosureStyles = tv({
     },
     isExpanded: {
       true: "pb-3"
+    },
+    hideBorder: {
+      true: "[&_[slot=trigger]]:py-2",
+      false: "[&_[slot=trigger]]:py-3"
     }
-  }
+  },
+  compoundVariants: [
+    {
+      hideBorder: true,
+      isExpanded: true,
+      className: "pb-2"
+    }
+  ]
 })
 
 const Disclosure = ({ className, ...props }: DisclosureProps) => {
+  const { hideBorder } = React.useContext(DisclosureGroupContext)
   return (
     <DisclosurePrimitive
       data-slot="accordion-item"
       {...props}
       className={cr(className, (className, renderProps) =>
-        disclosureStyles({ ...renderProps, className })
+        disclosureStyles({ ...renderProps, hideBorder, className })
       )}
     >
       {props.children}
@@ -85,7 +99,7 @@ const Disclosure = ({ className, ...props }: DisclosureProps) => {
 
 const accordionTriggerStyles = tv({
   base: [
-    "flex flex-1 group rounded-lg sm:text-sm [&>[data-slot=icon]]:size-5 items-center gap-x-2 py-3 font-medium"
+    "flex flex-1 group rounded-lg aria-expanded:text-fg text-muted-fg sm:text-sm items-center gap-x-2 font-medium"
   ],
   variants: {
     isFocused: {
@@ -101,6 +115,7 @@ const accordionTriggerStyles = tv({
 })
 
 const Trigger = ({ className, ...props }: ButtonProps) => {
+  const { hideIndicator } = React.useContext(DisclosureGroupContext)
   return (
     <Button
       {...props}
@@ -115,11 +130,13 @@ const Trigger = ({ className, ...props }: ButtonProps) => {
       {(values) => (
         <TouchTarget>
           {typeof props.children === "function" ? props.children(values) : props.children}
-          <IconChevronLeft
-            className={tm(
-              "ml-auto triginr transition shrink-0 duration-300 group-data-[expanded]:-rotate-90"
-            )}
-          />
+          {!hideIndicator && (
+            <IconChevronLeft
+              className={tm(
+                "ml-auto transition shrink-0 duration-300 group-aria-expanded:-rotate-90"
+              )}
+            />
+          )}
         </TouchTarget>
       )}
     </Button>
