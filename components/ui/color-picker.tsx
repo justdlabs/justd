@@ -59,7 +59,7 @@ const ColorPicker = ({
               {children || (
                 <>
                   <ColorArea colorSpace="hsb" xChannel="saturation" yChannel="brightness" />
-                  <ColorSlider colorSpace="hsb" channel="hue" />
+                  <ColorSlider showOutput={false} colorSpace="hsb" channel="hue" />
                   <ColorField aria-label="Hex" />
                 </>
               )}

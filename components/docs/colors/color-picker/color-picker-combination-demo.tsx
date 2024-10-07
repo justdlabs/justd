@@ -9,8 +9,10 @@ export default function ColorPickerCombinationDemo() {
   const [space, setSpace] = React.useState<ColorSpace>("rgb")
   return (
     <ColorPicker label="Color picker" defaultValue="#0d6efd">
-      <ColorArea colorSpace={space} xChannel="saturation" yChannel="brightness" />
-      <ColorSlider colorSpace={space} channel="hue" />
+      <ColorArea colorSpace={space} />
+      {getColorChannels(space).map((channel) => (
+        <ColorSlider showOutput={false} key={channel} colorSpace={space} channel={channel} />
+      ))}
       <Select
         aria-label="Color space"
         selectedKey={space}
@@ -25,7 +27,7 @@ export default function ColorPickerCombinationDemo() {
           ))}
         </Select.List>
       </Select>
-      <div className="flex gap-4 max-w-56">
+      <div className="flex gap-2 max-w-56">
         {getColorChannels(space).map((channel) => (
           <ColorField key={channel} colorSpace={space} channel={channel} className="w-full" />
         ))}
