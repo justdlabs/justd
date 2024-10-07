@@ -596,6 +596,9 @@ export const previews: Record<string, any> = {
   "anatomies/checkbox-anatomy": {
     component: React.lazy(() => import("@/components/docs/anatomies/checkbox-anatomy")),
   },
+  "anatomies/tree-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/tree-anatomy")),
+  },
   "anatomies/disclosure-group-anatomy": {
     component: React.lazy(() => import("@/components/docs/anatomies/disclosure-group-anatomy")),
   },
@@ -1165,6 +1168,9 @@ export const previews: Record<string, any> = {
   },
   "statuses/loader-size-demo": {
     component: React.lazy(() => import("@/components/docs/statuses/loader-size-demo")),
+  },
+  "collections/tree/tree-demo": {
+    component: React.lazy(() => import("@/components/docs/collections/tree/tree-demo")),
   },
   "collections/choicebox/choicebox-single-selection-demo": {
     component: React.lazy(() => import("@/components/docs/collections/choicebox/choicebox-single-selection-demo")),

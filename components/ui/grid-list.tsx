@@ -17,7 +17,10 @@ type GridListProps<T extends object> = GridListPrimitiveProps<T>
 
 const GridList = <T extends object>({ children, className, ...props }: GridListProps<T>) => (
   <GridListPrimitive
-    className={ctr(className, "relative max-h-96 overflow-auto rounded-lg border")}
+    className={ctr(
+      className,
+      "relative [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin] max-h-96 overflow-auto rounded-lg border"
+    )}
     {...props}
   >
     {children}
@@ -26,7 +29,7 @@ const GridList = <T extends object>({ children, className, ...props }: GridListP
 
 const itemStyles = tv({
   extend: focusRing,
-  base: "relative -mb-px flex cursor-default select-none gap-3 border-y px-3 py-2 text-sm text-fg -outline-offset-2 first:rounded-t-md first:border-t-0 last:mb-0 last:rounded-b-md last:border-b-0",
+  base: "relative transition -mb-px flex cursor-default select-none gap-3 border-y px-3 py-2 lg:text-sm text-fg -outline-offset-2 first:rounded-t-md first:border-t-0 last:mb-0 last:rounded-b-md last:border-b-0",
   variants: {
     isHovered: { true: "bg-accent-subtle" },
     isSelected: {

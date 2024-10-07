@@ -15,7 +15,7 @@ import { DropdownItemDetails, DropdownSection } from "./dropdown"
 import { cn, cr } from "./primitive"
 
 const listBoxStyles = tv({
-  base: "flex max-h-96 w-full gap-y-1 min-w-72 flex-col overflow-y-auto rounded-xl border p-1 shadow-lg outline-none"
+  base: "flex max-h-96 [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin] w-full gap-y-1 min-w-72 flex-col overflow-y-auto rounded-xl border p-1 shadow-lg outline-none"
 })
 
 interface ListBoxProps<T> extends ListBoxPrimitiveProps<T> {

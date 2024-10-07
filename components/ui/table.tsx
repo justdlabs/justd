@@ -98,7 +98,7 @@ const Header = <T extends object>({ children, className, columns, ...props }: He
   const { selectionBehavior, selectionMode, allowsDragging } = useTableOptions()
   return (
     <TableHeader {...props} className={header({ className })}>
-      {allowsDragging && <Column />}
+      {allowsDragging && <Column className="w-0" />}
       {selectionBehavior === "toggle" && (
         <Column className="pl-4 w-0">
           {selectionMode === "multiple" && <Checkbox slot="selection" />}
