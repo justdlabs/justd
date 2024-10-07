@@ -41,26 +41,31 @@ export function Blocks() {
               <MultipleSelectDemo />
             </CardBlock>
           </Grid.Item>
-        </Grid>
-        <Grid columns={{ initial: 1, sm: 2, lg: 5 }} gap={2}>
-          <Grid.Item colSpan={{ initial: 1, lg: 3 }}>
-            <CardBlock>
-              <TableDemo />
-            </CardBlock>
-          </Grid.Item>
-          <Grid.Item colSpan={{ initial: 1, lg: 2 }}>
+          <Grid.Item>
             <CardBlock>
               <LoginForm />
+            </CardBlock>
+          </Grid.Item>
+          <Grid.Item>
+            <CheckRadioBlock />
+          </Grid.Item>
+          <Grid.Item>
+            <CardBlock>
+              <CalendarDemo />
             </CardBlock>
           </Grid.Item>
         </Grid>
         <Grid columns={{ initial: 1, sm: 2, lg: 3 }} gap={2}>
           <Grid.Item className="flex flex-col gap-y-4 lg:gap-y-2">
             <ToolbarBlock />
+
             <CardBlock>
-              <CalendarDemo />
+              <ColorPickerCombinationDemo />
             </CardBlock>
+            <Buttons />
+            <Menus />
           </Grid.Item>
+
           <Grid.Item>
             <div className="grid gap-2">
               <CardBlock className="grid gap-6">
@@ -80,30 +85,12 @@ export function Blocks() {
               </CardBlock>
             </div>
           </Grid.Item>
-          <Grid.Item>
-            <CheckRadioBlock />
-          </Grid.Item>
 
-          <Grid.Item>
-            <CardBlock>
-              <ColorPickerCombinationDemo />
-            </CardBlock>
-          </Grid.Item>
-          <Grid.Item>
-            <Menus />
-          </Grid.Item>
-          <Grid.Item>
+          <Grid.Item className="grid gap-2">
             <PopoverOverlays />
-          </Grid.Item>
-          <Grid.Item>
-            <Buttons />
-          </Grid.Item>
-          <Grid.Item>
             <CardBlock>
               <SwitchDemo />
             </CardBlock>
-          </Grid.Item>
-          <Grid.Item>
             <ModalOverlays />
           </Grid.Item>
         </Grid>

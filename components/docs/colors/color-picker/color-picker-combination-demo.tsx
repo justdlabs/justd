@@ -27,7 +27,7 @@ export default function ColorPickerCombinationDemo() {
           ))}
         </Select.List>
       </Select>
-      <div className="flex gap-2 max-w-56">
+      <div className="flex gap-2 sm:max-w-56">
         {getColorChannels(space).map((channel) => (
           <ColorField key={channel} colorSpace={space} channel={channel} className="w-full" />
         ))}

@@ -1,5 +1,7 @@
 "use client"
 
+import * as React from "react"
+
 import { Link as LinkPrimitive, type LinkProps as LinkPrimitiveProps } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
@@ -30,15 +32,16 @@ interface LinkProps extends LinkPrimitiveProps {
 const Link = ({ className, ...props }: LinkProps) => {
   return (
     <LinkPrimitive
-      aria-label={props["aria-label"] ?? "Link"}
       {...props}
       className={cr(className, (className, ...renderProps) =>
         linkStyles({ ...renderProps, intent: props.intent, className })
       )}
     >
-      <TouchTarget>
-        <>{props.children}</>
-      </TouchTarget>
+      {(values) => (
+        <TouchTarget>
+          {typeof props.children === "function" ? props.children(values) : props.children}
+        </TouchTarget>
+      )}
     </LinkPrimitive>
   )
 }

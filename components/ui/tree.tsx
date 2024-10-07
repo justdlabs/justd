@@ -43,10 +43,17 @@ const Tree = <T extends object>({ className, ...props }: TreeProps<T>) => {
 }
 
 const itemStyles = tv({
-  base: "[&_[slot=chevron]]:outline-none data-[has-child-rows]:[--padding:0px] [&_[data-expanded]_[slot=chevron]_[data-slot=icon]]:rotate-90 outline-none [--padding:20px] p-[0.286rem_0.286rem_0.286rem_0.571rem] pl-[calc((var(--tree-item-level)-1)*20px+0.571rem+var(--padding))]",
+  base: [
+    "[&_[data-expanded]_[slot=chevron]_[data-slot=icon]]:rotate-90 outline-none [--padding:20px] p-[0.286rem_0.286rem_0.286rem_0.571rem] pl-[calc((var(--tree-item-level)-1)*20px+0.571rem+var(--padding))]",
+    "[&_[slot=chevron]]:outline-none [&_[slot=chevron]_[data-slot=icon]]:text-muted-fg",
+    "data-[has-child-rows]:[--padding:0px]"
+  ],
   variants: {
     isExpanded: {
-      true: "[&_[slot=chevron]_[data-slot=icon]]:rotate-90 [&_[slot=chevron]_[data-slot=icon]]:transition [&_[slot=chevron]_[data-slot=icon]]:duration-200"
+      true: "[&_[slot=chevron]_[data-slot=icon]]:text-fg [&_[slot=chevron]_[data-slot=icon]]:rotate-90 [&_[slot=chevron]_[data-slot=icon]]:transition [&_[slot=chevron]_[data-slot=icon]]:duration-200"
+    },
+    isFocusVisible: {
+      true: "[&_[slot=chevron]_[data-slot=icon]]:text-fg focus:outline-none focus-visible:ring-1 focus-visible:ring-primary"
     },
     isDisabled: {
       true: "opacity-50 forced-colors:text-[GrayText]"
@@ -82,7 +89,7 @@ const ItemContent = (props: React.ComponentProps<typeof TreeItemContent>) => {
 
 const Indicator = () => {
   return (
-    <Button className="shrink-0" slot="chevron">
+    <Button className="shrink-0 relative" slot="chevron">
       <TouchTarget>
         <IconChevronRight className="size-5" />
       </TouchTarget>

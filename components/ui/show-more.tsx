@@ -2,12 +2,12 @@
 
 import * as React from "react"
 
-import { cr } from "@/components/ui/primitive"
-import { TouchTarget } from "@/components/ui/touch-target"
 import { Text, ToggleButton } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
 import { buttonStyles } from "./button"
+import { cr } from "./primitive"
+import { TouchTarget } from "./touch-target"
 
 const showMoreStyles = tv({
   base: "text-sm leading-6 after:border-muted before:border-muted",

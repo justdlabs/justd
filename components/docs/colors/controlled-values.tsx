@@ -13,6 +13,7 @@ export function ControlledValues({ color }: { color: any }) {
         <span key={format}>
           <span className="flex gap-x-1.5 items-center">
             <ColorSwatch
+              aria-label="color picked"
               className="size-4 rounded"
               color={color.toString(format as ColorFormat | "css" | undefined)}
             />
