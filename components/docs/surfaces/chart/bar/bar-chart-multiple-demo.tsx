@@ -30,11 +30,11 @@ const data = [
 const config = {
   onlineCourses: {
     label: "Online Courses",
-    color: "oklch(var(--primary-chart))"
+    color: "hsl(var(--primary-chart))"
   },
   webinars: {
     label: "Webinars",
-    color: "oklch(var(--secondary-chart))"
+    color: "hsl(var(--secondary-chart))"
   }
 } satisfies ChartConfig
 

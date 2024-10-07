@@ -22,7 +22,7 @@ const data = [
 const config = {
   revenue: {
     label: "Revenue",
-    color: "oklch(var(--primary-chart))"
+    color: "hsl(var(--primary-chart))"
   }
 } satisfies ChartConfig
 

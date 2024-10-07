@@ -9,15 +9,26 @@ export function CheckRadioBlock() {
   const [selectedRadio, setSelectedRadio] = useState("lowSecurity")
   return (
     <CardBlock>
-      <RadioGroup aria-label="Security" value={selectedRadio} onChange={setSelectedRadio}>
+      <RadioGroup
+        aria-labelledby="security-settings"
+        value={selectedRadio}
+        onChange={setSelectedRadio}
+      >
+        <h2 id="security-settings" className="sr-only">
+          Security Settings
+        </h2>
         <Radio value="highSecurity" description="Set security settings to high.">
           High Security
         </Radio>
         <CheckboxGroup
+          aria-labelledby="encryption-firewall"
           defaultValue={["encryption"]}
           className="ml-6"
           isDisabled={selectedRadio !== "highSecurity"}
         >
+          <h2 id="encryption-firewall" className="sr-only">
+            Encryption and Firewall
+          </h2>
           <Checkbox value="encryption" description="Enable encryption." isReadOnly>
             Encryption
           </Checkbox>

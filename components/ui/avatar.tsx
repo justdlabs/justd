@@ -55,7 +55,6 @@ interface AvatarProps
   alt?: string
   status?: Status
   className?: string
-  role?: string
 }
 
 const Avatar = ({
@@ -75,7 +74,6 @@ const Avatar = ({
   return (
     <span
       aria-labelledby={ariaLabelledby}
-      role={role}
       data-slot="avatar"
       {...props}
       className={avatarStyles({ shape, size, className })}

@@ -34,23 +34,23 @@ const config = {
   },
   january: {
     label: "January",
-    color: "oklch(var(--primary-chart))"
+    color: "hsl(var(--primary-chart))"
   },
   february: {
     label: "February",
-    color: "oklch(var(--secondary-chart))"
+    color: "hsl(var(--secondary-chart))"
   },
   march: {
     label: "March",
-    color: "oklch(var(--tertiary-chart))"
+    color: "hsl(var(--tertiary-chart))"
   },
   april: {
     label: "April",
-    color: "oklch(var(--highlight-chart))"
+    color: "hsl(var(--highlight-chart))"
   },
   may: {
     label: "May",
-    color: "oklch(var(--accent-chart))"
+    color: "hsl(var(--accent-chart))"
   }
 } satisfies ChartConfig
 

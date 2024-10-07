@@ -21,15 +21,15 @@ const data = [
 const config = {
   organic: {
     label: "Organic Traffic",
-    color: "oklch(var(--primary-chart))"
+    color: "hsl(var(--primary-chart))"
   },
   paid: {
     label: "Paid Traffic",
-    color: "oklch(var(--secondary-chart))"
+    color: "hsl(var(--secondary-chart))"
   },
   referral: {
     label: "Referral Traffic",
-    color: "oklch(var(--tertiary-chart))"
+    color: "hsl(var(--tertiary-chart))"
   }
 } satisfies ChartConfig
 

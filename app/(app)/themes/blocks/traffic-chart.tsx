@@ -35,7 +35,7 @@ const chartData = [
 const chartConfig = {
   count: {
     label: "Count",
-    color: "oklch(var(--primary-chart))"
+    color: "hsl(var(--primary-chart))"
   }
 } satisfies ChartConfig
 
@@ -61,19 +61,19 @@ export function TrafficChart() {
               dataKey="count"
               layout="vertical"
               fill="var(--color-count)"
-              background={{ radius: 6, fill: "oklch(var(--primary-chart)/20%)" }}
+              background={{ radius: 6, fill: "hsl(var(--primary-chart)/20%)" }}
               radius={6}
               shape={(props: any) => (
                 <>
                   <Rectangle {...props} />
-                  <text x={props.x + 10} y={props.y + 20} fill="oklch(var(--light))">
+                  <text x={props.x + 10} y={props.y + 20} fill="hsl(var(--light))">
                     {props.country}
                   </text>
                   <text
                     x={props.background.width - 10}
                     y={props.y + 20}
                     textAnchor="end"
-                    fill="oklch(var(--fg))"
+                    fill="hsl(var(--fg))"
                   >
                     {props.count.toLocaleString()} ({props.percentage.toFixed(1)}%)
                   </text>

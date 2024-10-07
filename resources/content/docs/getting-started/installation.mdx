@@ -257,7 +257,7 @@ Then, add this section for react-aria-components:
 
 ```css
 .react-aria-DropIndicator[data-drop-target] {
-  outline: 1px solid oklch(var(--primary));
+  outline: 1px solid hsl(var(--primary));
 }
 ```
 
@@ -279,66 +279,66 @@ export default withTV({
   theme: {
     extend: {
       colors: {
-        light: "oklch(var(--light) / <alpha-value>)",
-        dark: "oklch(var(--dark) / <alpha-value>)",
-        border: "oklch(var(--border) / <alpha-value>)",
-        input: "oklch(var(--input) / <alpha-value>)",
-        ring: "oklch(var(--ring) / <alpha-value>)",
-        toggle: "oklch(var(--toggle) / <alpha-value>)",
-        bg: "oklch(var(--bg) / <alpha-value>)",
-        fg: "oklch(var(--fg) / <alpha-value>)",
+        light: "hsl(var(--light))",
+        dark: "hsl(var(--dark))",
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        toggle: "hsl(var(--toggle))",
+        bg: "hsl(var(--bg))",
+        fg: "hsl(var(--fg))",
         primary: {
-          DEFAULT: "oklch(var(--primary) / <alpha-value>)",
-          fg: "oklch(var(--primary-fg) / <alpha-value>)",
-          '50': 'oklch(97.37% 0.014 238)',
-          '100': 'oklch(93.81% 0.03280649558828209 241.06746081081621)',
-          '200': 'oklch(88.9% 0.059 242.33)',
-          '300': 'oklch(82.58% 0.09763750297234024 239.47890979942932)',
-          '400': 'oklch(74.36% 0.142 244.63)',
-          '500': 'oklch(65.63% 0.18687681791257255 253.9987240551966)',
-          '600': 'oklch(57.82% 0.228 260.03)',
-          '700': 'oklch(52.27% 0.227 261.8)',
-          '800': 'oklch(45.04% 0.19 262.37)',
-          '900': 'oklch(39.92% 0.145 261.36)',
-          '950': 'oklch(29.38% 0.093 262.52)',
+          DEFAULT: "hsl(var(--primary))",
+          fg: "hsl(var(--primary-fg))",
+          '50': 'hsl(97.37% 0.014 238)',
+          '100': 'hsl(93.81% 0.03280649558828209 241.06746081081621)',
+          '200': 'hsl(88.9% 0.059 242.33)',
+          '300': 'hsl(82.58% 0.09763750297234024 239.47890979942932)',
+          '400': 'hsl(74.36% 0.142 244.63)',
+          '500': 'hsl(65.63% 0.18687681791257255 253.9987240551966)',
+          '600': 'hsl(57.82% 0.228 260.03)',
+          '700': 'hsl(52.27% 0.227 261.8)',
+          '800': 'hsl(45.04% 0.19 262.37)',
+          '900': 'hsl(39.92% 0.145 261.36)',
+          '950': 'hsl(29.38% 0.093 262.52)',
         },
         secondary: {
-          DEFAULT: "oklch(var(--secondary) / <alpha-value>)",
-          fg: "oklch(var(--secondary-fg) / <alpha-value>)"
+          DEFAULT: "hsl(var(--secondary))",
+          fg: "hsl(var(--secondary-fg))"
         },
         tertiary: {
-          DEFAULT: "oklch(var(--tertiary) / <alpha-value>)",
-          fg: "oklch(var(--tertiary-fg) / <alpha-value>)"
+          DEFAULT: "hsl(var(--tertiary))",
+          fg: "hsl(var(--tertiary-fg))"
         },
         accent: {
-          DEFAULT: "oklch(var(--accent) / <alpha-value>)",
-          fg: "oklch(var(--accent-fg) / <alpha-value>)",
-          subtle: "oklch(var(--accent-subtle) / <alpha-value>)",
-          "subtle-fg": "oklch(var(--accent-subtle-fg) / <alpha-value>)"
+          DEFAULT: "hsl(var(--accent))",
+          fg: "hsl(var(--accent-fg))",
+          subtle: "hsl(var(--accent-subtle))",
+          "subtle-fg": "hsl(var(--accent-subtle-fg))"
         },
         success: {
-          DEFAULT: "oklch(var(--success) / <alpha-value>)",
-          fg: "oklch(var(--success-fg) / <alpha-value>)"
+          DEFAULT: "hsl(var(--success))",
+          fg: "hsl(var(--success-fg))"
         },
         info: {
-          DEFAULT: "oklch(var(--info) / <alpha-value>)",
-          fg: "oklch(var(--info-fg) / <alpha-value>)"
+          DEFAULT: "hsl(var(--info))",
+          fg: "hsl(var(--info-fg))"
         },
         danger: {
-          DEFAULT: "oklch(var(--danger) / <alpha-value>)",
-          fg: "oklch(var(--danger-fg) / <alpha-value>)"
+          DEFAULT: "hsl(var(--danger))",
+          fg: "hsl(var(--danger-fg))"
         },
         warning: {
-          DEFAULT: "oklch(var(--warning) / <alpha-value>)",
-          fg: "oklch(var(--warning-fg) / <alpha-value>)"
+          DEFAULT: "hsl(var(--warning))",
+          fg: "hsl(var(--warning-fg))"
         },
         muted: {
-          DEFAULT: "oklch(var(--muted) / <alpha-value>)",
-          fg: "oklch(var(--muted-fg) / <alpha-value>)"
+          DEFAULT: "hsl(var(--muted))",
+          fg: "hsl(var(--muted-fg))"
         },
         overlay: {
-          DEFAULT: "oklch(var(--overlay) / <alpha-value>)",
-          fg: "oklch(var(--overlay-fg) / <alpha-value>)"
+          DEFAULT: "hsl(var(--overlay))",
+          fg: "hsl(var(--overlay-fg))"
         }
       },
       borderRadius: {

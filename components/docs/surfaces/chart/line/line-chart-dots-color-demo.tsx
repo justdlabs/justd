@@ -15,27 +15,27 @@ const data = [
 const config = {
   visitors: {
     label: "Visitors",
-    color: "oklch(var(--primary-chart))"
+    color: "hsl(var(--primary-chart))"
   },
   chrome: {
     label: "Chrome",
-    color: "oklch(var(--primary-chart))"
+    color: "hsl(var(--primary-chart))"
   },
   safari: {
     label: "Safari",
-    color: "oklch(var(--secondary-chart))"
+    color: "hsl(var(--secondary-chart))"
   },
   firefox: {
     label: "Firefox",
-    color: "oklch(var(--tertiary-chart))"
+    color: "hsl(var(--tertiary-chart))"
   },
   edge: {
     label: "Edge",
-    color: "oklch(var(--highlight-chart))"
+    color: "hsl(var(--highlight-chart))"
   },
   other: {
     label: "Other",
-    color: "oklch(var(--accent-chart))"
+    color: "hsl(var(--accent-chart))"
   }
 } satisfies ChartConfig
 

@@ -6,6 +6,7 @@ import { parseColor } from "@react-stately/color"
 import type { ColorFormat } from "@react-types/color"
 import { IconBrackets2, IconCheck, IconDuplicate } from "justd-icons"
 import { Heading } from "react-aria-components"
+import { twJoin } from "tailwind-merge"
 import { Button, ColorSwatch, Modal } from "ui"
 import { copyToClipboard } from "usemods"
 
@@ -40,7 +41,9 @@ export function CopyJsonColorShades({
       .map(({ shade, color }: any) => {
         const parsedColor =
           selectedFormat === "oklch"
-            ? rgbToOklch(parseColor(color).toString("rgb")).replaceAll("0.000 NaN", "0 0")
+            ? rgbToOklch(parseColor(color).toString("rgb"))
+                .replaceAll("0.000 NaN", "0 0")
+                .replace(/oklch\(([^)]+)\)/, "oklch($1 / <alpha-value>)")
             : parseColor(color).toString(selectedFormat as ColorFormat)
         return `'${shade}': '${parsedColor}'`
       })
@@ -63,11 +66,22 @@ export function CopyJsonColorShades({
       </Button>
       <Modal.Content closeButton={false} size="2xl" classNames={{ content: "p-0 [&>.dlc]:p-0" }}>
         <Heading className="sr-only">{name}</Heading>
-        <div className="relative grid sm:grid-cols-2 divide-x">
+
+        <div
+          className={twJoin(
+            "relative grid divide-x",
+            selectedFormat === "oklch" ? "sm:grid-cols-3" : "sm:grid-cols-2"
+          )}
+        >
           <div className="hidden sm:grid place-content-center font-mono text-sm relative">
             <ColorSwatch colorName={getColorName(color, false)} color={color} />
           </div>
-          <div className="p-2">
+          <div
+            className={twJoin(
+              "p-2",
+              selectedFormat === "oklch" ? "sm:col-span-2" : "sm:col-span-1"
+            )}
+          >
             <div className="absolute top-2.5 right-2.5">
               <Button
                 onPress={handleCopy}

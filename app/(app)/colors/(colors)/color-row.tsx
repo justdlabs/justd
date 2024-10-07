@@ -44,7 +44,7 @@ export function ColorRow({ showItem = false, swatchClassName, item }: ColorRowPr
               selectedFormat={selectedFormat}
               colorScales={item.children}
             />
-            {["rgb", "rgba", "hsl", "hsla", "hsb", "hsba", "oklch"].includes(
+            {["rgb", "rgba", "hsl", "hsla", "hsb", "hsba", "hsl"].includes(
               selectedFormat as ColorFormat
             ) && (
               <Tooltip>
@@ -62,7 +62,7 @@ export function ColorRow({ showItem = false, swatchClassName, item }: ColorRowPr
                       )
                     ) {
                       toast(
-                        "You can only switch up the color format to rgb, hsl, hsb, hsla, hsba, or oklch."
+                        "You can only switch up the color format to rgb, hsl, hsb, hsla, hsba, or hsl."
                       )
                       return
                     }
@@ -74,7 +74,7 @@ export function ColorRow({ showItem = false, swatchClassName, item }: ColorRowPr
                   )}
                 </ToggleButton>
                 <Tooltip.Content className="max-w-xs">
-                  You can switch up the color format to rgb, hsl, hsb, hsla, hsba, or oklch.
+                  You can switch up the color format to rgb, hsl, hsb, hsla, hsba, or hsl.
                 </Tooltip.Content>
               </Tooltip>
             )}

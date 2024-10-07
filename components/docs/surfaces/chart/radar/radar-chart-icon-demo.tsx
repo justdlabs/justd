@@ -16,12 +16,12 @@ const data = [
 const config = {
   sales: {
     label: "Sales",
-    color: "oklch(var(--primary-chart))",
+    color: "hsl(var(--primary-chart))",
     icon: IconArrowWallUp
   },
   profit: {
     label: "Profit",
-    color: "oklch(var(--secondary-chart))",
+    color: "hsl(var(--secondary-chart))",
     icon: IconArrowWall2Down
   }
 } satisfies ChartConfig

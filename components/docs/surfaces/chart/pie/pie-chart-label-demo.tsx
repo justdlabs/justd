@@ -18,23 +18,23 @@ const config = {
   },
   apple: {
     label: "Apple",
-    color: "oklch(var(--primary-chart))"
+    color: "hsl(var(--primary-chart))"
   },
   samsung: {
     label: "Samsung",
-    color: "oklch(var(--secondary-chart))"
+    color: "hsl(var(--secondary-chart))"
   },
   huawei: {
     label: "Huawei",
-    color: "oklch(var(--tertiary-chart))"
+    color: "hsl(var(--tertiary-chart))"
   },
   xiaomi: {
     label: "Xiaomi",
-    color: "oklch(var(--highlight-chart))"
+    color: "hsl(var(--highlight-chart))"
   },
   google: {
     label: "Google",
-    color: "oklch(var(--accent-chart))"
+    color: "hsl(var(--accent-chart))"
   }
 } satisfies ChartConfig
 

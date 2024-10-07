@@ -147,7 +147,7 @@ export function Controller({ themeId, applyTheme }: Props) {
                   <div
                     className="size-4 mr-0 rounded ring-1 ring-inset ring-fg/20"
                     style={{
-                      backgroundColor: `oklch(${primaryColor})`
+                      backgroundColor: `hsl(${primaryColor})`
                     }}
                   />
                   {item.textValue}

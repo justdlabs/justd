@@ -22,23 +22,23 @@ const chartConfig = {
   },
   basic: {
     label: "Basic",
-    color: "oklch(var(--primary-chart))"
+    color: "hsl(var(--primary-chart))"
   },
   standard: {
     label: "Standard",
-    color: "oklch(var(--secondary-chart))"
+    color: "hsl(var(--secondary-chart))"
   },
   premium: {
     label: "Premium",
-    color: "oklch(var(--tertiary-chart))"
+    color: "hsl(var(--tertiary-chart))"
   },
   pro: {
     label: "Pro",
-    color: "oklch(var(--highlight-chart))"
+    color: "hsl(var(--highlight-chart))"
   },
   enterprise: {
     label: "Enterprise",
-    color: "oklch(var(--accent-chart))"
+    color: "hsl(var(--accent-chart))"
   }
 } satisfies ChartConfig
 

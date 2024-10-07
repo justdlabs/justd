@@ -7,7 +7,7 @@ export default function ChartAnatomy() {
       config={{
         sales: {
           label: "Sales",
-          color: "oklch(var(--primary-chart))"
+          color: "hsl(var(--primary-chart))"
         }
       }}
     >

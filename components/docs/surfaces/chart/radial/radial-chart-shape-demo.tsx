@@ -12,7 +12,7 @@ const config = {
   },
   safari: {
     label: "Safari",
-    color: "oklch(var(--secondary-chart))"
+    color: "hsl(var(--secondary-chart))"
   }
 } satisfies ChartConfig
 

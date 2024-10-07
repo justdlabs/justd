@@ -21,7 +21,7 @@ const data = [
 const config = {
   sales: {
     label: "Sales",
-    color: "oklch(var(--primary-chart))"
+    color: "hsl(var(--primary-chart))"
   }
 } satisfies ChartConfig
 
