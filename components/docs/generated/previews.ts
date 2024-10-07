@@ -521,8 +521,17 @@ export const previews: Record<string, any> = {
   "anatomies/chart-anatomy": {
     component: React.lazy(() => import("@/components/docs/anatomies/chart-anatomy")),
   },
+  "anatomies/progress-circle-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/progress-circle-anatomy")),
+  },
   "anatomies/number-field-anatomy": {
     component: React.lazy(() => import("@/components/docs/anatomies/number-field-anatomy")),
+  },
+  "anatomies/color-field-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/color-field-anatomy")),
+  },
+  "anatomies/color-swatch-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/color-swatch-anatomy")),
   },
   "anatomies/tooltip-anatomy": {
     component: React.lazy(() => import("@/components/docs/anatomies/tooltip-anatomy")),
@@ -536,8 +545,17 @@ export const previews: Record<string, any> = {
   "anatomies/modal-anatomy": {
     component: React.lazy(() => import("@/components/docs/anatomies/modal-anatomy")),
   },
+  "anatomies/color-area-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/color-area-anatomy")),
+  },
   "anatomies/carousel-anatomy": {
     component: React.lazy(() => import("@/components/docs/anatomies/carousel-anatomy")),
+  },
+  "anatomies/color-swatch-picker-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/color-swatch-picker-anatomy")),
+  },
+  "anatomies/note-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/note-anatomy")),
   },
   "anatomies/drop-zone-anatomy": {
     component: React.lazy(() => import("@/components/docs/anatomies/drop-zone-anatomy")),
@@ -566,6 +584,9 @@ export const previews: Record<string, any> = {
   "anatomies/skeleton-anatomy": {
     component: React.lazy(() => import("@/components/docs/anatomies/skeleton-anatomy")),
   },
+  "anatomies/color-picker-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/color-picker-anatomy")),
+  },
   "anatomies/drawer-anatomy": {
     component: React.lazy(() => import("@/components/docs/anatomies/drawer-anatomy")),
   },
@@ -590,6 +611,9 @@ export const previews: Record<string, any> = {
   "anatomies/visually-hidden-anatomy": {
     component: React.lazy(() => import("@/components/docs/anatomies/visually-hidden-anatomy")),
   },
+  "anatomies/color-wheel-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/color-wheel-anatomy")),
+  },
   "anatomies/search-field-anatomy": {
     component: React.lazy(() => import("@/components/docs/anatomies/search-field-anatomy")),
   },
@@ -598,6 +622,9 @@ export const previews: Record<string, any> = {
   },
   "anatomies/textarea-anatomy": {
     component: React.lazy(() => import("@/components/docs/anatomies/textarea-anatomy")),
+  },
+  "anatomies/color-slider-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/color-slider-anatomy")),
   },
   "anatomies/select-anatomy": {
     component: React.lazy(() => import("@/components/docs/anatomies/select-anatomy")),
@@ -617,6 +644,9 @@ export const previews: Record<string, any> = {
   "anatomies/command-menu-anatomy": {
     component: React.lazy(() => import("@/components/docs/anatomies/command-menu-anatomy")),
   },
+  "anatomies/meter-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/meter-anatomy")),
+  },
   "anatomies/combo-box-anatomy": {
     component: React.lazy(() => import("@/components/docs/anatomies/combo-box-anatomy")),
   },
@@ -625,6 +655,9 @@ export const previews: Record<string, any> = {
   },
   "anatomies/button-anatomy": {
     component: React.lazy(() => import("@/components/docs/anatomies/button-anatomy")),
+  },
+  "anatomies/progress-bar-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/progress-bar-anatomy")),
   },
   "anatomies/link-anatomy": {
     component: React.lazy(() => import("@/components/docs/anatomies/link-anatomy")),
@@ -1058,6 +1091,9 @@ export const previews: Record<string, any> = {
   "statuses/badge-demo": {
     component: React.lazy(() => import("@/components/docs/statuses/badge-demo")),
   },
+  "statuses/progress-circle-controlled-demo": {
+    component: React.lazy(() => import("@/components/docs/statuses/progress-circle-controlled-demo")),
+  },
   "statuses/skeleton-shape-demo": {
     component: React.lazy(() => import("@/components/docs/statuses/skeleton-shape-demo")),
   },
@@ -1072,6 +1108,9 @@ export const previews: Record<string, any> = {
   },
   "statuses/loader-variant-demo": {
     component: React.lazy(() => import("@/components/docs/statuses/loader-variant-demo")),
+  },
+  "statuses/progress-circle-indeterminate-demo": {
+    component: React.lazy(() => import("@/components/docs/statuses/progress-circle-indeterminate-demo")),
   },
   "statuses/indeterminate-progress-bar-demo": {
     component: React.lazy(() => import("@/components/docs/statuses/indeterminate-progress-bar-demo")),
@@ -1091,11 +1130,17 @@ export const previews: Record<string, any> = {
   "statuses/note-demo": {
     component: React.lazy(() => import("@/components/docs/statuses/note-demo")),
   },
+  "statuses/progress-circle-color-demo": {
+    component: React.lazy(() => import("@/components/docs/statuses/progress-circle-color-demo")),
+  },
   "statuses/toast-status-demo": {
     component: React.lazy(() => import("@/components/docs/statuses/toast-status-demo")),
   },
   "statuses/note-intent-demo": {
     component: React.lazy(() => import("@/components/docs/statuses/note-intent-demo")),
+  },
+  "statuses/progress-circle-custom-size-demo": {
+    component: React.lazy(() => import("@/components/docs/statuses/progress-circle-custom-size-demo")),
   },
   "statuses/meter-currency-format-demo": {
     component: React.lazy(() => import("@/components/docs/statuses/meter-currency-format-demo")),
@@ -1108,6 +1153,9 @@ export const previews: Record<string, any> = {
   },
   "statuses/badge-intent-demo": {
     component: React.lazy(() => import("@/components/docs/statuses/badge-intent-demo")),
+  },
+  "statuses/progress-circle-demo": {
+    component: React.lazy(() => import("@/components/docs/statuses/progress-circle-demo")),
   },
   "statuses/toast-demo": {
     component: React.lazy(() => import("@/components/docs/statuses/toast-demo")),

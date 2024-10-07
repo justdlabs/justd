@@ -1,7 +1,9 @@
-import type { SVGProps } from "react"
+"use client"
+
 import * as React from "react"
 
 import { IconLoader } from "justd-icons"
+import { ProgressBar } from "react-aria-components"
 import type { VariantProps } from "tailwind-variants"
 import { tv } from "tailwind-variants"
 
@@ -33,7 +35,7 @@ const loaderStyles = tv({
 
 type LoaderVariantProps = VariantProps<typeof loaderStyles>
 
-const Bars = ({ className, ...props }: SVGProps<SVGSVGElement>) => (
+const Bars = ({ className, ...props }: React.SVGProps<SVGSVGElement>) => (
   <svg
     className={cn("size-4", className)}
     data-slot="icon"
@@ -134,8 +136,8 @@ const Bars = ({ className, ...props }: SVGProps<SVGSVGElement>) => (
     </rect>
   </svg>
 )
-const Ring = (props: SVGProps<SVGSVGElement>) => <IconLoader {...props} />
-const Spin = ({ className, ...props }: SVGProps<SVGSVGElement>) => (
+const Ring = (props: React.SVGProps<SVGSVGElement>) => <IconLoader {...props} />
+const Spin = ({ className, ...props }: React.SVGProps<SVGSVGElement>) => (
   <svg className={cn("size-4", className)} data-slot="icon" viewBox="0 0 2400 2400" {...props}>
     <g strokeWidth="200" strokeLinecap="round" fill="none">
       <line x1="1200" y1="600" x2="1200" y2="100" />
@@ -173,33 +175,44 @@ const LOADERS = {
 
 const DEFAULT_SPINNER = "ring"
 
-export interface LoaderProps
+interface LoaderProps
   extends Omit<React.ComponentPropsWithoutRef<"svg">, "display" | "opacity" | "intent">,
     LoaderVariantProps {
   variant?: keyof typeof LOADERS
+  percentage?: number
+  isIndeterminate?: boolean
+  formatOptions?: Intl.NumberFormatOptions
 }
 
-const Loader = React.forwardRef<SVGSVGElement, LoaderProps>((props, ref) => {
-  const { className, variant = DEFAULT_SPINNER, intent, size, ...spinnerProps } = props
-  const LoaderPrimitive = LOADERS[variant in LOADERS ? variant : DEFAULT_SPINNER]
+const Loader = React.forwardRef<SVGSVGElement, LoaderProps>(
+  ({ isIndeterminate = true, ...props }, ref) => {
+    const { className, variant = DEFAULT_SPINNER, intent, size, ...spinnerProps } = props
+    const LoaderPrimitive = LOADERS[variant in LOADERS ? variant : DEFAULT_SPINNER]
 
-  return (
-    <LoaderPrimitive
-      role="presentation"
-      className={loaderStyles({
-        intent,
-        size,
-        className: cn([
-          ["ring"].includes(variant) && "animate-spin",
-          variant === "spin" && "stroke-current",
-          className
-        ])
-      })}
-      ref={ref}
-      {...spinnerProps}
-    />
-  )
-})
+    return (
+      <ProgressBar
+        aria-label={props["aria-label"] ?? undefined}
+        formatOptions={props.formatOptions}
+        isIndeterminate={isIndeterminate}
+      >
+        <LoaderPrimitive
+          role="presentation"
+          className={loaderStyles({
+            intent,
+            size,
+            className: cn([
+              ["ring"].includes(variant) && "animate-spin",
+              variant === "spin" && "stroke-current",
+              className
+            ])
+          })}
+          ref={ref}
+          {...spinnerProps}
+        />
+      </ProgressBar>
+    )
+  }
+)
 Loader.displayName = "Loader"
 
 export { Loader }

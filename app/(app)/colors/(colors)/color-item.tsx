@@ -1,6 +1,5 @@
 import * as React from "react"
 
-import { isBrightColor } from "@/components/color"
 import { formatColorForTailwind, rgbToOklch, textColorBasedOnBg } from "@/resources/lib/colors"
 import { parseColor } from "@react-stately/color"
 import type { ColorFormat } from "@react-types/color"
@@ -9,7 +8,7 @@ import type { ListBoxItemProps } from "react-aria-components"
 import { ListBoxItem } from "react-aria-components"
 import type { ColorShade, FormatOnlyForTailwindVariableType } from "resources/types"
 import { toast } from "sonner"
-import { cn } from "ui"
+import { cn, isBrightColor } from "ui"
 import { copyToClipboard } from "usemods"
 
 interface ColorItemProps extends ListBoxItemProps {

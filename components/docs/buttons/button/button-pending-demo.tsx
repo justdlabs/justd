@@ -2,8 +2,8 @@
 
 import React from "react"
 
-import { IconFloppyDisk } from "justd-icons"
-import { Button, Loader } from "ui"
+import { IconPlus } from "justd-icons"
+import { Button, ProgressCircle } from "ui"
 
 export default function ButtonPendingDemo() {
   const [isLoading, setLoading] = React.useState(false)
@@ -18,8 +18,8 @@ export default function ButtonPendingDemo() {
     <Button onPress={handlePress} isPending={isLoading}>
       {({ isPending }) => (
         <>
-          {isPending ? <Loader variant="spin" aria-label="Saving..." /> : <IconFloppyDisk />}
-          {isPending ? <span>Saving...</span> : <span>Save</span>}
+          {isPending ? <ProgressCircle isIndeterminate aria-label="Creating..." /> : <IconPlus />}
+          {isLoading ? "Creating..." : "Create"}
         </>
       )}
     </Button>
