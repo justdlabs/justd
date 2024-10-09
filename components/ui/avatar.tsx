@@ -66,7 +66,6 @@ const Avatar = ({
   className,
   shape,
   size,
-  role = "avatar",
   ...props
 }: AvatarProps) => {
   const badgeId = React.useId()

@@ -22,17 +22,18 @@ import { TouchTarget } from "./touch-target"
 
 const aside = tv({
   slots: {
-    root: "fixed inset-y-0 bg-tertiary left-0 w-[17rem] max-lg:hidden",
+    root: "sticky top-0 bg-tertiary w-[17rem] h-screen max-lg:hidden",
     content: "flex h-full min-h-0 flex-col",
     body: "flex flex-col overflow-y-auto p-4 [&>section+section]:mt-8",
     section: "flex flex-col gap-y-0.5",
     header: "flex flex-col border-b p-4 [&>section+section]:mt-2.5",
     footer: "flex flex-col mt-auto border-t p-4 [&>section+section]:mt-2.5",
-    responsive: "flex gap-x-0.5"
+    responsive: "flex gap-x-0.5",
+    layout: "isolate flex max-w-screen-2xl mx-auto w-full h-screen max-lg:flex-col overflow-y-auto"
   }
 })
 
-const { root, body, content, section, header, footer, responsive } = aside()
+const { root, body, content, section, header, footer, responsive, layout } = aside()
 
 interface LayoutProps extends React.HTMLProps<HTMLDivElement> {
   children: React.ReactNode
@@ -53,12 +54,13 @@ const Layout = ({
   aside,
   navbar,
   children,
+  className,
   ...props
 }: LayoutProps) => {
   const [openAside, setOpenAside] = React.useState(false)
   const isDesktop = useMediaQuery("(min-width: 1024px)")
   return (
-    <div className="relative isolate flex min-h-svh w-full max-lg:flex-col">
+    <div className={layout({ className })}>
       <Aside>{aside}</Aside>
       {!isDesktop && (
         <Sheet.Content
@@ -87,9 +89,9 @@ const Layout = ({
         <div>{navbar}</div>
       </header>
 
-      <main className="flex flex-1 pt-12 lg:pt-0 flex-col lg:min-w-0 lg:pl-[17rem]">
+      <main className="flex flex-1 pt-12 lg:pt-0 flex-col lg:min-w-0">
         <div className="grow sm:p-6 p-4 lg:p-10 relative lg:ring-1 lg:ring-border">
-          <div className="mx-auto max-w-6xl">{children}</div>
+          <div>{children}</div>
         </div>
       </main>
     </div>
