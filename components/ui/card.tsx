@@ -48,7 +48,7 @@ interface TitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
   level?: 1 | 2 | 3 | 4
 }
 const Title = ({ className, level = 2, ...props }: TitleProps) => {
-  let Element: `h${typeof level}` = `h${level}`
+  const Element: `h${typeof level}` = `h${level}`
   return <Element slot="title" className={title({ className })} {...props} />
 }
 
