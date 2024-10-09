@@ -22,6 +22,10 @@ const config = {
   sales: {
     label: "Sales",
     color: "hsl(var(--primary-chart))"
+  },
+  profit: {
+    label: "Profit",
+    color: "hsl(var(--secondary-chart))"
   }
 } satisfies ChartConfig
 
@@ -44,7 +48,8 @@ export default function BarChartDemo() {
               tickFormatter={(value) => value.slice(0, 3)}
             />
             <Chart.Tooltip cursor={false} content={<Chart.TooltipContent hideLabel />} />
-            <Bar dataKey="sales" fill="var(--color-sales)" radius={8} />
+            <Bar dataKey="sales" fill="var(--color-sales)" radius={4} />
+            <Bar dataKey="profit" fill="var(--color-profit)" radius={4} />
           </BarChart>
         </Chart>
       </Card.Content>

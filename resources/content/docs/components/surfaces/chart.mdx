@@ -47,17 +47,27 @@ If you're working on an existing project, you can use these variables. However, 
 Tooltips are used to provide additional information about a chart element when the user hovers over it. They can be used to display additional details, such as the value of a data point, or to provide context about the data.
 ```
 import { Chart } from "ui"
+import { BarChart } from 'recharts'
 
-<Chart.Tooltip content={<Chart.TooltipContent />} />
+<BarChart accessibilityLayer data={data}>
+  <XAxis.../>
+  <Chart.Tooltip cursor={false} content={<Chart.TooltipContent />} />
+  <Bar.../>
+</BarChart>
 ```
 
 ## Legend
 Legends are used to display a list of labels for different chart elements. They can be used to provide context about the data and help the user understand the meaning of different colors and shapes.
 ```
 import { Chart } from "ui"
+import { BarChart } from "recharts"
 
-<Chart.Legend content={<Chart.LegendContent />} />
+<BarChart>
+  ...
+  <Chart.Legend content={<Chart.LegendContent />} />
+</BarChart>
 ```
+`BarChart` could be replaced with any other chart component like `PieChart`, `LineChart`, etc.
 
 ## Area Chart
 Used to show changes over time, the area chart highlights both trends and volume, with the filled area showing the magnitude of change. It’s useful when you want to emphasize total growth or decline.
