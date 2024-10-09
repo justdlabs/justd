@@ -20,7 +20,7 @@ import { cr } from "./primitive"
 const modalOverlayStyles = tv({
   base: [
     "fixed left-0 top-0 isolate z-50 h-[--visual-viewport-height] w-full",
-    "flex items-end text-center sm:items-center sm:justify-center",
+    "flex items-end text-center sm:block",
     "[--visual-viewport-vertical-padding:16px] sm:[--visual-viewport-vertical-padding:32px]"
   ],
   variants: {
@@ -39,19 +39,20 @@ const modalOverlayStyles = tv({
 const modalContentStyles = tv({
   base: [
     "max-h-full w-full rounded-t-3xl ring-1 ring-dark/5 bg-overlay text-overlay-fg text-left align-middle shadow-lg",
-    "dark:ring-border sm:rounded-2xl overflow-hidden"
+    "dark:ring-border sm:rounded-2xl overflow-hidden",
+    "sm:fixed sm:left-[50vw] sm:top-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2"
   ],
   variants: {
     isEntering: {
       true: [
         "animate-in ease-out duration-200 slide-in-from-bottom-[20%]",
-        "sm:slide-in-from-bottom-auto sm:slide-in-from-top-[20%]"
+        "sm:slide-in-from-bottom-auto sm:slide-in-from-top-[80%] sm:slide-in-from-left-1/2"
       ]
     },
     isExiting: {
       true: [
         "duration-200 ease-in animate-out slide-out-to-bottom-56",
-        "sm:exiting:slide-out-to-top-[15%]"
+        "sm:exiting:slide-out-to-top-[80%] sm:slide-out-to-left-1/2"
       ]
     },
     size: {
