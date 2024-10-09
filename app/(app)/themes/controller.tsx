@@ -15,6 +15,7 @@ const availableThemes = [
   { id: "gray", textValue: "Gray" },
   { id: "slate", textValue: "Slate" },
   { id: "azure", textValue: "Azure" },
+  { id: "sky", textValue: "Sky" },
   { id: "amber", textValue: "Amber" },
   { id: "violet", textValue: "Violet" },
   { id: "emerald", textValue: "Emerald" },
