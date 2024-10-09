@@ -42,9 +42,12 @@ export function Themes() {
       <Container className="sm:pt-16 pt-8">
         <Controller themeId={themeId} applyTheme={applyTheme} />
       </Container>
-      <div ref={themeContainerRef} className="p-4 bg-[hsl(var(--secondary)/80%)] border-y -mb-px">
+      <div
+        ref={themeContainerRef}
+        className="p-2 sm:p-4 bg-[hsl(var(--secondary)/80%)] border-y -mb-px"
+      >
         <div className="max-w-screen-2xl mx-auto">
-          <div className="bg-bg rounded-xl p-10 border border-fg/15 text-fg">
+          <div className="bg-bg rounded-xl p-4 sm:p-10 border text-fg">
             <Blocks />
           </div>
         </div>

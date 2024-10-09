@@ -36,6 +36,7 @@ export function Blocks() {
         {colors.map((color) => (
           <Tooltip key={color} delay={0}>
             <Tooltip.Trigger
+              aria-label={color}
               className={twJoin(
                 "clr ring-1 focus:outline-none ring-fg/15 focus:ring-fg/30 ring-inset",
                 color
@@ -57,8 +58,8 @@ export function Blocks() {
         <Buttons />
 
         <TrafficChart />
-        <div className="col-span-full grid grid-cols-3 gap-2">
-          <div className="col-span-2">
+        <div className="col-span-full grid lg:grid-cols-3 gap-2">
+          <div className="hidden lg:block lg:col-span-2">
             <TableBulk />
           </div>
           <div>

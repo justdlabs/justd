@@ -58,7 +58,7 @@ export function IconsList({ searchParams }: SearchParamsProps) {
 
 interface IconListItemProps {
   name: string
-  Icon: React.ComponentType<any>
+  Icon: React.ComponentType<React.SVGProps<SVGSVGElement>>
 }
 
 export function IconListItem({ name, Icon }: IconListItemProps) {
@@ -87,9 +87,9 @@ export function IconListItem({ name, Icon }: IconListItemProps) {
       className={item()}
       textValue={name}
     >
-      <Icon className={selectedSize} key={name} />
+      <Icon aria-label={name} className={selectedSize} key={name} />
       <Menu isOpen={isSelected} onOpenChange={setSelected}>
-        <Menu.Content triggerRef={triggerRef} showArrow>
+        <Menu.Content triggerRef={triggerRef} showArrow aria-label="Options">
           <Menu.Item onAction={() => handleCopy("jsx")}>Copy JSX</Menu.Item>
           <Menu.Item onAction={() => copySvgToClipboard(Icon)}>Copy SVG</Menu.Item>
           <Menu.Item onAction={() => handleCopy("text")}>Copy Name</Menu.Item>

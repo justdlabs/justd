@@ -61,7 +61,13 @@ export function CopyJsonColorShades({
 
   return (
     <Modal onOpenChange={setOpen} isOpen={open}>
-      <Button className="size-8" size="square-petite" appearance="outline" onPress={handleOpen}>
+      <Button
+        aria-label={`Copy ${colorName} color scale`}
+        className="size-8"
+        size="square-petite"
+        appearance="outline"
+        onPress={handleOpen}
+      >
         <IconBrackets2 />
       </Button>
       <Modal.Content closeButton={false} size="2xl" classNames={{ content: "p-0 [&>.dlc]:p-0" }}>

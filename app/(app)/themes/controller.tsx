@@ -130,6 +130,7 @@ export function Controller({ themeId, applyTheme }: Props) {
           </Sheet.Content>
         </Sheet>
         <Select
+          aria-label="Select theme"
           className="min-w-56"
           selectedKey={themeId}
           onSelectionChange={(value) => {

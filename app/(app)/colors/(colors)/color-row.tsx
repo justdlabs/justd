@@ -31,11 +31,12 @@ export function ColorRow({ showItem = false, swatchClassName, item }: ColorRowPr
   return (
     <div className="p-2 bg-tertiary border rounded-lg overflow-hidden">
       <div className="flex mb-2 items-center gap-x-1 justify-between">
-        <h3 className="tracking-tight text-muted-fg font-mono text-sm font-medium sm:text-sm">
-          {tailwindColorNames.includes(item.name)
+        <h2 className="tracking-tight text-muted-fg font-mono capitalize text-sm font-medium sm:text-sm">
+          {(tailwindColorNames.includes(item.name)
             ? item.name
-            : getColorName(item.children[4].color)}
-        </h3>
+            : getColorName(item.children[4].color)
+          ).replaceAll("-", " ")}
+        </h2>
         <div className="flex gap-x-1">
           <>
             <CopyJsonColorShades
