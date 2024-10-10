@@ -5,6 +5,8 @@ import React from "react"
 import { useTheme } from "@/components/theme-provider"
 import { ThemeSwitcher } from "@/components/theme-switcher"
 import {
+  IconArchive,
+  IconBag,
   IconBell,
   IconBook,
   IconBrandJustd,
@@ -16,6 +18,9 @@ import {
   IconLogout,
   IconMessage,
   IconMoon,
+  IconPeople,
+  IconPersonAdd,
+  IconPlus,
   IconSearch,
   IconSettings,
   IconShield,
@@ -107,12 +112,28 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 Messages
               </Aside.Item>
             </Aside.Section>
-            <Aside.Section title="Projects" items={projects}>
-              {(item) => (
-                <Aside.Item id={item.name} href={item.href}>
-                  {item.name}
-                </Aside.Item>
-              )}
+            <Aside.Section title="Projects">
+              <Aside.Item icon={IconBag} href="#">
+                All Projects
+              </Aside.Item>
+              <Aside.Item icon={IconPlus} href="#">
+                Create New Project
+              </Aside.Item>
+              <Aside.Item icon={IconArchive} href="#">
+                Archived Projects
+              </Aside.Item>
+            </Aside.Section>
+
+            <Aside.Section collapsible title="Team">
+              <Aside.Item icon={IconPeople} href="#">
+                Team Overview
+              </Aside.Item>
+              <Aside.Item icon={IconPersonAdd} href="#">
+                Add New Member
+              </Aside.Item>
+              <Aside.Item icon={IconCirclePerson} href="#">
+                Manage Roles
+              </Aside.Item>
             </Aside.Section>
           </Aside.Content>
           <Aside.Footer className="lg:flex lg:flex-row hidden items-center">
@@ -164,12 +185,3 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     </Aside.Layout>
   )
 }
-
-const projects = [
-  { name: "Website Redesign", href: "#" },
-  { name: "New Product Launch", href: "#" },
-  { name: "Market Research", href: "#" },
-  { name: "Sales Dashboard", href: "#" },
-  { name: "Customer Feedback System", href: "#" },
-  { name: "Mobile App Development", href: "#" }
-]

@@ -69,8 +69,8 @@ const disclosureStyles = tv({
       true: "pb-3"
     },
     hideBorder: {
-      true: "[&_[slot=trigger]]:py-2",
-      false: "[&_[slot=trigger]]:py-3"
+      true: "[&>[slot=trigger]]:py-2",
+      false: "[&>[slot=trigger]]:py-3"
     }
   },
   compoundVariants: [

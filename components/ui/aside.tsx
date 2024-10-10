@@ -2,29 +2,27 @@
 
 import * as React from "react"
 
-import { IconHamburger } from "justd-icons"
+import { IconChevronDown, IconHamburger } from "justd-icons"
 import {
-  Collection,
-  Header,
-  ListBox,
-  ListBoxItem,
-  type ListBoxItemProps,
-  type ListBoxProps,
-  Section,
-  type SectionProps
+  DisclosureProps,
+  Link,
+  LinkProps,
+  UNSTABLE_Disclosure as Disclosure,
+  UNSTABLE_DisclosurePanel as DisclosurePanel
 } from "react-aria-components"
+import { twJoin } from "tailwind-merge"
 import { tv } from "tailwind-variants"
 
-import { Button } from "./button"
+import { Button, ButtonPrimitive } from "./button"
 import { cr, useMediaQuery } from "./primitive"
 import { Sheet } from "./sheet"
 import { TouchTarget } from "./touch-target"
 
 const aside = tv({
   slots: {
-    root: "sticky top-0 bg-tertiary w-[17rem] h-screen max-lg:hidden",
+    root: "sticky 2xl:border-l 2xl:border-border border-transparent top-0 bg-tertiary w-[17rem] h-screen max-lg:hidden",
     content: "flex h-full min-h-0 flex-col",
-    body: "flex flex-col overflow-y-auto p-4 [&>section+section]:mt-8",
+    body: "flex flex-col overflow-y-auto gap-y-6 p-4 [&>section+section]:mt-8",
     section: "flex flex-col gap-y-0.5",
     header: "flex flex-col border-b p-4 [&>section+section]:mt-2.5",
     footer: "flex flex-col mt-auto border-t p-4 [&>section+section]:mt-2.5",
@@ -33,7 +31,7 @@ const aside = tv({
   }
 })
 
-const { root, body, content, section, header, footer, responsive, layout } = aside()
+const { root, body, content, header, footer, responsive, layout } = aside()
 
 interface LayoutProps extends React.HTMLProps<HTMLDivElement> {
   children: React.ReactNode
@@ -107,33 +105,16 @@ interface AsideProps extends Omit<React.HTMLProps<HTMLDivElement>, "className"> 
 }
 
 const Aside = ({ classNames, ...props }: AsideProps) => (
-  <div {...props} className={root({ className: classNames?.root })} {...props}>
-    <div className={content({ className: classNames?.content })}>{props.children}</div>
+  <aside {...props} className={root({ className: classNames?.root })} {...props}>
+    <nav className={content({ className: classNames?.content })}>{props.children}</nav>
+  </aside>
+)
+
+const Content = ({ children, className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
+  <div aria-label="Main navigation" {...props} className={body({ className })}>
+    {children}
   </div>
 )
-
-const Content = <T extends object>({ children, className, ...props }: ListBoxProps<T>) => (
-  <ListBox aria-label="Main navigation" {...props} className={cr(className, body)}>
-    {children}
-  </ListBox>
-)
-
-interface AsideSectionProps<T> extends SectionProps<T> {
-  title?: string
-}
-
-const AsideSection = <T extends object>({ className, ...props }: AsideSectionProps<T>) => {
-  return (
-    <Section className={section({ className })}>
-      {props.title && (
-        <Header slot="title" className="text-sm px-3 text-muted-fg">
-          {props.title}
-        </Header>
-      )}
-      <Collection items={props.items}>{props.children}</Collection>
-    </Section>
-  )
-}
 
 const itemStyles = tv({
   base: "flex items-center [&_[data-slot=icon]]:text-muted-fg [&_[data-slot=icon]]:size-4 [&_[data-slot=icon]]:-mx-0.5 relative rounded-lg gap-x-4 px-3 py-2 lg:text-sm leading-6",
@@ -159,24 +140,15 @@ const itemStyles = tv({
   }
 })
 
-interface ItemProps<T> extends ListBoxItemProps<T> {
+interface ItemProps extends LinkProps {
   icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>
   badge?: string | number | undefined
   isCurrent?: boolean
 }
 
-const Item = <T extends object>({
-  isCurrent,
-  children,
-  className,
-  icon: Icon,
-  ...props
-}: ItemProps<T>) => {
-  const textValue = typeof children === "string" ? children : undefined
-
+const Item = ({ isCurrent, children, className, icon: Icon, ...props }: ItemProps) => {
   return (
-    <ListBoxItem
-      textValue={textValue}
+    <Link
       className={cr(className, (className, renderProps) =>
         itemStyles({
           ...renderProps,
@@ -188,25 +160,23 @@ const Item = <T extends object>({
     >
       {(values) => (
         <div className="flex items-center gap-2">
-          <>
+          <TouchTarget>
             {Icon && <Icon className="shrink-0 size-4" />}
-            <TouchTarget>
-              {typeof children === "function" ? children(values) : children}
-            </TouchTarget>
+            {typeof children === "function" ? children(values) : children}
             {props.badge && (
               <div className="bdx h-[1.30rem] px-1 rounded-md text-muted-fg text-xs font-medium ring-1 ring-fg/20 grid place-content-center w-auto inset-y-1/2 -translate-y-1/2 absolute right-1.5 bg-fg/[0.02] dark:bg-fg/10">
                 {props.badge}
               </div>
             )}
-          </>
+          </TouchTarget>
         </div>
       )}
-    </ListBoxItem>
+    </Link>
   )
 }
 
 const AsideHeader = ({ className, ...props }: React.HtmlHTMLAttributes<HTMLDivElement>) => (
-  <div {...props} className={header({ className })} {...props} />
+  <header {...props} className={header({ className })} {...props} />
 )
 const Footer = ({ className, ...props }: React.HtmlHTMLAttributes<HTMLDivElement>) => (
   <div {...props} className={footer({ className })} {...props} />
@@ -216,12 +186,50 @@ const Responsive = ({ className, ...props }: React.HtmlHTMLAttributes<HTMLDivEle
   <div {...props} className={responsive({ className })} {...props} />
 )
 
+interface CollapsibleProps extends DisclosureProps {
+  children: React.ReactNode
+  title?: string
+  collapsible?: boolean
+  defaultExpanded?: boolean
+}
+
+const Section = ({ title, collapsible, defaultExpanded, ...props }: CollapsibleProps) => {
+  const isExpanded = title ? (collapsible ? (defaultExpanded ?? true) : true) : true
+  return (
+    <Disclosure defaultExpanded={isExpanded} {...props}>
+      {(values) => (
+        <>
+          {typeof title === "string" && (
+            <>
+              {collapsible ? (
+                <ButtonPrimitive
+                  slot="trigger"
+                  className={twJoin(
+                    "w-full focus:outline-none flex items-center justify-between text-sm text-muted-fg px-3 py-2 has-[.idctr]:pr-0 [&>.idctr]:size-6 [&>.idctr]:duration-200",
+                    values.isExpanded && "[&>.idctr]:rotate-180"
+                  )}
+                >
+                  {title}
+                  <IconChevronDown className="idctr" />
+                </ButtonPrimitive>
+              ) : (
+                <h4 className="text-sm text-muted-fg px-3 py-2">{title}</h4>
+              )}
+            </>
+          )}
+          <DisclosurePanel>{props.children}</DisclosurePanel>
+        </>
+      )}
+    </Disclosure>
+  )
+}
+
 Aside.Responsive = Responsive
 Aside.Footer = Footer
 Aside.Header = AsideHeader
 Aside.Content = Content
-Aside.Section = AsideSection
 Aside.Item = Item
+Aside.Section = Section
 Aside.Layout = Layout
 
 export { Aside }
