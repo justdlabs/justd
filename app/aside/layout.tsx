@@ -131,9 +131,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <Aside.Item icon={IconPersonAdd} href="#">
                 Add New Member
               </Aside.Item>
-              <Aside.Item icon={IconCirclePerson} href="#">
-                Manage Roles
-              </Aside.Item>
+              <Aside.Item href="#">Manage Roles</Aside.Item>
             </Aside.Section>
           </Aside.Content>
           <Aside.Footer className="lg:flex lg:flex-row hidden items-center">

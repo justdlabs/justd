@@ -134,7 +134,9 @@ const renderHierarchy = (node: HierarchyNode, defaultValues: string[]) => {
                                 ? "Disclosure Group"
                                 : (childValue as Doc).title === "Disclosure aka Collapsible"
                                   ? "Disclosure"
-                                  : goodTitle((childValue as Doc).title)}
+                                  : (childValue as Doc).title === "Aside aka Sidebar"
+                                    ? "Aside / Sidebar"
+                                    : goodTitle((childValue as Doc).title)}
                               {childValue.status && (
                                 <Badge
                                   intent={

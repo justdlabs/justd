@@ -117,7 +117,7 @@ const Content = ({ children, className, ...props }: React.HTMLAttributes<HTMLDiv
 )
 
 const itemStyles = tv({
-  base: "flex items-center [&_[data-slot=icon]]:text-muted-fg [&_[data-slot=icon]]:size-4 [&_[data-slot=icon]]:-mx-0.5 relative rounded-lg gap-x-4 px-3 py-2 lg:text-sm leading-6",
+  base: "grid [&>[data-slot=icon]]:mr-2 [&>[data-slot=icon]]:size-4 [&>[data-slot=icon]]:shrink-0 grid-cols-subgrid col-span-full items-center [&>[data-slot=icon]]:text-muted-fg relative rounded-lg px-3 py-2 lg:text-sm leading-6",
   variants: {
     isFocused: {
       true: "outline-none"
@@ -159,17 +159,19 @@ const Item = ({ isCurrent, children, className, icon: Icon, ...props }: ItemProp
       {...props}
     >
       {(values) => (
-        <div className="flex items-center gap-2">
-          <TouchTarget>
-            {Icon && <Icon className="shrink-0 size-4" />}
-            {typeof children === "function" ? children(values) : children}
-            {props.badge && (
-              <div className="bdx h-[1.30rem] px-1 rounded-md text-muted-fg text-xs font-medium ring-1 ring-fg/20 grid place-content-center w-auto inset-y-1/2 -translate-y-1/2 absolute right-1.5 bg-fg/[0.02] dark:bg-fg/10">
-                {props.badge}
-              </div>
-            )}
-          </TouchTarget>
-        </div>
+        <>
+          {Icon && <Icon data-slot="icon" />}
+          <span className="col-start-2">
+            <TouchTarget>
+              {typeof children === "function" ? children(values) : children}
+              {props.badge && (
+                <div className="bdx h-[1.30rem] px-1 rounded-md text-muted-fg text-xs font-medium ring-1 ring-fg/20 grid place-content-center w-auto inset-y-1/2 -translate-y-1/2 absolute right-1.5 bg-fg/[0.02] dark:bg-fg/10">
+                  {props.badge}
+                </div>
+              )}
+            </TouchTarget>
+          </span>
+        </>
       )}
     </Link>
   )
@@ -217,7 +219,9 @@ const Section = ({ title, collapsible, defaultExpanded, ...props }: CollapsibleP
               )}
             </>
           )}
-          <DisclosurePanel>{props.children}</DisclosurePanel>
+          <DisclosurePanel>
+            <div className="grid grid-cols-[auto_1fr]">{props.children}</div>
+          </DisclosurePanel>
         </>
       )}
     </Disclosure>

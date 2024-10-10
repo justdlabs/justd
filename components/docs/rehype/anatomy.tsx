@@ -14,9 +14,9 @@ interface AnatomyProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 function extractImports(code: string) {
-  const importRegex = /^import.*?$/gm
-  const imports = code.match(importRegex)
-  return imports ? imports.join("\n") : ""
+  const importRegex = /^(import\s+(?:\{[^}]*\}|[^;]+)\s*from\s*['"][^'"]+['"]\s*;?)$/gm
+  const matches = code.match(importRegex)
+  return matches ? matches.join("\n") : ""
 }
 
 export function Anatomy({ title, message, ext = "tsx", show, ...props }: AnatomyProps) {
@@ -32,13 +32,13 @@ export function Anatomy({ title, message, ext = "tsx", show, ...props }: Anatomy
       </p>
       {title && <figcaption data-rehype-pretty-code-title="">{title}</figcaption>}
       <Code
-        className="max-h-none [&_pre]:overflow-auto"
-        code={extractImports(actualCode as any)}
+        className="max-h-none [&_[data-line]:last-child]:hidden [&_pre]:overflow-auto"
+        code={extractImports(actualCode)}
         lang={ext}
         withImportCopy={false}
       />
       <Code
-        className="max-h-none [&_pre]:overflow-auto"
+        className="[&_pre]:max-h-[30rem] max-h-none [&_pre]:overflow-auto"
         code={extractJSX(actualCode) as any}
         lang={ext}
         withImportCopy={false}

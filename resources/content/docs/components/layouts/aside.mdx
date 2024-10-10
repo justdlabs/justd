@@ -1,5 +1,5 @@
 ---
-title: "Sidebar"
+title: "Aside aka Sidebar"
 description: "A sidebar is a component that helps you organize your content and navigation."
 order: 1
 published: true
@@ -21,6 +21,9 @@ I can't display a live example here. Click on the image to view it in full scree
 ## Manual Installation
 <Installation options={{ isManual: true }} items={['react-aria-components justd-icons']}/>
 <SourceCode toShow={['aside']}/>
+
+## Anatomy
+<Anatomy show='aside-anatomy'/>
 
 ## Layout
 If we're only considering the sidebar, the layout might not seem like a concern. However, to ensure everything works smoothly, especially in terms of responsiveness, we need to use the `Layout` component. Within the `Layout` component, we can call `Aside.Layout` and pass the `navbar` and `aside` props. The `navbar` prop represents the navigation bar displayed in mobile view, while the `aside` prop represents the sidebar displayed in both desktop and mobile views.
