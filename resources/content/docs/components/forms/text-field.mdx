@@ -19,7 +19,7 @@ A text field is a box where you can type in text, like your name or email.
 <Composed components={['field']}/>
 
 ## Manual Installation
-<Installation options={{ isManual: true }} items={['react-aria-components']}/>
+<Installation options={{ isManual: true }} items={['react-aria-components' ,'justd-icons']}/>
 
 <SourceCode toShow={['text-field']}/>
 
@@ -37,6 +37,10 @@ Add a button to the suffix by simply including it in the suffix prop. While you 
 ## Is Loading
 Activate the loading state on your TextField with the `isLoading` prop. Adjust the `loaderPosition` to position the loader as desired.
 <How minW72 toUse="forms/text-field/text-field-loading-demo" />
+
+## Revealable
+When using a text field as a password input, you may want the option to reveal the password. To enable this feature, simply add the isRevealable prop. However, ensure that the input type is explicitly set to 'password', as this is a required condition.
+<How minW72 toUse="forms/text-field/text-field-revealable-demo" />
 
 ## Controlled
 Manage the TextField value through the `value` prop for controlled usage.
