@@ -3,18 +3,20 @@
 import * as React from "react"
 
 import { IconX } from "justd-icons"
+import type {
+  ButtonProps as ButtonPrimitiveProps,
+  DialogProps,
+  HeadingProps
+} from "react-aria-components"
 import {
   Button as ButtonPrimitive,
-  type ButtonProps as ButtonPrimitiveProps,
   Dialog as DialogPrimitive,
-  type DialogProps as DialogPrimitiveProps,
+  Heading,
   OverlayTriggerStateContext
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
 import { Button, type ButtonProps } from "./button"
-import type { HeadingProps } from "./heading"
-import { Heading } from "./heading"
 import { useMediaQuery } from "./primitive"
 import { TouchTarget } from "./touch-target"
 
@@ -26,7 +28,6 @@ const dialogStyles = tv({
       "[&:not(:has([data-slot=dialog-body]))]:px-4 [&:has([data-slot=dialog-body])_[data-slot=dialog-header]]:px-4 [&:has([data-slot=dialog-body])_[data-slot=dialog-footer]]:px-4"
     ],
     header: "relative flex flex-col pb-3 pt-4 sm:pt-6",
-    title: "flex flex-1 items-center",
     description: "text-sm block text-muted-fg mt-0.5 sm:mt-1",
     body: [
       "flex flex-1 flex-col gap-2 overflow-auto px-4 sm:px-6 py-1",
@@ -38,9 +39,9 @@ const dialogStyles = tv({
   }
 })
 
-const { root, header, title, description, body, footer, closeIndicator } = dialogStyles()
+const { root, header, description, body, footer, closeIndicator } = dialogStyles()
 
-const Dialog = ({ role, className, ...props }: DialogPrimitiveProps) => {
+const Dialog = ({ role, className, ...props }: DialogProps) => {
   return <DialogPrimitive {...props} role={role ?? "dialog"} className={root({ className })} />
 }
 
@@ -90,14 +91,24 @@ const Header = ({ className, ...props }: DialogHeaderProps) => {
   )
 }
 
-const Title = ({ tracking = "tight", level = 2, className, ...props }: HeadingProps) => (
-  <Heading
-    slot="title"
-    tracking={tracking}
-    level={level}
-    className={title({ className })}
-    {...props}
-  />
+const titleStyles = tv({
+  base: "flex flex-1 items-center text-fg",
+  variants: {
+    level: {
+      1: "font-semibold text-lg sm:text-xl",
+      2: "font-semibold text-lg sm:text-xl",
+      3: "font-semibold text-base sm:text-lg",
+      4: "font-semibold text-base"
+    }
+  }
+})
+
+interface TitleProps extends Omit<HeadingProps, "level"> {
+  level?: 1 | 2 | 3 | 4
+}
+
+const Title = ({ level = 2, className, ...props }: TitleProps) => (
+  <Heading slot="title" level={level} className={titleStyles({ level, className })} {...props} />
 )
 
 const Description = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (

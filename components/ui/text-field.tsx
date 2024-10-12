@@ -2,7 +2,6 @@
 
 import * as React from "react"
 
-import { TouchTarget } from "@/components/ui/touch-target"
 import { TextInputDOMProps } from "@react-types/shared"
 import { IconEye, IconEyeClosed, IconLoader } from "justd-icons"
 import {
@@ -14,6 +13,7 @@ import {
 import type { FieldProps } from "./field"
 import { Description, FieldError, FieldGroup, fieldGroupPrefixStyles, Input, Label } from "./field"
 import { ctr } from "./primitive"
+import { TouchTarget } from "./touch-target"
 
 type InputType = Exclude<TextInputDOMProps["type"], "password">
 

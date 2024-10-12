@@ -3,13 +3,15 @@ import * as React from "react"
 import { cn } from "@/utils/classes"
 import { tv } from "tailwind-variants"
 
+import { Heading } from "./heading"
+
 const card = tv({
   slots: {
     root: [
       "xrkr bg-bg rounded-xl xkd2 [&:has(table)_.ccvgs8x]:border-t [&:has(table)_.x32]:bg-tertiary [&:has(table)]:overflow-hidden border text-fg shadow-sm [&:has(.larhy3):not(:has(.yahnba))>.ccvgs8x]:pt-6 [&:has(.larhy3)]:overflow-hidden [&_table]:overflow-hidden"
     ],
     header: "flex xlw32 flex-col space-y-1.5 px-6 py-5",
-    title: "text-lg sm:leading-6 leading-none klda font-semibold tracking-tight",
+    title: "sm:leading-6 leading-none klda font-semibold tracking-tight",
     description: "text-base dl2 text-muted-fg sm:text-sm",
     content:
       "yahnba px-6 pb-6 has-[.t-hea]:bg-secondary/40 has-[table]:p-0 [&:has(table)+.ccvgs8x]:py-5 [&:has(table)]:border-t [&_.t-cel]:px-6 [&_.t-col]:px-6",
@@ -44,12 +46,8 @@ const Header = ({
   </div>
 )
 
-interface TitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
-  level?: 1 | 2 | 3 | 4
-}
-const Title = ({ className, level = 2, ...props }: TitleProps) => {
-  const Element: `h${typeof level}` = `h${level}`
-  return <Element slot="title" className={title({ className })} {...props} />
+const Title = ({ className, level = 3, ...props }: React.ComponentProps<typeof Heading>) => {
+  return <Heading level={level} className={title({ className })} {...props} />
 }
 
 const Description = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => {
