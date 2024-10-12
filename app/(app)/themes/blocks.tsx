@@ -43,9 +43,7 @@ export function Blocks() {
               )}
             />
             <Tooltip.Content>
-              <span className="text-xs font-mono capitalize">
-                {color.replace("bg-", "").replaceAll("-", " ").replace("fg", "foreground")}
-              </span>
+              <span className="text-xs font-mono">var(--{color.replace("bg-", "")})</span>
             </Tooltip.Content>
           </Tooltip>
         ))}

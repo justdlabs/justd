@@ -58,7 +58,7 @@ const menuStyles = tv({
     menu: "z32kk max-h-[calc(var(--visual-viewport-height)-10rem)] sm:max-h-[inherit] overflow-auto rounded-xl p-1 outline outline-0 [clip-path:inset(0_0_0_0_round_calc(var(--radius)-2px))]",
     popover: "z-50 min-w-40 p-0 outline-none shadow-sm",
     trigger: [
-      "inline relative text-left focus:outline-none focus-visible:ring-1 focus-visible:ring-primary-500 pressed:outline-none"
+      "inline relative text-left focus:outline-none focus-visible:ring-1 focus-visible:ring-primary pressed:outline-none"
     ]
   }
 })

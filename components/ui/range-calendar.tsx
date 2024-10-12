@@ -26,7 +26,7 @@ const cellRangeStyles = tv({
       middle: [
         "group-hover:bg-primary/20 forced-colors:group-hover:bg-[Highlight]",
         "group-invalid:group-hover:bg-red-200 dark:group-invalid:group-hover:bg-red-900 forced-colors:group-invalid:group-hover:bg-[Mark]",
-        "group-pressed:bg-primary-300 dark:group-pressed:bg-primary-800 forced-colors:text-[HighlightText] forced-colors:group-pressed:bg-[Highlight]",
+        "group-pressed:bg-primary forced-colors:text-[HighlightText] forced-colors:group-pressed:bg-[Highlight]",
         "group-invalid:group-pressed:bg-red-300 dark:group-invalid:group-pressed:bg-red-800 forced-colors:group-invalid:group-pressed:bg-[Mark]"
       ],
       cap: "bg-primary text-primary-fg group-invalid:bg-danger group-invalid:text-danger-fg forced-colors:bg-[Highlight] forced-colors:text-[HighlightText] forced-colors:group-invalid:bg-[Mark]"
