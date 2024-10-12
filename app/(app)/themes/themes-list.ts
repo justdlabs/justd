@@ -165,7 +165,7 @@ const themesList = {
       "--border": "240.01 7.1% 15%",
       "--input": "239.95 3% 16%",
 
-      "--primary-chart": "239.95 5% 28.96%",
+      "--primary-chart": "240 4.76% 95.88%",
       "--secondary-chart": "239.92 4% 56.99%",
       "--tertiary-chart": "239.99 5% 67%",
       "--highlight-chart": "239.99 4% 84%",
