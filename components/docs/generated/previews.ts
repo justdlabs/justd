@@ -1193,6 +1193,9 @@ export const previews: Record<string, any> = {
   "collections/choicebox/choicebox-demo": {
     component: React.lazy(() => import("@/components/docs/collections/choicebox/choicebox-demo")),
   },
+  "collections/table/table-resize-demo": {
+    component: React.lazy(() => import("@/components/docs/collections/table/table-resize-demo")),
+  },
   "collections/table/table-demo": {
     component: React.lazy(() => import("@/components/docs/collections/table/table-demo")),
   },

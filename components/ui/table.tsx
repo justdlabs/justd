@@ -1,9 +1,12 @@
 "use client"
 
+import React from "react"
+
 import { IconChevronLgDown, IconHamburger } from "justd-icons"
 import type {
   CellProps,
   ColumnProps,
+  ColumnResizerProps,
   RowProps,
   TableBodyProps,
   TableHeaderProps,
@@ -14,6 +17,8 @@ import {
   Cell,
   Collection,
   Column,
+  ColumnResizer as ColumnResizerPrimitive,
+  ResizableTableContainer,
   Row,
   Table as TablePrimitive,
   TableBody,
@@ -23,34 +28,66 @@ import {
 import { tv } from "tailwind-variants"
 
 import { Checkbox } from "./checkbox"
-import { cn } from "./primitive"
+import { cn, cr } from "./primitive"
 import { TouchTarget } from "./touch-target"
 
 const table = tv({
   slots: {
     root: "table w-full caption-bottom border-spacing-0 text-sm outline-none",
-    column:
-      "whitespace-nowrap allows-sorting:cursor-pointer px-3 py-3 text-left dragging:cursor-grabbing font-medium outline-none [&:has([slot=selection])]:pr-0",
     header: "border-b x32",
     row: "tr group relative cursor-default border-b text-fg/70 outline-none ring-primary focus-visible:ring-1 selected:bg-accent-subtle selected:hover:bg-accent-subtle/50 dark:selected:hover:bg-accent-subtle/60",
-    cell: "whitespace-nowrap group px-3 py-3 outline-none",
     cellIcon:
-      "flex-none rounded bg-secondary text-fg [&>[data-slot=icon]]:shrink-0 [&>[data-slot=icon]]:size-3.5 [&>[data-slot=icon]]:transition-transform [&>[data-slot=icon]]:duration-200 size-[1.15rem] grid place-content-center shrink-0"
+      "flex-none rounded bg-secondary text-fg [&>[data-slot=icon]]:shrink-0 [&>[data-slot=icon]]:size-3.5 [&>[data-slot=icon]]:transition-transform [&>[data-slot=icon]]:duration-200 size-[1.15rem] grid place-content-center shrink-0",
+    columnResizer: [
+      "touch-none absolute [&[data-resizing]>div]:bg-primary right-0 top-0 bottom-0 w-px px-1 grid place-content-center",
+      "[&[data-resizable-direction=both]]:cursor-ew-resize &[data-resizable-direction=left]:cursor-e-resize &[data-resizable-direction=right]:cursor-w-resize"
+    ]
   }
 })
 
-const { root, header, column, row, cell, cellIcon } = table()
+const { root, header, row, cellIcon, columnResizer } = table()
 
 interface TableProps extends TablePrimitiveProps {
   className?: string
+  allowResize?: boolean
 }
 
+const TableContext = React.createContext<TableProps>({
+  allowResize: false
+})
+
+const useTableContext = () => React.useContext(TableContext)
+
 const Table = ({ children, className, ...props }: TableProps) => (
-  <div className="relative w-full overflow-auto">
-    <TablePrimitive {...props} className={root({ className })}>
-      {children}
-    </TablePrimitive>
-  </div>
+  <TableContext.Provider value={props}>
+    <div className="relative w-full overflow-auto">
+      {props.allowResize ? (
+        <ResizableTableContainer className="overflow-auto">
+          <TablePrimitive {...props} className={root({ className })}>
+            {children}
+          </TablePrimitive>
+        </ResizableTableContainer>
+      ) : (
+        <TablePrimitive {...props} className={root({ className })}>
+          {children}
+        </TablePrimitive>
+      )}
+    </div>
+  </TableContext.Provider>
+)
+
+const ColumnResizer = ({ className, ...props }: ColumnResizerProps) => (
+  <ColumnResizerPrimitive
+    {...props}
+    className={cr(className, (className, renderProps) =>
+      columnResizer({
+        ...renderProps,
+        className
+      })
+    )}
+  >
+    <div className="bg-border h-full w-px py-3" />
+  </ColumnResizerPrimitive>
 )
 
 const Body = <T extends object>(props: TableBodyProps<T>) => (
@@ -61,34 +98,66 @@ interface TableCellProps extends CellProps {
   className?: string
 }
 
-const TableCell = ({ children, className, ...props }: TableCellProps) => (
-  <Cell {...props} className={cell({ className })}>
-    {children}
-  </Cell>
-)
+const cellStyles = tv({
+  base: "whitespace-nowrap group px-3 py-3 outline-none",
+  variants: {
+    allowResize: {
+      true: "overflow-hidden truncate"
+    }
+  }
+})
+const TableCell = ({ children, className, ...props }: TableCellProps) => {
+  const { allowResize } = useTableContext()
+  return (
+    <Cell {...props} className={cellStyles({ allowResize, className })}>
+      {children}
+    </Cell>
+  )
+}
+
+const columnStyles = tv({
+  base: "whitespace-nowrap relative allows-sorting:cursor-pointer px-3 py-3 text-left dragging:cursor-grabbing font-medium outline-none [&:has([slot=selection])]:pr-0",
+  variants: {
+    isResizable: {
+      true: "overflow-hidden truncate"
+    }
+  }
+})
 
 interface TableColumnProps extends ColumnProps {
   className?: string
+  isResizable?: boolean
 }
 
-const TableColumn = ({ children, className, ...props }: TableColumnProps) => (
-  <Column {...props} className={column({ className })}>
-    {({ allowsSorting, sortDirection, isHovered }) => (
-      <div className="flex [&_[data-slot=icon]]:shrink-0 items-center gap-2">
-        <>
-          {children}
-          {allowsSorting && (
-            <TouchTarget>
-              <span className={cellIcon({ className: isHovered ? "bg-secondary-fg/10" : "" })}>
-                <IconChevronLgDown className={sortDirection === "ascending" ? "rotate-180" : ""} />
-              </span>
-            </TouchTarget>
-          )}
-        </>
-      </div>
-    )}
-  </Column>
-)
+const TableColumn = ({ children, isResizable = false, className, ...props }: TableColumnProps) => {
+  return (
+    <Column
+      {...props}
+      className={columnStyles({
+        isResizable,
+        className
+      })}
+    >
+      {({ allowsSorting, sortDirection, isHovered }) => (
+        <div className="flex [&_[data-slot=icon]]:shrink-0 items-center gap-2">
+          <>
+            {children}
+            {allowsSorting && (
+              <TouchTarget>
+                <span className={cellIcon({ className: isHovered ? "bg-secondary-fg/10" : "" })}>
+                  <IconChevronLgDown
+                    className={sortDirection === "ascending" ? "rotate-180" : ""}
+                  />
+                </span>
+              </TouchTarget>
+            )}
+            {isResizable && <ColumnResizer />}
+          </>
+        </div>
+      )}
+    </Column>
+  )
+}
 
 interface HeaderProps<T extends object> extends TableHeaderProps<T> {
   className?: string

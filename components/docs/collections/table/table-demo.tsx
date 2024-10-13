@@ -12,7 +12,7 @@ export default function TableDemo() {
     <Card>
       <Table aria-label="Products">
         <Table.Header>
-          <Table.Column>#</Table.Column>
+          <Table.Column className="w-0">#</Table.Column>
           <Table.Column isRowHeader>Name</Table.Column>
           <Table.Column>Category</Table.Column>
           <Table.Column>Price</Table.Column>
