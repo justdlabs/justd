@@ -1,5 +1,5 @@
-import { useListData } from "react-stately"
-import { MultipleSelect, SelectedKey } from "ui"
+import { useListData } from 'react-stately'
+import { MultipleSelect, type SelectedKey } from 'ui'
 
 export default function MultipleSelectAnatomy() {
   const selectedItems = useListData<SelectedKey>({ initialItems: [] })
@@ -9,8 +9,8 @@ export default function MultipleSelectAnatomy() {
       label="Fruits"
       selectedItems={selectedItems}
       items={[
-        { id: 1, name: "Apple" },
-        { id: 2, name: "Banana" }
+        { id: 1, name: 'Apple' },
+        { id: 2, name: 'Banana' }
       ]}
       tag={(item) => <MultipleSelect.Tag textValue={item.name}>{item.name}</MultipleSelect.Tag>}
     >

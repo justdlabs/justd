@@ -1,6 +1,6 @@
-"use client"
+'use client'
 
-import { Menu } from "ui"
+import { Menu } from 'ui'
 
 export default function MenuBasicDemo() {
   return (

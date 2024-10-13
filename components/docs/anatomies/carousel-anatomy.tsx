@@ -1,4 +1,4 @@
-import { Carousel } from "ui"
+import { Carousel } from 'ui'
 
 export default function CarouselAnatomy() {
   return (

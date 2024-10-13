@@ -1,6 +1,6 @@
-import { useEffect, useMemo, useRef, useState } from "react"
+import { useEffect, useMemo, useRef, useState } from 'react'
 
-import { useFilter } from "react-aria"
+import { useFilter } from 'react-aria'
 import {
   Button,
   ComboBox,
@@ -12,40 +12,40 @@ import {
   ModalOverlay,
   Popover,
   Text
-} from "react-aria-components"
+} from 'react-aria-components'
 
 const items = [
-  { id: 1, name: "Open file..." },
-  { id: 2, name: "Create folder..." },
-  { id: 3, name: "Open email..." },
-  { id: 4, name: "Empty trash" },
-  { id: 5, name: "Switch workspace..." },
-  { id: 6, name: "Add teammate..." },
-  { id: 7, name: "Quit application" }
+  { id: 1, name: 'Open file...' },
+  { id: 2, name: 'Create folder...' },
+  { id: 3, name: 'Open email...' },
+  { id: 4, name: 'Empty trash' },
+  { id: 5, name: 'Switch workspace...' },
+  { id: 6, name: 'Add teammate...' },
+  { id: 7, name: 'Quit application' }
 ]
 
 export function CmdK() {
   const [open, setOpen] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
-  const [filterValue, setFilterValue] = useState("")
-  const { contains } = useFilter({ sensitivity: "base" })
+  const [filterValue, setFilterValue] = useState('')
+  const { contains } = useFilter({ sensitivity: 'base' })
   const filteredItems = useMemo(
     () => items.filter((i) => contains(i.name, filterValue)),
     [items, filterValue]
   )
 
   function toggle(e: KeyboardEvent) {
-    if (e.key === "k" && e.metaKey) {
+    if (e.key === 'k' && e.metaKey) {
       setOpen((o) => !o)
-    } else if (e.key === "Escape") {
+    } else if (e.key === 'Escape') {
       setOpen(false)
     }
   }
   useEffect(() => {
-    window.addEventListener("keydown", toggle, { capture: true })
+    window.addEventListener('keydown', toggle, { capture: true })
 
     return () => {
-      window.removeEventListener("keydown", toggle, { capture: true })
+      window.removeEventListener('keydown', toggle, { capture: true })
     }
   }, [])
 

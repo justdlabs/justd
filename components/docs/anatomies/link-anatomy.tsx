@@ -1,4 +1,4 @@
-import { Link } from "ui"
+import { Link } from 'ui'
 
 export default function LinkAnatomy() {
   return (

@@ -1,12 +1,12 @@
-"use client"
+'use client'
 
-import React, { useState } from "react"
+import React, { useState } from 'react'
 
-import { CardBlock } from "@/components/blocks"
-import { Checkbox, CheckboxGroup, Radio, RadioGroup } from "ui"
+import { CardBlock } from '@/components/blocks'
+import { Checkbox, CheckboxGroup, Radio, RadioGroup } from 'ui'
 
 export function CheckRadioBlock() {
-  const [selectedRadio, setSelectedRadio] = useState("lowSecurity")
+  const [selectedRadio, setSelectedRadio] = useState('lowSecurity')
   return (
     <CardBlock>
       <RadioGroup
@@ -22,9 +22,9 @@ export function CheckRadioBlock() {
         </Radio>
         <CheckboxGroup
           aria-labelledby="encryption-firewall"
-          defaultValue={["encryption"]}
+          defaultValue={['encryption']}
           className="ml-6"
-          isDisabled={selectedRadio !== "highSecurity"}
+          isDisabled={selectedRadio !== 'highSecurity'}
         >
           <h2 id="encryption-firewall" className="sr-only">
             Encryption and Firewall

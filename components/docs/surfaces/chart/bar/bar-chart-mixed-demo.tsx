@@ -1,55 +1,55 @@
-"use client"
+'use client'
 
-import { IconTrendingChart3 } from "justd-icons"
-import { Bar, BarChart, XAxis, YAxis } from "recharts"
-import { Card, Chart, ChartConfig } from "ui"
+import { IconTrendingChart3 } from 'justd-icons'
+import { Bar, BarChart, XAxis, YAxis } from 'recharts'
+import { Card, Chart, type ChartConfig } from 'ui'
 
 const data = [
-  { brand: "apple", visitors: 175, fill: "var(--color-apple)" },
-  { brand: "samsung", visitors: 100, fill: "var(--color-samsung)" },
-  { brand: "huawei", visitors: 187, fill: "var(--color-huawei)" },
-  { brand: "xiaomi", visitors: 173, fill: "var(--color-xiaomi)" },
-  { brand: "google", visitors: 90, fill: "var(--color-google)" },
-  { brand: "motorola", visitors: 120, fill: "var(--color-motorola)" },
-  { brand: "nokia", visitors: 150, fill: "var(--color-nokia)" },
-  { brand: "oppo", visitors: 130, fill: "var(--color-oppo)" }
+  { brand: 'apple', visitors: 175, fill: 'var(--color-apple)' },
+  { brand: 'samsung', visitors: 100, fill: 'var(--color-samsung)' },
+  { brand: 'huawei', visitors: 187, fill: 'var(--color-huawei)' },
+  { brand: 'xiaomi', visitors: 173, fill: 'var(--color-xiaomi)' },
+  { brand: 'google', visitors: 90, fill: 'var(--color-google)' },
+  { brand: 'motorola', visitors: 120, fill: 'var(--color-motorola)' },
+  { brand: 'nokia', visitors: 150, fill: 'var(--color-nokia)' },
+  { brand: 'oppo', visitors: 130, fill: 'var(--color-oppo)' }
 ]
 
 const config = {
   visitors: {
-    label: "Visitors"
+    label: 'Visitors'
   },
   apple: {
-    label: "Apple",
-    color: "hsl(var(--primary-chart))"
+    label: 'Apple',
+    color: 'hsl(var(--primary-chart))'
   },
   samsung: {
-    label: "Samsung",
-    color: "hsl(var(--secondary-chart))"
+    label: 'Samsung',
+    color: 'hsl(var(--secondary-chart))'
   },
   huawei: {
-    label: "Huawei",
-    color: "hsl(var(--tertiary-chart))"
+    label: 'Huawei',
+    color: 'hsl(var(--tertiary-chart))'
   },
   xiaomi: {
-    label: "Xiaomi",
-    color: "hsl(var(--highlight-chart))"
+    label: 'Xiaomi',
+    color: 'hsl(var(--highlight-chart))'
   },
   google: {
-    label: "Google",
-    color: "hsl(var(--accent-chart))"
+    label: 'Google',
+    color: 'hsl(var(--accent-chart))'
   },
   motorola: {
-    label: "Motorola",
-    color: "hsl(var(--accent-chart))"
+    label: 'Motorola',
+    color: 'hsl(var(--accent-chart))'
   },
   nokia: {
-    label: "Nokia",
-    color: "hsl(var(--accent-chart))"
+    label: 'Nokia',
+    color: 'hsl(var(--accent-chart))'
   },
   oppo: {
-    label: "Oppo",
-    color: "hsl(var(--accent-chart))"
+    label: 'Oppo',
+    color: 'hsl(var(--accent-chart))'
   }
 } satisfies ChartConfig
 

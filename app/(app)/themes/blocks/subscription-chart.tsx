@@ -1,44 +1,44 @@
-"use client"
+'use client'
 
-import * as React from "react"
+import * as React from 'react'
 
-import { IconTrendingChart3 } from "justd-icons"
-import { Label, Pie, PieChart } from "recharts"
-import { Card, Chart, ChartConfig } from "ui"
+import { IconTrendingChart3 } from 'justd-icons'
+import { Label, Pie, PieChart } from 'recharts'
+import { Card, Chart, type ChartConfig } from 'ui'
 
-export const description = "A donut chart with subscription plan distribution"
+export const description = 'A donut chart with subscription plan distribution'
 
 const chartData = [
-  { plan: "Basic", subscribers: 1450, fill: "var(--color-basic)" },
-  { plan: "Standard", subscribers: 1300, fill: "var(--color-standard)" },
-  { plan: "Premium", subscribers: 1200, fill: "var(--color-premium)" },
-  { plan: "Pro", subscribers: 1250, fill: "var(--color-pro)" },
-  { plan: "Enterprise", subscribers: 1100, fill: "var(--color-enterprise)" }
+  { plan: 'Basic', subscribers: 1450, fill: 'var(--color-basic)' },
+  { plan: 'Standard', subscribers: 1300, fill: 'var(--color-standard)' },
+  { plan: 'Premium', subscribers: 1200, fill: 'var(--color-premium)' },
+  { plan: 'Pro', subscribers: 1250, fill: 'var(--color-pro)' },
+  { plan: 'Enterprise', subscribers: 1100, fill: 'var(--color-enterprise)' }
 ]
 
 const chartConfig = {
   subscribers: {
-    label: "Subscribers"
+    label: 'Subscribers'
   },
   basic: {
-    label: "Basic",
-    color: "hsl(var(--primary-chart))"
+    label: 'Basic',
+    color: 'hsl(var(--primary-chart))'
   },
   standard: {
-    label: "Standard",
-    color: "hsl(var(--secondary-chart))"
+    label: 'Standard',
+    color: 'hsl(var(--secondary-chart))'
   },
   premium: {
-    label: "Premium",
-    color: "hsl(var(--tertiary-chart))"
+    label: 'Premium',
+    color: 'hsl(var(--tertiary-chart))'
   },
   pro: {
-    label: "Pro",
-    color: "hsl(var(--highlight-chart))"
+    label: 'Pro',
+    color: 'hsl(var(--highlight-chart))'
   },
   enterprise: {
-    label: "Enterprise",
-    color: "hsl(var(--accent-chart))"
+    label: 'Enterprise',
+    color: 'hsl(var(--accent-chart))'
   }
 } satisfies ChartConfig
 
@@ -66,7 +66,7 @@ export function SubscriptionChart() {
             >
               <Label
                 content={({ viewBox }) => {
-                  if (viewBox && "cx" in viewBox && "cy" in viewBox) {
+                  if (viewBox && 'cx' in viewBox && 'cy' in viewBox) {
                     return (
                       <text
                         x={viewBox.cx}

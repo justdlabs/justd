@@ -1,40 +1,40 @@
-"use client"
+'use client'
 
-import React from "react"
+import React from 'react'
 
-import { AsideLink } from "@/app/(app)/components/partials/on-this-page"
-import AreaChartDemo from "@/components/docs/surfaces/chart/area/area-chart-demo"
-import AreaChartGradientDemo from "@/components/docs/surfaces/chart/area/area-chart-gradient-demo"
-import AreaChartLinearDemo from "@/components/docs/surfaces/chart/area/area-chart-linear-demo"
-import AreaChartStackedDemo from "@/components/docs/surfaces/chart/area/area-chart-stacked-demo"
-import BarChartAnalyticDemo from "@/components/docs/surfaces/chart/bar/bar-chart-analytic-demo"
-import BarChartDemo from "@/components/docs/surfaces/chart/bar/bar-chart-demo"
-import BarChartHorizontalDemo from "@/components/docs/surfaces/chart/bar/bar-chart-horizontal-demo"
-import BarChartMixedDemo from "@/components/docs/surfaces/chart/bar/bar-chart-mixed-demo"
-import BarChartMultipleDemo from "@/components/docs/surfaces/chart/bar/bar-chart-multiple-demo"
-import LineChartDemo from "@/components/docs/surfaces/chart/line/line-chart-demo"
-import LineChartDotsColorDemo from "@/components/docs/surfaces/chart/line/line-chart-dots-color-demo"
-import LineChartDotsDemo from "@/components/docs/surfaces/chart/line/line-chart-dots-demo"
-import LineChartLabelDemo from "@/components/docs/surfaces/chart/line/line-chart-label-demo"
-import LineChartLinearDemo from "@/components/docs/surfaces/chart/line/line-chart-linear-demo"
-import LineChartMultipleDemo from "@/components/docs/surfaces/chart/line/line-chart-multiple-demo"
-import PieChartDemo from "@/components/docs/surfaces/chart/pie/pie-chart-demo"
-import PieChartInteractiveDemo from "@/components/docs/surfaces/chart/pie/pie-chart-interactive-demo"
-import PieChartLabelDemo from "@/components/docs/surfaces/chart/pie/pie-chart-label-demo"
-import PieChartLegendDemo from "@/components/docs/surfaces/chart/pie/pie-chart-legend-demo"
-import PieChartStackedDemo from "@/components/docs/surfaces/chart/pie/pie-chart-stacked-demo"
-import RadarChartDemo from "@/components/docs/surfaces/chart/radar/radar-chart-demo"
-import RadarChartDotsDemo from "@/components/docs/surfaces/chart/radar/radar-chart-dots-demo"
-import RadarChartLineOnlyDemo from "@/components/docs/surfaces/chart/radar/radar-chart-line-only-demo"
-import RadarChartMultipleDemo from "@/components/docs/surfaces/chart/radar/radar-chart-multiple-demo"
-import RadialChartDemo from "@/components/docs/surfaces/chart/radial/radial-chart-demo"
-import RadialChartGridDemo from "@/components/docs/surfaces/chart/radial/radial-chart-grid-demo"
-import RadialChartShapeDemo from "@/components/docs/surfaces/chart/radial/radial-chart-shape-demo"
-import RadialChartStackedDemo from "@/components/docs/surfaces/chart/radial/radial-chart-stacked-demo"
-import RadialChartTextDemo from "@/components/docs/surfaces/chart/radial/radial-chart-text-demo"
-import { useActiveItem } from "@/components/table-of-contents"
-import { ListBox } from "react-aria-components"
-import { buttonStyles, Card, Container, Heading, Link, useMediaQuery } from "ui"
+import { AsideLink } from '@/app/(app)/components/partials/on-this-page'
+import AreaChartDemo from '@/components/docs/surfaces/chart/area/area-chart-demo'
+import AreaChartGradientDemo from '@/components/docs/surfaces/chart/area/area-chart-gradient-demo'
+import AreaChartLinearDemo from '@/components/docs/surfaces/chart/area/area-chart-linear-demo'
+import AreaChartStackedDemo from '@/components/docs/surfaces/chart/area/area-chart-stacked-demo'
+import BarChartAnalyticDemo from '@/components/docs/surfaces/chart/bar/bar-chart-analytic-demo'
+import BarChartDemo from '@/components/docs/surfaces/chart/bar/bar-chart-demo'
+import BarChartHorizontalDemo from '@/components/docs/surfaces/chart/bar/bar-chart-horizontal-demo'
+import BarChartMixedDemo from '@/components/docs/surfaces/chart/bar/bar-chart-mixed-demo'
+import BarChartMultipleDemo from '@/components/docs/surfaces/chart/bar/bar-chart-multiple-demo'
+import LineChartDemo from '@/components/docs/surfaces/chart/line/line-chart-demo'
+import LineChartDotsColorDemo from '@/components/docs/surfaces/chart/line/line-chart-dots-color-demo'
+import LineChartDotsDemo from '@/components/docs/surfaces/chart/line/line-chart-dots-demo'
+import LineChartLabelDemo from '@/components/docs/surfaces/chart/line/line-chart-label-demo'
+import LineChartLinearDemo from '@/components/docs/surfaces/chart/line/line-chart-linear-demo'
+import LineChartMultipleDemo from '@/components/docs/surfaces/chart/line/line-chart-multiple-demo'
+import PieChartDemo from '@/components/docs/surfaces/chart/pie/pie-chart-demo'
+import PieChartInteractiveDemo from '@/components/docs/surfaces/chart/pie/pie-chart-interactive-demo'
+import PieChartLabelDemo from '@/components/docs/surfaces/chart/pie/pie-chart-label-demo'
+import PieChartLegendDemo from '@/components/docs/surfaces/chart/pie/pie-chart-legend-demo'
+import PieChartStackedDemo from '@/components/docs/surfaces/chart/pie/pie-chart-stacked-demo'
+import RadarChartDemo from '@/components/docs/surfaces/chart/radar/radar-chart-demo'
+import RadarChartDotsDemo from '@/components/docs/surfaces/chart/radar/radar-chart-dots-demo'
+import RadarChartLineOnlyDemo from '@/components/docs/surfaces/chart/radar/radar-chart-line-only-demo'
+import RadarChartMultipleDemo from '@/components/docs/surfaces/chart/radar/radar-chart-multiple-demo'
+import RadialChartDemo from '@/components/docs/surfaces/chart/radial/radial-chart-demo'
+import RadialChartGridDemo from '@/components/docs/surfaces/chart/radial/radial-chart-grid-demo'
+import RadialChartShapeDemo from '@/components/docs/surfaces/chart/radial/radial-chart-shape-demo'
+import RadialChartStackedDemo from '@/components/docs/surfaces/chart/radial/radial-chart-stacked-demo'
+import RadialChartTextDemo from '@/components/docs/surfaces/chart/radial/radial-chart-text-demo'
+import { useActiveItem } from '@/components/table-of-contents'
+import { ListBox } from 'react-aria-components'
+import { buttonStyles, Card, Container, Heading, Link, useMediaQuery } from 'ui'
 
 export function Charts() {
   return (
@@ -135,34 +135,34 @@ export function Charts() {
 
 const navigations = [
   {
-    text: "Area Charts",
-    href: "#area",
-    id: "area"
+    text: 'Area Charts',
+    href: '#area',
+    id: 'area'
   },
   {
-    text: "Bar Charts",
-    href: "#bar",
-    id: "bar"
+    text: 'Bar Charts',
+    href: '#bar',
+    id: 'bar'
   },
   {
-    text: "Line Charts",
-    href: "#line",
-    id: "line"
+    text: 'Line Charts',
+    href: '#line',
+    id: 'line'
   },
   {
-    text: "Pie Charts",
-    href: "#pie",
-    id: "pie"
+    text: 'Pie Charts',
+    href: '#pie',
+    id: 'pie'
   },
   {
-    text: "Radar Charts",
-    href: "#radar",
-    id: "radar"
+    text: 'Radar Charts',
+    href: '#radar',
+    id: 'radar'
   },
   {
-    text: "Radial Charts",
-    href: "#radial",
-    id: "radial"
+    text: 'Radial Charts',
+    href: '#radial',
+    id: 'radial'
   }
 ].map((x) => {
   return {
@@ -173,8 +173,8 @@ const navigations = [
 })
 
 export function OnThisPage() {
-  const activeId = useActiveItem(navigations.map((x) => x.href.split("#")[1]))
-  const isDesktop = useMediaQuery("(min-width: 1024px)")
+  const activeId = useActiveItem(navigations.map((x) => x.href.split('#')[1]))
+  const isDesktop = useMediaQuery('(min-width: 1024px)')
   return (
     <>
       {isDesktop ? (
@@ -184,7 +184,7 @@ export function OnThisPage() {
           </Heading>
           <ListBox aria-label="On this page">
             {navigations.map(({ text, href, id }) => (
-              <AsideLink key={id.toString()} activeId={activeId || ""} text={text} href={href} />
+              <AsideLink key={id.toString()} activeId={activeId || ''} text={text} href={href} />
             ))}
           </ListBox>
         </div>
@@ -203,7 +203,7 @@ export function Header({ title, description, docs }: HeaderProps) {
   return (
     <div className="flex items-center gap-2 justify-between">
       <Card.Header withoutPadding title={title} description={description} />
-      <Link className={buttonStyles({ appearance: "outline" })} href={docs}>
+      <Link className={buttonStyles({ appearance: 'outline' })} href={docs}>
         View docs
       </Link>
     </div>

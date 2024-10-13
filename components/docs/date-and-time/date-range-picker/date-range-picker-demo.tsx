@@ -1,6 +1,6 @@
-"use client"
+'use client'
 
-import { DateRangePicker } from "ui"
+import { DateRangePicker } from 'ui'
 
 export default function DateRangePickerDemo() {
   return <DateRangePicker label="Event date" />

@@ -1,7 +1,7 @@
-"use client"
+'use client'
 
-import { CardBlock } from "@/components/blocks"
-import { Button } from "ui"
+import { CardBlock } from '@/components/blocks'
+import { Button } from 'ui'
 
 export function Buttons() {
   return (

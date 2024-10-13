@@ -1,30 +1,30 @@
-"use client"
+'use client'
 
-import * as React from "react"
+import * as React from 'react'
 
-import type { Key } from "react-aria-components"
-import { Group, TextField } from "react-aria-components"
-import type { ListData } from "react-stately"
-import { twJoin } from "tailwind-merge"
-import { tv } from "tailwind-variants"
+import type { Key } from 'react-aria-components'
+import { Group, TextField } from 'react-aria-components'
+import type { ListData } from 'react-stately'
+import { twJoin } from 'tailwind-merge'
+import { tv } from 'tailwind-variants'
 
-import type { FieldProps } from "./field"
-import { Description, Input, Label } from "./field"
-import { cn } from "./primitive"
-import type { RestrictedIntent, TagGroupProps } from "./tag-group"
-import { Tag } from "./tag-group"
+import type { FieldProps } from './field'
+import { Description, Input, Label } from './field'
+import { cn } from './primitive'
+import type { RestrictedIntent, TagGroupProps } from './tag-group'
+import { Tag } from './tag-group'
 
 const tagFieldsStyles = tv({
-  base: ["relative flex min-h-10 bg-bg flex-row flex-wrap items-center"],
+  base: ['relative flex min-h-10 bg-bg flex-row flex-wrap items-center'],
   variants: {
     appearance: {
       outline: [
-        "px-1 rounded-lg shadow-sm border",
-        "has-[input[data-focused=true]]:border-primary",
-        "has-[input[data-invalid=true][data-focused=true]]:border-danger has-[input[data-invalid=true]]:border-danger has-[input[data-invalid=true]]:ring-danger/20",
-        "has-[input[data-focused=true]]:ring-4 has-[input[data-focused=true]]:ring-primary/20"
+        'px-1 rounded-lg shadow-sm border',
+        'has-[input[data-focused=true]]:border-primary',
+        'has-[input[data-invalid=true][data-focused=true]]:border-danger has-[input[data-invalid=true]]:border-danger has-[input[data-invalid=true]]:ring-danger/20',
+        'has-[input[data-focused=true]]:ring-4 has-[input[data-focused=true]]:ring-primary/20'
       ],
-      plain: ["has-[input[data-focused=true]]:border-transparent"]
+      plain: ['has-[input[data-focused=true]]:border-transparent']
     }
   }
 })
@@ -34,7 +34,7 @@ interface TagItemProps {
   name: string
 }
 
-interface TagFieldProps extends Pick<TagGroupProps, "shape">, FieldProps {
+interface TagFieldProps extends Pick<TagGroupProps, 'shape'>, FieldProps {
   intent?: RestrictedIntent
   isDisabled?: boolean
   max?: number
@@ -44,11 +44,11 @@ interface TagFieldProps extends Pick<TagGroupProps, "shape">, FieldProps {
   list: ListData<TagItemProps>
   onItemInserted?: (tag: TagItemProps) => void
   onItemCleared?: (tag: TagItemProps) => void
-  appearance?: "outline" | "plain"
+  appearance?: 'outline' | 'plain'
 }
 
 const TagField = ({
-  appearance = "outline",
+  appearance = 'outline',
   name,
   className,
   list,
@@ -57,7 +57,7 @@ const TagField = ({
   ...props
 }: TagFieldProps) => {
   const [isInvalid, setIsInvalid] = React.useState(false)
-  const [inputValue, setInputValue] = React.useState("")
+  const [inputValue, setInputValue] = React.useState('')
 
   const existingTagCount = list.items.length
   const maxTags = props.max !== undefined ? props.max : Infinity
@@ -67,7 +67,7 @@ const TagField = ({
     const tagNames = inputValue.split(/,/)
     if (maxTagsToAdd <= 0) {
       setIsInvalid(true)
-      setInputValue("")
+      setInputValue('')
       const timeoutId = setTimeout(() => {
         setIsInvalid(false)
       }, 2000)
@@ -78,8 +78,8 @@ const TagField = ({
     tagNames.slice(0, maxTagsToAdd).forEach((tagName) => {
       const formattedName = tagName
         .trim()
-        .replace(/\s+/g, " ")
-        .replace(/[\t\r\n]/g, "")
+        .replace(/\s+/g, ' ')
+        .replace(/[\t\r\n]/g, '')
 
       if (
         formattedName &&
@@ -95,7 +95,7 @@ const TagField = ({
       }
     })
 
-    setInputValue("")
+    setInputValue('')
   }
 
   const clearInvalidFeedback = () => {
@@ -111,12 +111,12 @@ const TagField = ({
   }
 
   const onKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "Enter" || e.key === ",") {
+    if (e.key === 'Enter' || e.key === ',') {
       e.preventDefault()
       insertTag()
     }
 
-    if (e.key === "Backspace" && inputValue === "") {
+    if (e.key === 'Backspace' && inputValue === '') {
       popLast()
       clearInvalidFeedback()
     }
@@ -136,9 +136,9 @@ const TagField = ({
   }, [list, onItemCleared])
 
   return (
-    <div className={cn("flex flex-col gap-1 w-full", className)}>
+    <div className={cn('flex flex-col gap-1 w-full', className)}>
       {props.label && <Label>{props.label}</Label>}
-      <Group className={twJoin("flex flex-col", props.isDisabled && "opacity-50")}>
+      <Group className={twJoin('flex flex-col', props.isDisabled && 'opacity-50')}>
         <Tag.Group
           intent={props.intent}
           shape={props.shape}
@@ -151,17 +151,17 @@ const TagField = ({
                 items={list.items}
                 className={twJoin(
                   list.items.length !== 0
-                    ? appearance === "outline" && "py-1.5 px-0.5 gap-1.5"
-                    : "gap-0",
-                  props.shape === "square" && "[&_.jdt3lr2x]:rounded-[calc(var(--radius)-4px)]",
-                  "[&_.jdt3lr2x]:cursor-default last:[&_.jdt3lr2x]:-mr-1 outline-none"
+                    ? appearance === 'outline' && 'py-1.5 px-0.5 gap-1.5'
+                    : 'gap-0',
+                  props.shape === 'square' && '[&_.jdt3lr2x]:rounded-[calc(var(--radius)-4px)]',
+                  '[&_.jdt3lr2x]:cursor-default last:[&_.jdt3lr2x]:-mr-1 outline-none'
                 )}
               >
                 {(item) => <Tag.Item>{item.name}</Tag.Item>}
               </Tag.List>
               <TextField
                 isDisabled={props.isDisabled}
-                aria-label={props?.label ?? (props["aria-label"] || props.placeholder)}
+                aria-label={props?.label ?? (props['aria-label'] || props.placeholder)}
                 isInvalid={isInvalid}
                 onKeyDown={onKeyDown}
                 onChange={setInputValue}
@@ -170,14 +170,14 @@ const TagField = ({
               >
                 <Input
                   className="w-auto inline"
-                  placeholder={maxTagsToAdd <= 0 ? "Remove one to add more" : props.placeholder}
+                  placeholder={maxTagsToAdd <= 0 ? 'Remove one to add more' : props.placeholder}
                 />
               </TextField>
             </div>
           </div>
         </Tag.Group>
         {name && (
-          <input hidden name={name} value={list.items.map((i) => i.name).join(",")} readOnly />
+          <input hidden name={name} value={list.items.map((i) => i.name).join(',')} readOnly />
         )}
       </Group>
       {props.description && <Description>{props.description}</Description>}

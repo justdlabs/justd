@@ -1,40 +1,40 @@
-"use client"
+'use client'
 
-import { useState } from "react"
+import { useState } from 'react'
 
-import { IconCircleCheckFill, IconKey } from "justd-icons"
-import { Button, Loader } from "ui"
+import { IconCircleCheckFill, IconKey } from 'justd-icons'
+import { Button, Loader } from 'ui'
 
 export default function ButtonLoaderDemo() {
-  const [loading, setLoading] = useState<"idle" | "loading" | "success">("idle")
+  const [loading, setLoading] = useState<'idle' | 'loading' | 'success'>('idle')
 
   const pressHandler = () => {
-    setLoading("loading")
+    setLoading('loading')
 
-    setTimeout(() => setLoading("success"), 3000)
+    setTimeout(() => setLoading('success'), 3000)
 
-    setTimeout(() => setLoading("idle"), 6000)
+    setTimeout(() => setLoading('idle'), 6000)
   }
 
   return (
     <Button
-      isPending={loading === "loading"}
+      isPending={loading === 'loading'}
       className="w-52 justify-between"
       onPress={pressHandler}
       intent="primary"
     >
-      {loading === "success" ? (
+      {loading === 'success' ? (
         <IconCircleCheckFill />
-      ) : loading === "loading" ? (
+      ) : loading === 'loading' ? (
         <Loader variant="spin" />
       ) : (
         <IconKey />
       )}
-      {loading === "loading"
-        ? "Generating Key..."
-        : loading === "success"
-          ? "Key Generated!"
-          : "Generate API Key"}
+      {loading === 'loading'
+        ? 'Generating Key...'
+        : loading === 'success'
+          ? 'Key Generated!'
+          : 'Generate API Key'}
     </Button>
   )
 }

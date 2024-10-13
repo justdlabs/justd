@@ -1,9 +1,9 @@
-"use client"
+'use client'
 
-import React from "react"
+import React from 'react'
 
-import { IconDuplicate, IconFolder, IconHighlight, IconTrash, IconUpload } from "justd-icons"
-import { ContextMenu } from "ui"
+import { IconDuplicate, IconFolder, IconHighlight, IconTrash, IconUpload } from 'justd-icons'
+import { ContextMenu } from 'ui'
 
 export default function ContextMenuWithIconDemo() {
   return (

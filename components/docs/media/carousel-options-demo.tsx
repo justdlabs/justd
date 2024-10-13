@@ -1,14 +1,14 @@
-"use client"
+'use client'
 
-import * as React from "react"
+import * as React from 'react'
 
-import { Card, Carousel } from "ui"
+import { Card, Carousel } from 'ui'
 
 export default function CarouselOptionsDemo() {
   return (
     <Carousel
       opts={{
-        align: "center",
+        align: 'center',
         loop: true
       }}
       className="w-full max-w-2xl"

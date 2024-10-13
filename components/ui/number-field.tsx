@@ -1,23 +1,23 @@
-"use client"
+'use client'
 
-import { IconChevronDown, IconChevronUp, IconMinus, IconPlus } from "justd-icons"
+import { IconChevronDown, IconChevronUp, IconMinus, IconPlus } from 'justd-icons'
 import {
   Button,
   type ButtonProps,
   NumberField as NumberFieldPrimitive,
   type NumberFieldProps as NumberFieldPrimitiveProps,
   type ValidationResult
-} from "react-aria-components"
-import { tv } from "tailwind-variants"
+} from 'react-aria-components'
+import { tv } from 'tailwind-variants'
 
-import { Description, fieldBorderStyles, FieldError, FieldGroup, Input, Label } from "./field"
-import { ctr, useMediaQuery } from "./primitive"
+import { Description, fieldBorderStyles, FieldError, FieldGroup, Input, Label } from './field'
+import { ctr, useMediaQuery } from './primitive'
 
 const numberFieldStyles = tv({
   slots: {
-    base: "group flex flex-col gap-1",
+    base: 'group flex flex-col gap-1',
     stepperButton:
-      "h-10 cursor-default px-2 text-muted-fg pressed:bg-primary pressed:text-primary-fg group-disabled:bg-secondary forced-colors:group-disabled:text-[GrayText]"
+      'h-10 cursor-default px-2 text-muted-fg pressed:bg-primary pressed:text-primary-fg group-disabled:bg-secondary forced-colors:group-disabled:text-[GrayText]'
   }
 })
 
@@ -38,7 +38,7 @@ const NumberField = ({
   errorMessage,
   ...props
 }: NumberFieldProps) => {
-  const isMobile = useMediaQuery("(max-width: 768px)")
+  const isMobile = useMediaQuery('(max-width: 768px)')
   return (
     <NumberFieldPrimitive {...props} className={ctr(className, base())}>
       <Label>{label}</Label>
@@ -50,7 +50,7 @@ const NumberField = ({
             <div
               className={fieldBorderStyles({
                 ...renderProps,
-                className: "grid h-10 place-content-center border-s"
+                className: 'grid h-10 place-content-center border-s'
               })}
             >
               {isMobile ? (
@@ -61,7 +61,7 @@ const NumberField = ({
                   <div
                     className={fieldBorderStyles({
                       ...renderProps,
-                      className: "border-b"
+                      className: 'border-b'
                     })}
                   />
                   <StepperButton slot="decrement" emblemType="chevron" className="h-5 px-1" />
@@ -78,25 +78,25 @@ const NumberField = ({
 }
 
 interface StepperButtonProps extends ButtonProps {
-  slot: "increment" | "decrement"
-  emblemType?: "chevron" | "default"
+  slot: 'increment' | 'decrement'
+  emblemType?: 'chevron' | 'default'
   className?: string
 }
 
 const StepperButton = ({
   slot,
   className,
-  emblemType = "default",
+  emblemType = 'default',
   ...props
 }: StepperButtonProps) => {
   const icon =
-    emblemType === "chevron" ? (
-      slot === "increment" ? (
+    emblemType === 'chevron' ? (
+      slot === 'increment' ? (
         <IconChevronUp className="size-5" />
       ) : (
         <IconChevronDown className="size-5" />
       )
-    ) : slot === "increment" ? (
+    ) : slot === 'increment' ? (
       <IconPlus />
     ) : (
       <IconMinus />

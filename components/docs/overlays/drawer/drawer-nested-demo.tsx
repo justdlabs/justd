@@ -1,9 +1,9 @@
-"use client"
+'use client'
 
-import React from "react"
+import React from 'react'
 
-import { toast } from "sonner"
-import { Button, Drawer, Form, Textarea } from "ui"
+import { toast } from 'sonner'
+import { Button, Drawer, Form, Textarea } from 'ui'
 
 export default function DrawerNestedDemo() {
   const [isRegistrationDrawerOpen, setIsRegistrationDrawerOpen] = React.useState(false)
@@ -39,7 +39,7 @@ export default function DrawerNestedDemo() {
       <Drawer
         isOpen={isProfileSetupDrawerOpen}
         onOpenChange={(isOpen) => {
-          if (!isOpen && isTyping) toast("Profile setup incomplete", { position: "top-center" })
+          if (!isOpen && isTyping) toast('Profile setup incomplete', { position: 'top-center' })
           setIsProfileSetupDrawerOpen(isOpen)
         }}
       >
@@ -53,7 +53,7 @@ export default function DrawerNestedDemo() {
           <Form
             onSubmit={(e) => {
               e.preventDefault()
-              toast.success("Profile setup complete", { position: "top-center" })
+              toast.success('Profile setup complete', { position: 'top-center' })
               setIsProfileSetupDrawerOpen(false)
               setIsRegistrationDrawerOpen(false)
             }}

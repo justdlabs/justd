@@ -1,4 +1,4 @@
-import { Table } from "ui"
+import { Table } from 'ui'
 
 export default function TableAnatomy() {
   return (

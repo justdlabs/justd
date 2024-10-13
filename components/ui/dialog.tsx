@@ -1,47 +1,47 @@
-"use client"
+'use client'
 
-import * as React from "react"
+import * as React from 'react'
 
-import { IconX } from "justd-icons"
+import { IconX } from 'justd-icons'
 import type {
   ButtonProps as ButtonPrimitiveProps,
   DialogProps,
   HeadingProps
-} from "react-aria-components"
+} from 'react-aria-components'
 import {
   Button as ButtonPrimitive,
   Dialog as DialogPrimitive,
   Heading,
   OverlayTriggerStateContext
-} from "react-aria-components"
-import { tv } from "tailwind-variants"
+} from 'react-aria-components'
+import { tv } from 'tailwind-variants'
 
-import { Button, type ButtonProps } from "./button"
-import { useMediaQuery } from "./primitive"
+import { Button, type ButtonProps } from './button'
+import { useMediaQuery } from './primitive'
 
 const dialogStyles = tv({
   slots: {
     root: [
-      "dlc relative flex max-h-[inherit] [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin] flex-col overflow-hidden outline-none",
-      "sm:[&:not(:has([data-slot=dialog-body]))]:px-6 sm:[&:has([data-slot=dialog-body])_[data-slot=dialog-header]]:px-6 sm:[&:has([data-slot=dialog-body])_[data-slot=dialog-footer]]:px-6",
-      "[&:not(:has([data-slot=dialog-body]))]:px-4 [&:has([data-slot=dialog-body])_[data-slot=dialog-header]]:px-4 [&:has([data-slot=dialog-body])_[data-slot=dialog-footer]]:px-4"
+      'dlc relative flex max-h-[inherit] [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin] flex-col overflow-hidden outline-none',
+      'sm:[&:not(:has([data-slot=dialog-body]))]:px-6 sm:[&:has([data-slot=dialog-body])_[data-slot=dialog-header]]:px-6 sm:[&:has([data-slot=dialog-body])_[data-slot=dialog-footer]]:px-6',
+      '[&:not(:has([data-slot=dialog-body]))]:px-4 [&:has([data-slot=dialog-body])_[data-slot=dialog-header]]:px-4 [&:has([data-slot=dialog-body])_[data-slot=dialog-footer]]:px-4'
     ],
-    header: "relative flex flex-col pb-3 pt-4 sm:pt-6",
-    description: "text-sm block text-muted-fg mt-0.5 sm:mt-1",
+    header: 'relative flex flex-col pb-3 pt-4 sm:pt-6',
+    description: 'text-sm block text-muted-fg mt-0.5 sm:mt-1',
     body: [
-      "flex flex-1 flex-col gap-2 overflow-auto px-4 sm:px-6 py-1",
-      "max-h-[calc(var(--visual-viewport-height)-var(--visual-viewport-vertical-padding)-var(--dialog-header-height,0px)-var(--dialog-footer-height,0px))]"
+      'flex flex-1 flex-col gap-2 overflow-auto px-4 sm:px-6 py-1',
+      'max-h-[calc(var(--visual-viewport-height)-var(--visual-viewport-vertical-padding)-var(--dialog-header-height,0px)-var(--dialog-footer-height,0px))]'
     ],
-    footer: "mt-auto flex flex-col-reverse justify-between gap-3 pb-4 sm:pb-6 pt-4 sm:flex-row",
+    footer: 'mt-auto flex flex-col-reverse justify-between gap-3 pb-4 sm:pb-6 pt-4 sm:flex-row',
     closeIndicator:
-      "close absolute right-1 top-1 sm:right-2 sm:top-2 focus:outline-none focus:bg-secondary hover:bg-secondary grid place-content-center rounded-xl sm:rounded-md focus-visible:ring-1 focus-visible:ring-primary size-8 sm:size-7 z-50"
+      'close absolute right-1 top-1 sm:right-2 sm:top-2 focus:outline-none focus:bg-secondary hover:bg-secondary grid place-content-center rounded-xl sm:rounded-md focus-visible:ring-1 focus-visible:ring-primary size-8 sm:size-7 z-50'
   }
 })
 
 const { root, header, description, body, footer, closeIndicator } = dialogStyles()
 
 const Dialog = ({ role, className, ...props }: DialogProps) => {
-  return <DialogPrimitive {...props} role={role ?? "dialog"} className={root({ className })} />
+  return <DialogPrimitive {...props} role={role ?? 'dialog'} className={root({ className })} />
 }
 
 type DialogHeaderProps = React.HTMLAttributes<HTMLDivElement> & {
@@ -52,7 +52,7 @@ type DialogHeaderProps = React.HTMLAttributes<HTMLDivElement> & {
 const Trigger = (props: ButtonPrimitiveProps) => (
   <ButtonPrimitive {...props}>
     {(values) => (
-      <>{typeof props.children === "function" ? props.children(values) : props.children}</>
+      <>{typeof props.children === 'function' ? props.children(values) : props.children}</>
     )}
   </ButtonPrimitive>
 )
@@ -69,7 +69,7 @@ const Header = ({ className, ...props }: DialogHeaderProps) => {
     const observer = new ResizeObserver((entries) => {
       for (const entry of entries) {
         header.parentElement?.style.setProperty(
-          "--dialog-header-height",
+          '--dialog-header-height',
           `${entry.target.clientHeight}px`
         )
       }
@@ -83,24 +83,24 @@ const Header = ({ className, ...props }: DialogHeaderProps) => {
     <div data-slot="dialog-header" ref={headerRef} className={header({ className })}>
       {props.title && <Title>{props.title}</Title>}
       {props.description && <Description>{props.description}</Description>}
-      {!props.title && typeof props.children === "string" ? <Title {...props} /> : props.children}
+      {!props.title && typeof props.children === 'string' ? <Title {...props} /> : props.children}
     </div>
   )
 }
 
 const titleStyles = tv({
-  base: "flex flex-1 items-center text-fg",
+  base: 'flex flex-1 items-center text-fg',
   variants: {
     level: {
-      1: "font-semibold text-lg sm:text-xl",
-      2: "font-semibold text-lg sm:text-xl",
-      3: "font-semibold text-base sm:text-lg",
-      4: "font-semibold text-base"
+      1: 'font-semibold text-lg sm:text-xl',
+      2: 'font-semibold text-lg sm:text-xl',
+      3: 'font-semibold text-base sm:text-lg',
+      4: 'font-semibold text-base'
     }
   }
 })
 
-interface TitleProps extends Omit<HeadingProps, "level"> {
+interface TitleProps extends Omit<HeadingProps, 'level'> {
   level?: 1 | 2 | 3 | 4
 }
 
@@ -129,7 +129,7 @@ const Footer = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) =
     const observer = new ResizeObserver((entries) => {
       for (const entry of entries) {
         footer.parentElement?.style.setProperty(
-          "--dialog-footer-height",
+          '--dialog-footer-height',
           `${entry.target.clientHeight}px`
         )
       }
@@ -145,7 +145,7 @@ const Footer = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) =
   )
 }
 
-const Close = ({ className, appearance = "outline", ...props }: ButtonProps) => {
+const Close = ({ className, appearance = 'outline', ...props }: ButtonProps) => {
   const state = React.useContext(OverlayTriggerStateContext)!
   return (
     <Button
@@ -164,7 +164,7 @@ interface CloseButtonIndicatorProps {
 }
 
 const CloseIndicator = ({ className, ...props }: CloseButtonIndicatorProps) => {
-  const isMobile = useMediaQuery("(max-width: 600px)")
+  const isMobile = useMediaQuery('(max-width: 600px)')
   const buttonRef = React.useRef<HTMLButtonElement>(null)
 
   React.useEffect(() => {

@@ -1,18 +1,18 @@
-"use client"
+'use client'
 
-import React from "react"
+import React from 'react'
 
-import { motion } from "framer-motion"
-import { Link as NextLink } from "next-view-transitions"
-import { tv } from "tailwind-variants"
-import { LinkPrimitive } from "ui"
+import { motion } from 'framer-motion'
+import { Link as NextLink } from 'next-view-transitions'
+import { tv } from 'tailwind-variants'
+import { LinkPrimitive } from 'ui'
 
 const navLinkStyles = tv({
-  base: "relative flex focus-visible:text-fg items-center gap-x-3 tracking-tight py-2 text-sm text-muted-fg transition-colors focus:outline-none sm:py-3",
+  base: 'relative flex focus-visible:text-fg items-center gap-x-3 tracking-tight py-2 text-sm text-muted-fg transition-colors focus:outline-none sm:py-3',
   variants: {
     isActive: {
-      true: "text-fg",
-      false: "text-muted-fg hover:text-fg"
+      true: 'text-fg',
+      false: 'text-muted-fg hover:text-fg'
     }
   }
 })

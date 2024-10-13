@@ -1,4 +1,4 @@
-import { Grid } from "ui"
+import { Grid } from 'ui'
 
 export default function GridAnatomy() {
   return (

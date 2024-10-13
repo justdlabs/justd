@@ -1,20 +1,20 @@
-import * as React from "react"
+import * as React from 'react'
 
-import { CopyJsonColorShades } from "@/app/(app)/colors/(colors)/copy-json-color-shades"
+import { CopyJsonColorShades } from '@/app/(app)/colors/(colors)/copy-json-color-shades'
 import {
   allFormats,
   formatOnlyForTailwindVariableValues,
   getColorName,
   tailwindColorNames
-} from "@/resources/lib/colors"
-import type { ColorFormat } from "@react-types/color"
-import { IconBrandTailwindcss } from "justd-icons"
-import { ListBox, Text, ToggleButton } from "react-aria-components"
-import type { ColorItemProps, FormatOnlyForTailwindVariableType } from "resources/types"
-import { toast } from "sonner"
-import { buttonStyles, gridStyles, Select, Tooltip } from "ui"
+} from '@/resources/lib/colors'
+import type { ColorFormat } from '@react-types/color'
+import { IconBrandTailwindcss } from 'justd-icons'
+import { ListBox, Text, ToggleButton } from 'react-aria-components'
+import type { ColorItemProps, FormatOnlyForTailwindVariableType } from 'resources/types'
+import { toast } from 'sonner'
+import { buttonStyles, gridStyles, Select, Tooltip } from 'ui'
 
-import { ColorItem } from "./color-item"
+import { ColorItem } from './color-item'
 
 interface ColorRowProps extends React.HtmlHTMLAttributes<HTMLDivElement> {
   item: ColorItemProps
@@ -27,7 +27,7 @@ export type ColorSelectorType = ColorFormat | null | FormatOnlyForTailwindVariab
 
 export function ColorRow({ showItem = false, swatchClassName, item }: ColorRowProps) {
   const [isForTailwindVariable, setIsForTailwindVariable] = React.useState(true)
-  const [selectedFormat, setSelectedFormat] = React.useState<ColorSelectorType>("hex")
+  const [selectedFormat, setSelectedFormat] = React.useState<ColorSelectorType>('hex')
   return (
     <div className="p-2 bg-tertiary border rounded-lg overflow-hidden">
       <div className="flex mb-2 items-center gap-x-1 justify-between">
@@ -35,7 +35,7 @@ export function ColorRow({ showItem = false, swatchClassName, item }: ColorRowPr
           {(tailwindColorNames.includes(item.name)
             ? item.name
             : getColorName(item.children[4].color)
-          ).replaceAll("-", " ")}
+          ).replaceAll('-', ' ')}
         </h2>
         <div className="flex gap-x-1">
           <>
@@ -45,15 +45,15 @@ export function ColorRow({ showItem = false, swatchClassName, item }: ColorRowPr
               selectedFormat={selectedFormat}
               colorScales={item.children}
             />
-            {["rgb", "rgba", "hsl", "hsla", "hsb", "hsba", "hsl"].includes(
+            {['rgb', 'rgba', 'hsl', 'hsla', 'hsb', 'hsba', 'hsl'].includes(
               selectedFormat as ColorFormat
             ) && (
               <Tooltip>
                 <ToggleButton
                   className={buttonStyles({
-                    appearance: "outline",
-                    size: "square-petite",
-                    className: "size-8"
+                    appearance: 'outline',
+                    size: 'square-petite',
+                    className: 'size-8'
                   })}
                   isSelected={isForTailwindVariable}
                   onChange={() => {
@@ -63,7 +63,7 @@ export function ColorRow({ showItem = false, swatchClassName, item }: ColorRowPr
                       )
                     ) {
                       toast(
-                        "You can only switch up the color format to rgb, hsl, hsb, hsla, hsba, or hsl."
+                        'You can only switch up the color format to rgb, hsl, hsb, hsla, hsba, or hsl.'
                       )
                       return
                     }
@@ -71,7 +71,7 @@ export function ColorRow({ showItem = false, swatchClassName, item }: ColorRowPr
                   }}
                 >
                   {({ isSelected }) => (
-                    <IconBrandTailwindcss className={isSelected ? "!text-sky-500" : "!text-fg"} />
+                    <IconBrandTailwindcss className={isSelected ? '!text-sky-500' : '!text-fg'} />
                   )}
                 </ToggleButton>
                 <Tooltip.Content className="max-w-xs">
@@ -119,7 +119,7 @@ export function ColorRow({ showItem = false, swatchClassName, item }: ColorRowPr
               showItem,
               swatchClassName,
               isForTailwindVariable,
-              selectedFormat: selectedFormat ?? "hsl",
+              selectedFormat: selectedFormat ?? 'hsl',
               item: color,
               name: item.name
             }}

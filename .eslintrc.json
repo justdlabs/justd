@@ -1,6 +1,7 @@
 {
   "extends": [
     "next/core-web-vitals",
+    "next/typescript",
     "eslint:recommended",
     "prettier"
   ],
@@ -12,11 +13,14 @@
     "@typescript-eslint/consistent-type-definitions": "off",
     "@next/next/no-img-element": "off",
     "@typescript-eslint/prefer-nullish-coalescing": "off",
+    "@typescript-eslint/consistent-type-imports": "warn",
+    "@typescript-eslint/no-unused-vars": "warn",
     "@typescript-eslint/require-await": "off",
     "react/react-in-jsx-scope": "off",
     "react/no-children-prop": "off",
     "react/prop-types": "off",
     "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/no-explicit-any": "off",
     "react/no-unescaped-entities": "off",
     "@typescript-eslint/ban-types": "off",
     "react/no-unknown-property": "off",

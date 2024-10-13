@@ -1,20 +1,20 @@
-"use client"
+'use client'
 
-import { useListData } from "react-stately"
-import type { SelectedKey } from "ui"
-import { MultipleSelect } from "ui"
+import { useListData } from 'react-stately'
+import type { SelectedKey } from 'ui'
+import { MultipleSelect } from 'ui'
 
 const tags = [
-  { id: 1, name: "Cooking" },
-  { id: 2, name: "Gardening" },
-  { id: 3, name: "Meditation" },
-  { id: 4, name: "Parenting" },
-  { id: 5, name: "DIY Projects" },
-  { id: 6, name: "Mindfulness" },
-  { id: 7, name: "Travel Tips" },
-  { id: 8, name: "Pet Care" },
-  { id: 9, name: "Home Decor" },
-  { id: 10, name: "Sustainable Living" }
+  { id: 1, name: 'Cooking' },
+  { id: 2, name: 'Gardening' },
+  { id: 3, name: 'Meditation' },
+  { id: 4, name: 'Parenting' },
+  { id: 5, name: 'DIY Projects' },
+  { id: 6, name: 'Mindfulness' },
+  { id: 7, name: 'Travel Tips' },
+  { id: 8, name: 'Pet Care' },
+  { id: 9, name: 'Home Decor' },
+  { id: 10, name: 'Sustainable Living' }
 ]
 
 export default function MultipleSelectMinMaxDemo() {

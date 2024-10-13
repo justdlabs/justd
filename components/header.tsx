@@ -1,8 +1,8 @@
-"use client"
+'use client'
 
-import React from "react"
+import React from 'react'
 
-import { Container, Heading } from "ui"
+import { Container, Heading } from 'ui'
 
 export function Header({ children }: { children: React.ReactNode }) {
   return (

@@ -1,6 +1,6 @@
-"use client"
+'use client'
 
-import { Button } from "ui"
+import { Button } from 'ui'
 
 export default function ButtonSizeDemo() {
   return (

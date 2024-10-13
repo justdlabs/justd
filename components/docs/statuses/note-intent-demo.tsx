@@ -1,16 +1,16 @@
-"use client"
+'use client'
 
-import React from "react"
+import React from 'react'
 
-import { OptionPreview } from "@/components/docs/outside/option-preview"
-import { Note, Select } from "ui"
+import { OptionPreview } from '@/components/docs/outside/option-preview'
+import { Note, Select } from 'ui'
 
-const notes = ["info", "primary", "secondary", "warning", "danger", "success"].map((n) => ({
+const notes = ['info', 'primary', 'secondary', 'warning', 'danger', 'success'].map((n) => ({
   name: n
 }))
 
 export default function NoteIntentDemo() {
-  const [selected, setSelected] = React.useState<any>("primary")
+  const [selected, setSelected] = React.useState<any>('primary')
   return (
     <>
       <OptionPreview>

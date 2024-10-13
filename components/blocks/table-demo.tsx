@@ -1,7 +1,7 @@
-"use client"
+'use client'
 
-import { books } from "@/components/docs/collections/table/table-bulk-demo"
-import { Table } from "ui"
+import { books } from '@/components/docs/collections/table/table-bulk-demo'
+import { Table } from 'ui'
 
 export function TableDemo() {
   return (

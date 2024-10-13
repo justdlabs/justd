@@ -1,11 +1,11 @@
-"use client"
+'use client'
 
-import { Tag } from "ui"
+import { Tag } from 'ui'
 
 const articles = [
-  { name: "React Tutorial", url: "#" },
-  { name: "TypeScript Handbook", url: "#" },
-  { name: "JavaScript Guide", url: "#" }
+  { name: 'React Tutorial', url: '#' },
+  { name: 'TypeScript Handbook', url: '#' },
+  { name: 'JavaScript Guide', url: '#' }
 ]
 
 export default function TagGroupControlledDemo() {

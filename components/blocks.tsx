@@ -1,21 +1,21 @@
-"use client"
+'use client'
 
-import React from "react"
+import React from 'react'
 
-import { Buttons } from "@/components/blocks/buttons"
-import { CheckRadioBlock } from "@/components/blocks/check-radio-block"
-import { LoginForm } from "@/components/blocks/login-form"
-import { Menus } from "@/components/blocks/menus"
-import { ModalOverlays, PopoverOverlays } from "@/components/blocks/overlays"
-import { ToolbarBlock } from "@/components/blocks/toolbar-block"
-import ColorPickerCombinationDemo from "@/components/docs/colors/color-picker/color-picker-combination-demo"
-import SwitchDemo from "@/components/docs/controls/switch/switch-demo"
-import CalendarDemo from "@/components/docs/date-and-time/calendar/calendar-demo"
-import TagFieldDemo from "@/components/docs/forms/tag-field/tag-field-demo"
-import ComboBoxAvatarDemo from "@/components/docs/pickers/combo-box/combo-box-avatar-demo"
-import MultipleSelectDemo from "@/components/docs/pickers/multiple-select/multiple-select-demo"
-import { IconCubeFill } from "justd-icons"
-import { buttonStyles, cn, DatePicker, DateRangePicker, Grid, Heading, Link, Note } from "ui"
+import { Buttons } from '@/components/blocks/buttons'
+import { CheckRadioBlock } from '@/components/blocks/check-radio-block'
+import { LoginForm } from '@/components/blocks/login-form'
+import { Menus } from '@/components/blocks/menus'
+import { ModalOverlays, PopoverOverlays } from '@/components/blocks/overlays'
+import { ToolbarBlock } from '@/components/blocks/toolbar-block'
+import ColorPickerCombinationDemo from '@/components/docs/colors/color-picker/color-picker-combination-demo'
+import SwitchDemo from '@/components/docs/controls/switch/switch-demo'
+import CalendarDemo from '@/components/docs/date-and-time/calendar/calendar-demo'
+import TagFieldDemo from '@/components/docs/forms/tag-field/tag-field-demo'
+import ComboBoxAvatarDemo from '@/components/docs/pickers/combo-box/combo-box-avatar-demo'
+import MultipleSelectDemo from '@/components/docs/pickers/multiple-select/multiple-select-demo'
+import { IconCubeFill } from 'justd-icons'
+import { buttonStyles, cn, DatePicker, DateRangePicker, Grid, Heading, Link, Note } from 'ui'
 
 export function Blocks() {
   return (
@@ -116,7 +116,7 @@ export function CardBlock({
     >
       <div
         className={cn(
-          "grid h-full w-full justify-items-center overflow-hidden place-items-center p-6 py-8 sm:p-8 lg:p-12",
+          'grid h-full w-full justify-items-center overflow-hidden place-items-center p-6 py-8 sm:p-8 lg:p-12',
           className
         )}
       >

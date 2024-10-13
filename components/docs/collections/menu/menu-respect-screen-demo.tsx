@@ -1,13 +1,13 @@
-"use client"
+'use client'
 
-import React from "react"
+import React from 'react'
 
-import { buttonStyles, Menu } from "ui"
+import { buttonStyles, Menu } from 'ui'
 
 export default function MenuRespectScreenDemo() {
   return (
     <Menu respectScreen={false}>
-      <Menu.Trigger className={buttonStyles({ appearance: "outline" })}>Open</Menu.Trigger>
+      <Menu.Trigger className={buttonStyles({ appearance: 'outline' })}>Open</Menu.Trigger>
       <Menu.Content placement="bottom" className="min-w-48">
         <Menu.Item>Dashboard</Menu.Item>
         <Menu.Item>Reports</Menu.Item>

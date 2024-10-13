@@ -1,8 +1,8 @@
-"use client"
+'use client'
 
-import { siteConfig } from "@/resources/config/site"
-import { IconBrandGithub } from "justd-icons"
-import { buttonStyles, Container, Heading, Link } from "ui"
+import { siteConfig } from '@/resources/config/site'
+import { IconBrandGithub } from 'justd-icons'
+import { buttonStyles, Container, Heading, Link } from 'ui'
 
 export function Cta() {
   return (
@@ -20,7 +20,7 @@ export function Cta() {
           <Link
             target="_blank"
             href={siteConfig.repo}
-            className={buttonStyles({ size: "large", intent: "secondary" })}
+            className={buttonStyles({ size: 'large', intent: 'secondary' })}
           >
             <IconBrandGithub />
             GitHub

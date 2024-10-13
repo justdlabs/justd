@@ -1,7 +1,7 @@
-"use client"
+'use client'
 
-import { getLocalTimeZone, today } from "@internationalized/date"
-import { Button, DateRangePicker, Form } from "ui"
+import { getLocalTimeZone, today } from '@internationalized/date'
+import { Button, DateRangePicker, Form } from 'ui'
 
 export default function DateRangePickerCustomValidationDemo() {
   return (
@@ -9,7 +9,7 @@ export default function DateRangePickerCustomValidationDemo() {
       <DateRangePicker
         label="Room Booking Dates"
         validate={(range) =>
-          range?.end.compare(range.start) > 7 ? "Maximum booking duration is 1 week." : null
+          range?.end.compare(range.start) > 7 ? 'Maximum booking duration is 1 week.' : null
         }
         defaultValue={{
           start: today(getLocalTimeZone()),

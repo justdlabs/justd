@@ -1,17 +1,17 @@
-"use client"
+'use client'
 
-import * as React from "react"
+import * as React from 'react'
 
 import type {
   ColorFieldProps as ColorFieldPrimitiveProps,
   ValidationResult
-} from "react-aria-components"
-import { ColorField as ColorFieldPrimitive } from "react-aria-components"
+} from 'react-aria-components'
+import { ColorField as ColorFieldPrimitive } from 'react-aria-components'
 
-import { ColorPicker } from "./color-picker"
-import { ColorSwatch } from "./color-swatch"
-import { Description, FieldError, FieldGroup, fieldGroupPrefixStyles, Input, Label } from "./field"
-import { ctr } from "./primitive"
+import { ColorPicker } from './color-picker'
+import { ColorSwatch } from './color-swatch'
+import { Description, FieldError, FieldGroup, fieldGroupPrefixStyles, Input, Label } from './field'
+import { ctr } from './primitive'
 
 interface ColorFieldProps extends ColorFieldPrimitiveProps {
   label?: string
@@ -40,15 +40,15 @@ const ColorField = ({
   return (
     <ColorFieldPrimitive
       {...props}
-      aria-label={props["aria-label"] ?? "Color field"}
+      aria-label={props['aria-label'] ?? 'Color field'}
       className={ctr(
         className,
-        "[&_[data-slot=color-swatch]]:ml-2 group w-full flex flex-col gap-y-1"
+        '[&_[data-slot=color-swatch]]:ml-2 group w-full flex flex-col gap-y-1'
       )}
     >
       {label && <Label>{label}</Label>}
       <FieldGroup
-        data-loading={isLoading ? "true" : undefined}
+        data-loading={isLoading ? 'true' : undefined}
         className={fieldGroupPrefixStyles()}
       >
         {prefix ? <span className="atrs isPfx">{prefix}</span> : null}
@@ -58,7 +58,7 @@ const ColorField = ({
               {enableColorPicker ? (
                 <ColorPicker onChange={props.onChange} defaultValue={value} />
               ) : (
-                <ColorSwatch className="size-6" color={value.toString("hex")} />
+                <ColorSwatch className="size-6" color={value.toString('hex')} />
               )}
             </span>
           )}

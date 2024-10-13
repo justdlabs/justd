@@ -1,14 +1,14 @@
-"use client"
+'use client'
 
-import React from "react"
+import React from 'react'
 
-import { ColorSpace, getColorChannels } from "react-aria-components"
-import { ColorArea, ColorField, ColorPicker, defaultColor, Select } from "ui"
+import { type ColorSpace, getColorChannels } from 'react-aria-components'
+import { ColorArea, ColorField, ColorPicker, defaultColor, Select } from 'ui'
 
 export default function ColorPickerEnableSelectionFormatDemo() {
   const [color, setColor] = React.useState(defaultColor)
   const [isHexFormat, setIsHexFormat] = React.useState(false)
-  const [space, setSpace] = React.useState<ColorSpace>("rgb")
+  const [space, setSpace] = React.useState<ColorSpace>('rgb')
   return (
     <ColorPicker label={color.toString(space)} value={color} onChange={setColor}>
       <>
@@ -19,12 +19,12 @@ export default function ColorPickerEnableSelectionFormatDemo() {
           defaultSelectedKey={space}
           onSelectionChange={(s) => {
             setSpace(s as ColorSpace)
-            setIsHexFormat(s === "hex")
+            setIsHexFormat(s === 'hex')
           }}
         >
           <Select.Trigger />
           <Select.List>
-            {["rgb", "hex", "hsl", "hsb"].map((s) => (
+            {['rgb', 'hex', 'hsl', 'hsb'].map((s) => (
               <Select.Option key={s} id={s} textValue={s}>
                 {s}
               </Select.Option>

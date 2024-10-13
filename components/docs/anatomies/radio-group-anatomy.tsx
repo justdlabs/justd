@@ -1,6 +1,6 @@
-import React from "react"
+import React from 'react'
 
-import { Radio, RadioGroup } from "ui"
+import { Radio, RadioGroup } from 'ui'
 
 export default function RadioGroupAnatomy() {
   return (

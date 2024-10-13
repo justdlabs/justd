@@ -1,4 +1,4 @@
-import { DescriptionList } from "ui"
+import { DescriptionList } from 'ui'
 
 export function DescriptionListAnatomy() {
   return (

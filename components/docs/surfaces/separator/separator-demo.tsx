@@ -1,6 +1,6 @@
-"use client"
+'use client'
 
-import { Separator } from "ui"
+import { Separator } from 'ui'
 
 export default function SeparatorDemo() {
   return <Separator />

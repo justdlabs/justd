@@ -1,7 +1,7 @@
-"use client"
+'use client'
 
-import { IconApple, IconClock, IconCut } from "justd-icons"
-import { Tabs } from "ui"
+import { IconApple, IconClock, IconCut } from 'justd-icons'
+import { Tabs } from 'ui'
 
 export default function TabsIconsDemo() {
   return (

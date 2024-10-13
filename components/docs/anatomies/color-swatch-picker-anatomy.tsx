@@ -1,4 +1,4 @@
-import { ColorSwatchPicker } from "ui"
+import { ColorSwatchPicker } from 'ui'
 
 export default function ColorSwatchPickerAnatomy() {
   return (

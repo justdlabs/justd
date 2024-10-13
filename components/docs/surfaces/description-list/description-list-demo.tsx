@@ -1,4 +1,4 @@
-import { DescriptionList } from "@/components/ui/description-list"
+import { DescriptionList } from '@/components/ui/description-list'
 
 export default function DescriptionListDemo() {
   return (

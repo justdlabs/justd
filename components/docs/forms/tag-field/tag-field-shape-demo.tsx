@@ -1,20 +1,20 @@
-"use client"
+'use client'
 
-import React from "react"
+import React from 'react'
 
-import { useListData } from "react-stately"
-import { TagField } from "ui"
+import { useListData } from 'react-stately'
+import { TagField } from 'ui'
 
 export default function TagFieldShapeDemo() {
   const selectedItems = useListData({
     initialItems: [
       {
         id: 1,
-        name: "Laravel"
+        name: 'Laravel'
       },
       {
         id: 2,
-        name: "Inertia.js"
+        name: 'Inertia.js'
       }
     ]
   })

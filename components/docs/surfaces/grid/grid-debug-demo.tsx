@@ -1,6 +1,6 @@
-"use client"
+'use client'
 
-import { Grid } from "ui"
+import { Grid } from 'ui'
 
 export default function GridDebugDemo() {
   return (

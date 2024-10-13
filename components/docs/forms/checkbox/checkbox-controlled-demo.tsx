@@ -1,8 +1,8 @@
-"use client"
+'use client'
 
-import React from "react"
+import React from 'react'
 
-import { Checkbox, Description } from "ui"
+import { Checkbox, Description } from 'ui'
 
 export default function CheckboxControlledDemo() {
   const [selected, setSelection] = React.useState(false)
@@ -12,7 +12,7 @@ export default function CheckboxControlledDemo() {
         Receive Updates
       </Checkbox>
       <Description className="mt-2 block [&>strong]:text-fg">
-        You have <strong>{selected ? "enabled" : "disabled"}</strong> the option.
+        You have <strong>{selected ? 'enabled' : 'disabled'}</strong> the option.
       </Description>
     </>
   )

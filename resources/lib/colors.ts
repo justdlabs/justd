@@ -1,28 +1,28 @@
-import _colors from "@/app/(app)/colors/(colors)/colors.json"
-import type { FormatOnlyForTailwindVariableType } from "@/resources/types"
-import chroma from "chroma-js"
-import ntc from "ntcjs"
-import { slugify } from "usemods"
+import _colors from '@/app/(app)/colors/(colors)/colors.json'
+import type { FormatOnlyForTailwindVariableType } from '@/resources/types'
+import chroma from 'chroma-js'
+import ntc from 'ntcjs'
+import { slugify } from 'usemods'
 
 const allFormats = [
-  { id: 1, format: "hex" },
-  { id: 3, format: "rgb" },
-  { id: 5, format: "hsl" },
-  { id: 7, format: "hsb" },
-  { id: 9, format: "oklch" },
-  { id: 8, format: "hsba" },
-  { id: 6, format: "hsla" },
-  { id: 4, format: "rgba" }
+  { id: 1, format: 'hex' },
+  { id: 3, format: 'rgb' },
+  { id: 5, format: 'hsl' },
+  { id: 7, format: 'hsb' },
+  { id: 9, format: 'oklch' },
+  { id: 8, format: 'hsba' },
+  { id: 6, format: 'hsla' },
+  { id: 4, format: 'rgba' }
 ] as const
 
 const formatOnlyForTailwindVariable = [
-  { id: 1, format: "rgb" },
-  { id: 5, format: "hsb" },
-  { id: 3, format: "hsl" },
-  { id: 6, format: "oklch" },
-  { id: 4, format: "hsla" },
-  { id: 6, format: "hsba" },
-  { id: 2, format: "rgba" }
+  { id: 1, format: 'rgb' },
+  { id: 5, format: 'hsb' },
+  { id: 3, format: 'hsl' },
+  { id: 6, format: 'oklch' },
+  { id: 4, format: 'hsla' },
+  { id: 6, format: 'hsba' },
+  { id: 2, format: 'rgba' }
 ] as const
 
 const formatOnlyForTailwindVariableValues = formatOnlyForTailwindVariable.map(
@@ -35,9 +35,9 @@ const formatColorForTailwind = (
 ): string => {
   return formatOnlyForTailwindVariableValues.includes(format)
     ? colorString
-        .replace(/(rgb|rgba|hsl|hsla|hsb|hsba|oklch)[(a]?/g, "")
-        .replace(/[()]/g, "")
-        .replace(/,\s*/g, " ")
+        .replace(/(rgb|rgba|hsl|hsla|hsb|hsba|oklch)[(a]?/g, '')
+        .replace(/[()]/g, '')
+        .replace(/,\s*/g, ' ')
         .trim()
     : colorString
 }
@@ -47,7 +47,7 @@ type ColorData = Record<number, string>
 const generateColorScale = (color: string): { shade: number; color: string }[] => {
   const inputColor = color.toLowerCase()
   const colorEntry = (_colors as Array<[string, ColorData]>).find(([_, colors]) => {
-    return colors["500"].toLowerCase() === inputColor
+    return colors['500'].toLowerCase() === inputColor
   })
 
   if (colorEntry) {
@@ -55,7 +55,7 @@ const generateColorScale = (color: string): { shade: number; color: string }[] =
 
     return shades.map((shade) => ({
       shade,
-      color: colorData[shade] || ""
+      color: colorData[shade] || ''
     }))
   }
 
@@ -86,38 +86,38 @@ const getColorName = (hex: string, slug = true) => {
 
 const textColorBasedOnBg = (bgColor: string): string => {
   const luminance = chroma(bgColor).luminance()
-  return luminance > 0.3 ? "#000000" : "#FFFFFF"
+  return luminance > 0.3 ? '#000000' : '#FFFFFF'
 }
 
 const tailwindColorNames = [
-  "slate",
-  "gray",
-  "zinc",
-  "neutral",
-  "stone",
-  "red",
-  "orange",
-  "amber",
-  "yellow",
-  "lime",
-  "green",
-  "emerald",
-  "teal",
-  "cyan",
-  "sky",
-  "blue",
-  "indigo",
-  "violet",
-  "purple",
-  "fuchsia",
-  "pink",
-  "rose"
+  'slate',
+  'gray',
+  'zinc',
+  'neutral',
+  'stone',
+  'red',
+  'orange',
+  'amber',
+  'yellow',
+  'lime',
+  'green',
+  'emerald',
+  'teal',
+  'cyan',
+  'sky',
+  'blue',
+  'indigo',
+  'violet',
+  'purple',
+  'fuchsia',
+  'pink',
+  'rose'
 ]
 
 const rgbToOklch = (rgb: string): string => {
   const colorOklch = chroma(rgb).oklch()
   const [l, c, h] = colorOklch
-  const lightness = (l * 100).toFixed(2) + "%"
+  const lightness = (l * 100).toFixed(2) + '%'
   const chromaValue = c.toFixed(3)
   const hue = h.toFixed(2)
 

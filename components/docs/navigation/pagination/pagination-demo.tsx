@@ -1,6 +1,6 @@
-"use client"
+'use client'
 
-import { Pagination } from "ui"
+import { Pagination } from 'ui'
 
 export default function PaginationDemo() {
   return (

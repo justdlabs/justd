@@ -1,28 +1,28 @@
-"use client"
+'use client'
 
-import { IconTrendingChart3 } from "justd-icons"
-import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
-import { Card, Chart, type ChartConfig } from "ui"
+import { IconTrendingChart3 } from 'justd-icons'
+import { Area, AreaChart, CartesianGrid, XAxis } from 'recharts'
+import { Card, Chart, type ChartConfig } from 'ui'
 
 const data = [
-  { month: "January", sales: 900 },
-  { month: "February", sales: 1200 },
-  { month: "March", sales: 700 },
-  { month: "April", sales: 900 },
-  { month: "May", sales: 2100 },
-  { month: "June", sales: 800 },
-  { month: "July", sales: 1000 },
-  { month: "August", sales: 2400 },
-  { month: "September", sales: 1237 },
-  { month: "October", sales: 2173 },
-  { month: "November", sales: 1209 },
-  { month: "December", sales: 2214 }
+  { month: 'January', sales: 900 },
+  { month: 'February', sales: 1200 },
+  { month: 'March', sales: 700 },
+  { month: 'April', sales: 900 },
+  { month: 'May', sales: 2100 },
+  { month: 'June', sales: 800 },
+  { month: 'July', sales: 1000 },
+  { month: 'August', sales: 2400 },
+  { month: 'September', sales: 1237 },
+  { month: 'October', sales: 2173 },
+  { month: 'November', sales: 1209 },
+  { month: 'December', sales: 2214 }
 ]
 
 const config = {
   sales: {
-    label: "Sales",
-    color: "hsl(var(--primary-chart))"
+    label: 'Sales',
+    color: 'hsl(var(--primary-chart))'
   }
 } satisfies ChartConfig
 

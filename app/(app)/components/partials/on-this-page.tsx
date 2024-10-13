@@ -1,12 +1,12 @@
-"use client"
+'use client'
 
-import React from "react"
+import React from 'react'
 
-import { groupedComponents } from "@/app/(app)/components/partials/card-list-box"
-import { useActiveItem } from "@/components/table-of-contents"
-import { goodTitle } from "@/resources/lib/utils"
-import { ListBox, ListBoxItem, ListBoxItemProps } from "react-aria-components"
-import { cn, Heading, useMediaQuery } from "ui"
+import { groupedComponents } from '@/app/(app)/components/partials/card-list-box'
+import { useActiveItem } from '@/components/table-of-contents'
+import { goodTitle } from '@/resources/lib/utils'
+import { ListBox, ListBoxItem, type ListBoxItemProps } from 'react-aria-components'
+import { cn, Heading, useMediaQuery } from 'ui'
 
 const navigations = Object.keys(groupedComponents).map((x) => {
   return {
@@ -17,8 +17,8 @@ const navigations = Object.keys(groupedComponents).map((x) => {
 })
 
 export function OnThisPage() {
-  const activeId = useActiveItem(navigations.map((x) => x.href.split("#")[1]))
-  const isDesktop = useMediaQuery("(min-width: 1024px)")
+  const activeId = useActiveItem(navigations.map((x) => x.href.split('#')[1]))
+  const isDesktop = useMediaQuery('(min-width: 1024px)')
   return (
     <>
       {isDesktop ? (
@@ -28,7 +28,7 @@ export function OnThisPage() {
           </Heading>
           <ListBox aria-label="On this page">
             {navigations.map(({ text, href, id }) => (
-              <AsideLink key={id} id={id} activeId={activeId || ""} text={text} href={href} />
+              <AsideLink key={id} id={id} activeId={activeId || ''} text={text} href={href} />
             ))}
           </ListBox>
         </div>
@@ -47,8 +47,8 @@ export function AsideLink({ text, href, activeId }: AsideLinkProps) {
   return (
     <ListBoxItem
       className={cn(
-        "focus:outline-none focus-visible:font-medium focus-visible:text-fg py-1.5 block hover:text-fg",
-        href.split("#")[1] === activeId ? "text-fg font-medium" : "text-muted-fg"
+        'focus:outline-none focus-visible:font-medium focus-visible:text-fg py-1.5 block hover:text-fg',
+        href.split('#')[1] === activeId ? 'text-fg font-medium' : 'text-muted-fg'
       )}
       href={href}
     >

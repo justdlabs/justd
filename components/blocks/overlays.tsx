@@ -1,7 +1,7 @@
-"use client"
+'use client'
 
-import { CardBlock } from "@/components/blocks"
-import { Button, Modal, Popover } from "ui"
+import { CardBlock } from '@/components/blocks'
+import { Button, Modal, Popover } from 'ui'
 
 export function PopoverOverlays() {
   return (

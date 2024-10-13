@@ -1,6 +1,6 @@
-"use client"
+'use client'
 
-import { Tabs } from "ui"
+import { Tabs } from 'ui'
 
 export default function TabsAnatomy() {
   return (

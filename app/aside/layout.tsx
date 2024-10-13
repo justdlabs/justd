@@ -1,9 +1,9 @@
-"use client"
+'use client'
 
-import React from "react"
+import React from 'react'
 
-import { useTheme } from "@/components/theme-provider"
-import { ThemeSwitcher } from "@/components/theme-switcher"
+import { useTheme } from '@/components/theme-provider'
+import { ThemeSwitcher } from '@/components/theme-switcher'
 import {
   IconArchive,
   IconBag,
@@ -26,8 +26,8 @@ import {
   IconShield,
   IconSun,
   IconSupport
-} from "justd-icons"
-import { Aside, Avatar, Button, Link, Menu } from "ui"
+} from 'justd-icons'
+import { Aside, Avatar, Button, Link, Menu } from 'ui'
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const { theme, setTheme } = useTheme()
@@ -164,8 +164,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   Security
                 </Menu.Item>
                 <Menu.Separator />
-                <Menu.Item onAction={() => setTheme(theme === "light" ? "dark" : "light")}>
-                  {theme === "light" ? <IconMoon /> : <IconSun />}
+                <Menu.Item onAction={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
+                  {theme === 'light' ? <IconMoon /> : <IconSun />}
                   Preferences
                 </Menu.Item>
                 <Menu.Separator />

@@ -1,8 +1,8 @@
-"use client"
+'use client'
 
-import React from "react"
+import React from 'react'
 
-import { Description } from "ui"
+import { Description } from 'ui'
 
 export function BlockOfCard() {
   return (

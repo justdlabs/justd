@@ -1,15 +1,15 @@
-"use client"
+'use client'
 
-import * as React from "react"
-import { useEffect, useState } from "react"
+import * as React from 'react'
+import { useEffect, useState } from 'react'
 
-import { ColorGenerator } from "@/app/(app)/colors/(colors)/color-generator"
-import _colors from "@/app/(app)/colors/(colors)/colors.json"
-import { useInView } from "react-intersection-observer"
-import type { ColorItemProps } from "resources/types"
-import { Container, gridStyles, Loader } from "ui"
+import { ColorGenerator } from '@/app/(app)/colors/(colors)/color-generator'
+import _colors from '@/app/(app)/colors/(colors)/colors.json'
+import { useInView } from 'react-intersection-observer'
+import type { ColorItemProps } from 'resources/types'
+import { Container, gridStyles, Loader } from 'ui'
 
-import { ColorRow } from "./color-row"
+import { ColorRow } from './color-row'
 
 const filteredColors = _colors.map(([name, colorShades]) => ({
   name,

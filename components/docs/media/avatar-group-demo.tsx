@@ -1,6 +1,6 @@
-"use client"
+'use client'
 
-import { Avatar, AvatarGroup } from "ui"
+import { Avatar, AvatarGroup } from 'ui'
 
 export default function AvatarGroupDemo() {
   return (

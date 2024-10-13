@@ -1,6 +1,6 @@
-"use client"
+'use client'
 
-import { Avatar } from "ui"
+import { Avatar } from 'ui'
 
 export default function AvatarSizeDemo() {
   return (

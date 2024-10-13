@@ -1,14 +1,14 @@
-"use client"
+'use client'
 
-import React from "react"
+import React from 'react'
 
-import { Meter } from "ui"
+import { Meter } from 'ui'
 
 export default function MeterDecimalFormatDemo() {
   return (
     <Meter
       formatOptions={{
-        style: "decimal",
+        style: 'decimal',
         minimumFractionDigits: 2,
         maximumFractionDigits: 2
       }}

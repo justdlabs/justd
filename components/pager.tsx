@@ -1,9 +1,9 @@
-"use client"
+'use client'
 
-import { cn } from "@/resources/lib/utils"
-import { IconChevronLgLeft, IconChevronLgRight } from "justd-icons"
-import Link from "next/link"
-import { buttonStyles } from "ui"
+import { cn } from '@/resources/lib/utils'
+import { IconChevronLgLeft, IconChevronLgRight } from 'justd-icons'
+import Link from 'next/link'
+import { buttonStyles } from 'ui'
 
 interface Doc {
   order: number
@@ -30,8 +30,8 @@ const getPagerForDoc = (docs: Doc[], doc: Doc) => {
 
 export function Pager({ docs, doc }: { docs: Doc[]; doc: Doc }) {
   const groupedAndSortedDocs = docs.sort((a, b) => {
-    const groupA = a.slug.split("/")[2]
-    const groupB = b.slug.split("/")[2]
+    const groupA = a.slug.split('/')[2]
+    const groupB = b.slug.split('/')[2]
 
     if (groupA === groupB) {
       return a.order - b.order
@@ -52,7 +52,7 @@ export function Pager({ docs, doc }: { docs: Doc[]; doc: Doc }) {
         <Link
           aria-label={`Previous page: ${pager.prev.title}`}
           href={pager.prev.href}
-          className={buttonStyles({ appearance: "outline" })}
+          className={buttonStyles({ appearance: 'outline' })}
         >
           <IconChevronLgLeft />
           {pager.prev.title}
@@ -62,7 +62,7 @@ export function Pager({ docs, doc }: { docs: Doc[]; doc: Doc }) {
         <Link
           aria-label={`Next page: ${pager.next.title}`}
           href={pager.next.href}
-          className={cn(buttonStyles({ appearance: "outline" }), "ml-auto")}
+          className={cn(buttonStyles({ appearance: 'outline' }), 'ml-auto')}
         >
           {pager.next.title}
           <IconChevronLgRight />

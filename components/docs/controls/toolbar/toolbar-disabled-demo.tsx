@@ -1,6 +1,6 @@
-"use client"
+'use client'
 
-import React from "react"
+import React from 'react'
 
 import {
   IconAlignmentJustify,
@@ -17,8 +17,8 @@ import {
   IconPencilBoxFill,
   IconToolbox,
   IconToolboxFill
-} from "justd-icons"
-import { Toggle, Toolbar } from "ui"
+} from 'justd-icons'
+import { Toggle, Toolbar } from 'ui'
 
 export default function ToolbarDisabledDemo() {
   return (

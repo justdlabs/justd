@@ -1,57 +1,57 @@
-"use client"
+'use client'
 
-import * as React from "react"
+import * as React from 'react'
 
-import { Text, ToggleButton } from "react-aria-components"
-import { tv } from "tailwind-variants"
+import { Text, ToggleButton } from 'react-aria-components'
+import { tv } from 'tailwind-variants'
 
-import { buttonStyles } from "./button"
-import { cr } from "./primitive"
+import { buttonStyles } from './button'
+import { cr } from './primitive'
 
 const showMoreStyles = tv({
-  base: "text-sm leading-6 after:border-muted before:border-muted",
+  base: 'text-sm leading-6 after:border-muted before:border-muted',
   variants: {
     orientation: {
-      vertical: "mx-1 h-auto self-stretch",
-      horizontal: "my-0.5 h-px w-full self-stretch"
+      vertical: 'mx-1 h-auto self-stretch',
+      horizontal: 'my-0.5 h-px w-full self-stretch'
     }
   },
   compoundVariants: [
     {
-      orientation: "vertical",
+      orientation: 'vertical',
       className:
-        "mx-2 flex flex-col items-center before:border-l before:flex-1 before:mb-2 after:border-r after:flex-1 after:mt-2"
+        'mx-2 flex flex-col items-center before:border-l before:flex-1 before:mb-2 after:border-r after:flex-1 after:mt-2'
     },
     {
-      orientation: "horizontal",
+      orientation: 'horizontal',
       className:
-        "self-stretch my-2 flex items-center before:border-t before:flex-1 before:mr-2 after:border-t after:flex-1 after:ml-2"
+        'self-stretch my-2 flex items-center before:border-t before:flex-1 before:mr-2 after:border-t after:flex-1 after:ml-2'
     }
   ],
   defaultVariants: {
-    orientation: "horizontal"
+    orientation: 'horizontal'
   }
 })
 
 interface ShowMoreProps extends React.ComponentProps<typeof ToggleButton> {
   className?: string
-  orientation?: "horizontal" | "vertical"
-  as?: "text" | "button"
+  orientation?: 'horizontal' | 'vertical'
+  as?: 'text' | 'button'
   text?: string
 }
 
 const ShowMore = ({
-  as = "button",
-  orientation = "horizontal",
+  as = 'button',
+  orientation = 'horizontal',
   className,
   ...props
 }: ShowMoreProps) => {
   return (
     <div className={showMoreStyles({ orientation, className })}>
-      {as === "button" ? (
+      {as === 'button' ? (
         <ToggleButton
           {...props}
-          className={buttonStyles({ shape: "circle", appearance: "outline", size: "small" })}
+          className={buttonStyles({ shape: 'circle', appearance: 'outline', size: 'small' })}
         >
           {cr(props.children, (children) => (
             <>{children}</>

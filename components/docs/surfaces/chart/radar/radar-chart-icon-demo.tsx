@@ -1,27 +1,27 @@
-"use client"
+'use client'
 
-import { IconArrowWall2Down, IconArrowWallUp, IconTrendingChart3 } from "justd-icons"
-import { PolarAngleAxis, PolarGrid, Radar, RadarChart } from "recharts"
-import { Card, Chart, ChartConfig } from "ui"
+import { IconArrowWall2Down, IconArrowWallUp, IconTrendingChart3 } from 'justd-icons'
+import { PolarAngleAxis, PolarGrid, Radar, RadarChart } from 'recharts'
+import { Card, Chart, type ChartConfig } from 'ui'
 
 const data = [
-  { month: "January", sales: 186, profit: 80 },
-  { month: "February", sales: 305, profit: 200 },
-  { month: "March", sales: 237, profit: 120 },
-  { month: "April", sales: 73, profit: 190 },
-  { month: "May", sales: 209, profit: 130 },
-  { month: "June", sales: 214, profit: 140 }
+  { month: 'January', sales: 186, profit: 80 },
+  { month: 'February', sales: 305, profit: 200 },
+  { month: 'March', sales: 237, profit: 120 },
+  { month: 'April', sales: 73, profit: 190 },
+  { month: 'May', sales: 209, profit: 130 },
+  { month: 'June', sales: 214, profit: 140 }
 ]
 
 const config = {
   sales: {
-    label: "Sales",
-    color: "hsl(var(--primary-chart))",
+    label: 'Sales',
+    color: 'hsl(var(--primary-chart))',
     icon: IconArrowWallUp
   },
   profit: {
-    label: "Profit",
-    color: "hsl(var(--secondary-chart))",
+    label: 'Profit',
+    color: 'hsl(var(--secondary-chart))',
     icon: IconArrowWall2Down
   }
 } satisfies ChartConfig

@@ -1,35 +1,35 @@
-"use client"
+'use client'
 
-import * as React from "react"
+import * as React from 'react'
 
-import type { Placement } from "@react-types/overlays"
-import { IconChevronLgDown } from "justd-icons"
-import type { ButtonProps } from "react-aria-components"
+import type { Placement } from '@react-types/overlays'
+import { IconChevronLgDown } from 'justd-icons'
+import type { ButtonProps } from 'react-aria-components'
 import {
   Button,
   Select as SelectPrimitive,
   type SelectProps as SelectPrimitiveProps,
   SelectValue,
   type ValidationResult
-} from "react-aria-components"
-import { tv } from "tailwind-variants"
+} from 'react-aria-components'
+import { tv } from 'tailwind-variants'
 
-import { DropdownItem, DropdownItemDetails, DropdownSection } from "./dropdown"
-import { Description, FieldError, Label } from "./field"
-import { ListBox } from "./list-box"
-import { Popover } from "./popover"
-import { cr, ctr, focusStyles } from "./primitive"
+import { DropdownItem, DropdownItemDetails, DropdownSection } from './dropdown'
+import { Description, FieldError, Label } from './field'
+import { ListBox } from './list-box'
+import { Popover } from './popover'
+import { cr, ctr, focusStyles } from './primitive'
 
 const selectTriggerStyles = tv({
   extend: focusStyles,
   base: [
-    "btr group-disabled:bg-secondary [&_[data-slot=icon]]:size-4 group-disabled:opacity-50 focus-visible:border-primary focus-visible:ring-4 focus-visible:ring-primary/20 group-open:border-primary group-open:ring-4 group-open:ring-primary/20 flex h-10 w-full cursor-default items-center gap-4 rounded-lg border border-input bg-bg py-2 pl-3 pr-2 text-start shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)] transition dark:shadow-none"
+    'btr group-disabled:bg-secondary [&_[data-slot=icon]]:size-4 group-disabled:opacity-50 focus-visible:border-primary focus-visible:ring-4 focus-visible:ring-primary/20 group-open:border-primary group-open:ring-4 group-open:ring-primary/20 flex h-10 w-full cursor-default items-center gap-4 rounded-lg border border-input bg-bg py-2 pl-3 pr-2 text-start shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)] transition dark:shadow-none'
   ],
   variants: {
     isDisabled: {
       false:
-        "text-fg group-invalid:border-danger group-invalid:ring-danger/20 forced-colors:group-invalid:border-[Mark]",
-      true: "bg-secondary text-muted-fg forced-colors:border-[GrayText] forced-colors:text-[GrayText]"
+        'text-fg group-invalid:border-danger group-invalid:ring-danger/20 forced-colors:group-invalid:border-[Mark]',
+      true: 'bg-secondary text-muted-fg forced-colors:border-[GrayText] forced-colors:text-[GrayText]'
     }
   }
 })
@@ -51,7 +51,7 @@ const Select = <T extends object>({
   ...props
 }: SelectProps<T>) => {
   return (
-    <SelectPrimitive {...props} className={ctr(className, "group flex w-full flex-col gap-1")}>
+    <SelectPrimitive {...props} className={ctr(className, 'group flex w-full flex-col gap-1')}>
       {label && <Label>{label}</Label>}
       <>{children}</>
       {description && <Description>{description}</Description>}

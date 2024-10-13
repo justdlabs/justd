@@ -1,8 +1,8 @@
-"use client"
+'use client'
 
-import React from "react"
+import React from 'react'
 
-import { ProgressCircle, Slider } from "ui"
+import { ProgressCircle, Slider } from 'ui'
 
 export default function ProgressCircleControlledDemo() {
   const [value, setValue] = React.useState(10)

@@ -1,8 +1,8 @@
-"use client"
+'use client'
 
-import React from "react"
+import React from 'react'
 
-import { Slider } from "ui"
+import { Slider } from 'ui'
 
 export default function SliderControlledDemo() {
   const [temperature, setTemperature] = React.useState<number>(31)
@@ -14,7 +14,7 @@ export default function SliderControlledDemo() {
           value={temperature}
           onChange={(v) => setTemperature(v as number)}
           label="Temperature"
-          description={`Current temperature: ${temperature ?? "-"}`}
+          description={`Current temperature: ${temperature ?? '-'}`}
         />
       </div>
       <div>
@@ -22,7 +22,7 @@ export default function SliderControlledDemo() {
           value={saturation}
           onChange={(v) => setSaturation(v as number[])}
           label="Saturation"
-          description={`Current saturation: ${saturation ?? "-"}`}
+          description={`Current saturation: ${saturation ?? '-'}`}
         />
       </div>
     </div>

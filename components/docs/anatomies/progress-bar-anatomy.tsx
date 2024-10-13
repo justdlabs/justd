@@ -1,6 +1,6 @@
-import React from "react"
+import React from 'react'
 
-import { ProgressBar } from "ui"
+import { ProgressBar } from 'ui'
 
 export default function ProgressBarAnatomy() {
   return (

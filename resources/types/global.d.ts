@@ -1,8 +1,8 @@
-import "rehype-pretty-code"
+import 'rehype-pretty-code'
 
-declare module "react-syntax-highlighter/dist/esm/styles/prism"
+declare module 'react-syntax-highlighter/dist/esm/styles/prism'
 
-declare module "rehype-pretty-code" {
+declare module 'rehype-pretty-code' {
   interface Options {
     theme?: string
     onVisitLine?: (node: any) => void

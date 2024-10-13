@@ -1,8 +1,8 @@
-import { Disclosure, DisclosureGroup } from "ui"
+import { Disclosure, DisclosureGroup } from 'ui'
 
 export default function DisclosureAnatomy() {
   return (
-    <DisclosureGroup defaultExpandedKeys={["x"]}>
+    <DisclosureGroup defaultExpandedKeys={['x']}>
       <Disclosure id="x">
         <Disclosure.Trigger>Q1</Disclosure.Trigger>
         <Disclosure.Panel>A1</Disclosure.Panel>

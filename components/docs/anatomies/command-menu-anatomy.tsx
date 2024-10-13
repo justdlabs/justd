@@ -1,7 +1,7 @@
-import React from "react"
+import React from 'react'
 
-import { IconHome } from "justd-icons"
-import { CommandMenu, Link } from "ui"
+import { IconHome } from 'justd-icons'
+import { CommandMenu, Link } from 'ui'
 
 export default function CommandMenuAnatomy() {
   const [isOpen, setIsOpen] = React.useState(false)

@@ -1,14 +1,14 @@
-"use client"
+'use client'
 
-import * as React from "react"
+import * as React from 'react'
 
-import { AnimatePresence, motion } from "framer-motion"
-import { IconCheck, IconDuplicate } from "justd-icons"
-import { toast } from "sonner"
-import { twMerge } from "tailwind-merge"
+import { AnimatePresence, motion } from 'framer-motion'
+import { IconCheck, IconDuplicate } from 'justd-icons'
+import { toast } from 'sonner'
+import { twMerge } from 'tailwind-merge'
 
-import { Button, type ButtonProps } from "./button"
-import { cn } from "./primitive"
+import { Button, type ButtonProps } from './button'
+import { cn } from './primitive'
 
 const snippetVariants = {
   hidden: { opacity: 0, scale: 0.5 },
@@ -28,7 +28,7 @@ const Snippet: React.FC<SnippetProps> = ({ className, text, ...props }) => {
       setCopied(true)
       setTimeout(() => setCopied(false), 2000) // Reset the copied state after 2 seconds
     } else {
-      toast.error("Failed to copy to clipboard")
+      toast.error('Failed to copy to clipboard')
     }
   }
 
@@ -36,7 +36,7 @@ const Snippet: React.FC<SnippetProps> = ({ className, text, ...props }) => {
     <div
       {...props}
       className={twMerge(
-        "relative flex items-center justify-between rounded-lg border bg-[#0e0e10] text-white py-2.5 pl-3 pr-2.5 font-mono text-sm [&>svg:hover]:text-white [&>svg]:text-muted-fg [&>svg]:transition [&_svg]:shrink-0",
+        'relative flex items-center justify-between rounded-lg border bg-[#0e0e10] text-white py-2.5 pl-3 pr-2.5 font-mono text-sm [&>svg:hover]:text-white [&>svg]:text-muted-fg [&>svg]:transition [&_svg]:shrink-0',
         className
       )}
     >
@@ -87,7 +87,7 @@ interface CopyButtonProps extends ButtonProps {
 const CopyButton = ({
   initialIcon,
   copiedIcon,
-  ariaLabel = "Copy",
+  ariaLabel = 'Copy',
   isCopied,
   className,
   ...props
@@ -95,7 +95,7 @@ const CopyButton = ({
   return (
     <Button
       className={cn(
-        "size-7 backdrop-blur-lg rounded-md text-white bg-zinc-800 border hover:bg-zinc-700 border-zinc-700",
+        'size-7 backdrop-blur-lg rounded-md text-white bg-zinc-800 border hover:bg-zinc-700 border-zinc-700',
         className
       )}
       aria-label={ariaLabel}

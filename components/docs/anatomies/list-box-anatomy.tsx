@@ -1,4 +1,4 @@
-import { ListBox } from "ui"
+import { ListBox } from 'ui'
 
 export default function ListBoxAnatomy() {
   return (

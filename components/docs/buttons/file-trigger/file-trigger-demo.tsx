@@ -1,8 +1,8 @@
-"use client"
+'use client'
 
-import React from "react"
+import React from 'react'
 
-import { FileTrigger } from "ui"
+import { FileTrigger } from 'ui'
 
 export default function FileTriggerDemo() {
   return <FileTrigger />

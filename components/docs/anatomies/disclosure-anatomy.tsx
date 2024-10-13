@@ -1,4 +1,4 @@
-import { Disclosure } from "ui"
+import { Disclosure } from 'ui'
 
 export default function DisclosureAnatomy() {
   return (

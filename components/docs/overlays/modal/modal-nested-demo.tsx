@@ -1,9 +1,9 @@
-"use client"
+'use client'
 
-import React from "react"
+import React from 'react'
 
-import { toast } from "sonner"
-import { Button, Form, Modal, Textarea } from "ui"
+import { toast } from 'sonner'
+import { Button, Form, Modal, Textarea } from 'ui'
 
 export default function ModalNestedDemo() {
   const [isRegistrationModalOpen, setIsRegistrationModalOpen] = React.useState(false)
@@ -39,7 +39,7 @@ export default function ModalNestedDemo() {
         isOpen={isProfileSetupModalOpen}
         onOpenChange={(isOpen) => {
           if (!isOpen && isTyping) {
-            toast("Profile setup incomplete")
+            toast('Profile setup incomplete')
           }
           setIsProfileSetupModalOpen(isOpen)
         }}
@@ -54,7 +54,7 @@ export default function ModalNestedDemo() {
         <Form
           onSubmit={(e) => {
             e.preventDefault()
-            toast.success("Profile setup complete")
+            toast.success('Profile setup complete')
             setIsProfileSetupModalOpen(false)
             setIsRegistrationModalOpen(false)
           }}

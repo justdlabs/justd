@@ -5,8 +5,8 @@ import {
   IconCirclePerson,
   IconDashboard,
   IconSearch
-} from "justd-icons"
-import { Aside, Avatar, Button, Link, Menu } from "ui"
+} from 'justd-icons'
+import { Aside, Avatar, Button, Link, Menu } from 'ui'
 
 export default function AsideAnatomy() {
   return (

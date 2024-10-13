@@ -1,8 +1,8 @@
-"use client"
+'use client'
 
-import React from "react"
+import React from 'react'
 
-import { Button, Card, Switch } from "ui"
+import { Button, Card, Switch } from 'ui'
 
 export function Buttons() {
   return (

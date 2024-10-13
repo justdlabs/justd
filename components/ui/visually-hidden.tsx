@@ -1,8 +1,8 @@
-"use client"
+'use client'
 
-import * as React from "react"
+import * as React from 'react'
 
-import { useVisuallyHidden } from "react-aria"
+import { useVisuallyHidden } from 'react-aria'
 
 type VisuallyHiddenSpanProps = {
   children: React.ReactNode

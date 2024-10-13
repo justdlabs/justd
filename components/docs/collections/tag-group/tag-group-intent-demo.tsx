@@ -1,15 +1,15 @@
-"use client"
+'use client'
 
-import React from "react"
+import React from 'react'
 
-import { useListData } from "react-stately"
-import { Tag } from "ui"
+import { useListData } from 'react-stately'
+import { Tag } from 'ui'
 
 const shoes = [
-  { id: "1", name: "Nike", available: true },
-  { id: "2", name: "Adidas", available: false },
-  { id: "3", name: "Puma", available: true },
-  { id: "4", name: "Reebok", available: true }
+  { id: '1', name: 'Nike', available: true },
+  { id: '2', name: 'Adidas', available: false },
+  { id: '3', name: 'Puma', available: true },
+  { id: '4', name: 'Reebok', available: true }
 ]
 
 export default function TagGroupIntentDemo() {

@@ -1,4 +1,4 @@
-import { Breadcrumb, Breadcrumbs } from "ui"
+import { Breadcrumb, Breadcrumbs } from 'ui'
 
 export default function BreadcrumbsAnatomy() {
   return (

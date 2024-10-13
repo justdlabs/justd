@@ -1,6 +1,6 @@
-import { type Docs, docs } from "@/.velite"
-import { siteConfig } from "@/resources/config/site"
-import type { MetadataRoute } from "next"
+import { type Docs, docs } from '@/.velite'
+import { siteConfig } from '@/resources/config/site'
+import type { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
@@ -9,23 +9,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date()
     },
     {
-      url: siteConfig.url + "/components",
+      url: siteConfig.url + '/components',
       lastModified: new Date()
     },
     {
-      url: siteConfig.url + "/icons",
+      url: siteConfig.url + '/icons',
       lastModified: new Date()
     },
     {
-      url: siteConfig.url + "/colors",
+      url: siteConfig.url + '/colors',
       lastModified: new Date()
     },
     {
-      url: siteConfig.url + "/themes",
+      url: siteConfig.url + '/themes',
       lastModified: new Date()
     },
     {
-      url: siteConfig.url + "/charts",
+      url: siteConfig.url + '/charts',
       lastModified: new Date()
     },
     ...docs.map((doc: Docs) => ({

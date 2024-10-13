@@ -1,40 +1,40 @@
-"use client"
+'use client'
 
-import { IconTrendingChart3 } from "justd-icons"
-import { Bar, BarChart, CartesianGrid, XAxis } from "recharts"
-import { Card, Chart, ChartConfig } from "ui"
+import { IconTrendingChart3 } from 'justd-icons'
+import { Bar, BarChart, CartesianGrid, XAxis } from 'recharts'
+import { Card, Chart, type ChartConfig } from 'ui'
 
 const data = [
-  { month: "January", onlineCourses: 1200, webinars: 800 },
-  { month: "February", onlineCourses: 800, webinars: 950 },
-  { month: "March", onlineCourses: 1200, webinars: 1200 },
-  { month: "April", onlineCourses: 1000, webinars: 1500 },
-  { month: "May", onlineCourses: 1200, webinars: 1300 },
-  { month: "June", onlineCourses: 1200, webinars: 1700 },
-  { month: "July", onlineCourses: 1500, webinars: 1400 },
-  { month: "August", onlineCourses: 1400, webinars: 2100 },
-  { month: "September", onlineCourses: 2300, webinars: 1600 },
-  { month: "October", onlineCourses: 1173, webinars: 2190 },
-  { month: "November", onlineCourses: 1200, webinars: 1600 },
-  { month: "December", onlineCourses: 1200, webinars: 1600 },
-  { month: "January", onlineCourses: 1200, webinars: 800 },
-  { month: "February", onlineCourses: 800, webinars: 950 },
-  { month: "March", onlineCourses: 1200, webinars: 1200 },
-  { month: "April", onlineCourses: 1000, webinars: 1500 },
-  { month: "May", onlineCourses: 1200, webinars: 1300 },
-  { month: "June", onlineCourses: 1200, webinars: 1700 },
-  { month: "July", onlineCourses: 1500, webinars: 1400 },
-  { month: "August", onlineCourses: 1400, webinars: 2100 }
+  { month: 'January', onlineCourses: 1200, webinars: 800 },
+  { month: 'February', onlineCourses: 800, webinars: 950 },
+  { month: 'March', onlineCourses: 1200, webinars: 1200 },
+  { month: 'April', onlineCourses: 1000, webinars: 1500 },
+  { month: 'May', onlineCourses: 1200, webinars: 1300 },
+  { month: 'June', onlineCourses: 1200, webinars: 1700 },
+  { month: 'July', onlineCourses: 1500, webinars: 1400 },
+  { month: 'August', onlineCourses: 1400, webinars: 2100 },
+  { month: 'September', onlineCourses: 2300, webinars: 1600 },
+  { month: 'October', onlineCourses: 1173, webinars: 2190 },
+  { month: 'November', onlineCourses: 1200, webinars: 1600 },
+  { month: 'December', onlineCourses: 1200, webinars: 1600 },
+  { month: 'January', onlineCourses: 1200, webinars: 800 },
+  { month: 'February', onlineCourses: 800, webinars: 950 },
+  { month: 'March', onlineCourses: 1200, webinars: 1200 },
+  { month: 'April', onlineCourses: 1000, webinars: 1500 },
+  { month: 'May', onlineCourses: 1200, webinars: 1300 },
+  { month: 'June', onlineCourses: 1200, webinars: 1700 },
+  { month: 'July', onlineCourses: 1500, webinars: 1400 },
+  { month: 'August', onlineCourses: 1400, webinars: 2100 }
 ]
 
 const config = {
   onlineCourses: {
-    label: "Online Courses",
-    color: "hsl(var(--primary-chart))"
+    label: 'Online Courses',
+    color: 'hsl(var(--primary-chart))'
   },
   webinars: {
-    label: "Webinars",
-    color: "hsl(var(--secondary-chart))"
+    label: 'Webinars',
+    color: 'hsl(var(--secondary-chart))'
   }
 } satisfies ChartConfig
 

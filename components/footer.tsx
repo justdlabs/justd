@@ -1,30 +1,30 @@
-"use client"
+'use client'
 
-import React from "react"
+import React from 'react'
 
-import { siteConfig } from "@/resources/config/site"
-import { IconBrandJustd } from "justd-icons"
-import { Container, Link } from "ui"
+import { siteConfig } from '@/resources/config/site'
+import { IconBrandJustd } from 'justd-icons'
+import { Container, Link } from 'ui'
 
 const navigation = {
   starterKits: [
-    { name: "Inertia.js", href: "https://github.com/justdlabs/inertia.ts/" },
-    { name: "Next.js", href: "https://next.getjustd.com/" },
-    { name: "Remix", href: "https://remix.getjustd.com/" },
-    { name: "Astro", href: "https://astro.getjustd.com/" }
+    { name: 'Inertia.js', href: 'https://github.com/justdlabs/inertia.ts/' },
+    { name: 'Next.js', href: 'https://next.getjustd.com/' },
+    { name: 'Remix', href: 'https://remix.getjustd.com/' },
+    { name: 'Astro', href: 'https://astro.getjustd.com/' }
   ],
   resources: [
-    { name: "Icons", href: "/icons" },
-    { name: "Colors", href: "/colors" },
-    { name: "Themes", href: "/themes" },
-    { name: "CLI", href: "https://github.com/justdlabs/cli" }
+    { name: 'Icons', href: '/icons' },
+    { name: 'Colors', href: '/colors' },
+    { name: 'Themes', href: '/themes' },
+    { name: 'CLI', href: 'https://github.com/justdlabs/cli' }
   ],
   labs: [
-    { name: "Github", href: "https://github.com/justdlabs" },
-    { name: "X / Formerly Twitter", href: "https://x.com/getjustd" },
-    { name: "Templates", href: "https://irsyad.co" }
+    { name: 'Github', href: 'https://github.com/justdlabs' },
+    { name: 'X / Formerly Twitter', href: 'https://x.com/getjustd' },
+    { name: 'Templates', href: 'https://irsyad.co' }
   ],
-  legal: [{ name: "MIT", href: "https://github.com/justdlabs/justd/blob/main/LICENSE" }]
+  legal: [{ name: 'MIT', href: 'https://github.com/justdlabs/justd/blob/main/LICENSE' }]
 }
 
 export function Footer() {
@@ -117,14 +117,14 @@ export function Footer() {
 
       <Container className="text-sm relative z-20 text-center py-6 bg-bg text-muted-fg [&_strong]:text-fg [&_strong]:font-semibold [&_a]:text-fg [&_a]:font-semibold space-y-1.5 border-t">
         <p>
-          <strong>{siteConfig.name} &trade; 2024</strong> - This project’s crafted with{" "}
-          <span className="font-[ui-sans-serif,-apple-system,system-ui] text-pink-500">♥</span> by{" "}
-          <Link href="https://twitter.com/irsyadadl">Irsyad</Link>. Peep the Source Code on{" "}
+          <strong>{siteConfig.name} &trade; 2024</strong> - This project’s crafted with{' '}
+          <span className="font-[ui-sans-serif,-apple-system,system-ui] text-pink-500">♥</span> by{' '}
+          <Link href="https://twitter.com/irsyadadl">Irsyad</Link>. Peep the Source Code on{' '}
           <Link href={siteConfig.repo}>GitHub</Link>.
         </p>
 
         <p>
-          Cooked up with{" "}
+          Cooked up with{' '}
           <Link href="https://nextjs.org" target="_blank">
             Next.js
           </Link>
@@ -132,18 +132,18 @@ export function Footer() {
           <Link href="https://tailwindcss.com" target="_blank">
             Tailwind CSS
           </Link>
-          , and{" "}
+          , and{' '}
           <Link href="https://react-spectrum.adobe.com/react-aria/components.html" target="_blank">
             RAC
           </Link>
           .
         </p>
         <p>
-          Hosted on{" "}
+          Hosted on{' '}
           <Link href="https://vercel.com" target="_blank">
             Vercel
           </Link>
-          . The source code's got the{" "}
+          . The source code's got the{' '}
           <Link href="https://github.com/justdlabs/justd/blob/main/LICENSE">MIT</Link> license.
         </p>
       </Container>

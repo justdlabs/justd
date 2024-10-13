@@ -1,30 +1,30 @@
-"use client"
+'use client'
 
-import { IconTrendingChart3 } from "justd-icons"
-import { Bar, BarChart, CartesianGrid, LabelList, XAxis, YAxis } from "recharts"
-import { Card, Chart, type ChartConfig } from "ui"
+import { IconTrendingChart3 } from 'justd-icons'
+import { Bar, BarChart, CartesianGrid, LabelList, XAxis, YAxis } from 'recharts'
+import { Card, Chart, type ChartConfig } from 'ui'
 
 const data = [
-  { month: "January", sales: 186, profit: 80 },
-  { month: "February", sales: 305, profit: 200 },
-  { month: "March", sales: 237, profit: 120 },
-  { month: "April", sales: 73, profit: 190 },
-  { month: "May", sales: 209, profit: 130 },
-  { month: "June", sales: 214, profit: 140 },
-  { month: "July", sales: 186, profit: 80 }
+  { month: 'January', sales: 186, profit: 80 },
+  { month: 'February', sales: 305, profit: 200 },
+  { month: 'March', sales: 237, profit: 120 },
+  { month: 'April', sales: 73, profit: 190 },
+  { month: 'May', sales: 209, profit: 130 },
+  { month: 'June', sales: 214, profit: 140 },
+  { month: 'July', sales: 186, profit: 80 }
 ]
 
 const config = {
   sales: {
-    label: "Sales",
-    color: "hsl(var(--primary-chart))"
+    label: 'Sales',
+    color: 'hsl(var(--primary-chart))'
   },
   profit: {
-    label: "Profit",
-    color: "hsl(var(--secondary-chart))"
+    label: 'Profit',
+    color: 'hsl(var(--secondary-chart))'
   },
   label: {
-    color: "hsl(var(--bg))"
+    color: 'hsl(var(--bg))'
   }
 } satisfies ChartConfig
 

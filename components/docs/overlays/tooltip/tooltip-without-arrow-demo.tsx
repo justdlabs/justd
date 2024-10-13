@@ -1,6 +1,6 @@
-"use client"
+'use client'
 
-import { Badge, Description, Tooltip } from "ui"
+import { Badge, Description, Tooltip } from 'ui'
 
 export default function TooltipWithoutArrowDemo() {
   return (

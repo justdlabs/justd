@@ -1,26 +1,25 @@
-"use client"
+'use client'
 
-import React from "react"
+import React from 'react'
 
+import type { ColorSwatchPickerItemProps, ColorSwatchPickerProps } from 'react-aria-components'
 import {
   ColorSwatchPicker as ColorSwatchPickerPrimitive,
-  ColorSwatchPickerItem,
-  ColorSwatchPickerItemProps,
-  ColorSwatchPickerProps
-} from "react-aria-components"
-import { tv } from "tailwind-variants"
+  ColorSwatchPickerItem
+} from 'react-aria-components'
+import { tv } from 'tailwind-variants'
 
-import { ColorSwatch } from "./color-swatch"
-import { ctr, focusRing } from "./primitive"
+import { ColorSwatch } from './color-swatch'
+import { ctr, focusRing } from './primitive'
 
 const ColorSwatchPicker = ({
   children,
   className,
-  layout = "grid",
+  layout = 'grid',
   ...props
 }: ColorSwatchPickerProps) => {
   return (
-    <ColorSwatchPickerPrimitive layout={layout} {...props} className={ctr(className, "flex gap-1")}>
+    <ColorSwatchPickerPrimitive layout={layout} {...props} className={ctr(className, 'flex gap-1')}>
       {children}
     </ColorSwatchPickerPrimitive>
   )
@@ -28,7 +27,7 @@ const ColorSwatchPicker = ({
 
 const itemStyles = tv({
   extend: focusRing,
-  base: "relative rounded disabled:opacity-50"
+  base: 'relative rounded disabled:opacity-50'
 })
 
 const SwatchPickerItem = (props: ColorSwatchPickerItemProps) => {

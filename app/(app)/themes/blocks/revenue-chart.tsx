@@ -1,34 +1,34 @@
-"use client"
+'use client'
 
-import { IconTrendingChart3 } from "justd-icons"
-import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
-import { Card, Chart, type ChartConfig } from "ui"
+import { IconTrendingChart3 } from 'justd-icons'
+import { Area, AreaChart, CartesianGrid, XAxis } from 'recharts'
+import { Card, Chart, type ChartConfig } from 'ui'
 
-export const description = "An area chart with gradient fill"
+export const description = 'An area chart with gradient fill'
 
 const data = [
-  { month: "Jan", sales: 186, profit: 160 },
-  { month: "Feb", sales: 185, profit: 170 },
-  { month: "Mar", sales: 207, profit: 180 },
-  { month: "Apr", sales: 173, profit: 160 },
-  { month: "May", sales: 160, profit: 190 },
-  { month: "Jun", sales: 174, profit: 204 },
-  { month: "Jul", sales: 186, profit: 80 },
-  { month: "Aug", sales: 305, profit: 200 },
-  { month: "Sep", sales: 237, profit: 120 },
-  { month: "Oct", sales: 73, profit: 190 },
-  { month: "Nov", sales: 209, profit: 130 },
-  { month: "Dec", sales: 214, profit: 140 }
+  { month: 'Jan', sales: 186, profit: 160 },
+  { month: 'Feb', sales: 185, profit: 170 },
+  { month: 'Mar', sales: 207, profit: 180 },
+  { month: 'Apr', sales: 173, profit: 160 },
+  { month: 'May', sales: 160, profit: 190 },
+  { month: 'Jun', sales: 174, profit: 204 },
+  { month: 'Jul', sales: 186, profit: 80 },
+  { month: 'Aug', sales: 305, profit: 200 },
+  { month: 'Sep', sales: 237, profit: 120 },
+  { month: 'Oct', sales: 73, profit: 190 },
+  { month: 'Nov', sales: 209, profit: 130 },
+  { month: 'Dec', sales: 214, profit: 140 }
 ]
 
 const chartConfig = {
   sales: {
-    label: "Sales",
-    color: "hsl(var(--primary-chart))"
+    label: 'Sales',
+    color: 'hsl(var(--primary-chart))'
   },
   profit: {
-    label: "Profit",
-    color: "hsl(var(--secondary-chart))"
+    label: 'Profit',
+    color: 'hsl(var(--secondary-chart))'
   }
 } satisfies ChartConfig
 

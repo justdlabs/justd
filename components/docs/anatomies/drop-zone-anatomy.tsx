@@ -1,4 +1,4 @@
-import { DropZone, Label } from "ui"
+import { DropZone, Label } from 'ui'
 
 export default function DropZoneAnatomy() {
   return (

@@ -1,6 +1,6 @@
-"use client"
+'use client'
 
-import { IconChevronLgLeft, IconChevronLgRight } from "justd-icons"
+import { IconChevronLgLeft, IconChevronLgRight } from 'justd-icons'
 import {
   Calendar as CalendarPrimitive,
   CalendarCell,
@@ -13,35 +13,35 @@ import {
   Heading,
   Text,
   useLocale
-} from "react-aria-components"
-import { tv } from "tailwind-variants"
+} from 'react-aria-components'
+import { tv } from 'tailwind-variants'
 
-import { Button } from "./button"
-import { cr, ctr, focusRing } from "./primitive"
+import { Button } from './button'
+import { cr, ctr, focusRing } from './primitive'
 
 const cellStyles = tv({
   extend: focusRing,
-  base: "flex size-10 sm:size-9 cursor-default tabular-nums items-center justify-center rounded-full lg:text-sm forced-color-adjust-none",
+  base: 'flex size-10 sm:size-9 cursor-default tabular-nums items-center justify-center rounded-full lg:text-sm forced-color-adjust-none',
   variants: {
     isSelected: {
-      false: "text-fg hover:bg-secondary-fg/15 pressed:bg-secondary-fg/20",
-      true: "bg-primary text-primary-fg invalid:bg-danger invalid:text-danger-fg forced-colors:bg-[Highlight] forced-colors:text-[HighlightText] forced-colors:invalid:bg-[Mark]"
+      false: 'text-fg hover:bg-secondary-fg/15 pressed:bg-secondary-fg/20',
+      true: 'bg-primary text-primary-fg invalid:bg-danger invalid:text-danger-fg forced-colors:bg-[Highlight] forced-colors:text-[HighlightText] forced-colors:invalid:bg-[Mark]'
     },
     isDisabled: {
-      true: "text-muted-fg/70 forced-colors:text-[GrayText]"
+      true: 'text-muted-fg/70 forced-colors:text-[GrayText]'
     }
   }
 })
 
 interface CalendarProps<T extends DateValue>
-  extends Omit<CalendarPrimitiveProps<T>, "visibleDuration"> {
+  extends Omit<CalendarPrimitiveProps<T>, 'visibleDuration'> {
   errorMessage?: string
   className?: string
 }
 
 const Calendar = <T extends DateValue>({ errorMessage, className, ...props }: CalendarProps<T>) => {
   return (
-    <CalendarPrimitive className={ctr(className, "max-w-[17.5rem] sm:max-w-[15.8rem]")} {...props}>
+    <CalendarPrimitive className={ctr(className, 'max-w-[17.5rem] sm:max-w-[15.8rem]')} {...props}>
       <CalendarHeader />
       <CalendarGrid className="[&_td]:border-collapse [&_td]:px-0">
         <CalendarGridHeader />
@@ -70,9 +70,9 @@ const Calendar = <T extends DateValue>({ errorMessage, className, ...props }: Ca
 
 const calendarHeaderStyles = tv({
   slots: {
-    header: "flex w-full justify-center gap-1 px-1 pb-5 sm:pb-4",
-    heading: "mr-2 text-muted-fg tracking-tight flex-1 text-left font-medium",
-    calendarGridHeaderCell: "text-sm lg:text-xs font-semibold text-muted-fg"
+    header: 'flex w-full justify-center gap-1 px-1 pb-5 sm:pb-4',
+    heading: 'mr-2 text-muted-fg tracking-tight flex-1 text-left font-medium',
+    calendarGridHeaderCell: 'text-sm lg:text-xs font-semibold text-muted-fg'
   }
 })
 
@@ -92,7 +92,7 @@ const CalendarHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivEle
           appearance="plain"
           slot="previous"
         >
-          {direction === "rtl" ? <IconChevronLgRight /> : <IconChevronLgLeft aria-hidden />}
+          {direction === 'rtl' ? <IconChevronLgRight /> : <IconChevronLgLeft aria-hidden />}
         </Button>
         <Button
           size="square-petite"
@@ -101,7 +101,7 @@ const CalendarHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivEle
           appearance="plain"
           slot="next"
         >
-          {direction === "rtl" ? <IconChevronLgLeft /> : <IconChevronLgRight />}
+          {direction === 'rtl' ? <IconChevronLgLeft /> : <IconChevronLgRight />}
         </Button>
       </div>
     </header>

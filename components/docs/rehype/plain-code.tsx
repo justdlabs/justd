@@ -1,8 +1,8 @@
-"use client"
+'use client'
 
-import * as React from "react"
+import * as React from 'react'
 
-import { CodeCollapsible, CodeCollapsibleRoot } from "@/components/docs/rehype/code"
+import { CodeCollapsible, CodeCollapsibleRoot } from '@/components/docs/rehype/code'
 
 interface PlainCodeProps extends React.HTMLAttributes<HTMLDivElement> {
   code: string
@@ -11,7 +11,7 @@ interface PlainCodeProps extends React.HTMLAttributes<HTMLDivElement> {
   withImportCopy?: boolean
 }
 
-export function PlainCode({ title, withImportCopy = false, lang = "tsx", code }: PlainCodeProps) {
+export function PlainCode({ title, withImportCopy = false, lang = 'tsx', code }: PlainCodeProps) {
   const [isOpened, setIsOpened] = React.useState(false)
   return (
     <section className="my-4 not-prose">

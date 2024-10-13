@@ -1,4 +1,4 @@
-import { Button, Modal } from "ui"
+import { Button, Modal } from 'ui'
 
 export default function ModalAnatomy() {
   return (

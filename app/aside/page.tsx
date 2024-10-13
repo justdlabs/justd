@@ -1,9 +1,9 @@
-"use client"
+'use client'
 
-import React from "react"
+import React from 'react'
 
-import TableDemo from "@/components/docs/collections/table/table-demo"
-import { Card, Grid } from "ui"
+import TableDemo from '@/components/docs/collections/table/table-demo'
+import { Card, Grid } from 'ui'
 
 export default function Page() {
   return (
@@ -33,23 +33,23 @@ export default function Page() {
 
 const data = {
   revenue: {
-    title: "Total Revenue",
-    value: "$1,200,000",
-    description: "The total revenue generated over the past year."
+    title: 'Total Revenue',
+    value: '$1,200,000',
+    description: 'The total revenue generated over the past year.'
   },
   income: {
-    title: "Net Income",
-    value: "$300,000",
-    description: "The total income after all expenses have been deducted."
+    title: 'Net Income',
+    value: '$300,000',
+    description: 'The total income after all expenses have been deducted.'
   },
   expenses: {
-    title: "Total Expenses",
-    value: "$900,000",
-    description: "The total expenses incurred over the past year."
+    title: 'Total Expenses',
+    value: '$900,000',
+    description: 'The total expenses incurred over the past year.'
   },
   profitMargin: {
-    title: "Profit Margin",
-    value: "25%",
-    description: "The percentage of revenue that represents profit."
+    title: 'Profit Margin',
+    value: '25%',
+    description: 'The percentage of revenue that represents profit.'
   }
 }

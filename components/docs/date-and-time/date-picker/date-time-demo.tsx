@@ -1,9 +1,9 @@
-"use client"
+'use client'
 
-import React from "react"
+import React from 'react'
 
-import { getLocalTimeZone, now, parseZonedDateTime } from "@internationalized/date"
-import { DatePicker } from "ui"
+import { getLocalTimeZone, now, parseZonedDateTime } from '@internationalized/date'
+import { DatePicker } from 'ui'
 
 export default function DateTimeDemo() {
   const today = parseZonedDateTime(now(getLocalTimeZone()).toString())

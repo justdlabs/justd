@@ -1,9 +1,9 @@
-"use client"
+'use client'
 
-import { Avatar, ComboBox } from "ui"
+import { Avatar, ComboBox } from 'ui'
 
 const users = [
-  { id: 1, name: "Barbara Kirlin Sr.", image_url: "https://i.pravatar.cc/150?img=1" }
+  { id: 1, name: 'Barbara Kirlin Sr.', image_url: 'https://i.pravatar.cc/150?img=1' }
   //...
 ]
 export default function ComboBoxReadonlyDemo() {

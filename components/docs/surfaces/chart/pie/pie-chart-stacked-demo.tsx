@@ -1,56 +1,56 @@
-"use client"
+'use client'
 
-import * as React from "react"
+import * as React from 'react'
 
-import { IconTrendingChart4 } from "justd-icons"
-import { Pie, PieChart } from "recharts"
-import { Card, Chart, type ChartConfig } from "ui"
+import { IconTrendingChart4 } from 'justd-icons'
+import { Pie, PieChart } from 'recharts'
+import { Card, Chart, type ChartConfig } from 'ui'
 
 const data = [
-  { month: "january", sales: 186, fill: "var(--color-january)" },
-  { month: "february", sales: 305, fill: "var(--color-february)" },
-  { month: "march", sales: 237, fill: "var(--color-march)" },
-  { month: "april", sales: 173, fill: "var(--color-april)" },
-  { month: "may", sales: 209, fill: "var(--color-may)" }
+  { month: 'january', sales: 186, fill: 'var(--color-january)' },
+  { month: 'february', sales: 305, fill: 'var(--color-february)' },
+  { month: 'march', sales: 237, fill: 'var(--color-march)' },
+  { month: 'april', sales: 173, fill: 'var(--color-april)' },
+  { month: 'may', sales: 209, fill: 'var(--color-may)' }
 ]
 
 const profitData = [
-  { month: "january", profit: 80, fill: "var(--color-january)" },
-  { month: "february", profit: 200, fill: "var(--color-february)" },
-  { month: "march", profit: 120, fill: "var(--color-march)" },
-  { month: "april", profit: 190, fill: "var(--color-april)" },
-  { month: "may", profit: 130, fill: "var(--color-may)" }
+  { month: 'january', profit: 80, fill: 'var(--color-january)' },
+  { month: 'february', profit: 200, fill: 'var(--color-february)' },
+  { month: 'march', profit: 120, fill: 'var(--color-march)' },
+  { month: 'april', profit: 190, fill: 'var(--color-april)' },
+  { month: 'may', profit: 130, fill: 'var(--color-may)' }
 ]
 
 const config = {
   visitors: {
-    label: "Visitors"
+    label: 'Visitors'
   },
   sales: {
-    label: "Sales"
+    label: 'Sales'
   },
   profit: {
-    label: "Profit"
+    label: 'Profit'
   },
   january: {
-    label: "January",
-    color: "hsl(var(--primary-chart))"
+    label: 'January',
+    color: 'hsl(var(--primary-chart))'
   },
   february: {
-    label: "February",
-    color: "hsl(var(--secondary-chart))"
+    label: 'February',
+    color: 'hsl(var(--secondary-chart))'
   },
   march: {
-    label: "March",
-    color: "hsl(var(--tertiary-chart))"
+    label: 'March',
+    color: 'hsl(var(--tertiary-chart))'
   },
   april: {
-    label: "April",
-    color: "hsl(var(--highlight-chart))"
+    label: 'April',
+    color: 'hsl(var(--highlight-chart))'
   },
   may: {
-    label: "May",
-    color: "hsl(var(--accent-chart))"
+    label: 'May',
+    color: 'hsl(var(--accent-chart))'
   }
 } satisfies ChartConfig
 

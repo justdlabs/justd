@@ -1,8 +1,8 @@
-"use client"
+'use client'
 
-import React from "react"
+import React from 'react'
 
-import { IconChevronLgDown, IconHamburger } from "justd-icons"
+import { IconChevronLgDown, IconHamburger } from 'justd-icons'
 import type {
   CellProps,
   ColumnProps,
@@ -11,7 +11,7 @@ import type {
   TableBodyProps,
   TableHeaderProps,
   TableProps as TablePrimitiveProps
-} from "react-aria-components"
+} from 'react-aria-components'
 import {
   Button,
   Cell,
@@ -24,22 +24,22 @@ import {
   TableBody,
   TableHeader,
   useTableOptions
-} from "react-aria-components"
-import { tv } from "tailwind-variants"
+} from 'react-aria-components'
+import { tv } from 'tailwind-variants'
 
-import { Checkbox } from "./checkbox"
-import { cn, cr } from "./primitive"
+import { Checkbox } from './checkbox'
+import { cn, cr } from './primitive'
 
 const table = tv({
   slots: {
-    root: "table w-full caption-bottom border-spacing-0 text-sm outline-none",
-    header: "border-b x32",
-    row: "tr group relative cursor-default border-b text-fg/70 outline-none ring-primary focus-visible:ring-1 selected:bg-accent-subtle selected:hover:bg-accent-subtle/50 dark:selected:hover:bg-accent-subtle/60",
+    root: 'table w-full caption-bottom border-spacing-0 text-sm outline-none',
+    header: 'border-b x32',
+    row: 'tr group relative cursor-default border-b text-fg/70 outline-none ring-primary focus-visible:ring-1 selected:bg-accent-subtle selected:hover:bg-accent-subtle/50 dark:selected:hover:bg-accent-subtle/60',
     cellIcon:
-      "flex-none rounded bg-secondary text-fg [&>[data-slot=icon]]:shrink-0 [&>[data-slot=icon]]:size-3.5 [&>[data-slot=icon]]:transition-transform [&>[data-slot=icon]]:duration-200 size-[1.15rem] grid place-content-center shrink-0",
+      'flex-none rounded bg-secondary text-fg [&>[data-slot=icon]]:shrink-0 [&>[data-slot=icon]]:size-3.5 [&>[data-slot=icon]]:transition-transform [&>[data-slot=icon]]:duration-200 size-[1.15rem] grid place-content-center shrink-0',
     columnResizer: [
-      "touch-none absolute [&[data-resizing]>div]:bg-primary right-0 top-0 bottom-0 w-px px-1 grid place-content-center",
-      "[&[data-resizable-direction=both]]:cursor-ew-resize &[data-resizable-direction=left]:cursor-e-resize &[data-resizable-direction=right]:cursor-w-resize"
+      'touch-none absolute [&[data-resizing]>div]:bg-primary right-0 top-0 bottom-0 w-px px-1 grid place-content-center',
+      '[&[data-resizable-direction=both]]:cursor-ew-resize &[data-resizable-direction=left]:cursor-e-resize &[data-resizable-direction=right]:cursor-w-resize'
     ]
   }
 })
@@ -90,7 +90,7 @@ const ColumnResizer = ({ className, ...props }: ColumnResizerProps) => (
 )
 
 const Body = <T extends object>(props: TableBodyProps<T>) => (
-  <TableBody {...props} className={cn("[&_.tr:last-child]:border-0")} />
+  <TableBody {...props} className={cn('[&_.tr:last-child]:border-0')} />
 )
 
 interface TableCellProps extends CellProps {
@@ -98,10 +98,10 @@ interface TableCellProps extends CellProps {
 }
 
 const cellStyles = tv({
-  base: "whitespace-nowrap group px-3 py-3 outline-none",
+  base: 'whitespace-nowrap group px-3 py-3 outline-none',
   variants: {
     allowResize: {
-      true: "overflow-hidden truncate"
+      true: 'overflow-hidden truncate'
     }
   }
 })
@@ -115,10 +115,10 @@ const TableCell = ({ children, className, ...props }: TableCellProps) => {
 }
 
 const columnStyles = tv({
-  base: "whitespace-nowrap relative allows-sorting:cursor-pointer px-3 py-3 text-left dragging:cursor-grabbing font-medium outline-none [&:has([slot=selection])]:pr-0",
+  base: 'whitespace-nowrap relative allows-sorting:cursor-pointer px-3 py-3 text-left dragging:cursor-grabbing font-medium outline-none [&:has([slot=selection])]:pr-0',
   variants: {
     isResizable: {
-      true: "overflow-hidden truncate"
+      true: 'overflow-hidden truncate'
     }
   }
 })
@@ -143,9 +143,9 @@ const TableColumn = ({ children, isResizable = false, className, ...props }: Tab
             {children}
             {allowsSorting && (
               <>
-                <span className={cellIcon({ className: isHovered ? "bg-secondary-fg/10" : "" })}>
+                <span className={cellIcon({ className: isHovered ? 'bg-secondary-fg/10' : '' })}>
                   <IconChevronLgDown
-                    className={sortDirection === "ascending" ? "rotate-180" : ""}
+                    className={sortDirection === 'ascending' ? 'rotate-180' : ''}
                   />
                 </span>
               </>
@@ -167,9 +167,9 @@ const Header = <T extends object>({ children, className, columns, ...props }: He
   return (
     <TableHeader {...props} className={header({ className })}>
       {allowsDragging && <Column className="w-0" />}
-      {selectionBehavior === "toggle" && (
+      {selectionBehavior === 'toggle' && (
         <Column className="pl-4 w-0">
-          {selectionMode === "multiple" && <Checkbox slot="selection" />}
+          {selectionMode === 'multiple' && <Checkbox slot="selection" />}
         </Column>
       )}
       <Collection items={columns}>{children}</Collection>
@@ -194,7 +194,7 @@ const TableRow = <T extends object>({
       id={id}
       {...props}
       className={row({
-        className: "href" in props ? cn("cursor-pointer hover:bg-secondary/50", className) : ""
+        className: 'href' in props ? cn('cursor-pointer hover:bg-secondary/50', className) : ''
       })}
     >
       {allowsDragging && (
@@ -209,7 +209,7 @@ const TableRow = <T extends object>({
           </Button>
         </Cell>
       )}
-      {selectionBehavior === "toggle" && (
+      {selectionBehavior === 'toggle' && (
         <Cell className="pl-4">
           <span
             aria-hidden

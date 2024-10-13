@@ -1,9 +1,9 @@
-"use client"
+'use client'
 
-import React from "react"
+import React from 'react'
 
-import { Meter } from "ui"
+import { Meter } from 'ui'
 
 export default function MeterCurrencyFormatDemo() {
-  return <Meter label="Revenue" formatOptions={{ style: "currency", currency: "USD" }} value={15} />
+  return <Meter label="Revenue" formatOptions={{ style: 'currency', currency: 'USD' }} value={15} />
 }

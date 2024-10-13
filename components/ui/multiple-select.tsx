@@ -1,39 +1,39 @@
-"use client"
+'use client'
 
-import * as React from "react"
+import * as React from 'react'
 
-import { IconChevronLgDown } from "justd-icons"
-import { useFilter } from "react-aria"
-import type { ComboBoxProps as ComboBoxPrimitiveProps, Key } from "react-aria-components"
-import { ComboBox, Group } from "react-aria-components"
-import type { ListData } from "react-stately"
-import { useListData } from "react-stately"
-import { tv } from "tailwind-variants"
+import { IconChevronLgDown } from 'justd-icons'
+import { useFilter } from 'react-aria'
+import type { ComboBoxProps as ComboBoxPrimitiveProps, Key } from 'react-aria-components'
+import { ComboBox, Group } from 'react-aria-components'
+import type { ListData } from 'react-stately'
+import { useListData } from 'react-stately'
+import { tv } from 'tailwind-variants'
 
-import { Button } from "./button"
-import type { FieldProps } from "./field"
-import { Description, Input, Label } from "./field"
-import { ListBox } from "./list-box"
-import { Popover } from "./popover"
-import { cn } from "./primitive"
-import type { RestrictedIntent, TagGroupProps } from "./tag-group"
-import { Tag } from "./tag-group"
-import { VisuallyHidden } from "./visually-hidden"
+import { Button } from './button'
+import type { FieldProps } from './field'
+import { Description, Input, Label } from './field'
+import { ListBox } from './list-box'
+import { Popover } from './popover'
+import { cn } from './primitive'
+import type { RestrictedIntent, TagGroupProps } from './tag-group'
+import { Tag } from './tag-group'
+import { VisuallyHidden } from './visually-hidden'
 
 const multiSelectStyles = tv({
   slots: {
-    multiSelectField: "group flex w-full min-w-80 flex-col gap-1",
+    multiSelectField: 'group flex w-full min-w-80 flex-col gap-1',
     multiSelect: [
-      "relative px-1 flex min-h-10 flex-row flex-wrap items-center rounded-lg bg-bg shadow-sm border",
-      "has-[input[data-focused=true]]:border-primary",
-      "has-[input[data-invalid=true][data-focused=true]]:border-danger has-[input[data-invalid=true]]:border-danger has-[input[data-invalid=true]]:ring-danger/20",
-      "has-[input[data-focused=true]]:ring-4 has-[input[data-focused=true]]:ring-primary/20"
+      'relative px-1 flex min-h-10 flex-row flex-wrap items-center rounded-lg bg-bg shadow-sm border',
+      'has-[input[data-focused=true]]:border-primary',
+      'has-[input[data-invalid=true][data-focused=true]]:border-danger has-[input[data-invalid=true]]:border-danger has-[input[data-invalid=true]]:ring-danger/20',
+      'has-[input[data-focused=true]]:ring-4 has-[input[data-focused=true]]:ring-primary/20'
     ],
     chevronButton:
-      "size-8 -mr-2 grid place-content-center rounded-sm hover:text-fg focus:text-fg text-muted-fg",
-    input: "flex-1 py-1 px-0.5 ml-1 shadow-none ring-0",
-    comboBoxChild: "inline-flex flex-1 flex-wrap items-center px-0",
-    comboBox: "group peer flex flex-1"
+      'size-8 -mr-2 grid place-content-center rounded-sm hover:text-fg focus:text-fg text-muted-fg',
+    input: 'flex-1 py-1 px-0.5 ml-1 shadow-none ring-0',
+    comboBoxChild: 'inline-flex flex-1 flex-wrap items-center px-0',
+    comboBox: 'group peer flex flex-1'
   }
 })
 
@@ -54,17 +54,17 @@ interface MultipleSelectProps<T extends object>
   extends FieldProps,
     Omit<
       ComboBoxPrimitiveProps<T>,
-      | "children"
-      | "validate"
-      | "allowsEmptyCollection"
-      | "selectedKey"
-      | "inputValue"
-      | "className"
-      | "value"
-      | "onSelectionChange"
-      | "onInputChange"
+      | 'children'
+      | 'validate'
+      | 'allowsEmptyCollection'
+      | 'selectedKey'
+      | 'inputValue'
+      | 'className'
+      | 'value'
+      | 'onSelectionChange'
+      | 'onInputChange'
     >,
-    Pick<TagGroupProps, "shape"> {
+    Pick<TagGroupProps, 'shape'> {
   intent?: RestrictedIntent
   items: Array<T>
   selectedItems: ListData<T>
@@ -94,7 +94,7 @@ const MultipleSelect = <T extends SelectedKey>({
   const triggerRef = React.useRef<HTMLDivElement | null>(null)
   const [width, setWidth] = React.useState(0)
 
-  const { contains } = useFilter({ sensitivity: "base" })
+  const { contains } = useFilter({ sensitivity: 'base' })
   const selectedKeys = selectedItems.items.map((i) => i.id)
 
   const existingTagCount = selectedItems.items.length
@@ -119,7 +119,7 @@ const MultipleSelect = <T extends SelectedKey>({
 
   const [fieldState, setFieldState] = React.useState<FieldState>({
     selectedKey: null,
-    inputValue: ""
+    inputValue: ''
   })
 
   const onRemove = React.useCallback(
@@ -128,7 +128,7 @@ const MultipleSelect = <T extends SelectedKey>({
 
       const key = keys.values().next().value
       selectedItems.remove(key as Key)
-      setFieldState({ inputValue: "", selectedKey: null })
+      setFieldState({ inputValue: '', selectedKey: null })
       onItemCleared?.(key as Key)
       updateInvalidState(selectedItems.items.length - 1)
     },
@@ -155,19 +155,19 @@ const MultipleSelect = <T extends SelectedKey>({
 
       selectedItems.append(item)
       setFieldState({
-        inputValue: "",
+        inputValue: '',
         selectedKey: id
       })
       onItemInserted?.(id)
     }
 
-    accessibleList.setFilterText("")
+    accessibleList.setFilterText('')
   }
 
   const onInputChange = (v: string) => {
     setFieldState((prevState) => ({
       inputValue: v,
-      selectedKey: v === "" ? null : prevState.selectedKey
+      selectedKey: v === '' ? null : prevState.selectedKey
     }))
 
     accessibleList.setFilterText(v)
@@ -190,14 +190,14 @@ const MultipleSelect = <T extends SelectedKey>({
     }
 
     setFieldState({
-      inputValue: "",
+      inputValue: '',
       selectedKey: null
     })
   }, [selectedItems, onItemCleared])
 
   const onKeyDownCapture = React.useCallback(
     (e: React.KeyboardEvent<HTMLInputElement>) => {
-      if (e.key === "Backspace" && fieldState.inputValue === "") {
+      if (e.key === 'Backspace' && fieldState.inputValue === '') {
         popLast()
       }
     },
@@ -225,7 +225,7 @@ const MultipleSelect = <T extends SelectedKey>({
   return (
     <div className={multiSelectField({ className })}>
       {props.label && <Label>{props.label}</Label>}
-      <Group className={props.isDisabled ? "opacity-50" : ""}>
+      <Group className={props.isDisabled ? 'opacity-50' : ''}>
         <div ref={triggerRef} className={multiSelect({ className })}>
           <Tag.Group
             shape={props.shape}
@@ -237,9 +237,9 @@ const MultipleSelect = <T extends SelectedKey>({
             <Tag.List
               items={selectedItems.items}
               className={cn(
-                selectedItems.items.length !== 0 && "px-1 py-1.5",
-                "last:[&_.jdt3lr2x]:-mr-1 outline-none gap-1.5",
-                props.shape === "square" && "[&_.jdt3lr2x]:rounded-[calc(var(--radius)-4px)]"
+                selectedItems.items.length !== 0 && 'px-1 py-1.5',
+                'last:[&_.jdt3lr2x]:-mr-1 outline-none gap-1.5',
+                props.shape === 'square' && '[&_.jdt3lr2x]:rounded-[calc(var(--radius)-4px)]'
               )}
             >
               {props.tag}
@@ -259,14 +259,14 @@ const MultipleSelect = <T extends SelectedKey>({
           >
             <div className={comboBoxChild({ className })}>
               <Input
-                placeholder={maxTagsToAdd <= 0 ? "Remove one to add more" : props.placeholder}
+                placeholder={maxTagsToAdd <= 0 ? 'Remove one to add more' : props.placeholder}
                 className={input()}
                 onBlur={() => {
                   setFieldState({
-                    inputValue: "",
+                    inputValue: '',
                     selectedKey: null
                   })
-                  accessibleList.setFilterText("")
+                  accessibleList.setFilterText('')
                 }}
                 onKeyDownCapture={onKeyDownCapture}
               />
@@ -297,7 +297,7 @@ const MultipleSelect = <T extends SelectedKey>({
                     <Description className="p-3 block">
                       {fieldState.inputValue ? (
                         <>
-                          No results found for:{" "}
+                          No results found for:{' '}
                           <strong className="font-medium text-fg">{fieldState.inputValue}</strong>
                         </>
                       ) : (
@@ -325,7 +325,7 @@ const MultipleSelect = <T extends SelectedKey>({
         </div>
       </Group>
       {props.description && <Description>{props.description}</Description>}
-      {name && <input hidden name={name} value={selectedKeys.join(",")} readOnly />}
+      {name && <input hidden name={name} value={selectedKeys.join(',')} readOnly />}
     </div>
   )
 }

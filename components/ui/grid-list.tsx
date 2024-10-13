@@ -1,17 +1,17 @@
-"use client"
+'use client'
 
-import React from "react"
+import React from 'react'
 
-import { IconHamburger } from "justd-icons"
+import { IconHamburger } from 'justd-icons'
 import type {
   GridListItemProps,
   GridListProps as GridListPrimitiveProps
-} from "react-aria-components"
-import { Button, GridList as GridListPrimitive, GridListItem } from "react-aria-components"
-import { tv } from "tailwind-variants"
+} from 'react-aria-components'
+import { Button, GridList as GridListPrimitive, GridListItem } from 'react-aria-components'
+import { tv } from 'tailwind-variants'
 
-import { Checkbox } from "./checkbox"
-import { cr, ctr, focusRing } from "./primitive"
+import { Checkbox } from './checkbox'
+import { cr, ctr, focusRing } from './primitive'
 
 type GridListProps<T extends object> = GridListPrimitiveProps<T>
 
@@ -19,7 +19,7 @@ const GridList = <T extends object>({ children, className, ...props }: GridListP
   <GridListPrimitive
     className={ctr(
       className,
-      "relative [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin] max-h-96 overflow-auto rounded-lg border"
+      'relative [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin] max-h-96 overflow-auto rounded-lg border'
     )}
     {...props}
   >
@@ -29,23 +29,23 @@ const GridList = <T extends object>({ children, className, ...props }: GridListP
 
 const itemStyles = tv({
   extend: focusRing,
-  base: "relative transition -mb-px flex cursor-default select-none gap-3 border-y px-3 py-2 lg:text-sm text-fg -outline-offset-2 first:rounded-t-md first:border-t-0 last:mb-0 last:rounded-b-md last:border-b-0",
+  base: 'relative transition -mb-px flex cursor-default select-none gap-3 border-y px-3 py-2 lg:text-sm text-fg -outline-offset-2 first:rounded-t-md first:border-t-0 last:mb-0 last:rounded-b-md last:border-b-0',
   variants: {
-    isHovered: { true: "bg-accent-subtle" },
+    isHovered: { true: 'bg-accent-subtle' },
     isSelected: {
-      true: "z-20 border-y-primary/60 bg-accent-subtle hover:bg-accent-subtle/80"
+      true: 'z-20 border-y-primary/60 bg-accent-subtle hover:bg-accent-subtle/80'
     },
     isFocusVisible: {
-      true: "z-20 border-y-accent bg-accent-subtle selected:bg-accent-subtle/80 hover:bg-accent-subtle/70"
+      true: 'z-20 border-y-accent bg-accent-subtle selected:bg-accent-subtle/80 hover:bg-accent-subtle/70'
     },
     isDisabled: {
-      true: "z-10 text-muted-fg forced-colors:text-[GrayText]"
+      true: 'z-10 text-muted-fg forced-colors:text-[GrayText]'
     }
   }
 })
 
 const Item = ({ children, className, ...props }: GridListItemProps) => {
-  const textValue = typeof children === "string" ? children : undefined
+  const textValue = typeof children === 'string' ? children : undefined
   return (
     <GridListItem
       textValue={textValue}
@@ -61,7 +61,7 @@ const Item = ({ children, className, ...props }: GridListItemProps) => {
               <IconHamburger />
             </Button>
           )}
-          {selectionMode === "multiple" && selectionBehavior === "toggle" && (
+          {selectionMode === 'multiple' && selectionBehavior === 'toggle' && (
             <Checkbox className="-mr-2" slot="selection" />
           )}
           {children}
