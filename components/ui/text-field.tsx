@@ -2,7 +2,7 @@
 
 import * as React from "react"
 
-import { TextInputDOMProps } from "@react-types/shared"
+import type { TextInputDOMProps } from "@react-types/shared"
 import { IconEye, IconEyeClosed, IconLoader } from "justd-icons"
 import {
   Button as ButtonPrimitive,
