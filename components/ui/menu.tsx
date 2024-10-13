@@ -27,7 +27,6 @@ import { DropdownItemDetails, dropdownItemStyles, DropdownSection } from "./drop
 import { Keyboard } from "./keyboard"
 import { Popover } from "./popover"
 import { cn, cr, tm } from "./primitive"
-import { TouchTarget } from "./touch-target"
 
 interface MenuContextProps {
   respectScreen: boolean
@@ -72,9 +71,7 @@ interface MenuTriggerProps extends ButtonProps {
 const Trigger = ({ className, ...props }: MenuTriggerProps) => (
   <Button className={trigger({ className })} {...props}>
     {(values) => (
-      <TouchTarget>
-        {typeof props.children === "function" ? props.children(values) : props.children}
-      </TouchTarget>
+      <>{typeof props.children === "function" ? props.children(values) : props.children}</>
     )}
   </Button>
 )

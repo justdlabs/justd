@@ -13,7 +13,6 @@ import {
 import type { FieldProps } from "./field"
 import { Description, FieldError, FieldGroup, fieldGroupPrefixStyles, Input, Label } from "./field"
 import { ctr } from "./primitive"
-import { TouchTarget } from "./touch-target"
 
 type InputType = Exclude<TextInputDOMProps["type"], "password">
 
@@ -80,13 +79,13 @@ const TextField = ({
             onPress={handleTogglePasswordVisibility}
             className="atrs relative isSfx x2e2 [&_[data-slot=icon]]:text-muted-fg focus:outline-none focus-visible:ring-1 focus-visible:ring-primary rounded"
           >
-            <TouchTarget>
+            <>
               {isPasswordVisible ? (
                 <IconEyeClosed className="transition animate-in" />
               ) : (
                 <IconEye className="transition animate-in" />
               )}
-            </TouchTarget>
+            </>
           </ButtonPrimitive>
         ) : isLoading && indicatorPlace === "suffix" ? (
           <IconLoader className="animate-spin isSfx" />

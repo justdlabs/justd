@@ -16,7 +16,6 @@ import { tv } from "tailwind-variants"
 import { Button, ButtonPrimitive } from "./button"
 import { cr, useMediaQuery } from "./primitive"
 import { Sheet } from "./sheet"
-import { TouchTarget } from "./touch-target"
 
 const aside = tv({
   slots: {
@@ -162,9 +161,7 @@ const Item = ({ isCurrent, children, className, icon: Icon, ...props }: ItemProp
         <>
           {Icon && <Icon data-slot="icon" />}
           <span className="col-start-2">
-            <TouchTarget>
-              {typeof children === "function" ? children(values) : children}
-            </TouchTarget>
+            {typeof children === "function" ? children(values) : children}
             {props.badge && (
               <div className="bdx h-[1.30rem] px-1 rounded-md text-muted-fg text-xs font-medium ring-1 ring-fg/20 grid place-content-center w-auto inset-y-1/2 -translate-y-1/2 absolute right-1.5 bg-fg/[0.02] dark:bg-fg/10">
                 {props.badge}

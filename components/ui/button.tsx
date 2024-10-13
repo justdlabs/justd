@@ -9,7 +9,6 @@ import {
 import { tv } from "tailwind-variants"
 
 import { cr, focusButtonStyles } from "./primitive"
-import { TouchTarget } from "./touch-target"
 
 const buttonStyles = tv(
   {
@@ -119,9 +118,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         )}
       >
         {(values) => (
-          <TouchTarget>
-            {typeof props.children === "function" ? props.children(values) : props.children}
-          </TouchTarget>
+          <>{typeof props.children === "function" ? props.children(values) : props.children}</>
         )}
       </ButtonPrimitive>
     )

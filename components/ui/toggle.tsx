@@ -6,7 +6,6 @@ import { ToggleButton as ToggleButtonPrimitive, ToggleButtonProps } from "react-
 import { tv, VariantProps } from "tailwind-variants"
 
 import { cr, focusButtonStyles } from "./primitive"
-import { TouchTarget } from "./touch-target"
 
 const toggleStyles = tv({
   extend: focusButtonStyles,
@@ -59,7 +58,7 @@ const Toggle = ({ className, ...props }: ToggleProps) => {
       )}
     >
       {cr(props.children, (children) => (
-        <TouchTarget>{children}</TouchTarget>
+        <>{children}</>
       ))}
     </ToggleButtonPrimitive>
   )

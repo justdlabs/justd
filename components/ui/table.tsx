@@ -29,7 +29,6 @@ import { tv } from "tailwind-variants"
 
 import { Checkbox } from "./checkbox"
 import { cn, cr } from "./primitive"
-import { TouchTarget } from "./touch-target"
 
 const table = tv({
   slots: {
@@ -143,13 +142,13 @@ const TableColumn = ({ children, isResizable = false, className, ...props }: Tab
           <>
             {children}
             {allowsSorting && (
-              <TouchTarget>
+              <>
                 <span className={cellIcon({ className: isHovered ? "bg-secondary-fg/10" : "" })}>
                   <IconChevronLgDown
                     className={sortDirection === "ascending" ? "rotate-180" : ""}
                   />
                 </span>
-              </TouchTarget>
+              </>
             )}
             {isResizable && <ColumnResizer />}
           </>
@@ -204,9 +203,9 @@ const TableRow = <T extends object>({
             className="relative bg-transparent pl-3.5 py-1.5 text-muted-fg pressed:text-fg"
             slot="drag"
           >
-            <TouchTarget>
+            <>
               <IconHamburger />
-            </TouchTarget>
+            </>
           </Button>
         </Cell>
       )}

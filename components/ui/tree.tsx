@@ -15,7 +15,6 @@ import { tv } from "tailwind-variants"
 
 import { Checkbox } from "./checkbox"
 import { cr } from "./primitive"
-import { TouchTarget } from "./touch-target"
 
 const treeStyles = tv({
   base: "flex border max-h-96 min-w-72 [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin] py-2 rounded-lg bg-bg cursor-default lg:text-sm flex-col overflow-auto forced-color-adjust-none outline-none",
@@ -90,9 +89,9 @@ const ItemContent = (props: React.ComponentProps<typeof TreeItemContent>) => {
 const Indicator = () => {
   return (
     <Button className="shrink-0 relative" slot="chevron">
-      <TouchTarget>
+      <>
         <IconChevronRight className="size-5" />
-      </TouchTarget>
+      </>
     </Button>
   )
 }

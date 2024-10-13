@@ -18,7 +18,6 @@ import {
 import { tv } from "tailwind-variants"
 
 import { cn, cr, tm } from "./primitive"
-import { TouchTarget } from "./touch-target"
 
 interface DisclosureGroupProps extends DisclosureGroupPrimitiveProps {
   hideBorder?: boolean
@@ -128,7 +127,7 @@ const Trigger = ({ className, ...props }: ButtonProps) => {
       )}
     >
       {(values) => (
-        <TouchTarget>
+        <>
           {typeof props.children === "function" ? props.children(values) : props.children}
           {!hideIndicator && (
             <IconChevronLeft
@@ -137,7 +136,7 @@ const Trigger = ({ className, ...props }: ButtonProps) => {
               )}
             />
           )}
-        </TouchTarget>
+        </>
       )}
     </Button>
   )

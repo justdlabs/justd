@@ -7,7 +7,6 @@ import { tv } from "tailwind-variants"
 
 import { buttonStyles } from "./button"
 import { cr } from "./primitive"
-import { TouchTarget } from "./touch-target"
 
 const showMoreStyles = tv({
   base: "text-sm leading-6 after:border-muted before:border-muted",
@@ -55,7 +54,7 @@ const ShowMore = ({
           className={buttonStyles({ shape: "circle", appearance: "outline", size: "small" })}
         >
           {cr(props.children, (children) => (
-            <TouchTarget>{children}</TouchTarget>
+            <>{children}</>
           ))}
         </ToggleButton>
       ) : (

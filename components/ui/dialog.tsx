@@ -18,7 +18,6 @@ import { tv } from "tailwind-variants"
 
 import { Button, type ButtonProps } from "./button"
 import { useMediaQuery } from "./primitive"
-import { TouchTarget } from "./touch-target"
 
 const dialogStyles = tv({
   slots: {
@@ -53,9 +52,7 @@ type DialogHeaderProps = React.HTMLAttributes<HTMLDivElement> & {
 const Trigger = (props: ButtonPrimitiveProps) => (
   <ButtonPrimitive {...props}>
     {(values) => (
-      <TouchTarget>
-        {typeof props.children === "function" ? props.children(values) : props.children}
-      </TouchTarget>
+      <>{typeof props.children === "function" ? props.children(values) : props.children}</>
     )}
   </ButtonPrimitive>
 )

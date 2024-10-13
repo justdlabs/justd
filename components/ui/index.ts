@@ -1,6 +1,5 @@
 export * from './primitive';
 export * from './progress-circle';
-export * from './touch-target';
 export * from './aside';
 export * from './tree';
 export * from './chart';
