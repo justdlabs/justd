@@ -8,7 +8,7 @@ import { tv } from 'tailwind-variants'
 import { cr } from './primitive'
 
 const linkStyles = tv({
-  base: 'forced-colors:outline-[Highlight] relative focus-visible:outline-2 outline outline-offset-2 disabled:focus-visible:outline-0 outline-0 outline-primary rounded disabled:opacity-60 forced-colors:disabled:text-[GrayText] border-transparent transition-colors disabled:cursor-default',
+  base: 'forced-colors:outline-[Highlight] relative focus-visible:outline-2 outline outline-offset-2 disabled:focus-visible:outline-0 outline-0 outline-primary disabled:opacity-60 forced-colors:disabled:text-[GrayText] border-transparent transition-colors disabled:cursor-default',
   variants: {
     intent: {
       unstyled: 'text-current',
