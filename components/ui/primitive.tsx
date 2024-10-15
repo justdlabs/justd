@@ -27,7 +27,7 @@ const focusRing = tv({
 const focusStyles = tv({
   extend: focusRing,
   variants: {
-    isFocused: { true: 'border-ring' },
+    isFocused: { true: 'border-ring/85' },
     isInvalid: { true: 'border-danger' }
   }
 })

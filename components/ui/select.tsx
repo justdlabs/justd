@@ -23,7 +23,7 @@ import { cr, ctr, focusStyles } from './primitive'
 const selectTriggerStyles = tv({
   extend: focusStyles,
   base: [
-    'btr group-disabled:bg-secondary [&_[data-slot=icon]]:size-4 group-disabled:opacity-50 focus-visible:border-primary focus-visible:ring-4 focus-visible:ring-primary/20 group-open:border-primary group-open:ring-4 group-open:ring-primary/20 flex h-10 w-full cursor-default items-center gap-4 rounded-lg border border-input bg-bg py-2 pl-3 pr-2 text-start shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)] transition dark:shadow-none'
+    'btr group-disabled:bg-secondary [&_[data-slot=icon]]:size-4 group-disabled:opacity-50 focus-visible:border-ring/85 focus-visible:ring-4 focus-visible:ring-primary/20 group-open:border-ring/85 group-open:ring-4 group-open:ring-ring/20 flex h-10 w-full cursor-default items-center gap-4 rounded-lg border border-input bg-bg py-2 pl-3 pr-2 text-start shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)] transition dark:shadow-none'
   ],
   variants: {
     isDisabled: {
