@@ -2,7 +2,6 @@
 
 import * as React from 'react'
 
-import { Loader } from '@/components/ui/loader'
 import type { TextInputDOMProps } from '@react-types/shared'
 import { IconEye, IconEyeClosed, IconLoader } from 'justd-icons'
 import {
@@ -11,6 +10,7 @@ import {
   type TextFieldProps as TextFieldPrimitiveProps
 } from 'react-aria-components'
 
+import { Loader } from './loader'
 import type { FieldProps } from './field'
 import { Description, FieldError, FieldGroup, fieldGroupPrefixStyles, Input, Label } from './field'
 import { ctr } from './primitive'
