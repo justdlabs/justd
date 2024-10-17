@@ -448,6 +448,42 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
       />
     </svg>
   ),
+  'color-picker': (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="300"
+      height="200"
+      fill="none"
+      viewBox="0 0 300 200"
+    >
+      <rect width="20" height="20.001" x="100" y="35" fill="#A1A1AA" rx="4" />
+      <path
+        fill="#A1A1AA"
+        d="M109.134 61.5a1 1 0 0 1 1.732 0l6.062 10.5a1 1 0 0 1-.866 1.5h-12.124a1 1 0 0 1-.866-1.5z"
+      />
+      <rect width="100" height="100" x="100" y="66" fill="#A1A1AA" rx="5" />
+      <rect width="90" height="72" x="105" y="71" fill="#E4E4E7" rx="5" />
+      <rect width="90" height="12" x="105" y="147" fill="#E4E4E7" rx="4" />
+      <rect width="11" height="11" x="164.5" y="86.5" stroke="#000" rx="5.5" />
+      <rect
+        width="6.5"
+        height="6.5"
+        x="114.25"
+        y="149.25"
+        stroke="#000"
+        rx="3.25"
+        strokeWidth=".5"
+      />
+    </svg>
+  ),
+  'color-field': <></>,
+  'color-area': <></>,
+  'color-slider': <></>,
+  'color-swatch-picker': <></>,
+  'color-swatch': <></>,
+  'color-wheel': <></>,
+  'color-thumb': <></>,
+
   'combo-box': (
     <svg
       xmlns="http://www.w3.org/2000/svg"

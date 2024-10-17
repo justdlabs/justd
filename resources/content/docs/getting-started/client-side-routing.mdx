@@ -35,41 +35,31 @@ export default function Layout() {
 To integrate with Inertia.js, you must first declare it in your `.d.ts` file, such as in `global.d.ts`.
 
 ```tsx
-import type { FormDataConvertible, Method, PreserveStateOption, Progress } from "@inertiajs/core"
-import { PageProps as InertiaPageProps } from "@inertiajs/core"
-import { PageProps as AppPageProps } from "./"
+import { VisitOptions } from '@inertiajs/core'
+import { type AxiosInstance } from 'axios'
+import { type route as routeFn } from 'ziggy-js'
+
+declare global {
+    interface Window {
+        axios: AxiosInstance
+    }
+
+    let route: typeof routeFn
+}
 
 declare module 'react-aria-components' {
-  interface RouterConfig {
-    routerOptions: {
-      method?: Method
-      data?: Record<string, FormDataConvertible>
-      replace?: boolean
-      preserveState?: PreserveStateOption
-      preserveScroll?: PreserveStateOption
-      forceFormData?: boolean
-      only?: string[]
-      onBefore?: () => void
-      onStart?: () => void
-      onProgress?: (progress: Progress) => void
-      onCancel?: () => void
-      onSuccess?: () => void
-      onError?: () => void
-      onFinish?: () => void
-    }
-  }
-}
-
-declare module "@inertiajs/core" {
-    interface PageProps extends InertiaPageProps, AppPageProps {
+    interface RouterConfig {
+        routerOptions: VisitOptions
     }
 }
-
 ```
-Next, execute `php artisan ziggy:generate` to generate the Ziggy routes.
+Next, execute `ziggy:generate` to generate the Ziggy routes in your terminal.
+```bash
+php artisan ziggy:generate
+```
 
 Then, proceed to alias 'ziggy-js' in your `vite.config.ts` file.
-```js {4} {15-19}
+```
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 import react from '@vitejs/plugin-react';
@@ -78,62 +68,111 @@ import { resolve } from 'path';
 export default defineConfig({
     plugins: [
         laravel({
-            input: 'resources/js/app.tsx',
-            ssr: 'resources/js/ssr.tsx',
-            refresh: true,
+          input: 'resources/js/app.tsx',
+          ssr: 'resources/js/ssr.tsx',
+          refresh: true,
         }),
         react(),
     ],
     resolve: {
       alias: {
         'ziggy-js': resolve('vendor/tightenco/ziggy'),
+        ui: resolve('resources/js/components/ui/index.ts'), // optional if you want to use simple imports
       }
     }
 });
 ```
 
-Next, in your `resources/js/app.tsx` you can encapsulate `<App/>` within `RouterProvider` as follows:
-```tsx {7} {9-10} {18-30}
-import './bootstrap';
-import '../css/app.css';
-
-import { createRoot, hydrateRoot } from 'react-dom/client';
-import { createInertiaApp, router } from '@inertiajs/react';
-import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
+Now, create the provider file in `resources/js/components/providers.tsx` and add the following code:
+```
+import { router } from '@inertiajs/react'
+import React from 'react'
 import { RouterProvider } from 'react-aria-components'
+import { ThemeProvider } from './theme-provider'
+
+export function Providers({ children }: { children: React.ReactNode }) {
+    return (
+        <RouterProvider navigate={(to, options) => router.visit(to, options as any)}>
+          <ThemeProvider defaultTheme="system" storageKey="irsyad-theme">
+            {children}
+          </ThemeProvider>
+        </RouterProvider>
+    )
+}
+```
+
+If you're not sure what is theme-provider, refer to the [Theme Provider](/docs/dark-mode/inertia-js) section. After that, go to your `resources/js/app.tsx` you can encapsulate `<App/>` within `Providers` as follows:
+```
+import '../css/app.css'
+import './bootstrap'
 
 import { Ziggy } from '@/ziggy'
+import { createInertiaApp } from '@inertiajs/react'
+import { Providers } from 'components/providers'
+import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers'
+import { createRoot, hydrateRoot } from 'react-dom/client'
 import { useRoute } from 'ziggy-js'
 
-const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
+const appName = import.meta.env.VITE_APP_NAME || 'Laravel'
 
 createInertiaApp({
-  title: (title) => `${title} - ${appName}`,
-  resolve: (name) => resolvePageComponent(`./Pages/${name}.tsx`, import.meta.glob('./Pages/**/*.tsx')),
+  title: (title) => (title ? `${title} / ${appName}` : appName),
+  resolve: (name) => resolvePageComponent(`./pages/${name}.tsx`, import.meta.glob('./pages/**/*.tsx')),
   setup({ el, App, props }) {
+    // @ts-expect-error
     window.route = useRoute(Ziggy as any)
     const appElement = (
-      <RouterProvider navigate={(to, options) => router.visit(to, options as any)}>
+      <Providers>
         <App {...props} />
-      </RouterProvider>
+      </Providers>
     )
-
-    if (import.meta.env.DEV) {
-      createRoot(el).render(appElement);
+    if (import.meta.env.SSR) {
+      hydrateRoot(el, appElement)
       return
     }
 
-    hydrateRoot(el, appElement);
+    createRoot(el).render(appElement)
   },
-  progress: {
-    color: '#4B5563',
-  },
-});
+  progress: false
+})
+```
+
+I don't know if you need this or not, but if you care about `ssr.tsx`, you can add the following code:
+
+```
+import { Ziggy as ziggy } from '@/ziggy'
+import { createInertiaApp } from '@inertiajs/react'
+import createServer from '@inertiajs/react/server'
+import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers'
+import ReactDOMServer from 'react-dom/server'
+import { route, type RouteName } from 'ziggy-js'
+
+createServer(
+  (page) =>
+    createInertiaApp({
+      page,
+      render: ReactDOMServer.renderToString,
+      title: (title) => (title ? `${title} / Irsyad` : 'Irsyad'),
+      resolve: (name) => resolvePageComponent(`./pages/${name}.tsx`, import.meta.glob('./pages/**/*.tsx')),
+      setup: ({ App, props }) => {
+        // @ts-expect-error
+        global.route<RouteName> = (name, params, absolute) =>
+          // @ts-expect-error
+          route(name, params as any, absolute, {
+            ...ziggy,
+            // @ts-expect-error
+            location: new URL(page.props.ziggy.location)
+          })
+
+        return <App {...props} />
+      }
+    })
+)
 ```
 
 ### Next.js
 The `useRouter` hook from `next/navigation` provides a router object for navigation purposes. The `RouterProvider` should be implemented in a client component at the root of each page or layout that contains React Aria links. Create a new client component in the `app` folder named `provider.tsx` for this purpose or combine it with other top-level providers as outlined in the Next.js documentation.
-```tsx
+```
 'use client';
 
 import { useRouter } from 'next/navigation';
@@ -159,7 +198,8 @@ export function RouteProvider({ children }) {
 ```
 
 Then, in `app/layout.tsx` or your main layout file, enclose the children components within the `ClientProviders` component.
-```tsx {1} {6}
+
+```
 import { RouteProvider } from './provider';
 export default function RootLayout({children}) {
   return (
