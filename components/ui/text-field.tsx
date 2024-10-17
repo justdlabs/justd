@@ -10,9 +10,9 @@ import {
   type TextFieldProps as TextFieldPrimitiveProps
 } from 'react-aria-components'
 
-import { Loader } from './loader'
 import type { FieldProps } from './field'
 import { Description, FieldError, FieldGroup, fieldGroupPrefixStyles, Input, Label } from './field'
+import { Loader } from './loader'
 import { ctr } from './primitive'
 
 type InputType = Exclude<TextInputDOMProps['type'], 'password'>

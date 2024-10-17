@@ -9,8 +9,8 @@ import {
 import { tv } from 'tailwind-variants'
 
 import { Button } from './button'
-import { Loader } from './loader'
 import { Description, FieldError, FieldGroup, Input, Label } from './field'
+import { Loader } from './loader'
 import { ctr } from './primitive'
 
 const searchFieldStyles = tv({
