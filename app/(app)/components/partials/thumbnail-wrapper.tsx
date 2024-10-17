@@ -456,34 +456,344 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
       fill="none"
       viewBox="0 0 300 200"
     >
-      <rect width="20" height="20.001" x="100" y="35" fill="#A1A1AA" rx="4" />
       <path
-        fill="#A1A1AA"
-        d="M109.134 61.5a1 1 0 0 1 1.732 0l6.062 10.5a1 1 0 0 1-.866 1.5h-12.124a1 1 0 0 1-.866-1.5z"
+        fill="#91919C"
+        d="M107.134 63.5a1 1 0 0 1 1.732 0l6.062 10.5a1 1 0 0 1-.866 1.5h-12.124a1 1 0 0 1-.866-1.5z"
       />
-      <rect width="100" height="100" x="100" y="66" fill="#A1A1AA" rx="5" />
-      <rect width="90" height="72" x="105" y="71" fill="#E4E4E7" rx="5" />
-      <rect width="90" height="12" x="105" y="147" fill="#E4E4E7" rx="4" />
-      <rect width="11" height="11" x="164.5" y="86.5" stroke="#000" rx="5.5" />
+      <rect width="100" height="92" x="101" y="66" fill="#91919C" rx="5" />
+      <rect width="96" height="59" x="103" y="68" fill="#E4E4E7" rx="3" />
+      <rect width="96" height="12" x="103" y="129" fill="#E4E4E7" rx="3" />
+      <rect width="58" height="13" x="103" y="143" fill="#E4E4E7" rx="3" />
+      <rect width="47" height="3" x="109" y="148" fill="#71717A" rx="1.5" />
+      <rect width="36" height="13" x="163" y="143" fill="#E4E4E7" rx="3" />
+      <path
+        stroke="#A1A1AA"
+        d="m190.333 149.167 1.667 1.666 1.667-1.666"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth=".625"
+      />
+      <rect width="16" height="3" x="169" y="148" fill="#71717A" rx="1.5" />
+      <rect width="11" height="11" x="165.5" y="86.5" stroke="#000" rx="5.5" />
+      <rect
+        width="9.167"
+        height="9.167"
+        x="166.417"
+        y="87.417"
+        stroke="#fff"
+        rx="4.583"
+        strokeWidth=".833"
+      />
       <rect
         width="6.5"
         height="6.5"
-        x="114.25"
-        y="149.25"
+        x="118.25"
+        y="131.25"
         stroke="#000"
         rx="3.25"
         strokeWidth=".5"
       />
+      <rect width="17" height="17" x="101" y="43" fill="#E4E4E7" rx="2.125" />
     </svg>
   ),
-  'color-field': <></>,
-  'color-area': <></>,
-  'color-slider': <></>,
-  'color-swatch-picker': <></>,
-  'color-swatch': <></>,
-  'color-wheel': <></>,
-  'color-thumb': <></>,
+  'color-field': (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="300"
+      height="200"
+      fill="none"
+      viewBox="0 0 300 200"
+    >
+      <rect
+        width="79.5"
+        height="27.5"
+        x="110.25"
+        y="86.25"
+        stroke="#71717A"
+        rx="5.344"
+        strokeWidth=".5"
+      />
+      <rect width="43" height="4" x="139" y="98" fill="#71717A" rx="2" />
+      <rect
+        width="17.5"
+        height="17.5"
+        x="116.25"
+        y="91.25"
+        fill="#3F3F46"
+        fillOpacity=".5"
+        rx="3.75"
+      />
+      <rect
+        width="17.5"
+        height="17.5"
+        x="116.25"
+        y="91.25"
+        stroke="#71717A"
+        rx="3.75"
+        strokeWidth=".5"
+      />
+    </svg>
+  ),
+  'color-area': (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="300"
+      height="200"
+      fill="none"
+      viewBox="0 0 300 200"
+    >
+      <g fill="#A1A1AA">
+        <rect width="96" height="97" x="102" y="52" rx="6" />
+        <rect width="11" height="11" x="181.5" y="64.5" stroke="#000" rx="5.5" />
+        <rect
+          width="9.167"
+          height="9.167"
+          x="182.417"
+          y="65.417"
+          stroke="#fff"
+          rx="4.583"
+          strokeWidth=".833"
+        />
+      </g>
+    </svg>
+  ),
+  'color-slider': null,
+  'color-swatch-picker': null,
+  'color-swatch': null,
+  'color-wheel': null,
+  'color-thumb': null,
 
+  form: (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="300"
+      height="200"
+      fill="none"
+      viewBox="0 0 300 200"
+    >
+      <path
+        stroke="#71717A"
+        d="M217.381 76.961H80.631A4.63 4.63 0 0 0 76 81.592v14.569a4.63 4.63 0 0 0 4.63 4.63h136.751a4.63 4.63 0 0 0 4.631-4.63V81.592a4.63 4.63 0 0 0-4.631-4.63Z"
+        strokeWidth=".433"
+      />
+      <path
+        fill="#71717A"
+        d="M123.443 87.143H90.515a1.733 1.733 0 0 0 0 3.466h32.928a1.733 1.733 0 0 0 0-3.466m23.397 0h-13.865a1.733 1.733 0 0 0 0 3.466h13.865a1.733 1.733 0 0 0 0-3.466m33.795 0h-24.263a1.732 1.732 0 1 0 0 3.466h24.263a1.733 1.733 0 0 0 0-3.466"
+      />
+      <path
+        stroke="#71717A"
+        d="M217.381 41H80.631A4.63 4.63 0 0 0 76 45.63V60.2a4.63 4.63 0 0 0 4.63 4.63h136.751a4.63 4.63 0 0 0 4.631-4.63V45.63a4.63 4.63 0 0 0-4.631-4.63Z"
+        strokeWidth=".433"
+      />
+      <path
+        fill="#71717A"
+        d="M123.443 51.182H90.515a1.733 1.733 0 0 0 0 3.466h32.928a1.733 1.733 0 0 0 0-3.466m23.397 0h-13.865a1.733 1.733 0 0 0 0 3.466h13.865a1.733 1.733 0 0 0 0-3.466m33.795 0h-24.263a1.732 1.732 0 1 0 0 3.466h24.263a1.733 1.733 0 0 0 0-3.466"
+      />
+      <rect width="51.214" height="19.768" x="172.36" y="139.345" fill="#fff" rx="4.34" />
+      <rect
+        width="51.214"
+        height="19.768"
+        x="172.36"
+        y="139.345"
+        stroke="#D4D4D8"
+        rx="4.34"
+        strokeWidth=".852"
+      />
+      <rect width="36.539" height="3.177" x="179.985" y="147.584" fill="#52525B" rx="1.589" />
+      <rect width="52.066" height="20.62" x="114.128" y="139.096" fill="#71717A" rx="3.177" />
+      <rect width="36.539" height="3.177" x="121.927" y="147.584" fill="#fff" rx="1.589" />
+      <path
+        fill="#71717A"
+        d="M130.592 115.522H97.663a1.733 1.733 0 0 0 0 3.467h32.929a1.733 1.733 0 0 0 0-3.467m41.594 0h-32.929a1.733 1.733 0 0 0 0 3.467h32.929a1.733 1.733 0 0 0 0-3.467m-41.594 8.666H97.663a1.733 1.733 0 1 0 0 3.466h32.929a1.733 1.733 0 0 0 0-3.466m60.575 0h-50.96c-1.482 0-2.683.776-2.683 1.733s1.201 1.733 2.683 1.733h50.96c1.482 0 2.683-.776 2.683-1.733s-1.201-1.733-2.683-1.733"
+      />
+      <path
+        fill="#71717A"
+        d="M82.932 115.811a5.777 5.777 0 1 0 .001 11.554 5.777 5.777 0 0 0 0-11.554m2.069 4.608a.435.435 0 0 0-.38-.697.44.44 0 0 0-.29.148l-2.298 2.807-.816-.817a.43.43 0 0 0-.602.01.436.436 0 0 0-.01.602l1.155 1.156a.43.43 0 0 0 .5.08.4.4 0 0 0 .14-.112z"
+        clipRule="evenodd"
+        fillRule="evenodd"
+      />
+    </svg>
+  ),
+  field: (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="300"
+      height="200"
+      fill="none"
+      viewBox="0 0 300 200"
+    >
+      <path
+        stroke="#71717A"
+        d="M218.381 74H81.631A4.63 4.63 0 0 0 77 78.63V93.2a4.63 4.63 0 0 0 4.63 4.63h136.751a4.63 4.63 0 0 0 4.631-4.63V78.63a4.63 4.63 0 0 0-4.631-4.63Z"
+        strokeWidth=".433"
+      />
+      <path
+        fill="#71717A"
+        d="M124.443 84.182H91.515a1.733 1.733 0 1 0 0 3.466h32.928a1.733 1.733 0 0 0 0-3.466m23.397 0h-13.865a1.733 1.733 0 0 0 0 3.466h13.865a1.733 1.733 0 0 0 0-3.466m33.795 0h-24.263a1.732 1.732 0 1 0 0 3.466h24.263a1.733 1.733 0 0 0 0-3.466m-50.043 28.514H98.663a1.733 1.733 0 0 0 0 3.466h32.929a1.733 1.733 0 1 0 0-3.466m41.594 0h-32.929a1.733 1.733 0 0 0 0 3.466h32.929a1.733 1.733 0 1 0 0-3.466m-41.594 8.666H98.663a1.733 1.733 0 0 0 0 3.466h32.929a1.733 1.733 0 0 0 0-3.466m60.575 0h-50.96c-1.482 0-2.683.776-2.683 1.733s1.201 1.733 2.683 1.733h50.96c1.482 0 2.683-.776 2.683-1.733s-1.201-1.733-2.683-1.733"
+      />
+      <path
+        fill="#71717A"
+        d="M83.932 112.985a5.777 5.777 0 1 0 .001 11.554 5.777 5.777 0 0 0 0-11.554m2.069 4.607a.43.43 0 0 0-.069-.6.433.433 0 0 0-.602.052l-2.297 2.807-.816-.817a.432.432 0 0 0-.729.309.43.43 0 0 0 .116.303l1.156 1.155a.434.434 0 0 0 .64-.031z"
+        clipRule="evenodd"
+        fillRule="evenodd"
+      />
+    </svg>
+  ),
+  'text-field': (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="300"
+      height="200"
+      fill="none"
+      viewBox="0 0 300 200"
+    >
+      <rect
+        width="168.5"
+        height="27.5"
+        x="66.25"
+        y="86.25"
+        stroke="#71717A"
+        rx="5.344"
+        strokeWidth=".5"
+      />
+      <rect width="42" height="4" x="81" y="98" fill="#71717A" rx="2" />
+      <rect width="20" height="4" x="130" y="98" fill="#71717A" rx="2" />
+      <rect width="32" height="4" x="157" y="98" fill="#71717A" rx="2" />
+    </svg>
+  ),
+  'search-field': (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="300"
+      height="200"
+      fill="none"
+      viewBox="0 0 300 200"
+    >
+      <path
+        stroke="#71717A"
+        d="M229.156 86H71.344A5.344 5.344 0 0 0 66 91.344v16.812a5.344 5.344 0 0 0 5.344 5.344h157.812a5.345 5.345 0 0 0 5.344-5.344V91.344A5.344 5.344 0 0 0 229.156 86Z"
+        strokeWidth=".5"
+      />
+      <path
+        fill="#71717A"
+        d="M137 98H99a2 2 0 1 0 0 4h38a2 2 0 1 0 0-4m27 0h-16a2 2 0 1 0 0 4h16a2 2 0 1 0 0-4"
+      />
+      <g fill="#A1A1AA">
+        <path d="M81.417 102.333a2.916 2.916 0 1 0 0-5.833 2.916 2.916 0 0 0 0 5.833" />
+        <path
+          d="M81.417 95.625a3.791 3.791 0 1 0 0 7.583 3.791 3.791 0 0 0 0-7.583m-4.667 3.792a4.667 4.667 0 1 1 8.261 2.976l2.11 2.11a.44.44 0 0 1 .14.313.43.43 0 0 1-.274.413.44.44 0 0 1-.484-.107l-2.11-2.111a4.66 4.66 0 0 1-4.962.629 4.67 4.67 0 0 1-2.681-4.223"
+          clipRule="evenodd"
+          fillRule="evenodd"
+        />
+      </g>
+      <path stroke="#A1A1AA" d="m216.5 96.5 7 7m0-7-7 7" strokeLinecap="round" strokeWidth="1.5" />
+    </svg>
+  ),
+  textarea: (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="300"
+      height="200"
+      fill="none"
+      viewBox="0 0 300 200"
+    >
+      <rect
+        width="167.725"
+        height="42.948"
+        x="66.226"
+        y="78.226"
+        stroke="#575760"
+        rx="5.199"
+        strokeWidth=".452"
+      />
+      <rect width="31.646" height="4.521" x="75.042" y="87.946" fill="#6E6E78" rx="2.26" />
+      <rect width="31.646" height="4.521" x="112.113" y="87.946" fill="#6E6E78" rx="2.26" />
+      <rect width="31.646" height="4.521" x="160.939" y="97.892" fill="#6E6E78" rx="2.26" />
+      <rect width="22.604" height="4.521" x="198.01" y="97.892" fill="#6E6E78" rx="2.26" />
+      <rect width="48.826" height="4.521" x="149.184" y="87.946" fill="#6E6E78" rx="2.26" />
+      <rect width="20.796" height="4.521" x="203.435" y="87.946" fill="#6E6E78" rx="2.26" />
+      <rect width="80.472" height="4.521" x="75.042" y="97.892" fill="#6E6E78" rx="2.26" />
+      <rect width="49.73" height="4.521" x="75.042" y="107.838" fill="#6E6E78" rx="2.26" />
+      <rect width="37.071" height="4.521" x="130.197" y="107.838" fill="#6E6E78" rx="2.26" />
+      <rect width="47.921" height="4.521" x="172.693" y="107.838" fill="#6E6E78" rx="2.26" />
+    </svg>
+  ),
+  'input-otp': (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="300"
+      height="200"
+      fill="none"
+      viewBox="0 0 300 200"
+    >
+      <rect
+        width="25.735"
+        height="27.1"
+        x="54.2"
+        y="86.2"
+        stroke="#71717A"
+        rx="3.8"
+        strokeWidth=".4"
+      />
+      <rect width="2.851" height="12" x="65.404" y="94" fill="#71717A" rx="1.426" />
+      <rect
+        width="25.735"
+        height="27.1"
+        x="85.562"
+        y="86.2"
+        stroke="#71717A"
+        rx="3.8"
+        strokeWidth=".4"
+      />
+      <rect width="2.851" height="12" x="96.767" y="94" fill="#71717A" rx="1.426" />
+      <rect
+        width="25.735"
+        height="27.1"
+        x="115.974"
+        y="86.2"
+        stroke="#71717A"
+        rx="3.8"
+        strokeWidth=".4"
+      />
+      <rect width="2.851" height="12" x="127.179" y="94" fill="#71717A" rx="1.426" />
+      <rect
+        width="25.735"
+        height="27.1"
+        x="158.741"
+        y="86.2"
+        stroke="#71717A"
+        rx="3.8"
+        strokeWidth=".4"
+      />
+      <rect width="2.851" height="12" x="169.945" y="94" fill="#71717A" rx="1.426" />
+      <rect width="6.653" height="3" x="147.137" y="98" fill="#71717A" rx="1.5" />
+      <rect
+        width="25.735"
+        height="27.1"
+        x="189.153"
+        y="86.2"
+        stroke="#71717A"
+        rx="3.8"
+        strokeWidth=".4"
+      />
+      <rect width="2.851" height="12" x="200.357" y="94" fill="#71717A" rx="1.426" />
+      <rect
+        width="25.735"
+        height="27.1"
+        x="219.565"
+        y="86.2"
+        stroke="#71717A"
+        rx="3.8"
+        strokeWidth=".4"
+      />
+      <rect width="2.851" height="12" x="230.769" y="94" fill="#71717A" rx="1.426" />
+    </svg>
+  ),
+  'number-field': null,
+  'checkbox-group': null,
+  checkbox: null,
+  'radio-group': null,
+  'tag-field': null,
   'combo-box': (
     <svg
       xmlns="http://www.w3.org/2000/svg"
