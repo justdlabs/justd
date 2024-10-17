@@ -22,7 +22,7 @@ const navigation = {
   labs: [
     { name: 'Github', href: 'https://github.com/justdlabs' },
     { name: 'X / Formerly Twitter', href: 'https://x.com/getjustd' },
-    { name: 'Templates', href: 'https://irsyad.co' }
+    { name: 'Templates', href: 'https://irsyad.co/templates' }
   ],
   legal: [{ name: 'MIT', href: 'https://github.com/justdlabs/justd/blob/main/LICENSE' }]
 }

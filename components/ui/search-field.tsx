@@ -11,25 +11,32 @@ import { tv } from 'tailwind-variants'
 import { Button } from './button'
 import { Description, FieldError, FieldGroup, Input, Label } from './field'
 import { ctr } from './primitive'
+import { Loader } from '@/components/ui/loader'
 
 const searchFieldStyles = tv({
   slots: {
     base: 'group flex min-w-10 flex-col gap-1',
     searchIcon:
       'ml-2 size-4 shrink-0 text-muted-fg group-disabled:text-muted-fg/50 forced-colors:text-[ButtonText] forced-colors:group-disabled:text-[GrayText]',
-    closeButton:
+    clearButton:
       'mr-1 size-8 text-muted-fg group-empty:invisible hover:bg-transparent pressed:text-fg',
     input: '[&::-webkit-search-cancel-button]:hidden'
+  },
+  variants: {
+    isPending: {
+      true: ''
+    }
   }
 })
 
-const { base, searchIcon, closeButton, input } = searchFieldStyles()
+const { base, searchIcon, clearButton, input } = searchFieldStyles()
 
 interface SearchFieldProps extends SearchFieldPrimitiveProps {
   label?: string
   placeholder?: string
   description?: string
   errorMessage?: string | ((validation: ValidationResult) => string)
+  isPending?: boolean
 }
 
 const SearchField = ({
@@ -38,6 +45,7 @@ const SearchField = ({
   label,
   description,
   errorMessage,
+  isPending,
   ...props
 }: SearchFieldProps) => {
   return (
@@ -50,9 +58,10 @@ const SearchField = ({
       <FieldGroup>
         <IconSearch aria-hidden className={searchIcon()} />
         <Input placeholder={placeholder ?? 'Search...'} className={input()} />
-        <Button size="square-petite" appearance="plain" className={closeButton()}>
+        {isPending ? <Loader variant='spin'/> : <Button size="square-petite" appearance="plain" className={clearButton()}>
           <IconX aria-hidden className="size-4" />
-        </Button>
+        </Button>}
+
       </FieldGroup>
       {description && <Description>{description}</Description>}
       <FieldError>{errorMessage}</FieldError>

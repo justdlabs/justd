@@ -185,14 +185,14 @@ export const previews: Record<string, any> = {
   "forms/text-field/text-field-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/forms/text-field/text-field-disabled-demo")),
   },
-  "forms/text-field/text-field-loading-demo": {
-    component: React.lazy(() => import("@/components/docs/forms/text-field/text-field-loading-demo")),
-  },
   "forms/text-field/text-field-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/forms/text-field/text-field-controlled-demo")),
   },
   "forms/text-field/text-field-suffix-button-demo": {
     component: React.lazy(() => import("@/components/docs/forms/text-field/text-field-suffix-button-demo")),
+  },
+  "forms/text-field/text-field-pending-demo": {
+    component: React.lazy(() => import("@/components/docs/forms/text-field/text-field-pending-demo")),
   },
   "forms/radio-group/radio-group-demo": {
     component: React.lazy(() => import("@/components/docs/forms/radio-group/radio-group-demo")),

@@ -13,13 +13,14 @@ import {
 import type { FieldProps } from './field'
 import { Description, FieldError, FieldGroup, fieldGroupPrefixStyles, Input, Label } from './field'
 import { ctr } from './primitive'
+import { Loader } from '@/components/ui/loader'
 
 type InputType = Exclude<TextInputDOMProps['type'], 'password'>
 
 interface BaseTextFieldProps extends TextFieldPrimitiveProps, FieldProps {
   prefix?: React.ReactNode
   suffix?: React.ReactNode
-  isLoading?: boolean
+  isPending?: boolean
   indicatorPlace?: 'prefix' | 'suffix'
   className?: string
 }
@@ -43,7 +44,7 @@ const TextField = ({
   errorMessage,
   prefix,
   suffix,
-  isLoading,
+  isPending,
   indicatorPlace,
   className,
   isRevealable,
@@ -64,10 +65,10 @@ const TextField = ({
     >
       {label && <Label>{label}</Label>}
       <FieldGroup
-        data-loading={isLoading ? 'true' : undefined}
+        data-loading={isPending ? 'true' : undefined}
         className={fieldGroupPrefixStyles({ className })}
       >
-        {isLoading && indicatorPlace === 'prefix' ? (
+        {isPending && indicatorPlace === 'prefix' ? (
           <IconLoader className="animate-spin isPfx" />
         ) : prefix ? (
           <span className="atrs isPfx x2e2">{prefix}</span>
@@ -87,8 +88,8 @@ const TextField = ({
               )}
             </>
           </ButtonPrimitive>
-        ) : isLoading && indicatorPlace === 'suffix' ? (
-          <IconLoader className="animate-spin isSfx" />
+        ) : isPending && indicatorPlace === 'suffix' ? (
+          <Loader variant='spin' className="animate-spin isSfx" />
         ) : suffix ? (
           <span className="atrs isSfx x2e2">{suffix}</span>
         ) : null}
