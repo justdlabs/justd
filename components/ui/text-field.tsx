@@ -2,6 +2,7 @@
 
 import * as React from 'react'
 
+import { Loader } from '@/components/ui/loader'
 import type { TextInputDOMProps } from '@react-types/shared'
 import { IconEye, IconEyeClosed, IconLoader } from 'justd-icons'
 import {
@@ -13,7 +14,6 @@ import {
 import type { FieldProps } from './field'
 import { Description, FieldError, FieldGroup, fieldGroupPrefixStyles, Input, Label } from './field'
 import { ctr } from './primitive'
-import { Loader } from '@/components/ui/loader'
 
 type InputType = Exclude<TextInputDOMProps['type'], 'password'>
 
@@ -89,7 +89,7 @@ const TextField = ({
             </>
           </ButtonPrimitive>
         ) : isPending && indicatorPlace === 'suffix' ? (
-          <Loader variant='spin' className="animate-spin isSfx" />
+          <Loader variant="spin" className="isSfx" />
         ) : suffix ? (
           <span className="atrs isSfx x2e2">{suffix}</span>
         ) : null}

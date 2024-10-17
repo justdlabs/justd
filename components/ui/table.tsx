@@ -32,7 +32,7 @@ import { cn, cr } from './primitive'
 
 const table = tv({
   slots: {
-    root: 'table w-full caption-bottom border-spacing-0 text-sm outline-none',
+    root: 'table [&_[data-drop-target]]:border [&_[data-drop-target]]:border-primary w-full caption-bottom border-spacing-0 text-sm outline-none',
     header: 'border-b x32',
     row: 'tr group relative cursor-default border-b text-fg/70 outline-none ring-primary focus-visible:ring-1 selected:bg-accent-subtle selected:hover:bg-accent-subtle/50 dark:selected:hover:bg-accent-subtle/60',
     cellIcon:
@@ -203,9 +203,7 @@ const TableRow = <T extends object>({
             className="relative bg-transparent pl-3.5 py-1.5 text-muted-fg pressed:text-fg"
             slot="drag"
           >
-            <>
-              <IconHamburger />
-            </>
+            <IconHamburger />
           </Button>
         </Cell>
       )}

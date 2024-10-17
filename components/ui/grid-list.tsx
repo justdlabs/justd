@@ -11,35 +11,35 @@ import { Button, GridList as GridListPrimitive, GridListItem } from 'react-aria-
 import { tv } from 'tailwind-variants'
 
 import { Checkbox } from './checkbox'
-import { cr, ctr, focusRing } from './primitive'
+import { cr, ctr } from './primitive'
+
+const gridListStyles = tv({
+  base: 'relative [&>[data-drop-target]]:border [&>[data-drop-target]]:border-primary [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin] max-h-96 overflow-auto rounded-lg border'
+})
 
 type GridListProps<T extends object> = GridListPrimitiveProps<T>
 
 const GridList = <T extends object>({ children, className, ...props }: GridListProps<T>) => (
-  <GridListPrimitive
-    className={ctr(
-      className,
-      'relative [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin] max-h-96 overflow-auto rounded-lg border'
-    )}
-    {...props}
-  >
+  <GridListPrimitive className={ctr(className, gridListStyles())} {...props}>
     {children}
   </GridListPrimitive>
 )
 
 const itemStyles = tv({
-  extend: focusRing,
-  base: 'relative transition -mb-px flex cursor-default select-none gap-3 border-y px-3 py-2 lg:text-sm text-fg -outline-offset-2 first:rounded-t-md first:border-t-0 last:mb-0 last:rounded-b-md last:border-b-0',
+  base: 'relative group transition outline-none flex cursor-default select-none gap-3 border-y px-3 -mb-px py-2 lg:text-sm text-fg -outline-offset-2 first:rounded-t-md first:border-t-0 last:mb-0 last:rounded-b-md last:border-b-0',
   variants: {
     isHovered: { true: 'bg-accent-subtle' },
     isSelected: {
-      true: 'z-20 border-y-primary/60 bg-accent-subtle hover:bg-accent-subtle/80'
+      true: 'bg-accent-subtle z-20 border-border/50 hover:bg-accent-subtle/50 dark:hover:bg-accent-subtle/60'
+    },
+    isFocused: {
+      true: 'outline-none'
     },
     isFocusVisible: {
-      true: 'z-20 border-y-accent bg-accent-subtle selected:bg-accent-subtle/80 hover:bg-accent-subtle/70'
+      true: 'ring-1 ring-primary outline-none bg-accent-subtle selected:bg-accent-subtle/80 hover:bg-accent-subtle/70'
     },
     isDisabled: {
-      true: 'z-10 text-muted-fg forced-colors:text-[GrayText]'
+      true: 'text-muted-fg forced-colors:text-[GrayText]'
     }
   }
 })
@@ -57,10 +57,18 @@ const Item = ({ children, className, ...props }: GridListItemProps) => {
       {({ selectionMode, selectionBehavior, allowsDragging }) => (
         <>
           {allowsDragging && (
-            <Button slot="drag">
+            <Button
+              slot="drag"
+              className="cursor-grab dragging:cursor-grabbing [&>[data-slot=icon]]:text-muted-fg"
+            >
               <IconHamburger />
             </Button>
           )}
+
+          <span
+            aria-hidden
+            className="absolute inset-y-0 left-0 hidden h-full w-0.5 bg-primary group-selected:block"
+          />
           {selectionMode === 'multiple' && selectionBehavior === 'toggle' && (
             <Checkbox className="-mr-2" slot="selection" />
           )}

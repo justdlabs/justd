@@ -148,16 +148,15 @@ You should add the following code:
 ```
 
 ### Variables
-You can customize your colors using these variables. By default, Justd utilizes OKLCH colors, but you have the option
-to switch to RGB, HSL, or HSB. If OKLCH isn't your preference, you can easily switch to another color format in the
-[Color Generator](/colors).
+You can customize your colors using these variables. By default, Justd utilizes HSL colors, but you have the option
+to switch to RGB, HSL, or HSB.
 
 <PlainCode lang='css' code={`@layer base {
-:root {
-  --light: 98.51% 0 0;
-  --dark: 16.41% 0.006 285.68;
-  --bg: 100% 3.5594404384177905e-8 106.37411429114086;
-  --fg: 14.05% 0.004 285.82;
+  :root {
+    --light: 98.51% 0 0;
+    --dark: 16.41% 0.006 285.68;
+    --bg: 100% 3.5594404384177905e-8 106.37411429114086;
+    --fg: 14.05% 0.004 285.82;
 
     --overlay: 100% 3.5594404384177905e-8 106.37411429114086;
     --overlay-fg: 14.05% 0.004 285.82;
@@ -239,31 +238,20 @@ to switch to RGB, HSL, or HSB. If OKLCH isn't your preference, you can easily sw
 
 ### Default Utilities
 Include this for the default set of utilities:
-<PlainCode lang='css' code={`@layer base {
-* {
-  @apply border-border;
-  font-feature-settings: 'cv11', 'ss01';
-  font-variation-settings: 'opsz' 850;
-}
+
+```css
+@layer base {
+  * {
+    @apply border-border;
+    font-feature-settings: 'cv11', 'ss01';
+    font-variation-settings: 'opsz' 850;
+  }
 
   body {
     @apply bg-bg text-fg;
-    ::-ms-reveal {
-      display: none;
-    }
   }
 }
-`} />
-
-### React Aria Components
-Then, add this section for react-aria-components:
-
-```css
-.react-aria-DropIndicator[data-drop-target] {
-  outline: 1px solid hsl(var(--primary));
-}
 ```
-
 
 ### Tailwind Configuration
 Configure your Tailwind setup by wrapping your tailwind config with withTV from tailwind-variants. Also, make sure to

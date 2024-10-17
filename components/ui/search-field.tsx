@@ -1,5 +1,6 @@
 'use client'
 
+import { Loader } from '@/components/ui/loader'
 import { IconSearch, IconX } from 'justd-icons'
 import {
   SearchField as SearchFieldPrimitive,
@@ -11,15 +12,15 @@ import { tv } from 'tailwind-variants'
 import { Button } from './button'
 import { Description, FieldError, FieldGroup, Input, Label } from './field'
 import { ctr } from './primitive'
-import { Loader } from '@/components/ui/loader'
 
 const searchFieldStyles = tv({
   slots: {
     base: 'group flex min-w-10 flex-col gap-1',
     searchIcon:
       'ml-2 size-4 shrink-0 text-muted-fg group-disabled:text-muted-fg/50 forced-colors:text-[ButtonText] forced-colors:group-disabled:text-[GrayText]',
-    clearButton:
-      'mr-1 size-8 text-muted-fg group-empty:invisible hover:bg-transparent pressed:text-fg',
+    clearButton: [
+      'mr-1 size-8 text-muted-fg group-empty:invisible pressed:bg-transparent hover:bg-transparent hover:text-fg pressed:text-fg'
+    ],
     input: '[&::-webkit-search-cancel-button]:hidden'
   },
   variants: {
@@ -58,10 +59,13 @@ const SearchField = ({
       <FieldGroup>
         <IconSearch aria-hidden className={searchIcon()} />
         <Input placeholder={placeholder ?? 'Search...'} className={input()} />
-        {isPending ? <Loader variant='spin'/> : <Button size="square-petite" appearance="plain" className={clearButton()}>
-          <IconX aria-hidden className="size-4" />
-        </Button>}
-
+        {isPending ? (
+          <Loader variant="spin" className="mr-2" />
+        ) : (
+          <Button size="square-petite" appearance="plain" className={clearButton()}>
+            <IconX aria-hidden />
+          </Button>
+        )}
       </FieldGroup>
       {description && <Description>{description}</Description>}
       <FieldError>{errorMessage}</FieldError>

@@ -218,6 +218,9 @@ export const previews: Record<string, any> = {
   "forms/search-field/search-field-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/forms/search-field/search-field-controlled-demo")),
   },
+  "forms/search-field/search-field-pending-demo": {
+    component: React.lazy(() => import("@/components/docs/forms/search-field/search-field-pending-demo")),
+  },
   "forms/search-field/search-field-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/forms/search-field/search-field-disabled-demo")),
   },
