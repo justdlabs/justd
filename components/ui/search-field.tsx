@@ -1,6 +1,5 @@
 'use client'
 
-import { Loader } from '@/components/ui/loader'
 import { IconSearch, IconX } from 'justd-icons'
 import {
   SearchField as SearchFieldPrimitive,
@@ -10,6 +9,7 @@ import {
 import { tv } from 'tailwind-variants'
 
 import { Button } from './button'
+import { Loader } from './loader'
 import { Description, FieldError, FieldGroup, Input, Label } from './field'
 import { ctr } from './primitive'
 

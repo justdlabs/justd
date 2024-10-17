@@ -1,9 +1,9 @@
 import * as React from 'react'
 
-import { cn } from '@/utils/classes'
 import { tv } from 'tailwind-variants'
 
 import { Heading } from './heading'
+import { cn } from './primitive'
 
 const card = tv({
   slots: {
