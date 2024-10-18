@@ -191,7 +191,7 @@ const Loader = React.forwardRef<SVGSVGElement, LoaderProps>(
 
     return (
       <ProgressBar
-        aria-label={props['aria-label'] ?? undefined}
+        aria-label={props['aria-label'] ?? 'Loading...'}
         formatOptions={props.formatOptions}
         isIndeterminate={isIndeterminate}
       >

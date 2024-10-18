@@ -3,56 +3,43 @@
 import * as React from 'react'
 
 import jsonPreviews from '@/components/docs/generated/previews.json'
-import {
-  Code,
-  CodeCollapsible,
-  CodeCollapsibleRoot,
-  CodeContainer,
-  CodeExpandButton
-} from '@/components/docs/rehype/code'
-import { Collapsible } from '@radix-ui/react-collapsible'
-import { Tabs } from 'ui'
+import { CodeCollapsible, CodeCollapsibleRoot } from '@/components/docs/rehype/code'
 
 interface SourceCodeProps extends React.HTMLAttributes<HTMLDivElement> {
-  toShow: string | string[]
+  toShow: string
   message?: string
   title?: string
   ext?: string
 }
 
 export function SourceCode({ title, message, ext = 'tsx', toShow, ...props }: SourceCodeProps) {
-  const [codeStrings, setCodeStrings] = React.useState<{ name: string; code: string }[]>([])
-  const [isOpened, setIsOpened] = React.useState<Record<string, boolean>>({})
+  const [codeString, setCodeString] = React.useState<{ name: string; code: string } | null>(null)
+  const [isOpened, setIsOpened] = React.useState<boolean>(false)
 
   React.useEffect(() => {
-    const toShowArray = Array.isArray(toShow) ? toShow : [toShow]
-    const updatedCodeStrings = toShowArray.map((show) => {
-      // @ts-ignore
-      const componentData = jsonPreviews[show]
-      if (componentData) {
-        return {
-          name: show,
-          code: componentData.raw.replace(
-            /export default function \w+\(\) \{/g,
-            'export default function App() {'
-          )
-        }
-      } else {
-        console.error('Component not found:', show)
-        return { name: show, code: '' }
-      }
-    })
-    setCodeStrings(updatedCodeStrings)
-    setIsOpened(Object.fromEntries(updatedCodeStrings.map((_, index) => [index, false])))
+    // @ts-expect-error
+    const componentData = jsonPreviews[toShow]
+    if (componentData) {
+      setCodeString({
+        name: toShow,
+        code: componentData.raw.replace(
+          /export default function \w+\(\) \{/g,
+          'export default function App() {'
+        )
+      })
+    } else {
+      console.error('Component not found:', toShow)
+      setCodeString(null)
+    }
   }, [toShow])
 
-  const handleOpenChange = (index: number, open: boolean) => {
-    setIsOpened((prevState) => ({ ...prevState, [index]: open }))
+  const handleOpenChange = (open: boolean) => {
+    setIsOpened(open)
   }
 
-  if (codeStrings.length === 1) {
+  if (codeString) {
     return (
-      <section className="my-6 not-prose">
+      <section {...props} className="my-6 not-prose">
         <p className="mb-4 -mt-2">
           {message
             ? message
@@ -61,50 +48,16 @@ export function SourceCode({ title, message, ext = 'tsx', toShow, ...props }: So
         {title && <figcaption data-rehype-pretty-code-title="">{title}</figcaption>}
         <CodeCollapsibleRoot>
           <CodeCollapsible
-            isOpened={isOpened[0]}
-            onOpenChange={(open) => handleOpenChange(0, open)}
-            code={codeStrings[0]?.code || ''}
+            lang={ext}
+            isOpened={isOpened}
+            onOpenChange={handleOpenChange}
+            code={codeString.code}
+            withImportCopy={false}
           />
         </CodeCollapsibleRoot>
       </section>
     )
   }
 
-  return (
-    <section className="my-6 not-prose">
-      <p className="mb-4 -mt-2">
-        {toShow.length > 1
-          ? "All these components are tight, so you gotta use 'em all together."
-          : 'And next, you can copy the code below and paste it into your dopest component folder.'}
-      </p>
-
-      <Tabs>
-        <Tabs.List className="overflow-x-auto no-scrollbar">
-          {codeStrings.map((code, index) => (
-            <Tabs.Tab className="whitespace-nowrap" key={index} id={`tab-${index}`}>
-              {code.name}.{ext}
-            </Tabs.Tab>
-          ))}
-        </Tabs.List>
-        {codeStrings.map((code, index) => (
-          <Tabs.Panel key={index} id={`tab-${index}`}>
-            <Collapsible
-              open={isOpened[index]}
-              onOpenChange={(open) => handleOpenChange(index, open)}
-            >
-              <div
-                className="relative rounded-lg border border-zinc-800 bg-[#0e0e10] overflow-hidden"
-                {...props}
-              >
-                <CodeContainer isOpened={isOpened[index]}>
-                  <Code code={code.code} />
-                </CodeContainer>
-                <CodeExpandButton isOpened={isOpened[index]} />
-              </div>
-            </Collapsible>
-          </Tabs.Panel>
-        ))}
-      </Tabs>
-    </section>
-  )
+  return null
 }

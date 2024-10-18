@@ -3,12 +3,13 @@
 import React, { useEffect, useState } from 'react'
 
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@radix-ui/react-collapsible'
-import { IconCircleInfo } from 'justd-icons'
+import { IconChevronLgDown, IconCircleInfo } from 'justd-icons'
 import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeStringify from 'rehype-stringify'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
-import { Button, cn, CopyButton } from 'ui'
+import { twJoin } from 'tailwind-merge'
+import { ButtonPrimitive, cn, CopyButton } from 'ui'
 import { unified } from 'unified'
 import { copyToClipboard } from 'usemods'
 
@@ -85,9 +86,15 @@ function CodeExpandButton({ isOpened }: { isOpened: boolean }) {
       )}
     >
       <CollapsibleTrigger asChild>
-        <Button intent="secondary" size="small">
+        <ButtonPrimitive className="bg-zinc-700 text-white px-4 border border-zinc-600 py-2 rounded-lg flex items-center gap-x-2 text-sm focus:outline-none">
+          <IconChevronLgDown
+            className={twJoin(
+              'size-4 -ml-1 duration-200 transition-colors',
+              isOpened && 'rotate-180'
+            )}
+          />
           {isOpened ? 'Collapse' : 'Expand'}
-        </Button>
+        </ButtonPrimitive>
       </CollapsibleTrigger>
     </div>
   )
@@ -169,7 +176,7 @@ const CodeHighlighter = ({ lang = 'tsx', code, ...props }: CodeProps) => {
       }
     }
 
-    processCode()
+    processCode().then((r) => r)
   }, [code, lang])
 
   if (error) {

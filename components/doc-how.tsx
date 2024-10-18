@@ -125,11 +125,13 @@ const Tab = ({ children, ...props }: TabProps) => {
 const TabsList = () => {
   const id = React.useId()
   return (
-    <LayoutGroup id={id}>
-      <Tabs.List>
-        <Tab id="preview">Preview</Tab>
-        <Tab id="code">Code</Tab>
-      </Tabs.List>
-    </LayoutGroup>
+    <div>
+      <LayoutGroup id={id}>
+        <Tabs.List>
+          <Tab id="preview">Preview</Tab>
+          <Tab id="code">Code</Tab>
+        </Tabs.List>
+      </LayoutGroup>
+    </div>
   )
 }

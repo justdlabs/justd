@@ -35,7 +35,7 @@ export default function Layout() {
 To integrate with Inertia.js, you must first declare it in your `.d.ts` file, such as in `global.d.ts`.
 
 ```tsx
-import { VisitOptions } from '@inertiajs/core'
+import { type VisitOptions } from '@inertiajs/core'
 import { type AxiosInstance } from 'axios'
 import { type route as routeFn } from 'ziggy-js'
 
@@ -147,12 +147,14 @@ import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers'
 import ReactDOMServer from 'react-dom/server'
 import { route, type RouteName } from 'ziggy-js'
 
+const appName = import.meta.env.VITE_APP_NAME || 'Laravel'
+
 createServer(
   (page) =>
     createInertiaApp({
       page,
       render: ReactDOMServer.renderToString,
-      title: (title) => (title ? `${title} / Irsyad` : 'Irsyad'),
+      title: (title) => (title ? `${title} / ${appName}` : appName),
       resolve: (name) => resolvePageComponent(`./pages/${name}.tsx`, import.meta.glob('./pages/**/*.tsx')),
       setup: ({ App, props }) => {
         // @ts-expect-error

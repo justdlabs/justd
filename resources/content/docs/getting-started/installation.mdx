@@ -8,7 +8,7 @@ published: true
 ## Installation via CLI
 Before executing the command, ensure that **tailwind** is installed. If not, follow the instructions [here](https://tailwindcss.com/docs/installation) for installation.
 
-<Note intent='primary'>
+<Note intent='info'>
   Running this command will overwrite your **tailwind config** and **css** file. It is recommended to use this in a
   **new project** rather than an existing one to avoid manual file additions.
 </Note>
@@ -18,7 +18,42 @@ Begin by executing this command:
 
 <Installation options={{ isInit: true }} items={['initial setup']} />
 
-Then, select your project type. Choose Next.js if you’re using **Next.js**, or select Laravel if you're working with **Laravel and Inertia.js**. If neither applies, select the **other** option.
+When you're run this command, it will ask a couple of questions. Like where's your components folder, utils, your main css file, and lastly is the theme you want like so:
+```bash
+? Enter the path to your components folder: components
+? Enter the path to your utils folder: utils
+? Where would you like to place the CSS file? app/globals.css
+✔ UI folder already exists at components/ui
+✔ Utils folder already exists at utils
+? Select a theme: (Use arrow keys)
+❯ Default
+  Zinc
+  Neutral
+  Slate
+  Gray
+  Azure
+  Sky
+  Amber
+  Violet
+  Emerald
+  Rose
+  Turquoise
+  Orange
+```
+After you select the theme, next you will be asked to select components you want to include.
+```bash
+? Select components to add: (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter> to proceed)
+❯ ◯ aside
+  ◯ avatar
+  ◯ badge
+  ◯ breadcrumbs
+  ◯ button
+  ◯ buttons
+  ◯ calendar
+  ◯ card
+  ◯ carousel
+  ◯ carousel
+```
 
 ### Add Components
 Next, use `add [component-name]` to include a specific component in your project. This allows for selective installation without the need for a full setup. If you need a file-trigger or even a button, this command facilitates that. Install only what you need, or refer to the documentation to manually include components. Here's how to add a `combo-box`:
@@ -70,41 +105,47 @@ This command will present a list of available components, which you can navigate
   ◯ date-and-time
   ```
 
-  ### Diff
-  You can see the differences between your current setup and the new one by using the following command:
-  <Installation options={{isExecutor: true}} command='npx justd-cli@latest diff' items={['']} />
-  You can see this [tweet](https://x.com/irsyadadl/status/1823355475020402781) if you're not sure.
+### Diff
+You can see the differences between your current setup and the new one by using the following command:
 
-  You can also doing a diff to specific components by using the following command:
-  <Installation command='npx justd-cli@latest diff multiple-select menu modal' items={['']}/>
+<Installation options={{isExecutor: true}} command='npx justd-cli@latest diff' items={['']} />
 
-  ## Starter Kit
-  I offer two starter kits, one for Next.js and one for Laravel. Choose the one that suits your project needs.
+You can see this [tweet](https://x.com/irsyadadl/status/1823355475020402781) if you're not sure.
 
-  <Note intent='primary'>
-    If you have other starter kits, such as Remix or Vite, consider submitting a
-    [PR](https://github.com/justdlabs/next.js/issues/new) to expand our list.
-  </Note>
+You can also doing a diff to specific components by using the following command:
+<Installation command='npx justd-cli@latest diff multiple-select menu modal' items={['']}/>
 
-  Here’s a swagged-out version of what you got:
+### Theme
+Sometimes you want to change the theme of your project. You can do that by using the following command:
+<Installation options={{isExecutor: true}} command='npx justd-cli@latest theme' items={['']} />
 
-  ### Laravel
-  First up, make sure you got [Composer](https://getcomposer.org/download/) chillin' on your system. Then, hit this
-  command to spin up a fresh project:
-  <Installation command='composer create-project justd/laravel project-name' items={['']}/>
-  Jump into your new crib with `cd project-name`, then install all the goods with `npm i && npm run dev`. Fire up your
-  server with `php artisan serve`, and boom—you’re ready to roll.
+## Starter Kit
+I offer two starter kits, one for Next.js and one for Laravel. Choose the one that suits your project needs.
 
-  ### Next.js
-  Get on that Just D hype with the [Next.js Starter Kit](https://next.getjustd.com/). This bad boy is pre-loaded and
-  ready to go. Kick off a new project with:
-  <Installation command='npx create-next-app@latest -e https://github.com/justdlabs/next.js project-name' items={['']}/>
+<Note intent='info'>
+  If you have other starter kits, such as Remix or Vite, consider submitting a
+  [PR](https://github.com/justdlabs/next.js/issues/new) to expand our list.
+</Note>
 
-  ### Remix
-  Remix caught your eye? Kick things off with the [Remix Starter Kit](https://remix.getjustd.com/), crafted by [José
-  Miguel](https://github.com/m1guer). It’s like Next.js but with that Remix spin. Grab the repo here:
-  [justdlabs/remix](https://github.com/justdlabs/remix). To get started, run the following command:
-  <Installation command='npx create-remix@latest --template justdlabs/remix' items={['']}/>
+Here’s a swagged-out version of what you got:
+
+### Laravel
+First up, make sure you got [Composer](https://getcomposer.org/download/) chillin' on your system. Then, hit this
+command to spin up a fresh project:
+<Installation command='composer create-project justd/laravel project-name' items={['']}/>
+Jump into your new crib with `cd project-name`, then install all the goods with `npm i && npm run dev`. Fire up your
+server with `php artisan serve`, and boom—you’re ready to roll.
+
+### Next.js
+Get on that Just D hype with the [Next.js Starter Kit](https://next.getjustd.com/). This bad boy is pre-loaded and
+ready to go. Kick off a new project with:
+<Installation command='npx create-next-app@latest -e https://github.com/justdlabs/next.js project-name' items={['']}/>
+
+### Remix
+Remix caught your eye? Kick things off with the [Remix Starter Kit](https://remix.getjustd.com/), crafted by [José
+Miguel](https://github.com/m1guer). It’s like Next.js but with that Remix spin. Grab the repo here:
+[justdlabs/remix](https://github.com/justdlabs/remix). To get started, run the following command:
+<Installation command='npx create-remix@latest --template justdlabs/remix' items={['']}/>
 
 ### Astro
 This starter is already in production, and you can check it out [here](https://astro.getjustd.com/). The repository is
@@ -118,8 +159,8 @@ compatible with server components. If you need to use `cn` outside of the typica
 in a separate file like this:
 
 ```ts title="utils/classes.ts"
-import {twMerge} from 'tailwind-merge'
-import {type ClassValue, clsx} from 'clsx'
+import { twMerge } from 'tailwind-merge'
+import { type ClassValue, clsx} from 'clsx'
 
 export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs))
 ```
@@ -151,95 +192,83 @@ You should add the following code:
 You can customize your colors using these variables. By default, Justd utilizes HSL colors, but you have the option
 to switch to RGB, HSL, or HSB.
 
-<PlainCode lang='css' code={`@layer base {
-  :root {
-    --light: 98.51% 0 0;
-    --dark: 16.41% 0.006 285.68;
-    --bg: 100% 3.5594404384177905e-8 106.37411429114086;
+<PlainCode code={`@layer base {
+   :root {
+    --light: 223.81 0% 98%;
+    --dark: 239.95 9% 6%;
+    --bg: 0 0% 100%;
     --fg: 14.05% 0.004 285.82;
-
-    --overlay: 100% 3.5594404384177905e-8 106.37411429114086;
+    --overlay: 0 0% 100%;
     --overlay-fg: 14.05% 0.004 285.82;
-
-    --primary: 55.76% 0.244 261.22;
-    --primary-fg: 100% 3.5594404384177905e-8 106.37411429114086;
-
-    --secondary: 96.76% 0.001 286.38;
-    --secondary-fg: 21.03% 0.006 285.88;
-
-    --tertiary: 100% 3.5594404384177905e-8 106.37411429114086;
-    --tertiary-fg: 27.47% 0.006 286;
-
-    --accent: 55.76% 0.244 261.22;
-    --accent-fg: 100% 3.5594404384177905e-8 106.37411429114086;
-
-    --accent-subtle: 97.47% 0.011951506905820171 259.81768693271533;
-    --accent-subtle-fg: 47.45% 0.2046280151598458 260.967449727105;
-
-    --success: 59.59% 0.127 163.23;
-    --success-fg: 97.93% 0.021 166.11;
-
-    --info: 89.72% 0.179 126.66;
-    --info-fg: 27.41% 0.069 132.11;
-
-    --muted: 96.76% 0.001 286.38;
-    --muted-fg: 55.19% 0.014 285.94;
-
-    --danger: 57.71% 0.215 27.32;
-    --danger-fg: 97.05% 0.013 17.38;
-
-    --warning: 83.69% 0.164 84.43;
-    --warning-fg: 27.92% 0.074 45.64;
-
-    --border: 91.97% 0.004 286.32;
-    --input: 91.97% 0.004 286.32;
+    --primary: 216.77 100% 50%;
+    --primary-fg: 0 0% 100%;
+    --secondary: 240 4% 96%;
+    --secondary-fg: 240.01 6% 10%;
+    --tertiary: 0 0% 100%;
+    --tertiary-fg: 240 4% 16%;
+    --accent: 216.77 100% 50%;
+    --accent-fg: 0 0% 100%;
+    --accent-subtle: 216.92 99% 97%;
+    --accent-subtle-fg: 216.74 100% 40%;
+    --success: 161.17 91% 31%;
+    --success-fg: 151.77 82% 96%;
+    --info: 205.77 100% 50%;
+    --info-fg: 0 0% 100%;
+    --muted: 240 4% 96%;
+    --muted-fg: 240 3.83% 46.08%;
+    --danger: 0.01 72% 51%;
+    --danger-fg: 360 86% 97%;
+    --warning: 43.2 96% 56.99999999999999%;
+    --warning-fg: 20.91 91% 14.1%;
+    --border: 240 6% 90%;
+    --input: 240 6% 90%;
     --ring: var(--primary);
-    --toggle: 87.16% 0.006 286.28;
+    --toggle: 240.01 5% 84%;
     --radius: 0.5rem;
+    --primary-chart: 216.74 100% 45%;
+    --secondary-chart: 219.83 100% 77%;
+    --tertiary-chart: 216.01 92% 60%;
+    --highlight-chart: 210 98% 78%;
+    --accent-chart: 210 98% 78%;
   }
 
   .dark {
-    --bg: 0% 0 0;
-    --fg: 98.48% 0 0;
-
-    --overlay: 16.64% 0.004 285.98;
-    --overlay-fg: 98.48% 0 0;
-
-    --primary: 57.51% 0.229 260.21;
-    --primary-fg: 100% 3.5594404384177905e-8 106.37411429114086;
-
-    --secondary: 27.41% 0.005 286.03;
-    --secondary-fg: 98.48% 0 0;
-
-    --info: 92.15% 0.209 129.31;
-    --info-fg: 33.18% 0.1128435250344563 142.49533888780988;
-
-    --success: 59.59% 0.127 163.23;
-    --success-fg: 97.93% 0.021 166.11;
-
-    --accent: 57.51% 0.229 260.21;
-    --accent-fg: 100% 3.5594404384177905e-8 106.37411429114086;
-
-    --accent-subtle: 15.82% 0.044 253.07;
-    --accent-subtle-fg: 82.36% 0.098 240.42;
-
-    --tertiary: 15.86% 0.006 285.71;
-    --tertiary-fg: 96.83% 0.001 286.37;
-
-    --muted: 27.41% 0.005 286.03;
-    --muted-fg: 71.19% 0.013 286.07;
-
+    --bg: 0 0% 1%;
+    --fg: 223.81 0% 98%;
+    --overlay: 240.03 6% 6%;
+    --overlay-fg: 223.81 0% 98%;
+    --primary: 216.04 98% 52%;
+    --primary-fg: 0 0% 100%;
+    --secondary: 240.06 5% 11%;
+    --secondary-fg: 223.81 0% 98%;
+    --info: 205.77 100% 50%;
+    --info-fg: 0 0% 100%;
+    --success: 161.17 91% 31%;
+    --success-fg: 151.77 82% 96%;
+    --accent: 216.04 98% 52%;
+    --accent-fg: 0 0% 100%;
+    --accent-subtle: 215.99 94% 6%;
+    --accent-subtle-fg: 204.92 100% 77%;
+    --tertiary: 240.02 10% 6%;
+    --tertiary-fg: 239.99 4% 96%;
+    --muted: 239.95 3% 16%;
+    --muted-fg: 240 5.03% 64.9%;
     --ring: var(--primary);
-    --toggle: 37.01% 0.011 285.84;
-    --border: 26.08% 0.01 285.69;
-    --input: 27.41% 0.005 286.03;
+    --toggle: 239.99 5% 26%;
+    --border: 240.01 7.000000000000001% 15%;
+    --input: 239.95 3% 16%;
+    --primary-chart: 221.19 83% 53%;
+    --secondary-chart: 211.99 95% 68%;
+    --tertiary-chart: 216.01 92% 60%;
+    --highlight-chart: 210 98% 78%;
+    --accent-chart: 212 96% 87%;
   }
 }`} />
 
 ### Default Utilities
 Include this for the default set of utilities:
 
-```css
+```
 @layer base {
   * {
     @apply border-border;
@@ -254,84 +283,85 @@ Include this for the default set of utilities:
 ```
 
 ### Tailwind Configuration
+
 Configure your Tailwind setup by wrapping your tailwind config with withTV from tailwind-variants. Also, make sure to
 integrate the plugins we've just installed.
+
 <PlainCode lang='js' code={`/** @type {import('tailwindcss').Config} */
 
-import { withTV } from 'tailwind-variants/transformer'
-import ta from 'tailwindcss-animate'
-import trac from 'tailwindcss-react-aria-components'
+  import { withTV } from 'tailwind-variants/transformer'
+  import ta from 'tailwindcss-animate'
+  import trac from 'tailwindcss-react-aria-components'
 
-export default withTV({
-  darkMode: 'class',
-  content: [...],
-
-  plugins: [ ta, trac ],
-  theme: {
-    extend: {
-      colors: {
-        light: "hsl(var(--light))",
-        dark: "hsl(var(--dark))",
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        toggle: "hsl(var(--toggle))",
-        bg: "hsl(var(--bg))",
-        fg: "hsl(var(--fg))",
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          fg: "hsl(var(--primary-fg))",
+  export default withTV({
+    darkMode: 'class',
+    content: [...], // it depends on your project type
+    plugins: [ ta, trac ],
+    theme: {
+      extend: {
+        colors: {
+          light: "hsl(var(--light))",
+          dark: "hsl(var(--dark))",
+          border: "hsl(var(--border))",
+          input: "hsl(var(--input))",
+          ring: "hsl(var(--ring))",
+          toggle: "hsl(var(--toggle))",
+          bg: "hsl(var(--bg))",
+          fg: "hsl(var(--fg))",
+          primary: {
+            DEFAULT: "hsl(var(--primary))",
+            fg: "hsl(var(--primary-fg))",
+          },
+          secondary: {
+            DEFAULT: "hsl(var(--secondary))",
+            fg: "hsl(var(--secondary-fg))"
+          },
+          tertiary: {
+            DEFAULT: "hsl(var(--tertiary))",
+            fg: "hsl(var(--tertiary-fg))"
+          },
+          accent: {
+            DEFAULT: "hsl(var(--accent))",
+            fg: "hsl(var(--accent-fg))",
+            subtle: "hsl(var(--accent-subtle))",
+            "subtle-fg": "hsl(var(--accent-subtle-fg))"
+          },
+          success: {
+            DEFAULT: "hsl(var(--success))",
+            fg: "hsl(var(--success-fg))"
+          },
+          info: {
+            DEFAULT: "hsl(var(--info))",
+            fg: "hsl(var(--info-fg))"
+          },
+          danger: {
+            DEFAULT: "hsl(var(--danger))",
+            fg: "hsl(var(--danger-fg))"
+          },
+          warning: {
+            DEFAULT: "hsl(var(--warning))",
+            fg: "hsl(var(--warning-fg))"
+          },
+          muted: {
+            DEFAULT: "hsl(var(--muted))",
+            fg: "hsl(var(--muted-fg))"
+          },
+          overlay: {
+            DEFAULT: "hsl(var(--overlay))",
+            fg: "hsl(var(--overlay-fg))"
+          }
         },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          fg: "hsl(var(--secondary-fg))"
+        borderRadius: {
+          '3xl': "calc(var(--radius) + 6px)",
+          '2xl': "calc(var(--radius) + 4px)",
+          xl: "calc(var(--radius) + 2px)",
+          lg: "calc(var(--radius))",
+          md: "calc(var(--radius) - 2px)",
+          sm: "calc(var(--radius) - 4px)"
         },
-        tertiary: {
-          DEFAULT: "hsl(var(--tertiary))",
-          fg: "hsl(var(--tertiary-fg))"
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          fg: "hsl(var(--accent-fg))",
-          subtle: "hsl(var(--accent-subtle))",
-          "subtle-fg": "hsl(var(--accent-subtle-fg))"
-        },
-        success: {
-          DEFAULT: "hsl(var(--success))",
-          fg: "hsl(var(--success-fg))"
-        },
-        info: {
-          DEFAULT: "hsl(var(--info))",
-          fg: "hsl(var(--info-fg))"
-        },
-        danger: {
-          DEFAULT: "hsl(var(--danger))",
-          fg: "hsl(var(--danger-fg))"
-        },
-        warning: {
-          DEFAULT: "hsl(var(--warning))",
-          fg: "hsl(var(--warning-fg))"
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          fg: "hsl(var(--muted-fg))"
-        },
-        overlay: {
-          DEFAULT: "hsl(var(--overlay))",
-          fg: "hsl(var(--overlay-fg))"
-        }
-      },
-      borderRadius: {
-        '3xl': "calc(var(--radius) + 6px)",
-        '2xl': "calc(var(--radius) + 4px)",
-        xl: "calc(var(--radius) + 2px)",
-        lg: "calc(var(--radius))",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)"
-      },
-    }
-  },
-})
+      }
+    },
+  })
 `} />
 
 ### Primitive
@@ -340,9 +370,11 @@ export default withTV({
 ## Simple Import
 Indeed, it's efficient because the index.ts file in your UI folder serves as a hub. Even if the button and badge
 components are in separate files, you can import them together easily:
-```tsx
+
+```
 import { Button, VisuallyHidden, Badge } from 'ui'
 ```
+
 So, here's the scoop: your UI folder contains an index.ts file, right? This file consolidates all your components for
 straightforward access. Simply import them as needed, hassle-free!
 <PlainCode title="ui/index.ts" lang='tsx' code={`export * from './primitive';
@@ -434,8 +466,7 @@ the UI folder, adjust your paths accordingly like this:
 ```
 
 ## Fonts
-This is is currently using the [Inter font](https://rsms.me/inter/). If you want to use a different font, you can
-define your font-family in your js or css file.
+This is is currently using the [Inter font](https://rsms.me/inter/). If you want to use a different font, you can define your font-family in your js or css file.
 
 ### Stylesheet
 When you're working with a stylesheet, you can define your `@font-face` in your css file.
@@ -453,17 +484,20 @@ When you're working with a stylesheet, you can define your `@font-face` in your 
 ### Next.js
 If you're using Next.js, you don't event need css files. Just define your font in your layout file.
 
-```tsx
+```
 import localFont from 'next/font/local'
 
 const fontSans = localFont({
-src: [{path: './fonts/Inter.woff2'}],
-variable: '--font-sans'
+  src: [{path: './fonts/Inter.woff2'}],
+  variable: '--font-sans'
 })
 ```
 
 Then, apply the `fontSans` to the `body` tag like this:
+
 ```
+import { cn } from '@/utils/classes'
+
 <body
 className={cn(
   'min-h-svh font-sans antialiased',
@@ -471,15 +505,18 @@ className={cn(
 )}
 >
 ```
+
 Then, you can use the variable in your tailwind config like this:
+
 ```
-import {fontFamily} from 'tailwindcss/defaultTheme'
+import { fontFamily } from 'tailwindcss/defaultTheme'
+
 theme: {
-extend: {
-  fontFamily: {
-  sans: ['var(--font-sans)', ...fontFamily.sans],
-},
-},
+  extend: {
+    fontFamily: {
+      sans: ['var(--font-sans)', ...fontFamily.sans],
+    },
+  },
 ```
 
 For more information, refer to the [Tailwind documentation](https://tailwindcss.com/docs/font-family#customizing-the-default-font) and [Next.js documentation](https://nextjs.org/docs/app/building-your-application/optimizing/fonts).

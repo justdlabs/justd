@@ -209,7 +209,10 @@ export const Aside = () => {
 const Trigger = ({ children, className }: { children: React.ReactNode; className?: string }) => {
   return (
     <Disclosure.Trigger
-      className={cn('group py-2 pressed:text-fg aria-expanded:text-fg text-muted-fg', className)}
+      className={cn(
+        'group py-2 hover:text-fg pressed:text-fg aria-expanded:text-fg text-muted-fg',
+        className
+      )}
     >
       {children}
       <IconChevronLeft className="ml-auto group-aria-expanded:-rotate-90 transition shrink-0 duration-300" />

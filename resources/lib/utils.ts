@@ -7,30 +7,8 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-export function formatDate(input: string | number): string {
-  const date = new Date(input)
-  return date.toLocaleDateString('en-US', {
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric'
-  })
-}
-
 export function sortDocs(docs: Array<Docs>) {
   return docs.sort((a, b) => a.order - b.order)
-}
-
-export function getAllRefs(docs: Array<Docs>) {
-  const references: Record<string, number> = {}
-  docs.forEach((doc) => {
-    if (doc.published) {
-      doc.references?.forEach((tag: string | number) => {
-        references[tag] = (references[tag] ?? 0) + 1
-      })
-    }
-  })
-
-  return references
 }
 
 export function goodTitle(str: string) {
@@ -68,4 +46,10 @@ export function extractJSX(code: string) {
       .trim()
   }
   return null
+}
+
+export function extractImports(code: string) {
+  const importRegex = /^(import\s+(?:\{[^}]*}|[^;]+)\s*from\s*['"][^'"]+['"]\s*;?)$/gm
+  const matches = code.match(importRegex)
+  return matches ? matches.join('\n') : ''
 }
