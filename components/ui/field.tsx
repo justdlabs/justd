@@ -2,19 +2,21 @@
 
 import * as React from 'react'
 
+import type {
+  FieldErrorProps,
+  GroupProps,
+  InputProps,
+  LabelProps,
+  TextFieldProps as TextFieldPrimitiveProps,
+  TextProps,
+  ValidationResult
+} from 'react-aria-components'
 import {
   FieldError as FieldErrorPrimitive,
-  type FieldErrorProps,
   Group,
-  type GroupProps,
   Input as InputPrimitive,
-  type InputProps,
   Label as LabelPrimitive,
-  type LabelProps,
-  Text,
-  type TextFieldProps as TextFieldPrimitiveProps,
-  type TextProps,
-  type ValidationResult
+  Text
 } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
