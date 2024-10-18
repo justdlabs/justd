@@ -49,6 +49,11 @@ Activate the command menu via keyboard commands, ideal for initiating command pa
 Highlight a command item as dangerous by changing its color to red, indicating a warning.
 <How toUse="controls/command-menu/command-menu-danger-item-demo" />
 
+
+## Blur
+If you want to blur the background, you can use `isBlurred` prop.
+<How toUse="controls/command-menu/command-menu-blur-demo" />
+
 ## Controlled
 Manage the command palette dynamically using the `value` and `onValueChange` props, making it responsive to changes in a parent component.
 <How toUse="controls/command-menu/command-menu-controlled-demo" />
@@ -145,7 +150,3 @@ export function CommandPalette({ open, setOpen }: Props) {
   }, [pathname, setOpen])
   return (...)
 ```
-
-## Blur
-If you want to blur the background, you can use `isBlurred` prop.
-<How toUse="controls/command-menu/command-menu-blur-demo" />

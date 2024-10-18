@@ -31,9 +31,6 @@ const commandStyles = tv({
       'xda32kfseccmd overflow-hidden py-2 px-2 text-fg',
       '[&_[cmdk-group-heading]]:select-none [&_[cmdk-group-heading]]:ml-[1px] [&_[cmdk-group-heading]]:py-2 [&_[cmdk-group-heading]]:text-[0.8rem] [&_[cmdk-group-heading]]:text-muted-fg'
     ],
-    modalOverlay: [
-      'fixed inset-0 max-h-[--visual-viewport-height] z-50 bg-black/15 dark:bg-black/40 entering:animate-in entering:fade-in-0 exiting:animate-in exiting:fade-out-0'
-    ],
     modal: [
       'fixed bottom-0 left-[50%] top-auto z-50 grid h-[calc(100vh-35%)] w-full max-w-full translate-x-[-50%] gap-4 overflow-hidden rounded-t-xl bg-overlay text-overlay-fg shadow-lg ring-1 ring-dark/5 dark:ring-border sm:bottom-auto sm:top-[6rem] sm:h-auto sm:w-full sm:max-w-2xl sm:rounded-xl',
       'sm:entering:slide-in-from-bottom-auto entering:duration-300 entering:animate-in entering:fade-in-0 entering:slide-in-from-bottom-1/2 entering:slide-in-from-left-1/2 entering:[transition-timing-function:ease-out] sm:entering:duration-300 sm:entering:slide-in-from-top-[2rem]',
@@ -61,26 +58,12 @@ const commandStyles = tv({
   variants: {
     isDanger: {
       true: 'text-danger data-[selected=true]:bg-danger data-[selected=true]:text-danger-fg [&[data-selected=true]_[data-slot=icon]]:text-danger-fg'
-    },
-    isBlurred: {
-      true: 'backdrop-blur-sm'
     }
   }
 })
 
-const {
-  command,
-  empty,
-  section,
-  list,
-  item,
-  closeButton,
-  modal,
-  input,
-  modalOverlay,
-  kbdKeyboard,
-  description
-} = commandStyles()
+const { command, empty, section, list, item, closeButton, modal, input, kbdKeyboard, description } =
+  commandStyles()
 
 interface CommandMenuContextProps {
   hideSearchIndicator?: boolean
@@ -102,6 +85,17 @@ interface CommandMenuRootProps {
   CommandMenuDescription?: typeof CommandMenuDescription
 }
 
+const modalOverlay = tv({
+  base: [
+    'fixed inset-0 max-h-[--visual-viewport-height] z-50 bg-black/15 dark:bg-black/40 entering:animate-in entering:fade-in-0 exiting:animate-in exiting:fade-out-0'
+  ],
+  variants: {
+    isBlurred: {
+      true: 'backdrop-blur',
+      false: 'bg-black/15 dark:bg-black/40'
+    }
+  }
+})
 interface CommandMenuProps
   extends ModalOverlayProps,
     CommandMenuRootProps,
@@ -114,7 +108,6 @@ interface CommandMenuProps
     overlay?: string
     content?: string
   }
-  isBlurred?: boolean
 }
 
 const CommandMenu = ({
@@ -135,7 +128,8 @@ const CommandMenu = ({
       <ModalOverlay
         isDismissable
         className={modalOverlay({
-          className: twJoin(classNames?.overlay, isBlurred ? 'backdrop-blur' : '')
+          isBlurred,
+          className: classNames?.overlay
         })}
         {...props}
       >
