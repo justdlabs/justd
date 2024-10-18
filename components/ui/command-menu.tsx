@@ -19,7 +19,6 @@ const commandStyles = tv({
     command: [
       'flex h-svh w-full flex-col overflow-hidden rounded-md sm:h-full',
       '[&_[cmdk-group-heading]]:ml-1 [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:-mb-1.5 [&_[cmdk-group-heading]]:text-muted-fg [&_[cmdk-group]:not([hidden])_~[cmdk-group]]:pt-0 [&_[cmdk-input-wrapper]_[data-slot=icon]]:size-5 [&_[cmdk-input]]:h-12',
-      // for specific properties, it has to be controlled by the command
       '[&_[cmdk-item]]:py-2.5 [&_[cmdk-item]]:pl-2.5 [&_[cmdk-item]]:pr-4'
     ],
     list: 'overflow-y-auto lg:pb-0 max-h-[calc(100vh-35%)] pb-16 [&:not(:has(.xda32kfseccmd))]:p-2 [&:not(:has(.xda32kfseccmd))_.s3xsprt]:my-2 overflow-x-hidden md:max-h-[456px]',
@@ -50,14 +49,10 @@ const commandStyles = tv({
     description: 'sm:inline hidden text-sm ml-auto',
     item: [
       'group relative flex cursor-default select-none items-center rounded-lg py-2 text-sm outline-none',
-      // selected
       'data-[selected=true]:bg-accent data-[selected=true]:text-accent-fg [&[data-selected=true]_[data-slot=icon]]:text-accent-fg',
       'focus-visible:bg-accent focus-visible:text-accent-fg [&:focus-visible_[data-slot=icon]]:text-accent-fg',
-      // danger
       'data-[danger=true]:text-danger data-[danger=true]:data-[selected=true]:bg-danger data-[danger=true]:data-[selected=true]:text-danger-fg',
-      // disabled
       'data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50',
-      // icon
       '[&_[data-slot=icon]]:mr-2 [&_[data-slot=icon]]:size-[1.10rem] [&_[data-slot=icon]]:shrink-0 [&_[data-slot=icon]]:text-muted-fg',
       '[&_[data-slot=avatar]]:mr-2 [&_[data-slot=avatar]]:size-[1.10rem] [&_[data-slot=avatar]]:shrink-0'
     ]
@@ -66,6 +61,9 @@ const commandStyles = tv({
   variants: {
     isDanger: {
       true: 'text-danger data-[selected=true]:bg-danger data-[selected=true]:text-danger-fg [&[data-selected=true]_[data-slot=icon]]:text-danger-fg'
+    },
+    isBlurred: {
+      true: 'backdrop-blur-sm'
     }
   }
 })
@@ -88,6 +86,7 @@ interface CommandMenuContextProps {
   hideSearchIndicator?: boolean
   hideCloseButton?: boolean
   messageOnEmpty?: boolean | string
+  isBlurred?: boolean
 }
 
 const CommandMenuContext = React.createContext<CommandMenuContextProps>({})
@@ -115,6 +114,7 @@ interface CommandMenuProps
     overlay?: string
     content?: string
   }
+  isBlurred?: boolean
 }
 
 const CommandMenu = ({
@@ -125,14 +125,18 @@ const CommandMenu = ({
   value,
   onValueChange,
   children,
+  isBlurred = false,
   ...props
 }: CommandMenuProps) => {
   const isDesktop = useMediaQuery('(min-width: 1024px)')
+
   return (
     <CommandMenuContext.Provider value={{ hideSearchIndicator, hideCloseButton, messageOnEmpty }}>
       <ModalOverlay
         isDismissable
-        className={modalOverlay({ className: classNames?.overlay })}
+        className={modalOverlay({
+          className: twJoin(classNames?.overlay, isBlurred ? 'backdrop-blur-sm' : '')
+        })}
         {...props}
       >
         <Modal className={modal({ className: classNames?.content })}>
