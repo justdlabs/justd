@@ -476,6 +476,9 @@ export const previews: Record<string, any> = {
   "colors/controlled-values": {
     component: React.lazy(() => import("@/components/docs/colors/controlled-values")),
   },
+  "controls/command-menu/command-menu-blur-demo": {
+    component: React.lazy(() => import("@/components/docs/controls/command-menu/command-menu-blur-demo")),
+  },
   "controls/command-menu/command-menu-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/controls/command-menu/command-menu-controlled-demo")),
   },
