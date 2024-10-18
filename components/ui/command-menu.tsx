@@ -135,7 +135,7 @@ const CommandMenu = ({
       <ModalOverlay
         isDismissable
         className={modalOverlay({
-          className: twJoin(classNames?.overlay, isBlurred ? 'backdrop-blur-sm' : '')
+          className: twJoin(classNames?.overlay, isBlurred ? 'backdrop-blur' : '')
         })}
         {...props}
       >
