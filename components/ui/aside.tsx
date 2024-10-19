@@ -34,7 +34,7 @@ const { root, body, content, header, footer, responsive, layout } = aside()
 interface LayoutProps extends React.HTMLProps<HTMLDivElement> {
   children: React.ReactNode
   aside: React.ReactNode
-  navbar: React.ReactNode
+  responsive: React.ReactNode
   side?: 'left' | 'right'
   isStack?: boolean
   closeButton?: boolean
@@ -48,7 +48,7 @@ const Layout = ({
   isBlurred = false,
   closeButton = true,
   aside,
-  navbar,
+  responsive,
   children,
   className,
   ...props
@@ -82,12 +82,12 @@ const Layout = ({
             <IconHamburger />
           </Button>
         </div>
-        <div>{navbar}</div>
+        <div>{responsive}</div>
       </header>
 
       <main className="flex flex-1 pt-12 lg:pt-0 flex-col lg:min-w-0">
         <div className="grow sm:p-6 p-4 lg:p-10 relative lg:ring-1 lg:ring-border">
-          <div>{children}</div>
+          <main className="relative">{children}</main>
         </div>
       </main>
     </div>

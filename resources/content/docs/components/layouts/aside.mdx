@@ -26,162 +26,61 @@ I can't display a live example here. Click on the image to view it in full scree
 <Anatomy show='aside-anatomy'/>
 
 ## Layout
-If we're only considering the sidebar, the layout might not seem like a concern. However, to ensure everything works smoothly, especially in terms of responsiveness, we need to use the `Layout` component. Within the `Layout` component, we can call `Aside.Layout` and pass the `navbar` and `aside` props. The `navbar` prop represents the navigation bar displayed in mobile view, while the `aside` prop represents the sidebar displayed in both desktop and mobile views.
+If we're only considering the sidebar, the layout might not seem like a concern. However, to ensure everything works smoothly, especially in terms of responsiveness, we need to use the `Layout` component. Within the `Layout` component, we can call `Aside.Layout` and pass the `responsive` and `aside` props. The `responsive` prop represents the navigation bar displayed in mobile view, while the `aside` prop represents the sidebar displayed in both desktop and mobile views.
+First the of all, prepare the file for example `app-layout.tsx`, and add the following code:
+<PlainCode title='dashboard/app-layout.tsx' code={`'use client'
 
+  import React from 'react'
 
-<PlainCode code={`"use client"
+  import { useTheme } from '@/components/theme-provider'
+  import { ThemeSwitcher } from '@/components/theme-switcher'
+  import {
+    IconArchive,
+    IconBag,
+    IconBell,
+    IconBook,
+    IconBrandJustd,
+    IconChevronLgDown,
+    IconCirclePerson,
+    IconCreditCard,
+    IconDashboard,
+    IconEnvelope,
+    IconLogout,
+    IconMessage,
+    IconMoon,
+    IconPeople,
+    IconPersonAdd,
+    IconPlus,
+    IconSearch,
+    IconSettings,
+    IconShield,
+    IconSun,
+    IconSupport
+  } from 'justd-icons'
+  import { Aside, Avatar, Button, Link, Menu } from 'ui'
 
-import React from "react"
-
-import { useTheme } from "@/components/theme-provider"
-import { ThemeSwitcher } from "@/components/theme-switcher"
-import {
-  IconArchive,
-  IconBag,
-  IconBell,
-  IconBook,
-  IconBrandJustd,
-  IconChevronLgDown,
-  IconCirclePerson,
-  IconCreditCard,
-  IconDashboard,
-  IconEnvelope,
-  IconLogout,
-  IconMessage,
-  IconMoon,
-  IconPeople,
-  IconPersonAdd,
-  IconPlus,
-  IconSearch,
-  IconSettings,
-  IconShield,
-  IconSun,
-  IconSupport
-} from "justd-icons"
-import { Aside, Avatar, Button, Link, Menu } from "ui"
-
-export default function Layout({ children }: { children: React.ReactNode }) {
-  const { theme, setTheme } = useTheme()
-  return (
-    <Aside.Layout
-      navbar={
-        <Aside.Responsive>
-          <Button aria-label="Inbox" appearance="plain" shape="circle" size="square-petite">
-            <IconBell />
-          </Button>
-          <Button aria-label="Search" appearance="plain" shape="circle" size="square-petite">
-            <IconSearch />
-          </Button>
-          <ThemeSwitcher shape="circle" appearance="plain" />
-          <Menu>
-            <Button
-              appearance="plain"
-              size="square-petite"
-              shape="circle"
-              aria-label="Profile"
-              className="group"
-            >
-              <Avatar size="medium" src="https://github.com/irsyadadl.png" />
+  export function AppLayout({ children }: { children: React.ReactNode }) {
+    const { theme, setTheme } = useTheme()
+    return (
+      <Aside.Layout
+        responsive={
+          <Aside.Responsive>
+            <Button aria-label="Inbox" appearance="plain" shape="circle" size="square-petite">
+              <IconBell />
             </Button>
-            <Menu.Content placement="top" className="min-w-[--trigger-width]">
-              <Menu.Item href="#">
-                <IconCirclePerson />
-                Profile
-              </Menu.Item>
-              <Menu.Item href="#">
-                <IconSettings />
-                Settings
-              </Menu.Item>
-              <Menu.Item href="#">
-                <IconShield />
-                Security
-              </Menu.Item>
-              <Menu.Separator />
-              <Menu.Item href="#">
-                <IconBook />
-                Documentation
-              </Menu.Item>
-              <Menu.Item href="#">
-                <IconSupport />
-                Contact Support
-              </Menu.Item>
-              <Menu.Separator />
-              <Menu.Item href="#">
-                <IconLogout />
-                Log out
-              </Menu.Item>
-            </Menu.Content>
-          </Menu>
-        </Aside.Responsive>
-      }
-      aside={
-        <>
-          <Aside.Header>
-            <Link
-              className="flex items-center gap-x-2"
-              href="https://getjustd.com/docs/components/layouts/aside"
-            >
-              <IconBrandJustd />
-              <strong>Justd</strong>
-            </Link>
-          </Aside.Header>
-          <Aside.Content>
-            <Aside.Section>
-              <Aside.Item isCurrent icon={IconDashboard} href="#">
-                Overview
-              </Aside.Item>
-              <Aside.Item icon={IconSettings} href="#">
-                Settings
-              </Aside.Item>
-              <Aside.Item icon={IconCreditCard} href="#">
-                Billing
-              </Aside.Item>
-              <Aside.Item icon={IconEnvelope} href="#" badge="49.67K">
-                Newsletter
-              </Aside.Item>
-              <Aside.Item icon={IconMessage} href="#" badge={35}>
-                Messages
-              </Aside.Item>
-            </Aside.Section>
-            <Aside.Section title="Projects">
-              <Aside.Item icon={IconBag} href="#">
-                All Projects
-              </Aside.Item>
-              <Aside.Item icon={IconPlus} href="#">
-                Create New Project
-              </Aside.Item>
-              <Aside.Item icon={IconArchive} href="#">
-                Archived Projects
-              </Aside.Item>
-            </Aside.Section>
-
-            <Aside.Section collapsible title="Team">
-              <Aside.Item icon={IconPeople} href="#">
-                Team Overview
-              </Aside.Item>
-              <Aside.Item icon={IconPersonAdd} href="#">
-                Add New Member
-              </Aside.Item>
-              <Aside.Item icon={IconCirclePerson} href="#">
-                Manage Roles
-              </Aside.Item>
-            </Aside.Section>
-          </Aside.Content>
-          <Aside.Footer className="lg:flex lg:flex-row hidden items-center">
+            <Button aria-label="Search" appearance="plain" shape="circle" size="square-petite">
+              <IconSearch />
+            </Button>
+            <ThemeSwitcher shape="circle" appearance="plain" />
             <Menu>
               <Button
                 appearance="plain"
+                size="square-petite"
+                shape="circle"
                 aria-label="Profile"
-                className="group w-full justify-start flex"
+                className="group"
               >
-                <Avatar
-                  size="extra-small"
-                  shape="square"
-                  className="-ml-1.5"
-                  src="https://github.com/irsyadadl.png"
-                />
-                Irsyad A. Panjaitan
-                <IconChevronLgDown className="right-3 absolute group-pressed:rotate-180 transition-transform" />
+                <Avatar size="medium" src="https://github.com/irsyadadl.png" />
               </Button>
               <Menu.Content placement="top" className="min-w-[--trigger-width]">
                 <Menu.Item href="#">
@@ -197,9 +96,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   Security
                 </Menu.Item>
                 <Menu.Separator />
-                <Menu.Item onAction={() => setTheme(theme === "light" ? "dark" : "light")}>
-                  {theme === "light" ? <IconMoon /> : <IconSun />}
-                  Preferences
+                <Menu.Item href="#">
+                  <IconBook />
+                  Documentation
+                </Menu.Item>
+                <Menu.Item href="#">
+                  <IconSupport />
+                  Contact Support
                 </Menu.Item>
                 <Menu.Separator />
                 <Menu.Item href="#">
@@ -208,17 +111,122 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </Menu.Item>
               </Menu.Content>
             </Menu>
-          </Aside.Footer>
-        </>
-      }
-    >
-      <main className="relative">{children}</main>
-    </Aside.Layout>
-  )
+          </Aside.Responsive>
+        }
+        aside={
+          <Aside>
+            <Aside.Header>
+              <Link
+                className="flex items-center gap-x-2"
+                href="https://getjustd.com/docs/components/layouts/aside"
+              >
+                <IconBrandJustd />
+                <strong>Justd</strong>
+              </Link>
+            </Aside.Header>
+            <Aside.Content>
+              <Aside.Section>
+                <Aside.Item isCurrent icon={IconDashboard} href="#">
+                  Overview
+                </Aside.Item>
+                <Aside.Item icon={IconSettings} href="#">
+                  Settings
+                </Aside.Item>
+                <Aside.Item icon={IconCreditCard} href="#">
+                  Billing
+                </Aside.Item>
+                <Aside.Item icon={IconEnvelope} href="#" badge="49.67K">
+                  Newsletter
+                </Aside.Item>
+                <Aside.Item icon={IconMessage} href="#" badge={35}>
+                  Messages
+                </Aside.Item>
+              </Aside.Section>
+              <Aside.Section title="Projects">
+                <Aside.Item icon={IconBag} href="#">
+                  All Projects
+                </Aside.Item>
+                <Aside.Item icon={IconPlus} href="#">
+                  Create New Project
+                </Aside.Item>
+                <Aside.Item icon={IconArchive} href="#">
+                  Archived Projects
+                </Aside.Item>
+              </Aside.Section>
+
+              <Aside.Section collapsible title="Team">
+                <Aside.Item icon={IconPeople} href="#">
+                  Team Overview
+                </Aside.Item>
+                <Aside.Item icon={IconPersonAdd} href="#">
+                  Add New Member
+                </Aside.Item>
+                <Aside.Item href="#">Manage Roles</Aside.Item>
+              </Aside.Section>
+            </Aside.Content>
+            <Aside.Footer className="lg:flex lg:flex-row hidden items-center">
+              <Menu>
+                <Button
+                  appearance="plain"
+                  aria-label="Profile"
+                  className="group w-full justify-start flex"
+                >
+                  <Avatar
+                    size="extra-small"
+                    shape="square"
+                    className="-ml-1.5"
+                    src="https://github.com/irsyadadl.png"
+                  />
+                  Irsyad A. Panjaitan
+                  <IconChevronLgDown className="right-3 absolute group-pressed:rotate-180 transition-transform" />
+                </Button>
+                <Menu.Content placement="top" className="min-w-[--trigger-width]">
+                  <Menu.Item href="#">
+                    <IconCirclePerson />
+                    Profile
+                  </Menu.Item>
+                  <Menu.Item href="#">
+                    <IconSettings />
+                    Settings
+                  </Menu.Item>
+                  <Menu.Item href="#">
+                    <IconShield />
+                    Security
+                  </Menu.Item>
+                  <Menu.Separator />
+                  <Menu.Item onAction={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
+                    {theme === 'light' ? <IconMoon /> : <IconSun />}
+                    Preferences
+                  </Menu.Item>
+                  <Menu.Separator />
+                  <Menu.Item href="#">
+                    <IconLogout />
+                    Log out
+                  </Menu.Item>
+                </Menu.Content>
+              </Menu>
+            </Aside.Footer>
+          </Aside>
+        }
+      >
+        <main className="relative">{children}</main>
+      </Aside.Layout>
+    )
+  }`}/>
+
+## Next.js
+When you're using Next.js, this is how you use it.
+
+<PlainCode title='dashboard/layout.tsx' code={`import React from 'react'
+import { AppLayout } from '@/app/dashboard/app-layout'
+
+export default function Layout({ children }: { children: React.ReactNode }) {
+  return <AppLayout>{children}</AppLayout>
 }`}/>
 
 If you're using Next.js, you don't have to do anything. But if you're using a different framework, you can use the `Layout` component to wrap your entire application. This is how it looks like:
-```
+
+ ```
 <AppLayout>
   You can put your entire application here.
 </AppLayout>

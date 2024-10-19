@@ -11,7 +11,7 @@ import { Aside, Avatar, Button, Link, Menu } from 'ui'
 export default function AsideAnatomy() {
   return (
     <Aside.Layout
-      navbar={
+      responsive={
         <Aside.Responsive>
           <Button aria-label="Inbox" appearance="plain" shape="circle" size="square-petite">
             <IconBell />
