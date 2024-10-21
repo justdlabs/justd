@@ -1,19 +1,19 @@
-'use client'
+"use client"
 
-import { IconTrendingChart3 } from 'justd-icons'
-import { Label, PolarRadiusAxis, RadialBar, RadialBarChart } from 'recharts'
-import { Card, Chart, type ChartConfig } from 'ui'
+import { IconTrendingChart3 } from "justd-icons"
+import { Label, PolarRadiusAxis, RadialBar, RadialBarChart } from "recharts"
+import { Card, Chart, type ChartConfig } from "ui"
 
-const data = [{ month: 'january', sales: 1260, profit: 570 }]
+const data = [{ month: "january", sales: 1260, profit: 570 }]
 
 const config = {
   sales: {
-    label: 'Sales',
-    color: 'hsl(var(--primary-chart))'
+    label: "Sales",
+    color: "hsl(var(--primary-chart))"
   },
   profit: {
-    label: 'Profit',
-    color: 'hsl(var(--secondary-chart))'
+    label: "Profit",
+    color: "hsl(var(--secondary-chart))"
   }
 } satisfies ChartConfig
 
@@ -33,7 +33,7 @@ export default function RadialChartStackedDemo() {
             <PolarRadiusAxis tick={false} tickLine={false} axisLine={false}>
               <Label
                 content={({ viewBox }) => {
-                  if (viewBox && 'cx' in viewBox && 'cy' in viewBox) {
+                  if (viewBox && "cx" in viewBox && "cy" in viewBox) {
                     return (
                       <text x={viewBox.cx} y={viewBox.cy} textAnchor="middle">
                         <tspan

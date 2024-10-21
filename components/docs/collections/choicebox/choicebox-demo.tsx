@@ -1,8 +1,8 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import { Choicebox } from 'ui'
+import { Choicebox } from "ui"
 
 export default function ChoiceboxDemo() {
   return (

@@ -1,6 +1,6 @@
-'use client'
+"use client"
 
-import { Heading } from 'ui'
+import { Heading } from "ui"
 
 export default function HeadingLevelDemo() {
   return (

@@ -1,16 +1,16 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import { Button, Sheet } from 'ui'
-import { titleCase } from 'usemods'
+import { Button, Sheet } from "ui"
+import { titleCase } from "usemods"
 
-type Side = 'left' | 'right' | 'top' | 'bottom'
+type Side = "left" | "right" | "top" | "bottom"
 export default function SheetPositionDemo() {
-  const [sheetSide, setSheetSide] = React.useState<Side>('left')
+  const [sheetSide, setSheetSide] = React.useState<Side>("left")
   const [isOpen, setIsOpen] = React.useState(false)
 
-  const sides: Side[] = ['left', 'right', 'top', 'bottom']
+  const sides: Side[] = ["left", "right", "top", "bottom"]
 
   const pressHandler = (side: Side, open: boolean) => {
     setSheetSide(side)

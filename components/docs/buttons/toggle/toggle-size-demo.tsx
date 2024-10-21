@@ -1,7 +1,7 @@
-'use client'
+"use client"
 
-import { IconAccessible, IconAccessibleFill } from 'justd-icons'
-import { Toggle } from 'ui'
+import { IconAccessible, IconAccessibleFill } from "justd-icons"
+import { Toggle } from "ui"
 
 export default function ToggleSizeDemo() {
   return (
@@ -10,13 +10,13 @@ export default function ToggleSizeDemo() {
         {({ isSelected }) => <>{isSelected ? <IconAccessibleFill /> : <IconAccessible />}</>}
       </Toggle>
       <Toggle appearance="outline" size="small">
-        {({ isSelected }) => <>{isSelected ? 'Unpin' : 'Pin'}</>}
+        {({ isSelected }) => <>{isSelected ? "Unpin" : "Pin"}</>}
       </Toggle>
       <Toggle appearance="outline" size="medium">
-        {({ isSelected }) => <>{isSelected ? 'Unpin' : 'Pin'}</>}
+        {({ isSelected }) => <>{isSelected ? "Unpin" : "Pin"}</>}
       </Toggle>
       <Toggle appearance="outline" size="large">
-        {({ isSelected }) => <>{isSelected ? 'Unpin' : 'Pin'}</>}
+        {({ isSelected }) => <>{isSelected ? "Unpin" : "Pin"}</>}
       </Toggle>
     </div>
   )

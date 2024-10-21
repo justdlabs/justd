@@ -1,4 +1,4 @@
-import { Menu } from 'ui'
+import { Menu } from "ui"
 
 export default function MenuAnatomy() {
   return (

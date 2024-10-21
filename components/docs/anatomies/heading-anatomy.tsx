@@ -1,4 +1,4 @@
-import { Heading } from 'ui'
+import { Heading } from "ui"
 
 export default function HeadingAnatomy() {
   return (

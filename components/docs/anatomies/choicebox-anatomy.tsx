@@ -1,4 +1,4 @@
-import { Choicebox } from 'ui'
+import { Choicebox } from "ui"
 
 export default function AccordionAnatomy() {
   return (

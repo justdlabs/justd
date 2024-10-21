@@ -1,6 +1,6 @@
-'use client'
+"use client"
 
-import { buttonStyles, Link } from 'ui'
+import { buttonStyles, Link } from "ui"
 
 export default function LinkButtonDemo() {
   return (
@@ -8,11 +8,11 @@ export default function LinkButtonDemo() {
       <Link className={buttonStyles()} href="#use-as-button">
         Link
       </Link>
-      <Link className={buttonStyles({ appearance: 'outline' })} href="#use-as-button">
+      <Link className={buttonStyles({ appearance: "outline" })} href="#use-as-button">
         Link
       </Link>
       <Link
-        className={buttonStyles({ appearance: 'plain', shape: 'circle' })}
+        className={buttonStyles({ appearance: "plain", shape: "circle" })}
         href="#use-as-button"
       >
         Link

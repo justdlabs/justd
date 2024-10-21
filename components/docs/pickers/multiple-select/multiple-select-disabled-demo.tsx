@@ -1,8 +1,8 @@
-'use client'
+"use client"
 
-import { useListData } from 'react-stately'
-import type { SelectedKey } from 'ui'
-import { MultipleSelect } from 'ui'
+import { useListData } from "react-stately"
+import type { SelectedKey } from "ui"
+import { MultipleSelect } from "ui"
 
 export default function MultipleSelectDisabledDemo() {
   const selectedItems = useListData<SelectedKey>({
@@ -24,4 +24,4 @@ export default function MultipleSelectDisabledDemo() {
   )
 }
 
-const fruits: SelectedKey[] = [{ id: 1, name: 'Apple' }]
+const fruits: SelectedKey[] = [{ id: 1, name: "Apple" }]

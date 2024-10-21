@@ -1,0 +1,284 @@
+---
+title: "Sidebar"
+description: "Sidebar is a component that helps you organize your content and navigation."
+order: 1
+published: true
+references: ["https://react-spectrum.adobe.com/react-aria/Link.html#props", "https://react-spectrum.adobe.com/react-aria/Disclosure.html#props"]
+---
+
+## Basic
+I can't display a live example here. Click on the image to view it in full screen, or <a href='/sidebar' target='_blank'>here</a>.
+<a href='/blocks/sidebar/sidebar-01' className='group' target='_blank'>
+  <Image src="/images/sidebar/example-sidebar.jpg" className='aspect-video hover:grayscale-0 grayscale transition-transform' alt="Sidebar" width={1200} height={800} />
+</a>
+
+## Installation
+<Installation options={{ isComponent: true }} items={['sidebar']}/>
+
+## Composed Components
+<Composed components={['button', 'sheet']}/>
+
+## Manual Installation
+<Installation options={{ isManual: true }} items={['react-aria-components justd-icons']}/>
+<SourceCode toShow={['sidebar']}/>
+
+## Anatomy
+<Anatomy show='sidebar-anatomy'/>
+
+## Creating a Sidebar
+There are several ways to create a sidebar. Let's begin with the most straightforward approach.
+
+### App Sidebar
+Imagine you're building a dashboard; you'll likely need a sidebar that lists all your projects, teams, and settings.
+<PlainCode title='dashboard/app-sidebar.tsx' code={`"use client"
+
+  import * as React from "react"
+
+  import {
+    IconBrandApple,
+    IconChevronLgDown,
+    IconCirclePerson,
+    IconCreditCard,
+    IconDashboard,
+    IconEnvelope,
+    IconLogout,
+    IconMessage,
+    IconPeople,
+    IconPersonAdd,
+    IconSettings
+  } from "justd-icons"
+  import { Sidebar, Avatar, Button, Link, Menu } from "ui"
+
+  export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
+    return (
+      <Sidebar {...props}>
+        <Sidebar.Header>
+          <Link
+            className="flex items-center group-data-[collapsible=dock]:size-10 group-data-[collapsible=dock]:justify-center gap-x-2"
+            href="/docs/components/layouts/sidebar"
+          >
+            <IconBrandApple className="size-5" />
+            <strong className="font-medium group-data-[collapsible=dock]:hidden">Apple</strong>
+          </Link>
+        </Sidebar.Header>
+        <Sidebar.Content>
+          <Sidebar.Section>
+            <Sidebar.Item isCurrent icon={IconDashboard} href="#">
+              Overview
+            </Sidebar.Item>
+            <Sidebar.Item icon={IconSettings} href="#">
+              Settings
+            </Sidebar.Item>
+            <Sidebar.Item icon={IconCreditCard} href="#">
+              Billing
+            </Sidebar.Item>
+            <Sidebar.Item icon={IconEnvelope} href="#" badge="49.67K">
+              Newsletter
+            </Sidebar.Item>
+            <Sidebar.Item icon={IconMessage} href="#" badge={35}>
+              Messages
+            </Sidebar.Item>
+          </Sidebar.Section>
+          <Sidebar.Section collapsible title="Team">
+            <Sidebar.Item icon={IconPeople} href="#">
+              Team Overview
+            </Sidebar.Item>
+            <Sidebar.Item icon={IconPersonAdd} href="#">
+              Add New Member
+            </Sidebar.Item>
+            <Sidebar.Item href="#">Manage Roles</Sidebar.Item>
+          </Sidebar.Section>
+        </Sidebar.Content>
+        <Sidebar.Footer className="lg:flex lg:flex-row hidden items-center">
+          <Menu>
+            <Button appearance="plain" aria-label="Profile" slot="menu-trigger" className="group">
+              <Avatar size="small" shape="square" src="/images/sidebar/profile-slash.jpg" />
+              <span className="group-data-[collapsible=dock]:hidden flex items-center justify-center">
+                Saul Hudson
+                <IconChevronLgDown className="right-3 size-4 absolute group-pressed:rotate-180 transition-transform" />
+              </span>
+            </Button>
+            <Menu.Content className="min-w-[--trigger-width]">
+              <Menu.Item href="#">
+                <IconCirclePerson />
+                Profile
+              </Menu.Item>
+              <Menu.Item href="#">
+                <IconSettings />
+                Settings
+              </Menu.Item>
+              <Menu.Separator />
+              <Menu.Item href="#">
+                <IconLogout />
+                Log out
+              </Menu.Item>
+            </Menu.Content>
+          </Menu>
+        </Sidebar.Footer>
+        <Sidebar.Rail />
+      </Sidebar>
+    )
+  }
+  `}/>
+
+### Layout
+Once you've created the sidebar, you can wrap it inside a layout component. Here's what it looks like:
+
+<PlainCode title='dashboard/layout.tsx' code={`"use client"
+
+  import * as React from "react"
+
+  import { AppSidebar } from "@/app/dashboard/app-sidebar"
+  import {
+    IconChevronLgDown,
+    IconCirclePerson,
+    IconLogout,
+    IconSearch,
+    IconSettings,
+    IconShield
+  } from "justd-icons"
+  import { Sidebar, Avatar, Button, Menu, SearchField, Separator } from "ui"
+
+  export default function Layout({ children }: { children: React.ReactNode }) {
+    return (
+      <Sidebar.Provider>
+        <AppSidebar />
+        <Sidebar.Inset>
+          <header className="sticky justify-between sm:justify-start top-0 bg-bg h-[3.57rem] px-4 border-b flex items-center gap-x-2">
+            <span className="flex items-center">
+              <Sidebar.Trigger className="-ml-1" />
+              <Separator className="h-6 sm:block hidden" orientation="vertical" />
+            </span>
+            <SearchField className="sm:inline hidden sm:ml-1.5" />
+            <div className="flex sm:hidden items-center gap-x-2">
+              <Button appearance="plain" aria-label="Search..." size="square-petite">
+                <IconSearch />
+              </Button>
+              <Menu>
+                <Menu.Trigger aria-label="Profile" className="flex items-center gap-x-2 group">
+                  <Avatar size="small" shape="circle" src="/images/sidebar/profile-slash.jpg" />
+                  <IconChevronLgDown className="size-4 group-pressed:rotate-180 transition-transform" />
+                </Menu.Trigger>
+                <Menu.Content className="min-w-[--trigger-width]">
+                  <Menu.Item href="#">
+                    <IconCirclePerson />
+                    Profile
+                  </Menu.Item>
+                  <Menu.Item href="#">
+                    <IconSettings />
+                    Settings
+                  </Menu.Item>
+                  <Menu.Item href="#">
+                    <IconShield />
+                    Security
+                  </Menu.Item>
+                  <Menu.Item href="#">
+                    <IconLogout />
+                    Log out
+                  </Menu.Item>
+                </Menu.Content>
+              </Menu>
+            </div>
+          </header>
+          <div className="p-4 lg:p-6">{children}</div>
+        </Sidebar.Inset>
+      </Sidebar.Provider>
+    )
+  }
+  `}/>
+
+### Done
+Great job! You've successfully created a sidebar. Now, let's put it to use.
+
+### Using the Layout
+There are several ways to use the layout, depending on your framework. Or, if you're not using any framework, you can simply apply the layout component.
+
+### Common Usage
+A typical approach is to wrap your content with the layout like this:
+```
+<AppLayout>
+  {/* your main content */}
+</AppLayout>
+```
+### Inertia.js
+If you're using Inertia.js, you can implement a persistent layout. Here's how it looks:
+
+```
+Home.layout = (page: React.ReactNode) => <AppLayout children={page} />
+```
+
+### Next.js
+If you're using Next.js, there's no extra configuration needed. Simply create a page component and ensure it inherits the layout like this:
+```bash
+app/dashboard
+├── app-sidebar.tsx
+├── layout.tsx
+└── page.tsx
+```
+
+## Collapsible
+By default, the sidebar is collapsible. There are three types of collapsibility: `offcanvas`, `dock`, and `none`.
+
+### Offcanvas
+This is the default collapsible type. When the trigger is clicked, the sidebar slides out.
+```
+<Sidebar collapsible='offcanvas' />
+```
+
+### Dock
+This collapsible type is used in the sidebar of this documentation. Clicking the trigger causes the sidebar to slide out.
+```
+<Sidebar collapsible='dock' />
+```
+
+### None
+Choosing the `none` type ensures the sidebar is static and cannot be toggled.
+```
+<Sidebar collapsible='none' />
+```
+
+## Intent
+There are three types of sidebar intents: `sidebar`, `floating`, and `inset`, each with distinct behaviors.
+### Sidebar
+This is the default intent and the most common style for sidebars.
+```
+<Sidebar intent='sidebar' />
+```
+
+### Floating
+Using the `floating` intent, the sidebar will be fixed at the bottom of the screen, similar to a modal.
+
+```
+<Sidebar intent='floating' />
+```
+
+### Inset
+With the `inset` intent, the sidebar is also fixed at the bottom of the screen, resembling a modal.
+
+```
+<Sidebar intent='inset' />
+```
+
+## Default Open
+The sidebar's default open state can be managed using the `defaultOpen` prop.
+
+```tsx {1}
+<Sidebar.Provider defaultOpen>
+  <Sidebar />
+  <Sidebar.Inset />
+</Sidebar.Provider>
+```
+
+## Controlled
+To manually control the sidebar's state, use the `isOpen` prop. When `isOpen` is set to `true`, the sidebar opens; when it's `false`, the sidebar closes.
+```
+export function AppSidebar() {
+  const [isOpen, setIsOpen] = React.useState(false)
+
+  return (
+    <Sidebar.Provider isOpen={isOpen} onOpenChange={onOpenChange}>
+      <Sidebar />
+    </Sidebar.Provider>
+  )
+}
+```

@@ -1,27 +1,27 @@
-import React from 'react'
+import React from "react"
 
-import type { Key } from 'react-aria-components'
-import { toast } from 'sonner'
-import { Button, Select, Sheet } from 'ui'
-import { copyToClipboard } from 'usemods'
+import type { Key } from "react-aria-components"
+import { toast } from "sonner"
+import { Button, Select, Sheet } from "ui"
+import { copyToClipboard } from "usemods"
 
-import type { ThemeProps } from './themes-list'
-import { themesList } from './themes-list'
+import type { ThemeProps } from "./themes-list"
+import { themesList } from "./themes-list"
 
 const availableThemes = [
-  { id: 'default', textValue: 'Default' },
-  { id: 'zinc', textValue: 'Zinc' },
-  { id: 'neutral', textValue: 'Neutral' },
-  { id: 'gray', textValue: 'Gray' },
-  { id: 'slate', textValue: 'Slate' },
-  { id: 'azure', textValue: 'Azure' },
-  { id: 'sky', textValue: 'Sky' },
-  { id: 'amber', textValue: 'Amber' },
-  { id: 'violet', textValue: 'Violet' },
-  { id: 'emerald', textValue: 'Emerald' },
-  { id: 'rose', textValue: 'Rose' },
-  { id: 'turquoise', textValue: 'Turquoise' },
-  { id: 'orange', textValue: 'Orange' }
+  { id: "default", textValue: "Default" },
+  { id: "zinc", textValue: "Zinc" },
+  { id: "neutral", textValue: "Neutral" },
+  { id: "gray", textValue: "Gray" },
+  { id: "slate", textValue: "Slate" },
+  { id: "azure", textValue: "Azure" },
+  { id: "sky", textValue: "Sky" },
+  { id: "amber", textValue: "Amber" },
+  { id: "violet", textValue: "Violet" },
+  { id: "emerald", textValue: "Emerald" },
+  { id: "rose", textValue: "Rose" },
+  { id: "turquoise", textValue: "Turquoise" },
+  { id: "orange", textValue: "Orange" }
 ]
 
 interface Props {
@@ -35,11 +35,11 @@ function formatThemeData(themeId: ThemeProps) {
 @tailwind utilities;
 
 @layer base ${JSON.stringify(themesList[themeId], null, 2)
-    .replace(/"root":/g, ':root')
-    .replace(/"dark":/g, '.dark')
-    .replace(/},\n\s+\.dark/g, '}\n\n  .dark')
-    .replaceAll(',', ';')
-    .replaceAll('"', '')}
+    .replace(/"root":/g, ":root")
+    .replace(/"dark":/g, ".dark")
+    .replace(/},\n\s+\.dark/g, "}\n\n  .dark")
+    .replaceAll(",", ";")
+    .replaceAll('"', "")}
 
 @layer base {
   html {
@@ -95,10 +95,10 @@ export function Controller({ themeId, applyTheme }: Props) {
   const handleCopy = () => {
     const themeData = formatThemeData(themeId)
     copyToClipboard(themeData).then(() => {
-      toast.success('Copied to clipboard', {
+      toast.success("Copied to clipboard", {
         classNames: {
-          toast: '[&:has([data-icon])_[data-content]]:!ml-0',
-          icon: 'hidden'
+          toast: "[&:has([data-icon])_[data-content]]:!ml-0",
+          icon: "hidden"
         }
       })
       setOpen(false)
@@ -110,7 +110,7 @@ export function Controller({ themeId, applyTheme }: Props) {
       <div className="flex items-center gap-2">
         <Button onPress={() => setOpen(true)}>Export</Button>
         <Sheet onOpenChange={setOpen} isOpen={open}>
-          <Sheet.Content classNames={{ content: 'sm:w-1/2 sm:max-w-lg' }}>
+          <Sheet.Content classNames={{ content: "sm:w-1/2 sm:max-w-lg" }}>
             <Sheet.Header
               className="[&>[slot=title]]:capitalize"
               title={`${themeId} theme`}
@@ -143,7 +143,7 @@ export function Controller({ themeId, applyTheme }: Props) {
           <Select.List items={availableThemes}>
             {(item) => {
               const theme = themesList[item.id as ThemeProps]
-              const primaryColor = theme.root['--primary']
+              const primaryColor = theme.root["--primary"]
               return (
                 <Select.Option {...item}>
                   <div

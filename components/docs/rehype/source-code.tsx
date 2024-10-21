@@ -1,9 +1,9 @@
-'use client'
+"use client"
 
-import * as React from 'react'
+import * as React from "react"
 
-import jsonPreviews from '@/components/docs/generated/previews.json'
-import { CodeCollapsible, CodeCollapsibleRoot } from '@/components/docs/rehype/code'
+import jsonPreviews from "@/components/docs/generated/previews.json"
+import { CodeCollapsible, CodeCollapsibleRoot } from "@/components/docs/rehype/code"
 
 interface SourceCodeProps extends React.HTMLAttributes<HTMLDivElement> {
   toShow: string
@@ -12,7 +12,7 @@ interface SourceCodeProps extends React.HTMLAttributes<HTMLDivElement> {
   ext?: string
 }
 
-export function SourceCode({ title, message, ext = 'tsx', toShow, ...props }: SourceCodeProps) {
+export function SourceCode({ title, message, ext = "tsx", toShow, ...props }: SourceCodeProps) {
   const [codeString, setCodeString] = React.useState<{ name: string; code: string } | null>(null)
   const [isOpened, setIsOpened] = React.useState<boolean>(false)
 
@@ -24,11 +24,11 @@ export function SourceCode({ title, message, ext = 'tsx', toShow, ...props }: So
         name: toShow,
         code: componentData.raw.replace(
           /export default function \w+\(\) \{/g,
-          'export default function App() {'
+          "export default function App() {"
         )
       })
     } else {
-      console.error('Component not found:', toShow)
+      console.error("Component not found:", toShow)
       setCodeString(null)
     }
   }, [toShow])
@@ -43,7 +43,7 @@ export function SourceCode({ title, message, ext = 'tsx', toShow, ...props }: So
         <p className="mb-4 -mt-2">
           {message
             ? message
-            : 'And next, you can copy the code below and paste it into your component folder.'}
+            : "And next, you can copy the code below and paste it into your component folder."}
         </p>
         {title && <figcaption data-rehype-pretty-code-title="">{title}</figcaption>}
         <CodeCollapsibleRoot>

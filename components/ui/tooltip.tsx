@@ -1,6 +1,6 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
 import {
   Button,
@@ -8,27 +8,27 @@ import {
   Tooltip as TooltipPrimitive,
   type TooltipProps as TooltipPrimitiveProps,
   TooltipTrigger
-} from 'react-aria-components'
-import type { VariantProps } from 'tailwind-variants'
-import { tv } from 'tailwind-variants'
+} from "react-aria-components"
+import type { VariantProps } from "tailwind-variants"
+import { tv } from "tailwind-variants"
 
-import { cr } from './primitive'
+import { cr } from "./primitive"
 
 const tooltipStyles = tv({
   base: [
-    'group rounded-lg [&_strong]:font-medium border text-bg px-3 py-1.5 text-sm will-change-transform dark:shadow-none',
-    'placement-left:slide-in-from-right-1 placement-right:slide-in-from-left-1 placement-top:slide-in-from-bottom-1 placement-bottom:slide-in-from-top-1'
+    "group rounded-lg [&_strong]:font-medium border text-bg px-3 py-1.5 text-sm will-change-transform dark:shadow-none",
+    "placement-left:slide-in-from-right-1 placement-right:slide-in-from-left-1 placement-top:slide-in-from-bottom-1 placement-bottom:slide-in-from-top-1"
   ],
   variants: {
     intent: {
-      default: 'bg-overlay text-overlay-fg [&_.arx]:fill-overlay [&_.arx]:stroke-border',
-      inverse: 'border-transparent bg-fg text-bg [&_.arx]:fill-fg [&_.arx]:stroke-transparent'
+      default: "bg-overlay text-overlay-fg [&_.arx]:fill-overlay [&_.arx]:stroke-border",
+      inverse: "border-transparent bg-fg text-bg [&_.arx]:fill-fg [&_.arx]:stroke-transparent"
     },
     isEntering: {
-      true: 'animate-in fade-in'
+      true: "animate-in fade-in"
     },
     isExiting: {
-      true: 'animate-in fade-in direction-reverse'
+      true: "animate-in fade-in direction-reverse"
     }
   }
 })
@@ -38,13 +38,13 @@ const Tooltip = (props: React.ComponentProps<typeof TooltipTrigger>) => (
 )
 
 interface ContentProps
-  extends Omit<TooltipPrimitiveProps, 'children'>,
+  extends Omit<TooltipPrimitiveProps, "children">,
     VariantProps<typeof tooltipStyles> {
   showArrow?: boolean
   children: React.ReactNode
 }
 
-const Content = ({ showArrow = true, intent = 'default', children, ...props }: ContentProps) => {
+const Content = ({ showArrow = true, intent = "default", children, ...props }: ContentProps) => {
   return (
     <TooltipPrimitive
       {...props}

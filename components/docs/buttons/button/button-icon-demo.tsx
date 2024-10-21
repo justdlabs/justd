@@ -1,7 +1,7 @@
-'use client'
+"use client"
 
-import { IconBrandLaravel } from 'justd-icons'
-import { Button } from 'ui'
+import { IconBrandLaravel } from "justd-icons"
+import { Button } from "ui"
 
 export default function ButtonIconDemo() {
   return (

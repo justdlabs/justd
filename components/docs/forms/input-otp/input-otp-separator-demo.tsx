@@ -1,6 +1,6 @@
-'use client'
+"use client"
 
-import { InputOTP } from 'ui'
+import { InputOTP } from "ui"
 
 export default function InputOtpSeparatorDemo() {
   return (

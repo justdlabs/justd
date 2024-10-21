@@ -1,7 +1,7 @@
-import { Themes } from '@/app/(app)/themes/themes'
-import { Header } from '@/components/header'
-import { siteConfig } from '@/resources/config/site'
-import type { Metadata } from 'next'
+import { Themes } from "@/app/(app)/themes/themes"
+import { Header } from "@/components/header"
+import { siteConfig } from "@/resources/config/site"
+import type { Metadata } from "next"
 
 export default function Page() {
   return (
@@ -16,50 +16,50 @@ export default function Page() {
 }
 
 export const metadata: Metadata = {
-  title: 'Themes',
+  title: "Themes",
   description:
-    'Curated themes, selected for you, ready to copy, paste, and integrate into your apps for a polished, custom look without the hassle.',
+    "Curated themes, selected for you, ready to copy, paste, and integrate into your apps for a polished, custom look without the hassle.",
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? siteConfig.url),
   applicationName: siteConfig.name,
-  category: 'Themes',
+  category: "Themes",
   twitter: {
-    card: 'summary_large_image',
-    title: 'Themes',
+    card: "summary_large_image",
+    title: "Themes",
     description:
-      'Curated themes, selected for you, ready to copy, paste, and integrate into your apps for a polished, custom look without the hassle.'
+      "Curated themes, selected for you, ready to copy, paste, and integrate into your apps for a polished, custom look without the hassle."
   },
   keywords: [
-    'Themes',
-    'Justd Themes',
-    'Tailwind CSS',
-    'UI Components',
-    'UI Kit',
-    'UI Library',
-    'UI Framework',
-    'Justd',
-    'Next.js 15',
-    'React Aria',
-    'React Aria Components',
-    'Server Components',
-    'React Components',
-    'Next UI Components',
-    'UI Design System',
-    'UI for Laravel Inertia',
-    'Laravel Inertia UI',
-    'Laravel Inertia Components',
-    'Laravel Inertia UI Components',
-    'Laravel Inertia UI Kit',
-    'Laravel Inertia UI Library',
-    'Laravel Inertia UI Framework',
-    'Laravel Inertia Justd',
-    'Laravel Justd',
-    'Justd Components',
-    'Justd UI Components',
-    'Justd UI Kit',
-    'Justd UI Library',
-    'Justd UI Framework',
-    'Justd Laravel Inertia',
-    'Justd Laravel',
-    'Justd Inertia'
+    "Themes",
+    "Justd Themes",
+    "Tailwind CSS",
+    "UI Components",
+    "UI Kit",
+    "UI Library",
+    "UI Framework",
+    "Justd",
+    "Next.js 15",
+    "React Aria",
+    "React Aria Components",
+    "Server Components",
+    "React Components",
+    "Next UI Components",
+    "UI Design System",
+    "UI for Laravel Inertia",
+    "Laravel Inertia UI",
+    "Laravel Inertia Components",
+    "Laravel Inertia UI Components",
+    "Laravel Inertia UI Kit",
+    "Laravel Inertia UI Library",
+    "Laravel Inertia UI Framework",
+    "Laravel Inertia Justd",
+    "Laravel Justd",
+    "Justd Components",
+    "Justd UI Components",
+    "Justd UI Kit",
+    "Justd UI Library",
+    "Justd UI Framework",
+    "Justd Laravel Inertia",
+    "Justd Laravel",
+    "Justd Inertia"
   ]
 }

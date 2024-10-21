@@ -1,6 +1,6 @@
-'use client'
+"use client"
 
-import { CardBlock } from '@/components/blocks'
+import { CardBlock } from "@/components/blocks"
 import {
   IconBrandBluesky,
   IconBrandTelegram,
@@ -14,8 +14,8 @@ import {
   IconPersonAdd,
   IconPlus,
   IconSettings
-} from 'justd-icons'
-import { Button, Menu } from 'ui'
+} from "justd-icons"
+import { Button, Menu } from "ui"
 
 export function Menus() {
   return (

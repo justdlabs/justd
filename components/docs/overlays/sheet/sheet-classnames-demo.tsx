@@ -1,6 +1,6 @@
-'use client'
+"use client"
 
-import { Button, Sheet } from 'ui'
+import { Button, Sheet } from "ui"
 
 export default function SheetClassnamesDemo() {
   return (
@@ -8,8 +8,8 @@ export default function SheetClassnamesDemo() {
       <Button>Open</Button>
       <Sheet.Content
         classNames={{
-          overlay: 'bg-white/50 dark:bg-black/50 backdrop-blur',
-          content: 'min-w-80'
+          overlay: "bg-white/50 dark:bg-black/50 backdrop-blur",
+          content: "min-w-80"
         }}
       >
         <Sheet.Header title="Custom Classnames" description="This sheet has custom class names." />

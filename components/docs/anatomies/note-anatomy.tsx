@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react"
 
-import { Note } from 'ui'
+import { Note } from "ui"
 
 export default function NoteAnatomy() {
   return (

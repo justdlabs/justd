@@ -1,6 +1,6 @@
-'use client'
+"use client"
 
-import { Button, Form, SearchField } from 'ui'
+import { Button, Form, SearchField } from "ui"
 
 export default function SearchFieldValidationDemo() {
   return (

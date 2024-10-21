@@ -1,11 +1,11 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import type { DropEvent } from '@react-types/shared'
-import { IconGallery } from 'justd-icons'
-import { isFileDropItem } from 'react-aria-components'
-import { Description, DropZone, FileTrigger } from 'ui'
+import type { DropEvent } from "@react-types/shared"
+import { IconGallery } from "justd-icons"
+import { isFileDropItem } from "react-aria-components"
+import { Description, DropZone, FileTrigger } from "ui"
 
 export default function DropZoneAndFileTriggerDemo() {
   const [droppedImage, setDroppedImage] = React.useState<string | undefined>(undefined)
@@ -13,7 +13,7 @@ export default function DropZoneAndFileTriggerDemo() {
   const onDropHandler = async (e: DropEvent) => {
     const item = e.items
       .filter(isFileDropItem)
-      .find((item) => item.type === 'image/jpeg' || item.type === 'image/png')
+      .find((item) => item.type === "image/jpeg" || item.type === "image/png")
     if (item) {
       const file = await item.getFile()
       setDroppedImage(URL.createObjectURL(file))
@@ -33,7 +33,7 @@ export default function DropZoneAndFileTriggerDemo() {
   return (
     <DropZone
       getDropOperation={(types) =>
-        types.has('image/jpeg') || types.has('image/png') ? 'copy' : 'cancel'
+        types.has("image/jpeg") || types.has("image/png") ? "copy" : "cancel"
       }
       onDrop={onDropHandler}
     >
@@ -46,7 +46,7 @@ export default function DropZoneAndFileTriggerDemo() {
           </div>
           <div className="justify-center flex">
             <FileTrigger
-              acceptedFileTypes={['image/png', 'image/jpeg']}
+              acceptedFileTypes={["image/png", "image/jpeg"]}
               allowsMultiple={false}
               onSelect={onSelectHandler}
             >

@@ -1,4 +1,4 @@
-import { Loader } from 'ui'
+import { Loader } from "ui"
 
 export default function LoaderAnatomy() {
   return (

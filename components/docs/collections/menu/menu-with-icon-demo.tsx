@@ -1,6 +1,6 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
 import {
   IconCommandRegular,
@@ -11,15 +11,15 @@ import {
   IconMoon,
   IconSettings,
   IconSun
-} from 'justd-icons'
-import { useTheme } from 'next-themes'
-import { Avatar, Menu } from 'ui'
+} from "justd-icons"
+import { useTheme } from "next-themes"
+import { Avatar, Menu } from "ui"
 
 export default function MenuWithIconDemo() {
   const { resolvedTheme, setTheme } = useTheme()
   return (
     <Menu>
-      <Menu.Trigger>
+      <Menu.Trigger aria-label="Open Menu">
         <Avatar alt="irsyadadl" className="size-10" src="https://github.com/irsyadadl.png" />
       </Menu.Trigger>
       <Menu.Content placement="bottom" showArrow className="sm:min-w-64">
@@ -45,9 +45,9 @@ export default function MenuWithIconDemo() {
         </Menu.Item>
         <Menu.Submenu>
           <Menu.Item>
-            {resolvedTheme === 'light' ? (
+            {resolvedTheme === "light" ? (
               <IconSun />
-            ) : resolvedTheme === 'dark' ? (
+            ) : resolvedTheme === "dark" ? (
               <IconMoon />
             ) : (
               <IconDeviceDesktop />
@@ -55,13 +55,13 @@ export default function MenuWithIconDemo() {
             Switch theme
           </Menu.Item>
           <Menu.Content>
-            <Menu.Item onAction={() => setTheme('system')}>
+            <Menu.Item onAction={() => setTheme("system")}>
               <IconDeviceDesktop /> System
             </Menu.Item>
-            <Menu.Item onAction={() => setTheme('dark')}>
+            <Menu.Item onAction={() => setTheme("dark")}>
               <IconMoon /> Dark
             </Menu.Item>
-            <Menu.Item onAction={() => setTheme('light')}>
+            <Menu.Item onAction={() => setTheme("light")}>
               <IconSun /> Light
             </Menu.Item>
           </Menu.Content>

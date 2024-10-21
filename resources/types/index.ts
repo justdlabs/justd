@@ -1,4 +1,4 @@
-import type { formatOnlyForTailwindVariable } from '@/resources/lib/colors'
+import type { formatOnlyForTailwindVariable } from "@/resources/lib/colors"
 
 export interface ColorShade {
   shade: string
@@ -11,4 +11,4 @@ export interface ColorItemProps {
 }
 
 export type FormatOnlyForTailwindVariableType =
-  (typeof formatOnlyForTailwindVariable)[number]['format']
+  (typeof formatOnlyForTailwindVariable)[number]["format"]

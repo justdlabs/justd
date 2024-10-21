@@ -1,8 +1,8 @@
-'use client'
+"use client"
 
-import * as React from 'react'
+import * as React from "react"
 
-import { IconBulletFill, IconCheck, IconChevronLgRight } from 'justd-icons'
+import { IconBulletFill, IconCheck, IconChevronLgRight } from "justd-icons"
 import type {
   ButtonProps,
   MenuItemProps as MenuItemPrimitiveProps,
@@ -10,7 +10,7 @@ import type {
   MenuTriggerProps as MenuTriggerPrimitiveProps,
   PopoverProps,
   SeparatorProps
-} from 'react-aria-components'
+} from "react-aria-components"
 import {
   Button,
   Header,
@@ -19,14 +19,14 @@ import {
   MenuTrigger as MenuTriggerPrimitive,
   Separator,
   SubmenuTrigger as SubmenuTriggerPrimitive
-} from 'react-aria-components'
-import type { VariantProps } from 'tailwind-variants'
-import { tv } from 'tailwind-variants'
+} from "react-aria-components"
+import type { VariantProps } from "tailwind-variants"
+import { tv } from "tailwind-variants"
 
-import { DropdownItemDetails, dropdownItemStyles, DropdownSection } from './dropdown'
-import { Keyboard } from './keyboard'
-import { Popover } from './popover'
-import { cn, cr, tm } from './primitive'
+import { DropdownItemDetails, dropdownItemStyles, DropdownSection } from "./dropdown"
+import { Keyboard } from "./keyboard"
+import { Popover } from "./popover"
+import { cn, cr } from "./primitive"
 
 interface MenuContextProps {
   respectScreen: boolean
@@ -54,10 +54,10 @@ const SubMenu = ({ delay = 0, ...props }) => (
 
 const menuStyles = tv({
   slots: {
-    menu: 'z32kk max-h-[calc(var(--visual-viewport-height)-10rem)] sm:max-h-[inherit] overflow-auto rounded-xl p-1 outline outline-0 [clip-path:inset(0_0_0_0_round_calc(var(--radius)-2px))]',
-    popover: 'z-50 min-w-40 p-0 outline-none shadow-sm',
+    menu: "z32kk max-h-[calc(var(--visual-viewport-height)-10rem)] sm:max-h-[inherit] overflow-auto rounded-xl p-1 outline outline-0 [clip-path:inset(0_0_0_0_round_calc(var(--radius)-2px))]",
+    popover: "z-50 min-w-40 p-0 outline-none shadow-sm",
     trigger: [
-      'inline relative text-left focus:outline-none focus-visible:ring-1 focus-visible:ring-primary pressed:outline-none'
+      "inline relative text-left focus:outline-none focus-visible:ring-1 focus-visible:ring-primary pressed:outline-none"
     ]
   }
 })
@@ -71,13 +71,13 @@ interface MenuTriggerProps extends ButtonProps {
 const Trigger = ({ className, ...props }: MenuTriggerProps) => (
   <Button className={trigger({ className })} {...props}>
     {(values) => (
-      <>{typeof props.children === 'function' ? props.children(values) : props.children}</>
+      <>{typeof props.children === "function" ? props.children(values) : props.children}</>
     )}
   </Button>
 )
 
 interface MenuContentProps<T>
-  extends Omit<PopoverProps, 'children' | 'style'>,
+  extends Omit<PopoverProps, "children" | "style">,
     MenuPrimitiveProps<T> {
   className?: string
   popoverClassName?: string
@@ -97,8 +97,8 @@ const Content = <T extends object>({
       respectScreen={respectScreen}
       showArrow={showArrow}
       className={popover({
-        className: tm([
-          showArrow && 'placement-left:mt-[-0.38rem] placement-right:mt-[-0.38rem]',
+        className: cn([
+          showArrow && "placement-left:mt-[-0.38rem] placement-right:mt-[-0.38rem]",
           popoverClassName
         ])
       })}
@@ -110,13 +110,13 @@ const Content = <T extends object>({
 }
 
 interface MenuItemProps
-  extends Omit<MenuItemPrimitiveProps, 'isDanger'>,
+  extends Omit<MenuItemPrimitiveProps, "isDanger">,
     VariantProps<typeof dropdownItemStyles> {
   isDanger?: boolean
 }
 
 const Item = ({ className, isDanger = false, children, ...props }: MenuItemProps) => {
-  const textValue = props.textValue || (typeof children === 'string' ? children : undefined)
+  const textValue = props.textValue || (typeof children === "string" ? children : undefined)
   return (
     <MenuItem
       textValue={textValue}
@@ -126,12 +126,12 @@ const Item = ({ className, isDanger = false, children, ...props }: MenuItemProps
           className
         })
       )}
-      data-danger={isDanger ? 'true' : undefined}
+      data-danger={isDanger ? "true" : undefined}
       {...props}
     >
       {(values) => (
         <>
-          {typeof children === 'function' ? children(values) : children}
+          {typeof children === "function" ? children(values) : children}
           {values.hasSubmenu && <IconChevronLgRight className="gpfw ml-auto size-3.5" />}
         </>
       )}
@@ -146,8 +146,8 @@ export interface MenuHeaderProps extends React.ComponentProps<typeof Header> {
 const MenuHeader = ({ className, separator = false, ...props }: MenuHeaderProps) => (
   <Header
     className={cn(
-      'p-2 text-base font-semibold sm:text-sm',
-      separator && '-mx-1 border-b border-b-border px-3 pb-[0.625rem]',
+      "p-2 text-base font-semibold sm:text-sm",
+      separator && "-mx-1 border-b border-b-border px-3 pb-[0.625rem]",
       className
     )}
     {...props}
@@ -155,14 +155,14 @@ const MenuHeader = ({ className, separator = false, ...props }: MenuHeaderProps)
 )
 
 const MenuSeparator = ({ className, ...props }: SeparatorProps) => (
-  <Separator className={cn('-mx-1 my-1 h-px ms bg-muted', className)} {...props} />
+  <Separator className={cn("-mx-1 my-1 h-px ms bg-muted", className)} {...props} />
 )
 
 const Checkbox = ({ className, children, ...props }: MenuItemProps) => (
-  <Item className={cn('relative pr-8', className)} {...props}>
+  <Item className={cn("relative pr-8", className)} {...props}>
     {(values) => (
       <>
-        {typeof children === 'function' ? children(values) : children}
+        {typeof children === "function" ? children(values) : children}
         {values.isSelected && (
           <span className="absolute right-2 flex size-4 shrink-0 items-center animate-in justify-center">
             <IconCheck />
@@ -174,7 +174,7 @@ const Checkbox = ({ className, children, ...props }: MenuItemProps) => (
 )
 
 const Radio = ({ className, children, ...props }: MenuItemProps) => (
-  <Item className={cn('pl-8 relative', className)} {...props}>
+  <Item className={cn("pl-8 relative", className)} {...props}>
     {(values) => (
       <>
         {values.isSelected && (
@@ -183,7 +183,7 @@ const Radio = ({ className, children, ...props }: MenuItemProps) => (
           </span>
         )}
 
-        {typeof children === 'function' ? children(values) : children}
+        {typeof children === "function" ? children(values) : children}
       </>
     )}
   </Item>

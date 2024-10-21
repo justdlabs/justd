@@ -1,6 +1,6 @@
-'use client'
+"use client"
 
-import { Link } from 'ui'
+import { Link } from "ui"
 
 export default function LinkIntentDemo() {
   return (

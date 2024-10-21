@@ -1,8 +1,8 @@
-import React from 'react'
+import React from "react"
 
-import { Footer } from '@/components/footer'
-import { Navbar } from '@/components/navbar'
-import { Toast } from 'ui'
+import { Footer } from "@/components/footer"
+import { Navbar } from "@/components/navbar"
+import { Toast } from "ui"
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (

@@ -1,26 +1,26 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import { CodeHighlighter } from '@/components/docs/rehype/code'
-import { trackEvent } from '@openpanel/nextjs'
-import { AnimatePresence, motion } from 'framer-motion'
-import { IconCheck, IconDuplicate } from 'justd-icons'
-import { Button, type ButtonProps } from 'react-aria-components'
-import { tv } from 'tailwind-variants'
-import { Link, Menu } from 'ui'
-import { copyToClipboard } from 'usemods'
+import { CodeHighlighter } from "@/components/docs/rehype/code"
+import { trackEvent } from "@openpanel/nextjs"
+import { AnimatePresence, motion } from "framer-motion"
+import { IconCheck, IconDuplicate } from "justd-icons"
+import { Button, type ButtonProps } from "react-aria-components"
+import { tv } from "tailwind-variants"
+import { Link, Menu } from "ui"
+import { copyToClipboard } from "usemods"
 
 const manualText =
-  'Sometimes, using the CLI is the way to go, so make sure you install the necessary\n' +
-  '          dependencies for the components you want to use.'
+  "Sometimes, using the CLI is the way to go, so make sure you install the necessary\n" +
+  "          dependencies for the components you want to use."
 
 const installationStyles = tv({
   slots: {
     copyButton:
-      'focus:outline-none absolute right-0 mr-2 inset-y-1/2 -translate-y-1/2 pressed:bg-zinc-800 size-[1.85rem] grid place-content-center text-white border border-zinc-700 rounded-md bg-black/10 backdrop-blur hover:bg-zinc-800',
+      "focus:outline-none absolute right-0 mr-2 inset-y-1/2 -translate-y-1/2 pressed:bg-zinc-800 size-[1.85rem] grid place-content-center text-white border border-zinc-700 rounded-md bg-black/10 backdrop-blur hover:bg-zinc-800",
     install:
-      'flex h-12 border pr-8 relative overflow-hidden rounded-lg bg-[#0e0e10] items-center [&_[data-rehype-pretty-code-figure]_pre]:border-0'
+      "flex h-12 border pr-8 relative overflow-hidden rounded-lg bg-[#0e0e10] items-center [&_[data-rehype-pretty-code-figure]_pre]:border-0"
   }
 })
 
@@ -43,8 +43,8 @@ export function Installation(props: InstallationProps) {
     items
   } = props
   const [pkgManager, setPkgManager] = React.useState({
-    name: 'npm',
-    action: 'i'
+    name: "npm",
+    action: "i"
   })
   const [isCopied, setIsCopied] = React.useState(false)
 
@@ -60,7 +60,7 @@ export function Installation(props: InstallationProps) {
     <>
       {options.isComponent && (
         <p>
-          If you hit any issues, make sure you check out the installation guide{' '}
+          If you hit any issues, make sure you check out the installation guide{" "}
           <Link
             className="not-prose font-medium"
             intent="primary"
@@ -81,10 +81,10 @@ export function Installation(props: InstallationProps) {
           code={
             props.command ||
             (options.isInit
-              ? 'npx justd-cli@latest init'
+              ? "npx justd-cli@latest init"
               : options.isComponent
                 ? `npx justd-cli@latest add ${items[0]}`
-                : `${pkgManager.name} ${pkgManager.action} ${items.join(' ')}`)
+                : `${pkgManager.name} ${pkgManager.action} ${items.join(" ")}`)
           }
         />
         {props.command ? (
@@ -92,7 +92,7 @@ export function Installation(props: InstallationProps) {
             onPress={() => {
               copyToClipboard(props.command as string).then(() => {
                 setIsCopied(true)
-                trackEvent('cli pressed', { copy: props.command })
+                trackEvent("cli pressed", { copy: props.command })
               })
             }}
             isCopied={isCopied}
@@ -102,7 +102,7 @@ export function Installation(props: InstallationProps) {
             onPress={() => {
               copyToClipboard(`npx justd-cli@latest add ${items[0]}`).then(() => {
                 setIsCopied(true)
-                trackEvent('cli pressed', { copy: `add ${items.join(' ')}` })
+                trackEvent("cli pressed", { copy: `add ${items.join(" ")}` })
               })
             }}
             isCopied={isCopied}
@@ -112,7 +112,7 @@ export function Installation(props: InstallationProps) {
             onPress={() => {
               copyToClipboard(`npx justd-cli@latest init`).then(() => {
                 setIsCopied(true)
-                trackEvent('cli pressed', { copy: `init` })
+                trackEvent("cli pressed", { copy: `init` })
               })
             }}
             isCopied={isCopied}
@@ -161,38 +161,38 @@ function ChoosePkgManager({
 }: ChoosePkgManagerProps) {
   function handleAction(tool: string) {
     let selectedPkgManager: PkgManager = {
-      name: '',
-      executor: '',
-      action: ''
+      name: "",
+      executor: "",
+      action: ""
     }
 
     switch (tool) {
-      case 'npm':
+      case "npm":
         selectedPkgManager = {
-          name: 'npm',
-          executor: 'npx',
-          action: 'i'
+          name: "npm",
+          executor: "npx",
+          action: "i"
         }
         break
-      case 'yarn':
+      case "yarn":
         selectedPkgManager = {
-          name: 'yarn',
-          executor: 'yarn dlx',
-          action: 'add'
+          name: "yarn",
+          executor: "yarn dlx",
+          action: "add"
         }
         break
-      case 'pnpm':
+      case "pnpm":
         selectedPkgManager = {
-          name: 'pnpm',
-          executor: 'pnpm dlx',
-          action: 'add'
+          name: "pnpm",
+          executor: "pnpm dlx",
+          action: "add"
         }
         break
-      case 'bun':
+      case "bun":
         selectedPkgManager = {
-          name: 'bun',
-          executor: 'bunx',
-          action: 'add'
+          name: "bun",
+          executor: "bunx",
+          action: "add"
         }
         break
     }
@@ -200,10 +200,10 @@ function ChoosePkgManager({
     setPkgManager(selectedPkgManager)
 
     const executor = isExecutor ? selectedPkgManager.executor : selectedPkgManager.name
-    copyToClipboard(`${executor} ${selectedPkgManager.action} ${items.join(' ')}`).then(() => {
+    copyToClipboard(`${executor} ${selectedPkgManager.action} ${items.join(" ")}`).then(() => {
       setIsCopied(true)
-      trackEvent('cli pressed', {
-        copy: `${executor} ${selectedPkgManager.action} ${items.join(' ')}`
+      trackEvent("cli pressed", {
+        copy: `${executor} ${selectedPkgManager.action} ${items.join(" ")}`
       })
     })
   }
@@ -213,10 +213,10 @@ function ChoosePkgManager({
       <ButtonCopy isCopied={props.isCopied} />
       <Menu.Content showArrow placement="bottom end">
         {[
-          { name: 'NPM', vendor: 'npm' },
-          { name: 'Yarn', vendor: 'yarn' },
-          { name: 'Bun', vendor: 'bun' },
-          { name: 'PNPM', vendor: 'pnpm' }
+          { name: "NPM", vendor: "npm" },
+          { name: "Yarn", vendor: "yarn" },
+          { name: "Bun", vendor: "bun" },
+          { name: "PNPM", vendor: "pnpm" }
         ].map(({ name, vendor }) => (
           <Menu.Item key={name} onAction={() => handleAction(vendor)}>
             {name}

@@ -1,6 +1,7 @@
 export * from './primitive';
+export * from './sidebar';
+export * from './navbar';
 export * from './progress-circle';
-export * from './aside';
 export * from './tree';
 export * from './chart';
 export * from './disclosure';
@@ -51,7 +52,6 @@ export * from './menu';
 export * from './progress-bar';
 export * from './badge';
 export * from './toggle';
-export * from './snippet';
 export * from './number-field';
 export * from './table';
 export * from './separator';

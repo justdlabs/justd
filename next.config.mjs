@@ -44,6 +44,11 @@ export default {
         permanent: false
       },
       {
+        source: "/aside",
+        destination: "/blocks/aside/aside-01",
+        permanent: false
+      },
+      {
         source: "/docs/components/statuses/toaster",
         destination: "/docs/components/statuses/toast",
         permanent: false

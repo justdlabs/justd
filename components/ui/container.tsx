@@ -1,24 +1,22 @@
-'use client'
+import React from "react"
 
-import React from 'react'
-
-import { tv } from 'tailwind-variants'
+import { tv } from "tailwind-variants"
 
 const containerStyles = tv({
-  base: 'mx-auto max-w-7xl',
+  base: "mx-auto max-w-7xl",
   variants: {
     variant: {
-      constrained: 'container sm:px-6 lg:px-8',
-      'padded-content': 'px-4 sm:px-6 lg:px-8'
+      constrained: "container sm:px-6 lg:px-8",
+      "padded-content": "px-4 sm:px-6 lg:px-8"
     }
   },
   defaultVariants: {
-    variant: 'padded-content'
+    variant: "padded-content"
   }
 })
 
 interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
-  variant?: 'constrained' | 'padded-content'
+  variant?: "constrained" | "padded-content"
 }
 
 const Container = React.forwardRef<HTMLDivElement, ContainerProps>(
@@ -27,6 +25,6 @@ const Container = React.forwardRef<HTMLDivElement, ContainerProps>(
   )
 )
 
-Container.displayName = 'Container'
+Container.displayName = "Container"
 
 export { Container }

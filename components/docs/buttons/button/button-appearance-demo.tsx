@@ -1,7 +1,7 @@
-'use client'
+"use client"
 
-import title from 'title'
-import { Button, buttonStyles } from 'ui'
+import title from "title"
+import { Button, buttonStyles } from "ui"
 
 type Appearance = keyof typeof buttonStyles.variants.appearance
 

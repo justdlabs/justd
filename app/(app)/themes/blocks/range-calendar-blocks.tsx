@@ -1,11 +1,11 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import type { CalendarDate } from '@internationalized/date'
-import { getLocalTimeZone, today } from '@internationalized/date'
-import type { RangeValue } from '@react-types/shared'
-import { Card, RangeCalendar } from 'ui'
+import type { CalendarDate } from "@internationalized/date"
+import { getLocalTimeZone, today } from "@internationalized/date"
+import type { RangeValue } from "@react-types/shared"
+import { Card, RangeCalendar } from "ui"
 
 export function RangeCalendarBlocks() {
   const now = today(getLocalTimeZone())

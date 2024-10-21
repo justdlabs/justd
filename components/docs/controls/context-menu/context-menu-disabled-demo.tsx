@@ -1,8 +1,8 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import { ContextMenu } from 'ui'
+import { ContextMenu } from "ui"
 
 export default function ContextMenuDisabledDemo() {
   return (

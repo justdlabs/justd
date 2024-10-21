@@ -1,13 +1,13 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import { buttonStyles, Drawer } from 'ui'
+import { buttonStyles, Drawer } from "ui"
 
 export default function DrawerBasicDemo() {
   return (
     <Drawer>
-      <Drawer.Trigger className={buttonStyles({ shape: 'circle', appearance: 'outline' })}>
+      <Drawer.Trigger className={buttonStyles({ shape: "circle", appearance: "outline" })}>
         Open
       </Drawer.Trigger>
       <Drawer.Content>

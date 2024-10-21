@@ -1,9 +1,9 @@
-'use client'
+"use client"
 
-import * as React from 'react'
+import * as React from "react"
 
-import { IconChevronLgDown } from 'justd-icons'
-import { cn, ShowMore } from 'ui'
+import { IconChevronLgDown } from "justd-icons"
+import { cn, ShowMore } from "ui"
 
 export default function ShowMoreDemo() {
   return (
@@ -11,11 +11,11 @@ export default function ShowMoreDemo() {
       <ShowMore>
         {({ isSelected }) => (
           <>
-            Show {isSelected ? 'less' : 'more'}
+            Show {isSelected ? "less" : "more"}
             <IconChevronLgDown
               className={cn(
-                isSelected ? 'rotate-180' : '',
-                'size-4 transition-transform duration-200'
+                isSelected ? "rotate-180" : "",
+                "size-4 transition-transform duration-200"
               )}
             />
           </>

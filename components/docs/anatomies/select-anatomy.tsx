@@ -1,4 +1,4 @@
-import { Select } from 'ui'
+import { Select } from "ui"
 
 export default function SelectAnatomy() {
   return (

@@ -1,26 +1,26 @@
-'use client'
+"use client"
 
-import { IconTrendingChart3 } from 'justd-icons'
-import { CartesianGrid, LabelList, Line, LineChart, XAxis } from 'recharts'
-import { Card, Chart, type ChartConfig } from 'ui'
+import { IconTrendingChart3 } from "justd-icons"
+import { CartesianGrid, LabelList, Line, LineChart, XAxis } from "recharts"
+import { Card, Chart, type ChartConfig } from "ui"
 
 const data = [
-  { month: 'January', revenue: 400 },
-  { month: 'February', revenue: 700 },
-  { month: 'March', revenue: 500 },
-  { month: 'April', revenue: 850 },
-  { month: 'May', revenue: 200 },
-  { month: 'June', revenue: 500 },
-  { month: 'July', revenue: 600 },
-  { month: 'August', revenue: 500 },
-  { month: 'September', revenue: 800 },
-  { month: 'October', revenue: 900 }
+  { month: "January", revenue: 400 },
+  { month: "February", revenue: 700 },
+  { month: "March", revenue: 500 },
+  { month: "April", revenue: 850 },
+  { month: "May", revenue: 200 },
+  { month: "June", revenue: 500 },
+  { month: "July", revenue: 600 },
+  { month: "August", revenue: 500 },
+  { month: "September", revenue: 800 },
+  { month: "October", revenue: 900 }
 ]
 
 const config = {
   revenue: {
-    label: 'Revenue',
-    color: 'hsl(var(--primary-chart))'
+    label: "Revenue",
+    color: "hsl(var(--primary-chart))"
   }
 } satisfies ChartConfig
 
@@ -57,7 +57,7 @@ export default function LineChartLabelDemo() {
               stroke="var(--color-revenue)"
               strokeWidth={2}
               dot={{
-                fill: 'var(--color-revenue)'
+                fill: "var(--color-revenue)"
               }}
               activeDot={{
                 r: 6

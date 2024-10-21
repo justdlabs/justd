@@ -1,15 +1,15 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import { Disclosure } from 'ui'
+import { Disclosure } from "ui"
 
 export default function DisclosureControlledDemo() {
   const [expanded, setExpanded] = React.useState(false)
 
   return (
     <div>
-      The disclosure is <strong className="text-info">{expanded ? 'expanded' : 'collapsed'}</strong>
+      The disclosure is <strong className="text-info">{expanded ? "expanded" : "collapsed"}</strong>
       .
       <Disclosure isExpanded={expanded} onExpandedChange={setExpanded}>
         <Disclosure.Trigger>What is your return policy?</Disclosure.Trigger>

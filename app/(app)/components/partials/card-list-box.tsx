@@ -1,13 +1,13 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import { docs } from '#site/content'
-import { ThumbnailWrapper } from '@/app/(app)/components/partials/thumbnail-wrapper'
-import { goodTitle } from '@/resources/lib/utils'
-import { slug } from 'github-slugger'
-import { Link } from 'next-view-transitions'
-import { Description, Grid, Heading } from 'ui'
+import { docs } from "#site/content"
+import { ThumbnailWrapper } from "@/app/(app)/components/partials/thumbnail-wrapper"
+import { goodTitle } from "@/resources/lib/utils"
+import { slug } from "github-slugger"
+import { Link } from "next-view-transitions"
+import { Description, Grid, Heading } from "ui"
 
 type GroupedComponents = {
   [category: string]: {
@@ -21,8 +21,8 @@ type GroupedComponents = {
 
 const groupByCategory = (data: any[]): GroupedComponents => {
   return data.reduce((acc: GroupedComponents, item) => {
-    const parts = item.slug.split('/')
-    if (parts[1] === 'components') {
+    const parts = item.slug.split("/")
+    if (parts[1] === "components") {
       const category = parts[2]
       if (!acc[category]) {
         acc[category] = []

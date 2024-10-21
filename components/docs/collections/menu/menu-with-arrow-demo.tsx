@@ -1,9 +1,9 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import { IconHashtag, IconHeadphones, IconLogout, IconPlus, IconSettings } from 'justd-icons'
-import { Avatar, Menu } from 'ui'
+import { IconHashtag, IconHeadphones, IconLogout, IconPlus, IconSettings } from "justd-icons"
+import { Avatar, Menu } from "ui"
 
 export default function MenuWithArrowDemo() {
   return (

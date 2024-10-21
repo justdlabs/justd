@@ -1,7 +1,7 @@
-import * as React from 'react'
+import * as React from "react"
 
-import { Collection } from 'react-aria-components'
-import { Tree, TreeItem } from 'ui'
+import { Collection } from "react-aria-components"
+import { Tree, TreeItem } from "ui"
 
 export default function TreeDemo() {
   const renderItem = (item: FileNode): React.ReactNode => {
@@ -32,22 +32,22 @@ type FileNode = {
 const files: FileNode[] = [
   {
     id: 1,
-    title: 'Work',
+    title: "Work",
     children: [
       {
         id: 2,
-        title: 'Reports',
+        title: "Reports",
         children: [
           {
             id: 3,
-            title: '2023',
+            title: "2023",
             children: [
               {
                 id: 4,
-                title: 'Q1 Report',
+                title: "Q1 Report",
                 children: [
-                  { id: 5, title: 'Summary', children: [] },
-                  { id: 6, title: 'Details', children: [] }
+                  { id: 5, title: "Summary", children: [] },
+                  { id: 6, title: "Details", children: [] }
                 ]
               }
             ]
@@ -56,24 +56,24 @@ const files: FileNode[] = [
       },
       {
         id: 7,
-        title: 'Presentations',
+        title: "Presentations",
         children: [
           {
             id: 8,
-            title: '2023 Projects',
+            title: "2023 Projects",
             children: [
               {
                 id: 9,
-                title: 'Project A',
+                title: "Project A",
                 children: [
-                  { id: 10, title: 'Draft', children: [] },
-                  { id: 11, title: 'Final', children: [] }
+                  { id: 10, title: "Draft", children: [] },
+                  { id: 11, title: "Final", children: [] }
                 ]
               },
               {
                 id: 12,
-                title: 'Project B',
-                children: [{ id: 13, title: 'Research', children: [] }]
+                title: "Project B",
+                children: [{ id: 13, title: "Research", children: [] }]
               }
             ]
           }
@@ -83,24 +83,24 @@ const files: FileNode[] = [
   },
   {
     id: 14,
-    title: 'Personal',
+    title: "Personal",
     children: [
       {
         id: 15,
-        title: 'Hobbies',
+        title: "Hobbies",
         children: [
           {
             id: 16,
-            title: 'Photography',
+            title: "Photography",
             children: [
-              { id: 17, title: 'Travel', children: [] },
-              { id: 18, title: 'Portraits', children: [] }
+              { id: 17, title: "Travel", children: [] },
+              { id: 18, title: "Portraits", children: [] }
             ]
           },
           {
             id: 19,
-            title: 'Cooking',
-            children: [{ id: 20, title: 'Recipes', children: [] }]
+            title: "Cooking",
+            children: [{ id: 20, title: "Recipes", children: [] }]
           }
         ]
       }
@@ -108,44 +108,44 @@ const files: FileNode[] = [
   },
   {
     id: 21,
-    title: 'Projects',
+    title: "Projects",
     children: [
       {
         id: 22,
-        title: 'Web Development',
+        title: "Web Development",
         children: [
           {
             id: 23,
-            title: 'Portfolio',
+            title: "Portfolio",
             children: [
-              { id: 24, title: 'Images', children: [] },
-              { id: 25, title: 'CSS', children: [] }
+              { id: 24, title: "Images", children: [] },
+              { id: 25, title: "CSS", children: [] }
             ]
           },
-          { id: 26, title: 'Landing Page', children: [] }
+          { id: 26, title: "Landing Page", children: [] }
         ]
       },
       {
         id: 27,
-        title: 'Mobile Apps',
-        children: [{ id: 28, title: 'Weather App', children: [] }]
+        title: "Mobile Apps",
+        children: [{ id: 28, title: "Weather App", children: [] }]
       }
     ]
   },
   {
     id: 29,
-    title: 'Finance',
+    title: "Finance",
     children: [
       {
         id: 30,
-        title: 'Budget',
+        title: "Budget",
         children: [
           {
             id: 31,
-            title: '2023',
+            title: "2023",
             children: [
-              { id: 32, title: 'January', children: [] },
-              { id: 33, title: 'February', children: [] }
+              { id: 32, title: "January", children: [] },
+              { id: 33, title: "February", children: [] }
             ]
           }
         ]
@@ -154,17 +154,17 @@ const files: FileNode[] = [
   },
   {
     id: 34,
-    title: 'Health',
+    title: "Health",
     children: [
       {
         id: 35,
-        title: 'Fitness',
+        title: "Fitness",
         children: [
-          { id: 36, title: 'Workouts', children: [] },
-          { id: 37, title: 'Nutrition', children: [] }
+          { id: 36, title: "Workouts", children: [] },
+          { id: 37, title: "Nutrition", children: [] }
         ]
       },
-      { id: 38, title: 'Wellness', children: [] }
+      { id: 38, title: "Wellness", children: [] }
     ]
   }
 ]

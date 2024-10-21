@@ -1,11 +1,11 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import { parseColor } from '@react-stately/color'
-import { ColorSwatch as ColorSwatchPrimitive, type ColorSwatchProps } from 'react-aria-components'
+import { parseColor } from "@react-stately/color"
+import { ColorSwatch as ColorSwatchPrimitive, type ColorSwatchProps } from "react-aria-components"
 
-import { cn } from './primitive'
+import { cn } from "./primitive"
 
 const hexToRgb = (hex: string): { r: number; g: number; b: number } | null => {
   const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i
@@ -44,8 +44,8 @@ const luminance = (r: number, g: number, b: number): number => {
 const isBrightColor = (color: any): boolean => {
   let r, g, b
 
-  if (typeof color === 'string') {
-    if (color.startsWith('#')) {
+  if (typeof color === "string") {
+    if (color.startsWith("#")) {
       const rgb = hexToRgb(color)
       if (rgb) {
         r = rgb.r
@@ -54,7 +54,7 @@ const isBrightColor = (color: any): boolean => {
       } else {
         return false
       }
-    } else if (color.startsWith('rgb')) {
+    } else if (color.startsWith("rgb")) {
       const rgbValues = color.match(/\d+/g)
       if (rgbValues) {
         r = parseInt(rgbValues[0], 10)
@@ -65,8 +65,8 @@ const isBrightColor = (color: any): boolean => {
       }
     } else {
       const namedColors: Record<string, string> = {
-        white: '#ffffff',
-        black: '#000000'
+        white: "#ffffff",
+        black: "#000000"
       }
       const hex = namedColors[color.toLowerCase()]
       if (hex) {
@@ -83,10 +83,10 @@ const isBrightColor = (color: any): boolean => {
       }
     }
   } else if (
-    typeof color === 'object' &&
-    'hue' in color &&
-    'saturation' in color &&
-    'brightness' in color
+    typeof color === "object" &&
+    "hue" in color &&
+    "saturation" in color &&
+    "brightness" in color
   ) {
     const rgb = hsbToRgb(color.hue, color.saturation, color.brightness)
     r = rgb.r
@@ -100,17 +100,17 @@ const isBrightColor = (color: any): boolean => {
   return lum > 0.75
 }
 
-const defaultColor = parseColor('hsl(216, 98%, 52%)')
+const defaultColor = parseColor("hsl(216, 98%, 52%)")
 
 const ColorSwatch = ({ className, ...props }: ColorSwatchProps) => {
   const needRing = props.color ? isBrightColor(props.color) : false
   return (
     <ColorSwatchPrimitive
       data-slot="color-swatch"
-      aria-label={props['aria-label'] ?? 'Color swatch'}
+      aria-label={props["aria-label"] ?? "Color swatch"}
       className={cn(
-        'size-8 cs rounded-md shrink-0',
-        needRing && 'ring-1 ring-inset ring-fg/10',
+        "size-8 cs rounded-md shrink-0",
+        needRing && "ring-1 ring-inset ring-fg/10",
         className
       )}
       {...props}

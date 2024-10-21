@@ -1,12 +1,12 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import { Checkbox, CheckboxGroup } from 'ui'
+import { Checkbox, CheckboxGroup } from "ui"
 
 export default function CheckboxGroupIndeterminateDemo() {
   return (
-    <CheckboxGroup defaultValue={['encryption']} className="ml-6">
+    <CheckboxGroup defaultValue={["encryption"]} className="ml-6">
       <Checkbox isIndeterminate value="encryption" description="Enable encryption." isReadOnly>
         Encryption
       </Checkbox>

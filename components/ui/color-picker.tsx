@@ -1,27 +1,27 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import type { Placement } from '@react-types/overlays'
+import type { Placement } from "@react-types/overlays"
 import {
   Button,
   ColorPicker as ColorPickerPrimitive,
   type ColorPickerProps as ColorPickerPrimitiveProps,
   Dialog
-} from 'react-aria-components'
-import { tv } from 'tailwind-variants'
+} from "react-aria-components"
+import { tv } from "tailwind-variants"
 
-import { ColorArea } from './color-area'
-import { ColorField } from './color-field'
-import { ColorSlider } from './color-slider'
-import { ColorSwatch } from './color-swatch'
-import { Description } from './field'
-import { Popover } from './popover'
-import { focusButtonStyles } from './primitive'
+import { ColorArea } from "./color-area"
+import { ColorField } from "./color-field"
+import { ColorSlider } from "./color-slider"
+import { ColorSwatch } from "./color-swatch"
+import { Description } from "./field"
+import { Popover } from "./popover"
+import { focusButtonStyles } from "./primitive"
 
 const buttonStyles = tv({
   extend: focusButtonStyles,
-  base: 'flex cursor-pointer disabled:cursor-default disabled:opacity-50 items-center rounded text-sm'
+  base: "flex cursor-pointer disabled:cursor-default disabled:opacity-50 items-center rounded text-sm"
 })
 
 export interface ColorPickerProps extends ColorPickerPrimitiveProps {
@@ -35,7 +35,7 @@ export interface ColorPickerProps extends ColorPickerPrimitiveProps {
 
 const ColorPicker = ({
   showArrow = false,
-  placement = 'bottom start',
+  placement = "bottom start",
   label,
   isDisabled,
   children,

@@ -1,4 +1,4 @@
-import { Tag } from 'ui'
+import { Tag } from "ui"
 
 export default function TagGroupAnatomy() {
   return (

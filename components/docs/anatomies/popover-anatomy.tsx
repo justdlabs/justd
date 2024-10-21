@@ -1,4 +1,4 @@
-import { Button, Popover } from 'ui'
+import { Button, Popover } from "ui"
 
 export default function PopoverAnatomy() {
   return (

@@ -1,17 +1,17 @@
-import { transformerNotationDiff } from '@shikijs/transformers'
-import rehypeAutolinkHeadings from 'rehype-autolink-headings'
-import rehypePrettyCode from 'rehype-pretty-code'
-import rehypeSlug from 'rehype-slug'
-import { defineCollection, defineConfig, s } from 'velite'
+import { transformerNotationDiff } from "@shikijs/transformers"
+import rehypeAutolinkHeadings from "rehype-autolink-headings"
+import rehypePrettyCode from "rehype-pretty-code"
+import rehypeSlug from "rehype-slug"
+import { defineCollection, defineConfig, s } from "velite"
 
 const computedFields = <T extends { slug: string }>(data: T) => ({
   ...data,
-  slugAsParams: data.slug.split('/').slice(1).join('/')
+  slugAsParams: data.slug.split("/").slice(1).join("/")
 })
 
 const docs = defineCollection({
-  name: 'Docs',
-  pattern: '**/*.mdx',
+  name: "Docs",
+  pattern: "**/*.mdx",
   schema: s
     .object({
       slug: s.path(),
@@ -28,12 +28,12 @@ const docs = defineCollection({
 })
 
 export default defineConfig({
-  root: 'resources/content',
+  root: "resources/content",
   output: {
-    data: '.velite',
-    assets: 'public/static',
-    base: '/static/',
-    name: '[name]-[hash:6].[ext]',
+    data: ".velite",
+    assets: "public/static",
+    base: "/static/",
+    name: "[name]-[hash:6].[ext]",
     clean: true
   },
   collections: { docs },
@@ -44,20 +44,20 @@ export default defineConfig({
         rehypePrettyCode,
         {
           transformers: [transformerNotationDiff()],
-          theme: 'vesper',
+          theme: "vesper",
           defaultLang: {
-            block: 'tsx',
-            inline: 'plaintext'
+            block: "tsx",
+            inline: "plaintext"
           }
         }
       ],
       [
         rehypeAutolinkHeadings,
         {
-          behavior: 'wrap',
+          behavior: "wrap",
           properties: {
-            className: ['not-prose subheading-anchor'],
-            ariaLabel: 'Link to section'
+            className: ["not-prose subheading-anchor"],
+            ariaLabel: "Link to section"
           }
         }
       ]

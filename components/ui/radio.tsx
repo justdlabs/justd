@@ -1,6 +1,6 @@
-'use client'
+"use client"
 
-import * as React from 'react'
+import * as React from "react"
 
 import {
   Radio as RadioPrimitive,
@@ -8,13 +8,13 @@ import {
   type RadioGroupProps as RACRadioGroupProps,
   type RadioProps as RadioPrimitiveProps,
   type ValidationResult
-} from 'react-aria-components'
-import { tv } from 'tailwind-variants'
+} from "react-aria-components"
+import { tv } from "tailwind-variants"
 
-import { Description, FieldError, Label } from './field'
-import { ctr } from './primitive'
+import { Description, FieldError, Label } from "./field"
+import { ctr } from "./primitive"
 
-interface RadioGroupProps extends Omit<RACRadioGroupProps, 'children'> {
+interface RadioGroupProps extends Omit<RACRadioGroupProps, "children"> {
   label?: string
   children?: React.ReactNode
   description?: string
@@ -23,7 +23,7 @@ interface RadioGroupProps extends Omit<RACRadioGroupProps, 'children'> {
 
 const RadioGroup = ({ label, description, errorMessage, children, ...props }: RadioGroupProps) => {
   return (
-    <RadioGroupPrimitive {...props} className={ctr(props.className, 'group flex flex-col gap-2')}>
+    <RadioGroupPrimitive {...props} className={ctr(props.className, "group flex flex-col gap-2")}>
       {label && <Label>{label}</Label>}
       <div className="flex select-none gap-2 group-orientation-horizontal:flex-wrap group-orientation-horizontal:gap-2 sm:group-orientation-horizontal:gap-4 group-orientation-vertical:flex-col">
         {children}
@@ -35,23 +35,23 @@ const RadioGroup = ({ label, description, errorMessage, children, ...props }: Ra
 }
 
 const radioStyles = tv({
-  base: 'size-4 shrink-0 rounded-full border bg-secondary transition',
+  base: "size-4 shrink-0 rounded-full border bg-secondary transition",
   variants: {
     isSelected: {
-      false: 'border-toggle',
-      true: 'border-[4.5px] border-primary'
+      false: "border-toggle",
+      true: "border-[4.5px] border-primary"
     },
     isFocused: {
       true: [
-        'border-primary bg-primary/20 ring-4 ring-primary/20',
-        'group-invalid:border-danger/70 group-invalid:bg-danger/20 group-invalid:ring-danger/20'
+        "border-primary bg-primary/20 ring-4 ring-primary/20",
+        "group-invalid:border-danger/70 group-invalid:bg-danger/20 group-invalid:ring-danger/20"
       ]
     },
     isInvalid: {
-      true: 'border-danger/70 bg-danger/20'
+      true: "border-danger/70 bg-danger/20"
     },
     isDisabled: {
-      true: 'opacity-50'
+      true: "opacity-50"
     }
   }
 })
@@ -67,7 +67,7 @@ const Radio = ({ description, ...props }: RadioProps) => {
         {...props}
         className={ctr(
           props.className,
-          'group flex items-center gap-2 text-sm text-fg transition disabled:text-fg/50 forced-colors:disabled:text-[GrayText]'
+          "group flex items-center gap-2 text-sm text-fg transition disabled:text-fg/50 forced-colors:disabled:text-[GrayText]"
         )}
       >
         {(renderProps) => (
@@ -75,7 +75,7 @@ const Radio = ({ description, ...props }: RadioProps) => {
             <div
               className={radioStyles({
                 ...renderProps,
-                className: 'description' in props ? 'mt-1' : 'mt-0.5'
+                className: "description" in props ? "mt-1" : "mt-0.5"
               })}
             />
             <div className="flex flex-col gap-1">

@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState } from "react"
 
-import { Card, Checkbox, CheckboxGroup, Radio, RadioGroup } from 'ui'
+import { Card, Checkbox, CheckboxGroup, Radio, RadioGroup } from "ui"
 
 export function Control() {
-  const [selectedRadio, setSelectedRadio] = useState('lowSecurity')
+  const [selectedRadio, setSelectedRadio] = useState("lowSecurity")
   return (
     <Card className="p-6">
       <RadioGroup aria-label="Security" value={selectedRadio} onChange={setSelectedRadio}>
@@ -11,9 +11,9 @@ export function Control() {
           High Security
         </Radio>
         <CheckboxGroup
-          defaultValue={['encryption']}
+          defaultValue={["encryption"]}
           className="ml-6"
-          isDisabled={selectedRadio !== 'highSecurity'}
+          isDisabled={selectedRadio !== "highSecurity"}
         >
           <Checkbox value="encryption" description="Enable encryption." isReadOnly>
             Encryption

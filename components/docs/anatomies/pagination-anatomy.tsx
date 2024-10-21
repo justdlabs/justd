@@ -1,4 +1,4 @@
-import { Pagination } from 'ui'
+import { Pagination } from "ui"
 
 export default function PaginationAnatomy() {
   return (

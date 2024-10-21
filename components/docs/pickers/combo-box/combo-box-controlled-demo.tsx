@@ -1,23 +1,23 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import { ComboBox, Description } from 'ui'
+import { ComboBox, Description } from "ui"
 
 const sports = [
-  { id: 1, name: 'Football' },
-  { id: 2, name: 'Basketball' },
-  { id: 3, name: 'Baseball' },
-  { id: 4, name: 'Soccer' },
-  { id: 5, name: 'Tennis' },
-  { id: 6, name: 'Cricket' },
-  { id: 7, name: 'Hockey' },
-  { id: 8, name: 'Rugby' },
-  { id: 9, name: 'Golf' }
+  { id: 1, name: "Football" },
+  { id: 2, name: "Basketball" },
+  { id: 3, name: "Baseball" },
+  { id: 4, name: "Soccer" },
+  { id: 5, name: "Tennis" },
+  { id: 6, name: "Cricket" },
+  { id: 7, name: "Hockey" },
+  { id: 8, name: "Rugby" },
+  { id: 9, name: "Golf" }
 ]
 
 export default function ComboBoxControlledDemo() {
-  const [sport, setSport] = React.useState('')
+  const [sport, setSport] = React.useState("")
   return (
     <>
       <ComboBox

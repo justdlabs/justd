@@ -1,38 +1,38 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import type { Placement } from '@react-types/overlays'
-import type { Selection } from 'react-aria-components'
-import { Button, Menu } from 'ui'
+import type { Placement } from "@react-types/overlays"
+import type { Selection } from "react-aria-components"
+import { Button, Menu } from "ui"
 
 export const placements = [
-  'bottom',
-  'bottom left',
-  'bottom right',
-  'bottom start',
-  'bottom end',
-  'top',
-  'top left',
-  'top right',
-  'top start',
-  'top end',
-  'left',
-  'left top',
-  'left bottom',
-  'start',
-  'start top',
-  'start bottom',
-  'right',
-  'right top',
-  'right bottom',
-  'end',
-  'end top',
-  'end bottom'
+  "bottom",
+  "bottom left",
+  "bottom right",
+  "bottom start",
+  "bottom end",
+  "top",
+  "top left",
+  "top right",
+  "top start",
+  "top end",
+  "left",
+  "left top",
+  "left bottom",
+  "start",
+  "start top",
+  "start bottom",
+  "right",
+  "right top",
+  "right bottom",
+  "end",
+  "end top",
+  "end bottom"
 ].map((item, i) => ({ id: i, name: item }))
 
 export default function SingleMenuDemo() {
-  const [selected, setSelected] = React.useState<Selection>(new Set(['bottom']))
+  const [selected, setSelected] = React.useState<Selection>(new Set(["bottom"]))
   return (
     <Menu>
       <Button appearance="outline">Placement</Button>

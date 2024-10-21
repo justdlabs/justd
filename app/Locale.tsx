@@ -1,6 +1,6 @@
-'use client'
+"use client"
 
-import { useLocale } from 'react-aria-components'
+import { useLocale } from "react-aria-components"
 
 export function Locale({ children }: { children: React.ReactNode }) {
   const { locale, direction } = useLocale()

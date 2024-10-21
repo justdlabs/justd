@@ -1,9 +1,9 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import { IconPlus } from 'justd-icons'
-import { Button, ProgressCircle } from 'ui'
+import { IconPlus } from "justd-icons"
+import { Button, ProgressCircle } from "ui"
 
 export default function ButtonPendingDemo() {
   const [isLoading, setLoading] = React.useState(false)
@@ -19,7 +19,7 @@ export default function ButtonPendingDemo() {
       {({ isPending }) => (
         <>
           {isPending ? <ProgressCircle isIndeterminate aria-label="Creating..." /> : <IconPlus />}
-          {isLoading ? 'Creating...' : 'Create'}
+          {isLoading ? "Creating..." : "Create"}
         </>
       )}
     </Button>

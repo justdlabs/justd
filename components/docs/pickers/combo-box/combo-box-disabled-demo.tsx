@@ -1,6 +1,6 @@
-'use client'
+"use client"
 
-import { Avatar, ComboBox } from 'ui'
+import { Avatar, ComboBox } from "ui"
 
 export default function ComboBoxDisabledDemo() {
   return (
@@ -19,6 +19,6 @@ export default function ComboBoxDisabledDemo() {
 }
 
 const users = [
-  { id: 1, name: 'Barbara Kirlin Sr.', image_url: 'https://i.pravatar.cc/150?img=1' }
+  { id: 1, name: "Barbara Kirlin Sr.", image_url: "https://i.pravatar.cc/150?img=1" }
   //...
 ]

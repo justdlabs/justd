@@ -1,6 +1,6 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
 const thumbnailMap: { [key: string]: React.ReactNode } = {
   button: (
@@ -12,7 +12,7 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
       <rect width="42.889" height="3.729" x="78.174" y="98.121" fill="#52525B" rx="1.865" />
     </svg>
   ),
-  'file-trigger': (
+  "file-trigger": (
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 300 200">
       <rect width="93.237" height="27.971" x="124" y="86" fill="#71717A" rx="3.729" />
       <rect width="42.889" height="3.729" x="149.174" y="98.121" fill="#fff" rx="1.865" />
@@ -93,7 +93,7 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
       <path stroke="#18181B" d="M21 80.85h84" strokeOpacity=".5" strokeWidth=".3" />
     </svg>
   ),
-  'list-box': (
+  "list-box": (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="300"
@@ -118,7 +118,7 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
       />
     </svg>
   ),
-  'tag-group': (
+  "tag-group": (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="300"
@@ -302,7 +302,7 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
       <rect width="33" height="4" x="159" y="75" fill="currentColor" fillOpacity=".5" rx="2" />
     </svg>
   ),
-  'grid-list': (
+  "grid-list": (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="300"
@@ -448,7 +448,7 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
       />
     </svg>
   ),
-  'color-picker': (
+  "color-picker": (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="300"
@@ -496,7 +496,7 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
       <rect width="17" height="17" x="101" y="43" fill="#E4E4E7" rx="2.125" />
     </svg>
   ),
-  'color-field': (
+  "color-field": (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="300"
@@ -534,7 +534,7 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
       />
     </svg>
   ),
-  'color-area': (
+  "color-area": (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="300"
@@ -557,11 +557,11 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
       </g>
     </svg>
   ),
-  'color-slider': null,
-  'color-swatch-picker': null,
-  'color-swatch': null,
-  'color-wheel': null,
-  'color-thumb': null,
+  "color-slider": null,
+  "color-swatch-picker": null,
+  "color-swatch": null,
+  "color-wheel": null,
+  "color-thumb": null,
 
   form: (
     <svg
@@ -639,7 +639,7 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
       />
     </svg>
   ),
-  'text-field': (
+  "text-field": (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="300"
@@ -661,7 +661,7 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
       <rect width="32" height="4" x="157" y="98" fill="#71717A" rx="2" />
     </svg>
   ),
-  'search-field': (
+  "search-field": (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="300"
@@ -718,7 +718,7 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
       <rect width="47.921" height="4.521" x="172.693" y="107.838" fill="#6E6E78" rx="2.26" />
     </svg>
   ),
-  'input-otp': (
+  "input-otp": (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="300"
@@ -789,12 +789,12 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
       <rect width="2.851" height="12" x="230.769" y="94" fill="#71717A" rx="1.426" />
     </svg>
   ),
-  'number-field': null,
-  'checkbox-group': null,
+  "number-field": null,
+  "checkbox-group": null,
   checkbox: null,
-  'radio-group': null,
-  'tag-field': null,
-  'combo-box': (
+  "radio-group": null,
+  "tag-field": null,
+  "combo-box": (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="300"
@@ -866,7 +866,7 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
       />
     </svg>
   ),
-  'multiple-select': (
+  "multiple-select": (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="300"
@@ -916,6 +916,89 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
         strokeLinecap="round"
         strokeLinejoin="round"
       />
+    </svg>
+  ),
+
+  navbar: (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="300"
+      height="200"
+      fill="none"
+      viewBox="0 0 300 200"
+    >
+      <rect width="260" height="160" x="20" y="20" fill="#D4D4D8" rx="6" />
+      <g filter="url(#a)">
+        <rect width="248" height="16" x="26" y="26" fill="#fff" rx="4" />
+        <rect width="21" height="4" x="47" y="32" fill="#A1A1AA" rx="2" />
+        <rect width="21" height="4" x="74" y="32" fill="#000" rx="2" />
+        <rect width="21" height="4" x="101" y="32" fill="#A1A1AA" rx="2" />
+        <rect width="21" height="4" x="128" y="32" fill="#A1A1AA" rx="2" />
+        <rect width="21" height="4" x="236" y="32" fill="#A1A1AA" rx="2" />
+        <path
+          stroke="#71717A"
+          d="m263 33 2 2 2-2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth=".75"
+        />
+        <path
+          fill="#000"
+          d="M33.696 30.667h2.275c.2 0 .362 0 .493.01a1 1 0 0 1 .364.09.93.93 0 0 1 .404.405.9.9 0 0 1 .09.364c.011.13.011.292.011.493v2.46c0 .2 0 .363-.01.494a1 1 0 0 1-.09.363.93.93 0 0 1-.405.405 1 1 0 0 1-.364.09c-.13.01-.292.01-.493.01h-.119v.12c0 .2 0 .362-.011.493a1 1 0 0 1-.09.363.93.93 0 0 1-.405.405.9.9 0 0 1-.363.09c-.131.011-.293.011-.493.011h-2.461c-.201 0-.363 0-.494-.01a1 1 0 0 1-.363-.09.93.93 0 0 1-.405-.406.9.9 0 0 1-.09-.363c-.01-.13-.01-.292-.01-.493v-2.46c0-.2 0-.363.01-.494a1 1 0 0 1 .09-.363.93.93 0 0 1 .405-.405 1 1 0 0 1 .364-.09c.13-.01.292-.01.493-.01h.304v-.12c0-.2 0-.362.011-.493a1 1 0 0 1 .09-.363.93.93 0 0 1 .405-.405.9.9 0 0 1 .363-.09c.131-.011.293-.011.494-.011m2.267 4.814h-.111v-1.97c0-.201 0-.363-.011-.494a1 1 0 0 0-.09-.363.93.93 0 0 0-.405-.405 1 1 0 0 0-.363-.09c-.131-.011-.293-.011-.493-.011h-1.787v-.111c0-.21 0-.357.01-.471a.6.6 0 0 1 .051-.226.56.56 0 0 1 .243-.242.6.6 0 0 1 .225-.051c.114-.01.261-.01.471-.01h2.26c.21 0 .357 0 .471.01a.6.6 0 0 1 .225.05.56.56 0 0 1 .243.243.6.6 0 0 1 .051.226c.01.114.01.26.01.471v2.444c0 .211 0 .358-.01.472a.6.6 0 0 1-.051.225.56.56 0 0 1-.243.243.6.6 0 0 1-.225.051c-.114.01-.26.01-.471.01m-4.149.705a.48.48 0 0 0 .353.147.5.5 0 0 0 .25-.066.52.52 0 0 0 .25-.434.48.48 0 0 0-.148-.352.48.48 0 0 0-.352-.148.48.48 0 0 0-.353.148.48.48 0 0 0-.147.352q0 .206.147.353"
+          clipPath="url(#b)"
+          clipRule="evenodd"
+          fillRule="evenodd"
+        />
+      </g>
+      <g filter="url(#b)">
+        <rect width="248" height="130" x="26" y="44" fill="#fff" rx="4" />
+      </g>
+      <defs>
+        <filter
+          id="a"
+          width="248.6"
+          height="16.6"
+          x="25.8"
+          y="25.8"
+          colorInterpolationFilters="sRGB"
+          filterUnits="userSpaceOnUse"
+        >
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
+          <feColorMatrix
+            in="SourceAlpha"
+            result="hardAlpha"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+          />
+          <feOffset dx=".1" dy=".1" />
+          <feGaussianBlur stdDeviation=".15" />
+          <feComposite in2="hardAlpha" operator="out" />
+          <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.61 0" />
+          <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_10_2" />
+          <feBlend in="SourceGraphic" in2="effect1_dropShadow_10_2" result="shape" />
+        </filter>
+        <filter
+          id="b"
+          width="249"
+          height="131"
+          x="25.5"
+          y="44"
+          colorInterpolationFilters="sRGB"
+          filterUnits="userSpaceOnUse"
+        >
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
+          <feColorMatrix
+            in="SourceAlpha"
+            result="hardAlpha"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+          />
+          <feOffset dy=".5" />
+          <feGaussianBlur stdDeviation=".25" />
+          <feComposite in2="hardAlpha" operator="out" />
+          <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_10_2" />
+          <feBlend in="SourceGraphic" in2="effect1_dropShadow_10_2" result="shape" />
+        </filter>
+      </defs>
     </svg>
   )
 }

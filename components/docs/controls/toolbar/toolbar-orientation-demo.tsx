@@ -1,6 +1,6 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
 import {
   IconAlignmentCenter,
@@ -24,8 +24,8 @@ import {
   IconToolbox,
   IconToolboxFill,
   IconUndo
-} from 'justd-icons'
-import { Button, Menu, Toggle, Toolbar } from 'ui'
+} from "justd-icons"
+import { Button, Menu, Toggle, Toolbar } from "ui"
 
 export default function ToolbarOrientationDemo() {
   return (

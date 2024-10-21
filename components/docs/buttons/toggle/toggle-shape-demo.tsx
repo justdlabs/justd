@@ -1,11 +1,11 @@
-'use client'
+"use client"
 
-import { Toggle } from 'ui'
+import { Toggle } from "ui"
 
 export default function ToggleShapeDemo() {
   return (
     <Toggle appearance="outline" shape="circle">
-      {({ isSelected }) => <>{isSelected ? 'Disabled' : 'Enabled'}</>}
+      {({ isSelected }) => <>{isSelected ? "Disabled" : "Enabled"}</>}
     </Toggle>
   )
 }

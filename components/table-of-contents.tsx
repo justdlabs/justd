@@ -1,12 +1,12 @@
-'use client'
+"use client"
 
-import React, { Suspense } from 'react'
+import React, { Suspense } from "react"
 
-import { emitter } from '@/resources/lib/emitter'
-import { useScrollPosition } from 'hooks/use-scroll-position'
-import { Heading } from 'react-aria-components'
-import scrollIntoView from 'scroll-into-view-if-needed'
-import { cn, Link, Skeleton } from 'ui'
+import { emitter } from "@/resources/lib/emitter"
+import { useScrollPosition } from "hooks/use-scroll-position"
+import { Heading } from "react-aria-components"
+import scrollIntoView from "scroll-into-view-if-needed"
+import { cn, Link, Skeleton } from "ui"
 
 interface TableOfContentsProps {
   title: string
@@ -24,8 +24,8 @@ export function TableOfContents({ className, items }: Props) {
   const tocRef = React.useRef<HTMLDivElement>(null)
   const scrollPosition = useScrollPosition(tocRef)
   const ids = items.flatMap((item) => [
-    item.url.split('#')[1],
-    ...(item.items ? item.items.map((subItem) => subItem.url.split('#')[1]) : [])
+    item.url.split("#")[1],
+    ...(item.items ? item.items.map((subItem) => subItem.url.split("#")[1]) : [])
   ])
   const activeId = useActiveItem(ids)
   const activeIndex = activeId?.length || 0
@@ -35,35 +35,35 @@ export function TableOfContents({ className, items }: Props) {
 
     if (anchor) {
       scrollIntoView(anchor, {
-        behavior: 'smooth',
-        block: 'center',
-        inline: 'center',
-        scrollMode: 'always',
+        behavior: "smooth",
+        block: "center",
+        inline: "center",
+        scrollMode: "always",
         boundary: tocRef.current
       })
     }
   }, [activeId, activeIndex])
   React.useEffect(() => {
-    emitter.on('proBannerVisibilityChange', (value) => {
-      setIsProBannerVisible(value === 'visible')
+    emitter.on("proBannerVisibilityChange", (value) => {
+      setIsProBannerVisible(value === "visible")
     })
 
     return () => {
-      emitter.off('proBannerVisibilityChange')
+      emitter.off("proBannerVisibilityChange")
     }
   }, [])
   return (
     <aside
       ref={tocRef}
       className={cn(
-        'not-prose',
-        'xl:sticky no-scrollbar xl:top-[1.75rem] xl:-mr-6 xl:h-[calc(100vh-4.75rem)] xl:flex-none xl:overflow-y-auto xl:py-16 xl:pr-6',
-        isProBannerVisible ? 'top-32' : 'top-20',
+        "not-prose",
+        "xl:sticky no-scrollbar xl:top-[1.75rem] xl:-mr-6 xl:h-[calc(100vh-4.75rem)] xl:flex-none xl:overflow-y-auto xl:py-16 xl:pr-6",
+        isProBannerVisible ? "top-32" : "top-20",
         className
       )}
       style={{
         WebkitMaskImage: `linear-gradient(to top, transparent 0%, #000 100px, #000 ${
-          scrollPosition > 30 ? '90%' : '100%'
+          scrollPosition > 30 ? "90%" : "100%"
         }, transparent 100%)`
       }}
     >
@@ -112,8 +112,8 @@ function TocLink({ item, activeId }: { item: TableOfContentsProps; activeId: str
     <li key={item.title}>
       <Link
         className={cn(
-          'outline-none block no-underline tracking-tight lg:text-[0.885rem] duration-200',
-          item.url.split('#')[1] === activeId ? 'text-fg' : 'text-muted-fg/80'
+          "outline-none block no-underline tracking-tight lg:text-[0.885rem] duration-200",
+          item.url.split("#")[1] === activeId ? "text-fg" : "text-muted-fg/80"
         )}
         href={item.url}
       >
@@ -143,7 +143,7 @@ export function useActiveItem(itemIds: string[]) {
           setActiveId(bestCandidate.target.id)
         }
       },
-      { rootMargin: '0% 0% -25% 0%', threshold: 0.1 }
+      { rootMargin: "0% 0% -25% 0%", threshold: 0.1 }
     )
 
     itemIds.forEach((id) => {

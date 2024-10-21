@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react"
 
-import { ProgressCircle } from 'ui'
+import { ProgressCircle } from "ui"
 
 export default function ProgressBarAnatomy() {
   return (

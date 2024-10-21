@@ -1,7 +1,7 @@
-'use client'
+"use client"
 
-import { IconDeviceDesktop, IconDevicePhone, IconMacbook } from 'justd-icons'
-import { Select } from 'ui'
+import { IconDeviceDesktop, IconDevicePhone, IconMacbook } from "justd-icons"
+import { Select } from "ui"
 
 export default function SelectWithIconDemo() {
   return (

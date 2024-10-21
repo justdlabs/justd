@@ -1,6 +1,6 @@
-'use client'
+"use client"
 
-import { ProgressCircle } from 'ui'
+import { ProgressCircle } from "ui"
 
 export default function ProgressCircleColorDemo() {
   return (

@@ -1,18 +1,18 @@
-'use client'
+"use client"
 
-import { IconTrendingChart3 } from 'justd-icons'
-import { Label, PolarGrid, PolarRadiusAxis, RadialBar, RadialBarChart } from 'recharts'
-import { Card, Chart, type ChartConfig } from 'ui'
+import { IconTrendingChart3 } from "justd-icons"
+import { Label, PolarGrid, PolarRadiusAxis, RadialBar, RadialBarChart } from "recharts"
+import { Card, Chart, type ChartConfig } from "ui"
 
-const chartData = [{ browser: 'safari', visitors: 1260, fill: 'var(--color-safari)' }]
+const chartData = [{ browser: "safari", visitors: 1260, fill: "var(--color-safari)" }]
 
 const config = {
   visitors: {
-    label: 'Visitors'
+    label: "Visitors"
   },
   safari: {
-    label: 'Safari',
-    color: 'hsl(var(--secondary-chart))'
+    label: "Safari",
+    color: "hsl(var(--secondary-chart))"
   }
 } satisfies ChartConfig
 
@@ -37,7 +37,7 @@ export default function RadialChartShapeDemo() {
             <PolarRadiusAxis tick={false} tickLine={false} axisLine={false}>
               <Label
                 content={({ viewBox }) => {
-                  if (viewBox && 'cx' in viewBox && 'cy' in viewBox) {
+                  if (viewBox && "cx" in viewBox && "cy" in viewBox) {
                     return (
                       <text
                         x={viewBox.cx}

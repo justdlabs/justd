@@ -1,54 +1,54 @@
-'use client'
+"use client"
 
-import * as React from 'react'
+import * as React from "react"
 
-import type { Key } from 'react-aria-components'
-import { Label, Pie, PieChart, Sector } from 'recharts'
-import type { PieSectorDataItem } from 'recharts/types/polar/Pie'
-import { Card, Chart, type ChartConfig, Select } from 'ui'
+import type { Key } from "react-aria-components"
+import { Label, Pie, PieChart, Sector } from "recharts"
+import type { PieSectorDataItem } from "recharts/types/polar/Pie"
+import { Card, Chart, type ChartConfig, Select } from "ui"
 
 const data = [
-  { month: 'january', sales: 186, fill: 'var(--color-january)' },
-  { month: 'february', sales: 305, fill: 'var(--color-february)' },
-  { month: 'march', sales: 237, fill: 'var(--color-march)' },
-  { month: 'april', sales: 173, fill: 'var(--color-april)' },
-  { month: 'may', sales: 209, fill: 'var(--color-may)' }
+  { month: "january", sales: 186, fill: "var(--color-january)" },
+  { month: "february", sales: 305, fill: "var(--color-february)" },
+  { month: "march", sales: 237, fill: "var(--color-march)" },
+  { month: "april", sales: 173, fill: "var(--color-april)" },
+  { month: "may", sales: 209, fill: "var(--color-may)" }
 ]
 
 const config = {
   visitors: {
-    label: 'Visitors'
+    label: "Visitors"
   },
   sales: {
-    label: 'Sales'
+    label: "Sales"
   },
   profit: {
-    label: 'Profit'
+    label: "Profit"
   },
   january: {
-    label: 'January',
-    color: 'hsl(var(--primary-chart))'
+    label: "January",
+    color: "hsl(var(--primary-chart))"
   },
   february: {
-    label: 'February',
-    color: 'hsl(var(--secondary-chart))'
+    label: "February",
+    color: "hsl(var(--secondary-chart))"
   },
   march: {
-    label: 'March',
-    color: 'hsl(var(--tertiary-chart))'
+    label: "March",
+    color: "hsl(var(--tertiary-chart))"
   },
   april: {
-    label: 'April',
-    color: 'hsl(var(--highlight-chart))'
+    label: "April",
+    color: "hsl(var(--highlight-chart))"
   },
   may: {
-    label: 'May',
-    color: 'hsl(var(--accent-chart))'
+    label: "May",
+    color: "hsl(var(--accent-chart))"
   }
 } satisfies ChartConfig
 
 export default function PieChartInteractiveDemo() {
-  const id = 'pie-interactive'
+  const id = "pie-interactive"
   const [activeMonth, setActiveMonth] = React.useState<Key>(data[0].month)
 
   const activeIndex = React.useMemo(
@@ -111,7 +111,7 @@ export default function PieChartInteractiveDemo() {
             >
               <Label
                 content={({ viewBox }) => {
-                  if (viewBox && 'cx' in viewBox && 'cy' in viewBox) {
+                  if (viewBox && "cx" in viewBox && "cy" in viewBox) {
                     return (
                       <text
                         x={viewBox.cx}

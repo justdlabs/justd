@@ -1,4 +1,4 @@
-import { Label, VisuallyHidden } from 'ui'
+import { Label, VisuallyHidden } from "ui"
 
 export default function VisuallyHiddenAnatomy() {
   return (

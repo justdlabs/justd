@@ -1,24 +1,24 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import { IconCreditCard, IconCube, IconGear, IconHome2, IconNotes, IconShield } from 'justd-icons'
-import Link from 'next/link'
-import { CommandMenu } from 'ui'
+import { IconCreditCard, IconCube, IconGear, IconHome2, IconNotes, IconShield } from "justd-icons"
+import Link from "next/link"
+import { CommandMenu } from "ui"
 
 export default function CommandMenuTriggerByKeyboardDemo() {
   const [isOpen, setIsOpen] = React.useState(false)
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
-      if (e.key === '/' && (e.metaKey || e.ctrlKey)) {
+      if (e.key === "/" && (e.metaKey || e.ctrlKey)) {
         e.preventDefault()
         setIsOpen((open: boolean) => !open)
       }
     }
 
-    document.addEventListener('keydown', down)
+    document.addEventListener("keydown", down)
 
-    return () => document.removeEventListener('keydown', down)
+    return () => document.removeEventListener("keydown", down)
   }, [setIsOpen])
   return (
     <>

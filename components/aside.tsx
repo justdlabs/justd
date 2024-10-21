@@ -1,21 +1,21 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
-import { type Docs, docs } from '#site/content'
-import { goodTitle, sortDocs } from '@/resources/lib/utils'
-import { LayoutGroup, motion } from 'framer-motion'
-import { IconChevronLeft, IconCircleHalf, IconCube, IconHighlight, IconLayers } from 'justd-icons'
-import { Link as NextLink } from 'next-view-transitions'
-import type { LinkProps as NextLinkProps } from 'next/link'
-import { usePathname } from 'next/navigation'
-import { tv } from 'tailwind-variants'
-import { Badge, cn, Disclosure, DisclosureGroup } from 'ui'
+import { type Docs, docs } from "#site/content"
+import { goodTitle, sortDocs } from "@/resources/lib/utils"
+import { LayoutGroup, motion } from "framer-motion"
+import { IconChevronLeft, IconCircleHalf, IconCube, IconHighlight, IconLayers } from "justd-icons"
+import { Link as NextLink } from "next-view-transitions"
+import type { LinkProps as NextLinkProps } from "next/link"
+import { usePathname } from "next/navigation"
+import { tv } from "tailwind-variants"
+import { Badge, cn, Disclosure, DisclosureGroup } from "ui"
 
 export interface Doc {
   slug: string
   title: string
-  status?: 'wip' | 'new' | 'beta' | 'help' | 'primitive' | 'alpha'
+  status?: "wip" | "new" | "beta" | "help" | "primitive" | "alpha"
 }
 
 export interface HierarchyNode {
@@ -26,7 +26,7 @@ export const createHierarchy = (docs: Array<Docs>): HierarchyNode => {
   const hierarchy: HierarchyNode = {}
 
   sortDocs(docs).forEach((doc) => {
-    const parts = doc.slug.split('/').slice(1)
+    const parts = doc.slug.split("/").slice(1)
     let currentLevel = hierarchy
 
     parts.forEach((part, index) => {
@@ -47,7 +47,7 @@ export const createHierarchy = (docs: Array<Docs>): HierarchyNode => {
 
 const renderHierarchy = (node: HierarchyNode, defaultValues: string[]) => {
   const filteredNodeEntries = Object.entries(node).sort(([a], [b]) => {
-    const order = ['prologue', 'getting-started', 'dark-mode', 'components']
+    const order = ["prologue", "getting-started", "dark-mode", "components"]
     return order.indexOf(a) - order.indexOf(b)
   })
   return (
@@ -55,17 +55,17 @@ const renderHierarchy = (node: HierarchyNode, defaultValues: string[]) => {
       hideBorder
       hideIndicator
       allowsMultipleExpanded
-      defaultExpandedKeys={['getting-started', 'components']}
+      defaultExpandedKeys={["getting-started", "components"]}
       className="w-full [&_.dk32xd]:p-0 [&_.zwx3ai]:p-0 [&_.zwx3ai]:border-none"
     >
       {filteredNodeEntries.map(([key, value]) => (
         <Disclosure key={key} id={key}>
           <Trigger className="[&_.jr131]:size-4 py-1.5 text-fg groud-data-[open]:text-muted-fg [&_.jr131]:text-primary [&_.jr131]:fill-primary/10 dark:[&_.jr131]:fill-primary/30">
-            {key === 'getting-started' ? (
+            {key === "getting-started" ? (
               <IconLayers className="jr131" />
-            ) : key === 'prologue' ? (
+            ) : key === "prologue" ? (
               <IconHighlight className="jr131" />
-            ) : key === 'dark-mode' ? (
+            ) : key === "dark-mode" ? (
               <IconCircleHalf className="jr131" />
             ) : (
               <IconCube className="jr131" />
@@ -73,7 +73,7 @@ const renderHierarchy = (node: HierarchyNode, defaultValues: string[]) => {
             {goodTitle(key)}
           </Trigger>
           <Disclosure.Panel>
-            {typeof value === 'object' && 'title' in value ? (
+            {typeof value === "object" && "title" in value ? (
               <AsideLink href={`/${(value as Doc).slug}`}>
                 {goodTitle((value as Doc).title)}
               </AsideLink>
@@ -87,7 +87,7 @@ const renderHierarchy = (node: HierarchyNode, defaultValues: string[]) => {
               >
                 <div className="h-full absolute left-0 bg-zinc-200 dark:bg-zinc-800 w-px ml-4" />
                 {Object.entries(value as HierarchyNode).map(([subKey, subValue]) =>
-                  typeof subValue === 'object' && 'title' in subValue ? (
+                  typeof subValue === "object" && "title" in subValue ? (
                     <AsideLink
                       className="pl-[2rem] flex justify-between items-center"
                       key={subKey}
@@ -97,21 +97,21 @@ const renderHierarchy = (node: HierarchyNode, defaultValues: string[]) => {
                       {subValue.status && (
                         <Badge
                           intent={
-                            subValue?.status === 'wip'
-                              ? 'warning'
-                              : subValue?.status === 'alpha'
-                                ? 'danger'
-                                : subValue.status === 'beta'
-                                  ? 'warning'
-                                  : subValue.status === 'help'
-                                    ? 'warning'
-                                    : subValue.status === 'primitive'
-                                      ? 'secondary'
-                                      : 'info'
+                            subValue?.status === "wip"
+                              ? "warning"
+                              : subValue?.status === "alpha"
+                                ? "danger"
+                                : subValue.status === "beta"
+                                  ? "warning"
+                                  : subValue.status === "help"
+                                    ? "warning"
+                                    : subValue.status === "primitive"
+                                      ? "secondary"
+                                      : "info"
                           }
                           className="uppercase h-5 text-[0.5rem]"
                         >
-                          {subValue?.status as Doc['status']}
+                          {subValue?.status as Doc["status"]}
                         </Badge>
                       )}
                     </AsideLink>
@@ -120,41 +120,39 @@ const renderHierarchy = (node: HierarchyNode, defaultValues: string[]) => {
                       <Trigger className="pl-[2rem]">{goodTitle(subKey)}</Trigger>
                       <Disclosure.Panel>
                         {Object.entries(subValue as HierarchyNode).map(([childKey, childValue]) =>
-                          typeof childValue === 'object' && 'title' in childValue ? (
+                          typeof childValue === "object" && "title" in childValue ? (
                             <AsideLink
                               className={cn(
-                                'ml-[-0rem] flex justify-between items-center pl-[3rem]',
-                                defaultValues.length > 0 && 'jf320s'
+                                "ml-[-0rem] flex justify-between items-center pl-[3rem]",
+                                defaultValues.length > 0 && "jf320s"
                               )}
                               key={childKey}
                               href={`/${childValue.slug}`}
                               indicatorClassName=""
                             >
-                              {(childValue as Doc).title === 'Disclosure Group aka Accordion'
-                                ? 'Disclosure Group'
-                                : (childValue as Doc).title === 'Disclosure aka Collapsible'
-                                  ? 'Disclosure'
-                                  : (childValue as Doc).title === 'Aside aka Sidebar'
-                                    ? 'Aside / Sidebar'
-                                    : goodTitle((childValue as Doc).title)}
+                              {(childValue as Doc).title === "Disclosure Group aka Accordion"
+                                ? "Disclosure Group"
+                                : (childValue as Doc).title === "Disclosure aka Collapsible"
+                                  ? "Disclosure"
+                                  : goodTitle((childValue as Doc).title)}
                               {childValue.status && (
                                 <Badge
                                   intent={
-                                    childValue?.status === 'wip'
-                                      ? 'primary'
-                                      : childValue.status === 'beta'
-                                        ? 'warning'
-                                        : childValue.status === 'alpha'
-                                          ? 'primary'
-                                          : childValue.status === 'help'
-                                            ? 'warning'
-                                            : childValue.status === 'primitive'
-                                              ? 'secondary'
-                                              : 'info'
+                                    childValue?.status === "wip"
+                                      ? "primary"
+                                      : childValue.status === "beta"
+                                        ? "warning"
+                                        : childValue.status === "alpha"
+                                          ? "primary"
+                                          : childValue.status === "help"
+                                            ? "warning"
+                                            : childValue.status === "primitive"
+                                              ? "secondary"
+                                              : "info"
                                   }
                                   className="capitalize h-5 text-[0.65rem]"
                                 >
-                                  {childValue?.status as Doc['status']}
+                                  {childValue?.status as Doc["status"]}
                                 </Badge>
                               )}
                             </AsideLink>
@@ -179,7 +177,7 @@ export const Aside = () => {
   const hierarchicalDocs = createHierarchy(docs)
 
   const computeDefaultValuesFromURL = (): string[] => {
-    const pathParts = pathname.split('/').filter(Boolean)
+    const pathParts = pathname.split("/").filter(Boolean)
     const relevantKey = pathParts[2]
     if (relevantKey) {
       return [relevantKey]
@@ -190,12 +188,12 @@ export const Aside = () => {
   const defaultValues = computeDefaultValuesFromURL()
 
   React.useEffect(() => {
-    const activeElement = document.querySelector('.jf320s')
+    const activeElement = document.querySelector(".jf320s")
 
     if (activeElement) {
       activeElement.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center'
+        behavior: "smooth",
+        block: "center"
       })
     }
   }, [])
@@ -210,7 +208,7 @@ const Trigger = ({ children, className }: { children: React.ReactNode; className
   return (
     <Disclosure.Trigger
       className={cn(
-        'group py-2 hover:text-fg pressed:text-fg aria-expanded:text-fg text-muted-fg',
+        "group py-2 hover:text-fg pressed:text-fg aria-expanded:text-fg text-muted-fg",
         className
       )}
     >
@@ -228,11 +226,11 @@ interface AsideLinkProps extends NextLinkProps {
 }
 
 const asideLinkStyles = tv({
-  base: 'relative block focus:outline-none focus-visible:bg-secondary/70 focus-visible:ring-inset focus-visible:ring-1 focus-visible:ring-primary rounded-md px-2.5 py-2 text-base transition-colors hover:bg-secondary/70 hover:text-fg lg:text-sm',
+  base: "relative block focus:outline-none focus-visible:bg-secondary/70 focus-visible:ring-inset focus-visible:ring-1 focus-visible:ring-primary rounded-md px-2.5 py-2 text-base transition-colors hover:bg-secondary/70 hover:text-fg lg:text-sm",
   variants: {
     isActive: {
-      true: 'font-medium text-fg',
-      false: 'text-muted-fg'
+      true: "font-medium text-fg",
+      false: "text-muted-fg"
     }
   }
 })
@@ -247,7 +245,7 @@ function AsideLink({ indicatorClassName, className, children, ...props }: AsideL
         <motion.span
           layoutId="current-indicator-sidebar"
           className={cn(
-            'absolute inset-y-1 left-[1rem] w-0.5 rounded-full bg-fg',
+            "absolute inset-y-1 left-[1rem] w-0.5 rounded-full bg-fg",
             indicatorClassName
           )}
         />

@@ -1,4 +1,4 @@
-import { InputOTP } from 'ui'
+import { InputOTP } from "ui"
 
 export default function InputOtpAnatomy() {
   return (

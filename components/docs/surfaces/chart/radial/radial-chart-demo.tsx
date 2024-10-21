@@ -1,40 +1,40 @@
-'use client'
+"use client"
 
-import { IconTrendingChart3 } from 'justd-icons'
-import { RadialBar, RadialBarChart } from 'recharts'
-import { Card, Chart, type ChartConfig } from 'ui'
+import { IconTrendingChart3 } from "justd-icons"
+import { RadialBar, RadialBarChart } from "recharts"
+import { Card, Chart, type ChartConfig } from "ui"
 
 const data = [
-  { browser: 'chrome', visitors: 275, fill: 'var(--color-chrome)' },
-  { browser: 'safari', visitors: 200, fill: 'var(--color-safari)' },
-  { browser: 'firefox', visitors: 187, fill: 'var(--color-firefox)' },
-  { browser: 'edge', visitors: 173, fill: 'var(--color-edge)' },
-  { browser: 'other', visitors: 90, fill: 'var(--color-other)' }
+  { browser: "chrome", visitors: 275, fill: "var(--color-chrome)" },
+  { browser: "safari", visitors: 200, fill: "var(--color-safari)" },
+  { browser: "firefox", visitors: 187, fill: "var(--color-firefox)" },
+  { browser: "edge", visitors: 173, fill: "var(--color-edge)" },
+  { browser: "other", visitors: 90, fill: "var(--color-other)" }
 ]
 
 const config = {
   visitors: {
-    label: 'Visitors'
+    label: "Visitors"
   },
   chrome: {
-    label: 'Chrome',
-    color: 'hsl(var(--primary-chart))'
+    label: "Chrome",
+    color: "hsl(var(--primary-chart))"
   },
   safari: {
-    label: 'Safari',
-    color: 'hsl(var(--secondary-chart))'
+    label: "Safari",
+    color: "hsl(var(--secondary-chart))"
   },
   firefox: {
-    label: 'Firefox',
-    color: 'hsl(var(--tertiary-chart))'
+    label: "Firefox",
+    color: "hsl(var(--tertiary-chart))"
   },
   edge: {
-    label: 'Edge',
-    color: 'hsl(var(--highlight-chart))'
+    label: "Edge",
+    color: "hsl(var(--highlight-chart))"
   },
   other: {
-    label: 'Other',
-    color: 'hsl(var(--accent-chart))'
+    label: "Other",
+    color: "hsl(var(--accent-chart))"
   }
 } satisfies ChartConfig
 

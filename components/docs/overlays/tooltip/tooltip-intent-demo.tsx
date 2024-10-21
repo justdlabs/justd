@@ -1,7 +1,7 @@
-'use client'
+"use client"
 
-import { IconCircleInfo } from 'justd-icons'
-import { buttonStyles, Tooltip } from 'ui'
+import { IconCircleInfo } from "justd-icons"
+import { buttonStyles, Tooltip } from "ui"
 
 export default function TooltipIntentDemo() {
   return (
@@ -9,8 +9,8 @@ export default function TooltipIntentDemo() {
       <Tooltip.Trigger
         aria-label="Follow My Twitter"
         className={buttonStyles({
-          appearance: 'outline',
-          size: 'square-petite'
+          appearance: "outline",
+          size: "square-petite"
         })}
       >
         <IconCircleInfo />

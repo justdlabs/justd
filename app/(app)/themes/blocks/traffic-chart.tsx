@@ -1,32 +1,32 @@
-'use client'
+"use client"
 
-import { IconTrendingChart3 } from 'justd-icons'
-import { Bar, BarChart, Rectangle, XAxis, YAxis } from 'recharts'
-import { Card, Chart, type ChartConfig } from 'ui'
+import { IconTrendingChart3 } from "justd-icons"
+import { Bar, BarChart, Rectangle, XAxis, YAxis } from "recharts"
+import { Card, Chart, type ChartConfig } from "ui"
 
 const chartData = [
   {
-    country: 'Canada',
+    country: "Canada",
     count: 4276,
     percentage: 22.0
   },
   {
-    country: 'Germany',
+    country: "Germany",
     count: 3689,
     percentage: 16.6
   },
   {
-    country: 'France',
+    country: "France",
     count: 2134,
     percentage: 9.6
   },
   {
-    country: 'Indonesia',
+    country: "Indonesia",
     count: 3567,
     percentage: 16.2
   },
   {
-    country: 'United Kingdom',
+    country: "United Kingdom",
     count: 2234,
     percentage: 4.5
   }
@@ -34,8 +34,8 @@ const chartData = [
 
 const chartConfig = {
   count: {
-    label: 'Count',
-    color: 'hsl(var(--primary-chart))'
+    label: "Count",
+    color: "hsl(var(--primary-chart))"
   }
 } satisfies ChartConfig
 
@@ -61,7 +61,7 @@ export function TrafficChart() {
               dataKey="count"
               layout="vertical"
               fill="var(--color-count)"
-              background={{ radius: 6, fill: 'hsl(var(--primary-chart)/20%)' }}
+              background={{ radius: 6, fill: "hsl(var(--primary-chart)/20%)" }}
               radius={6}
               shape={(props: any) => (
                 <>

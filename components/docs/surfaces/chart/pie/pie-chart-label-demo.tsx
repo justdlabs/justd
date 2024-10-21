@@ -1,40 +1,40 @@
-'use client'
+"use client"
 
-import { IconTrendingChart3 } from 'justd-icons'
-import { Pie, PieChart } from 'recharts'
-import { Card, Chart, type ChartConfig } from 'ui'
+import { IconTrendingChart3 } from "justd-icons"
+import { Pie, PieChart } from "recharts"
+import { Card, Chart, type ChartConfig } from "ui"
 
 const data = [
-  { brand: 'apple', visitors: 175, fill: 'var(--color-apple)' },
-  { brand: 'samsung', visitors: 100, fill: 'var(--color-samsung)' },
-  { brand: 'huawei', visitors: 187, fill: 'var(--color-huawei)' },
-  { brand: 'xiaomi', visitors: 173, fill: 'var(--color-xiaomi)' },
-  { brand: 'google', visitors: 90, fill: 'var(--color-google)' }
+  { brand: "apple", visitors: 175, fill: "var(--color-apple)" },
+  { brand: "samsung", visitors: 100, fill: "var(--color-samsung)" },
+  { brand: "huawei", visitors: 187, fill: "var(--color-huawei)" },
+  { brand: "xiaomi", visitors: 173, fill: "var(--color-xiaomi)" },
+  { brand: "google", visitors: 90, fill: "var(--color-google)" }
 ]
 
 const config = {
   visitors: {
-    label: 'Visitors'
+    label: "Visitors"
   },
   apple: {
-    label: 'Apple',
-    color: 'hsl(var(--primary-chart))'
+    label: "Apple",
+    color: "hsl(var(--primary-chart))"
   },
   samsung: {
-    label: 'Samsung',
-    color: 'hsl(var(--secondary-chart))'
+    label: "Samsung",
+    color: "hsl(var(--secondary-chart))"
   },
   huawei: {
-    label: 'Huawei',
-    color: 'hsl(var(--tertiary-chart))'
+    label: "Huawei",
+    color: "hsl(var(--tertiary-chart))"
   },
   xiaomi: {
-    label: 'Xiaomi',
-    color: 'hsl(var(--highlight-chart))'
+    label: "Xiaomi",
+    color: "hsl(var(--highlight-chart))"
   },
   google: {
-    label: 'Google',
-    color: 'hsl(var(--accent-chart))'
+    label: "Google",
+    color: "hsl(var(--accent-chart))"
   }
 } satisfies ChartConfig
 

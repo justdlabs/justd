@@ -1,8 +1,8 @@
-import React from 'react'
+import React from "react"
 
-import { usePathname, useRouter, useSearchParams } from 'next/navigation'
-import { SearchField } from 'ui'
-import { useDebouncedCallback } from 'use-debounce'
+import { usePathname, useRouter, useSearchParams } from "next/navigation"
+import { SearchField } from "ui"
+import { useDebouncedCallback } from "use-debounce"
 
 export function Search() {
   const searchParams = useSearchParams()
@@ -13,9 +13,9 @@ export function Search() {
   const handleSearch = useDebouncedCallback((term) => {
     const params = new URLSearchParams(searchParams)
     if (term) {
-      params.set('query', term)
+      params.set("query", term)
     } else {
-      params.delete('query')
+      params.delete("query")
     }
 
     replace(`${pathname}?${params.toString()}`)
@@ -24,7 +24,7 @@ export function Search() {
   return (
     <SearchField
       onChange={handleSearch}
-      defaultValue={searchParams.get('query')?.toString()}
+      defaultValue={searchParams.get("query")?.toString()}
       aria-label="Search icons"
       placeholder="Search icons..."
     />

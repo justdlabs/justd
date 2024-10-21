@@ -1,28 +1,28 @@
-'use client'
+"use client"
 
-import { IconTrendingChart3 } from 'justd-icons'
-import { PolarAngleAxis, PolarGrid, Radar, RadarChart } from 'recharts'
-import { Card, Chart, type ChartConfig } from 'ui'
+import { IconTrendingChart3 } from "justd-icons"
+import { PolarAngleAxis, PolarGrid, Radar, RadarChart } from "recharts"
+import { Card, Chart, type ChartConfig } from "ui"
 
 const data = [
-  { month: 'Jan', sales: 186 },
-  { month: 'Feb', sales: 305 },
-  { month: 'Mar', sales: 237 },
-  { month: 'Apr', sales: 273 },
-  { month: 'May', sales: 209 },
-  { month: 'Jun', sales: 214 },
-  { month: 'Jul', sales: 186 },
-  { month: 'Aug', sales: 305 },
-  { month: 'Sep', sales: 237 },
-  { month: 'Oct', sales: 73 },
-  { month: 'Nov', sales: 209 },
-  { month: 'Dec', sales: 214 }
+  { month: "Jan", sales: 186 },
+  { month: "Feb", sales: 305 },
+  { month: "Mar", sales: 237 },
+  { month: "Apr", sales: 273 },
+  { month: "May", sales: 209 },
+  { month: "Jun", sales: 214 },
+  { month: "Jul", sales: 186 },
+  { month: "Aug", sales: 305 },
+  { month: "Sep", sales: 237 },
+  { month: "Oct", sales: 73 },
+  { month: "Nov", sales: 209 },
+  { month: "Dec", sales: 214 }
 ]
 
 const config = {
   sales: {
-    label: 'Sales',
-    color: 'hsl(var(--primary-chart))'
+    label: "Sales",
+    color: "hsl(var(--primary-chart))"
   }
 } satisfies ChartConfig
 

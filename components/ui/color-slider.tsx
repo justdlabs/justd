@@ -1,28 +1,28 @@
-'use client'
+"use client"
 
-import React from 'react'
+import React from "react"
 
 import {
   ColorSlider as ColorSliderPrimitive,
   type ColorSliderProps as ColorSliderPrimitiveProps,
   SliderOutput,
   SliderTrack
-} from 'react-aria-components'
-import { tv } from 'tailwind-variants'
+} from "react-aria-components"
+import { tv } from "tailwind-variants"
 
-import { ColorThumb } from './color-thumb'
-import { Label } from './field'
-import { ctr } from './primitive'
+import { ColorThumb } from "./color-thumb"
+import { Label } from "./field"
+import { ctr } from "./primitive"
 
 const trackStyles = tv({
-  base: 'group col-span-2 orientation-horizontal:h-6 rounded-lg',
+  base: "group col-span-2 orientation-horizontal:h-6 rounded-lg",
   variants: {
     orientation: {
-      horizontal: 'w-full h-6',
-      vertical: 'w-6 h-56 ml-[50%] -translate-x-[50%]'
+      horizontal: "w-full h-6",
+      vertical: "w-6 h-56 ml-[50%] -translate-x-[50%]"
     },
     isDisabled: {
-      true: 'opacity-75 bg-muted forced-colors:bg-[GrayText]'
+      true: "opacity-75 bg-muted forced-colors:bg-[GrayText]"
     }
   }
 })
@@ -39,7 +39,7 @@ const ColorSlider = ({ showOutput = true, label, className, ...props }: ColorSli
       data-slot="color-slider"
       className={ctr(
         className,
-        'group orientation-horizontal:grid orientation-vertical:flex relative orientation-horizontal:grid-cols-[1fr_auto] orientation-vertical:flex-col orientation-vertical:justify-center orientation-vertical:items-center gap-2 orientation-horizontal:w-56'
+        "group orientation-horizontal:grid orientation-vertical:flex relative orientation-horizontal:grid-cols-[1fr_auto] orientation-vertical:flex-col orientation-vertical:justify-center orientation-vertical:items-center gap-2 orientation-horizontal:w-56"
       )}
     >
       <div className="flex items-center">
