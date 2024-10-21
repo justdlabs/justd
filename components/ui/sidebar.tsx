@@ -51,7 +51,6 @@ const Provider = React.forwardRef<
       isOpen: openProp,
       onOpenChange: setOpenProp,
       className,
-      style,
       children,
       ...props
     },

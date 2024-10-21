@@ -31,7 +31,7 @@ export default function NavbarAnatomy() {
         </Navbar.Flex>
       </Navbar.Compact>
 
-      <Navbar.Inset/>
+      <Navbar.Inset />
     </Navbar>
   )
 }
