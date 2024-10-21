@@ -187,7 +187,7 @@ const Section = ({ className, ...props }: React.ComponentProps<"div">) => {
         data-slot="navbar-section"
         className={cn(
           "flex",
-          isCompact ? "flex-col gap-y-4" : "flex-row gap-3 items-center",
+          isCompact ? "flex-col gap-y-4" : "flex-row gap-x-3 items-center",
           className
         )}
         {...props}

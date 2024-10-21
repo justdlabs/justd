@@ -14,8 +14,18 @@ export default {
   async redirects() {
     return [
       {
+        source: "/d/:path*",
+        destination: "/:path*",
+        permanent: true
+      },
+      {
         source: "/docs",
         destination: "/docs/getting-started/installation",
+        permanent: false
+      },
+      {
+        source: "/aside",
+        destination: "/docs/components/layouts/sidebar",
         permanent: false
       },
       {
@@ -44,24 +54,19 @@ export default {
         permanent: false
       },
       {
-        source: "/aside",
-        destination: "/blocks/aside/aside-01",
-        permanent: false
-      },
-      {
         source: "/docs/components/statuses/toaster",
         destination: "/docs/components/statuses/toast",
-        permanent: false
+        permanent: true
       },
       {
         source: "/docs/components/collections/carousel",
         destination: "/docs/components/media/carousel",
-        permanent: false
+        permanent: true
       },
       {
         source: "/docs/components/forms/choicebox",
         destination: "/docs/components/collections/choicebox",
-        permanent: false
+        permanent: true
       },
       {
         source: "/docs/components/forms/multiple-select",
