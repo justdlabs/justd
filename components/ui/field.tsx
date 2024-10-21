@@ -1,17 +1,26 @@
-"use client";
+"use client"
 
-import * as React from "react";
+import * as React from "react"
 
+import type {
+  FieldErrorProps,
+  GroupProps,
+  InputProps,
+  LabelProps,
+  TextFieldProps as TextFieldPrimitiveProps,
+  TextProps,
+  ValidationResult
+} from "react-aria-components"
+import {
+  FieldError as FieldErrorPrimitive,
+  Group,
+  Input as InputPrimitive,
+  Label as LabelPrimitive,
+  Text
+} from "react-aria-components"
+import { tv } from "tailwind-variants"
 
-
-import type { FieldErrorProps, GroupProps, InputProps, LabelProps, TextFieldProps as TextFieldPrimitiveProps, TextProps, ValidationResult } from "react-aria-components";
-import { FieldError as FieldErrorPrimitive, Group, Input as InputPrimitive, Label as LabelPrimitive, Text } from "react-aria-components";
-import { tv } from "tailwind-variants";
-
-
-
-import { cr, ctr } from "./primitive";
-
+import { cr, ctr } from "./primitive"
 
 // primitive styles
 

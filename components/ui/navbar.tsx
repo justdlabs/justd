@@ -200,7 +200,7 @@ const Section = ({ className, ...props }: React.ComponentProps<"div">) => {
 
 const linkStyles = tv({
   base: [
-    "relative text-sm px-2 text-muted-fg outline-none forced-colors:disabled:text-[GrayText] transition-colors",
+    "relative text-sm px-2 flex items-center gap-x-2 [&>[data-slot=icon]]:-mx-0.5 text-muted-fg outline-none forced-colors:disabled:text-[GrayText] transition-colors",
     "disabled:opacity-60 disabled:cursor-default",
     "current:text-fg hover:text-fg focus:text-fg pressed:text-fg focus-visible:outline-1 focus-visible:outline-primary"
   ],
@@ -246,7 +246,7 @@ const Logo = ({ className, ...props }: LinkProps) => {
   return (
     <Link
       className={cn(
-        "lg:mr-4 focus:outline-none focus-visible:outline-1 focus-visible:outline-primary px-2 py-4 lg:px-0 lg:py-0 hover:text-fg text-muted-fg",
+        "lg:mr-4 focus:outline-none flex items-center gap-x-2 focus-visible:outline-1 focus-visible:outline-primary px-2 py-4 lg:px-0 lg:py-0 text-fg",
         className
       )}
       {...props}
