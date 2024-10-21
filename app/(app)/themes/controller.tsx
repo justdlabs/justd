@@ -1,8 +1,9 @@
 import React from "react"
 
+import { Installation } from "@/components/installation"
 import type { Key } from "react-aria-components"
 import { toast } from "sonner"
-import { Button, Select, Sheet } from "ui"
+import { Button, Select, Sheet, Tooltip } from "ui"
 import { copyToClipboard } from "usemods"
 
 import type { ThemeProps } from "./themes-list"
@@ -106,8 +107,19 @@ export function Controller({ themeId, applyTheme }: Props) {
   }
 
   return (
-    <div className="flex justify-end mb-6">
-      <div className="flex items-center gap-2">
+    <div className="flex justify-end lg:justify-between mb-6">
+      <Tooltip delay={0}>
+        <Installation
+          className="p-0 h-auto [&_.d3k32ksd]:hidden border-0 bg-bg hidden lg:flex [&_.cer]:mr-1.5 h-11 text-sm"
+          options={{ isManual: false }}
+          command="npx justd-cli@latest theme"
+          items={[]}
+        />
+        <Tooltip.Content className="max-w-sm p-4">
+          You can manually copy and paste the theme into your CSS file, but using the CLI is faster.
+        </Tooltip.Content>
+      </Tooltip>
+      <div className="flex max-w-xs items-center gap-2">
         <Button onPress={() => setOpen(true)}>Export</Button>
         <Sheet onOpenChange={setOpen} isOpen={open}>
           <Sheet.Content classNames={{ content: "sm:w-1/2 sm:max-w-lg" }}>

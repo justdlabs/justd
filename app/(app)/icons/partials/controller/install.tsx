@@ -13,10 +13,10 @@ import { copyToClipboard } from "usemods"
 
 type Tool = "Bun" | "Yarn" | "PNPM" | "NPM"
 
-export function Install() {
+export function Install({ pkg = "justd-icons" }: { pkg?: string }) {
   const [isCopied, setIsCopied] = React.useState(false)
   const [command, setCommand] = React.useState("")
-  const commandArgs = "justd-icons"
+  const commandArgs = pkg
 
   const installMap: Record<Tool, string> = {
     Bun: "bun add",
