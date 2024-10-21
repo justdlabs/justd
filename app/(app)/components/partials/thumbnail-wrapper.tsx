@@ -1000,9 +1000,33 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
       fill="none"
       viewBox="0 0 300 200"
     >
-      <rect width="230" height="130" x="35" y="35" fill="#D4D4D8" rx="6" />
-      <rect width="38" height="4" x="62" y="48" fill="#71717A" rx="2" />
-      <rect width="71" height="4" x="62" y="57" fill="#A1A1AA" rx="2" />
+      <rect
+        width="230"
+        height="130"
+        x="35"
+        y="35"
+        fill="currentColor"
+        className="fill-zinc-200 dark:fill-zinc-600"
+        rx="6"
+      />
+      <rect
+        width="38"
+        height="4"
+        x="62"
+        y="48"
+        fill="currentColor"
+        className="fill-zinc-800 dark:fill-white"
+        rx="2"
+      />
+      <rect
+        width="71"
+        height="4"
+        x="62"
+        y="57"
+        fill="currentColor"
+        className="fill-muted-fg"
+        rx="2"
+      />
       <path fill="url(#a)" d="M251 28h.2v150h-.2z" />
       <path fill="url(#b)" d="M47 25h.2v150H47z" />
       <defs>
@@ -1117,11 +1141,136 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
       />
       <rect width="7.688" height="7.688" x="40.563" y="154.375" fill="#D9D9D9" rx="1.708" />
       <path
-        fill="#000"
+        fill="currentColor"
+        className="text-zinc-900 dark:text-white"
         d="M44.157 38.672h1.866c.165 0 .297 0 .405.009a.8.8 0 0 1 .298.074.76.76 0 0 1 .332.332.8.8 0 0 1 .074.298c.009.107.009.24.009.404v2.018c0 .165 0 .298-.01.405a.8.8 0 0 1-.073.298.76.76 0 0 1-.332.332.8.8 0 0 1-.298.074c-.108.01-.24.01-.405.01h-.098v.097c0 .164 0 .297-.009.404a.8.8 0 0 1-.073.298.76.76 0 0 1-.332.332.8.8 0 0 1-.298.074c-.108.01-.24.01-.405.01h-2.019c-.165 0-.297 0-.404-.01a.8.8 0 0 1-.299-.073.76.76 0 0 1-.331-.333.8.8 0 0 1-.074-.297c-.01-.108-.01-.24-.01-.405v-2.018c0-.165 0-.297.01-.405a.8.8 0 0 1 .074-.298.76.76 0 0 1 .332-.332.8.8 0 0 1 .298-.074c.107-.009.24-.009.404-.009h.25v-.097c0-.165 0-.297.009-.405a.8.8 0 0 1 .074-.298.76.76 0 0 1 .332-.332.8.8 0 0 1 .298-.074c.107-.01.24-.01.405-.01m1.86 3.95h-.092v-1.617c0-.165 0-.298-.009-.405a.8.8 0 0 0-.073-.298.76.76 0 0 0-.332-.332.8.8 0 0 0-.298-.074c-.108-.009-.24-.009-.405-.009h-1.465v-.091c0-.173 0-.293.007-.387a.5.5 0 0 1 .042-.184.46.46 0 0 1 .2-.2.5.5 0 0 1 .184-.041c.094-.008.214-.008.387-.008h1.853c.173 0 .293 0 .387.008a.5.5 0 0 1 .185.041.46.46 0 0 1 .199.2c.02.04.034.093.042.184.008.094.008.214.008.387V41.8c0 .173 0 .293-.008.387a.5.5 0 0 1-.042.185.46.46 0 0 1-.2.199.5.5 0 0 1-.184.042c-.094.007-.214.007-.386.007m-3.404.578a.4.4 0 0 0 .29.12.4.4 0 0 0 .204-.054.43.43 0 0 0 .206-.356.4.4 0 0 0-.121-.29.4.4 0 0 0-.29-.12.4.4 0 0 0-.289.12.4.4 0 0 0-.12.29q0 .17.12.29"
         clipPath="url(#a)"
         clipRule="evenodd"
         fillRule="evenodd"
+      />
+    </svg>
+  ),
+
+  avatar: (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="300"
+      height="200"
+      fill="none"
+      viewBox="0 0 300 200"
+    >
+      <circle cx="105.5" cy="78" r="12" fill="#71717A" />
+      <g fill="#A1A1AA">
+        <rect width="32" height="6" x="129" y="69.5" rx="2" />
+        <rect width="77" height="6" x="129" y="80.5" rx="2" />
+      </g>
+      <g fill="#A1A1AA">
+        <rect width="32" height="6" x="129" y="113" rx="2" />
+        <rect width="77" height="6" x="129" y="124" rx="2" />
+      </g>
+      <rect width="24" height="24" x="93" y="110" fill="#71717A" rx="3" />
+    </svg>
+  ),
+  carousel: (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="300"
+      height="200"
+      fill="none"
+      viewBox="0 0 300 200"
+    >
+      <g fill="#71717A">
+        <rect width="56" height="56" x="57" y="58" rx="4" />
+        <rect width="56" height="56" x="122" y="58" rx="4" />
+        <rect width="56" height="56" x="187" y="58" rx="4" />
+      </g>
+      <rect
+        width="12"
+        height="12"
+        x="228.5"
+        y="129.5"
+        fill="currentColor"
+        className="fill-zinc-300 dark:fill-zinc-600"
+        rx="6"
+      />
+      <path
+        fill="currentColor"
+        className=""
+        d="m233.3 133.767 2.133 2.133-2.133 2.133"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth=".4"
+      />
+      <rect
+        width="12"
+        height="12"
+        x="215"
+        y="130"
+        fill="currentColor"
+        className="fill-zinc-300 dark:fill-zinc-600"
+        rx="6"
+      />
+      <path
+        fill="currentColor"
+        className=""
+        d="m221.4 138.533-2.133-2.133 2.133-2.133"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth=".4"
+      />
+      <rect
+        width="4"
+        height="4"
+        x="57"
+        y="132"
+        fill="currentColor"
+        className="fill-zinc-300 dark:fill-zinc-600"
+        rx="2"
+      />
+      <rect
+        width="4"
+        height="4"
+        x="63"
+        y="132"
+        fill="currentColor"
+        className="fill-zinc-300 dark:fill-zinc-600"
+        rx="2"
+      />
+      <rect
+        width="4"
+        height="4"
+        x="69"
+        y="132"
+        fill="currentColor"
+        className="fill-zinc-300 dark:fill-zinc-600"
+        rx="2"
+      />
+      <rect
+        width="10"
+        height="4"
+        x="75"
+        y="132"
+        fill="currentColor"
+        className="fill-zinc-900 dark:fill-white"
+        rx="2"
+      />
+      <rect
+        width="4"
+        height="4"
+        x="87"
+        y="132"
+        fill="currentColor"
+        className="fill-zinc-300 dark:fill-zinc-600"
+        rx="2"
+      />
+      <rect
+        width="4"
+        height="4"
+        x="93"
+        y="132"
+        fill="currentColor"
+        className="fill-zinc-300 dark:fill-zinc-600"
+        rx="2"
       />
     </svg>
   )

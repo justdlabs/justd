@@ -126,6 +126,18 @@ You also make the navbar sticky by setting the `isSticky` prop to `true`.
 <Navbar isSticky />
 ```
 
+## Without Inset
+If you prefer full control of your layout and don't want to use the `<Navbar.Inset />` component—which by default centers your content within a container, simply avoid using the `inset` intent. This allows you to freely manage the layout without the automatic centering effect.
+```
+<Navbar {...props}>
+  <Navbar.Nav />
+  <Navbar.Compact />
+  <Navbar.Inset> {/* remove this line */} // [!code --]
+    {children}
+  </Navbar.Inset> {/* remove this line */} // [!code --]
+</Navbar>
+```
+
 ## Disabled
 Disable individual navbar items when needed.
 <How className='lg:[&_header]:min-h-80 [&_header]:min-h-56' isCenter={false} toUse="layouts/navbar/navbar-disabled-demo" />

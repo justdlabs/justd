@@ -216,7 +216,7 @@ interface ItemProps extends LinkProps {
 }
 
 const Item = ({ className, isCurrent, ...props }: ItemProps) => {
-  const { intent } = useNavbar()
+  const { intent, isCompact } = useNavbar()
   return (
     <Link
       slot="navbar-item"
@@ -230,7 +230,7 @@ const Item = ({ className, isCurrent, ...props }: ItemProps) => {
         <>
           {typeof props.children === "function" ? props.children(values) : props.children}
 
-          {(isCurrent || values.isCurrent) && intent !== "floating" && (
+          {(isCurrent || values.isCurrent) && !isCompact && intent !== "floating" && (
             <motion.span
               layoutId="current-indicator"
               className="absolute inset-x-2 bottom-[calc(var(--navbar-height)*-0.33)] h-0.5 rounded-full bg-fg"
