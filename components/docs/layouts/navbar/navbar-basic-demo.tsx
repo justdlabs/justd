@@ -26,7 +26,7 @@ export default function NavbarBasicDemo() {
           <Navbar.Item href="#">iPad</Navbar.Item>
           <Navbar.Item href="#">iPhone</Navbar.Item>
         </Navbar.Section>
-        <Navbar.Section className="ml-auto">
+        <Navbar.Section className="ml-auto hidden sm:flex">
           <div className="flex items-center gap-x-2">
             <Button appearance="plain" size="square-petite" aria-label="Search for products">
               <IconSearch />

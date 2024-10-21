@@ -924,81 +924,205 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
       xmlns="http://www.w3.org/2000/svg"
       width="300"
       height="200"
+      className="text-[#a1a1aa] dark:text-[#52525b]"
+      fill="currentColor"
+      viewBox="0 0 300 200"
+    >
+      <rect width="248" height="16" x="26" y="92" fill="currentColor" rx="4" />
+      <rect
+        width="21"
+        height="4"
+        x="47"
+        y="98"
+        fill="currentColor"
+        className="fill-[#e4e4e7] dark:fill-[#a1a1aa]"
+        rx="2"
+      />
+      <rect
+        width="21"
+        height="4"
+        x="74"
+        y="98"
+        fill="currentColor"
+        rx="2"
+        className="fill-zinc-950 dark:fill-white"
+      />
+      <rect
+        width="21"
+        height="4"
+        x="101"
+        y="98"
+        fill="currentColor"
+        className="fill-[#e4e4e7] dark:fill-[#a1a1aa]"
+        rx="2"
+      />
+      <rect
+        width="21"
+        height="4"
+        x="128"
+        y="98"
+        fill="currentColor"
+        className="fill-[#e4e4e7] dark:fill-[#a1a1aa]"
+        rx="2"
+      />
+      <rect
+        width="21"
+        height="4"
+        x="236"
+        y="98"
+        fill="currentColor"
+        className="fill-[#e4e4e7] dark:fill-[#a1a1aa]"
+        rx="2"
+      />
+      <path
+        stroke="currentColor"
+        className="fill-[#e4e4e7] dark:fill-[#a1a1aa]"
+        d="m263 99 2 2 2-2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth=".75"
+      />
+      <path
+        fill="currentColor"
+        className="fill-zinc-950 dark:fill-white"
+        d="M33.696 96.667h2.275c.2 0 .362 0 .493.01a1 1 0 0 1 .364.09.93.93 0 0 1 .404.405.9.9 0 0 1 .09.364c.011.13.011.292.011.493v2.46c0 .201 0 .363-.01.494a1 1 0 0 1-.09.363.93.93 0 0 1-.405.405 1 1 0 0 1-.364.09c-.13.011-.292.011-.493.011h-.119v.119c0 .2 0 .362-.011.493a.9.9 0 0 1-.09.363.93.93 0 0 1-.405.405 1 1 0 0 1-.363.09c-.131.011-.293.011-.493.011h-2.461c-.201 0-.363 0-.494-.011a1 1 0 0 1-.363-.09.92.92 0 0 1-.405-.405.9.9 0 0 1-.09-.363c-.01-.131-.01-.292-.01-.493v-2.46c0-.2 0-.363.01-.494a1 1 0 0 1 .09-.363.93.93 0 0 1 .405-.405 1 1 0 0 1 .364-.09c.13-.01.292-.01.493-.01h.304v-.12c0-.2 0-.362.011-.493a1 1 0 0 1 .09-.363.93.93 0 0 1 .405-.405.9.9 0 0 1 .363-.09c.131-.011.293-.011.494-.011m2.267 4.814h-.111v-1.97c0-.201 0-.363-.011-.494a1 1 0 0 0-.09-.363.93.93 0 0 0-.405-.405 1 1 0 0 0-.363-.09c-.131-.011-.293-.011-.493-.011h-1.787v-.111c0-.21 0-.357.01-.471a.6.6 0 0 1 .051-.226.56.56 0 0 1 .243-.242.6.6 0 0 1 .225-.051c.114-.01.261-.01.471-.01h2.26c.21 0 .357 0 .471.01a.6.6 0 0 1 .225.05.56.56 0 0 1 .243.243.6.6 0 0 1 .051.226c.01.114.01.26.01.471v2.444c0 .211 0 .358-.01.472a.6.6 0 0 1-.051.225.55.55 0 0 1-.243.243.6.6 0 0 1-.225.051c-.114.009-.26.009-.471.009m-4.149.705a.48.48 0 0 0 .353.147.48.48 0 0 0 .43-.25.47.47 0 0 0 .07-.25.48.48 0 0 0-.148-.352.48.48 0 0 0-.352-.148.48.48 0 0 0-.353.148.47.47 0 0 0-.147.352q0 .206.147.353"
+        clipPath="url(#a)"
+        clipRule="evenodd"
+        fillRule="evenodd"
+      />
+    </svg>
+  ),
+  container: (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="300"
+      height="200"
       fill="none"
       viewBox="0 0 300 200"
     >
-      <rect width="260" height="160" x="20" y="20" fill="#D4D4D8" rx="6" />
-      <g filter="url(#a)">
-        <rect width="248" height="16" x="26" y="26" fill="#fff" rx="4" />
-        <rect width="21" height="4" x="47" y="32" fill="#A1A1AA" rx="2" />
-        <rect width="21" height="4" x="74" y="32" fill="#000" rx="2" />
-        <rect width="21" height="4" x="101" y="32" fill="#A1A1AA" rx="2" />
-        <rect width="21" height="4" x="128" y="32" fill="#A1A1AA" rx="2" />
-        <rect width="21" height="4" x="236" y="32" fill="#A1A1AA" rx="2" />
-        <path
-          stroke="#71717A"
-          d="m263 33 2 2 2-2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth=".75"
-        />
-        <path
-          fill="#000"
-          d="M33.696 30.667h2.275c.2 0 .362 0 .493.01a1 1 0 0 1 .364.09.93.93 0 0 1 .404.405.9.9 0 0 1 .09.364c.011.13.011.292.011.493v2.46c0 .2 0 .363-.01.494a1 1 0 0 1-.09.363.93.93 0 0 1-.405.405 1 1 0 0 1-.364.09c-.13.01-.292.01-.493.01h-.119v.12c0 .2 0 .362-.011.493a1 1 0 0 1-.09.363.93.93 0 0 1-.405.405.9.9 0 0 1-.363.09c-.131.011-.293.011-.493.011h-2.461c-.201 0-.363 0-.494-.01a1 1 0 0 1-.363-.09.93.93 0 0 1-.405-.406.9.9 0 0 1-.09-.363c-.01-.13-.01-.292-.01-.493v-2.46c0-.2 0-.363.01-.494a1 1 0 0 1 .09-.363.93.93 0 0 1 .405-.405 1 1 0 0 1 .364-.09c.13-.01.292-.01.493-.01h.304v-.12c0-.2 0-.362.011-.493a1 1 0 0 1 .09-.363.93.93 0 0 1 .405-.405.9.9 0 0 1 .363-.09c.131-.011.293-.011.494-.011m2.267 4.814h-.111v-1.97c0-.201 0-.363-.011-.494a1 1 0 0 0-.09-.363.93.93 0 0 0-.405-.405 1 1 0 0 0-.363-.09c-.131-.011-.293-.011-.493-.011h-1.787v-.111c0-.21 0-.357.01-.471a.6.6 0 0 1 .051-.226.56.56 0 0 1 .243-.242.6.6 0 0 1 .225-.051c.114-.01.261-.01.471-.01h2.26c.21 0 .357 0 .471.01a.6.6 0 0 1 .225.05.56.56 0 0 1 .243.243.6.6 0 0 1 .051.226c.01.114.01.26.01.471v2.444c0 .211 0 .358-.01.472a.6.6 0 0 1-.051.225.56.56 0 0 1-.243.243.6.6 0 0 1-.225.051c-.114.01-.26.01-.471.01m-4.149.705a.48.48 0 0 0 .353.147.5.5 0 0 0 .25-.066.52.52 0 0 0 .25-.434.48.48 0 0 0-.148-.352.48.48 0 0 0-.352-.148.48.48 0 0 0-.353.148.48.48 0 0 0-.147.352q0 .206.147.353"
-          clipPath="url(#b)"
-          clipRule="evenodd"
-          fillRule="evenodd"
-        />
-      </g>
-      <g filter="url(#b)">
-        <rect width="248" height="130" x="26" y="44" fill="#fff" rx="4" />
-      </g>
+      <rect width="230" height="130" x="35" y="35" fill="#D4D4D8" rx="6" />
+      <rect width="38" height="4" x="62" y="48" fill="#71717A" rx="2" />
+      <rect width="71" height="4" x="62" y="57" fill="#A1A1AA" rx="2" />
+      <path fill="url(#a)" d="M251 28h.2v150h-.2z" />
+      <path fill="url(#b)" d="M47 25h.2v150H47z" />
       <defs>
-        <filter
+        <linearGradient
           id="a"
-          width="248.6"
-          height="16.6"
-          x="25.8"
-          y="25.8"
-          colorInterpolationFilters="sRGB"
-          filterUnits="userSpaceOnUse"
+          x1="251.1"
+          x2="251.1"
+          y1="28"
+          y2="178"
+          gradientUnits="userSpaceOnUse"
         >
-          <feFlood floodOpacity="0" result="BackgroundImageFix" />
-          <feColorMatrix
-            in="SourceAlpha"
-            result="hardAlpha"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-          />
-          <feOffset dx=".1" dy=".1" />
-          <feGaussianBlur stdDeviation=".15" />
-          <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.61 0" />
-          <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_10_2" />
-          <feBlend in="SourceGraphic" in2="effect1_dropShadow_10_2" result="shape" />
-        </filter>
-        <filter
-          id="b"
-          width="249"
-          height="131"
-          x="25.5"
-          y="44"
-          colorInterpolationFilters="sRGB"
-          filterUnits="userSpaceOnUse"
-        >
-          <feFlood floodOpacity="0" result="BackgroundImageFix" />
-          <feColorMatrix
-            in="SourceAlpha"
-            result="hardAlpha"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-          />
-          <feOffset dy=".5" />
-          <feGaussianBlur stdDeviation=".25" />
-          <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
-          <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_10_2" />
-          <feBlend in="SourceGraphic" in2="effect1_dropShadow_10_2" result="shape" />
-        </filter>
+          <stop stopColor="#fff" stopOpacity="0" />
+          <stop offset=".275" stopColor="#71717A" />
+          <stop offset=".515" stopColor="#71717A" />
+          <stop offset=".74" stopColor="#71717A" />
+          <stop offset="1" stopColor="#fff" stopOpacity="0" />
+        </linearGradient>
+        <linearGradient id="b" x1="47.1" x2="47.1" y1="25" y2="175" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#fff" stopOpacity="0" />
+          <stop offset=".275" stopColor="#71717A" />
+          <stop offset=".515" stopColor="#71717A" />
+          <stop offset=".74" stopColor="#71717A" />
+          <stop offset="1" stopColor="#fff" stopOpacity="0" />
+        </linearGradient>
       </defs>
+    </svg>
+  ),
+  sidebar: (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="300"
+      height="200"
+      fill="none"
+      viewBox="0 0 300 200"
+    >
+      <rect
+        width="243.75"
+        height="150"
+        x="28"
+        y="25"
+        fill="currentColor"
+        className="fill-zinc-300 dark:fill-zinc-600"
+        rx="5.625"
+      />
+      <rect
+        width="45.938"
+        height="133.125"
+        x="36.438"
+        y="33.438"
+        fill="currentColor"
+        className="fill-secondary"
+        rx="3.75"
+      />
+      <path
+        stroke="#71717A"
+        d="m74.25 157.344 1.563 1.562 1.562-1.562"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth=".586"
+      />
+      <path
+        stroke="#71717A"
+        d="m73.312 102.734 1.094 1.094 1.094-1.094"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth=".41"
+      />
+      <rect width="19.688" height="3.75" x="50.5" y="40" fill="#A1A1AA" rx="1.875" />
+      <rect width="13.125" height="2.813" x="49.563" y="155.312" fill="#9C9CAA" rx="1.406" />
+      <rect
+        width="19.688"
+        height="2.813"
+        x="49.563"
+        y="159.062"
+        fill="#A1A1AA"
+        fillOpacity=".7"
+        rx="1.406"
+      />
+      <rect width="25" height="4" x="42" y="54" fill="#A1A1AA" rx="1.875" />
+      <rect width="31" height="4" x="42" y="62" fill="#A1A1AA" rx="1.875" />
+      <rect
+        width="25"
+        height="4"
+        x="42"
+        y="70"
+        fill="currentColor"
+        className="text-fg"
+        rx="1.875"
+      />
+      <rect width="36.563" height="4" x="41.125" y="106.562" fill="#A1A1AA" rx="1.875" />
+      <rect
+        width="21.563"
+        height="1.166"
+        x="42.063"
+        y="102.812"
+        fill="#A1A1AA"
+        fillOpacity=".7"
+        rx=".583"
+      />
+      <rect width="19" height="4" x="42" y="78" fill="#A1A1AA" rx="1.875" />
+      <rect width="36.563" height="4" x="41.125" y="115" fill="#A1A1AA" rx="1.875" />
+      <rect width="25" height="4" x="42" y="86" fill="#A1A1AA" rx="1.875" />
+      <rect width="36.563" height="4" x="41.125" y="123.438" fill="#A1A1AA" rx="1.875" />
+      <rect
+        width="178.125"
+        height="133.125"
+        x="84.25"
+        y="33.438"
+        fill="currentColor"
+        className="fill-secondary stroke-[0.5px] stroke-border"
+        rx="3.75"
+      />
+      <rect width="7.688" height="7.688" x="40.563" y="154.375" fill="#D9D9D9" rx="1.708" />
+      <path
+        fill="#000"
+        d="M44.157 38.672h1.866c.165 0 .297 0 .405.009a.8.8 0 0 1 .298.074.76.76 0 0 1 .332.332.8.8 0 0 1 .074.298c.009.107.009.24.009.404v2.018c0 .165 0 .298-.01.405a.8.8 0 0 1-.073.298.76.76 0 0 1-.332.332.8.8 0 0 1-.298.074c-.108.01-.24.01-.405.01h-.098v.097c0 .164 0 .297-.009.404a.8.8 0 0 1-.073.298.76.76 0 0 1-.332.332.8.8 0 0 1-.298.074c-.108.01-.24.01-.405.01h-2.019c-.165 0-.297 0-.404-.01a.8.8 0 0 1-.299-.073.76.76 0 0 1-.331-.333.8.8 0 0 1-.074-.297c-.01-.108-.01-.24-.01-.405v-2.018c0-.165 0-.297.01-.405a.8.8 0 0 1 .074-.298.76.76 0 0 1 .332-.332.8.8 0 0 1 .298-.074c.107-.009.24-.009.404-.009h.25v-.097c0-.165 0-.297.009-.405a.8.8 0 0 1 .074-.298.76.76 0 0 1 .332-.332.8.8 0 0 1 .298-.074c.107-.01.24-.01.405-.01m1.86 3.95h-.092v-1.617c0-.165 0-.298-.009-.405a.8.8 0 0 0-.073-.298.76.76 0 0 0-.332-.332.8.8 0 0 0-.298-.074c-.108-.009-.24-.009-.405-.009h-1.465v-.091c0-.173 0-.293.007-.387a.5.5 0 0 1 .042-.184.46.46 0 0 1 .2-.2.5.5 0 0 1 .184-.041c.094-.008.214-.008.387-.008h1.853c.173 0 .293 0 .387.008a.5.5 0 0 1 .185.041.46.46 0 0 1 .199.2c.02.04.034.093.042.184.008.094.008.214.008.387V41.8c0 .173 0 .293-.008.387a.5.5 0 0 1-.042.185.46.46 0 0 1-.2.199.5.5 0 0 1-.184.042c-.094.007-.214.007-.386.007m-3.404.578a.4.4 0 0 0 .29.12.4.4 0 0 0 .204-.054.43.43 0 0 0 .206-.356.4.4 0 0 0-.121-.29.4.4 0 0 0-.29-.12.4.4 0 0 0-.289.12.4.4 0 0 0-.12.29q0 .17.12.29"
+        clipPath="url(#a)"
+        clipRule="evenodd"
+        fillRule="evenodd"
+      />
     </svg>
   )
 }

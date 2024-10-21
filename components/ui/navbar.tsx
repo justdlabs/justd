@@ -51,7 +51,7 @@ const navbarStyles = tv({
     intent: {
       floating: "pt-2 px-2",
       navbar: "",
-      inset: ""
+      inset: "bg-secondary dark:bg-bg"
     }
   }
 })
@@ -115,11 +115,10 @@ const navStyles = tv({
     isSticky: {
       true: "sticky top-0"
     },
-
     intent: {
-      floating: "bg-tertiary border rounded-xl sm:px-4",
-      navbar: "bg-tertiary border-b sm:px-6",
-      inset: "bg-transparent sm:px-6"
+      floating: "bg-tertiary shadow-sm border rounded-xl sm:px-4",
+      navbar: "bg-tertiary shadow-sm border-b sm:px-6",
+      inset: "bg-secondary dark:bg-bg sm:px-6"
     }
   }
 })
