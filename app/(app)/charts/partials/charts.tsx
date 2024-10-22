@@ -183,8 +183,8 @@ export function OnThisPage() {
             On this Page
           </Heading>
           <ListBox aria-label="On this page">
-            {navigations.map(({ text, href, id }) => (
-              <AsideLink key={id.toString()} activeId={activeId || ""} text={text} href={href} />
+            {navigations.map(({ text, href }, i) => (
+              <AsideLink key={i} activeId={activeId || ""} text={text} href={href} />
             ))}
           </ListBox>
         </div>

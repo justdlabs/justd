@@ -6,7 +6,7 @@
   "scripts": {
     "prepare": "husky",
     "cuc": "bun run resources/scripts/check-use-client.ts",
-    "dev": "next dev --turbo",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -38,7 +38,7 @@
     "react-dom": "19.0.0-rc-65a56d0e-20241020",
     "react-intersection-observer": "^9.13.1",
     "react-use-measure": "^2.1.1",
-    "recharts": "^2.13.0",
+    "recharts": "2.13.0-alpha.5",
     "rehype-pretty-code": "^0.13.2",
     "rehype-stringify": "^10.0.1",
     "scroll-into-view-if-needed": "^3.1.0",
