@@ -1,5 +1,6 @@
 import { DocComposed } from "@/components/doc-composed"
 import { DocNote } from "@/components/doc-note"
+import { DocWarningFramer } from "@/components/doc-warning-framer"
 import { Anatomy } from "@/components/docs/rehype/anatomy"
 import type { CodeProps } from "@/components/docs/rehype/code"
 import { Code } from "@/components/docs/rehype/code"
@@ -22,6 +23,7 @@ export function MDXContent({ code }: MdxProps) {
   return (
     <Component
       components={{
+        WarningFramer: DocWarningFramer,
         Installation: (props: InstallationProps) => <Installation {...props} />,
         Note: DocNote,
         Anatomy: Anatomy,

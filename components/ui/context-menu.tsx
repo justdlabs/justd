@@ -9,7 +9,7 @@ import { Menu } from "./menu"
 import { focusButtonStyles } from "./primitive"
 
 interface ContextMenuTriggerContextType {
-  buttonRef: React.RefObject<HTMLButtonElement>
+  buttonRef: React.RefObject<HTMLButtonElement | null>
   contextMenuOffset: { offset: number; crossOffset: number } | null
   setContextMenuOffset: React.Dispatch<
     React.SetStateAction<{ offset: number; crossOffset: number } | null>

@@ -2,7 +2,7 @@
 
 import React from "react"
 
-import { Button, CommandMenu } from "ui"
+import { Button, CommandMenu, Link } from "ui"
 
 export default function CommandMenuSectionDemo() {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -16,13 +16,13 @@ export default function CommandMenuSectionDemo() {
         <CommandMenu.List>
           <CommandMenu.Section heading="Pages">
             <CommandMenu.Item asChild>
-              <a href="/public">Home</a>
+              <Link href="/public">Home</Link>
             </CommandMenu.Item>
             <CommandMenu.Item asChild>
-              <a href="/docs/getting-started/installation">Docs</a>
+              <Link href="/docs/getting-started/installation">Docs</Link>
             </CommandMenu.Item>
             <CommandMenu.Item asChild>
-              <a href="/components">Components</a>
+              <Link href="/components">Components</Link>
             </CommandMenu.Item>
           </CommandMenu.Section>
           <CommandMenu.Separator />
