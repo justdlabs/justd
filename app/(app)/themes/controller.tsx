@@ -110,7 +110,7 @@ export function Controller({ themeId, applyTheme }: Props) {
     <div className="flex justify-end lg:justify-between mb-6">
       <Tooltip delay={0}>
         <Installation
-          className="p-0 h-auto [&_.d3k32ksd]:hidden border-0 bg-bg hidden lg:flex [&_.cer]:mr-1.5 h-11 text-sm"
+          className="p-0 h-auto [&_.d3k32ksd]:hidden border-0 bg-bg hidden lg:flex [&_.cer]:mr-1.5 text-sm"
           options={{ isManual: false }}
           command="npx justd-cli@latest theme"
           items={[]}

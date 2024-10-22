@@ -24,6 +24,11 @@ export default {
         permanent: false
       },
       {
+        source: "/docs/components/layouts/aside",
+        destination: "/docs/components/layouts/sidebar",
+        permanent: false
+      },
+      {
         source: "/aside",
         destination: "/docs/components/layouts/sidebar",
         permanent: false

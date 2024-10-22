@@ -1,5 +1,6 @@
 "use client"
 
+import { ThemeSwitcher } from "@/components/theme-switcher"
 import {
   IconBag2,
   IconBrandApple,
@@ -45,6 +46,7 @@ export function AppNavbar({ children, ...props }: React.ComponentProps<typeof Na
             <Button appearance="plain" size="square-petite" aria-label="Your Bag">
               <IconBag2 />
             </Button>
+            <ThemeSwitcher appearance="plain" />
           </Navbar.Flex>
           <Separator orientation="vertical" className="h-6 ml-1 mr-3" />
           <Menu>
@@ -109,6 +111,7 @@ export function AppNavbar({ children, ...props }: React.ComponentProps<typeof Na
             <Button appearance="plain" size="square-petite" aria-label="Your Bag">
               <IconBag2 />
             </Button>
+            <ThemeSwitcher appearance="plain" />
           </Navbar.Flex>
           <Separator orientation="vertical" className="h-6 ml-1 mr-3" />
           <Menu>

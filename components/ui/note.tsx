@@ -29,7 +29,7 @@ const noteStyles = tv({
     }
   },
   defaultVariants: {
-    intent: "primary"
+    intent: "info"
   }
 })
 

@@ -280,7 +280,7 @@ const insetStyles = tv({
     intent: {
       floating: "",
       inset:
-        "min-h-svh bg-tertiary lg:rounded-lg lg:shadow-sm lg:ring-1 lg:ring-dark/5 lg:dark:ring-light/10",
+        "bg-tertiary lg:rounded-lg lg:shadow-sm lg:ring-1 lg:ring-dark/5 lg:dark:ring-light/10",
       navbar: ""
     }
   }
