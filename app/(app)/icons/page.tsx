@@ -5,7 +5,6 @@ import { siteConfig } from "@/resources/config/site"
 import type { Metadata } from "next"
 import { Container } from "ui"
 
-import type { SearchParamsProps } from "./partials/icons-list"
 import { IconsList } from "./partials/icons-list"
 
 export const metadata: Metadata = {
@@ -55,7 +54,8 @@ export const metadata: Metadata = {
   ]
 }
 
-export default function Page({ searchParams }: SearchParamsProps) {
+export default async function Page(props: any) {
+  const searchParams = props.searchParams
   return (
     <>
       <Header>

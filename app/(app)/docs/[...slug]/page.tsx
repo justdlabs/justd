@@ -10,19 +10,20 @@ import { notFound } from "next/navigation"
 import { Separator } from "ui"
 
 export interface DocPageProps {
-  params: {
+  params: Promise<{
     slug: string[]
-  }
+  }>
 }
 
-async function getPostFromParams(params: DocPageProps["params"]) {
-  const slug = params?.slug?.join("/")
+async function getPostFromParams(params: { slug: string[] }) {
+  const slug = (await params)?.slug?.join("/")
   const doc = docs.find((doc) => doc.slugAsParams === slug)
 
   return doc
 }
 
-export async function generateMetadata({ params }: DocPageProps): Promise<Metadata> {
+export async function generateMetadata(props: DocPageProps): Promise<Metadata> {
+  const params = await props.params
   const doc = await getPostFromParams(params)
 
   if (!doc) {
@@ -70,11 +71,12 @@ export async function generateMetadata({ params }: DocPageProps): Promise<Metada
   }
 }
 
-export async function generateStaticParams(): Promise<DocPageProps["params"][]> {
+export async function generateStaticParams(): Promise<{ slug: any }[]> {
   return docs.map((doc) => ({ slug: doc.slugAsParams.split("/") }))
 }
 
-export default async function PostPage({ params }: DocPageProps) {
+export default async function PostPage(props: DocPageProps) {
+  const params = await props.params
   const doc = await getPostFromParams(params)
 
   if (!doc || !doc.published) {
