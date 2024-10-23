@@ -76,7 +76,9 @@ export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
           <Sidebar.Item icon={IconPersonAdd} href="#">
             Add New Member
           </Sidebar.Item>
-          <Sidebar.Item href="#">Manage Roles</Sidebar.Item>
+          <Sidebar.Item icon={IconCirclePerson} href="#">
+            Manage Roles
+          </Sidebar.Item>
         </Sidebar.Section>
       </Sidebar.Content>
       <Sidebar.Footer className="lg:flex lg:flex-row hidden items-center">

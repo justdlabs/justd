@@ -289,7 +289,7 @@ const Item = ({ isCurrent, children, className, icon: Icon, ...props }: ItemProp
             <>
               {state === "collapsed" ? (
                 <Tooltip delay={0}>
-                  <Tooltip.Trigger>
+                  <Tooltip.Trigger className="focus:outline-none">
                     {<Icon data-slot="icon" />}
                     <span className="sr-only">{children as string}</span>
                   </Tooltip.Trigger>
@@ -376,8 +376,9 @@ const footer = tv({
   base: "flex flex-col mt-auto [&>section+section]:mt-2.5",
   variants: {
     collapsed: {
-      false:
-        "p-2 [&_[slot=menu-trigger]]:w-full [&_[slot=menu-trigger]]:justify-start [&_[slot=menu-trigger]]:flex [&_[slot=menu-trigger]]:items-center",
+      false: [
+        "p-2 [&_[slot=menu-trigger]]:w-full [&_[slot=menu-trigger]]:justify-start [&_[slot=menu-trigger]]:flex [&_[slot=menu-trigger]]:items-center"
+      ],
       true: "size-12 p-1 [&_[slot=menu-trigger]]:size-9 justify-center items-center"
     }
   }

@@ -41,13 +41,13 @@ export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
       </Sidebar.Header>
       <Sidebar.Content>
         <Sidebar.Section>
-          <Sidebar.Item icon={IconDashboard} href="/blocks/sidebar/sidebar-02">
+          <Sidebar.Item icon={IconDashboard} href="/blocks/sidebar/sidebar-01">
             Overview
           </Sidebar.Item>
           <Sidebar.Item icon={IconSettings} href="/blocks/sidebar/sidebar-02">
             Settings
           </Sidebar.Item>
-          <Sidebar.Item isCurrent icon={IconCreditCard} href="#">
+          <Sidebar.Item isCurrent icon={IconCreditCard} href="/blocks/sidebar/sidebar-03">
             Billing
           </Sidebar.Item>
           <Sidebar.Item icon={IconEnvelope} href="#" badge="49.67K">
@@ -76,7 +76,9 @@ export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
           <Sidebar.Item icon={IconPersonAdd} href="#">
             Add New Member
           </Sidebar.Item>
-          <Sidebar.Item href="#">Manage Roles</Sidebar.Item>
+          <Sidebar.Item icon={IconCirclePerson} href="#">
+            Manage Roles
+          </Sidebar.Item>
         </Sidebar.Section>
       </Sidebar.Content>
       <Sidebar.Footer className="lg:flex lg:flex-row hidden items-center">
