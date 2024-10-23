@@ -110,7 +110,7 @@ const Provider = React.forwardRef<
       <SidebarContext.Provider value={contextValue}>
         <div
           className={cn(
-            "group/sidebar-wrapper [--sidebar-width:16rem] [--sidebar-width-icon:3rem] flex min-h-svh w-full text-fg has-[[data-intent=inset]]:bg-secondary/50",
+            "group/sidebar-wrapper [--sidebar-width:16.5rem] [--sidebar-width-icon:3rem] flex min-h-svh w-full text-fg has-[[data-intent=inset]]:bg-secondary/50",
             className
           )}
           ref={ref}
@@ -131,7 +131,7 @@ const Inset = ({ className, ...props }: React.ComponentProps<"main">) => {
         [
           "relative overflow-hidden flex min-h-svh flex-1 flex-col bg-bg",
           "md:peer-data-[intent=inset]:ml-0 md:peer-data-[intent=inset]:rounded-xl md:peer-data-[intent=inset]:shadow-sm",
-          "peer-data-[intent=inset]:overflow-hidden peer-data-[intent=inset]:border peer-data-[intent=inset]:min-h-[calc(100svh-theme(spacing.4))] md:peer-data-[intent=inset]:mt-2",
+          "peer-data-[intent=inset]:overflow-hidden peer-data-[intent=inset]:border peer-data-[intent=inset]:min-h-[calc(100svh-theme(spacing.4))] md:peer-data-[intent=inset]:my-2 md:peer-data-[intent=inset]:mr-2",
           "md:peer-data-[intent=sidebar]:overflow-visible"
         ],
         className
@@ -235,7 +235,10 @@ const itemStyles = tv({
   base: "group/menu-item grid [&>[data-slot=icon]]:size-4 col-span-full [&>[data-slot=icon]]:shrink-0 items-center [&>[data-slot=icon]]:text-muted-fg relative rounded-lg lg:text-sm leading-6",
   variants: {
     collapsed: {
-      true: "place-content-center size-9 col-span-full",
+      true: [
+        "justify-start px-3 [&>[data-slot=icon]]:mr-2 py-2 col-span-full",
+        "md:place-content-center md:grid-cols-[auto] md:[&>[data-slot=icon]]:mr-0 md:px-0 md:py-0 md:size-9"
+      ],
       false: "grid-cols-subgrid [&>[data-slot=icon]]:mr-2 px-3 py-2"
     },
     isFocused: {
@@ -268,7 +271,7 @@ interface ItemProps extends LinkProps {
 }
 
 const Item = ({ isCurrent, children, className, icon: Icon, ...props }: ItemProps) => {
-  const { state } = React.useContext(SidebarContext)!
+  const { state, isMobile } = React.useContext(SidebarContext)!
   return (
     <Link
       data-sidebar="menu-item"
@@ -287,9 +290,9 @@ const Item = ({ isCurrent, children, className, icon: Icon, ...props }: ItemProp
         <>
           {Icon && (
             <>
-              {state === "collapsed" ? (
-                <Tooltip delay={0}>
-                  <Tooltip.Trigger className="focus:outline-none">
+              {state === "collapsed" && !isMobile ? (
+                <Tooltip closeDelay={0} delay={0}>
+                  <Tooltip.Trigger className="focus:outline-none size-full absolute inset-0 grid place-content-center">
                     {<Icon data-slot="icon" />}
                     <span className="sr-only">{children as string}</span>
                   </Tooltip.Trigger>
@@ -355,7 +358,7 @@ const header = tv({
   variants: {
     collapsed: {
       false: "px-5 py-4",
-      true: "size-9 mt-1 group-data-[intent=floating]:mt-2 rounded-lg hover:bg-secondary mx-auto justify-center items-center"
+      true: "px-5 py-4 md:p-0 md:size-9 mt-1 group-data-[intent=floating]:mt-2 md:rounded-lg md:hover:bg-muted md:mx-auto md:justify-center md:items-center"
     }
   }
 })

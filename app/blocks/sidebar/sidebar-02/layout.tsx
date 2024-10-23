@@ -2,7 +2,7 @@
 
 import * as React from "react"
 
-import { AppSidebar } from "@/app/blocks/sidebar/sidebar-02/app-sidebar"
+import { AppSidebar } from "@/app/blocks/sidebar/app-sidebar"
 import {
   IconChevronLgDown,
   IconCirclePerson,
@@ -11,7 +11,7 @@ import {
   IconSettings,
   IconShield
 } from "justd-icons"
-import { Avatar, Button, Menu, SearchField, Separator, Sidebar } from "ui"
+import { Avatar, Breadcrumb, Breadcrumbs, Button, Menu, Separator, Sidebar } from "ui"
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -20,10 +20,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <Sidebar.Inset>
         <header className="sticky justify-between sm:justify-start top-0 bg-bg h-[3.57rem] px-4 border-b flex items-center gap-x-2">
           <span className="flex items-center">
-            <Sidebar.Trigger className="-ml-1" />
-            <Separator className="h-6 sm:block hidden" orientation="vertical" />
+            <Sidebar.Trigger className="-ml-2" />
+            <Separator className="h-6 mr-2 ml-1 sm:block hidden" orientation="vertical" />
+
+            <Breadcrumbs>
+              <Breadcrumb href="/blocks/sidebar/sidebar-01">Dashboard</Breadcrumb>
+              <Breadcrumb>Settings</Breadcrumb>
+            </Breadcrumbs>
           </span>
-          <SearchField className="sm:inline hidden sm:ml-1.5" />
           <div className="flex sm:hidden items-center gap-x-2">
             <Button appearance="plain" aria-label="Search..." size="square-petite">
               <IconSearch />

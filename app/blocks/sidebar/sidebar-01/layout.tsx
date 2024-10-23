@@ -2,7 +2,7 @@
 
 import * as React from "react"
 
-import { AppSidebar } from "@/app/blocks/sidebar/sidebar-01/app-sidebar"
+import { AppSidebar } from "@/app/blocks/sidebar/app-sidebar"
 import {
   IconChevronLgDown,
   IconCirclePerson,
@@ -20,7 +20,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <Sidebar.Inset>
         <header className="sticky justify-between sm:justify-start top-0 bg-bg h-[3.57rem] px-4 border-b flex items-center gap-x-2">
           <span className="flex items-center">
-            <Sidebar.Trigger className="-ml-1" />
+            <Sidebar.Trigger className="-ml-2 mr-1" />
             <Separator className="h-6 sm:block hidden" orientation="vertical" />
           </span>
           <SearchField className="sm:inline hidden sm:ml-1.5" />

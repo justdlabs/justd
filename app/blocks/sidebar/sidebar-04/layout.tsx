@@ -15,16 +15,16 @@ import { Avatar, Breadcrumb, Breadcrumbs, Button, Menu, Separator, Sidebar } fro
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <Sidebar.Provider>
-      <AppSidebar collapsible="dock" intent="floating" />
+    <Sidebar.Provider defaultOpen={false}>
+      <AppSidebar collapsible="dock" intent="inset" />
       <Sidebar.Inset>
         <header className="sticky justify-between sm:justify-start top-0 bg-bg h-[3.57rem] px-4 flex items-center gap-x-2">
-          <span className="flex items-center gap-x-2">
-            <Sidebar.Trigger className="-ml-2 mr-1" />
-            <Separator className="h-6 sm:block hidden" orientation="vertical" />
+          <span className="flex items-center">
+            <Sidebar.Trigger className="-ml-1.5" />
+            <Separator className="h-6 mr-3 ml-1 sm:block hidden" orientation="vertical" />
             <Breadcrumbs>
               <Breadcrumb href="/blocks/sidebar/sidebar-01">Dashboard</Breadcrumb>
-              <Breadcrumb>Billing</Breadcrumb>
+              <Breadcrumb>Newsletter</Breadcrumb>
             </Breadcrumbs>
           </span>
 

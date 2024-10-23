@@ -22,12 +22,14 @@ import {
   IconShield,
   IconSun
 } from "justd-icons"
+import { usePathname } from "next/navigation"
 import { Avatar, Button, Link, Menu, Sidebar, useSidebar } from "ui"
 
 export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
   const { theme, setTheme } = useTheme()
   const { state } = useSidebar()
   const collapsed = state === "collapsed"
+  const pathname = usePathname()
   return (
     <Sidebar {...props}>
       <Sidebar.Header>
@@ -41,18 +43,18 @@ export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
       </Sidebar.Header>
       <Sidebar.Content>
         <Sidebar.Section>
-          <Sidebar.Item isCurrent icon={IconDashboard} href="#">
+          <SidebarItem icon={IconDashboard} href="/blocks/sidebar/sidebar-01">
             Overview
-          </Sidebar.Item>
-          <Sidebar.Item icon={IconSettings} href="/blocks/sidebar/sidebar-02">
+          </SidebarItem>
+          <SidebarItem icon={IconSettings} href="/blocks/sidebar/sidebar-02">
             Settings
-          </Sidebar.Item>
-          <Sidebar.Item icon={IconCreditCard} href="/blocks/sidebar/sidebar-03">
+          </SidebarItem>
+          <SidebarItem icon={IconCreditCard} href="/blocks/sidebar/sidebar-03">
             Billing
-          </Sidebar.Item>
-          <Sidebar.Item icon={IconEnvelope} href="#" badge="49.67K">
+          </SidebarItem>
+          <SidebarItem icon={IconEnvelope} href="/blocks/sidebar/sidebar-04" badge="49.67K">
             Newsletter
-          </Sidebar.Item>
+          </SidebarItem>
           <Sidebar.Item icon={IconMessage} href="#" badge={35}>
             Messages
           </Sidebar.Item>
@@ -122,4 +124,9 @@ export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
       <Sidebar.Rail />
     </Sidebar>
   )
+}
+
+function SidebarItem({ icon: Icon, ...props }: React.ComponentProps<typeof Sidebar.Item>) {
+  const pathname = usePathname()
+  return <Sidebar.Item isCurrent={pathname === props.href} icon={Icon} {...props} />
 }

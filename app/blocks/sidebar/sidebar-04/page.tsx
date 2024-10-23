@@ -4,8 +4,9 @@ import type { Metadata } from "next"
 import { Heading } from "ui"
 
 export const metadata: Metadata = {
-  title: "Sidebar Inset"
+  title: "Sidebar Floating"
 }
+
 export default function Page() {
-  return <Heading>Settings</Heading>
+  return <Heading>Newsletter</Heading>
 }

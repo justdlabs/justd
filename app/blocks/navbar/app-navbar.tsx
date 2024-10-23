@@ -3,18 +3,23 @@
 import { ThemeSwitcher } from "@/components/theme-switcher"
 import {
   IconBag2,
+  IconBasket,
   IconBrandApple,
   IconChevronLgDown,
   IconCommandRegular,
+  IconCube,
   IconDashboard,
   IconHeadphones,
   IconLogout,
+  IconMacbook,
   IconSearch,
   IconSettings
 } from "justd-icons"
+import { usePathname } from "next/navigation"
 import { Avatar, Button, Menu, Navbar, Separator } from "ui"
 
 export function AppNavbar({ children, ...props }: React.ComponentProps<typeof Navbar>) {
+  const isUsingIcon = usePathname().includes("navbar-05")
   return (
     <Navbar {...props}>
       <Navbar.Nav>
@@ -22,14 +27,27 @@ export function AppNavbar({ children, ...props }: React.ComponentProps<typeof Na
           <IconBrandApple className="size-5" />
         </Navbar.Logo>
         <Navbar.Section>
-          <Navbar.Item isCurrent href="/blocks/navbar/navbar-01">
+          <NavbarItem isCurrent href="/blocks/navbar/navbar-01">
+            {isUsingIcon && <IconBasket />}
             Store
-          </Navbar.Item>
-          <Navbar.Item href="/blocks/navbar/navbar-02">Mac</Navbar.Item>
-          <Navbar.Item href="/blocks/navbar/navbar-03">iPad</Navbar.Item>
-          <Navbar.Item href="#">iPhone</Navbar.Item>
-          <Navbar.Item href="#">Watch</Navbar.Item>
-          <Navbar.Item href="#">Vision</Navbar.Item>
+          </NavbarItem>
+          <NavbarItem href="/blocks/navbar/navbar-02">
+            {isUsingIcon && <IconMacbook />}
+            Mac
+          </NavbarItem>
+          <NavbarItem href="/blocks/navbar/navbar-03">
+            {isUsingIcon && <IconCube />}
+            iPad
+          </NavbarItem>
+          <NavbarItem href="/blocks/navbar/navbar-04">
+            {isUsingIcon && <IconCube />}
+            iPhone
+          </NavbarItem>
+          <NavbarItem href="/blocks/navbar/navbar-05">
+            {isUsingIcon && <IconCube />}
+            Watch
+          </NavbarItem>
+          <NavbarItem href="#">Vision</NavbarItem>
           <Navbar.Item href="#">Entertainment</Navbar.Item>
           <Navbar.Item href="#">Accessories</Navbar.Item>
           <Navbar.Item href="#">Support</Navbar.Item>
@@ -159,4 +177,9 @@ export function AppNavbar({ children, ...props }: React.ComponentProps<typeof Na
       <Navbar.Inset>{children}</Navbar.Inset>
     </Navbar>
   )
+}
+
+function NavbarItem(props: React.ComponentProps<typeof Navbar.Item>) {
+  const pathname = usePathname()
+  return <Navbar.Item {...props} isCurrent={pathname === props.href} />
 }

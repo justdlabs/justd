@@ -217,7 +217,7 @@ app/dashboard
 ```
 
 ## Collapsible
-By default, the sidebar is collapsible. There are three types of collapsibility: `offcanvas`, `dock`, and `none`.
+By default, the sidebar is collapsible with three options for collapsibility: `offcanvas`, `dock`, and `none`. When set to `dock`, the sidebar will be pinned to a specified location, displaying an icon and tooltip by default. You can see an example of this in [Sidebar 04](/blocks/sidebar/sidebar-04).
 
 ### Offcanvas
 This is the default collapsible type. When the trigger is clicked, the sidebar slides out.
@@ -269,6 +269,18 @@ The sidebar's default open state can be managed using the `defaultOpen` prop.
 </Sidebar.Provider>
 ```
 
+## Trigger
+The trigger is a button that toggles the sidebar on both desktop and mobile devices. On desktop, it collapses the sidebar, while on mobile, it opens the sidebar within the `<Sheet/>` component.
+```
+<Sidebar.Trigger/>
+```
+
+## Rail
+`<Sidebar.Rail/>` is a button that toggles the sidebar, positioned as a slim bar along the sidebar's border rather than a traditional button at the top. It’s typically placed beneath the `<Sidebar.Footer/>`. To see the difference in action, compare [Sidebar 01](/blocks/sidebar/sidebar-01), which includes the rail, with [Sidebar 02](/blocks/sidebar/sidebar-02), which does not.
+```
+<Sidebar.Rail/>
+```
+
 ## Controlled
 To manually control the sidebar's state, use the `isOpen` prop. When `isOpen` is set to `true`, the sidebar opens; when it's `false`, the sidebar closes.
 ```
@@ -281,4 +293,13 @@ export function AppSidebar() {
     </Sidebar.Provider>
   )
 }
+```
+
+## Default Opened
+If you want the sidebar to be open by default, you can set the `defaultOpen` prop to `true`. You can see examples of this in [Sidebar 04](/blocks/sidebar/sidebar-04).
+```
+<Sidebar.Provider defaultOpen>
+  <Sidebar />
+  <Sidebar.Inset />
+</Sidebar.Provider>
 ```
