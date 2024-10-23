@@ -75,8 +75,6 @@ interface MultipleSelectProps<T extends object>
   renderEmptyState?: (inputValue: string) => React.ReactNode
   tag: (item: T) => React.ReactNode
   children: React.ReactNode | ((item: T) => React.ReactNode)
-  max?: number
-  min?: number
   errorMessage?: string | ((validation: ValidationResult) => string)
 }
 
@@ -98,10 +96,6 @@ const MultipleSelect = <T extends SelectedKey>({
 
   const { contains } = useFilter({ sensitivity: "base" })
   const selectedKeys = selectedItems.items.map((i) => i.id)
-
-  const existingTagCount = selectedItems.items.length
-  const maxTags = props.max !== undefined ? props.max : Infinity
-  const maxTagsToAdd = maxTags - existingTagCount
 
   const filter = React.useCallback(
     (item: T, filterText: string) => {
@@ -171,10 +165,7 @@ const MultipleSelect = <T extends SelectedKey>({
   }
 
   const popLast = React.useCallback(() => {
-    if (
-      selectedItems.items.length == 0 ||
-      (props.min !== undefined && selectedItems.items.length <= props.min)
-    ) {
+    if (selectedItems.items.length == 0) {
       return
     }
 
@@ -254,7 +245,7 @@ const MultipleSelect = <T extends SelectedKey>({
           >
             <div className={comboBoxChild({ className })}>
               <Input
-                placeholder={maxTagsToAdd <= 0 ? "Remove one to add more" : props.placeholder}
+                placeholder={props.placeholder}
                 className={input()}
                 onBlur={() => {
                   setFieldState({
