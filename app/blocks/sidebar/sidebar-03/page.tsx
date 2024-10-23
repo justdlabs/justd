@@ -5,7 +5,7 @@ import type { Metadata } from "next"
 import { Card, Grid } from "ui"
 
 export const metadata: Metadata = {
-  title: "Sidebar Default"
+  title: "Sidebar Floating"
 }
 
 export default function Page() {

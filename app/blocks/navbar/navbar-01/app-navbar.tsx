@@ -12,12 +12,8 @@ import {
   IconSearch,
   IconSettings
 } from "justd-icons"
-import type { Metadata } from "next"
 import { Avatar, Button, Menu, Navbar, Separator } from "ui"
 
-export const metadata: Metadata = {
-  title: "Navbar Default"
-}
 export function AppNavbar({ children, ...props }: React.ComponentProps<typeof Navbar>) {
   return (
     <Navbar {...props}>

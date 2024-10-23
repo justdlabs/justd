@@ -1,18 +1,23 @@
 "use client"
 
 import * as React from "react"
+import { useState } from "react"
 
 import { IconChevronLgDown } from "justd-icons"
 import { useFilter } from "react-aria"
-import type { ComboBoxProps as ComboBoxPrimitiveProps, Key } from "react-aria-components"
-import { ComboBox, Group } from "react-aria-components"
+import type {
+  ComboBoxProps as ComboBoxPrimitiveProps,
+  Key,
+  ValidationResult
+} from "react-aria-components"
+import { ComboBox } from "react-aria-components"
 import type { ListData } from "react-stately"
 import { useListData } from "react-stately"
 import { tv } from "tailwind-variants"
 
 import { Button } from "./button"
 import type { FieldProps } from "./field"
-import { Description, Input, Label } from "./field"
+import { Description, FieldError, Input, Label } from "./field"
 import { ListBox } from "./list-box"
 import { Popover } from "./popover"
 import { cn } from "./primitive"
@@ -25,9 +30,10 @@ const multiSelectStyles = tv({
     multiSelectField: "group flex w-full min-w-80 flex-col gap-1",
     multiSelect: [
       "relative px-1 flex min-h-10 flex-row flex-wrap items-center rounded-lg bg-bg shadow-sm border",
-      "has-[input[data-focused=true]]:border-primary",
-      "has-[input[data-invalid=true][data-focused=true]]:border-danger has-[input[data-invalid=true]]:border-danger has-[input[data-invalid=true]]:ring-danger/20",
-      "has-[input[data-focused=true]]:ring-4 has-[input[data-focused=true]]:ring-primary/20"
+      "has-[input[data-focused=true]]:border-ring/85",
+      "has-[input[data-invalid=true][data-focused=true]]:border-blue-500",
+      "has-[input[data-invalid=true]]:border-danger",
+      "has-[input[data-focused=true]]:ring-4 has-[input[data-focused=true]]:ring-ring/20"
     ],
     chevronButton:
       "size-8 -mr-2 grid place-content-center rounded-sm hover:text-fg focus:text-fg text-muted-fg",
@@ -39,11 +45,6 @@ const multiSelectStyles = tv({
 
 const { multiSelectField, multiSelect, chevronButton, input, comboBox, comboBoxChild } =
   multiSelectStyles()
-
-interface FieldState {
-  selectedKey: Key | null
-  inputValue: string
-}
 
 interface SelectedKey {
   id: Key
@@ -57,8 +58,8 @@ interface MultipleSelectProps<T extends object>
       | "children"
       | "validate"
       | "allowsEmptyCollection"
-      | "selectedKey"
       | "inputValue"
+      | "selectedKey"
       | "className"
       | "value"
       | "onSelectionChange"
@@ -76,6 +77,7 @@ interface MultipleSelectProps<T extends object>
   children: React.ReactNode | ((item: T) => React.ReactNode)
   max?: number
   min?: number
+  errorMessage?: string | ((validation: ValidationResult) => string)
 }
 
 const MultipleSelect = <T extends SelectedKey>({
@@ -87,9 +89,9 @@ const MultipleSelect = <T extends SelectedKey>({
   className,
   name,
   renderEmptyState,
+  errorMessage,
   ...props
 }: MultipleSelectProps<T>) => {
-  const [isInvalid, setIsInvalid] = React.useState(false)
   const tagGroupIdentifier = React.useId()
   const triggerRef = React.useRef<HTMLDivElement | null>(null)
   const [width, setWidth] = React.useState(0)
@@ -101,14 +103,10 @@ const MultipleSelect = <T extends SelectedKey>({
   const maxTags = props.max !== undefined ? props.max : Infinity
   const maxTagsToAdd = maxTags - existingTagCount
 
-  const updateInvalidState = (selectedCount: number) => {
-    const maxTags = props.max !== undefined ? props.max : Infinity
-    setIsInvalid(selectedCount >= maxTags)
-  }
-
   const filter = React.useCallback(
-    (item: T, filterText: string) =>
-      !selectedKeys.includes(item.id) && contains(item.name, filterText),
+    (item: T, filterText: string) => {
+      return !selectedKeys.includes(item.id) && contains(item.name, filterText)
+    },
     [contains, selectedKeys]
   )
 
@@ -117,42 +115,41 @@ const MultipleSelect = <T extends SelectedKey>({
     filter
   })
 
-  const [fieldState, setFieldState] = React.useState<FieldState>({
+  const [fieldState, setFieldState] = useState<{
+    selectedKey: Key | null
+    inputValue: string
+  }>({
     selectedKey: null,
     inputValue: ""
   })
 
   const onRemove = React.useCallback(
     (keys: Set<Key>) => {
-      if (props.min !== undefined && selectedItems.items.length <= props.min) return
-
       const key = keys.values().next().value
-      selectedItems.remove(key as Key)
-      setFieldState({ inputValue: "", selectedKey: null })
-      onItemCleared?.(key as Key)
-      updateInvalidState(selectedItems.items.length - 1)
+      if (key) {
+        selectedItems.remove(key)
+        setFieldState({
+          inputValue: "",
+          selectedKey: null
+        })
+        onItemCleared?.(key)
+      }
     },
-    [selectedItems, onItemCleared, props.min]
+    [selectedItems, onItemCleared]
   )
 
   const onSelectionChange = (id: Key | null) => {
-    if (!id) return
-    const item = accessibleList.getItem(id)
-    const maxTags = props.max !== undefined ? props.max : Infinity
+    if (!id) {
+      return
+    }
 
-    if (!item) return
+    const item = accessibleList.getItem(id)
+
+    if (!item) {
+      return
+    }
 
     if (!selectedKeys.includes(id)) {
-      if (selectedItems.items.length >= maxTags) {
-        setIsInvalid(true)
-
-        const timeoutId = setTimeout(() => {
-          setIsInvalid(false)
-        }, 2000)
-
-        return () => clearTimeout(timeoutId)
-      }
-
       selectedItems.append(item)
       setFieldState({
         inputValue: "",
@@ -164,13 +161,13 @@ const MultipleSelect = <T extends SelectedKey>({
     accessibleList.setFilterText("")
   }
 
-  const onInputChange = (v: string) => {
-    setFieldState((prevState) => ({
-      inputValue: v,
-      selectedKey: v === "" ? null : prevState.selectedKey
+  const onInputChange = (value: string) => {
+    setFieldState((prev) => ({
+      inputValue: value,
+      selectedKey: value === "" ? null : prev.selectedKey
     }))
 
-    accessibleList.setFilterText(v)
+    accessibleList.setFilterText(value)
   }
 
   const popLast = React.useCallback(() => {
@@ -186,7 +183,6 @@ const MultipleSelect = <T extends SelectedKey>({
     if (endKey !== null) {
       selectedItems.remove(endKey.id)
       onItemCleared?.(endKey.id)
-      updateInvalidState(selectedItems.items.length - 1)
     }
 
     setFieldState({
@@ -225,7 +221,7 @@ const MultipleSelect = <T extends SelectedKey>({
   return (
     <div className={multiSelectField({ className })}>
       {props.label && <Label>{props.label}</Label>}
-      <Group className={props.isDisabled ? "opacity-50" : ""}>
+      <div className={props.isDisabled ? "opacity-50" : ""}>
         <div ref={triggerRef} className={multiSelect({ className })}>
           <Tag.Group
             shape={props.shape}
@@ -247,9 +243,8 @@ const MultipleSelect = <T extends SelectedKey>({
           </Tag.Group>
           <ComboBox
             {...props}
-            isInvalid={isInvalid}
-            aria-label="Available items"
             allowsEmptyCollection
+            aria-label="Available items"
             className={comboBox()}
             items={accessibleList.items}
             selectedKey={fieldState.selectedKey}
@@ -274,6 +269,7 @@ const MultipleSelect = <T extends SelectedKey>({
               <VisuallyHidden>
                 <Button
                   slot="remove"
+                  type="button"
                   aria-label="Remove"
                   appearance="plain"
                   size="square-petite"
@@ -323,8 +319,9 @@ const MultipleSelect = <T extends SelectedKey>({
             </button>
           </div>
         </div>
-      </Group>
+      </div>
       {props.description && <Description>{props.description}</Description>}
+      {<FieldError>{errorMessage}</FieldError>}
       {name && <input hidden name={name} value={selectedKeys.join(",")} readOnly />}
     </div>
   )

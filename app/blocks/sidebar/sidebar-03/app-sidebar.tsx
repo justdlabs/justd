@@ -41,13 +41,13 @@ export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
       </Sidebar.Header>
       <Sidebar.Content>
         <Sidebar.Section>
-          <Sidebar.Item isCurrent icon={IconDashboard} href="#">
+          <Sidebar.Item icon={IconDashboard} href="/blocks/sidebar/sidebar-02">
             Overview
           </Sidebar.Item>
           <Sidebar.Item icon={IconSettings} href="/blocks/sidebar/sidebar-02">
             Settings
           </Sidebar.Item>
-          <Sidebar.Item icon={IconCreditCard} href="/blocks/sidebar/sidebar-03">
+          <Sidebar.Item isCurrent icon={IconCreditCard} href="#">
             Billing
           </Sidebar.Item>
           <Sidebar.Item icon={IconEnvelope} href="#" badge="49.67K">
@@ -117,7 +117,6 @@ export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
           </Menu.Content>
         </Menu>
       </Sidebar.Footer>
-      <Sidebar.Rail />
     </Sidebar>
   )
 }

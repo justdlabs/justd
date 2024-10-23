@@ -16,13 +16,14 @@ import { cr } from "./primitive"
 
 const tooltipStyles = tv({
   base: [
-    "group rounded-lg [&_strong]:font-medium border text-bg px-3 py-1.5 text-sm will-change-transform dark:shadow-none",
+    "group rounded-lg [&_strong]:font-medium border px-3 py-1.5 text-sm will-change-transform dark:shadow-none",
     "placement-left:slide-in-from-right-1 placement-right:slide-in-from-left-1 placement-top:slide-in-from-bottom-1 placement-bottom:slide-in-from-top-1"
   ],
   variants: {
     intent: {
       default: "bg-overlay text-overlay-fg [&_.arx]:fill-overlay [&_.arx]:stroke-border",
-      inverse: "border-transparent bg-fg text-bg [&_.arx]:fill-fg [&_.arx]:stroke-transparent"
+      inverse:
+        "border-transparent bg-dark text-light dark:bg-light dark:text-dark dark:[&_.arx]:fill-light [&_.arx]:fill-dark [&_.arx]:stroke-transparent"
     },
     isEntering: {
       true: "animate-in fade-in"
@@ -30,6 +31,9 @@ const tooltipStyles = tv({
     isExiting: {
       true: "animate-in fade-in direction-reverse"
     }
+  },
+  defaultVariants: {
+    intent: "default"
   }
 })
 

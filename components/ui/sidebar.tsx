@@ -15,6 +15,7 @@ import { tv } from "tailwind-variants"
 import { Button, ButtonPrimitive } from "./button"
 import { cn, cr, useMediaQuery } from "./primitive"
 import { Sheet } from "./sheet"
+import { Tooltip } from "./tooltip"
 
 type SidebarContextProps = {
   state: "expanded" | "collapsed"
@@ -109,7 +110,7 @@ const Provider = React.forwardRef<
       <SidebarContext.Provider value={contextValue}>
         <div
           className={cn(
-            "group/sidebar-wrapper [--sidebar-width:16rem] [--sidebar-width-icon:3rem] flex min-h-svh w-full text-fg has-[[data-intent=inset]]:bg-tertiary",
+            "group/sidebar-wrapper [--sidebar-width:16rem] [--sidebar-width-icon:3rem] flex min-h-svh w-full text-fg has-[[data-intent=inset]]:bg-secondary/60",
             className
           )}
           ref={ref}
@@ -217,7 +218,7 @@ const Sidebar = ({
         <div
           data-sidebar="sidebar"
           className={cn(
-            "flex h-full w-full flex-col bg-tertiary group-data-[intent=floating]:rounded-lg group-data-[intent=floating]:border group-data-[intent=floating]:border-border group-data-[intent=floating]:shadow",
+            "flex h-full w-full flex-col bg-tertiary group-data-[intent=inset]:bg-transparent group-data-[intent=floating]:rounded-lg group-data-[intent=floating]:border group-data-[intent=floating]:border-border group-data-[intent=floating]:bg-secondary/50",
             intent === "inset" || state === "collapsed"
               ? "[&_[data-sidebar=header]]:border-transparent [&_[data-sidebar=footer]]:border-transparent"
               : "[&_[data-sidebar=header]]:border-b [&_[data-sidebar=footer]]:border-t"
@@ -269,6 +270,7 @@ const Item = ({ isCurrent, children, className, icon: Icon, ...props }: ItemProp
   return (
     <Link
       data-sidebar="menu-item"
+      aria-current={isCurrent ? "page" : undefined}
       className={cr(className, (className, renderProps) =>
         itemStyles({
           ...renderProps,
@@ -281,7 +283,23 @@ const Item = ({ isCurrent, children, className, icon: Icon, ...props }: ItemProp
     >
       {(values) => (
         <>
-          {Icon && <Icon data-slot="icon" />}
+          {Icon && (
+            <>
+              {state === "collapsed" ? (
+                <Tooltip delay={0}>
+                  <Tooltip.Trigger>
+                    {<Icon data-slot="icon" />}
+                    <span className="sr-only">{children as string}</span>
+                  </Tooltip.Trigger>
+                  <Tooltip.Content intent="inverse" showArrow={false} placement="right">
+                    {children as string}
+                  </Tooltip.Content>
+                </Tooltip>
+              ) : (
+                <Icon data-slot="icon" />
+              )}
+            </>
+          )}
           <span className="col-start-2 group-data-[collapsible=dock]:hidden">
             {typeof children === "function" ? children(values) : children}
             {props.badge && (

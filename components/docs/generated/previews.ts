@@ -914,6 +914,9 @@ export const previews: Record<string, any> = {
   "pickers/multiple-select/multiple-select-intent-demo": {
     component: React.lazy(() => import("@/components/docs/pickers/multiple-select/multiple-select-intent-demo")),
   },
+  "pickers/multiple-select/multiple-select-invalid-demo": {
+    component: React.lazy(() => import("@/components/docs/pickers/multiple-select/multiple-select-invalid-demo")),
+  },
   "pickers/multiple-select/multiple-select-shape-demo": {
     component: React.lazy(() => import("@/components/docs/pickers/multiple-select/multiple-select-shape-demo")),
   },

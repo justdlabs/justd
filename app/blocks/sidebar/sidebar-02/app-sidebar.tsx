@@ -29,7 +29,7 @@ export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
   const { state } = useSidebar()
   const collapsed = state === "collapsed"
   return (
-    <Sidebar {...props}>
+    <Sidebar collapsible="dock" {...props}>
       <Sidebar.Header>
         <Link
           className="flex items-center group-data-[collapsible=dock]:size-10 group-data-[collapsible=dock]:justify-center gap-x-2"
@@ -41,10 +41,10 @@ export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
       </Sidebar.Header>
       <Sidebar.Content>
         <Sidebar.Section>
-          <Sidebar.Item isCurrent icon={IconDashboard} href="#">
+          <Sidebar.Item icon={IconDashboard} href="/blocks/sidebar/sidebar-01">
             Overview
           </Sidebar.Item>
-          <Sidebar.Item icon={IconSettings} href="/blocks/sidebar/sidebar-02">
+          <Sidebar.Item isCurrent icon={IconSettings} href="#">
             Settings
           </Sidebar.Item>
           <Sidebar.Item icon={IconCreditCard} href="/blocks/sidebar/sidebar-03">
@@ -117,7 +117,6 @@ export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
           </Menu.Content>
         </Menu>
       </Sidebar.Footer>
-      <Sidebar.Rail />
     </Sidebar>
   )
 }

@@ -5,9 +5,8 @@ import type { Metadata } from "next"
 import { Card, Grid } from "ui"
 
 export const metadata: Metadata = {
-  title: "Sidebar Default"
+  title: "Sidebar Inset"
 }
-
 export default function Page() {
   return (
     <div className="space-y-6 lg:space-y-10">
