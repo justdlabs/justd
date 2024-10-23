@@ -110,7 +110,7 @@ const Provider = React.forwardRef<
       <SidebarContext.Provider value={contextValue}>
         <div
           className={cn(
-            "group/sidebar-wrapper [--sidebar-width:16rem] [--sidebar-width-icon:3rem] flex min-h-svh w-full text-fg has-[[data-intent=inset]]:bg-secondary/60",
+            "group/sidebar-wrapper [--sidebar-width:16rem] [--sidebar-width-icon:3rem] flex min-h-svh w-full text-fg has-[[data-intent=inset]]:bg-secondary/50",
             className
           )}
           ref={ref}
@@ -130,8 +130,8 @@ const Inset = ({ className, ...props }: React.ComponentProps<"main">) => {
       className={cn([
         [
           "relative overflow-hidden flex min-h-svh flex-1 flex-col bg-bg",
-          "md:peer-data-[state=collapsed]:peer-data-[intent=inset]:ml-2 md:peer-data-[intent=inset]:ml-0 md:peer-data-[intent=inset]:rounded-xl md:peer-data-[intent=inset]:shadow-sm",
-          "peer-data-[intent=inset]:overflow-hidden peer-data-[intent=inset]:border peer-data-[intent=inset]:min-h-[calc(100svh-theme(spacing.4))] md:peer-data-[intent=inset]:m-2",
+          "md:peer-data-[intent=inset]:ml-0 md:peer-data-[intent=inset]:rounded-xl md:peer-data-[intent=inset]:shadow-sm",
+          "peer-data-[intent=inset]:overflow-hidden peer-data-[intent=inset]:border peer-data-[intent=inset]:min-h-[calc(100svh-theme(spacing.4))] md:peer-data-[intent=inset]:mt-2",
           "md:peer-data-[intent=sidebar]:overflow-visible"
         ],
         className
@@ -242,10 +242,12 @@ const itemStyles = tv({
       true: "outline-none"
     },
     isFocusVisible: {
-      true: "bg-secondary [&:focus-visible_[slot=label]]:text-accent-fg [&:focus-visible_[slot=description]]:text-accent-fg/70 text-secondary-fg"
+      true: "bg-muted [&:focus-visible_[slot=label]]:text-accent-fg [&:focus-visible_[slot=description]]:text-accent-fg/70 text-secondary-fg"
     },
     isHovered: {
-      true: "bg-secondary [&:focus-visible_[slot=label]]:text-accent-fg [&:focus-visible_[slot=description]]:text-accent-fg/70 text-secondary-fg [&_.text-muted-fg]:text-secondary-fg/80"
+      true: [
+        "bg-muted [&:focus-visible_[slot=label]]:text-accent-fg [&:focus-visible_[slot=description]]:text-accent-fg/70 text-secondary-fg [&_.text-muted-fg]:text-secondary-fg/80"
+      ]
     },
     isCurrent: {
       true: [
@@ -352,8 +354,8 @@ const header = tv({
   base: "flex flex-col [&>section+section]:mt-2.5",
   variants: {
     collapsed: {
-      false: "px-6 py-4",
-      true: "size-9 mt-1 rounded-lg hover:bg-secondary mx-auto justify-center items-center"
+      false: "px-5 py-4",
+      true: "size-9 mt-1 group-data-[intent=floating]:mt-2 rounded-lg hover:bg-secondary mx-auto justify-center items-center"
     }
   }
 })
