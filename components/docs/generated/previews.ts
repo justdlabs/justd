@@ -506,8 +506,20 @@ export const previews: Record<string, any> = {
   "navigation/link/link-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/navigation/link/link-disabled-demo")),
   },
-  "navigation/breadcrumbs-demo": {
-    component: React.lazy(() => import("@/components/docs/navigation/breadcrumbs-demo")),
+  "navigation/breadcrumbs/breadcrumbs-collections-demo": {
+    component: React.lazy(() => import("@/components/docs/navigation/breadcrumbs/breadcrumbs-collections-demo")),
+  },
+  "navigation/breadcrumbs/breadcrumbs-menu-demo": {
+    component: React.lazy(() => import("@/components/docs/navigation/breadcrumbs/breadcrumbs-menu-demo")),
+  },
+  "navigation/breadcrumbs/breadcrumbs-current-demo": {
+    component: React.lazy(() => import("@/components/docs/navigation/breadcrumbs/breadcrumbs-current-demo")),
+  },
+  "navigation/breadcrumbs/breadcrumbs-demo": {
+    component: React.lazy(() => import("@/components/docs/navigation/breadcrumbs/breadcrumbs-demo")),
+  },
+  "navigation/breadcrumbs/breadcrumbs-separator-demo": {
+    component: React.lazy(() => import("@/components/docs/navigation/breadcrumbs/breadcrumbs-separator-demo")),
   },
   "anatomies/pagination-anatomy": {
     component: React.lazy(() => import("@/components/docs/anatomies/pagination-anatomy")),

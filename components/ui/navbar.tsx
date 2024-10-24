@@ -22,8 +22,6 @@ type NavbarOptions = {
 type NavbarContextProps = {
   open: boolean
   setOpen: (open: boolean) => void
-  openCompact: boolean
-  setOpenCompact: (open: boolean) => void
   isCompact: boolean
   toggleNavbar: () => void
 } & NavbarOptions
@@ -67,7 +65,6 @@ const Navbar = ({
   intent = "navbar",
   ...props
 }: NavbarProviderProps) => {
-  const [openCompact, setOpenCompact] = React.useState(false)
   const isCompact = useMediaQuery("(max-width: 600px)")
   const [_open, _setOpen] = React.useState(defaultOpen)
   const open = openProp ?? _open
@@ -84,21 +81,20 @@ const Navbar = ({
   )
 
   const toggleNavbar = React.useCallback(() => {
-    return isCompact ? setOpenCompact((open) => !open) : setOpen((open) => !open)
-  }, [isCompact, setOpen, setOpenCompact])
+    setOpen((open) => !open)
+  }, [isCompact, setOpen])
+
   const contextValue = React.useMemo<NavbarContextProps>(
     () => ({
       open,
       setOpen,
       isCompact,
-      openCompact,
-      setOpenCompact,
       toggleNavbar,
       intent,
       isSticky,
       side
     }),
-    [open, setOpen, isCompact, openCompact, setOpenCompact, toggleNavbar, intent, isSticky, side]
+    [open, setOpen, isCompact, toggleNavbar, intent, isSticky, side]
   )
   return (
     <NavbarContext.Provider value={contextValue}>
@@ -130,11 +126,11 @@ interface NavbarProps extends React.ComponentProps<"div"> {
 }
 
 const Nav = ({ className, ...props }: NavbarProps) => {
-  const { isCompact, side, intent, isSticky, openCompact, setOpenCompact } = useNavbar()
+  const { isCompact, side, intent, isSticky, open, setOpen } = useNavbar()
 
   if (isCompact) {
     return (
-      <Sheet isOpen={openCompact} onOpenChange={setOpenCompact} {...props}>
+      <Sheet isOpen={open} onOpenChange={setOpen} {...props}>
         <Sheet.Content
           side={side}
           aria-label="Compact Navbar"

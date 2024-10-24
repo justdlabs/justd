@@ -11,7 +11,7 @@ import {
   IconSettings,
   IconShield
 } from "justd-icons"
-import { Avatar, Breadcrumb, Breadcrumbs, Button, Menu, Separator, Sidebar } from "ui"
+import { Avatar, Breadcrumbs, Button, Menu, Separator, Sidebar } from "ui"
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -23,8 +23,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <Sidebar.Trigger className="-ml-1.5" />
             <Separator className="h-6 mr-3 ml-1 sm:block hidden" orientation="vertical" />
             <Breadcrumbs>
-              <Breadcrumb href="/blocks/sidebar/sidebar-01">Dashboard</Breadcrumb>
-              <Breadcrumb>Newsletter</Breadcrumb>
+              <Breadcrumbs.Item href="/blocks/sidebar/sidebar-01">Dashboard</Breadcrumbs.Item>
+
+              <Breadcrumbs.Item>Newsletter</Breadcrumbs.Item>
             </Breadcrumbs>
           </span>
 
