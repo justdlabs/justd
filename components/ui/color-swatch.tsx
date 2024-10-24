@@ -41,7 +41,13 @@ const luminance = (r: number, g: number, b: number): number => {
   return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722
 }
 
-const isBrightColor = (color: any): boolean => {
+type HSBColor = {
+  hue: number
+  saturation: number
+  brightness: number
+}
+
+const isBrightColor = (color: string | HSBColor): boolean => {
   let r, g, b
 
   if (typeof color === "string") {
@@ -103,7 +109,8 @@ const isBrightColor = (color: any): boolean => {
 const defaultColor = parseColor("hsl(216, 98%, 52%)")
 
 const ColorSwatch = ({ className, ...props }: ColorSwatchProps) => {
-  const needRing = props.color ? isBrightColor(props.color) : false
+  const color = props.color?.toString() ?? ""
+  const needRing = color ? isBrightColor(color) : false
   return (
     <ColorSwatchPrimitive
       data-slot="color-swatch"
