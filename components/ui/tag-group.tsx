@@ -161,14 +161,12 @@ const TagItem = ({ children, className, intent, shape, ...props }: TagProps) => 
                 slot="remove"
                 className={cr("", (className) => {
                   return cn(
-                    "rounded focus:outline-none size-3.5 grid place-content-center -mr-0.5 focus-visible:ring-1 focus-visible:ring-primary",
+                    "rounded [&>[data-slot=icon]]:size-3 [&>[data-slot=icon]]:shrink-0 focus:outline-none size-3.5 grid place-content-center -mr-0.5 focus-visible:ring-1 focus-visible:ring-primary",
                     className
                   )
                 })}
               >
-                <span className="shrink-0 text-base/4">
-                  <IconX className="size-3" />
-                </span>
+                <IconX />
               </Button>
             )}
           </>
