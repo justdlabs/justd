@@ -11,7 +11,7 @@ import {
   IconSettings,
   IconShield
 } from "justd-icons"
-import { Avatar, Breadcrumb, Breadcrumbs, Button, Menu, Separator, Sidebar } from "ui"
+import { Avatar, Breadcrumbs, Button, Menu, Separator, Sidebar } from "ui"
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -24,8 +24,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <Separator className="h-6 mr-2 ml-1 sm:block hidden" orientation="vertical" />
 
             <Breadcrumbs>
-              <Breadcrumb href="/blocks/sidebar/sidebar-01">Dashboard</Breadcrumb>
-              <Breadcrumb>Settings</Breadcrumb>
+              <Breadcrumbs.Item href="/blocks/sidebar/sidebar-01">Dashboard</Breadcrumbs.Item>
+
+              <Breadcrumbs.Item>Settings</Breadcrumbs.Item>
             </Breadcrumbs>
           </span>
           <div className="flex sm:hidden items-center gap-x-2">

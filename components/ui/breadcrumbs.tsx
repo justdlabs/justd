@@ -1,27 +1,54 @@
 "use client"
 
-import { IconChevronRight } from "justd-icons"
+import { IconChevronLgRight } from "justd-icons"
 import type { BreadcrumbProps, BreadcrumbsProps } from "react-aria-components"
 import {
-  Breadcrumb as BreadcrumbPrimitive,
+  Breadcrumb,
   Breadcrumbs as BreadcrumbsPrimitive,
   type LinkProps
 } from "react-aria-components"
 
 import { Link } from "./link"
-import { cn } from "./primitive"
+import { cn, ctr } from "./primitive"
 
 const Breadcrumbs = <T extends object>({ className, ...props }: BreadcrumbsProps<T>) => {
-  return <BreadcrumbsPrimitive {...props} className={cn("flex gap-1", className)} />
+  return <BreadcrumbsPrimitive {...props} className={cn("flex items-center gap-2", className)} />
 }
 
-const Breadcrumb = ({ className, ...props }: BreadcrumbProps & LinkProps) => {
+interface ItemProps extends BreadcrumbProps {
+  href?: string
+  separator?: "slash" | "chevron" | boolean
+}
+
+const Item = ({
+  href,
+  separator = true,
+  className,
+  ...props
+}: ItemProps & Partial<Omit<LinkProps, "className">>) => {
+  const separatorValue = separator === true ? "chevron" : separator
+
   return (
-    <BreadcrumbPrimitive {...props} className={cn("flex text-sm items-center gap-1", className)}>
-      <Link href={props.href} {...props} />
-      {"href" in props && <IconChevronRight className="size-4 shrink-0 text-muted-fg" />}
-    </BreadcrumbPrimitive>
+    <Breadcrumb {...props} className={ctr(className, "flex text-sm items-center gap-2")}>
+      {({ isCurrent }) => (
+        <>
+          {<Link href={href} {...props} />}
+          {!isCurrent && separator !== false && <Separator separator={separatorValue} />}
+        </>
+      )}
+    </Breadcrumb>
   )
 }
 
-export { Breadcrumb, Breadcrumbs }
+const Separator = ({ separator = "chevron" }: { separator?: ItemProps["separator"] }) => {
+  return (
+    <span className={cn("[&>*]:shrink-0 [&>[data-slot=icon]]:size-3.5 [&>*]:text-muted-fg")}>
+      {separator === "chevron" && <IconChevronLgRight />}
+      {separator === "slash" && <span className="text-muted-fg">/</span>}
+    </span>
+  )
+}
+
+Breadcrumbs.Item = Item
+
+export { Breadcrumbs }
