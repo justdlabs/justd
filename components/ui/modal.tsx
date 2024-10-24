@@ -26,7 +26,7 @@ const modalOverlayStyles = tv({
   variants: {
     isBlurred: {
       true: "backdrop-blur",
-      false: "bg-black/15 dark:bg-black/40"
+      false: "bg-dark/15 dark:bg-dark/40"
     },
     isEntering: {
       true: "ease-out animate-in fade-in"

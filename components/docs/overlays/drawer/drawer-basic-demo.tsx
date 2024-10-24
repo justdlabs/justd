@@ -1,30 +1,25 @@
 "use client"
 
-import React from "react"
-
-import { buttonStyles, Drawer } from "ui"
+import { Button, buttonStyles, Drawer, TextField } from "ui"
 
 export default function DrawerBasicDemo() {
   return (
     <Drawer>
-      <Drawer.Trigger className={buttonStyles({ shape: "circle", appearance: "outline" })}>
-        Open
-      </Drawer.Trigger>
+      <Drawer.Trigger className={buttonStyles({ appearance: "outline" })}>Login</Drawer.Trigger>
       <Drawer.Content>
         <Drawer.Header>
-          <Drawer.Title>Nirvana: The Band</Drawer.Title>
+          <Drawer.Title>Login</Drawer.Title>
           <Drawer.Description>
-            A brief overview of the influential rock band Nirvana.
+            Please enter your credentials to access your account.
           </Drawer.Description>
         </Drawer.Header>
-        <Drawer.Body>
-          Nirvana was an American rock band formed in 1987, fronted by Kurt Cobain, with Krist
-          Novoselic on bass and Dave Grohl on drums. They played a key role in bringing grunge music
-          into the mainstream with their breakthrough album, *Nevermind* (1991), which featured the
-          hit single "Smells Like Teen Spirit."
+        <Drawer.Body className="space-y-4">
+          <TextField autoFocus label="Email" placeholder="john.doe@example.com" />
+          <TextField label="Password" type="password" placeholder="••••••••••••" />
         </Drawer.Body>
         <Drawer.Footer>
-          <Drawer.Close shape="circle">Close</Drawer.Close>
+          <Drawer.Close>Cancel</Drawer.Close>
+          <Button>Login</Button>
         </Drawer.Footer>
       </Drawer.Content>
     </Drawer>

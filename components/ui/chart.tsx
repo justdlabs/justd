@@ -283,18 +283,28 @@ const LegendContent = ({
 }
 
 const resolvePayloadConfig = (config: ChartConfig, payload: unknown, key: string) => {
-  if (typeof payload !== "object" || payload === null) return undefined
+  if (typeof payload !== "object" || payload === null) {
+    return undefined
+  }
 
   const nestedPayload =
-    payload && typeof (payload as any).payload === "object" ? (payload as any).payload : undefined
-  const configLabelKey =
-    typeof (payload as any)[key] === "string"
-      ? (payload as any)[key]
-      : nestedPayload && typeof nestedPayload[key] === "string"
-        ? nestedPayload[key]
-        : key
+    "payload" in payload && typeof payload.payload === "object" && payload.payload !== null
+      ? payload.payload
+      : undefined
 
-  return config[configLabelKey] ?? config[key]
+  let configLabelKey: string = key
+
+  if (key in payload && typeof payload[key as keyof typeof payload] === "string") {
+    configLabelKey = payload[key as keyof typeof payload] as string
+  } else if (
+    nestedPayload &&
+    key in nestedPayload &&
+    typeof nestedPayload[key as keyof typeof nestedPayload] === "string"
+  ) {
+    configLabelKey = nestedPayload[key as keyof typeof nestedPayload] as string
+  }
+
+  return configLabelKey in config ? config[configLabelKey] : config[key as keyof typeof config]
 }
 
 const EnhancedChart = Object.assign(Chart, {

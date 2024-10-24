@@ -16,7 +16,7 @@ import {
 import { Menu, MenuItem } from "react-aria-components"
 import { buttonStyles, cn } from "ui"
 
-export function DocRefs({ references }: any) {
+export function DocRefs({ references }: { references: string[] }) {
   const urls = references.map((url: string) => {
     let title = ""
     let icon: FC<SVGProps<SVGSVGElement>>
@@ -50,6 +50,10 @@ export function DocRefs({ references }: any) {
         title = "Cmdk"
         icon = IconCommandFill
         break
+      case url.includes("vaul"):
+        title = "Vaul"
+        icon = () => null
+        break
       case url.includes("github"):
         title = "Github"
         icon = IconBrandGithub
@@ -71,7 +75,7 @@ export function DocRefs({ references }: any) {
 
   return (
     <Menu className="not-prose gap-x-2 flex" aria-label="Link References" items={urls}>
-      {(item: any) => (
+      {(item: { url: string; title: string; icon: FC<SVGProps<SVGSVGElement>> }) => (
         <MenuItem
           target="_blank"
           className={cn(
@@ -84,7 +88,8 @@ export function DocRefs({ references }: any) {
           id={item.url}
           href={item.url}
         >
-          <item.icon />
+          {item.icon && <item.icon />}
+
           {item.title === "Props Reference" ? (
             <span>
               Props <span className="sm:inline hidden">Reference</span>

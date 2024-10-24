@@ -25,31 +25,31 @@ const config = {
   },
   samsung: {
     label: "Samsung",
-    color: "hsl(var(--secondary-chart))"
+    color: "hsl(var(--primary-chart))"
   },
   huawei: {
     label: "Huawei",
-    color: "hsl(var(--tertiary-chart))"
+    color: "hsl(var(--primary-chart))"
   },
   xiaomi: {
     label: "Xiaomi",
-    color: "hsl(var(--highlight-chart))"
+    color: "hsl(var(--primary-chart))"
   },
   google: {
     label: "Google",
-    color: "hsl(var(--accent-chart))"
+    color: "hsl(var(--primary-chart))"
   },
   motorola: {
     label: "Motorola",
-    color: "hsl(var(--accent-chart))"
+    color: "hsl(var(--primary-chart))"
   },
   nokia: {
     label: "Nokia",
-    color: "hsl(var(--accent-chart))"
+    color: "hsl(var(--primary-chart))"
   },
   oppo: {
     label: "Oppo",
-    color: "hsl(var(--accent-chart))"
+    color: "hsl(var(--primary-chart))"
   }
 } satisfies ChartConfig
 

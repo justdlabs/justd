@@ -326,20 +326,20 @@ export const previews: Record<string, any> = {
   "buttons/button/button-link-demo": {
     component: React.lazy(() => import("@/components/docs/buttons/button/button-link-demo")),
   },
-  "overlays/drawer/drawer-nested-demo": {
-    component: React.lazy(() => import("@/components/docs/overlays/drawer/drawer-nested-demo")),
+  "overlays/drawer/drawer-direction-demo": {
+    component: React.lazy(() => import("@/components/docs/overlays/drawer/drawer-direction-demo")),
+  },
+  "overlays/drawer/drawer-hide-notch-demo": {
+    component: React.lazy(() => import("@/components/docs/overlays/drawer/drawer-hide-notch-demo")),
   },
   "overlays/drawer/drawer-basic-demo": {
     component: React.lazy(() => import("@/components/docs/overlays/drawer/drawer-basic-demo")),
   },
-  "overlays/drawer/drawer-sticky-demo": {
-    component: React.lazy(() => import("@/components/docs/overlays/drawer/drawer-sticky-demo")),
+  "overlays/drawer/drawer-is-not-centered-demo": {
+    component: React.lazy(() => import("@/components/docs/overlays/drawer/drawer-is-not-centered-demo")),
   },
   "overlays/drawer/drawer-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/overlays/drawer/drawer-controlled-demo")),
-  },
-  "overlays/drawer/drawer-without-notch-demo": {
-    component: React.lazy(() => import("@/components/docs/overlays/drawer/drawer-without-notch-demo")),
   },
   "overlays/tooltip/tooltip-delay-demo": {
     component: React.lazy(() => import("@/components/docs/overlays/tooltip/tooltip-delay-demo")),

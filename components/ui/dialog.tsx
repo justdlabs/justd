@@ -44,11 +44,6 @@ const Dialog = ({ role, className, ...props }: DialogProps) => {
   return <DialogPrimitive {...props} role={role ?? "dialog"} className={root({ className })} />
 }
 
-type DialogHeaderProps = React.HTMLAttributes<HTMLDivElement> & {
-  title?: string
-  description?: string
-}
-
 const Trigger = (props: ButtonPrimitiveProps) => (
   <ButtonPrimitive {...props}>
     {(values) => (
@@ -56,6 +51,11 @@ const Trigger = (props: ButtonPrimitiveProps) => (
     )}
   </ButtonPrimitive>
 )
+
+type DialogHeaderProps = React.HTMLAttributes<HTMLDivElement> & {
+  title?: string
+  description?: string
+}
 
 const Header = ({ className, ...props }: DialogHeaderProps) => {
   const headerRef = React.useRef<HTMLHeadingElement>(null)

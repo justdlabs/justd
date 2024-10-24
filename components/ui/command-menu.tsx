@@ -87,12 +87,12 @@ interface CommandMenuRootProps {
 
 const modalOverlay = tv({
   base: [
-    "fixed inset-0 max-h-[--visual-viewport-height] z-50 bg-black/15 dark:bg-black/40 entering:animate-in entering:fade-in-0 exiting:animate-in exiting:fade-out-0"
+    "fixed inset-0 max-h-[--visual-viewport-height] z-50 bg-dark/15 dark:bg-dark/40 entering:animate-in entering:fade-in-0 exiting:animate-in exiting:fade-out-0"
   ],
   variants: {
     isBlurred: {
       true: "backdrop-blur",
-      false: "bg-black/15 dark:bg-black/40"
+      false: "bg-dark/15 dark:bg-dark/40"
     }
   }
 })
