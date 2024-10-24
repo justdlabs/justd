@@ -19,8 +19,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <AppSidebar />
       <Sidebar.Inset>
         <header className="sticky justify-between sm:justify-start top-0 bg-bg h-[3.57rem] px-4 border-b flex items-center gap-x-2">
-          <span className="flex items-center">
-            <Sidebar.Trigger className="-ml-2 mr-1" />
+          <span className="flex items-center gap-x-3">
+            <Sidebar.Trigger className="-mx-2" />
             <Separator className="h-6 sm:block hidden" orientation="vertical" />
           </span>
           <SearchField className="sm:inline hidden sm:ml-1.5" />

@@ -2,7 +2,7 @@
 
 import * as React from "react"
 
-import { IconChevronDown, IconSidebarFill } from "justd-icons"
+import { IconChevronDown, IconHamburger, IconSidebarFill } from "justd-icons"
 import type { DisclosureProps, LinkProps } from "react-aria-components"
 import {
   Link,
@@ -57,7 +57,7 @@ const Provider = React.forwardRef<
     },
     ref
   ) => {
-    const isMobile = useMediaQuery("(max-width: 600px)")
+    const isMobile = useMediaQuery("(max-width: 768px)")
     const [openMobile, setOpenMobile] = React.useState(false)
 
     const [_open, _setOpen] = React.useState(defaultOpen)
@@ -110,7 +110,7 @@ const Provider = React.forwardRef<
       <SidebarContext.Provider value={contextValue}>
         <div
           className={cn(
-            "group/sidebar-wrapper [--sidebar-width:16.5rem] [--sidebar-width-icon:3rem] flex min-h-svh w-full text-fg has-[[data-intent=inset]]:bg-secondary/50",
+            "group/sidebar-wrapper [--sidebar-width:16.5rem] [--sidebar-width-icon:3rem] flex min-h-svh w-full text-fg dark:has-[[data-intent=inset]]:bg-bg has-[[data-intent=inset]]:bg-secondary/50",
             className
           )}
           ref={ref}
@@ -130,7 +130,7 @@ const Inset = ({ className, ...props }: React.ComponentProps<"main">) => {
       className={cn([
         [
           "relative overflow-hidden flex min-h-svh flex-1 flex-col bg-bg",
-          "md:peer-data-[intent=inset]:ml-0 md:peer-data-[intent=inset]:rounded-xl md:peer-data-[intent=inset]:shadow-sm",
+          "md:peer-data-[intent=inset]:ml-0 md:peer-data-[intent=inset]:bg-tertiary md:peer-data-[intent=inset]:rounded-xl",
           "peer-data-[intent=inset]:overflow-hidden peer-data-[intent=inset]:border peer-data-[intent=inset]:min-h-[calc(100svh-theme(spacing.4))] md:peer-data-[intent=inset]:my-2 md:peer-data-[intent=inset]:mr-2",
           "md:peer-data-[intent=sidebar]:overflow-visible"
         ],
@@ -174,12 +174,12 @@ const Sidebar = ({
           data-sidebar="sidebar"
           data-mobile="true"
           classNames={{
-            content: "[&_[role=dialog]]:p-0 bg-tertiary p-0 text-fg [&>button]:hidden"
+            content: "bg-tertiary text-fg [&>button]:hidden"
           }}
           isStack={intent === "floating"}
           side={side}
         >
-          <Sheet.Body className="p-0">{children}</Sheet.Body>
+          <Sheet.Body className="p-0 sm:p-0">{children}</Sheet.Body>
         </Sheet.Content>
       </Sheet>
     )
@@ -347,7 +347,8 @@ const Trigger = ({ className, onPress, ...props }: React.ComponentProps<typeof B
       }}
       {...props}
     >
-      <IconSidebarFill />
+      <IconSidebarFill className="md:inline hidden" />
+      <IconHamburger className="md:hidden inline" />
       <span className="sr-only">Toggle Sidebar</span>
     </Button>
   )
@@ -380,7 +381,7 @@ const footer = tv({
   variants: {
     collapsed: {
       false: [
-        "p-2 [&_[slot=menu-trigger]]:w-full [&_[slot=menu-trigger]]:justify-start [&_[slot=menu-trigger]]:flex [&_[slot=menu-trigger]]:items-center"
+        "p-2 [&_[slot=menu-trigger]>[data-slot=avatar]]:-ml-1.5 [&_[slot=menu-trigger]]:w-full [&_[slot=menu-trigger]]:hover:bg-muted [&_[slot=menu-trigger]]:justify-start [&_[slot=menu-trigger]]:flex [&_[slot=menu-trigger]]:items-center"
       ],
       true: "size-12 p-1 [&_[slot=menu-trigger]]:size-9 justify-center items-center"
     }

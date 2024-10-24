@@ -18,11 +18,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <Sidebar.Provider defaultOpen={false}>
       <AppSidebar collapsible="dock" intent="inset" />
       <Sidebar.Inset>
-        <header className="sticky justify-between sm:justify-start top-0 bg-bg h-[3.57rem] px-4 flex items-center gap-x-2">
-          <span className="flex items-center">
-            <Sidebar.Trigger className="-ml-1.5" />
-            <Separator className="h-6 mr-3 ml-1 sm:block hidden" orientation="vertical" />
-            <Breadcrumbs>
+        <header className="sticky justify-between sm:justify-start top-0 h-[3.57rem] px-4 flex items-center gap-x-2">
+          <span className="flex items-center gap-x-4">
+            <Sidebar.Trigger className="-mx-2" />
+            <Separator className="h-6 md:block hidden" orientation="vertical" />
+            <Breadcrumbs className="md:flex hidden">
               <Breadcrumbs.Item href="/blocks/sidebar/sidebar-01">Dashboard</Breadcrumbs.Item>
 
               <Breadcrumbs.Item>Newsletter</Breadcrumbs.Item>
