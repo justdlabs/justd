@@ -166,7 +166,7 @@ const TagItem = ({ children, className, intent, shape, ...props }: TagProps) => 
                   )
                 })}
               >
-                <span className="shrink-0 text-base/4 -mr-px">
+                <span className="shrink-0 text-base/4">
                   <IconX className="size-3" />
                 </span>
               </Button>
