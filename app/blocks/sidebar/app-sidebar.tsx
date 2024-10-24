@@ -121,7 +121,7 @@ export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
           </Menu.Content>
         </Menu>
       </Sidebar.Footer>
-      <Sidebar.Rail />
+      {pathname !== "/blocks/sidebar/sidebar-02" && <Sidebar.Rail />}
     </Sidebar>
   )
 }

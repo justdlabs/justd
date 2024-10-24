@@ -288,18 +288,9 @@ export function AppSidebar() {
   const [isOpen, setIsOpen] = React.useState(false)
 
   return (
-    <Sidebar.Provider isOpen={isOpen} onOpenChange={onOpenChange}>
+    <Sidebar.Provider isOpen={isOpen} onOpenChange={setIsOpen}>
       <Sidebar />
     </Sidebar.Provider>
   )
 }
-```
-
-## Default Opened
-If you want the sidebar to be open by default, you can set the `defaultOpen` prop to `true`. You can see examples of this in [Sidebar 04](/blocks/sidebar/sidebar-04).
-```
-<Sidebar.Provider defaultOpen>
-  <Sidebar />
-  <Sidebar.Inset />
-</Sidebar.Provider>
 ```
