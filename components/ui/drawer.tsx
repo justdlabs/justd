@@ -1,185 +1,287 @@
 "use client"
 
-import * as React from "react"
+import React from "react"
 
-import { tv } from "tailwind-variants"
-import { type DialogProps, Drawer as DrawerPrimitive, Root } from "vaul"
+import type { PanInfo } from "framer-motion"
+import {
+  animate,
+  AnimatePresence,
+  type Inertia,
+  motion,
+  useMotionTemplate,
+  useMotionValue,
+  useMotionValueEvent,
+  useTransform
+} from "framer-motion"
+import type { DialogProps } from "react-aria-components"
+import { type ButtonProps, Modal, ModalOverlay } from "react-aria-components"
+import { twJoin } from "tailwind-merge"
 
-import { buttonStyles } from "./button"
+import { Dialog } from "./dialog"
+import { cn } from "./primitive"
 
-const drawer = tv({
-  slots: {
-    overlay: "fixed inset-0 z-50 bg-dark/15 dark:bg-dark/40",
-    header:
-      "grid gap-1.5 p-4 text-center sm:text-left peer-data-[vaul-drawer-direction=right]:text-left",
-    footer: "mt-auto flex flex-col-reverse justify-between gap-3 p-4 sm:flex-row",
-    title: "text-lg font-semibold leading-none tracking-tight",
-    description: "text-sm text-muted-fg",
-    notch: "mx-auto mt-2 h-1.5 w-20 rounded-full bg-muted",
-    body: "px-4"
-  }
-})
+const inertiaTransition: Inertia = {
+  type: "inertia",
+  bounceStiffness: 300,
+  bounceDamping: 60,
+  timeConstant: 300
+}
+const staticTransition = {
+  duration: 0.4,
+  ease: [0.32, 0.72, 0, 1]
+}
+const drawerMargin = 60
+const drawerRadius = 32
 
-const { overlay, header, body, footer, title, description, notch } = drawer()
-
-interface DrawerContextProps {
-  side?: "bottom" | "top" | "left" | "right"
-  hideNotch?: boolean
-  isCentered?: boolean
+interface DrawerContextType {
+  isOpen: boolean
+  openDrawer: () => void
+  closeDrawer: () => void
+  withNotch?: boolean
 }
 
-const DrawerContext = React.createContext<DrawerContextProps>({})
+const DrawerContext = React.createContext<DrawerContextType | undefined>(undefined)
 
-const useDrawer = () => {
+const useDrawerContext = () => {
   const context = React.useContext(DrawerContext)
   if (context === undefined) {
-    throw new Error("useDrawer must be used within a Drawer")
+    throw new Error("useDrawerContext must be used within a Drawer")
   }
   return context
 }
 
-type DrawerProps = Omit<DialogProps, "open" | "fadeFromIndex" | "direction"> & {
+const ModalWrapper = React.forwardRef<HTMLDivElement, React.ComponentProps<typeof Modal>>(
+  (props, ref) => <Modal ref={ref} {...props} />
+)
+ModalWrapper.displayName = "ModalWrapper"
+
+const ModalOverlayWrapper = React.forwardRef<
+  HTMLDivElement,
+  React.ComponentProps<typeof ModalOverlay>
+>((props, ref) => <ModalOverlay ref={ref} {...props} />)
+ModalOverlayWrapper.displayName = "ModalOverlayWrapper"
+
+const ModalPrimitive = motion.create(ModalWrapper)
+const ModalOverlayPrimitive = motion.create(ModalOverlayWrapper)
+
+interface DrawerOverlayPrimitiveProps
+  extends Omit<
+    React.ComponentProps<typeof ModalOverlayPrimitive>,
+    "isOpen" | "onOpenChange" | "style"
+  > {
+  "aria-label"?: DialogProps["aria-label"]
+  "aria-labelledby"?: DialogProps["aria-labelledby"]
+  role?: DialogProps["role"]
+}
+
+const DrawerContentPrimitive = ({ children, ...props }: DrawerOverlayPrimitiveProps) => {
+  const { closeDrawer, withNotch } = useDrawerContext()
+  const [contentHeight, setContentHeight] = React.useState(0)
+
+  const h = Math.min(contentHeight + drawerMargin, window.innerHeight - drawerMargin)
+  const y = useMotionValue(h)
+  const bgOpacity = useTransform(y, [0, h], [0.15, 0])
+  const bg = useMotionTemplate`rgba(0, 0, 0, ${bgOpacity})`
+
+  const root = document.getElementsByTagName("main")[0] as HTMLElement
+
+  const bodyBorderRadius = useTransform(y, [0, h], [drawerRadius, 0])
+
+  useMotionValueEvent(bodyBorderRadius, "change", (v) => (root.style.borderRadius = `${v}px`))
+
+  const onDragEnd = (_: any, { offset, velocity }: PanInfo) => {
+    if (offset.y > h * 0.4 || velocity.y > 10) {
+      closeDrawer()
+    } else {
+      animate(y, 0, { ...inertiaTransition, min: 0, max: 0 })
+    }
+  }
+
+  return (
+    <>
+      <ModalOverlayPrimitive
+        isDismissable
+        isOpen
+        onOpenChange={closeDrawer}
+        className={twJoin([
+          "fixed touch-none will-change-transform left-0 top-0 isolate z-50 h-[--visual-viewport-height] w-full",
+          "flex items-end [--visual-viewport-vertical-padding:100px]"
+        ])}
+        style={{
+          backgroundColor: bg as any
+        }}
+      >
+        <ModalPrimitive
+          className={cn(
+            "max-h-full flex flex-col w-full rounded-t-3xl sm:rounded-lg overflow-hidden bg-overlay text-overlay-fg text-left align-middle shadow-lg",
+            "ring-1 ring-dark/5 dark:ring-light/15"
+          )}
+          initial={{ y: h }}
+          animate={{ y: 0 }}
+          exit={{ y: h }}
+          transition={staticTransition}
+          style={{
+            y,
+            top: "auto",
+            height: contentHeight > 0 ? `${contentHeight + drawerMargin}px` : "auto",
+            maxHeight: `calc(100% - ${drawerMargin}px)`
+          }}
+          drag="y"
+          dragConstraints={{ top: 0, bottom: h }}
+          onDragEnd={onDragEnd}
+          {...props}
+        >
+          <div className="overflow-hidden">
+            {withNotch && (
+              <div className="notch touch-pan-y sticky top-0 mx-auto shrink-0 mt-2.5 h-1.5 w-10 rounded-full bg-fg/20" />
+            )}
+            <div
+              className="overflow-y-auto mt-3"
+              ref={(el) => {
+                if (el) {
+                  const resizeObserver = new ResizeObserver((entries) => {
+                    for (const entry of entries) {
+                      setContentHeight(entry.contentRect.height)
+                    }
+                  })
+                  resizeObserver.observe(el)
+                  return () => resizeObserver.disconnect()
+                }
+              }}
+            >
+              <>{children}</>
+            </div>
+          </div>
+        </ModalPrimitive>
+      </ModalOverlayPrimitive>
+    </>
+  )
+}
+
+interface DrawerPrimitiveProps extends Omit<React.ComponentProps<typeof Modal>, "children"> {
+  "aria-label"?: DialogProps["aria-label"]
+  "aria-labelledby"?: DialogProps["aria-labelledby"]
+  role?: DialogProps["role"]
+  children?: DialogProps["children"]
+}
+
+const DrawerPrimitive = (props: DrawerPrimitiveProps) => {
+  const { isOpen } = useDrawerContext()
+
+  const h = window.innerHeight - drawerMargin
+  const y = useMotionValue(h)
+  const bodyBorderRadius = useTransform(y, [0, h], [drawerRadius, 0])
+  return (
+    <motion.div
+      style={{
+        borderRadius: bodyBorderRadius,
+        transformOrigin: "center 0"
+      }}
+    >
+      <AnimatePresence>{isOpen && <>{props.children}</>}</AnimatePresence>
+    </motion.div>
+  )
+}
+
+const DrawerTrigger = (props: ButtonProps) => {
+  const { openDrawer } = useDrawerContext()
+
+  return <Dialog.Trigger onPress={openDrawer} {...props} />
+}
+
+interface DrawerProps {
+  children: React.ReactNode
   isOpen?: boolean
-} & DrawerContextProps &
-  (
-    | { side?: "bottom" | "top"; isCentered?: boolean }
-    | { side?: "left" | "right"; isCentered?: never }
-  ) & {}
+  withNotch?: boolean
+  onOpenChange?: (isOpen: boolean) => void
+}
 
 const Drawer = ({
-  side = "bottom",
-  isOpen,
-  isCentered = true,
-  hideNotch = false,
-  shouldScaleBackground = true,
-  ...props
+  children,
+  withNotch = true,
+  isOpen: controlledIsOpen,
+  onOpenChange
 }: DrawerProps) => {
+  const [internalIsOpen, setInternalIsOpen] = React.useState(false)
+
+  const isControlled = controlledIsOpen !== undefined
+  const isOpen = isControlled ? controlledIsOpen : internalIsOpen
+
+  const openDrawer = () => {
+    if (isControlled && onOpenChange) {
+      onOpenChange(true)
+    } else {
+      setInternalIsOpen(true)
+    }
+  }
+
+  const closeDrawer = () => {
+    if (isControlled && onOpenChange) {
+      onOpenChange(false)
+    } else {
+      setInternalIsOpen(false)
+    }
+  }
+
+  if (typeof window === "undefined") {
+    return null
+  }
+
   return (
-    <DrawerContext.Provider value={{ side, hideNotch, isCentered }}>
-      <Root
-        {...props}
-        direction={side}
-        open={isOpen}
-        shouldScaleBackground={shouldScaleBackground}
-      />
+    <DrawerContext.Provider value={{ isOpen, openDrawer, closeDrawer, withNotch }}>
+      {children}
     </DrawerContext.Provider>
   )
 }
 
-type OverlayProps = React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Overlay>
-
-const Overlay = ({ className, ...props }: OverlayProps) => (
-  <DrawerPrimitive.Overlay className={overlay({ className })} {...props} />
-)
-
-const content = tv({
-  base: "fixed dark:ring-border z-50 flex h-auto flex-col ring-1 ring-dark/5 bg-overlay text-overlay-fg",
-  variants: {
-    hideNotch: {
-      true: "[&>[data-slot=drawer-notch]]:hidden"
-    },
-    isCentered: {
-      true: [
-        "[&>[data-slot=drawer-header]]:w-full [&>[data-slot=drawer-footer]]:w-full  [&>[data-slot=drawer-body]]:w-full",
-        "[&>[data-slot=drawer-header]]:mx-auto [&>[data-slot=drawer-footer]]:mx-auto  [&>[data-slot=drawer-body]]:mx-auto",
-        "[&>[data-slot=drawer-header]]:max-w-md [&>[data-slot=drawer-footer]]:max-w-md  [&>[data-slot=drawer-body]]:max-w-md"
-      ]
-    },
-    side: {
-      bottom: "fixed inset-x-0 bottom-0 mt-24 rounded-t-3xl",
-      top: "inset-x-0 top-0 mb-24 rounded-t-xl",
-      left: "inset-y-0 left-0 h-full w-screen max-w-80",
-      right: "inset-y-0 right-0 h-full w-screen max-w-80"
-    }
-  },
-  defaultVariants: {
-    side: "bottom"
-  }
-})
-
-const Content = ({
-  className,
-  children,
-  ...props
-}: React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Content>) => {
-  const { side, hideNotch, isCentered } = useDrawer()
+const Content = ({ children, ...props }: React.ComponentProps<typeof DrawerPrimitive>) => {
   return (
-    <DrawerPrimitive.Portal>
-      <Overlay />
-      <DrawerPrimitive.Content
-        className={content({ hideNotch, isCentered, side, className })}
-        {...props}
-      >
-        {side === "bottom" && <div data-slot="drawer-notch" className={notch()} />}
-        {children}
-      </DrawerPrimitive.Content>
-    </DrawerPrimitive.Portal>
+    <DrawerPrimitive>
+      <DrawerContentPrimitive {...props}>
+        <Dialog
+          role={props.role ?? "dialog"}
+          aria-label={props["aria-label"] ?? undefined}
+          aria-labelledby={props["aria-labelledby"] ?? undefined}
+          className="sm:max-w-lg mx-auto"
+        >
+          {(values) => <>{typeof children === "function" ? children(values) : children}</>}
+        </Dialog>
+      </DrawerContentPrimitive>
+    </DrawerPrimitive>
   )
 }
 
-type DrawerHeaderProps = React.HTMLAttributes<HTMLDivElement> & {
-  title?: string
-  description?: string
-}
-
-const Header = ({ className, ...props }: DrawerHeaderProps) => (
-  <div data-slot="drawer-header" className={header({ className })}>
-    {props.title && <Title>{props.title}</Title>}
-    {props.description && <Description>{props.description}</Description>}
-    {!props.title && typeof props.children === "string" ? <Title {...props} /> : props.children}
-  </div>
+const DrawerHeader = ({ className, ...props }: React.ComponentProps<typeof Dialog.Header>) => (
+  <Dialog.Header className={cn("pt-2", className)} {...props} />
 )
 
-const Body = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => {
-  return <div data-slot="drawer-body" className={body({ className })} {...props} />
-}
-
-const Footer = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div data-slot="drawer-footer" className={footer({ className })} {...props} />
-)
-
-const Title = ({
+const DrawerBody = ({
+  children,
   className,
   ...props
-}: React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Title>) => (
-  <DrawerPrimitive.Title className={title({ className })} {...props} />
+}: React.ComponentProps<typeof Dialog.Body>) => (
+  <Dialog.Body {...props} className={cn("px-4", className)}>
+    {children}
+  </Dialog.Body>
 )
 
-const Description = ({
+const DrawerFooter = ({
+  children,
   className,
   ...props
-}: React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Description>) => (
-  <DrawerPrimitive.Description className={description({ className })} {...props} />
+}: React.ComponentProps<typeof Dialog.Footer>) => (
+  <Dialog.Footer {...props} className={cn("pb-2", className)}>
+    {children}
+  </Dialog.Footer>
 )
 
-interface DrawerCloseProps extends React.ComponentProps<typeof DrawerPrimitive.Close> {
-  appearance?: "outline" | "solid"
-  shape?: "square" | "circle"
-  size?: "medium" | "large" | "square-petite" | "extra-small" | "small"
-}
-
-const Close = ({
-  className,
-  appearance = "outline",
-  shape = "square",
-  size = "medium",
-  ...props
-}: DrawerCloseProps) => (
-  <DrawerPrimitive.Close
-    {...props}
-    className={buttonStyles({ appearance, shape, size, className })}
-  />
-)
-
-Drawer.Trigger = DrawerPrimitive.Trigger
-Drawer.Portal = DrawerPrimitive.Portal
-Drawer.Close = Close
-Drawer.Overlay = Overlay
+Drawer.Body = DrawerBody
+Drawer.Close = Dialog.Close
 Drawer.Content = Content
-Drawer.Body = Body
-Drawer.Header = Header
-Drawer.Footer = Footer
-Drawer.Title = Title
-Drawer.Description = Description
+Drawer.Description = Dialog.Description
+Drawer.Footer = DrawerFooter
+Drawer.Header = DrawerHeader
+Drawer.Title = Dialog.Title
+Drawer.Trigger = DrawerTrigger
 
 export { Drawer }

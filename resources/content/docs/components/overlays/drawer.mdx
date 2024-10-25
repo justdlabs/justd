@@ -3,7 +3,7 @@ title: "Drawer"
 description: Pull out a side menu or extra options, like opening a side drawer, handy for accessing additional functionalities.
 order: 3
 published: true
-references: ["https://vaul.emilkowal.ski/api"]
+references: ["https://react-spectrum.adobe.com/react-aria/Modal.html#props", "https://www.framer.com/motion/animate-presence"]
 ---
 
 
@@ -13,39 +13,30 @@ A slide-in overlay for extra content or options, anchored to the screen edge for
 
 ## Installation
 <Installation options={{ isComponent: true }} items={['drawer']}/>
+<WarningFramer/>
 
 ## Composed Components
-<Composed components={['button']}/>
+<Composed components={['button', 'dialog']}/>
 
 ## Manual Installation
-<Installation options={{ isManual: true }} items={['react-aria-components', 'vaul']}/>
+<Installation options={{ isManual: true }} items={['react-aria-components', 'framer-motion']}/>
+<SourceCode toShow={['drawer']}/>
 
 ## Anatomy
 <Anatomy show='drawer-anatomy'/>
 
-## Controlled
-To manually control the drawer's state, use the `isOpen` prop. When `isOpen` is set to `true`, the drawer opens; when it's `false`, the drawer closes.
+## Drawer Controlled
+You can control the drawer's state programmatically.
 <How toUse="overlays/drawer/drawer-controlled-demo" />
 
-## Positioning
-You can set the direction of the drawer to either `bottom`, `top`, `left`, or `right`.
-<How toUse="overlays/drawer/drawer-direction-demo" />
+## Without Notch
+Disable the notch on the drawer by setting the `withNotch` prop to `false`.
+<How toUse="overlays/drawer/drawer-without-notch-demo" />
 
+## Drawer Sticky
+The drawer also supports long content. Try it out!
+<How toUse="overlays/drawer/drawer-sticky-demo" />
 
-## Hide Notch
-You can hide the notch of the drawer by setting the `hideNotch` prop to `true`.
-<How toUse="overlays/drawer/drawer-hide-notch-demo" />
-
-## Centered
-By default, the drawer is centered, but you can disable this by setting the `isCentered` prop to `false`. This is useful when you need the drawer to align differently.
-<Note>Note that the `isCentered` prop only applies when the `side` is set to `bottom` or `top`. TypeScript will throw an error if used with `left` or `right`.</Note>
-<How toUse="overlays/drawer/drawer-is-not-centered-demo" />
-
-## Props
-There are several props available to customize the drawer. The `side` prop, originally called `direction` in Vaul, was renamed to align with Justd’s consistent naming convention. Likewise, `open` was renamed to `isOpen` for the same reason, ensuring uniformity across the API.
-| Props        | Default  |
-|--------------|----------|
-| `side`       | `bottom` |
-| `isOpen`     | -        |
-| `hideNotch`  | `false`  |
-| `isCentered` | `true`   |
+## Nested Drawer
+You can nest drawers inside each other. Try it out!
+<How toUse="overlays/drawer/drawer-nested-demo" />

@@ -1,6 +1,8 @@
 "use client"
 
-import { Button, buttonStyles, Drawer, TextField } from "ui"
+import React from "react"
+
+import { buttonStyles, Drawer, TextField } from "ui"
 
 export default function DrawerBasicDemo() {
   return (
@@ -14,12 +16,11 @@ export default function DrawerBasicDemo() {
           </Drawer.Description>
         </Drawer.Header>
         <Drawer.Body className="space-y-4">
-          <TextField autoFocus label="Email" placeholder="john.doe@example.com" />
-          <TextField label="Password" type="password" placeholder="••••••••••••" />
+          <TextField type="email" placeholder="john.doe@example.com" />
+          <TextField label="Password" type="password" placeholder="••••••••••••" isRevealable />
         </Drawer.Body>
         <Drawer.Footer>
-          <Drawer.Close>Cancel</Drawer.Close>
-          <Button>Login</Button>
+          <Drawer.Close className="w-full">Login</Drawer.Close>
         </Drawer.Footer>
       </Drawer.Content>
     </Drawer>
