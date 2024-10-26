@@ -16,7 +16,7 @@ export default function DrawerBasicDemo() {
           </Drawer.Description>
         </Drawer.Header>
         <Drawer.Body className="space-y-4">
-          <TextField label='Email' type="email" placeholder="john.doe@example.com" />
+          <TextField label="Email" type="email" placeholder="john.doe@example.com" />
           <TextField label="Password" type="password" placeholder="••••••••••••" isRevealable />
         </Drawer.Body>
         <Drawer.Footer>

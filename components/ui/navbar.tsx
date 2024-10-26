@@ -106,15 +106,21 @@ const Navbar = ({
 }
 
 const navStyles = tv({
-  base: "hidden h-[--navbar-height] [--navbar-height:3.5rem] px-4 group peer lg:flex items-center w-full max-w-screen-2xl mx-auto",
+  base: [
+    "hidden h-[--navbar-height] [--navbar-height:3.5rem] px-4 group peer lg:flex items-center w-full",
+    "[&>div]:max-w-[1680px] lg:[&>div]:flex [&>div]:items-center [&>div]:w-full [&>div]:mx-auto"
+  ],
   variants: {
     isSticky: {
       true: "sticky top-0"
     },
     intent: {
-      floating: "bg-tertiary shadow-sm border rounded-xl sm:px-4",
+      floating: "bg-tertiary max-w-[1680px] mx-auto shadow-sm border rounded-xl sm:px-4",
       navbar: "bg-tertiary shadow-sm border-b sm:px-6",
-      inset: "bg-secondary dark:bg-bg sm:px-6"
+      inset: [
+        "bg-secondary mx-auto dark:bg-bg sm:px-6",
+        "[&>div]:max-w-[1680px] lg:[&>div]:flex [&>div]:items-center [&>div]:w-full [&>div]:mx-auto"
+      ]
     }
   }
 })
@@ -148,7 +154,7 @@ const Nav = ({ className, ...props }: NavbarProps) => {
 
   return (
     <div className={navStyles({ isSticky, intent, className })} {...props}>
-      {props.children}
+      <div>{props.children}</div>
     </div>
   )
 }
