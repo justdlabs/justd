@@ -56,7 +56,7 @@ const fieldStyles = tv({
     label: "w-fit cursor-default font-medium text-secondary-fg text-sm",
     fieldError: "text-sm text-danger forced-colors:text-[Mark]",
     input: [
-      "w-full min-w-0 [&::-ms-reveal]:hidden bg-transparent p-2 text-base text-fg placeholder-muted-fg outline-none focus:outline-none lg:text-sm"
+      "w-full min-w-0 [&::-ms-reveal]:hidden bg-transparent py-2 px-2.5 text-base text-fg placeholder-muted-fg outline-none focus:outline-none lg:text-sm"
     ]
   }
 })
@@ -88,7 +88,7 @@ const FieldError = ({ className, ...props }: FieldErrorProps) => {
 
 const fieldGroupStyles = tv({
   base: [
-    "group flex h-10 items-center overflow-hidden rounded-lg border border-input bg-bg transition forced-colors:bg-[Field]"
+    "group [&>[data-slot=icon]]:shrink-0 flex h-10 items-center overflow-hidden rounded-lg border border-input bg-bg transition forced-colors:bg-[Field]"
   ],
   variants: {
     isDisabled: {

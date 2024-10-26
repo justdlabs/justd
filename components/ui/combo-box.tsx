@@ -81,7 +81,7 @@ const ComboBoxInput = (props: InputProps) => {
   const context = useSlottedContext(ComboBoxContext)!
   return (
     <FieldGroup className="pl-0 relative">
-      <Input {...props} className="pl-2.5" placeholder={props?.placeholder} />
+      <Input {...props} placeholder={props?.placeholder} />
       <Button size="square-petite" appearance="plain" className={chevronButton()}>
         {!context?.inputValue && <IconChevronLgDown className={chevronIcon()} />}
       </Button>

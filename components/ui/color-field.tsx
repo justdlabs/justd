@@ -43,7 +43,7 @@ const ColorField = ({
       aria-label={props["aria-label"] ?? "Color field"}
       className={ctr(
         className,
-        "[&_[data-slot=color-swatch]]:ml-2 group w-full flex flex-col gap-y-1"
+        "[&_[data-slot=color-swatch]]:-ml-0.5 group w-full flex flex-col gap-y-1"
       )}
     >
       {label && <Label>{label}</Label>}
@@ -67,7 +67,7 @@ const ColorField = ({
             </span>
           )}
 
-          <Input className="px-2.5" placeholder={placeholder} />
+          <Input placeholder={placeholder} />
         </div>
         {suffix ? (
           <span data-slot="suffix" className="atrs ml-auto">

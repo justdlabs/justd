@@ -21,7 +21,6 @@ interface BaseTextFieldProps extends TextFieldPrimitiveProps, FieldProps {
   prefix?: React.ReactNode
   suffix?: React.ReactNode
   isPending?: boolean
-  indicatorPlace?: "prefix" | "suffix"
   className?: string
 }
 
@@ -45,7 +44,6 @@ const TextField = ({
   prefix,
   suffix,
   isPending,
-  indicatorPlace,
   className,
   isRevealable,
   type,
@@ -68,14 +66,12 @@ const TextField = ({
         data-loading={isPending ? "true" : undefined}
         className={fieldGroupPrefixStyles({ className })}
       >
-        {isPending && indicatorPlace === "prefix" ? (
-          <Loader variant="spin" />
-        ) : prefix ? (
+        {prefix ? (
           <span data-slot="prefix" className="atrs x2e2">
             {prefix}
           </span>
         ) : null}
-        <Input className="px-2.5" placeholder={placeholder} />
+        <Input placeholder={placeholder} />
         {isRevealable ? (
           <ButtonPrimitive
             type="button"
@@ -84,7 +80,7 @@ const TextField = ({
           >
             <>{isPasswordVisible ? <IconEyeClosed /> : <IconEye />}</>
           </ButtonPrimitive>
-        ) : isPending && indicatorPlace === "suffix" ? (
+        ) : isPending ? (
           <Loader variant="spin" data-slot="suffix" />
         ) : suffix ? (
           <span data-slot="suffix" className="atrs x2e2">
