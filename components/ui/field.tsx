@@ -45,7 +45,7 @@ const fieldGroupPrefixStyles = tv({
     "flex group-invalid:border-danger group-disabled:bg-secondary group-disabled:opacity-50 items-center group-invalid:focus-within:ring-danger/20",
     "has-[[data-slot=prefix]]:-mx-0.5 has-[[data-slot=suffix]]:-mx-0.5",
     "[&_button]:h-8 [&_button]:rounded-md [&_button]:px-2.5 [&_button]:before:rounded-[calc(theme(borderRadius.md)-1px)] [&_button]:after:rounded-[calc(theme(borderRadius.md)-1px)] dark:[&_button]:after:rounded-md",
-    "[&>[data-slot=prefix]]:ml-2.5 [&>[data-slot=prefix]]:text-muted-fg [&>[data-slot=prefix]>button]:ml-[-7px]",
+    "[&>[role=progressbar]]:mr-2.5 [&>[data-slot=prefix]]:ml-2.5 [&>[data-slot=prefix]]:text-muted-fg [&>[data-slot=prefix]>button]:ml-[-7px]",
     "[&>[data-slot=suffix]]:mr-2.5 [&>[data-slot=suffix]]:text-muted-fg [&>[data-slot=suffix]>button]:mr-[-7px]"
   ]
 })

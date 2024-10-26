@@ -82,7 +82,7 @@ const Navbar = ({
 
   const toggleNavbar = React.useCallback(() => {
     setOpen((open) => !open)
-  }, [isCompact, setOpen])
+  }, [setOpen])
 
   const contextValue = React.useMemo<NavbarContextProps>(
     () => ({

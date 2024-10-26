@@ -69,7 +69,7 @@ const TextField = ({
         className={fieldGroupPrefixStyles({ className })}
       >
         {isPending && indicatorPlace === "prefix" ? (
-          <Loader data-slot="prefix" variant="spin" />
+          <Loader variant="spin" />
         ) : prefix ? (
           <span data-slot="prefix" className="atrs x2e2">
             {prefix}
