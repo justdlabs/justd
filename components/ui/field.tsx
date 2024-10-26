@@ -22,8 +22,6 @@ import { tv } from "tailwind-variants"
 
 import { cr, ctr } from "./primitive"
 
-// primitive styles
-
 interface FieldProps {
   label?: string
   placeholder?: string
@@ -33,7 +31,6 @@ interface FieldProps {
   "aria-labelledby"?: TextFieldPrimitiveProps["aria-labelledby"]
 }
 
-// primitive styles
 const fieldBorderStyles = tv({
   base: "group-focus-within:border-ring/85 forced-colors:border-[Highlight]",
   variants: {
@@ -46,9 +43,10 @@ const fieldBorderStyles = tv({
 const fieldGroupPrefixStyles = tv({
   base: [
     "flex group-invalid:border-danger group-disabled:bg-secondary group-disabled:opacity-50 items-center group-invalid:focus-within:ring-danger/20",
-    "[&>.x2e2>.kbt32x]:size-7 [&>.x2e2>.kbt32x]:rounded-sm [&>.x2e2:has(.kbt32x)]:size-9 [&>.x2e2:has(.kbt32x)]:grid [&>.x2e2:has(.kbt32x)]:place-items-center",
-    "[&>.x2e2>.kbt32x]:before:rounded-[calc(theme(borderRadius.sm)-1px)] [&>.x2e2>.kbt32x]:after:rounded-[calc(theme(borderRadius.sm)-1px)] dark:[&>.x2e2>.kbt32x]:after:rounded-sm",
-    "[&>.isSfx:has(.kbt32x)]:-mr-2 [&>.isPfx:has(.kbt32x)]:-ml-2 [&>.isSfx>.kbt32x]:mr-0.5 [&>.isPfx>.kbt32x]:ml-0.5"
+    "has-[[data-slot=prefix]]:-mx-0.5 has-[[data-slot=suffix]]:-mx-0.5",
+    "[&_button]:h-8 [&_button]:rounded-md [&_button]:px-2.5 [&_button]:before:rounded-[calc(theme(borderRadius.md)-1px)] [&_button]:after:rounded-[calc(theme(borderRadius.md)-1px)] dark:[&_button]:after:rounded-md",
+    "[&>[data-slot=prefix]]:ml-2.5 [&>[data-slot=prefix]]:text-muted-fg [&>[data-slot=prefix]>button]:ml-[-7px]",
+    "[&>[data-slot=suffix]]:mr-2.5 [&>[data-slot=suffix]]:text-muted-fg [&>[data-slot=suffix]>button]:mr-[-7px]"
   ]
 })
 
@@ -90,14 +88,15 @@ const FieldError = ({ className, ...props }: FieldErrorProps) => {
 
 const fieldGroupStyles = tv({
   base: [
-    "group flex h-10 items-center overflow-hidden rounded-lg border border-input bg-bg transition disabled:opacity-50 disabled:bg-secondary forced-colors:bg-[Field]",
-    "focus-within:border-ring/85 focus-within:ring-4 focus-within:ring-ring/20",
-    "focus-within:invalid:border-danger focus-within:invalid:ring-4 focus-within:invalid:ring-danger/20",
-    "has-[.isPfx]:pl-2.5 has-[.isSfx]:pr-2.5 [&_[data-slot=icon]]:size-4 has-[.atrs]:shrink-0 has-[.atrs]:text-muted-fg"
+    "group flex h-10 items-center overflow-hidden rounded-lg border border-input bg-bg transition forced-colors:bg-[Field]"
   ],
   variants: {
+    isDisabled: {
+      true: "opacity-50 bg-secondary"
+    },
     isInvalid: {
-      true: "border-danger"
+      false: "focus-within:border-ring/85 focus-within:ring-4 focus-within:ring-ring/20",
+      true: "border-danger focus-within:border-danger focus-within:ring-4 focus-within:ring-danger/20"
     }
   }
 })

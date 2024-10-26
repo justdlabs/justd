@@ -200,11 +200,12 @@ const Section = ({ className, ...props }: React.ComponentProps<"div">) => {
   )
 }
 
-const linkStyles = tv({
+const navItemStyles = tv({
   base: [
     "relative text-sm px-2 flex items-center gap-x-2 [&>[data-slot=icon]]:-mx-0.5 text-muted-fg outline-none forced-colors:disabled:text-[GrayText] transition-colors",
+    "hover:text-fg focus:text-fg pressed:text-fg focus-visible:outline-1 focus-visible:outline-primary",
     "disabled:opacity-60 disabled:cursor-default",
-    "current:text-fg hover:text-fg focus:text-fg pressed:text-fg focus-visible:outline-1 focus-visible:outline-primary"
+    "[&>[data-slot=icon]]:size-4 [&>[data-slot=icon]]:shrink-0"
   ],
   variants: {
     isCurrent: {
@@ -224,7 +225,7 @@ const Item = ({ className, isCurrent, ...props }: ItemProps) => {
       slot="navbar-item"
       aria-current={isCurrent ? "page" : undefined}
       className={cr(className, (className, ...renderProps) =>
-        linkStyles({ ...renderProps, isCurrent, className })
+        navItemStyles({ ...renderProps, isCurrent, className })
       )}
       {...props}
     >

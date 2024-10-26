@@ -3,7 +3,7 @@
 import * as React from "react"
 
 import type { TextInputDOMProps } from "@react-types/shared"
-import { IconEye, IconEyeClosed, IconLoader } from "justd-icons"
+import { IconEye, IconEyeClosed } from "justd-icons"
 import {
   Button as ButtonPrimitive,
   TextField as TextFieldPrimitive,
@@ -69,29 +69,27 @@ const TextField = ({
         className={fieldGroupPrefixStyles({ className })}
       >
         {isPending && indicatorPlace === "prefix" ? (
-          <IconLoader className="animate-spin isPfx" />
+          <Loader data-slot="prefix" variant="spin" />
         ) : prefix ? (
-          <span className="atrs isPfx x2e2">{prefix}</span>
+          <span data-slot="prefix" className="atrs x2e2">
+            {prefix}
+          </span>
         ) : null}
         <Input className="px-2.5" placeholder={placeholder} />
         {isRevealable ? (
           <ButtonPrimitive
             type="button"
             onPress={handleTogglePasswordVisibility}
-            className="atrs relative isSfx x2e2 [&_[data-slot=icon]]:text-muted-fg focus:outline-none focus-visible:ring-1 focus-visible:ring-primary rounded"
+            className="atrs relative [&>[data-slot=icon]]:text-muted-fg focus:outline-none focus-visible:ring-1 focus-visible:ring-primary rounded"
           >
-            <>
-              {isPasswordVisible ? (
-                <IconEyeClosed className="transition animate-in" />
-              ) : (
-                <IconEye className="transition animate-in" />
-              )}
-            </>
+            <>{isPasswordVisible ? <IconEyeClosed /> : <IconEye />}</>
           </ButtonPrimitive>
         ) : isPending && indicatorPlace === "suffix" ? (
-          <Loader variant="spin" className="isSfx" />
+          <Loader variant="spin" data-slot="suffix" />
         ) : suffix ? (
-          <span className="atrs isSfx x2e2">{suffix}</span>
+          <span data-slot="suffix" className="atrs x2e2">
+            {suffix}
+          </span>
         ) : null}
       </FieldGroup>
       {description && <Description>{description}</Description>}

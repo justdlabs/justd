@@ -51,7 +51,11 @@ const ColorField = ({
         data-loading={isLoading ? "true" : undefined}
         className={fieldGroupPrefixStyles()}
       >
-        {prefix ? <span className="atrs isPfx">{prefix}</span> : null}
+        {prefix ? (
+          <span data-slot="prefix" className="atrs">
+            {prefix}
+          </span>
+        ) : null}
         <div className="flex items-center">
           {value && (
             <span>
@@ -65,7 +69,11 @@ const ColorField = ({
 
           <Input className="px-2.5" placeholder={placeholder} />
         </div>
-        {suffix ? <span className="atrs ml-auto isSfx">{suffix}</span> : null}
+        {suffix ? (
+          <span data-slot="suffix" className="atrs ml-auto">
+            {suffix}
+          </span>
+        ) : null}
       </FieldGroup>
       {description && <Description>{description}</Description>}
       <FieldError>{errorMessage}</FieldError>
