@@ -30,7 +30,7 @@ export function AppNavbar({ children, ...props }: React.ComponentProps<typeof Na
       <Navbar {...props}>
         <Navbar.Nav>
           <Navbar.Logo href="/docs/components/layouts/navbar">
-            <IconBrandApple className="size-5" />
+            <IconBrandApple className="size-6 lg:size-5" />
           </Navbar.Logo>
           <Navbar.Section>
             <NavbarItem isCurrent href="/blocks/navbar/navbar-01">
@@ -58,7 +58,7 @@ export function AppNavbar({ children, ...props }: React.ComponentProps<typeof Na
             <Navbar.Item href="#">Accessories</Navbar.Item>
             <Navbar.Item href="#">Support</Navbar.Item>
           </Navbar.Section>
-          <Navbar.Section className="ml-auto hidden sm:flex">
+          <Navbar.Section className="ml-auto hidden lg:flex">
             <Navbar.Flex>
               <Button
                 onPress={() => setOpen(true)}
@@ -123,7 +123,7 @@ export function AppNavbar({ children, ...props }: React.ComponentProps<typeof Na
         <Navbar.Compact>
           <Navbar.Flex>
             <Navbar.Trigger className="-ml-2" />
-            <Separator orientation="vertical" className="h-6 mx-2" />
+            <Separator orientation="vertical" className="h-6 lg:mx-1" />
             <Navbar.Logo href="/docs/components/layouts/navbar">
               <IconBrandApple className="size-5" />
             </Navbar.Logo>

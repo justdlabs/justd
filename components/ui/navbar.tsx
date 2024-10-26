@@ -47,7 +47,7 @@ const navbarStyles = tv({
   base: "relative isolate flex w-full min-h-svh flex-col",
   variants: {
     intent: {
-      floating: "pt-2 px-2",
+      floating: "pt-2 px-2.5",
       navbar: "",
       inset: "bg-secondary dark:bg-bg"
     }
@@ -65,7 +65,7 @@ const Navbar = ({
   intent = "navbar",
   ...props
 }: NavbarProviderProps) => {
-  const isCompact = useMediaQuery("(max-width: 600px)")
+  const isCompact = useMediaQuery("(max-width: 1023px)")
   const [_open, _setOpen] = React.useState(defaultOpen)
   const open = openProp ?? _open
 
@@ -146,7 +146,7 @@ const Nav = ({ className, ...props }: NavbarProps) => {
           }}
           isStack={intent === "floating"}
         >
-          <Sheet.Body className="px-2">{props.children}</Sheet.Body>
+          <Sheet.Body className="sm:px-4 px-2">{props.children}</Sheet.Body>
         </Sheet.Content>
       </Sheet>
     )
@@ -181,7 +181,7 @@ const Trigger = ({ className, onPress, ...props }: React.ComponentProps<typeof B
 }
 
 const Section = ({ className, ...props }: React.ComponentProps<"div">) => {
-  const isCompact = useMediaQuery("(max-width: 600px)")
+  const { isCompact } = useNavbar()
   const id = React.useId()
   return (
     <LayoutGroup id={id}>
@@ -202,7 +202,7 @@ const Section = ({ className, ...props }: React.ComponentProps<"div">) => {
 
 const navItemStyles = tv({
   base: [
-    "relative text-sm px-2 flex items-center gap-x-2 [&>[data-slot=icon]]:-mx-0.5 text-muted-fg outline-none forced-colors:disabled:text-[GrayText] transition-colors",
+    "relative lg:text-sm px-2 flex items-center gap-x-2 [&>[data-slot=icon]]:-mx-0.5 text-muted-fg outline-none forced-colors:disabled:text-[GrayText] transition-colors",
     "hover:text-fg focus:text-fg pressed:text-fg focus-visible:outline-1 focus-visible:outline-primary",
     "disabled:opacity-60 disabled:cursor-default",
     "[&>[data-slot=icon]]:size-4 [&>[data-slot=icon]]:shrink-0"
@@ -258,7 +258,7 @@ const Logo = ({ className, ...props }: LinkProps) => {
 }
 
 const Flex = ({ className, ...props }: React.ComponentProps<"div">) => {
-  return <div className={cn("flex items-center gap-3", className)} {...props} />
+  return <div className={cn("flex items-center gap-2 sm:gap-3", className)} {...props} />
 }
 
 const compactStyles = tv({
