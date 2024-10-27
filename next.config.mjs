@@ -29,6 +29,16 @@ export default {
         permanent: false
       },
       {
+        source: "/d/accordion",
+        destination: "/docs/components/navigation/disclosure-group",
+        permanent: false
+      },
+      {
+        source: "/accordion",
+        destination: "/docs/components/navigation/disclosure-group",
+        permanent: false
+      },
+      {
         source: "/aside",
         destination: "/docs/components/layouts/sidebar",
         permanent: false

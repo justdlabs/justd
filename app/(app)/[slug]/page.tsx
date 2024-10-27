@@ -11,5 +11,5 @@ export default function Page({ params }: PageProps) {
     notFound()
   }
 
-  return redirect(`/${originalUrl}`)
+  return redirect(`/${originalUrl.toLowerCase()}`)
 }
