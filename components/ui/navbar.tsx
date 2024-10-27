@@ -112,7 +112,7 @@ const navStyles = tv({
   ],
   variants: {
     isSticky: {
-      true: "sticky z-20 top-0"
+      true: "sticky z-40 top-0"
     },
     intent: {
       floating: "bg-tertiary max-w-[1680px] mx-auto shadow-sm border rounded-xl sm:px-4",
