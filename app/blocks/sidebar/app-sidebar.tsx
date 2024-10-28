@@ -55,9 +55,9 @@ export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
           <SidebarItem icon={IconEnvelope} href="/blocks/sidebar/sidebar-04" badge="49.67K">
             Newsletter
           </SidebarItem>
-          <Sidebar.Item icon={IconMessage} href="/blocks/sidebar/sidebar-05" badge={35}>
+          <SidebarItem icon={IconMessage} href="/blocks/sidebar/sidebar-05" badge={35}>
             Messages
-          </Sidebar.Item>
+          </SidebarItem>
         </Sidebar.Section>
 
         <Sidebar.Section title="Projects">
