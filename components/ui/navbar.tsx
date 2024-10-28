@@ -115,11 +115,12 @@ const navStyles = tv({
       true: "sticky z-40 top-0"
     },
     intent: {
-      floating: "bg-tertiary max-w-[1680px] mx-auto shadow-sm border rounded-xl sm:px-4",
+      floating:
+        "bg-tertiary w-full max-w-7xl 2xl:max-w-screen-2xl mx-auto shadow-sm border rounded-xl sm:px-4",
       navbar: "bg-tertiary shadow-sm border-b sm:px-6",
       inset: [
         "bg-secondary mx-auto dark:bg-bg sm:px-6",
-        "[&>div]:max-w-[1680px] lg:[&>div]:flex [&>div]:items-center [&>div]:w-full [&>div]:mx-auto"
+        "2xl:[&>div]:max-w-screen-2xl lg:[&>div]:flex [&>div]:items-center [&>div]:w-full [&>div]:mx-auto"
       ]
     }
   }

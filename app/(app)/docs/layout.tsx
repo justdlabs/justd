@@ -5,7 +5,7 @@ import { Aside } from "@/components/aside"
 export default function Layout({ children }: { children: ReactNode }) {
   return (
     <div className="flex w-full flex-col">
-      <div className="relative mx-auto flex w-full max-w-8xl flex-auto justify-center lg:px-8">
+      <div className="relative mx-auto flex w-full max-w-7xl 2xl:max-w-screen-2xl flex-auto justify-center lg:px-8">
         <div className="hidden lg:relative lg:block lg:flex-none">
           <div className="absolute inset-y-0 right-0 w-[50vw] bg-zinc-50 dark:hidden" />
           <div className="absolute bottom-0 right-0 top-16 hidden h-12 w-px bg-gradient-to-t from-zinc-800 dark:block" />

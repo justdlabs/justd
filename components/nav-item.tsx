@@ -23,12 +23,13 @@ interface NavLinkProps {
   isNextLink?: boolean
   children?: React.ReactNode
   target?: string
+  className?: string
 }
 
-const NavLink = ({ href, isActive, isNextLink, ...props }: NavLinkProps) => {
+const NavLink = ({ href, isActive, className, isNextLink, ...props }: NavLinkProps) => {
   const El = isNextLink ? NextLink : LinkPrimitive
   return (
-    <El href={href} className={navLinkStyles({ isActive })} {...props}>
+    <El href={href} className={navLinkStyles({ isActive, className })} {...props}>
       <>
         {props.children}
         {isActive && (

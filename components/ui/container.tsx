@@ -3,10 +3,10 @@ import React from "react"
 import { tv } from "tailwind-variants"
 
 const containerStyles = tv({
-  base: "mx-auto w-full max-w-7xl",
+  base: "mx-auto w-full max-w-7xl lg:max-w-screen-xl 2xl:max-w-screen-2xl",
   variants: {
     intent: {
-      constrained: "container sm:px-6 lg:px-8",
+      constrained: "sm:px-6 lg:px-8",
       "padded-content": "px-4 sm:px-6 lg:px-8"
     }
   },

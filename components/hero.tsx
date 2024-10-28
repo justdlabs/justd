@@ -23,7 +23,7 @@ export function Hero() {
       </div>
       <svg
         aria-hidden="true"
-        className="absolute sm:block hidden inset-0 -z-10 h-full w-full stroke-gray-200 dark:stroke-gray-800 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
+        className="absolute lg:block hidden inset-0 -z-10 h-full w-full stroke-zinc-200 dark:stroke-zinc-800 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
       >
         <defs>
           <pattern
@@ -44,7 +44,7 @@ export function Hero() {
           strokeWidth={0}
         />
       </svg>
-      <div className="pt-12 pb-6 sm:py-16 md:py-20 lg:py-24 border-b">
+      <div className="pt-10 pb-6 sm:py-8 lg:py-10 xl:py-20 2xl:py-24 border-b">
         <Container>
           <Header>
             <Link
