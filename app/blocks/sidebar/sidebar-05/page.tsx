@@ -4,9 +4,9 @@ import type { Metadata } from "next"
 import { Heading } from "ui"
 
 export const metadata: Metadata = {
-  title: "Sidebar Default Collapsed"
+  title: "Sidebar With Modal"
 }
 
 export default function Page() {
-  return <Heading>Newsletter</Heading>
+  return <Heading>Messages</Heading>
 }

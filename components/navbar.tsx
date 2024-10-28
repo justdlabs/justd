@@ -79,7 +79,7 @@ export function Navbar() {
                     <NavLink isNextLink isActive={pathname === "/colors"} href="/colors">
                       Colors
                     </NavLink>
-                    <NavLink isActive={pathname === "/icons"} href="/icons">
+                    <NavLink isNextLink isActive={pathname === "/icons"} href="/icons">
                       Icons
                     </NavLink>
                     <NavLink
@@ -89,7 +89,7 @@ export function Navbar() {
                     >
                       Charts
                     </NavLink>
-                    <NavLink isActive={pathname === "/themes"} href="/themes">
+                    <NavLink isNextLink isActive={pathname === "/themes"} href="/themes">
                       Themes
                     </NavLink>
                   </Collection>

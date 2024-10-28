@@ -294,3 +294,21 @@ export function AppSidebar() {
   )
 }
 ```
+
+## Modal
+Sometimes, you may want a modal to open when a user clicks a sidebar item. You can control the modal's visibility using the `isOpen` prop, which is especially useful when managing multiple modals. However, if you only have one or two modals, you can simplify by wrapping them directly within the `<Modal />` component like this:
+```
+<Sidebar.Section title="Projects">
+  <Sidebar.Item icon={IconCube} href='#'>All Projects</Sidebar.Item>
+  <Modal>
+    <Sidebar.Item icon={IconPlus}>Create New Project</Sidebar.Item>
+    <Modal.Content>
+      <Modal.Header title="New Project" />
+      <Modal.Footer>
+        <Modal.Close>Close</Modal.Close>
+      </Modal.Footer>
+    </Modal.Content>
+  </Modal>
+</Sidebar.Section>
+```
+See the [Sidebar 05](/blocks/sidebar/sidebar-05) example for a more detailed implementation.

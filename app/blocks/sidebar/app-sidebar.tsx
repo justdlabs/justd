@@ -5,11 +5,11 @@ import * as React from "react"
 import { useTheme } from "@/components/theme-provider"
 import {
   IconArchive,
-  IconBag,
   IconBrandApple,
   IconChevronLgDown,
   IconCirclePerson,
   IconCreditCard,
+  IconCube,
   IconDashboard,
   IconEnvelope,
   IconLogout,
@@ -23,7 +23,7 @@ import {
   IconSun
 } from "justd-icons"
 import { usePathname } from "next/navigation"
-import { Avatar, Button, Link, Menu, Sidebar, useSidebar } from "ui"
+import { Avatar, Button, Link, Menu, Modal, Sidebar, useSidebar } from "ui"
 
 export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
   const { theme, setTheme } = useTheme()
@@ -55,33 +55,48 @@ export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
           <SidebarItem icon={IconEnvelope} href="/blocks/sidebar/sidebar-04" badge="49.67K">
             Newsletter
           </SidebarItem>
-          <Sidebar.Item icon={IconMessage} href="#" badge={35}>
+          <Sidebar.Item icon={IconMessage} href="/blocks/sidebar/sidebar-05" badge={35}>
             Messages
           </Sidebar.Item>
         </Sidebar.Section>
+
         <Sidebar.Section title="Projects">
-          <Sidebar.Item icon={IconBag} href="#">
+          <Sidebar.Item icon={IconCube} href="#">
             All Projects
           </Sidebar.Item>
-          <Sidebar.Item icon={IconPlus} href="#">
-            Create New Project
-          </Sidebar.Item>
+          {pathname === "/blocks/sidebar/sidebar-05" ? (
+            <Modal>
+              <Sidebar.Item icon={IconPlus}>Create New Project</Sidebar.Item>
+              <Modal.Content>
+                <Modal.Header title="New Project" />
+                <Modal.Footer>
+                  <Modal.Close>Close</Modal.Close>
+                </Modal.Footer>
+              </Modal.Content>
+            </Modal>
+          ) : (
+            <Sidebar.Item icon={IconPlus} href="#">
+              Create New Project
+            </Sidebar.Item>
+          )}
           <Sidebar.Item icon={IconArchive} href="#">
             Archived Projects
           </Sidebar.Item>
         </Sidebar.Section>
 
-        <Sidebar.Section collapsible title="Team">
-          <Sidebar.Item icon={IconPeople} href="#">
-            Team Overview
-          </Sidebar.Item>
-          <Sidebar.Item icon={IconPersonAdd} href="#">
-            Add New Member
-          </Sidebar.Item>
-          <Sidebar.Item icon={IconCirclePerson} href="#">
-            Manage Roles
-          </Sidebar.Item>
-        </Sidebar.Section>
+        {pathname !== "/blocks/sidebar/sidebar-05" && (
+          <Sidebar.Section collapsible title="Team">
+            <Sidebar.Item icon={IconPeople} href="#">
+              Team Overview
+            </Sidebar.Item>
+            <Sidebar.Item icon={IconPersonAdd} href="#">
+              Add New Member
+            </Sidebar.Item>
+            <Sidebar.Item icon={IconCirclePerson} href="#">
+              Manage Roles
+            </Sidebar.Item>
+          </Sidebar.Section>
+        )}
       </Sidebar.Content>
       <Sidebar.Footer className="lg:flex lg:flex-row hidden items-center">
         <Menu>
