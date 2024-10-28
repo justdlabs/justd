@@ -89,7 +89,15 @@ export function IconListItem({ name, Icon }: IconListItemProps) {
     >
       <Icon aria-label={name} className={selectedSize} key={name} />
       <Menu isOpen={isSelected} onOpenChange={setSelected}>
-        <Menu.Content triggerRef={triggerRef} showArrow aria-label="Options">
+        <Menu.Content
+          triggerRef={triggerRef}
+          className="sm:min-w-48"
+          showArrow
+          aria-label="Options"
+        >
+          <Menu.Header className="font-normal font-mono text-xs sm:text-xs" separator>
+            {name}
+          </Menu.Header>
           <Menu.Item onAction={() => handleCopy("jsx")}>Copy JSX</Menu.Item>
           <Menu.Item onAction={() => copySvgToClipboard(Icon)}>Copy SVG</Menu.Item>
           <Menu.Item onAction={() => handleCopy("text")}>Copy Name</Menu.Item>
