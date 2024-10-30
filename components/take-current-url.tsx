@@ -13,7 +13,7 @@ export function TakeCurrentUrl() {
   const [copied, setCopied] = React.useState(false)
   const pathname = usePathname()
   const text = pathname.includes("/docs")
-    ? "https://getjustd.com/d/" + pathname.split("/").pop()
+    ? "https://getjustd.com/" + pathname.split("/").pop()
     : "https://getjustd.com" + pathname
   const handleCopy = async () => {
     if (navigator.clipboard && window.isSecureContext) {

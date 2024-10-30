@@ -5,10 +5,11 @@ import React from "react"
 import { type Docs, docs } from "#site/content"
 import { goodTitle, sortDocs } from "@/resources/lib/utils"
 import { LayoutGroup, motion } from "framer-motion"
-import { IconChevronLeft, IconCircleHalf, IconCube, IconHighlight, IconLayers } from "justd-icons"
+import { IconChevronRight, IconCircleHalf, IconCube, IconHighlight, IconLayers } from "justd-icons"
 import { Link as NextLink } from "next-view-transitions"
 import type { LinkProps as NextLinkProps } from "next/link"
 import { usePathname } from "next/navigation"
+import { twJoin } from "tailwind-merge"
 import { tv } from "tailwind-variants"
 import { Badge, cn, Disclosure, DisclosureGroup } from "ui"
 
@@ -56,11 +57,11 @@ const renderHierarchy = (node: HierarchyNode, defaultValues: string[]) => {
       hideIndicator
       allowsMultipleExpanded
       defaultExpandedKeys={["getting-started", "components"]}
-      className="w-full [&_.dk32xd]:p-0 [&_.zwx3ai]:p-0 [&_.zwx3ai]:border-none"
+      className="w-full [&_.dk32xd]:p-0 flex flex-col gap-y-0.5 [&_.zwx3ai]:p-0 [&_.zwx3ai]:border-none"
     >
       {filteredNodeEntries.map(([key, value]) => (
-        <Disclosure key={key} id={key}>
-          <Trigger className="[&_.jr131]:size-4 py-1.5 text-fg groud-data-[open]:text-muted-fg [&_.jr131]:text-primary [&_.jr131]:fill-primary/10 dark:[&_.jr131]:fill-primary/30">
+        <Disclosure className={({ isExpanded }) => twJoin(isExpanded && "pb-0")} key={key} id={key}>
+          <Trigger className="[&_.jr131]:size-4 pl-2.5 pr-1 text-fg groud-data-[open]:text-muted-fg [&_.jr131]:text-muted-fg [&_.jr131]:fill-muted-fg/10 dark:[&_.jr131]:fill-muted-fg/30">
             {key === "getting-started" ? (
               <IconLayers className="jr131" />
             ) : key === "prologue" ? (
@@ -73,97 +74,98 @@ const renderHierarchy = (node: HierarchyNode, defaultValues: string[]) => {
             {goodTitle(key)}
           </Trigger>
           <Disclosure.Panel>
-            {typeof value === "object" && "title" in value ? (
-              <AsideLink href={`/${(value as Doc).slug}`}>
-                {goodTitle((value as Doc).title)}
-              </AsideLink>
-            ) : (
-              <DisclosureGroup
-                allowsMultipleExpanded
-                hideBorder
-                hideIndicator
-                defaultExpandedKeys={defaultValues}
-                className="w-full relative"
-              >
-                <div className="h-full absolute left-0 bg-zinc-200 dark:bg-zinc-800 w-px ml-4" />
-                {Object.entries(value as HierarchyNode).map(([subKey, subValue]) =>
-                  typeof subValue === "object" && "title" in subValue ? (
-                    <AsideLink
-                      className="pl-[2rem] flex justify-between items-center"
-                      key={subKey}
-                      href={`/${subValue.slug}`}
-                    >
-                      {(subValue as Doc).title}
-                      {subValue.status && (
-                        <Badge
-                          intent={
-                            subValue?.status === "wip"
-                              ? "warning"
-                              : subValue?.status === "alpha"
-                                ? "danger"
-                                : subValue.status === "beta"
+            <DisclosureGroup
+              allowsMultipleExpanded
+              hideBorder
+              hideIndicator
+              defaultExpandedKeys={defaultValues}
+              className="w-full relative"
+            >
+              <div className="h-full absolute left-0 bg-zinc-200 dark:bg-zinc-800 w-px ml-4" />
+              {Object.entries(value as HierarchyNode).map(([subKey, subValue]) =>
+                typeof subValue === "object" && "title" in subValue ? (
+                  <AsideLink
+                    className="pl-[2.1rem] flex justify-between items-center"
+                    key={subKey}
+                    href={`/${subValue.slug}`}
+                  >
+                    {(subValue as Doc).title}
+                    {subValue.status && (
+                      <Badge
+                        intent={
+                          subValue?.status === "wip"
+                            ? "warning"
+                            : subValue?.status === "alpha"
+                              ? "danger"
+                              : subValue.status === "beta"
+                                ? "warning"
+                                : subValue.status === "help"
                                   ? "warning"
-                                  : subValue.status === "help"
-                                    ? "warning"
-                                    : subValue.status === "primitive"
-                                      ? "secondary"
-                                      : "info"
-                          }
-                          className="uppercase h-5 text-[0.5rem]"
-                        >
-                          {subValue?.status as Doc["status"]}
-                        </Badge>
+                                  : subValue.status === "primitive"
+                                    ? "secondary"
+                                    : "info"
+                        }
+                        className="uppercase h-5 text-[0.5rem]"
+                      >
+                        {subValue?.status as Doc["status"]}
+                      </Badge>
+                    )}
+                  </AsideLink>
+                ) : (
+                  <Disclosure
+                    className={({ isExpanded }) => twJoin(isExpanded && "pb-0")}
+                    key={subKey}
+                    id={subKey}
+                  >
+                    {/* Trigger components: buttons, controls, etc. */}
+                    <Trigger className="[--trigger-padding-left:2.2rem] pl-[--trigger-padding-left] pr-1">
+                      {goodTitle(subKey)}
+                    </Trigger>
+                    <Disclosure.Panel>
+                      {Object.entries(subValue as HierarchyNode).map(([childKey, childValue]) =>
+                        typeof childValue === "object" && "title" in childValue ? (
+                          <AsideLink
+                            className={cn(
+                              "ml-[-0rem] flex justify-between h-9 items-center pl-[2.2rem] pr-2",
+                              defaultValues.length > 0 && "jf320s"
+                            )}
+                            key={childKey}
+                            href={`/${childValue.slug}`}
+                            indicatorClassName=""
+                          >
+                            {(childValue as Doc).title === "Disclosure Group aka Accordion"
+                              ? "Disclosure Group"
+                              : (childValue as Doc).title === "Disclosure aka Collapsible"
+                                ? "Disclosure"
+                                : goodTitle((childValue as Doc).title)}
+                            {childValue.status && (
+                              <Badge
+                                intent={
+                                  childValue?.status === "wip"
+                                    ? "primary"
+                                    : childValue.status === "beta"
+                                      ? "warning"
+                                      : childValue.status === "alpha"
+                                        ? "primary"
+                                        : childValue.status === "help"
+                                          ? "warning"
+                                          : childValue.status === "primitive"
+                                            ? "secondary"
+                                            : "info"
+                                }
+                                className="capitalize h-5 text-[0.65rem]"
+                              >
+                                {childValue?.status as Doc["status"]}
+                              </Badge>
+                            )}
+                          </AsideLink>
+                        ) : null
                       )}
-                    </AsideLink>
-                  ) : (
-                    <Disclosure key={subKey} id={subKey}>
-                      <Trigger className="pl-[2rem]">{goodTitle(subKey)}</Trigger>
-                      <Disclosure.Panel>
-                        {Object.entries(subValue as HierarchyNode).map(([childKey, childValue]) =>
-                          typeof childValue === "object" && "title" in childValue ? (
-                            <AsideLink
-                              className={cn(
-                                "ml-[-0rem] flex justify-between items-center pl-[3rem]",
-                                defaultValues.length > 0 && "jf320s"
-                              )}
-                              key={childKey}
-                              href={`/${childValue.slug}`}
-                              indicatorClassName=""
-                            >
-                              {(childValue as Doc).title === "Disclosure Group aka Accordion"
-                                ? "Disclosure Group"
-                                : (childValue as Doc).title === "Disclosure aka Collapsible"
-                                  ? "Disclosure"
-                                  : goodTitle((childValue as Doc).title)}
-                              {childValue.status && (
-                                <Badge
-                                  intent={
-                                    childValue?.status === "wip"
-                                      ? "primary"
-                                      : childValue.status === "beta"
-                                        ? "warning"
-                                        : childValue.status === "alpha"
-                                          ? "primary"
-                                          : childValue.status === "help"
-                                            ? "warning"
-                                            : childValue.status === "primitive"
-                                              ? "secondary"
-                                              : "info"
-                                  }
-                                  className="capitalize h-5 text-[0.65rem]"
-                                >
-                                  {childValue?.status as Doc["status"]}
-                                </Badge>
-                              )}
-                            </AsideLink>
-                          ) : null
-                        )}
-                      </Disclosure.Panel>
-                    </Disclosure>
-                  )
-                )}
-              </DisclosureGroup>
-            )}
+                    </Disclosure.Panel>
+                  </Disclosure>
+                )
+              )}
+            </DisclosureGroup>
           </Disclosure.Panel>
         </Disclosure>
       ))}
@@ -208,12 +210,12 @@ const Trigger = ({ children, className }: { children: React.ReactNode; className
   return (
     <Disclosure.Trigger
       className={cn(
-        "group py-2 hover:text-fg pressed:text-fg aria-expanded:text-fg text-muted-fg",
+        "group hover:text-fg hover:bg-muted/60 py-1.5 pressed:text-fg aria-expanded:text-fg",
         className
       )}
     >
       {children}
-      <IconChevronLeft className="ml-auto group-aria-expanded:-rotate-90 transition shrink-0 duration-300" />
+      <IconChevronRight className="ml-auto group-aria-expanded:rotate-90 transition shrink-0 duration-300" />
     </Disclosure.Trigger>
   )
 }
@@ -226,7 +228,7 @@ interface AsideLinkProps extends NextLinkProps {
 }
 
 const asideLinkStyles = tv({
-  base: "relative block focus:outline-none focus-visible:bg-secondary/70 focus-visible:ring-inset focus-visible:ring-1 focus-visible:ring-primary rounded-md px-2.5 py-2 text-base transition-colors hover:bg-secondary/70 hover:text-fg lg:text-sm",
+  base: "relative block group focus:outline-none focus-visible:bg-muted/50 focus-visible:ring-inset focus-visible:ring-1 focus-visible:ring-primary rounded-lg pl-2.5 h-9 text-base transition-colors hover:bg-muted/60 hover:text-fg lg:text-sm",
   variants: {
     isActive: {
       true: "font-medium text-fg",

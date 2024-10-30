@@ -66,10 +66,6 @@ const disclosureStyles = tv({
     },
     isExpanded: {
       true: "pb-3"
-    },
-    hideBorder: {
-      true: "[&>[slot=trigger]]:py-2",
-      false: "[&>[slot=trigger]]:py-3"
     }
   },
   compoundVariants: [
@@ -82,13 +78,12 @@ const disclosureStyles = tv({
 })
 
 const Disclosure = ({ className, ...props }: DisclosureProps) => {
-  const { hideBorder } = React.useContext(DisclosureGroupContext)
   return (
     <DisclosurePrimitive
       data-slot="accordion-item"
       {...props}
       className={cr(className, (className, renderProps) =>
-        disclosureStyles({ ...renderProps, hideBorder, className })
+        disclosureStyles({ ...renderProps, className })
       )}
     >
       {props.children}
@@ -101,6 +96,10 @@ const accordionTriggerStyles = tv({
     "flex flex-1 group rounded-lg aria-expanded:text-fg text-muted-fg sm:text-sm items-center gap-x-2 font-medium"
   ],
   variants: {
+    hideBorder: {
+      true: "py-2",
+      false: "py-3"
+    },
     isFocused: {
       true: "outline-none text-fg"
     },
@@ -114,7 +113,7 @@ const accordionTriggerStyles = tv({
 })
 
 const Trigger = ({ className, ...props }: ButtonProps) => {
-  const { hideIndicator } = React.useContext(DisclosureGroupContext)
+  const { hideIndicator, hideBorder } = React.useContext(DisclosureGroupContext)
   return (
     <Button
       {...props}
@@ -122,6 +121,7 @@ const Trigger = ({ className, ...props }: ButtonProps) => {
       className={cr(className, (className, renderProps) =>
         accordionTriggerStyles({
           ...renderProps,
+          hideBorder,
           className
         })
       )}
