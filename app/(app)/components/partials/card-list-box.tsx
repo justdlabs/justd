@@ -6,7 +6,7 @@ import { docs } from "#site/content"
 import { ThumbnailWrapper } from "@/app/(app)/components/partials/thumbnail-wrapper"
 import { goodTitle } from "@/resources/lib/utils"
 import { slug } from "github-slugger"
-import { Link } from "next-view-transitions"
+import Link from "next/link"
 import { Description, Grid, Heading } from "ui"
 
 type GroupedComponents = {

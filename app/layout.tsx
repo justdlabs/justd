@@ -6,7 +6,6 @@ import { cn } from "@/resources/lib/utils"
 import "@/resources/styles/app.css"
 import { OpenpanelProvider } from "@openpanel/nextjs"
 import type { Metadata, Viewport } from "next"
-import { ViewTransitions } from "next-view-transitions"
 import localFont from "next/font/local"
 
 export const metadata: Metadata = {
@@ -90,28 +89,26 @@ export default function RootLayout({
 }>) {
   return (
     <html dir="ltr" lang="en" suppressHydrationWarning>
-      <ViewTransitions>
-        <body
-          className={cn(
-            "min-h-screen bg-bg font-sans antialiased",
-            fontSans.variable,
-            fontMono.variable
+      <body
+        className={cn(
+          "min-h-screen bg-bg font-sans antialiased",
+          fontSans.variable,
+          fontMono.variable
+        )}
+      >
+        <Providers>
+          {children}
+          {process.env.NODE_ENV === "production" && (
+            <OpenpanelProvider
+              url={process.env.ANALYTICS_CLIENT_URL as string}
+              clientSecret={process.env.ANALYTICS_CLIENT_SECRET as string}
+              clientId={process.env.ANALYTICS_CLIENT_ID as string}
+              trackScreenViews={true}
+              trackAttributes={true}
+            />
           )}
-        >
-          <Providers>
-            {children}
-            {process.env.NODE_ENV === "production" && (
-              <OpenpanelProvider
-                url={process.env.ANALYTICS_CLIENT_URL as string}
-                clientSecret={process.env.ANALYTICS_CLIENT_SECRET as string}
-                clientId={process.env.ANALYTICS_CLIENT_ID as string}
-                trackScreenViews={true}
-                trackAttributes={true}
-              />
-            )}
-          </Providers>
-        </body>
-      </ViewTransitions>
+        </Providers>
+      </body>
     </html>
   )
 }
