@@ -232,7 +232,10 @@ const Sidebar = ({
 }
 
 const itemStyles = tv({
-  base: "group/menu-item grid cursor-pointer [&>[data-slot=icon]]:size-4 col-span-full [&>[data-slot=icon]]:shrink-0 items-center [&>[data-slot=icon]]:text-muted-fg relative rounded-lg lg:text-sm leading-6",
+  base: [
+    "group/menu-item grid cursor-pointer [&>[data-slot=icon]]:size-4 col-span-full [&>[data-slot=icon]]:shrink-0 items-center [&>[data-slot=icon]]:text-muted-fg relative rounded-lg lg:text-sm leading-6",
+    "forced-colors:text-[MenuLink] text-fg"
+  ],
   variants: {
     collapsed: {
       true: [
