@@ -11,8 +11,8 @@ const navLinkStyles = tv({
   base: "relative flex focus-visible:text-fg items-center gap-x-3 tracking-tight py-2 text-sm text-muted-fg transition-colors focus:outline-none sm:py-3",
   variants: {
     isActive: {
-      true: "text-fg",
-      false: "text-muted-fg hover:text-fg"
+      false: "text-muted-fg hover:text-fg forced-colors:text-[Gray]",
+      true: "text-fg forced-colors:text-[WindowText]"
     }
   }
 })

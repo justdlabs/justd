@@ -23,7 +23,7 @@ const commandStyles = tv({
     ],
     list: "overflow-y-auto lg:pb-0 max-h-[calc(100vh-35%)] pb-16 [&:not(:has(.xda32kfseccmd))]:p-2 [&:not(:has(.xda32kfseccmd))_.s3xsprt]:my-2 overflow-x-hidden md:max-h-[456px]",
     input: [
-      "flex w-full rounded-md bg-transparent text-base placeholder:text-muted-fg",
+      "flex w-full rounded-md forced-colors:focus:outline-0 bg-transparent text-base placeholder:text-muted-fg",
       "focus:outline-none",
       "disabled:opacity-50 disabled:cursor-not-allowed"
     ],
@@ -32,7 +32,7 @@ const commandStyles = tv({
       "[&_[cmdk-group-heading]]:select-none [&_[cmdk-group-heading]]:ml-[1px] [&_[cmdk-group-heading]]:py-2 [&_[cmdk-group-heading]]:text-[0.8rem] [&_[cmdk-group-heading]]:text-muted-fg"
     ],
     modal: [
-      "fixed bottom-0 left-[50%] top-auto z-50 grid h-[calc(100vh-35%)] w-full max-w-full translate-x-[-50%] gap-4 overflow-hidden rounded-t-xl bg-overlay text-overlay-fg shadow-lg ring-1 ring-dark/5 dark:ring-border sm:bottom-auto sm:top-[6rem] sm:h-auto sm:w-full sm:max-w-2xl sm:rounded-xl",
+      "fixed bottom-0 left-[50%] top-auto z-50 grid h-[calc(100vh-35%)] w-full max-w-full translate-x-[-50%] gap-4 overflow-hidden rounded-t-xl bg-overlay text-overlay-fg shadow-lg forced-colors:border ring-1 ring-dark/5 dark:ring-border sm:bottom-auto sm:top-[6rem] sm:h-auto sm:w-full sm:max-w-2xl sm:rounded-xl",
       "sm:entering:slide-in-from-bottom-auto entering:duration-300 entering:animate-in entering:fade-in-0 entering:slide-in-from-bottom-1/2 entering:slide-in-from-left-1/2 entering:[transition-timing-function:ease-out] sm:entering:duration-300 sm:entering:slide-in-from-top-[2rem]",
       "exiting:duration-300 exiting:animate-out exiting:fade-out-0 exiting:slide-out-to-bottom-1/2 exiting:slide-out-to-left-1/2 exiting:[transition-timing-function:ease] sm:exiting:slide-out-to-top-[4rem]"
     ],
@@ -45,13 +45,14 @@ const commandStyles = tv({
     kbdKeyboard: "lg:block hidden group-data-[selected=true]:opacity-60",
     description: "sm:inline hidden text-sm ml-auto",
     item: [
-      "group relative flex cursor-default select-none items-center rounded-lg py-2 text-sm outline-none",
-      "data-[selected=true]:bg-accent data-[selected=true]:text-accent-fg [&[data-selected=true]_[data-slot=icon]]:text-accent-fg",
+      "group relative flex forced-colors:outline-0 cursor-default select-none text-fg items-center rounded-lg py-2 text-sm outline-none",
+      "data-[selected=true]:bg-accent forced-colors:data-[selected=true]:bg-[Highlight] forced-colors:data-[selected=true]:text-[ActiveCaption] forced-colors:text-[WindowText] data-[selected=true]:text-accent-fg [&[data-selected=true]_[data-slot=icon]]:text-accent-fg",
       "focus-visible:bg-accent focus-visible:text-accent-fg [&:focus-visible_[data-slot=icon]]:text-accent-fg",
       "data-[danger=true]:text-danger data-[danger=true]:data-[selected=true]:bg-danger data-[danger=true]:data-[selected=true]:text-danger-fg",
       "data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50",
       "[&_[data-slot=icon]]:mr-2 [&_[data-slot=icon]]:size-[1.10rem] [&_[data-slot=icon]]:shrink-0 [&_[data-slot=icon]]:text-muted-fg",
-      "[&_[data-slot=avatar]]:mr-2 [&_[data-slot=avatar]]:size-[1.10rem] [&_[data-slot=avatar]]:shrink-0"
+      "[&_[data-slot=avatar]]:mr-2 [&_[data-slot=avatar]]:size-[1.10rem] [&_[data-slot=avatar]]:shrink-0",
+      "forced-colors:[&_[data-slot=icon]]:text-[CanvasText] forced-colors:[&_[data-slot=icon]]:group-data-[focus]:text-[Canvas] "
     ]
   },
 

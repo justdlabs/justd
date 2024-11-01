@@ -40,7 +40,7 @@ export function DocHow({
   codeString = codeString.replace(/function\s+\w+\s*\(/g, "function App(")
   const divProps = { ...props } as React.HTMLProps<HTMLDivElement>
   return (
-    <div className={cn("not-prose relative my-4", className)} {...divProps}>
+    <div className={cn("not-prose forced-color-adjust-non relative my-4", className)} {...divProps}>
       <Tabs aria-label="Packages">
         <TabsList fullscreenUrl={fullscreenUrl} />
         <Tabs.Panel className="w-full" id="preview">
@@ -85,10 +85,10 @@ const tabStyles = tv({
   ],
   variants: {
     isSelected: {
-      false: "text-muted-fg",
-      true: "text-fg forced-colors:bg-[Highlight] forced-colors:text-[HighlightText]"
+      false: "text-muted-fg forced-colors:text-[Gray] forced-colors:hover:text-[MenuText]",
+      true: "text-fg forced-colors:text-[MenuText] forced-colors:hover:text-[MenuText]"
     },
-    isFocused: { false: "ring-0", true: "text-fg" },
+    isFocused: { false: "ring-0", true: "text-fg forced-colors:text-[MenuText]" },
     isDisabled: {
       true: "text-muted-fg/50 forced-colors:text-[GrayText] forced-colors:selected:bg-[GrayText] forced-colors:selected:text-[HighlightText]"
     }
@@ -114,7 +114,7 @@ const Tab = ({ children, ...props }: TabProps) => {
               layoutId="current_indicator"
               transition={{ type: "spring", bounce: 0.25, duration: 0.5 }}
               className={cn(
-                "absolute rounded bg-fg",
+                "absolute rounded bg-fg forced-colors:bg-[ActiveBorder]",
                 "group-orientation-horizontal:inset-x-0 group-orientation-horizontal:-bottom-px group-orientation-horizontal:h-0.5 group-orientation-horizontal:w-full group-orientation-vertical:left-0 group-orientation-vertical:h-[calc(100%-10%)] group-orientation-vertical:w-0.5 group-orientation-vertical:transform"
               )}
             />

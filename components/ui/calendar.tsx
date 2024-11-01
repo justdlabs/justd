@@ -21,11 +21,12 @@ import { cr, ctr, focusRing } from "./primitive"
 
 const cellStyles = tv({
   extend: focusRing,
-  base: "flex size-10 sm:size-9 cursor-default tabular-nums items-center justify-center rounded-full lg:text-sm forced-color-adjust-none",
+  base: "flex size-10 sm:size-9 cursor-default tabular-nums items-center justify-center rounded-full lg:text-sm forced-colors:outline-0",
   variants: {
     isSelected: {
-      false: "text-fg hover:bg-secondary-fg/15 pressed:bg-secondary-fg/20",
-      true: "bg-primary text-primary-fg invalid:bg-danger invalid:text-danger-fg forced-colors:bg-[Highlight] forced-colors:text-[HighlightText] forced-colors:invalid:bg-[Mark]"
+      false:
+        "text-fg forced-colors:text-[ButtonText] hover:bg-secondary-fg/15 pressed:bg-secondary-fg/20",
+      true: "bg-primary text-primary-fg invalid:bg-danger invalid:text-danger-fg forced-colors:bg-[Highlight] forced-colors:text-[Highlight] forced-colors:invalid:bg-[Mark]"
     },
     isDisabled: {
       true: "text-muted-fg/70 forced-colors:text-[GrayText]"

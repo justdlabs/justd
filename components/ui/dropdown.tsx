@@ -19,22 +19,22 @@ import { cn, cr } from "./primitive"
 
 const dropdownItemStyles = tv({
   base: [
-    "group flex cursor-default select-none items-center gap-x-1.5 rounded-[calc(var(--radius)-1px)] py-2 px-2.5 relative text-base outline outline-0 forced-color-adjust-none lg:text-sm",
+    "group text-fg forced-colors:text-[LinkText] flex cursor-default forced-color-adjust-none select-none items-center gap-x-1.5 rounded-[calc(var(--radius)-1px)] py-2 px-2.5 relative text-base outline outline-0 forced-color:text-[Highlight] lg:text-sm",
     "has-submenu:open:data-[danger=true]:bg-danger/20 has-submenu:open:data-[danger=true]:text-danger",
     "has-submenu:open:bg-accent has-submenu:open:text-accent-fg [&[data-has-submenu][data-open]_[data-slot=icon]]:text-accent-fg",
     "[&_[data-slot=avatar]]:-mr-0.5 [&_[data-slot=avatar]]:size-6 sm:[&_[data-slot=avatar]]:size-5",
     "[&_[data-slot=icon]]:size-4 [&_[data-slot=icon]]:shrink-0 [&_[data-slot=icon]]:text-muted-fg [&[data-hovered]_[data-slot=icon]]:text-accent-fg [&[data-focused]_[data-slot=icon]]:text-accent-fg [&[data-danger]_[data-slot=icon]]:text-danger/60 [&[data-focused][data-danger]_[data-slot=icon]]:text-danger-fg",
+    "[&_[data-slot=menu-radio]>[data-slot=icon]]:size-3",
     "forced-colors:[&_[data-slot=icon]]:text-[CanvasText] forced-colors:[&_[data-slot=icon]]:group-data-[focus]:text-[Canvas] "
   ],
   variants: {
     isDisabled: {
-      false: "text-fg",
       true: "text-muted-fg forced-colors:text-[GrayText]"
     },
     isFocused: {
       false: "data-[danger=true]:text-danger",
       true: [
-        "bg-accent text-accent-fg forced-colors:bg-[Highlight] forced-colors:text-[HighlightText]",
+        "bg-accent text-accent-fg forced-colors:text-[HighlightText] forced-colors:bg-[Highlight]",
         "data-[danger=true]:bg-danger data-[danger=true]:text-danger-fg",
         "[&_.text-muted-fg]:text-accent-fg/80 [&[data-slot=label]]:text-accent-fg [&[data-slot=description]]:text-accent-fg"
       ]

@@ -203,7 +203,7 @@ const Section = ({ className, ...props }: React.ComponentProps<"div">) => {
 
 const navItemStyles = tv({
   base: [
-    "relative lg:text-sm px-2 flex items-center gap-x-2 [&>[data-slot=icon]]:-mx-0.5 text-muted-fg outline-none forced-colors:disabled:text-[GrayText] transition-colors",
+    "relative lg:text-sm px-2 flex forced-colors:outline-0 items-center gap-x-2 [&>[data-slot=icon]]:-mx-0.5 text-muted-fg outline-none forced-colors:disabled:text-[GrayText] forced-colors:transform-none transition-colors",
     "hover:text-fg focus:text-fg pressed:text-fg focus-visible:outline-1 focus-visible:outline-primary",
     "disabled:opacity-60 disabled:cursor-default",
     "[&>[data-slot=icon]]:size-4 [&>[data-slot=icon]]:shrink-0"

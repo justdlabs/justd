@@ -231,8 +231,8 @@ const asideLinkStyles = tv({
   base: "relative block group focus:outline-none focus-visible:bg-muted/50 focus-visible:ring-inset focus-visible:ring-1 focus-visible:ring-primary rounded-lg pl-2.5 h-9 text-base transition-colors hover:bg-muted/60 hover:text-fg lg:text-sm",
   variants: {
     isActive: {
-      true: "font-medium text-fg",
-      false: "text-muted-fg"
+      false: "text-muted-fg forced-colors:text-[Gray] hover:text-fg",
+      true: "text-fg forced-colors:text-[LinkText]"
     }
   }
 })
@@ -247,7 +247,7 @@ function AsideLink({ indicatorClassName, className, children, ...props }: AsideL
         <motion.span
           layoutId="current-indicator-sidebar"
           className={cn(
-            "absolute inset-y-1 left-[1rem] w-0.5 rounded-full bg-fg",
+            "absolute inset-y-1 left-[1rem] w-0.5 rounded-full bg-fg forced-colors:bg-[Highlight]",
             indicatorClassName
           )}
         />

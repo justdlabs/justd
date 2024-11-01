@@ -19,7 +19,7 @@ import { tv } from "tailwind-variants"
 import { cn, cr } from "./primitive"
 
 const tabsStyles = tv({
-  base: "group flex gap-4",
+  base: "group flex gap-4 forced-color-adjust-none",
   variants: {
     orientation: {
       horizontal: "flex-col",
@@ -43,10 +43,10 @@ const Tabs = (props: TabsProps) => {
 }
 
 const tabListStyles = tv({
-  base: "flex",
+  base: "flex forced-color-adjust-none",
   variants: {
     orientation: {
-      horizontal: "flex-row gap-x-5 border-b",
+      horizontal: "flex-row gap-x-5 border-b border-border",
       vertical: "flex-col items-start gap-y-4 border-l"
     }
   }
@@ -68,7 +68,7 @@ const List = <T extends object>(props: TabListProps<T>) => {
 
 const tabStyles = tv({
   base: [
-    "relative flex whitespace-nowrap cursor-default items-center rounded-full text-sm font-medium outline-none transition forced-color-adjust-none hover:text-fg [&>[data-slot=icon]]:size-4 [&>[data-slot=icon]]:mr-2",
+    "relative flex whitespace-nowrap cursor-default items-center rounded-full text-sm font-medium outline-none transition hover:text-fg [&>[data-slot=icon]]:size-4 [&>[data-slot=icon]]:mr-2",
     // hor
     "group-orientation-vertical:w-full group-orientation-vertical:py-0 group-orientation-vertical:pl-4 group-orientation-vertical:pr-2",
     // ver
@@ -77,11 +77,11 @@ const tabStyles = tv({
   variants: {
     isSelected: {
       false: "text-muted-fg",
-      true: "text-fg forced-colors:bg-[Highlight] forced-colors:text-[HighlightText]"
+      true: "text-fg"
     },
     isFocused: { false: "ring-0", true: "text-fg" },
     isDisabled: {
-      true: "text-muted-fg/50 forced-colors:text-[GrayText] forced-colors:selected:bg-[GrayText] forced-colors:selected:text-[HighlightText]"
+      true: "text-muted-fg/50"
     }
   }
 })

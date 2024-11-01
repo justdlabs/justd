@@ -155,7 +155,7 @@ const MenuHeader = ({ className, separator = false, ...props }: MenuHeaderProps)
 )
 
 const MenuSeparator = ({ className, ...props }: SeparatorProps) => (
-  <Separator className={cn("-mx-1 my-1 h-px ms bg-muted", className)} {...props} />
+  <Separator className={cn("-mx-1 my-1 h-px border-b border-b-muted", className)} {...props} />
 )
 
 const Checkbox = ({ className, children, ...props }: MenuItemProps) => (
@@ -174,16 +174,19 @@ const Checkbox = ({ className, children, ...props }: MenuItemProps) => (
 )
 
 const Radio = ({ className, children, ...props }: MenuItemProps) => (
-  <Item className={cn("pl-8 relative", className)} {...props}>
+  <Item className={cn("relative", className)} {...props}>
     {(values) => (
       <>
+        {typeof children === "function" ? children(values) : children}
+
         {values.isSelected && (
-          <span className="absolute left-3 flex size-[0.650rem] items-center animate-in justify-center">
-            <IconBulletFill className="size-[0.650rem]" />
+          <span
+            data-slot="menu-radio"
+            className="absolute right-3 flex items-center animate-in justify-center"
+          >
+            <IconBulletFill />
           </span>
         )}
-
-        {typeof children === "function" ? children(values) : children}
       </>
     )}
   </Item>
