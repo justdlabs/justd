@@ -11,8 +11,8 @@ import localFont from "next/font/local"
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? siteConfig.url),
   title: {
-    default: `${siteConfig.name} - Modern and Customizable React Components`,
-    template: `%s / ${siteConfig.name} - Modern and Customizable React Components`
+    default: `${siteConfig.name}`,
+    template: `%s / ${siteConfig.name}`
   },
   description: siteConfig.description,
   alternates: {
