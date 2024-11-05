@@ -58,16 +58,11 @@ const popoverContentStyles = tv({
     },
     isEntering: {
       true: [
-        // "duration-50 ease-out animate-in fade-in placement-left:slide-in-from-right-1 placement-right:slide-in-from-left-1 placement-top:slide-in-from-bottom-1 placement-bottom:slide-in-from-top-1",
-        "motion-ease-out motion-blur-in motion-duration-100",
-        "placement-left:motion-preset-slide-left placement-right:motion-preset-slide-right placement-top:motion-preset-slide-up placement-bottom:motion-preset-slide-down"
+        "duration-50 ease-out animate-in fade-in placement-left:slide-in-from-right-1 placement-right:slide-in-from-left-1 placement-top:slide-in-from-bottom-1 placement-bottom:slide-in-from-top-1"
       ]
     },
     isExiting: {
-      true: [
-        "motion-duration-75 motion-ease-in-out-back"
-        // 'placement-left:motion-preset-slide-right-md placement-right:motion-preset-slide-left-md placement-top:motion-preset-slide-down-md placement-bottom:motion-preset-slide-up-md'
-      ]
+      true: "duration-50 ease-in animate-out fade-out placement-left:slide-out-to-right-1 placement-right:slide-out-to-left-1 placement-top:slide-out-to-bottom-1 placement-bottom:slide-out-to-top-1"
     }
   }
 })
@@ -109,12 +104,12 @@ interface PopoverProps
 }
 
 const Content = ({
-  respectScreen = true,
-  children,
-  showArrow = true,
-  className,
-  ...props
-}: PopoverProps) => {
+                   respectScreen = true,
+                   children,
+                   showArrow = true,
+                   className,
+                   ...props
+                 }: PopoverProps) => {
   const isMobile = useMediaQuery("(max-width: 600px)")
   const popoverContext = useSlottedContext(PopoverContext)!
   const isMenuTrigger = popoverContext?.trigger === "MenuTrigger"
