@@ -19,6 +19,10 @@ export function wait(number: number) {
   return new Promise((resolve) => setTimeout(resolve, number))
 }
 
+export function getSiteName(url: string): string {
+  return url.replace(/^(https?:\/\/)?(www\.)?/, "").split(".")[0]
+}
+
 export function extractAndFormat(url: string): string {
   const match = url.match(/\/([^/]+)\.html/)
   if (match) {

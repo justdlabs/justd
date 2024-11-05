@@ -114,7 +114,7 @@ const DropdownItemDetails = ({ label, description, classNames, ...props }: Dropd
   const { slot, children, title, ...restProps } = props
 
   return (
-    <div className="flex flex-col gap-1" {...restProps}>
+    <div className="flex flex-col gap-y-1" {...restProps}>
       {label && (
         <Text
           slot={slot ?? "label"}

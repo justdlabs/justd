@@ -29,10 +29,10 @@ const modalOverlayStyles = tv({
       false: "bg-dark/15 dark:bg-dark/40"
     },
     isEntering: {
-      true: "ease-out animate-in fade-in"
+      true: "motion-ease-out motion-duration-300 motion-opacity-in"
     },
     isExiting: {
-      true: "duration-200 ease-in animate-out fade-out"
+      true: "motion-ease-out motion-duration-200 motion-opacity-out"
     }
   }
 })
@@ -44,16 +44,25 @@ const modalContentStyles = tv({
   ],
   variants: {
     isEntering: {
+      // true: [
+      //   "animate-in ease-out duration-200 slide-in-from-bottom-[20%]",
+      //   "sm:slide-in-from-bottom-auto sm:slide-in-from-top-[80%] sm:slide-in-from-left-1/2"
+      // ]
       true: [
-        "animate-in ease-out duration-200 slide-in-from-bottom-[20%]",
-        "sm:slide-in-from-bottom-auto sm:slide-in-from-top-[80%] sm:slide-in-from-left-1/2"
+        "motion-blur-in-md motion-opacity-in",
+        "sm:motion-translate-y-in-[-25%] motion-duration-300",
+        "motion-translate-y-in-[25%]"
       ]
     },
     isExiting: {
       true: [
-        "duration-200 ease-in animate-out slide-out-to-bottom-56",
-        "sm:exiting:slide-out-to-top-[80%] sm:slide-out-to-left-1/2"
+        "sm:motion-translate-y-out-[-25%] motion-duration-200 motion-opacity-out",
+        "motion-translate-y-out-[25%]"
       ]
+      // true: [
+      //   "duration-200 ease-in animate-out slide-out-to-bottom-56",
+      //   "sm:exiting:slide-out-to-top-[80%] sm:slide-out-to-left-1/2"
+      // ]
     },
     size: {
       xs: "sm:max-w-xs",

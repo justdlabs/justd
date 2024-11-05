@@ -7,7 +7,7 @@ import { type ThemeProviderProps } from "next-themes/dist/types"
 
 const ThemeProvider = ({ children, ...props }: ThemeProviderProps) => {
   return (
-    <NextThemesProvider storageKey="justd-theme" {...props}>
+    <NextThemesProvider enableSystem storageKey="justd-theme" {...props}>
       {children}
     </NextThemesProvider>
   )
