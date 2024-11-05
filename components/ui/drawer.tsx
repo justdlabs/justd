@@ -113,7 +113,7 @@ const DrawerContentPrimitive = ({ children, ...props }: DrawerOverlayPrimitivePr
       >
         <ModalPrimitive
           className={cn(
-            "max-h-full flex flex-col w-full rounded-t-3xl sm:rounded-lg overflow-hidden bg-overlay text-overlay-fg text-left align-middle shadow-lg",
+            "max-h-full flex flex-col w-full rounded-t-2xl sm:rounded-lg overflow-hidden bg-overlay text-overlay-fg text-left align-middle shadow-lg",
             "ring-1 ring-dark/5 dark:ring-light/15"
           )}
           initial={{ y: h }}

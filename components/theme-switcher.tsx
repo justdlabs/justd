@@ -1,6 +1,6 @@
 "use client"
 
-import { IconMoon, IconSun } from "justd-icons"
+import { IconDeviceDesktop2, IconMoon, IconSun } from "justd-icons"
 import { useTheme } from "next-themes"
 import { Button, cn } from "ui"
 
@@ -10,7 +10,12 @@ export function ThemeSwitcher({
   className,
   ...props
 }: React.ComponentProps<typeof Button>) {
-  const { resolvedTheme, setTheme } = useTheme()
+  const { resolvedTheme, theme, setTheme } = useTheme()
+
+  const toggleTheme = () => {
+    const nextTheme = theme === "light" ? "dark" : theme === "dark" ? "system" : "light"
+    setTheme(nextTheme)
+  }
 
   return (
     <Button
@@ -18,12 +23,21 @@ export function ThemeSwitcher({
       appearance={appearance}
       size="square-petite"
       className={cn("[&_[data-slot=icon]]:text-fg", className)}
-      aria-label={"Switch to " + resolvedTheme === "light" ? "dark" : "light" + "mode"}
-      onPress={() => setTheme(resolvedTheme === "light" ? "dark" : "light")}
+      aria-label={
+        "Switch to " +
+        (resolvedTheme === "light" ? "dark" : resolvedTheme === "dark" ? "system" : "light") +
+        " mode"
+      }
+      onPress={toggleTheme}
       {...props}
     >
-      <IconSun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-      <IconMoon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+      {theme === "light" ? (
+        <IconSun className="animate-in" />
+      ) : theme === "dark" ? (
+        <IconMoon className="animate-in" />
+      ) : theme === "system" ? (
+        <IconDeviceDesktop2 className="animate-in" />
+      ) : null}
     </Button>
   )
 }
