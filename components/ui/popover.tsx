@@ -104,12 +104,12 @@ interface PopoverProps
 }
 
 const Content = ({
-                   respectScreen = true,
-                   children,
-                   showArrow = true,
-                   className,
-                   ...props
-                 }: PopoverProps) => {
+  respectScreen = true,
+  children,
+  showArrow = true,
+  className,
+  ...props
+}: PopoverProps) => {
   const isMobile = useMediaQuery("(max-width: 600px)")
   const popoverContext = useSlottedContext(PopoverContext)!
   const isMenuTrigger = popoverContext?.trigger === "MenuTrigger"

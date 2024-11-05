@@ -2,14 +2,13 @@
 
 import * as React from "react"
 
-import { IconChevronDown, IconHamburger, IconSidebarFill } from "justd-icons"
+import { IconChevronDown, IconChevronRight, IconHamburger, IconSidebarFill } from "justd-icons"
 import type { DisclosureProps, LinkProps } from "react-aria-components"
 import {
   Link,
   UNSTABLE_Disclosure as Disclosure,
   UNSTABLE_DisclosurePanel as DisclosurePanel
 } from "react-aria-components"
-import { twJoin } from "tailwind-merge"
 import { tv } from "tailwind-variants"
 
 import { Button, ButtonPrimitive } from "./button"
@@ -171,7 +170,7 @@ const Sidebar = ({
       <Sheet isOpen={openMobile} onOpenChange={setOpenMobile} {...props}>
         <Sheet.Content
           aria-label="Sidebar"
-          data-sidebar="sidebar"
+          data-slot="sidebar"
           data-mobile="true"
           classNames={{
             content: "bg-tertiary text-fg [&>button]:hidden"
@@ -216,12 +215,12 @@ const Sidebar = ({
         {...props}
       >
         <div
-          data-sidebar="sidebar"
+          data-slot="sidebar"
           className={cn(
             "flex h-full w-full flex-col bg-tertiary group-data-[intent=inset]:bg-transparent group-data-[intent=floating]:rounded-lg group-data-[intent=floating]:border group-data-[intent=floating]:border-border group-data-[intent=floating]:bg-secondary/50",
             intent === "inset" || state === "collapsed"
-              ? "[&_[data-sidebar=header]]:border-transparent [&_[data-sidebar=footer]]:border-transparent"
-              : "[&_[data-sidebar=header]]:border-b [&_[data-sidebar=footer]]:border-t"
+              ? "[&_[data-slot=sidebar-header]]:border-transparent [&_[data-slot=sidebar-footer]]:border-transparent"
+              : "[&_[data-slot=sidebar-header]]:border-b [&_[data-slot=sidebar-footer]]:border-t"
           )}
         >
           {children}
@@ -233,7 +232,7 @@ const Sidebar = ({
 
 const itemStyles = tv({
   base: [
-    "group/menu-item grid cursor-pointer [&>[data-slot=icon]]:size-4 col-span-full [&>[data-slot=icon]]:shrink-0 items-center [&>[data-slot=icon]]:text-muted-fg relative rounded-lg lg:text-sm leading-6",
+    "group/sidebar-item grid cursor-pointer [&>[data-slot=icon]]:size-4 col-span-full [&>[data-slot=icon]]:shrink-0 items-center [&>[data-slot=icon]]:text-muted-fg relative rounded-lg lg:text-sm leading-6",
     "forced-colors:text-[MenuLink] text-fg"
   ],
   variants: {
@@ -248,16 +247,16 @@ const itemStyles = tv({
       true: "outline-none"
     },
     isFocusVisible: {
-      true: "bg-muted [&:focus-visible_[slot=label]]:text-accent-fg [&:focus-visible_[slot=description]]:text-accent-fg/70 text-secondary-fg"
+      true: "bg-muted [&:focus-visible_[slot=description]]:text-accent-fg/70 text-secondary-fg"
     },
     isHovered: {
       true: [
-        "bg-muted [&:focus-visible_[slot=label]]:text-accent-fg [&:focus-visible_[slot=description]]:text-accent-fg/70 text-secondary-fg [&_.text-muted-fg]:text-secondary-fg/80"
+        "bg-muted [&:focus-visible_[slot=description]]:text-accent-fg/70 text-secondary-fg [&_.text-muted-fg]:text-secondary-fg/80"
       ]
     },
     isCurrent: {
       true: [
-        "[&_[data-slot=icon]]:text-accent-fg [&_[data-slot=label]]:text-accent-fg [&_.text-muted-fg]:text-accent-fg/80 bg-accent text-accent-fg",
+        "[&_[data-slot=icon]]:text-accent-fg [&_.text-muted-fg]:text-accent-fg/80 bg-accent text-accent-fg",
         "[&_.bdx]:bg-accent-fg/20 [&_.bdx]:ring-accent-fg/30"
       ]
     },
@@ -277,7 +276,7 @@ const Item = ({ isCurrent, children, className, icon: Icon, ...props }: ItemProp
   const { state, isMobile } = React.useContext(SidebarContext)!
   return (
     <Link
-      data-sidebar="menu-item"
+      data-slot="sidebar-item"
       aria-current={isCurrent ? "page" : undefined}
       className={cr(className, (className, renderProps) =>
         itemStyles({
@@ -323,11 +322,14 @@ const Item = ({ isCurrent, children, className, icon: Icon, ...props }: ItemProp
 }
 
 const Content = ({ className, ...props }: React.ComponentProps<"div">) => {
+  const { state } = useSidebar()
   return (
     <div
-      data-sidebar="content"
+      data-slot="sidebar-content"
       className={cn([
-        "flex min-h-0 flex-1 flex-col gap-2 overflow-auto group-data-[collapsible=dock]:items-center group-data-[collapsible=dock]:overflow-hidden [&>section+section]:mt-8",
+        "flex min-h-0 flex-1 flex-col overflow-auto group-data-[collapsible=dock]:items-center group-data-[collapsible=dock]:overflow-hidden",
+        state === "expanded" &&
+          "[&>[data-slot=sidebar-section]:last-child]:pb-2 [&>[data-slot=sidebar-section]:first-child]:pt-2",
         className
       ])}
       {...props}
@@ -340,7 +342,7 @@ const Trigger = ({ className, onPress, ...props }: React.ComponentProps<typeof B
   return (
     <Button
       aria-label={props["aria-label"] || "Toggle Sidebar"}
-      data-sidebar="trigger"
+      data-slot="sidebar-trigger"
       appearance="plain"
       size="square-petite"
       className={className}
@@ -358,7 +360,7 @@ const Trigger = ({ className, onPress, ...props }: React.ComponentProps<typeof B
 }
 
 const header = tv({
-  base: "flex flex-col [&>section+section]:mt-2.5",
+  base: "flex flex-col",
   variants: {
     collapsed: {
       false: "px-5 py-4",
@@ -371,7 +373,7 @@ const Header = ({ className, ...props }: React.HtmlHTMLAttributes<HTMLDivElement
   const { state } = React.useContext(SidebarContext)!
   return (
     <div
-      data-sidebar="header"
+      data-slot="sidebar-header"
       {...props}
       className={header({ collapsed: state === "collapsed", className })}
       {...props}
@@ -380,7 +382,7 @@ const Header = ({ className, ...props }: React.HtmlHTMLAttributes<HTMLDivElement
 }
 
 const footer = tv({
-  base: "flex flex-col mt-auto [&>section+section]:mt-2.5",
+  base: "flex flex-col mt-auto",
   variants: {
     collapsed: {
       false: [
@@ -396,7 +398,7 @@ const Footer = ({ className, ...props }: React.HtmlHTMLAttributes<HTMLDivElement
   return (
     <div
       {...props}
-      data-sidebar="footer"
+      data-slot="sidebar-footer"
       className={footer({ collapsed: state === "collapsed", className })}
       {...props}
     />
@@ -408,20 +410,37 @@ interface CollapsibleProps extends DisclosureProps {
   title?: string
   collapsible?: boolean
   defaultExpanded?: boolean
+  icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>
 }
 
 const Section = ({
   title,
   className,
   collapsible,
+  icon: Icon,
   defaultExpanded,
   ...props
 }: CollapsibleProps) => {
-  const isExpanded = title ? (collapsible ? (defaultExpanded ?? true) : true) : true
+  const { state, isMobile } = useSidebar()
 
-  const { state } = React.useContext(SidebarContext)!
+  const isExpanded =
+    state === "collapsed" || (title ? (collapsible ? (defaultExpanded ?? true) : true) : true)
   return (
-    <Disclosure className={cn("p-2", className)} defaultExpanded={isExpanded} {...props}>
+    <Disclosure
+      data-slot="sidebar-section"
+      className={cn(
+        "col-span-full px-2",
+        state === "collapsed" && "border-b last:border-b-0 pb-2",
+        state === "expanded" && "lg:has-[[data-slot=sidebar-section]]:px-0",
+        state === "expanded" && title && !Icon && "my-2.5",
+        state === "expanded" && title && Icon && "mt-0.5",
+        state === "collapsed" && title && "mt-2 px-0",
+        state === "collapsed" && !isMobile && "px-0",
+        className
+      )}
+      defaultExpanded={isExpanded}
+      {...props}
+    >
       {({ isExpanded }) => (
         <>
           {typeof title === "string" && (
@@ -429,13 +448,26 @@ const Section = ({
               {collapsible ? (
                 <ButtonPrimitive
                   slot="trigger"
-                  className={twJoin(
-                    "w-full focus:outline-none flex items-center justify-between text-sm text-muted-fg px-3 py-2 has-[.idctr]:pr-0 [&>.idctr]:size-6 [&>.idctr]:duration-200",
-                    isExpanded && "[&>.idctr]:rotate-180"
-                  )}
+                  className={({ isHovered }) =>
+                    cn(
+                      "w-full focus:outline-none flex leading-6 items-center justify-between [&>.idctr]:size-6 [&>.idctr]:duration-200",
+                      Icon
+                        ? "text-fg lg:text-sm py-2 lg:py-1.5 px-3 [&_.idctr]:text-muted-fg has-[.idctr]:pr-0.5"
+                        : "text-sm text-muted-fg py-2 px-3 has-[.idctr]:pr-0",
+                      isHovered &&
+                        Icon &&
+                        "bg-muted text-secondary-fg [&_.text-muted-fg]:text-secondary-fg/80 [&>[data-slot=icon]]:shrink-0 items-center [&>[data-slot=icon]]:text-muted-fg relative rounded-lg lg:text-sm leading-6",
+                      isExpanded && !Icon && "[&>.idctr]:rotate-180",
+                      isExpanded && Icon && "[&>.idctr]:rotate-90"
+                    )
+                  }
                 >
-                  {title}
-                  <IconChevronDown className="idctr" />
+                  <span className="flex items-center [&>[data-slot=icon]]:text-muted-fg [&>[data-slot=icon]]:mr-2">
+                    {Icon && <Icon data-slot="icon" />}
+                    {title}
+                  </span>
+                  {Icon && <IconChevronRight className="idctr" />}
+                  {!Icon && <IconChevronDown className="idctr" />}
                 </ButtonPrimitive>
               ) : (
                 <h4 className="text-sm text-muted-fg px-3 py-2">{title}</h4>
@@ -445,7 +477,7 @@ const Section = ({
           <DisclosurePanel>
             <div
               className={cn(
-                "grid gap-y-0.5 group-data-[collapsible=dock]:place-content-center",
+                "grid gap-y-0.5 [&>[data-slot=sidebar-item]:first-child]:mt-0.5 group-data-[collapsible=dock]:place-content-center",
                 state === "collapsed"
                   ? "group-data-[collapsible=dock]:place-content-center"
                   : "grid-cols-[auto_1fr]"
@@ -465,7 +497,7 @@ const Rail = ({ className, ...props }: React.ComponentProps<"button">) => {
 
   return (
     <button
-      data-sidebar="rail"
+      data-slot="sidebar-rail"
       aria-label="Toggle Sidebar"
       tabIndex={-1}
       onClick={toggleSidebar}

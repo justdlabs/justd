@@ -87,7 +87,7 @@ function CodeExpandButton({ isOpened }: { isOpened: boolean }) {
   return (
     <div
       className={cn(
-        "absolute flex items-center justify-center bg-gradient-to-b from-[#0e0e10]/50 to-black",
+        "absolute flex items-center z-50 justify-center bg-gradient-to-b from-[#0e0e10]/50 to-black",
         isOpened ? "inset-x-0 bottom-0 h-16" : "inset-0"
       )}
     >

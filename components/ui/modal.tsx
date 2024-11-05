@@ -93,15 +93,15 @@ interface ModalContentProps
 }
 
 const ModalContent = ({
-                        classNames,
-                        isDismissable = true,
-                        isBlurred = false,
-                        children,
-                        size,
-                        role,
-                        closeButton = true,
-                        ...props
-                      }: ModalContentProps) => {
+  classNames,
+  isDismissable = true,
+  isBlurred = false,
+  children,
+  size,
+  role,
+  closeButton = true,
+  ...props
+}: ModalContentProps) => {
   const _isDismissable = role === "alertdialog" ? false : isDismissable
   return (
     <ModalOverlayPrimitive

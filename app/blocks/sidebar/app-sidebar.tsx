@@ -12,6 +12,7 @@ import {
   IconCube,
   IconDashboard,
   IconEnvelope,
+  IconGlobe,
   IconLogout,
   IconMessage,
   IconMoon,
@@ -20,7 +21,8 @@ import {
   IconPlus,
   IconSettings,
   IconShield,
-  IconSun
+  IconSun,
+  IconWindow
 } from "justd-icons"
 import { usePathname } from "next/navigation"
 import { Avatar, Button, Link, Menu, Modal, Sidebar, useSidebar } from "ui"
@@ -60,42 +62,70 @@ export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
           </SidebarItem>
         </Sidebar.Section>
 
-        <Sidebar.Section title="Projects">
-          <Sidebar.Item icon={IconCube} href="#">
-            All Projects
-          </Sidebar.Item>
-          {pathname === "/blocks/sidebar/sidebar-05" ? (
-            <Modal>
-              <Sidebar.Item icon={IconPlus}>Create New Project</Sidebar.Item>
-              <Modal.Content>
-                <Modal.Header title="New Project" />
-                <Modal.Footer>
-                  <Modal.Close>Close</Modal.Close>
-                </Modal.Footer>
-              </Modal.Content>
-            </Modal>
-          ) : (
-            <Sidebar.Item icon={IconPlus} href="#">
-              Create New Project
-            </Sidebar.Item>
-          )}
-          <Sidebar.Item icon={IconArchive} href="#">
-            Archived Projects
-          </Sidebar.Item>
-        </Sidebar.Section>
+        {pathname === "/blocks/sidebar/sidebar-06" && (
+          <>
+            <Sidebar.Section icon={IconGlobe} collapsible title="Sites">
+              <Sidebar.Item isCurrent icon={IconPlus} href="#">
+                New site
+              </Sidebar.Item>
+              <Sidebar.Item icon={IconWindow} href="#">
+                List Sites
+              </Sidebar.Item>
+            </Sidebar.Section>
 
-        {pathname !== "/blocks/sidebar/sidebar-05" && (
-          <Sidebar.Section collapsible title="Team">
-            <Sidebar.Item icon={IconPeople} href="#">
-              Team Overview
-            </Sidebar.Item>
-            <Sidebar.Item icon={IconPersonAdd} href="#">
-              Add New Member
-            </Sidebar.Item>
-            <Sidebar.Item icon={IconCirclePerson} href="#">
-              Manage Roles
-            </Sidebar.Item>
-          </Sidebar.Section>
+            <Sidebar.Section defaultExpanded={false} icon={IconPersonAdd} collapsible title="Team">
+              <Sidebar.Item icon={IconPeople} href="#">
+                Team Overview
+              </Sidebar.Item>
+              <Sidebar.Item icon={IconPersonAdd} href="#">
+                Add New Member
+              </Sidebar.Item>
+              <Sidebar.Item icon={IconCirclePerson} href="#">
+                Manage Roles
+              </Sidebar.Item>
+            </Sidebar.Section>
+          </>
+        )}
+        {pathname !== "/blocks/sidebar/sidebar-06" && (
+          <>
+            <Sidebar.Section collapsible title="Projects">
+              <Sidebar.Item icon={IconCube} href="#">
+                All Projects
+              </Sidebar.Item>
+              {pathname === "/blocks/sidebar/sidebar-05" ? (
+                <Modal>
+                  <Sidebar.Item icon={IconPlus}>Create New Project</Sidebar.Item>
+                  <Modal.Content>
+                    <Modal.Header title="New Project" />
+                    <Modal.Footer>
+                      <Modal.Close>Close</Modal.Close>
+                    </Modal.Footer>
+                  </Modal.Content>
+                </Modal>
+              ) : (
+                <Sidebar.Item icon={IconPlus} href="#">
+                  Create New Project
+                </Sidebar.Item>
+              )}
+              <Sidebar.Item icon={IconArchive} href="#">
+                Archived Projects
+              </Sidebar.Item>
+            </Sidebar.Section>
+
+            {pathname !== "/blocks/sidebar/sidebar-05" && (
+              <Sidebar.Section collapsible title="Team">
+                <Sidebar.Item icon={IconPeople} href="#">
+                  Team Overview
+                </Sidebar.Item>
+                <Sidebar.Item icon={IconPersonAdd} href="#">
+                  Add New Member
+                </Sidebar.Item>
+                <Sidebar.Item icon={IconCirclePerson} href="#">
+                  Manage Roles
+                </Sidebar.Item>
+              </Sidebar.Section>
+            )}
+          </>
         )}
       </Sidebar.Content>
       <Sidebar.Footer className="lg:flex lg:flex-row hidden items-center">

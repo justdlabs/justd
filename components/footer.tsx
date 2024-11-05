@@ -17,11 +17,12 @@ const navigation = {
     { name: "Icons", href: "/icons" },
     { name: "Colors", href: "/colors" },
     { name: "Themes", href: "/themes" },
-    { name: "CLI", href: "https://github.com/justdlabs/cli" }
+    { name: "Showcase", href: "/showcase" }
   ],
   labs: [
     { name: "Github", href: "https://github.com/justdlabs" },
     { name: "X / Formerly Twitter", href: "https://x.com/getjustd" },
+    { name: "CLI", href: "https://github.com/justdlabs/cli" },
     { name: "Templates", href: "https://irsyad.co/templates" }
   ],
   legal: [{ name: "MIT", href: "https://github.com/justdlabs/justd/blob/main/LICENSE" }]
