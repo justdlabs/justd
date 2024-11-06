@@ -1,6 +1,6 @@
 "use client"
 
-import React, { Suspense, useRef } from "react"
+import React, { useRef } from "react"
 
 import * as icons from "justd-icons"
 import { IconDownload } from "justd-icons"
@@ -8,7 +8,7 @@ import { useSearchParams } from "next/navigation"
 import { ListBox, ListBoxItem } from "react-aria-components"
 import * as ReactDOMServer from "react-dom/server"
 import { toast } from "sonner"
-import { Loader, Menu } from "ui"
+import { Menu } from "ui"
 import { copyToClipboard } from "usemods"
 
 import { Controller } from "./controller"
@@ -36,22 +36,13 @@ export function IconsList({ searchParams }: SearchParamsProps) {
   return (
     <>
       <Controller searchParams={searchParams} />
-
-      <Suspense
-        fallback={
-          <div className="flex justify-center items-center min-h-96">
-            <Loader />
-          </div>
-        }
-      >
-        <div className="sm:-mx-2">
-          <ListBox selectionMode="single" aria-label="List Icon" layout="grid" className={box()}>
-            {filteredIcons.map(([name, Icon]) => (
-              <IconListItem key={name} name={name} Icon={Icon} />
-            ))}
-          </ListBox>
-        </div>
-      </Suspense>
+      <div className="sm:-mx-2">
+        <ListBox selectionMode="single" aria-label="List Icon" layout="grid" className={box()}>
+          {filteredIcons.map(([name, Icon]) => (
+            <IconListItem key={name} name={name} Icon={Icon} />
+          ))}
+        </ListBox>
+      </div>
     </>
   )
 }

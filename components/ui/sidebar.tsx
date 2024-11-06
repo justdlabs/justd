@@ -328,8 +328,7 @@ const Content = ({ className, ...props }: React.ComponentProps<"div">) => {
       data-slot="sidebar-content"
       className={cn([
         "flex min-h-0 flex-1 flex-col overflow-auto group-data-[collapsible=dock]:items-center group-data-[collapsible=dock]:overflow-hidden",
-        state === "expanded" &&
-          "[&>[data-slot=sidebar-section]:last-child]:pb-2 [&>[data-slot=sidebar-section]:first-child]:pt-2",
+        state === "collapsed" ? "gap-y-6" : "gap-y-2",
         className
       ])}
       {...props}
@@ -360,7 +359,7 @@ const Trigger = ({ className, onPress, ...props }: React.ComponentProps<typeof B
 }
 
 const header = tv({
-  base: "flex flex-col",
+  base: "flex flex-col mb-2",
   variants: {
     collapsed: {
       false: "px-5 py-4",
@@ -430,16 +429,15 @@ const Section = ({
       data-slot="sidebar-section"
       className={cn(
         "col-span-full px-2",
-        state === "collapsed" && "border-b last:border-b-0 pb-2",
-        state === "expanded" && "[&_[data-slot=sidebar-section]]:px-0",
-        state === "expanded" &&
-          title &&
-          Icon &&
-          "[&_[data-slot=sidebar-section-panel]]:px-6 [&_[data-slot=sidebar-section-panel]_[data-slot=icon]]:-ml-0.5",
-        state === "expanded" && title && !Icon && "my-2.5",
-        state === "expanded" && title && Icon && "mt-0.5",
-        state === "collapsed" && title && "mt-2 px-0",
-        state === "collapsed" && !isMobile && "px-0",
+        state === "collapsed" && [title && "px-0", !isMobile && "px-0"],
+        state === "expanded" && [
+          "[&_[data-slot=sidebar-section]]:px-0",
+          title && [
+            Icon
+              ? "mt-0.5 [&_[data-slot=sidebar-section-panel]]:px-6 [&_[data-slot=sidebar-section-panel]_[data-slot=icon]]:-ml-0.5"
+              : "my-2.5"
+          ]
+        ],
         className
       )}
       defaultExpanded={isExpanded}
@@ -482,10 +480,10 @@ const Section = ({
             <div
               data-slot="sidebar-section-panel"
               className={cn(
-                "grid gap-y-0.5 [&>[data-slot=sidebar-item]:first-child]:mt-0.5 group-data-[collapsible=dock]:place-content-center",
+                "grid gap-y-0.5 group-data-[collapsible=dock]:place-content-center",
                 state === "collapsed"
                   ? "group-data-[collapsible=dock]:place-content-center"
-                  : "grid-cols-[auto_1fr]"
+                  : "grid-cols-[auto_1fr] [&_[data-slot=sidebar-item]:first-child]:mt-0.5"
               )}
             >
               {props.children}
