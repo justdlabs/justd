@@ -135,7 +135,7 @@ export function Navbar() {
                         className: "[&_[data-slot=icon]]:text-fg"
                       })}
                       target="_blank"
-                      href="https://x.com/irsyadadl"
+                      href="https://x.com/intent/follow?screen_name=irsyadadl"
                     >
                       <IconBrandX />
                     </Link>
@@ -187,7 +187,7 @@ export function NavbarDropdown() {
           </Menu.Item>
         </Menu.Section>
         <Menu.Section title="Refs">
-          <Menu.Item href="https://x.com/intent/follow?screen_name=getjustd" target="_blank">
+          <Menu.Item href="https://x.com/intent/follow?screen_name=irsyadadl" target="_blank">
             <IconBrandX />X / Twitter
           </Menu.Item>
           <Menu.Item href="https://github.com/justdlabs" target="_blank">

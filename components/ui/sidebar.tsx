@@ -431,7 +431,11 @@ const Section = ({
       className={cn(
         "col-span-full px-2",
         state === "collapsed" && "border-b last:border-b-0 pb-2",
-        state === "expanded" && "lg:has-[[data-slot=sidebar-section]]:px-0",
+        state === "expanded" && "[&_[data-slot=sidebar-section]]:px-0",
+        state === "expanded" &&
+          title &&
+          Icon &&
+          "[&_[data-slot=sidebar-section-panel]]:px-6 [&_[data-slot=sidebar-section-panel]_[data-slot=icon]]:-ml-0.5",
         state === "expanded" && title && !Icon && "my-2.5",
         state === "expanded" && title && Icon && "mt-0.5",
         state === "collapsed" && title && "mt-2 px-0",
@@ -476,6 +480,7 @@ const Section = ({
           )}
           <DisclosurePanel>
             <div
+              data-slot="sidebar-section-panel"
               className={cn(
                 "grid gap-y-0.5 [&>[data-slot=sidebar-item]:first-child]:mt-0.5 group-data-[collapsible=dock]:place-content-center",
                 state === "collapsed"
