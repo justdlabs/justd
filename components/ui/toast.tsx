@@ -40,12 +40,12 @@ const Toast = ({ ...props }: ToasterProps) => {
           icon: "absolute top-[1rem] sm:top-[1.50rem]",
           content: "[&:not(:has(+button))]:pr-10 [&:has(+button)]:pb-11 md:[&:has(+button)]:pb-9",
           error:
-            "bg-danger ring-danger-fg/10 text-white ring-inset [&>[data-close-button=true]>svg]:text-white [&>[data-close-button=true]:hover]:bg-white/20",
-          info: "bg-info ring-info-fg/10 text-info-fg ring-inset [&>[data-close-button=true]>svg]:text-info-fg [&>[data-close-button=true]:hover]:bg-white/20",
+            "bg-danger ring-danger-fg/10 text-white ring-inset [&>[data-close-button=true]>svg]:text-white",
+          info: "bg-info ring-info-fg/10 text-info-fg ring-inset [&>[data-close-button=true]>svg]:text-info-fg",
           warning:
-            "bg-warning text-warning-fg ring-warning-fg/10 ring-inset [&>[data-close-button=true]>svg]:text-amber-950 [&>[data-close-button=true]:hover]:bg-white/20",
+            "bg-warning text-warning-fg ring-warning-fg/10 ring-inset [&>[data-close-button=true]>svg]:text-amber-950",
           success:
-            "bg-primary ring-primary/50 text-primary-fg ring-inset [&>[data-close-button=true]>svg]:text-primary-fg [&>[data-close-button=true]:hover]:bg-primary-fg/20",
+            "bg-primary ring-primary/50 text-primary-fg ring-inset [&>[data-close-button=true]>svg]:text-primary-fg",
           cancelButton: buttonStyles({
             className: "",
             size: "extra-small",
@@ -55,8 +55,9 @@ const Toast = ({ ...props }: ToasterProps) => {
             className: "self-end justify-self-end",
             size: "extra-small"
           }),
-          closeButton:
-            "[&_svg]:size-5 size-8 absolute top-1/2 transform -translate-y-1/2 right-2 lg:right-3 left-auto grid place-content-center rounded-md hover:bg-dark/20 dark:hover:bg-white/20 border-0 [&_svg]:text-fg"
+          closeButton: twJoin([
+            "[&_svg]:size-5 size-8 absolute top-1/2 transform -translate-y-1/2 right-2 lg:right-3 left-auto grid place-content-center rounded-md !bg-transparent hover:!bg-dark/20 dark:hover:!bg-white/20 border-0 [&_svg]:text-fg"
+          ])
         }
       }}
       {...props}

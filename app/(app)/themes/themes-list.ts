@@ -21,13 +21,13 @@ const themesList = {
       "--fg": "239.93 9% 4%",
       "--primary": "216.77 100% 50%",
       "--primary-fg": "0 0% 100%",
-      "--secondary": "240 4% 96%",
+      "--secondary": "240 5.88% 90%",
       "--secondary-fg": "240.01 6% 10%",
       "--tertiary": "0 0% 100%",
       "--tertiary-fg": "240 4% 16%",
       "--overlay": "0 0% 100%",
       "--overlay-fg": "239.93 9% 4%",
-      "--muted": "240 4% 96%",
+      "--muted": "240 5.88% 90%",
       "--muted-fg": "240 4% 41%",
       "--accent": "216.77 100% 50%",
       "--accent-fg": "0 0% 100%",
@@ -100,7 +100,7 @@ const themesList = {
       "--primary": "240.02 6% 10%",
       "--primary-fg": "0 0% 100%",
 
-      "--secondary": "240 4% 96%",
+      "--secondary": "240 5.88% 90%",
       "--secondary-fg": "240.01 6% 10%",
 
       "--tertiary": "0 0% 100%",
@@ -109,7 +109,7 @@ const themesList = {
       "--accent": "240 8% 93%",
       "--accent-fg": "240.02 6% 10%",
 
-      "--accent-subtle": "240 4% 96%",
+      "--accent-subtle": "240 5.88% 90%",
       "--accent-subtle-fg": "239.93 9% 4%",
 
       "--success": "161.17 91% 31%",
@@ -137,7 +137,7 @@ const themesList = {
       "--secondary-chart": "239.96 4% 52%",
       "--tertiary-chart": "240 5.03% 64.9%",
       "--highlight-chart": "239.99 4% 84%",
-      "--accent-chart": "240 4% 96%"
+      "--accent-chart": "240 5.88% 90%"
     },
     dark: {
       "--bg": "240 10% 2.92%",
@@ -169,7 +169,7 @@ const themesList = {
       "--secondary-chart": "239.92 4% 56.99%",
       "--tertiary-chart": "239.99 5% 67%",
       "--highlight-chart": "239.99 4% 84%",
-      "--accent-chart": "240 4% 96%"
+      "--accent-chart": "240 5.88% 90%"
     }
   },
 
@@ -341,7 +341,7 @@ const themesList = {
       "--fg": "222.2 84% 4.9%",
       "--primary": "228.65 84% 5%",
       "--primary-fg": "0 0% 100%",
-      "--secondary": "240 4% 96%",
+      "--secondary": "240 5.88% 90%",
       "--secondary-fg": "240.01 6% 10%",
       "--tertiary": "0 0% 100%",
       "--tertiary-fg": "240 4% 16%",
@@ -637,7 +637,7 @@ const themesList = {
       "--fg": "239.93 9% 4%",
       "--primary": "160.82 100% 34%",
       "--primary-fg": "151.77 82% 96%",
-      "--secondary": "240 4% 96%",
+      "--secondary": "240 5.88% 90%",
       "--secondary-fg": "240.01 6% 10%",
       "--tertiary": "0 0% 100%",
       "--tertiary-fg": "240 4% 16%",
@@ -647,7 +647,7 @@ const themesList = {
       "--accent-subtle-fg": "162.96 94% 24%",
       "--overlay": "0 0% 100%",
       "--overlay-fg": "239.93 9% 4%",
-      "--muted": "240 4% 96%",
+      "--muted": "240 5.88% 90%",
       "--muted-fg": "240 4% 41%",
       "--success": "161.17 91% 31%",
       "--success-fg": "151.77 82% 96%",
@@ -710,7 +710,7 @@ const themesList = {
       "--fg": "239.93 9% 4%",
       "--primary": "346.84 77% 50%",
       "--primary-fg": "344.86 100% 99%",
-      "--secondary": "240 4% 96%",
+      "--secondary": "240 5.88% 90%",
       "--secondary-fg": "240.01 6% 10%",
       "--tertiary": "0 0% 100%",
       "--tertiary-fg": "240 4% 16%",
@@ -720,7 +720,7 @@ const themesList = {
       "--accent-subtle-fg": "346.84 77% 50%",
       "--overlay": "0 0% 100%",
       "--overlay-fg": "239.93 9% 4%",
-      "--muted": "240 4% 96%",
+      "--muted": "240 5.88% 90%",
       "--muted-fg": "240 4% 41%",
       "--success": "161.17 91% 31%",
       "--success-fg": "151.77 82% 96%",
@@ -784,7 +784,7 @@ const themesList = {
       "--fg": "222.23 48% 11%",
       "--primary": "189.24 100% 38%",
       "--primary-fg": "183.16 100% 96%",
-      "--secondary": "240 4% 96%",
+      "--secondary": "240 5.88% 90%",
       "--secondary-fg": "240.01 6% 10%",
       "--tertiary": "0 0% 100%",
       "--tertiary-fg": "240 4% 16%",
@@ -929,7 +929,7 @@ const themesList = {
       "--fg": "222.2 84% 4.9%",
       "--primary": "200.41 98.01% 40.41%",
       "--primary-fg": "204 100% 97.06%",
-      "--secondary": "240 4% 96%",
+      "--secondary": "240 5.88% 90%",
       "--secondary-fg": "240.01 6% 10%",
       "--tertiary": "0 0% 100%",
       "--tertiary-fg": "240 4% 16%",
