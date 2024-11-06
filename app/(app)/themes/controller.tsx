@@ -1,6 +1,5 @@
 import React from "react"
 
-import { Installation } from "@/components/installation"
 import type { Key } from "react-aria-components"
 import { toast } from "sonner"
 import { Button, Select, Sheet, Tooltip } from "ui"
