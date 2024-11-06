@@ -1,11 +1,10 @@
-import React from "react"
+import * as React from "react"
 
 import { Header } from "@/components/header"
 import { siteConfig } from "@/resources/config/site"
 import type { Metadata } from "next"
-import { Container } from "ui"
+import { Container, Loader } from "ui"
 
-import type { SearchParamsProps } from "./partials/icons-list"
 import { IconsList } from "./partials/icons-list"
 
 export const metadata: Metadata = {
@@ -55,7 +54,15 @@ export const metadata: Metadata = {
   ]
 }
 
-export default function Page({ searchParams }: SearchParamsProps) {
+export default async function Page({
+  searchParams
+}: {
+  searchParams: Promise<{
+    query: string
+    t: "solid" | "regular"
+  }>
+}) {
+  const { query, t } = await searchParams
   return (
     <>
       <Header>
@@ -64,7 +71,15 @@ export default function Page({ searchParams }: SearchParamsProps) {
       </Header>
       <div className="py-4 sm:py-16">
         <Container>
-          <IconsList searchParams={searchParams} />
+          <React.Suspense
+            fallback={
+              <div className="flex justify-center items-center min-h-96">
+                <Loader />
+              </div>
+            }
+          >
+            <IconsList searchParams={{ query, t }} />
+          </React.Suspense>
         </Container>
       </div>
     </>
