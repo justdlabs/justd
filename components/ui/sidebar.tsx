@@ -256,8 +256,8 @@ const itemStyles = tv({
     },
     isCurrent: {
       true: [
-        "[&_[data-slot=icon]]:text-accent-fg [&_.text-muted-fg]:text-accent-fg/80 bg-accent text-accent-fg",
-        "[&_.bdx]:bg-accent-fg/20 [&_.bdx]:ring-accent-fg/30"
+        "[&_[data-slot=icon]]:text-primary-fg [&_.text-muted-fg]:text-primary-fg/80 bg-primary text-primary-fg",
+        "[&_.bdx]:bg-primary-fg/20 [&_.bdx]:ring-primary-fg/30"
       ]
     },
     isDisabled: {

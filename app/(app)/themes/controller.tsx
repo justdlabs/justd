@@ -109,12 +109,7 @@ export function Controller({ themeId, applyTheme }: Props) {
   return (
     <div className="flex justify-end lg:justify-between mb-6">
       <Tooltip delay={0}>
-        <Installation
-          className="p-0 h-auto [&_.d3k32ksd]:hidden border-0 bg-bg hidden lg:flex [&_.cer]:mr-1.5 text-sm"
-          options={{ isManual: false }}
-          command="npx justd-cli@latest theme"
-          items={[]}
-        />
+        <pre className="font-mono text-sm tracking-tight">npx justd-cli@latest theme</pre>
         <Tooltip.Content className="max-w-sm p-4">
           You can manually copy and paste the theme into your CSS file, but using the CLI is faster.
         </Tooltip.Content>
