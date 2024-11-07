@@ -33,8 +33,8 @@ const TimeField = <T extends TimeValue>({
   ...props
 }: TimeFieldProps<T>) => {
   return (
-    <TimeFieldPrimitive {...props} className={ctr(className, "flex flex-col gap-1")}>
-      <Label>{label}</Label>
+    <TimeFieldPrimitive {...props} className={ctr(className, "flex flex-col")}>
+      {label && <Label className="mb-1">{label}</Label>}
       <DateInput className={timeFieldStyles} />
       {description && <Description>{description}</Description>}
       <FieldError>{errorMessage}</FieldError>

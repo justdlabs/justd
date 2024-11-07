@@ -136,8 +136,8 @@ const TagField = ({
   }, [list, onItemCleared])
 
   return (
-    <div className={cn("flex flex-col gap-1 w-full", className)}>
-      {props.label && <Label>{props.label}</Label>}
+    <div className={cn("flex flex-col w-full", className)}>
+      {props.label && <Label className="mb-1">{props.label}</Label>}
       <Group className={twJoin("flex flex-col", props.isDisabled && "opacity-50")}>
         <Tag.Group
           intent={props.intent}

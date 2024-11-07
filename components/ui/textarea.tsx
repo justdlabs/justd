@@ -36,8 +36,8 @@ const Textarea = ({
   ...props
 }: TextareaProps) => {
   return (
-    <TextFieldPrimitive {...props} className={ctr(className, "group flex flex-col gap-1")}>
-      {label && <Label>{label}</Label>}
+    <TextFieldPrimitive {...props} className={ctr(className, "group flex flex-col")}>
+      {label && <Label className="mb-1">{label}</Label>}
       <TextAreaPrimitive
         placeholder={placeholder}
         className={cr(className, (className, renderProps) =>

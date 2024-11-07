@@ -23,7 +23,7 @@ import { RangeCalendar } from "./range-calendar"
 
 const datePickerStyles = tv({
   slots: {
-    base: "group flex flex-col gap-1",
+    base: "group flex flex-col",
     datePickerIcon:
       "group mr-1 h-7 [&>[data-slot=icon]]:text-muted-fg w-8 rounded outline-offset-0 hover:bg-transparent pressed:bg-transparent",
     calendarIcon: "size-4 text-muted-fg group-open:text-fg",
@@ -86,7 +86,7 @@ const DatePicker = <T extends DateValue>({
 }: DatePickerProps<T>) => {
   return (
     <DatePickerPrimitive {...props} className={ctr(className, base())}>
-      {label && <Label>{label}</Label>}
+      {label && <Label className="mb-1">{label}</Label>}
       <FieldGroup className="min-w-40">
         <DateInput className={datePickerInput()} />
         <DatePickerIcon />

@@ -15,7 +15,7 @@ import { ctr, useMediaQuery } from "./primitive"
 
 const numberFieldStyles = tv({
   slots: {
-    base: "group flex flex-col gap-1",
+    base: "group flex flex-col",
     stepperButton:
       "h-10 cursor-default px-2 text-muted-fg pressed:bg-primary pressed:text-primary-fg group-disabled:bg-secondary forced-colors:group-disabled:text-[GrayText]"
   }
@@ -41,7 +41,7 @@ const NumberField = ({
   const isMobile = useMediaQuery("(max-width: 768px)")
   return (
     <NumberFieldPrimitive {...props} className={ctr(className, base())}>
-      <Label>{label}</Label>
+      {label && <Label className="mb-1">{label}</Label>}
       <FieldGroup className="group-disabled:bg-secondary">
         {(renderProps) => (
           <>

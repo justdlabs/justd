@@ -96,14 +96,14 @@ export interface TagGroupProps extends TagGroupPrimitiveProps {
 
 const TagGroup = ({ children, ...props }: TagGroupProps) => {
   return (
-    <TagGroupPrimitive {...props} className={cn("flex flex-wrap flex-col gap-1", props.className)}>
+    <TagGroupPrimitive {...props} className={cn("flex flex-wrap flex-col", props.className)}>
       <TagGroupContext.Provider
         value={{
           intent: props.intent || "primary",
           shape: props.shape || "square"
         }}
       >
-        {props.label && <Label>{props.label}</Label>}
+        {props.label && <Label className="mb-1">{props.label}</Label>}
         {children}
         {props.description && <Description>{props.description}</Description>}
       </TagGroupContext.Provider>
