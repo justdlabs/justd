@@ -27,7 +27,7 @@ import { VisuallyHidden } from "./visually-hidden"
 
 const multiSelectStyles = tv({
   slots: {
-    multiSelectField: "group flex w-full min-w-80 flex-col gap-1",
+    multiSelectField: "group flex w-full min-w-80 flex-col",
     multiSelect: [
       "relative px-1 flex min-h-10 flex-row flex-wrap items-center rounded-lg bg-bg shadow-sm border",
       "has-[input[data-focused=true]]:border-ring/85",
@@ -211,7 +211,7 @@ const MultipleSelect = <T extends SelectedKey>({
 
   return (
     <div className={multiSelectField({ className })}>
-      {props.label && <Label>{props.label}</Label>}
+      {props.label && <Label className="mb-1">{props.label}</Label>}
       <div className={props.isDisabled ? "opacity-50" : ""}>
         <div ref={triggerRef} className={multiSelect({ className })}>
           <Tag.Group
