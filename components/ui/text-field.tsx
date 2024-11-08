@@ -61,7 +61,7 @@ const TextField = ({
       {...props}
       className={ctr(className, "group flex flex-col")}
     >
-      {label && <Label className="mb-1">{label}</Label>}
+      {label && <Label className="mb-1.5">{label}</Label>}
       <FieldGroup
         data-loading={isPending ? "true" : undefined}
         className={fieldGroupPrefixStyles({ className })}

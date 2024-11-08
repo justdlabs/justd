@@ -52,7 +52,7 @@ const Select = <T extends object>({
 }: SelectProps<T>) => {
   return (
     <SelectPrimitive {...props} className={ctr(className, "group flex w-full flex-col")}>
-      {label && <Label className="mb-1">{label}</Label>}
+      {label && <Label className="mb-1.5">{label}</Label>}
       <>{children}</>
       {description && <Description>{description}</Description>}
       <FieldError>{errorMessage}</FieldError>

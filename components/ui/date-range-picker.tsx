@@ -42,7 +42,7 @@ const DateRangePicker = <T extends DateValue>({
 }: DateRangePickerProps<T>) => {
   return (
     <DateRangePickerPrimitive {...props} className={ctr(className, base())}>
-      {label && <Label className="mb-1">{label}</Label>}
+      {label && <Label className="mb-1.5">{label}</Label>}
       <FieldGroup className="w-auto min-w-40">
         <DateInput slot="start" className={dateRangePickerInputStart()} />
         <span aria-hidden="true" className={dateRangePickerDash()}>

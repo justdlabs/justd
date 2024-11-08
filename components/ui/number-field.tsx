@@ -41,7 +41,7 @@ const NumberField = ({
   const isMobile = useMediaQuery("(max-width: 768px)")
   return (
     <NumberFieldPrimitive {...props} className={ctr(className, base())}>
-      {label && <Label className="mb-1">{label}</Label>}
+      {label && <Label className="mb-1.5">{label}</Label>}
       <FieldGroup className="group-disabled:bg-secondary">
         {(renderProps) => (
           <>

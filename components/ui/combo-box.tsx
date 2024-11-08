@@ -53,7 +53,7 @@ const ComboBox = <T extends object>({
 }: ComboBoxProps<T>) => {
   return (
     <ComboboxPrimitive {...props} className={ctr(className, base())}>
-      {label && <Label className="mb-1">{label}</Label>}
+      {label && <Label className="mb-1.5">{label}</Label>}
       <>{children}</>
       {description && <Description>{description}</Description>}
       <FieldError>{errorMessage}</FieldError>

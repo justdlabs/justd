@@ -28,7 +28,7 @@ const DateField = <T extends DateValue>({
 }: DateFieldProps<T>) => {
   return (
     <DateFieldPrimitive {...props} className={ctr(props.className, "flex flex-col")}>
-      {label && <Label className="mb-1">{label}</Label>}
+      {label && <Label className="mb-1.5">{label}</Label>}
       <DateInput />
       {description && <Description>{description}</Description>}
       <FieldError>{errorMessage}</FieldError>

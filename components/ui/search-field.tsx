@@ -50,7 +50,7 @@ const SearchField = ({
       {...props}
       className={ctr(className, base())}
     >
-      {label && <Label className="mb-1">{label}</Label>}
+      {label && <Label className="mb-1.5">{label}</Label>}
       <FieldGroup>
         <IconSearch aria-hidden className={searchIcon()} />
         <Input placeholder={placeholder ?? "Search..."} className={input()} />

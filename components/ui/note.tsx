@@ -8,7 +8,7 @@ import { tv, type VariantProps } from "tailwind-variants"
 
 const noteStyles = tv({
   base: [
-    "my-4 px-4 [&_.nd]:block [&_.nd]:text-sm py-4 leading-4 overflow-hidden rounded-lg border [&_strong]:font-medium",
+    "my-4 px-4 [&_.nd]:block [&_.nd]:text-sm py-4 leading-4 overflow-hidden rounded-lg border [&_strong]:font-semibold",
     "[&_[data-slot=icon]]:size-5 [&_[data-slot=icon]]:shrink-0 [&_a]:underline [&_a]:hover:underline"
   ],
   variants: {
@@ -27,9 +27,6 @@ const noteStyles = tv({
         "dark:bg-emerald-500/10 dark:text-emerald-200 dark:[&_a]:text-emerald-50 dark:[&_[data-slot=icon]]:text-emerald-400"
       ]
     }
-  },
-  defaultVariants: {
-    intent: "info"
   }
 })
 
@@ -39,7 +36,7 @@ interface NoteProps
   hideIndicator?: boolean
 }
 
-const Note = ({ hideIndicator = false, intent = "primary", className, ...props }: NoteProps) => {
+const Note = ({ hideIndicator = false, intent = "info", className, ...props }: NoteProps) => {
   return (
     <div className={noteStyles({ intent, className })} {...props}>
       <div className="flex items-start gap-x-2.5">

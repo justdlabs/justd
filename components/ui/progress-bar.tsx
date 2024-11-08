@@ -21,7 +21,7 @@ const ProgressBar = ({ label, className, ...props }: ProgressBarProps) => {
       {({ percentage, valueText, isIndeterminate }) => (
         <>
           <div className="flex justify-between gap-2">
-            {label && <Label className="mb-1">{label}</Label>}
+            {label && <Label className="mb-1.5">{label}</Label>}
             <span className="text-sm text-muted-fg tabular-nums">{valueText}</span>
           </div>
           <div className="relative h-2 min-w-64 overflow-hidden rounded-full bg-secondary outline outline-1 -outline-offset-1 outline-transparent">

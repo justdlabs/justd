@@ -86,7 +86,7 @@ const DatePicker = <T extends DateValue>({
 }: DatePickerProps<T>) => {
   return (
     <DatePickerPrimitive {...props} className={ctr(className, base())}>
-      {label && <Label className="mb-1">{label}</Label>}
+      {label && <Label className="mb-1.5">{label}</Label>}
       <FieldGroup className="min-w-40">
         <DateInput className={datePickerInput()} />
         <DatePickerIcon />
