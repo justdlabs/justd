@@ -27,8 +27,8 @@ export default function TableBulkDemo() {
             {(item) => (
               <Table.Row>
                 <Table.Cell>{item.id}</Table.Cell>
-                <Table.Cell>{item.title}</Table.Cell>
-                <Table.Cell>{item.author}</Table.Cell>
+                <Table.Cell className="whitespace-nowrap">{item.title}</Table.Cell>
+                <Table.Cell className="whitespace-nowrap">{item.author}</Table.Cell>
                 <Table.Cell>{item.genre}</Table.Cell>
                 <Table.Cell>{item.publishedYear}</Table.Cell>
               </Table.Row>

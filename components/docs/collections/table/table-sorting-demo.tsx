@@ -68,9 +68,9 @@ export default function TableSortingDemo() {
         >
           {(item) => (
             <Table.Row id={item.title}>
-              <Table.Cell>{item.title}</Table.Cell>
-              <Table.Cell>{item.director}</Table.Cell>
-              <Table.Cell>{item.producer}</Table.Cell>
+              <Table.Cell className="whitespace-nowrap">{item.title}</Table.Cell>
+              <Table.Cell className="whitespace-nowrap">{item.director}</Table.Cell>
+              <Table.Cell className="whitespace-nowrap">{item.producer}</Table.Cell>
               <Table.Cell>{item.release_date}</Table.Cell>
             </Table.Row>
           )}

@@ -6,7 +6,7 @@ export default function SidebarAnatomy() {
     <Sidebar.Provider>
       <Sidebar>
         <Sidebar.Header>
-          <Sidebar.Nav />
+          <Sidebar.Nav isSticky />
         </Sidebar.Header>
         <Sidebar.Content>
           <Sidebar.Section>

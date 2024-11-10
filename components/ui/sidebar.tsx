@@ -129,9 +129,9 @@ const Inset = ({ className, ...props }: React.ComponentProps<"main">) => {
       data-slot="sidebar-inset"
       className={cn([
         [
-          "relative overflow-hidden flex min-h-svh flex-1 flex-col bg-bg",
+          "relative flex min-h-svh flex-1 flex-col bg-bg",
           "md:peer-data-[intent=inset]:ml-0 md:peer-data-[intent=inset]:bg-tertiary md:peer-data-[intent=inset]:rounded-xl",
-          "peer-data-[intent=inset]:border peer-data-[intent=inset]:min-h-[calc(100svh-theme(spacing.4))] md:peer-data-[intent=inset]:my-2 md:peer-data-[intent=inset]:mr-2"
+          "peer-data-[intent=inset]:overflow-hidden peer-data-[intent=inset]:border peer-data-[intent=inset]:min-h-[calc(100svh-theme(spacing.4))] md:peer-data-[intent=inset]:my-2 md:peer-data-[intent=inset]:mr-2"
         ],
         className
       ])}
@@ -337,14 +337,10 @@ const Content = ({ className, ...props }: React.ComponentProps<"div">) => {
 }
 
 const navStyles = tv({
-  base: [
-    "w-full justify-between sm:justify-start top-0 h-[3.57rem] px-4 border-b flex items-center gap-x-2",
-    "bg-bg/70 backdrop-blur-xl"
-  ],
-
+  base: "bg-bg w-full justify-between sm:justify-start h-[3.57rem] px-4 border-b flex items-center gap-x-2",
   variants: {
     isSticky: {
-      true: "fixed z-40"
+      true: "sticky top-0 z-40"
     }
   }
 })
@@ -354,11 +350,7 @@ interface NavProps extends React.ComponentProps<"nav"> {
 }
 
 const Nav = ({ isSticky = false, className, ...props }: NavProps) => {
-  return (
-    <header className={isSticky ? "pb-14" : ""}>
-      <nav data-slot="sidebar-nav" {...props} className={navStyles({ isSticky, className })} />
-    </header>
-  )
+  return <nav data-slot="sidebar-nav" {...props} className={navStyles({ isSticky, className })} />
 }
 
 const Trigger = ({ className, onPress, ...props }: React.ComponentProps<typeof Button>) => {
