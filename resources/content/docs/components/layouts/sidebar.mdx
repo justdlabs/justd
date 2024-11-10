@@ -128,7 +128,7 @@ Once you've created the sidebar, you can wrap it inside a layout component. Here
 
   import * as React from "react"
 
-  import { AppSidebar } from "@/app/dashboard/app-sidebar"
+  import { AppSidebar } from "@/app/blocks/sidebar/app-sidebar"
   import {
     IconChevronLgDown,
     IconCirclePerson,
@@ -137,16 +137,16 @@ Once you've created the sidebar, you can wrap it inside a layout component. Here
     IconSettings,
     IconShield
   } from "justd-icons"
-  import { Sidebar, Avatar, Button, Menu, SearchField, Separator } from "ui"
+  import { Avatar, Button, Menu, SearchField, Separator, Sidebar } from "ui"
 
   export default function Layout({ children }: { children: React.ReactNode }) {
     return (
       <Sidebar.Provider>
         <AppSidebar />
         <Sidebar.Inset>
-          <header className="sticky justify-between sm:justify-start top-0 bg-bg h-[3.57rem] px-4 border-b flex items-center gap-x-2">
-            <span className="flex items-center">
-              <Sidebar.Trigger className="-ml-1" />
+          <Sidebar.Nav isSticky>
+            <span className="flex items-center gap-x-3">
+              <Sidebar.Trigger className="-mx-2" />
               <Separator className="h-6 sm:block hidden" orientation="vertical" />
             </span>
             <SearchField className="sm:inline hidden sm:ml-1.5" />
@@ -179,16 +179,15 @@ Once you've created the sidebar, you can wrap it inside a layout component. Here
                 </Menu.Content>
               </Menu>
             </div>
-          </header>
+          </Sidebar.Nav>
           <div className="p-4 lg:p-6">{children}</div>
         </Sidebar.Inset>
       </Sidebar.Provider>
     )
-  }
-  `}/>
+  }`}/>
 
 ### Done
-Great job! You've successfully created a sidebar. Now, let's put it to use.
+Great job! You've successfully created a sidebar. The result can be seen [here](/blocks/sidebar/sidebar-01).
 
 ### Using the Layout
 There are several ways to use the layout, depending on your framework. Or, if you're not using any framework, you can simply apply the layout component.

@@ -5,7 +5,9 @@ export default function SidebarAnatomy() {
   return (
     <Sidebar.Provider>
       <Sidebar>
-        <Sidebar.Header />
+        <Sidebar.Header>
+          <Sidebar.Nav />
+        </Sidebar.Header>
         <Sidebar.Content>
           <Sidebar.Section>
             <Sidebar.Item />

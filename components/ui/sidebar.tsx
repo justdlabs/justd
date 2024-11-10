@@ -126,12 +126,12 @@ Provider.displayName = "Provider"
 const Inset = ({ className, ...props }: React.ComponentProps<"main">) => {
   return (
     <main
+      data-slot="sidebar-inset"
       className={cn([
         [
           "relative overflow-hidden flex min-h-svh flex-1 flex-col bg-bg",
           "md:peer-data-[intent=inset]:ml-0 md:peer-data-[intent=inset]:bg-tertiary md:peer-data-[intent=inset]:rounded-xl",
-          "peer-data-[intent=inset]:overflow-hidden peer-data-[intent=inset]:border peer-data-[intent=inset]:min-h-[calc(100svh-theme(spacing.4))] md:peer-data-[intent=inset]:my-2 md:peer-data-[intent=inset]:mr-2",
-          "md:peer-data-[intent=sidebar]:overflow-visible"
+          "peer-data-[intent=inset]:border peer-data-[intent=inset]:min-h-[calc(100svh-theme(spacing.4))] md:peer-data-[intent=inset]:my-2 md:peer-data-[intent=inset]:mr-2"
         ],
         className
       ])}
@@ -336,6 +336,31 @@ const Content = ({ className, ...props }: React.ComponentProps<"div">) => {
   )
 }
 
+const navStyles = tv({
+  base: [
+    "w-full justify-between sm:justify-start top-0 h-[3.57rem] px-4 border-b flex items-center gap-x-2",
+    "bg-bg/70 backdrop-blur-xl"
+  ],
+
+  variants: {
+    isSticky: {
+      true: "fixed z-40"
+    }
+  }
+})
+
+interface NavProps extends React.ComponentProps<"nav"> {
+  isSticky?: boolean
+}
+
+const Nav = ({ isSticky = false, className, ...props }: NavProps) => {
+  return (
+    <header className={isSticky ? "pb-14" : ""}>
+      <nav data-slot="sidebar-nav" {...props} className={navStyles({ isSticky, className })} />
+    </header>
+  )
+}
+
 const Trigger = ({ className, onPress, ...props }: React.ComponentProps<typeof Button>) => {
   const { toggleSidebar } = useSidebar()
   return (
@@ -522,6 +547,7 @@ const Rail = ({ className, ...props }: React.ComponentProps<"button">) => {
 Sidebar.Provider = Provider
 Sidebar.Inset = Inset
 Sidebar.Header = Header
+Sidebar.Nav = Nav
 Sidebar.Content = Content
 Sidebar.Footer = Footer
 Sidebar.Item = Item

@@ -18,7 +18,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <Sidebar.Provider>
       <AppSidebar collapsible="dock" intent="floating" />
       <Sidebar.Inset>
-        <header className="sticky justify-between sm:justify-start top-0 h-[3.57rem] px-4 flex items-center gap-x-2">
+        <Sidebar.Nav className="border-b-0">
           <span className="flex items-center gap-x-4">
             <Sidebar.Trigger className="-mx-2" />
             <Separator className="h-6 sm:block hidden" orientation="vertical" />
@@ -58,7 +58,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               </Menu.Content>
             </Menu>
           </div>
-        </header>
+        </Sidebar.Nav>
         <div className="p-4 lg:p-6">{children}</div>
       </Sidebar.Inset>
     </Sidebar.Provider>
