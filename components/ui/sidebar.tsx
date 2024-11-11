@@ -129,7 +129,7 @@ const Inset = ({ className, ...props }: React.ComponentProps<"main">) => {
       data-slot="sidebar-inset"
       className={cn([
         [
-          "relative flex min-h-svh flex-1 flex-col bg-bg",
+          "relative flex min-h-svh max-w-full flex-1 flex-col bg-bg",
           "md:peer-data-[intent=inset]:ml-0 md:peer-data-[intent=inset]:bg-tertiary md:peer-data-[intent=inset]:rounded-xl",
           "peer-data-[intent=inset]:overflow-hidden peer-data-[intent=inset]:border peer-data-[intent=inset]:min-h-[calc(100svh-theme(spacing.4))] md:peer-data-[intent=inset]:my-2 md:peer-data-[intent=inset]:mr-2"
         ],
@@ -337,7 +337,7 @@ const Content = ({ className, ...props }: React.ComponentProps<"div">) => {
 }
 
 const navStyles = tv({
-  base: "bg-bg w-full justify-between sm:justify-start h-[3.57rem] px-4 border-b flex items-center gap-x-2",
+  base: "bg-tertiary md:bg-bg w-full justify-between sm:justify-start h-[3.57rem] px-4 border-b flex items-center gap-x-2",
   variants: {
     isSticky: {
       true: "sticky top-0 z-40"

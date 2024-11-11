@@ -8,11 +8,10 @@ import {
   IconChevronLgDown,
   IconCirclePerson,
   IconLogout,
-  IconSearch,
   IconSettings,
   IconShield
 } from "justd-icons"
-import { Avatar, Breadcrumbs, Button, Menu, Separator, Sidebar } from "ui"
+import { Avatar, Breadcrumbs, Menu, Separator, Sidebar } from "ui"
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = React.useState(false)
@@ -23,46 +22,41 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <Sidebar.Provider>
         <AppSidebar collapsible="dock" intent="inset" />
         <Sidebar.Inset>
-          <Sidebar.Nav>
-            <span className="flex items-center gap-x-4">
-              <Sidebar.Trigger className="-mx-2" />
-              <Separator className="h-6 md:block hidden" orientation="vertical" />
-
-              <Breadcrumbs className="md:flex hidden">
-                <Breadcrumbs.Item href="/blocks/sidebar/sidebar-01">Dashboard</Breadcrumbs.Item>
-
-                <Breadcrumbs.Item>Settings</Breadcrumbs.Item>
-              </Breadcrumbs>
-            </span>
-            <div className="flex sm:hidden items-center gap-x-2">
-              <Button appearance="plain" aria-label="Search..." size="square-petite">
-                <IconSearch />
-              </Button>
-              <Menu>
-                <Menu.Trigger aria-label="Profile" className="flex items-center gap-x-2 group">
-                  <Avatar size="small" shape="circle" src="/images/sidebar/profile-slash.jpg" />
-                  <IconChevronLgDown className="size-4 group-pressed:rotate-180 transition-transform" />
-                </Menu.Trigger>
-                <Menu.Content className="min-w-[--trigger-width]">
-                  <Menu.Item href="#">
-                    <IconCirclePerson />
-                    Profile
-                  </Menu.Item>
-                  <Menu.Item href="#">
-                    <IconSettings />
-                    Settings
-                  </Menu.Item>
-                  <Menu.Item href="#">
-                    <IconShield />
-                    Security
-                  </Menu.Item>
-                  <Menu.Item href="#">
-                    <IconLogout />
-                    Log out
-                  </Menu.Item>
-                </Menu.Content>
-              </Menu>
-            </div>
+          <Sidebar.Nav isSticky>
+            <Sidebar.Trigger className="-mx-2" />
+            <Separator className="h-6 mx-2 sm:block hidden" orientation="vertical" />
+            <Breadcrumbs>
+              <Breadcrumbs.Item href="/docs/components/layouts/sidebar">Sidebar</Breadcrumbs.Item>
+              <Breadcrumbs.Item href="/blocks/sidebar/sidebar-01">Demo</Breadcrumbs.Item>
+              <Breadcrumbs.Item>Sidebar-01</Breadcrumbs.Item>
+            </Breadcrumbs>
+            <Menu>
+              <Menu.Trigger
+                aria-label="Profile"
+                className="flex items-center gap-x-2 group ml-auto sm:hidden"
+              >
+                <Avatar size="small" shape="circle" src="/images/sidebar/profile-slash.jpg" />
+                <IconChevronLgDown className="size-4 group-pressed:rotate-180 transition-transform" />
+              </Menu.Trigger>
+              <Menu.Content className="min-w-[--trigger-width]">
+                <Menu.Item href="#">
+                  <IconCirclePerson />
+                  Profile
+                </Menu.Item>
+                <Menu.Item href="#">
+                  <IconSettings />
+                  Settings
+                </Menu.Item>
+                <Menu.Item href="#">
+                  <IconShield />
+                  Security
+                </Menu.Item>
+                <Menu.Item href="#">
+                  <IconLogout />
+                  Log out
+                </Menu.Item>
+              </Menu.Content>
+            </Menu>
           </Sidebar.Nav>
           <div className="p-4 lg:p-6">{children}</div>
         </Sidebar.Inset>

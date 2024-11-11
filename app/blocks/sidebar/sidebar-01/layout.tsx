@@ -54,7 +54,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </Menu>
           </div>
         </Sidebar.Nav>
-        <div className="p-4 lg:p-6">{children}</div>
+        <div className="p-4 lg:p-6 overflow-hidden">{children}</div>
       </Sidebar.Inset>
     </Sidebar.Provider>
   )
