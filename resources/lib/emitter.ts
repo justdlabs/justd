@@ -1,7 +1,7 @@
 import mitt from "mitt"
 
 type Events = {
-  proBannerVisibilityChange: "hidden" | "visible"
+  thereIsAnAdVisibilityChange: "hidden" | "visible"
 }
 
 export const emitter = mitt<Events>()

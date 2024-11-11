@@ -2,7 +2,6 @@
 
 import React, { Suspense } from "react"
 
-import { emitter } from "@/resources/lib/emitter"
 import { useScrollPosition } from "hooks/use-scroll-position"
 import { Heading } from "react-aria-components"
 import scrollIntoView from "scroll-into-view-if-needed"
@@ -20,7 +19,7 @@ interface Props {
 }
 
 export function TableOfContents({ className, items }: Props) {
-  const [isProBannerVisible, setIsProBannerVisible] = React.useState(true)
+  // const [thereIsAnAd, setThereIsAnAd] = React.useState(true)
   const tocRef = React.useRef<HTMLDivElement>(null)
   const scrollPosition = useScrollPosition(tocRef)
   const ids = items.flatMap((item) => [
@@ -43,22 +42,23 @@ export function TableOfContents({ className, items }: Props) {
       })
     }
   }, [activeId, activeIndex])
-  React.useEffect(() => {
-    emitter.on("proBannerVisibilityChange", (value) => {
-      setIsProBannerVisible(value === "visible")
-    })
-
-    return () => {
-      emitter.off("proBannerVisibilityChange")
-    }
-  }, [])
+  // React.useEffect(() => {
+  //   emitter.on("thereIsAnAdVisibilityChange", (value) => {
+  //     setThereIsAnAd(value === "visible")
+  //   })
+  //
+  //   return () => {
+  //     emitter.off("thereIsAnAdVisibilityChange")
+  //   }
+  // }, [])
   return (
     <aside
       ref={tocRef}
       className={cn(
         "not-prose forced-color-adjust-none",
         "xl:sticky no-scrollbar xl:top-[1.75rem] xl:-mr-6 xl:h-[calc(100vh-4.75rem)] xl:flex-none xl:overflow-y-auto xl:py-16 xl:pr-6",
-        isProBannerVisible ? "top-32" : "top-20",
+        // thereIsAnAd ? "top-32" : "top-20",
+        "top-20",
         className
       )}
       style={{

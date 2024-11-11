@@ -198,7 +198,7 @@ export const Aside = () => {
         block: "center"
       })
     }
-  }, [])
+  }, [pathname])
   return (
     <LayoutGroup id={id}>
       <aside>{renderHierarchy(hierarchicalDocs, defaultValues)}</aside>
