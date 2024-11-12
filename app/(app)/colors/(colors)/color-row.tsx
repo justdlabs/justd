@@ -27,7 +27,7 @@ export type ColorSelectorType = ColorFormat | null | FormatOnlyForTailwindVariab
 
 export function ColorRow({ showItem = false, swatchClassName, item }: ColorRowProps) {
   const [isForTailwindVariable, setIsForTailwindVariable] = React.useState(true)
-  const [selectedFormat, setSelectedFormat] = React.useState<ColorSelectorType>("hex")
+  const [selectedFormat, setSelectedFormat] = React.useState<ColorSelectorType>("hsl")
   return (
     <div className="p-2 bg-tertiary border rounded-lg overflow-hidden">
       <div className="flex mb-2 items-center gap-x-1 justify-between">
