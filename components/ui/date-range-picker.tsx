@@ -17,7 +17,7 @@ import { ctr } from "./primitive"
 
 const dateRangePickerStyles = tv({
   slots: {
-    base: "group flex flex-col",
+    base: "group flex flex-col gap-y-1.5",
     dateRangePickerInputStart: "px-2 lg:text-sm tabular-nums uppercase text-base",
     dateRangePickerInputEnd: "flex-1 px-2 py-1.5 tabular-nums uppercase text-base lg:text-sm",
     dateRangePickerDash:
@@ -42,7 +42,7 @@ const DateRangePicker = <T extends DateValue>({
 }: DateRangePickerProps<T>) => {
   return (
     <DateRangePickerPrimitive {...props} className={ctr(className, base())}>
-      {label && <Label className="mb-1.5">{label}</Label>}
+      {label && <Label>{label}</Label>}
       <FieldGroup className="w-auto min-w-40">
         <DateInput slot="start" className={dateRangePickerInputStart()} />
         <span aria-hidden="true" className={dateRangePickerDash()}>

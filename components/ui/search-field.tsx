@@ -15,7 +15,7 @@ import { ctr } from "./primitive"
 
 const searchFieldStyles = tv({
   slots: {
-    base: "group flex min-w-10 flex-col",
+    base: "group flex min-w-10 flex-col gap-y-1.5",
     searchIcon:
       "ml-2.5 size-4 shrink-0 text-muted-fg group-disabled:text-muted-fg forced-colors:text-[ButtonText] forced-colors:group-disabled:text-[GrayText]",
     clearButton: [
@@ -50,7 +50,7 @@ const SearchField = ({
       {...props}
       className={ctr(className, base())}
     >
-      {label && <Label className="mb-1.5">{label}</Label>}
+      {label && <Label>{label}</Label>}
       <FieldGroup>
         <IconSearch aria-hidden className={searchIcon()} />
         <Input placeholder={placeholder ?? "Search..."} className={input()} />

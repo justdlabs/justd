@@ -34,7 +34,7 @@ const TimeField = <T extends TimeValue>({
 }: TimeFieldProps<T>) => {
   return (
     <TimeFieldPrimitive {...props} className={ctr(className, "flex flex-col")}>
-      {label && <Label className="mb-1.5">{label}</Label>}
+      {label && <Label>{label}</Label>}
       <DateInput className={timeFieldStyles} />
       {description && <Description>{description}</Description>}
       <FieldError>{errorMessage}</FieldError>

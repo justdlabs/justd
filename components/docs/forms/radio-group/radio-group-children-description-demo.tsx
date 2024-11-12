@@ -4,7 +4,7 @@ import { Radio, RadioGroup } from "ui"
 
 export default function RadioGroupChildrenDescriptionDemo() {
   return (
-    <RadioGroup orientation="horizontal">
+    <RadioGroup>
       <Radio value="basic" description="Basic plan with limited features">
         Basic
       </Radio>
