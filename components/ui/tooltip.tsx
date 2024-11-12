@@ -23,7 +23,7 @@ const tooltipStyles = tv({
     intent: {
       default: "bg-overlay text-overlay-fg [&_.arx]:fill-overlay [&_.arx]:stroke-border",
       inverse:
-        "border-transparent bg-dark text-light dark:bg-light dark:text-dark dark:[&_.arx]:fill-light [&_.arx]:fill-dark [&_.arx]:stroke-transparent"
+        "border-transparent bg-dark dark:[&_.text-muted-fg]:text-dark/70 [&_.text-muted-fg]:text-light/70 text-light dark:bg-light dark:text-dark dark:[&_.arx]:fill-light [&_.arx]:fill-dark [&_.arx]:stroke-transparent"
     },
     isEntering: {
       true: "animate-in fade-in"
