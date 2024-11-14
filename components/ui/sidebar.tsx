@@ -237,10 +237,6 @@ const itemStyles = tv({
   ],
   variants: {
     collapsed: {
-      true: [
-        "justify-start px-3 [&>[data-slot=icon]]:mr-2 py-2 col-span-full",
-        "md:place-content-center md:grid-cols-[auto] md:[&>[data-slot=icon]]:mr-0 md:px-0 md:py-0 md:size-9"
-      ],
       false: "grid-cols-subgrid [&>[data-slot=icon]]:mr-2 px-3 py-2"
     },
     isFocused: {
@@ -274,7 +270,20 @@ interface ItemProps extends LinkProps {
 
 const Item = ({ isCurrent, children, className, icon: Icon, ...props }: ItemProps) => {
   const { state, isMobile } = React.useContext(SidebarContext)!
-  return (
+  return state === "collapsed" && !isMobile ? (
+    <Tooltip closeDelay={0} delay={0}>
+      <Link
+        {...props}
+        className="focus:outline-none col-span-full hover:bg-muted hover:text-secondary-fg text-muted-fg rounded-lg size-9 grid place-content-center"
+      >
+        {Icon && <Icon data-slot="icon" />}
+        <span className="sr-only">{children as string}</span>
+      </Link>
+      <Tooltip.Content intent="inverse" showArrow={false} placement="right">
+        {children as string}
+      </Tooltip.Content>
+    </Tooltip>
+  ) : (
     <Link
       data-slot="sidebar-item"
       aria-current={isCurrent ? "page" : undefined}
@@ -290,23 +299,7 @@ const Item = ({ isCurrent, children, className, icon: Icon, ...props }: ItemProp
     >
       {(values) => (
         <>
-          {Icon && (
-            <>
-              {state === "collapsed" && !isMobile ? (
-                <Tooltip closeDelay={0} delay={0}>
-                  <Tooltip.Trigger className="focus:outline-none size-full absolute inset-0 grid place-content-center">
-                    {<Icon data-slot="icon" />}
-                    <span className="sr-only">{children as string}</span>
-                  </Tooltip.Trigger>
-                  <Tooltip.Content intent="inverse" showArrow={false} placement="right">
-                    {children as string}
-                  </Tooltip.Content>
-                </Tooltip>
-              ) : (
-                <Icon data-slot="icon" />
-              )}
-            </>
-          )}
+          {Icon && <Icon data-slot="icon" />}
           <span className="col-start-2 group-data-[collapsible=dock]:hidden">
             {typeof children === "function" ? children(values) : children}
             {props.badge && (
