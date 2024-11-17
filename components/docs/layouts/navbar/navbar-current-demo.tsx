@@ -34,6 +34,7 @@ export default function NavbarCurrentDemo() {
           </Navbar.Flex>
         </Navbar.Flex>
       </Navbar.Compact>
+      <Navbar.Inset>{/* your main content */}</Navbar.Inset>
     </Navbar>
   )
 }

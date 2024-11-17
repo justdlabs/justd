@@ -1,7 +1,7 @@
 "use client"
 
 import { IconBag2, IconBrandApple, IconSearch } from "justd-icons"
-import { Button, Heading, Navbar } from "ui"
+import { Button, Container, Heading, Navbar } from "ui"
 
 export default function NavbarIntentDemo() {
   return (
@@ -34,9 +34,7 @@ export default function NavbarIntentDemo() {
           </Navbar.Flex>
         </Navbar.Flex>
       </Navbar.Compact>
-      <Navbar.Inset>
-        <Heading>Home</Heading>
-      </Navbar.Inset>
+      <Navbar.Inset>{/* your main content */}</Navbar.Inset>
     </Navbar>
   )
 }

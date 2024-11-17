@@ -34,9 +34,7 @@ export default function NavbarFloatingDemo() {
           </Navbar.Flex>
         </Navbar.Flex>
       </Navbar.Compact>
-      {/*<Navbar.Inset>*/}
-      {/*  <Heading>Home</Heading>*/}
-      {/*</Navbar.Inset>*/}
+      <Navbar.Inset>{/* your main content */}</Navbar.Inset>
     </Navbar>
   )
 }

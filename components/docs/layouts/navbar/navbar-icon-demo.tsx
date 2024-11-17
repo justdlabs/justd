@@ -1,7 +1,6 @@
 import {
   IconBag2,
   IconBrandApple,
-  IconBrandGithub,
   IconBrandJustd,
   IconChart3,
   IconChevronLgDown,
@@ -38,9 +37,6 @@ export default function NavbarIconDemo() {
           </Navbar.Item>
           <Navbar.Item href="https://getjustd.com/charts">
             <IconChart3 /> Charts
-          </Navbar.Item>
-          <Navbar.Item href="https://git.new/justd">
-            <IconBrandGithub /> Github
           </Navbar.Item>
         </Navbar.Section>
       </Navbar.Nav>
