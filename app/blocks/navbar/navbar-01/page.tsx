@@ -1,10 +1,14 @@
 import type { Metadata } from "next"
-import { Heading } from "ui"
+import { Container, Heading } from "ui"
 
 export const metadata: Metadata = {
   title: "Navbar Default"
 }
 
 export default function Page() {
-  return <Heading>Home</Heading>
+  return (
+    <Container className="py-6 sm:py-12">
+      <Heading>Store</Heading>
+    </Container>
+  )
 }

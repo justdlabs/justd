@@ -9,7 +9,6 @@ import { Link } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
 import { Button } from "./button"
-import { Container } from "./container"
 import { cn, cr, useMediaQuery } from "./primitive"
 import { Sheet } from "./sheet"
 
@@ -279,7 +278,7 @@ const Compact = ({ className, ...props }: React.ComponentProps<"div">) => {
 }
 
 const insetStyles = tv({
-  base: "grow lg:py-10",
+  base: "grow",
   variants: {
     intent: {
       floating: "",
@@ -297,9 +296,7 @@ const Inset = ({ className, ...props }: React.ComponentProps<"div">) => {
       data-intent={intent}
       className={cn("flex flex-1 flex-col", intent === "inset" && "pb-2 lg:px-2", className)}
     >
-      <div className={insetStyles({ intent, className })}>
-        <Container>{props.children}</Container>
-      </div>
+      <div className={insetStyles({ intent, className })}>{props.children}</div>
     </main>
   )
 }

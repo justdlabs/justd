@@ -16,7 +16,7 @@ A navbar provides a variety of actions or options for users to select.
 <WarningFramer/>
 
 ## Composed Components
-<Composed components={['button', 'container', 'sheet']}/>
+<Composed components={['button', 'sheet']}/>
 
 ## Manual Installation
 <Installation options={{ isManual: true }} items={['react-aria-components', 'framer-motion']}/>
@@ -126,18 +126,6 @@ The inset one will have the padding to inset main content. You can of course see
 You also make the navbar sticky by setting the `isSticky` prop to `true`.
 ```
 <Navbar isSticky />
-```
-
-## Without Inset
-If you prefer full control of your layout and don't want to use the `<Navbar.Inset />` component which by default centers your content within a container, simply avoid using the `inset` intent. This allows you to freely manage the layout without the automatic centering effect.
-```
-<Navbar {...props}>
-  <Navbar.Nav />
-  <Navbar.Compact />
-  <Navbar.Inset> {/* remove this line */} // [!code --]
-    {children}
-  </Navbar.Inset> {/* remove this line */} // [!code --]
-</Navbar>
 ```
 
 ## Using Icons

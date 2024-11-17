@@ -11,7 +11,7 @@ import {
   IconSearch,
   IconSettings
 } from "justd-icons"
-import { Avatar, Button, Menu, Navbar, Separator } from "ui"
+import { Avatar, Button, Container, Heading, Menu, Navbar, Separator } from "ui"
 
 export default function NavbarBasicDemo() {
   return (
@@ -97,9 +97,11 @@ export default function NavbarBasicDemo() {
         </Navbar.Flex>
       </Navbar.Compact>
 
-      {/*<Navbar.Inset>*/}
-      {/*  <Heading>Home</Heading>*/}
-      {/*</Navbar.Inset>*/}
+      <Navbar.Inset>
+        <Container className="sm:py-12 py-6">
+          <Heading>Home</Heading>
+        </Container>
+      </Navbar.Inset>
     </Navbar>
   )
 }
