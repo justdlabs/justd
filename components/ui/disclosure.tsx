@@ -22,6 +22,7 @@ import { cn, cr } from "./primitive"
 interface DisclosureGroupProps extends DisclosureGroupPrimitiveProps {
   hideBorder?: boolean
   hideIndicator?: boolean
+  className?: string
 }
 
 const DisclosureGroupContext = React.createContext<DisclosureGroupProps>({})
@@ -41,14 +42,12 @@ const DisclosureGroup = ({
           isDisabled ? "cursor-not-allowed opacity-75" : "cursor-pointer",
           hideBorder
             ? "[&_[data-slot=accordion-item]]:border-none"
-            : "[&_[data-slot=accordion-item]]:border-b",
-
-          className
+            : "[&_[data-slot=accordion-item]]:border-b"
         ])
       }
     >
       {(values) => (
-        <div data-slot="accordion-item-content">
+        <div data-slot="accordion-item-content" className={className}>
           <DisclosureGroupContext.Provider value={{ hideIndicator, hideBorder }}>
             {typeof children === "function" ? children(values) : children}
           </DisclosureGroupContext.Provider>
