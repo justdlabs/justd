@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useRef, useState } from "react"
+import React from "react"
 
 import { tv } from "tailwind-variants"
 
@@ -33,11 +33,11 @@ interface ContextMenuRootComponent {
 }
 
 const ContextMenu = ({ children }: ContextMenuRootComponent) => {
-  const [contextMenuOffset, setContextMenuOffset] = useState<{
+  const [contextMenuOffset, setContextMenuOffset] = React.useState<{
     offset: number
     crossOffset: number
   } | null>(null)
-  const buttonRef = useRef<HTMLButtonElement>(null)
+  const buttonRef = React.useRef<HTMLButtonElement>(null)
 
   return (
     <ContextMenuTriggerContext.Provider
