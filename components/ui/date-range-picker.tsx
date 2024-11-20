@@ -18,8 +18,8 @@ import { ctr } from "./primitive"
 const dateRangePickerStyles = tv({
   slots: {
     base: "group flex flex-col gap-y-1.5",
-    dateRangePickerInputStart: "px-2 lg:text-sm tabular-nums uppercase text-base",
-    dateRangePickerInputEnd: "flex-1 px-2 py-1.5 tabular-nums uppercase text-base lg:text-sm",
+    dateRangePickerInputStart: "px-2 lg:text-sm tabular-nums text-base",
+    dateRangePickerInputEnd: "flex-1 px-2 py-1.5 tabular-nums text-base lg:text-sm",
     dateRangePickerDash:
       "text-fg group-disabled:text-muted-fg forced-colors:text-[ButtonText] group-disabled:forced-colors:text-[GrayText]"
   }

@@ -44,16 +44,21 @@ You can typically click the color swatch to open the color picker. To disable th
 You can disable the color field, making it non-interactive.
 <How toUse="colors/color-field/color-field-disabled-demo" />
 
+## Validation
+In this example, we’ll ensure it’s treated as a strict requirement.
+<How toUse="colors/color-field/color-field-validation-demo" />
+
+
 ## Props
 The `ColorField` component includes all standard props from `react-aria-components`, plus these additional features:
 
-| Property          | Type                                                 | Optional            |
-|-------------------|------------------------------------------------------|---------------------|
-| label             | string                                               | Yes                 |
-| description       | string                                               | Yes                 |
-| errorMessage      | string \| ((validation: ValidationResult) => string) | Yes                 |
-| placeholder       | string                                               | Yes                 |
-| prefix            | React.ReactNode                                      | Yes                 |
-| suffix            | React.ReactNode                                      | Yes                 |
-| isLoading         | boolean                                              | Yes                 |
+| Property          | Type                                                 | Optional             |
+|-------------------|------------------------------------------------------|----------------------|
+| label             | string                                               | Yes                  |
+| description       | string                                               | Yes                  |
+| errorMessage      | string \| ((validation: ValidationResult) => string) | Yes                  |
+| placeholder       | string                                               | Yes                  |
+| prefix            | React.ReactNode                                      | Yes                  |
+| suffix            | React.ReactNode                                      | Yes                  |
+| isLoading         | boolean                                              | Yes                  |
 | enableColorPicker | boolean                                              | Yes ( default: true) |

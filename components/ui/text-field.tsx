@@ -11,7 +11,7 @@ import {
 } from "react-aria-components"
 
 import type { FieldProps } from "./field"
-import { Description, FieldError, FieldGroup, fieldGroupPrefixStyles, Input, Label } from "./field"
+import { Description, FieldError, FieldGroup, Input, Label } from "./field"
 import { Loader } from "./loader"
 import { ctr } from "./primitive"
 
@@ -62,10 +62,7 @@ const TextField = ({
       className={ctr(className, "group flex flex-col gap-y-1.5")}
     >
       {label && <Label>{label}</Label>}
-      <FieldGroup
-        data-loading={isPending ? "true" : undefined}
-        className={fieldGroupPrefixStyles({ className })}
-      >
+      <FieldGroup data-loading={isPending ? "true" : undefined}>
         {prefix ? (
           <span data-slot="prefix" className="atrs x2e2">
             {prefix}
@@ -77,16 +74,14 @@ const TextField = ({
             type="button"
             aria-label="Toggle password visibility"
             onPress={handleTogglePasswordVisibility}
-            className="atrs relative [&>[data-slot=icon]]:text-muted-fg focus:outline-none focus-visible:ring-1 focus-visible:ring-primary rounded"
+            className="mr-2.5 relative [&>[data-slot=icon]]:text-muted-fg focus:outline-none focus-visible:ring-1 focus-visible:ring-primary rounded"
           >
             <>{isPasswordVisible ? <IconEyeClosed /> : <IconEye />}</>
           </ButtonPrimitive>
         ) : isPending ? (
           <Loader variant="spin" data-slot="suffix" />
         ) : suffix ? (
-          <span data-slot="suffix" className="atrs x2e2">
-            {suffix}
-          </span>
+          <span data-slot="suffix">{suffix}</span>
         ) : null}
       </FieldGroup>
       {description && <Description>{description}</Description>}

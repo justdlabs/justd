@@ -112,7 +112,7 @@ function TocLink({ item, activeId }: { item: TableOfContentsProps; activeId: str
     <li key={item.title}>
       <Link
         className={cn(
-          "outline-none block no-underline tracking-tight lg:text-[0.885rem] duration-200",
+          "outline-none block no-underline tracking-tight lg:text-[0.885rem] duration-200 focus-visible:outline-none focus-visible:text-fg",
           item.url.split("#")[1] === activeId
             ? "text-fg forced-colors:text-[Highlight]"
             : "text-muted-fg/90 forced-colors:text-[GrayText]"

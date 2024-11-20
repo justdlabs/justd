@@ -1,7 +1,12 @@
 "use client"
 
-import { NumberField } from "ui"
+import { Button, Form, NumberField } from "ui"
 
 export default function NumberFieldInvalidDemo() {
-  return <NumberField isInvalid label="Cookies" />
+  return (
+    <Form onSubmit={(e) => e.preventDefault()} className="space-y-4">
+      <NumberField isRequired label="Cookies" />
+      <Button type="submit">Submit</Button>
+    </Form>
+  )
 }

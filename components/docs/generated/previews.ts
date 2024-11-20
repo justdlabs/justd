@@ -8,11 +8,23 @@ export const previews: Record<string, any> = {
   "date-and-time/date-field/date-field-demo": {
     component: React.lazy(() => import("@/components/docs/date-and-time/date-field/date-field-demo")),
   },
+  "date-and-time/date-field/date-field-prefix-demo": {
+    component: React.lazy(() => import("@/components/docs/date-and-time/date-field/date-field-prefix-demo")),
+  },
   "date-and-time/date-field/date-field-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/date-and-time/date-field/date-field-controlled-demo")),
   },
+  "date-and-time/date-field/date-field-suffix-demo": {
+    component: React.lazy(() => import("@/components/docs/date-and-time/date-field/date-field-suffix-demo")),
+  },
+  "date-and-time/date-field/date-field-uncontrolled-demo": {
+    component: React.lazy(() => import("@/components/docs/date-and-time/date-field/date-field-uncontrolled-demo")),
+  },
   "date-and-time/date-field/date-field-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/date-and-time/date-field/date-field-disabled-demo")),
+  },
+  "date-and-time/date-field/date-field-readonly-demo": {
+    component: React.lazy(() => import("@/components/docs/date-and-time/date-field/date-field-readonly-demo")),
   },
   "date-and-time/date-field/date-time-field-demo": {
     component: React.lazy(() => import("@/components/docs/date-and-time/date-field/date-time-field-demo")),
@@ -50,14 +62,11 @@ export const previews: Record<string, any> = {
   "date-and-time/time-field/time-field-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/date-and-time/time-field/time-field-disabled-demo")),
   },
-  "date-and-time/time-field/date-field-controlled-demo": {
-    component: React.lazy(() => import("@/components/docs/date-and-time/time-field/date-field-controlled-demo")),
-  },
   "date-and-time/time-field/time-field-validation-demo": {
     component: React.lazy(() => import("@/components/docs/date-and-time/time-field/time-field-validation-demo")),
   },
-  "date-and-time/time-field/date-field-disabled-demo": {
-    component: React.lazy(() => import("@/components/docs/date-and-time/time-field/date-field-disabled-demo")),
+  "date-and-time/time-field/time-field-suffix-demo": {
+    component: React.lazy(() => import("@/components/docs/date-and-time/time-field/time-field-suffix-demo")),
   },
   "date-and-time/time-field/time-field-hc-demo": {
     component: React.lazy(() => import("@/components/docs/date-and-time/time-field/time-field-hc-demo")),
@@ -65,8 +74,11 @@ export const previews: Record<string, any> = {
   "date-and-time/time-field/time-field-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/date-and-time/time-field/time-field-controlled-demo")),
   },
-  "date-and-time/time-field/date-field-validation-demo": {
-    component: React.lazy(() => import("@/components/docs/date-and-time/time-field/date-field-validation-demo")),
+  "date-and-time/time-field/time-field-prefix-demo": {
+    component: React.lazy(() => import("@/components/docs/date-and-time/time-field/time-field-prefix-demo")),
+  },
+  "date-and-time/time-field/time-field-readonly-demo": {
+    component: React.lazy(() => import("@/components/docs/date-and-time/time-field/time-field-readonly-demo")),
   },
   "date-and-time/time-field/time-field-demo": {
     component: React.lazy(() => import("@/components/docs/date-and-time/time-field/time-field-demo")),
@@ -889,6 +901,9 @@ export const previews: Record<string, any> = {
   },
   "colors/color-field/color-field-with-prefix-demo": {
     component: React.lazy(() => import("@/components/docs/colors/color-field/color-field-with-prefix-demo")),
+  },
+  "colors/color-field/color-field-validation-demo": {
+    component: React.lazy(() => import("@/components/docs/colors/color-field/color-field-validation-demo")),
   },
   "colors/color-field/color-field-with-suffix-demo": {
     component: React.lazy(() => import("@/components/docs/colors/color-field/color-field-with-suffix-demo")),

@@ -2,7 +2,7 @@
 
 import { Button, DateField, Form } from "ui"
 
-export default function DateFieldDisabledDemo() {
+export default function DateFieldValidationDemo() {
   return (
     <Form onSubmit={(e) => e.preventDefault()}>
       <DateField isRequired label="Event date" className="mb-2" />

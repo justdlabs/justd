@@ -4,8 +4,8 @@ import { Button, Form, TextField } from "ui"
 
 export default function TextFieldValidationDemo() {
   return (
-    <Form>
-      <TextField isRequired label="Name" className="mb-2" />
+    <Form className="space-y-4">
+      <TextField isRequired label="Name" />
       <Button type="submit">Submit</Button>
     </Form>
   )

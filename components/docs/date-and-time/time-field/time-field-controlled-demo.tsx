@@ -5,7 +5,7 @@ import React from "react"
 import { Time } from "@internationalized/date"
 import { TimeField } from "ui"
 
-export default function TimeFieldValidationDemo() {
+export default function TimeFieldControlledDemo() {
   const [value, setValue] = React.useState(new Time(11, 45))
   return (
     <div className="space-y-3">

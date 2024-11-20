@@ -10,7 +10,7 @@ import { ColorField as ColorFieldPrimitive } from "react-aria-components"
 
 import { ColorPicker } from "./color-picker"
 import { ColorSwatch } from "./color-swatch"
-import { Description, FieldError, FieldGroup, fieldGroupPrefixStyles, Input, Label } from "./field"
+import { Description, FieldError, FieldGroup, Input, Label } from "./field"
 import { ctr } from "./primitive"
 
 interface ColorFieldProps extends ColorFieldPrimitiveProps {
@@ -47,10 +47,7 @@ const ColorField = ({
       )}
     >
       {label && <Label>{label}</Label>}
-      <FieldGroup
-        data-loading={isLoading ? "true" : undefined}
-        className={fieldGroupPrefixStyles()}
-      >
+      <FieldGroup data-loading={isLoading ? "true" : undefined}>
         {prefix ? (
           <span data-slot="prefix" className="atrs">
             {prefix}
@@ -58,7 +55,7 @@ const ColorField = ({
         ) : null}
         <div className="flex items-center">
           {value && (
-            <span>
+            <span className="ml-2">
               {enableColorPicker ? (
                 <ColorPicker onChange={props.onChange} defaultValue={value} />
               ) : (

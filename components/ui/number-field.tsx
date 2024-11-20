@@ -10,14 +10,26 @@ import {
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
-import { Description, fieldBorderStyles, FieldError, FieldGroup, Input, Label } from "./field"
+import { Description, FieldError, FieldGroup, Input, Label } from "./field"
 import { ctr, useMediaQuery } from "./primitive"
+
+const fieldBorderStyles = tv({
+  base: "group-focus:border-primary/70 forced-colors:border-[Highlight]",
+  variants: {
+    isInvalid: {
+      true: "group-focus:border-danger/70 forced-colors:border-[Mark]"
+    },
+    isDisabled: {
+      true: "group-focus:border-input/70"
+    }
+  }
+})
 
 const numberFieldStyles = tv({
   slots: {
     base: "group flex flex-col gap-y-1.5",
     stepperButton:
-      "h-10 cursor-default px-2 text-muted-fg pressed:bg-primary pressed:text-primary-fg group-disabled:bg-secondary forced-colors:group-disabled:text-[GrayText]"
+      "h-10 cursor-default px-3 text-muted-fg pressed:bg-primary pressed:text-primary-fg group-disabled:bg-secondary/70 forced-colors:group-disabled:text-[GrayText]"
   }
 })
 
@@ -42,7 +54,7 @@ const NumberField = ({
   return (
     <NumberFieldPrimitive {...props} className={ctr(className, base())}>
       {label && <Label>{label}</Label>}
-      <FieldGroup className="group-disabled:bg-secondary">
+      <FieldGroup className="overflow-hidden">
         {(renderProps) => (
           <>
             {isMobile ? <StepperButton slot="decrement" className="border-r" /> : null}
@@ -61,7 +73,7 @@ const NumberField = ({
                   <div
                     className={fieldBorderStyles({
                       ...renderProps,
-                      className: "border-b"
+                      className: "border-b border-input"
                     })}
                   />
                   <StepperButton slot="decrement" emblemType="chevron" className="h-5 px-1" />
@@ -108,4 +120,4 @@ const StepperButton = ({
   )
 }
 
-export { NumberField, type NumberFieldProps }
+export { NumberField }

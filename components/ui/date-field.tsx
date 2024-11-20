@@ -1,5 +1,7 @@
 "use client"
 
+import * as React from "react"
+
 import {
   DateField as DateFieldPrimitive,
   type DateFieldProps as DateFieldPrimitiveProps,
@@ -11,25 +13,36 @@ import {
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
-import { Description, FieldError, fieldGroupStyles, Label } from "./field"
-import { cn, cr, ctr } from "./primitive"
+import { Description, FieldError, FieldGroup, Label } from "./field"
+import { cn, ctr } from "./primitive"
 
 interface DateFieldProps<T extends DateValue> extends DateFieldPrimitiveProps<T> {
   label?: string
   description?: string
   errorMessage?: string | ((validation: ValidationResult) => string)
+  prefix?: React.ReactNode
+  suffix?: React.ReactNode
 }
 
 const DateField = <T extends DateValue>({
+  prefix,
+  suffix,
   label,
   description,
   errorMessage,
   ...props
 }: DateFieldProps<T>) => {
   return (
-    <DateFieldPrimitive {...props} className={ctr(props.className, "flex flex-col")}>
+    <DateFieldPrimitive
+      {...props}
+      className={ctr(props.className, "flex group flex-col gap-y-1.5")}
+    >
       {label && <Label>{label}</Label>}
-      <DateInput />
+      <FieldGroup>
+        {prefix ? <span data-slot="prefix">{prefix}</span> : null}
+        <DateInput />
+        {suffix ? <span data-slot="suffix">{suffix}</span> : null}
+      </FieldGroup>
       {description && <Description>{description}</Description>}
       <FieldError>{errorMessage}</FieldError>
     </DateFieldPrimitive>
@@ -37,7 +50,7 @@ const DateField = <T extends DateValue>({
 }
 
 const segmentStyles = tv({
-  base: "inline shrink-0 tabular-nums rounded p-0.5 tracking-wider text-fg caret-transparent outline outline-0 forced-color-adjust-none type-literal:px-0 lg:text-sm forced-colors:text-[ButtonText]",
+  base: "inline shrink-0 sm:uppercase tabular-nums rounded p-0.5 tracking-wider text-fg caret-transparent outline outline-0 forced-color-adjust-none type-literal:px-0 lg:text-sm forced-colors:text-[ButtonText]",
   variants: {
     isPlaceholder: {
       true: "text-muted-fg"
@@ -54,17 +67,12 @@ const segmentStyles = tv({
   }
 })
 
-const DateInput = (props: Omit<DateInputProps, "children">) => {
+const DateInput = ({ className, ...props }: Omit<DateInputProps, "children">) => {
   return (
     <DateInputPrimitive
-      className={cr(props.className, (className, renderProps) =>
-        fieldGroupStyles({
-          ...renderProps,
-          className: cn(
-            "min-w-sm block disabled:bg-secondary uppercase w-full py-2 px-2.5 text-base lg:text-sm/[1.4rem]",
-            className
-          )
-        })
+      className={cn(
+        "bg-transparent p-2 text-base text-fg placeholder-muted-fg lg:text-sm",
+        className
       )}
       {...props}
     >
