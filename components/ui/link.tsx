@@ -9,7 +9,7 @@ import { cr } from "./primitive"
 
 const linkStyles = tv({
   base: [
-    "relative focus-visible:outline-2 outline-offset-2 outline-0 outline-primary transition-colors",
+    "relative focus-visible:outline-2 outline-offset-2 outline-0 focus:outline-none outline-primary transition-colors",
     "forced-colors:outline-[Highlight] forced-colors:disabled:text-[GrayText] disabled:focus-visible:outline-0",
     "disabled:cursor-default disabled:opacity-60"
   ],
