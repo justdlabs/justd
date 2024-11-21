@@ -18,7 +18,7 @@ const ToggleGroupContext = React.createContext<ToggleGroupContextProps>({
 })
 
 const toggleGroupStyles = tv({
-  base: "flex gap-1",
+  base: ["flex gap-1"],
   variants: {
     orientation: {
       horizontal:
@@ -55,7 +55,7 @@ const toggleStyles = tv({
   extend: focusButtonStyles,
   base: [
     "inline-flex relative items-center gap-x-2 bg-transparent justify-center border border-transparent rounded-lg text-sm font-medium ring-offset-bg transition-colors",
-    "hover:bg-secondary hover:text-secondary-fg",
+    "enabled:hover:bg-secondary enabled:hover:text-secondary-fg",
     "forced-colors:[--button-icon:ButtonText] forced-colors:hover:[--button-icon:ButtonText]",
     "[&>[data-slot=icon]]:-mx-0.5 [&>[data-slot=icon]]:my-1 [&>[data-slot=icon]]:size-4 [&>[data-slot=icon]]:shrink-0 [&>[data-slot=icon]]:text-[--button-icon]"
   ],
@@ -66,15 +66,15 @@ const toggleStyles = tv({
     appearance: {
       plain: [
         "selected:bg-secondary selected:text-secondary-fg",
-        "[--button-icon:theme(colors.secondary.fg/60%)] selected:[--button-icon:theme(colors.secondary.fg)] hover:[--button-icon:theme(colors.secondary.fg/80%)]"
+        "[--button-icon:theme(colors.secondary.fg/60%)] selected:[--button-icon:theme(colors.secondary.fg)] enabled:hover:[--button-icon:theme(colors.secondary.fg/80%)]"
       ],
       solid: [
-        "bg-white border-border selected:border-primary hover:bg-white/95 hover:text-black text-black selected:bg-primary selected:text-primary-fg",
-        "[--button-icon:theme(colors.black/60%)] selected:[--button-icon:theme(colors.white)] hover:[--button-icon:theme(colors.black/80%)]"
+        "bg-white border-border selected:border-primary enabled:hover:bg-white/95 enabled:hover:text-black text-black selected:bg-primary selected:text-primary-fg",
+        "[--button-icon:theme(colors.black/60%)] selected:[--button-icon:theme(colors.white)] enabled:hover:[--button-icon:theme(colors.black/80%)]"
       ],
       outline: [
-        "border-border selected:bg-secondary selected:backdrop-blur-sm selected:text-secondary-fg hover:bg-secondary/50 hover:text-secondary-fg",
-        "[--button-icon:theme(colors.secondary.fg/60%)] selected:[--button-icon:theme(colors.secondary.fg)] hover:[--button-icon:theme(colors.secondary.fg/80%)]"
+        "border-border selected:bg-secondary selected:backdrop-blur-sm selected:text-secondary-fg enabled:hover:bg-secondary/50 enabled:hover:text-secondary-fg",
+        "[--button-icon:theme(colors.secondary.fg/60%)] selected:[--button-icon:theme(colors.secondary.fg)] enabled:hover:[--button-icon:theme(colors.secondary.fg/80%)]"
       ]
     },
     size: {
