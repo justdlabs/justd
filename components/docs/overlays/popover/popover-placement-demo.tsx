@@ -13,9 +13,7 @@ export default function PopoverPlacementDemo() {
           <Button className="mx-auto" size="small" appearance="outline">
             {placement}
           </Button>
-          <Popover.Content placement={placement}>
-            Popover shown at <strong>{placement}</strong>.
-          </Popover.Content>
+          <Popover.Content placement={placement}>Popover shown at {placement}.</Popover.Content>
         </Popover>
       ))}
     </div>

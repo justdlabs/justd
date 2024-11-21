@@ -3,7 +3,13 @@
 import * as React from "react"
 
 import { getSiteName } from "@/resources/lib/utils"
-import { Collection, ListBox as Primitive, ListBoxItem, Section, Text } from "react-aria-components"
+import {
+  Collection,
+  ListBox as Primitive,
+  ListBoxItem,
+  ListBoxSection,
+  Text
+} from "react-aria-components"
 import { Avatar } from "ui"
 
 interface Props {
@@ -16,7 +22,7 @@ interface Props {
 export function ListSites({ sites }: Props) {
   return (
     <Primitive aria-label="Showcase">
-      <Section className="grid lg:grid-cols-4 sm:grid-cols-2 gap-4 lg:gap-6">
+      <ListBoxSection className="grid lg:grid-cols-4 sm:grid-cols-2 gap-4 lg:gap-6">
         <Collection items={sites}>
           {(item) => {
             return (
@@ -46,7 +52,7 @@ export function ListSites({ sites }: Props) {
             )
           }}
         </Collection>
-      </Section>
+      </ListBoxSection>
     </Primitive>
   )
 }

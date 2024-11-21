@@ -11,9 +11,9 @@ import type {
 } from "react-aria-components"
 import {
   Button,
-  UNSTABLE_Disclosure as DisclosurePrimitive,
-  UNSTABLE_DisclosureGroup as DisclosureGroupPrimitive,
-  UNSTABLE_DisclosurePanel as DisclosurePanel
+  Disclosure as DisclosurePrimitive,
+  DisclosureGroup as DisclosureGroupPrimitive,
+  DisclosurePanel
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 

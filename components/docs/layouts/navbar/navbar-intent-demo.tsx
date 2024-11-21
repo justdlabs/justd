@@ -1,6 +1,6 @@
 "use client"
 
-import { IconShoppingBag, IconBrandApple, IconSearch } from "justd-icons"
+import { IconBrandApple, IconSearch, IconShoppingBag } from "justd-icons"
 import { Button, Navbar } from "ui"
 
 export default function NavbarIntentDemo() {

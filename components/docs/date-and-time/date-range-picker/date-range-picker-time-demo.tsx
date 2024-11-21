@@ -18,7 +18,7 @@ export default function DateRangePickerTimeDemo() {
       hideTimeZone
       label="Date time range"
       value={value}
-      onChange={setValue}
+      onChange={(newValue) => setValue(newValue!)}
       hourCycle={24}
     />
   )

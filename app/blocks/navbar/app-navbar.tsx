@@ -5,7 +5,6 @@ import * as React from "react"
 import { CommandPalette } from "@/components/command-palette"
 import { ThemeSwitcher } from "@/components/theme-switcher"
 import {
-  IconShoppingBag,
   IconBasket,
   IconBrandApple,
   IconChevronLgDown,
@@ -16,7 +15,8 @@ import {
   IconLogout,
   IconMacbook,
   IconSearch,
-  IconSettings
+  IconSettings,
+  IconShoppingBag
 } from "justd-icons"
 import { usePathname } from "next/navigation"
 import { Avatar, Button, Menu, Navbar, Separator } from "ui"

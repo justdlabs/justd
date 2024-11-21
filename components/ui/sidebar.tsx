@@ -4,11 +4,7 @@ import * as React from "react"
 
 import { IconChevronDown, IconChevronRight, IconHamburger, IconSidebarFill } from "justd-icons"
 import type { DisclosureProps, LinkProps } from "react-aria-components"
-import {
-  Link,
-  UNSTABLE_Disclosure as Disclosure,
-  UNSTABLE_DisclosurePanel as DisclosurePanel
-} from "react-aria-components"
+import { Disclosure, DisclosurePanel, Link } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
 import { Button, ButtonPrimitive } from "./button"

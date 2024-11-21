@@ -2,13 +2,14 @@
 
 import React from "react"
 
+import type { CalendarDate } from "@internationalized/date"
 import { getLocalTimeZone, parseDate, today } from "@internationalized/date"
 import { useDateFormatter } from "@react-aria/i18n"
 import { DateField } from "ui"
 
 export default function DateFieldControlledDemo() {
   const now = today(getLocalTimeZone())
-  const [value, setValue] = React.useState(parseDate(now.toString()))
+  const [value, setValue] = React.useState<CalendarDate>(parseDate(now.toString()))
 
   const formatter = useDateFormatter({ dateStyle: "full" })
 
@@ -18,7 +19,7 @@ export default function DateFieldControlledDemo() {
         <p>{value ? formatter.format(value.toDate(getLocalTimeZone())) : "--"}</p>
         <p>{value ? value.toString() : "--"}</p>
       </div>
-      <DateField value={value} onChange={setValue} label="Event date" />
+      <DateField value={value} onChange={(newValue) => setValue(newValue!)} label="Event date" />
     </div>
   )
 }

@@ -15,7 +15,7 @@ export default function DateTimeDemo() {
       hourCycle={24}
       className="max-w-xs"
       value={value}
-      onChange={setValue}
+      onChange={(newValue) => setValue(newValue!)}
       label="Event date"
     />
   )

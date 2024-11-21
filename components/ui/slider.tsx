@@ -87,13 +87,11 @@ const Slider = ({ label, description, showValue = true, ...props }: SliderProps)
 )
 
 const Controls = (props: SliderTrackProps) => {
-  const { values } = React.useContext(SliderStateContext)
+  const state = React.useContext(SliderStateContext)
   return (
     <Track {...props}>
       <Filler />
-      {values.map((_, i) => (
-        <Thumb key={i} index={i} />
-      ))}
+      {state?.values.map((_, i) => <Thumb key={i} index={i} />)}
     </Track>
   )
 }
@@ -105,28 +103,23 @@ const Track = (props: SliderTrackProps) => {
 }
 
 const Filler = (props: React.HTMLAttributes<HTMLDivElement>) => {
-  const { orientation, getThumbPercent, values } = React.useContext(SliderStateContext)
-  return (
-    <div
-      {...props}
-      style={
-        values.length === 1
-          ? orientation === "horizontal"
-            ? { width: `${getThumbPercent(0) * 100}%` }
-            : { height: `${getThumbPercent(0) * 100}%` }
-          : orientation === "horizontal"
-            ? {
-                left: `${getThumbPercent(0) * 100}%`,
-                width: `${Math.abs(getThumbPercent(0) - getThumbPercent(1)) * 100}%`
-              }
-            : {
-                bottom: `${getThumbPercent(0) * 100}%`,
-                height: `${Math.abs(getThumbPercent(0) - getThumbPercent(1)) * 100}%`
-              }
-      }
-      className={filler({ className: props.className })}
-    />
-  )
+  const state = React.useContext(SliderStateContext)
+  const { orientation, getThumbPercent, values } = state || {}
+
+  const getStyle = () => {
+    const percent0 = getThumbPercent ? getThumbPercent(0) * 100 : 0
+    const percent1 = getThumbPercent ? getThumbPercent(1) * 100 : 0
+
+    if (values?.length === 1) {
+      return orientation === "horizontal" ? { width: `${percent0}%` } : { height: `${percent0}%` }
+    }
+
+    return orientation === "horizontal"
+      ? { left: `${percent0}%`, width: `${Math.abs(percent0 - percent1)}%` }
+      : { bottom: `${percent0}%`, height: `${Math.abs(percent0 - percent1)}%` }
+  }
+
+  return <div {...props} style={getStyle()} className={filler({ className: props.className })} />
 }
 
 const Thumb = ({ className, ...props }: SliderThumbProps) => {

@@ -14,7 +14,7 @@ export default function DatePickerInvalidDemo() {
       <DatePicker
         validate={(date) => (date < now ? "Select a future date, please." : null)}
         value={value}
-        onChange={setValue}
+        onChange={(newValue) => setValue(newValue!)}
         label="Delivery date"
         className="mb-2"
       />

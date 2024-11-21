@@ -43,7 +43,7 @@ interface TagFieldProps extends Pick<TagGroupProps, "shape">, FieldProps {
   name?: string
   list: ListData<TagItemProps>
   onItemInserted?: (tag: TagItemProps) => void
-  onItemCleared?: (tag: TagItemProps) => void
+  onItemCleared?: (tag: TagItemProps | undefined) => void
   appearance?: "outline" | "plain"
 }
 

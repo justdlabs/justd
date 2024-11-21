@@ -5,7 +5,7 @@ import * as React from "react"
 import useEmblaCarousel, { type UseEmblaCarouselType } from "embla-carousel-react"
 import { IconChevronLgLeft, IconChevronLgRight } from "justd-icons"
 import type { ListBoxItemProps, SectionProps } from "react-aria-components"
-import { ListBox, ListBoxItem, Section } from "react-aria-components"
+import { ListBox, ListBoxItem, ListBoxSection } from "react-aria-components"
 
 import type { ButtonProps } from "./button"
 import { Button } from "./button"
@@ -159,7 +159,7 @@ const CarouselContent = <T extends object>({ className, ...props }: SectionProps
       ref={carouselRef}
       className="overflow-hidden"
     >
-      <Section
+      <ListBoxSection
         className={cn("flex", orientation === "horizontal" ? "-ml-4" : "-mt-4 flex-col", className)}
         {...props}
       />

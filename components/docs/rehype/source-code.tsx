@@ -28,7 +28,6 @@ export function SourceCode({ title, message, ext = "tsx", toShow, ...props }: So
         )
       })
     } else {
-      console.error("Component not found:", toShow)
       setCodeString(null)
     }
   }, [toShow])

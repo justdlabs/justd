@@ -8,8 +8,7 @@ import { tv } from "tailwind-variants"
 
 import { cn, cr } from "./primitive"
 import { Separator } from "./separator"
-import type { ToggleProps } from "./toggle"
-import { Toggle, toggleStyles } from "./toggle"
+import { Toggle } from "./toggle"
 
 const toolbarStyles = tv({
   base: "flex gap-2 group",
@@ -68,25 +67,11 @@ const ToolbarGroup = ({ isDisabled, ...props }: GroupProps) => {
   )
 }
 
-const Item = ({ isDisabled, ...props }: ToggleProps) => {
+const Item = ({ isDisabled, ...props }: React.ComponentProps<typeof Toggle>) => {
   const context = React.useContext(ToolbarGroupContext)
   const effectiveIsDisabled = isDisabled || context.isDisabled
 
-  return (
-    <Toggle
-      isDisabled={effectiveIsDisabled}
-      {...props}
-      className={cr(props.className, (className, renderProps) =>
-        toggleStyles({
-          ...renderProps,
-          appearance: props.appearance,
-          size: props.size,
-          shape: props.shape,
-          className
-        })
-      )}
-    />
-  )
+  return <Toggle isDisabled={effectiveIsDisabled} {...props} />
 }
 
 Toolbar.Group = ToolbarGroup

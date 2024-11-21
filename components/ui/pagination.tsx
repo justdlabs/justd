@@ -14,7 +14,7 @@ import {
   ListBoxItem,
   type ListBoxItemProps,
   type ListBoxProps,
-  Section,
+  ListBoxSection,
   type SectionProps,
   Separator
 } from "react-aria-components"
@@ -59,7 +59,7 @@ const Pagination = ({ className, ...props }: React.ComponentProps<"nav">) => (
 )
 
 const PaginationSection = <T extends object>({ className, ...props }: SectionProps<T>) => (
-  <Section {...props} className={section({ className })} />
+  <ListBoxSection {...props} className={section({ className })} />
 )
 
 const List = <T extends object>({ className, ...props }: ListBoxProps<T>) => {

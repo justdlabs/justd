@@ -1,7 +1,6 @@
 "use client"
 
 import {
-  IconShoppingBag,
   IconBrandApple,
   IconChevronLgDown,
   IconCommandRegular,
@@ -9,7 +8,8 @@ import {
   IconHeadphones,
   IconLogout,
   IconSearch,
-  IconSettings
+  IconSettings,
+  IconShoppingBag
 } from "justd-icons"
 import { Avatar, Button, Container, Heading, Menu, Navbar, Separator } from "ui"
 

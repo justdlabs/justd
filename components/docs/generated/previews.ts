@@ -320,6 +320,24 @@ export const previews: Record<string, any> = {
   "buttons/file-trigger/file-trigger-avatar-demo": {
     component: React.lazy(() => import("@/components/docs/buttons/file-trigger/file-trigger-avatar-demo")),
   },
+  "buttons/toggle-group/toggle-group-controlled-demo": {
+    component: React.lazy(() => import("@/components/docs/buttons/toggle-group/toggle-group-controlled-demo")),
+  },
+  "buttons/toggle-group/toggle-group-demo": {
+    component: React.lazy(() => import("@/components/docs/buttons/toggle-group/toggle-group-demo")),
+  },
+  "buttons/toggle-group/toggle-group-selection-mode-demo": {
+    component: React.lazy(() => import("@/components/docs/buttons/toggle-group/toggle-group-selection-mode-demo")),
+  },
+  "buttons/toggle-group/toggle-group-disabled-demo": {
+    component: React.lazy(() => import("@/components/docs/buttons/toggle-group/toggle-group-disabled-demo")),
+  },
+  "buttons/toggle-group/toggle-group-orientation-demo": {
+    component: React.lazy(() => import("@/components/docs/buttons/toggle-group/toggle-group-orientation-demo")),
+  },
+  "buttons/toggle-group/toggle-group-appearance-demo": {
+    component: React.lazy(() => import("@/components/docs/buttons/toggle-group/toggle-group-appearance-demo")),
+  },
   "buttons/toggle/toggle-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/buttons/toggle/toggle-disabled-demo")),
   },
@@ -631,6 +649,9 @@ export const previews: Record<string, any> = {
   },
   "anatomies/toolbar-anatomy": {
     component: React.lazy(() => import("@/components/docs/anatomies/toolbar-anatomy")),
+  },
+  "anatomies/toggle-group-anatomy": {
+    component: React.lazy(() => import("@/components/docs/anatomies/toggle-group-anatomy")),
   },
   "anatomies/heading-anatomy": {
     component: React.lazy(() => import("@/components/docs/anatomies/heading-anatomy")),

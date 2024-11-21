@@ -19,7 +19,12 @@ export default function TimeFieldHcDemo() {
           {hc} hour
         </Switch>
       </OptionPreview>
-      <TimeField value={value} onChange={setValue} hourCycle={hc} label="Event time" />
+      <TimeField
+        value={value}
+        onChange={(newValue) => setValue(newValue!)}
+        hourCycle={hc}
+        label="Event time"
+      />
     </>
   )
 }

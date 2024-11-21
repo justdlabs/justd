@@ -8,7 +8,7 @@ import {
   Header,
   ListBoxItem as ListBoxItemPrimitive,
   type ListBoxItemProps,
-  Section,
+  ListBoxSection,
   type SectionProps,
   Text,
   type TextProps
@@ -54,7 +54,7 @@ const dropdownSectionStyles = tv({
     section:
       "first:-mt-[5px] xss3 flex flex-col gap-y-0.5 after:content-[''] after:block after:h-[5px]",
     header:
-      "text-sm font-medium text-muted-fg bg-tertiary px-4 py-2 truncate min-w-[--trigger-width] sticky -top-[5px] backdrop-blur -mt-px -mb-0.5 -mx-1 z-10 supports-[-moz-appearance:none]:bg-tertiary border-y [&+*]:mt-1"
+      "text-sm font-medium text-muted-fg px-4 py-2 truncate min-w-[--trigger-width] sticky -top-[5px] bg-tertiary -mb-0.5 -mx-1 z-10 supports-[-moz-appearance:none]:bg-tertiary border-y [&+*]:mt-1"
   }
 })
 
@@ -66,10 +66,10 @@ interface DropdownSectionProps<T> extends SectionProps<T> {
 
 const DropdownSection = <T extends object>({ className, ...props }: DropdownSectionProps<T>) => {
   return (
-    <Section className={section({ className })}>
+    <ListBoxSection className={section({ className })}>
       {"title" in props && <Header className={header()}>{props.title}</Header>}
       <Collection items={props.items}>{props.children}</Collection>
-    </Section>
+    </ListBoxSection>
   )
 }
 
@@ -139,4 +139,10 @@ const DropdownItemDetails = ({ label, description, classNames, ...props }: Dropd
 }
 
 // Note: This is not exposed component, but it's used in other components to render dropdowns.
-export { DropdownItem, dropdownItemStyles, DropdownItemDetails, DropdownSection }
+export {
+  DropdownItem,
+  dropdownItemStyles,
+  DropdownItemDetails,
+  DropdownSection,
+  dropdownSectionStyles
+}

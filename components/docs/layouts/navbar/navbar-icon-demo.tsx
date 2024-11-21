@@ -1,5 +1,4 @@
 import {
-  IconShoppingBag,
   IconBrandApple,
   IconBrandJustd,
   IconChart3,
@@ -12,6 +11,7 @@ import {
   IconNotes,
   IconSearch,
   IconSettings,
+  IconShoppingBag,
   IconSidebar
 } from "justd-icons"
 import { Avatar, Button, Menu, Navbar, Separator } from "ui"
