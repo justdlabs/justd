@@ -1,4 +1,4 @@
-import { IconBag, IconCreditCard } from "justd-icons"
+import { IconShoppingBag, IconCreditCard } from "justd-icons"
 import { Sidebar } from "ui"
 
 export default function SidebarAnatomy() {
@@ -14,7 +14,7 @@ export default function SidebarAnatomy() {
             <Sidebar.Item />
           </Sidebar.Section>
           <Sidebar.Section title="Projects">
-            <Sidebar.Item icon={IconBag} />
+            <Sidebar.Item icon={IconShoppingBag} />
             <Sidebar.Item icon={IconCreditCard} />
           </Sidebar.Section>
           <Sidebar.Section collapsible title="Team">

@@ -1,7 +1,7 @@
 "use client"
 
 import {
-  IconBag2,
+  IconShoppingBag,
   IconBrandApple,
   IconChevronLgDown,
   IconCommandRegular,
@@ -32,7 +32,7 @@ export default function NavbarBasicDemo() {
               <IconSearch />
             </Button>
             <Button appearance="plain" size="square-petite" aria-label="Your Bag">
-              <IconBag2 />
+              <IconShoppingBag />
             </Button>
           </div>
           <Separator orientation="vertical" className="h-6 ml-1 mr-3" />
@@ -91,7 +91,7 @@ export default function NavbarBasicDemo() {
               <IconSearch />
             </Button>
             <Button appearance="plain" size="square-petite" aria-label="Your Bag">
-              <IconBag2 />
+              <IconShoppingBag />
             </Button>
           </Navbar.Flex>
         </Navbar.Flex>

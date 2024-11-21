@@ -1,5 +1,5 @@
 import {
-  IconBag2,
+  IconShoppingBag,
   IconBrandApple,
   IconBrandJustd,
   IconChart3,
@@ -54,7 +54,7 @@ export default function NavbarIconDemo() {
               <IconSearch />
             </Button>
             <Button appearance="plain" size="square-petite" aria-label="Your Bag">
-              <IconBag2 />
+              <IconShoppingBag />
             </Button>
           </Navbar.Flex>
           <Separator orientation="vertical" className="h-6 ml-1 mr-3" />

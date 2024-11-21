@@ -5,7 +5,7 @@ import * as React from "react"
 import { CommandPalette } from "@/components/command-palette"
 import { ThemeSwitcher } from "@/components/theme-switcher"
 import {
-  IconBag2,
+  IconShoppingBag,
   IconBasket,
   IconBrandApple,
   IconChevronLgDown,
@@ -69,7 +69,7 @@ export function AppNavbar({ children, ...props }: React.ComponentProps<typeof Na
                 <IconSearch />
               </Button>
               <Button appearance="plain" size="square-petite" aria-label="Your Bag">
-                <IconBag2 />
+                <IconShoppingBag />
               </Button>
               <ThemeSwitcher appearance="plain" />
             </Navbar.Flex>
@@ -134,7 +134,7 @@ export function AppNavbar({ children, ...props }: React.ComponentProps<typeof Na
                 <IconSearch />
               </Button>
               <Button appearance="plain" size="square-petite" aria-label="Your Bag">
-                <IconBag2 />
+                <IconShoppingBag />
               </Button>
               <ThemeSwitcher appearance="plain" />
             </Navbar.Flex>

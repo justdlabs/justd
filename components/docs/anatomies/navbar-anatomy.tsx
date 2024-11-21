@@ -1,4 +1,4 @@
-import { IconBag2, IconBrandApple, IconSearch } from "justd-icons"
+import { IconShoppingBag, IconBrandApple, IconSearch } from "justd-icons"
 import { Button, Navbar, Separator } from "ui"
 
 export default function NavbarAnatomy() {
@@ -26,7 +26,7 @@ export default function NavbarAnatomy() {
             <IconSearch />
           </Button>
           <Button appearance="plain" size="square-petite" aria-label="Your Bag">
-            <IconBag2 />
+            <IconShoppingBag />
           </Button>
         </Navbar.Flex>
       </Navbar.Compact>

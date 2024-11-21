@@ -1,6 +1,6 @@
 "use client"
 
-import { IconBag2, IconBrandApple, IconSearch } from "justd-icons"
+import { IconShoppingBag, IconBrandApple, IconSearch } from "justd-icons"
 import { Button, Navbar } from "ui"
 
 export default function NavbarIntentDemo() {
@@ -29,7 +29,7 @@ export default function NavbarIntentDemo() {
               <IconSearch />
             </Button>
             <Button appearance="plain" size="square-petite" aria-label="Your Bag">
-              <IconBag2 />
+              <IconShoppingBag />
             </Button>
           </Navbar.Flex>
         </Navbar.Flex>

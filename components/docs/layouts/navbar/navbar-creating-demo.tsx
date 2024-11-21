@@ -1,6 +1,6 @@
 "use client"
 
-import { IconBag2, IconBrandGoogle, IconSearch } from "justd-icons"
+import { IconShoppingBag, IconBrandGoogle, IconSearch } from "justd-icons"
 import { Button, Navbar } from "ui"
 
 export default function AppNavbar(props: React.ComponentProps<typeof Navbar>) {
@@ -27,7 +27,7 @@ export default function AppNavbar(props: React.ComponentProps<typeof Navbar>) {
               <IconSearch />
             </Button>
             <Button appearance="plain" size="square-petite" aria-label="Your Bag">
-              <IconBag2 />
+              <IconShoppingBag />
             </Button>
           </Navbar.Flex>
         </Navbar.Flex>
