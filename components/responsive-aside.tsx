@@ -61,6 +61,7 @@ export function ResponsiveAside({
         </div>
       </div>
       <Sheet.Content
+        aria-label="Docs Menu"
         isOpen={openAside}
         onOpenChange={setOpenAside}
         classNames={{ content: "w-[19rem]" }}

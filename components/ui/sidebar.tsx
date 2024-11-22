@@ -391,9 +391,9 @@ const footer = tv({
   variants: {
     collapsed: {
       false: [
-        "p-2 [&_[slot=menu-trigger]>[data-slot=avatar]]:-ml-1.5 [&_[slot=menu-trigger]]:w-full [&_[slot=menu-trigger]]:hover:bg-muted [&_[slot=menu-trigger]]:justify-start [&_[slot=menu-trigger]]:flex [&_[slot=menu-trigger]]:items-center"
+        "p-2 [&_[data-slot=menu-trigger]>[data-slot=avatar]]:-ml-1.5 [&_[data-slot=menu-trigger]]:w-full [&_[data-slot=menu-trigger]]:hover:bg-muted [&_[data-slot=menu-trigger]]:justify-start [&_[data-slot=menu-trigger]]:flex [&_[data-slot=menu-trigger]]:items-center"
       ],
-      true: "size-12 p-1 [&_[slot=menu-trigger]]:size-9 justify-center items-center"
+      true: "size-12 p-1 [&_[data-slot=menu-trigger]]:size-9 justify-center items-center"
     }
   }
 })

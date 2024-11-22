@@ -2,7 +2,7 @@
 
 import * as React from "react"
 
-import { CodeCollapsible, CodeCollapsibleRoot } from "@/components/docs/rehype/code"
+import { Code } from "@/components/docs/rehype/code"
 
 interface PlainCodeProps extends React.HTMLAttributes<HTMLDivElement> {
   code: string
@@ -12,19 +12,10 @@ interface PlainCodeProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export function PlainCode({ title, withImportCopy = false, lang = "tsx", code }: PlainCodeProps) {
-  const [isOpened, setIsOpened] = React.useState(false)
   return (
     <section className="my-4 not-prose">
       {title && <figcaption data-rehype-pretty-code-title="">{title}</figcaption>}
-      <CodeCollapsibleRoot>
-        <CodeCollapsible
-          isOpened={isOpened}
-          onOpenChange={setIsOpened}
-          withImportCopy={withImportCopy}
-          lang={lang}
-          code={code}
-        />
-      </CodeCollapsibleRoot>
+      <Code code={code} lang={lang} withImportCopy={withImportCopy} />
     </section>
   )
 }

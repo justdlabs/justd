@@ -3,7 +3,8 @@
 import * as React from "react"
 
 import jsonPreviews from "@/components/docs/generated/previews.json"
-import { CodeCollapsible, CodeCollapsibleRoot } from "@/components/docs/rehype/code"
+import { Code } from "@/components/docs/rehype/code"
+import { IconBrandReactjs } from "justd-icons"
 
 interface SourceCodeProps extends React.HTMLAttributes<HTMLDivElement> {
   toShow: string
@@ -14,7 +15,6 @@ interface SourceCodeProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export function SourceCode({ title, message, ext = "tsx", toShow, ...props }: SourceCodeProps) {
   const [codeString, setCodeString] = React.useState<{ name: string; code: string } | null>(null)
-  const [isOpened, setIsOpened] = React.useState<boolean>(false)
 
   React.useEffect(() => {
     // @ts-expect-error
@@ -32,10 +32,6 @@ export function SourceCode({ title, message, ext = "tsx", toShow, ...props }: So
     }
   }, [toShow])
 
-  const handleOpenChange = (open: boolean) => {
-    setIsOpened(open)
-  }
-
   if (codeString) {
     return (
       <section {...props} className="my-6 not-prose">
@@ -45,15 +41,13 @@ export function SourceCode({ title, message, ext = "tsx", toShow, ...props }: So
             : "And next, you can copy the code below and paste it into your component folder."}
         </p>
         {title && <figcaption data-rehype-pretty-code-title="">{title}</figcaption>}
-        <CodeCollapsibleRoot>
-          <CodeCollapsible
-            lang={ext}
-            isOpened={isOpened}
-            onOpenChange={handleOpenChange}
-            code={codeString.code}
-            withImportCopy={false}
-          />
-        </CodeCollapsibleRoot>
+        <Code
+          title={`${toShow}.tsx`}
+          icon={IconBrandReactjs}
+          code={codeString.code}
+          lang={ext}
+          withImportCopy={false}
+        />
       </section>
     )
   }

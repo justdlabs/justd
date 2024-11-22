@@ -76,6 +76,14 @@ export function Installation({ className, ...props }: InstallationProps) {
       )}
       {options.isManual && <p>{manualText}</p>}
       <div className={install({ className })}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          className="ml-[0.395rem] md:block hidden size-6 -mr-3.5 text-zinc-400 z-10"
+        >
+          <path stroke="currentColor" d="m10 16 4-4-4-4" strokeLinecap="square" strokeWidth="2" />
+        </svg>
         <CodeHighlighter
           className="flex-1 chlt overflow-x-auto pr-4"
           lang="bash"

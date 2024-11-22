@@ -130,7 +130,12 @@ export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
       </Sidebar.Content>
       <Sidebar.Footer className="lg:flex lg:flex-row hidden items-center">
         <Menu>
-          <Button appearance="plain" aria-label="Profile" slot="menu-trigger" className="group">
+          <Button
+            appearance="plain"
+            aria-label="Profile"
+            data-slot="menu-trigger"
+            className="group"
+          >
             <Avatar size="small" shape="square" src="/images/sidebar/profile-slash.jpg" />
             <span className="group-data-[collapsible=dock]:hidden flex items-center justify-center">
               Saul Hudson

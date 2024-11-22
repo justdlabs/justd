@@ -287,7 +287,7 @@ Include this for the default set of utilities:
 Configure your Tailwind setup by wrapping your tailwind config with withTV from tailwind-variants. Also, make sure to
 integrate the plugins we've just installed.
 
-<PlainCode lang='js' code={`/** @type {import('tailwindcss').Config} */
+<PlainCode lang='ts' title='tailwind.config.ts' code={`/** @type {import('tailwindcss').Config} */
 
   import { withTV } from 'tailwind-variants/transformer'
   import ta from 'tailwindcss-animate'
@@ -365,7 +365,7 @@ integrate the plugins we've just installed.
 `} />
 
 ### Primitive
-<SourceCode title='ui/primitive.tsx' toShow={['primitive']} />
+<SourceCode toShow={['primitive']} />
 
 ## Simple Import
 Indeed, it's efficient because the index.ts file in your UI folder serves as a hub. Even if the button and badge
@@ -382,54 +382,7 @@ export * from './note';
 export * from './list-box';
 export * from './choicebox';
 export * from './pagination';
-export * from './link';
-export * from './tabs';
-export * from './card';
-export * from './slider';
-export * from './popover';
-export * from './text-field';
-export * from './radio';
-export * from './date-field';
-export * from './date-picker';
-export * from './toast';
-export * from './container';
-export * from './input-otp';
-export * from './tag-group';
-export * from './sheet';
-export * from './drop-zone';
-export * from './grid';
-export * from './meter';
-export * from './time-field';
-export * from './breadcrumbs';
-export * from './drawer';
-export * from './tooltip';
-export * from './file-trigger';
-export * from './switch';
-export * from './calendar';
-export * from './grid-list';
-export * from './avatar';
-export * from './combo-box';
-export * from './search-field';
-export * from './menu';
-export * from './progress-bar';
-export * from './badge';
-export * from './toggle';
-export * from './number-field';
-export * from './table';
-export * from './separator';
-export * from './button';
-export * from './modal';
-export * from './checkbox';
-export * from './select';
-export * from './textarea';
-export * from './skeleton';
-export * from './form';
-export * from './carousel';
-export * from './color';
-export * from './color-field';
-export * from './color-picker';
-export * from './visually-hidden';
-`} />
+...`} />
 
 
 If you're not using all those components, feel free to remove the ones you don't need. Later, when you introduce a new

@@ -2,15 +2,13 @@
 
 import React, { useEffect, useState } from "react"
 
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@radix-ui/react-collapsible"
 import { AnimatePresence, motion } from "framer-motion"
-import { IconCheck, IconChevronLgDown, IconCircleInfo, IconDuplicate } from "justd-icons"
+import { IconCheck, IconCircleInfo, IconDuplicate } from "justd-icons"
 import rehypePrettyCode from "rehype-pretty-code"
 import rehypeStringify from "rehype-stringify"
 import remarkParse from "remark-parse"
 import remarkRehype from "remark-rehype"
-import { twJoin } from "tailwind-merge"
-import { Button, ButtonPrimitive, type ButtonProps, cn } from "ui"
+import { Button, type ButtonProps, cn } from "ui"
 import { unified } from "unified"
 import { copyToClipboard } from "usemods"
 
@@ -20,13 +18,22 @@ export const snippetVariants = {
 }
 
 export interface CodeProps {
+  icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>
+  title?: string
   lang?: string
   code: string
   withImportCopy?: boolean
   className?: string
 }
 
-function Code({ className, lang = "tsx", code, withImportCopy = true }: CodeProps) {
+function Code({
+  title,
+  icon: Icon,
+  className,
+  lang = "tsx",
+  code,
+  withImportCopy = true
+}: CodeProps) {
   const [copied, setCopied] = React.useState<string>("")
 
   function copyImportsToClipboard(): void {
@@ -44,12 +51,21 @@ function Code({ className, lang = "tsx", code, withImportCopy = true }: CodeProp
   return (
     <div
       className={cn(
-        "dfakdpxe2941 not-prose group relative max-h-96 overflow-y-auto rounded-lg font-mono text-sm",
+        "not-prose group relative [&_pre]:max-h-96 [&_pre]:overflow-auto rounded-lg font-mono text-sm",
         className
       )}
     >
-      <div className="relative -mt-6">
-        <div className="sticky top-3 right-3 mr-3 z-20 flex gap-1.5 justify-end">
+      {title && (
+        <figcaption
+          className={cn(Icon && "flex items-center gap-x-1")}
+          data-rehype-pretty-code-title=""
+        >
+          {Icon && <Icon className="text-cyan-600 dark:text-cyan-500 size-4" />}
+          <span className="font-sans">{title}</span>
+        </figcaption>
+      )}
+      <div className="relative">
+        <div className="absolute cpybtn top-3 right-0 mr-3 z-20 flex gap-1.5 justify-end">
           {withImportCopy && (
             <CopyButton
               ariaLabel="Copy imports statement"
@@ -65,78 +81,6 @@ function Code({ className, lang = "tsx", code, withImportCopy = true }: CodeProp
         </div>
       </div>
     </div>
-  )
-}
-
-function CodeContainer({ children, isOpened }: { children: React.ReactNode; isOpened: boolean }) {
-  return (
-    <CollapsibleContent forceMount className={!isOpened ? "max-h-32" : ""}>
-      <div
-        className={cn(
-          "[&_pre]:my-0 [&_pre]:!border-0 [&_pre]:max-h-[32rem] [&_pre]:pb-[100px]",
-          !isOpened ? "[&_pre]:overflow-hidden" : "[&_pre]:overflow-auto"
-        )}
-      >
-        {children}
-      </div>
-    </CollapsibleContent>
-  )
-}
-
-function CodeExpandButton({ isOpened }: { isOpened: boolean }) {
-  return (
-    <div
-      className={cn(
-        "absolute flex items-center z-10 justify-center bg-gradient-to-b from-[#0e0e10]/50 to-black",
-        isOpened ? "inset-x-0 bottom-0 h-16" : "inset-0"
-      )}
-    >
-      <CollapsibleTrigger asChild>
-        <ButtonPrimitive className="bg-zinc-700 text-white px-4 border border-zinc-600 py-2 rounded-lg flex items-center gap-x-2 text-sm focus:outline-none">
-          <IconChevronLgDown
-            className={twJoin(
-              "size-4 -ml-1 duration-200 transition-colors",
-              isOpened && "rotate-180"
-            )}
-          />
-          {isOpened ? "Collapse" : "Expand"}
-        </ButtonPrimitive>
-      </CollapsibleTrigger>
-    </div>
-  )
-}
-
-interface CodeCollapsibleProps {
-  isOpened: boolean
-  onOpenChange: (open: boolean) => void
-  lang?: string
-  withImportCopy?: boolean
-  code: string
-}
-
-function CodeCollapsible({
-  isOpened,
-  onOpenChange,
-  lang = "tsx",
-  withImportCopy = true,
-  code,
-  ...props
-}: React.PropsWithChildren<CodeCollapsibleProps>) {
-  return (
-    <Collapsible open={isOpened} onOpenChange={onOpenChange}>
-      <div className={"relative overflow-hidden"} {...props}>
-        <CodeContainer isOpened={isOpened}>
-          <Code code={code} lang={lang} withImportCopy={withImportCopy} />
-        </CodeContainer>
-        <CodeExpandButton isOpened={isOpened} />
-      </div>
-    </Collapsible>
-  )
-}
-
-export function CodeCollapsibleRoot({ children }: React.PropsWithChildren<object>) {
-  return (
-    <div className="overflow-hidden border border-zinc-800 bg-[#0e0e10] rounded-lg">{children}</div>
   )
 }
 
@@ -211,7 +155,7 @@ const CopyButton = ({
   return (
     <Button
       className={cn(
-        "size-7 backdrop-blur-lg rounded-md text-white bg-zinc-800 border hover:bg-zinc-700 border-zinc-700",
+        "size-7 backdrop-blur-lg rounded-md text-white bg-zinc-900 border hover:bg-zinc-800 border-zinc-700",
         className
       )}
       aria-label={ariaLabel}
@@ -246,4 +190,4 @@ const CopyButton = ({
   )
 }
 
-export { CodeHighlighter, CodeContainer, CodeExpandButton, CodeCollapsible, Code }
+export { CodeHighlighter, Code }
