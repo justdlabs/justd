@@ -2,12 +2,12 @@
 
 import React from "react"
 
-import { buttonStyles, Menu } from "ui"
+import { Button, Menu } from "ui"
 
 export default function MenuRespectScreenDemo() {
   return (
     <Menu respectScreen={false}>
-      <Menu.Trigger className={buttonStyles({ appearance: "outline" })}>Open</Menu.Trigger>
+      <Button appearance="outline">Open</Button>
       <Menu.Content placement="bottom" className="min-w-48">
         <Menu.Item>Dashboard</Menu.Item>
         <Menu.Item>Reports</Menu.Item>

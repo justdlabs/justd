@@ -6,7 +6,7 @@ export default function MenuSectionDemo() {
   return (
     <Menu>
       <Menu.Trigger>Open</Menu.Trigger>
-      <Menu.Content className="min-w-64" items={cities} placement="bottom">
+      <Menu.Content className="sm:min-w-64" items={cities} placement="bottom">
         {(city) => (
           <Menu.Section title={city.name} items={city.landmarks}>
             {(landmark) => <Menu.Item textValue={landmark.name}>{landmark.name}</Menu.Item>}

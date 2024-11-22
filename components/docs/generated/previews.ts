@@ -1334,6 +1334,9 @@ export const previews: Record<string, any> = {
   "collections/menu/multiple-menu-demo": {
     component: React.lazy(() => import("@/components/docs/collections/menu/multiple-menu-demo")),
   },
+  "collections/menu/menu-section-level-selection": {
+    component: React.lazy(() => import("@/components/docs/collections/menu/menu-section-level-selection")),
+  },
   "collections/menu/menu-respect-screen-demo": {
     component: React.lazy(() => import("@/components/docs/collections/menu/menu-respect-screen-demo")),
   },

@@ -122,13 +122,13 @@ const Item = ({ className, isDanger = false, children, ...props }: MenuItemProps
   const textValue = props.textValue || (typeof children === "string" ? children : undefined)
   return (
     <MenuItem
-      textValue={textValue}
       className={cr(className, (className, renderProps) =>
         dropdownItemStyles({
           ...renderProps,
           className
         })
       )}
+      textValue={textValue}
       data-danger={isDanger ? "true" : undefined}
       {...props}
     >
@@ -203,7 +203,7 @@ interface SectionProps<T> extends MenuSectionProps<T> {
 
 const Section = <T extends object>({ className, ...props }: SectionProps<T>) => {
   return (
-    <MenuSection className={section({ className })}>
+    <MenuSection className={section({ className })} {...props}>
       {"title" in props && <Header className={header()}>{props.title}</Header>}
       <Collection items={props.items}>{props.children}</Collection>
     </MenuSection>
