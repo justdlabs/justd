@@ -113,9 +113,7 @@ const Content = <T extends object>({
   )
 }
 
-interface MenuItemProps
-  extends Omit<MenuItemPrimitiveProps, "isDanger">,
-    VariantProps<typeof dropdownItemStyles> {
+interface MenuItemProps extends MenuItemPrimitiveProps, VariantProps<typeof dropdownItemStyles> {
   isDanger?: boolean
 }
 

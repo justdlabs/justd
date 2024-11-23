@@ -150,7 +150,7 @@ const Grid = ({ className, gap, gapX, gapY, flow, columns, rows, ...props }: Gri
         rows: rows ?? 1,
         className:
           "debug" in props
-            ? cn("[&>.grid-cell]:border [&>.grid-cell]:border-warning", className)
+            ? cn("*:data-[slot=grid-cell]:border *:data-[slot=grid-cell]:border-warning", className)
             : className
       })}
       {...props}
@@ -286,6 +286,7 @@ const GridItem = ({
 }: GridItemProps) => {
   return (
     <div
+      data-slot="grid-cell"
       className={gridItemStyles({
         colSpan,
         rowSpan,

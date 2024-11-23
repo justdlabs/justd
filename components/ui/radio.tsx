@@ -24,7 +24,7 @@ const RadioGroup = ({ label, description, errorMessage, children, ...props }: Ra
   return (
     <RadioGroupPrimitive {...props} className={ctr(props.className, "group flex flex-col gap-2")}>
       {label && <Label>{label}</Label>}
-      <div className="flex select-none gap-2 group-orientation-horizontal:flex-wrap group-orientation-horizontal:gap-2 sm:group-orientation-horizontal:gap-4 group-orientation-vertical:flex-col">
+      <div className="flex select-none gap-2 group-data-[orientation=horizontal]:flex-wrap group-data-[orientation=horizontal]:gap-2 sm:group-data-[orientation=horizontal]:gap-4 group-data-[orientation=vertical]:flex-col">
         {children}
       </div>
       {description && <Description>{description}</Description>}

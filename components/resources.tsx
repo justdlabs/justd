@@ -51,17 +51,10 @@ export function Resources() {
         <Heading level={2} className="mb-6">
           Starter Kit
         </Heading>
-        <Grid
-          columns={{
-            initial: 1,
-            sm: 2
-          }}
-          gap={2}
-          aria-label="Resources"
-        >
+        <div className="grid-cols-1 sm:grid-cols-2 grid gap-2" aria-label="Resources">
           <Grid.Collection items={resources}>
             {(item) => (
-              <Grid.Item
+              <div
                 aria-label={item.name}
                 id={item.name.toLowerCase().replaceAll(" ", "-")}
                 className="relative focus:outline-hidden p-4 lg:p-6 h-full flex flex-col w-full focus-visible:outline-hidden focus-visible:outline-primary rounded-xl bg-tertiary shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:-inset-px dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset] forced-colors:outline"
@@ -85,10 +78,10 @@ export function Resources() {
                 <Card.Footer>
                   <Badge>{item.label}</Badge>
                 </Card.Footer>
-              </Grid.Item>
+              </div>
             )}
           </Grid.Collection>
-        </Grid>
+        </div>
       </section>
 
       <section id="library" className="mb-12">

@@ -69,10 +69,8 @@ const List = <T extends object>(props: TabListProps<T>) => {
 const tabStyles = tv({
   base: [
     "relative flex whitespace-nowrap cursor-default items-center rounded-full text-sm font-medium outline-hidden transition hover:text-fg *:data-[slot=icon]:size-4 *:data-[slot=icon]:mr-2",
-    // hor
-    "group-orientation-vertical:w-full group-orientation-vertical:py-0 group-orientation-vertical:pl-4 group-orientation-vertical:pr-2",
-    // ver
-    "group-orientation-horizontal:pb-3"
+    "group-data-[orientation=vertical]:w-full group-data-[orientation=vertical]:py-0 group-data-[orientation=vertical]:pl-4 group-data-[orientation=vertical]:pr-2",
+    "group-data-[orientation=horizontal]:pb-3"
   ],
   variants: {
     isSelected: {
@@ -105,9 +103,9 @@ const Tab = ({ children, ...props }: TabProps) => {
               className={cn(
                 "absolute rounded bg-fg",
                 // horizontal
-                "group-orientation-horizontal:inset-x-0 group-orientation-horizontal:-bottom-px group-orientation-horizontal:h-0.5 group-orientation-horizontal:w-full",
+                "group-data-[orientation=horizontal]:inset-x-0 group-data-[orientation=horizontal]:-bottom-px group-data-[orientation=horizontal]:h-0.5 group-data-[orientation=horizontal]:w-full",
                 // vertical
-                "group-orientation-vertical:left-0 group-orientation-vertical:h-[calc(100%-10%)] group-orientation-vertical:w-0.5 group-orientation-vertical:transform"
+                "group-data-[orientation=vertical]:left-0 group-data-[orientation=vertical]:h-[calc(100%-10%)] group-data-[orientation=vertical]:w-0.5 group-data-[orientation=vertical]:transform"
               )}
               layoutId="current-selected"
               transition={{ type: "spring", stiffness: 500, damping: 40 }}

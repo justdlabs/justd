@@ -12,7 +12,7 @@ import { IconBrandTailwindcss } from "justd-icons"
 import { ListBox, Text, ToggleButton } from "react-aria-components"
 import type { ColorItemProps, FormatOnlyForTailwindVariableType } from "resources/types"
 import { toast } from "sonner"
-import { buttonStyles, gridStyles, Select, Tooltip } from "ui"
+import { buttonStyles, Select, Tooltip } from "ui"
 
 import { ColorItem } from "./color-item"
 
@@ -104,11 +104,7 @@ export function ColorRow({ showItem = false, swatchClassName, item }: ColorRowPr
       <ListBox
         layout="grid"
         orientation="horizontal"
-        className={gridStyles({
-          columns: { initial: 7, lg: 11 },
-          gapX: { initial: 1, sm: 1 },
-          gapY: { initial: 2, sm: 1 }
-        })}
+        className="grid-cols-7 lg:grid-cols-11 gap-x-1 gap-y-2 sm:gap-y-2 grid"
         aria-label={`${item.name} 50-950 colors`}
         items={item.children}
       >

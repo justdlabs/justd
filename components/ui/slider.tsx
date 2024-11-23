@@ -26,21 +26,21 @@ import { cr } from "./primitive"
 
 const sliderStyles = tv({
   slots: {
-    root: "flex disabled:opacity-50 flex-col gap-2 orientation-horizontal:w-full orientation-vertical:h-56 orientation-vertical:items-center",
+    root: "flex disabled:opacity-50 flex-col gap-2 data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-56 data-[orientation=vertical]:items-center",
     track: [
       "relative group/track rounded-full bg-zinc-200 dark:bg-zinc-800 cursor-pointer disabled:cursor-default disabled:bg-bg-disabled",
-      "grow orientation-vertical:flex-1 orientation-vertical:w-1.5 orientation-horizontal:w-full orientation-horizontal:h-1.5"
+      "grow data-[orientation=vertical]:flex-1 data-[orientation=vertical]:w-1.5 data-[orientation=horizontal]:w-full data-[orientation=horizontal]:h-1.5"
     ],
     filler: [
       "rounded-full bg-primary group-disabled/track:bg-bg-disabled",
-      "pointer-events-none absolute group-orientation-horizontal/top-0 group-orientation-vertical/track:w-full group-orientation-vertical/track:bottom-0 group-orientation-horizontal/track:h-full"
+      "pointer-events-none absolute group-data-[orientation=horizontal]/top-0 group-data-[orientation=vertical]/track:w-full group-data-[orientation=vertical]/track:bottom-0 group-data-[orientation=horizontal]/track:h-full"
     ],
     thumb: [
       "outline-hidden dragging:cursor-grabbing focus:ring-4 border border-zinc-200 focus:ring-primary/20 focus:border-primary focus:outline-hidden forced-colors:outline-[Highlight]",
       "rounded-full bg-white transition-[width,height]",
       "absolute left-[50%] top-[50%] block -translate-x-1/2! -translate-y-1/2!",
       "disabled:bg-bg-disabled disabled:border disabled:border-bg",
-      "orientation-vertical:w-2 orientation-horizontal:h-2",
+      "orientation-vertical:w-2 data-[orientation=horizontal]:h-2",
       "size-[1.15rem] dragging:size-[1.30rem] dragging:border-primary"
     ],
     valueLabel: "text-muted-fg tabular-nums text-sm"

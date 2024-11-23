@@ -52,7 +52,10 @@ const Toolbar = ({ orientation = "horizontal", ...props }: ToolbarProps) => {
 }
 
 const toolbarGroupStyles = tv({
-  base: ["flex gap-2", "group-orientation-vertical:flex-col group-orientation-vertical:items-start"]
+  base: [
+    "flex gap-2",
+    "group-data-[orientation=vertical]:flex-col group-data-[orientation=vertical]:items-start"
+  ]
 })
 
 const ToolbarGroupContext = React.createContext<{ isDisabled?: boolean }>({})

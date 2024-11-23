@@ -80,8 +80,8 @@ export function DocHow({
 const tabStyles = tv({
   base: [
     "relative flex whitespace-nowrap cursor-default items-center rounded-full text-sm font-medium outline-hidden transition forced-color-adjust-none hover:text-fg *:data-[slot=icon]:size-4 *:data-[slot=icon]:mr-2",
-    "group-orientation-vertical:w-full group-orientation-vertical:py-0 group-orientation-vertical:pl-4 group-orientation-vertical:pr-2",
-    "group-orientation-horizontal:pb-3"
+    "group-data-[orientation=vertical]:w-full group-data-[orientation=vertical]:py-0 group-data-[orientation=vertical]:pl-4 group-data-[orientation=vertical]:pr-2",
+    "group-data-[orientation=horizontal]:pb-3"
   ],
   variants: {
     isSelected: {
@@ -115,7 +115,7 @@ const Tab = ({ children, ...props }: TabProps) => {
               transition={{ type: "spring", bounce: 0.25, duration: 0.5 }}
               className={cn(
                 "absolute rounded bg-fg forced-colors:bg-[ActiveBorder]",
-                "group-orientation-horizontal:inset-x-0 group-orientation-horizontal:-bottom-px group-orientation-horizontal:h-0.5 group-orientation-horizontal:w-full group-orientation-vertical:left-0 group-orientation-vertical:h-[calc(100%-10%)] group-orientation-vertical:w-0.5 group-orientation-vertical:transform"
+                "group-data-[orientation=horizontal]:inset-x-0 group-data-[orientation=horizontal]:-bottom-px group-data-[orientation=horizontal]:h-0.5 group-data-[orientation=horizontal]:w-full group-data-[orientation=vertical]:left-0 group-data-[orientation=vertical]:h-[calc(100%-10%)] group-data-[orientation=vertical]:w-0.5 group-data-[orientation=vertical]:transform"
               )}
             />
           )}
