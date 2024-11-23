@@ -5,7 +5,9 @@ import {
   IconBrandJustd,
   IconBrandLaravel,
   IconBrandNextjs,
-  IconBrandRemix
+  IconBrandRemix,
+  IconHeartFill,
+  IconWindowVisitFill
 } from "justd-icons"
 import { Badge, Card, Grid, Heading, Link } from "ui"
 
@@ -88,7 +90,8 @@ export function Resources() {
           </Grid.Collection>
         </Grid>
       </section>
-      <section id="icons" className="mb-12">
+
+      <section id="library" className="mb-12">
         <Heading level={2} className="mb-6">
           Icons
         </Heading>
@@ -98,10 +101,10 @@ export function Resources() {
             sm: 2
           }}
           gap={2}
-          aria-label="Icons"
+          aria-label="Support"
         >
           <Grid.Item
-            aria-label="Paranoid icons"
+            aria-label="Justd icons"
             id="justd-icons"
             className="relative focus:outline-none p-4 lg:p-6 h-full flex flex-col w-full focus-visible:outline-none focus-visible:outline-primary rounded-xl bg-tertiary shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:-inset-px dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset] forced-colors:outline"
           >
@@ -125,6 +128,76 @@ export function Resources() {
             </div>
             <Card.Footer>
               <Badge>justd-icons</Badge>
+            </Card.Footer>
+          </Grid.Item>
+        </Grid>
+      </section>
+      <section id="support" className="mb-12">
+        <Heading level={2} className="mb-6">
+          Support
+        </Heading>
+        <Grid
+          columns={{
+            initial: 1,
+            sm: 2
+          }}
+          gap={2}
+          aria-label="Support"
+        >
+          <Grid.Item
+            aria-label="Support"
+            id="support"
+            className="relative focus:outline-none p-4 lg:p-6 h-full flex flex-col w-full focus-visible:outline-none focus-visible:outline-primary rounded-xl bg-tertiary shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:-inset-px dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset] forced-colors:outline"
+          >
+            <Link
+              target="_blank"
+              aria-label={`Justd icons`}
+              rel="noopener noreferrer"
+              href="https://github.com/sponsors/irsyadadl"
+              className="absolute inset-0 size-full"
+            />
+            <div className="flex-1">
+              <div className="px-6 pt-6">
+                <IconHeartFill className="size-7 text-pink-500" />
+              </div>
+              <Card.Header>
+                <Card.Title level={3}>Support This Project</Card.Title>
+                <Card.Description className="line-clamp-2">
+                  Join us in building something impactful. Your contributions, whether sharing,
+                  coding, or spreading the word, help us grow and make a difference.
+                </Card.Description>
+              </Card.Header>
+            </div>
+            <Card.Footer>
+              <Badge>support</Badge>
+            </Card.Footer>
+          </Grid.Item>
+          <Grid.Item
+            aria-label="Templates"
+            id="templates"
+            className="relative focus:outline-none p-4 lg:p-6 h-full flex flex-col w-full focus-visible:outline-none focus-visible:outline-primary rounded-xl bg-tertiary shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:-inset-px dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset] forced-colors:outline"
+          >
+            <Link
+              target="_blank"
+              aria-label={`Justd icons`}
+              rel="noopener noreferrer"
+              href="https://irsyad.co/templates"
+              className="absolute inset-0 size-full"
+            />
+            <div className="flex-1">
+              <div className="px-6 pt-6">
+                <IconWindowVisitFill className="size-7" />
+              </div>
+              <Card.Header>
+                <Card.Title level={3}>Templates</Card.Title>
+                <Card.Description className="line-clamp-2">
+                  Looking for beautifully crafted templates to elevate your project? Browse through
+                  a collection of designs tailored to meet your needs.
+                </Card.Description>
+              </Card.Header>
+            </div>
+            <Card.Footer>
+              <Badge>support</Badge>
             </Card.Footer>
           </Grid.Item>
         </Grid>

@@ -150,7 +150,7 @@ const MenuHeader = ({ className, separator = false, ...props }: MenuHeaderProps)
   <Header
     className={cn(
       "p-2 text-base font-semibold sm:text-sm",
-      separator && "-mx-1 border-b border-b-border px-3 pb-[0.625rem]",
+      separator && "-mx-1 border-b px-3 pb-[0.625rem]",
       className
     )}
     {...props}
@@ -158,7 +158,7 @@ const MenuHeader = ({ className, separator = false, ...props }: MenuHeaderProps)
 )
 
 const MenuSeparator = ({ className, ...props }: SeparatorProps) => (
-  <Separator className={cn("-mx-1 my-1 h-px border-b border-b-muted", className)} {...props} />
+  <Separator className={cn("-mx-1 my-1 h-px border-b", className)} {...props} />
 )
 
 const Checkbox = ({ className, children, ...props }: MenuItemProps) => (
