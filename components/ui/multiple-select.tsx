@@ -29,7 +29,7 @@ const multiSelectStyles = tv({
   slots: {
     multiSelectField: "group flex w-full min-w-80 flex-col",
     multiSelect: [
-      "relative px-1 flex min-h-10 flex-row flex-wrap items-center rounded-lg bg-bg shadow-sm border",
+      "relative px-1 flex min-h-10 flex-row flex-wrap items-center rounded-lg bg-bg shadow-xs border",
       "has-[input[data-focused=true]]:border-ring/85",
       "has-[input[data-invalid=true][data-focused=true]]:border-blue-500",
       "has-[input[data-invalid=true]]:border-danger",
@@ -225,7 +225,7 @@ const MultipleSelect = <T extends SelectedKey>({
               items={selectedItems.items}
               className={cn(
                 selectedItems.items.length !== 0 && "px-1 py-1.5",
-                "last:[&_.jdt3lr2x]:-mr-1 outline-none gap-1.5",
+                "[&_.jdt3lr2x]:last:-mr-1 outline-hidden gap-1.5",
                 props.shape === "square" && "[&_.jdt3lr2x]:rounded-[calc(var(--radius)-4px)]"
               )}
             >

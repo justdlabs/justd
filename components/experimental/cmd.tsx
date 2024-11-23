@@ -64,7 +64,7 @@ export function CmdK() {
   return (
     <>
       <Button
-        className="flex items-center self-center gap-1 px-4 py-2 transition rounded text-stone-800 focus:outline-none focus-visible:ring ring-stone-600 ring-offset-2 hover:bg-stone-100"
+        className="flex items-center self-center gap-1 px-4 py-2 transition rounded text-stone-800 focus:outline-hidden focus-visible:ring-3 ring-stone-600 ring-offset-2 hover:bg-stone-100"
         onPress={() => setOpen(true)}
       >
         <kbd className="p-1 border border-b-2 rounded-md border-stone-400">cmd+k</kbd>
@@ -75,7 +75,7 @@ export function CmdK() {
         className="entering:animate-in entering:fade-in duration-150 fixed inset-0 z-10 pt-[33dvh] flex justify-center min-h-full p-4 overflow-y-auto text-center bg-black/25 backdrop-blur-sm"
       >
         <Modal>
-          <Dialog className="focus:outline-none" aria-label="command bar">
+          <Dialog className="focus:outline-hidden" aria-label="command bar">
             <ComboBox
               aria-label="command bar"
               items={filteredItems}
@@ -91,7 +91,7 @@ export function CmdK() {
                   ref={inputRef}
                   aria-label="Search for apps, files, anything..."
                   placeholder="Search for apps, files, anything..."
-                  className="w-[66vw] p-3 rounded-t-lg text-stone-800 focus:outline-none bg-stone-100 "
+                  className="w-[66vw] p-3 rounded-t-lg text-stone-800 focus:outline-hidden bg-stone-100 "
                 />
                 {filteredItems.length === 0 ? (
                   <Text

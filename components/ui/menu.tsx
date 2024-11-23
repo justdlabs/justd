@@ -58,9 +58,10 @@ const SubMenu = ({ delay = 0, ...props }) => (
 const menuStyles = tv({
   slots: {
     menu: "z32kk max-h-[calc(var(--visual-viewport-height)-10rem)] sm:max-h-[inherit] overflow-auto rounded-xl p-1 outline outline-0 [clip-path:inset(0_0_0_0_round_calc(var(--radius)-2px))]",
-    popover: "z-50 sm:min-w-40 p-0 outline-none shadow-sm",
+    popover:
+      "z-50 [&_[role=dialog]:not(:has([data-slot=dialog-body]))]:px-0 sm:min-w-40 p-0 outline-hidden shadow-xs",
     trigger: [
-      "inline relative text-left focus:outline-none focus-visible:ring-1 focus-visible:ring-primary pressed:outline-none"
+      "inline relative text-left focus:outline-hidden focus-visible:ring-1 focus-visible:ring-primary pressed:outline-hidden"
     ]
   }
 })
@@ -101,7 +102,7 @@ const Content = <T extends object>({
       showArrow={showArrow}
       className={popover({
         className: cn([
-          showArrow && "placement-left:mt-[-0.38rem] placement-right:mt-[-0.38rem]",
+          showArrow && "data-[placement=left]:mt-[-0.38rem] data-[placement=right]:mt-[-0.38rem]",
           popoverClassName
         ])
       })}

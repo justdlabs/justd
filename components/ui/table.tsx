@@ -32,14 +32,14 @@ import { cn, cr } from "./primitive"
 
 const table = tv({
   slots: {
-    root: "table [&_[data-drop-target]]:border [&_[data-drop-target]]:border-primary w-full caption-bottom border-spacing-0 text-sm outline-none",
+    root: "table **:data-drop-target:border **:data-drop-target:border-primary w-full caption-bottom border-spacing-0 text-sm outline-hidden",
     header: "border-b x32",
-    row: "tr group relative cursor-default border-b text-fg/70 outline-none ring-primary focus-visible:ring-1 selected:bg-accent-subtle selected:hover:bg-accent-subtle/50 dark:selected:hover:bg-accent-subtle/60",
+    row: "tr group relative cursor-default border-b text-fg/70 outline-hidden ring-primary focus-visible:ring-1 selected:bg-accent-subtle selected:hover:bg-accent-subtle/50 dark:selected:hover:bg-accent-subtle/60",
     cellIcon:
-      "flex-none rounded bg-secondary text-fg [&>[data-slot=icon]]:shrink-0 [&>[data-slot=icon]]:size-3.5 [&>[data-slot=icon]]:transition-transform [&>[data-slot=icon]]:duration-200 size-[1.15rem] grid place-content-center shrink-0",
+      "flex-none rounded bg-secondary text-fg *:data-[slot=icon]:shrink-0 *:data-[slot=icon]:size-3.5 *:data-[slot=icon]:transition-transform *:data-[slot=icon]:duration-200 size-[1.15rem] grid place-content-center shrink-0",
     columnResizer: [
       "touch-none absolute [&[data-resizing]>div]:bg-primary right-0 top-0 bottom-0 w-px px-1 grid place-content-center",
-      "[&[data-resizable-direction=both]]:cursor-ew-resize &[data-resizable-direction=left]:cursor-e-resize &[data-resizable-direction=right]:cursor-w-resize"
+      "data-[resizable-direction=both]:cursor-ew-resize &[data-resizable-direction=left]:cursor-e-resize &[data-resizable-direction=right]:cursor-w-resize"
     ]
   }
 })
@@ -98,7 +98,7 @@ interface TableCellProps extends CellProps {
 }
 
 const cellStyles = tv({
-  base: "group px-3 py-3 outline-none",
+  base: "group px-3 py-3 outline-hidden",
   variants: {
     allowResize: {
       true: "overflow-hidden truncate"
@@ -115,7 +115,7 @@ const TableCell = ({ children, className, ...props }: TableCellProps) => {
 }
 
 const columnStyles = tv({
-  base: "whitespace-nowrap relative allows-sorting:cursor-pointer px-3 py-3 text-left dragging:cursor-grabbing font-medium outline-none [&:has([slot=selection])]:pr-0",
+  base: "whitespace-nowrap relative allows-sorting:cursor-pointer px-3 py-3 text-left dragging:cursor-grabbing font-medium outline-hidden [&:has([slot=selection])]:pr-0",
   variants: {
     isResizable: {
       true: "overflow-hidden truncate"
@@ -138,7 +138,7 @@ const TableColumn = ({ isResizable = false, className, ...props }: TableColumnPr
       })}
     >
       {({ allowsSorting, sortDirection, isHovered }) => (
-        <div className="flex [&_[data-slot=icon]]:shrink-0 items-center gap-2">
+        <div className="flex **:data-[slot=icon]:shrink-0 items-center gap-2">
           <>
             {props.children as React.ReactNode}
             {allowsSorting && (

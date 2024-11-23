@@ -106,7 +106,7 @@ const Navbar = ({
 
 const navStyles = tv({
   base: [
-    "hidden h-[--navbar-height] [--navbar-height:3.5rem] px-4 group peer lg:flex items-center w-full",
+    "hidden h-(--navbar-height) [--navbar-height:3.5rem] px-4 group peer lg:flex items-center w-full",
     "[&>div]:max-w-[1680px] lg:[&>div]:flex [&>div]:items-center [&>div]:w-full [&>div]:mx-auto"
   ],
   variants: {
@@ -115,11 +115,11 @@ const navStyles = tv({
     },
     intent: {
       floating:
-        "bg-tertiary w-full max-w-7xl 2xl:max-w-screen-2xl mx-auto shadow-sm border rounded-xl sm:px-4",
-      navbar: "bg-tertiary shadow-sm border-b sm:px-6",
+        "bg-tertiary w-full max-w-7xl 2xl:max-w-(--breakpoint-2xl) mx-auto shadow-xs border rounded-xl sm:px-4",
+      navbar: "bg-tertiary shadow-xs border-b sm:px-6",
       inset: [
         "bg-secondary mx-auto dark:bg-bg sm:px-6",
-        "2xl:[&>div]:max-w-screen-2xl lg:[&>div]:flex [&>div]:items-center [&>div]:w-full [&>div]:mx-auto"
+        "2xl:[&>div]:max-w-(--breakpoint-2xl) lg:[&>div]:flex [&>div]:items-center [&>div]:w-full [&>div]:mx-auto"
       ]
     }
   }
@@ -202,10 +202,10 @@ const Section = ({ className, ...props }: React.ComponentProps<"div">) => {
 
 const navItemStyles = tv({
   base: [
-    "relative cursor-pointer lg:text-sm px-2 flex forced-colors:outline-0 items-center gap-x-2 [&>[data-slot=icon]]:-mx-0.5 text-muted-fg outline-none forced-colors:disabled:text-[GrayText] forced-colors:transform-none transition-colors",
+    "relative cursor-pointer lg:text-sm px-2 flex forced-colors:outline-0 items-center gap-x-2 *:data-[slot=icon]:-mx-0.5 text-muted-fg outline-hidden forced-colors:disabled:text-[GrayText] forced-colors:transform-none transition-colors",
     "hover:text-fg focus:text-fg pressed:text-fg focus-visible:outline-1 focus-visible:outline-primary",
     "disabled:opacity-60 disabled:cursor-default",
-    "[&>[data-slot=icon]]:size-4 [&>[data-slot=icon]]:shrink-0"
+    "*:data-[slot=icon]:size-4 *:data-[slot=icon]:shrink-0"
   ],
   variants: {
     isCurrent: {
@@ -249,7 +249,7 @@ const Logo = ({ className, ...props }: LinkProps) => {
   return (
     <Link
       className={cn(
-        "lg:mr-4 focus:outline-none flex items-center gap-x-2 focus-visible:outline-1 focus-visible:outline-primary px-2 py-4 lg:px-0 lg:py-0 text-fg",
+        "lg:mr-4 focus:outline-hidden flex items-center gap-x-2 focus-visible:outline-1 focus-visible:outline-primary px-2 py-4 lg:px-0 lg:py-0 text-fg",
         className
       )}
       {...props}
@@ -283,7 +283,7 @@ const insetStyles = tv({
     intent: {
       floating: "",
       inset:
-        "bg-tertiary lg:rounded-lg lg:shadow-sm lg:ring-1 lg:ring-dark/5 lg:dark:ring-light/10",
+        "bg-tertiary lg:rounded-lg lg:shadow-xs lg:ring-1 lg:ring-dark/5 lg:dark:ring-light/10",
       navbar: ""
     }
   }

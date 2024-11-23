@@ -32,10 +32,10 @@ const Toast = ({ ...props }: ToasterProps) => {
             "[&:has([data-icon])_[data-content]]:ml-5",
             '[&:has([data-button])_[data-close-button="true"]]:hidden',
             "[&:not([data-description])_[data-title]]:font-normal",
-            "[&:has([data-description])_[data-title]]:!font-medium [&:has([data-description])_[data-title]]:!text-lg",
-            "[&>[data-button]]:absolute [&>[data-button=true]]:bottom-4",
-            "[&>[data-action=true]]:right-4",
-            "[&>[data-cancel=true]]:left-4"
+            "[&:has([data-description])_[data-title]]:font-medium! [&:has([data-description])_[data-title]]:text-lg!",
+            "*:data-button:absolute *:data-[button=true]:bottom-4",
+            "*:data-[action=true]:right-4",
+            "*:data-[cancel=true]:left-4"
           ),
           icon: "absolute top-[1rem] sm:top-[1.50rem]",
           content: "[&:not(:has(+button))]:pr-10 [&:has(+button)]:pb-11 md:[&:has(+button)]:pb-9",
@@ -56,7 +56,7 @@ const Toast = ({ ...props }: ToasterProps) => {
             size: "extra-small"
           }),
           closeButton: twJoin([
-            "[&_svg]:size-5 size-8 absolute top-1/2 transform -translate-y-1/2 right-2 lg:right-3 left-auto grid place-content-center rounded-md !bg-transparent hover:!bg-dark/20 dark:hover:!bg-white/20 border-0 [&_svg]:text-fg"
+            "[&_svg]:size-5 size-8 absolute top-1/2 transform -translate-y-1/2 right-2 lg:right-3 left-auto grid place-content-center rounded-md bg-transparent! hover:bg-dark/20! dark:hover:bg-white/20! border-0 [&_svg]:text-fg"
           ])
         }
       }}

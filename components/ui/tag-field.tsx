@@ -19,7 +19,7 @@ const tagFieldsStyles = tv({
   variants: {
     appearance: {
       outline: [
-        "px-1 rounded-lg shadow-sm border",
+        "px-1 rounded-lg shadow-xs border",
         "has-[input[data-focused=true]]:border-primary",
         "has-[input[data-invalid=true][data-focused=true]]:border-danger has-[input[data-invalid=true]]:border-danger has-[input[data-invalid=true]]:ring-danger/20",
         "has-[input[data-focused=true]]:ring-4 has-[input[data-focused=true]]:ring-primary/20"
@@ -154,7 +154,7 @@ const TagField = ({
                     ? appearance === "outline" && "py-1.5 px-0.5 gap-1.5"
                     : "gap-0",
                   props.shape === "square" && "[&_.jdt3lr2x]:rounded-[calc(var(--radius)-4px)]",
-                  "[&_.jdt3lr2x]:cursor-default last:[&_.jdt3lr2x]:-mr-1 outline-none"
+                  "[&_.jdt3lr2x]:cursor-default [&_.jdt3lr2x]:last:-mr-1 outline-hidden"
                 )}
               >
                 {(item) => <Tag.Item>{item.name}</Tag.Item>}

@@ -11,7 +11,7 @@ import { Checkbox } from "./checkbox"
 import { cr, ctr } from "./primitive"
 
 const gridListStyles = tv({
-  base: "relative [&>[data-drop-target]]:border [&>[data-drop-target]]:border-primary [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin] max-h-96 overflow-auto rounded-lg border"
+  base: "relative *:data-drop-target:border *:data-drop-target:border-primary [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin] max-h-96 overflow-auto rounded-lg border"
 })
 
 const GridList = <T extends object>({ children, className, ...props }: GridListProps<T>) => (
@@ -21,17 +21,17 @@ const GridList = <T extends object>({ children, className, ...props }: GridListP
 )
 
 const itemStyles = tv({
-  base: "relative group transition outline-none flex cursor-default select-none gap-3 border-y px-3 -mb-px py-2 lg:text-sm text-fg -outline-offset-2 first:rounded-t-md first:border-t-0 last:mb-0 last:rounded-b-md last:border-b-0",
+  base: "relative group transition outline-hidden flex cursor-default select-none gap-3 border-y px-3 -mb-px py-2 lg:text-sm text-fg -outline-offset-2 first:rounded-t-md first:border-t-0 last:mb-0 last:rounded-b-md last:border-b-0",
   variants: {
     isHovered: { true: "bg-accent-subtle" },
     isSelected: {
       true: "bg-accent-subtle z-20 border-border/50 hover:bg-accent-subtle/50 dark:hover:bg-accent-subtle/60"
     },
     isFocused: {
-      true: "outline-none"
+      true: "outline-hidden"
     },
     isFocusVisible: {
-      true: "ring-1 ring-primary outline-none bg-accent-subtle selected:bg-accent-subtle/80 hover:bg-accent-subtle/70"
+      true: "ring-1 ring-primary outline-hidden bg-accent-subtle selected:bg-accent-subtle/80 hover:bg-accent-subtle/70"
     },
     isDisabled: {
       true: "text-muted-fg forced-colors:text-[GrayText]"
@@ -54,7 +54,7 @@ const Item = ({ className, ...props }: GridListItemProps) => {
           {allowsDragging && (
             <Button
               slot="drag"
-              className="cursor-grab dragging:cursor-grabbing [&>[data-slot=icon]]:text-muted-fg"
+              className="cursor-grab dragging:cursor-grabbing *:data-[slot=icon]:text-muted-fg"
             >
               <IconHamburger />
             </Button>

@@ -29,7 +29,7 @@ export function ResponsiveAside({
       <div className="flex items-center justify-between pl-4 pr-2 -mb-2 pt-2">
         <Button
           aria-label="Open Menu."
-          className="-ml-2 [&_[data-slot=icon]]:text-fg"
+          className="-ml-2 **:data-[slot=icon]:text-fg"
           appearance="outline"
           size="square-petite"
           onPress={() => {
@@ -38,7 +38,7 @@ export function ResponsiveAside({
         >
           <IconHamburger />
         </Button>
-        <Link className="focus:outline-none -mr-6 rounded" href="/" aria-label="Logo">
+        <Link className="focus:outline-hidden -mr-6 rounded" href="/" aria-label="Logo">
           <IconBrandJustd className="size-6" />
         </Link>
         <div className="flex items-center gap-x-1">

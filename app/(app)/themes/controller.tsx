@@ -97,7 +97,7 @@ export function Controller({ themeId, applyTheme }: Props) {
     copyToClipboard(themeData).then(() => {
       toast.success("Copied to clipboard", {
         classNames: {
-          toast: "[&:has([data-icon])_[data-content]]:!ml-0",
+          toast: "[&:has([data-icon])_[data-content]]:ml-0!",
           icon: "hidden"
         }
       })

@@ -105,7 +105,7 @@ const DrawerContentPrimitive = ({ children, ...props }: DrawerOverlayPrimitivePr
         isOpen
         onOpenChange={closeDrawer}
         className={twJoin([
-          "fixed touch-none will-change-transform left-0 top-0 isolate z-50 h-[--visual-viewport-height] w-full",
+          "fixed touch-none will-change-transform left-0 top-0 isolate z-50 h-(--visual-viewport-height) w-full",
           "flex items-end [--visual-viewport-vertical-padding:100px]"
         ])}
         style={{

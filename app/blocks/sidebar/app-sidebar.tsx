@@ -144,7 +144,7 @@ export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
           </Button>
           <Menu.Content
             placement={collapsed ? "right" : "top"}
-            className={collapsed ? "sm:min-w-56" : "min-w-[--trigger-width]"}
+            className={collapsed ? "sm:min-w-56" : "min-w-(--trigger-width)"}
           >
             <Menu.Item href="#">
               <IconCirclePerson />

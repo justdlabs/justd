@@ -51,11 +51,11 @@ const ColorPicker = ({
             {label && <span className="ml-2">{label}</span>}
           </Button>
           <Popover.Content
-            className="overflow-y-auto [&_[data-slot=color-slider]]:w-full [&_[data-slot=color-area]]:w-full sm:[&_[data-slot=color-area]]:size-56 sm:max-w-56 sm:min-w-min px-0 pt-4 pb-3 sm:p-3"
+            className="overflow-y-auto **:data-[slot=color-slider]:w-full **:data-[slot=color-area]:w-full sm:**:data-[slot=color-area]:size-56 sm:max-w-56 sm:min-w-min px-0 pt-4 pb-3 sm:p-3"
             showArrow={showArrow}
             placement={placement}
           >
-            <Dialog className="flex flex-col gap-2 focus:outline-none">
+            <Dialog className="flex flex-col gap-2 focus:outline-hidden">
               {children || (
                 <>
                   <ColorArea colorSpace="hsb" xChannel="saturation" yChannel="brightness" />

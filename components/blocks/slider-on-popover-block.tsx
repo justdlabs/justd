@@ -14,7 +14,7 @@ export function SliderOnPopoverBlock() {
         aria-label="Slider on Popover"
         size="square-petite"
         appearance="outline"
-        className="[&>[data-slot=icon]]:text-fg"
+        className="*:data-[slot=icon]:text-fg"
       >
         <IconAdjustment />
       </Button>

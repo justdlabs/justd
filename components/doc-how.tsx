@@ -68,7 +68,7 @@ export function DocHow({
         </Tabs.Panel>
         <Tabs.Panel id="code">
           <Code
-            className="border [&_pre_span[data-line]:last-of-type]:hidden [&_pre]:!border-0 border-zinc-800 bg-[#0e0e10] rounded-lg"
+            className="border [&_pre_span[data-line]:last-of-type]:hidden [&_pre]:border-0! border-zinc-800 bg-[#0e0e10] rounded-lg"
             code={codeString}
           />
         </Tabs.Panel>
@@ -79,7 +79,7 @@ export function DocHow({
 
 const tabStyles = tv({
   base: [
-    "relative flex whitespace-nowrap cursor-default items-center rounded-full text-sm font-medium outline-none transition forced-color-adjust-none hover:text-fg [&>[data-slot=icon]]:size-4 [&>[data-slot=icon]]:mr-2",
+    "relative flex whitespace-nowrap cursor-default items-center rounded-full text-sm font-medium outline-hidden transition forced-color-adjust-none hover:text-fg *:data-[slot=icon]:size-4 *:data-[slot=icon]:mr-2",
     "group-orientation-vertical:w-full group-orientation-vertical:py-0 group-orientation-vertical:pl-4 group-orientation-vertical:pr-2",
     "group-orientation-horizontal:pb-3"
   ],

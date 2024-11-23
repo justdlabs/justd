@@ -38,7 +38,7 @@ const ColorItem = ({
     setTimeout(() => setCopied(false), 2000)
     toast.success(`Copy ${toCopy} to clipboard.`, {
       classNames: {
-        toast: "[&:has([data-icon])_[data-content]]:!ml-0",
+        toast: "[&:has([data-icon])_[data-content]]:ml-0!",
         icon: "hidden"
       }
     })
@@ -47,7 +47,7 @@ const ColorItem = ({
     <ListBoxItem
       textValue={name}
       className={cn(
-        "w-full h-14 sm:h-24 group focus:outline-none focus:rounded-sm cursor-pointer rounded relative",
+        "w-full h-14 sm:h-24 group focus:outline-hidden focus:rounded-sm cursor-pointer rounded relative",
         isBrightColor(item.color)
           ? "ring-1 ring-inset ring-black/10"
           : "dark:ring-1 dark:ring-inset dark:ring-white/10"

@@ -105,7 +105,7 @@ const Provider = React.forwardRef<
       <SidebarContext.Provider value={contextValue}>
         <div
           className={cn(
-            "group/sidebar-wrapper [--sidebar-width:16.5rem] [--sidebar-width-icon:3rem] flex min-h-svh w-full text-fg dark:has-[[data-intent=inset]]:bg-bg has-[[data-intent=inset]]:bg-secondary/50",
+            "group/sidebar-wrapper [--sidebar-width:16.5rem] [--sidebar-width-icon:3rem] flex min-h-svh w-full text-fg dark:has-data-[intent=inset]:bg-bg has-data-[intent=inset]:bg-secondary/50",
             className
           )}
           ref={ref}
@@ -127,7 +127,7 @@ const Inset = ({ className, ...props }: React.ComponentProps<"main">) => {
         [
           "relative flex min-h-svh max-w-full flex-1 flex-col bg-bg",
           "md:peer-data-[intent=inset]:ml-0 md:peer-data-[intent=inset]:bg-tertiary md:peer-data-[intent=inset]:rounded-xl",
-          "peer-data-[intent=inset]:overflow-hidden peer-data-[intent=inset]:border peer-data-[intent=inset]:min-h-[calc(100svh-theme(spacing.4))] md:peer-data-[intent=inset]:my-2 md:peer-data-[intent=inset]:mr-2"
+          "peer-data-[intent=inset]:overflow-hidden peer-data-[intent=inset]:border peer-data-[intent=inset]:min-h-[calc(100svh-calc(var(--spacing)*4))] md:peer-data-[intent=inset]:my-2 md:peer-data-[intent=inset]:mr-2"
         ],
         className
       ])}
@@ -153,7 +153,7 @@ const Sidebar = ({
   if (collapsible === "none") {
     return (
       <div
-        className={cn("flex h-full w-[--sidebar-width] flex-col bg-tertiary text-fg ", className)}
+        className={cn("flex h-full w-(--sidebar-width) flex-col bg-tertiary text-fg ", className)}
         {...props}
       >
         {children}
@@ -189,23 +189,23 @@ const Sidebar = ({
     >
       <div
         className={cn(
-          "duration-200 relative h-svh w-[--sidebar-width] bg-transparent transition-[width] ease-linear",
+          "duration-200 relative h-svh w-(--sidebar-width) bg-transparent transition-[width] ease-linear",
           "group-data-[collapsible=offcanvas]:w-0",
           "group-data-[side=right]:rotate-180",
           intent === "floating" || intent === "inset"
-            ? "group-data-[collapsible=dock]:w-[calc(var(--sidebar-width-icon)_+_theme(spacing.4))]"
-            : "group-data-[collapsible=dock]:w-[--sidebar-width-icon]"
+            ? "group-data-[collapsible=dock]:w-[calc(var(--sidebar-width-icon)+calc(var(--spacing)*4))]"
+            : "group-data-[collapsible=dock]:w-(--sidebar-width-icon)"
         )}
       />
       <div
         className={cn(
-          "duration-200 fixed inset-y-0 z-10 hidden h-svh w-[--sidebar-width] transition-[left,right,width] ease-linear md:flex",
+          "duration-200 fixed inset-y-0 z-10 hidden h-svh w-(--sidebar-width) transition-[left,right,width] ease-linear md:flex",
           side === "left"
             ? "left-0 group-data-[collapsible=offcanvas]:left-[calc(var(--sidebar-width)*-1)]"
             : "right-0 group-data-[collapsible=offcanvas]:right-[calc(var(--sidebar-width)*-1)]",
           intent === "floating" || intent === "inset"
-            ? "p-2 group-data-[collapsible=dock]:w-[calc(var(--sidebar-width-icon)_+_theme(spacing.4)_+2px)]"
-            : "group-data-[collapsible=dock]:w-[--sidebar-width-icon] group-data-[side=left]:border-r group-data-[side=right]:border-l",
+            ? "p-2 group-data-[collapsible=dock]:w-[calc(var(--sidebar-width-icon)+calc(var(--spacing)*4)+2px)]"
+            : "group-data-[collapsible=dock]:w-(--sidebar-width-icon) group-data-[side=left]:border-r group-data-[side=right]:border-l",
           className
         )}
         {...props}
@@ -215,8 +215,8 @@ const Sidebar = ({
           className={cn(
             "flex h-full w-full flex-col bg-tertiary group-data-[intent=inset]:bg-transparent group-data-[intent=floating]:rounded-lg group-data-[intent=floating]:border group-data-[intent=floating]:border-border group-data-[intent=floating]:bg-secondary/50",
             intent === "inset" || state === "collapsed"
-              ? "[&_[data-slot=sidebar-header]]:border-transparent [&_[data-slot=sidebar-footer]]:border-transparent"
-              : "[&_[data-slot=sidebar-header]]:border-b [&_[data-slot=sidebar-footer]]:border-t"
+              ? "**:data-[slot=sidebar-header]:border-transparent **:data-[slot=sidebar-footer]:border-transparent"
+              : "**:data-[slot=sidebar-header]:border-b **:data-[slot=sidebar-footer]:border-t"
           )}
         >
           {children}
@@ -228,15 +228,15 @@ const Sidebar = ({
 
 const itemStyles = tv({
   base: [
-    "group/sidebar-item grid cursor-pointer [&>[data-slot=icon]]:size-4 col-span-full [&>[data-slot=icon]]:shrink-0 items-center [&>[data-slot=icon]]:text-muted-fg relative rounded-lg lg:text-sm leading-6",
+    "group/sidebar-item grid cursor-pointer *:data-[slot=icon]:size-4 col-span-full *:data-[slot=icon]:shrink-0 items-center *:data-[slot=icon]:text-muted-fg relative rounded-lg lg:text-sm leading-6",
     "forced-colors:text-[MenuLink] text-fg"
   ],
   variants: {
     collapsed: {
-      false: "grid-cols-subgrid [&>[data-slot=icon]]:mr-2 px-3 py-2"
+      false: "grid-cols-subgrid *:data-[slot=icon]:mr-2 px-3 py-2"
     },
     isFocused: {
-      true: "outline-none"
+      true: "outline-hidden"
     },
     isFocusVisible: {
       true: "bg-muted [&:focus-visible_[slot=description]]:text-accent-fg/70 text-secondary-fg"
@@ -248,7 +248,7 @@ const itemStyles = tv({
     },
     isCurrent: {
       true: [
-        "[&_[data-slot=icon]]:text-primary-fg [&_.text-muted-fg]:text-primary-fg/80 bg-primary text-primary-fg",
+        "**:data-[slot=icon]:text-primary-fg [&_.text-muted-fg]:text-primary-fg/80 bg-primary text-primary-fg",
         "[&_.bdx]:bg-primary-fg/20 [&_.bdx]:ring-primary-fg/30"
       ]
     },
@@ -270,7 +270,7 @@ const Item = ({ isCurrent, children, className, icon: Icon, ...props }: ItemProp
     <Tooltip closeDelay={0} delay={0}>
       <Link
         {...props}
-        className="focus:outline-none col-span-full hover:bg-muted hover:text-secondary-fg text-muted-fg rounded-lg size-9 grid place-content-center"
+        className="focus:outline-hidden col-span-full hover:bg-muted hover:text-secondary-fg text-muted-fg rounded-lg size-9 grid place-content-center"
       >
         {Icon && <Icon data-slot="icon" />}
         <span className="sr-only">{children as string}</span>
@@ -391,9 +391,9 @@ const footer = tv({
   variants: {
     collapsed: {
       false: [
-        "p-2 [&_[data-slot=menu-trigger]>[data-slot=avatar]]:-ml-1.5 [&_[data-slot=menu-trigger]]:w-full [&_[data-slot=menu-trigger]]:hover:bg-muted [&_[data-slot=menu-trigger]]:justify-start [&_[data-slot=menu-trigger]]:flex [&_[data-slot=menu-trigger]]:items-center"
+        "p-2 [&_[data-slot=menu-trigger]>[data-slot=avatar]]:-ml-1.5 **:data-[slot=menu-trigger]:w-full hover:**:data-[slot=menu-trigger]:bg-muted **:data-[slot=menu-trigger]:justify-start **:data-[slot=menu-trigger]:flex **:data-[slot=menu-trigger]:items-center"
       ],
-      true: "size-12 p-1 [&_[data-slot=menu-trigger]]:size-9 justify-center items-center"
+      true: "size-12 p-1 **:data-[slot=menu-trigger]:size-9 justify-center items-center"
     }
   }
 })
@@ -437,10 +437,10 @@ const Section = ({
         "col-span-full px-2",
         state === "collapsed" && [title && "px-0", !isMobile && "px-0"],
         state === "expanded" && [
-          "[&_[data-slot=sidebar-section]]:px-0",
+          "**:data-[slot=sidebar-section]:px-0",
           title && [
             Icon
-              ? "mt-0.5 [&_[data-slot=sidebar-section-panel]]:px-6 [&_[data-slot=sidebar-section-panel]_[data-slot=icon]]:-ml-0.5"
+              ? "mt-0.5 **:data-[slot=sidebar-section-panel]:px-6 [&_[data-slot=sidebar-section-panel]_[data-slot=icon]]:-ml-0.5"
               : "my-2.5"
           ]
         ],
@@ -458,19 +458,19 @@ const Section = ({
                   slot="trigger"
                   className={({ isHovered }) =>
                     cn(
-                      "w-full focus:outline-none flex leading-6 items-center justify-between [&>.idctr]:size-6 [&>.idctr]:duration-200",
+                      "w-full focus:outline-hidden flex leading-6 items-center justify-between [&>.idctr]:size-6 [&>.idctr]:duration-200",
                       Icon
                         ? "text-fg lg:text-sm py-2 lg:py-1.5 px-3 [&_.idctr]:text-muted-fg has-[.idctr]:pr-0.5"
                         : "text-sm text-muted-fg py-2 px-3 has-[.idctr]:pr-0",
                       isHovered &&
                         Icon &&
-                        "bg-muted text-secondary-fg [&_.text-muted-fg]:text-secondary-fg/80 [&>[data-slot=icon]]:shrink-0 items-center [&>[data-slot=icon]]:text-muted-fg relative rounded-lg lg:text-sm leading-6",
+                        "bg-muted text-secondary-fg [&_.text-muted-fg]:text-secondary-fg/80 *:data-[slot=icon]:shrink-0 items-center *:data-[slot=icon]:text-muted-fg relative rounded-lg lg:text-sm leading-6",
                       isExpanded && !Icon && "[&>.idctr]:rotate-180",
                       isExpanded && Icon && "[&>.idctr]:rotate-90"
                     )
                   }
                 >
-                  <span className="flex items-center [&>[data-slot=icon]]:text-muted-fg [&>[data-slot=icon]]:mr-2">
+                  <span className="flex items-center *:data-[slot=icon]:text-muted-fg *:data-[slot=icon]:mr-2">
                     {Icon && <Icon data-slot="icon" />}
                     {title}
                   </span>
@@ -513,7 +513,7 @@ const Rail = ({ className, ...props }: React.ComponentProps<"button">) => {
       title="Toggle Sidebar"
       className={cn(
         "absolute inset-y-0 z-20 hidden w-4 -translate-x-1/2 transition-all ease-linear after:absolute after:inset-y-0 after:left-1/2 after:w-[2px] hover:after:bg-transparent group-data-[side=left]:-right-4 group-data-[side=right]:left-0 sm:flex",
-        "[[data-side=left]_&]:cursor-w-resize [[data-side=right]_&]:cursor-e-resize",
+        "in-data-[side=left]:cursor-w-resize in-data-[side=right]:cursor-e-resize",
         "[[data-side=left][data-state=collapsed]_&]:cursor-e-resize [[data-side=right][data-state=collapsed]_&]:cursor-w-resize",
         "group-data-[collapsible=offcanvas]:translate-x-0 group-data-[collapsible=offcanvas]:after:left-full group-data-[collapsible=offcanvas]:hover:bg-tertiary",
         "[[data-side=left][data-collapsible=offcanvas]_&]:-right-2",

@@ -118,7 +118,7 @@ const renderHierarchy = (node: HierarchyNode, defaultValues: string[]) => {
                     id={subKey}
                   >
                     {/* Trigger components: buttons, controls, etc. */}
-                    <Trigger className="[--trigger-padding-left:2.2rem] pl-[--trigger-padding-left] pr-1">
+                    <Trigger className="[--trigger-padding-left:2.2rem] pl-(--trigger-padding-left) pr-1">
                       {goodTitle(subKey)}
                     </Trigger>
                     <Disclosure.Panel>
@@ -228,7 +228,7 @@ interface AsideLinkProps extends NextLinkProps {
 }
 
 const asideLinkStyles = tv({
-  base: "relative block group focus:outline-none focus-visible:bg-muted/50 focus-visible:ring-inset focus-visible:ring-1 focus-visible:ring-primary rounded-lg pl-2.5 h-9 text-base transition-colors hover:bg-muted/60 hover:text-fg lg:text-sm",
+  base: "relative block group focus:outline-hidden focus-visible:bg-muted/50 focus-visible:ring-inset focus-visible:ring-1 focus-visible:ring-primary rounded-lg pl-2.5 h-9 text-base transition-colors hover:bg-muted/60 hover:text-fg lg:text-sm",
   variants: {
     isActive: {
       false: "text-muted-fg forced-colors:text-[Gray] hover:text-fg",

@@ -15,7 +15,7 @@ import { cr } from "./primitive"
 
 const modalOverlayStyles = tv({
   base: [
-    "fixed left-0 top-0 isolate z-50 h-[--visual-viewport-height] w-full",
+    "fixed left-0 top-0 isolate z-50 h-(--visual-viewport-height) w-full",
     "flex items-end text-center sm:block",
     "[--visual-viewport-vertical-padding:16px] sm:[--visual-viewport-vertical-padding:32px]"
   ],
@@ -41,15 +41,12 @@ const modalContentStyles = tv({
   variants: {
     isEntering: {
       true: [
-        "animate-in ease-out duration-200 slide-in-from-bottom-[20%]",
-        "sm:slide-in-from-bottom-auto sm:slide-in-from-top-[80%] sm:slide-in-from-left-1/2"
+        "animate-in ease-out fade-in duration-300 slide-in-from-bottom-[20%]",
+        "sm:slide-in-from-bottom-auto sm:slide-in-from-top-12"
       ]
     },
     isExiting: {
-      true: [
-        "duration-200 ease-in animate-out slide-out-to-bottom-56",
-        "sm:exiting:slide-out-to-top-[80%] sm:slide-out-to-left-1/2"
-      ]
+      true: ["duration-200 ease-in animate-out slide-out-to-bottom-56", "sm:slide-out-to-top-12"]
     },
     size: {
       xs: "sm:max-w-xs",

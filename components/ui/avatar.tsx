@@ -7,7 +7,7 @@ import { tv, type VariantProps } from "tailwind-variants"
 import { VisuallyHidden } from "./visually-hidden"
 
 const avatarGroupStyles = tv({
-  base: "flex items-center justify-center -space-x-2 [&_[data-slot=avatar]]:ring-2 [&_[data-slot=avatar]]:ring-bg"
+  base: "flex items-center justify-center -space-x-2 **:data-[slot=avatar]:ring-2 **:data-[slot=avatar]:ring-bg"
 })
 
 interface AvatarGroupProps
@@ -23,7 +23,7 @@ const AvatarGroup = ({ className, ...props }: AvatarGroupProps) => {
 const avatarStyles = tv({
   base: [
     "grid relative place-content-center shrink-0 bg-secondary align-middle [--avatar-radius:20%] [--ring-opacity:20%] *:col-start-1 *:row-start-1",
-    "loo2ppvkxrcah38e outline outline-1 -outline-offset-1 outline-fg/[--ring-opacity]"
+    "loo2ppvkxrcah38e outline outline-1 -outline-offset-1 outline-fg/(--ring-opacity)"
   ],
   variants: {
     size: {
@@ -34,7 +34,7 @@ const avatarStyles = tv({
     },
     shape: {
       square:
-        "rounded-[--avatar-radius] *:rounded-[--avatar-radius] [&_[data-slot=badge]]:rounded-full",
+        "rounded-(--avatar-radius) *:rounded-(--avatar-radius) **:data-[slot=badge]:rounded-full",
       circle: "rounded-full *:rounded-full"
     }
   },

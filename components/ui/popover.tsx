@@ -48,7 +48,7 @@ const Body = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => 
 
 const popoverContentStyles = tv({
   base: [
-    "max-w-xs min-w-80 p-4 rounded-xl border bg-overlay bg-clip-padding text-overlay-fg shadow-sm dark:backdrop-saturate-200 lg:text-sm sm:max-w-3xl forced-colors:bg-[Canvas] [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin]"
+    "max-w-xs transition-transform min-w-80 p-4 rounded-xl border bg-overlay bg-clip-padding text-overlay-fg shadow-xs dark:backdrop-saturate-200 lg:text-sm sm:max-w-3xl forced-colors:bg-[Canvas] [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin]"
   ],
   variants: {
     isMenu: {
@@ -58,18 +58,22 @@ const popoverContentStyles = tv({
     },
     isEntering: {
       true: [
-        "duration-50 ease-out animate-in fade-in placement-left:slide-in-from-right-1 placement-right:slide-in-from-left-1 placement-top:slide-in-from-bottom-1 placement-bottom:slide-in-from-top-1"
+        "duration-100 ease-out animate-in fade-in",
+        "data-[placement=left]:slide-in-from-right-1 data-[placement=right]:slide-in-from-left-1 data-[placement=top]:slide-in-from-bottom-1 data-[placement=bottom]:slide-in-from-top-1"
       ]
     },
     isExiting: {
-      true: "duration-50 ease-in animate-out fade-out placement-left:slide-out-to-right-1 placement-right:slide-out-to-left-1 placement-top:slide-out-to-bottom-1 placement-bottom:slide-out-to-top-1"
+      true: [
+        "duration-50 ease-in animate-out fade-out",
+        "data-[placement=left]:slide-out-to-right-1 data-[placement=right]:slide-out-to-left-1 data-[placement=top]:slide-out-to-bottom-1 data-[placement=bottom]:slide-out-to-top-1"
+      ]
     }
   }
 })
 
 const drawerStyles = tv({
   base: [
-    "fixed max-h-full bottom-0 top-auto z-50 w-full bg-overlay max-w-2xl border border-b-transparent outline-none"
+    "fixed max-h-full bottom-0 top-auto z-50 w-full bg-overlay max-w-2xl border border-b-transparent outline-hidden"
   ],
   variants: {
     isMenu: {
@@ -120,7 +124,7 @@ const Content = ({
   return isMobile && respectScreen ? (
     <ModalOverlay
       className={twJoin(
-        "fixed left-0 top-0 isolate z-50 h-[--visual-viewport-height] w-full bg-overlay/10 [--visual-viewport-vertical-padding:16px]",
+        "fixed left-0 top-0 isolate z-50 h-(--visual-viewport-height) w-full bg-overlay/10 [--visual-viewport-vertical-padding:16px]",
         isSubmenuTrigger ? "bg-overlay/10" : ""
       )}
       {...props}
@@ -133,7 +137,7 @@ const Content = ({
       >
         <Dialog
           aria-label={isMenu ? "Menu" : props["aria-label"]}
-          className="touch-none focus:outline-none"
+          className="touch-none focus:outline-hidden"
         >
           {children}
         </Dialog>
@@ -156,7 +160,7 @@ const Content = ({
             width={12}
             height={12}
             viewBox="0 0 12 12"
-            className="block fill-overlay stroke-border group-placement-left:-rotate-90 group-placement-right:rotate-90 group-placement-bottom:rotate-180 forced-colors:fill-[Canvas] forced-colors:stroke-[ButtonBorder]"
+            className="block fill-overlay stroke-border group-data-[placement=left]:-rotate-90 group-data-[placement=right]:rotate-90 group-data-[placement=bottom]:rotate-180 forced-colors:fill-[Canvas] forced-colors:stroke-[ButtonBorder]"
           >
             <path d="M0 0 L6 6 L12 0" />
           </svg>
@@ -174,7 +178,7 @@ const Picker = ({ children, className, ...props }: PopoverProps) => {
       className={cr(className as PopoverPrimitiveProps["className"], (className, renderProps) =>
         popoverContentStyles({
           ...renderProps,
-          className: cn("max-h-72 min-w-[--trigger-width] overflow-y-auto p-0", className)
+          className: cn("max-h-72 min-w-(--trigger-width) overflow-y-auto p-0", className)
         })
       )}
     >

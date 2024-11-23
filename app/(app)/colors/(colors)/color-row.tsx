@@ -71,7 +71,7 @@ export function ColorRow({ showItem = false, swatchClassName, item }: ColorRowPr
                   }}
                 >
                   {({ isSelected }) => (
-                    <IconBrandTailwindcss className={isSelected ? "!text-sky-500" : "!text-fg"} />
+                    <IconBrandTailwindcss className={isSelected ? "text-sky-500!" : "text-fg!"} />
                   )}
                 </ToggleButton>
                 <Tooltip.Content className="max-w-xs">

@@ -50,7 +50,7 @@ export default function PieChartLegendDemo() {
             <Pie data={data} dataKey="visitors" />
             <Chart.Legend
               content={<Chart.LegendContent nameKey="browser" />}
-              className="-translate-y-2 gap-2 [&>*]:basis-1/4 [&>*]:justify-center"
+              className="-translate-y-2 gap-2 *:basis-1/4 *:justify-center"
             />
           </PieChart>
         </Chart>

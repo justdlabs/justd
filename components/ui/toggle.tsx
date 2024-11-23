@@ -57,7 +57,7 @@ const toggleStyles = tv({
     "inline-flex relative items-center gap-x-2 bg-transparent justify-center border border-transparent rounded-lg text-sm font-medium ring-offset-bg transition-colors",
     "enabled:hover:bg-secondary enabled:hover:text-secondary-fg",
     "forced-colors:[--button-icon:ButtonText] forced-colors:hover:[--button-icon:ButtonText]",
-    "[&>[data-slot=icon]]:-mx-0.5 [&>[data-slot=icon]]:my-1 [&>[data-slot=icon]]:size-4 [&>[data-slot=icon]]:shrink-0 [&>[data-slot=icon]]:text-[--button-icon]"
+    "*:data-[slot=icon]:-mx-0.5 *:data-[slot=icon]:my-1 *:data-[slot=icon]:size-4 *:data-[slot=icon]:shrink-0 *:data-[slot=icon]:text-(--button-icon)"
   ],
   variants: {
     isDisabled: {
@@ -66,15 +66,15 @@ const toggleStyles = tv({
     appearance: {
       plain: [
         "selected:bg-secondary selected:text-secondary-fg",
-        "[--button-icon:theme(colors.secondary.fg/60%)] selected:[--button-icon:theme(colors.secondary.fg)] enabled:hover:[--button-icon:theme(colors.secondary.fg/80%)]"
+        "[--button-icon:var(--color-secondary-fg)]/60 selected:[--button-icon:var(--color-secondary-fg)] enabled:hover:[--button-icon:var(--color-secondary-fg)]/80"
       ],
       solid: [
         "bg-white border-border selected:border-primary enabled:hover:bg-white/95 enabled:hover:text-black text-black selected:bg-primary selected:text-primary-fg",
-        "[--button-icon:theme(colors.black/60%)] selected:[--button-icon:theme(colors.white)] enabled:hover:[--button-icon:theme(colors.black/80%)]"
+        "[--button-icon:var(--color-black)]/60 selected:[--button-icon:var(--color-white)] enabled:hover:[--button-icon:var(--color-black)]/80"
       ],
       outline: [
         "border-border selected:bg-secondary selected:backdrop-blur-sm selected:text-secondary-fg enabled:hover:bg-secondary/50 enabled:hover:text-secondary-fg",
-        "[--button-icon:theme(colors.secondary.fg/60%)] selected:[--button-icon:theme(colors.secondary.fg)] enabled:hover:[--button-icon:theme(colors.secondary.fg/80%)]"
+        "[--button-icon:var(--color-secondary-fg)]/60 selected:[--button-icon:var(--color-secondary-fg)] enabled:hover:[--button-icon:var(--color-secondary-fg)]/80"
       ]
     },
     size: {

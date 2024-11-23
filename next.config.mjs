@@ -8,6 +8,10 @@ if (!process.env.VELITE_STARTED && (isDev || isBuild)) {
 
 /** @type {import('next').NextConfig} */
 export default {
+  devIndicators: {
+    buildActivity: false,
+    appIsrStatus: false
+  },
   experimental: {
     optimizePackageImports: ["shiki"]
   },

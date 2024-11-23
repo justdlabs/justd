@@ -16,60 +16,60 @@ const buttonStyles = tv(
     base: [
       "kbt32x before:absolute after:absolute box-border relative no-underline isolate inline-flex items-center justify-center gap-x-2 border font-medium",
       "forced-colors:[--button-icon:ButtonText] forced-colors:hover:[--button-icon:ButtonText]",
-      "[&>[data-slot=icon]]:-mx-0.5 [&>[data-slot=icon]]:my-1 [&>[data-slot=icon]]:size-4 [&>[data-slot=icon]]:shrink-0 [&>[data-slot=icon]]:text-[--button-icon]"
+      "*:data-[slot=icon]:-mx-0.5 *:data-[slot=icon]:my-1 *:data-[slot=icon]:size-4 *:data-[slot=icon]:shrink-0 *:data-[slot=icon]:text-(--button-icon)"
     ],
     variants: {
       intent: {
         primary: [
-          "text-primary-fg [--button-bg:theme(colors.primary.DEFAULT)] [--button-border:theme(colors.primary.DEFAULT)] [--button-hover-overlay:theme(colors.white/10%)]",
-          "[--button-icon:theme(colors.primary.fg/60%)] active:[--button-icon:theme(colors.primary.fg/80%)] hover:[--button-icon:theme(colors.primary.fg/80%)]"
+          "text-primary-fg [--button-bg:var(--color-primary)] [--button-border:var(--color-primary)] [--button-hover-overlay:var(--color-white)]/10",
+          "[--button-icon:var(--color-primary-fg)]/60 active:[--button-icon:var(--color-primary-fg)]/80 hover:[--button-icon:var(--color-primary-fg)]/80"
         ],
         secondary: [
-          "text-secondary-fg [--button-bg:theme(colors.secondary.DEFAULT)] dark:[--button-bg:theme(colors.secondary.DEFAULT)] [--button-border:theme(colors.secondary.fg/10%)] [--button-hover-overlay:theme(colors.secondary.fg/2.5%)] data-[active]:[--button-border:theme(colors.secondary.fg/15%)] hover:[--button-border:theme(colors.secondary.fg/15%)]",
-          "[--button-icon:theme(colors.muted.fg)] active:[--button-icon:theme(colors.fg)] hover:[--button-icon:theme(colors.fg)]"
+          "text-secondary-fg [--button-bg:var(--color-secondary)] dark:[--button-bg:var(--color-secondary)] [--button-border:var(--color-secondary-fg)]/10 [--button-hover-overlay:var(--color-secondary-fg)]/[2.5%] data-active:[--button-border:var(--color-secondary-fg)]/15 hover:[--button-border:var(--color-secondary-fg)]/15",
+          "[--button-icon:var(--color-muted-fg)] active:[--button-icon:var(--color-fg)] hover:[--button-icon:var(--color-fg)]"
         ],
         warning: [
-          "text-warning-fg [--button-bg:theme(colors.warning.DEFAULT)] [--button-border:theme(colors.warning.DEFAULT)] [--button-hover-overlay:theme(colors.white/10%)]",
-          "[--button-icon:theme(colors.warning.fg/60%)] active:[--button-icon:theme(colors.warning.fg/80%)] hover:[--button-icon:theme(colors.warning.fg/80%)]"
+          "text-warning-fg [--button-bg:var(--color-warning)] [--button-border:var(--color-warning)] [--button-hover-overlay:var(--color-white)]/10",
+          "[--button-icon:var(--color-warning-fg)]/60 active:[--button-icon:var(--color-warning-fg)]/80 hover:[--button-icon:var(--color-warning-fg)]/80"
         ],
         danger: [
-          "text-white [--button-bg:theme(colors.danger.DEFAULT)] [--button-border:theme(colors.danger.DEFAULT)] [--button-hover-overlay:theme(colors.white/10%)]",
-          "[--button-icon:theme(colors.white/60%)] active:[--button-icon:theme(colors.white/80%)] hover:[--button-icon:theme(colors.white/80%)]"
+          "text-white [--button-bg:var(--color-danger)] [--button-border:var(--color-danger)] [--button-hover-overlay:var(--color-white)]/10",
+          "[--button-icon:var(--color-white)]/60 active:[--button-icon:var(--color-white)]/80 hover:[--button-icon:var(--color-white)]/80"
         ]
       },
       appearance: {
         solid: [
-          "border-transparent bg-[--button-border]",
-          "before:inset-0 before:-z-10 before:bg-[--button-bg] before:shadow before:data-[disabled]:shadow-none",
-          "after:shadow-[shadow:inset_0_1px_theme(colors.white/15%)] after:active:bg-[--button-hover-overlay] after:hover:bg-[--button-hover-overlay] after:data-[disabled]:shadow-none after:inset-0 after:-z-10",
-          "dark:after:-inset-px dark:before:hidden dark:border-white/5 dark:bg-[--button-bg]"
+          "border-transparent bg-(--button-border)",
+          "before:inset-0 before:-z-10 before:bg-(--button-bg) before:shadow-sm data-disabled:before:shadow-none",
+          "after:shadow-[shadow:inset_0_1px_theme(--color-white/15%)] active:after:bg-(--button-hover-overlay) hover:after:bg-(--button-hover-overlay) data-disabled:after:shadow-none after:inset-0 after:-z-10",
+          "dark:after:-inset-px dark:before:hidden dark:border-white/5 dark:bg-(--button-bg)"
         ],
         outline: [
-          "border-border text-fg [--button-icon:theme(colors.muted.fg)]",
-          "hover:[--button-icon:theme(colors.fg)] hover:bg-secondary/90",
-          "active:bg-secondary/90 active:[--button-icon:theme(colors.fg)]"
+          "border-border text-fg [--button-icon:var(--color-muted-fg)]",
+          "hover:[--button-icon:var(--color-fg)] hover:bg-secondary/90",
+          "active:bg-secondary/90 active:[--button-icon:var(--color-fg)]"
         ],
         plain: [
-          "border-transparent text-fg [--button-icon:theme(colors.muted.fg)]",
+          "border-transparent text-fg [--button-icon:var(--color-muted-fg)]",
           "pressed:bg-secondary/90",
-          "active:[--button-icon:theme(colors.fg)] active:bg-secondary/90",
-          "hover:[--button-icon:theme(colors.fg)] hover:bg-secondary/90"
+          "active:[--button-icon:var(--color-fg)] active:bg-secondary/90",
+          "hover:[--button-icon:var(--color-fg)] hover:bg-secondary/90"
         ]
       },
       size: {
         "extra-small":
-          "h-8 px-[calc(theme(spacing.3)-1px)] py-[calc(theme(spacing.1)-1px)] text-xs/4 lg:text-[0.800rem]/4",
+          "h-8 px-[calc(calc(var(--spacing)*3)-1px)] py-[calc(calc(var(--spacing)*1)-1px)] text-xs/4 lg:text-[0.800rem]/4",
         small:
-          "h-9 px-[calc(theme(spacing.4)-1px)] py-[calc(theme(spacing[1.5])-1px)] text-sm/5 lg:text-sm/5",
+          "h-9 px-[calc(calc(var(--spacing)*4)-1px)] py-[calc(calc(var(--spacing)*1.5)-1px)] text-sm/5 lg:text-sm/5",
         medium:
-          "h-10 px-[calc(theme(spacing.4)-1px)] py-[calc(theme(spacing.2)-1px)] text-base lg:text-sm/6",
+          "h-10 px-[calc(calc(var(--spacing)*4)-1px)] py-[calc(calc(var(--spacing)*2)-1px)] text-base lg:text-sm/6",
         large:
-          "h-10 [&>[data-slot=icon]]:mx-[-3px] sm:h-11 px-[calc(theme(spacing.4)-1px)] sm:px-[calc(theme(spacing.5)-1px)] py-[calc(theme(spacing[2.5])-1px)] text-base lg:text-base/7 sm:[&>[data-slot=icon]]:size-5",
-        "square-petite": "size-9 shrink-0 [&_[data-slot=icon]]:text-current"
+          "h-10 *:data-[slot=icon]:mx-[-3px] sm:h-11 px-[calc(calc(var(--spacing)*4)-1px)] sm:px-[calc(calc(var(--spacing)*5)-1px)] py-[calc(calc(var(--spacing)*2.5)-1px)] text-base lg:text-base/7 sm:*:data-[slot=icon]:size-5",
+        "square-petite": "size-9 shrink-0 **:data-[slot=icon]:text-current"
       },
       shape: {
         square:
-          "rounded-lg before:rounded-[calc(theme(borderRadius.lg)-1px)] after:rounded-[calc(theme(borderRadius.lg)-1px)] dark:after:rounded-lg",
+          "rounded-lg before:rounded-[calc(var(--radius-lg)-1px)] after:rounded-[calc(var(--radius-lg)-1px)] dark:after:rounded-lg",
         circle:
           "rounded-[9999px] before:rounded-[9998px] after:rounded-[9998px] dark:after:rounded-[9999px]"
       },

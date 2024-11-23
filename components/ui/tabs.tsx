@@ -68,7 +68,7 @@ const List = <T extends object>(props: TabListProps<T>) => {
 
 const tabStyles = tv({
   base: [
-    "relative flex whitespace-nowrap cursor-default items-center rounded-full text-sm font-medium outline-none transition hover:text-fg [&>[data-slot=icon]]:size-4 [&>[data-slot=icon]]:mr-2",
+    "relative flex whitespace-nowrap cursor-default items-center rounded-full text-sm font-medium outline-hidden transition hover:text-fg *:data-[slot=icon]:size-4 *:data-[slot=icon]:mr-2",
     // hor
     "group-orientation-vertical:w-full group-orientation-vertical:py-0 group-orientation-vertical:pl-4 group-orientation-vertical:pr-2",
     // ver
@@ -123,7 +123,7 @@ const tabPanelStyles = tv({
   base: "flex-1 text-sm text-fg",
   variants: {
     isFocusVisible: {
-      true: "outline-none"
+      true: "outline-hidden"
     }
   }
 })

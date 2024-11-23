@@ -31,7 +31,7 @@ export function ThemeSwitcher({
       shape={shape}
       appearance={appearance}
       size="square-petite"
-      className={cn("[&_[data-slot=icon]]:text-fg", className)}
+      className={cn("**:data-[slot=icon]:text-fg", className)}
       aria-label="Switch theme"
       onPress={toggleTheme}
       {...props}

@@ -110,8 +110,8 @@ export function Footer() {
       </div>
 
       <div className="text-center relative z-10 h-[14rem] flex -mb-20 -mt-28 sm:-mt-32 items-center flex-col justify-center overflow-hidden">
-        <div className="absolute w-full sm:w-1/2 lg:w-1/4 h-32 bg-gradient-to-b dark:from-bg dark:via-fg dark:blur-xl dark:to-bg" />
-        <strong className="dark:[text-shadow:1px_1px_0_hsl(var(--fg)),_-1px_-1px_0_hsl(var(--fg)),_1px_-1px_0_hsl(var(--fg)),_-1px_1px_0_hsl(var(--fg)),_1px_0_0_hsl(var(--fg)),_-1px_0_0_hsl(var(--fg)),_0_1px_0_hsl(var(--fg)),_0_-1px_0_hsl(var(--fg))] text-fg dark:text-bg inline-flex text-[7rem] sm:text-[10rem] leading-none dark:bg-clip-text dark:bg-gradient-to-b from-bg to-muted relative z-10 font-bold">
+        <div className="absolute w-full sm:w-1/2 lg:w-1/4 h-32 bg-linear-to-b dark:from-bg dark:via-fg dark:blur-xl dark:to-bg" />
+        <strong className="dark:[text-shadow:1px_1px_0_var(--fg),_-1px_-1px_0_var(--fg),_1px_-1px_0_var(--fg),_-1px_1px_0_var(--fg),_1px_0_0_var(--fg),_-1px_0_0_hsl(var(--fg)),_0_1px_0_var(--fg),_0_-1px_0_var(--fg)] text-fg dark:text-bg inline-flex text-[7rem] sm:text-[10rem] leading-none dark:bg-clip-text dark:bg-linear-to-b from-bg to-muted relative z-10 font-bold">
           JUSTD
         </strong>
       </div>

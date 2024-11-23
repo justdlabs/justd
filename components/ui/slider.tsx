@@ -36,9 +36,9 @@ const sliderStyles = tv({
       "pointer-events-none absolute group-orientation-horizontal/top-0 group-orientation-vertical/track:w-full group-orientation-vertical/track:bottom-0 group-orientation-horizontal/track:h-full"
     ],
     thumb: [
-      "outline-none dragging:cursor-grabbing focus:ring-4 border border-zinc-200 focus:ring-primary/20 focus:border-primary focus:outline-none forced-colors:outline-[Highlight]",
+      "outline-hidden dragging:cursor-grabbing focus:ring-4 border border-zinc-200 focus:ring-primary/20 focus:border-primary focus:outline-hidden forced-colors:outline-[Highlight]",
       "rounded-full bg-white transition-[width,height]",
-      "absolute left-[50%] top-[50%] block !-translate-x-1/2 !-translate-y-1/2",
+      "absolute left-[50%] top-[50%] block -translate-x-1/2! -translate-y-1/2!",
       "disabled:bg-bg-disabled disabled:border disabled:border-bg",
       "orientation-vertical:w-2 orientation-horizontal:h-2",
       "size-[1.15rem] dragging:size-[1.30rem] dragging:border-primary"

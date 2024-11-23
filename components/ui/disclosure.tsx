@@ -41,8 +41,8 @@ const DisclosureGroup = ({
         cn([
           isDisabled ? "cursor-not-allowed opacity-75" : "cursor-pointer",
           hideBorder
-            ? "[&_[data-slot=accordion-item]]:border-none"
-            : "[&_[data-slot=accordion-item]]:border-b"
+            ? "**:data-[slot=accordion-item]:border-none"
+            : "**:data-[slot=accordion-item]:border-b"
         ])
       }
     >
@@ -100,7 +100,7 @@ const accordionTriggerStyles = tv({
       false: "py-3"
     },
     isFocused: {
-      true: "outline-none text-fg"
+      true: "outline-hidden text-fg"
     },
     isOpen: {
       true: "text-fg"

@@ -15,7 +15,7 @@ import { DropdownItemDetails, DropdownSection } from "./dropdown"
 import { cn, cr } from "./primitive"
 
 const listBoxStyles = tv({
-  base: "flex max-h-96 [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin] w-full gap-y-1 min-w-72 flex-col overflow-y-auto rounded-xl border p-1 shadow-lg outline-none"
+  base: "flex max-h-96 [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin] w-full gap-y-1 min-w-72 flex-col overflow-y-auto rounded-xl border p-1 shadow-lg outline-hidden"
 })
 
 interface ListBoxProps<T> extends ListBoxPrimitiveProps<T> {
@@ -29,7 +29,7 @@ const ListBox = <T extends object>({ children, className, ...props }: ListBoxPro
 )
 
 const listBoxItemStyles = tv({
-  base: "lbi cursor-pointer relative rounded-[calc(var(--radius)-1px)] p-2 text-base outline-none lg:text-sm",
+  base: "lbi cursor-pointer relative rounded-[calc(var(--radius)-1px)] p-2 text-base outline-hidden lg:text-sm",
   variants: {
     isFocusVisible: {
       true: "bg-secondary [&:focus-visible_[slot=label]]:text-accent-fg [&:focus-visible_[slot=description]]:text-accent-fg/70 text-secondary-fg"
@@ -38,10 +38,10 @@ const listBoxItemStyles = tv({
       true: "bg-accent [&:hover_[slot=label]]:text-accent-fg [&:hover_[slot=description]]:text-accent-fg/70 text-accent-fg [&_.text-muted-fg]:text-accent-fg/80"
     },
     isFocused: {
-      true: "[&_[data-slot=icon]]:text-accent-fg [&_[data-slot=label]]:text-accent-fg [&_.text-muted-fg]:text-accent-fg/80 bg-accent text-accent-fg"
+      true: "**:data-[slot=icon]:text-accent-fg **:data-[slot=label]:text-accent-fg [&_.text-muted-fg]:text-accent-fg/80 bg-accent text-accent-fg"
     },
     isSelected: {
-      true: "[&_[data-slot=icon]]:text-accent-fg [&_[data-slot=label]]:text-accent-fg [&_.text-muted-fg]:text-accent-fg/80 bg-accent text-accent-fg"
+      true: "**:data-[slot=icon]:text-accent-fg **:data-[slot=label]:text-accent-fg [&_.text-muted-fg]:text-accent-fg/80 bg-accent text-accent-fg"
     },
     isDragging: { true: "cursor-grabbing bg-secondary text-secondary-fg" },
     isDisabled: {
@@ -102,7 +102,7 @@ type ListBoxPickerProps<T> = ListBoxProps<T>
 const ListBoxPicker = <T extends object>({ className, ...props }: ListBoxPickerProps<T>) => {
   return (
     <ListBoxPrimitive
-      className={cn("max-h-72 overflow-auto p-1 outline-none", className)}
+      className={cn("max-h-72 overflow-auto p-1 outline-hidden", className)}
       {...props}
     />
   )

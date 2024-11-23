@@ -6,12 +6,12 @@ import { tv, type VariantProps } from "tailwind-variants"
 
 const badgeIntents = {
   primary:
-    "bg-primary/10 dark:bg-primary/15 text-primary dark:text-primary group-hover:bg-primary/15 dark:group-hover:bg-primary/20",
+    "bg-primary/17 dark:bg-primary/20 text-primary dark:text-primary group-hover:bg-primary/18 dark:group-hover:bg-primary/25",
   secondary:
     "bg-secondary group-hover:bg-muted dark:bg-secondary dark:group-hover:bg-muted text-secondary-fg",
   success:
     "bg-emerald-500/15 text-emerald-700 group-hover:bg-emerald-500/25 dark:bg-emerald-500/10 dark:text-emerald-400 dark:group-hover:bg-emerald-500/20",
-  info: "bg-info/15 dark:bg-info/15 text-info group-hover:bg-info/20 dark:group-hover:bg-info/20",
+  info: "bg-info/17 dark:bg-info/15 text-info group-hover:bg-info/23 dark:group-hover:bg-info/23",
   warning:
     "bg-warning/10 dark:bg-warning/15 text-warning-fg dark:text-warning group-hover:bg-warning/15 dark:group-hover:bg-warning/20",
   danger:
@@ -22,7 +22,7 @@ const badgeShapes = {
   circle: "px-2 rounded-full"
 }
 const badgeStyles = tv({
-  base: "inline-flex items-center gap-x-1.5 py-0.5 text-xs/5 font-medium forced-colors:outline [&_[data-slot=icon]]:size-3",
+  base: "inline-flex items-center gap-x-1.5 py-0.5 text-xs/5 font-medium forced-colors:outline **:data-[slot=icon]:size-3",
   variants: {
     intent: { ...badgeIntents },
     shape: { ...badgeShapes }

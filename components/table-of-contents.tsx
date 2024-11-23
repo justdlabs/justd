@@ -56,7 +56,7 @@ export function TableOfContents({ className, items }: Props) {
       ref={tocRef}
       className={cn(
         "not-prose forced-color-adjust-none",
-        "xl:sticky no-scrollbar xl:top-[1.75rem] xl:-mr-6 xl:h-[calc(100vh-4.75rem)] xl:flex-none xl:overflow-y-auto xl:py-16 xl:pr-6",
+        "xl:sticky scrollbar-hidden xl:top-[1.75rem] xl:-mr-6 xl:h-[calc(100vh-4.75rem)] xl:flex-none xl:overflow-y-auto xl:py-16 xl:pr-6",
         // thereIsAnAd ? "top-32" : "top-20",
         "top-20",
         className
@@ -112,7 +112,7 @@ function TocLink({ item, activeId }: { item: TableOfContentsProps; activeId: str
     <li key={item.title}>
       <Link
         className={cn(
-          "outline-none block no-underline tracking-tight lg:text-[0.885rem] duration-200 focus-visible:outline-none focus-visible:text-fg",
+          "outline-hidden block no-underline tracking-tight lg:text-[0.885rem] duration-200 focus-visible:outline-hidden focus-visible:text-fg",
           item.url.split("#")[1] === activeId
             ? "text-fg forced-colors:text-[Highlight]"
             : "text-muted-fg/90 forced-colors:text-[GrayText]"

@@ -21,7 +21,7 @@ export function TakeCurrentUrl() {
         await navigator.clipboard.writeText(text as string)
         toast.success(`Copied ${text} to clipboard`, {
           classNames: {
-            toast: "[&:has([data-icon])_[data-content]]:!ml-0",
+            toast: "[&:has([data-icon])_[data-content]]:ml-0!",
             icon: "hidden"
           }
         })
@@ -38,7 +38,7 @@ export function TakeCurrentUrl() {
     <Button
       appearance="outline"
       size="square-petite"
-      className="[&_[data-slot=icon]]:text-fg"
+      className="**:data-[slot=icon]:text-fg"
       aria-label={"Copy " + text + " to clipboard"}
       onPress={handleCopy}
     >

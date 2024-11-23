@@ -47,7 +47,7 @@ export function AsideLink({ text, href, activeId }: AsideLinkProps) {
   return (
     <ListBoxItem
       className={cn(
-        "focus:outline-none focus-visible:font-medium focus-visible:text-fg py-1.5 block hover:text-fg",
+        "focus:outline-hidden focus-visible:font-medium focus-visible:text-fg py-1.5 block hover:text-fg",
         href.split("#")[1] === activeId ? "text-fg font-medium" : "text-muted-fg"
       )}
       href={href}

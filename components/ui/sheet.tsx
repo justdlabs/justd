@@ -17,7 +17,7 @@ import { cr } from "./primitive"
 
 const sheetOverlayStyles = tv({
   base: [
-    "fixed top-0 left-0 w-full h-[--visual-viewport-height] isolate z-50 flex items-center justify-center p-4"
+    "fixed top-0 left-0 w-full h-(--visual-viewport-height) isolate z-50 flex items-center justify-center p-4"
   ],
   variants: {
     isBlurred: {

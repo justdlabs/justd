@@ -42,7 +42,7 @@ const Item = ({
 
 const Separator = ({ separator = "chevron" }: { separator?: ItemProps["separator"] }) => {
   return (
-    <span className={cn("[&>*]:shrink-0 [&>[data-slot=icon]]:size-3.5 [&>*]:text-muted-fg")}>
+    <span className={cn("*:shrink-0 *:data-[slot=icon]:size-3.5 *:text-muted-fg")}>
       {separator === "chevron" && <IconChevronLgRight />}
       {separator === "slash" && <span className="text-muted-fg">/</span>}
     </span>

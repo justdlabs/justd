@@ -33,7 +33,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <Avatar size="small" shape="circle" src="/images/sidebar/profile-slash.jpg" />
                 <IconChevronLgDown className="size-4 group-pressed:rotate-180 transition-transform" />
               </Menu.Trigger>
-              <Menu.Content className="min-w-[--trigger-width]">
+              <Menu.Content className="min-w-(--trigger-width)">
                 <Menu.Item href="#">
                   <IconCirclePerson />
                   Profile

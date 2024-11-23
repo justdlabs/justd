@@ -37,7 +37,7 @@ export default function FileTriggerAvatarDemo() {
         getDropOperation={() => "copy"}
         onDrop={onDropHandler}
         className={twJoin(
-          "[&_[data-slot=avatar]]:bg-transparent [&_[data-slot=avatar]]:outline-none rounded-full p-0 overflow-hidden size-10"
+          "**:data-[slot=avatar]:bg-transparent **:data-[slot=avatar]:outline-hidden rounded-full p-0 overflow-hidden size-10"
         )}
       >
         {droppedImage ? (

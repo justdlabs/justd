@@ -21,7 +21,7 @@ export default function SliderOrientationDemo() {
 
   return (
     <Card className="p-4">
-      <div className="flex justify-center [&>*]:w-6 gap-4">
+      <div className="flex justify-center *:w-6 gap-4">
         <Slider
           aria-label="Sub Bass"
           value={equalizer.subBass}

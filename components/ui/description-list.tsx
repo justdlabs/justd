@@ -4,9 +4,9 @@ import { tv } from "tailwind-variants"
 
 const descriptionListStyles = tv({
   slots: {
-    dl: "grid grid-cols-1 text-base/6 sm:grid-cols-[min(50%,theme(spacing.80))_auto] sm:text-sm/6",
+    dl: "grid grid-cols-1 text-base/6 sm:grid-cols-[min(50%,calc(var(--spacing)*80))_auto] sm:text-sm/6",
     dt: "col-start-1 border-t pt-3 text-muted-fg first:border-none sm:py-3",
-    dd: "pb-3 pt-1 text-fg sm:border-t sm:py-3 sm:[&:nth-child(2)]:border-none"
+    dd: "pb-3 pt-1 text-fg sm:border-t sm:py-3 sm:nth-2:border-none"
   }
 })
 
