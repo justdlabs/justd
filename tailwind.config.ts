@@ -5,7 +5,7 @@ import ta from "tailwindcss-animate"
 import trac from "tailwindcss-react-aria-components"
 import { fontFamily } from "tailwindcss/defaultTheme"
 
-const config = withTV({
+const config = {
   darkMode: ["class"],
   content: [
     "./components/**/*.{ts,tsx}",
@@ -109,6 +109,6 @@ const config = withTV({
     }
   },
   plugins: [ta, tt, trac]
-}) satisfies Config
+} satisfies Config
 
 export default config
