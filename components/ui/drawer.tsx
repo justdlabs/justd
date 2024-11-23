@@ -72,6 +72,7 @@ interface DrawerOverlayPrimitiveProps
   "aria-label"?: DialogProps["aria-label"]
   "aria-labelledby"?: DialogProps["aria-labelledby"]
   role?: DialogProps["role"]
+  children?: React.ReactNode
 }
 
 const DrawerContentPrimitive = ({ children, ...props }: DrawerOverlayPrimitiveProps) => {
@@ -178,7 +179,7 @@ const DrawerPrimitive = (props: DrawerPrimitiveProps) => {
         transformOrigin: "center 0"
       }}
     >
-      <AnimatePresence>{isOpen && <>{props.children}</>}</AnimatePresence>
+      <AnimatePresence>{isOpen && <>{props.children as React.ReactNode}</>}</AnimatePresence>
     </motion.div>
   )
 }

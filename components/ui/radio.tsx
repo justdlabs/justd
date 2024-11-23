@@ -2,19 +2,18 @@
 
 import * as React from "react"
 
-import {
-  Radio as RadioPrimitive,
-  RadioGroup as RadioGroupPrimitive,
-  type RadioGroupProps as RACRadioGroupProps,
-  type RadioProps as RadioPrimitiveProps,
-  type ValidationResult
+import type {
+  RadioGroupProps as RadioGroupPrimitiveProps,
+  RadioProps as RadioPrimitiveProps,
+  ValidationResult
 } from "react-aria-components"
+import { Radio as RadioPrimitive, RadioGroup as RadioGroupPrimitive } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
 import { Description, FieldError, Label } from "./field"
 import { ctr } from "./primitive"
 
-interface RadioGroupProps extends Omit<RACRadioGroupProps, "children"> {
+interface RadioGroupProps extends Omit<RadioGroupPrimitiveProps, "children"> {
   label?: string
   children?: React.ReactNode
   description?: string
@@ -79,7 +78,7 @@ const Radio = ({ description, ...props }: RadioProps) => {
               })}
             />
             <div className="flex flex-col gap-1">
-              <>{props.children}</>
+              {props.children as React.ReactNode}
               {description && <Description className="block">{description}</Description>}
             </div>
           </div>

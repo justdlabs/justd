@@ -130,8 +130,8 @@ interface TagProps extends TagPrimitiveProps {
   shape?: Shape
 }
 
-const TagItem = ({ children, className, intent, shape, ...props }: TagProps) => {
-  const textValue = typeof children === "string" ? children : undefined
+const TagItem = ({ className, intent, shape, ...props }: TagProps) => {
+  const textValue = typeof props.children === "string" ? props.children : undefined
   const groupContext = React.useContext(TagGroupContext)
 
   return (
@@ -155,7 +155,7 @@ const TagItem = ({ children, className, intent, shape, ...props }: TagProps) => 
       {({ allowsRemoving }) => {
         return (
           <>
-            {children}
+            {props.children as React.ReactNode}
             {allowsRemoving && (
               <Button
                 slot="remove"

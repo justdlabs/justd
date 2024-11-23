@@ -108,7 +108,7 @@ const Tab = ({ children, ...props }: TabProps) => {
     >
       {({ isSelected }) => (
         <>
-          {children}
+          {children as React.ReactNode}
           {isSelected && (
             <motion.span
               layoutId="current_indicator"

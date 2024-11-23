@@ -4,13 +4,15 @@ import * as React from "react"
 
 import { motion } from "framer-motion"
 import { IconTriangleInfo } from "justd-icons"
-import type { MeterProps as AriaMeterProps } from "react-aria-components"
-import { Meter as MeterPrimitive } from "react-aria-components"
+import {
+  Meter as MeterPrimitive,
+  type MeterProps as MeterPrimitiveProps
+} from "react-aria-components"
 
 import { Label } from "./field"
 import { ctr } from "./primitive"
 
-export interface MeterProps extends AriaMeterProps {
+export interface MeterProps extends MeterPrimitiveProps {
   label?: string
 }
 

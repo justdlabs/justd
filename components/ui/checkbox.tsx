@@ -1,7 +1,6 @@
 "use client"
 
 import * as React from "react"
-import { type ReactNode } from "react"
 
 import { IconCheck, IconMinus } from "justd-icons"
 import {
@@ -16,9 +15,8 @@ import { tv } from "tailwind-variants"
 import { Description, FieldError, Label } from "./field"
 import { cn, cr, ctr } from "./primitive"
 
-interface CheckboxGroupProps extends Omit<CheckboxGroupPrimitiveProps, "children"> {
+interface CheckboxGroupProps extends CheckboxGroupPrimitiveProps {
   label?: string
-  children?: ReactNode
   description?: string
   errorMessage?: string | ((validation: ValidationResult) => string)
 }
@@ -27,7 +25,7 @@ const CheckboxGroup = (props: CheckboxGroupProps) => {
   return (
     <CheckboxGroupPrimitive {...props} className={ctr(props.className, "flex flex-col gap-y-2")}>
       <Label>{props.label}</Label>
-      <>{props.children}</>
+      <>{props.children as React.ReactNode}</>
       {props.description && <Description className="block">{props.description}</Description>}
       <FieldError>{props.errorMessage}</FieldError>
     </CheckboxGroupPrimitive>
@@ -93,7 +91,7 @@ const Checkbox = ({ className, ...props }: CheckboxProps) => {
 
           <div className="flex flex-col gap-1">
             <>
-              {props.label ? <Label>{props.label}</Label> : props.children}
+              {props.label ? <Label>{props.label}</Label> : (props.children as React.ReactNode)}
               {props.description && <Description>{props.description}</Description>}
             </>
           </div>

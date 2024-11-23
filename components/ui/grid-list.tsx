@@ -67,7 +67,7 @@ const Item = ({ className, ...props }: GridListItemProps) => {
           {selectionMode === "multiple" && selectionBehavior === "toggle" && (
             <Checkbox className="-mr-2" slot="selection" />
           )}
-          {props.children}
+          {props.children as React.ReactNode}
         </>
       )}
     </GridListItem>

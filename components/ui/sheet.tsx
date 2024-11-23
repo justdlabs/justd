@@ -132,7 +132,7 @@ const SheetContent = ({
         <Dialog role={role} aria-label={props["aria-label"] ?? undefined} className="h-full">
           {(values) => (
             <>
-              {props.children}
+              {props.children as React.ReactNode}
               {closeButton && (
                 <Dialog.CloseIndicator
                   className="top-2.5 right-2.5"

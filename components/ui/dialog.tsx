@@ -41,7 +41,7 @@ const dialogStyles = tv({
 const { root, header, description, body, footer, closeIndicator } = dialogStyles()
 
 const Dialog = ({ role, className, ...props }: DialogProps) => {
-  return <DialogPrimitive {...props} role={role ?? "dialog"} className={root({ className })} />
+  return <DialogPrimitive role={role ?? "dialog"} className={root({ className })} {...props} />
 }
 
 const Trigger = (props: ButtonPrimitiveProps) => (

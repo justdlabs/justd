@@ -79,7 +79,7 @@ const ItemContent = (props: React.ComponentProps<typeof TreeItemContent>) => {
   return (
     <TreeItemContent {...props}>
       <div className="flex items-center">
-        <>{props.children}</>
+        <>{props.children as React.ReactNode}</>
       </div>
     </TreeItemContent>
   )
