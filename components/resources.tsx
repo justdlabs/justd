@@ -57,7 +57,7 @@ export function Resources() {
               <div
                 aria-label={item.name}
                 id={item.name.toLowerCase().replaceAll(" ", "-")}
-                className="relative data-focused:outline-hidden p-4 lg:p-6 h-full flex flex-col w-full focus-visible:outline-hidden focus-visible:outline-primary rounded-xl bg-tertiary shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:-inset-px dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset] forced-colors:outline"
+                className="relative data-focused:outline-hidden p-4 lg:p-6 h-full flex flex-col w-full rounded-xl bg-tertiary shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:-inset-px dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset] forced-colors:outline"
               >
                 <Link
                   aria-label={`Open ${item.name}`}
@@ -99,7 +99,7 @@ export function Resources() {
           <Grid.Item
             aria-label="Justd icons"
             id="justd-icons"
-            className="relative data-focused:outline-hidden p-4 lg:p-6 h-full flex flex-col w-full focus-visible:outline-hidden focus-visible:outline-primary rounded-xl bg-tertiary shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:-inset-px dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset] forced-colors:outline"
+            className="relative data-focused:outline-hidden p-4 lg:p-6 h-full flex flex-col w-full rounded-xl bg-tertiary shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:-inset-px dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset] forced-colors:outline"
           >
             <Link
               aria-label={`Justd icons`}
@@ -140,7 +140,7 @@ export function Resources() {
           <Grid.Item
             aria-label="Support"
             id="support"
-            className="relative data-focused:outline-hidden p-4 lg:p-6 h-full flex flex-col w-full focus-visible:outline-hidden focus-visible:outline-primary rounded-xl bg-tertiary shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:-inset-px dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset] forced-colors:outline"
+            className="relative data-focused:outline-hidden p-4 lg:p-6 h-full flex flex-col w-full rounded-xl bg-tertiary shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:-inset-px dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset] forced-colors:outline"
           >
             <Link
               target="_blank"
@@ -168,7 +168,7 @@ export function Resources() {
           <Grid.Item
             aria-label="Templates"
             id="templates"
-            className="relative data-focused:outline-hidden p-4 lg:p-6 h-full flex flex-col w-full focus-visible:outline-hidden focus-visible:outline-primary rounded-xl bg-tertiary shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:-inset-px dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset] forced-colors:outline"
+            className="relative data-focused:outline-hidden p-4 lg:p-6 h-full flex flex-col w-full rounded-xl bg-tertiary shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:-inset-px dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset] forced-colors:outline"
           >
             <Link
               target="_blank"

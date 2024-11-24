@@ -27,7 +27,7 @@ const intents = {
       "[&_[slot=remove]:hover]:bg-primary [&_[slot=remove]:hover]:text-primary-fg"
     ],
     selected: [
-      "bg-primary dark:hover:bg-primary dark:bg-primary hover:bg-primary ring-primary ring-inset text-primary-fg dark:text-primary-fg hover:text-primary-fg",
+      "bg-primary dark:hover:bg-primary dark:bg-primarydata-hovered:bg-primary ring-primary ring-inset text-primary-fg dark:text-primary-fgdata-hovered:text-primary-fg",
       "[&_[slot=remove]:hover]:bg-primary-fg/80 [&_[slot=remove]:hover]:text-primary"
     ]
   },
@@ -44,7 +44,7 @@ const intents = {
       "[&_[slot=remove]:hover]:bg-success [&_[slot=remove]:hover]:text-success-fg"
     ],
     selected: [
-      "bg-success dark:bg-success ring-success ring-inset dark:text-success-fg dark:hover:bg-success hover:bg-success text-success-fg hover:text-success-fg",
+      "bg-success dark:bg-success ring-success ring-inset dark:text-success-fg dark:hover:bg-successdata-hovered:bg-success text-success-fgdata-hovered:text-success-fg",
       "[&_[slot=remove]:hover]:bg-success-fg/80 [&_[slot=remove]:hover]:text-success"
     ]
   },
@@ -54,7 +54,7 @@ const intents = {
       "[&_[slot=remove]:hover]:bg-warning [&_[slot=remove]:hover]:text-warning-fg"
     ],
     selected: [
-      "bg-warning dark:hover:bg-warning dark:bg-warning dark:text-bg hover:bg-warning text-warning-fg hover:text-warning-fg",
+      "bg-warning dark:hover:bg-warning dark:bg-warning dark:text-bgdata-hovered:bg-warning text-warning-fgdata-hovered:text-warning-fg",
       "[&_[slot=remove]:hover]:bg-warning-fg/80 [&_[slot=remove]:hover]:text-warning"
     ]
   },
@@ -64,7 +64,7 @@ const intents = {
       "[&_[slot=remove]:hover]:bg-danger [&_[slot=remove]:hover]:text-danger-fg"
     ],
     selected: [
-      "bg-danger dark:bg-danger dark:hover:bg-danger/90 hover:bg-danger text-danger-fg ring-danger hover:text-danger-fg",
+      "bg-danger dark:bg-danger dark:hover:bg-danger/90data-hovered:bg-danger text-danger-fg ring-dangerdata-hovered:text-danger-fg",
       "[&_[slot=remove]:hover]:bg-danger-fg/80 [&_[slot=remove]:hover]:text-danger"
     ]
   }
@@ -161,7 +161,7 @@ const TagItem = ({ className, intent, shape, ...props }: TagProps) => {
                 slot="remove"
                 className={cr("", (className) => {
                   return cn(
-                    "rounded *:data-[slot=icon]:size-3 *:data-[slot=icon]:shrink-0 data-focused:outline-hidden size-3.5 grid place-content-center -mr-0.5 focus-visible:ring-1 focus-visible:ring-primary",
+                    "rounded *:data-[slot=icon]:size-3 *:data-[slot=icon]:shrink-0 data-focused:outline-hidden size-3.5 grid place-content-center -mr-0.5 data-focus-visible:ring-1 data-focus-visible:ring-primary",
                     className
                   )
                 })}

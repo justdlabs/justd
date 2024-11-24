@@ -25,7 +25,7 @@ const cellStyles = tv({
   variants: {
     isSelected: {
       false:
-        "text-fg forced-colors:text-[ButtonText] hover:bg-secondary-fg/15 data-pressed:bg-secondary-fg/20",
+        "text-fg forced-colors:text-[ButtonText]data-hovered:bg-secondary-fg/15 data-pressed:bg-secondary-fg/20",
       true: "bg-primary text-primary-fg invalid:bg-danger invalid:text-danger-fg forced-colors:bg-[Highlight] forced-colors:text-[Highlight] forced-colors:invalid:bg-[Mark]"
     },
     isDisabled: {

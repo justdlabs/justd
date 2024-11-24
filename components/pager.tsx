@@ -2,7 +2,7 @@
 
 import { cn } from "@/resources/lib/utils"
 import { IconChevronLgLeft, IconChevronLgRight } from "justd-icons"
-import Link from "next/link"
+import { Link } from "ui"
 import { buttonStyles } from "ui"
 
 interface Doc {

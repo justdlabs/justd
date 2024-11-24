@@ -9,18 +9,19 @@ import { cr } from "./primitive"
 
 const linkStyles = tv({
   base: [
-    "relative focus-visible:outline-2 outline-offset-2 outline-0 data-focused:outline-hidden outline-primary transition-colors",
-    "forced-colors:outline-[Highlight] forced-colors:disabled:text-[GrayText] disabled:focus-visible:outline-0",
-    "disabled:cursor-default disabled:opacity-60"
+    "relative data-focus-visible:outline-2 outline-offset-2 outline-0 data-focused:outline-hidden outline-primary transition-colors",
+    "forced-colors:outline-[Highlight] forced-colors:data-disabled:text-[GrayText] data-disabled:data-focus-visible:outline-0",
+    "disabled:cursor-default data-disabled:opacity-60"
   ],
   variants: {
     intent: {
       unstyled: "text-current",
-      primary: "text-primary hover:text-primary/80 forced-colors:disabled:text-[GrayText]",
-      danger: "text-danger hover:text-danger/80 forced-colors:disabled:text-[GrayText]",
+      primary:
+        "text-primarydata-hovered:text-primary/80 forced-colors:data-disabled:text-[GrayText]",
+      danger: "text-dangerdata-hovered:text-danger/80 forced-colors:data-disabled:text-[GrayText]",
       "lad/primary":
-        "text-fg hover:text-primary dark:hover:text-primary/80 forced-colors:disabled:text-[GrayText]",
-      secondary: "text-secondary-fg hover:text-secondary-fg/80"
+        "text-fgdata-hovered:text-primary dark:hover:text-primary/80 forced-colors:data-disabled:text-[GrayText]",
+      secondary: "text-secondary-fgdata-hovered:text-secondary-fg/80"
     }
   },
   defaultVariants: {

@@ -270,7 +270,7 @@ const Item = ({ isCurrent, children, className, icon: Icon, ...props }: ItemProp
     <Tooltip closeDelay={0} delay={0}>
       <Link
         {...props}
-        className="data-focused:outline-hidden col-span-full hover:bg-muted hover:text-secondary-fg text-muted-fg rounded-lg size-9 grid place-content-center"
+        className="data-focused:outline-hidden col-span-fulldata-hovered:bg-muteddata-hovered:text-secondary-fg text-muted-fg rounded-lg size-9 grid place-content-center"
       >
         {Icon && <Icon data-slot="icon" />}
         <span className="sr-only">{children as string}</span>
@@ -391,7 +391,7 @@ const footer = tv({
   variants: {
     collapsed: {
       false: [
-        "p-2 [&_[data-slot=menu-trigger]>[data-slot=avatar]]:-ml-1.5 **:data-[slot=menu-trigger]:w-full hover:**:data-[slot=menu-trigger]:bg-muted **:data-[slot=menu-trigger]:justify-start **:data-[slot=menu-trigger]:flex **:data-[slot=menu-trigger]:items-center"
+        "p-2 [&_[data-slot=menu-trigger]>[data-slot=avatar]]:-ml-1.5 **:data-[slot=menu-trigger]:w-fulldata-hovered:**:data-[slot=menu-trigger]:bg-muted **:data-[slot=menu-trigger]:justify-start **:data-[slot=menu-trigger]:flex **:data-[slot=menu-trigger]:items-center"
       ],
       true: "size-12 p-1 **:data-[slot=menu-trigger]:size-9 justify-center items-center"
     }
@@ -512,7 +512,7 @@ const Rail = ({ className, ...props }: React.ComponentProps<"button">) => {
       onClick={toggleSidebar}
       title="Toggle Sidebar"
       className={cn(
-        "absolute inset-y-0 z-20 hidden w-4 -translate-x-1/2 transition-all ease-linear after:absolute after:inset-y-0 after:left-1/2 after:w-[2px] hover:after:bg-transparent group-data-[side=left]:-right-4 group-data-[side=right]:left-0 sm:flex",
+        "absolute inset-y-0 z-20 hidden w-4 -translate-x-1/2 transition-all ease-linear after:absolute after:inset-y-0 after:left-1/2 after:w-[2px]data-hovered:after:bg-transparent group-data-[side=left]:-right-4 group-data-[side=right]:left-0 sm:flex",
         "in-data-[side=left]:cursor-w-resize in-data-[side=right]:cursor-e-resize",
         "[[data-side=left][data-state=collapsed]_&]:cursor-e-resize [[data-side=right][data-state=collapsed]_&]:cursor-w-resize",
         "group-data-[collapsible=offcanvas]:translate-x-0 group-data-[collapsible=offcanvas]:after:left-full group-data-[collapsible=offcanvas]:hover:bg-tertiary",

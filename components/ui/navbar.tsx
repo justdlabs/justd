@@ -202,8 +202,8 @@ const Section = ({ className, ...props }: React.ComponentProps<"div">) => {
 
 const navItemStyles = tv({
   base: [
-    "relative cursor-pointer lg:text-sm px-2 flex forced-colors:outline-0 items-center gap-x-2 *:data-[slot=icon]:-mx-0.5 text-muted-fg outline-hidden forced-colors:disabled:text-[GrayText] forced-colors:transform-none transition-colors",
-    "hover:text-fg data-focused:text-fg data-pressed:text-fg focus-visible:outline-1 focus-visible:outline-primary",
+    "relative cursor-pointer lg:text-sm px-2 flex forced-colors:outline-0 items-center gap-x-2 *:data-[slot=icon]:-mx-0.5 text-muted-fg outline-hidden forced-colors:data-disabled:text-[GrayText] forced-colors:transform-none transition-colors",
+    "hover:text-fg data-focused:text-fg data-pressed:text-fg data-focus-visible:outline-1 data-focus-visible:outline-primary",
     "disabled:opacity-60 disabled:cursor-default",
     "*:data-[slot=icon]:size-4 *:data-[slot=icon]:shrink-0"
   ],
@@ -249,7 +249,7 @@ const Logo = ({ className, ...props }: LinkProps) => {
   return (
     <Link
       className={cn(
-        "lg:mr-4 data-focused:outline-hidden flex items-center gap-x-2 focus-visible:outline-1 focus-visible:outline-primary px-2 py-4 lg:px-0 lg:py-0 text-fg",
+        "lg:mr-4 data-focused:outline-hidden flex items-center gap-x-2 data-focus-visible:outline-1 data-focus-visible:outline-primary px-2 py-4 lg:px-0 lg:py-0 text-fg",
         className
       )}
       {...props}

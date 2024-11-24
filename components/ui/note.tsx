@@ -9,7 +9,7 @@ import { tv, type VariantProps } from "tailwind-variants"
 const noteStyles = tv({
   base: [
     "my-4 px-4 [&_.nd]:block [&_.nd]:text-sm py-4 leading-4 overflow-hidden rounded-lg border [&_strong]:font-semibold",
-    "**:data-[slot=icon]:size-5 **:data-[slot=icon]:shrink-0 [&_a]:underline hover:[&_a]:underline"
+    "**:data-[slot=icon]:size-5 **:data-[slot=icon]:shrink-0 [&_a]:underlinedata-hovered:[&_a]:underline"
   ],
   variants: {
     intent: {

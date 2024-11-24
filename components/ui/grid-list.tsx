@@ -25,13 +25,13 @@ const itemStyles = tv({
   variants: {
     isHovered: { true: "bg-accent-subtle" },
     isSelected: {
-      true: "bg-accent-subtle z-20 border-border/50 hover:bg-accent-subtle/50 dark:hover:bg-accent-subtle/60"
+      true: "bg-accent-subtle z-20 border-border/50data-hovered:bg-accent-subtle/50 dark:hover:bg-accent-subtle/60"
     },
     isFocused: {
       true: "outline-hidden"
     },
     isFocusVisible: {
-      true: "ring-1 ring-primary outline-hidden bg-accent-subtle selected:bg-accent-subtle/80 hover:bg-accent-subtle/70"
+      true: "ring-1 ring-primary outline-hidden bg-accent-subtle selected:bg-accent-subtle/80data-hovered:bg-accent-subtle/70"
     },
     isDisabled: {
       true: "text-muted-fg forced-colors:text-[GrayText]"
@@ -62,7 +62,7 @@ const Item = ({ className, ...props }: GridListItemProps) => {
 
           <span
             aria-hidden
-            className="absolute inset-y-0 left-0 hidden h-full w-0.5 bg-primary group-selected:block"
+            className="absolute inset-y-0 left-0 hidden h-full w-0.5 bg-primary group-data-selected:block"
           />
           {selectionMode === "multiple" && selectionBehavior === "toggle" && (
             <Checkbox className="-mr-2" slot="selection" />

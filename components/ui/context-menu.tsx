@@ -53,8 +53,8 @@ const contextMenuTriggerStyles = tv({
   base: "data-focused:outline-hidden cursor-default",
   variants: {
     isDisabled: {
-      false: "forced-colors:disabled:text-[GrayText]",
-      true: "cursor-default opacity-60 forced-colors:disabled:text-[GrayText]"
+      false: "forced-colors:data-disabled:text-[GrayText]",
+      true: "cursor-default opacity-60 forced-colors:data-disabled:text-[GrayText]"
     }
   }
 })

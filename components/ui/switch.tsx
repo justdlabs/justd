@@ -15,11 +15,11 @@ const trackStyles = tv({
   ],
   variants: {
     intent: {
-      primary: "group-selected:bg-primary group-data-focused:ring-primary/20",
-      secondary: "group-selected:bg-muted-fg group-data-focused:ring-muted-fg/20",
-      success: "group-selected:bg-success group-data-focused:ring-success/20",
-      danger: "group-selected:bg-danger group-data-focused:ring-danger/20",
-      warning: "group-selected:bg-warning group-data-focused:ring-warning/20"
+      primary: "group-data-selected:bg-primary group-data-focused:ring-primary/20",
+      secondary: "group-data-selected:bg-muted-fg group-data-focused:ring-muted-fg/20",
+      success: "group-data-selected:bg-success group-data-focused:ring-success/20",
+      danger: "group-data-selected:bg-danger group-data-focused:ring-danger/20",
+      warning: "group-data-selected:bg-warning group-data-focused:ring-warning/20"
     }
   },
   defaultVariants: {
@@ -30,7 +30,7 @@ const trackStyles = tv({
 const switchStyles = tv({
   slots: {
     base: "group inline-flex touch-none lg:text-sm items-center",
-    ball: "forced-colors:disabled:outline-[GrayText] group-selected:ml-3 group-selected:group-data-[pressed]:ml-2 group-data-pressed:w-5 block size-4 origin-right rounded-full bg-primary-fg shadow-sm transition-all duration-200"
+    ball: "forced-colors:data-disabled:outline-[GrayText] group-data-selected:ml-3 group-data-selected:group-data-[pressed]:ml-2 group-data-pressed:w-5 block size-4 origin-right rounded-full bg-primary-fg shadow-sm transition-all duration-200"
   }
 })
 

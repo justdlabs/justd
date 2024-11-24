@@ -56,7 +56,7 @@ const Toast = ({ ...props }: ToasterProps) => {
             size: "extra-small"
           }),
           closeButton: twJoin([
-            "[&_svg]:size-5 size-8 absolute top-1/2 transform -translate-y-1/2 right-2 lg:right-3 left-auto grid place-content-center rounded-md bg-transparent! hover:bg-dark/20! dark:hover:bg-white/20! border-0 [&_svg]:text-fg"
+            "[&_svg]:size-5 size-8 absolute top-1/2 transform -translate-y-1/2 right-2 lg:right-3 left-auto grid place-content-center rounded-md bg-transparent!hover:bg-dark/20! dark:hover:bg-white/20! border-0 [&_svg]:text-fg"
           ])
         }
       }}

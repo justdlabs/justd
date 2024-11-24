@@ -66,7 +66,7 @@ const Radio = ({ description, ...props }: RadioProps) => {
         {...props}
         className={ctr(
           props.className,
-          "group flex items-center gap-2 text-sm text-fg transition disabled:text-fg/50 forced-colors:disabled:text-[GrayText]"
+          "group flex items-center gap-2 text-sm text-fg transition disabled:text-fg/50 forced-colors:data-disabled:text-[GrayText]"
         )}
       >
         {(renderProps) => (

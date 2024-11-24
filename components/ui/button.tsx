@@ -74,8 +74,8 @@ const buttonStyles = tv(
           "rounded-[9999px] before:rounded-[9998px] after:rounded-[9998px] dark:after:rounded-[9999px]"
       },
       isDisabled: {
-        false: "forced-colors:disabled:text-[GrayText] cursor-pointer",
-        true: "cursor-default opacity-60 forced-colors:disabled:text-[GrayText]"
+        false: "forced-colors:data-disabled:text-[GrayText] cursor-pointer",
+        true: "cursor-default opacity-60 forced-colors:data-disabled:text-[GrayText]"
       },
       isPending: {
         true: "cursor-default"

@@ -86,7 +86,7 @@ const DropdownItem = ({ className, ...props }: ListBoxItemProps) => {
     >
       {cr(props.children, (children, { isSelected }) => (
         <>
-          <span className="flex flex-1 items-center gap-2 truncate font-normal group-selected:font-medium">
+          <span className="flex flex-1 items-center gap-2 truncate font-normal group-data-selected:font-medium">
             {children}
           </span>
 

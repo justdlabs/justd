@@ -228,7 +228,7 @@ interface AsideLinkProps extends NextLinkProps {
 }
 
 const asideLinkStyles = tv({
-  base: "relative block group data-focused:outline-hidden focus-visible:bg-muted/50 focus-visible:ring-inset focus-visible:ring-1 focus-visible:ring-primary rounded-lg pl-2.5 h-9 text-base transition-colors hover:bg-muted/60 hover:text-fg lg:text-sm",
+  base: "relative block group data-focused:outline-hidden data-focus-visible:bg-muted/50 data-focus-visible:ring-inset data-focus-visible:ring-1 data-focus-visible:ring-primary rounded-lg pl-2.5 h-9 text-base transition-colors hover:bg-muted/60 hover:text-fg lg:text-sm",
   variants: {
     isActive: {
       false: "text-muted-fg forced-colors:text-[Gray] hover:text-fg",
