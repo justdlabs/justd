@@ -242,6 +242,7 @@ const MultipleSelect = <T extends SelectedKey>({
             inputValue={fieldState.inputValue}
             onSelectionChange={onSelectionChange}
             onInputChange={onInputChange}
+            shouldCloseOnBlur={false}
           >
             <div className={comboBoxChild({ className })}>
               <Input
@@ -275,6 +276,7 @@ const MultipleSelect = <T extends SelectedKey>({
               style={{ width: `${width}px` }}
               triggerRef={triggerRef}
               trigger="ComboBox"
+              shouldCloseOnBlur={false}
             >
               <ListBox.Picker
                 renderEmptyState={() =>
