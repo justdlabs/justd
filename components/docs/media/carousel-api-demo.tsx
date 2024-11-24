@@ -50,8 +50,8 @@ export default function CarouselDApiDemo() {
               className={twJoin(
                 "data-focused:outline-hidden transition rounded-xl",
                 current === index + 1
-                  ? "w-5 h-3 transition-all bg-primary hover:bg-primary/80"
-                  : "bg-fg/10 hover:bg-fg/15 w-3 h-3"
+                  ? "w-5 h-3 transition-all bg-primary data-hovered:bg-primary/80"
+                  : "bg-fg/10 data-hovered:bg-fg/15 w-3 h-3"
               )}
               aria-label={`Slide ${current} of ${count}`}
               onPress={() => handleSelect(index)}

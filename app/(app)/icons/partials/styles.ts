@@ -8,7 +8,7 @@ const styles = tv({
       "data-focused:bg-primary data-focused:text-primary-fg data-focused:outline-hidden",
       "selected:bg-primary selected:text-primary-fg",
       "data-[open=true]:bg-primary data-[open=true]:text-primary-fg",
-      "hover:bg-secondary hover:text-secondary-fg",
+      "data-hovered:bg-secondary data-hovered:text-secondary-fg",
       "data-focus-visible:ring-4 data-focus-visible:ring-primary-fg/15"
     ]
   }

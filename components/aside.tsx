@@ -6,9 +6,9 @@ import { type Docs, docs } from "#site/content"
 import { goodTitle, sortDocs } from "@/resources/lib/utils"
 import { LayoutGroup, motion } from "framer-motion"
 import { IconChevronRight, IconCircleHalf, IconCube, IconHighlight, IconLayers } from "justd-icons"
-import type { LinkProps as NextLinkProps } from "next/link"
-import NextLink from "next/link"
 import { usePathname } from "next/navigation"
+import type { LinkProps } from "react-aria-components";
+import { Link } from "react-aria-components"
 import { twJoin } from "tailwind-merge"
 import { tv } from "tailwind-variants"
 import { Badge, cn, Disclosure, DisclosureGroup } from "ui"
@@ -210,7 +210,7 @@ const Trigger = ({ children, className }: { children: React.ReactNode; className
   return (
     <Disclosure.Trigger
       className={cn(
-        "group hover:text-fg hover:bg-muted/60 py-1.5 data-pressed:text-fg aria-expanded:text-fg",
+        "group data-hovered:text-fg data-hovered:bg-muted/60 py-1.5 data-pressed:text-fg aria-expanded:text-fg",
         className
       )}
     >
@@ -220,7 +220,7 @@ const Trigger = ({ children, className }: { children: React.ReactNode; className
   )
 }
 
-interface AsideLinkProps extends NextLinkProps {
+interface AsideLinkProps extends LinkProps {
   active?: boolean
   children: React.ReactNode
   className?: string
@@ -228,10 +228,10 @@ interface AsideLinkProps extends NextLinkProps {
 }
 
 const asideLinkStyles = tv({
-  base: "relative block group data-focused:outline-hidden data-focus-visible:bg-muted/50 data-focus-visible:ring-inset data-focus-visible:ring-1 data-focus-visible:ring-primary rounded-lg pl-2.5 h-9 text-base transition-colors hover:bg-muted/60 hover:text-fg lg:text-sm",
+  base: "relative block group data-focused:outline-hidden data-focus-visible:bg-muted/50 data-focus-visible:ring-inset data-focus-visible:ring-1 data-focus-visible:ring-primary rounded-lg pl-2.5 h-9 text-base transition-colors data-hovered:bg-muted/60 data-hovered:text-fg lg:text-sm",
   variants: {
     isActive: {
-      false: "text-muted-fg forced-colors:text-[Gray] hover:text-fg",
+      false: "text-muted-fg forced-colors:text-[Gray] data-hovered:text-fg",
       true: "text-fg forced-colors:text-[LinkText]"
     }
   }
@@ -241,7 +241,7 @@ function AsideLink({ indicatorClassName, className, children, ...props }: AsideL
   const pathname = usePathname()
   const isActive = pathname === props.href
   return (
-    <NextLink className={asideLinkStyles({ isActive, className })} {...props}>
+    <Link className={asideLinkStyles({ isActive, className })} {...props}>
       {children}
       {isActive && (
         <motion.span
@@ -252,6 +252,6 @@ function AsideLink({ indicatorClassName, className, children, ...props }: AsideL
           )}
         />
       )}
-    </NextLink>
+    </Link>
   )
 }
