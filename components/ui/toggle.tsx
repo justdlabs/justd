@@ -55,7 +55,7 @@ const toggleStyles = tv({
   extend: focusButtonStyles,
   base: [
     "inline-flex relative items-center gap-x-2 bg-transparent justify-center border border-transparent rounded-lg text-sm font-medium ring-offset-bg transition-colors",
-    "enabled:hover:bg-secondary enabled:hover:text-secondary-fg",
+    "data-hovered:bg-secondary data-hovered:text-secondary-fg",
     "forced-colors:[--button-icon:ButtonText] forced-colors:hover:[--button-icon:ButtonText]",
     "*:data-[slot=icon]:-mx-0.5 *:data-[slot=icon]:my-1 *:data-[slot=icon]:size-4 *:data-[slot=icon]:shrink-0 *:data-[slot=icon]:text-(--button-icon)"
   ],
@@ -65,16 +65,16 @@ const toggleStyles = tv({
     },
     appearance: {
       plain: [
-        "selected:bg-secondary selected:text-secondary-fg",
-        "[--button-icon:var(--color-secondary-fg)]/60 selected:[--button-icon:var(--color-secondary-fg)] enabled:hover:[--button-icon:var(--color-secondary-fg)]/80"
+        "data-selected:bg-secondary data-selected:text-secondary-fg",
+        "[--button-icon:var(--color-secondary-fg)]/60 data-selected:[--button-icon:var(--color-secondary-fg)] data-hovered:[--button-icon:var(--color-secondary-fg)]/80"
       ],
       solid: [
-        "bg-white border-border selected:border-primary enabled:hover:bg-white/95 enabled:hover:text-black text-black selected:bg-primary selected:text-primary-fg",
-        "[--button-icon:var(--color-black)]/60 selected:[--button-icon:var(--color-white)] enabled:hover:[--button-icon:var(--color-black)]/80"
+        "bg-white border-border data-selected:border-primary data-hovered:bg-white/95 data-hovered:text-black text-black data-selected:bg-primary data-selected:text-primary-fg",
+        "[--button-icon:var(--color-black)]/60 data-selected:[--button-icon:var(--color-white)] data-hovered:[--button-icon:var(--color-black)]/80"
       ],
       outline: [
-        "border-border selected:bg-secondary selected:backdrop-blur-sm selected:text-secondary-fg enabled:hover:bg-secondary/50 enabled:hover:text-secondary-fg",
-        "[--button-icon:var(--color-secondary-fg)]/60 selected:[--button-icon:var(--color-secondary-fg)] enabled:hover:[--button-icon:var(--color-secondary-fg)]/80"
+        "border-border data-selected:bg-secondary data-selected:backdrop-blur-sm data-selected:text-secondary-fg data-hovered:bg-secondary/50 data-hovered:text-secondary-fg",
+        "[--button-icon:var(--color-secondary-fg)]/60 data-selected:[--button-icon:var(--color-secondary-fg)] data-hovered:[--button-icon:var(--color-secondary-fg)]/80"
       ]
     },
     size: {
