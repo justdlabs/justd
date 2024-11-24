@@ -23,12 +23,12 @@ import { cr, ctr, focusStyles } from "./primitive"
 const selectTriggerStyles = tv({
   extend: focusStyles,
   base: [
-    "btr group-disabled:bg-secondary **:data-[slot=icon]:size-4 group-disabled:opacity-50 focus-visible:border-ring/85 focus-visible:ring-4 focus-visible:ring-primary/20 group-open:border-ring/85 group-open:ring-4 group-open:ring-ring/20 flex h-10 w-full cursor-default items-center gap-4 rounded-lg border border-input bg-bg py-2 pl-3 pr-2 text-start shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)] transition dark:shadow-none"
+    "btr group-data-disabled:bg-secondary **:data-[slot=icon]:size-4 group-data-disabled:opacity-50 focus-visible:border-ring/85 focus-visible:ring-4 focus-visible:ring-primary/20 group-open:border-ring/85 group-open:ring-4 group-open:ring-ring/20 flex h-10 w-full cursor-default items-center gap-4 rounded-lg border border-input bg-bg py-2 pl-3 pr-2 text-start shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)] transition dark:shadow-none"
   ],
   variants: {
     isDisabled: {
       false:
-        "text-fg group-invalid:border-danger group-invalid:ring-danger/20 forced-colors:group-invalid:border-[Mark]",
+        "text-fg group-data-invalid:border-danger group-data-invalid:ring-danger/20 forced-colors:group-data-invalid:border-[Mark]",
       true: "bg-secondary text-muted-fg forced-colors:border-[GrayText] forced-colors:text-[GrayText]"
     }
   }
@@ -96,7 +96,7 @@ const Trigger = ({ className, ...props }: TriggerProps) => {
       <SelectValue className="flex-1 [&_[slot=description]]:hidden text-base placeholder-shown:text-muted-fg lg:text-sm" />
       <IconChevronLgDown
         aria-hidden
-        className="text-muted-fg shrink-0 size-4 duration-300 group-open:rotate-180 group-open:text-fg group-disabled:opacity-50 forced-colors:text-[ButtonText] forced-colors:group-disabled:text-[GrayText]"
+        className="text-muted-fg shrink-0 size-4 duration-300 group-open:rotate-180 group-open:text-fg group-data-disabled:opacity-50 forced-colors:text-[ButtonText] forced-colors:group-data-disabled:text-[GrayText]"
       />
     </Button>
   )

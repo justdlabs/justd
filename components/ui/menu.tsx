@@ -61,7 +61,7 @@ const menuStyles = tv({
     popover:
       "z-50 [&_[role=dialog]:not(:has([data-slot=dialog-body]))]:px-0 sm:min-w-40 p-0 outline-hidden shadow-xs",
     trigger: [
-      "inline relative text-left focus:outline-hidden focus-visible:ring-1 focus-visible:ring-primary pressed:outline-hidden"
+      "inline relative text-left data-focused:outline-hidden focus-visible:ring-1 focus-visible:ring-primary data-pressed:outline-hidden"
     ]
   }
 })

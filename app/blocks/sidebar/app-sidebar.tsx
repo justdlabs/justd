@@ -139,7 +139,7 @@ export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
             <Avatar size="small" shape="square" src="/images/sidebar/profile-slash.jpg" />
             <span className="group-data-[collapsible=dock]:hidden flex items-center justify-center">
               Saul Hudson
-              <IconChevronLgDown className="right-3 size-4 absolute group-pressed:rotate-180 transition-transform" />
+              <IconChevronLgDown className="right-3 size-4 absolute group-data-pressed:rotate-180 transition-transform" />
             </span>
           </Button>
           <Menu.Content

@@ -20,7 +20,7 @@ import { cn, cr } from "./primitive"
 const dropdownItemStyles = tv({
   base: [
     "group text-fg forced-colors:text-[LinkText] flex cursor-default forced-color-adjust-none select-none items-center gap-x-1.5 rounded-[calc(var(--radius)-1px)] py-2 px-2.5 relative text-base outline outline-0 forced-color:text-[Highlight] lg:text-sm",
-    "has-submenu:open:data-[danger=true]:bg-danger/20 has-submenu:open:data-[danger=true]:text-danger",
+    "has-submenu:open:data-danger:bg-danger/20 has-submenu:open:data-danger:text-danger",
     "has-submenu:open:bg-accent has-submenu:open:text-accent-fg [&[data-has-submenu][data-open]_[data-slot=icon]]:text-accent-fg [&[data-has-submenu][data-open]_.text-muted-fg]:text-accent-fg",
     "**:data-[slot=avatar]:-mr-0.5 **:data-[slot=avatar]:size-6 sm:**:data-[slot=avatar]:size-5",
     "**:data-[slot=icon]:size-4 **:data-[slot=icon]:shrink-0 **:data-[slot=icon]:text-muted-fg [&[data-hovered]_[data-slot=icon]]:text-accent-fg [&[data-focused]_[data-slot=icon]]:text-accent-fg [&[data-danger]_[data-slot=icon]]:text-danger/60 [&[data-focused][data-danger]_[data-slot=icon]]:text-danger-fg",
@@ -32,10 +32,10 @@ const dropdownItemStyles = tv({
       true: "text-muted-fg forced-colors:text-[GrayText]"
     },
     isFocused: {
-      false: "data-[danger=true]:text-danger",
+      false: "data-danger:text-danger",
       true: [
         "bg-accent text-accent-fg forced-colors:text-[HighlightText] forced-colors:bg-[Highlight]",
-        "data-[danger=true]:bg-danger data-[danger=true]:text-danger-fg",
+        "data-danger:bg-danger data-danger:text-danger-fg",
         "[&_.text-muted-fg]:text-accent-fg/80 data-[slot=label]:text-accent-fg data-[slot=description]:text-accent-fg"
       ]
     }

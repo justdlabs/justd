@@ -162,7 +162,7 @@ const Grid = ({ className, gap, gapX, gapY, flow, columns, rows, ...props }: Gri
 
 const gridItemStyles = tv(
   {
-    base: "grid-cell focus:outline-hidden",
+    base: "grid-cell data-focused:outline-hidden",
     variants: {
       colSpan: {
         auto: "col-auto",

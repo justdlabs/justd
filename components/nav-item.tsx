@@ -8,7 +8,7 @@ import { tv } from "tailwind-variants"
 import { LinkPrimitive } from "ui"
 
 const navLinkStyles = tv({
-  base: "relative flex focus-visible:text-fg items-center gap-x-3 tracking-tight py-2 text-sm text-muted-fg transition-colors focus:outline-hidden sm:py-3",
+  base: "relative flex focus-visible:text-fg items-center gap-x-3 tracking-tight py-2 text-sm text-muted-fg transition-colors data-focused:outline-hidden sm:py-3",
   variants: {
     isActive: {
       false: "text-muted-fg hover:text-fg forced-colors:text-[Gray]",

@@ -33,7 +33,7 @@ const paginationStyles = tv({
     itemLabel: "h-9 px-3.5 tabular-nums grid place-content-center",
     itemSeparator: "h-9 grid place-content-center",
     itemEllipsis:
-      "flex items-center justify-center focus-visible:border-primary rounded-lg border border-transparent focus:outline-hidden size-9 focus-visible:bg-primary/10 focus-visible:ring-4 focus-visible:ring-primary/20",
+      "flex items-center justify-center focus-visible:border-primary rounded-lg border border-transparent data-focused:outline-hidden size-9 focus-visible:bg-primary/10 focus-visible:ring-4 focus-visible:ring-primary/20",
     itemEllipsisIcon: "flex size-9 items-center justify-center",
     defaultItem:
       "focus-visible:border-primary tabular-nums font-normal cursor-pointer disabled:cursor-default focus-visible:bg-primary/10 focus-visible:ring-4 focus-visible:ring-primary/20 disabled:opacity-100",

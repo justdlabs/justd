@@ -26,13 +26,13 @@ export function Anatomy({ title, message, ext = "tsx", show }: AnatomyProps) {
       </p>
       {title && <figcaption data-rehype-pretty-code-title="">{title}</figcaption>}
       <Code
-        className="max-h-none [&_[data-line]:last-child]:hidden [&_pre]:overflow-auto"
+        className="max-h-none **:data-line:last:hidden [&_pre]:overflow-auto"
         code={extractImports(actualCode)}
         lang={ext}
         withImportCopy={false}
       />
       <Code
-        className="[&_pre]:max-h-[30rem] max-h-none [&_pre]:overflow-auto"
+        className="[&_pre]:max-h-[30rem] max-h-none mt-4 [&_pre]:overflow-auto"
         code={extractJSX(actualCode) as any}
         lang={ext}
         withImportCopy={false}

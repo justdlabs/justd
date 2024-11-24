@@ -54,7 +54,7 @@ export function DocComposed({
                 href={`/${item.slug}`}
                 className="absolute inset-0 rounded-lg size-full"
               />
-              <Card className="overflow-hidden hover:bg-secondary/40 focus:bg-secondary/40 transition-colors">
+              <Card className="overflow-hidden hover:bg-secondary/40 data-focused:bg-secondary/40 transition-colors">
                 <Card.Header className="p-4">
                   <Card.Title className="sm:text-lg text-base line-clamp-1 font-medium">
                     {item.title}

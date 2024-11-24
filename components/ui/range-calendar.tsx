@@ -22,14 +22,14 @@ const cellRangeStyles = tv({
   base: "flex h-full w-full items-center tabular-nums justify-center rounded-full forced-color-adjust-none",
   variants: {
     selectionState: {
-      none: "group-hover:bg-secondary-fg/15 group-pressed:bg-secondary-fg/20 forced-colors:group-pressed:bg-[Highlight]",
+      none: "group-hover:bg-secondary-fg/15 group-data-pressed:bg-secondary-fg/20 forced-colors:group-data-pressed:bg-[Highlight]",
       middle: [
         "group-hover:bg-primary/20 forced-colors:group-hover:bg-[Highlight]",
-        "group-invalid:group-hover:bg-red-200 group-invalid:text-red-500 dark:group-invalid:group-hover:bg-red-900 forced-colors:group-invalid:group-hover:bg-[Mark]",
-        "group-pressed:bg-primary forced-colors:text-[HighlightText] forced-colors:group-pressed:bg-[Highlight]",
-        "group-invalid:group-pressed:bg-red-300 dark:group-invalid:group-pressed:bg-red-800 forced-colors:group-invalid:group-pressed:bg-[Mark]"
+        "group-data-invalid:group-hover:bg-red-200 group-data-invalid:text-red-500 dark:group-data-invalid:group-hover:bg-red-900 forced-colors:group-data-invalid:group-hover:bg-[Mark]",
+        "group-data-pressed:bg-primary forced-colors:text-[HighlightText] forced-colors:group-data-pressed:bg-[Highlight]",
+        "group-data-invalid:group-data-pressed:bg-red-300 dark:group-data-invalid:group-data-pressed:bg-red-800 forced-colors:group-data-invalid:group-data-pressed:bg-[Mark]"
       ],
-      cap: "bg-primary text-primary-fg group-invalid:bg-danger group-invalid:text-danger-fg forced-colors:bg-[Highlight] forced-colors:text-[HighlightText] forced-colors:group-invalid:bg-[Mark]"
+      cap: "bg-primary text-primary-fg group-data-invalid:bg-danger group-data-invalid:text-danger-fg forced-colors:bg-[Highlight] forced-colors:text-[HighlightText] forced-colors:group-data-invalid:bg-[Mark]"
     },
     isDisabled: {
       true: "text-muted-fg/70 forced-colors:text-[GrayText]"

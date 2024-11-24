@@ -51,7 +51,7 @@ const itemStyles = tv({
       true: "[&_[slot=chevron]_[data-slot=icon]]:text-fg [&_[slot=chevron]_[data-slot=icon]]:rotate-90 [&_[slot=chevron]_[data-slot=icon]]:transition [&_[slot=chevron]_[data-slot=icon]]:duration-200"
     },
     isFocusVisible: {
-      true: "[&_[slot=chevron]_[data-slot=icon]]:text-fg focus:outline-hidden focus-visible:ring-1 focus-visible:ring-primary"
+      true: "[&_[slot=chevron]_[data-slot=icon]]:text-fg data-focused:outline-hidden focus-visible:ring-1 focus-visible:ring-primary"
     },
     isDisabled: {
       true: "opacity-50 forced-colors:text-[GrayText]"

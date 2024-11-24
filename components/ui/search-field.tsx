@@ -17,9 +17,9 @@ const searchFieldStyles = tv({
   slots: {
     base: "group flex min-w-10 flex-col gap-y-1.5",
     searchIcon:
-      "ml-2.5 size-4 shrink-0 text-muted-fg group-disabled:text-muted-fg forced-colors:text-[ButtonText] forced-colors:group-disabled:text-[GrayText]",
+      "ml-2.5 size-4 shrink-0 text-muted-fg group-data-disabled:text-muted-fg forced-colors:text-[ButtonText] forced-colors:group-data-disabled:text-[GrayText]",
     clearButton: [
-      "mr-1 size-8 text-muted-fg group-empty:invisible pressed:bg-transparent hover:bg-transparent hover:text-fg pressed:text-fg"
+      "mr-1 size-8 text-muted-fg group-data-empty:invisible data-pressed:bg-transparent hover:bg-transparent hover:text-fg data-pressed:text-fg"
     ],
     input: "[&::-webkit-search-cancel-button]:hidden"
   }

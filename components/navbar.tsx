@@ -159,7 +159,7 @@ export function NavbarDropdown() {
         <span className="flex items-center gap-x-2">
           <IconBrandJustd className="-ml-1 size-5" />
           <span className="font-mono text-base tracking-tight sm:text-sm">{siteConfig.name}</span>
-          <IconChevronLgDown className="-mr-1 ml-3 size-3.5 text-muted-fg transition duration-300 group-hover:text-fg group-pressed:rotate-180 group-pressed:text-fg" />
+          <IconChevronLgDown className="-mr-1 ml-3 size-3.5 text-muted-fg transition duration-300 group-hover:text-fg group-data-pressed:rotate-180 group-data-pressed:text-fg" />
           <span className="sr-only">Open menu</span>
         </span>
       </Button>

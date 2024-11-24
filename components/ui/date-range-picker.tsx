@@ -21,7 +21,7 @@ const dateRangePickerStyles = tv({
     dateRangePickerInputStart: "px-2 lg:text-sm tabular-nums text-base",
     dateRangePickerInputEnd: "flex-1 px-2 py-1.5 tabular-nums text-base lg:text-sm",
     dateRangePickerDash:
-      "text-fg group-disabled:text-muted-fg forced-colors:text-[ButtonText] forced-colors:group-disabled:text-[GrayText]"
+      "text-fg group-data-disabled:text-muted-fg forced-colors:text-[ButtonText] forced-colors:group-data-disabled:text-[GrayText]"
   }
 })
 const { base, dateRangePickerInputStart, dateRangePickerInputEnd, dateRangePickerDash } =

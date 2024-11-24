@@ -270,7 +270,7 @@ const Item = ({ isCurrent, children, className, icon: Icon, ...props }: ItemProp
     <Tooltip closeDelay={0} delay={0}>
       <Link
         {...props}
-        className="focus:outline-hidden col-span-full hover:bg-muted hover:text-secondary-fg text-muted-fg rounded-lg size-9 grid place-content-center"
+        className="data-focused:outline-hidden col-span-full hover:bg-muted hover:text-secondary-fg text-muted-fg rounded-lg size-9 grid place-content-center"
       >
         {Icon && <Icon data-slot="icon" />}
         <span className="sr-only">{children as string}</span>
@@ -458,7 +458,7 @@ const Section = ({
                   slot="trigger"
                   className={({ isHovered }) =>
                     cn(
-                      "w-full focus:outline-hidden flex leading-6 items-center justify-between [&>.idctr]:size-6 [&>.idctr]:duration-200",
+                      "w-full data-focused:outline-hidden flex leading-6 items-center justify-between [&>.idctr]:size-6 [&>.idctr]:duration-200",
                       Icon
                         ? "text-fg lg:text-sm py-2 lg:py-1.5 px-3 [&_.idctr]:text-muted-fg has-[.idctr]:pr-0.5"
                         : "text-sm text-muted-fg py-2 px-3 has-[.idctr]:pr-0",

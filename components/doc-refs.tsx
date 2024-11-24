@@ -82,7 +82,7 @@ export function DocRefs({ references }: { references: string[] }) {
             buttonStyles({
               appearance: "outline",
               size: "small",
-              className: "focus:outline-0"
+              className: "data-focused:outline-0"
             })
           )}
           id={item.url}

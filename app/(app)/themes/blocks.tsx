@@ -38,7 +38,7 @@ export function Blocks() {
             <Tooltip.Trigger
               aria-label={color}
               className={twJoin(
-                "clr ring-1 focus:outline-hidden ring-fg/15 focus:ring-fg/30 ring-inset",
+                "clr ring-1 data-focused:outline-hidden ring-fg/15 data-focused:ring-fg/30 ring-inset",
                 color
               )}
             />

@@ -47,7 +47,7 @@ const ColorItem = ({
     <ListBoxItem
       textValue={name}
       className={cn(
-        "w-full h-14 sm:h-24 group focus:outline-hidden focus:rounded-sm cursor-pointer rounded relative",
+        "w-full h-14 sm:h-24 group data-focused:outline-hidden data-focused:rounded-sm cursor-pointer rounded relative",
         isBrightColor(item.color)
           ? "ring-1 ring-inset ring-black/10"
           : "dark:ring-1 dark:ring-inset dark:ring-white/10"

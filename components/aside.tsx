@@ -210,7 +210,7 @@ const Trigger = ({ children, className }: { children: React.ReactNode; className
   return (
     <Disclosure.Trigger
       className={cn(
-        "group hover:text-fg hover:bg-muted/60 py-1.5 pressed:text-fg aria-expanded:text-fg",
+        "group hover:text-fg hover:bg-muted/60 py-1.5 data-pressed:text-fg aria-expanded:text-fg",
         className
       )}
     >
@@ -228,7 +228,7 @@ interface AsideLinkProps extends NextLinkProps {
 }
 
 const asideLinkStyles = tv({
-  base: "relative block group focus:outline-hidden focus-visible:bg-muted/50 focus-visible:ring-inset focus-visible:ring-1 focus-visible:ring-primary rounded-lg pl-2.5 h-9 text-base transition-colors hover:bg-muted/60 hover:text-fg lg:text-sm",
+  base: "relative block group data-focused:outline-hidden focus-visible:bg-muted/50 focus-visible:ring-inset focus-visible:ring-1 focus-visible:ring-primary rounded-lg pl-2.5 h-9 text-base transition-colors hover:bg-muted/60 hover:text-fg lg:text-sm",
   variants: {
     isActive: {
       false: "text-muted-fg forced-colors:text-[Gray] hover:text-fg",

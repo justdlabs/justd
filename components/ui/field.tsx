@@ -37,7 +37,7 @@ const fieldStyles = tv({
     label: "w-fit cursor-default font-medium text-secondary-fg text-sm",
     fieldError: "text-sm/6 text-danger forced-colors:text-[Mark]",
     input: [
-      "w-full min-w-0 [&::-ms-reveal]:hidden bg-transparent py-2 px-2.5 text-base text-fg placeholder-muted-fg outline-hidden focus:outline-hidden lg:text-sm"
+      "w-full min-w-0 [&::-ms-reveal]:hidden bg-transparent py-2 px-2.5 text-base text-fg placeholder-muted-fg outline-hidden data-focused:outline-hidden lg:text-sm"
     ]
   }
 })
@@ -74,12 +74,12 @@ const FieldGroup = ({ className, ...props }: GroupProps) => {
       className={cn([
         "border border-input transition duration-200 ease-out rounded-lg flex items-center",
         "focus-within:border-primary/70 focus-within:ring-4 focus-within:ring-primary/20",
-        "group-invalid:focus-within:border-danger focus-within:ring-4 group-invalid:focus-within:ring-danger/20",
+        "group-data-invalid:focus-within:border-danger focus-within:ring-4 group-data-invalid:focus-within:ring-danger/20",
         "[&>[role=progressbar]]:mr-2.5",
         "**:data-[slot=icon]:size-4 **:data-[slot=icon]:shrink-0",
         "*:data-[slot=suffix]:mr-2.5 *:data-[slot=suffix]:text-muted-fg",
         "*:data-[slot=prefix]:ml-2.5 *:data-[slot=prefix]:text-muted-fg",
-        "group-disabled:opacity-50",
+        "group-data-disabled:opacity-50",
         className
       ])}
     />

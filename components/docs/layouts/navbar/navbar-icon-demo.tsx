@@ -66,7 +66,7 @@ export default function NavbarIconDemo() {
                 shape="square"
                 src="/images/sidebar/profile-slash.jpg"
               />
-              <IconChevronLgDown className="size-4 group-pressed:rotate-180 transition-transform" />
+              <IconChevronLgDown className="size-4 group-data-pressed:rotate-180 transition-transform" />
             </Menu.Trigger>
             <Menu.Content placement="bottom" showArrow className="sm:min-w-56">
               <Menu.Section>

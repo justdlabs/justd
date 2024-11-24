@@ -9,17 +9,17 @@ import { tv, type VariantProps } from "tailwind-variants"
 const trackStyles = tv({
   base: [
     "mr-2 h-5 w-8 bg-toggle cursor-pointer rounded-full border-2 border-transparent transition duration-200",
-    "group-focus:ring-4",
-    "group-focus:ring-4 group-invalid:ring-danger/20",
-    "group-disabled:cursor-default group-disabled:opacity-50"
+    "group-data-focused:ring-4",
+    "group-data-focused:ring-4 group-data-invalid:ring-danger/20",
+    "group-data-disabled:cursor-default group-data-disabled:opacity-50"
   ],
   variants: {
     intent: {
-      primary: "group-selected:bg-primary group-focus:ring-primary/20",
-      secondary: "group-selected:bg-muted-fg group-focus:ring-muted-fg/20",
-      success: "group-selected:bg-success group-focus:ring-success/20",
-      danger: "group-selected:bg-danger group-focus:ring-danger/20",
-      warning: "group-selected:bg-warning group-focus:ring-warning/20"
+      primary: "group-selected:bg-primary group-data-focused:ring-primary/20",
+      secondary: "group-selected:bg-muted-fg group-data-focused:ring-muted-fg/20",
+      success: "group-selected:bg-success group-data-focused:ring-success/20",
+      danger: "group-selected:bg-danger group-data-focused:ring-danger/20",
+      warning: "group-selected:bg-warning group-data-focused:ring-warning/20"
     }
   },
   defaultVariants: {
@@ -30,7 +30,7 @@ const trackStyles = tv({
 const switchStyles = tv({
   slots: {
     base: "group inline-flex touch-none lg:text-sm items-center",
-    ball: "forced-colors:disabled:outline-[GrayText] group-selected:ml-3 group-selected:group-data-[pressed]:ml-2 group-pressed:w-5 block size-4 origin-right rounded-full bg-primary-fg shadow-sm transition-all duration-200"
+    ball: "forced-colors:disabled:outline-[GrayText] group-selected:ml-3 group-selected:group-data-[pressed]:ml-2 group-data-pressed:w-5 block size-4 origin-right rounded-full bg-primary-fg shadow-sm transition-all duration-200"
   }
 })
 

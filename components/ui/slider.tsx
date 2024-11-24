@@ -32,11 +32,11 @@ const sliderStyles = tv({
       "grow data-[orientation=vertical]:flex-1 data-[orientation=vertical]:w-1.5 data-[orientation=horizontal]:w-full data-[orientation=horizontal]:h-1.5"
     ],
     filler: [
-      "rounded-full bg-primary group-disabled/track:bg-bg-disabled",
+      "rounded-full bg-primary group-data-disabled/track:bg-bg-disabled",
       "pointer-events-none absolute group-data-[orientation=horizontal]/top-0 group-data-[orientation=vertical]/track:w-full group-data-[orientation=vertical]/track:bottom-0 group-data-[orientation=horizontal]/track:h-full"
     ],
     thumb: [
-      "outline-hidden dragging:cursor-grabbing focus:ring-4 border border-zinc-200 focus:ring-primary/20 focus:border-primary focus:outline-hidden forced-colors:outline-[Highlight]",
+      "outline-hidden dragging:cursor-grabbing data-focused:ring-4 border border-zinc-200 data-focused:ring-primary/20 data-focused:border-primary data-focused:outline-hidden forced-colors:outline-[Highlight]",
       "rounded-full bg-white transition-[width,height]",
       "absolute left-[50%] top-[50%] block -translate-x-1/2! -translate-y-1/2!",
       "disabled:bg-bg-disabled disabled:border disabled:border-bg",

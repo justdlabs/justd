@@ -22,38 +22,38 @@ const buttonStyles = tv(
       intent: {
         primary: [
           "text-primary-fg [--button-bg:var(--color-primary)] [--button-border:var(--color-primary)] [--button-hover-overlay:var(--color-white)]/10",
-          "[--button-icon:var(--color-primary-fg)]/60 active:[--button-icon:var(--color-primary-fg)]/80 hover:[--button-icon:var(--color-primary-fg)]/80"
+          "[--button-icon:var(--color-primary-fg)]/60 active:[--button-icon:var(--color-primary-fg)]/80 data-hovered:[--button-icon:var(--color-primary-fg)]/80"
         ],
         secondary: [
-          "text-secondary-fg [--button-bg:var(--color-secondary)] dark:[--button-bg:var(--color-secondary)] [--button-border:var(--color-secondary-fg)]/10 [--button-hover-overlay:var(--color-secondary-fg)]/[2.5%] data-active:[--button-border:var(--color-secondary-fg)]/15 hover:[--button-border:var(--color-secondary-fg)]/15",
-          "[--button-icon:var(--color-muted-fg)] active:[--button-icon:var(--color-fg)] hover:[--button-icon:var(--color-fg)]"
+          "text-secondary-fg [--button-bg:var(--color-secondary)] dark:[--button-bg:var(--color-secondary)] [--button-border:var(--color-secondary-fg)]/10 [--button-hover-overlay:var(--color-secondary-fg)]/[2.5%] data-active:[--button-border:var(--color-secondary-fg)]/15 data-hovered:[--button-border:var(--color-secondary-fg)]/15",
+          "[--button-icon:var(--color-muted-fg)] active:[--button-icon:var(--color-fg)] data-hovered:[--button-icon:var(--color-fg)]"
         ],
         warning: [
           "text-warning-fg [--button-bg:var(--color-warning)] [--button-border:var(--color-warning)] [--button-hover-overlay:var(--color-white)]/10",
-          "[--button-icon:var(--color-warning-fg)]/60 active:[--button-icon:var(--color-warning-fg)]/80 hover:[--button-icon:var(--color-warning-fg)]/80"
+          "[--button-icon:var(--color-warning-fg)]/60 active:[--button-icon:var(--color-warning-fg)]/80 data-hovered:[--button-icon:var(--color-warning-fg)]/80"
         ],
         danger: [
           "text-white [--button-bg:var(--color-danger)] [--button-border:var(--color-danger)] [--button-hover-overlay:var(--color-white)]/10",
-          "[--button-icon:var(--color-white)]/60 active:[--button-icon:var(--color-white)]/80 hover:[--button-icon:var(--color-white)]/80"
+          "[--button-icon:var(--color-white)]/60 active:[--button-icon:var(--color-white)]/80 data-hovered:[--button-icon:var(--color-white)]/80"
         ]
       },
       appearance: {
         solid: [
           "border-transparent bg-(--button-border)",
           "before:inset-0 before:-z-10 before:bg-(--button-bg) before:shadow-sm data-disabled:before:shadow-none",
-          "after:shadow-[shadow:inset_0_1px_theme(--color-white/15%)] active:after:bg-(--button-hover-overlay) hover:after:bg-(--button-hover-overlay) data-disabled:after:shadow-none after:inset-0 after:-z-10",
+          "after:shadow-[shadow:inset_0_1px_theme(--color-white/15%)] active:after:bg-(--button-hover-overlay) data-hovered:after:bg-(--button-hover-overlay) data-disabled:after:shadow-none after:inset-0 after:-z-10",
           "dark:after:-inset-px dark:before:hidden dark:border-white/5 dark:bg-(--button-bg)"
         ],
         outline: [
           "border-border text-fg [--button-icon:var(--color-muted-fg)]",
-          "hover:[--button-icon:var(--color-fg)] hover:bg-secondary/90",
+          "hover:[--button-icon:var(--color-fg)] data-hovered:bg-secondary/90",
           "active:bg-secondary/90 active:[--button-icon:var(--color-fg)]"
         ],
         plain: [
           "border-transparent text-fg [--button-icon:var(--color-muted-fg)]",
-          "pressed:bg-secondary/90",
+          "data-pressed:bg-secondary/90",
           "active:[--button-icon:var(--color-fg)] active:bg-secondary/90",
-          "hover:[--button-icon:var(--color-fg)] hover:bg-secondary/90"
+          "hover:[--button-icon:var(--color-fg)] data-hovered:bg-secondary/90"
         ]
       },
       size: {

@@ -137,7 +137,7 @@ const Content = ({
       >
         <Dialog
           aria-label={isMenu ? "Menu" : props["aria-label"]}
-          className="touch-none focus:outline-hidden"
+          className="touch-none data-focused:outline-hidden"
         >
           {children}
         </Dialog>

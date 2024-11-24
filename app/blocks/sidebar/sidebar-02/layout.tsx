@@ -36,7 +36,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 className="flex items-center gap-x-2 group ml-auto sm:hidden"
               >
                 <Avatar size="small" shape="circle" src="/images/sidebar/profile-slash.jpg" />
-                <IconChevronLgDown className="size-4 group-pressed:rotate-180 transition-transform" />
+                <IconChevronLgDown className="size-4 group-data-pressed:rotate-180 transition-transform" />
               </Menu.Trigger>
               <Menu.Content className="min-w-(--trigger-width)">
                 <Menu.Item href="#">

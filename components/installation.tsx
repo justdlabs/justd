@@ -18,7 +18,7 @@ const manualText =
 const installationStyles = tv({
   slots: {
     copyButton:
-      "focus:outline-hidden d3k32ksd absolute right-0 mr-2 inset-y-1/2 -translate-y-1/2 pressed:bg-zinc-800 size-[1.85rem] grid place-content-center text-white border border-zinc-700 rounded-md bg-black/10 backdrop-blur hover:bg-zinc-800",
+      "data-focused:outline-hidden d3k32ksd absolute right-0 mr-2 inset-y-1/2 -translate-y-1/2 data-pressed:bg-zinc-800 size-[1.85rem] grid place-content-center text-white border border-zinc-700 rounded-md bg-black/10 backdrop-blur hover:bg-zinc-800",
     install:
       "flex h-12 border pr-8 relative overflow-hidden rounded-lg bg-[#0e0e10] items-center [&_[data-rehype-pretty-code-figure]_pre]:!border-0"
   }
