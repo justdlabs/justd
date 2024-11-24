@@ -15,7 +15,7 @@ const buttonStyles = tv(
     extend: focusButtonStyles,
     base: [
       "kbt32x before:absolute after:absolute box-border relative no-underline isolate inline-flex items-center justify-center gap-x-2 border font-medium",
-      "forced-colors:[--button-icon:ButtonText] forced-colors:hover:[--button-icon:ButtonText]",
+      "forced-colors:[--button-icon:ButtonText] forced-colors:data-hovered:[--button-icon:ButtonText]",
       "*:data-[slot=icon]:-mx-0.5 *:data-[slot=icon]:my-1 *:data-[slot=icon]:size-4 *:data-[slot=icon]:shrink-0 *:data-[slot=icon]:text-(--button-icon)"
     ],
     variants: {
@@ -46,14 +46,14 @@ const buttonStyles = tv(
         ],
         outline: [
           "border-border text-fg [--button-icon:var(--color-muted-fg)]",
-          "hover:[--button-icon:var(--color-fg)] data-hovered:bg-secondary/90",
+          "data-hovered:[--button-icon:var(--color-fg)] data-hovered:bg-secondary/90",
           "active:bg-secondary/90 active:[--button-icon:var(--color-fg)]"
         ],
         plain: [
           "border-transparent text-fg [--button-icon:var(--color-muted-fg)]",
           "data-pressed:bg-secondary/90",
           "active:[--button-icon:var(--color-fg)] active:bg-secondary/90",
-          "hover:[--button-icon:var(--color-fg)] data-hovered:bg-secondary/90"
+          "data-hovered:[--button-icon:var(--color-fg)] data-hovered:bg-secondary/90"
         ]
       },
       size: {
@@ -74,7 +74,7 @@ const buttonStyles = tv(
           "rounded-[9999px] before:rounded-[9998px] after:rounded-[9998px] dark:after:rounded-[9999px]"
       },
       isDisabled: {
-        false: "forced-colors:disabled:text-[GrayText]",
+        false: "forced-colors:disabled:text-[GrayText] cursor-pointer",
         true: "cursor-default opacity-60 forced-colors:disabled:text-[GrayText]"
       },
       isPending: {

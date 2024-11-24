@@ -34,7 +34,7 @@ const table = tv({
   slots: {
     root: "table **:data-drop-target:border **:data-drop-target:border-primary w-full caption-bottom border-spacing-0 text-sm outline-hidden",
     header: "border-b x32",
-    row: "tr group relative cursor-default border-b text-fg/70 outline-hidden ring-primary focus-visible:ring-1 selected:bg-accent-subtle selected:hover:bg-accent-subtle/50 dark:selected:hover:bg-accent-subtle/60",
+    row: "tr group relative cursor-default border-b text-fg/70 outline-hidden ring-primary focus-visible:ring-1 data-selected:bg-accent-subtle data-selected:data-hovered:bg-accent-subtle/50 dark:data-selected:data-hovered:bg-accent-subtle/60",
     cellIcon:
       "flex-none rounded bg-secondary text-fg *:data-[slot=icon]:shrink-0 *:data-[slot=icon]:size-3.5 *:data-[slot=icon]:transition-transform *:data-[slot=icon]:duration-200 size-[1.15rem] grid place-content-center shrink-0",
     columnResizer: [
@@ -194,7 +194,8 @@ const TableRow = <T extends object>({
       id={id}
       {...props}
       className={row({
-        className: "href" in props ? cn("cursor-pointer hover:bg-secondary/50", className) : ""
+        className:
+          "href" in props ? cn("cursor-pointer data-hovered:bg-secondary/50", className) : ""
       })}
     >
       {allowsDragging && (
@@ -211,7 +212,7 @@ const TableRow = <T extends object>({
         <Cell className="pl-4">
           <span
             aria-hidden
-            className="absolute inset-y-0 left-0 hidden h-full w-0.5 bg-primary group-selected:block"
+            className="absolute inset-y-0 left-0 hidden h-full w-0.5 bg-primary group-data-selected:block"
           />
           <Checkbox slot="selection" />
         </Cell>
