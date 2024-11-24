@@ -7,7 +7,7 @@ import { goodTitle, sortDocs } from "@/resources/lib/utils"
 import { LayoutGroup, motion } from "framer-motion"
 import { IconChevronRight, IconCircleHalf, IconCube, IconHighlight, IconLayers } from "justd-icons"
 import { usePathname } from "next/navigation"
-import type { LinkProps } from "react-aria-components";
+import type { LinkProps } from "react-aria-components"
 import { Link } from "react-aria-components"
 import { twJoin } from "tailwind-merge"
 import { tv } from "tailwind-variants"

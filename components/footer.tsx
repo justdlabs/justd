@@ -46,7 +46,7 @@ export function Footer() {
                     <li key={item.name}>
                       <Link
                         href={item.href}
-                        className="text-sm leading-6 text-muted-fg hover:text-fg"
+                        className="text-sm leading-6 text-muted-fg data-hovered:text-fg"
                       >
                         {item.name}
                       </Link>
@@ -62,7 +62,7 @@ export function Footer() {
                       <Link
                         target="_blank"
                         href={item.href}
-                        className="text-sm leading-6 text-muted-fg hover:text-fg"
+                        className="text-sm leading-6 text-muted-fg data-hovered:text-fg"
                       >
                         {item.name}
                       </Link>
@@ -80,7 +80,7 @@ export function Footer() {
                       <Link
                         target="_blank"
                         href={item.href}
-                        className="text-sm leading-6 text-muted-fg hover:text-fg"
+                        className="text-sm leading-6 text-muted-fg data-hovered:text-fg"
                       >
                         {item.name}
                       </Link>
@@ -96,7 +96,7 @@ export function Footer() {
                       <Link
                         target="_blank"
                         href={item.href}
-                        className="text-sm leading-6 text-muted-fg hover:text-fg"
+                        className="text-sm leading-6 text-muted-fg data-hovered:text-fg"
                       >
                         {item.name}
                       </Link>
