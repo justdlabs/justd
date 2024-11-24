@@ -2,8 +2,7 @@
 
 import * as React from "react"
 
-import { ThemeProvider as NextThemesProvider, useTheme } from "next-themes"
-import { type ThemeProviderProps } from "next-themes/dist/types"
+import { type ThemeProviderProps, ThemeProvider as NextThemesProvider, useTheme } from "next-themes"
 
 const ThemeProvider = ({ children, ...props }: ThemeProviderProps) => {
   return (
