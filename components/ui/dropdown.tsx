@@ -20,12 +20,12 @@ import { cn, cr } from "./primitive"
 const dropdownItemStyles = tv({
   base: [
     "group text-fg forced-colors:text-[LinkText] flex cursor-default forced-color-adjust-none select-none items-center gap-x-1.5 rounded-[calc(var(--radius)-1px)] py-2 px-2.5 relative text-base outline outline-0 forced-color:text-[Highlight] lg:text-sm",
-    "has-submenu:open:data-danger:bg-danger/20 has-submenu:open:data-danger:text-danger",
-    "has-submenu:open:bg-accent has-submenu:open:text-accent-fg [&[data-has-submenu][data-open]_[data-slot=icon]]:text-accent-fg [&[data-has-submenu][data-open]_.text-muted-fg]:text-accent-fg",
+    "has-submenu:data-open:data-danger:bg-danger/20 has-submenu:data-open:data-danger:text-danger",
+    "data-has-submenu:data-open:bg-accent data-has-submenu:data-open:text-accent-fg data-has-submenu:data-open:*:data-[slot=icon]:text-accent-fg data-has-submenu:data-open:*:[.text-muted-fg]:text-accent-fg",
     "**:data-[slot=avatar]:-mr-0.5 **:data-[slot=avatar]:size-6 sm:**:data-[slot=avatar]:size-5",
-    "**:data-[slot=icon]:size-4 **:data-[slot=icon]:shrink-0 **:data-[slot=icon]:text-muted-fg [&[data-hovered]_[data-slot=icon]]:text-accent-fg [&[data-focused]_[data-slot=icon]]:text-accent-fg [&[data-danger]_[data-slot=icon]]:text-danger/60 [&[data-focused][data-danger]_[data-slot=icon]]:text-danger-fg",
-    "[&_[data-slot=menu-radio]>[data-slot=icon]]:size-3",
-    "forced-colors:**:data-[slot=icon]:text-[CanvasText] forced-colors:group-data-[focus]:**:data-[slot=icon]:text-[Canvas] "
+    "**:data-[slot=icon]:size-4 **:data-[slot=icon]:shrink-0 **:data-[slot=icon]:text-muted-fg data-hovered:**:data-[slot=icon]:text-accent-fg data-focused:**:data-[slot=icon]:text-accent-fg data-danger:**data-[slot=icon]:text-danger/60 data-focused:data-danger:**:data-[slot=icon]:text-danger-fg",
+    "data-[slot=menu-radio]:*:data-[slot=icon]:size-3",
+    "forced-colors:**:data-[slot=icon]:text-[CanvasText] forced-colors:group-data-focused:**:data-[slot=icon]:text-[Canvas] "
   ],
   variants: {
     isDisabled: {
