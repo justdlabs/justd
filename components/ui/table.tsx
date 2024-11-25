@@ -115,7 +115,7 @@ const TableCell = ({ children, className, ...props }: TableCellProps) => {
 }
 
 const columnStyles = tv({
-  base: "whitespace-nowrap relative allows-sorting:cursor-pointer px-3 py-3 text-left dragging:cursor-grabbing font-medium outline-hidden [&:has([slot=selection])]:pr-0",
+  base: "whitespace-nowrap relative allows-sorting:cursor-pointer px-3 py-3 text-left data-dragging:cursor-grabbing font-medium outline-hidden [&:has([slot=selection])]:pr-0",
   variants: {
     isResizable: {
       true: "overflow-hidden truncate"
@@ -204,7 +204,7 @@ const TableRow = <T extends object>({
       })}
     >
       {allowsDragging && (
-        <Cell className="ring-primary pr-0 group cursor-grab dragging:cursor-grabbing">
+        <Cell className="ring-primary pr-0 group cursor-grab data-dragging:cursor-grabbing">
           <Button
             className="relative bg-transparent pl-3.5 py-1.5 text-muted-fg data-pressed:text-fg"
             slot="drag"

@@ -15,7 +15,7 @@ import { Label } from "./field"
 import { ctr } from "./primitive"
 
 const trackStyles = tv({
-  base: "group col-span-2 data-[orientation=horizontal]:h-6 rounded-lg",
+  base: "group col-span-2 rounded-lg",
   variants: {
     orientation: {
       horizontal: "w-full h-6",
@@ -44,7 +44,9 @@ const ColorSlider = ({ showOutput = true, label, className, ...props }: ColorSli
     >
       <div className="flex items-center">
         {label && <Label className="text-sm [grid-area:label]">{label}</Label>}
-        {showOutput && <SliderOutput className="text-sm ml-auto [grid-area:output]" />}
+        {showOutput && (
+          <SliderOutput className="text-sm [grid-area:output] data-[orientation=horizontal]:ml-auto" />
+        )}
       </div>
       <SliderTrack
         className={trackStyles}

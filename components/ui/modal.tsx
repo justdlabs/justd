@@ -22,10 +22,10 @@ const modalOverlayStyles = tv({
   variants: {
     isBlurred: {
       true: "backdrop-blur",
-      false: "bg-dark/15 dark:bg-dark/40"
+      false: "bg-fg/15 dark:bg-fg/40"
     },
     isEntering: {
-      true: "ease-out animate-in fade-in"
+      true: "ease-out animate-in duration-300 fade-in"
     },
     isExiting: {
       true: "duration-200 ease-in animate-out fade-out"
@@ -34,7 +34,7 @@ const modalOverlayStyles = tv({
 })
 const modalContentStyles = tv({
   base: [
-    "max-h-full w-full rounded-t-2xl ring-1 ring-dark/5 bg-overlay text-overlay-fg text-left align-middle shadow-lg",
+    "max-h-full w-full rounded-t-2xl ring-1 ring-fg/5 bg-overlay text-overlay-fg text-left align-middle shadow-lg",
     "dark:ring-border sm:rounded-2xl overflow-hidden",
     "sm:fixed sm:left-[50vw] sm:top-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2"
   ],

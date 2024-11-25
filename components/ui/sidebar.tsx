@@ -270,7 +270,7 @@ const Item = ({ isCurrent, children, className, icon: Icon, ...props }: ItemProp
     <Tooltip closeDelay={0} delay={0}>
       <Link
         {...props}
-        className="data-focused:outline-hidden col-span-fulldata-hovered:bg-muteddata-hovered:text-secondary-fg text-muted-fg rounded-lg size-9 grid place-content-center"
+        className="data-focused:outline-hidden col-span-fulldata-hovered:bg-muted data-hovered:text-secondary-fg text-muted-fg rounded-lg size-9 grid place-content-center"
       >
         {Icon && <Icon data-slot="icon" />}
         <span className="sr-only">{children as string}</span>
@@ -391,7 +391,7 @@ const footer = tv({
   variants: {
     collapsed: {
       false: [
-        "p-2 [&_[data-slot=menu-trigger]>[data-slot=avatar]]:-ml-1.5 **:data-[slot=menu-trigger]:w-fulldata-hovered:**:data-[slot=menu-trigger]:bg-muted **:data-[slot=menu-trigger]:justify-start **:data-[slot=menu-trigger]:flex **:data-[slot=menu-trigger]:items-center"
+        "p-2 [&_[data-slot=menu-trigger]>[data-slot=avatar]]:-ml-1.5 **:data-[slot=menu-trigger]:w-full data-hovered:**:data-[slot=menu-trigger]:bg-muted **:data-[slot=menu-trigger]:justify-start **:data-[slot=menu-trigger]:flex **:data-[slot=menu-trigger]:items-center"
       ],
       true: "size-12 p-1 **:data-[slot=menu-trigger]:size-9 justify-center items-center"
     }
@@ -465,8 +465,8 @@ const Section = ({
                       isHovered &&
                         Icon &&
                         "bg-muted text-secondary-fg [&_.text-muted-fg]:text-secondary-fg/80 *:data-[slot=icon]:shrink-0 items-center *:data-[slot=icon]:text-muted-fg relative rounded-lg lg:text-sm leading-6",
-                      isExpanded && !Icon && "[&>.idctr]:rotate-180",
-                      isExpanded && Icon && "[&>.idctr]:rotate-90"
+                      isExpanded && !Icon && "*:[.idctr]:rotate-180",
+                      isExpanded && Icon && "*:[.idctr]:rotate-90"
                     )
                   }
                 >

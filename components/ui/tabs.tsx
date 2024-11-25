@@ -68,7 +68,7 @@ const List = <T extends object>(props: TabListProps<T>) => {
 
 const tabStyles = tv({
   base: [
-    "relative flex whitespace-nowrap cursor-default items-center rounded-full text-sm font-medium outline-hidden transitiondata-hovered:text-fg *:data-[slot=icon]:size-4 *:data-[slot=icon]:mr-2",
+    "relative flex whitespace-nowrap cursor-default items-center rounded-full text-sm font-medium outline-hidden transition data-hovered:text-fg *:data-[slot=icon]:size-4 *:data-[slot=icon]:mr-2",
     "group-data-[orientation=vertical]:w-full group-data-[orientation=vertical]:py-0 group-data-[orientation=vertical]:pl-4 group-data-[orientation=vertical]:pr-2",
     "group-data-[orientation=horizontal]:pb-3"
   ],

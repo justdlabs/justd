@@ -1,6 +1,8 @@
 @import 'tailwindcss';
+
 @plugin 'tailwindcss-animate';
 @plugin '@tailwindcss/typography';
+
 @variant dark (&:is(.dark *));
 
 @theme {
@@ -130,7 +132,7 @@
     --primary-fg: oklch(1 3.5594404384177905e-8 106.37411429114086);
     --secondary: oklch(0.22 0.006 285.885);
     --secondary-fg: oklch(0.985 0 0);
-    --tertiary: oklch(0.181 0.005 285.823);
+    --tertiary: oklch(0.182 0.005 285.823);
     --tertiary-fg: oklch(1 3.5594404384177905e-8 106.37411429114086);
     --info: oklch(0.6596 0.1919 251.47);
     --info-fg: oklch(1 3.5594404384177905e-8 106.37411429114086);

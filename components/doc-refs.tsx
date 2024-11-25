@@ -50,10 +50,6 @@ export function DocRefs({ references }: { references: string[] }) {
         title = "Cmdk"
         icon = IconCommandFill
         break
-      case url.includes("vaul"):
-        title = "Vaul"
-        icon = () => null
-        break
       case url.includes("github"):
         title = "Github"
         icon = IconBrandGithub

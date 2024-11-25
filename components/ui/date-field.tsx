@@ -61,7 +61,7 @@ const segmentStyles = tv({
     isFocused: {
       true: [
         "bg-primary text-primary-fg forced-colors:bg-[Highlight] forced-colors:text-[HighlightText]",
-        "invalid:bg-danger invalid:text-danger-fg"
+        "data-invalid:bg-danger data-invalid:text-danger-fg"
       ]
     }
   }

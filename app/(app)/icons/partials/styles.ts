@@ -6,7 +6,7 @@ const styles = tv({
     item: [
       "size-8 sm:size-12 grid cursor-pointer text-fg/80 place-content-center rounded-md",
       "data-focused:bg-primary data-focused:text-primary-fg data-focused:outline-hidden",
-      "selected:bg-primary selected:text-primary-fg",
+      "data-selected:bg-primary data-selected:text-primary-fg",
       "data-[open=true]:bg-primary data-[open=true]:text-primary-fg",
       "data-hovered:bg-secondary data-hovered:text-secondary-fg",
       "data-focus-visible:ring-4 data-focus-visible:ring-primary-fg/15"

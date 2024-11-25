@@ -31,7 +31,7 @@ const itemStyles = tv({
       true: "outline-hidden"
     },
     isFocusVisible: {
-      true: "ring-1 ring-primary outline-hidden bg-accent-subtle selected:bg-accent-subtle/80data-hovered:bg-accent-subtle/70"
+      true: "ring-1 ring-primary outline-hidden bg-accent-subtle data-selected:bg-accent-subtle/80 data-hovered:bg-accent-subtle/70"
     },
     isDisabled: {
       true: "text-muted-fg forced-colors:text-[GrayText]"
@@ -54,7 +54,7 @@ const Item = ({ className, ...props }: GridListItemProps) => {
           {allowsDragging && (
             <Button
               slot="drag"
-              className="cursor-grab dragging:cursor-grabbing *:data-[slot=icon]:text-muted-fg"
+              className="cursor-grab data-dragging:cursor-grabbing *:data-[slot=icon]:text-muted-fg"
             >
               <IconHamburger />
             </Button>

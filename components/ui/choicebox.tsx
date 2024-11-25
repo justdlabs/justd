@@ -67,7 +67,7 @@ const choiceboxItemStyles = tv({
   variants: {
     isSelected: {
       true: [
-        "z-20 bg-accent-subtledata-hovered:bg-accent-subtledata-hovered:border-ring border-ring/75",
+        "z-20 bg-accent-subtle data-hovered:bg-accent-subtle data-hovered:border-ring border-ring/75",
         "[&_[slot=title]]:text-accent-subtle-fg",
         "[&_[slot=description]]:text-accent-subtle-fg/70"
       ]

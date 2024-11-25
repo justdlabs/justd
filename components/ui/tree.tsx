@@ -88,9 +88,7 @@ const ItemContent = (props: React.ComponentProps<typeof TreeItemContent>) => {
 const Indicator = () => {
   return (
     <Button className="shrink-0 relative" slot="chevron">
-      <>
-        <IconChevronRight className="size-5" />
-      </>
+      <IconChevronRight className="size-5" />
     </Button>
   )
 }

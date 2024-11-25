@@ -36,12 +36,12 @@ const sliderStyles = tv({
       "pointer-events-none absolute group-data-[orientation=horizontal]/top-0 group-data-[orientation=vertical]/track:w-full group-data-[orientation=vertical]/track:bottom-0 group-data-[orientation=horizontal]/track:h-full"
     ],
     thumb: [
-      "outline-hidden dragging:cursor-grabbing data-focused:ring-4 border border-zinc-200 data-focused:ring-primary/20 data-focused:border-primary data-focused:outline-hidden forced-colors:outline-[Highlight]",
+      "size-[1.15rem] outline-hidden data-focused:ring-4 border border-zinc-200 data-focused:ring-primary/20 data-focused:border-primary data-focused:outline-hidden forced-colors:outline-[Highlight]",
       "rounded-full bg-white transition-[width,height]",
       "absolute left-[50%] top-[50%] block -translate-x-1/2! -translate-y-1/2!",
-      "disabled:bg-bg-disabled disabled:border disabled:border-bg",
-      "orientation-vertical:w-2 data-[orientation=horizontal]:h-2",
-      "size-[1.15rem] dragging:size-[1.30rem] dragging:border-primary"
+      "data-[orientation=vertical]:w-2 data-[orientation=horizontal]:h-2",
+      "data-dragging:cursor-grabbing data-dragging:size-[1.30rem] data-dragging:border-primary",
+      "data-disabled:bg-bg-disabled data-disabled:border data-disabled:border-bg"
     ],
     valueLabel: "text-muted-fg tabular-nums text-sm"
   }

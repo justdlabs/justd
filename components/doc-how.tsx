@@ -45,8 +45,7 @@ export function DocHow({
             className={cn(
               !withNoPadding && "relative gap-4 rounded-lg border bg-overlay p-6",
               isCenter &&
-                "flex min-h-56 lg:min-h-80 items-center justify-center py-6 preview sm:py-24",
-              "overflow-x-auto"
+                "flex min-h-56 lg:min-h-80 items-center justify-center py-6 preview sm:py-24 overflow-x-auto"
             )}
           >
             <React.Suspense

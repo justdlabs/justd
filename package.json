@@ -17,13 +17,11 @@
   },
   "dependencies": {
     "@openpanel/nextjs": "^0.0.10-beta",
-    "@radix-ui/react-collapsible": "^1.1.1",
     "@shikijs/transformers": "^1.23.1",
     "@types/node": "^22.9.3",
     "chroma-js": "^3.1.2",
     "clsx": "^2.1.1",
     "cmdk": "^1.0.4",
-    "color-namer": "^1.4.0",
     "embla-carousel-autoplay": "^8.5.1",
     "embla-carousel-react": "^8.5.1",
     "framer-motion": "12.0.0-alpha.1",
@@ -41,7 +39,6 @@
     "rehype-stringify": "^10.0.1",
     "scroll-into-view-if-needed": "^3.1.0",
     "sharp": "^0.33.5",
-    "shiki": "^1.23.1",
     "sonner": "^1.7.0",
     "tailwind-merge": "^2.5.4",
     "tailwind-variants": "^0.3.0",
@@ -49,8 +46,7 @@
     "tailwindcss-react-aria-components": "^1.2.0",
     "title": "^4.0.1",
     "use-debounce": "^10.0.4",
-    "usemods": "^1.8.1",
-    "vaul": "^1.1.1"
+    "usemods": "^1.8.1"
   },
   "devDependencies": {
     "@shikijs/rehype": "^1.23.1",
@@ -58,7 +54,6 @@
     "@tailwindcss/typography": "^0.5.15",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/chroma-js": "^2.4.4",
-    "@types/color-namer": "^1.3.3",
     "@types/culori": "^2.1.1",
     "@types/react": "npm:types-react@19.0.0-rc.1",
     "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",

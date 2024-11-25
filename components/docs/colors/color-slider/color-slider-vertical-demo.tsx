@@ -7,7 +7,7 @@ export default function ColorSliderVerticalDemo() {
     <div className="flex items-center justify-center">
       <ColorSlider
         orientation="vertical"
-        label="Fill Color"
+        aria-label="Fill Color"
         channel="hue"
         defaultValue="hsl(0, 100%, 50%)"
       />
