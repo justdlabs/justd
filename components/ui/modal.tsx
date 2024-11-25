@@ -16,13 +16,12 @@ import { cr } from "./primitive"
 const modalOverlayStyles = tv({
   base: [
     "fixed left-0 top-0 isolate z-50 h-(--visual-viewport-height) w-full",
-    "flex items-end text-center sm:block",
+    "flex items-end text-center sm:block bg-fg/15 dark:bg-bg/40",
     "[--visual-viewport-vertical-padding:16px] sm:[--visual-viewport-vertical-padding:32px]"
   ],
   variants: {
     isBlurred: {
-      true: "backdrop-blur",
-      false: "bg-fg/15 dark:bg-fg/40"
+      true: "backdrop-blur bg-bg/15 dark:bg-bg/40"
     },
     isEntering: {
       true: "ease-out animate-in duration-300 fade-in"

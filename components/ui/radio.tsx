@@ -37,7 +37,7 @@ const radioStyles = tv({
   base: "size-4 shrink-0 rounded-full border bg-secondary transition",
   variants: {
     isSelected: {
-      false: "border-toggle",
+      false: "border-border",
       true: "border-[4.5px] border-primary"
     },
     isFocused: {

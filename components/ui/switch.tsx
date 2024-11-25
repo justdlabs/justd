@@ -8,7 +8,7 @@ import { tv, type VariantProps } from "tailwind-variants"
 
 const trackStyles = tv({
   base: [
-    "mr-2 h-5 w-8 bg-toggle cursor-pointer rounded-full border-2 border-transparent transition duration-200",
+    "mr-2 h-5 w-8 bg-muted cursor-pointer rounded-full border-2 border-transparent transition duration-200",
     "group-data-focused:ring-4",
     "group-data-focused:ring-4 group-data-invalid:ring-danger/20",
     "group-data-disabled:cursor-default group-data-disabled:opacity-50"

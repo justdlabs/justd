@@ -65,21 +65,22 @@ const choiceboxItemStyles = tv({
   extend: focusStyles,
   base: "rounded-lg cursor-pointer border p-4 [&_[slot=title]]:font-medium",
   variants: {
+    isHovered: {
+      true: "bg-secondary/50"
+    },
     isSelected: {
       true: [
-        "z-20 bg-accent-subtle data-hovered:bg-accent-subtle data-hovered:border-ring border-ring/75",
-        "[&_[slot=title]]:text-accent-subtle-fg",
-        "[&_[slot=description]]:text-accent-subtle-fg/70"
-      ]
+        "z-20 bg-subtle border-ring/75",
+        "[&_[slot=title]]:text-subtle-fg",
+        "[&_[slot=description]]:text-subtle-fg/70"
+      ],
+      false: ""
     },
     isFocused: {
       true: "border-ring/80"
     },
-    isHovered: {
-      true: "bg-secondary/50"
-    },
     isDisabled: {
-      true: "z-10 cursor-default opacity-80 [&_[slot=title]]:text-muted-fg forced-colors:text-[GrayText]"
+      true: "z-10 cursor-default opacity-50 [&_[slot=title]]:text-muted-fg forced-colors:text-[GrayText]"
     }
   }
 })
