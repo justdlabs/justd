@@ -11,6 +11,29 @@ If you don't see the release you're looking for, please run `npx justd-cli@lates
 ## 2024
 This all changes are made on the 2024 release.
 
+## Major Release 2024
+- Upgrade to Tailwind v4.
+- With Tailwind v4 adopting OKLCH for colors, we've aligned our format to match.
+
+Since TRAC is no longer in use, the components now utilize React Aria's native selector, such as data modifiers. Refer to the table below for detailed class changes.
+
+| Original      | Converted          |
+|---------------|--------------------|
+| disabled      | data-disabled      |
+| hover         | data-hovered       |
+| focus         | data-focused       |
+| focus-visible | data-focus-visible |
+| pressed       | data-pressed       |
+| selected      | data-selected      |
+| open          | data-open          |
+| checked       | data-checked       |
+| invalid       | data-invalid       |
+| expanded      | data-expanded      |
+| readonly      | data-readonly      |
+| empty         | data-empty         |
+| placeholder   | data-placeholder   |
+| orientation   | data-orientation   |
+
 ## November 22
 - Minor adjustments across all components to align with the latest version of `react-aria-components`.
 - New Component [ToggleGroup](/docs/components/buttons/toggle-group)
