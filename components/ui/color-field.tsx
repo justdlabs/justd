@@ -50,7 +50,7 @@ const ColorField = ({
             {prefix}
           </span>
         ) : null}
-        <div className="flex items-center">
+        <div className="flex w-full items-center">
           {value && (
             <span className="ml-2">
               {enableColorPicker ? (
