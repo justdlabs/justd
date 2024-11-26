@@ -20,7 +20,7 @@ export function DocWarningFramer() {
       .
       <div className="mt-6">
         <pre className="border inline-block border-warning/50 dark:border-warning/15 bg-bg/30 rounded-lg py-2 px-2.5">
-          <code>npm i framer-motion@12.0.0-alpha.1</code>
+          <code>npm i motion@12.0.0-alpha.2</code>
         </pre>
       </div>
     </Note>

@@ -20,7 +20,7 @@ const buttonStyles = tv({
   variants: {
     intent: {
       primary: [
-        "text-primary-fg [--button-bg:var(--color-primary)] [--button-border:var(--color-primary)] [--button-hover-overlay:var(--color-white)]/10",
+        "text-primary-fg [--button-bg:var(--color-primary)] [--button-border:var(--color-primary)] [--button-hover-overlay:var(--color-color-primary-fg)]/10",
         "[--button-icon:var(--color-primary-fg)]/60 data-pressed:[--button-icon:var(--color-primary-fg)]/80 data-hovered:[--button-icon:var(--color-primary-fg)]/80"
       ],
       secondary: [
@@ -44,9 +44,9 @@ const buttonStyles = tv({
         "dark:after:-inset-px dark:before:hidden dark:border-white/5 dark:bg-(--button-bg)"
       ],
       outline: [
-        "border-border data-hovered:border-secondary-fg/10 text-secondary-fg [--button-icon:var(--color-white)]/60",
+        "border-border data-hovered:border-secondary-fg/10 data-pressed:border-secondary-fg/10 text-secondary-fg [--button-icon:var(--color-secondary-fg)]/60",
         "data-hovered:[--button-icon:var(--color-fg)] data-hovered:bg-secondary/90",
-        "data-pressed:bg-secondary/90 data-pressed:[--button-icon:var(--color-fg)]"
+        "data-pressed:bg-secondary/90 data-pressed:[--button-icon:var(--color-secondary-fg)]"
       ],
       plain: [
         "border-transparent text-secondary-fg [--button-icon:var(--color-white)]/60",

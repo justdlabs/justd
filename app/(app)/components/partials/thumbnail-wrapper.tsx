@@ -21,6 +21,15 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
       <rect width="3.73" height="3.729" x="95" y="98" fill="#3F3F46" rx="1.865" />
     </svg>
   ),
+  "toggle-group": (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 300 200">
+      <rect width="93.237" height="27.971" x="152.763" y="86" fill="#71717A" rx="3.729" />
+      <rect width="42.889" height="3.729" x="177.937" y="98.121" fill="#fff" rx="1.865" />
+      <rect width="92.237" height="26.971" x="53.5" y="86.5" fill="#fff" rx="5.094" />
+      <rect width="92.237" height="26.971" x="53.5" y="86.5" stroke="#D4D4D8" rx="5.094" />
+      <rect width="42.889" height="3.729" x="78.174" y="98.121" fill="#52525B" rx="1.865" />
+    </svg>
+  ),
   toggle: (
     <svg
       xmlns="http://www.w3.org/2000/svg"

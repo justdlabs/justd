@@ -176,7 +176,7 @@ const Checkbox = ({ className, children, ...props }: MenuItemProps) => (
 )
 
 const Radio = ({ className, children, ...props }: MenuItemProps) => (
-  <Item className={cn("relative", className)} {...props}>
+  <Item className={cn("relative ", className)} {...props}>
     {(values) => (
       <>
         {typeof children === "function" ? children(values) : children}
@@ -184,9 +184,9 @@ const Radio = ({ className, children, ...props }: MenuItemProps) => (
         {values.isSelected && (
           <span
             data-slot="menu-radio"
-            className="absolute right-3 flex items-center animate-in justify-center"
+            className="absolute right-3 **:data-[slot=indicator]:size-2.5 **:data-[slot=indicator]:shrink-0 flex items-center animate-in justify-center"
           >
-            <IconBulletFill />
+            <IconBulletFill data-slot="indicator" />
           </span>
         )}
       </>

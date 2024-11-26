@@ -2,8 +2,7 @@
 
 import { cn } from "@/resources/lib/utils"
 import { IconChevronLgLeft, IconChevronLgRight } from "justd-icons"
-import { Link } from "ui"
-import { buttonStyles } from "ui"
+import { buttonStyles, Link } from "ui"
 
 interface Doc {
   order: number
