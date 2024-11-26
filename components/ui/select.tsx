@@ -18,7 +18,7 @@ import { DropdownItem, DropdownItemDetails, DropdownSection } from "./dropdown"
 import { Description, FieldError, Label } from "./field"
 import { ListBox } from "./list-box"
 import { Popover } from "./popover"
-import { cr, ctr, focusStyles } from "./primitive"
+import { composeTailwindRenderProps, cr, focusStyles } from "./primitive"
 
 const selectTriggerStyles = tv({
   extend: focusStyles,
@@ -51,7 +51,10 @@ const Select = <T extends object>({
   ...props
 }: SelectProps<T>) => {
   return (
-    <SelectPrimitive {...props} className={ctr(className, "group flex w-full flex-col gap-y-1.5")}>
+    <SelectPrimitive
+      {...props}
+      className={composeTailwindRenderProps(className, "group flex w-full flex-col gap-y-1.5")}
+    >
       {label && <Label>{label}</Label>}
       <>{children as React.ReactNode}</>
       {description && <Description>{description}</Description>}

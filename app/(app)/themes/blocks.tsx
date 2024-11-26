@@ -68,21 +68,9 @@ export function Blocks() {
               aria-label="Select items"
               selectionMode="multiple"
             >
-              <Choicebox.Item
-                id="basic"
-                title="Basic"
-                description="Just the essentials to get started."
-              />
-              <Choicebox.Item
-                id="standard"
-                title="Standard"
-                description="A step up with more features and support."
-              />
-              <Choicebox.Item
-                id="premium"
-                title="Premium"
-                description="Advanced options for growing needs."
-              />
+              <Choicebox.Item id="basic" title="Basic" description="Just the essentials to get started." />
+              <Choicebox.Item id="standard" title="Standard" description="A step up with more features and support." />
+              <Choicebox.Item id="premium" title="Premium" description="Advanced options for growing needs." />
             </Choicebox>
           </div>
         </div>

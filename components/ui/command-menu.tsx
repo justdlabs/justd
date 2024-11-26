@@ -63,8 +63,7 @@ const commandStyles = tv({
   }
 })
 
-const { command, empty, section, list, item, closeButton, modal, input, kbdKeyboard, description } =
-  commandStyles()
+const { command, empty, section, list, item, closeButton, modal, input, kbdKeyboard, description } = commandStyles()
 
 interface CommandMenuContextProps {
   hideSearchIndicator?: boolean
@@ -97,10 +96,7 @@ const modalOverlay = tv({
     }
   }
 })
-interface CommandMenuProps
-  extends ModalOverlayProps,
-    CommandMenuRootProps,
-    CommandMenuContextProps {
+interface CommandMenuProps extends ModalOverlayProps, CommandMenuRootProps, CommandMenuContextProps {
   children: React.ReactNode
   value?: string
   messageOnEmpty?: boolean | string
@@ -161,23 +157,22 @@ const CommandMenu = ({
 
 type CommandMenuInputProps = React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input>
 
-const CommandMenuInput = React.forwardRef<
-  React.ElementRef<typeof CommandPrimitive.Input>,
-  CommandMenuInputProps
->(({ className, ...props }, ref) => {
-  const { hideSearchIndicator } = React.useContext(CommandMenuContext)
-  return (
-    <div className="flex border-b items-center px-3">
-      {!hideSearchIndicator && <IconSearch className="mr-2 size-5 shrink-0 opacity-50" />}
-      <CommandPrimitive.Input
-        autoFocus
-        ref={ref}
-        className={input({ className: hideSearchIndicator ? "pl-1" : className })}
-        {...props}
-      />
-    </div>
-  )
-})
+const CommandMenuInput = React.forwardRef<React.ElementRef<typeof CommandPrimitive.Input>, CommandMenuInputProps>(
+  ({ className, ...props }, ref) => {
+    const { hideSearchIndicator } = React.useContext(CommandMenuContext)
+    return (
+      <div className="flex border-b items-center px-3">
+        {!hideSearchIndicator && <IconSearch className="mr-2 size-5 shrink-0 opacity-50" />}
+        <CommandPrimitive.Input
+          autoFocus
+          ref={ref}
+          className={input({ className: hideSearchIndicator ? "pl-1" : className })}
+          {...props}
+        />
+      </div>
+    )
+  }
+)
 
 CommandMenuInput.displayName = CommandPrimitive.Input.displayName
 
@@ -188,9 +183,7 @@ const CommandMenuList = ({ className, ...props }: CommandMenuListProps) => {
   return (
     <CommandPrimitive.List className={list({ className })} {...props}>
       {messageOnEmpty !== false && (
-        <CommandMenuEmpty>
-          {typeof messageOnEmpty === "string" ? messageOnEmpty : "No results found."}
-        </CommandMenuEmpty>
+        <CommandMenuEmpty>{typeof messageOnEmpty === "string" ? messageOnEmpty : "No results found."}</CommandMenuEmpty>
       )}
       {props.children}
     </CommandPrimitive.List>

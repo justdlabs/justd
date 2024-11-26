@@ -24,8 +24,7 @@ const resources = [
     icon: IconBrandLaravel,
     name: "Laravel Starter Kit",
     url: "https://github.com/justdlabs/inertia.ts",
-    description:
-      "A Laravel starter kit with Justd installed. It includes a authentication system out of the box.",
+    description: "A Laravel starter kit with Justd installed. It includes a authentication system out of the box.",
     label: "Starter Kit"
   },
   {
@@ -114,8 +113,8 @@ export function Resources() {
               <Card.Header>
                 <Card.Title level={3}>Icons</Card.Title>
                 <Card.Description className="line-clamp-2">
-                  A library of beautifully crafted react icons, perfect for enhancing the visual
-                  appeal and user experience of your web applications.
+                  A library of beautifully crafted react icons, perfect for enhancing the visual appeal and user
+                  experience of your web applications.
                 </Card.Description>
               </Card.Header>
             </div>
@@ -156,8 +155,8 @@ export function Resources() {
               <Card.Header>
                 <Card.Title level={3}>Support This Project</Card.Title>
                 <Card.Description className="line-clamp-2">
-                  Join us in building something impactful. Your contributions, whether sharing,
-                  coding, or spreading the word, help us grow and make a difference.
+                  Join us in building something impactful. Your contributions, whether sharing, coding, or spreading the
+                  word, help us grow and make a difference.
                 </Card.Description>
               </Card.Header>
             </div>
@@ -184,8 +183,8 @@ export function Resources() {
               <Card.Header>
                 <Card.Title level={3}>Templates</Card.Title>
                 <Card.Description className="line-clamp-2">
-                  Looking for beautifully crafted templates to elevate your project? Browse through
-                  a collection of designs tailored to meet your needs.
+                  Looking for beautifully crafted templates to elevate your project? Browse through a collection of
+                  designs tailored to meet your needs.
                 </Card.Description>
               </Card.Header>
             </div>

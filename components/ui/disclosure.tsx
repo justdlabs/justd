@@ -27,22 +27,14 @@ interface DisclosureGroupProps extends DisclosureGroupPrimitiveProps {
 
 const DisclosureGroupContext = React.createContext<DisclosureGroupProps>({})
 
-const DisclosureGroup = ({
-  children,
-  hideIndicator,
-  hideBorder,
-  className,
-  ...props
-}: DisclosureGroupProps) => {
+const DisclosureGroup = ({ children, hideIndicator, hideBorder, className, ...props }: DisclosureGroupProps) => {
   return (
     <DisclosureGroupPrimitive
       {...props}
       className={({ isDisabled }) =>
         cn([
           isDisabled ? "cursor-not-allowed opacity-75" : "cursor-pointer",
-          hideBorder
-            ? "**:data-[slot=accordion-item]:border-none"
-            : "**:data-[slot=accordion-item]:border-b"
+          hideBorder ? "**:data-[slot=accordion-item]:border-none" : "**:data-[slot=accordion-item]:border-b"
         ])
       }
     >
@@ -81,9 +73,7 @@ const Disclosure = ({ className, ...props }: DisclosureProps) => {
     <DisclosurePrimitive
       data-slot="accordion-item"
       {...props}
-      className={cr(className, (className, renderProps) =>
-        disclosureStyles({ ...renderProps, className })
-      )}
+      className={cr(className, (className, renderProps) => disclosureStyles({ ...renderProps, className }))}
     >
       {props.children}
     </DisclosurePrimitive>
@@ -130,9 +120,7 @@ const Trigger = ({ className, ...props }: ButtonProps) => {
           {typeof props.children === "function" ? props.children(values) : props.children}
           {!hideIndicator && (
             <IconChevronLeft
-              className={cn(
-                "ml-auto transition shrink-0 duration-300 group-aria-expanded:-rotate-90"
-              )}
+              className={cn("ml-auto transition shrink-0 duration-300 group-aria-expanded:-rotate-90")}
             />
           )}
         </>

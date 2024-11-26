@@ -19,9 +19,7 @@ export default function TabsCollectionsDemo() {
         {(item) => <Tabs.Tab>{item.title}</Tabs.Tab>}
       </Tabs.List>
 
-      <Collection items={tabs}>
-        {(item) => <Tabs.Panel key={item.id}>{item.content}</Tabs.Panel>}
-      </Collection>
+      <Collection items={tabs}>{(item) => <Tabs.Panel key={item.id}>{item.content}</Tabs.Panel>}</Collection>
     </Tabs>
   )
 }

@@ -19,8 +19,7 @@ const noteStyles = tv({
         "dark:[&_a]:text-secondary-fg dark:**:data-[slot=icon]:text-secondary-fg"
       ],
       info: ["border-info/20 text-info bg-info/5 dark:bg-info/10 leading-4"],
-      warning:
-        "border-warning/50 dark:border-warning/25 bg-warning/5 text-warning-fg dark:text-warning",
+      warning: "border-warning/50 dark:border-warning/25 bg-warning/5 text-warning-fg dark:text-warning",
       danger: "border-danger/30 bg-danger/5 dark:bg-danger/10 text-danger",
       success: [
         "border-emerald-500/20 [&_a]:text-emerald-600 text-emerald-900 bg-emerald-50/50 **:data-[slot=icon]:text-emerald-600 leading-4",
@@ -30,9 +29,7 @@ const noteStyles = tv({
   }
 })
 
-interface NoteProps
-  extends React.HtmlHTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof noteStyles> {
+interface NoteProps extends React.HtmlHTMLAttributes<HTMLDivElement>, VariantProps<typeof noteStyles> {
   hideIndicator?: boolean
 }
 

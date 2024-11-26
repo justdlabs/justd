@@ -12,7 +12,7 @@ const card = tv({
     ],
     header: "flex xlw32 flex-col space-y-1.5 px-6 py-5",
     title: "sm:leading-6 leading-none klda font-semibold tracking-tight",
-    description: "text-base dl2 text-muted-fg sm:text-sm",
+    description: "dl2 text-muted-fg text-sm",
     content:
       "yahnba px-6 pb-6 has-[.t-hea]:bg-secondary/40 has-[table]:p-0 [&:has(table)+.ccvgs8x]:py-5 [&:has(table)]:border-t [&_.t-cel]:px-6 [&_.t-col]:px-6",
     footer: "ccvgs8x flex items-center p-6 pt-0"
@@ -31,14 +31,7 @@ interface HeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   withoutPadding?: boolean
 }
 
-const Header = ({
-  withoutPadding = false,
-  className,
-  title,
-  description,
-  children,
-  ...props
-}: HeaderProps) => (
+const Header = ({ withoutPadding = false, className, title, description, children, ...props }: HeaderProps) => (
   <div className={header({ className: cn(className, withoutPadding && "px-0 pt-0") })} {...props}>
     {title && <Title>{title}</Title>}
     {description && <Description>{description}</Description>}

@@ -112,11 +112,7 @@ const renderHierarchy = (node: HierarchyNode, defaultValues: string[]) => {
                     )}
                   </AsideLink>
                 ) : (
-                  <Disclosure
-                    className={({ isExpanded }) => twJoin(isExpanded && "pb-0")}
-                    key={subKey}
-                    id={subKey}
-                  >
+                  <Disclosure className={({ isExpanded }) => twJoin(isExpanded && "pb-0")} key={subKey} id={subKey}>
                     {/* Trigger components: buttons, controls, etc. */}
                     <Trigger className="[--trigger-padding-left:2.2rem] pl-(--trigger-padding-left) pr-1">
                       {goodTitle(subKey)}

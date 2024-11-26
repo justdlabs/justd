@@ -16,8 +16,7 @@ const linkStyles = tv({
   variants: {
     intent: {
       unstyled: "text-current",
-      primary:
-        "text-primarydata-hovered:text-primary/80 forced-colors:data-disabled:text-[GrayText]",
+      primary: "text-primarydata-hovered:text-primary/80 forced-colors:data-disabled:text-[GrayText]",
       danger: "text-dangerdata-hovered:text-danger/80 forced-colors:data-disabled:text-[GrayText]",
       "lad/primary":
         "text-fgdata-hovered:text-primary dark:hover:text-primary/80 forced-colors:data-disabled:text-[GrayText]",
@@ -41,9 +40,7 @@ const Link = ({ className, ...props }: LinkProps) => {
         linkStyles({ ...renderProps, intent: props.intent, className })
       )}
     >
-      {(values) => (
-        <>{typeof props.children === "function" ? props.children(values) : props.children}</>
-      )}
+      {(values) => <>{typeof props.children === "function" ? props.children(values) : props.children}</>}
     </LinkPrimitive>
   )
 }

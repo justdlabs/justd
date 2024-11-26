@@ -114,8 +114,7 @@ const navStyles = tv({
       true: "sticky z-40 top-0"
     },
     intent: {
-      floating:
-        "bg-tertiary w-full max-w-7xl 2xl:max-w-(--breakpoint-2xl) mx-auto shadow-xs border rounded-xl sm:px-4",
+      floating: "bg-tertiary w-full max-w-7xl 2xl:max-w-(--breakpoint-2xl) mx-auto shadow-xs border rounded-xl sm:px-4",
       navbar: "bg-tertiary shadow-xs border-b sm:px-6",
       inset: [
         "bg-secondary mx-auto dark:bg-bg sm:px-6",
@@ -187,11 +186,7 @@ const Section = ({ className, ...props }: React.ComponentProps<"div">) => {
     <LayoutGroup id={id}>
       <div
         data-slot="navbar-section"
-        className={cn(
-          "flex",
-          isCompact ? "flex-col gap-y-4" : "flex-row gap-x-3 items-center",
-          className
-        )}
+        className={cn("flex", isCompact ? "flex-col gap-y-4" : "flex-row gap-x-3 items-center", className)}
         {...props}
       >
         {props.children}
@@ -224,9 +219,7 @@ const Item = ({ className, isCurrent, ...props }: ItemProps) => {
     <Link
       slot="navbar-item"
       aria-current={isCurrent ? "page" : undefined}
-      className={cr(className, (className, ...renderProps) =>
-        navItemStyles({ ...renderProps, isCurrent, className })
-      )}
+      className={cr(className, (className, ...renderProps) => navItemStyles({ ...renderProps, isCurrent, className }))}
       {...props}
     >
       {(values) => (
@@ -282,8 +275,7 @@ const insetStyles = tv({
   variants: {
     intent: {
       floating: "",
-      inset:
-        "bg-tertiary lg:rounded-lg lg:shadow-xs lg:ring-1 lg:ring-dark/5 lg:dark:ring-light/10",
+      inset: "bg-tertiary lg:rounded-lg lg:shadow-xs lg:ring-1 lg:ring-dark/5 lg:dark:ring-light/10",
       navbar: ""
     }
   }
@@ -292,10 +284,7 @@ const insetStyles = tv({
 const Inset = ({ className, ...props }: React.ComponentProps<"div">) => {
   const { intent } = useNavbar()
   return (
-    <main
-      data-intent={intent}
-      className={cn("flex flex-1 flex-col", intent === "inset" && "pb-2 lg:px-2", className)}
-    >
+    <main data-intent={intent} className={cn("flex flex-1 flex-col", intent === "inset" && "pb-2 lg:px-2", className)}>
       <div className={insetStyles({ intent, className })}>{props.children}</div>
     </main>
   )

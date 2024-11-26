@@ -28,10 +28,7 @@ const Popover = ({ children, ...props }: DialogTriggerProps) => {
 }
 
 const Title = ({ level = 2, className, ...props }: React.ComponentProps<typeof Dialog.Title>) => (
-  <Dialog.Title
-    className={cn("sm:leading-none", level === 2 && "sm:text-lg", className)}
-    {...props}
-  />
+  <Dialog.Title className={cn("sm:leading-none", level === 2 && "sm:text-lg", className)} {...props} />
 )
 
 const Header = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
@@ -48,9 +45,10 @@ const Body = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => 
 
 const popoverContentStyles = tv({
   base: [
-    "max-w-xs transition-transform min-w-80 p-4 rounded-xl border bg-overlay bg-clip-padding text-overlay-fg shadow-xs dark:backdrop-saturate-200 lg:text-sm sm:max-w-3xl forced-colors:bg-[Canvas] [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin]"
+    "max-w-xs transition-transform p-4 rounded-xl border bg-overlay bg-clip-padding text-overlay-fg shadow-xs dark:backdrop-saturate-200 lg:text-sm sm:max-w-3xl forced-colors:bg-[Canvas] [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin]"
   ],
   variants: {
+    isPicker: { true: "max-h-72 min-w-(--trigger-width) overflow-y-auto p-0", false: "min-w-80" },
     isMenu: {
       true: {
         true: "p-0"
@@ -107,13 +105,7 @@ interface PopoverProps
   className?: string | ((values: { defaultClassName?: string }) => string)
 }
 
-const Content = ({
-  respectScreen = true,
-  children,
-  showArrow = true,
-  className,
-  ...props
-}: PopoverProps) => {
+const Content = ({ respectScreen = true, children, showArrow = true, className, ...props }: PopoverProps) => {
   const isMobile = useMediaQuery("(max-width: 600px)")
   const popoverContext = useSlottedContext(PopoverContext)!
   const isMenuTrigger = popoverContext?.trigger === "MenuTrigger"
@@ -130,15 +122,8 @@ const Content = ({
       {...props}
       isDismissable
     >
-      <Modal
-        className={cr(className, (className, renderProps) =>
-          drawerStyles({ ...renderProps, isMenu, className })
-        )}
-      >
-        <Dialog
-          aria-label={isMenu ? "Menu" : props["aria-label"]}
-          className="touch-none data-focused:outline-hidden"
-        >
+      <Modal className={cr(className, (className, renderProps) => drawerStyles({ ...renderProps, isMenu, className }))}>
+        <Dialog aria-label={isMenu ? "Menu" : props["aria-label"]} className="touch-none data-focused:outline-hidden">
           {children}
         </Dialog>
       </Modal>
@@ -175,10 +160,11 @@ const Picker = ({ children, className, ...props }: PopoverProps) => {
   return (
     <PopoverPrimitive
       {...props}
-      className={cr(className as PopoverPrimitiveProps["className"], (className, renderProps) =>
+      className={cr(className, (className, renderProps) =>
         popoverContentStyles({
           ...renderProps,
-          className: cn("max-h-72 min-w-(--trigger-width) overflow-y-auto p-0", className)
+          isPicker: true,
+          class: cn("max-h-72 min-w-(--trigger-width) overflow-y-auto p-0", className)
         })
       )}
     >

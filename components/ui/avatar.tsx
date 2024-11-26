@@ -10,9 +10,7 @@ const avatarGroupStyles = tv({
   base: "flex items-center justify-center -space-x-2 **:data-[slot=avatar]:ring-2 **:data-[slot=avatar]:ring-bg"
 })
 
-interface AvatarGroupProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof avatarGroupStyles> {
+interface AvatarGroupProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof avatarGroupStyles> {
   children: React.ReactNode
 }
 
@@ -33,8 +31,7 @@ const avatarStyles = tv({
       large: "size-10"
     },
     shape: {
-      square:
-        "rounded-(--avatar-radius) *:rounded-(--avatar-radius) **:data-[slot=badge]:rounded-full",
+      square: "rounded-(--avatar-radius) *:rounded-(--avatar-radius) **:data-[slot=badge]:rounded-full",
       circle: "rounded-full *:rounded-full"
     }
   },
@@ -47,9 +44,7 @@ const avatarStyles = tv({
 
 type Status = "away" | "online" | "offline" | "dnd" | "idle"
 
-interface AvatarProps
-  extends React.ComponentPropsWithoutRef<"span">,
-    VariantProps<typeof avatarStyles> {
+interface AvatarProps extends React.ComponentPropsWithoutRef<"span">, VariantProps<typeof avatarStyles> {
   src?: string | null
   initials?: string
   alt?: string
@@ -84,14 +79,7 @@ const Avatar = ({
           aria-hidden={alt ? undefined : "true"}
         >
           {alt && <title>{alt}</title>}
-          <text
-            x="50%"
-            y="50%"
-            alignmentBaseline="middle"
-            dominantBaseline="middle"
-            textAnchor="middle"
-            dy=".125em"
-          >
+          <text x="50%" y="50%" alignmentBaseline="middle" dominantBaseline="middle" textAnchor="middle" dy=".125em">
             {initials}
           </text>
         </svg>
@@ -135,12 +123,7 @@ const avatarBadgeStyles = tv({
 
 const AvatarBadge = ({ size, className, status, ...props }: AvatarBadgeProps) => {
   return (
-    <span
-      data-slot="badge"
-      {...props}
-      aria-hidden
-      className={avatarBadgeStyles({ size, status, className })}
-    >
+    <span data-slot="badge" {...props} aria-hidden className={avatarBadgeStyles({ size, status, className })}>
       <VisuallyHidden>{status}</VisuallyHidden>
     </span>
   )

@@ -14,8 +14,7 @@ const toolbarStyles = tv({
   base: "flex gap-2 group",
   variants: {
     orientation: {
-      horizontal:
-        "flex-row [&::-webkit-scrollbar]:hidden [scrollbar-width:none] [-ms-overflow-style:none]",
+      horizontal: "flex-row [&::-webkit-scrollbar]:hidden [scrollbar-width:none] [-ms-overflow-style:none]",
       vertical: "flex-col items-start"
     }
   }
@@ -43,19 +42,14 @@ const Toolbar = ({ orientation = "horizontal", ...props }: ToolbarProps) => {
       <ToolbarPrimitive
         orientation={orientation}
         {...props}
-        className={cr(props.className, (className, renderProps) =>
-          toolbarStyles({ ...renderProps, className })
-        )}
+        className={cr(props.className, (className, renderProps) => toolbarStyles({ ...renderProps, className }))}
       />
     </ToolbarContext.Provider>
   )
 }
 
 const toolbarGroupStyles = tv({
-  base: [
-    "flex gap-2",
-    "group-data-[orientation=vertical]:flex-col group-data-[orientation=vertical]:items-start"
-  ]
+  base: ["flex gap-2", "group-data-[orientation=vertical]:flex-col group-data-[orientation=vertical]:items-start"]
 })
 
 const ToolbarGroupContext = React.createContext<{ isDisabled?: boolean }>({})

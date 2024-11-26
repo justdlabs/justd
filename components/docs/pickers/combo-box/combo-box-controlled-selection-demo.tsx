@@ -9,12 +9,7 @@ export default function ComboBoxControlledSelectionDemo() {
   const [country, setCountry] = React.useState<Key | null>(null)
   return (
     <>
-      <ComboBox
-        label="Country"
-        placeholder="Country"
-        onSelectionChange={setCountry}
-        selectedKey={country}
-      >
+      <ComboBox label="Country" placeholder="Country" onSelectionChange={setCountry} selectedKey={country}>
         <ComboBox.Input />
         <ComboBox.List items={countries}>
           {(item) => <ComboBox.Option id={item.id}>{item.name}</ComboBox.Option>}

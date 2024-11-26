@@ -8,7 +8,7 @@ import {
   IconBrandCopilot,
   IconBrandGithub,
   IconBuilding,
-  IconChart,
+  IconChartBar,
   IconCodeBrackets,
   IconFilter,
   IconGear,
@@ -35,16 +35,12 @@ export default function SheetMenuDemo() {
         </Modal.Header>
         <Modal.Body>
           <div className="space-y-4">
-            <TextField
-              prefix={<IconBrandGithub />}
-              label="Status"
-              placeholder="What's your status?"
-            />
+            <TextField prefix={<IconBrandGithub />} label="Status" placeholder="What's your status?" />
             <Group>
               <Checkbox>Busy</Checkbox>
               <Description>
-                When others mention you, assign you, or request your review, GitHub will let them
-                know that you have limited availability.
+                When others mention you, assign you, or request your review, GitHub will let them know that you have
+                limited availability.
               </Description>
             </Group>
             <Select label="Clear Status">
@@ -105,7 +101,7 @@ export default function SheetMenuDemo() {
                   <IconBrandCopilot /> Your Copilot
                 </Menu.Item>
                 <Menu.Item>
-                  <IconChart /> Your projects
+                  <IconChartBar /> Your projects
                 </Menu.Item>
                 <Menu.Item>
                   <IconStar /> Your stars

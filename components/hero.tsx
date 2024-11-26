@@ -37,12 +37,7 @@ export function Hero() {
             <path d="M.5 200V.5H200" fill="none" />
           </pattern>
         </defs>
-        <rect
-          fill="url(#0787a7c5-978c-4f66-83c7-11c213f99cb7)"
-          width="100%"
-          height="100%"
-          strokeWidth={0}
-        />
+        <rect fill="url(#0787a7c5-978c-4f66-83c7-11c213f99cb7)" width="100%" height="100%" strokeWidth={0} />
       </svg>
       <div className="pt-10 pb-6 sm:py-8 lg:py-10 xl:py-20 2xl:py-24 border-b">
         <Container>
@@ -54,12 +49,10 @@ export function Hero() {
                 size: "extra-small",
                 appearance: "outline",
                 shape: "circle",
-                className:
-                  "**:data-[slot=icon]:text-warning group bg-white text-zinc-900 hover:bg-zinc-100"
+                className: "**:data-[slot=icon]:text-warning group bg-white text-zinc-900 hover:bg-zinc-100"
               })}
             >
-              <IconStar className="group-hover:text-yellow-500 group-hover:fill-yellow-500" /> Stars
-              sustain energy
+              <IconStar className="group-hover:text-yellow-500 group-hover:fill-yellow-500" /> Stars sustain energy
             </Link>
             <h1 className="max-w-xl mt-4 text-2xl font-bold lg:text-4xl mb-4 lg:mb-6 tracking-tight">
               Accessible React UI Components. Copy, Customize, and Make Them Yours.
@@ -68,12 +61,10 @@ export function Hero() {
               slot="description"
               className="text-base [&_strong]:font-medium lg:text-xl max-w-2xl block leading-relaxed md:leading-loose text-muted-fg"
             >
-              <strong className="text-fg">{siteConfig.name}</strong> is a chill set of React
-              components, built on top of <strong className="text-fg">React Aria Components</strong>
-              , all about keeping the web accessible. Easy to customize and just copy & paste into
-              your React projects. Plus, it includes{" "}
-              <strong className="text-fg">Tailwind CSS</strong> for sleek styling right out of the
-              box.
+              <strong className="text-fg">{siteConfig.name}</strong> is a chill set of React components, built on top of{" "}
+              <strong className="text-fg">React Aria Components</strong>, all about keeping the web accessible. Easy to
+              customize and just copy & paste into your React projects. Plus, it includes{" "}
+              <strong className="text-fg">Tailwind CSS</strong> for sleek styling right out of the box.
             </Text>
           </Header>
           <div className="mt-6 space-x-2">

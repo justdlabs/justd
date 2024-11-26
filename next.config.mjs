@@ -17,6 +17,7 @@ export default {
   },
   async redirects() {
     return [
+
       {
         source: "/d/:path*",
         destination: "/:path*",
@@ -41,6 +42,19 @@ export default {
         source: "/accordion",
         destination: "/docs/components/navigation/disclosure-group",
         permanent: false
+      },
+      {
+        source: "/charts",
+        destination: "/docs/components/charts/setup",
+        permanent: true
+      },      {
+        source: "/chart",
+        destination: "/docs/components/charts/setup",
+        permanent: true
+      },  {
+        source: "/docs/components/surfaces/chart",
+        destination: "/docs/components/charts/setup",
+        permanent: true
       },
       {
         source: "/aside",

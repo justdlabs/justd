@@ -11,7 +11,7 @@ import { tv } from "tailwind-variants"
 import { Button } from "./button"
 import { Description, FieldError, FieldGroup, Input, Label } from "./field"
 import { Loader } from "./loader"
-import { ctr } from "./primitive"
+import { composeTailwindRenderProps } from "./primitive"
 
 const searchFieldStyles = tv({
   slots: {
@@ -48,7 +48,7 @@ const SearchField = ({
     <SearchFieldPrimitive
       aria-label={placeholder ?? props["aria-label"] ?? "Search..."}
       {...props}
-      className={ctr(className, base())}
+      className={composeTailwindRenderProps(className, base())}
     >
       {label && <Label>{label}</Label>}
       <FieldGroup>

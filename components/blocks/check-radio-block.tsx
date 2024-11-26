@@ -9,11 +9,7 @@ export function CheckRadioBlock() {
   const [selectedRadio, setSelectedRadio] = useState("lowSecurity")
   return (
     <CardBlock>
-      <RadioGroup
-        aria-labelledby="security-settings"
-        value={selectedRadio}
-        onChange={setSelectedRadio}
-      >
+      <RadioGroup aria-labelledby="security-settings" value={selectedRadio} onChange={setSelectedRadio}>
         <h2 id="security-settings" className="sr-only">
           Security Settings
         </h2>

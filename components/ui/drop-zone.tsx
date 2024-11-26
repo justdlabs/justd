@@ -19,9 +19,7 @@ const dropZoneStyles = tv({
 
 const DropZone = ({ className, ...props }: DropZoneProps) => (
   <DropPrimitiveZone
-    className={cr(className, (className, renderProps) =>
-      dropZoneStyles({ ...renderProps, className })
-    )}
+    className={cr(className, (className, renderProps) => dropZoneStyles({ ...renderProps, className }))}
     {...props}
   />
 )

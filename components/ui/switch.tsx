@@ -1,9 +1,6 @@
 "use client"
 
-import {
-  Switch as SwitchPrimitive,
-  type SwitchProps as SwitchPrimitiveProps
-} from "react-aria-components"
+import { Switch as SwitchPrimitive, type SwitchProps as SwitchPrimitiveProps } from "react-aria-components"
 import { tv, type VariantProps } from "tailwind-variants"
 
 const trackStyles = tv({
@@ -42,9 +39,7 @@ const Switch = ({ children, intent, className, ...props }: SwitchProps) => {
   return (
     <SwitchPrimitive
       {...props}
-      className={(values) =>
-        base({ className: typeof className === "function" ? className(values) : className })
-      }
+      className={(values) => base({ className: typeof className === "function" ? className(values) : className })}
       style={{ WebkitTapHighlightColor: "transparent" }}
     >
       {(values) => (

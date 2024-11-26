@@ -22,10 +22,7 @@ export function SourceCode({ title, message, ext = "tsx", toShow, ...props }: So
     if (componentData) {
       setCodeString({
         name: toShow,
-        code: componentData.raw.replace(
-          /export default function \w+\(\) \{/g,
-          "export default function App() {"
-        )
+        code: componentData.raw.replace(/export default function \w+\(\) \{/g, "export default function App() {")
       })
     } else {
       setCodeString(null)
@@ -36,9 +33,7 @@ export function SourceCode({ title, message, ext = "tsx", toShow, ...props }: So
     return (
       <section {...props} className="my-6 not-prose">
         <p className="mb-4 -mt-2">
-          {message
-            ? message
-            : "And next, you can copy the code below and paste it into your component folder."}
+          {message ? message : "And next, you can copy the code below and paste it into your component folder."}
         </p>
         {title && <figcaption data-rehype-pretty-code-title="">{title}</figcaption>}
         <Code

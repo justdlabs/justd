@@ -10,36 +10,50 @@
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
     --font-mono: var(--font-mono), ui-sans-serif, system-ui, sans-serif,
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-    --color-light: var(--light);
-    --color-dark: var(--dark);
+
     --color-border: var(--border);
     --color-input: var(--input);
+
     --color-ring: var(--ring);
-    --color-toggle: var(--toggle);
+
     --color-bg: var(--bg);
     --color-fg: var(--fg);
+
     --color-primary: var(--primary);
     --color-primary-fg: var(--primary-fg);
+
     --color-secondary: var(--secondary);
     --color-secondary-fg: var(--secondary-fg);
-    --color-tertiary: var(--tertiary);
-    --color-tertiary-fg: var(--tertiary-fg);
+
     --color-accent: var(--accent);
     --color-accent-fg: var(--accent-fg);
+
     --color-subtle: var(--subtle);
     --color-subtle-fg: var(--subtle-fg);
+
     --color-success: var(--success);
     --color-success-fg: var(--success-fg);
+
     --color-info: var(--info);
     --color-info-fg: var(--info-fg);
+
     --color-danger: var(--danger);
     --color-danger-fg: var(--danger-fg);
+
     --color-warning: var(--warning);
     --color-warning-fg: var(--warning-fg);
+
     --color-muted: var(--muted);
     --color-muted-fg: var(--muted-fg);
+
     --color-overlay: var(--overlay);
     --color-overlay-fg: var(--overlay-fg);
+
+    --color-chart-1: var(--chart-1);
+    --color-chart-2: var(--chart-2);
+    --color-chart-3: var(--chart-3);
+    --color-chart-4: var(--chart-4);
+    --color-chart-5: var(--chart-5);
 
     --animate-blink: blink 1.4s both infinite;
 
@@ -104,11 +118,11 @@
         --input: oklch(0.89 0.004 286.32);
         --ring: oklch(0.546 0.245 262.881);
 
-        --primary-chart: oklch(0.6065 0.2265 260.04);
-        --secondary-chart: oklch(0.7407 0.1418 253.28);
-        --tertiary-chart: oklch(0.6621 0.1848 258.7);
-        --highlight-chart: oklch(0.822 0.097 249.1);
-        --accent-chart: oklch(0.8937 0.057 251.7);
+        --chart-1: oklch(0.546 0.245 262.881);
+        --chart-2: oklch(0.707 0.165 254.624);
+        --chart-3: oklch(0.623 0.214 259.815);
+        --chart-4: oklch(0.809 0.105 251.813);
+        --chart-5: oklch(0.932 0.032 255.585);
     }
 
     .dark {

@@ -19,11 +19,9 @@ interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   intent?: "constrained" | "padded-content"
 }
 
-const Container = React.forwardRef<HTMLDivElement, ContainerProps>(
-  ({ className, intent, ...props }, ref) => (
-    <div className={containerStyles({ intent, className })} {...props} ref={ref} />
-  )
-)
+const Container = React.forwardRef<HTMLDivElement, ContainerProps>(({ className, intent, ...props }, ref) => (
+  <div className={containerStyles({ intent, className })} {...props} ref={ref} />
+))
 
 Container.displayName = "Container"
 

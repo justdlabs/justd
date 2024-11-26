@@ -88,12 +88,7 @@ const isBrightColor = (color: string | HSBColor): boolean => {
         return false
       }
     }
-  } else if (
-    typeof color === "object" &&
-    "hue" in color &&
-    "saturation" in color &&
-    "brightness" in color
-  ) {
+  } else if (typeof color === "object" && "hue" in color && "saturation" in color && "brightness" in color) {
     const rgb = hsbToRgb(color.hue, color.saturation, color.brightness)
     r = rgb.r
     g = rgb.g
@@ -115,11 +110,7 @@ const ColorSwatch = ({ className, ...props }: ColorSwatchProps) => {
     <ColorSwatchPrimitive
       data-slot="color-swatch"
       aria-label={props["aria-label"] ?? "Color swatch"}
-      className={cn(
-        "size-8 cs rounded-md shrink-0",
-        needRing && "ring-1 ring-inset ring-fg/10",
-        className
-      )}
+      className={cn("size-8 cs rounded-md shrink-0", needRing && "ring-1 ring-inset ring-fg/10", className)}
       {...props}
     />
   )

@@ -13,10 +13,7 @@ export default function Page() {
     <div className="space-y-6 lg:space-y-10">
       <h1 className="font-semibold text-2xl mb-2 lg:mb-4">Overview</h1>
 
-      <Grid
-        className="divide-y lg:divide-y-0 lg:divide-x lg:border-x"
-        columns={{ initial: 1, lg: 4 }}
-      >
+      <Grid className="divide-y lg:divide-y-0 lg:divide-x lg:border-x" columns={{ initial: 1, lg: 4 }}>
         {Object.values(data).map((item, index) => (
           <Card key={index} className="border-y-0 shadow-none border-x-0 rounded-none py-4 lg:px-6">
             <Card.Header className="p-0" title={item.value} description={item.description} />

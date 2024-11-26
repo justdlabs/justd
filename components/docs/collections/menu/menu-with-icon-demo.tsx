@@ -45,13 +45,7 @@ export default function MenuWithIconDemo() {
         </Menu.Item>
         <Menu.Submenu>
           <Menu.Item>
-            {resolvedTheme === "light" ? (
-              <IconSun />
-            ) : resolvedTheme === "dark" ? (
-              <IconMoon />
-            ) : (
-              <IconDeviceDesktop />
-            )}
+            {resolvedTheme === "light" ? <IconSun /> : resolvedTheme === "dark" ? <IconMoon /> : <IconDeviceDesktop />}
             Switch theme
           </Menu.Item>
           <Menu.Content>

@@ -4,13 +4,7 @@ import * as React from "react"
 
 import { AppSidebar } from "@/app/blocks/sidebar/app-sidebar"
 import { CommandPalette } from "@/components/command-palette"
-import {
-  IconChevronLgDown,
-  IconCirclePerson,
-  IconLogout,
-  IconSettings,
-  IconShield
-} from "justd-icons"
+import { IconChevronLgDown, IconCirclePerson, IconLogout, IconSettings, IconShield } from "justd-icons"
 import { Avatar, Breadcrumbs, Menu, Separator, Sidebar } from "ui"
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -31,10 +25,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <Breadcrumbs.Item>Sidebar-01</Breadcrumbs.Item>
             </Breadcrumbs>
             <Menu>
-              <Menu.Trigger
-                aria-label="Profile"
-                className="flex items-center gap-x-2 group ml-auto sm:hidden"
-              >
+              <Menu.Trigger aria-label="Profile" className="flex items-center gap-x-2 group ml-auto sm:hidden">
                 <Avatar size="small" shape="circle" src="/images/sidebar/profile-slash.jpg" />
                 <IconChevronLgDown className="size-4 group-data-pressed:rotate-180 transition-transform" />
               </Menu.Trigger>

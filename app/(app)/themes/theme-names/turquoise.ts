@@ -31,11 +31,11 @@ export const turquoise = {
     "--ring": "var(--primary)",
     "--toggle": "212.72 27% 84%",
     "--radius": "0.5rem",
-    "--primary-chart": "191.62 92% 36%",
-    "--secondary-chart": "186.99 92% 69%",
-    "--tertiary-chart": "187.93 86% 53%",
-    "--highlight-chart": "186.21 93% 82%",
-    "--accent-chart": "185.11 96% 90%"
+    "--chart-1": "191.62 92% 36%",
+    "--chart-2": "186.99 92% 69%",
+    "--chart-3": "187.93 86% 53%",
+    "--chart-4": "186.21 93% 82%",
+    "--chart-5": "185.11 96% 90%"
   },
 
   dark: {
@@ -63,10 +63,10 @@ export const turquoise = {
     "--toggle": "215.29 33% 19%",
     "--border": "217.32 43% 13%",
     "--input": "217.24 33% 17%",
-    "--primary-chart": "191.65 100% 33%",
-    "--secondary-chart": "186.99 92% 69%",
-    "--tertiary-chart": "187.93 86% 53%",
-    "--highlight-chart": "186.21 93% 82%",
-    "--accent-chart": "185.11 96% 90%"
+    "--chart-1": "191.65 100% 33%",
+    "--chart-2": "186.99 92% 69%",
+    "--chart-3": "187.93 86% 53%",
+    "--chart-4": "186.21 93% 82%",
+    "--chart-5": "185.11 96% 90%"
   }
 }

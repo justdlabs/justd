@@ -14,7 +14,7 @@ import {
 import { tv } from "tailwind-variants"
 
 import { Description, FieldError, FieldGroup, Label } from "./field"
-import { cn, ctr } from "./primitive"
+import { cn, composeTailwindRenderProps } from "./primitive"
 
 interface DateFieldProps<T extends DateValue> extends DateFieldPrimitiveProps<T> {
   label?: string
@@ -35,7 +35,7 @@ const DateField = <T extends DateValue>({
   return (
     <DateFieldPrimitive
       {...props}
-      className={ctr(props.className, "flex group flex-col gap-y-1.5")}
+      className={composeTailwindRenderProps(props.className, "flex group flex-col gap-y-1.5")}
     >
       {label && <Label>{label}</Label>}
       <FieldGroup>
@@ -70,10 +70,7 @@ const segmentStyles = tv({
 const DateInput = ({ className, ...props }: Omit<DateInputProps, "children">) => {
   return (
     <DateInputPrimitive
-      className={cn(
-        "bg-transparent p-2 text-base text-fg placeholder-muted-fg lg:text-sm",
-        className
-      )}
+      className={cn("bg-transparent p-2 text-base text-fg placeholder-muted-fg lg:text-sm", className)}
       {...props}
     >
       {(segment) => <DateSegment segment={segment} className={segmentStyles} />}

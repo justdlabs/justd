@@ -32,11 +32,11 @@ export const justd = {
     "--toggle": "240.01 5% 84%",
     "--radius": "0.5rem",
 
-    "--primary-chart": "216.74 100% 45%",
-    "--secondary-chart": "219.83 100% 77%",
-    "--tertiary-chart": "216.01 92% 60%",
-    "--highlight-chart": "210 98% 78%",
-    "--accent-chart": "210 98% 78%"
+    "--chart-1": "216.74 100% 45%",
+    "--chart-2": "219.83 100% 77%",
+    "--chart-3": "216.01 92% 60%",
+    "--chart-4": "210 98% 78%",
+    "--chart-5": "210 98% 78%"
   },
   dark: {
     "--bg": "0 0% 0%",
@@ -64,10 +64,10 @@ export const justd = {
     "--border": "240.01 7.1% 15%",
     "--input": "239.95 3% 16%",
 
-    "--primary-chart": "221.19 83% 53%",
-    "--secondary-chart": "211.99 95% 68%",
-    "--tertiary-chart": "216.01 92% 60%",
-    "--highlight-chart": "210 98% 78%",
-    "--accent-chart": "212 96% 87%"
+    "--chart-1": "221.19 83% 53%",
+    "--chart-2": "211.99 95% 68%",
+    "--chart-3": "216.01 92% 60%",
+    "--chart-4": "210 98% 78%",
+    "--chart-5": "212 96% 87%"
   }
 }

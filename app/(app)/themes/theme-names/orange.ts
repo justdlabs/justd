@@ -31,11 +31,11 @@ export const orange = {
     "--ring": "20.44 90% 48%",
     "--toggle": "24 5% 83%",
     "--radius": "0.5rem",
-    "--primary-chart": "19.7 86% 51%",
-    "--secondary-chart": "28.36 100% 84%",
-    "--tertiary-chart": "27.01 96% 61%",
-    "--highlight-chart": "32.14 98% 83%",
-    "--accent-chart": "34.28 100% 92%"
+    "--chart-1": "19.7 86% 51%",
+    "--chart-2": "28.36 100% 84%",
+    "--chart-3": "27.01 96% 61%",
+    "--chart-4": "32.14 98% 83%",
+    "--chart-5": "34.28 100% 92%"
   },
   dark: {
     "--bg": "18.95 19% 2%",
@@ -62,10 +62,10 @@ export const orange = {
     "--toggle": "30.04 9% 18%",
     "--border": "0 0% 14.9%",
     "--input": "12 7.1% 12%",
-    "--primary-chart": "19.7 86% 51%",
-    "--secondary-chart": "27.63 100% 70%",
-    "--tertiary-chart": "27.01 96% 61%",
-    "--highlight-chart": "32.14 98% 83%",
-    "--accent-chart": "34.28 100% 92%"
+    "--chart-1": "19.7 86% 51%",
+    "--chart-2": "27.63 100% 70%",
+    "--chart-3": "27.01 96% 61%",
+    "--chart-4": "32.14 98% 83%",
+    "--chart-5": "34.28 100% 92%"
   }
 }

@@ -100,18 +100,11 @@ const ListBoxItem = <T extends object>({ children, className, ...props }: ListBo
 type ListBoxPickerProps<T> = ListBoxProps<T>
 
 const ListBoxPicker = <T extends object>({ className, ...props }: ListBoxPickerProps<T>) => {
-  return (
-    <ListBoxPrimitive
-      className={cn("max-h-72 overflow-auto p-1 outline-hidden", className)}
-      {...props}
-    />
-  )
+  return <ListBoxPrimitive className={cn("max-h-72 overflow-auto p-1 outline-hidden", className)} {...props} />
 }
 
 const Section = ({ className, ...props }: React.ComponentProps<typeof DropdownSection>) => {
-  return (
-    <DropdownSection className={cn(className, "[&_.lbi:last-child]:-mb-1.5 gap-y-1")} {...props} />
-  )
+  return <DropdownSection className={cn(className, "[&_.lbi:last-child]:-mb-1.5 gap-y-1")} {...props} />
 }
 
 ListBox.Section = Section

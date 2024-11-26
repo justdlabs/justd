@@ -8,13 +8,9 @@ export function DocWarningFramer() {
           Warning <u>React 19</u>
         </strong>
       </div>
-      If you use this component on <strong>React 19</strong>, you need to use `12.0.0-alpha.1`.
-      Track React 19 progress here:{" "}
-      <Link
-        className="font-medium"
-        target="_blank"
-        href="https://github.com/framer/motion/pull/2667"
-      >
+      If you use this component on <strong>React 19</strong>, you need to use `12.0.0-alpha.1`. Track React 19 progress
+      here:{" "}
+      <Link className="font-medium" target="_blank" href="https://github.com/framer/motion/pull/2667">
         FM React 19 #2667
       </Link>
       .

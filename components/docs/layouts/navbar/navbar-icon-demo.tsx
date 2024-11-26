@@ -1,7 +1,7 @@
 import {
   IconBrandApple,
   IconBrandJustd,
-  IconChart3,
+  IconChartBar,
   IconChevronLgDown,
   IconColors,
   IconCommandRegular,
@@ -36,7 +36,7 @@ export default function NavbarIconDemo() {
             <IconColors /> Themes
           </Navbar.Item>
           <Navbar.Item href="https://getjustd.com/charts">
-            <IconChart3 /> Charts
+            <IconChartBar /> Charts
           </Navbar.Item>
         </Navbar.Section>
       </Navbar.Nav>
@@ -60,12 +60,7 @@ export default function NavbarIconDemo() {
           <Separator orientation="vertical" className="h-6 ml-1 mr-3" />
           <Menu>
             <Menu.Trigger aria-label="Open Menu" className="group gap-x-2 flex items-center">
-              <Avatar
-                alt="slash"
-                size="small"
-                shape="square"
-                src="/images/sidebar/profile-slash.jpg"
-              />
+              <Avatar alt="slash" size="small" shape="square" src="/images/sidebar/profile-slash.jpg" />
               <IconChevronLgDown className="size-4 group-data-pressed:rotate-180 transition-transform" />
             </Menu.Trigger>
             <Menu.Content placement="bottom" showArrow className="sm:min-w-56">

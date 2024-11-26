@@ -61,8 +61,7 @@ export function ColorGenerator() {
             <div className="mb-7">
               <Heading level={2}>Generate</Heading>
               <p className="text-muted-fg text-sm">
-                Genereate your desired color by picking a shade from the color picker or by entering
-                a hex code.
+                Genereate your desired color by picking a shade from the color picker or by entering a hex code.
               </p>
             </div>
             <ColorField

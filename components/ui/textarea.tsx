@@ -11,7 +11,7 @@ import {
 import { tv } from "tailwind-variants"
 
 import { Description, FieldError, Label } from "./field"
-import { cr, ctr, focusStyles } from "./primitive"
+import { composeTailwindRenderProps, cr, focusStyles } from "./primitive"
 
 const textareaStyles = tv({
   extend: focusStyles,
@@ -27,16 +27,9 @@ interface TextareaProps extends TextFieldPrimitiveProps {
   className?: string
 }
 
-const Textarea = ({
-  className,
-  placeholder,
-  label,
-  description,
-  errorMessage,
-  ...props
-}: TextareaProps) => {
+const Textarea = ({ className, placeholder, label, description, errorMessage, ...props }: TextareaProps) => {
   return (
-    <TextFieldPrimitive {...props} className={ctr(className, "group flex flex-col gap-y-1.5")}>
+    <TextFieldPrimitive {...props} className={composeTailwindRenderProps(className, "group flex flex-col gap-y-1.5")}>
       {label && <Label>{label}</Label>}
       <TextAreaPrimitive
         placeholder={placeholder}

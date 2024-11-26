@@ -3,14 +3,7 @@
 import * as React from "react"
 
 import { AppSidebar } from "@/app/blocks/sidebar/app-sidebar"
-import {
-  IconChevronLgDown,
-  IconCirclePerson,
-  IconLogout,
-  IconSearch,
-  IconSettings,
-  IconShield
-} from "justd-icons"
+import { IconChevronLgDown, IconCirclePerson, IconLogout, IconSearch, IconSettings, IconShield } from "justd-icons"
 import { Avatar, Button, Menu, SearchField, Separator, Sidebar } from "ui"
 
 export default function Layout({ children }: { children: React.ReactNode }) {

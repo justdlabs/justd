@@ -11,7 +11,7 @@ import {
 import { tv } from "tailwind-variants"
 
 import { Description, FieldError, FieldGroup, Input, Label } from "./field"
-import { ctr, useMediaQuery } from "./primitive"
+import { composeTailwindRenderProps, useMediaQuery } from "./primitive"
 
 const fieldBorderStyles = tv({
   base: "group-data-focused:border-primary/70 forced-colors:border-[Highlight]",
@@ -42,17 +42,10 @@ interface NumberFieldProps extends NumberFieldPrimitiveProps {
   errorMessage?: string | ((validation: ValidationResult) => string)
 }
 
-const NumberField = ({
-  label,
-  placeholder,
-  description,
-  className,
-  errorMessage,
-  ...props
-}: NumberFieldProps) => {
+const NumberField = ({ label, placeholder, description, className, errorMessage, ...props }: NumberFieldProps) => {
   const isMobile = useMediaQuery("(max-width: 768px)")
   return (
-    <NumberFieldPrimitive {...props} className={ctr(className, base())}>
+    <NumberFieldPrimitive {...props} className={composeTailwindRenderProps(className, base())}>
       {label && <Label>{label}</Label>}
       <FieldGroup className="overflow-hidden">
         {(renderProps) => (
@@ -95,12 +88,7 @@ interface StepperButtonProps extends ButtonProps {
   className?: string
 }
 
-const StepperButton = ({
-  slot,
-  className,
-  emblemType = "default",
-  ...props
-}: StepperButtonProps) => {
+const StepperButton = ({ slot, className, emblemType = "default", ...props }: StepperButtonProps) => {
   const icon =
     emblemType === "chevron" ? (
       slot === "increment" ? (

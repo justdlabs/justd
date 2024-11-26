@@ -144,9 +144,7 @@ const TableColumn = ({ isResizable = false, className, ...props }: TableColumnPr
             {allowsSorting && (
               <>
                 <span className={cellIcon({ className: isHovered ? "bg-secondary-fg/10" : "" })}>
-                  <IconChevronLgDown
-                    className={sortDirection === "ascending" ? "rotate-180" : ""}
-                  />
+                  <IconChevronLgDown className={sortDirection === "ascending" ? "rotate-180" : ""} />
                 </span>
               </>
             )}
@@ -168,9 +166,7 @@ const Header = <T extends object>({ children, className, columns, ...props }: He
     <TableHeader {...props} className={header({ className })}>
       {allowsDragging && <Column className="w-0" />}
       {selectionBehavior === "toggle" && (
-        <Column className="pl-4 w-0">
-          {selectionMode === "multiple" && <Checkbox slot="selection" />}
-        </Column>
+        <Column className="pl-4 w-0">{selectionMode === "multiple" && <Checkbox slot="selection" />}</Column>
       )}
       <Collection items={columns}>{children}</Collection>
     </TableHeader>
@@ -181,13 +177,7 @@ interface TableRowProps<T extends object> extends RowProps<T> {
   className?: string
 }
 
-const TableRow = <T extends object>({
-  children,
-  className,
-  columns,
-  id,
-  ...props
-}: TableRowProps<T>) => {
+const TableRow = <T extends object>({ children, className, columns, id, ...props }: TableRowProps<T>) => {
   const { selectionBehavior, allowsDragging } = useTableOptions()
   return (
     <Row
@@ -196,19 +186,13 @@ const TableRow = <T extends object>({
       className={row({
         className:
           "href" in props
-            ? cn(
-                "cursor-pointer data-hovered:bg-secondary/50 data-hovered:text-secondary-fg",
-                className
-              )
+            ? cn("cursor-pointer data-hovered:bg-secondary/50 data-hovered:text-secondary-fg", className)
             : ""
       })}
     >
       {allowsDragging && (
         <Cell className="ring-primary pr-0 group cursor-grab data-dragging:cursor-grabbing">
-          <Button
-            className="relative bg-transparent pl-3.5 py-1.5 text-muted-fg data-pressed:text-fg"
-            slot="drag"
-          >
+          <Button className="relative bg-transparent pl-3.5 py-1.5 text-muted-fg data-pressed:text-fg" slot="drag">
             <IconHamburger />
           </Button>
         </Cell>

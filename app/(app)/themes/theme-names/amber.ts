@@ -32,11 +32,11 @@ export const amber = {
     "--toggle": "223.81 0% 82%",
     "--radius": "0.5rem",
 
-    "--primary-chart": "37.86 93% 50%",
-    "--secondary-chart": "45.93 97% 65%",
-    "--tertiary-chart": "43.2 96% 56.99%",
-    "--highlight-chart": "48 97% 77%",
-    "--accent-chart": "48 96% 89%"
+    "--chart-1": "37.86 93% 50%",
+    "--chart-2": "45.93 97% 65%",
+    "--chart-3": "43.2 96% 56.99%",
+    "--chart-4": "48 97% 77%",
+    "--chart-5": "48 96% 89%"
   },
   dark: {
     "--bg": "223.81 0% 3%",
@@ -64,10 +64,10 @@ export const amber = {
     "--border": "240.01 7.1% 15%",
     "--input": "239.95 3% 16%",
 
-    "--primary-chart": "37.1 100% 44%",
-    "--secondary-chart": "45.93 97% 65%",
-    "--tertiary-chart": "43.2 96% 56.99%",
-    "--highlight-chart": "48 97% 77%",
-    "--accent-chart": "48 96% 89%"
+    "--chart-1": "37.1 100% 44%",
+    "--chart-2": "45.93 97% 65%",
+    "--chart-3": "43.2 96% 56.99%",
+    "--chart-4": "48 97% 77%",
+    "--chart-5": "48 96% 89%"
   }
 }

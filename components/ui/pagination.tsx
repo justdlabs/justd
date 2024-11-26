@@ -106,11 +106,7 @@ const Item = ({
   ...props
 }: PaginationItemProps) => {
   const textValue =
-    typeof children === "string"
-      ? children
-      : typeof children === "number"
-        ? children.toString()
-        : undefined
+    typeof children === "string" ? children : typeof children === "number" ? children.toString() : undefined
 
   const renderPaginationIndicator = (indicator: React.ReactNode) =>
     renderListItem(

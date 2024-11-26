@@ -18,7 +18,7 @@ import { Calendar } from "./calendar"
 import { DateInput } from "./date-field"
 import { Description, FieldError, FieldGroup, Label } from "./field"
 import { Popover } from "./popover"
-import { ctr } from "./primitive"
+import { composeTailwindRenderProps } from "./primitive"
 import { RangeCalendar } from "./range-calendar"
 
 const datePickerStyles = tv({
@@ -85,7 +85,7 @@ const DatePicker = <T extends DateValue>({
   ...props
 }: DatePickerProps<T>) => {
   return (
-    <DatePickerPrimitive {...props} className={ctr(className, base())}>
+    <DatePickerPrimitive {...props} className={composeTailwindRenderProps(className, base())}>
       {label && <Label>{label}</Label>}
       <FieldGroup className="min-w-40">
         <DateInput className={datePickerInput()} />
@@ -98,11 +98,4 @@ const DatePicker = <T extends DateValue>({
   )
 }
 
-export {
-  DatePicker,
-  DatePickerIcon,
-  DatePickerOverlay,
-  type DatePickerProps,
-  type DateValue,
-  type ValidationResult
-}
+export { DatePicker, DatePickerIcon, DatePickerOverlay, type DatePickerProps, type DateValue, type ValidationResult }

@@ -62,9 +62,7 @@ export function TableOfContents({ className, items }: Props) {
         className
       )}
       style={{
-        WebkitMaskImage: `linear-gradient(to top, transparent 0%, #000 100px, #000 ${
-          scrollPosition > 30 ? "90%" : "100%"
-        }, transparent 100%)`
+        WebkitMaskImage: `linear-gradient(to top, transparent 0%, #000 100px, #000 ${scrollPosition > 30 ? "90%" : "100%"}, transparent 100%)`
       }}
     >
       <nav aria-labelledby="on-this-page-title" className="w-56">
@@ -133,10 +131,7 @@ export function useActiveItem(itemIds: string[]) {
       (entries) => {
         let bestCandidate: IntersectionObserverEntry | null = null
         entries.forEach((entry) => {
-          if (
-            entry.isIntersecting &&
-            (!bestCandidate || bestCandidate.intersectionRatio < entry.intersectionRatio)
-          ) {
+          if (entry.isIntersecting && (!bestCandidate || bestCandidate.intersectionRatio < entry.intersectionRatio)) {
             bestCandidate = entry
           }
         })

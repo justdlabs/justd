@@ -26,14 +26,7 @@ export interface CodeProps {
   className?: string
 }
 
-function Code({
-  title,
-  icon: Icon,
-  className,
-  lang = "tsx",
-  code,
-  withImportCopy = true
-}: CodeProps) {
+function Code({ title, icon: Icon, className, lang = "tsx", code, withImportCopy = true }: CodeProps) {
   const [copied, setCopied] = React.useState<string>("")
 
   function copyImportsToClipboard(): void {
@@ -56,10 +49,7 @@ function Code({
       )}
     >
       {title && (
-        <figcaption
-          className={cn(Icon && "flex items-center gap-x-1")}
-          data-rehype-pretty-code-title=""
-        >
+        <figcaption className={cn(Icon && "flex items-center gap-x-1")} data-rehype-pretty-code-title="">
           {Icon && <Icon className="text-cyan-600 dark:text-cyan-500 size-4" />}
           <span className="font-sans">{title}</span>
         </figcaption>
@@ -175,13 +165,7 @@ const CopyButton = ({
             {copiedIcon ?? <IconCheck />}
           </motion.span>
         ) : (
-          <motion.span
-            key="copy-import"
-            variants={snippetVariants}
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
-          >
+          <motion.span key="copy-import" variants={snippetVariants} initial="hidden" animate="visible" exit="hidden">
             {initialIcon ?? <IconDuplicate />}
           </motion.span>
         )}

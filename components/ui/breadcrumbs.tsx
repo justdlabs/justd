@@ -2,14 +2,10 @@
 
 import { IconChevronLgRight } from "justd-icons"
 import type { BreadcrumbProps, BreadcrumbsProps } from "react-aria-components"
-import {
-  Breadcrumb,
-  Breadcrumbs as BreadcrumbsPrimitive,
-  type LinkProps
-} from "react-aria-components"
+import { Breadcrumb, Breadcrumbs as BreadcrumbsPrimitive, type LinkProps } from "react-aria-components"
 
 import { Link } from "./link"
-import { cn, ctr } from "./primitive"
+import { cn, composeTailwindRenderProps } from "./primitive"
 
 const Breadcrumbs = <T extends object>({ className, ...props }: BreadcrumbsProps<T>) => {
   return <BreadcrumbsPrimitive {...props} className={cn("flex items-center gap-2", className)} />
@@ -20,16 +16,11 @@ interface ItemProps extends BreadcrumbProps {
   separator?: "slash" | "chevron" | boolean
 }
 
-const Item = ({
-  href,
-  separator = true,
-  className,
-  ...props
-}: ItemProps & Partial<Omit<LinkProps, "className">>) => {
+const Item = ({ href, separator = true, className, ...props }: ItemProps & Partial<Omit<LinkProps, "className">>) => {
   const separatorValue = separator === true ? "chevron" : separator
 
   return (
-    <Breadcrumb {...props} className={ctr(className, "flex text-sm items-center gap-2")}>
+    <Breadcrumb {...props} className={composeTailwindRenderProps(className, "flex text-sm items-center gap-2")}>
       {({ isCurrent }) => (
         <>
           {<Link href={href} {...props} />}

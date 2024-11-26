@@ -11,7 +11,7 @@ import { Radio as RadioPrimitive, RadioGroup as RadioGroupPrimitive } from "reac
 import { tv } from "tailwind-variants"
 
 import { Description, FieldError, Label } from "./field"
-import { ctr } from "./primitive"
+import { composeTailwindRenderProps } from "./primitive"
 
 interface RadioGroupProps extends Omit<RadioGroupPrimitiveProps, "children"> {
   label?: string
@@ -22,7 +22,10 @@ interface RadioGroupProps extends Omit<RadioGroupPrimitiveProps, "children"> {
 
 const RadioGroup = ({ label, description, errorMessage, children, ...props }: RadioGroupProps) => {
   return (
-    <RadioGroupPrimitive {...props} className={ctr(props.className, "group flex flex-col gap-2")}>
+    <RadioGroupPrimitive
+      {...props}
+      className={composeTailwindRenderProps(props.className, "group flex flex-col gap-2")}
+    >
       {label && <Label>{label}</Label>}
       <div className="flex select-none gap-2 group-data-[orientation=horizontal]:flex-wrap group-data-[orientation=horizontal]:gap-2 sm:group-data-[orientation=horizontal]:gap-4 group-data-[orientation=vertical]:flex-col">
         {children}
@@ -64,7 +67,7 @@ const Radio = ({ description, ...props }: RadioProps) => {
     <>
       <RadioPrimitive
         {...props}
-        className={ctr(
+        className={composeTailwindRenderProps(
           props.className,
           "group flex items-center gap-2 text-sm text-fg transition disabled:text-fg/50 forced-colors:data-disabled:text-[GrayText]"
         )}

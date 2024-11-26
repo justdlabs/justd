@@ -31,13 +31,7 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
     </svg>
   ),
   toggle: (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="300"
-      height="200"
-      fill="none"
-      viewBox="0 0 300 200"
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" fill="none" viewBox="0 0 300 200">
       <rect width="93.237" height="27.971" x="103" y="86" fill="#71717A" rx="3.729" />
       <rect width="42.889" height="3.729" x="137" y="98" fill="#fff" rx="1.865" />
       <path
@@ -47,22 +41,10 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
     </svg>
   ),
   menu: (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="300"
-      height="200"
-      fill="none"
-      viewBox="0 0 300 200"
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" fill="none" viewBox="0 0 300 200">
       <rect width="28" height="28" x="21" y="20" fill="#71717A" rx="14" />
       <rect width="4" height="4" x="33" y="32" fill="#fff" rx="2" />
-      <path
-        stroke="#A1A1AA"
-        d="m57 32 4 4 4-4"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="1.5"
-      />
+      <path stroke="#A1A1AA" d="m57 32 4 4 4-4" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
       <rect width="84" height="104" x="21" y="59" fill="#71717A" fillOpacity=".6" rx="6" />
       <rect width="56" height="4" x="28" y="88" fill="#fff" fillOpacity=".7" rx="1.5" />
       <rect width="71" height="4" x="28" y="100" fill="#fff" fillOpacity=".7" rx="1.5" />
@@ -103,13 +85,7 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
     </svg>
   ),
   "list-box": (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="300"
-      height="200"
-      fill="none"
-      viewBox="0 0 300 200"
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" fill="none" viewBox="0 0 300 200">
       <rect width="93" height="80" x="104" y="60" fill="#71717A" fillOpacity=".6" rx="6" />
       <rect width="62" height="4" x="111.75" y="68" fill="#fff" fillOpacity=".7" rx="1.5" />
       <rect width="62" height="4" x="112" y="104" fill="#fff" fillOpacity=".7" rx="1.5" />
@@ -128,13 +104,7 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
     </svg>
   ),
   "tag-group": (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="300"
-      height="200"
-      fill="none"
-      viewBox="0 0 300 200"
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" fill="none" viewBox="0 0 300 200">
       <rect width="37.382" height="15" x="90" y="99.486" fill="#71717A" rx="2" />
       <rect width="23" height="2" x="97.382" y="106" fill="#fff" rx="1" />
       <rect width="37.382" height="15" x="131.382" y="99" fill="#71717A" rx="2" />
@@ -145,13 +115,7 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
     </svg>
   ),
   table: (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="300"
-      height="200"
-      fill="none"
-      viewBox="0 0 300 200"
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" fill="none" viewBox="0 0 300 200">
       <g fill="currentColor">
         <rect width="33" height="4" x="47" y="55" rx="2" />
         <rect width="42" height="4" x="108" y="55" rx="2" />
@@ -203,13 +167,7 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
     </svg>
   ),
   tree: (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="300"
-      height="200"
-      fill="none"
-      viewBox="0 0 300 200"
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" fill="none" viewBox="0 0 300 200">
       <path
         stroke="#A1A1AA"
         d="M112.167 49.667 113.833 48l-1.666-1.667"
@@ -312,13 +270,7 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
     </svg>
   ),
   "grid-list": (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="300"
-      height="200"
-      fill="none"
-      viewBox="0 0 300 200"
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" fill="none" viewBox="0 0 300 200">
       <path
         fill="currentColor"
         d="M122 74.667a3.333 3.333 0 1 0 0 6.666 3.333 3.333 0 0 0 0-6.666m1.193 2.658a.25.25 0 0 0-.039-.346.25.25 0 0 0-.347.03l-1.326 1.619-.471-.471a.25.25 0 0 0-.42.178.24.24 0 0 0 .067.175l.666.667a.25.25 0 0 0 .289.046.24.24 0 0 0 .081-.065z"
@@ -377,13 +329,7 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
     </svg>
   ),
   choicebox: (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="300"
-      height="200"
-      fill="none"
-      viewBox="0 0 300 200"
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" fill="none" viewBox="0 0 300 200">
       <rect width="119" height="30" x="27" y="45" fill="#71717A" rx="3.729" />
       <rect width="60" height="4" x="39" y="54" fill="#fff" rx="2" />
       <rect width="80" height="4" x="39" y="63" fill="#fff" fillOpacity=".5" rx="2" />
@@ -426,13 +372,7 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
     </svg>
   ),
   dropdown: (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="300"
-      height="200"
-      fill="none"
-      viewBox="0 0 300 200"
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" fill="none" viewBox="0 0 300 200">
       <rect width="93" height="80" x="100" y="76" fill="#71717A" fillOpacity=".6" rx="6" />
       <rect width="62" height="4" x="107.75" y="84" fill="#fff" fillOpacity=".7" rx="1.5" />
       <rect width="62" height="4" x="108" y="120" fill="#fff" fillOpacity=".7" rx="1.5" />
@@ -449,22 +389,11 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
         strokeWidth=".667"
       />
       <rect width="62" height="4" x="102" y="63" fill="currentColor" rx="2" />
-      <path
-        stroke="#A1A1AA"
-        d="M184.333 63.667 187 66.333l2.667-2.666"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+      <path stroke="#A1A1AA" d="M184.333 63.667 187 66.333l2.667-2.666" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   ),
   "color-picker": (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="300"
-      height="200"
-      fill="none"
-      viewBox="0 0 300 200"
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" fill="none" viewBox="0 0 300 200">
       <path
         fill="#91919C"
         d="M107.134 63.5a1 1 0 0 1 1.732 0l6.062 10.5a1 1 0 0 1-.866 1.5h-12.124a1 1 0 0 1-.866-1.5z"
@@ -484,85 +413,25 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
       />
       <rect width="16" height="3" x="169" y="148" fill="#71717A" rx="1.5" />
       <rect width="11" height="11" x="165.5" y="86.5" stroke="#000" rx="5.5" />
-      <rect
-        width="9.167"
-        height="9.167"
-        x="166.417"
-        y="87.417"
-        stroke="#fff"
-        rx="4.583"
-        strokeWidth=".833"
-      />
-      <rect
-        width="6.5"
-        height="6.5"
-        x="118.25"
-        y="131.25"
-        stroke="#000"
-        rx="3.25"
-        strokeWidth=".5"
-      />
+      <rect width="9.167" height="9.167" x="166.417" y="87.417" stroke="#fff" rx="4.583" strokeWidth=".833" />
+      <rect width="6.5" height="6.5" x="118.25" y="131.25" stroke="#000" rx="3.25" strokeWidth=".5" />
       <rect width="17" height="17" x="101" y="43" fill="#E4E4E7" rx="2.125" />
     </svg>
   ),
   "color-field": (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="300"
-      height="200"
-      fill="none"
-      viewBox="0 0 300 200"
-    >
-      <rect
-        width="79.5"
-        height="27.5"
-        x="110.25"
-        y="86.25"
-        stroke="#71717A"
-        rx="5.344"
-        strokeWidth=".5"
-      />
+    <svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" fill="none" viewBox="0 0 300 200">
+      <rect width="79.5" height="27.5" x="110.25" y="86.25" stroke="#71717A" rx="5.344" strokeWidth=".5" />
       <rect width="43" height="4" x="139" y="98" fill="#71717A" rx="2" />
-      <rect
-        width="17.5"
-        height="17.5"
-        x="116.25"
-        y="91.25"
-        fill="#3F3F46"
-        fillOpacity=".5"
-        rx="3.75"
-      />
-      <rect
-        width="17.5"
-        height="17.5"
-        x="116.25"
-        y="91.25"
-        stroke="#71717A"
-        rx="3.75"
-        strokeWidth=".5"
-      />
+      <rect width="17.5" height="17.5" x="116.25" y="91.25" fill="#3F3F46" fillOpacity=".5" rx="3.75" />
+      <rect width="17.5" height="17.5" x="116.25" y="91.25" stroke="#71717A" rx="3.75" strokeWidth=".5" />
     </svg>
   ),
   "color-area": (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="300"
-      height="200"
-      fill="none"
-      viewBox="0 0 300 200"
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" fill="none" viewBox="0 0 300 200">
       <g fill="#A1A1AA">
         <rect width="96" height="97" x="102" y="52" rx="6" />
         <rect width="11" height="11" x="181.5" y="64.5" stroke="#000" rx="5.5" />
-        <rect
-          width="9.167"
-          height="9.167"
-          x="182.417"
-          y="65.417"
-          stroke="#fff"
-          rx="4.583"
-          strokeWidth=".833"
-        />
+        <rect width="9.167" height="9.167" x="182.417" y="65.417" stroke="#fff" rx="4.583" strokeWidth=".833" />
       </g>
     </svg>
   ),
@@ -573,13 +442,7 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
   "color-thumb": null,
 
   form: (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="300"
-      height="200"
-      fill="none"
-      viewBox="0 0 300 200"
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" fill="none" viewBox="0 0 300 200">
       <path
         stroke="#71717A"
         d="M217.381 76.961H80.631A4.63 4.63 0 0 0 76 81.592v14.569a4.63 4.63 0 0 0 4.63 4.63h136.751a4.63 4.63 0 0 0 4.631-4.63V81.592a4.63 4.63 0 0 0-4.631-4.63Z"
@@ -599,15 +462,7 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
         d="M123.443 51.182H90.515a1.733 1.733 0 0 0 0 3.466h32.928a1.733 1.733 0 0 0 0-3.466m23.397 0h-13.865a1.733 1.733 0 0 0 0 3.466h13.865a1.733 1.733 0 0 0 0-3.466m33.795 0h-24.263a1.732 1.732 0 1 0 0 3.466h24.263a1.733 1.733 0 0 0 0-3.466"
       />
       <rect width="51.214" height="19.768" x="172.36" y="139.345" fill="#fff" rx="4.34" />
-      <rect
-        width="51.214"
-        height="19.768"
-        x="172.36"
-        y="139.345"
-        stroke="#D4D4D8"
-        rx="4.34"
-        strokeWidth=".852"
-      />
+      <rect width="51.214" height="19.768" x="172.36" y="139.345" stroke="#D4D4D8" rx="4.34" strokeWidth=".852" />
       <rect width="36.539" height="3.177" x="179.985" y="147.584" fill="#52525B" rx="1.589" />
       <rect width="52.066" height="20.62" x="114.128" y="139.096" fill="#71717A" rx="3.177" />
       <rect width="36.539" height="3.177" x="121.927" y="147.584" fill="#fff" rx="1.589" />
@@ -624,13 +479,7 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
     </svg>
   ),
   field: (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="300"
-      height="200"
-      fill="none"
-      viewBox="0 0 300 200"
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" fill="none" viewBox="0 0 300 200">
       <path
         stroke="#71717A"
         d="M218.381 74H81.631A4.63 4.63 0 0 0 77 78.63V93.2a4.63 4.63 0 0 0 4.63 4.63h136.751a4.63 4.63 0 0 0 4.631-4.63V78.63a4.63 4.63 0 0 0-4.631-4.63Z"
@@ -649,44 +498,21 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
     </svg>
   ),
   "text-field": (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="300"
-      height="200"
-      fill="none"
-      viewBox="0 0 300 200"
-    >
-      <rect
-        width="168.5"
-        height="27.5"
-        x="66.25"
-        y="86.25"
-        stroke="#71717A"
-        rx="5.344"
-        strokeWidth=".5"
-      />
+    <svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" fill="none" viewBox="0 0 300 200">
+      <rect width="168.5" height="27.5" x="66.25" y="86.25" stroke="#71717A" rx="5.344" strokeWidth=".5" />
       <rect width="42" height="4" x="81" y="98" fill="#71717A" rx="2" />
       <rect width="20" height="4" x="130" y="98" fill="#71717A" rx="2" />
       <rect width="32" height="4" x="157" y="98" fill="#71717A" rx="2" />
     </svg>
   ),
   "search-field": (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="300"
-      height="200"
-      fill="none"
-      viewBox="0 0 300 200"
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" fill="none" viewBox="0 0 300 200">
       <path
         stroke="#71717A"
         d="M229.156 86H71.344A5.344 5.344 0 0 0 66 91.344v16.812a5.344 5.344 0 0 0 5.344 5.344h157.812a5.345 5.345 0 0 0 5.344-5.344V91.344A5.344 5.344 0 0 0 229.156 86Z"
         strokeWidth=".5"
       />
-      <path
-        fill="#71717A"
-        d="M137 98H99a2 2 0 1 0 0 4h38a2 2 0 1 0 0-4m27 0h-16a2 2 0 1 0 0 4h16a2 2 0 1 0 0-4"
-      />
+      <path fill="#71717A" d="M137 98H99a2 2 0 1 0 0 4h38a2 2 0 1 0 0-4m27 0h-16a2 2 0 1 0 0 4h16a2 2 0 1 0 0-4" />
       <g fill="#A1A1AA">
         <path d="M81.417 102.333a2.916 2.916 0 1 0 0-5.833 2.916 2.916 0 0 0 0 5.833" />
         <path
@@ -699,22 +525,8 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
     </svg>
   ),
   textarea: (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="300"
-      height="200"
-      fill="none"
-      viewBox="0 0 300 200"
-    >
-      <rect
-        width="167.725"
-        height="42.948"
-        x="66.226"
-        y="78.226"
-        stroke="#575760"
-        rx="5.199"
-        strokeWidth=".452"
-      />
+    <svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" fill="none" viewBox="0 0 300 200">
+      <rect width="167.725" height="42.948" x="66.226" y="78.226" stroke="#575760" rx="5.199" strokeWidth=".452" />
       <rect width="31.646" height="4.521" x="75.042" y="87.946" fill="#6E6E78" rx="2.26" />
       <rect width="31.646" height="4.521" x="112.113" y="87.946" fill="#6E6E78" rx="2.26" />
       <rect width="31.646" height="4.521" x="160.939" y="97.892" fill="#6E6E78" rx="2.26" />
@@ -728,73 +540,19 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
     </svg>
   ),
   "input-otp": (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="300"
-      height="200"
-      fill="none"
-      viewBox="0 0 300 200"
-    >
-      <rect
-        width="25.735"
-        height="27.1"
-        x="54.2"
-        y="86.2"
-        stroke="#71717A"
-        rx="3.8"
-        strokeWidth=".4"
-      />
+    <svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" fill="none" viewBox="0 0 300 200">
+      <rect width="25.735" height="27.1" x="54.2" y="86.2" stroke="#71717A" rx="3.8" strokeWidth=".4" />
       <rect width="2.851" height="12" x="65.404" y="94" fill="#71717A" rx="1.426" />
-      <rect
-        width="25.735"
-        height="27.1"
-        x="85.562"
-        y="86.2"
-        stroke="#71717A"
-        rx="3.8"
-        strokeWidth=".4"
-      />
+      <rect width="25.735" height="27.1" x="85.562" y="86.2" stroke="#71717A" rx="3.8" strokeWidth=".4" />
       <rect width="2.851" height="12" x="96.767" y="94" fill="#71717A" rx="1.426" />
-      <rect
-        width="25.735"
-        height="27.1"
-        x="115.974"
-        y="86.2"
-        stroke="#71717A"
-        rx="3.8"
-        strokeWidth=".4"
-      />
+      <rect width="25.735" height="27.1" x="115.974" y="86.2" stroke="#71717A" rx="3.8" strokeWidth=".4" />
       <rect width="2.851" height="12" x="127.179" y="94" fill="#71717A" rx="1.426" />
-      <rect
-        width="25.735"
-        height="27.1"
-        x="158.741"
-        y="86.2"
-        stroke="#71717A"
-        rx="3.8"
-        strokeWidth=".4"
-      />
+      <rect width="25.735" height="27.1" x="158.741" y="86.2" stroke="#71717A" rx="3.8" strokeWidth=".4" />
       <rect width="2.851" height="12" x="169.945" y="94" fill="#71717A" rx="1.426" />
       <rect width="6.653" height="3" x="147.137" y="98" fill="#71717A" rx="1.5" />
-      <rect
-        width="25.735"
-        height="27.1"
-        x="189.153"
-        y="86.2"
-        stroke="#71717A"
-        rx="3.8"
-        strokeWidth=".4"
-      />
+      <rect width="25.735" height="27.1" x="189.153" y="86.2" stroke="#71717A" rx="3.8" strokeWidth=".4" />
       <rect width="2.851" height="12" x="200.357" y="94" fill="#71717A" rx="1.426" />
-      <rect
-        width="25.735"
-        height="27.1"
-        x="219.565"
-        y="86.2"
-        stroke="#71717A"
-        rx="3.8"
-        strokeWidth=".4"
-      />
+      <rect width="25.735" height="27.1" x="219.565" y="86.2" stroke="#71717A" rx="3.8" strokeWidth=".4" />
       <rect width="2.851" height="12" x="230.769" y="94" fill="#71717A" rx="1.426" />
     </svg>
   ),
@@ -804,13 +562,7 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
   "radio-group": null,
   "tag-field": null,
   "combo-box": (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="300"
-      height="200"
-      fill="none"
-      viewBox="0 0 300 200"
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" fill="none" viewBox="0 0 300 200">
       <rect width="93" height="80" x="100" y="74" fill="#71717A" fillOpacity=".6" rx="6" />
       <rect width="62" height="4" x="107.75" y="82" fill="#fff" fillOpacity=".7" rx="1.5" />
       <rect width="62" height="4" x="108" y="118" fill="#fff" fillOpacity=".7" rx="1.5" />
@@ -827,13 +579,7 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
         strokeWidth=".5"
       />
       <rect width="48" height="4" x="116" y="58" fill="currentColor" rx="2" />
-      <path
-        stroke="#A1A1AA"
-        d="m183 58.5 3 3 3-3"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="1.125"
-      />
+      <path stroke="#A1A1AA" d="m183 58.5 3 3 3-3" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.125" />
       <path
         stroke="#A1A1AA"
         d="m106.437 63.438-1.717-1.718m0 0a3.023 3.023 0 0 0-2.137-5.158c-.801 0-1.569.319-2.136.885a3.02 3.02 0 0 0 4.272 4.272z"
@@ -844,13 +590,7 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
     </svg>
   ),
   select: (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="300"
-      height="200"
-      fill="none"
-      viewBox="0 0 300 200"
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" fill="none" viewBox="0 0 300 200">
       <rect width="93" height="80" x="100" y="76" fill="#71717A" fillOpacity=".6" rx="6" />
       <rect width="62" height="4" x="107.75" y="84" fill="#fff" fillOpacity=".7" rx="1.5" />
       <rect width="62" height="4" x="108" y="120" fill="#fff" fillOpacity=".7" rx="1.5" />
@@ -867,22 +607,11 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
         strokeWidth=".667"
       />
       <rect width="62" height="4" x="102" y="63" fill="currentColor" rx="2" />
-      <path
-        stroke="#A1A1AA"
-        d="M184.333 63.667 187 66.333l2.667-2.666"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+      <path stroke="#A1A1AA" d="M184.333 63.667 187 66.333l2.667-2.666" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   ),
   "multiple-select": (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="300"
-      height="200"
-      fill="none"
-      viewBox="0 0 300 200"
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" fill="none" viewBox="0 0 300 200">
       <rect width="93" height="82" x="103" y="68" fill="#71717A" fillOpacity=".6" rx="6" />
       <rect width="62" height="4" x="110" y="76" fill="#fff" fillOpacity=".7" rx="1.5" />
       <rect width="67" height="4" x="110" y="87" fill="#fff" fillOpacity=".7" rx="1.5" />
@@ -919,12 +648,7 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
         <rect width="21" height="4" x="121" y="56" rx="2" />
         <rect width="32" height="4" x="144" y="56" rx="2" />
       </g>
-      <path
-        stroke="#A1A1AA"
-        d="M186.333 56.667 189 59.333l2.667-2.666"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+      <path stroke="#A1A1AA" d="M186.333 56.667 189 59.333l2.667-2.666" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   ),
 
@@ -947,15 +671,7 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
         className="fill-[#e4e4e7] dark:fill-[#a1a1aa]"
         rx="2"
       />
-      <rect
-        width="21"
-        height="4"
-        x="74"
-        y="98"
-        fill="currentColor"
-        rx="2"
-        className="fill-zinc-950 dark:fill-white"
-      />
+      <rect width="21" height="4" x="74" y="98" fill="currentColor" rx="2" className="fill-zinc-950 dark:fill-white" />
       <rect
         width="21"
         height="4"
@@ -1002,13 +718,7 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
     </svg>
   ),
   container: (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="300"
-      height="200"
-      fill="none"
-      viewBox="0 0 300 200"
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" fill="none" viewBox="0 0 300 200">
       <rect
         width="230"
         height="130"
@@ -1018,35 +728,12 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
         className="fill-zinc-200 dark:fill-zinc-600"
         rx="6"
       />
-      <rect
-        width="38"
-        height="4"
-        x="62"
-        y="48"
-        fill="currentColor"
-        className="fill-zinc-800 dark:fill-white"
-        rx="2"
-      />
-      <rect
-        width="71"
-        height="4"
-        x="62"
-        y="57"
-        fill="currentColor"
-        className="fill-muted-fg"
-        rx="2"
-      />
+      <rect width="38" height="4" x="62" y="48" fill="currentColor" className="fill-zinc-800 dark:fill-white" rx="2" />
+      <rect width="71" height="4" x="62" y="57" fill="currentColor" className="fill-muted-fg" rx="2" />
       <path fill="url(#a)" d="M251 28h.2v150h-.2z" />
       <path fill="url(#b)" d="M47 25h.2v150H47z" />
       <defs>
-        <linearGradient
-          id="a"
-          x1="251.1"
-          x2="251.1"
-          y1="28"
-          y2="178"
-          gradientUnits="userSpaceOnUse"
-        >
+        <linearGradient id="a" x1="251.1" x2="251.1" y1="28" y2="178" gradientUnits="userSpaceOnUse">
           <stop stopColor="#fff" stopOpacity="0" />
           <stop offset=".275" stopColor="#71717A" />
           <stop offset=".515" stopColor="#71717A" />
@@ -1064,13 +751,7 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
     </svg>
   ),
   sidebar: (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="300"
-      height="200"
-      fill="none"
-      viewBox="0 0 300 200"
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" fill="none" viewBox="0 0 300 200">
       <rect
         width="243.75"
         height="150"
@@ -1105,36 +786,12 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
       />
       <rect width="19.688" height="3.75" x="50.5" y="40" fill="#A1A1AA" rx="1.875" />
       <rect width="13.125" height="2.813" x="49.563" y="155.312" fill="#9C9CAA" rx="1.406" />
-      <rect
-        width="19.688"
-        height="2.813"
-        x="49.563"
-        y="159.062"
-        fill="#A1A1AA"
-        fillOpacity=".7"
-        rx="1.406"
-      />
+      <rect width="19.688" height="2.813" x="49.563" y="159.062" fill="#A1A1AA" fillOpacity=".7" rx="1.406" />
       <rect width="25" height="4" x="42" y="54" fill="#A1A1AA" rx="1.875" />
       <rect width="31" height="4" x="42" y="62" fill="#A1A1AA" rx="1.875" />
-      <rect
-        width="25"
-        height="4"
-        x="42"
-        y="70"
-        fill="currentColor"
-        className="text-fg"
-        rx="1.875"
-      />
+      <rect width="25" height="4" x="42" y="70" fill="currentColor" className="text-fg" rx="1.875" />
       <rect width="36.563" height="4" x="41.125" y="106.562" fill="#A1A1AA" rx="1.875" />
-      <rect
-        width="21.563"
-        height="1.166"
-        x="42.063"
-        y="102.812"
-        fill="#A1A1AA"
-        fillOpacity=".7"
-        rx=".583"
-      />
+      <rect width="21.563" height="1.166" x="42.063" y="102.812" fill="#A1A1AA" fillOpacity=".7" rx=".583" />
       <rect width="19" height="4" x="42" y="78" fill="#A1A1AA" rx="1.875" />
       <rect width="36.563" height="4" x="41.125" y="115" fill="#A1A1AA" rx="1.875" />
       <rect width="25" height="4" x="42" y="86" fill="#A1A1AA" rx="1.875" />
@@ -1161,13 +818,7 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
   ),
 
   avatar: (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="300"
-      height="200"
-      fill="none"
-      viewBox="0 0 300 200"
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" fill="none" viewBox="0 0 300 200">
       <circle cx="105.5" cy="78" r="12" fill="#71717A" />
       <g fill="#A1A1AA">
         <rect width="32" height="6" x="129" y="69.5" rx="2" />
@@ -1181,13 +832,7 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
     </svg>
   ),
   carousel: (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="300"
-      height="200"
-      fill="none"
-      viewBox="0 0 300 200"
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" fill="none" viewBox="0 0 300 200">
       <g fill="#71717A">
         <rect width="56" height="56" x="57" y="58" rx="4" />
         <rect width="56" height="56" x="122" y="58" rx="4" />
@@ -1254,15 +899,7 @@ const thumbnailMap: { [key: string]: React.ReactNode } = {
         className="fill-zinc-300 dark:fill-zinc-600"
         rx="2"
       />
-      <rect
-        width="10"
-        height="4"
-        x="75"
-        y="132"
-        fill="currentColor"
-        className="fill-zinc-900 dark:fill-white"
-        rx="2"
-      />
+      <rect width="10" height="4" x="75" y="132" fill="currentColor" className="fill-zinc-900 dark:fill-white" rx="2" />
       <rect
         width="4"
         height="4"

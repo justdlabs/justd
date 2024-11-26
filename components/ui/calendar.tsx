@@ -17,15 +17,14 @@ import {
 import { tv } from "tailwind-variants"
 
 import { Button } from "./button"
-import { cr, ctr, focusRing } from "./primitive"
+import { composeTailwindRenderProps, cr, focusRing } from "./primitive"
 
 const cellStyles = tv({
   extend: focusRing,
   base: "flex size-10 sm:size-9 cursor-default tabular-nums items-center justify-center rounded-full lg:text-sm forced-colors:outline-0",
   variants: {
     isSelected: {
-      false:
-        "text-fg forced-colors:text-[ButtonText] data-hovered:bg-secondary-fg/15 data-pressed:bg-secondary-fg/20",
+      false: "text-fg forced-colors:text-[ButtonText] data-hovered:bg-secondary-fg/15 data-pressed:bg-secondary-fg/20",
       true: "bg-primary text-primary-fg data-invalid:bg-danger data-invalid:text-danger-fg forced-colors:bg-[Highlight] forced-colors:text-[Highlight] forced-colors:data-invalid:bg-[Mark]"
     },
     isDisabled: {
@@ -34,15 +33,17 @@ const cellStyles = tv({
   }
 })
 
-interface CalendarProps<T extends DateValue>
-  extends Omit<CalendarPrimitiveProps<T>, "visibleDuration"> {
+interface CalendarProps<T extends DateValue> extends Omit<CalendarPrimitiveProps<T>, "visibleDuration"> {
   errorMessage?: string
   className?: string
 }
 
 const Calendar = <T extends DateValue>({ errorMessage, className, ...props }: CalendarProps<T>) => {
   return (
-    <CalendarPrimitive className={ctr(className, "max-w-[17.5rem] sm:max-w-[15.8rem]")} {...props}>
+    <CalendarPrimitive
+      className={composeTailwindRenderProps(className, "max-w-[17.5rem] sm:max-w-[15.8rem]")}
+      {...props}
+    >
       <CalendarHeader />
       <CalendarGrid className="[&_td]:border-collapse [&_td]:px-0">
         <CalendarGridHeader />

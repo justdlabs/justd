@@ -2,10 +2,7 @@
 
 import * as React from "react"
 
-import {
-  Button as ButtonPrimitive,
-  type ButtonProps as ButtonPrimitiveProps
-} from "react-aria-components"
+import { Button as ButtonPrimitive, type ButtonProps as ButtonPrimitiveProps } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
 import { cr, focusButtonStyles } from "./primitive"
@@ -57,10 +54,8 @@ const buttonStyles = tv({
     size: {
       "extra-small":
         "h-8 px-[calc(calc(var(--spacing)*3)-1px)] py-[calc(calc(var(--spacing)*1)-1px)] text-xs/4 lg:text-[0.800rem]/4",
-      small:
-        "h-9 px-[calc(calc(var(--spacing)*4)-1px)] py-[calc(calc(var(--spacing)*1.5)-1px)] text-sm/5 lg:text-sm/5",
-      medium:
-        "h-10 px-[calc(calc(var(--spacing)*4)-1px)] py-[calc(calc(var(--spacing)*2)-1px)] text-base lg:text-sm/6",
+      small: "h-9 px-[calc(calc(var(--spacing)*4)-1px)] py-[calc(calc(var(--spacing)*1.5)-1px)] text-sm/5 lg:text-sm/5",
+      medium: "h-10 px-[calc(calc(var(--spacing)*4)-1px)] py-[calc(calc(var(--spacing)*2)-1px)] text-base lg:text-sm/6",
       large:
         "h-10 *:data-[slot=icon]:mx-[-3px] sm:h-11 px-[calc(calc(var(--spacing)*4)-1px)] sm:px-[calc(calc(var(--spacing)*5)-1px)] py-[calc(calc(var(--spacing)*2.5)-1px)] text-base lg:text-base/7 sm:*:data-[slot=icon]:size-5",
       "square-petite": "size-9 shrink-0 **:data-[slot=icon]:text-current"
@@ -68,8 +63,7 @@ const buttonStyles = tv({
     shape: {
       square:
         "rounded-lg before:rounded-[calc(var(--radius-lg)-1px)] after:rounded-[calc(var(--radius-lg)-1px)] dark:after:rounded-lg",
-      circle:
-        "rounded-[9999px] before:rounded-[9998px] after:rounded-[9998px] dark:after:rounded-[9999px]"
+      circle: "rounded-[9999px] before:rounded-[9998px] after:rounded-[9998px] dark:after:rounded-[9999px]"
     },
     isDisabled: {
       false: "forced-colors:data-disabled:text-[GrayText] cursor-pointer",
@@ -111,9 +105,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           })
         )}
       >
-        {(values) => (
-          <>{typeof props.children === "function" ? props.children(values) : props.children}</>
-        )}
+        {(values) => <>{typeof props.children === "function" ? props.children(values) : props.children}</>}
       </ButtonPrimitive>
     )
   }

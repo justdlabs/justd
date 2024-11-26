@@ -14,13 +14,7 @@ export default function ModalDemo() {
           </Modal.Description>
         </Modal.Header>
         <Form onSubmit={() => {}}>
-          <TextField
-            isRequired
-            autoFocus
-            label="Password"
-            type="password"
-            placeholder="Enter your password"
-          />
+          <TextField isRequired autoFocus label="Password" type="password" placeholder="Enter your password" />
           <Modal.Footer>
             <Modal.Close>Cancel</Modal.Close>
             <Button type="submit">Turn on 2FA</Button>

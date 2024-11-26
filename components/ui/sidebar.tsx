@@ -40,83 +40,71 @@ const Provider = React.forwardRef<
     isOpen?: boolean
     onOpenChange?: (open: boolean) => void
   }
->(
-  (
-    {
-      defaultOpen = true,
-      isOpen: openProp,
-      onOpenChange: setOpenProp,
-      className,
-      children,
-      ...props
-    },
-    ref
-  ) => {
-    const isMobile = useMediaQuery("(max-width: 768px)")
-    const [openMobile, setOpenMobile] = React.useState(false)
+>(({ defaultOpen = true, isOpen: openProp, onOpenChange: setOpenProp, className, children, ...props }, ref) => {
+  const isMobile = useMediaQuery("(max-width: 768px)")
+  const [openMobile, setOpenMobile] = React.useState(false)
 
-    const [_open, _setOpen] = React.useState(defaultOpen)
-    const open = openProp ?? _open
-    const setOpen = React.useCallback(
-      (value: boolean | ((value: boolean) => boolean)) => {
-        if (setOpenProp) {
-          return setOpenProp?.(typeof value === "function" ? value(open) : value)
-        }
-
-        _setOpen(value)
-
-        document.cookie = `sidebar:state=${open}; path=/; max-age=${60 * 60 * 24 * 7}`
-      },
-      [setOpenProp, open]
-    )
-
-    const toggleSidebar = React.useCallback(() => {
-      return isMobile ? setOpenMobile((open) => !open) : setOpen((open) => !open)
-    }, [isMobile, setOpen, setOpenMobile])
-
-    React.useEffect(() => {
-      const handleKeyDown = (event: KeyboardEvent) => {
-        if (event.key === "b" && (event.metaKey || event.ctrlKey)) {
-          event.preventDefault()
-          toggleSidebar()
-        }
+  const [_open, _setOpen] = React.useState(defaultOpen)
+  const open = openProp ?? _open
+  const setOpen = React.useCallback(
+    (value: boolean | ((value: boolean) => boolean)) => {
+      if (setOpenProp) {
+        return setOpenProp?.(typeof value === "function" ? value(open) : value)
       }
 
-      window.addEventListener("keydown", handleKeyDown)
-      return () => window.removeEventListener("keydown", handleKeyDown)
-    }, [toggleSidebar])
+      _setOpen(value)
 
-    const state = open ? "expanded" : "collapsed"
+      document.cookie = `sidebar:state=${open}; path=/; max-age=${60 * 60 * 24 * 7}`
+    },
+    [setOpenProp, open]
+  )
 
-    const contextValue = React.useMemo<SidebarContextProps>(
-      () => ({
-        state,
-        open,
-        setOpen,
-        isMobile,
-        openMobile,
-        setOpenMobile,
-        toggleSidebar
-      }),
-      [state, open, setOpen, isMobile, openMobile, setOpenMobile, toggleSidebar]
-    )
+  const toggleSidebar = React.useCallback(() => {
+    return isMobile ? setOpenMobile((open) => !open) : setOpen((open) => !open)
+  }, [isMobile, setOpen, setOpenMobile])
 
-    return (
-      <SidebarContext.Provider value={contextValue}>
-        <div
-          className={cn(
-            "group/sidebar-wrapper [--sidebar-width:16.5rem] [--sidebar-width-icon:3rem] flex min-h-svh w-full text-fg dark:has-data-[intent=inset]:bg-bg has-data-[intent=inset]:bg-secondary/50",
-            className
-          )}
-          ref={ref}
-          {...props}
-        >
-          {children}
-        </div>
-      </SidebarContext.Provider>
-    )
-  }
-)
+  React.useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "b" && (event.metaKey || event.ctrlKey)) {
+        event.preventDefault()
+        toggleSidebar()
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown)
+    return () => window.removeEventListener("keydown", handleKeyDown)
+  }, [toggleSidebar])
+
+  const state = open ? "expanded" : "collapsed"
+
+  const contextValue = React.useMemo<SidebarContextProps>(
+    () => ({
+      state,
+      open,
+      setOpen,
+      isMobile,
+      openMobile,
+      setOpenMobile,
+      toggleSidebar
+    }),
+    [state, open, setOpen, isMobile, openMobile, setOpenMobile, toggleSidebar]
+  )
+
+  return (
+    <SidebarContext.Provider value={contextValue}>
+      <div
+        className={cn(
+          "group/sidebar-wrapper [--sidebar-width:16.5rem] [--sidebar-width-icon:3rem] flex min-h-svh w-full text-fg dark:has-data-[intent=inset]:bg-bg has-data-[intent=inset]:bg-secondary/50",
+          className
+        )}
+        ref={ref}
+        {...props}
+      >
+        {children}
+      </div>
+    </SidebarContext.Provider>
+  )
+})
 Provider.displayName = "Provider"
 
 const Inset = ({ className, ...props }: React.ComponentProps<"main">) => {
@@ -152,10 +140,7 @@ const Sidebar = ({
 
   if (collapsible === "none") {
     return (
-      <div
-        className={cn("flex h-full w-(--sidebar-width) flex-col bg-tertiary text-fg ", className)}
-        {...props}
-      >
+      <div className={cn("flex h-full w-(--sidebar-width) flex-col bg-tertiary text-fg ", className)} {...props}>
         {children}
       </div>
     )
@@ -418,18 +403,10 @@ interface CollapsibleProps extends DisclosureProps {
   icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>
 }
 
-const Section = ({
-  title,
-  className,
-  collapsible,
-  icon: Icon,
-  defaultExpanded,
-  ...props
-}: CollapsibleProps) => {
+const Section = ({ title, className, collapsible, icon: Icon, defaultExpanded, ...props }: CollapsibleProps) => {
   const { state, isMobile } = useSidebar()
 
-  const isExpanded =
-    state === "collapsed" || (title ? (collapsible ? (defaultExpanded ?? true) : true) : true)
+  const isExpanded = state === "collapsed" || (title ? (collapsible ? (defaultExpanded ?? true) : true) : true)
   return (
     <Disclosure
       data-slot="sidebar-section"

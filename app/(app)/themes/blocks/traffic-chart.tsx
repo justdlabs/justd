@@ -1,8 +1,8 @@
 "use client"
 
-import { IconTrendingChart3 } from "justd-icons"
+import { IconChartTrending } from "justd-icons"
 import { Bar, BarChart, Rectangle, XAxis, YAxis } from "recharts"
-import { Card, Chart, type ChartConfig } from "ui"
+import { Card, Chart, type ChartConfig, ChartTooltip, ChartTooltipContent } from "ui"
 
 const chartData = [
   {
@@ -35,7 +35,7 @@ const chartData = [
 const chartConfig = {
   count: {
     label: "Count",
-    color: "hsl(var(--primary-chart))"
+    color: "hsl(var(--chart-1))"
   }
 } satisfies ChartConfig
 
@@ -48,20 +48,14 @@ export function TrafficChart() {
       </Card.Header>
       <Card.Content>
         <Chart config={chartConfig}>
-          <BarChart
-            accessibilityLayer
-            data={chartData}
-            layout="vertical"
-            barSize={30}
-            margin={{ left: 0, right: 0 }}
-          >
+          <BarChart accessibilityLayer data={chartData} layout="vertical" barSize={30} margin={{ left: 0, right: 0 }}>
             <YAxis dataKey="name" type="category" hide />
             <XAxis dataKey="count" type="number" hide />
             <Bar
               dataKey="count"
               layout="vertical"
               fill="var(--color-count)"
-              background={{ radius: 6, fill: "hsl(var(--primary-chart)/20%)" }}
+              background={{ radius: 6, fill: "hsl(var(--chart-1)/20%)" }}
               radius={6}
               shape={(props: any) => (
                 <>
@@ -69,18 +63,13 @@ export function TrafficChart() {
                   <text x={props.x + 10} y={props.y + 20} fill="hsl(var(--light))">
                     {props.country}
                   </text>
-                  <text
-                    x={props.background.width - 10}
-                    y={props.y + 20}
-                    textAnchor="end"
-                    fill="hsl(var(--fg))"
-                  >
+                  <text x={props.background.width - 10} y={props.y + 20} textAnchor="end" fill="hsl(var(--fg))">
                     {props.count.toLocaleString()} ({props.percentage.toFixed(1)}%)
                   </text>
                 </>
               )}
             />
-            <Chart.Tooltip cursor={false} content={<Chart.TooltipContent indicator="dot" />} />
+            <ChartTooltip cursor={false} content={<ChartTooltipContent indicator="dot" />} />
           </BarChart>
         </Chart>
       </Card.Content>
@@ -88,11 +77,9 @@ export function TrafficChart() {
         <div className="flex w-full items-start gap-2 text-sm">
           <div className="grid gap-2">
             <div className="flex items-center gap-2 font-medium leading-none">
-              Trending up by 5.2% this month <IconTrendingChart3 />
+              Trending up by 5.2% this month <IconChartTrending />
             </div>
-            <div className="flex items-center gap-2 leading-none text-muted-fg">
-              August - October 2024
-            </div>
+            <div className="flex items-center gap-2 leading-none text-muted-fg">August - October 2024</div>
           </div>
         </div>
       </Card.Footer>

@@ -8,12 +8,7 @@ import { ListBox } from "ui"
 export default function ListBoxItemDetailsDemo() {
   const [selected, setSelected] = React.useState<Selection>(new Set([1]))
   return (
-    <ListBox
-      selectedKeys={selected}
-      onSelectionChange={setSelected}
-      items={roles}
-      aria-label="Bands"
-    >
+    <ListBox selectedKeys={selected} onSelectionChange={setSelected} items={roles} aria-label="Bands">
       {(item) => (
         <ListBox.Item id={item.id}>
           <ListBox.ItemDetails label={item.name} description={item.description} />

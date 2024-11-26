@@ -8,14 +8,14 @@ import { Button, GridList as GridListPrimitive, GridListItem } from "react-aria-
 import { tv } from "tailwind-variants"
 
 import { Checkbox } from "./checkbox"
-import { cr, ctr } from "./primitive"
+import { composeTailwindRenderProps, cr } from "./primitive"
 
 const gridListStyles = tv({
   base: "relative *:data-drop-target:border *:data-drop-target:border-primary [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin] max-h-96 overflow-auto rounded-lg border"
 })
 
 const GridList = <T extends object>({ children, className, ...props }: GridListProps<T>) => (
-  <GridListPrimitive className={ctr(className, gridListStyles())} {...props}>
+  <GridListPrimitive className={composeTailwindRenderProps(className, gridListStyles())} {...props}>
     {children}
   </GridListPrimitive>
 )
@@ -45,17 +45,12 @@ const Item = ({ className, ...props }: GridListItemProps) => {
     <GridListItem
       textValue={textValue}
       {...props}
-      className={cr(className, (className, renderProps) =>
-        itemStyles({ ...renderProps, className })
-      )}
+      className={cr(className, (className, renderProps) => itemStyles({ ...renderProps, className }))}
     >
       {({ selectionMode, selectionBehavior, allowsDragging }) => (
         <>
           {allowsDragging && (
-            <Button
-              slot="drag"
-              className="cursor-grab data-dragging:cursor-grabbing *:data-[slot=icon]:text-muted-fg"
-            >
+            <Button slot="drag" className="cursor-grab data-dragging:cursor-grabbing *:data-[slot=icon]:text-muted-fg">
               <IconHamburger />
             </Button>
           )}
@@ -74,9 +69,7 @@ const Item = ({ className, ...props }: GridListItemProps) => {
   )
 }
 
-const EmptyState = (props: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className="p-6" {...props} />
-)
+const EmptyState = (props: React.HTMLAttributes<HTMLDivElement>) => <div className="p-6" {...props} />
 
 GridList.Item = Item
 GridList.EmptyState = EmptyState

@@ -20,7 +20,7 @@ import { DropdownItem, DropdownSection } from "./dropdown"
 import { Description, FieldError, FieldGroup, Input, Label } from "./field"
 import { ListBox } from "./list-box"
 import { Popover } from "./popover"
-import { ctr } from "./primitive"
+import { composeTailwindRenderProps } from "./primitive"
 
 const comboboxStyles = tv({
   slots: {
@@ -52,7 +52,7 @@ const ComboBox = <T extends object>({
   ...props
 }: ComboBoxProps<T>) => {
   return (
-    <ComboboxPrimitive {...props} className={ctr(className, base())}>
+    <ComboboxPrimitive {...props} className={composeTailwindRenderProps(className, base())}>
       {label && <Label>{label}</Label>}
       <>{children}</>
       {description && <Description>{description}</Description>}

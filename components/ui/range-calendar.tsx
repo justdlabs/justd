@@ -1,9 +1,6 @@
 "use client"
 
-import type {
-  DateValue,
-  RangeCalendarProps as RangeCalendarPrimitiveProps
-} from "react-aria-components"
+import type { DateValue, RangeCalendarProps as RangeCalendarPrimitiveProps } from "react-aria-components"
 import {
   CalendarCell,
   CalendarGrid,
@@ -15,7 +12,7 @@ import { twJoin } from "tailwind-merge"
 import { tv } from "tailwind-variants"
 
 import { Calendar } from "./calendar"
-import { ctr, focusRing } from "./primitive"
+import { composeTailwindRenderProps, focusRing } from "./primitive"
 
 const cellRangeStyles = tv({
   extend: focusRing,
@@ -37,19 +34,14 @@ const cellRangeStyles = tv({
   }
 })
 
-interface RangeCalendarProps<T extends DateValue>
-  extends Omit<RangeCalendarPrimitiveProps<T>, "visibleDuration"> {
+interface RangeCalendarProps<T extends DateValue> extends Omit<RangeCalendarPrimitiveProps<T>, "visibleDuration"> {
   errorMessage?: string
 }
 
-const RangeCalendar = <T extends DateValue>({
-  errorMessage,
-  className,
-  ...props
-}: RangeCalendarProps<T>) => {
+const RangeCalendar = <T extends DateValue>({ errorMessage, className, ...props }: RangeCalendarProps<T>) => {
   return (
     <RangeCalendarPrimitive
-      className={ctr(className, "max-w-[17.5rem] sm:max-w-[15.8rem]")}
+      className={composeTailwindRenderProps(className, "max-w-[17.5rem] sm:max-w-[15.8rem]")}
       {...props}
     >
       <Calendar.Header />
@@ -66,22 +58,12 @@ const RangeCalendar = <T extends DateValue>({
                 "invalid:selected:bg-red-100 dark:invalid:selected:bg-red-700/30"
               ])}
             >
-              {({
-                formattedDate,
-                isSelected,
-                isSelectionStart,
-                isSelectionEnd,
-                ...renderProps
-              }) => (
+              {({ formattedDate, isSelected, isSelectionStart, isSelectionEnd, ...renderProps }) => (
                 <span
                   className={cellRangeStyles({
                     ...renderProps,
                     selectionState:
-                      isSelected && (isSelectionStart || isSelectionEnd)
-                        ? "cap"
-                        : isSelected
-                          ? "middle"
-                          : "none"
+                      isSelected && (isSelectionStart || isSelectionEnd) ? "cap" : isSelected ? "middle" : "none"
                   })}
                 >
                   {formattedDate}

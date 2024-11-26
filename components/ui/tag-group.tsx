@@ -18,14 +18,11 @@ import { tv } from "tailwind-variants"
 
 import { badgeIntents, badgeShapes, badgeStyles } from "./badge"
 import { Description, Label } from "./field"
-import { cn, cr, ctr, focusStyles } from "./primitive"
+import { cn, composeTailwindRenderProps, cr, focusStyles } from "./primitive"
 
 const intents = {
   primary: {
-    base: [
-      badgeIntents.primary,
-      "[&_[slot=remove]:hover]:bg-primary [&_[slot=remove]:hover]:text-primary-fg"
-    ],
+    base: [badgeIntents.primary, "[&_[slot=remove]:hover]:bg-primary [&_[slot=remove]:hover]:text-primary-fg"],
     selected: [
       "bg-primary dark:data-hovered:bg-primary dark:bg-primary data-hovered:bg-primary ring-primary ring-inset text-primary-fg dark:text-primary-fg data-hovered:text-primary-fg",
       "[&_[slot=remove]:hover]:bg-primary-fg/50 [&_[slot=remove]:hover]:text-primary"
@@ -39,30 +36,21 @@ const intents = {
     ]
   },
   success: {
-    base: [
-      badgeIntents.success,
-      "[&_[slot=remove]:hover]:bg-success [&_[slot=remove]:hover]:text-success-fg"
-    ],
+    base: [badgeIntents.success, "[&_[slot=remove]:hover]:bg-success [&_[slot=remove]:hover]:text-success-fg"],
     selected: [
       "bg-success dark:bg-success ring-success ring-inset dark:text-success-fg dark:data-hovered:bg-success data-hovered:bg-success text-success-fg data-hovered:text-success-fg",
       "[&_[slot=remove]:hover]:bg-success-fg/80 [&_[slot=remove]:hover]:text-success"
     ]
   },
   warning: {
-    base: [
-      badgeIntents.warning,
-      "[&_[slot=remove]:hover]:bg-warning [&_[slot=remove]:hover]:text-warning-fg"
-    ],
+    base: [badgeIntents.warning, "[&_[slot=remove]:hover]:bg-warning [&_[slot=remove]:hover]:text-warning-fg"],
     selected: [
       "bg-warning dark:data-hovered:bg-warning dark:bg-warning dark:text-bg data-hovered:bg-warning text-warning-fg data-hovered:text-warning-fg",
       "[&_[slot=remove]:hover]:bg-warning-fg/80 [&_[slot=remove]:hover]:text-warning"
     ]
   },
   danger: {
-    base: [
-      badgeIntents.danger,
-      "[&_[slot=remove]:hover]:bg-danger [&_[slot=remove]:hover]:text-danger-fg"
-    ],
+    base: [badgeIntents.danger, "[&_[slot=remove]:hover]:bg-danger [&_[slot=remove]:hover]:text-danger-fg"],
     selected: [
       "bg-danger dark:bg-danger dark:data-hovered:bg-danger/90 data-hovered:bg-danger text-danger-fg ring-danger data-hovered:text-danger-fg",
       "[&_[slot=remove]:hover]:bg-danger-fg/80 [&_[slot=remove]:hover]:text-danger"
@@ -112,7 +100,7 @@ const TagGroup = ({ children, ...props }: TagGroupProps) => {
 }
 
 const TagList = <T extends object>({ className, ...props }: TagListProps<T>) => {
-  return <TagListPrimitive {...props} className={ctr(className, "flex flex-wrap gap-2")} />
+  return <TagListPrimitive {...props} className={composeTailwindRenderProps(className, "flex flex-wrap gap-2")} />
 }
 
 const tagStyles = tv({

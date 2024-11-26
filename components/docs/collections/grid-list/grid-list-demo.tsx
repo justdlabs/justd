@@ -4,12 +4,7 @@ import { GridList } from "ui"
 
 export default function GridListDemo() {
   return (
-    <GridList
-      selectionMode="single"
-      items={items}
-      aria-label="Select your favorite bands"
-      className="min-w-64"
-    >
+    <GridList selectionMode="single" items={items} aria-label="Select your favorite bands" className="min-w-64">
       {(item) => <GridList.Item id={item.id}>{item.name}</GridList.Item>}
     </GridList>
   )

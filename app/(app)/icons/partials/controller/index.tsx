@@ -14,9 +14,7 @@ export function Controller({ searchParams }: SearchParamsProps) {
   const router = useRouter()
   const pathname = usePathname()
   const { t } = searchParams
-  const [isSelected, setSelected] = React.useState<"solid" | "regular">(
-    (t as "solid" | "regular") || "regular"
-  )
+  const [isSelected, setSelected] = React.useState<"solid" | "regular">((t as "solid" | "regular") || "regular")
 
   const { createQueryString } = useQueryString()
 

@@ -11,9 +11,9 @@ const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs))
 
 function composeTailwindRenderProps<T>(
   className: string | ((v: T) => string) | undefined,
-  tw: string | Array<string | undefined>
+  tailwind: string
 ): string | ((v: T) => string) {
-  return composeRenderProps(className, (className) => twMerge(tw, className))
+  return composeRenderProps(className, (className) => twMerge(tailwind, className))
 }
 
 const focusRing = tv({
@@ -63,7 +63,6 @@ const useMediaQuery = (query: string) => {
 export {
   cn,
   composeTailwindRenderProps,
-  composeTailwindRenderProps as ctr,
   composeRenderProps as cr,
   focusRing,
   focusStyles,

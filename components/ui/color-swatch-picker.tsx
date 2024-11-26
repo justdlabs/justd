@@ -3,23 +3,19 @@
 import React from "react"
 
 import type { ColorSwatchPickerItemProps, ColorSwatchPickerProps } from "react-aria-components"
-import {
-  ColorSwatchPicker as ColorSwatchPickerPrimitive,
-  ColorSwatchPickerItem
-} from "react-aria-components"
+import { ColorSwatchPicker as ColorSwatchPickerPrimitive, ColorSwatchPickerItem } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
 import { ColorSwatch } from "./color-swatch"
-import { ctr, focusRing } from "./primitive"
+import { composeTailwindRenderProps, focusRing } from "./primitive"
 
-const ColorSwatchPicker = ({
-  children,
-  className,
-  layout = "grid",
-  ...props
-}: ColorSwatchPickerProps) => {
+const ColorSwatchPicker = ({ children, className, layout = "grid", ...props }: ColorSwatchPickerProps) => {
   return (
-    <ColorSwatchPickerPrimitive layout={layout} {...props} className={ctr(className, "flex gap-1")}>
+    <ColorSwatchPickerPrimitive
+      layout={layout}
+      {...props}
+      className={composeTailwindRenderProps(className, "flex gap-1")}
+    >
       {children}
     </ColorSwatchPickerPrimitive>
   )

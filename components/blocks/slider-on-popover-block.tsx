@@ -27,11 +27,7 @@ export function SliderOnPopoverBlock() {
             </Description>
           </div>
           <div>
-            <Slider
-              value={lineHeight}
-              onChange={(v) => setLineHeight(v as number[])}
-              label="Line Height"
-            />
+            <Slider value={lineHeight} onChange={(v) => setLineHeight(v as number[])} label="Line Height" />
             <Description className="mt-2 block [&>strong]:text-fg">
               Current line height: <strong>{lineHeight ?? "-"}</strong>
             </Description>

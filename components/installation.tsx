@@ -39,10 +39,7 @@ export interface InstallationProps {
 }
 
 export function Installation({ className, ...props }: InstallationProps) {
-  const {
-    options = { isExecutor: false, isInit: false, isComponent: false, isManual: false },
-    items
-  } = props
+  const { options = { isExecutor: false, isInit: false, isComponent: false, isManual: false }, items } = props
   const [pkgManager, setPkgManager] = React.useState({
     name: "npm",
     action: "i"
@@ -161,13 +158,7 @@ interface ChoosePkgManagerProps {
   isExecutor?: boolean
 }
 
-function ChoosePkgManager({
-  isExecutor,
-  items,
-  setIsCopied,
-  setPkgManager,
-  ...props
-}: ChoosePkgManagerProps) {
+function ChoosePkgManager({ isExecutor, items, setIsCopied, setPkgManager, ...props }: ChoosePkgManagerProps) {
   function handleAction(tool: string) {
     let selectedPkgManager: PkgManager = {
       name: "",
@@ -245,23 +236,11 @@ function ButtonCopy({ isCopied, ...props }: ButtonCopyProps) {
     <Button className={copyButton()} {...props}>
       <AnimatePresence mode="wait" initial={false}>
         {isCopied ? (
-          <motion.span
-            key="check"
-            variants={copyVariants}
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
-          >
+          <motion.span key="check" variants={copyVariants} initial="hidden" animate="visible" exit="hidden">
             <IconCheck />
           </motion.span>
         ) : (
-          <motion.span
-            key="copy"
-            variants={copyVariants}
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
-          >
+          <motion.span key="copy" variants={copyVariants} initial="hidden" animate="visible" exit="hidden">
             <IconDuplicate />
           </motion.span>
         )}

@@ -58,9 +58,7 @@ const List = <T extends object>(props: TabListProps<T>) => {
     <LayoutGroup id={id}>
       <TabList
         {...props}
-        className={cr(props.className, (className, renderProps) =>
-          tabListStyles({ ...renderProps, className })
-        )}
+        className={cr(props.className, (className, renderProps) => tabListStyles({ ...renderProps, className }))}
       />
     </LayoutGroup>
   )
@@ -130,9 +128,7 @@ const Panel = (props: TabPanelProps) => {
   return (
     <TabPanel
       {...props}
-      className={cr(props.className, (className, renderProps) =>
-        tabPanelStyles({ ...renderProps, className })
-      )}
+      className={cr(props.className, (className, renderProps) => tabPanelStyles({ ...renderProps, className }))}
     />
   )
 }

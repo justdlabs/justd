@@ -13,7 +13,7 @@ import {
 import type { FieldProps } from "./field"
 import { Description, FieldError, FieldGroup, Input, Label } from "./field"
 import { Loader } from "./loader"
-import { ctr } from "./primitive"
+import { composeTailwindRenderProps } from "./primitive"
 
 type InputType = Exclude<TextInputDOMProps["type"], "password">
 
@@ -59,7 +59,7 @@ const TextField = ({
     <TextFieldPrimitive
       type={inputType}
       {...props}
-      className={ctr(className, "group flex flex-col gap-y-1.5")}
+      className={composeTailwindRenderProps(className, "group flex flex-col gap-y-1.5")}
     >
       {label && <Label>{label}</Label>}
       <FieldGroup data-loading={isPending ? "true" : undefined}>

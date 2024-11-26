@@ -29,10 +29,7 @@ export function CmdK() {
   const inputRef = useRef<HTMLInputElement>(null)
   const [filterValue, setFilterValue] = useState("")
   const { contains } = useFilter({ sensitivity: "base" })
-  const filteredItems = useMemo(
-    () => items.filter((i) => contains(i.name, filterValue)),
-    [items, filterValue]
-  )
+  const filteredItems = useMemo(() => items.filter((i) => contains(i.name, filterValue)), [items, filterValue])
 
   function toggle(e: KeyboardEvent) {
     if (e.key === "k" && e.metaKey) {

@@ -3,11 +3,7 @@
 import * as React from "react"
 
 import { IconX } from "justd-icons"
-import type {
-  ButtonProps as ButtonPrimitiveProps,
-  DialogProps,
-  HeadingProps
-} from "react-aria-components"
+import type { ButtonProps as ButtonPrimitiveProps, DialogProps, HeadingProps } from "react-aria-components"
 import {
   Button as ButtonPrimitive,
   Dialog as DialogPrimitive,
@@ -46,9 +42,7 @@ const Dialog = ({ role, className, ...props }: DialogProps) => {
 
 const Trigger = (props: ButtonPrimitiveProps) => (
   <ButtonPrimitive {...props}>
-    {(values) => (
-      <>{typeof props.children === "function" ? props.children(values) : props.children}</>
-    )}
+    {(values) => <>{typeof props.children === "function" ? props.children(values) : props.children}</>}
   </ButtonPrimitive>
 )
 
@@ -68,10 +62,7 @@ const Header = ({ className, ...props }: DialogHeaderProps) => {
 
     const observer = new ResizeObserver((entries) => {
       for (const entry of entries) {
-        header.parentElement?.style.setProperty(
-          "--dialog-header-height",
-          `${entry.target.clientHeight}px`
-        )
+        header.parentElement?.style.setProperty("--dialog-header-height", `${entry.target.clientHeight}px`)
       }
     })
 
@@ -128,10 +119,7 @@ const Footer = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) =
 
     const observer = new ResizeObserver((entries) => {
       for (const entry of entries) {
-        footer.parentElement?.style.setProperty(
-          "--dialog-footer-height",
-          `${entry.target.clientHeight}px`
-        )
+        footer.parentElement?.style.setProperty("--dialog-footer-height", `${entry.target.clientHeight}px`)
       }
     })
 
@@ -140,21 +128,12 @@ const Footer = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) =
       observer.unobserve(footer)
     }
   }, [])
-  return (
-    <div ref={footerRef} data-slot="dialog-footer" className={footer({ className })} {...props} />
-  )
+  return <div ref={footerRef} data-slot="dialog-footer" className={footer({ className })} {...props} />
 }
 
 const Close = ({ className, appearance = "outline", ...props }: ButtonProps) => {
   const state = React.useContext(OverlayTriggerStateContext)!
-  return (
-    <Button
-      className={className}
-      appearance={appearance}
-      onPress={() => state.close()}
-      {...props}
-    />
-  )
+  return <Button className={className} appearance={appearance} onPress={() => state.close()} {...props} />
 }
 
 interface CloseButtonIndicatorProps {

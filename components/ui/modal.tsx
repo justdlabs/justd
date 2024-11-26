@@ -3,11 +3,7 @@
 import * as React from "react"
 
 import type { DialogProps, DialogTriggerProps, ModalOverlayProps } from "react-aria-components"
-import {
-  DialogTrigger,
-  Modal as ModalPrimitive,
-  ModalOverlay as ModalOverlayPrimitive
-} from "react-aria-components"
+import { DialogTrigger, Modal as ModalPrimitive, ModalOverlay as ModalOverlayPrimitive } from "react-aria-components"
 import { tv, type VariantProps } from "tailwind-variants"
 
 import { Dialog } from "./dialog"
@@ -120,9 +116,7 @@ const ModalContent = ({
         {(values) => (
           <Dialog role={role}>
             {typeof children === "function" ? children(values) : children}
-            {closeButton && (
-              <Dialog.CloseIndicator close={values.state.close} isDismissable={_isDismissable} />
-            )}
+            {closeButton && <Dialog.CloseIndicator close={values.state.close} isDismissable={_isDismissable} />}
           </Dialog>
         )}
       </ModalPrimitive>

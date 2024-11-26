@@ -1,25 +1,30 @@
-import { BarChart } from "recharts"
-import { Chart } from "ui"
+import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
+import { Chart, ChartTooltip, ChartTooltipContent } from "ui"
 
 export default function ChartAnatomy() {
   return (
     <Chart
       config={{
-        sales: {
-          label: "Sales",
-          color: "hsl(var(--primary-chart))"
+        first: {
+          label: "...",
+          color: "var(--chart-1)"
         }
       }}
+      className="min-h-[250px]"
     >
-      <BarChart
+      <AreaChart
         accessibilityLayer
         data={[
-          { month: "January", sales: 5000 },
-          { month: "February", sales: 7000 }
+          { month: "January", revenue: 12000 }
+          //...
         ]}
+        margin={{ left: 12, right: 12 }}
       >
-        <Chart.Tooltip cursor={false} content={<Chart.TooltipContent hideLabel />} />
-      </BarChart>
+        <CartesianGrid />
+        <XAxis />
+        <ChartTooltip content={<ChartTooltipContent indicator="line" />} />
+        <Area dataKey="revenue" />
+      </AreaChart>
     </Chart>
   )
 }

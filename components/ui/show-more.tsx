@@ -40,19 +40,11 @@ interface ShowMoreProps extends React.ComponentProps<typeof ToggleButton> {
   text?: string
 }
 
-const ShowMore = ({
-  as = "button",
-  orientation = "horizontal",
-  className,
-  ...props
-}: ShowMoreProps) => {
+const ShowMore = ({ as = "button", orientation = "horizontal", className, ...props }: ShowMoreProps) => {
   return (
     <div className={showMoreStyles({ orientation, className })}>
       {as === "button" ? (
-        <ToggleButton
-          {...props}
-          className={buttonStyles({ shape: "circle", appearance: "outline", size: "small" })}
-        >
+        <ToggleButton {...props} className={buttonStyles({ shape: "circle", appearance: "outline", size: "small" })}>
           {cr(props.children, (children) => (
             <>{children}</>
           ))}

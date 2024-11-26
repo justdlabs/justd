@@ -90,19 +90,9 @@ export default function RootLayout({
   return (
     <html dir="ltr" lang="en" suppressHydrationWarning>
       <head>
-        <script
-          defer
-          data-site-id="getjustd.com"
-          src="https://assets.onedollarstats.com/tracker.js"
-        ></script>
+        <script defer data-site-id="getjustd.com" src="https://assets.onedollarstats.com/tracker.js"></script>
       </head>
-      <body
-        className={cn(
-          "min-h-screen bg-bg font-sans antialiased",
-          fontSans.variable,
-          fontMono.variable
-        )}
-      >
+      <body className={cn("min-h-screen bg-bg font-sans antialiased", fontSans.variable, fontMono.variable)}>
         <Providers>
           {children}
           {process.env.NODE_ENV === "production" && (

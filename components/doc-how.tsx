@@ -44,13 +44,12 @@ export function DocHow({
           <div
             className={cn(
               !withNoPadding && "relative gap-4 rounded-lg border bg-overlay p-6",
-              isCenter &&
-                "flex min-h-56 lg:min-h-80 items-center justify-center py-6 preview sm:py-24 overflow-x-auto"
+              isCenter && "flex min-h-56 lg:min-h-80 items-center justify-center py-6 preview sm:py-24 overflow-x-auto"
             )}
           >
             <React.Suspense
               fallback={
-                <div className="flex py-6 justify-center items-center text-sm text-muted-foreground">
+                <div className="flex py-6 justify-center items-center text-sm text-muted-fg">
                   <Loader variant="spin" />
                   <span className="sr-only">Loading...</span>
                 </div>

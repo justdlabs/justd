@@ -6,13 +6,7 @@ import { Card, Grid, Link } from "ui"
 
 const simplifiedDocs = docs.map(({ title, slug, description }) => ({ title, slug, description }))
 
-export function DocComposed({
-  components,
-  text
-}: {
-  components: string[]
-  text?: string | React.ReactNode
-}) {
+export function DocComposed({ components, text }: { components: string[]; text?: string | React.ReactNode }) {
   const pathname = usePathname()
   const name = getLatestOfString(pathname)
   const filteredComponents = simplifiedDocs.filter((component) => {
@@ -24,12 +18,12 @@ export function DocComposed({
       {!text ? (
         <>
           <p className="mb-6">
-            When you plug this component from the CLI, it autoloads all the composed components. No
-            need to toss 'em in one at a time.
+            When you plug this component from the CLI, it autoloads all the composed components. No need to toss 'em in
+            one at a time.
           </p>
           <p className="mb-6">
-            The <strong className="font-medium lowercase">{name}</strong>'s decked out with several
-            components to make it bangin'.
+            The <strong className="font-medium lowercase">{name}</strong>'s decked out with several components to make
+            it bangin'.
           </p>
         </>
       ) : (
@@ -56,12 +50,8 @@ export function DocComposed({
               />
               <Card className="overflow-hidden hover:bg-secondary/40 data-focused:bg-secondary/40 transition-colors">
                 <Card.Header className="p-4">
-                  <Card.Title className="sm:text-lg text-base line-clamp-1 font-medium">
-                    {item.title}
-                  </Card.Title>
-                  <Card.Description className="line-clamp-2 sm:text-sm text-xs">
-                    {item.description}
-                  </Card.Description>
+                  <Card.Title className="sm:text-lg text-base line-clamp-1 font-medium">{item.title}</Card.Title>
+                  <Card.Description className="line-clamp-2 sm:text-sm text-xs">{item.description}</Card.Description>
                 </Card.Header>
               </Card>
             </Grid.Item>

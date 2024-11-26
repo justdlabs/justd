@@ -13,13 +13,7 @@ export function LoginForm() {
       </Card.Header>
       <div className="space-y-6 mb-6">
         <TextField isRequired type="email" label="Email" placeholder="Enter your email" />
-        <TextField
-          isRequired
-          label="Password"
-          isRevealable
-          type="password"
-          placeholder="Enter your password"
-        />
+        <TextField isRequired label="Password" isRevealable type="password" placeholder="Enter your password" />
         <div className="flex justify-between items-center">
           <Checkbox name="remember-me">Remember me</Checkbox>
           <Link intent="primary" href="#">

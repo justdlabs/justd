@@ -20,7 +20,7 @@ import {
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
-import { cn, ctr } from "./primitive"
+import { cn, composeTailwindRenderProps } from "./primitive"
 
 interface FieldProps {
   label?: string
@@ -64,7 +64,7 @@ const Description = ({ className, ...props }: DescriptionProps) => {
 }
 
 const FieldError = ({ className, ...props }: FieldErrorProps) => {
-  return <FieldErrorPrimitive {...props} className={ctr(className, fieldError())} />
+  return <FieldErrorPrimitive {...props} className={composeTailwindRenderProps(className, fieldError())} />
 }
 
 const FieldGroup = ({ className, ...props }: GroupProps) => {
@@ -87,7 +87,7 @@ const FieldGroup = ({ className, ...props }: GroupProps) => {
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(({ className, ...props }, ref) => {
-  return <InputPrimitive ref={ref} {...props} className={ctr(className, input())} />
+  return <InputPrimitive ref={ref} {...props} className={composeTailwindRenderProps(className, input())} />
 })
 
 Input.displayName = "Input"

@@ -32,11 +32,11 @@ export const neutral = {
     "--toggle": "223.81 0% 83%",
     "--radius": "0.5rem",
 
-    "--primary-chart": "223.81 0% 25%",
-    "--secondary-chart": "223.81 0% 83%",
-    "--tertiary-chart": "223.81 0% 45%",
-    "--highlight-chart": "223.81 0% 83%",
-    "--accent-chart": "223.81 0% 90%"
+    "--chart-1": "223.81 0% 25%",
+    "--chart-2": "223.81 0% 83%",
+    "--chart-3": "223.81 0% 45%",
+    "--chart-4": "223.81 0% 83%",
+    "--chart-5": "223.81 0% 90%"
   },
   dark: {
     "--bg": "223.81 0% 1%",
@@ -64,10 +64,10 @@ export const neutral = {
     "--border": "223.81 0% 16%",
     "--input": "223.81 0% 16%",
 
-    "--primary-chart": "223.81 0% 25%",
-    "--secondary-chart": "223.81 0% 83%",
-    "--tertiary-chart": "223.81 0% 45%",
-    "--highlight-chart": "223.81 0% 83%",
-    "--accent-chart": "223.81 0% 90%"
+    "--chart-1": "223.81 0% 25%",
+    "--chart-2": "223.81 0% 83%",
+    "--chart-3": "223.81 0% 45%",
+    "--chart-4": "223.81 0% 83%",
+    "--chart-5": "223.81 0% 90%"
   }
 }

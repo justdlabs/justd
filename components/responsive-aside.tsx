@@ -12,13 +12,7 @@ import { CommandPalette } from "./command-palette"
 import { NavbarDropdown } from "./navbar"
 import { ThemeSwitcher } from "./theme-switcher"
 
-export function ResponsiveAside({
-  openCmd,
-  setOpenCmd
-}: {
-  openCmd: boolean
-  setOpenCmd: (open: boolean) => void
-}) {
+export function ResponsiveAside({ openCmd, setOpenCmd }: { openCmd: boolean; setOpenCmd: (open: boolean) => void }) {
   const id = React.useId()
   const [openAside, setOpenAside] = React.useState(false)
   const pathname = usePathname()

@@ -76,9 +76,7 @@ const Slider = ({ label, description, showValue = true, ...props }: SliderProps)
     <div className="flex items-center justify-between gap-2">
       {label && <Label>{label}</Label>}
       {(showValue || typeof showValue === "function") && (
-        <Output>
-          {({ state }) => (typeof showValue === "function" ? showValue(state.values) : undefined)}
-        </Output>
+        <Output>{({ state }) => (typeof showValue === "function" ? showValue(state.values) : undefined)}</Output>
       )}
     </div>
     <Controls />
@@ -97,9 +95,7 @@ const Controls = (props: SliderTrackProps) => {
 }
 
 const Track = (props: SliderTrackProps) => {
-  return (
-    <SliderTrack {...props} className={cr(props.className, (className) => track({ className }))} />
-  )
+  return <SliderTrack {...props} className={cr(props.className, (className) => track({ className }))} />
 }
 
 const Filler = (props: React.HTMLAttributes<HTMLDivElement>) => {
@@ -131,8 +127,7 @@ const Output = ({ className, ...props }: SliderOutputProps) => {
     <SliderOutput {...props} className={cr(className, (className) => valueLabel({ className }))}>
       {cr(
         props.children,
-        (children, { state }) =>
-          children ?? state.values.map((_, i) => state.getThumbValueLabel(i)).join(" - ")
+        (children, { state }) => children ?? state.values.map((_, i) => state.getThumbValueLabel(i)).join(" - ")
       )}
     </SliderOutput>
   )

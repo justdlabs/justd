@@ -8,12 +8,13 @@ import {
   CheckboxGroup as CheckboxGroupPrimitive,
   type CheckboxGroupProps as CheckboxGroupPrimitiveProps,
   type CheckboxProps as CheckboxPrimitiveProps,
+  composeRenderProps,
   type ValidationResult
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
 import { Description, FieldError, Label } from "./field"
-import { cn, cr, ctr } from "./primitive"
+import { cn, composeTailwindRenderProps } from "./primitive"
 
 interface CheckboxGroupProps extends CheckboxGroupPrimitiveProps {
   label?: string
@@ -21,9 +22,9 @@ interface CheckboxGroupProps extends CheckboxGroupPrimitiveProps {
   errorMessage?: string | ((validation: ValidationResult) => string)
 }
 
-const CheckboxGroup = (props: CheckboxGroupProps) => {
+const CheckboxGroup = ({ className, ...props }: CheckboxGroupProps) => {
   return (
-    <CheckboxGroupPrimitive {...props} className={ctr(props.className, "flex flex-col gap-y-2")}>
+    <CheckboxGroupPrimitive {...props} className={composeTailwindRenderProps(className, "flex flex-col gap-y-2")}>
       <Label>{props.label}</Label>
       <>{props.children as React.ReactNode}</>
       {props.description && <Description className="block">{props.description}</Description>}
@@ -73,7 +74,7 @@ const Checkbox = ({ className, ...props }: CheckboxProps) => {
   return (
     <CheckboxPrimitive
       {...props}
-      className={cr(className, (className, renderProps) =>
+      className={composeRenderProps(className, (className, renderProps) =>
         checkboxStyles({ ...renderProps, className })
       )}
     >

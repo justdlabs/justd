@@ -2,16 +2,13 @@
 
 import * as React from "react"
 
-import type {
-  ColorFieldProps as ColorFieldPrimitiveProps,
-  ValidationResult
-} from "react-aria-components"
+import type { ColorFieldProps as ColorFieldPrimitiveProps, ValidationResult } from "react-aria-components"
 import { ColorField as ColorFieldPrimitive } from "react-aria-components"
 
 import { ColorPicker } from "./color-picker"
 import { ColorSwatch } from "./color-swatch"
 import { Description, FieldError, FieldGroup, Input, Label } from "./field"
-import { ctr } from "./primitive"
+import { composeTailwindRenderProps } from "./primitive"
 
 interface ColorFieldProps extends ColorFieldPrimitiveProps {
   label?: string
@@ -41,7 +38,7 @@ const ColorField = ({
     <ColorFieldPrimitive
       {...props}
       aria-label={props["aria-label"] ?? "Color field"}
-      className={ctr(
+      className={composeTailwindRenderProps(
         className,
         "**:data-[slot=color-swatch]:-ml-0.5 group w-full flex flex-col gap-y-1"
       )}

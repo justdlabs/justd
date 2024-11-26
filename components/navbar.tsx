@@ -33,8 +33,7 @@ import { ThemeSwitcher } from "./theme-switcher"
 
 const menuItems = [
   { id: 1, label: "Home", url: "/" },
-  { id: 4, label: "Components", url: "/docs/getting-started/introduction" },
-  { id: 3, label: "Charts", url: "/charts" }
+  { id: 4, label: "Components", url: "/docs/getting-started/introduction" }
 ]
 
 export function Navbar() {
@@ -60,18 +59,14 @@ export function Navbar() {
                     </NavLink>
                     <NavLink
                       isNextLink
-                      isActive={
-                        pathname?.startsWith("/docs") && !pathname?.includes("/docs/components")
-                      }
+                      isActive={pathname?.startsWith("/docs") && !pathname?.includes("/docs/components")}
                       href="/docs/getting-started/introduction"
                     >
                       Docs
                     </NavLink>
                     <NavLink
                       isNextLink
-                      isActive={
-                        pathname?.startsWith("/docs/components") || pathname === "/components"
-                      }
+                      isActive={pathname?.startsWith("/docs/components") || pathname === "/components"}
                       href="/components"
                     >
                       Components
@@ -194,10 +189,7 @@ export function NavbarDropdown() {
             <IconBrandGithub />
             Github
           </Menu.Item>
-          <Menu.Item
-            href="https://react-spectrum.adobe.com/react-aria/components.html"
-            target="_blank"
-          >
+          <Menu.Item href="https://react-spectrum.adobe.com/react-aria/components.html" target="_blank">
             <IconBrandAdobe />
             RAC
           </Menu.Item>
@@ -209,13 +201,7 @@ export function NavbarDropdown() {
         <Menu.Section title="Preferences">
           <Menu.Submenu>
             <Menu.Item>
-              {theme === "system" ? (
-                <IconDeviceDesktop />
-              ) : theme === "dark" ? (
-                <IconMoon />
-              ) : (
-                <IconSun />
-              )}
+              {theme === "system" ? <IconDeviceDesktop /> : theme === "dark" ? <IconMoon /> : <IconSun />}
               <span>Switch Theme</span>
             </Menu.Item>
             <Menu.Content>

@@ -2,9 +2,9 @@
 
 import * as React from "react"
 
-import { IconTrendingChart3 } from "justd-icons"
+import { IconChartTrending } from "justd-icons"
 import { Label, Pie, PieChart } from "recharts"
-import { Card, Chart, type ChartConfig } from "ui"
+import { Card, Chart, type ChartConfig, ChartTooltip, ChartTooltipContent } from "ui"
 
 export const description = "A donut chart with subscription plan distribution"
 
@@ -22,23 +22,23 @@ const chartConfig = {
   },
   basic: {
     label: "Basic",
-    color: "hsl(var(--primary-chart))"
+    color: "hsl(var(--chart-1))"
   },
   standard: {
     label: "Standard",
-    color: "hsl(var(--secondary-chart))"
+    color: "hsl(var(--chart-2))"
   },
   premium: {
     label: "Premium",
-    color: "hsl(var(--tertiary-chart))"
+    color: "hsl(var(--chart-3))"
   },
   pro: {
     label: "Pro",
-    color: "hsl(var(--highlight-chart))"
+    color: "hsl(var(--chart-4))"
   },
   enterprise: {
     label: "Enterprise",
-    color: "hsl(var(--accent-chart))"
+    color: "hsl(var(--chart-5))"
   }
 } satisfies ChartConfig
 
@@ -56,24 +56,13 @@ export function SubscriptionChart() {
       <Card.Content className="flex-1 pb-0">
         <Chart config={chartConfig} className="mx-auto aspect-square max-h-[250px]">
           <PieChart>
-            <Chart.Tooltip cursor={false} content={<Chart.TooltipContent hideLabel />} />
-            <Pie
-              data={chartData}
-              dataKey="subscribers"
-              nameKey="plan"
-              innerRadius={60}
-              strokeWidth={5}
-            >
+            <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
+            <Pie data={chartData} dataKey="subscribers" nameKey="plan" innerRadius={60} strokeWidth={5}>
               <Label
                 content={({ viewBox }) => {
                   if (viewBox && "cx" in viewBox && "cy" in viewBox) {
                     return (
-                      <text
-                        x={viewBox.cx}
-                        y={viewBox.cy}
-                        textAnchor="middle"
-                        dominantBaseline="middle"
-                      >
+                      <text x={viewBox.cx} y={viewBox.cy} textAnchor="middle" dominantBaseline="middle">
                         <tspan x={viewBox.cx} y={viewBox.cy} className="fill-fg text-3xl font-bold">
                           {totalSubscribers.toLocaleString()}
                         </tspan>
@@ -91,11 +80,9 @@ export function SubscriptionChart() {
       </Card.Content>
       <Card.Footer className="flex-col gap-2 text-sm">
         <div className="flex items-center gap-2 font-medium leading-none">
-          Growth by 8.5% this month <IconTrendingChart3 />
+          Growth by 8.5% this month <IconChartTrending />
         </div>
-        <div className="leading-none text-muted-fg">
-          Showing total subscribers for the last 9 months
-        </div>
+        <div className="leading-none text-muted-fg">Showing total subscribers for the last 9 months</div>
       </Card.Footer>
     </Card>
   )

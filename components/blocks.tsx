@@ -74,12 +74,8 @@ export function Blocks() {
               <CardBlock className="p-4 py-2 sm:p-4 lg:px-5 lg:py-0">
                 <div>
                   <Note>Check out the latest updates on our dashboard!</Note>
-                  <Note intent="danger">
-                    Complete your profile to get personalized recommendations.
-                  </Note>
-                  <Note intent="warning">
-                    Heads up! We'll be doing system maintenance this Sunday at 2 AM.
-                  </Note>
+                  <Note intent="danger">Complete your profile to get personalized recommendations.</Note>
+                  <Note intent="warning">Heads up! We'll be doing system maintenance this Sunday at 2 AM.</Note>
                 </div>
               </CardBlock>
             </div>
@@ -104,11 +100,7 @@ export function Blocks() {
   )
 }
 
-export function CardBlock({
-  className,
-  children,
-  ...props
-}: React.HtmlHTMLAttributes<HTMLDivElement>) {
+export function CardBlock({ className, children, ...props }: React.HtmlHTMLAttributes<HTMLDivElement>) {
   return (
     <div
       {...props}

@@ -6,14 +6,7 @@ import { docs } from "#site/content"
 import type { Doc, HierarchyNode } from "@/components/aside"
 import { createHierarchy } from "@/components/aside"
 import { goodTitle } from "@/resources/lib/utils"
-import {
-  IconBrandJustd,
-  IconColors,
-  IconColorSwatch,
-  IconCube,
-  IconHome,
-  IconNotes
-} from "justd-icons"
+import { IconBrandJustd, IconColors, IconColorSwatch, IconCube, IconHome, IconNotes } from "justd-icons"
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
 import { CommandMenu, useMediaQuery } from "ui"
@@ -55,11 +48,7 @@ export function CommandPalette({ openCmd, setOpen }: OpenCloseProps) {
   })
 
   return (
-    <CommandMenu
-      classNames={{ content: "backdrop-blur bg-overlay/90" }}
-      isOpen={openCmd}
-      onOpenChange={setOpen}
-    >
+    <CommandMenu classNames={{ content: "backdrop-blur bg-overlay/90" }} isOpen={openCmd} onOpenChange={setOpen}>
       <CommandMenu.Input autoFocus={isDesktop} placeholder="Quick search..." />
       <CommandMenu.List>
         <CommandMenu.Section separator heading="Pages">
@@ -97,10 +86,7 @@ export function CommandPalette({ openCmd, setOpen }: OpenCloseProps) {
 
         {filteredNodeEntries.map(([key, value]) => (
           <React.Fragment key={key}>
-            <CommandMenu.Section
-              key={`${key}-section`}
-              heading={key !== "components" ? goodTitle(key) : undefined}
-            >
+            <CommandMenu.Section key={`${key}-section`} heading={key !== "components" ? goodTitle(key) : undefined}>
               {Object.entries(value as HierarchyNode).map(([subKey, subValue]) =>
                 typeof subValue === "object" && "title" in subValue ? (
                   <CommandMenu.Item

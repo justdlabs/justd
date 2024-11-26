@@ -76,12 +76,7 @@ export function AppNavbar({ children, ...props }: React.ComponentProps<typeof Na
             <Separator orientation="vertical" className="h-6 ml-1 mr-3" />
             <Menu>
               <Menu.Trigger aria-label="Open Menu" className="group gap-x-2 flex items-center">
-                <Avatar
-                  alt="slash"
-                  size="small"
-                  shape="square"
-                  src="/images/sidebar/profile-slash.jpg"
-                />
+                <Avatar alt="slash" size="small" shape="square" src="/images/sidebar/profile-slash.jpg" />
                 <IconChevronLgDown className="size-4 group-data-pressed:rotate-180 transition-transform" />
               </Menu.Trigger>
               <Menu.Content placement="bottom" showArrow className="sm:min-w-56">
@@ -141,12 +136,7 @@ export function AppNavbar({ children, ...props }: React.ComponentProps<typeof Na
             <Separator orientation="vertical" className="h-6 ml-1 mr-3" />
             <Menu>
               <Menu.Trigger aria-label="Open Menu" className="group gap-x-2 flex items-center">
-                <Avatar
-                  alt="slash"
-                  size="small"
-                  shape="square"
-                  src="/images/sidebar/profile-slash.jpg"
-                />
+                <Avatar alt="slash" size="small" shape="square" src="/images/sidebar/profile-slash.jpg" />
                 <IconChevronLgDown className="size-4 group-data-pressed:rotate-180 transition-transform" />
               </Menu.Trigger>
               <Menu.Content placement="bottom" showArrow className="sm:min-w-56">

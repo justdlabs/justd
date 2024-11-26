@@ -12,7 +12,7 @@ import { tv } from "tailwind-variants"
 
 import { ColorThumb } from "./color-thumb"
 import { Label } from "./field"
-import { ctr } from "./primitive"
+import { composeTailwindRenderProps } from "./primitive"
 
 const trackStyles = tv({
   base: "group col-span-2 rounded-lg",
@@ -37,16 +37,14 @@ const ColorSlider = ({ showOutput = true, label, className, ...props }: ColorSli
     <ColorSliderPrimitive
       {...props}
       data-slot="color-slider"
-      className={ctr(
+      className={composeTailwindRenderProps(
         className,
         "group data-[orientation=horizontal]:grid data-[orientation=vertical]:flex relative data-[orientation=horizontal]:grid-cols-[1fr_auto] data-[orientation=vertical]:flex-col data-[orientation=vertical]:justify-center data-[orientation=vertical]:items-center gap-2 data-[orientation=horizontal]:w-56"
       )}
     >
       <div className="flex items-center">
         {label && <Label className="text-sm [grid-area:label]">{label}</Label>}
-        {showOutput && (
-          <SliderOutput className="text-sm [grid-area:output] data-[orientation=horizontal]:ml-auto" />
-        )}
+        {showOutput && <SliderOutput className="text-sm [grid-area:output] data-[orientation=horizontal]:ml-auto" />}
       </div>
       <SliderTrack
         className={trackStyles}

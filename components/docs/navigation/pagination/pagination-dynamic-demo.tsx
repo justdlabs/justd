@@ -16,11 +16,7 @@ export default function PaginationDynamicDemo() {
             10
           </Pagination.Item>
         </Pagination.Section>
-        <Pagination.Section
-          aria-label="Pagination Segment"
-          className="hidden lg:flex"
-          items={pages}
-        >
+        <Pagination.Section aria-label="Pagination Segment" className="hidden lg:flex" items={pages}>
           {(item) => (
             <Pagination.Item id={item.value.toString()} isCurrent={item.value === 4} href="#">
               {item.value}

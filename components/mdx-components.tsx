@@ -31,17 +31,11 @@ export function MDXContent({ code }: MdxProps) {
         Image,
         How: DocHow,
         a: (props: LinkProps) => (
-          <Link
-            intent="primary"
-            {...props}
-            className="not-prose xd2432 font-medium hover:underline"
-          />
+          <Link intent="primary" {...props} className="not-prose xd2432 font-medium hover:underline" />
         ),
         SourceCode: SourceCode,
         PlainCode: PlainCode,
-        Code: (props: CodeProps) => (
-          <Code className="[&_.dxcode]:top-2 [&_.dxcode]:right-2" {...props} />
-        )
+        Code: (props: CodeProps) => <Code className="[&_.dxcode]:top-2 [&_.dxcode]:right-2" {...props} />
       }}
     />
   )

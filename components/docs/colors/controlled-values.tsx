@@ -19,9 +19,7 @@ export function ControlledValues({ color }: { color: any }) {
             />
             <span className="uppercase text-xs">{format}</span>
           </span>
-          <span className="text-xs sm:text-sm">
-            {color.toString(format as ColorFormat | "css" | undefined)}
-          </span>
+          <span className="text-xs sm:text-sm">{color.toString(format as ColorFormat | "css" | undefined)}</span>
         </span>
       ))}
     </Card>
