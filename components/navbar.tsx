@@ -4,7 +4,6 @@ import React from "react"
 
 import { ResponsiveAside } from "@/components/responsive-aside"
 import { siteConfig } from "@/resources/config/site"
-import { LayoutGroup } from "framer-motion"
 import {
   IconBrandAdobe,
   IconBrandGithub,
@@ -21,6 +20,7 @@ import {
   IconSearch,
   IconSun
 } from "justd-icons"
+import { LayoutGroup } from "motion/react"
 import { useTheme } from "next-themes"
 import { usePathname } from "next/navigation"
 import { Collection } from "react-aria-components"

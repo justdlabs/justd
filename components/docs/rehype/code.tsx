@@ -2,8 +2,8 @@
 
 import React, { useEffect, useState } from "react"
 
-import { AnimatePresence, motion } from "framer-motion"
 import { IconCheck, IconCircleInfo, IconDuplicate } from "justd-icons"
+import { AnimatePresence, motion } from "motion/react"
 import rehypePrettyCode from "rehype-pretty-code"
 import rehypeStringify from "rehype-stringify"
 import remarkParse from "remark-parse"

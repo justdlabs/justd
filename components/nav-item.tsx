@@ -2,7 +2,7 @@
 
 import React from "react"
 
-import { motion } from "framer-motion"
+import { motion } from "motion/react"
 import NextLink from "next/link"
 import { tv } from "tailwind-variants"
 import { LinkPrimitive } from "ui"

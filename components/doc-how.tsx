@@ -6,8 +6,8 @@ import { previews } from "@/components/docs/generated/previews"
 import jsonPreviews from "@/components/docs/generated/previews.json"
 import { Code } from "@/components/docs/rehype/code"
 import { cn } from "@/resources/lib/utils"
-import { LayoutGroup } from "framer-motion"
 import { IconFullscreen } from "justd-icons"
+import { LayoutGroup } from "motion/react"
 import { Loader, Tabs } from "ui"
 
 interface HowProps extends React.HTMLAttributes<HTMLDivElement> {

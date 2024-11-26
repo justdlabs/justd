@@ -2,8 +2,8 @@
 
 import React from "react"
 
-import { LayoutGroup } from "framer-motion"
 import { IconBrandJustd, IconBrandX, IconHamburger, IconSearch } from "justd-icons"
+import { LayoutGroup } from "motion/react"
 import { usePathname } from "next/navigation"
 import { Button, buttonStyles, Link, Sheet } from "ui"
 

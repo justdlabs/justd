@@ -2,7 +2,7 @@
 
 import React from "react"
 
-import type { PanInfo } from "framer-motion"
+import type { PanInfo } from "motion/react"
 import {
   animate,
   AnimatePresence,
@@ -12,7 +12,7 @@ import {
   useMotionValue,
   useMotionValueEvent,
   useTransform
-} from "framer-motion"
+} from "motion/react"
 import type { DialogProps } from "react-aria-components"
 import { type ButtonProps, Modal, ModalOverlay } from "react-aria-components"
 import { twJoin } from "tailwind-merge"
