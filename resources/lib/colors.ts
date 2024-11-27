@@ -17,7 +17,7 @@ export function getTextColor(bgColor: string): string {
 
   const luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b
 
-  return luminance > 0.5 ? "#000000" : "#FFFFFF" // Black for light BG, white for dark BG
+  return luminance > 0.5 ? "#000000" : "#FFFFFF"
 }
 
 export function getColorName(hex: string, slug = true) {

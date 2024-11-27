@@ -3,7 +3,6 @@
 import { Bar, BarChart, XAxis } from "recharts"
 import { Card, Chart, type ChartConfig, ChartTooltip, ChartTooltipContent } from "ui"
 
-// Generate chart data dynamically for 24 months
 const chartData = Array.from({ length: 24 }, (_, index) => {
   const date = new Date(new Date().getFullYear() - 1, index).toLocaleDateString("en-US", {
     month: "short",
@@ -11,8 +10,8 @@ const chartData = Array.from({ length: 24 }, (_, index) => {
   })
   return {
     date,
-    coffee: Math.floor(Math.random() * 50 + 50), // Random coffee expenses between 50 and 100
-    snacks: Math.floor(Math.random() * 100 + 100) // Random snack expenses between 100 and 200
+    coffee: Math.floor(Math.random() * 50 + 50),
+    snacks: Math.floor(Math.random() * 100 + 100)
   }
 })
 

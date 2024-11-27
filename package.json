@@ -6,7 +6,7 @@
   "scripts": {
     "prepare": "husky",
     "cuc": "bun run resources/scripts/check-use-client.ts",
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -56,7 +56,6 @@
     "@types/react": "npm:types-react@19.0.0-rc.1",
     "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
     "@types/title": "^3.4.3",
-    "cssnano": "^7.0.6",
     "encoding": "^0.1.13",
     "eslint": "^8.57.1",
     "eslint-config-next": "15.0.2",
