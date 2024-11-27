@@ -10,11 +10,12 @@ import { Dialog } from "./dialog"
 import { cr } from "./primitive"
 
 const sheetOverlayStyles = tv({
-  base: ["fixed top-0 left-0 w-full h-(--visual-viewport-height) isolate z-50 flex items-center justify-center p-4"],
+  base: [
+    "fixed top-0 left-0 w-full bg-fg/15 dark:bg-bg/40 h-(--visual-viewport-height) isolate z-50 flex items-center justify-center p-4"
+  ],
   variants: {
     isBlurred: {
-      true: "backdrop-blur",
-      false: "bg-fg/15 dark:bg-fg/40"
+      true: "backdrop-blur bg-bg/15 dark:bg-bg/40"
     },
     isEntering: {
       true: "animate-in fade-in duration-300 ease-out"
@@ -32,12 +33,12 @@ const generateCompoundVariants = (sides: Array<Sides>) => {
     isStack: true,
     className:
       side === "top"
-        ? "top-2 inset-x-2 rounded-xl ring-1 border-b-0 ring-fg/5 dark:ring-border"
+        ? "top-2 inset-x-2 rounded-xl ring-1 border-b-0"
         : side === "bottom"
-          ? "bottom-2 inset-x-2 rounded-xl ring-1 border-t-0 ring-fg/5 dark:ring-border"
+          ? "bottom-2 inset-x-2 rounded-xl ring-1 border-t-0"
           : side === "left"
-            ? "left-2 inset-y-2 rounded-xl ring-1 border-r-0 ring-fg/5 dark:ring-border"
-            : "right-2 inset-y-2 rounded-xl ring-1 border-l-0 ring-fg/5 dark:ring-border"
+            ? "left-2 inset-y-2 rounded-xl ring-1 border-r-0"
+            : "right-2 inset-y-2 rounded-xl ring-1 border-l-0"
   }))
 }
 
@@ -59,8 +60,8 @@ const sheetContentStyles = tv({
         "inset-y-0 right-0 h-auto w-[19rem] sm:w-3/4 overflow-y-auto border-l data-entering:slide-in-from-right data-exiting:slide-out-to-right sm:max-w-xs"
     },
     isStack: {
-      true: "",
-      false: ""
+      false: "border-fg/20 dark:border-border",
+      true: "ring-fg/5 dark:ring-border"
     }
   },
   compoundVariants: generateCompoundVariants(["top", "bottom", "left", "right"])

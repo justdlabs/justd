@@ -1061,6 +1061,9 @@ export const previews: Record<string, any> = {
   "controls/switch/switch-controlled-demo": {
     component: React.lazy(() => import("@/components/docs/controls/switch/switch-controlled-demo")),
   },
+  "controls/switch/switch-uncontrolled-demo": {
+    component: React.lazy(() => import("@/components/docs/controls/switch/switch-uncontrolled-demo")),
+  },
   "controls/switch/switch-disabled-demo": {
     component: React.lazy(() => import("@/components/docs/controls/switch/switch-disabled-demo")),
   },

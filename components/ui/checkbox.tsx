@@ -34,10 +34,9 @@ const CheckboxGroup = ({ className, ...props }: CheckboxGroupProps) => {
 }
 
 const checkboxStyles = tv({
-  base: "racc group flex items-center gap-2 text-sm transition",
+  base: "group flex items-center gap-2 text-sm transition",
   variants: {
     isDisabled: {
-      false: "opacity-100",
       true: "opacity-50"
     }
   }
@@ -47,7 +46,7 @@ const boxStyles = tv({
   base: "flex size-4 *:data-[slot=icon]:size-3 shrink-0 items-center justify-center rounded border text-bg transition",
   variants: {
     isSelected: {
-      false: "border-input bg-secondary",
+      false: "border-input bg-secondary/50",
       true: [
         "border-primary/70 bg-primary text-primary-fg",
         "group-data-invalid:border-danger/70 group-data-invalid:bg-danger group-data-invalid:text-danger-fg"
