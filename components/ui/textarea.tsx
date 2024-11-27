@@ -15,7 +15,7 @@ import { composeTailwindRenderProps, cr, focusStyles } from "./primitive"
 
 const textareaStyles = tv({
   extend: focusStyles,
-  base: "w-full min-w-0 rounded-lg border border-input bg-bg px-2.5 py-2 text-base shadow-xs outline-hidden transition duration-200 disabled:bg-secondary disabled:opacity-50 sm:text-sm"
+  base: "w-full min-w-0 rounded-lg border border-input bg-bg px-2.5 py-2 text-base shadow-xs outline-hidden transition duration-200 data-disabled:opacity-50 sm:text-sm"
 })
 
 interface TextareaProps extends TextFieldPrimitiveProps {

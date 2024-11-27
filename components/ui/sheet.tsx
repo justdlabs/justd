@@ -2,14 +2,8 @@
 
 import * as React from "react"
 
-import type { DialogTriggerProps, Modal } from "react-aria-components"
-import {
-  type DialogProps,
-  DialogTrigger as DialogTriggerPrimitive,
-  Modal as ModalPrimitive,
-  ModalOverlay,
-  type ModalOverlayProps as ModalOverlayPrimitiveProps
-} from "react-aria-components"
+import type { DialogProps, DialogTriggerProps, ModalOverlayProps } from "react-aria-components"
+import { DialogTrigger, Modal, ModalOverlay } from "react-aria-components"
 import { tv, type VariantProps } from "tailwind-variants"
 
 import { Dialog } from "./dialog"
@@ -72,13 +66,13 @@ const sheetContentStyles = tv({
   compoundVariants: generateCompoundVariants(["top", "bottom", "left", "right"])
 })
 
-const Sheet = ({ children, ...props }: DialogTriggerProps) => {
-  return <DialogTriggerPrimitive {...props}>{children}</DialogTriggerPrimitive>
+const Sheet = (props: DialogTriggerProps) => {
+  return <DialogTrigger {...props} />
 }
 
 interface SheetContentProps
   extends Omit<React.ComponentProps<typeof Modal>, "children" | "className">,
-    Omit<ModalOverlayPrimitiveProps, "className">,
+    Omit<ModalOverlayProps, "className">,
     VariantProps<typeof sheetOverlayStyles> {
   "aria-label"?: DialogProps["aria-label"]
   "aria-labelledby"?: DialogProps["aria-labelledby"]
@@ -88,8 +82,8 @@ interface SheetContentProps
   isStack?: boolean
   side?: Sides
   classNames?: {
-    overlay?: ModalOverlayPrimitiveProps["className"]
-    content?: ModalOverlayPrimitiveProps["className"]
+    overlay?: ModalOverlayProps["className"]
+    content?: ModalOverlayProps["className"]
   }
 }
 
@@ -101,6 +95,7 @@ const SheetContent = ({
   role = "dialog",
   closeButton = true,
   isStack = true,
+  children,
   ...props
 }: SheetContentProps) => {
   const _isDismissable = role === "alertdialog" ? false : isDismissable
@@ -116,7 +111,7 @@ const SheetContent = ({
       })}
       {...props}
     >
-      <ModalPrimitive
+      <Modal
         className={cr(classNames?.content, (className, renderProps) =>
           sheetContentStyles({
             ...renderProps,
@@ -127,21 +122,13 @@ const SheetContent = ({
         )}
         {...props}
       >
-        <Dialog role={role} aria-label={props["aria-label"] ?? undefined} className="h-full">
-          {(values) => (
-            <>
-              {props.children as React.ReactNode}
-              {closeButton && (
-                <Dialog.CloseIndicator
-                  className="top-2.5 right-2.5"
-                  close={values.close}
-                  isDismissable={_isDismissable}
-                />
-              )}
-            </>
-          )}
-        </Dialog>
-      </ModalPrimitive>
+        {(values) => (
+          <Dialog role={role} aria-label={props["aria-label"] ?? undefined} className="h-full">
+            {typeof children === "function" ? children(values) : children}
+            {closeButton && <Dialog.CloseIndicator className="top-2.5 right-2.5" isDismissable={_isDismissable} />}
+          </Dialog>
+        )}
+      </Modal>
     </ModalOverlay>
   )
 }

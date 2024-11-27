@@ -40,11 +40,7 @@ const Dialog = ({ role, className, ...props }: DialogProps) => {
   return <DialogPrimitive role={role ?? "dialog"} className={root({ className })} {...props} />
 }
 
-const Trigger = (props: ButtonPrimitiveProps) => (
-  <ButtonPrimitive {...props}>
-    {(values) => <>{typeof props.children === "function" ? props.children(values) : props.children}</>}
-  </ButtonPrimitive>
-)
+const Trigger = (props: ButtonPrimitiveProps) => <ButtonPrimitive slot="close" {...props} />
 
 type DialogHeaderProps = React.HTMLAttributes<HTMLDivElement> & {
   title?: string
@@ -138,7 +134,6 @@ const Close = ({ className, appearance = "outline", ...props }: ButtonProps) => 
 
 interface CloseButtonIndicatorProps {
   className?: string
-  close: () => void
   isDismissable?: boolean | undefined
 }
 
@@ -156,7 +151,7 @@ const CloseIndicator = ({ className, ...props }: CloseButtonIndicatorProps) => {
       ref={buttonRef}
       {...(isMobile ? { autoFocus: true } : {})}
       aria-label="Close"
-      onPress={props.close}
+      slot="close"
       className={closeIndicator({ className })}
     >
       <IconX className="size-4" />
