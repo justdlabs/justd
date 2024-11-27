@@ -2,10 +2,8 @@
 
 import * as React from "react"
 
-import { Link as LinkPrimitive, type LinkProps as LinkPrimitiveProps } from "react-aria-components"
+import { composeRenderProps, Link as LinkPrimitive, type LinkProps as LinkPrimitiveProps } from "react-aria-components"
 import { tv } from "tailwind-variants"
-
-import { cr } from "./primitive"
 
 const linkStyles = tv({
   base: [
@@ -36,7 +34,7 @@ const Link = ({ className, ...props }: LinkProps) => {
   return (
     <LinkPrimitive
       {...props}
-      className={cr(className, (className, ...renderProps) =>
+      className={composeRenderProps(className, (className, ...renderProps) =>
         linkStyles({ ...renderProps, intent: props.intent, className })
       )}
     >

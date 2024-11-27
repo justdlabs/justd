@@ -4,11 +4,11 @@ import React from "react"
 
 import { IconHamburger } from "justd-icons"
 import type { GridListItemProps, GridListProps } from "react-aria-components"
-import { Button, GridList as GridListPrimitive, GridListItem } from "react-aria-components"
+import { Button, composeRenderProps, GridList as GridListPrimitive, GridListItem } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
 import { Checkbox } from "./checkbox"
-import { composeTailwindRenderProps, cr } from "./primitive"
+import { composeTailwindRenderProps } from "./primitive"
 
 const gridListStyles = tv({
   base: "relative *:data-drop-target:border *:data-drop-target:border-primary [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin] max-h-96 overflow-auto rounded-lg border"
@@ -45,7 +45,7 @@ const Item = ({ className, ...props }: GridListItemProps) => {
     <GridListItem
       textValue={textValue}
       {...props}
-      className={cr(className, (className, renderProps) => itemStyles({ ...renderProps, className }))}
+      className={composeRenderProps(className, (className, renderProps) => itemStyles({ ...renderProps, className }))}
     >
       {({ selectionMode, selectionBehavior, allowsDragging }) => (
         <>

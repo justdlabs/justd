@@ -1052,9 +1052,6 @@ export const previews: Record<string, any> = {
   "controls/command-menu/command-menu-danger-item-demo": {
     component: React.lazy(() => import("@/components/docs/controls/command-menu/command-menu-danger-item-demo")),
   },
-  "controls/switch/switch-variant-demo": {
-    component: React.lazy(() => import("@/components/docs/controls/switch/switch-variant-demo")),
-  },
   "controls/switch/switch-demo": {
     component: React.lazy(() => import("@/components/docs/controls/switch/switch-demo")),
   },

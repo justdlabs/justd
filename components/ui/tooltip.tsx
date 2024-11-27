@@ -4,6 +4,7 @@ import React from "react"
 
 import {
   Button,
+  composeRenderProps,
   OverlayArrow,
   Tooltip as TooltipPrimitive,
   type TooltipProps as TooltipPrimitiveProps,
@@ -11,8 +12,6 @@ import {
 } from "react-aria-components"
 import type { VariantProps } from "tailwind-variants"
 import { tv } from "tailwind-variants"
-
-import { cr } from "./primitive"
 
 const tooltipStyles = tv({
   base: ["group rounded-lg [&_strong]:font-medium border px-3 py-2 text-sm will-change-transform dark:shadow-none"],
@@ -54,7 +53,7 @@ const Content = ({ showArrow = true, intent = "default", children, ...props }: C
     <TooltipPrimitive
       {...props}
       offset={10}
-      className={cr(props.className, (className, renderProps) =>
+      className={composeRenderProps(props.className, (className, renderProps) =>
         tooltipStyles({
           ...renderProps,
           intent,

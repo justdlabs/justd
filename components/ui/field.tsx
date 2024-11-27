@@ -12,6 +12,7 @@ import type {
   ValidationResult
 } from "react-aria-components"
 import {
+  composeRenderProps,
   FieldError as FieldErrorPrimitive,
   Group,
   Input as InputPrimitive,
@@ -20,7 +21,7 @@ import {
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
-import { cn, composeTailwindRenderProps } from "./primitive"
+import { composeTailwindRenderProps, focusStyles } from "./primitive"
 
 interface FieldProps {
   label?: string
@@ -67,21 +68,34 @@ const FieldError = ({ className, ...props }: FieldErrorProps) => {
   return <FieldErrorPrimitive {...props} className={composeTailwindRenderProps(className, fieldError())} />
 }
 
+const fieldGroupStyles = tv({
+  base: [
+    "group border transition h-10 duration-200 ease-out overflow-hidden rounded-lg flex items-center",
+    "group-data-invalid:focus-within:border-danger focus-within:ring-4 group-data-invalid:focus-within:ring-danger/20",
+    "[&>[role=progressbar]]:mr-2.5",
+    "**:data-[slot=icon]:size-4 **:data-[slot=icon]:shrink-0",
+    "*:data-[slot=suffix]:mr-2.5 *:data-[slot=suffix]:text-muted-fg",
+    "*:data-[slot=prefix]:ml-2.5 *:data-[slot=prefix]:text-muted-fg"
+  ],
+  variants: {
+    isFocusWithin: focusStyles.variants.isFocused,
+    isInvalid: focusStyles.variants.isInvalid,
+    isDisabled: {
+      true: "opacity-50 forced-colors:border-[GrayText]"
+    }
+  }
+})
+
 const FieldGroup = ({ className, ...props }: GroupProps) => {
   return (
     <Group
       {...props}
-      className={cn([
-        "border border-input transition h-10 duration-200 ease-out rounded-lg flex items-center",
-        "focus-within:border-primary/70 focus-within:ring-4 focus-within:ring-primary/20",
-        "group-data-invalid:focus-within:border-danger focus-within:ring-4 group-data-invalid:focus-within:ring-danger/20",
-        "[&>[role=progressbar]]:mr-2.5",
-        "**:data-[slot=icon]:size-4 **:data-[slot=icon]:shrink-0",
-        "*:data-[slot=suffix]:mr-2.5 *:data-[slot=suffix]:text-muted-fg",
-        "*:data-[slot=prefix]:ml-2.5 *:data-[slot=prefix]:text-muted-fg",
-        "group-data-disabled:opacity-50",
-        className
-      ])}
+      className={composeRenderProps(className, (className, renderProps) =>
+        fieldGroupStyles({
+          ...renderProps,
+          className
+        })
+      )}
     />
   )
 }

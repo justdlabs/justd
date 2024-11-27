@@ -3,13 +3,15 @@
 import * as React from "react"
 
 import { IconCheck, IconMinus } from "justd-icons"
+import type {
+  CheckboxGroupProps as CheckboxGroupPrimitiveProps,
+  CheckboxProps as CheckboxPrimitiveProps,
+  ValidationResult
+} from "react-aria-components"
 import {
   Checkbox as CheckboxPrimitive,
   CheckboxGroup as CheckboxGroupPrimitive,
-  type CheckboxGroupProps as CheckboxGroupPrimitiveProps,
-  type CheckboxProps as CheckboxPrimitiveProps,
-  composeRenderProps,
-  type ValidationResult
+  composeRenderProps
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 

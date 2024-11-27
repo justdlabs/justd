@@ -5,6 +5,7 @@ import * as React from "react"
 import { IconCheck } from "justd-icons"
 import {
   Collection,
+  composeRenderProps,
   Header,
   ListBoxItem as ListBoxItemPrimitive,
   type ListBoxItemProps,
@@ -15,7 +16,7 @@ import {
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
-import { cn, cr } from "./primitive"
+import { cn } from "./primitive"
 
 const dropdownItemStyles = tv({
   base: [
@@ -77,10 +78,12 @@ const DropdownItem = ({ className, ...props }: ListBoxItemProps) => {
   return (
     <ListBoxItemPrimitive
       textValue={textValue}
-      className={cr(className, (className, renderProps) => dropdownItemStyles({ ...renderProps, className }))}
+      className={composeRenderProps(className, (className, renderProps) =>
+        dropdownItemStyles({ ...renderProps, className })
+      )}
       {...props}
     >
-      {cr(props.children, (children, { isSelected }) => (
+      {composeRenderProps(props.children, (children, { isSelected }) => (
         <>
           <span className="flex flex-1 items-center gap-2 truncate font-normal group-data-selected:font-medium">
             {children}

@@ -55,7 +55,7 @@ const SearchField = ({
         <IconSearch aria-hidden className={searchIcon()} />
         <Input placeholder={placeholder ?? "Search..."} className={input()} />
         {isPending ? (
-          <Loader variant="spin" className="mr-2.5" />
+          <Loader variant="spin" />
         ) : (
           <Button size="square-petite" appearance="plain" className={clearButton()}>
             <IconX aria-hidden />

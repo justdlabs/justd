@@ -4,6 +4,7 @@ import * as React from "react"
 
 import { LayoutGroup, motion } from "motion/react"
 import {
+  composeRenderProps,
   Tab as TabPrimitive,
   TabList,
   type TabListProps,
@@ -16,7 +17,7 @@ import {
 import { twJoin } from "tailwind-merge"
 import { tv } from "tailwind-variants"
 
-import { cn, cr } from "./primitive"
+import { cn, composeTailwindRenderProps } from "./primitive"
 
 const tabsStyles = tv({
   base: "group flex gap-4 forced-color-adjust-none",
@@ -28,11 +29,11 @@ const tabsStyles = tv({
   }
 })
 
-const Tabs = (props: TabsProps) => {
+const Tabs = ({ className, ...props }: TabsProps) => {
   return (
     <TabsPrimitive
       {...props}
-      className={cr(props.className, (className, renderProps) =>
+      className={composeRenderProps(className, (className, renderProps) =>
         tabsStyles({
           ...renderProps,
           className
@@ -58,7 +59,9 @@ const List = <T extends object>(props: TabListProps<T>) => {
     <LayoutGroup id={id}>
       <TabList
         {...props}
-        className={cr(props.className, (className, renderProps) => tabListStyles({ ...renderProps, className }))}
+        className={composeRenderProps(props.className, (className, renderProps) =>
+          tabListStyles({ ...renderProps, className })
+        )}
       />
     </LayoutGroup>
   )
@@ -86,7 +89,7 @@ const Tab = ({ children, ...props }: TabProps) => {
   return (
     <TabPrimitive
       {...props}
-      className={cr(props.className, (_className, renderProps) =>
+      className={composeRenderProps(props.className, (_className, renderProps) =>
         tabStyles({
           ...renderProps,
           className: twJoin("href" in props && "cursor-pointer", _className)
@@ -115,20 +118,11 @@ const Tab = ({ children, ...props }: TabProps) => {
   )
 }
 
-const tabPanelStyles = tv({
-  base: "flex-1 text-sm text-fg",
-  variants: {
-    isFocusVisible: {
-      true: "outline-hidden"
-    }
-  }
-})
-
-const Panel = (props: TabPanelProps) => {
+const Panel = ({ className, ...props }: TabPanelProps) => {
   return (
     <TabPanel
       {...props}
-      className={cr(props.className, (className, renderProps) => tabPanelStyles({ ...renderProps, className }))}
+      className={composeTailwindRenderProps(className, "flex-1 text-sm text-fg data-focus-visible:outline-hidden")}
     />
   )
 }

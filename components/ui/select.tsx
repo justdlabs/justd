@@ -4,9 +4,9 @@ import * as React from "react"
 
 import type { Placement } from "@react-types/overlays"
 import { IconChevronLgDown } from "justd-icons"
-import type { ButtonProps } from "react-aria-components"
 import {
   Button,
+  composeRenderProps,
   Select as SelectPrimitive,
   type SelectProps as SelectPrimitiveProps,
   SelectValue,
@@ -18,18 +18,18 @@ import { DropdownItem, DropdownItemDetails, DropdownSection } from "./dropdown"
 import { Description, FieldError, Label } from "./field"
 import { ListBox } from "./list-box"
 import { Popover } from "./popover"
-import { composeTailwindRenderProps, cr, focusStyles } from "./primitive"
+import { composeTailwindRenderProps, focusStyles } from "./primitive"
 
 const selectTriggerStyles = tv({
   extend: focusStyles,
   base: [
-    "btr group-data-disabled:bg-secondary **:data-[slot=icon]:size-4 group-data-disabled:opacity-50 data-focus-visible:border-ring/85 data-focus-visible:ring-4 data-focus-visible:ring-primary/20 group-open:border-ring/85 group-open:ring-4 group-open:ring-ring/20 flex h-10 w-full cursor-default items-center gap-4 rounded-lg border border-input bg-bg py-2 pl-3 pr-2 text-start shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)] transition dark:shadow-none"
+    "btr **:data-[slot=icon]:size-4 group-data-disabled:opacity-50 flex h-10 w-full cursor-default items-center gap-4 rounded-lg border border-input bg-bg py-2 pl-3 pr-2 text-start shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)] transition dark:shadow-none",
+    "group-data-open:border-ring/70 group-data-open:ring-4 group-data-open:ring-ring/20",
+    "text-fg group-data-invalid:border-danger group-data-invalid:ring-danger/20 forced-colors:group-data-invalid:border-[Mark]"
   ],
   variants: {
     isDisabled: {
-      false:
-        "text-fg group-data-invalid:border-danger group-data-invalid:ring-danger/20 forced-colors:group-data-invalid:border-[Mark]",
-      true: "bg-secondary text-muted-fg forced-colors:border-[GrayText] forced-colors:text-[GrayText]"
+      true: "opacity-50 forced-colors:border-[GrayText] forced-colors:text-[GrayText]"
     }
   }
 })
@@ -80,7 +80,7 @@ const List = <T extends object>({ className, children, items, placement }: ListP
   )
 }
 
-interface TriggerProps extends ButtonProps {
+interface TriggerProps extends React.ComponentProps<typeof Button> {
   prefix?: React.ReactNode
   className?: string
 }
@@ -88,7 +88,7 @@ interface TriggerProps extends ButtonProps {
 const Trigger = ({ className, ...props }: TriggerProps) => {
   return (
     <Button
-      className={cr(className, (className, renderProps) =>
+      className={composeRenderProps(className, (className, renderProps) =>
         selectTriggerStyles({
           ...renderProps,
           className
@@ -99,7 +99,7 @@ const Trigger = ({ className, ...props }: TriggerProps) => {
       <SelectValue className="flex-1 [&_[slot=description]]:hidden text-base placeholder-shown:text-muted-fg lg:text-sm" />
       <IconChevronLgDown
         aria-hidden
-        className="text-muted-fg shrink-0 size-4 duration-300 group-open:rotate-180 group-open:text-fg group-data-disabled:opacity-50 forced-colors:text-[ButtonText] forced-colors:group-data-disabled:text-[GrayText]"
+        className="text-muted-fg shrink-0 size-4 duration-300 group-data-open:rotate-180 group-data-open:text-fg group-data-disabled:opacity-50 forced-colors:text-[ButtonText] forced-colors:group-data-disabled:text-[GrayText]"
       />
     </Button>
   )

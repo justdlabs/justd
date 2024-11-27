@@ -9,6 +9,7 @@ import {
   CalendarGridHeader as CalendarGridHeaderPrimitive,
   CalendarHeaderCell,
   type CalendarProps as CalendarPrimitiveProps,
+  composeRenderProps,
   type DateValue,
   Heading,
   Text,
@@ -17,7 +18,7 @@ import {
 import { tv } from "tailwind-variants"
 
 import { Button } from "./button"
-import { composeTailwindRenderProps, cr, focusRing } from "./primitive"
+import { composeTailwindRenderProps, focusRing } from "./primitive"
 
 const cellStyles = tv({
   extend: focusRing,
@@ -51,7 +52,7 @@ const Calendar = <T extends DateValue>({ errorMessage, className, ...props }: Ca
           {(date) => (
             <CalendarCell
               date={date}
-              className={cr(className, (className, renderProps) =>
+              className={composeRenderProps(className, (className, renderProps) =>
                 cellStyles({
                   ...renderProps,
                   className

@@ -3,11 +3,10 @@
 import * as React from "react"
 
 import type { DialogProps, DialogTriggerProps, ModalOverlayProps } from "react-aria-components"
-import { DialogTrigger, Modal, ModalOverlay } from "react-aria-components"
+import { composeRenderProps, DialogTrigger, Modal, ModalOverlay } from "react-aria-components"
 import { tv, type VariantProps } from "tailwind-variants"
 
 import { Dialog } from "./dialog"
-import { cr } from "./primitive"
 
 const sheetOverlayStyles = tv({
   base: [
@@ -103,7 +102,7 @@ const SheetContent = ({
   return (
     <ModalOverlay
       isDismissable={_isDismissable}
-      className={cr(classNames?.overlay, (className, renderProps) => {
+      className={composeRenderProps(classNames?.overlay, (className, renderProps) => {
         return sheetOverlayStyles({
           ...renderProps,
           isBlurred,
@@ -113,7 +112,7 @@ const SheetContent = ({
       {...props}
     >
       <Modal
-        className={cr(classNames?.content, (className, renderProps) =>
+        className={composeRenderProps(classNames?.content, (className, renderProps) =>
           sheetContentStyles({
             ...renderProps,
             side,

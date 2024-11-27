@@ -11,13 +11,14 @@ import type {
 } from "react-aria-components"
 import {
   Button,
+  composeRenderProps,
   Disclosure as DisclosurePrimitive,
   DisclosureGroup as DisclosureGroupPrimitive,
   DisclosurePanel
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
-import { cn, cr } from "./primitive"
+import { cn } from "./primitive"
 
 interface DisclosureGroupProps extends DisclosureGroupPrimitiveProps {
   hideBorder?: boolean
@@ -73,7 +74,9 @@ const Disclosure = ({ className, ...props }: DisclosureProps) => {
     <DisclosurePrimitive
       data-slot="accordion-item"
       {...props}
-      className={cr(className, (className, renderProps) => disclosureStyles({ ...renderProps, className }))}
+      className={composeRenderProps(className, (className, renderProps) =>
+        disclosureStyles({ ...renderProps, className })
+      )}
     >
       {props.children}
     </DisclosurePrimitive>
@@ -107,7 +110,7 @@ const Trigger = ({ className, ...props }: ButtonProps) => {
     <Button
       {...props}
       slot="trigger"
-      className={cr(className, (className, renderProps) =>
+      className={composeRenderProps(className, (className, renderProps) =>
         accordionTriggerStyles({
           ...renderProps,
           hideBorder,

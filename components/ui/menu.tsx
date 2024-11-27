@@ -15,6 +15,7 @@ import type {
 import {
   Button,
   Collection,
+  composeRenderProps,
   Header,
   Menu as MenuPrimitive,
   MenuItem,
@@ -29,7 +30,7 @@ import { tv } from "tailwind-variants"
 import { DropdownItemDetails, dropdownItemStyles, dropdownSectionStyles } from "./dropdown"
 import { Keyboard } from "./keyboard"
 import { Popover } from "./popover"
-import { cn, cr } from "./primitive"
+import { cn } from "./primitive"
 
 interface MenuContextProps {
   respectScreen: boolean
@@ -116,7 +117,7 @@ const Item = ({ className, isDanger = false, children, ...props }: MenuItemProps
   const textValue = props.textValue || (typeof children === "string" ? children : undefined)
   return (
     <MenuItem
-      className={cr(className, (className, renderProps) =>
+      className={composeRenderProps(className, (className, renderProps) =>
         dropdownItemStyles({
           ...renderProps,
           className

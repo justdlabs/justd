@@ -52,7 +52,6 @@ const TextField = ({
 }: TextFieldProps) => {
   const [isPasswordVisible, setIsPasswordVisible] = React.useState(false)
   const inputType = isRevealable ? (isPasswordVisible ? "text" : "password") : type
-
   const handleTogglePasswordVisibility = () => {
     setIsPasswordVisible((prev) => !prev)
   }
@@ -64,6 +63,8 @@ const TextField = ({
     >
       {label && <Label>{label}</Label>}
       <FieldGroup
+        isInvalid={!!errorMessage}
+        isDisabled={props.isDisabled}
         className={twJoin(
           "**:[button]:shrink-0 **:[button]:size-7 **:[button]:p-0",
           "[&>[data-slot=suffix]>button]:mr-[calc(var(--spacing)*-1.15)] [&>[data-slot=suffix]>button]:rounded-md [&>[data-slot=suffix]>button]:data-focus-visible:outline-1 [&>[data-slot=suffix]>button]:data-focus-visible:outline-offset-1",
