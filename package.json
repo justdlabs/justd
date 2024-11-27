@@ -6,7 +6,7 @@
   "scripts": {
     "prepare": "husky",
     "cuc": "bun run resources/scripts/check-use-client.ts",
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
