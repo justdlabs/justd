@@ -5,15 +5,15 @@
   "private": true,
   "scripts": {
     "prepare": "husky",
-    "cuc": "bun run resources/scripts/check-use-client.ts",
+    "cuc": "npm run resources/scripts/check-use-client.ts",
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
     "generate-preview": "bun run resources/scripts/create-pr-content.ts",
-    "b": "bun run generate-preview",
-    "preview": "bun run build && npm run start"
+    "b": "npm run generate-preview",
+    "preview": "npm run build && npm run start"
   },
   "dependencies": {
     "@openpanel/nextjs": "^0.0.10-beta",

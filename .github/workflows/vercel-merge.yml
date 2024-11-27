@@ -14,16 +14,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install Bun
-        run: |
-          curl -fsSL https://bun.sh/install | bash
-          echo "$HOME/.bun/bin" >> $GITHUB_PATH
-
-      - name: Install Global Package with Bun
-        run: bun install --global vercel@latest
+      - name: Install Global Package with NPM
+        run: npm install --global vercel@latest
 
       - name: Generate Source Code Preview
-        run: bun run generate-preview
+        run: npm run generate-preview
 
       - name: Pull Vercel Environment Information
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
