@@ -6,7 +6,7 @@
   "scripts": {
     "prepare": "husky",
     "cuc": "bun run resources/scripts/check-use-client.ts",
-    "dev": "next dev",
+    "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -42,7 +42,6 @@
     "tailwind-merge": "^2.5.5",
     "tailwind-variants": "^0.3.0",
     "tailwindcss-animate": "^1.0.7",
-    "tailwindcss-react-aria-components": "^1.2.0",
     "title": "^4.0.1",
     "use-debounce": "^10.0.4",
     "usemods": "^1.8.1"

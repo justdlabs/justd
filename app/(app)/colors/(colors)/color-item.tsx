@@ -2,7 +2,7 @@ import * as React from "react"
 
 import type { FilteredColors } from "@/app/(app)/colors/(colors)/color-palette"
 import { getTextColor } from "@/resources/lib/colors"
-import { formatHex, formatHsl, formatRgb, parse } from "culori"
+import { oklch, formatHex, formatHsl, formatRgb, parse } from "culori"
 import { IconCheck, IconChevronLgDown, IconDuplicate } from "justd-icons"
 import type { Selection } from "react-aria-components"
 import { ListBox, ListBoxItem } from "react-aria-components"
@@ -10,6 +10,12 @@ import { toast } from "sonner"
 import { twJoin } from "tailwind-merge"
 import { Button, Menu } from "ui"
 
+const isOklch = (color: string | undefined): boolean => color?.startsWith("oklch(") ?? false
+
+const toOklchString = (color: string): string => {
+  const { l, c, h } = oklch(parse(color)) || {}
+  return `oklch(${l?.toFixed(3)} ${c?.toFixed(3)} ${h?.toFixed(3)})`
+}
 interface ColorItemProps {
   color: FilteredColors[0]
 }
@@ -22,7 +28,6 @@ export function ColorItem({ color }: ColorItemProps) {
     const _selectedFormat = [...selectedFormat].join(", ")
 
     let formattedColor: string = color
-
     switch (_selectedFormat) {
       case "rgb":
         formattedColor = formatRgb(parse(color)) || color
@@ -35,7 +40,7 @@ export function ColorItem({ color }: ColorItemProps) {
         break
       case "oklch":
       default:
-        formattedColor = color
+        formattedColor = isOklch(color) ? color : toOklchString(color) || color
         break
     }
 
