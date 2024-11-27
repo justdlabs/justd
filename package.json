@@ -16,7 +16,7 @@
     "preview": "npm run build && npm run start"
   },
   "dependencies": {
-    "@openpanel/nextjs": "^0.0.10-beta",
+    "@openpanel/nextjs": "^1.0.6",
     "@shikijs/transformers": "^1.23.1",
     "@types/node": "^22.10.0",
     "cmdk": "^1.0.4",

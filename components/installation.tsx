@@ -3,7 +3,7 @@
 import React from "react"
 
 import { CodeHighlighter } from "@/components/docs/rehype/code"
-import { trackEvent } from "@openpanel/nextjs"
+import { useOpenPanel } from "@openpanel/nextjs"
 import { IconCheck, IconDuplicate } from "justd-icons"
 import { AnimatePresence, motion } from "motion/react"
 import { Button, type ButtonProps } from "react-aria-components"
@@ -39,6 +39,7 @@ export interface InstallationProps {
 }
 
 export function Installation({ className, ...props }: InstallationProps) {
+  const op = useOpenPanel()
   const { options = { isExecutor: false, isInit: false, isComponent: false, isManual: false }, items } = props
   const [pkgManager, setPkgManager] = React.useState({
     name: "npm",
@@ -98,7 +99,7 @@ export function Installation({ className, ...props }: InstallationProps) {
             onPress={() => {
               copyToClipboard(props.command as string).then(() => {
                 setIsCopied(true)
-                trackEvent("cli pressed", { copy: props.command })
+                op.track("cli pressed", { copy: props.command })
               })
             }}
             isCopied={isCopied}
@@ -108,7 +109,7 @@ export function Installation({ className, ...props }: InstallationProps) {
             onPress={() => {
               copyToClipboard(`npx justd-cli@latest add ${items[0]}`).then(() => {
                 setIsCopied(true)
-                trackEvent("cli pressed", { copy: `add ${items.join(" ")}` })
+                op.track("cli pressed", { copy: `add ${items.join(" ")}` })
               })
             }}
             isCopied={isCopied}
@@ -118,7 +119,7 @@ export function Installation({ className, ...props }: InstallationProps) {
             onPress={() => {
               copyToClipboard(`npx justd-cli@latest init`).then(() => {
                 setIsCopied(true)
-                trackEvent("cli pressed", { copy: `init` })
+                op.track("cli pressed", { copy: `init` })
               })
             }}
             isCopied={isCopied}
@@ -159,6 +160,7 @@ interface ChoosePkgManagerProps {
 }
 
 function ChoosePkgManager({ isExecutor, items, setIsCopied, setPkgManager, ...props }: ChoosePkgManagerProps) {
+  const op = useOpenPanel()
   function handleAction(tool: string) {
     let selectedPkgManager: PkgManager = {
       name: "",
@@ -202,7 +204,7 @@ function ChoosePkgManager({ isExecutor, items, setIsCopied, setPkgManager, ...pr
     const executor = isExecutor ? selectedPkgManager.executor : selectedPkgManager.name
     copyToClipboard(`${executor} ${selectedPkgManager.action} ${items.join(" ")}`).then(() => {
       setIsCopied(true)
-      trackEvent("cli pressed", {
+      op.track("cli pressed", {
         copy: `${executor} ${selectedPkgManager.action} ${items.join(" ")}`
       })
     })

@@ -4,7 +4,7 @@ import { Providers } from "@/components/providers"
 import { siteConfig } from "@/resources/config/site"
 import { cn } from "@/resources/lib/utils"
 import "@/resources/styles/app.css"
-import { OpenpanelProvider } from "@openpanel/nextjs"
+import { OpenPanelComponent } from "@openpanel/nextjs"
 import type { Metadata, Viewport } from "next"
 import localFont from "next/font/local"
 
@@ -96,8 +96,7 @@ export default function RootLayout({
         <Providers>
           {children}
           {process.env.NODE_ENV === "production" && (
-            <OpenpanelProvider
-              url={process.env.ANALYTICS_CLIENT_URL as string}
+            <OpenPanelComponent
               clientSecret={process.env.ANALYTICS_CLIENT_SECRET as string}
               clientId={process.env.ANALYTICS_CLIENT_ID as string}
               trackScreenViews={true}
