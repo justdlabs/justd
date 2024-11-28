@@ -1,8 +1,6 @@
 import { docs } from "@/.velite"
 import { notFound, redirect } from "next/navigation"
 
-export const runtime = "edge"
-
 interface PageProps {
   params: Promise<{ slug: string }>
 }
