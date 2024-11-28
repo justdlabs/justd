@@ -28,7 +28,15 @@ type HowProps = {
   fullscreenUrl?: string
 }
 
-export const DocHow = ({ className, toUse, ...props }: HowProps) => {
+export const DocHow = ({
+  toUse,
+  className,
+  minW72 = false,
+  isCenter = true,
+  withNoPadding = false,
+  fullscreenUrl,
+  ...props
+}: HowProps) => {
   const [rawSourceCode, setRawSourceCode] = useState<string | null>(null)
 
   /*
@@ -96,13 +104,12 @@ export const DocHow = ({ className, toUse, ...props }: HowProps) => {
   return (
     <div className={cn("not-prose forced-color-adjust-non relative my-4", className)} {...divProps}>
       <Tabs aria-label="Packages">
-        <TabsList fullscreenUrl={props.fullscreenUrl} />
+        <TabsList fullscreenUrl={fullscreenUrl} />
         <Tabs.Panel className="w-full" id="preview">
           <div
             className={cn(
-              !props.withNoPadding && "relative gap-4 rounded-lg border bg-overlay p-6",
-              props.isCenter &&
-                "flex min-h-56 lg:min-h-80 items-center justify-center py-6 preview sm:py-24 overflow-x-auto"
+              !withNoPadding && "relative gap-4 rounded-lg border bg-overlay p-6",
+              isCenter && "flex min-h-56 lg:min-h-80 items-center justify-center py-6 preview sm:py-24 overflow-x-auto"
             )}
           >
             <React.Suspense
@@ -113,7 +120,7 @@ export const DocHow = ({ className, toUse, ...props }: HowProps) => {
                 </div>
               }
             >
-              <div className={cn(props.minW72 && "min-w-72", "not-prose", className)}>
+              <div className={cn(minW72 && "min-w-72", "not-prose", className)}>
                 <Component />
               </div>
             </React.Suspense>

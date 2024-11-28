@@ -19,16 +19,14 @@ export function Blocks() {
     "bg-primary-fg",
     "bg-secondary",
     "bg-secondary-fg",
-    "bg-tertiary",
-    "bg-tertiary-fg",
     "bg-overlay",
     "bg-overlay-fg",
     "bg-muted",
     "bg-muted-fg",
     "bg-accent",
     "bg-accent-fg",
-    "bg-accent-subtle",
-    "bg-accent-subtle-fg"
+    "bg-subtle",
+    "bg-subtle-fg"
   ]
   return (
     <div>
@@ -74,10 +72,6 @@ export function Blocks() {
             </Choicebox>
           </div>
         </div>
-        {/*<Control />*/}
-        {/*<BlockOfCard />*/}
-        {/*<ListBoxMultipleDemo />*/}
-        {/*<GridListMultipleDemo />*/}
       </div>
     </div>
   )

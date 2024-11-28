@@ -88,8 +88,8 @@ interface ChoiceboxItemProps extends GridListItemProps, VariantProps<typeof choi
   description?: string
 }
 
-const ChoiceboxItem = ({ children, className, ...props }: ChoiceboxItemProps) => {
-  const textValue = typeof children === "string" ? children : undefined
+const ChoiceboxItem = ({ className, ...props }: ChoiceboxItemProps) => {
+  const textValue = props.title ?? props.textValue
   return (
     <GridListItem
       textValue={textValue}

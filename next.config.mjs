@@ -1,4 +1,3 @@
-
 const isDev = process.argv.indexOf('dev') !== -1
 const isBuild = process.argv.indexOf('build') !== -1
 if (!process.env.VELITE_STARTED && (isDev || isBuild)) {
@@ -15,16 +14,6 @@ export default {
   },
   experimental: {
     optimizePackageImports: ["shiki"]
-  },
-  async headers() {
-    return [
-      {
-        source: '/_next/static/:path*',
-        headers: [
-          { key: 'Cache-Control', value: 'no-cache, no-store, must-revalidate' },
-        ],
-      },
-    ];
   },
   async redirects() {
     return [
