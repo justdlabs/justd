@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[16470],{16470:(e,r,a)=>{a.r(r),a.d(r,{default:()=>t});var n=a(95155);a(12115);var l=a(56714);function t(){return(0,n.jsx)(n.Fragment,{children:(0,n.jsx)(l.dO,{defaultSelected:!0,children:e=>{let{isSelected:r}=e;return(0,n.jsx)(n.Fragment,{children:r?"Enable Dark Mode":"Disable Dark Mode"})}})})}}}]);

@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[2682],{2682:(e,a,l)=>{l.r(a),l.d(a,{default:()=>t});var r=l(95155);l(12115);var s=l(56714);function t(){return(0,r.jsx)(s.sk,{label:"Theme Color",description:"Snag a color for the app theme",defaultValue:"hsl(216, 98%, 52%)"})}}}]);

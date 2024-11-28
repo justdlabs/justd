@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[75411],{75411:(e,u,n)=>{n.r(u),n.d(u,{default:()=>l});var r=n(95155),s=n(56714);function l(){return(0,r.jsx)(s.N_,{href:"#unstyled",children:"Label"})}}}]);

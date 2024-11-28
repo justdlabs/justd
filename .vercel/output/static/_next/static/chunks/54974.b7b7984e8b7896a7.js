@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[54974],{54974:(e,s,t)=>{t.r(s),t.d(s,{default:()=>l});var u=t(95155),n=t(56714);function l(){return(0,u.jsxs)(n.lV,{onSubmit:e=>e.preventDefault(),children:[(0,u.jsx)(n.Ur,{isRequired:!0,label:"Event date",className:"mb-2"}),(0,u.jsx)(n.$n,{type:"submit",children:"Submit"})]})}}}]);

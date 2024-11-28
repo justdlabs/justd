@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[90670],{90670:(i,a,e)=>{e.r(a),e.d(a,{default:()=>r});var s=e(95155);e(12115);var t=e(56714);function r(){return(0,s.jsx)(t.kI,{formatOptions:{style:"decimal",minimumFractionDigits:2,maximumFractionDigits:2},label:"Progress",value:75.25})}}}]);

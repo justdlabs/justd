@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[61604],{61604:(e,u,l)=>{l.r(u),l.d(u,{default:()=>t});var a=l(95155),s=l(56714);function t(){return(0,a.jsx)(s.tw,{label:"Color Customizer",channel:"hue",defaultValue:"hsl(0, 100%, 50%)"})}}}]);

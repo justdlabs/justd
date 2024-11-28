@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[34954],{34954:(e,r,t)=>{t.r(r),t.d(r,{default:()=>c});var u=t(95155),n=t(56714);function c(){return(0,u.jsx)(n.DZ,{level:2,tracking:"tighter",children:"The quick brown fox jumps over the lazy dog"})}}}]);
