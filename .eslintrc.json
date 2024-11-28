@@ -3,7 +3,11 @@
     "next/core-web-vitals",
     "next/typescript",
     "eslint:recommended",
-    "prettier"
+    "prettier",
+    "plugin:eslint-plugin-next-on-pages/recommended"
+  ],
+  "plugins": [
+    "eslint-plugin-next-on-pages"
   ],
   "rules": {
     "@next/next/no-html-link-for-pages": "off",

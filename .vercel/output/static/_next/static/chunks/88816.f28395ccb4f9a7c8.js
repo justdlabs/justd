@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[88816],{88816:(e,r,u)=>{u.r(r),u.d(r,{default:()=>c});var a=u(95155),l=u(56714);function c(){return(0,a.jsx)(l.qM,{"aria-label":"Current color",color:"#0d6efd"})}}}]);

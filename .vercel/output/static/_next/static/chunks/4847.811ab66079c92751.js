@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[4847],{4847:(a,e,s)=>{s.r(e),s.d(e,{default:()=>n});var l=s(95155);s(12115);var t=s(58827),i=s(56714);function n(){let a=(0,t.u)({initialItems:[{id:1,name:"Laravel"},{id:2,name:"Inertia.js"}]});return(0,l.jsx)(i.XH,{shape:"circle",className:"max-w-xs",label:"Add tag",list:a})}}}]);

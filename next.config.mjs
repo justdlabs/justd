@@ -1,3 +1,4 @@
+
 const isDev = process.argv.indexOf('dev') !== -1
 const isBuild = process.argv.indexOf('build') !== -1
 if (!process.env.VELITE_STARTED && (isDev || isBuild)) {
@@ -17,7 +18,6 @@ export default {
   },
   async redirects() {
     return [
-
       {
         source: "/d/:path*",
         destination: "/:path*",

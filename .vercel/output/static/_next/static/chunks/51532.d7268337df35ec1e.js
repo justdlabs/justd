@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[51532],{29151:(e,r,s)=>{s.r(r),s.d(r,{default:()=>i});var a=s(95155),n=s(56714);function i(){return(0,a.jsx)(n.A_,{name:"name",type:"text",label:"Name",description:"Enter your name",placeholder:"John Doe",errorMessage:"This field is required",prefix:"...",suffix:"..."})}}}]);

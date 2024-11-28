@@ -5,20 +5,20 @@
   "private": true,
   "scripts": {
     "prepare": "husky",
-    "cuc": "npm run resources/scripts/check-use-client.ts",
+    "cuc": "bun run resources/scripts/check-use-client.ts",
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
     "generate-preview": "bun run resources/scripts/create-pr-content.ts",
-    "b": "npm run generate-preview",
-    "preview": "npm run build && npm run start"
+    "b": "bun run generate-preview",
+    "preview": "next build && next start"
   },
   "dependencies": {
     "@openpanel/nextjs": "^1.0.6",
     "@shikijs/transformers": "^1.23.1",
-    "@types/node": "^22.10.0",
+    "@types/node": "^22.10.1",
     "cmdk": "^1.0.4",
     "culori": "^4.0.1",
     "embla-carousel-autoplay": "^8.5.1",
@@ -29,9 +29,9 @@
     "next": "^15.0.3",
     "next-themes": "^0.4.3",
     "ntcjs": "^1.1.3",
-    "react": "^19.0.0-rc-fb9a90fa48-20240614",
+    "react": "^18.3.1",
     "react-aria-components": "^1.5.0",
-    "react-dom": "^19.0.0-rc-fb9a90fa48-20240614",
+    "react-dom": "^18.3.1",
     "react-intersection-observer": "^9.13.1",
     "recharts": "^2.13.3",
     "rehype-pretty-code": "^0.14.0",
@@ -59,6 +59,7 @@
     "eslint": "^8.57.1",
     "eslint-config-next": "15.0.2",
     "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-next-on-pages": "^1.13.5",
     "eslint-plugin-prettier": "^5.2.1",
     "husky": "^9.1.7",
     "postcss": "^8.4.49",
@@ -75,14 +76,8 @@
     "url": "git+https://github.com/justdlabs/justd.git"
   },
   "trustedDependencies": [
-    "@vercel/speed-insights",
     "es5-ext",
     "esbuild",
     "sharp"
-  ],
-  "overrides": {
-    "@types/react": "npm:types-react@19.0.0-rc.1",
-    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
-    "react-is": "19.0.0-rc.1"
-  }
+  ]
 }

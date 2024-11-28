@@ -7,6 +7,7 @@ import { Container, Loader } from "ui"
 
 import { IconsList } from "./partials/icons-list"
 
+export const runtime = "edge"
 export const metadata: Metadata = {
   title: "Justd Icons",
   description:

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[47304],{47304:(e,l,n)=>{n.r(l),n.d(l,{default:()=>t});var s=n(95155),r=n(12115),a=n(56714);function t(){let[e,l]=r.useState(null);return(0,s.jsxs)(s.Fragment,{children:[(0,s.jsx)(a.FS,{isDisabled:!0,onSelect:e=>{l(Array.from(null!=e?e:[]).map(e=>e.name))}}),e&&(0,s.jsx)(a.VY,{children:e})]})}}}]);
