@@ -1,0 +1,11 @@
+{
+  "name": "color-picker-with-label-demo",
+  "files": [
+    {
+      "name": "color-picker-with-label-demo.tsx",
+      "content": "\"use client\"\n\nimport React from \"react\"\n\nimport { ColorPicker, defaultColor } from \"ui\"\n\nexport default function ColorPickerWithLabelDemo() {\n  const [color, setColor] = React.useState(defaultColor)\n  return <ColorPicker label=\"Theme Color\" value={color} onChange={setColor} />\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/colors/color-picker/color-picker-with-label-demo.tsx"
+}

@@ -1,0 +1,11 @@
+{
+  "name": "chart-anatomy",
+  "files": [
+    {
+      "name": "chart-anatomy.tsx",
+      "content": "import { Area, AreaChart, CartesianGrid, XAxis } from \"recharts\"\nimport { Chart, ChartTooltip, ChartTooltipContent } from \"ui\"\n\nexport default function ChartAnatomy() {\n  return (\n    <Chart\n      config={{\n        first: {\n          label: \"...\",\n          color: \"var(--chart-1)\"\n        }\n      }}\n      className=\"min-h-[250px]\"\n    >\n      <AreaChart\n        accessibilityLayer\n        data={[\n          { month: \"January\", revenue: 12000 }\n          //...\n        ]}\n        margin={{ left: 12, right: 12 }}\n      >\n        <CartesianGrid />\n        <XAxis />\n        <ChartTooltip content={<ChartTooltipContent indicator=\"line\" />} />\n        <Area dataKey=\"revenue\" />\n      </AreaChart>\n    </Chart>\n  )\n}\n"
+    }
+  ],
+  "type": "components:anatomies",
+  "componentPath": "components/docs/anatomies/chart-anatomy.tsx"
+}

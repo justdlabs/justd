@@ -1,0 +1,11 @@
+{
+  "name": "select-with-icon-demo",
+  "files": [
+    {
+      "name": "select-with-icon-demo.tsx",
+      "content": "\"use client\"\n\nimport { IconDeviceDesktop, IconDevicePhone, IconMacbook } from \"justd-icons\"\nimport { Select } from \"ui\"\n\nexport default function SelectWithIconDemo() {\n  return (\n    <Select aria-label=\"Devices\" defaultSelectedKey=\"desktop\" placeholder=\"Select a device\">\n      <Select.Trigger />\n      <Select.List>\n        <Select.Option id=\"desktop\" textValue=\"Desktop\">\n          <IconDeviceDesktop />\n          Desktop\n        </Select.Option>\n        <Select.Option id=\"laptop\" textValue=\"Laptop\">\n          <IconMacbook />\n          Laptop\n        </Select.Option>\n        <Select.Option id=\"smartphone\" textValue=\"Smartphone\">\n          <IconDevicePhone />\n          Smartphone\n        </Select.Option>\n      </Select.List>\n    </Select>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/pickers/select/select-with-icon-demo.tsx"
+}

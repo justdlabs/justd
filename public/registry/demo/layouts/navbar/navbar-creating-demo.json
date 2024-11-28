@@ -1,0 +1,11 @@
+{
+  "name": "navbar-creating-demo",
+  "files": [
+    {
+      "name": "navbar-creating-demo.tsx",
+      "content": "\"use client\"\n\nimport { IconBrandGoogle, IconSearch, IconShoppingBag } from \"justd-icons\"\nimport { Button, Navbar } from \"ui\"\n\nexport default function AppNavbar(props: React.ComponentProps<typeof Navbar>) {\n  return (\n    <Navbar {...props}>\n      <Navbar.Nav>\n        <Navbar.Logo href=\"#\">\n          <IconBrandGoogle className=\"size-5\" />\n        </Navbar.Logo>\n        <Navbar.Section>\n          <Navbar.Item href=\"/docs/components/layouts/navbar\">Documentation</Navbar.Item>\n          <Navbar.Item href=\"#\">Features</Navbar.Item>\n          <Navbar.Item href=\"#\">Support</Navbar.Item>\n          <Navbar.Item href=\"#\">Pricing</Navbar.Item>\n        </Navbar.Section>\n      </Navbar.Nav>\n      <Navbar.Compact>\n        <Navbar.Flex>\n          <Navbar.Trigger className=\"-ml-2\" />\n        </Navbar.Flex>\n        <Navbar.Flex>\n          <Navbar.Flex>\n            <Button appearance=\"plain\" size=\"square-petite\" aria-label=\"Search for products\">\n              <IconSearch />\n            </Button>\n            <Button appearance=\"plain\" size=\"square-petite\" aria-label=\"Your Bag\">\n              <IconShoppingBag />\n            </Button>\n          </Navbar.Flex>\n        </Navbar.Flex>\n      </Navbar.Compact>\n      {/*<Navbar.Inset>*/}\n      {/*  <Heading>Home</Heading>*/}\n      {/*</Navbar.Inset>*/}\n    </Navbar>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/layouts/navbar/navbar-creating-demo.tsx"
+}

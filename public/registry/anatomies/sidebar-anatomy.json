@@ -1,0 +1,11 @@
+{
+  "name": "sidebar-anatomy",
+  "files": [
+    {
+      "name": "sidebar-anatomy.tsx",
+      "content": "import { IconCreditCard, IconShoppingBag } from \"justd-icons\"\nimport { Sidebar } from \"ui\"\n\nexport default function SidebarAnatomy() {\n  return (\n    <Sidebar.Provider>\n      <Sidebar>\n        <Sidebar.Header>\n          <Sidebar.Nav isSticky />\n        </Sidebar.Header>\n        <Sidebar.Content>\n          <Sidebar.Section>\n            <Sidebar.Item />\n            <Sidebar.Item />\n          </Sidebar.Section>\n          <Sidebar.Section title=\"Projects\">\n            <Sidebar.Item icon={IconShoppingBag} />\n            <Sidebar.Item icon={IconCreditCard} />\n          </Sidebar.Section>\n          <Sidebar.Section collapsible title=\"Team\">\n            <Sidebar.Item />\n          </Sidebar.Section>\n        </Sidebar.Content>\n        <Sidebar.Footer />\n        <Sidebar.Rail />\n      </Sidebar>\n      <Sidebar.Inset>{/* your main content */}</Sidebar.Inset>\n    </Sidebar.Provider>\n  )\n}\n"
+    }
+  ],
+  "type": "components:anatomies",
+  "componentPath": "components/docs/anatomies/sidebar-anatomy.tsx"
+}

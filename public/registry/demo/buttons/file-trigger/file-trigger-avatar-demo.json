@@ -1,0 +1,11 @@
+{
+  "name": "file-trigger-avatar-demo",
+  "files": [
+    {
+      "name": "file-trigger-avatar-demo.tsx",
+      "content": "\"use client\"\n\nimport React from \"react\"\n\nimport type { DropEvent } from \"@react-types/shared\"\nimport { isFileDropItem } from \"react-aria-components\"\nimport { twJoin } from \"tailwind-merge\"\nimport { Avatar, DropZone, FileTrigger } from \"ui\"\n\nexport default function FileTriggerAvatarDemo() {\n  const [droppedImage, setDroppedImage] = React.useState<string | undefined>(undefined)\n\n  const onDropHandler = async (e: DropEvent) => {\n    const item = e.items.filter(isFileDropItem).find((item) => item.type === \"image/jpeg\" || item.type === \"image/png\")\n    if (item) {\n      const file = await item.getFile()\n      setDroppedImage(URL.createObjectURL(file))\n    }\n  }\n\n  async function onSelectHandler(e: any) {\n    if (e) {\n      const files = Array.from([...e])\n      const item = files[0]\n\n      if (item) {\n        setDroppedImage(URL.createObjectURL(item))\n      }\n    }\n  }\n\n  return (\n    <div className=\"flex items-center gap-2\">\n      <DropZone\n        getDropOperation={() => \"copy\"}\n        onDrop={onDropHandler}\n        className={twJoin(\n          \"**:data-[slot=avatar]:bg-transparent **:data-[slot=avatar]:outline-hidden rounded-full p-0 overflow-hidden size-10\"\n        )}\n      >\n        {droppedImage ? <Avatar src={droppedImage} size=\"large\" /> : <Avatar initials=\"IA\" size=\"large\" />}\n        <input type=\"hidden\" name=\"image\" value={droppedImage} />\n      </DropZone>\n      <FileTrigger\n        size=\"small\"\n        withIcon={false}\n        acceptedFileTypes={[\"image/png\", \"image/jpeg\"]}\n        onSelect={onSelectHandler}\n      >\n        Upload avatar\n      </FileTrigger>\n    </div>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/buttons/file-trigger/file-trigger-avatar-demo.tsx"
+}

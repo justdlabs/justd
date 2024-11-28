@@ -1,0 +1,11 @@
+{
+  "name": "navbar-anatomy",
+  "files": [
+    {
+      "name": "navbar-anatomy.tsx",
+      "content": "import { IconBrandApple, IconSearch, IconShoppingBag } from \"justd-icons\"\nimport { Button, Navbar, Separator } from \"ui\"\n\nexport default function NavbarAnatomy() {\n  return (\n    <Navbar>\n      {/* Desktop */}\n      <Navbar.Nav>\n        <Navbar.Logo />\n        <Navbar.Section>\n          <Navbar.Item href=\"#\" />\n        </Navbar.Section>\n      </Navbar.Nav>\n\n      {/* Mobile */}\n      <Navbar.Compact>\n        <Navbar.Flex>\n          <Navbar.Trigger className=\"-ml-2\" />\n          <Separator orientation=\"vertical\" className=\"h-6 mx-2\" />\n          <Navbar.Logo href=\"/docs/components/navigation/navbar\">\n            <IconBrandApple className=\"size-5\" />\n          </Navbar.Logo>\n        </Navbar.Flex>\n        <Navbar.Flex>\n          <Button appearance=\"plain\" size=\"square-petite\" aria-label=\"Search for products\">\n            <IconSearch />\n          </Button>\n          <Button appearance=\"plain\" size=\"square-petite\" aria-label=\"Your Bag\">\n            <IconShoppingBag />\n          </Button>\n        </Navbar.Flex>\n      </Navbar.Compact>\n\n      <Navbar.Inset />\n    </Navbar>\n  )\n}\n"
+    }
+  ],
+  "type": "components:anatomies",
+  "componentPath": "components/docs/anatomies/navbar-anatomy.tsx"
+}

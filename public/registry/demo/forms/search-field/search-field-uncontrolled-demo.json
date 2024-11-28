@@ -1,0 +1,11 @@
+{
+  "name": "search-field-uncontrolled-demo",
+  "files": [
+    {
+      "name": "search-field-uncontrolled-demo.tsx",
+      "content": "\"use client\"\n\nimport React from \"react\"\n\nimport { SearchField } from \"ui\"\n\nexport default function SearchFieldControlledDemo() {\n  return <SearchField defaultValue=\"Laravel\" />\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/forms/search-field/search-field-uncontrolled-demo.tsx"
+}

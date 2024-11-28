@@ -1,0 +1,11 @@
+{
+  "name": "slider-demo",
+  "files": [
+    {
+      "name": "slider-demo.tsx",
+      "content": "\"use client\"\n\nimport { Slider } from \"ui\"\n\nexport default function SliderDemo() {\n  return <Slider label=\"Volume\" />\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/controls/slider/slider-demo.tsx"
+}

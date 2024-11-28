@@ -1,0 +1,11 @@
+{
+  "name": "sheet-position-demo",
+  "files": [
+    {
+      "name": "sheet-position-demo.tsx",
+      "content": "\"use client\"\n\nimport React from \"react\"\n\nimport { Button, Sheet } from \"ui\"\nimport { titleCase } from \"usemods\"\n\ntype Side = \"left\" | \"right\" | \"top\" | \"bottom\"\nexport default function SheetPositionDemo() {\n  const [sheetSide, setSheetSide] = React.useState<Side>(\"left\")\n  const [isOpen, setIsOpen] = React.useState(false)\n\n  const sides: Side[] = [\"left\", \"right\", \"top\", \"bottom\"]\n\n  const pressHandler = (side: Side, open: boolean) => {\n    setSheetSide(side)\n    setIsOpen(open)\n  }\n\n  return (\n    <>\n      <div className=\"grid grid-cols-2 gap-2\">\n        {sides.map((side, idx) => (\n          <Button appearance=\"outline\" onPress={() => pressHandler(side, true)} key={idx}>\n            {titleCase(side)}\n          </Button>\n        ))}\n      </div>\n      <Sheet.Content isOpen={isOpen} onOpenChange={setIsOpen} side={sheetSide}>\n        <Sheet.Header>\n          <Sheet.Title>{titleCase(sheetSide)}</Sheet.Title>\n          <Sheet.Description>The sheet will go from {sheetSide} side.</Sheet.Description>\n        </Sheet.Header>\n      </Sheet.Content>\n    </>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/overlays/sheet/sheet-position-demo.tsx"
+}

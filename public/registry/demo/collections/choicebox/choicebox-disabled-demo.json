@@ -1,0 +1,11 @@
+{
+  "name": "choicebox-disabled-demo",
+  "files": [
+    {
+      "name": "choicebox-disabled-demo.tsx",
+      "content": "\"use client\"\n\nimport React from \"react\"\n\nimport { Choicebox } from \"ui\"\n\nexport default function ChoiceboxDisabledDemo() {\n  return (\n    <div className=\"p-1\">\n      <Choicebox aria-label=\"Select packages\" selectionMode=\"multiple\" items={packages}>\n        {(item) => <Choicebox.Item isDisabled={[\"sm\", \"lg\"].includes(item.id)} {...item} />}\n      </Choicebox>\n    </div>\n  )\n}\n\nconst packages = [\n  {\n    id: \"sm\",\n    title: \"Small\",\n    description: \"Perfect for beginners. Basic resources for light projects.\"\n  },\n  {\n    id: \"md\",\n    title: \"Medium\",\n    description: \"Great for growing sites. More power and storage.\"\n  },\n  {\n    id: \"lg\",\n    title: \"Large\",\n    description: \"Ideal for busy sites. Lots of resources and support.\"\n  },\n  {\n    id: \"xl\",\n    title: \"Extra Large\",\n    description: \"Max power for demanding applications. Top-tier performance.\"\n  }\n]\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/collections/choicebox/choicebox-disabled-demo.tsx"
+}

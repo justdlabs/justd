@@ -1,0 +1,11 @@
+{
+  "name": "progress-circle-indeterminate-demo",
+  "files": [
+    {
+      "name": "progress-circle-indeterminate-demo.tsx",
+      "content": "\"use client\"\n\nimport React from \"react\"\n\nimport { ProgressCircle } from \"ui\"\n\nexport default function ProgressCircleIndeterminateDemo() {\n  return <ProgressCircle aria-label=\"Loading…\" isIndeterminate />\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/statuses/progress-circle-indeterminate-demo.tsx"
+}

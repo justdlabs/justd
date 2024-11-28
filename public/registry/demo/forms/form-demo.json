@@ -1,0 +1,11 @@
+{
+  "name": "form-demo",
+  "files": [
+    {
+      "name": "form-demo.tsx",
+      "content": "\"use client\"\n\nimport { Button, Form, Heading, TextField } from \"ui\"\n\nexport default function FormDemo() {\n  return (\n    <div className=\"mx-auto max-w-md py-10\">\n      <Heading level={2} className=\"mb-4\">\n        Register\n      </Heading>\n      <Form onSubmit={() => {}} className=\"space-y-4\">\n        <TextField isRequired label=\"Name\" placeholder=\"Enter your name\" />\n        <TextField isRequired label=\"Email\" placeholder=\"Enter your email\" />\n        <div className=\"grid grid-cols-2 gap-4\">\n          <TextField isRequired label=\"Password\" placeholder=\"Enter your password\" type=\"password\" />\n          <TextField isRequired label=\"Confirm Password\" placeholder=\"Enter your password again\" type=\"password\" />\n        </div>\n        <Button type=\"submit\">Submit</Button>\n      </Form>\n    </div>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/forms/form-demo.tsx"
+}

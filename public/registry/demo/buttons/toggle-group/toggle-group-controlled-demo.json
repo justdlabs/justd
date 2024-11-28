@@ -1,0 +1,11 @@
+{
+  "name": "toggle-group-controlled-demo",
+  "files": [
+    {
+      "name": "toggle-group-controlled-demo.tsx",
+      "content": "import React from \"react\"\n\nimport type { Key } from \"react-aria-components\"\nimport { Toggle, ToggleGroup } from \"ui\"\n\nexport default function ToggleGroupControlledDemo() {\n  const [selected, setSelected] = React.useState(new Set<Key>([\"bold\"]))\n\n  return (\n    <>\n      <ToggleGroup selectionMode=\"multiple\" selectedKeys={selected} onSelectionChange={setSelected}>\n        <Toggle id=\"bold\">Bold</Toggle>\n        <Toggle id=\"italic\">Italic</Toggle>\n        <Toggle id=\"underline\">Underline</Toggle>\n      </ToggleGroup>\n      {[...selected].length > 0 && (\n        <p className=\"text-muted-fg mt-4\">\n          Selected: <strong className=\"text-fg font-semibold\">{[...selected].join(\", \")}</strong>\n        </p>\n      )}\n    </>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/buttons/toggle-group/toggle-group-controlled-demo.tsx"
+}

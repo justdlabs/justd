@@ -2,7 +2,7 @@
 
 import React from "react"
 
-import { CodeHighlighter } from "@/components/docs/rehype/code"
+import { CodeHighlighter } from "@/components/rehype/code"
 import { useOpenPanel } from "@openpanel/nextjs"
 import { IconCheck, IconDuplicate } from "justd-icons"
 import { AnimatePresence, motion } from "motion/react"

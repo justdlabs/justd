@@ -1,0 +1,11 @@
+{
+  "name": "avatar-demo",
+  "files": [
+    {
+      "name": "avatar-demo.tsx",
+      "content": "\"use client\"\n\nimport AvatarGroupDemo from \"@/components/docs/media/avatar-group-demo\"\n\nexport default function AvatarDemo() {\n  return <AvatarGroupDemo />\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/media/avatar-demo.tsx"
+}

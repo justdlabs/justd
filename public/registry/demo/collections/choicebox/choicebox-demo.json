@@ -1,0 +1,11 @@
+{
+  "name": "choicebox-demo",
+  "files": [
+    {
+      "name": "choicebox-demo.tsx",
+      "content": "\"use client\"\n\nimport React from \"react\"\n\nimport { Choicebox } from \"ui\"\n\nexport default function ChoiceboxDemo() {\n  return (\n    <Choicebox aria-label=\"Select items\" selectionMode=\"multiple\">\n      <Choicebox.Item title=\"Basic\" description=\"Just the essentials to get started.\" />\n      <Choicebox.Item title=\"Standard\" description=\"A step up with more features and support.\" />\n      <Choicebox.Item title=\"Premium\" description=\"Advanced options for growing needs.\" />\n      <Choicebox.Item title=\"Deluxe\" description=\"Top-tier features for maximum performance.\" />\n      <Choicebox.Item title=\"Ultimate\" description=\"All-inclusive plan with every feature available.\" />\n      <Choicebox.Item title=\"Enterprise\" description=\"Custom solutions for large-scale operations.\" />\n    </Choicebox>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/collections/choicebox/choicebox-demo.tsx"
+}

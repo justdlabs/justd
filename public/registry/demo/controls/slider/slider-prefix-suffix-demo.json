@@ -1,0 +1,11 @@
+{
+  "name": "slider-prefix-suffix-demo",
+  "files": [
+    {
+      "name": "slider-prefix-suffix-demo.tsx",
+      "content": "\"use client\"\n\nimport React from \"react\"\n\nimport { IconVolumeFull, IconVolumeOff } from \"justd-icons\"\nimport { Slider } from \"ui\"\n\nexport default function SliderPrefixSuffixDemo() {\n  const [volume, setVolume] = React.useState<number>(0.5)\n  return (\n    <div className=\"max-w-2xl items-center flex gap-4 *:data-[slot=icon]:translate-y-3.5 *:data-[slot=icon]:size-4 *:data-[slot=icon]:shrink-0\">\n      <IconVolumeOff />\n      <Slider value={volume} onChange={(v) => setVolume(v as number)} label=\"Volume\" />\n      <IconVolumeFull />\n    </div>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/controls/slider/slider-prefix-suffix-demo.tsx"
+}

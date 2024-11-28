@@ -1,0 +1,11 @@
+{
+  "name": "menu-disabled-demo",
+  "files": [
+    {
+      "name": "menu-disabled-demo.tsx",
+      "content": "\"use client\"\n\nimport React from \"react\"\n\nimport { Menu } from \"ui\"\n\nexport default function MenuDisabledDemo() {\n  return (\n    <Menu>\n      <Menu.Trigger>Open</Menu.Trigger>\n      <Menu.Content className=\"min-w-48\" placement=\"bottom\">\n        <Menu.Item id=\"view\">View</Menu.Item>\n        <Menu.Item id=\"edit\">Edit</Menu.Item>\n        <Menu.Item id=\"gsu\" isDisabled>\n          Generate Short URL\n        </Menu.Item>\n      </Menu.Content>\n    </Menu>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/collections/menu/menu-disabled-demo.tsx"
+}

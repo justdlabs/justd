@@ -1,0 +1,11 @@
+{
+  "name": "disclosure-disabled-demo",
+  "files": [
+    {
+      "name": "disclosure-disabled-demo.tsx",
+      "content": "import { Disclosure } from \"ui\"\n\nexport default function DisclosureDisabledDemo() {\n  return (\n    <Disclosure isDisabled>\n      <Disclosure.Trigger>What is your return policy?</Disclosure.Trigger>\n      <Disclosure.Panel>\n        <p>\n          You can return any item within 30 days of purchase, provided it is in its original condition with proof of\n          purchase.\n        </p>\n      </Disclosure.Panel>\n    </Disclosure>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/navigation/disclosure/disclosure-disabled-demo.tsx"
+}

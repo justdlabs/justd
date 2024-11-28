@@ -1,0 +1,11 @@
+{
+  "name": "date-range-picker-custom-validation-demo",
+  "files": [
+    {
+      "name": "date-range-picker-custom-validation-demo.tsx",
+      "content": "\"use client\"\n\nimport { getLocalTimeZone, today } from \"@internationalized/date\"\nimport { Button, DateRangePicker, Form } from \"ui\"\n\nexport default function DateRangePickerCustomValidationDemo() {\n  return (\n    <Form onSubmit={(e) => e.preventDefault()}>\n      <DateRangePicker\n        label=\"Room Booking Dates\"\n        validate={(range) => (range?.end.compare(range.start) > 7 ? \"Maximum booking duration is 1 week.\" : null)}\n        defaultValue={{\n          start: today(getLocalTimeZone()),\n          end: today(getLocalTimeZone()).add({ weeks: 2 })\n        }}\n        className=\"mb-2\"\n      />\n      <Button type=\"submit\">Book Room</Button>\n    </Form>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/date-and-time/date-range-picker/date-range-picker-custom-validation-demo.tsx"
+}

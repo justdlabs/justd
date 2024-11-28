@@ -1,0 +1,11 @@
+{
+  "name": "tag-group-anatomy",
+  "files": [
+    {
+      "name": "tag-group-anatomy.tsx",
+      "content": "import { Tag } from \"ui\"\n\nexport default function TagGroupAnatomy() {\n  return (\n    <Tag.Group label=\"Serverless\" selectionMode=\"multiple\">\n      <Tag.List>\n        <Tag.Item>AWS Lambda</Tag.Item>\n        <Tag.Item>Google Cloud Functions</Tag.Item>\n        <Tag.Item>Azure Functions</Tag.Item>\n      </Tag.List>\n    </Tag.Group>\n  )\n}\n"
+    }
+  ],
+  "type": "components:anatomies",
+  "componentPath": "components/docs/anatomies/tag-group-anatomy.tsx"
+}

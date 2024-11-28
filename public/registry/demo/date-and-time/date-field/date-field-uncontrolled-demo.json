@@ -1,0 +1,11 @@
+{
+  "name": "date-field-uncontrolled-demo",
+  "files": [
+    {
+      "name": "date-field-uncontrolled-demo.tsx",
+      "content": "\"use client\"\n\nimport React from \"react\"\n\nimport { getLocalTimeZone, parseDate, today } from \"@internationalized/date\"\nimport { DateField } from \"ui\"\n\nexport default function DateFieldUncontrolledDemo() {\n  const now = today(getLocalTimeZone())\n  return <DateField defaultValue={parseDate(now.toString())} label=\"Event date\" />\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/date-and-time/date-field/date-field-uncontrolled-demo.tsx"
+}

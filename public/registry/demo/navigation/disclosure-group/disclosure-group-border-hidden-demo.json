@@ -1,0 +1,11 @@
+{
+  "name": "disclosure-group-border-hidden-demo",
+  "files": [
+    {
+      "name": "disclosure-group-border-hidden-demo.tsx",
+      "content": "\"use client\"\n\nimport React from \"react\"\n\nimport { IconBell, IconCreditCard, IconDownload, IconSettings, IconShield, IconSupport } from \"justd-icons\"\nimport { Disclosure, DisclosureGroup } from \"ui\"\n\nexport default function DisclosureGroupBorderHiddenDemo() {\n  return (\n    <DisclosureGroup hideBorder>\n      {items.map((item, index) => (\n        <Disclosure key={index} id={index}>\n          <Disclosure.Trigger>{item.title}</Disclosure.Trigger>\n          <Disclosure.Panel>{item.description}</Disclosure.Panel>\n        </Disclosure>\n      ))}\n    </DisclosureGroup>\n  )\n}\n\nconst items = [\n  {\n    icon: <IconSettings />,\n    title: \"Personal Settings\",\n    description: \"You can update your profile, change your password, and manage your account settings here.\"\n  },\n  {\n    icon: <IconBell />,\n    title: \"Notifications\",\n    description: \"Manage your notifications preferences, including alerts, emails, and push notifications.\"\n  },\n  {\n    icon: <IconShield />,\n    title: \"Privacy Options\",\n    description: \"Adjust your privacy settings to control who can see your information and contact you.\"\n  },\n  {\n    icon: <IconCreditCard />,\n    title: \"Payment Methods\",\n    description: \"Add, remove, or update your payment methods including credit cards and digital wallets.\"\n  },\n  {\n    icon: <IconSupport />,\n    title: \"Support Center\",\n    description: \"Find help with common issues, or contact support for further assistance.\"\n  },\n  {\n    icon: <IconDownload />,\n    title: \"Download Data\",\n    description: \"Request a download of all your data we have stored, including account activity and user data.\"\n  }\n]\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/navigation/disclosure-group/disclosure-group-border-hidden-demo.tsx"
+}

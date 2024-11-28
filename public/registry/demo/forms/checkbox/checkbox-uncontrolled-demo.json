@@ -1,0 +1,11 @@
+{
+  "name": "checkbox-uncontrolled-demo",
+  "files": [
+    {
+      "name": "checkbox-uncontrolled-demo.tsx",
+      "content": "\"use client\"\n\nimport React from \"react\"\n\nimport { Checkbox } from \"ui\"\n\nexport default function CheckboxUncontrolledDemo() {\n  return (\n    <Checkbox defaultSelected value=\"updates\">\n      Receive Updates\n    </Checkbox>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/forms/checkbox/checkbox-uncontrolled-demo.tsx"
+}

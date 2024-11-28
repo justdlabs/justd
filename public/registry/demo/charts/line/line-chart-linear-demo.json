@@ -1,0 +1,11 @@
+{
+  "name": "line-chart-linear-demo",
+  "files": [
+    {
+      "name": "line-chart-linear-demo.tsx",
+      "content": "\"use client\"\n\nimport { CartesianGrid, Line, LineChart, XAxis } from \"recharts\"\nimport { Card, Chart, type ChartConfig, ChartTooltip, ChartTooltipContent } from \"ui\"\n\nconst chartData = [\n  { month: \"Jan\", revenue: 186 },\n  { month: \"Feb\", revenue: 305 },\n  { month: \"Mar\", revenue: 237 },\n  { month: \"Apr\", revenue: 73 },\n  { month: \"May\", revenue: 209 },\n  { month: \"Jun\", revenue: 214 },\n  { month: \"Jul\", revenue: 250 },\n  { month: \"Aug\", revenue: 320 },\n  { month: \"Sep\", revenue: 280 },\n  { month: \"Oct\", revenue: 350 },\n  { month: \"Nov\", revenue: 400 },\n  { month: \"Dec\", revenue: 450 }\n]\n\nconst chartConfig = {\n  revenue: {\n    label: \"Revenue\",\n    color: \"var(--chart-1)\"\n  }\n} satisfies ChartConfig\n\nexport default function LineChartLinearDemo() {\n  return (\n    <Card>\n      <Card.Header title=\"Annual Revenue Overview\" description=\"Jan - Dec 2024\" />\n      <Card.Content>\n        <Chart config={chartConfig}>\n          <LineChart\n            accessibilityLayer\n            data={chartData}\n            margin={{\n              left: 12,\n              right: 12\n            }}\n          >\n            <CartesianGrid vertical={false} />\n            <XAxis dataKey=\"month\" tickLine={false} axisLine={false} tickMargin={8} />\n            <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />\n            <Line dataKey=\"revenue\" type=\"linear\" stroke=\"var(--color-revenue)\" strokeWidth={2} dot={false} />\n          </LineChart>\n        </Chart>\n      </Card.Content>\n    </Card>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/charts/line/line-chart-linear-demo.tsx"
+}

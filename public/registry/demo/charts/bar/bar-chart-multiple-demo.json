@@ -1,0 +1,11 @@
+{
+  "name": "bar-chart-multiple-demo",
+  "files": [
+    {
+      "name": "bar-chart-multiple-demo.tsx",
+      "content": "\"use client\"\n\nimport { Bar, BarChart, CartesianGrid, XAxis } from \"recharts\"\nimport { Card, Chart, type ChartConfig, ChartTooltip, ChartTooltipContent } from \"ui\"\n\nconst chartData = [\n  { month: \"Jan\", sales: 1200, expenses: 900 },\n  { month: \"Feb\", sales: 1400, expenses: 1100 },\n  { month: \"Mar\", sales: 1300, expenses: 1050 },\n  { month: \"Apr\", sales: 1500, expenses: 1250 },\n  { month: \"May\", sales: 1600, expenses: 1300 },\n  { month: \"Jun\", sales: 1700, expenses: 1400 },\n  { month: \"Jul\", sales: 1800, expenses: 1450 },\n  { month: \"Aug\", sales: 1900, expenses: 1500 },\n  { month: \"Sep\", sales: 2000, expenses: 1600 },\n  { month: \"Oct\", sales: 2100, expenses: 1700 },\n  { month: \"Nov\", sales: 2200, expenses: 1800 },\n  { month: \"Dec\", sales: 2300, expenses: 1900 }\n]\n\nconst chartConfig = {\n  sales: {\n    label: \"Sales\",\n    color: \"var(--chart-1)\"\n  },\n  expenses: {\n    label: \"Expenses\",\n    color: \"var(--chart-2)\"\n  }\n} satisfies ChartConfig\n\nexport default function BarChartMultipleDemo() {\n  return (\n    <Card>\n      <Card.Header>\n        <Card.Title>Bar Chart - Sales vs Expenses</Card.Title>\n        <Card.Description>Jan - Dec 2024</Card.Description>\n      </Card.Header>\n      <Card.Content>\n        <Chart config={chartConfig}>\n          <BarChart accessibilityLayer data={chartData}>\n            <CartesianGrid vertical={false} />\n            <XAxis dataKey=\"month\" tickLine={false} tickMargin={10} axisLine={false} />\n            <ChartTooltip cursor={false} content={<ChartTooltipContent indicator=\"dashed\" />} />\n            <Bar dataKey=\"sales\" fill=\"var(--color-sales)\" radius={4} />\n            <Bar dataKey=\"expenses\" fill=\"var(--color-expenses)\" radius={4} />\n          </BarChart>\n        </Chart>\n      </Card.Content>\n    </Card>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/charts/bar/bar-chart-multiple-demo.tsx"
+}

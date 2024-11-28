@@ -1,0 +1,11 @@
+{
+  "name": "file-trigger-controlled-demo",
+  "files": [
+    {
+      "name": "file-trigger-controlled-demo.tsx",
+      "content": "\"use client\"\n\nimport React from \"react\"\n\nimport { Description, FileTrigger } from \"ui\"\n\nexport default function FileTriggerDemo() {\n  const [file, setFile] = React.useState<string[] | null>(null)\n  return (\n    <>\n      <FileTrigger\n        onSelect={(e) => {\n          const files = Array.from(e ?? [])\n          const filenames = files.map((file) => file.name)\n          setFile(filenames)\n        }}\n      />\n      {file && (\n        <Description className=\"truncate max-w-60 [&>strong]:font-medium block [&>strong]:text-fg mt-2\">\n          Your file: <strong>{file}</strong>\n        </Description>\n      )}\n    </>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/buttons/file-trigger/file-trigger-controlled-demo.tsx"
+}

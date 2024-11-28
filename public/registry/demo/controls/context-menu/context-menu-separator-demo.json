@@ -1,0 +1,11 @@
+{
+  "name": "context-menu-separator-demo",
+  "files": [
+    {
+      "name": "context-menu-separator-demo.tsx",
+      "content": "\"use client\"\n\nimport React from \"react\"\n\nimport { ContextMenu } from \"ui\"\n\nexport default function ContextMenuSeparatorDemo() {\n  return (\n    <ContextMenu>\n      <ContextMenu.Trigger className=\"h-28 w-56 border-2 border-dashed rounded-lg grid place-content-center\">\n        Right click me\n      </ContextMenu.Trigger>\n      <ContextMenu.Content>\n        <ContextMenu.Item id=\"view\">View</ContextMenu.Item>\n        <ContextMenu.Item id=\"edit\">Edit</ContextMenu.Item>\n        <ContextMenu.Separator />\n        <ContextMenu.Item id=\"gsu\">Generate Short URL</ContextMenu.Item>\n      </ContextMenu.Content>\n    </ContextMenu>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/controls/context-menu/context-menu-separator-demo.tsx"
+}

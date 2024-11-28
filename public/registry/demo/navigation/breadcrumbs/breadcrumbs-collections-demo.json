@@ -1,0 +1,11 @@
+{
+  "name": "breadcrumbs-collections-demo",
+  "files": [
+    {
+      "name": "breadcrumbs-collections-demo.tsx",
+      "content": "\"use client\"\n\nimport React from \"react\"\n\nimport type { Key } from \"react-aria-components\"\nimport { Breadcrumbs } from \"ui\"\n\nexport default function BreadcrumbsCollectionsDemo() {\n  const [breadcrumbs, setBreadcrumbs] = React.useState([\n    { id: 1, label: \"Dashboard\", href: \"#\" },\n    { id: 2, label: \"Reports\", href: \"#\" },\n    { id: 3, label: \"2024 Quarterly Review\" }\n  ])\n\n  const navigate = (id: Key) => {\n    const i = breadcrumbs.findIndex((item) => item.id === id)\n    setBreadcrumbs(breadcrumbs.slice(0, i + 1))\n  }\n  return (\n    <Breadcrumbs items={breadcrumbs} onAction={navigate}>\n      {(item) => (\n        <>\n          <Breadcrumbs.Item href={item.href}>{item.label}</Breadcrumbs.Item>\n        </>\n      )}\n    </Breadcrumbs>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/navigation/breadcrumbs/breadcrumbs-collections-demo.tsx"
+}

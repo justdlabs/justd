@@ -1,0 +1,11 @@
+{
+  "name": "loader-demo",
+  "files": [
+    {
+      "name": "loader-demo.tsx",
+      "content": "\"use client\"\n\nimport { Loader } from \"ui\"\n\nexport default function LoaderDemo() {\n  return <Loader />\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/statuses/loader-demo.tsx"
+}

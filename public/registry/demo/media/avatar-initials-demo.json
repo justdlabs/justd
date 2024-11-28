@@ -1,0 +1,11 @@
+{
+  "name": "avatar-initials-demo",
+  "files": [
+    {
+      "name": "avatar-initials-demo.tsx",
+      "content": "\"use client\"\n\nimport { Avatar } from \"ui\"\n\nexport default function AvatarInitialsDemo() {\n  return <Avatar alt=\"IR\" initials=\"IR\" />\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/media/avatar-initials-demo.tsx"
+}

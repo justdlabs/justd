@@ -1,0 +1,11 @@
+{
+  "name": "grid-gap-x-y-demo",
+  "files": [
+    {
+      "name": "grid-gap-x-y-demo.tsx",
+      "content": "\"use client\"\n\nimport { Grid } from \"ui\"\n\nexport default function GridGapXYDemo() {\n  return (\n    <Grid\n      columns={{\n        initial: 3,\n        sm: 4,\n        md: 6\n      }}\n      gapX={{\n        initial: 2,\n        sm: 4\n      }}\n      gapY={{\n        initial: 4,\n        sm: 6\n      }}\n    >\n      <Grid.Item>\n        <div className=\"p-4 border h-24\" />\n      </Grid.Item>\n      <Grid.Item>\n        <div className=\"p-4 border h-24\" />\n      </Grid.Item>\n      <Grid.Item>\n        <div className=\"p-4 border h-24\" />\n      </Grid.Item>\n      <Grid.Item>\n        <div className=\"p-4 border h-24\" />\n      </Grid.Item>\n      <Grid.Item>\n        <div className=\"p-4 border h-24\" />\n      </Grid.Item>\n      <Grid.Item>\n        <div className=\"p-4 border h-24\" />\n      </Grid.Item>\n    </Grid>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/surfaces/grid/grid-gap-x-y-demo.tsx"
+}

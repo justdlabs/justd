@@ -1,0 +1,11 @@
+{
+  "name": "link",
+  "files": [
+    {
+      "name": "link.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { composeRenderProps, Link as LinkPrimitive, type LinkProps as LinkPrimitiveProps } from \"react-aria-components\"\nimport { tv } from \"tailwind-variants\"\n\nconst linkStyles = tv({\n  base: [\n    \"relative data-focus-visible:outline-2 outline-offset-2 outline-0 data-focused:outline-hidden outline-primary transition-colors\",\n    \"forced-colors:outline-[Highlight] forced-colors:data-disabled:text-[GrayText] data-disabled:data-focus-visible:outline-0\",\n    \"disabled:cursor-default data-disabled:opacity-60\"\n  ],\n  variants: {\n    intent: {\n      unstyled: \"text-current\",\n      primary: \"text-primarydata-hovered:text-primary/80 forced-colors:data-disabled:text-[GrayText]\",\n      danger: \"text-dangerdata-hovered:text-danger/80 forced-colors:data-disabled:text-[GrayText]\",\n      \"lad/primary\":\n        \"text-fgdata-hovered:text-primary dark:hover:text-primary/80 forced-colors:data-disabled:text-[GrayText]\",\n      secondary: \"text-secondary-fgdata-hovered:text-secondary-fg/80\"\n    }\n  },\n  defaultVariants: {\n    intent: \"unstyled\"\n  }\n})\n\ninterface LinkProps extends LinkPrimitiveProps {\n  intent?: \"primary\" | \"secondary\" | \"danger\" | \"lad/primary\" | \"unstyled\"\n}\n\nconst Link = ({ className, ...props }: LinkProps) => {\n  return (\n    <LinkPrimitive\n      {...props}\n      className={composeRenderProps(className, (className, ...renderProps) =>\n        linkStyles({ ...renderProps, intent: props.intent, className })\n      )}\n    >\n      {(values) => <>{typeof props.children === \"function\" ? props.children(values) : props.children}</>}\n    </LinkPrimitive>\n  )\n}\n\nexport { Link, LinkPrimitive, type LinkPrimitiveProps, type LinkProps }\n"
+    }
+  ],
+  "type": "components:ui",
+  "componentPath": "components/ui/link.tsx"
+}

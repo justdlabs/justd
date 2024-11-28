@@ -1,0 +1,11 @@
+{
+  "name": "avatar-fallback-demo",
+  "files": [
+    {
+      "name": "avatar-fallback-demo.tsx",
+      "content": "\"use client\"\n\nimport { Avatar } from \"ui\"\n\nexport default function AvatarFallbackDemo() {\n  return <Avatar initials=\"IR\" src=\"https://github.com/irsyadadl.png\" />\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/media/avatar-fallback-demo.tsx"
+}

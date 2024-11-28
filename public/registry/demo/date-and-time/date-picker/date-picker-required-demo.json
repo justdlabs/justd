@@ -1,0 +1,11 @@
+{
+  "name": "date-picker-required-demo",
+  "files": [
+    {
+      "name": "date-picker-required-demo.tsx",
+      "content": "\"use client\"\n\nimport React from \"react\"\n\nimport { Button, DatePicker, Form } from \"ui\"\n\nexport default function DatePickerRequiredDemo() {\n  return (\n    <Form onSubmit={(e) => e.preventDefault()}>\n      <DatePicker label=\"Delivery date\" name=\"deliveryDate\" isRequired className=\"mb-2\" />\n\n      <Button type=\"submit\">Submit</Button>\n    </Form>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/date-and-time/date-picker/date-picker-required-demo.tsx"
+}

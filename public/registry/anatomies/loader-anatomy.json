@@ -1,0 +1,11 @@
+{
+  "name": "loader-anatomy",
+  "files": [
+    {
+      "name": "loader-anatomy.tsx",
+      "content": "import { Loader } from \"ui\"\n\nexport default function LoaderAnatomy() {\n  return (\n    <div className=\"flex gap-6\">\n      <Loader variant=\"ring\" />\n      <Loader variant=\"spin\" />\n      <Loader variant=\"bars\" />\n    </div>\n  )\n}\n"
+    }
+  ],
+  "type": "components:anatomies",
+  "componentPath": "components/docs/anatomies/loader-anatomy.tsx"
+}

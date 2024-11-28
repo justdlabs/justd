@@ -1,0 +1,11 @@
+{
+  "name": "color-picker-controlled-demo",
+  "files": [
+    {
+      "name": "color-picker-controlled-demo.tsx",
+      "content": "\"use client\"\n\nimport React from \"react\"\n\nimport { ControlledValues } from \"@/components/docs/colors/controlled-values\"\nimport { ColorPicker, defaultColor } from \"ui\"\n\nexport default function ColorPickerControlledDemo() {\n  const [color, setColor] = React.useState(defaultColor)\n\n  return (\n    <div className=\"flex flex-col lg:flex-row gap-2 lg:gap-4\">\n      <ColorPicker value={color} onChange={setColor} />\n      <ControlledValues color={color} />\n    </div>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/colors/color-picker/color-picker-controlled-demo.tsx"
+}

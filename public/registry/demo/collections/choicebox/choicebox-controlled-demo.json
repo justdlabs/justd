@@ -1,0 +1,11 @@
+{
+  "name": "choicebox-controlled-demo",
+  "files": [
+    {
+      "name": "choicebox-controlled-demo.tsx",
+      "content": "\"use client\"\n\nimport React from \"react\"\n\nimport type { Selection } from \"react-aria-components\"\nimport { Choicebox, Description } from \"ui\"\n\nexport default function ChoiceboxControlledDemo() {\n  const [selectedKeys, setSelectedKeys] = React.useState<Selection>(new Set([packages[0].id]))\n  return (\n    <>\n      <Choicebox\n        aria-label=\"Select packages\"\n        selectionMode=\"multiple\"\n        selectedKeys={selectedKeys}\n        onSelectionChange={setSelectedKeys}\n        items={packages}\n      >\n        {(item) => <Choicebox.Item {...item} />}\n      </Choicebox>\n\n      <Description className=\"mt-2 block [&>strong]:text-fg text-muted-fg\">\n        You have selected: <strong>{Array.from(selectedKeys).join(\", \")}</strong>\n      </Description>\n    </>\n  )\n}\n\nconst packages = [\n  {\n    id: \"sm\",\n    title: \"Small\",\n    description: \"Perfect for beginners. Basic resources for light projects.\"\n  },\n  {\n    id: \"md\",\n    title: \"Medium\",\n    description: \"Great for growing sites. More power and storage.\"\n  },\n  {\n    id: \"lg\",\n    title: \"Large\",\n    description: \"Ideal for busy sites. Lots of resources and support.\"\n  },\n  {\n    id: \"xl\",\n    title: \"Extra Large\",\n    description: \"Max power for demanding applications. Top-tier performance.\"\n  }\n]\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/collections/choicebox/choicebox-controlled-demo.tsx"
+}

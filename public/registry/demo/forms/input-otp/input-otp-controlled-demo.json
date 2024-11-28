@@ -1,0 +1,11 @@
+{
+  "name": "input-otp-controlled-demo",
+  "files": [
+    {
+      "name": "input-otp-controlled-demo.tsx",
+      "content": "\"use client\"\n\nimport React from \"react\"\n\nimport { InputOTP } from \"ui\"\n\nexport default function InputOtpControlledDemo() {\n  const [value, setValue] = React.useState(\"\")\n  return (\n    <div className=\"space-y-2\">\n      <InputOTP maxLength={6} value={value} onChange={setValue}>\n        <InputOTP.Group>\n          {[...Array(6)].map((_, index) => (\n            <InputOTP.Slot key={index} index={index} />\n          ))}\n        </InputOTP.Group>\n      </InputOTP>\n\n      <div className=\"text-center text-sm\">\n        {value === \"\" ? <>Enter your one-time password.</> : <>You entered: {value}</>}\n      </div>\n    </div>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/forms/input-otp/input-otp-controlled-demo.tsx"
+}

@@ -1,0 +1,11 @@
+{
+  "name": "date-range-picker-time-demo",
+  "files": [
+    {
+      "name": "date-range-picker-time-demo.tsx",
+      "content": "\"use client\"\n\nimport React from \"react\"\n\nimport { getLocalTimeZone, now, parseZonedDateTime } from \"@internationalized/date\"\nimport { DateRangePicker } from \"ui\"\n\nexport default function DateRangePickerTimeDemo() {\n  const today = parseZonedDateTime(now(getLocalTimeZone()).toString())\n  const tomorrowWeek = today.add({ days: 12 })\n\n  const [value, setValue] = React.useState({\n    start: today,\n    end: tomorrowWeek\n  })\n  return (\n    <DateRangePicker\n      hideTimeZone\n      label=\"Date time range\"\n      value={value}\n      onChange={(newValue) => setValue(newValue!)}\n      hourCycle={24}\n    />\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/date-and-time/date-range-picker/date-range-picker-time-demo.tsx"
+}

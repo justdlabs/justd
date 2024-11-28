@@ -1,0 +1,11 @@
+{
+  "name": "tag-field-controlled-demo",
+  "files": [
+    {
+      "name": "tag-field-controlled-demo.tsx",
+      "content": "\"use client\"\n\nimport React from \"react\"\n\nimport { useListData } from \"react-stately\"\nimport { Description, TagField } from \"ui\"\n\nexport default function TagFieldControlledDemo() {\n  const selectedItems = useListData({\n    initialItems: [{ id: 1, name: \"Ferrari\" }]\n  })\n\n  return (\n    <div className=\"max-w-xs\">\n      <TagField\n        appearance=\"outline\"\n        label=\"Add tag\"\n        onItemInserted={(key) => console.log(\"on item inserted\", key)}\n        onItemCleared={(key) => console.log(\"on item cleared\", key)}\n        description=\"You can add multiple tags\"\n        list={selectedItems}\n      />\n      <Description className=\"max-w-xs block [&>strong]:text-fg [&>strong]:text-medium mt-4\">\n        {JSON.stringify(selectedItems.items)}\n      </Description>\n    </div>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/forms/tag-field/tag-field-controlled-demo.tsx"
+}

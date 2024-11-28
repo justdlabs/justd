@@ -1,0 +1,11 @@
+{
+  "name": "breadcrumbs-anatomy",
+  "files": [
+    {
+      "name": "breadcrumbs-anatomy.tsx",
+      "content": "import * as React from \"react\"\n\nimport { Breadcrumbs } from \"ui\"\n\nexport default function BreadcrumbsAnatomy() {\n  return (\n    <Breadcrumbs>\n      <Breadcrumbs.Item href=\"#\">Home</Breadcrumbs.Item>\n      <Breadcrumbs.Item href=\"#\">Design System</Breadcrumbs.Item>\n      <Breadcrumbs.Item>Collections</Breadcrumbs.Item>\n    </Breadcrumbs>\n  )\n}\n"
+    }
+  ],
+  "type": "components:anatomies",
+  "componentPath": "components/docs/anatomies/breadcrumbs-anatomy.tsx"
+}

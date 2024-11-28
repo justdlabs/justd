@@ -12,8 +12,9 @@
     "lint": "next lint",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
     "generate-preview": "bun run resources/scripts/create-pr-content.ts",
-    "b": "bun run generate-preview",
-    "preview": "next build && next start"
+    "b": "bun run build:registry && prettier --write __registry__/generated.ts",
+    "preview": "next build && next start",
+    "build:registry": "bun run resources/scripts/build-registry.ts"
   },
   "dependencies": {
     "@openpanel/nextjs": "^1.0.6",

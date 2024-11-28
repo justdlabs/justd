@@ -2,7 +2,7 @@
 
 import * as React from "react"
 
-import { snippetVariants } from "@/components/docs/rehype/code"
+import { snippetVariants } from "@/components/rehype/code"
 import { IconCheck, IconDuplicate } from "justd-icons"
 import { AnimatePresence, motion } from "motion/react"
 import { usePathname } from "next/navigation"

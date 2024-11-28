@@ -1,0 +1,11 @@
+{
+  "name": "progress-bar-anatomy",
+  "files": [
+    {
+      "name": "progress-bar-anatomy.tsx",
+      "content": "import React from \"react\"\n\nimport { ProgressBar } from \"ui\"\n\nexport default function ProgressBarAnatomy() {\n  return (\n    <>\n      <ProgressBar label=\"Loading…\" value={25} />\n    </>\n  )\n}\n"
+    }
+  ],
+  "type": "components:anatomies",
+  "componentPath": "components/docs/anatomies/progress-bar-anatomy.tsx"
+}

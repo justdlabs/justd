@@ -1,0 +1,11 @@
+{
+  "name": "meter-anatomy",
+  "files": [
+    {
+      "name": "meter-anatomy.tsx",
+      "content": "import React from \"react\"\n\nimport { Meter } from \"ui\"\n\nexport default function MeterAnatomy() {\n  return (\n    <>\n      <Meter label=\"Storage space\" value={32} />\n    </>\n  )\n}\n"
+    }
+  ],
+  "type": "components:anatomies",
+  "componentPath": "components/docs/anatomies/meter-anatomy.tsx"
+}

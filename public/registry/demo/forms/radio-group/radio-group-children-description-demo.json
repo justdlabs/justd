@@ -1,0 +1,11 @@
+{
+  "name": "radio-group-children-description-demo",
+  "files": [
+    {
+      "name": "radio-group-children-description-demo.tsx",
+      "content": "\"use client\"\n\nimport { Radio, RadioGroup } from \"ui\"\n\nexport default function RadioGroupChildrenDescriptionDemo() {\n  return (\n    <RadioGroup>\n      <Radio value=\"basic\" description=\"Basic plan with limited features\">\n        Basic\n      </Radio>\n      <Radio value=\"standard\" description=\"Standard plan with more features\">\n        Standard\n      </Radio>\n      <Radio value=\"premium\" description=\"Premium plan with all features\">\n        Premium\n      </Radio>\n      <Radio value=\"family\" description=\"Family plan for multiple users\">\n        Family\n      </Radio>\n      <Radio value=\"student\" description=\"Discounted plan for students\">\n        Student\n      </Radio>\n      <Radio value=\"custom\">Custom</Radio>\n    </RadioGroup>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/forms/radio-group/radio-group-children-description-demo.tsx"
+}

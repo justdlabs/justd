@@ -1,0 +1,11 @@
+{
+  "name": "loading-dots",
+  "files": [
+    {
+      "name": "loading-dots.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { cn } from \"./primitive\"\n\nconst dots = \"mx-[1px] inline-block size-[0.3125rem] animate-blink rounded-md\"\n\nexport const LoadingDots = ({ className }: { className: string }) => {\n  return (\n    <span className=\"mx-2 inline-flex items-center\">\n      <span className={cn(dots, className)} />\n      <span className={cn(dots, \"animation-delay-[200ms]\", className)} />\n      <span className={cn(dots, \"animation-delay-[400ms]\", className)} />\n    </span>\n  )\n}\n"
+    }
+  ],
+  "type": "components:ui",
+  "componentPath": "components/ui/loading-dots.tsx"
+}

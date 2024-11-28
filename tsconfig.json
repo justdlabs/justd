@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -21,14 +25,30 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"],
-      "ui": ["./components/ui"],
-      "hooks/*": ["./resources/hooks/*"],
-      "#site/content": ["./.velite"]
+      "@/*": [
+        "./*"
+      ],
+      "ui": [
+        "./components/ui"
+      ],
+      "hooks/*": [
+        "./resources/hooks/*"
+      ],
+      "#site/content": [
+        "./.velite"
+      ]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules",
-    "./resources/content/**/*.mdx"
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "./resources/content/**/*.mdx",
+    "./resources/scripts/build-registry.mts",
+    "./__registry__"
   ]
 }

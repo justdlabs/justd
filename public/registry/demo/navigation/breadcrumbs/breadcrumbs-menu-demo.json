@@ -1,0 +1,11 @@
+{
+  "name": "breadcrumbs-menu-demo",
+  "files": [
+    {
+      "name": "breadcrumbs-menu-demo.tsx",
+      "content": "\"use client\"\n\nimport { IconDotsHorizontal } from \"justd-icons\"\nimport { Breadcrumbs, Menu } from \"ui\"\n\nexport default function BreadcrumbsMenuDemo() {\n  return (\n    <Breadcrumbs>\n      <Breadcrumbs.Item href=\"#\">Home</Breadcrumbs.Item>\n\n      <Breadcrumbs.Item separator>\n        <Menu>\n          <Menu.Trigger>\n            <IconDotsHorizontal />\n          </Menu.Trigger>\n          <Menu.Content placement=\"bottom\">\n            <Menu.Item href=\"/docs/components/layouts/sidebar\">Sidebar</Menu.Item>\n            <Menu.Item href=\"/docs/components/controls/toolbar\">Toolbar</Menu.Item>\n            <Menu.Item href=\"/docs/components/collections/menu\">Menu</Menu.Item>\n            <Menu.Item href=\"/docs/components/layouts/container\">Container</Menu.Item>\n            <Menu.Item href=\"/docs/components/surfaces/chart\">Chart</Menu.Item>\n            <Menu.Item href=\"/docs/components/collections/table\">Table</Menu.Item>\n            <Menu.Item href=\"/docs/components/overlays/modal\">Modal</Menu.Item>\n          </Menu.Content>\n        </Menu>\n      </Breadcrumbs.Item>\n\n      <Breadcrumbs.Item>Navbar</Breadcrumbs.Item>\n    </Breadcrumbs>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/navigation/breadcrumbs/breadcrumbs-menu-demo.tsx"
+}

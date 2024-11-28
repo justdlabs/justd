@@ -1,0 +1,11 @@
+{
+  "name": "navbar-intent-demo",
+  "files": [
+    {
+      "name": "navbar-intent-demo.tsx",
+      "content": "\"use client\"\n\nimport { IconBrandApple, IconSearch, IconShoppingBag } from \"justd-icons\"\nimport { Button, Navbar } from \"ui\"\n\nexport default function NavbarIntentDemo() {\n  return (\n    <Navbar intent=\"inset\">\n      <Navbar.Nav>\n        <Navbar.Logo href=\"#\">\n          <IconBrandApple className=\"size-5\" />\n        </Navbar.Logo>\n        <Navbar.Section>\n          <Navbar.Item href=\"#\">Store</Navbar.Item>\n          <Navbar.Item isCurrent href=\"#\">\n            Mac\n          </Navbar.Item>\n          <Navbar.Item href=\"#\">iPad</Navbar.Item>\n          <Navbar.Item href=\"#\">iPhone</Navbar.Item>\n        </Navbar.Section>\n      </Navbar.Nav>\n      <Navbar.Compact>\n        <Navbar.Flex>\n          <Navbar.Trigger className=\"-ml-2\" />\n        </Navbar.Flex>\n        <Navbar.Flex>\n          <Navbar.Flex>\n            <Button appearance=\"plain\" size=\"square-petite\" aria-label=\"Search for products\">\n              <IconSearch />\n            </Button>\n            <Button appearance=\"plain\" size=\"square-petite\" aria-label=\"Your Bag\">\n              <IconShoppingBag />\n            </Button>\n          </Navbar.Flex>\n        </Navbar.Flex>\n      </Navbar.Compact>\n      <Navbar.Inset>{/* your main content */}</Navbar.Inset>\n    </Navbar>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/layouts/navbar/navbar-intent-demo.tsx"
+}

@@ -1,0 +1,11 @@
+{
+  "name": "textarea-description-demo",
+  "files": [
+    {
+      "name": "textarea-description-demo.tsx",
+      "content": "\"use client\"\n\nimport React from \"react\"\n\nimport { Textarea } from \"ui\"\n\nexport default function TextareaDescriptionDemo() {\n  return <Textarea label=\"Address\" description=\"Please enter your address\" />\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/forms/textarea/textarea-description-demo.tsx"
+}

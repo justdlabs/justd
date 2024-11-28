@@ -1,0 +1,11 @@
+{
+  "name": "list-box-anatomy",
+  "files": [
+    {
+      "name": "list-box-anatomy.tsx",
+      "content": "import { ListBox } from \"ui\"\n\nexport default function ListBoxAnatomy() {\n  return (\n    <ListBox aria-label=\"Bands\">\n      <ListBox.Item>Nirvana</ListBox.Item>\n      <ListBox.Item>Radiohead</ListBox.Item>\n      <ListBox.Item>Foo Fighters</ListBox.Item>\n      <ListBox.Item>Arctic Monkeys</ListBox.Item>\n      <ListBox.Item>The Strokes</ListBox.Item>\n    </ListBox>\n  )\n}\n"
+    }
+  ],
+  "type": "components:anatomies",
+  "componentPath": "components/docs/anatomies/list-box-anatomy.tsx"
+}

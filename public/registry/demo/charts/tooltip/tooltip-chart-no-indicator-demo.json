@@ -1,0 +1,11 @@
+{
+  "name": "tooltip-chart-no-indicator-demo",
+  "files": [
+    {
+      "name": "tooltip-chart-no-indicator-demo.tsx",
+      "content": "\"use client\"\n\nimport { Bar, BarChart, XAxis } from \"recharts\"\nimport { Card, Chart, type ChartConfig, ChartTooltip, ChartTooltipContent } from \"ui\"\n\nconst chartData = Array.from({ length: 24 }, (_, index) => {\n  const date = new Date(new Date().getFullYear() - 1, index).toLocaleDateString(\"en-US\", {\n    month: \"short\",\n    year: \"numeric\"\n  })\n  return {\n    date,\n    revenue: Math.floor(Math.random() * 500 + 300),\n    cost: Math.floor(Math.random() * 300 + 150)\n  }\n})\n\nconst chartConfig = {\n  revenue: {\n    label: \"Revenue\",\n    color: \"var(--chart-1)\"\n  },\n  cost: {\n    label: \"Cost\",\n    color: \"var(--chart-2)\"\n  }\n} satisfies ChartConfig\n\nexport default function TooltipChartNoIndicatorDemo() {\n  return (\n    <Card>\n      <Card.Header\n        className=\"items-center pb-0\"\n        title=\"Monthly Revenue and Costs\"\n        description=\"Tracking revenue and costs over the last 24 months\"\n      />\n      <Card.Content>\n        <Chart config={chartConfig}>\n          <BarChart accessibilityLayer data={chartData}>\n            <XAxis dataKey=\"date\" tickLine={false} tickMargin={10} axisLine={false} tickFormatter={(value) => value} />\n            <Bar dataKey=\"revenue\" stackId=\"a\" fill=\"var(--color-revenue)\" radius={[0, 0, 4, 4]} />\n            <Bar dataKey=\"cost\" stackId=\"a\" fill=\"var(--color-cost)\" radius={[4, 4, 0, 0]} />\n            <ChartTooltip content={<ChartTooltipContent hideIndicator />} cursor={false} defaultIndex={1} />\n          </BarChart>\n        </Chart>\n      </Card.Content>\n    </Card>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/charts/tooltip/tooltip-chart-no-indicator-demo.tsx"
+}

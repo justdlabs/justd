@@ -1,0 +1,11 @@
+{
+  "name": "textarea-demo",
+  "files": [
+    {
+      "name": "textarea-demo.tsx",
+      "content": "\"use client\"\n\nimport { Textarea } from \"ui\"\n\nexport default function TextareaDemo() {\n  return <Textarea label=\"Address\" />\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/forms/textarea/textarea-demo.tsx"
+}

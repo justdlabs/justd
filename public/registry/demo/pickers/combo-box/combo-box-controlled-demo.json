@@ -1,0 +1,11 @@
+{
+  "name": "combo-box-controlled-demo",
+  "files": [
+    {
+      "name": "combo-box-controlled-demo.tsx",
+      "content": "\"use client\"\n\nimport React from \"react\"\n\nimport { ComboBox, Description } from \"ui\"\n\nconst sports = [\n  { id: 1, name: \"Football\" },\n  { id: 2, name: \"Basketball\" },\n  { id: 3, name: \"Baseball\" },\n  { id: 4, name: \"Soccer\" },\n  { id: 5, name: \"Tennis\" },\n  { id: 6, name: \"Cricket\" },\n  { id: 7, name: \"Hockey\" },\n  { id: 8, name: \"Rugby\" },\n  { id: 9, name: \"Golf\" }\n]\n\nexport default function ComboBoxControlledDemo() {\n  const [sport, setSport] = React.useState(\"\")\n  return (\n    <>\n      <ComboBox onInputChange={setSport} inputValue={sport} placeholder=\"Select a sports\" label=\"Sports\">\n        <ComboBox.Input />\n        <ComboBox.List items={sports}>\n          {(item) => (\n            <ComboBox.Option id={item.id} textValue={item.name}>\n              {item.name}\n            </ComboBox.Option>\n          )}\n        </ComboBox.List>\n      </ComboBox>\n      <Description className=\"mt-2 block [&>strong]:text-fg text-muted-fg\">\n        You have selected: <strong>{sport}</strong>\n      </Description>\n    </>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/pickers/combo-box/combo-box-controlled-demo.tsx"
+}

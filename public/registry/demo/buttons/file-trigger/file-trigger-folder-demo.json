@@ -1,0 +1,11 @@
+{
+  "name": "file-trigger-folder-demo",
+  "files": [
+    {
+      "name": "file-trigger-folder-demo.tsx",
+      "content": "\"use client\"\n\nimport { FileTrigger } from \"ui\"\n\nexport default function FileTriggerFolderDemo() {\n  return <FileTrigger acceptDirectory />\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/buttons/file-trigger/file-trigger-folder-demo.tsx"
+}

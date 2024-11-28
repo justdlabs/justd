@@ -1,0 +1,11 @@
+{
+  "name": "toggle-demo",
+  "files": [
+    {
+      "name": "toggle-demo.tsx",
+      "content": "\"use client\"\n\nimport { Toggle } from \"ui\"\n\nexport default function ToggleDemo() {\n  return <Toggle>{({ isSelected }) => <>{isSelected ? \"Unpin\" : \"Pin\"}</>}</Toggle>\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/buttons/toggle/toggle-demo.tsx"
+}
