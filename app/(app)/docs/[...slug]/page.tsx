@@ -70,11 +70,9 @@ export async function generateMetadata(props: DocPageProps): Promise<Metadata> {
   }
 }
 
-export const runtime = "edge"
-
-// export async function generateStaticParams(): Promise<{ slug: any }[]> {
-//   return docs.map((doc) => ({ slug: doc.slugAsParams.split("/") }))
-// }
+export async function generateStaticParams(): Promise<{ slug: any }[]> {
+  return docs.map((doc) => ({ slug: doc.slugAsParams.split("/") }))
+}
 
 export default async function PostPage(props: DocPageProps) {
   const params = await props.params
