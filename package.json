@@ -4,18 +4,16 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "prepare": "husky",
-    "cuc": "bun run resources/scripts/check-use-client.ts",
-    "dev:content": "velite --watch",
-    "build:content": "velite --clean",
-    "build:next": "next build",
-    "dev": "next dev --turbopack && velite --watch",
-    "build": "run build:*",
     "lint": "next lint",
+    "cuc": "bun run resources/scripts/check-use-client.ts",
+    "prepare": "husky",
+    "dev:content": "velite --watch",
+    "dev": "next dev --turbopack && velite --watch",
+    "build": "next build && velite --clean",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
     "b": "bun run build:registry && prettier --write __registry__/generated.ts",
-    "preview": "next build && next start",
-    "build:registry": "bun run resources/scripts/build-registry.ts"
+    "build:registry": "bun run resources/scripts/build-registry.ts",
+    "preview": "bun run build && next start"
   },
   "dependencies": {
     "@openpanel/nextjs": "^1.0.6",
@@ -70,7 +68,7 @@
     "rehype-slug": "^6.0.0",
     "tailwindcss": "^4.0.0-beta.3",
     "typescript": "^5.7.2",
-    "velite": "0.1.0-beta.11"
+    "velite": "^0.2.1"
   },
   "repository": {
     "type": "git",

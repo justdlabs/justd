@@ -42,3 +42,5 @@ next-env.d.ts
 
 # velite files
 .velite
+
+.velite

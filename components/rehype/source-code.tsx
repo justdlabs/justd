@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect, useMemo, useState } from "react"
+import React from "react"
 
 import generated from "@/__registry__/generated"
 import { Code } from "@/components/rehype/code"
@@ -22,7 +22,7 @@ type SourceCodeProps = {
 }
 
 export const SourceCode = ({ toShow, ...props }: SourceCodeProps) => {
-  const [rawSourceCode, setRawSourceCode] = useState<string | null>(null)
+  const [rawSourceCode, setRawSourceCode] = React.useState<string | null>(null)
 
   /*
    * Prepend the `ui/` prefix to the provided `toShow` prop
@@ -36,13 +36,13 @@ export const SourceCode = ({ toShow, ...props }: SourceCodeProps) => {
    */
   const Component = registry[registryKey]?.component
 
-  const processedSourceCode = useMemo(() => {
+  const processedSourceCode = React.useMemo(() => {
     if (!rawSourceCode) return null
 
     return rawSourceCode
   }, [rawSourceCode])
 
-  useEffect(() => {
+  React.useEffect(() => {
     const fetchSourceCode = async () => {
       try {
         /*
