@@ -23,7 +23,7 @@ jobs:
         run: bun install --global vercel@latest
 
       - name: Generate Source Code Preview
-        run: bun run generate-preview
+        run: bun run build:registry
 
       - name: Pull Vercel Environment Information
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}

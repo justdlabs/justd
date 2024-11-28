@@ -11,7 +11,6 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
-    "generate-preview": "bun run resources/scripts/create-pr-content.ts",
     "b": "bun run build:registry && prettier --write __registry__/generated.ts",
     "preview": "next build && next start",
     "build:registry": "bun run resources/scripts/build-registry.ts"
