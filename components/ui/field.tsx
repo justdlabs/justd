@@ -70,7 +70,7 @@ const FieldError = ({ className, ...props }: FieldErrorProps) => {
 
 const fieldGroupStyles = tv({
   base: [
-    "group border transition h-10 duration-200 ease-out overflow-hidden rounded-lg flex items-center",
+    "group border border-input transition h-10 duration-200 ease-out overflow-hidden rounded-lg flex items-center",
     "group-data-invalid:focus-within:border-danger focus-within:ring-4 group-data-invalid:focus-within:ring-danger/20",
     "[&>[role=progressbar]]:mr-2.5",
     "**:data-[slot=icon]:size-4 **:data-[slot=icon]:shrink-0",

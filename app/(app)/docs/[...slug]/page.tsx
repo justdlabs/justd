@@ -4,9 +4,9 @@ import { MDXContent } from "@/components/mdx-components"
 import { Pager } from "@/components/pager"
 import { TableOfContents } from "@/components/table-of-contents"
 import { siteConfig } from "@/resources/config/site"
+import { goodTitle } from "@/resources/lib/utils"
 import { type Metadata } from "next"
 import { notFound } from "next/navigation"
-import { Separator } from "ui"
 
 export interface DocPageProps {
   params: Promise<{
@@ -19,6 +19,11 @@ async function getPostFromParams(params: { slug: string[] }) {
   const doc = docs.find((doc) => doc.slugAsParams === slug)
 
   return doc
+}
+
+const extractSegment = (str: string): string | null => {
+  const segments = str.split("/")
+  return segments.length === 4 ? goodTitle(segments[2]) : goodTitle(segments[1])
 }
 
 export async function generateMetadata(props: DocPageProps): Promise<Metadata> {
@@ -86,16 +91,33 @@ export default async function PostPage(props: DocPageProps) {
     <>
       <div className="min-w-0 max-w-2xl flex-auto pt-16 pb-32 lg:max-w-none px-4 lg:pl-8 lg:pr-0 xl:px-16">
         <main className="prose prose-img:rounded-lg prose-pre:p-0 prose-headings:mb-[0.3rem] prose-headings:scroll-mt-24 prose-blue dark:prose-invert max-w-[inherit]">
-          <h1 className="mb-2 font-semibold tracking-tight sm:tracking-tight text-2xl sm:text-3xl">{doc.title}</h1>
-          {doc.description ? <p className="text-xl mt-0 text-muted-fg">{doc.description}</p> : null}
+          <div className="-mx-4 sm:mx-0">
+            <div className="not-prose -mt-8 sm:mt-0 p-4 sm:p-10 sm:rounded-xl inset-shadow-xs inset-ring-fg/5 dark:inset-ring-fg/10 inset-ring-1 relative isolate overflow-hidden">
+              <div
+                aria-hidden="true"
+                className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+              >
+                <div
+                  style={{
+                    clipPath:
+                      "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"
+                  }}
+                  className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-cyan-500 to-blue-600 opacity-15 dark:opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+                />
+              </div>
+              <div className="font-mono text-xs uppercase text-blue-600 dark:text-blue-400">
+                {extractSegment(doc.slug)}
+              </div>
+              <h1 className="font-semibold tracking-tight text-2xl mt-2 sm:text-3xl">{doc.title}</h1>
+              {doc.description ? (
+                <p className="text-base mt-2.5 leading-relaxed text-fg/60 text-pretty">{doc.description}</p>
+              ) : null}
 
-          <div className="not-prose">
-            <div className="flex gap-2 mt-0">
               {doc.references && doc.references?.length > 0 && <DocRefs references={doc.references} />}
             </div>
-            <Separator className="my-4 lg:my-10 not-prose" />
           </div>
-          <TableOfContents className="mt-8 block xl:hidden" items={doc.toc} />
+
+          <TableOfContents className="mt-4 sm:mt-8 block xl:hidden" items={doc.toc} />
           <MDXContent code={doc.body} />
           <Pager
             doc={{

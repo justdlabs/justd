@@ -7,7 +7,7 @@ import { tv } from "tailwind-variants"
 
 const linkStyles = tv({
   base: [
-    "relative data-focus-visible:outline-2 outline-offset-2 outline-0 data-focused:outline-hidden outline-primary transition-colors",
+    "relative lg:text-sm text-base data-focus-visible:outline-2 outline-offset-2 outline-0 data-focused:outline-hidden outline-primary transition-colors",
     "forced-colors:outline-[Highlight] forced-colors:data-disabled:text-[GrayText] data-disabled:data-focus-visible:outline-0",
     "disabled:cursor-default data-disabled:opacity-60"
   ],

@@ -3,8 +3,8 @@
 import React from "react"
 
 import { docs } from "#site/content"
-import type { Doc, HierarchyNode } from "@/components/aside"
-import { createHierarchy } from "@/components/aside"
+import type { Doc, HierarchyNode } from "@/resources/lib/hierarchy";
+import { createHierarchy } from "@/resources/lib/hierarchy"
 import { goodTitle } from "@/resources/lib/utils"
 import { IconBrandJustd, IconColors, IconColorSwatch, IconCube, IconHome, IconNotes } from "justd-icons"
 import Link from "next/link"

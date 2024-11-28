@@ -3,7 +3,6 @@
 import type { FC, SVGProps } from "react"
 
 import { Logo } from "@/components/logo"
-import { extractAndFormat } from "@/resources/lib/utils"
 import {
   IconBell,
   IconBrandAdobe,
@@ -13,8 +12,7 @@ import {
   IconChartBar,
   IconCommandFill
 } from "justd-icons"
-import { Menu, MenuItem } from "react-aria-components"
-import { buttonStyles, cn } from "ui"
+import { ListBox, ListBoxItem } from "react-aria-components"
 
 export function DocRefs({ references }: { references: string[] }) {
   const urls = references.map((url: string) => {
@@ -23,19 +21,19 @@ export function DocRefs({ references }: { references: string[] }) {
 
     switch (true) {
       case url.includes("react-spectrum"):
-        title = extractAndFormat(url) + " Props"
+        title = "Props"
         icon = IconBrandAdobe
         break
       case url.includes("icons"):
-        title = "Justd Icons"
+        title = "Explore"
         icon = IconBrandJustd
         break
       case url.includes("recharts"):
-        title = "Recharts"
+        title = "Props"
         icon = IconChartBar
         break
       case url.includes("framer"):
-        title = "Framer Motion"
+        title = "Motion"
         icon = IconBrandFramer
         break
       case url.includes("docs/components"):
@@ -55,7 +53,7 @@ export function DocRefs({ references }: { references: string[] }) {
         icon = IconBrandGithub
         break
       case url.includes("embla-carousel"):
-        title = "Embla Carousel"
+        title = "Props"
         icon = IconEmblaCarousel
         break
       default:
@@ -70,21 +68,16 @@ export function DocRefs({ references }: { references: string[] }) {
   })
 
   return (
-    <Menu className="not-prose gap-x-2 flex" aria-label="Link References" items={urls}>
+    <ListBox orientation="horizontal" className="not-prose mt-6 gap-x-2 flex" aria-label="Link References" items={urls}>
       {(item: { url: string; title: string; icon: FC<SVGProps<SVGSVGElement>> }) => (
-        <MenuItem
+        <ListBoxItem
+          textValue={item.title}
           target="_blank"
-          className={cn(
-            buttonStyles({
-              appearance: "outline",
-              size: "small",
-              className: "data-focused:outline-0"
-            })
-          )}
+          className="ring-1 bg-fg/5 data-hovered:bg-fg/10 duration-200 data-hovered:ring-fg/15 ring-fg/10 px-4 py-2 flex items-center uppercase rounded-full text-xs font-mono"
           id={item.url}
           href={item.url}
         >
-          {item.icon && <item.icon />}
+          {item.icon && <item.icon className="-ml-0.5 mr-2 size-4 shrink-0" />}
 
           {item.title === "Props Reference" ? (
             <span>
@@ -93,9 +86,9 @@ export function DocRefs({ references }: { references: string[] }) {
           ) : (
             <span>{item.title}</span>
           )}
-        </MenuItem>
+        </ListBoxItem>
       )}
-    </Menu>
+    </ListBox>
   )
 }
 

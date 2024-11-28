@@ -2,7 +2,7 @@ import * as React from "react"
 
 import type { FilteredColors } from "@/app/(app)/colors/(colors)/color-palette"
 import { getTextColor } from "@/resources/lib/colors"
-import { oklch, formatHex, formatHsl, formatRgb, parse } from "culori"
+import { formatHex, formatHsl, formatRgb, oklch, parse } from "culori"
 import { IconCheck, IconChevronLgDown, IconDuplicate } from "justd-icons"
 import type { Selection } from "react-aria-components"
 import { ListBox, ListBoxItem } from "react-aria-components"

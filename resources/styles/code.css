@@ -2,10 +2,10 @@
     @apply px-0 py-2 border rounded-lg border-zinc-800 !bg-[#0e0e10];
 }
 
-.prose h2  a,
-.prose h3  a,
-.prose h4  a {
-    @apply text-fg hover:no-underline hover:text-fg;
+.prose h2>a.xd2432,
+.prose h3>a.xd2432,
+.prose h4>a.xd2432 {
+    @apply text-fg hover:no-underline text-2xl sm:text-2xl hover:text-fg;
 }
 
 [data-rehype-pretty-code-title] {

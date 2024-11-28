@@ -1,0 +1,601 @@
+[
+  {
+    "title": "Prologue",
+    "slug": "docs/prologue/prologue",
+    "children": [
+      {
+        "title": "Contribution Guide",
+        "slug": "docs/prologue/contribution-guide",
+        "children": []
+      },
+      {
+        "title": "Release Notes",
+        "slug": "docs/prologue/release-notes",
+        "children": []
+      }
+    ]
+  },
+  {
+    "title": "Getting Started",
+    "slug": "docs/getting-started/getting-started",
+    "children": [
+      {
+        "title": "Client Side Routing",
+        "slug": "docs/getting-started/client-side-routing",
+        "children": []
+      },
+      {
+        "title": "Installation",
+        "slug": "docs/getting-started/installation",
+        "children": []
+      },
+      {
+        "title": "Introduction",
+        "slug": "docs/getting-started/introduction",
+        "children": []
+      },
+      {
+        "title": "React 19",
+        "slug": "docs/getting-started/react-19",
+        "children": []
+      }
+    ]
+  },
+  {
+    "title": "Dark Mode",
+    "slug": "docs/dark-mode/dark-mode",
+    "children": [
+      {
+        "title": "Astro",
+        "slug": "docs/dark-mode/astro",
+        "children": []
+      },
+      {
+        "title": "Inertia.js",
+        "slug": "docs/dark-mode/inertia-js",
+        "children": []
+      },
+      {
+        "title": "Next.js",
+        "slug": "docs/dark-mode/next-js",
+        "children": []
+      },
+      {
+        "title": "Remix",
+        "slug": "docs/dark-mode/remix",
+        "children": []
+      },
+      {
+        "title": "Vite",
+        "slug": "docs/dark-mode/vite",
+        "children": []
+      }
+    ]
+  },
+  {
+    "title": "Components",
+    "slug": "docs/components/components",
+    "children": [
+      {
+        "title": "Buttons",
+        "children": [
+          {
+            "title": "Button",
+            "slug": "docs/components/buttons/button",
+            "children": []
+          },
+          {
+            "title": "File Trigger",
+            "slug": "docs/components/buttons/file-trigger",
+            "children": []
+          },
+          {
+            "title": "Toggle Group",
+            "slug": "docs/components/buttons/toggle-group",
+            "children": []
+          },
+          {
+            "title": "Toggle",
+            "slug": "docs/components/buttons/toggle",
+            "children": []
+          }
+        ]
+      },
+      {
+        "title": "Charts",
+        "children": [
+          {
+            "title": "Area Chart",
+            "slug": "docs/components/charts/area-chart",
+            "children": []
+          },
+          {
+            "title": "Bar Chart",
+            "slug": "docs/components/charts/bar-chart",
+            "children": []
+          },
+          {
+            "title": "Line Chart",
+            "slug": "docs/components/charts/line-chart",
+            "children": []
+          },
+          {
+            "title": "Pie Chart",
+            "slug": "docs/components/charts/pie-chart",
+            "children": []
+          },
+          {
+            "title": "Radar Chart",
+            "slug": "docs/components/charts/radar-chart",
+            "children": []
+          },
+          {
+            "title": "Radial Bar Chart",
+            "slug": "docs/components/charts/radial-bar-chart",
+            "children": []
+          },
+          {
+            "title": "Scatter Chart",
+            "slug": "docs/components/charts/scatter-chart",
+            "children": []
+          },
+          {
+            "title": "Setting Up",
+            "slug": "docs/components/charts/setup",
+            "children": []
+          },
+          {
+            "title": "Tooltip Chart",
+            "slug": "docs/components/charts/tooltip-chart",
+            "children": []
+          }
+        ]
+      },
+      {
+        "title": "Collections",
+        "children": [
+          {
+            "title": "Choicebox",
+            "slug": "docs/components/collections/choicebox",
+            "children": []
+          },
+          {
+            "title": "Dropdown",
+            "slug": "docs/components/collections/dropdown",
+            "children": []
+          },
+          {
+            "title": "Grid List",
+            "slug": "docs/components/collections/grid-list",
+            "children": []
+          },
+          {
+            "title": "List Box",
+            "slug": "docs/components/collections/list-box",
+            "children": []
+          },
+          {
+            "title": "Menu",
+            "slug": "docs/components/collections/menu",
+            "children": []
+          },
+          {
+            "title": "Table",
+            "slug": "docs/components/collections/table",
+            "children": []
+          },
+          {
+            "title": "Tag Group",
+            "slug": "docs/components/collections/tag-group",
+            "children": []
+          },
+          {
+            "title": "Tree",
+            "slug": "docs/components/collections/tree",
+            "children": []
+          }
+        ]
+      },
+      {
+        "title": "Colors",
+        "children": [
+          {
+            "title": "Color Area",
+            "slug": "docs/components/colors/color-area",
+            "children": []
+          },
+          {
+            "title": "Color Field",
+            "slug": "docs/components/colors/color-field",
+            "children": []
+          },
+          {
+            "title": "Color Picker",
+            "slug": "docs/components/colors/color-picker",
+            "children": []
+          },
+          {
+            "title": "Color Slider",
+            "slug": "docs/components/colors/color-slider",
+            "children": []
+          },
+          {
+            "title": "Color Swatch Picker",
+            "slug": "docs/components/colors/color-swatch-picker",
+            "children": []
+          },
+          {
+            "title": "Color Swatch",
+            "slug": "docs/components/colors/color-swatch",
+            "children": []
+          },
+          {
+            "title": "Color Thumb",
+            "slug": "docs/components/colors/color-thumb",
+            "children": []
+          },
+          {
+            "title": "Color Wheel",
+            "slug": "docs/components/colors/color-wheel",
+            "children": []
+          }
+        ]
+      },
+      {
+        "title": "Controls",
+        "children": [
+          {
+            "title": "Command Menu",
+            "slug": "docs/components/controls/command-menu",
+            "children": []
+          },
+          {
+            "title": "Context Menu",
+            "slug": "docs/components/controls/context-menu",
+            "children": []
+          },
+          {
+            "title": "Keyboard",
+            "slug": "docs/components/controls/keyboard",
+            "children": []
+          },
+          {
+            "title": "Slider",
+            "slug": "docs/components/controls/slider",
+            "children": []
+          },
+          {
+            "title": "Switch",
+            "slug": "docs/components/controls/switch",
+            "children": []
+          },
+          {
+            "title": "Toolbar",
+            "slug": "docs/components/controls/toolbar",
+            "children": []
+          }
+        ]
+      },
+      {
+        "title": "Date-and-time",
+        "children": [
+          {
+            "title": "Calendar",
+            "slug": "docs/components/date-and-time/calendar",
+            "children": []
+          },
+          {
+            "title": "Date Field",
+            "slug": "docs/components/date-and-time/date-field",
+            "children": []
+          },
+          {
+            "title": "Date Picker",
+            "slug": "docs/components/date-and-time/date-picker",
+            "children": []
+          },
+          {
+            "title": "Date Range Picker",
+            "slug": "docs/components/date-and-time/date-range-picker",
+            "children": []
+          },
+          {
+            "title": "Range Calendar",
+            "slug": "docs/components/date-and-time/range-calendar",
+            "children": []
+          },
+          {
+            "title": "Time Field",
+            "slug": "docs/components/date-and-time/time-field",
+            "children": []
+          }
+        ]
+      },
+      {
+        "title": "Drag-and-drop",
+        "children": [
+          {
+            "title": "Drop Zone",
+            "slug": "docs/components/drag-and-drop/drop-zone",
+            "children": []
+          }
+        ]
+      },
+      {
+        "title": "Forms",
+        "children": [
+          {
+            "title": "Checkbox Group",
+            "slug": "docs/components/forms/checkbox-group",
+            "children": []
+          },
+          {
+            "title": "Checkbox",
+            "slug": "docs/components/forms/checkbox",
+            "children": []
+          },
+          {
+            "title": "Field",
+            "slug": "docs/components/forms/field",
+            "children": []
+          },
+          {
+            "title": "Form",
+            "slug": "docs/components/forms/form",
+            "children": []
+          },
+          {
+            "title": "Input OTP",
+            "slug": "docs/components/forms/input-otp",
+            "children": []
+          },
+          {
+            "title": "Number Field",
+            "slug": "docs/components/forms/number-field",
+            "children": []
+          },
+          {
+            "title": "Radio Group",
+            "slug": "docs/components/forms/radio-group",
+            "children": []
+          },
+          {
+            "title": "Search Field",
+            "slug": "docs/components/forms/search-field",
+            "children": []
+          },
+          {
+            "title": "Tag Field",
+            "slug": "docs/components/forms/tag-field",
+            "children": []
+          },
+          {
+            "title": "Text Field",
+            "slug": "docs/components/forms/text-field",
+            "children": []
+          },
+          {
+            "title": "Textarea",
+            "slug": "docs/components/forms/textarea",
+            "children": []
+          }
+        ]
+      },
+      {
+        "title": "Layouts",
+        "children": [
+          {
+            "title": "Container",
+            "slug": "docs/components/layouts/container",
+            "children": []
+          },
+          {
+            "title": "Navbar",
+            "slug": "docs/components/layouts/navbar",
+            "children": []
+          },
+          {
+            "title": "Sidebar",
+            "slug": "docs/components/layouts/sidebar",
+            "children": []
+          }
+        ]
+      },
+      {
+        "title": "Media",
+        "children": [
+          {
+            "title": "Avatar",
+            "slug": "docs/components/media/avatar",
+            "children": []
+          },
+          {
+            "title": "Carousel",
+            "slug": "docs/components/media/carousel",
+            "children": []
+          }
+        ]
+      },
+      {
+        "title": "Navigation",
+        "children": [
+          {
+            "title": "Breadcrumbs",
+            "slug": "docs/components/navigation/breadcrumbs",
+            "children": []
+          },
+          {
+            "title": "Disclosure Group aka Accordion",
+            "slug": "docs/components/navigation/disclosure-group",
+            "children": []
+          },
+          {
+            "title": "Disclosure aka Collapsible",
+            "slug": "docs/components/navigation/disclosure",
+            "children": []
+          },
+          {
+            "title": "Link",
+            "slug": "docs/components/navigation/link",
+            "children": []
+          },
+          {
+            "title": "Pagination",
+            "slug": "docs/components/navigation/pagination",
+            "children": []
+          },
+          {
+            "title": "Tabs",
+            "slug": "docs/components/navigation/tabs",
+            "children": []
+          }
+        ]
+      },
+      {
+        "title": "Overlays",
+        "children": [
+          {
+            "title": "Dialog",
+            "slug": "docs/components/overlays/dialog",
+            "children": []
+          },
+          {
+            "title": "Drawer",
+            "slug": "docs/components/overlays/drawer",
+            "children": []
+          },
+          {
+            "title": "Modal",
+            "slug": "docs/components/overlays/modal",
+            "children": []
+          },
+          {
+            "title": "Popover",
+            "slug": "docs/components/overlays/popover",
+            "children": []
+          },
+          {
+            "title": "Sheet",
+            "slug": "docs/components/overlays/sheet",
+            "children": []
+          },
+          {
+            "title": "Tooltip",
+            "slug": "docs/components/overlays/tooltip",
+            "children": []
+          }
+        ]
+      },
+      {
+        "title": "Pickers",
+        "children": [
+          {
+            "title": "Combo Box",
+            "slug": "docs/components/pickers/combo-box",
+            "children": []
+          },
+          {
+            "title": "Multiple Select",
+            "slug": "docs/components/pickers/multiple-select",
+            "children": []
+          },
+          {
+            "title": "Select",
+            "slug": "docs/components/pickers/select",
+            "children": []
+          }
+        ]
+      },
+      {
+        "title": "Statuses",
+        "children": [
+          {
+            "title": "Badge",
+            "slug": "docs/components/statuses/badge",
+            "children": []
+          },
+          {
+            "title": "Loader",
+            "slug": "docs/components/statuses/loader",
+            "children": []
+          },
+          {
+            "title": "Meter",
+            "slug": "docs/components/statuses/meter",
+            "children": []
+          },
+          {
+            "title": "Note",
+            "slug": "docs/components/statuses/note",
+            "children": []
+          },
+          {
+            "title": "Progress Bar",
+            "slug": "docs/components/statuses/progress-bar",
+            "children": []
+          },
+          {
+            "title": "Progress Circle",
+            "slug": "docs/components/statuses/progress-circle",
+            "children": []
+          },
+          {
+            "title": "Skeleton",
+            "slug": "docs/components/statuses/skeleton",
+            "children": []
+          },
+          {
+            "title": "Toast",
+            "slug": "docs/components/statuses/toast",
+            "children": []
+          }
+        ]
+      },
+      {
+        "title": "Surfaces",
+        "children": [
+          {
+            "title": "Card",
+            "slug": "docs/components/surfaces/card",
+            "children": []
+          },
+          {
+            "title": "Description List",
+            "slug": "docs/components/surfaces/description-list",
+            "children": []
+          },
+          {
+            "title": "Grid",
+            "slug": "docs/components/surfaces/grid",
+            "children": []
+          },
+          {
+            "title": "Heading",
+            "slug": "docs/components/surfaces/heading",
+            "children": []
+          },
+          {
+            "title": "Separator",
+            "slug": "docs/components/surfaces/separator",
+            "children": []
+          },
+          {
+            "title": "Show More",
+            "slug": "docs/components/surfaces/show-more",
+            "children": []
+          }
+        ]
+      },
+      {
+        "title": "Utilities",
+        "children": [
+          {
+            "title": "Visually Hidden",
+            "slug": "docs/components/utilities/visually-hidden",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]
