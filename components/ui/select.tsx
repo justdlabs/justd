@@ -23,7 +23,7 @@ import { composeTailwindRenderProps, focusStyles } from "./primitive"
 const selectTriggerStyles = tv({
   extend: focusStyles,
   base: [
-    "btr **:data-[slot=icon]:size-4 group-data-disabled:opacity-50 flex h-10 w-full cursor-default items-center gap-4 rounded-lg border border-input bg-bg py-2 pl-3 pr-2 text-start shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)] transition dark:shadow-none",
+    "btr **:data-[slot=icon]:size-4 group-data-disabled:opacity-50 flex h-10 w-full cursor-default items-center gap-4 rounded-lg border border-input py-2 pl-3 pr-2 text-start shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)] transition dark:shadow-none",
     "group-data-open:border-ring/70 group-data-open:ring-4 group-data-open:ring-ring/20",
     "text-fg group-data-invalid:border-danger group-data-invalid:ring-danger/20 forced-colors:group-data-invalid:border-[Mark]"
   ],

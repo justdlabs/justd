@@ -55,7 +55,7 @@ function formatThemeData(themeId: ThemeProps) {
   }
 
   body {
-    @apply bg-bg text-fg;
+    @apply text-fg;
   }
 
   /* dark mode */

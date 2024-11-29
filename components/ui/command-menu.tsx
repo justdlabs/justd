@@ -32,13 +32,13 @@ const commandStyles = tv({
       "[&_[cmdk-group-heading]]:select-none [&_[cmdk-group-heading]]:ml-[1px] [&_[cmdk-group-heading]]:py-2 [&_[cmdk-group-heading]]:text-[0.8rem] [&_[cmdk-group-heading]]:text-muted-fg"
     ],
     modal: [
-      "fixed bottom-0 left-[50%] top-auto z-50 grid h-[calc(100vh-35%)] w-full max-w-full translate-x-[-50%] gap-4 overflow-hidden rounded-t-2xl bg-overlay text-overlay-fg shadow-lg forced-colors:border ring-1 ring-dark/5 dark:ring-border sm:bottom-auto sm:top-[6rem] sm:h-auto sm:w-full sm:max-w-2xl sm:rounded-xl",
-      "sm:entering:slide-in-from-bottom-auto entering:duration-300 entering:animate-in entering:fade-in-0 entering:slide-in-from-bottom-1/2 entering:slide-in-from-left-1/2 entering:[transition-timing-function:ease-out] sm:entering:duration-300 sm:entering:slide-in-from-top-[2rem]",
-      "exiting:duration-300 exiting:animate-out exiting:fade-out-0 exiting:slide-out-to-bottom-1/2 exiting:slide-out-to-left-1/2 exiting:[transition-timing-function:ease] sm:exiting:slide-out-to-top-[4rem]"
+      "fixed bottom-0 left-[50%] top-auto z-50 grid h-[calc(100vh-35%)] w-full max-w-full translate-x-[-50%] gap-4 overflow-hidden rounded-t-2xl bg-overlay text-overlay-fg shadow-lg forced-colors:border ring-1 ring-fg/10 dark:ring-border sm:bottom-auto sm:top-[6rem] sm:h-auto sm:w-full sm:max-w-2xl sm:rounded-xl",
+      "sm:data-entering:slide-in-from-bottom-auto data-entering:duration-300 data-entering:animate-in data-entering:fade-in-0 data-entering:slide-in-from-bottom-1/2 data-entering:[transition-timing-function:ease-out] sm:data-entering:duration-300 sm:data-entering:slide-in-from-top-[2rem]",
+      "data-exiting:duration-200 data-exiting:animate-out data-exiting:fade-out-0 data-exiting:slide-out-to-bottom-1/2 data-exiting:[transition-timing-function:ease] sm:data-exiting:slide-out-to-top-[4rem]"
     ],
     closeButton: [
-      "absolute right-3 top-1.5 [&>span>[data-slot=icon]]:text-muted-fg **:data-[slot=icon]:data-pressed:text-fg lg:top-3.5 rounded-full border lg:border-border border-transparent lg:bg-secondary/50 py-2.5 px-2.5 lg:py-0.5 text-xs transition-opacity data-[state=open]:bg-secondary data-[state=open]:text-muted-fg lg:focus:border-fg/70 focus:outline-hidden lg:focus:ring-2 lg:focus:ring-ring disabled:pointer-events-none",
-      "focus:outline-hidden lg:focus:bg-primary/10 lg:focus:ring-2 lg:focus:ring-primary/20 lg:focus:border-primary/70",
+      "absolute right-3 top-1.5 [&>span>[data-slot=icon]]:text-muted-fg **:data-[slot=icon]:data-pressed:text-fg lg:top-3.5 rounded-full border lg:border-border border-transparent lg:bg-secondary/50 py-2.5 px-2.5 lg:py-0.5 text-xs transition-opacity data-[state=open]:bg-secondary data-[state=open]:text-muted-fg lg:focus:border-fg/70 data-focused:outline-hidden lg:focus:ring-2 lg:data-focused:ring-ring data-disabled:pointer-events-none",
+      "focus:outline-hidden lg:data-focused:bg-primary/10 lg:data-focused:ring-2 lg:data-focused:ring-primary/20 lg:data-focused:border-primary/70",
       "disabled:pointer-events-none"
     ],
     empty: "py-6 text-center text-sm text-muted-fg x3tmpy",
@@ -87,7 +87,7 @@ interface CommandMenuRootProps {
 
 const modalOverlay = tv({
   base: [
-    "fixed inset-0 max-h-(--visual-viewport-height) z-50 bg-dark/15 dark:bg-dark/40 entering:animate-in entering:fade-in-0 exiting:animate-in exiting:fade-out-0"
+    "fixed inset-0 max-h-(--visual-viewport-height) z-50 bg-dark/15 dark:bg-dark/40 data-entering:animate-in data-entering:fade-in-0 exiting:animate-in exiting:fade-out-0"
   ],
   variants: {
     isBlurred: {
@@ -132,22 +132,20 @@ const CommandMenu = ({
       >
         <Modal className={modal({ className: classNames?.content })}>
           <Dialog className="outline-hidden" aria-label="Command Palette">
-            {({ close }) => (
-              <>
-                <CommandPrimitive value={value} onValueChange={onValueChange} className={command()}>
-                  {children}
-                </CommandPrimitive>
-                {!hideCloseButton && (
-                  <Button autoFocus={!isDesktop} onPress={close} className={closeButton()}>
-                    <span className="lg:block hidden">Esc</span>
-                    <span className="lg:hidden -mr-2 block">
-                      <IconX />
-                      <span className="sr-only">Close command palette</span>
-                    </span>
-                  </Button>
-                )}
-              </>
-            )}
+            <>
+              <CommandPrimitive value={value} onValueChange={onValueChange} className={command()}>
+                {children}
+              </CommandPrimitive>
+              {!hideCloseButton && (
+                <Button autoFocus={!isDesktop} slot="close" className={closeButton()}>
+                  <span className="lg:block hidden">Esc</span>
+                  <span className="lg:hidden -mr-2 block">
+                    <IconX />
+                    <span className="sr-only">Close command palette</span>
+                  </span>
+                </Button>
+              )}
+            </>
           </Dialog>
         </Modal>
       </ModalOverlay>

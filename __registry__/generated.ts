@@ -2989,12 +2989,34 @@ const registry = {
     subcategory: "undefined",
     chunks: []
   },
+  "demo/controls/slider/slider-tooltip-demo": {
+    name: "slider-tooltip-demo",
+    type: "registry:demo",
+    registryDependencies: undefined,
+    files: ["components/docs/controls/slider/slider-tooltip-demo.tsx"],
+    component: React.lazy(() => import("@/components/docs/controls/slider/slider-tooltip-demo.tsx")),
+    source: "",
+    category: "undefined",
+    subcategory: "undefined",
+    chunks: []
+  },
   "demo/controls/slider/slider-controlled-demo": {
     name: "slider-controlled-demo",
     type: "registry:demo",
     registryDependencies: undefined,
     files: ["components/docs/controls/slider/slider-controlled-demo.tsx"],
     component: React.lazy(() => import("@/components/docs/controls/slider/slider-controlled-demo.tsx")),
+    source: "",
+    category: "undefined",
+    subcategory: "undefined",
+    chunks: []
+  },
+  "demo/controls/slider/slider-description-demo": {
+    name: "slider-description-demo",
+    type: "registry:demo",
+    registryDependencies: undefined,
+    files: ["components/docs/controls/slider/slider-description-demo.tsx"],
+    component: React.lazy(() => import("@/components/docs/controls/slider/slider-description-demo.tsx")),
     source: "",
     category: "undefined",
     subcategory: "undefined",
@@ -3028,6 +3050,17 @@ const registry = {
     registryDependencies: undefined,
     files: ["components/docs/controls/slider/slider-disabled-demo.tsx"],
     component: React.lazy(() => import("@/components/docs/controls/slider/slider-disabled-demo.tsx")),
+    source: "",
+    category: "undefined",
+    subcategory: "undefined",
+    chunks: []
+  },
+  "demo/controls/slider/slider-label-demo": {
+    name: "slider-label-demo",
+    type: "registry:demo",
+    registryDependencies: undefined,
+    files: ["components/docs/controls/slider/slider-label-demo.tsx"],
+    component: React.lazy(() => import("@/components/docs/controls/slider/slider-label-demo.tsx")),
     source: "",
     category: "undefined",
     subcategory: "undefined",

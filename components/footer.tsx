@@ -30,7 +30,7 @@ const navigation = {
 
 export function Footer() {
   return (
-    <footer aria-labelledby="footer-heading" className="border-t bg-bg text-bg-fg">
+    <footer aria-labelledby="footer-heading" className="border-t text-bg-fg">
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
@@ -113,7 +113,7 @@ export function Footer() {
         </strong>
       </div>
 
-      <Container className="text-sm relative z-20 text-center py-6 bg-bg text-muted-fg [&_strong]:text-fg [&_strong]:font-semibold [&_a]:text-fg [&_a]:font-semibold space-y-1.5 border-t">
+      <Container className="text-sm relative z-20 text-center py-6 text-muted-fg [&_strong]:text-fg [&_strong]:font-semibold [&_a]:text-fg [&_a]:font-semibold space-y-1.5 border-t">
         <p>
           <strong>{siteConfig.name} &trade; 2024</strong> - This project’s crafted with{" "}
           <span className="font-[ui-sans-serif,-apple-system,system-ui] text-pink-500">♥</span> by{" "}

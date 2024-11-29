@@ -28,7 +28,7 @@ export function Install({ pkg = "justd-icons" }: { pkg?: string }) {
   }
 
   return (
-    <div className="pl-3 bg-bg font-mono text-sm tracking-tighter border flex items-center justify-between p-1 rounded-lg w-full sm:min-w-72 sm:max-w-72 [&_.xd]:mr-[-0.30rem] [&_.xd]:-mt-px h-10 xd">
+    <div className="pl-3 font-mono text-sm tracking-tighter border flex items-center justify-between p-1 rounded-lg w-full sm:min-w-72 sm:max-w-72 [&_.xd]:mr-[-0.30rem] [&_.xd]:-mt-px h-10 xd">
       {command || "npm i justd-icons"}
       <Menu>
         <Button size="square-petite" appearance="outline" className="size-7 rounded-md" aria-label="Copy npm command">

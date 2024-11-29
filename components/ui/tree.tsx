@@ -16,7 +16,7 @@ import { tv } from "tailwind-variants"
 import { Checkbox } from "./checkbox"
 
 const treeStyles = tv({
-  base: "flex border max-h-96 min-w-72 [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin] py-2 rounded-lg bg-bg cursor-default lg:text-sm flex-col overflow-auto forced-color-adjust-none outline-hidden",
+  base: "flex border max-h-96 min-w-72 [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin] py-2 rounded-lg cursor-default lg:text-sm flex-col overflow-auto forced-color-adjust-none outline-hidden",
   variants: {
     isFocusVisible: {
       true: "outline-offset-[-1px] outline-2 outline-primary"

@@ -3,5 +3,5 @@
 import { Slider } from "ui"
 
 export default function SliderDemo() {
-  return <Slider label="Volume" />
+  return <Slider aria-label="Opacity" defaultValue={30} />
 }

@@ -5,6 +5,7 @@ import React from "react"
 import {
   ColorSlider as ColorSliderPrimitive,
   type ColorSliderProps as ColorSliderPrimitiveProps,
+  composeRenderProps,
   SliderOutput,
   SliderTrack
 } from "react-aria-components"
@@ -12,7 +13,6 @@ import { tv } from "tailwind-variants"
 
 import { ColorThumb } from "./color-thumb"
 import { Label } from "./field"
-import { composeTailwindRenderProps } from "./primitive"
 
 const trackStyles = tv({
   base: "group col-span-2 rounded-lg",
@@ -32,14 +32,25 @@ interface ColorSliderProps extends ColorSliderPrimitiveProps {
   showOutput?: boolean
 }
 
+const colorSliderStyles = tv({
+  base: "group relative gap-2",
+  variants: {
+    orientation: {
+      horizontal: "grid grid-cols-[1fr_auto] min-w-56",
+      vertical: "flex flex-col justify-center items-center"
+    },
+    isDisabled: {
+      true: "opacity-75 bg-muted forced-colors:bg-[GrayText]"
+    }
+  }
+})
 const ColorSlider = ({ showOutput = true, label, className, ...props }: ColorSliderProps) => {
   return (
     <ColorSliderPrimitive
       {...props}
       data-slot="color-slider"
-      className={composeTailwindRenderProps(
-        className,
-        "group data-[orientation=horizontal]:grid data-[orientation=vertical]:flex relative data-[orientation=horizontal]:grid-cols-[1fr_auto] data-[orientation=vertical]:flex-col data-[orientation=vertical]:justify-center data-[orientation=vertical]:items-center gap-2 data-[orientation=horizontal]:w-56"
+      className={composeRenderProps(className, (className, renderProps) =>
+        colorSliderStyles({ ...renderProps, className })
       )}
     >
       <div className="flex items-center">

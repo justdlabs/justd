@@ -94,7 +94,7 @@ const Provider = React.forwardRef<
     <SidebarContext.Provider value={contextValue}>
       <div
         className={cn(
-          "group/sidebar-wrapper [--sidebar-width:16.5rem] [--sidebar-width-icon:3rem] flex min-h-svh w-full text-fg dark:has-data-[intent=inset]:bg-bg has-data-[intent=inset]:bg-secondary/50",
+          "group/sidebar-wrapper [--sidebar-width:16.5rem] [--sidebar-width-icon:3rem] flex min-h-svh w-full text-fg dark:has-data-[intent=inset]:has-data-[intent=inset]:bg-secondary/50",
           className
         )}
         ref={ref}
@@ -311,7 +311,7 @@ const Content = ({ className, ...props }: React.ComponentProps<"div">) => {
 }
 
 const navStyles = tv({
-  base: "bg-tertiary md:bg-bg w-full justify-between sm:justify-start h-[3.57rem] px-4 border-b flex items-center gap-x-2",
+  base: "bg-tertiary md:w-full justify-between sm:justify-start h-[3.57rem] px-4 border-b flex items-center gap-x-2",
   variants: {
     isSticky: {
       true: "sticky top-0 z-40"

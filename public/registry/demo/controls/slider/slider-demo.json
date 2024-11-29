@@ -3,7 +3,7 @@
   "files": [
     {
       "name": "slider-demo.tsx",
-      "content": "\"use client\"\n\nimport { Slider } from \"ui\"\n\nexport default function SliderDemo() {\n  return <Slider label=\"Volume\" />\n}\n"
+      "content": "\"use client\"\n\nimport { Slider } from \"ui\"\n\nexport default function SliderDemo() {\n  return <Slider aria-label=\"Opacity\" defaultValue={30} />\n}\n"
     }
   ],
   "type": "components:demo",

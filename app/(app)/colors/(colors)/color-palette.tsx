@@ -27,7 +27,7 @@ export function ColorPalette() {
   return (
     <div className="bg-muted/50">
       <div className="max-w-7xl sm:px-8 mx-auto">
-        <Container intent="constrained" className="sm:border-x shadow-fg/10 bg-bg sm:px-0 lg:px-0 px-0">
+        <Container intent="constrained" className="sm:border-x shadow-fg/10 sm:px-0 lg:px-0 px-0">
           <ColorGenerator />
           <div className="grid grid-cols-1 lg:grid-cols-2">
             {filteredColors.map((color, i) => (

@@ -117,7 +117,7 @@ const navStyles = tv({
       floating: "bg-tertiary w-full max-w-7xl 2xl:max-w-(--breakpoint-2xl) mx-auto shadow-xs border rounded-xl sm:px-4",
       navbar: "bg-tertiary shadow-xs border-b sm:px-6",
       inset: [
-        "bg-secondary mx-auto dark:bg-bg sm:px-6",
+        "bg-secondary mx-auto dark:sm:px-6",
         "2xl:[&>div]:max-w-(--breakpoint-2xl) lg:[&>div]:flex [&>div]:items-center [&>div]:w-full [&>div]:mx-auto"
       ]
     }

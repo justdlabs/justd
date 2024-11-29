@@ -33,7 +33,7 @@ const intents = {
     base: [badgeIntents.secondary, "[&_[slot=remove]:hover]:bg-fg [&_[slot=remove]:hover]:text-bg"],
     selected: [
       "bg-fg ring-fg/50 text-bg dark:bg-fg/90 dark:text-secondary ring-inset",
-      "[&_[slot=remove]:hover]:bg-bg [&_[slot=remove]:hover]:text-secondary-fg"
+      "[&_[slot=remove]:hover]:[&_[slot=remove]:hover]:text-secondary-fg"
     ]
   },
   success: {

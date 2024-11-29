@@ -10,7 +10,7 @@ const keyboardStyles = tv({
     base: "-mr-1 ml-auto hidden items-center gap-[0.25rem] px-1 lg:inline-flex",
     kbd: [
       "text-center font-sans capitalize text-muted-fg group-data-focused:text-fg forced-colors:group-data-focused:text-[HighlightText]",
-      "inline-grid min-h-5 min-w-5 place-content-center rounded bg-bg font-sans text-[.75rem] uppercase text-fg ring-1 ring-fg/10 group-data-focused:opacity-60"
+      "inline-grid min-h-5 min-w-5 place-content-center rounded font-sans text-[.75rem] uppercase text-fg ring-1 ring-fg/10 group-data-focused:opacity-60"
     ]
   }
 })

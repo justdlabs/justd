@@ -44,7 +44,7 @@ export function Themes() {
       </Container>
       <div ref={themeContainerRef} className="p-2 sm:p-4 bg-[theme(var(--color-secondary)/80%)] border-y -mb-px">
         <div className="max-w-(--breakpoint-2xl) mx-auto">
-          <div className="bg-bg rounded-xl p-4 sm:p-10 border text-fg">
+          <div className="rounded-xl p-4 sm:p-10 border text-fg">
             <Blocks />
           </div>
         </div>

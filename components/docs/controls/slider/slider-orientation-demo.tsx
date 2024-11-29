@@ -23,42 +23,49 @@ export default function SliderOrientationDemo() {
     <Card className="p-4">
       <div className="flex justify-center *:w-6 gap-4">
         <Slider
+          output="tooltip"
           aria-label="Sub Bass"
           value={equalizer.subBass}
           onChange={(newValue) => handleSliderChange("subBass", newValue as number)}
           orientation="vertical"
         />
         <Slider
+          output="tooltip"
           aria-label="Bass"
           value={equalizer.bass}
           onChange={(newValue) => handleSliderChange("bass", newValue as number)}
           orientation="vertical"
         />
         <Slider
+          output="tooltip"
           aria-label="Low Mid"
           value={equalizer.lowMid}
           onChange={(newValue) => handleSliderChange("lowMid", newValue as number)}
           orientation="vertical"
         />
         <Slider
+          output="tooltip"
           aria-label="Mid"
           value={equalizer.mid}
           onChange={(newValue) => handleSliderChange("mid", newValue as number)}
           orientation="vertical"
         />
         <Slider
+          output="tooltip"
           aria-label="High Mid"
           value={equalizer.highMid}
           onChange={(newValue) => handleSliderChange("highMid", newValue as number)}
           orientation="vertical"
         />
         <Slider
+          output="tooltip"
           aria-label="Presence"
           value={equalizer.presence}
           onChange={(newValue) => handleSliderChange("presence", newValue as number)}
           orientation="vertical"
         />
         <Slider
+          output="tooltip"
           aria-label="Brilliance"
           value={equalizer.brilliance}
           onChange={(newValue) => handleSliderChange("brilliance", newValue as number)}

@@ -39,20 +39,18 @@ const tooltipStyles = tv({
   }
 })
 
-const Tooltip = (props: React.ComponentProps<typeof TooltipTrigger>) => (
-  <TooltipTrigger {...props}>{props.children}</TooltipTrigger>
-)
+const Tooltip = (props: React.ComponentProps<typeof TooltipTrigger>) => <TooltipTrigger {...props} />
 
 interface ContentProps extends Omit<TooltipPrimitiveProps, "children">, VariantProps<typeof tooltipStyles> {
   showArrow?: boolean
   children: React.ReactNode
 }
 
-const Content = ({ showArrow = true, intent = "default", children, ...props }: ContentProps) => {
+const Content = ({ offset = 10, showArrow = true, intent = "default", children, ...props }: ContentProps) => {
   return (
     <TooltipPrimitive
       {...props}
-      offset={10}
+      offset={offset}
       className={composeRenderProps(props.className, (className, renderProps) =>
         tooltipStyles({
           ...renderProps,
