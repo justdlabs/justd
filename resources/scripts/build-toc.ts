@@ -10,17 +10,17 @@ const groupDocs = (docs: Docs[]) => {
   }
 
   docs.forEach((doc) => {
-    const { slug, title } = doc
+    const { slug, title, order } = doc
     if (slug.startsWith("docs/dark-mode/")) {
-      groups["dark-mode"].push({ title, slug, children: [] })
+      groups["dark-mode"].push({ title, slug, order, children: [] })
     } else if (slug.startsWith("docs/getting-started/")) {
-      groups["getting-started"].push({ title, slug, children: [] })
+      groups["getting-started"].push({ title, slug, order, children: [] })
     } else if (slug.startsWith("docs/prologue/")) {
-      groups["prologue"].push({ title, slug, children: [] })
+      groups["prologue"].push({ title, slug, order, children: [] })
     } else if (slug.startsWith("docs/components/")) {
       const parts = slug.split("/")
-      const category = parts[2] // e.g., buttons, charts
-      const componentSlug = parts.slice(3).join("/") // The rest of the slug is the component name
+      const category = parts[2]
+      const componentSlug = parts.slice(3).join("/")
 
       if (!groups["components"][category]) {
         groups["components"][category] = []
@@ -29,8 +29,20 @@ const groupDocs = (docs: Docs[]) => {
       groups["components"][category].push({
         title,
         slug: `docs/components/${category}/${componentSlug}`,
+        status: doc.status,
+        order,
         children: []
       })
+    }
+  })
+
+  Object.keys(groups).forEach((key) => {
+    if (key === "components") {
+      Object.keys(groups["components"]).forEach((category) => {
+        groups["components"][category].sort((a: any, b: any) => a.order - b.order)
+      })
+    } else {
+      groups[key].sort((a: any, b: any) => a.order - b.order)
     }
   })
 

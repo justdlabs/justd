@@ -2,10 +2,8 @@
 
 import React from "react"
 
-import { docs } from "#site/content"
-import type { Doc, HierarchyNode } from "@/resources/lib/hierarchy"
-import { createHierarchy } from "@/resources/lib/hierarchy"
-import { goodTitle } from "@/resources/lib/utils"
+import type { SidebarItem } from "@/components/aside"
+import sidebar from "@/resources/lib/sidebar.json"
 import { IconBrandJustd, IconColors, IconColorSwatch, IconCube, IconHome, IconNotes } from "justd-icons"
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
@@ -40,12 +38,6 @@ export function CommandPalette({ openCmd, setOpen }: OpenCloseProps) {
   }, [pathname, setOpen])
 
   const isDesktop = useMediaQuery("(min-width: 1024px)")
-
-  const data = createHierarchy(docs)
-  const filteredNodeEntries = Object.entries(data).sort(([a], [b]) => {
-    const order = ["prologue", "getting-started", "dark-mode", "components"]
-    return order.indexOf(a) - order.indexOf(b)
-  })
 
   return (
     <CommandMenu classNames={{ content: "backdrop-blur bg-overlay/90" }} isOpen={openCmd} onOpenChange={setOpen}>
@@ -83,87 +75,41 @@ export function CommandPalette({ openCmd, setOpen }: OpenCloseProps) {
             </Link>
           </CommandMenu.Item>
         </CommandMenu.Section>
-
-        {filteredNodeEntries.map(([key, value]) => (
-          <React.Fragment key={key}>
-            <CommandMenu.Section key={`${key}-section`} heading={key !== "components" ? goodTitle(key) : undefined}>
-              {Object.entries(value as HierarchyNode).map(([subKey, subValue]) =>
-                typeof subValue === "object" && "title" in subValue ? (
-                  <CommandMenu.Item
-                    value={goodTitle(key + " " + (subValue as Doc).title)}
-                    className="pl-[2rem] flex justify-between items-center"
-                    key={`${key}-${subKey}`}
-                    onSelect={() => router.push(`/${subValue.slug}`)}
-                  >
-                    {goodTitle((subValue as Doc).title)}
-                    {subValue.status && (
-                      <CommandMenu.Description
-                        intent={
-                          subValue?.status === "wip"
-                            ? "warning"
-                            : subValue.status === "beta"
-                              ? "warning"
-                              : subValue.status === "alpha"
-                                ? "danger"
-                                : subValue.status === "new"
-                                  ? "primary"
-                                  : "secondary"
-                        }
-                        className="uppercase text-[0.65rem]"
-                      >
-                        {subValue?.status as Doc["status"]}
-                      </CommandMenu.Description>
-                    )}
-                  </CommandMenu.Item>
-                ) : null
-              )}
-            </CommandMenu.Section>
-
-            {Object.entries(value as HierarchyNode).map(([subKey, subValue]) =>
-              typeof subValue === "object" && "title" in subValue ? null : (
-                <CommandMenu.Section
-                  key={`${key}-${subKey}-section`}
-                  value={goodTitle(subKey)}
-                  heading={goodTitle(subKey)}
+        {sidebar
+          .filter((item) => item.title !== "Components")
+          .map((item) => (
+            <CommandMenu.Section key={item.slug || item.title} heading={item.title}>
+              {item.children?.map((child: SidebarItem) => (
+                <CommandMenu.Item
+                  value={child.title}
+                  className="pl-[2rem] flex justify-between items-center"
+                  key={child.slug || child.title}
+                  onSelect={() => router.push(`/${child.slug}`)}
                 >
-                  {Object.entries(subValue as HierarchyNode).map(([childKey, childValue]) =>
-                    typeof childValue === "object" && "title" in childValue ? (
-                      <CommandMenu.Item
-                        className="justify-between"
-                        value={
-                          childValue.title === "Text Field"
-                            ? "Text Field Input"
-                            : goodTitle(subKey + " " + (childValue as Doc).title)
-                        }
-                        key={`${key}-${subKey}-${childKey}`}
-                        onSelect={() => router.push(`/${childValue.slug}`)}
-                      >
-                        {goodTitle((childValue as Doc).title)}
-                        {childValue.status && (
-                          <CommandMenu.Description
-                            intent={
-                              childValue?.status === "wip"
-                                ? "primary"
-                                : childValue.status === "beta"
-                                  ? "warning"
-                                  : childValue.status === "alpha"
-                                    ? "danger"
-                                    : childValue.status === "new"
-                                      ? "primary"
-                                      : "secondary"
-                            }
-                            className="uppercase text-[0.65rem]"
-                          >
-                            {childValue?.status as Doc["status"]}
-                          </CommandMenu.Description>
-                        )}
-                      </CommandMenu.Item>
-                    ) : null
-                  )}
-                </CommandMenu.Section>
-              )
-            )}
-          </React.Fragment>
+                  {child.title}
+                </CommandMenu.Item>
+              ))}
+            </CommandMenu.Section>
+          ))}
+
+        {sidebar[3].children.map((item: SidebarItem) => (
+          <CommandMenu.Section key={item.slug || item.title} heading={item.title}>
+            {item.children?.map((child: SidebarItem) => (
+              <CommandMenu.Item
+                value={child.title}
+                className="pl-[2rem] flex justify-between items-center"
+                key={child.slug || child.title}
+                onSelect={() => router.push(`/${child.slug}`)}
+              >
+                {child.title}
+                {child.status && (
+                  <CommandMenu.Description className="uppercase text-[0.65rem]">
+                    {child?.status}
+                  </CommandMenu.Description>
+                )}
+              </CommandMenu.Item>
+            ))}
+          </CommandMenu.Section>
         ))}
       </CommandMenu.List>
     </CommandMenu>

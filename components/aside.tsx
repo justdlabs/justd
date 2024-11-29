@@ -7,11 +7,12 @@ import { usePathname } from "next/navigation"
 import type { LinkProps } from "react-aria-components"
 import { Link } from "react-aria-components"
 import { twMerge } from "tailwind-merge"
-import { Heading } from "ui"
+import { Badge, Heading } from "ui"
 
-interface SidebarItem {
+export interface SidebarItem {
   title: string
   slug?: string
+  status?: string
   children?: SidebarItem[]
 }
 
@@ -43,6 +44,20 @@ export function Aside() {
                       {child.children.map((subChild: SidebarItem) => (
                         <AsideLink key={subChild.slug || subChild.title} href={`/${subChild.slug}` || "#"}>
                           {subChild.title}
+
+                          {subChild.status && (
+                            <Badge
+                              intent={
+                                subChild.status === "primitive"
+                                  ? "secondary"
+                                  : subChild.status === "beta"
+                                    ? "warning"
+                                    : "info"
+                              }
+                            >
+                              {subChild.status}
+                            </Badge>
+                          )}
                         </AsideLink>
                       ))}
                     </div>
@@ -69,7 +84,7 @@ function AsideLink({ href, ...props }: AsideLinkProps) {
       {...props}
       href={href}
       className={twMerge(
-        "text-muted-fg py-1.5 px-3 mb-0.5 -ml-3 rounded-lg text-base lg:text-sm block",
+        "text-muted-fg py-1.5 px-3 mb-0.5 -ml-3 rounded-lg text-base lg:text-sm flex justify-between items-center",
         "data-focused:outline-hidden",
         "data-hovered:bg-muted data-hovered:text-secondary-fg",
         isActive && [

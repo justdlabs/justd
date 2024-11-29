@@ -36,7 +36,7 @@ const badgeStyles = tv({
   },
   defaultVariants: {
     intent: "primary",
-    shape: "square"
+    shape: "circle"
   }
 })
 

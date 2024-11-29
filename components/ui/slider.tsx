@@ -21,7 +21,7 @@ const sliderStyles = tv({
   base: "relative group flex flex-col touch-none select-none",
   variants: {
     orientation: {
-      horizontal: "w-full min-w-56 gap-y-1.5",
+      horizontal: "w-full min-w-56 gap-y-2",
       vertical: "h-full gap-y-2 w-1.5 min-h-56 items-center"
     },
     isDisabled: {
@@ -83,9 +83,9 @@ const Slider = ({ output = "inline", orientation = "horizontal", className, ...p
         {thumb}
         <Tooltip.Content
           showArrow={false}
-          offset={orientation === "horizontal" ? 8 : -155}
+          offset={orientation === "horizontal" ? 8 : -140}
           crossOffset={orientation === "horizontal" ? -85 : 0}
-          className="text-xs px-1.5 py-1"
+          className="text-xs px-1.5 min-w-6 py-1"
           placement={orientation === "vertical" ? "right" : "top"}
         >
           <SliderOutput />
@@ -103,7 +103,7 @@ const Slider = ({ output = "inline", orientation = "horizontal", className, ...p
       <div className="flex text-fg">
         {props.label && <Label>{props.label}</Label>}
         {output === "inline" && (
-          <SliderOutput className="data-[orientation=horizontal]:ml-auto data-[orientation=vertical]:mx-auto text-sm">
+          <SliderOutput className="tabular-nums text-muted-fg data-[orientation=horizontal]:ml-auto data-[orientation=vertical]:mx-auto text-sm">
             {({ state }) => state.values.map((_, i) => state.getThumbValueLabel(i)).join(" – ")}
           </SliderOutput>
         )}
@@ -126,11 +126,11 @@ const Slider = ({ output = "inline", orientation = "horizontal", className, ...p
 const controlsStyles = tv({
   slots: {
     filler: [
-      "rounded-full bg-primary group-data-disabled/track:bg-bg",
+      "rounded-full bg-primary group-data-disabled/track:opacity-60",
       "pointer-events-none absolute group-data-[orientation=horizontal]/top-0 group-data-[orientation=vertical]/track:w-full group-data-[orientation=vertical]/track:bottom-0 group-data-[orientation=horizontal]/track:h-full"
     ],
     track: [
-      "relative group/track rounded-full bg-muted cursor-pointer data-disabled:cursor-default data-disabled:bg-bg",
+      "relative group/track rounded-full bg-muted cursor-pointer data-disabled:cursor-default data-disabled:opacity-60",
       "grow group-data-[orientation=vertical]:flex-1 group-data-[orientation=vertical]:w-1.5 group-data-[orientation=horizontal]:w-full group-data-[orientation=horizontal]:h-1.5"
     ]
   }
@@ -164,14 +164,14 @@ const Filler = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) =
 
 const thumbStyles = tv({
   base: [
-    "size-[1.25rem] left-[50%] rounded-full border border-fg/10 bg-white transition-[width,height] outline-hidden ring-black"
+    "size-[1.25rem] left-[50%] top-[50%] rounded-full border border-fg/10 bg-white transition-[width,height] outline-hidden ring-black"
   ],
   variants: {
     isFocusVisible: {
       true: "ring-primary/20 border-primary outline-hidden"
     },
     isDragging: {
-      true: "cursor-grabbing size-[1.30rem] border-primary"
+      true: "cursor-grabbing size-[1.35rem] border-primary"
     },
     isDisabled: {
       true: "opacity-50 forced-colors:border-[GrayText]"
