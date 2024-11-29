@@ -61,7 +61,7 @@ export function Installation({ className, ...props }: InstallationProps) {
         <p>
           If you hit any issues, make sure you check out the installation guide{" "}
           <Link
-            className="not-prose font-medium"
+            className="not-prose text-blue-600 dark:text-blue-400 xd2432 data-hovered:underline"
             intent="primary"
             href="/docs/getting-started/installation"
             target="_blank"

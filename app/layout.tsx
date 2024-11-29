@@ -88,7 +88,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html dir="ltr" lang="en" suppressHydrationWarning>
+    <html dir="ltr" lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
         <script defer data-site-id="getjustd.com" src="https://assets.onedollarstats.com/tracker.js"></script>
       </head>
