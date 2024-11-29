@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@openpanel/nextjs": "^1.0.6",
-    "@shikijs/transformers": "^1.23.1",
+    "@shikijs/transformers": "^1.24.0",
     "@types/node": "^22.10.1",
     "cmdk": "^1.0.4",
     "culori": "^4.0.1",
@@ -48,8 +48,8 @@
     "usemods": "^1.8.1"
   },
   "devDependencies": {
-    "@shikijs/rehype": "^1.23.1",
-    "@tailwindcss/postcss": "^4.0.0-beta.3",
+    "@shikijs/rehype": "^1.24.0",
+    "@tailwindcss/postcss": "^4.0.0-beta.4",
     "@tailwindcss/typography": "^0.5.15",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/culori": "^2.1.1",
@@ -67,7 +67,7 @@
     "prettier-plugin-tailwindcss": "^0.6.9",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-slug": "^6.0.0",
-    "tailwindcss": "^4.0.0-beta.3",
+    "tailwindcss": "^4.0.0-beta.4",
     "typescript": "^5.7.2",
     "velite": "^0.2.1"
   },
