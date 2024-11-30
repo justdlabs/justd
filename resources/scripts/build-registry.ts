@@ -83,7 +83,7 @@ const generateComponentRegistry = () => {
       fs.writeFileSync(jsonOutputPath, JSON.stringify(registryItem, null, 2))
 
       generatedFiles.push({ Type: type, Path: path.basename(jsonOutputPath) })
-      if (type === "demo") {
+      if (type !== "anatomies") {
         registryEntries.push(`
         "${key}": {
           name: "${componentName}",

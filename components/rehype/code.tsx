@@ -145,7 +145,7 @@ const CopyButton = ({
   return (
     <Button
       className={cn(
-        "size-7 backdrop-blur-lg rounded-md text-white bg-zinc-900 border hover:bg-zinc-800 border-zinc-700",
+        "size-7 backdrop-blur-lg rounded-md text-white -top-1 -right-1 bg-zinc-900 border data-hovered:bg-zinc-700 border-zinc-700 data-hovered:border-zinc-600",
         className
       )}
       aria-label={ariaLabel}

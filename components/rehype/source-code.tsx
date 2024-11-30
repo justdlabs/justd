@@ -35,7 +35,6 @@ export const SourceCode = ({ toShow, ...props }: SourceCodeProps) => {
    * This ensures that the correct component is loaded via React.lazy.
    */
   const Component = registry[registryKey]?.component
-
   const processedSourceCode = React.useMemo(() => {
     if (!rawSourceCode) return null
 
