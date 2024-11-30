@@ -67,7 +67,7 @@ export function Blocks() {
 
           <Grid.Item>
             <div className="grid gap-2">
-              <CardBlock className="grid gap-6">
+              <CardBlock className="grid gap-6 lg:px-8 lg:py-9">
                 <DateRangePicker className="w-full" label="Reservations date" />
                 <DatePicker className="w-full" label="Event date" />
               </CardBlock>
@@ -104,11 +104,11 @@ export function CardBlock({ className, children, ...props }: React.HtmlHTMLAttri
   return (
     <div
       {...props}
-      className="relative h-full w-full rounded-xl shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] bg-tertiary dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:-inset-px dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset] forced-colors:outline"
+      className="relative size-full rounded-xl shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] bg-tertiary dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:-inset-px dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset] forced-colors:outline"
     >
       <div
         className={cn(
-          "grid h-full w-full justify-items-center overflow-hidden place-items-center p-6 py-8 sm:p-8 lg:p-12",
+          "grid size-full justify-items-center overflow-hidden place-items-center p-6 py-8 sm:p-8 lg:p-12",
           className
         )}
       >
