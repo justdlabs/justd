@@ -1,0 +1,11 @@
+{
+  "name": "component.text",
+  "files": [
+    {
+      "name": "component.text",
+      "content": "import { Table, Button } from \"ui\"\n\nexport function Component() {\n  return (\n    <>\n      <Table />\n\n      <Button />\n    </>\n  )\n}\n"
+    }
+  ],
+  "type": "components:docs",
+  "componentPath": "resources/docs/installation/component.text"
+}

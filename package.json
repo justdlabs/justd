@@ -10,7 +10,7 @@
     "dev:content": "velite --watch",
     "dev": "next dev --turbopack && velite --watch",
     "build": "next build && velite --clean",
-    "format": "prettier --write \"**/*.{ts,tsx}\"",
+    "format": "prettier --write \"**/*.{ts,tsx,css}\"",
     "build:toc": "bun run resources/scripts/build-toc.ts",
     "b": "bun run build:toc && bun run build:registry && prettier --write __registry__/generated.ts",
     "build:registry": "bun run resources/scripts/build-registry.ts",

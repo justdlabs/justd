@@ -1,0 +1,11 @@
+{
+  "name": "index.ts",
+  "files": [
+    {
+      "name": "index.ts",
+      "content": "export * from './primitive';\nexport * from './sidebar';\nexport * from './navbar';\nexport * from './progress-circle';\nexport * from './tree';\n"
+    }
+  ],
+  "type": "components:docs",
+  "componentPath": "resources/docs/installation/index.ts"
+}

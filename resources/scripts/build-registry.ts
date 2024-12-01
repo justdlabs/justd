@@ -19,7 +19,9 @@ const generateComponentRegistry = () => {
   const sources = [
     { type: "ui", path: "components/ui" },
     { type: "anatomies", path: "components/docs/anatomies" },
-    { type: "demo", path: "components/docs" }
+    { type: "demo", path: "components/docs" },
+    { type: "blocks", path: "app/blocks" },
+    { type: "docs", path: "resources/docs" }
   ]
 
   const getAllFiles = (dirPath: string, arrayOfFiles: string[] = []): string[] => {
@@ -32,10 +34,11 @@ const generateComponentRegistry = () => {
       const fullPath = path.join(dirPath, file)
       if (fs.statSync(fullPath).isDirectory()) {
         arrayOfFiles = getAllFiles(fullPath, arrayOfFiles)
-      } else if (file.endsWith(".tsx")) {
+      } else if ([".tsx", ".css", ".json", ".ts"].some((ext) => file.endsWith(ext))) {
         arrayOfFiles.push(fullPath)
       }
     })
+
     return arrayOfFiles
   }
 
@@ -52,6 +55,7 @@ const generateComponentRegistry = () => {
 
     const files = getAllFiles(resolvedPath)
 
+    // Exclude anatomies and docs from demo and blocks
     const filteredFiles = type === "demo" ? files.filter((file) => !file.includes("/anatomies/")) : files
 
     filteredFiles.forEach((filePath) => {
@@ -65,6 +69,7 @@ const generateComponentRegistry = () => {
       const registryItem: RegistryItem = {
         name: componentName,
         dependencies: undefined,
+
         files: [
           {
             name: path.basename(filePath),

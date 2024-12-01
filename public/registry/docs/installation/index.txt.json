@@ -1,0 +1,11 @@
+{
+  "name": "index.txt",
+  "files": [
+    {
+      "name": "index.txt",
+      "content": "export * from './primitive';\nexport * from './sidebar';\nexport * from './navbar';\nexport * from './progress-circle';\nexport * from './tree';\n"
+    }
+  ],
+  "type": "components:docs",
+  "componentPath": "resources/docs/installation/index.txt"
+}

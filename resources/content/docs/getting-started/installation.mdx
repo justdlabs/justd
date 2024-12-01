@@ -9,7 +9,7 @@ published: true
 Before executing the command, ensure that **tailwind** is installed. If not, follow the instructions [here](https://tailwindcss.com/docs/installation) for installation.
 
 <Note intent='info'>
-  Running this command will overwrite your **tailwind config** and **css** file. It is recommended to use this in a
+  Running this command will overwrite your **main css** file. It is recommended to use this in a
   **new project** rather than an existing one to avoid manual file additions.
 </Note>
 
@@ -20,39 +20,38 @@ Begin by executing this command:
 
 When you're run this command, it will ask a couple of questions. Like where's your components folder, utils, your main css file, and lastly is the theme you want like so:
 ```bash
-? Enter the path to your components folder: components
-? Enter the path to your utils folder: utils
-? Where would you like to place the CSS file? app/globals.css
-✔ UI folder already exists at components/ui
-✔ Utils folder already exists at utils
+✔ Initializing.
+? Components folder: src/components
+? Utils folder: src/utils
+? Where would you like to place the CSS file? src/app/globals.css
 ? Select a theme: (Use arrow keys)
-❯ Default
-  Zinc
-  Neutral
-  Slate
-  Gray
-  Azure
-  Sky
-  Amber
-  Violet
-  Emerald
-  Rose
-  Turquoise
-  Orange
+❯ default
+  zinc
+  neutral
+  slate
+  gray
+  azure
+  sky
+  amber
+  violet
+  emerald
+  rose
+  turquoise
+  orange
 ```
-After you select the theme, next you will be asked to select components you want to include.
+If it's all good, you will see the following:
 ```bash
-? Select components to add: (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter> to proceed)
-❯ ◯ aside
-  ◯ avatar
-  ◯ badge
-  ◯ breadcrumbs
-  ◯ button
-  ◯ buttons
-  ◯ calendar
-  ◯ card
-  ◯ carousel
-  ◯ carousel
+Not sure what to do next?
+Visit our documentation at: https://getjustd.com
+
+Now try to add some components to your project
+by running: npx justd-cli@latest add
+
+      _           _      _
+     | |_   _ ___| |_ __| |
+  _  | | | | / __| __/ _` |
+ | |_| | |_| \__ \ || (_| |
+  \___/ \__,_|___/\__\__,_|
 ```
 
 ### Add Components
@@ -61,20 +60,23 @@ Next, use `add [component-name]` to include a specific component in your project
 
 This command will ensure all necessary components are installed:
 ```bash
-✓ combo-box created
-✓ select created
-✓ dropdown created
-✓ field created
-✓ list-box created
-✓ popover created
-✓ button created
+✔ Checking.
+✔ Installing dependencies.
+✔ Created 7 files:
+  - src/components/ui/combo-box.tsx
+  - src/components/ui/field.tsx
+  - src/components/ui/list-box.tsx
+  - src/components/ui/dropdown.tsx
+  - src/components/ui/popover.tsx
+  - src/components/ui/dialog.tsx
+  - src/components/ui/button.tsx
 ```
 
 Sometimes, you may want to add components individually, such as `select` and `text-field`. You can easily do this by using the following command:
-<Installation options={{ isComponent: true }} items={['select', 'text-field']} />
+<Installation options={{ isComponent: true, noText: true }} items={['select', 'text-field']} />
 If you need to include grouped components, refer to the documentation which organizes related components under a single namespace, such as collections, overlays, and forms. This allows you to add them all at once, like so:
 
-<Installation options={{ isComponent: true }} items={['overlays']} />
+<Installation options={{ isComponent: true, noText: true }} items={['overlays']} />
 Using this command, you will install all components under the overlays namespace.
 ```bash
 ✓ button created
@@ -88,11 +90,11 @@ Using this command, you will install all components under the overlays namespace
 
 ### Override
 You can override the existing components by using the `-o` flag. This will overwrite the existing files with the new ones.
-<Installation options={{isComponent: true}} items={['button modal -o']} />
+<Installation options={{ isComponent: true, noText: true }} items={['button modal -o']} />
 
 ### Select and Add Components
 You might prefer to select the components you want to include by adding them without specifying any items. Just use the following command to add components:
-<Installation options={{isComponent: true}} items={['']} />
+<Installation options={{ isComponent: true, noText: true }} items={['']} />
 This command will present a list of available components, which you can navigate and select using the arrow keys and spacebar.
 ```bash
 ? Select components to add: (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter> to
@@ -132,8 +134,8 @@ Here’s a swagged-out version of what you got:
 ### Laravel
 First up, make sure you got [Composer](https://getcomposer.org/download/) chillin' on your system. Then, hit this
 command to spin up a fresh project:
-<Installation command='composer create-project justd/laravel project-name' items={['']}/>
-Jump into your new crib with `cd project-name`, then install all the goods with `npm i && npm run dev`. Fire up your
+<Installation command='composer create-project justd/laravel app' items={['']}/>
+Jump into your new crib with `cd app`, then install all the goods with `npm i && npm run dev`. Fire up your
 server with `php artisan serve`, and boom—you’re ready to roll.
 
 ### Next.js
@@ -179,238 +181,42 @@ Following that, include the animation package for managing animations and Parano
 <Installation options={{isManual: true}} items={['justd-icons', 'tailwindcss-animate']} />
 
 ### CSS
-Start by adjusting your main CSS file. For example, if you are using Laravel, this would be **resources/css/app.css**.
-You should add the following code:
 
-```css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-```
-
-### Variables
-You can customize your colors using these variables. By default, Justd utilizes HSL colors, but you have the option
-to switch to RGB, HSL, or HSB.
-
-<PlainCode code={`@layer base {
-    :root {
-      --light: 223.81 0% 98%;
-      --dark: 239.95 9% 6%;
-      --bg: 0 0% 100%;
-      --fg: 240 10% 4%;
-      --overlay: 0 0% 100%;
-      --overlay-fg: 240 10% 4%;
-      --primary: 216.77 100% 50%;
-      --primary-fg: 0 0% 100%;
-      --secondary: 240 4% 96%;
-      --secondary-fg: 240.01 6% 10%;
-      --secondary: 0 0% 100%;
-      --secondary-fg: 240 4% 16%;
-      --accent: 216.77 100% 50%;
-      --accent-fg: 0 0% 100%;
-      --accent-subtle: 216.92 99% 97%;
-      --accent-subtle-fg: 216.74 100% 40%;
-      --success: 161.17 91% 31%;
-      --success-fg: 151.77 82% 96%;
-      --info: 205.77 100% 50%;
-      --info-fg: 0 0% 100%;
-      --muted: 240 5.88% 90%;
-      --muted-fg: 240 3.83% 46.08%;
-      --danger: 0.01 72% 51%;
-      --danger-fg: 360 86% 97%;
-      --warning: 43.2 96% 56.99999999999999%;
-      --warning-fg: 20.91 91% 14.1%;
-      --border: 240 6% 90%;
-      --input: 240 6% 90%;
-      --ring: var(--primary);
-      --toggle: 240.01 5% 84%;
-      --radius: 0.5rem;
-      --chart-1: 216.74 100% 45%;
-      --chart-2: 219.83 100% 77%;
-      --chart-3: 216.01 92% 60%;
-      --chart-4: 210 98% 78%;
-      --chart-5: 210 98% 78%;
-    }
-
-    .dark {
-      --bg: 0 0% 1%;
-      --fg: 223.81 0% 98%;
-      --overlay: 240.03 6% 6%;
-      --overlay-fg: 223.81 0% 98%;
-      --primary: 216.04 98% 52%;
-      --primary-fg: 0 0% 100%;
-      --secondary: 240.06 5% 11%;
-      --secondary-fg: 223.81 0% 98%;
-      --info: 205.77 100% 50%;
-      --info-fg: 0 0% 100%;
-      --success: 161.17 91% 31%;
-      --success-fg: 151.77 82% 96%;
-      --accent: 216.04 98% 52%;
-      --accent-fg: 0 0% 100%;
-      --accent-subtle: 215.99 94% 6%;
-      --accent-subtle-fg: 204.92 100% 77%;
-      --secondary: 240.02 10% 6%;
-      --secondary-fg: 239.99 4% 96%;
-      --muted: 239.95 3% 16%;
-      --muted-fg: 240 5.03% 64.9%;
-      --ring: var(--primary);
-      --toggle: 239.99 5% 26%;
-      --border: 240.01 7.000000000000001% 15%;
-      --input: 239.95 3% 16%;
-      --chart-1: 221.19 83% 53%;
-      --chart-2: 211.99 95% 68%;
-      --chart-3: 216.01 92% 60%;
-      --chart-4: 210 98% 78%;
-      --chart-5: 212 96% 87%;
-    }
-  }`} />
-
-### Default Utilities
-Include this for the default set of utilities:
-
-```
-@layer base {
-  * {
-    @apply border-border;
-    font-feature-settings: 'cv11', 'ss01';
-    font-variation-settings: 'opsz' 850;
-  }
-
-  body {
-    @apply text-fg;
-  }
-}
-```
-
-### Tailwind Configuration
-
-Configure your Tailwind setup by wrapping your tailwind config with withTV from tailwind-variants. Also, make sure to
-integrate the plugins we've just installed.
-
-<PlainCode lang='ts' title='tailwind.config.ts' code={`/** @type {import('tailwindcss').Config} */
-
-  import { withTV } from 'tailwind-variants/transformer'
-  import ta from 'tailwindcss-animate'
-  import trac from 'tailwindcss-react-aria-components'
-
-  export default withTV({
-    darkMode: 'class',
-    content: [...], // it depends on your project type
-    plugins: [ ta, trac ],
-    theme: {
-      extend: {
-        colors: {
-          light: "hsl(var(--light))",
-          dark: "hsl(var(--dark))",
-          border: "hsl(var(--border))",
-          input: "hsl(var(--input))",
-          ring: "hsl(var(--ring))",
-          toggle: "hsl(var(--toggle))",
-          bg: "hsl(var(--bg))",
-          fg: "hsl(var(--fg))",
-          primary: {
-            DEFAULT: "hsl(var(--primary))",
-            fg: "hsl(var(--primary-fg))",
-          },
-          secondary: {
-            DEFAULT: "hsl(var(--secondary))",
-            fg: "hsl(var(--secondary-fg))"
-          },
-          tertiary: {
-            DEFAULT: "hsl(var(--secondary))",
-            fg: "hsl(var(--secondary-fg))"
-          },
-          accent: {
-            DEFAULT: "hsl(var(--accent))",
-            fg: "hsl(var(--accent-fg))",
-            subtle: "hsl(var(--accent-subtle))",
-            "subtle-fg": "hsl(var(--accent-subtle-fg))"
-          },
-          success: {
-            DEFAULT: "hsl(var(--success))",
-            fg: "hsl(var(--success-fg))"
-          },
-          info: {
-            DEFAULT: "hsl(var(--info))",
-            fg: "hsl(var(--info-fg))"
-          },
-          danger: {
-            DEFAULT: "hsl(var(--danger))",
-            fg: "hsl(var(--danger-fg))"
-          },
-          warning: {
-            DEFAULT: "hsl(var(--warning))",
-            fg: "hsl(var(--warning-fg))"
-          },
-          muted: {
-            DEFAULT: "hsl(var(--muted))",
-            fg: "hsl(var(--muted-fg))"
-          },
-          overlay: {
-            DEFAULT: "hsl(var(--overlay))",
-            fg: "hsl(var(--overlay-fg))"
-          }
-        },
-        borderRadius: {
-          '3xl': "calc(var(--radius) + 6px)",
-          '2xl': "calc(var(--radius) + 4px)",
-          xl: "calc(var(--radius) + 2px)",
-          lg: "calc(var(--radius))",
-          md: "calc(var(--radius) - 2px)",
-          sm: "calc(var(--radius) - 4px)"
-        },
-      }
-    },
-  })
-`} />
-
-### Primitive
-<SourceCode toShow={['primitive']} />
+<EditorText
+  source={{
+    'main.css': 'docs/installation/main.css',
+    'primitive.tsx': 'ui/primitive',
+  }} />
 
 ## Simple Import
-Indeed, it's efficient because the index.ts file in your UI folder serves as a hub. Even if the button and badge
-components are in separate files, you can import them together easily:
+Indeed, it's efficient because the `index.ts` file in your UI folder serves as a hub. Even if the button and badge
+components are in separate files, you can import them together easily. First, create a `ui/index.ts` file:
+  ```ts title="ui/index.ts"
+  export * from "./primitive";
+  export * from "./sidebar";
+  export * from "./navbar";
+  export * from "./tree";
+  export * from "./table";
+  export * from "./text-field";
+  export * from "./button";
+  export * from "./card";
+  // ...
+  ```
 
-```
-import { Button, VisuallyHidden, Badge } from 'ui'
-```
+So, here's the scoop: your UI folder contains an `index.ts` file, right? This file consolidates all your components for
+straightforward access. Simply tell TypeScript where to find it and import them as needed, hassle-free!
+<EditorText
+  source={{
+    'component.tsx': 'docs/installation/component.docs',
+    'tsconfig.json': 'docs/installation/not-tsconfig.json',
+  }} />
 
-So, here's the scoop: your UI folder contains an index.ts file, right? This file consolidates all your components for
-straightforward access. Simply import them as needed, hassle-free!
-<PlainCode title="ui/index.ts" lang='tsx' code={`export * from './primitive';
-export * from './note';
-export * from './list-box';
-export * from './choicebox';
-export * from './pagination';
-...`} />
-
-
-If you're not using all those components, feel free to remove the ones you don't need. Later, when you introduce a new
-component, simply add it to your setup. It's straightforward!
-
-### TS Config
-Next, incorporate the following settings into your `tsconfig.json` file:
-```json title="tsconfig.json" {6}
-    {
-      "compilerOptions": {
-      // ...
-      "paths": {
-      "@/*": ["./*"],
-      "ui": ["./components/ui"]
-    }
-  }
-}
-```
-
-### TS Config with src Folder
-Ensure you configure the `paths` property correctly if your project includes a `src` folder. If you want to organize
-the UI folder, adjust your paths accordingly like this:
-
-```json title="tsconfig.json" {6}
-    {
-      "compilerOptions": {
-      // ...
-      "paths": {
+If you're using src folder, you can use the following config:
+```json
+{
+  "compilerOptions": {
+    // ...
+    "paths": {
       "@/*": ["./src/*"],
       "ui": ["./src/components/ui"]
     }
@@ -448,28 +254,23 @@ const fontSans = localFont({
 
 Then, apply the `fontSans` to the `body` tag like this:
 
-```
-import { cn } from '@/utils/classes'
-
+```tsx
 <body
-className={cn(
-  'min-h-svh font-sans antialiased',
-  fontSans.variable,
-)}
->
+  className={`font-sans antialiased ${fontSans.variable}`}
+/>
 ```
 
-Then, you can use the variable in your tailwind config like this:
+Then, you can use the variable in your main css file like this:
 
-```
-import { fontFamily } from 'tailwindcss/defaultTheme'
+```css
+@theme {
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+  "Segoe UI Symbol", "Noto Color Emoji";
+  --font-mono: var(--font-mono), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+  "Segoe UI Symbol", "Noto Color Emoji";
 
-theme: {
-  extend: {
-    fontFamily: {
-      sans: ['var(--font-sans)', ...fontFamily.sans],
-    },
-  },
+  // Your other variables
+}
 ```
 
 For more information, refer to the [Tailwind documentation](https://tailwindcss.com/docs/font-family#customizing-the-default-font) and [Next.js documentation](https://nextjs.org/docs/app/building-your-application/optimizing/fonts).

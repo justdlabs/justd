@@ -47,6 +47,8 @@
   ],
   "exclude": [
     "node_modules",
+    "./resources/docs/**/*.docs.*",
+    "./resources/docs/**/*.docs.tsx",
     "./resources/content/**/*.mdx",
     "./resources/scripts/build-registry.mts",
     "./__registry__"

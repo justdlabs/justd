@@ -1,6 +1,8 @@
+import { CodeSandbox } from "@/components/code-sandbox"
 import { DocComposed } from "@/components/doc-composed"
 import { DocNote } from "@/components/doc-note"
 import { DocWarningFramer } from "@/components/doc-warning-framer"
+import { EditorText } from "@/components/editor-text"
 import type { InstallationProps } from "@/components/installation"
 import { Installation } from "@/components/installation"
 import { Anatomy } from "@/components/rehype/anatomy"
@@ -23,6 +25,8 @@ export function MDXContent({ code }: MdxProps) {
   return (
     <Component
       components={{
+        EditorText: (props: React.ComponentProps<typeof EditorText>) => <EditorText {...props} />,
+        CodeSandbox: (props: React.ComponentProps<typeof CodeSandbox>) => <CodeSandbox {...props} />,
         WarningFramer: DocWarningFramer,
         Installation: (props: InstallationProps) => <Installation {...props} />,
         Note: DocNote,

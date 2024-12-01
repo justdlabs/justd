@@ -35,12 +35,14 @@ export interface InstallationProps {
     isComponent?: boolean
     isManual?: boolean
     isExecutor?: boolean
+    noText?: boolean
   }
 }
 
 export function Installation({ className, ...props }: InstallationProps) {
   const op = useOpenPanel()
-  const { options = { isExecutor: false, isInit: false, isComponent: false, isManual: false }, items } = props
+  const { options = { isExecutor: false, isInit: false, isComponent: false, isManual: false, noText: true }, items } =
+    props
   const [pkgManager, setPkgManager] = React.useState({
     name: "npm",
     action: "i"
@@ -57,7 +59,7 @@ export function Installation({ className, ...props }: InstallationProps) {
 
   return (
     <div>
-      {options.isComponent && (
+      {options.isComponent && !options.noText && (
         <p>
           If you hit any issues, make sure you check out the installation guide{" "}
           <Link

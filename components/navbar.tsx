@@ -77,13 +77,6 @@ export function Navbar() {
                     <NavLink isNextLink isActive={pathname === "/icons"} href="/icons">
                       Icons
                     </NavLink>
-                    <NavLink
-                      isNextLink
-                      isActive={pathname?.startsWith("/charts") || pathname === "/charts"}
-                      href="/charts"
-                    >
-                      Charts
-                    </NavLink>
                     <NavLink isNextLink isActive={pathname === "/themes"} href="/themes">
                       Themes
                     </NavLink>

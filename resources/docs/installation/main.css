@@ -1,0 +1,140 @@
+@import "tailwindcss";
+
+@plugin 'tailwindcss-animate';
+
+@variant dark (&:is(.dark *));
+
+@theme {
+  --color-border: var(--border);
+  --color-input: var(--input);
+
+  --color-ring: var(--ring);
+
+  --color-bg: var(--bg);
+  --color-fg: var(--fg);
+
+  --color-primary: var(--primary);
+  --color-primary-fg: var(--primary-fg);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-fg: var(--secondary-fg);
+
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+
+  --color-subtle: var(--subtle);
+  --color-subtle-fg: var(--subtle-fg);
+
+  --color-success: var(--success);
+  --color-success-fg: var(--success-fg);
+
+  --color-info: var(--info);
+  --color-info-fg: var(--info-fg);
+
+  --color-danger: var(--danger);
+  --color-danger-fg: var(--danger-fg);
+
+  --color-warning: var(--warning);
+  --color-warning-fg: var(--warning-fg);
+
+  --color-muted: var(--muted);
+  --color-muted-fg: var(--muted-fg);
+
+  --color-overlay: var(--overlay);
+  --color-overlay-fg: var(--overlay-fg);
+}
+
+@layer base {
+  :root {
+    --bg: oklch(1 0 0);
+    --fg: oklch(0.141 0.005 285.823);
+
+    --primary: oklch(0.546 0.245 262.881);
+    --primary-fg: oklch(1 0 0);
+
+    --secondary: oklch(0.967 0.001 286.375);
+    --secondary-fg: oklch(0.141 0.005 285.823);
+
+    --accent: oklch(0.546 0.245 262.881);
+    --accent-fg: oklch(1 0 0);
+
+    --muted: oklch(0.92 0.004 286.32);
+    --muted-fg: oklch(0.552 0.016 285.938);
+
+    --subtle: oklch(0.973 0.012 271.288);
+    --subtle-fg: oklch(0.546 0.245 262.881);
+
+    --overlay: oklch(1 0 0);
+    --overlay-fg: oklch(0.141 0.005 285.823);
+
+    --success: oklch(0.696 0.17 162.48);
+    --success-fg: oklch(97.9% 0.021 166.113);
+
+    --info: oklch(0.685 0.169 237.323);
+    --info-fg: oklch(0.443 0.11 240.79);
+
+    --warning: oklch(81.5% 0.184 86.047);
+    --warning-fg: oklch(25.6% 0.066 53.813);
+
+    --danger: oklch(0.577 0.245 27.325);
+    --danger-fg: oklch(0.971 0.013 17.38);
+
+    --border: oklch(0.92 0.004 286.32);
+    --input: oklch(0.89 0.004 286.32);
+    --ring: oklch(0.546 0.245 262.881);
+  }
+
+  .dark {
+    --bg: oklch(0 0 0);
+    --fg: oklch(1 0 0);
+
+    --primary: oklch(0.546 0.245 262.881);
+    --primary-fg: oklch(1 0 0);
+
+    --secondary: oklch(0.264 0.006 286.033);
+    --secondary-fg: oklch(0.985 0 0);
+
+    --accent: oklch(0.546 0.245 262.881);
+    --accent-fg: oklch(1 0 0);
+
+    --muted: oklch(0.274 0.006 286.033);
+    --muted-fg: oklch(0.705 0.015 286.067);
+
+    --subtle: oklch(0.156 0.045 264.312);
+    --subtle-fg: oklch(0.62 0.21 259.24);
+
+    --overlay: oklch(14.1% 0.005 285.823);
+    --overlay-fg: oklch(0.985 0 0);
+
+    --success: oklch(0.696 0.17 162.48);
+    --success-fg: oklch(0.979 0.021 166.113);
+
+    --info: oklch(0.685 0.169 237.323);
+    --info-fg: oklch(0.443 0.11 240.79);
+
+    --warning: oklch(0.815 0.184 86.047);
+    --warning-fg: oklch(0.256 0.066 53.813);
+
+    --danger: oklch(0.577 0.245 27.325);
+    --danger-fg: oklch(0.971 0.013 17.38);
+
+    --border: oklch(0.244 0.006 286.033);
+    --input: oklch(0.264 0.006 286.033);
+    --ring: oklch(0.546 0.245 262.881);
+  }
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--border, currentColor);
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--fg);
+  }
+}

@@ -8,70 +8,71 @@ references: ["https://react-spectrum.adobe.com/react-aria/Link.html#props"]
 
 ## Basic
 A navbar provides a variety of actions or options for users to select.
-<How fullscreenUrl='/blocks/navbar/navbar-01' className='lg:[&_header]:min-h-80 [&_header]:min-h-56' isCenter={false} toUse="layouts/navbar/navbar-basic-demo" />
+
+<CodeSandbox
+  fullscreenUrl='/blocks/navbar/navbar-00'
+  source={{
+    preview: 'blocks/navbar/navbar-00/app-navbar',
+    'page.tsx': 'blocks/navbar/navbar-00/page',
+    'layout.tsx': 'blocks/navbar/navbar-00/layout',
+    'app-navbar.tsx': 'blocks/navbar/navbar-00/app-navbar',
+  }} />
 
 ## Installation
-<Installation options={{ isComponent: true }} items={['navbar']}/>
+<Installation options={{ isComponent: true }} items={['blocks/navbar']} />
 
-<WarningFramer/>
+<WarningFramer />
 
 ## Composed Components
-<Composed components={['button', 'sheet']}/>
+<Composed components={['button', 'sheet']} />
 
 ## Manual Installation
-<Installation options={{ isManual: true }} items={['react-aria-components', 'motion']}/>
+<Installation options={{ isManual: true }} items={['react-aria-components', 'motion']} />
 
-<SourceCode toShow={'navbar'} />
+<SourceCode toShow={'blocks/navbar'} />
 
 ## Anatomy
-<Anatomy show='navbar-anatomy'/>
+<Anatomy show='blocks/navbar-anatomy' />
 
-## Creating a Navbar
-You can certainly create a single component to handle the entire navbar. However, in this guide, I'll show you how to build a navbar using modern techniques common in frameworks like Next.js, Inertia.js, and others.
+## Intent
+There are three types of intents: `navbar`, `floating`, and `inset`, each with distinct behaviors.
 
-### App Navbar
-When designing a layout, a navbar that links to all your pages is essential. Let's start with the simplest approach.
+### Navbar
+The default intent of the navbar is `navbar`. You can change it to `floating` or `inset` by setting the `intent` prop.
 
-<PlainCode title='layouts/navbar.tsx' code={`'use client'
+<CodeSandbox
+  fullscreenUrl='/blocks/navbar/navbar-01'
+  source={{
+    preview: 'blocks/navbar/navbar-01/app-navbar',
+    'page.tsx': 'blocks/navbar/navbar-01/page',
+    'layout.tsx': 'blocks/navbar/navbar-01/layout',
+    'app-navbar.tsx': 'blocks/navbar/navbar-01/app-navbar',
+  }} />
 
-  import { IconBrandApple } from "justd-icons"
-  import { Navbar } from "ui"
+### Floating
+The floating intent will have a border inside the navbar itself, the wrapper will have a padding to the content.
+<CodeSandbox
+  fullscreenUrl='/blocks/navbar/navbar-02'
+  source={{
+    preview: 'blocks/navbar/navbar-02/app-navbar',
+    'page.tsx': 'blocks/navbar/navbar-02/page',
+    'layout.tsx': 'blocks/navbar/navbar-02/layout',
+    'app-navbar.tsx': 'blocks/navbar/navbar-02/app-navbar',
+  }} />
 
-  export function AppNavbar({ children, ...props }: React.ComponentProps<typeof Navbar>) {
-    return (
-      <Navbar {...props}>
-        <Navbar.Nav>
-          <Navbar.Logo href="#">
-            <IconBrandApple className="size-5" />
-          </Navbar.Logo>
-          <Navbar.Section>
-            <Navbar.Item href="#">Store</Navbar.Item>
-            <Navbar.Item href="#">Mac</Navbar.Item>
-            <Navbar.Item href="#">iPad</Navbar.Item>
-            <Navbar.Item href="#">iPhone</Navbar.Item>
-          </Navbar.Section>
-        </Navbar.Nav>
-        <Navbar.Inset>{children}</Navbar.Inset>
-      </Navbar>
-    )
-  }
-  `}/>
 
-### Layout
-Next, you'll need to create a layout component that includes the navbar. Here's what it looks like:
+### Inset
+The inset one will have the padding to inset main content. You can of course see what's going on the demo, but you can also see the [live example here](/blocks/navbar/navbar-03).
+<CodeSandbox
+  fullscreenUrl='/blocks/navbar/navbar-03'
+  source={{
+    preview: 'blocks/navbar/navbar-03/app-navbar',
+    'page.tsx': 'blocks/navbar/navbar-03/page',
+    'layout.tsx': 'blocks/navbar/navbar-03/layout',
+    'app-navbar.tsx': 'blocks/navbar/navbar-03/app-navbar',
+  }} />
 
-<PlainCode title='layouts/layout.tsx' code={`import { AppNavbar } from "./app-navbar"
-
-  export default function AppLayout({ children }: { children: React.ReactNode }) {
-    return <AppNavbar>{children}</AppNavbar>
-  }
-`}/>
-
-### Done
-Great job! You've successfully created a navbar. Now, let's put it to use.
-<How className='lg:[&_header]:min-h-80 [&_header]:min-h-56' isCenter={false} fullscreenUrl='/blocks/navbar/navbar-04' toUse="layouts/navbar/navbar-creating-demo" />
-
-### Using the Layout
+## Using the Layout
 There are several ways to use the layout, depending on your framework. Or, if you're not using any framework, you can simply apply the layout component.
 
 ### Common Usage
@@ -99,27 +100,21 @@ app/
 
 ## Logo
 The logo is typically the first item in the navbar, usually representing the brand or company.
-<How className='lg:[&_header]:min-h-80 [&_header]:min-h-56' isCenter={false} toUse="layouts/navbar/navbar-logo-demo" />
+```
+<Navbar>
+  <Navbar.Nav>
+    <Navbar.Logo href="#">
+      <IconBrandApple className="size-5" />
+    </Navbar.Logo>
+    <Navbar.Section>
+      <Navbar.Item href="#">Store</Navbar.Item>
+```
 
 ## Current
-Highlight the current page in the navbar for better navigation clarity.
-<How className='lg:[&_header]:min-h-80 [&_header]:min-h-56' isCenter={false} toUse="layouts/navbar/navbar-current-demo" />
-
-## Intent
-There are three types of intents: `navbar`, `floating`, and `inset`, each with distinct behaviors.
-
-### Navbar
-The default intent of the navbar is `navbar`. You can change it to `floating` or `inset` by setting the `intent` prop.
-<How className='lg:[&_header]:min-h-80 [&_header]:min-h-56' fullscreenUrl='/blocks/navbar/navbar-01' isCenter={false} toUse="layouts/navbar/navbar-basic-demo" />
-
-### Floating
-The floating intent will have a border inside the navbar itself, the wrapper will have a padding to the content.
-<How className='lg:[&_header]:min-h-80 [&_header]:min-h-56' fullscreenUrl='/blocks/navbar/navbar-02' withNoPadding isCenter={false} toUse="layouts/navbar/navbar-floating-demo" />
-
-
-### Inset
-The inset one will have the padding to inset main content. You can of course see what's going on the demo, but you can also see the [live example here](/blocks/navbar/navbar-03).
-<How className='lg:has-[&_header]:min-h-80 has-[&_header]:min-h-56' fullscreenUrl='/blocks/navbar/navbar-03' withNoPadding isCenter={false} toUse="layouts/navbar/navbar-intent-demo" />
+Highlight the current page in the navbar for better navigation clarity by setting the `isCurrent` prop to `true`.
+```
+<Navbar.Item isCurrent href="#"/>
+```
 
 
 ## Sticky
@@ -130,12 +125,26 @@ You also make the navbar sticky by setting the `isSticky` prop to `true`.
 
 ## Using Icons
 If you'd like to use icons on the navbar items, that's no problem at all. The navbar is already designed and optimized to accommodate icons seamlessly. First of all, you need to install the `justd-icons` package.
-<Installation options={{ isManual: false }} items={['justd-icons']}/>
-<How className='lg:[&_header]:min-h-80 [&_header]:min-h-56' fullscreenUrl='/blocks/navbar/navbar-05' isCenter={false} toUse="layouts/navbar/navbar-icon-demo" />
+<Installation className='mb-6' options={{ isManual: false }} items={['justd-icons']} />
+<CodeSandbox
+  fullscreenUrl='/blocks/navbar/navbar-05'
+  source={{
+    preview: 'blocks/navbar/navbar-05/app-navbar',
+    'page.tsx': 'blocks/navbar/navbar-05/page',
+    'layout.tsx': 'blocks/navbar/navbar-05/layout',
+    'app-navbar.tsx': 'blocks/navbar/navbar-05/app-navbar',
+  }} />
 
 ## Disabled
 Disable individual navbar items when needed.
-<How className='lg:[&_header]:min-h-80 [&_header]:min-h-56' isCenter={false} toUse="layouts/navbar/navbar-disabled-demo" />
+<CodeSandbox
+  fullscreenUrl='/blocks/navbar/navbar-04'
+  source={{
+    preview: 'blocks/navbar/navbar-04/app-navbar',
+    'page.tsx': 'blocks/navbar/navbar-04/page',
+    'layout.tsx': 'blocks/navbar/navbar-04/layout',
+    'app-navbar.tsx': 'blocks/navbar/navbar-04/app-navbar',
+  }} />
 
 ## Controlled
 On mobile devices, the navbar is hidden by default. You can open it using `Navbar.Trigger`, but there are times when you might want to manage its state by clicking one of the links within the navbar. You can achieve this because it shares the sheet properties, specifically `isOpen` and `onOpenChange`. There are multiple ways to control the state, but the simplest method is to listen for path changes and set `isOpen` to `true` or `false` accordingly.

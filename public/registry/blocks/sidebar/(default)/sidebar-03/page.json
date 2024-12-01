@@ -1,0 +1,11 @@
+{
+  "name": "page",
+  "files": [
+    {
+      "name": "page.tsx",
+      "content": "import React from \"react\"\n\nimport { Heading } from \"ui\"\n\nexport default function Page() {\n  return <Heading>Billing</Heading>\n}\n"
+    }
+  ],
+  "type": "components:blocks",
+  "componentPath": "app/blocks/sidebar/(default)/sidebar-03/page.tsx"
+}

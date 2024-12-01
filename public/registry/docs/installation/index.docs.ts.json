@@ -1,0 +1,11 @@
+{
+  "name": "index.docs.ts",
+  "files": [
+    {
+      "name": "index.docs.ts",
+      "content": "// Documentation only\n// export * from \"./primitive\";\n// export * from \"./sidebar\";\n// export * from \"./navbar\";\n// export * from \"./progress-circle\";\n// export * from \"./tree\";\n"
+    }
+  ],
+  "type": "components:docs",
+  "componentPath": "resources/docs/installation/index.docs.ts"
+}

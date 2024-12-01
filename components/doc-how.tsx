@@ -3,17 +3,11 @@
 import React, { useEffect, useMemo, useState } from "react"
 
 import generated from "@/__registry__/generated"
+import { TabsList } from "@/components/code-sandbox"
 import { Code } from "@/components/rehype/code"
 import { cn } from "@/resources/lib/utils"
-import { IconFullscreen } from "justd-icons"
-import { LayoutGroup } from "motion/react"
+import type { RegistryItem } from "@/resources/types"
 import { Loader, Tabs } from "ui"
-
-type RegistryItem = {
-  component: React.LazyExoticComponent<any>
-  files: string[]
-  [key: string]: any
-}
 
 const registry = generated as Record<string, RegistryItem>
 
@@ -140,26 +134,6 @@ export const DocHow = ({
           )}
         </Tabs.Panel>
       </Tabs>
-    </div>
-  )
-}
-
-const TabsList = ({ fullscreenUrl }: { fullscreenUrl?: string }) => {
-  const id = React.useId()
-  return (
-    <div>
-      <LayoutGroup id={id}>
-        <Tabs.List>
-          <Tabs.Tab id="preview">Preview</Tabs.Tab>
-          <Tabs.Tab id="code">Code</Tabs.Tab>
-          {fullscreenUrl && (
-            <Tabs.Tab className="ml-auto flex items-center" target="_blank" href={fullscreenUrl}>
-              <IconFullscreen />
-              Fullscreen
-            </Tabs.Tab>
-          )}
-        </Tabs.List>
-      </LayoutGroup>
     </div>
   )
 }

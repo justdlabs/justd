@@ -13,7 +13,16 @@ export default {
     appIsrStatus: false
   },
   experimental: {
-    optimizePackageImports: ["shiki"]
+    optimizePackageImports: ["shiki"],
+    turbo: {
+      resolve: {
+        alias: {
+          '*.docs.ts': false,
+          '*.docs.tsx': false,
+          '*.docs.css': false,
+        },
+      },
+    },
   },
   async redirects() {
     return [
@@ -106,5 +115,5 @@ export default {
         permanent: false
       }
     ]
-  }
+  },
 }

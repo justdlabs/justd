@@ -1,0 +1,11 @@
+{
+  "name": "app-sidebar-nav",
+  "files": [
+    {
+      "name": "app-sidebar-nav.tsx",
+      "content": "\"use client\"\n\nimport { IconChevronLgDown, IconCirclePerson, IconLogout, IconSearch, IconSettings, IconShield } from \"justd-icons\"\nimport { Avatar, Breadcrumbs, Button, Menu, Separator, SidebarNav, SidebarTrigger } from \"ui\"\n\nexport function AppSidebarNav() {\n  return (\n    <SidebarNav>\n      <span className=\"flex items-center gap-x-4\">\n        <SidebarTrigger className=\"-mx-2\" />\n        <Separator className=\"h-6 md:block hidden\" orientation=\"vertical\" />\n        <Breadcrumbs className=\"md:flex hidden\">\n          <Breadcrumbs.Item href=\"/blocks/sidebar/sidebar-01\">Dashboard</Breadcrumbs.Item>\n          <Breadcrumbs.Item>Newsletter</Breadcrumbs.Item>\n        </Breadcrumbs>\n      </span>\n\n      <div className=\"flex sm:hidden items-center gap-x-2\">\n        <Button appearance=\"plain\" aria-label=\"Search...\" size=\"square-petite\">\n          <IconSearch />\n        </Button>\n        <Menu>\n          <Menu.Trigger aria-label=\"Profile\" className=\"flex items-center gap-x-2 group\">\n            <Avatar size=\"small\" shape=\"circle\" src=\"/images/sidebar/profile-slash.jpg\" />\n            <IconChevronLgDown className=\"size-4 group-pressed:rotate-180 transition-transform\" />\n          </Menu.Trigger>\n          <Menu.Content className=\"min-w-[--trigger-width]\">\n            <Menu.Item href=\"#\">\n              <IconCirclePerson />\n              Profile\n            </Menu.Item>\n            <Menu.Item href=\"#\">\n              <IconSettings />\n              Settings\n            </Menu.Item>\n            <Menu.Item href=\"#\">\n              <IconShield />\n              Security\n            </Menu.Item>\n            <Menu.Item href=\"#\">\n              <IconLogout />\n              Log out\n            </Menu.Item>\n          </Menu.Content>\n        </Menu>\n      </div>\n    </SidebarNav>\n  )\n}\n"
+    }
+  ],
+  "type": "components:blocks",
+  "componentPath": "app/blocks/sidebar/(default)/app-sidebar-nav.tsx"
+}

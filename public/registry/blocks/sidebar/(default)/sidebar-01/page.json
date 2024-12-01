@@ -1,0 +1,11 @@
+{
+  "name": "page",
+  "files": [
+    {
+      "name": "page.tsx",
+      "content": "import React from \"react\"\n\nimport TableDemo from \"@/components/docs/collections/table/table-demo\"\nimport { Card, Grid } from \"ui\"\n\nexport default function Page() {\n  return (\n    <div className=\"space-y-6 lg:space-y-10\">\n      <h1 className=\"font-semibold text-2xl mb-2 lg:mb-4\">Overview</h1>\n\n      <Grid className=\"divide-y lg:divide-y-0 lg:divide-x lg:border-x\" columns={{ initial: 1, lg: 4 }}>\n        {Object.values(data).map((item, index) => (\n          <Card key={index} className=\"border-y-0 shadow-none border-x-0 rounded-none py-4 lg:px-6\">\n            <Card.Header className=\"p-0\" title={item.value} description={item.description} />\n          </Card>\n        ))}\n      </Grid>\n      <div>\n        <Card.Header\n          className=\"px-0 pt-0\"\n          title=\"Products\"\n          description=\"A list of the latest products added to the store.\"\n        />\n        <TableDemo />\n      </div>\n    </div>\n  )\n}\n\nconst data = {\n  revenue: {\n    title: \"Total Revenue\",\n    value: \"$1,200,000\",\n    description: \"The total revenue generated over the past year.\"\n  },\n  income: {\n    title: \"Net Income\",\n    value: \"$300,000\",\n    description: \"The total income after all expenses have been deducted.\"\n  },\n  expenses: {\n    title: \"Total Expenses\",\n    value: \"$900,000\",\n    description: \"The total expenses incurred over the past year.\"\n  },\n  profitMargin: {\n    title: \"Profit Margin\",\n    value: \"25%\",\n    description: \"The percentage of revenue that represents profit.\"\n  }\n}\n"
+    }
+  ],
+  "type": "components:blocks",
+  "componentPath": "app/blocks/sidebar/(default)/sidebar-01/page.tsx"
+}

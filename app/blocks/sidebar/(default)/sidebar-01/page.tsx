@@ -1,12 +1,7 @@
 import React from "react"
 
 import TableDemo from "@/components/docs/collections/table/table-demo"
-import type { Metadata } from "next"
 import { Card, Grid } from "ui"
-
-export const metadata: Metadata = {
-  title: "Sidebar Default"
-}
 
 export default function Page() {
   return (

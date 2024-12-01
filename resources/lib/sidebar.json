@@ -117,61 +117,6 @@
         ]
       },
       {
-        "title": "Collections",
-        "children": [
-          {
-            "title": "Menu",
-            "slug": "docs/components/collections/menu",
-            "order": 1,
-            "children": []
-          },
-          {
-            "title": "List Box",
-            "slug": "docs/components/collections/list-box",
-            "order": 2,
-            "children": []
-          },
-          {
-            "title": "Tag Group",
-            "slug": "docs/components/collections/tag-group",
-            "order": 4,
-            "children": []
-          },
-          {
-            "title": "Table",
-            "slug": "docs/components/collections/table",
-            "order": 5,
-            "children": []
-          },
-          {
-            "title": "Tree",
-            "slug": "docs/components/collections/tree",
-            "status": "beta",
-            "order": 6,
-            "children": []
-          },
-          {
-            "title": "Grid List",
-            "slug": "docs/components/collections/grid-list",
-            "order": 7,
-            "children": []
-          },
-          {
-            "title": "Choicebox",
-            "slug": "docs/components/collections/choicebox",
-            "order": 8,
-            "children": []
-          },
-          {
-            "title": "Dropdown",
-            "slug": "docs/components/collections/dropdown",
-            "status": "primitive",
-            "order": 9,
-            "children": []
-          }
-        ]
-      },
-      {
         "title": "Charts",
         "children": [
           {
@@ -225,6 +170,61 @@
           {
             "title": "Tooltip Chart",
             "slug": "docs/components/charts/tooltip-chart",
+            "order": 9,
+            "children": []
+          }
+        ]
+      },
+      {
+        "title": "Collections",
+        "children": [
+          {
+            "title": "Menu",
+            "slug": "docs/components/collections/menu",
+            "order": 1,
+            "children": []
+          },
+          {
+            "title": "List Box",
+            "slug": "docs/components/collections/list-box",
+            "order": 2,
+            "children": []
+          },
+          {
+            "title": "Tag Group",
+            "slug": "docs/components/collections/tag-group",
+            "order": 4,
+            "children": []
+          },
+          {
+            "title": "Table",
+            "slug": "docs/components/collections/table",
+            "order": 5,
+            "children": []
+          },
+          {
+            "title": "Tree",
+            "slug": "docs/components/collections/tree",
+            "status": "beta",
+            "order": 6,
+            "children": []
+          },
+          {
+            "title": "Grid List",
+            "slug": "docs/components/collections/grid-list",
+            "order": 7,
+            "children": []
+          },
+          {
+            "title": "Choicebox",
+            "slug": "docs/components/collections/choicebox",
+            "order": 8,
+            "children": []
+          },
+          {
+            "title": "Dropdown",
+            "slug": "docs/components/collections/dropdown",
+            "status": "primitive",
             "order": 9,
             "children": []
           }
@@ -329,17 +329,6 @@
         ]
       },
       {
-        "title": "Drag-and-drop",
-        "children": [
-          {
-            "title": "Drop Zone",
-            "slug": "docs/components/drag-and-drop/drop-zone",
-            "order": 1,
-            "children": []
-          }
-        ]
-      },
-      {
         "title": "Date-and-time",
         "children": [
           {
@@ -399,6 +388,141 @@
             "title": "Navbar",
             "slug": "docs/components/layouts/navbar",
             "order": 6,
+            "children": []
+          }
+        ]
+      },
+      {
+        "title": "Drag-and-drop",
+        "children": [
+          {
+            "title": "Drop Zone",
+            "slug": "docs/components/drag-and-drop/drop-zone",
+            "order": 1,
+            "children": []
+          }
+        ]
+      },
+      {
+        "title": "Navigation",
+        "children": [
+          {
+            "title": "Link",
+            "slug": "docs/components/navigation/link",
+            "order": 1,
+            "children": []
+          },
+          {
+            "title": "Breadcrumbs",
+            "slug": "docs/components/navigation/breadcrumbs",
+            "order": 2,
+            "children": []
+          },
+          {
+            "title": "Pagination",
+            "slug": "docs/components/navigation/pagination",
+            "status": "beta",
+            "order": 3,
+            "children": []
+          },
+          {
+            "title": "Tabs",
+            "slug": "docs/components/navigation/tabs",
+            "order": 3,
+            "children": []
+          },
+          {
+            "title": "Disclosure aka Collapsible",
+            "slug": "docs/components/navigation/disclosure",
+            "order": 5,
+            "children": []
+          },
+          {
+            "title": "Disclosure Group aka Accordion",
+            "slug": "docs/components/navigation/disclosure-group",
+            "order": 6,
+            "children": []
+          }
+        ]
+      },
+      {
+        "title": "Media",
+        "children": [
+          {
+            "title": "Avatar",
+            "slug": "docs/components/media/avatar",
+            "order": 1,
+            "children": []
+          },
+          {
+            "title": "Carousel",
+            "slug": "docs/components/media/carousel",
+            "order": 8,
+            "children": []
+          }
+        ]
+      },
+      {
+        "title": "Overlays",
+        "children": [
+          {
+            "title": "Modal",
+            "slug": "docs/components/overlays/modal",
+            "order": 1,
+            "children": []
+          },
+          {
+            "title": "Dialog",
+            "slug": "docs/components/overlays/dialog",
+            "status": "primitive",
+            "order": 2,
+            "children": []
+          },
+          {
+            "title": "Sheet",
+            "slug": "docs/components/overlays/sheet",
+            "order": 2,
+            "children": []
+          },
+          {
+            "title": "Drawer",
+            "slug": "docs/components/overlays/drawer",
+            "order": 3,
+            "children": []
+          },
+          {
+            "title": "Popover",
+            "slug": "docs/components/overlays/popover",
+            "order": 4,
+            "children": []
+          },
+          {
+            "title": "Tooltip",
+            "slug": "docs/components/overlays/tooltip",
+            "order": 5,
+            "children": []
+          }
+        ]
+      },
+      {
+        "title": "Pickers",
+        "children": [
+          {
+            "title": "Combo Box",
+            "slug": "docs/components/pickers/combo-box",
+            "order": 1,
+            "children": []
+          },
+          {
+            "title": "Select",
+            "slug": "docs/components/pickers/select",
+            "order": 2,
+            "children": []
+          },
+          {
+            "title": "Multiple Select",
+            "slug": "docs/components/pickers/multiple-select",
+            "order": 3,
             "children": []
           }
         ]
@@ -476,125 +600,55 @@
         ]
       },
       {
-        "title": "Media",
+        "title": "Surfaces",
         "children": [
           {
-            "title": "Avatar",
-            "slug": "docs/components/media/avatar",
+            "title": "Card",
+            "slug": "docs/components/surfaces/card",
             "order": 1,
             "children": []
           },
           {
-            "title": "Carousel",
-            "slug": "docs/components/media/carousel",
-            "order": 8,
-            "children": []
-          }
-        ]
-      },
-      {
-        "title": "Navigation",
-        "children": [
-          {
-            "title": "Link",
-            "slug": "docs/components/navigation/link",
-            "order": 1,
-            "children": []
-          },
-          {
-            "title": "Breadcrumbs",
-            "slug": "docs/components/navigation/breadcrumbs",
+            "title": "Grid",
+            "slug": "docs/components/surfaces/grid",
+            "status": "alpha",
             "order": 2,
             "children": []
           },
           {
-            "title": "Pagination",
-            "slug": "docs/components/navigation/pagination",
-            "status": "beta",
+            "title": "Separator",
+            "slug": "docs/components/surfaces/separator",
             "order": 3,
             "children": []
           },
           {
-            "title": "Tabs",
-            "slug": "docs/components/navigation/tabs",
-            "order": 3,
+            "title": "Heading",
+            "slug": "docs/components/surfaces/heading",
+            "order": 4,
             "children": []
           },
           {
-            "title": "Disclosure aka Collapsible",
-            "slug": "docs/components/navigation/disclosure",
-            "order": 5,
+            "title": "Show More",
+            "slug": "docs/components/surfaces/show-more",
+            "order": 4,
             "children": []
           },
           {
-            "title": "Disclosure Group aka Accordion",
-            "slug": "docs/components/navigation/disclosure-group",
+            "title": "Description List",
+            "slug": "docs/components/surfaces/description-list",
+            "status": "new",
             "order": 6,
             "children": []
           }
         ]
       },
       {
-        "title": "Overlays",
+        "title": "Utilities",
         "children": [
           {
-            "title": "Modal",
-            "slug": "docs/components/overlays/modal",
+            "title": "Visually Hidden",
+            "slug": "docs/components/utilities/visually-hidden",
             "order": 1,
-            "children": []
-          },
-          {
-            "title": "Dialog",
-            "slug": "docs/components/overlays/dialog",
-            "status": "primitive",
-            "order": 2,
-            "children": []
-          },
-          {
-            "title": "Sheet",
-            "slug": "docs/components/overlays/sheet",
-            "order": 2,
-            "children": []
-          },
-          {
-            "title": "Drawer",
-            "slug": "docs/components/overlays/drawer",
-            "order": 3,
-            "children": []
-          },
-          {
-            "title": "Popover",
-            "slug": "docs/components/overlays/popover",
-            "order": 4,
-            "children": []
-          },
-          {
-            "title": "Tooltip",
-            "slug": "docs/components/overlays/tooltip",
-            "order": 5,
-            "children": []
-          }
-        ]
-      },
-      {
-        "title": "Pickers",
-        "children": [
-          {
-            "title": "Combo Box",
-            "slug": "docs/components/pickers/combo-box",
-            "order": 1,
-            "children": []
-          },
-          {
-            "title": "Select",
-            "slug": "docs/components/pickers/select",
-            "order": 2,
-            "children": []
-          },
-          {
-            "title": "Multiple Select",
-            "slug": "docs/components/pickers/multiple-select",
-            "order": 3,
             "children": []
           }
         ]
@@ -648,60 +702,6 @@
             "title": "Skeleton",
             "slug": "docs/components/statuses/skeleton",
             "order": 7,
-            "children": []
-          }
-        ]
-      },
-      {
-        "title": "Surfaces",
-        "children": [
-          {
-            "title": "Card",
-            "slug": "docs/components/surfaces/card",
-            "order": 1,
-            "children": []
-          },
-          {
-            "title": "Grid",
-            "slug": "docs/components/surfaces/grid",
-            "status": "beta",
-            "order": 2,
-            "children": []
-          },
-          {
-            "title": "Separator",
-            "slug": "docs/components/surfaces/separator",
-            "order": 3,
-            "children": []
-          },
-          {
-            "title": "Heading",
-            "slug": "docs/components/surfaces/heading",
-            "order": 4,
-            "children": []
-          },
-          {
-            "title": "Show More",
-            "slug": "docs/components/surfaces/show-more",
-            "order": 4,
-            "children": []
-          },
-          {
-            "title": "Description List",
-            "slug": "docs/components/surfaces/description-list",
-            "status": "new",
-            "order": 6,
-            "children": []
-          }
-        ]
-      },
-      {
-        "title": "Utilities",
-        "children": [
-          {
-            "title": "Visually Hidden",
-            "slug": "docs/components/utilities/visually-hidden",
-            "order": 1,
             "children": []
           }
         ]

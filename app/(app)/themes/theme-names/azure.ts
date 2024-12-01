@@ -14,7 +14,6 @@ export const azure = {
     "--secondary": "220 15% 96%",
     "--secondary-fg": "223.94 71% 4%",
 
-
     "--accent": "205.77 100% 50%",
     "--accent-fg": "40 35% 98%",
 
