@@ -14,8 +14,6 @@ export const azure = {
     "--secondary": "220 15% 96%",
     "--secondary-fg": "223.94 71% 4%",
 
-    "--tertiary": "0 0% 100%",
-    "--tertiary-fg": "240 4% 16%",
 
     "--accent": "205.77 100% 50%",
     "--accent-fg": "40 35% 98%",
@@ -57,8 +55,6 @@ export const azure = {
     "--primary-fg": "40 35% 98%",
     "--secondary": "222.23 48% 11%",
     "--secondary-fg": "210 24% 98%",
-    "--tertiary": "225.14 70% 5%",
-    "--tertiary-fg": "223.81 0% 98%",
     "--accent": "205.77 100% 50%",
     "--accent-fg": "40 35% 98%",
     "--accent-subtle": "215.99 94% 6%",

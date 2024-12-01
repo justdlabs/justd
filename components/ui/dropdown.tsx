@@ -54,7 +54,7 @@ const dropdownSectionStyles = tv({
   slots: {
     section: "first:-mt-[5px] xss3 flex flex-col gap-y-0.5 after:content-[''] after:block after:h-[5px]",
     header:
-      "text-sm font-medium text-muted-fg px-4 py-2 truncate min-w-(--trigger-width) sticky -top-[5px] bg-tertiary -mb-0.5 -mx-1 z-10 supports-[-moz-appearance:none]:bg-tertiary border-y [&+*]:mt-1"
+      "text-sm font-medium text-muted-fg px-4 py-2 truncate min-w-(--trigger-width) sticky -top-[5px] bg-secondary -mb-0.5 -mx-1 z-10 supports-[-moz-appearance:none]:bg-secondary border-y [&+*]:mt-1"
   }
 })
 

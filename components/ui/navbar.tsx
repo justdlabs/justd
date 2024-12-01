@@ -43,12 +43,12 @@ interface NavbarProviderProps extends React.ComponentProps<"header">, NavbarOpti
 }
 
 const navbarStyles = tv({
-  base: "relative isolate flex w-full min-h-svh flex-col",
+  base: "relative isolate flex w-full flex-col",
   variants: {
     intent: {
       floating: "pt-2 px-2.5",
       navbar: "",
-      inset: "bg-secondary dark:bg-bg"
+      inset: "min-h-svh"
     }
   }
 })
@@ -114,10 +114,10 @@ const navStyles = tv({
       true: "sticky z-40 top-0"
     },
     intent: {
-      floating: "bg-tertiary w-full max-w-7xl 2xl:max-w-(--breakpoint-2xl) mx-auto shadow-xs border rounded-xl sm:px-4",
-      navbar: "bg-tertiary shadow-xs border-b sm:px-6",
+      floating: "bg-bar w-full max-w-7xl 2xl:max-w-(--breakpoint-2xl) mx-auto border rounded-xl sm:px-4",
+      navbar: "bg-bar shadow-xs border-b sm:px-6",
       inset: [
-        "bg-secondary mx-auto dark:sm:px-6",
+        "mx-auto dark:sm:px-6",
         "2xl:[&>div]:max-w-(--breakpoint-2xl) lg:[&>div]:flex [&>div]:items-center [&>div]:w-full [&>div]:mx-auto"
       ]
     }
@@ -152,7 +152,7 @@ const Nav = ({ className, ...props }: NavbarProps) => {
   }
 
   return (
-    <div className={navStyles({ isSticky, intent, className })} {...props}>
+    <div data-slot="navbar-nav" className={navStyles({ isSticky, intent, className })} {...props}>
       <div>{props.children}</div>
     </div>
   )
@@ -162,7 +162,7 @@ const Trigger = ({ className, onPress, ...props }: React.ComponentProps<typeof B
   const { toggleNavbar } = useNavbar()
   return (
     <Button
-      data-sidebar="trigger"
+      data-slot="navbar-trigger"
       appearance="plain"
       aria-label={props["aria-label"] || "Toggle Navbar"}
       size="square-petite"
@@ -257,7 +257,7 @@ const Flex = ({ className, ...props }: React.ComponentProps<"div">) => {
 }
 
 const compactStyles = tv({
-  base: "lg:hidden flex peer-has-[[data-intent=floating]]:border bg-tertiary justify-between",
+  base: "lg:hidden flex peer-has-[[data-intent=floating]]:border bg-secondary justify-between",
   variants: {
     intent: {
       floating: "border h-12 rounded-lg px-3.5",
@@ -277,7 +277,7 @@ const insetStyles = tv({
   variants: {
     intent: {
       floating: "",
-      inset: "bg-tertiary lg:rounded-lg lg:shadow-xs lg:ring-1 lg:ring-dark/5 lg:dark:ring-light/10",
+      inset: "bg-muted/40 lg:rounded-lg lg:shadow-xs lg:ring-1 lg:ring-fg/15 lg:dark:ring-border",
       navbar: ""
     }
   }

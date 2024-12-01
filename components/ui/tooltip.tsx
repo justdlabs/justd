@@ -14,12 +14,12 @@ import type { VariantProps } from "tailwind-variants"
 import { tv } from "tailwind-variants"
 
 const tooltipStyles = tv({
-  base: ["group rounded-lg [&_strong]:font-medium border px-3 py-2 text-sm will-change-transform dark:shadow-none"],
+  base: ["group rounded-lg [&_strong]:font-medium border px-2.5 py-1.5 text-sm will-change-transform dark:shadow-none"],
   variants: {
     intent: {
       default: "bg-overlay text-overlay-fg [&_.arx]:fill-overlay [&_.arx]:stroke-border",
       inverse:
-        "border-transparent bg-fg dark:[&_.text-muted-fg]:text-fg/70 [&_.text-muted-fg]:text-bg/70 text-bg dark:bg-bg dark:text-fg dark:[&_.arx]:fill-bg [&_.arx]:fill-fg [&_.arx]:stroke-transparent"
+        "border-transparent bg-fg text-bg dark:[&_.text-muted-fg]:text-fg/70 [&_.text-muted-fg]:text-bg/70 dark:[&_.arx]:fill-bg [&_.arx]:fill-fg [&_.arx]:stroke-transparent"
     },
     isEntering: {
       true: [

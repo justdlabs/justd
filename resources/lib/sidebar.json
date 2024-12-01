@@ -404,23 +404,6 @@
         ]
       },
       {
-        "title": "Media",
-        "children": [
-          {
-            "title": "Avatar",
-            "slug": "docs/components/media/avatar",
-            "order": 1,
-            "children": []
-          },
-          {
-            "title": "Carousel",
-            "slug": "docs/components/media/carousel",
-            "order": 8,
-            "children": []
-          }
-        ]
-      },
-      {
         "title": "Forms",
         "children": [
           {
@@ -488,6 +471,23 @@
             "title": "Tag Field",
             "slug": "docs/components/forms/tag-field",
             "order": 9,
+            "children": []
+          }
+        ]
+      },
+      {
+        "title": "Media",
+        "children": [
+          {
+            "title": "Avatar",
+            "slug": "docs/components/media/avatar",
+            "order": 1,
+            "children": []
+          },
+          {
+            "title": "Carousel",
+            "slug": "docs/components/media/carousel",
+            "order": 8,
             "children": []
           }
         ]
@@ -577,55 +577,24 @@
         ]
       },
       {
-        "title": "Surfaces",
+        "title": "Pickers",
         "children": [
           {
-            "title": "Card",
-            "slug": "docs/components/surfaces/card",
+            "title": "Combo Box",
+            "slug": "docs/components/pickers/combo-box",
             "order": 1,
             "children": []
           },
           {
-            "title": "Grid",
-            "slug": "docs/components/surfaces/grid",
-            "status": "beta",
+            "title": "Select",
+            "slug": "docs/components/pickers/select",
             "order": 2,
             "children": []
           },
           {
-            "title": "Separator",
-            "slug": "docs/components/surfaces/separator",
+            "title": "Multiple Select",
+            "slug": "docs/components/pickers/multiple-select",
             "order": 3,
-            "children": []
-          },
-          {
-            "title": "Heading",
-            "slug": "docs/components/surfaces/heading",
-            "order": 4,
-            "children": []
-          },
-          {
-            "title": "Show More",
-            "slug": "docs/components/surfaces/show-more",
-            "order": 4,
-            "children": []
-          },
-          {
-            "title": "Description List",
-            "slug": "docs/components/surfaces/description-list",
-            "status": "new",
-            "order": 6,
-            "children": []
-          }
-        ]
-      },
-      {
-        "title": "Utilities",
-        "children": [
-          {
-            "title": "Visually Hidden",
-            "slug": "docs/components/utilities/visually-hidden",
-            "order": 1,
             "children": []
           }
         ]
@@ -684,24 +653,55 @@
         ]
       },
       {
-        "title": "Pickers",
+        "title": "Surfaces",
         "children": [
           {
-            "title": "Combo Box",
-            "slug": "docs/components/pickers/combo-box",
+            "title": "Card",
+            "slug": "docs/components/surfaces/card",
             "order": 1,
             "children": []
           },
           {
-            "title": "Select",
-            "slug": "docs/components/pickers/select",
+            "title": "Grid",
+            "slug": "docs/components/surfaces/grid",
+            "status": "beta",
             "order": 2,
             "children": []
           },
           {
-            "title": "Multiple Select",
-            "slug": "docs/components/pickers/multiple-select",
+            "title": "Separator",
+            "slug": "docs/components/surfaces/separator",
             "order": 3,
+            "children": []
+          },
+          {
+            "title": "Heading",
+            "slug": "docs/components/surfaces/heading",
+            "order": 4,
+            "children": []
+          },
+          {
+            "title": "Show More",
+            "slug": "docs/components/surfaces/show-more",
+            "order": 4,
+            "children": []
+          },
+          {
+            "title": "Description List",
+            "slug": "docs/components/surfaces/description-list",
+            "status": "new",
+            "order": 6,
+            "children": []
+          }
+        ]
+      },
+      {
+        "title": "Utilities",
+        "children": [
+          {
+            "title": "Visually Hidden",
+            "slug": "docs/components/utilities/visually-hidden",
+            "order": 1,
             "children": []
           }
         ]

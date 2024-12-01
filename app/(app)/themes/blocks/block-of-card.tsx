@@ -14,7 +14,7 @@ export function BlockOfCard() {
         </Description>
       </div>
 
-      <div className="bg-tertiary p-4 rounded-xl border">
+      <div className="bg-secondary p-4 rounded-xl border">
         <h3 className="text-fg text-lg font-semibold">Best Indie Bands</h3>
         <Description>
           Explore the rising stars of indie music and their fresh sound in today’s dynamic music scene.

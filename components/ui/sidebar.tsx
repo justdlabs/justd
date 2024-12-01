@@ -12,12 +12,17 @@ import { cn, useMediaQuery } from "./primitive"
 import { Sheet } from "./sheet"
 import { Tooltip } from "./tooltip"
 
+const SIDEBAR_COOKIE_NAME = "sidebar:state"
+const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7
+const SIDEBAR_WIDTH = "16rem"
+const SIDEBAR_KEYBOARD_SHORTCUT = "b"
+
 type SidebarContextProps = {
   state: "expanded" | "collapsed"
   open: boolean
   setOpen: (open: boolean) => void
-  openMobile: boolean
-  setOpenMobile: (open: boolean) => void
+  isOpenOnMobile: boolean
+  setIsOpenOnMobile: (open: boolean) => void
   isMobile: boolean
   toggleSidebar: () => void
 }
@@ -33,28 +38,30 @@ function useSidebar() {
   return context
 }
 
-const Provider = React.forwardRef<
+const SidebarProvider = React.forwardRef<
   HTMLDivElement,
   React.ComponentProps<"div"> & {
     defaultOpen?: boolean
     isOpen?: boolean
     onOpenChange?: (open: boolean) => void
   }
->(({ defaultOpen = true, isOpen: openProp, onOpenChange: setOpenProp, className, children, ...props }, ref) => {
+>(({ style, defaultOpen = true, isOpen: openProp, onOpenChange: setOpenProp, className, children, ...props }, ref) => {
   const isMobile = useMediaQuery("(max-width: 768px)")
   const [openMobile, setOpenMobile] = React.useState(false)
 
-  const [_open, _setOpen] = React.useState(defaultOpen)
-  const open = openProp ?? _open
+  const [internalOpenState, setInternalOpenState] = React.useState(defaultOpen)
+  const open = openProp ?? internalOpenState
   const setOpen = React.useCallback(
     (value: boolean | ((value: boolean) => boolean)) => {
+      const openState = typeof value === "function" ? value(open) : value
+
       if (setOpenProp) {
-        return setOpenProp?.(typeof value === "function" ? value(open) : value)
+        setOpenProp(openState)
+      } else {
+        setInternalOpenState(openState)
       }
 
-      _setOpen(value)
-
-      document.cookie = `sidebar:state=${open}; path=/; max-age=${60 * 60 * 24 * 7}`
+      document.cookie = `${SIDEBAR_COOKIE_NAME}=${openState}; path=/; max-age=${SIDEBAR_COOKIE_MAX_AGE}`
     },
     [setOpenProp, open]
   )
@@ -65,7 +72,7 @@ const Provider = React.forwardRef<
 
   React.useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "b" && (event.metaKey || event.ctrlKey)) {
+      if (event.key === SIDEBAR_KEYBOARD_SHORTCUT && (event.metaKey || event.ctrlKey)) {
         event.preventDefault()
         toggleSidebar()
       }
@@ -83,8 +90,8 @@ const Provider = React.forwardRef<
       open,
       setOpen,
       isMobile,
-      openMobile,
-      setOpenMobile,
+      isOpenOnMobile: openMobile,
+      setIsOpenOnMobile: setOpenMobile,
       toggleSidebar
     }),
     [state, open, setOpen, isMobile, openMobile, setOpenMobile, toggleSidebar]
@@ -93,8 +100,14 @@ const Provider = React.forwardRef<
   return (
     <SidebarContext.Provider value={contextValue}>
       <div
+        style={
+          {
+            "--sidebar-width": SIDEBAR_WIDTH,
+            ...style
+          } as React.CSSProperties
+        }
         className={cn(
-          "group/sidebar-wrapper [--sidebar-width:16.5rem] [--sidebar-width-icon:3rem] flex min-h-svh w-full text-fg dark:has-data-[intent=inset]:has-data-[intent=inset]:bg-secondary/50",
+          "group/sidebar-wrapper flex min-h-svh w-full text-fg dark:has-data-[intent=inset]:has-data-[intent=inset]:bg-bg",
           className
         )}
         ref={ref}
@@ -105,17 +118,18 @@ const Provider = React.forwardRef<
     </SidebarContext.Provider>
   )
 })
-Provider.displayName = "Provider"
+SidebarProvider.displayName = "SidebarProvider"
 
-const Inset = ({ className, ...props }: React.ComponentProps<"main">) => {
+const SidebarInset = ({ className, ...props }: React.ComponentProps<"main">) => {
   return (
     <main
       data-slot="sidebar-inset"
       className={cn([
         [
-          "relative flex min-h-svh max-w-full flex-1 flex-col bg-bg",
-          "md:peer-data-[intent=inset]:ml-0 md:peer-data-[intent=inset]:bg-tertiary md:peer-data-[intent=inset]:rounded-xl",
-          "peer-data-[intent=inset]:overflow-hidden peer-data-[intent=inset]:border peer-data-[intent=inset]:min-h-[calc(100svh-calc(var(--spacing)*4))] md:peer-data-[intent=inset]:my-2 md:peer-data-[intent=inset]:mr-2"
+          "relative **:data-[slot=navbar-nav]:shadow-none flex min-h-svh max-w-full flex-1 flex-col bg-bg",
+          "md:peer-data-[intent=inset]:ml-0 md:peer-data-[intent=inset]:bg-sidebar-bg md:peer-data-[intent=inset]:text-sidebar-fg md:peer-data-[intent=inset]:rounded-xl",
+          "peer-data-[intent=inset]:overflow-hidden peer-data-[intent=inset]:border peer-data-[intent=inset]:min-h-[calc(100svh-calc(var(--spacing)*4))] md:peer-data-[intent=inset]:my-2 md:peer-data-[intent=inset]:mr-2",
+          "peer-data-[intent=floating]:**:data-[slot=sidebar-nav]:bg-bg peer-data-[intent=floating]:**:data-[slot=sidebar-nav]:border-none"
         ],
         className
       ])}
@@ -136,11 +150,11 @@ const Sidebar = ({
   intent?: "sidebar" | "floating" | "inset"
   collapsible?: "offcanvas" | "dock" | "none"
 }) => {
-  const { isMobile, state, openMobile, setOpenMobile } = useSidebar()
+  const { isMobile, state, isOpenOnMobile, setIsOpenOnMobile } = useSidebar()
 
   if (collapsible === "none") {
     return (
-      <div className={cn("flex h-full w-(--sidebar-width) flex-col bg-tertiary text-fg ", className)} {...props}>
+      <div className={cn("flex h-full w-(--sidebar-width) flex-col bg-secondary text-fg ", className)} {...props}>
         {children}
       </div>
     )
@@ -148,13 +162,13 @@ const Sidebar = ({
 
   if (isMobile) {
     return (
-      <Sheet isOpen={openMobile} onOpenChange={setOpenMobile} {...props}>
+      <Sheet isOpen={isOpenOnMobile} onOpenChange={setIsOpenOnMobile} {...props}>
         <Sheet.Content
           aria-label="Sidebar"
           data-slot="sidebar"
           data-mobile="true"
           classNames={{
-            content: "bg-tertiary text-fg [&>button]:hidden"
+            content: "bg-sidebar-bg [&>button]:hidden"
           }}
           isStack={intent === "floating"}
           side={side}
@@ -198,7 +212,7 @@ const Sidebar = ({
         <div
           data-slot="sidebar"
           className={cn(
-            "flex h-full w-full flex-col bg-tertiary group-data-[intent=inset]:bg-transparent group-data-[intent=floating]:rounded-lg group-data-[intent=floating]:border group-data-[intent=floating]:border-border group-data-[intent=floating]:bg-secondary/50",
+            "flex h-full w-full flex-col bg-sidebar-bg text-sidebar-fg group-data-[intent=inset]:bg-transparent group-data-[intent=floating]:rounded-lg group-data-[intent=floating]:border group-data-[intent=floating]:border-border",
             intent === "inset" || state === "collapsed"
               ? "**:data-[slot=sidebar-header]:border-transparent **:data-[slot=sidebar-footer]:border-transparent"
               : "**:data-[slot=sidebar-header]:border-b **:data-[slot=sidebar-footer]:border-t"
@@ -214,51 +228,62 @@ const Sidebar = ({
 const itemStyles = tv({
   base: [
     "group/sidebar-item grid cursor-pointer *:data-[slot=icon]:size-4 col-span-full *:data-[slot=icon]:shrink-0 items-center *:data-[slot=icon]:text-muted-fg relative rounded-lg lg:text-sm leading-6",
-    "forced-colors:text-[MenuLink] text-fg"
+    "forced-colors:text-[MenuLink] text-fg",
+    "grid-cols-subgrid *:data-[slot=icon]:mr-2 px-2.5 py-1.5"
   ],
   variants: {
     collapsed: {
-      false: "grid-cols-subgrid *:data-[slot=icon]:mr-2 px-3 py-2"
+      true: "flex"
     },
     isFocused: {
       true: "outline-hidden"
     },
     isFocusVisible: {
-      true: "bg-muted [&:focus-visible_[slot=description]]:text-accent-fg/70 text-secondary-fg"
+      true: "bg-sidebar-accent-bg text-sidebar-accent-fg data-[slot=description]:text-sidebar-accent-fg/70"
     },
     isHovered: {
       true: [
-        "bg-muted [&:focus-visible_[slot=description]]:text-accent-fg/70 text-secondary-fg [&_.text-muted-fg]:text-secondary-fg/80"
+        "bg-sidebar-accent-bg text-sidebar-accent-fg *:data-[focus-visible]:**:data-[slot=description]:text-sidebar-accent-fg/70 **:[.text-muted-fg]:text-sidebar-accent-fg/80"
       ]
     },
     isCurrent: {
       true: [
-        "**:data-[slot=icon]:text-primary-fg [&_.text-muted-fg]:text-primary-fg/80 bg-primary text-primary-fg",
-        "[&_.bdx]:bg-primary-fg/20 [&_.bdx]:ring-primary-fg/30"
+        "bg-sidebar-primary-bg text-sidebar-primary-fg",
+        "**:data-[slot=icon]:text-sidebar-primary-fg [&_.text-muted-fg]:text-sidebar-primary-fg/80",
+        "**:data-[slot=sidebar-badge]:bg-sidebar-primary-fg/20 **:data-[slot=sidebar-badge]:ring-sidebar-primary-fg/30"
       ]
     },
     isDisabled: {
-      true: "opacity-70 cursor-default text-muted-fg"
+      true: "cursor-default"
     }
   }
 })
 
-interface ItemProps extends LinkProps {
+interface SidebarItemProps extends LinkProps {
   icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>
   badge?: string | number | undefined
   isCurrent?: boolean
 }
 
-const Item = ({ isCurrent, children, className, icon: Icon, ...props }: ItemProps) => {
+const SidebarItem = ({ isCurrent, children, className, icon: Icon, ...props }: SidebarItemProps) => {
   const { state, isMobile } = React.useContext(SidebarContext)!
   return state === "collapsed" && !isMobile ? (
     <Tooltip closeDelay={0} delay={0}>
       <Link
+        className={cn(
+          "col-span-full rounded-lg size-9 grid place-content-center",
+          "data-hovered:bg-sidebar-accent-bg data-hovered:text-sidebar-accent-fg text-sidebar-accent-fg",
+          "data-current:bg-sidebar-primary-bg data-current:text-sidebar-primary-fg",
+          "data-focused:outline-hidden"
+        )}
         {...props}
-        className="data-focused:outline-hidden col-span-fulldata-hovered:bg-muted data-hovered:text-secondary-fg text-muted-fg rounded-lg size-9 grid place-content-center"
       >
-        {Icon && <Icon data-slot="icon" />}
-        <span className="sr-only">{children as string}</span>
+        {(values) => (
+          <>
+            {Icon && <Icon data-slot="icon" />}
+            <span className="sr-only">{typeof children === "function" ? children(values) : children}</span>
+          </>
+        )}
       </Link>
       <Tooltip.Content intent="inverse" showArrow={false} placement="right">
         {children as string}
@@ -266,6 +291,7 @@ const Item = ({ isCurrent, children, className, icon: Icon, ...props }: ItemProp
     </Tooltip>
   ) : (
     <Link
+      isDisabled={isCurrent}
       data-slot="sidebar-item"
       aria-current={isCurrent ? "page" : undefined}
       className={composeRenderProps(className, (className, renderProps) =>
@@ -284,7 +310,10 @@ const Item = ({ isCurrent, children, className, icon: Icon, ...props }: ItemProp
           <span className="col-start-2 group-data-[collapsible=dock]:hidden">
             {typeof children === "function" ? children(values) : children}
             {props.badge && (
-              <div className="bdx h-[1.30rem] px-1 rounded-md text-muted-fg text-xs font-medium ring-1 ring-fg/20 grid place-content-center w-auto inset-y-1/2 -translate-y-1/2 absolute right-1.5 bg-fg/[0.02] dark:bg-fg/10">
+              <div
+                data-slot="sidebar-badge"
+                className="h-[1.30rem] px-1 rounded-md text-muted-fg text-xs font-medium ring-1 ring-fg/20 grid place-content-center w-auto inset-y-1/2 -translate-y-1/2 absolute right-1.5 bg-fg/[0.02] dark:bg-fg/10"
+              >
                 {props.badge}
               </div>
             )}
@@ -295,7 +324,7 @@ const Item = ({ isCurrent, children, className, icon: Icon, ...props }: ItemProp
   )
 }
 
-const Content = ({ className, ...props }: React.ComponentProps<"div">) => {
+const SidebarContent = ({ className, ...props }: React.ComponentProps<"div">) => {
   const { state } = useSidebar()
   return (
     <div
@@ -311,7 +340,7 @@ const Content = ({ className, ...props }: React.ComponentProps<"div">) => {
 }
 
 const navStyles = tv({
-  base: "bg-tertiary md:w-full justify-between sm:justify-start h-[3.57rem] px-4 border-b flex items-center gap-x-2",
+  base: "md:w-full justify-between sm:justify-start h-[3.57rem] px-4 border-b flex items-center gap-x-2",
   variants: {
     isSticky: {
       true: "sticky top-0 z-40"
@@ -319,15 +348,15 @@ const navStyles = tv({
   }
 })
 
-interface NavProps extends React.ComponentProps<"nav"> {
+interface SidebarNavProps extends React.ComponentProps<"nav"> {
   isSticky?: boolean
 }
 
-const Nav = ({ isSticky = false, className, ...props }: NavProps) => {
+const SidebarNav = ({ isSticky = false, className, ...props }: SidebarNavProps) => {
   return <nav data-slot="sidebar-nav" {...props} className={navStyles({ isSticky, className })} />
 }
 
-const Trigger = ({ className, onPress, ...props }: React.ComponentProps<typeof Button>) => {
+const SidebarTrigger = ({ className, onPress, ...props }: React.ComponentProps<typeof Button>) => {
   const { toggleSidebar } = useSidebar()
   return (
     <Button
@@ -353,13 +382,13 @@ const header = tv({
   base: "flex flex-col mb-2",
   variants: {
     collapsed: {
-      false: "px-5 py-4",
+      false: "px-5 py-[calc(var(--spacing)*3.9)]",
       true: "px-5 py-4 md:p-0 md:size-9 mt-1 group-data-[intent=floating]:mt-2 md:rounded-lg md:hover:bg-muted md:mx-auto md:justify-center md:items-center"
     }
   }
 })
 
-const Header = ({ className, ...props }: React.HtmlHTMLAttributes<HTMLDivElement>) => {
+const SidebarHeader = ({ className, ...props }: React.HtmlHTMLAttributes<HTMLDivElement>) => {
   const { state } = React.useContext(SidebarContext)!
   return (
     <div
@@ -376,14 +405,14 @@ const footer = tv({
   variants: {
     collapsed: {
       false: [
-        "p-2 [&_[data-slot=menu-trigger]>[data-slot=avatar]]:-ml-1.5 **:data-[slot=menu-trigger]:w-full data-hovered:**:data-[slot=menu-trigger]:bg-muted **:data-[slot=menu-trigger]:justify-start **:data-[slot=menu-trigger]:flex **:data-[slot=menu-trigger]:items-center"
+        "p-2 **:data-[slot=menu-trigger]:*:data-[slot=avatar]:-ml-1.5 **:data-[slot=menu-trigger]:w-full data-hovered:**:data-[slot=menu-trigger]:bg-muted **:data-[slot=menu-trigger]:justify-start **:data-[slot=menu-trigger]:flex **:data-[slot=menu-trigger]:items-center"
       ],
       true: "size-12 p-1 **:data-[slot=menu-trigger]:size-9 justify-center items-center"
     }
   }
 })
 
-const Footer = ({ className, ...props }: React.HtmlHTMLAttributes<HTMLDivElement>) => {
+const SidebarFooter = ({ className, ...props }: React.HtmlHTMLAttributes<HTMLDivElement>) => {
   const { state } = React.useContext(SidebarContext)!
   return (
     <div
@@ -403,7 +432,7 @@ interface CollapsibleProps extends DisclosureProps {
   icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>
 }
 
-const Section = ({ title, className, collapsible, icon: Icon, defaultExpanded, ...props }: CollapsibleProps) => {
+const SidebarSection = ({ title, className, collapsible, icon: Icon, defaultExpanded, ...props }: CollapsibleProps) => {
   const { state, isMobile } = useSidebar()
 
   const isExpanded = state === "collapsed" || (title ? (collapsible ? (defaultExpanded ?? true) : true) : true)
@@ -435,15 +464,15 @@ const Section = ({ title, className, collapsible, icon: Icon, defaultExpanded, .
                   slot="trigger"
                   className={({ isHovered }) =>
                     cn(
-                      "w-full data-focused:outline-hidden flex leading-6 items-center justify-between [&>.idctr]:size-6 [&>.idctr]:duration-200",
+                      "w-full data-focused:outline-hidden flex leading-6 items-center justify-between *:data-[slot=chevron]:size-6 *:data-[slot=chevron]:duration-200",
                       Icon
-                        ? "text-fg lg:text-sm py-2 lg:py-1.5 px-3 [&_.idctr]:text-muted-fg has-[.idctr]:pr-0.5"
-                        : "text-sm text-muted-fg py-2 px-3 has-[.idctr]:pr-0",
+                        ? "text-fg lg:text-sm py-2 lg:py-1.5 px-3 **:data-[slot=chevron]::text-muted-fg has-[[data-slot=chevron]]:pr-0.5"
+                        : "text-sm text-muted-fg py-2 px-3 has-[[data-slot=chevron]]:pr-0",
                       isHovered &&
                         Icon &&
-                        "bg-muted text-secondary-fg [&_.text-muted-fg]:text-secondary-fg/80 *:data-[slot=icon]:shrink-0 items-center *:data-[slot=icon]:text-muted-fg relative rounded-lg lg:text-sm leading-6",
-                      isExpanded && !Icon && "*:[.idctr]:rotate-180",
-                      isExpanded && Icon && "*:[.idctr]:rotate-90"
+                        "bg-sidebar-accent-bg text-sidebar-accent-fg **:[.text-muted-fg]:text-sidebar-accent-fg/80 *:data-[slot=icon]:shrink-0 items-center *:data-[slot=icon]:text-muted-fg relative rounded-lg lg:text-sm leading-6",
+                      isExpanded && !Icon && "*:data-[slot=chevron]:rotate-180",
+                      isExpanded && Icon && "*:data-[slot=chevron]:rotate-90"
                     )
                   }
                 >
@@ -451,8 +480,8 @@ const Section = ({ title, className, collapsible, icon: Icon, defaultExpanded, .
                     {Icon && <Icon data-slot="icon" />}
                     {title}
                   </span>
-                  {Icon && <IconChevronRight className="idctr" />}
-                  {!Icon && <IconChevronDown className="idctr" />}
+                  {Icon && <IconChevronRight data-slot="chevron" />}
+                  {!Icon && <IconChevronDown data-slot="chevron" />}
                 </ButtonPrimitive>
               ) : (
                 <h4 className="text-sm text-muted-fg px-3 py-2">{title}</h4>
@@ -478,7 +507,7 @@ const Section = ({ title, className, collapsible, icon: Icon, defaultExpanded, .
   )
 }
 
-const Rail = ({ className, ...props }: React.ComponentProps<"button">) => {
+const SidebarRail = ({ className, ...props }: React.ComponentProps<"button">) => {
   const { toggleSidebar } = useSidebar()
 
   return (
@@ -492,7 +521,7 @@ const Rail = ({ className, ...props }: React.ComponentProps<"button">) => {
         "absolute inset-y-0 z-20 hidden w-4 -translate-x-1/2 transition-all ease-linear after:absolute after:inset-y-0 after:left-1/2 after:w-[2px]data-hovered:after:bg-transparent group-data-[side=left]:-right-4 group-data-[side=right]:left-0 sm:flex",
         "in-data-[side=left]:cursor-w-resize in-data-[side=right]:cursor-e-resize",
         "[[data-side=left][data-state=collapsed]_&]:cursor-e-resize [[data-side=right][data-state=collapsed]_&]:cursor-w-resize",
-        "group-data-[collapsible=offcanvas]:translate-x-0 group-data-[collapsible=offcanvas]:after:left-full group-data-[collapsible=offcanvas]:hover:bg-tertiary",
+        "group-data-[collapsible=offcanvas]:translate-x-0 group-data-[collapsible=offcanvas]:after:left-full group-data-[collapsible=offcanvas]:hover:bg-secondary",
         "[[data-side=left][data-collapsible=offcanvas]_&]:-right-2",
         "[[data-side=right][data-collapsible=offcanvas]_&]:-left-2",
         className
@@ -502,15 +531,17 @@ const Rail = ({ className, ...props }: React.ComponentProps<"button">) => {
   )
 }
 
-Sidebar.Provider = Provider
-Sidebar.Inset = Inset
-Sidebar.Header = Header
-Sidebar.Nav = Nav
-Sidebar.Content = Content
-Sidebar.Footer = Footer
-Sidebar.Item = Item
-Sidebar.Section = Section
-Sidebar.Rail = Rail
-Sidebar.Trigger = Trigger
-
-export { Sidebar, useSidebar }
+export {
+  Sidebar,
+  SidebarProvider,
+  SidebarInset,
+  SidebarHeader,
+  SidebarNav,
+  SidebarContent,
+  SidebarFooter,
+  SidebarItem,
+  SidebarSection,
+  SidebarRail,
+  SidebarTrigger,
+  useSidebar
+}

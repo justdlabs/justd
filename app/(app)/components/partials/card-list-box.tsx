@@ -38,6 +38,7 @@ const groupByCategory = (data: any[]): GroupedComponents => {
     return acc
   }, {})
 }
+
 export const groupedComponents = groupByCategory(docs.sort((a, b) => a.order - b.order))
 
 export function CardListBox() {

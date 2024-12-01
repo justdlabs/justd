@@ -2,9 +2,8 @@
 
 import { siteConfig } from "@/resources/config/site"
 import { IconBrandJustd, IconCube, IconStar } from "justd-icons"
-import Link from "next/link"
 import { Header } from "react-aria-components"
-import { buttonStyles, Container } from "ui"
+import { buttonStyles, Container, Link } from "ui"
 
 export function Hero() {
   return (
@@ -65,7 +64,7 @@ export function Hero() {
             </p>
           </Header>
 
-          <div className="mt-6 space-x-2">
+          <div className="mt-6 flex items-center gap-x-2">
             <Link
               className={buttonStyles({
                 size: "large"

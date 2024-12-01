@@ -19,7 +19,7 @@ import { Card, Toolbar } from "ui"
 
 export function ToolbarBlock() {
   return (
-    <Card className="px-4 py-8 bg-tertiary">
+    <Card className="px-4 py-8 bg-secondary">
       <div className="flex justify-center gap-2">
         <Toolbar aria-label="Toolbars" className="flex justify-between">
           <Toolbar.Group aria-label="Actions">

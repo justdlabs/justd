@@ -25,16 +25,51 @@ import {
   IconWindow
 } from "justd-icons"
 import { usePathname } from "next/navigation"
-import { Avatar, Button, Link, Menu, Modal, Sidebar, useSidebar } from "ui"
+import {
+  Avatar,
+  Button,
+  Link,
+  Menu,
+  Modal,
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarHeader,
+  SidebarItem as SidebarItemPrimitive,
+  SidebarRail,
+  SidebarSection,
+  useSidebar
+} from "ui"
 
 export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
   const { theme, setTheme } = useTheme()
   const { state } = useSidebar()
   const collapsed = state === "collapsed"
+
   const pathname = usePathname()
+  let intent: "sidebar" | "floating" | "inset"
+  let collapsible: "offcanvas" | "dock" | "none"
+  switch (pathname) {
+    case "/blocks/sidebar/sidebar-02":
+      intent = "inset"
+      collapsible = "dock"
+      break
+    case "/blocks/sidebar/sidebar-03":
+      intent = "floating"
+      collapsible = "dock"
+      break
+    case "/blocks/sidebar/sidebar-05":
+      intent = "sidebar"
+      collapsible = "dock"
+      break
+    default:
+      intent = "sidebar"
+      collapsible = "offcanvas"
+      break
+  }
   return (
-    <Sidebar {...props}>
-      <Sidebar.Header>
+    <Sidebar collapsible={collapsible} intent={intent} {...props}>
+      <SidebarHeader>
         <Link
           className="flex items-center group-data-[collapsible=dock]:size-10 group-data-[collapsible=dock]:justify-center gap-x-2"
           href="/docs/components/layouts/sidebar"
@@ -42,9 +77,9 @@ export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
           <IconBrandApple className="size-5" />
           <strong className="font-medium group-data-[collapsible=dock]:hidden">Apple</strong>
         </Link>
-      </Sidebar.Header>
-      <Sidebar.Content>
-        <Sidebar.Section>
+      </SidebarHeader>
+      <SidebarContent>
+        <SidebarSection>
           <SidebarItem icon={IconDashboard} href="/blocks/sidebar/sidebar-01">
             Overview
           </SidebarItem>
@@ -60,41 +95,41 @@ export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
           <SidebarItem icon={IconMessage} href="/blocks/sidebar/sidebar-05" badge={35}>
             Messages
           </SidebarItem>
-        </Sidebar.Section>
+        </SidebarSection>
 
         {pathname === "/blocks/sidebar/sidebar-06" && (
           <>
-            <Sidebar.Section icon={IconGlobe} collapsible title="Sites">
-              <Sidebar.Item isCurrent icon={IconPlus} href="#">
+            <SidebarSection icon={IconGlobe} collapsible title="Sites">
+              <SidebarItem isCurrent icon={IconPlus} href="#">
                 New site
-              </Sidebar.Item>
-              <Sidebar.Item icon={IconWindow} href="#">
+              </SidebarItem>
+              <SidebarItem icon={IconWindow} href="#">
                 List Sites
-              </Sidebar.Item>
-            </Sidebar.Section>
+              </SidebarItem>
+            </SidebarSection>
 
-            <Sidebar.Section defaultExpanded={false} icon={IconPersonAdd} collapsible title="Team">
-              <Sidebar.Item icon={IconPeople} href="#">
+            <SidebarSection defaultExpanded={false} icon={IconPersonAdd} collapsible title="Team">
+              <SidebarItem icon={IconPeople} href="#">
                 Team Overview
-              </Sidebar.Item>
-              <Sidebar.Item icon={IconPersonAdd} href="#">
+              </SidebarItem>
+              <SidebarItem icon={IconPersonAdd} href="#">
                 Add New Member
-              </Sidebar.Item>
-              <Sidebar.Item icon={IconCirclePerson} href="#">
+              </SidebarItem>
+              <SidebarItem icon={IconCirclePerson} href="#">
                 Manage Roles
-              </Sidebar.Item>
-            </Sidebar.Section>
+              </SidebarItem>
+            </SidebarSection>
           </>
         )}
         {pathname !== "/blocks/sidebar/sidebar-06" && (
           <>
-            <Sidebar.Section collapsible title="Projects">
-              <Sidebar.Item icon={IconCube} href="#">
+            <SidebarSection collapsible title="Projects">
+              <SidebarItem icon={IconCube} href="#">
                 All Projects
-              </Sidebar.Item>
+              </SidebarItem>
               {pathname === "/blocks/sidebar/sidebar-05" ? (
                 <Modal>
-                  <Sidebar.Item icon={IconPlus}>Create New Project</Sidebar.Item>
+                  <SidebarItem icon={IconPlus}>Create New Project</SidebarItem>
                   <Modal.Content>
                     <Modal.Header title="New Project" />
                     <Modal.Footer>
@@ -103,32 +138,32 @@ export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
                   </Modal.Content>
                 </Modal>
               ) : (
-                <Sidebar.Item icon={IconPlus} href="#">
+                <SidebarItem icon={IconPlus} href="#">
                   Create New Project
-                </Sidebar.Item>
+                </SidebarItem>
               )}
-              <Sidebar.Item icon={IconArchive} href="#">
+              <SidebarItem icon={IconArchive} href="#">
                 Archived Projects
-              </Sidebar.Item>
-            </Sidebar.Section>
+              </SidebarItem>
+            </SidebarSection>
 
             {pathname !== "/blocks/sidebar/sidebar-05" && (
-              <Sidebar.Section collapsible title="Team">
-                <Sidebar.Item icon={IconPeople} href="#">
+              <SidebarSection collapsible title="Team">
+                <SidebarItem icon={IconPeople} href="#">
                   Team Overview
-                </Sidebar.Item>
-                <Sidebar.Item icon={IconPersonAdd} href="#">
+                </SidebarItem>
+                <SidebarItem icon={IconPersonAdd} href="#">
                   Add New Member
-                </Sidebar.Item>
-                <Sidebar.Item icon={IconCirclePerson} href="#">
+                </SidebarItem>
+                <SidebarItem icon={IconCirclePerson} href="#">
                   Manage Roles
-                </Sidebar.Item>
-              </Sidebar.Section>
+                </SidebarItem>
+              </SidebarSection>
             )}
           </>
         )}
-      </Sidebar.Content>
-      <Sidebar.Footer className="lg:flex lg:flex-row hidden items-center">
+      </SidebarContent>
+      <SidebarFooter className="lg:flex lg:flex-row hidden items-center">
         <Menu>
           <Button appearance="plain" aria-label="Profile" data-slot="menu-trigger" className="group">
             <Avatar size="small" shape="square" src="/images/sidebar/profile-slash.jpg" />
@@ -165,13 +200,13 @@ export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
             </Menu.Item>
           </Menu.Content>
         </Menu>
-      </Sidebar.Footer>
-      {pathname !== "/blocks/sidebar/sidebar-02" && <Sidebar.Rail />}
+      </SidebarFooter>
+      {pathname !== "/blocks/sidebar/sidebar-02" && <SidebarRail />}
     </Sidebar>
   )
 }
 
-function SidebarItem({ icon: Icon, ...props }: React.ComponentProps<typeof Sidebar.Item>) {
+function SidebarItem({ icon: Icon, ...props }: React.ComponentProps<typeof SidebarItemPrimitive>) {
   const pathname = usePathname()
-  return <Sidebar.Item isCurrent={pathname === props.href} icon={Icon} {...props} />
+  return <SidebarItemPrimitive isCurrent={pathname === props.href} icon={Icon} {...props} />
 }

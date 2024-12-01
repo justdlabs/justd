@@ -1,30 +1,41 @@
 import { IconCreditCard, IconShoppingBag } from "justd-icons"
-import { Sidebar } from "ui"
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarHeader,
+  SidebarInset,
+  SidebarItem,
+  SidebarNav,
+  SidebarProvider,
+  SidebarRail,
+  SidebarSection
+} from "ui"
 
 export default function SidebarAnatomy() {
   return (
-    <Sidebar.Provider>
+    <SidebarProvider>
       <Sidebar>
-        <Sidebar.Header>
-          <Sidebar.Nav isSticky />
-        </Sidebar.Header>
-        <Sidebar.Content>
-          <Sidebar.Section>
-            <Sidebar.Item />
-            <Sidebar.Item />
-          </Sidebar.Section>
-          <Sidebar.Section title="Projects">
-            <Sidebar.Item icon={IconShoppingBag} />
-            <Sidebar.Item icon={IconCreditCard} />
-          </Sidebar.Section>
-          <Sidebar.Section collapsible title="Team">
-            <Sidebar.Item />
-          </Sidebar.Section>
-        </Sidebar.Content>
-        <Sidebar.Footer />
-        <Sidebar.Rail />
+        <SidebarHeader>
+          <SidebarNav isSticky />
+        </SidebarHeader>
+        <SidebarContent>
+          <SidebarSection>
+            <SidebarItem />
+            <SidebarItem />
+          </SidebarSection>
+          <SidebarSection title="Projects">
+            <SidebarItem icon={IconShoppingBag} />
+            <SidebarItem icon={IconCreditCard} />
+          </SidebarSection>
+          <SidebarSection collapsible title="Team">
+            <SidebarItem />
+          </SidebarSection>
+        </SidebarContent>
+        <SidebarFooter />
+        <SidebarRail />
       </Sidebar>
-      <Sidebar.Inset>{/* your main content */}</Sidebar.Inset>
-    </Sidebar.Provider>
+      <SidebarInset>{/* your main content */}</SidebarInset>
+    </SidebarProvider>
   )
 }
