@@ -35,7 +35,7 @@ const table = tv({
   slots: {
     root: "table **:data-drop-target:border **:data-drop-target:border-primary w-full caption-bottom border-spacing-0 text-sm outline-hidden",
     header: "border-b x32",
-    row: "tr group relative cursor-default border-b text-fg/70 outline-hidden ring-primary data-focused:ring-0 data-focus-visible:ring-1 data-selected:bg-accent-subtle data-selected:data-hovered:bg-accent-subtle/50 dark:data-selected:data-hovered:bg-accent-subtle/60",
+    row: "tr group relative cursor-default border-b text-fg/70 outline-hidden ring-primary data-focused:ring-0 data-focus-visible:ring-1 data-selected:bg-subtle data-selected:data-hovered:bg-subtle/50 dark:data-selected:data-hovered:bg-subtle/60",
     cellIcon:
       "flex-none rounded bg-secondary text-fg *:data-[slot=icon]:shrink-0 *:data-[slot=icon]:size-3.5 *:data-[slot=icon]:transition-transform *:data-[slot=icon]:duration-200 size-[1.15rem] grid place-content-center shrink-0",
     columnResizer: [
@@ -91,7 +91,7 @@ const ColumnResizer = ({ className, ...props }: ColumnResizerProps) => (
 )
 
 const Body = <T extends object>(props: TableBodyProps<T>) => (
-  <TableBody {...props} className={cn("[&_.tr:last-child]:border-0")} />
+  <TableBody data-slot="table-body" {...props} className={cn("[&_.tr:last-child]:border-0")} />
 )
 
 interface TableCellProps extends CellProps {
@@ -109,7 +109,7 @@ const cellStyles = tv({
 const TableCell = ({ children, className, ...props }: TableCellProps) => {
   const { allowResize } = useTableContext()
   return (
-    <Cell {...props} className={cellStyles({ allowResize, className })}>
+    <Cell data-slot="table-cell" {...props} className={cellStyles({ allowResize, className })}>
       {children}
     </Cell>
   )
@@ -132,6 +132,7 @@ interface TableColumnProps extends ColumnProps {
 const TableColumn = ({ isResizable = false, className, ...props }: TableColumnProps) => {
   return (
     <Column
+      data-slot="table-column"
       {...props}
       className={columnStyles({
         isResizable,
@@ -164,7 +165,7 @@ interface HeaderProps<T extends object> extends TableHeaderProps<T> {
 const Header = <T extends object>({ children, className, columns, ...props }: HeaderProps<T>) => {
   const { selectionBehavior, selectionMode, allowsDragging } = useTableOptions()
   return (
-    <TableHeader {...props} className={header({ className })}>
+    <TableHeader data-slot="table-header" {...props} className={header({ className })}>
       {allowsDragging && <Column className="w-0" />}
       {selectionBehavior === "toggle" && (
         <Column className="pl-4 w-0">{selectionMode === "multiple" && <Checkbox slot="selection" />}</Column>
@@ -182,6 +183,7 @@ const TableRow = <T extends object>({ children, className, columns, id, ...props
   const { selectionBehavior, allowsDragging } = useTableOptions()
   return (
     <Row
+      data-slot="table-row"
       id={id}
       {...props}
       className={row({

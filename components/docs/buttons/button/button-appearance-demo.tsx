@@ -4,7 +4,7 @@ import { IconDashboard } from "justd-icons"
 import title from "title"
 import { Button, buttonStyles } from "ui"
 
-type Appearance = keyof typeof buttonStyles.variants.appearance
+export type Appearance = keyof typeof buttonStyles.variants.appearance
 
 export default function ButtonAppearanceDemo() {
   return (

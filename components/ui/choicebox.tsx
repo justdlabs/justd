@@ -64,11 +64,11 @@ const choiceboxItemStyles = tv({
   base: "rounded-lg cursor-pointer border p-4 [&_[slot=title]]:font-medium",
   variants: {
     isHovered: {
-      true: "bg-secondary/50"
+      true: "bg-secondary/30"
     },
     isSelected: {
       true: [
-        "z-20 bg-subtle border-ring/75",
+        "z-20 bg-subtle/20 hover:bg-subtle/50 border-ring/75",
         "[&_[slot=title]]:text-subtle-fg",
         "[&_[slot=description]]:text-subtle-fg/70"
       ],

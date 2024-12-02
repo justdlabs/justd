@@ -46,9 +46,9 @@ export function DocComposed({ components, text }: { components: string[]; text?:
                 aria-label={`Open ${item.title}`}
                 rel="noopener noreferrer"
                 href={`/${item.slug}`}
-                className="absolute inset-0 rounded-lg size-full"
+                className="absolute inset-0 peer rounded-lg size-full"
               />
-              <Card className="overflow-hidden hover:bg-secondary/40 data-focused:bg-secondary/40 transition-colors">
+              <Card className="overflow-hidden peer-data-hovered:bg-secondary/40 peer-data-focused:bg-secondary/40 transition-colors">
                 <Card.Header className="p-4">
                   <Card.Title className="sm:text-lg text-base line-clamp-1 font-medium">{item.title}</Card.Title>
                   <Card.Description className="line-clamp-2 sm:text-sm text-xs">{item.description}</Card.Description>

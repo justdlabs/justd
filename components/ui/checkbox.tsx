@@ -50,13 +50,13 @@ const boxStyles = tv({
     isSelected: {
       false: "bg-secondary/40",
       true: [
-        "border-primary/70 bg-primary text-primary-fg",
+        "border-primary bg-primary text-primary-fg",
         "group-data-invalid:border-danger/70 group-data-invalid:bg-danger group-data-invalid:text-danger-fg"
       ]
     },
     isFocused: {
       true: [
-        "border-primary/70 ring-4 ring-primary/20",
+        "border-primary ring-4 ring-primary/20",
         "group-data-invalid:border-danger/70 group-data-invalid:text-danger-fg group-data-invalid:ring-danger/20"
       ]
     },

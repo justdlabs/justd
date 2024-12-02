@@ -7,7 +7,7 @@ import { Carousel } from "ui"
 
 export default function CarouselDemo() {
   return (
-    <Carousel className="w-full [&_.xrkr]:h-56 [&_.xrkr]:overflow-hidden [&_.xrkr]:flex [&_.xrkr]:flex-col max-w-xs">
+    <Carousel className="w-full **:data-[slot=card]:h-56 **:data-[slot=card]:overflow-hidden **:data-[slot=card]:flex **:data-[slot=card]:flex-col max-w-xs">
       <Carousel.Content>
         <Carousel.Item className="basis-1/2">
           <Image className="rounded-xl" src="/slides/slide-1.jpg" alt="image 1" width={400} height={300} />

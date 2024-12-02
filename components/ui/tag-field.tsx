@@ -143,7 +143,7 @@ const TagField = ({
                 items={list.items}
                 className={twJoin(
                   list.items.length !== 0 ? appearance === "outline" && "py-1.5 px-1 gap-1.5" : "gap-0",
-                  props.shape === "square" && "[&_.jdt3lr2x]:rounded-[calc(var(--radius)-4px)]",
+                  props.shape === "square" && "[&_.jdt3lr2x]:rounded-[calc(var(--radius-lg)-4px)]",
                   "[&_.jdt3lr2x]:cursor-default [&_.jdt3lr2x]:last:-mr-1 outline-hidden"
                 )}
               >

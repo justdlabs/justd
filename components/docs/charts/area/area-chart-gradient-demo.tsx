@@ -14,7 +14,7 @@ const salesData = Array.from({ length: 24 }, (_, index) => {
   }
 })
 
-const salesConfig = {
+const chartConfig = {
   online: {
     label: "Online Sales",
     color: "var(--chart-1)"
@@ -31,10 +31,10 @@ export default function AreaChartGradientDemo() {
       <Card.Header
         title="Sales Channel Analysis"
         description="Monthly comparison of online and in-store sales over the last 24 months"
-        className="items-center pb-0"
+        className="items-center pb-4"
       />
       <Card.Content>
-        <Chart config={salesConfig}>
+        <Chart config={chartConfig} className="w-full max-h-[250px]">
           <AreaChart
             accessibilityLayer
             data={salesData}

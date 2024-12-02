@@ -21,7 +21,7 @@ export function ColorItem({ color }: { color: keyof typeof colors }) {
   const [selectedFormat, setSelectedFormat] = React.useState<Selection>(new Set(["oklch"]))
   const [copiedShade, setCopiedShade] = React.useState<string | null>(null)
 
-  const handleCopy = (color: string, colorName: string, shade: string) => {
+  const handleCopy = (color: string, shade: string) => {
     const _selectedFormat = [...selectedFormat].join(", ")
 
     let formattedColor: string = color
@@ -74,7 +74,7 @@ export function ColorItem({ color }: { color: keyof typeof colors }) {
         {Object.entries(colors[color]).map(([shade, colorValue]) => (
           <ListBoxItem
             textValue={colorValue}
-            onAction={() => handleCopy(colorValue, color, shade)}
+            onAction={() => handleCopy(colorValue, shade)}
             key={colorValue?.toString()}
             className="flex relative group cursor-pointer focus:outline-hidden min-w-10 inset-shadow-xs inset-shadow-white/15 data-focused:ring-white/25 ring-inset ring-1 ring-white/10 items-end text-xs font-mono justify-center p-2 gap-x-2 w-1/7 sm:w-full rounded-lg h-20 *:data-[slot=icon]:absolute *:data-[slot=icon]:top-3 *:data-[slot=icon]:opacity-90 *:data-[slot=icon]:size-3.5 *:data-[slot=icon]:mx-auto *:data-[slot=icon]:group-data-focus-visible:block *:data-[slot=icon]:group-data-hovered:block *:data-[slot=icon]:hidden"
             style={{

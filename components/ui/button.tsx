@@ -67,7 +67,7 @@ const buttonStyles = tv({
     shape: {
       square:
         "rounded-lg before:rounded-[calc(var(--radius-lg)-1px)] after:rounded-[calc(var(--radius-lg)-1px)] dark:after:rounded-lg",
-      circle: "rounded-[9999px] before:rounded-[9998px] after:rounded-[9998px] dark:after:rounded-[9999px]"
+      circle: "rounded-full before:rounded-full after:rounded-full"
     },
     isDisabled: {
       false: "forced-colors:data-disabled:text-[GrayText] cursor-pointer",

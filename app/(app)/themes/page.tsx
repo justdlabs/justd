@@ -1,7 +1,8 @@
-import { Themes } from "@/app/(app)/themes/themes"
 import { Header } from "@/components/header"
 import { siteConfig } from "@/resources/config/site"
 import type { Metadata } from "next"
+
+import { ThemeContainer } from "./partials/theme-container"
 
 export default function Page() {
   return (
@@ -10,7 +11,7 @@ export default function Page() {
         <span className="text-fg">Them</span>
         <span className="text-muted-fg">es</span>
       </Header>
-      <Themes />
+      <ThemeContainer />
     </div>
   )
 }

@@ -19,17 +19,17 @@ const cellRangeStyles = tv({
   base: "flex h-full w-full items-center tabular-nums justify-center rounded-full forced-color-adjust-none",
   variants: {
     selectionState: {
-      none: "group-hover:bg-secondary-fg/15 group-data-pressed:bg-secondary-fg/20 forced-colors:group-data-pressed:bg-[Highlight]",
+      none: "group-data-hovered:bg-secondary-fg/15 group-data-pressed:bg-secondary-fg/20 forced-colors:group-data-pressed:bg-[Highlight]",
       middle: [
-        "group-hover:bg-primary/20 forced-colors:group-hover:bg-[Highlight]",
-        "group-data-invalid:group-hover:bg-red-200 group-data-invalid:text-red-500 dark:group-data-invalid:group-hover:bg-red-900 forced-colors:group-data-invalid:group-hover:bg-[Mark]",
-        "group-data-pressed:bg-primary forced-colors:text-[HighlightText] forced-colors:group-data-pressed:bg-[Highlight]",
-        "group-data-invalid:group-data-pressed:bg-red-300 dark:group-data-invalid:group-data-pressed:bg-red-800 forced-colors:group-data-invalid:group-data-pressed:bg-[Mark]"
+        "group-data-hovered:bg-subtle forced-colors:group-data-hovered:bg-[Highlight]",
+        "group-data-pressed:bg-subtle forced-colors:text-[HighlightText] forced-colors:group-data-pressed:bg-[Highlight]",
+        "group-data-invalid:group-data-pressed:bg-red-300 dark:group-data-invalid:group-data-pressed:bg-red-800 forced-colors:group-data-invalid:group-data-pressed:bg-[Mark]",
+        "group-data-invalid:group-data-hovered:bg-red-200 group-data-invalid:text-red-500 dark:group-data-invalid:group-data-hovered:bg-red-900 forced-colors:group-data-invalid:group-data-hovered:bg-[Mark]"
       ],
       cap: "bg-primary text-primary-fg group-data-invalid:bg-danger group-data-invalid:text-danger-fg forced-colors:bg-[Highlight] forced-colors:text-[HighlightText] forced-colors:group-data-invalid:bg-[Mark]"
     },
     isDisabled: {
-      true: "text-muted-fg/70 forced-colors:text-[GrayText]"
+      true: "opacity-50 forced-colors:text-[GrayText]"
     }
   }
 })
@@ -52,10 +52,11 @@ const RangeCalendar = <T extends DateValue>({ errorMessage, className, ...props 
             <CalendarCell
               date={date}
               className={twJoin([
-                "group size-10 lg:size-9 cursor-default lg:text-sm outline outline-0 outside-month:text-zinc-300 selection-start:rounded-s-full selection-end:rounded-e-full forced-colors:selected:bg-[Highlight] forced-colors:invalid:selected:bg-[Mark]",
-                "selected:bg-primary/10 dark:selected:bg-primary/15 selected:text-primary forced-colors:selected:text-[HighlightText]",
+                "group size-10 lg:size-9 cursor-default lg:text-sm outline outline-0 outside-month:text-muted-fg data-selection-start:rounded-s-full data-selection-end:rounded-e-full",
+                "data-selected:bg-subtle/70 dark:data-selected:bg-subtle/35 data-selected:text-subtle-fg",
                 "[td:first-child_&]:rounded-s-full [td:last-child_&]:rounded-e-full",
-                "invalid:selected:bg-red-100 dark:invalid:selected:bg-red-700/30"
+                "data-invalid:data-selected:bg-red-100 dark:data-invalid:data-selected:bg-red-700/30",
+                "forced-colors:data-selected:bg-[Highlight] forced-colors:data-selected:text-[HighlightText] forced-colors:data-invalid:data-selected:bg-[Mark]"
               ])}
             >
               {({ formattedDate, isSelected, isSelectionStart, isSelectionEnd, ...renderProps }) => (

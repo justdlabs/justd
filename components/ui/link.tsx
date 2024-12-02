@@ -14,11 +14,8 @@ const linkStyles = tv({
   variants: {
     intent: {
       unstyled: "text-current",
-      primary: "text-primary data-hovered:text-primary/80 forced-colors:data-disabled:text-[GrayText]",
-      danger: "text-danger data-hovered:text-danger/80 forced-colors:data-disabled:text-[GrayText]",
-      "lad/primary":
-        "text-fg data-hovered:text-primary dark:hover:text-primary/80 forced-colors:data-disabled:text-[GrayText]",
-      secondary: "text-secondary-fg data-hovered:text-secondary-fg/80"
+      primary: "text-fg data-hovered:underline forced-colors:data-disabled:text-[GrayText]",
+      secondary: "text-muted-fg data-hovered:text-secondary-fg forced-colors:data-disabled:text-[GrayText]"
     }
   },
   defaultVariants: {
@@ -27,7 +24,7 @@ const linkStyles = tv({
 })
 
 interface LinkProps extends LinkPrimitiveProps {
-  intent?: "primary" | "secondary" | "danger" | "lad/primary" | "unstyled"
+  intent?: "primary" | "secondary" | "unstyled"
 }
 
 const Link = ({ className, ...props }: LinkProps) => {

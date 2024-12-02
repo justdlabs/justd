@@ -18,7 +18,7 @@ export default function ComboBoxAvatarDemo() {
   )
 }
 
-const users = [
+export const users = [
   { id: 1, name: "Barbara Kirlin Sr.", image_url: "https://i.pravatar.cc/150?img=1" },
   { id: 2, name: "Rosemarie Koch", image_url: "https://i.pravatar.cc/150?img=2" },
   { id: 3, name: "Mrs. Reva Heaney Jr.", image_url: "https://i.pravatar.cc/150?img=3" },

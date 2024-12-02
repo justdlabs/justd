@@ -23,10 +23,11 @@ export interface CodeProps {
   lang?: string
   code: string
   withImportCopy?: boolean
+  withCopy?: boolean
   className?: string
 }
 
-function Code({ title, icon: Icon, className, lang = "tsx", code, withImportCopy = true }: CodeProps) {
+function Code({ title, icon: Icon, className, lang = "tsx", code, withCopy = true, withImportCopy = true }: CodeProps) {
   const [copied, setCopied] = React.useState<string>("")
 
   function copyImportsToClipboard(): void {
@@ -56,7 +57,7 @@ function Code({ title, icon: Icon, className, lang = "tsx", code, withImportCopy
       )}
       <div className="relative">
         <div className="absolute cpybtn top-3 right-0 mr-3 z-20 flex gap-1.5 justify-end">
-          {withImportCopy && (
+          {withImportCopy && withCopy && (
             <CopyButton
               ariaLabel="Copy imports statement"
               initialIcon={<IconCircleInfo />}
@@ -64,9 +65,9 @@ function Code({ title, icon: Icon, className, lang = "tsx", code, withImportCopy
               onPress={copyImportsToClipboard}
             />
           )}
-          <CopyRawButton code={code} />
+          {withCopy && <CopyRawButton code={code} />}
         </div>
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto code">
           <CodeHighlighter lang={lang} code={code} />
         </div>
       </div>

@@ -3,13 +3,8 @@
 import * as React from "react"
 
 import { IconCheck, IconHamburger } from "justd-icons"
-import {
-  composeRenderProps,
-  ListBox as ListBoxPrimitive,
-  ListBoxItem as ListBoxItemPrimitive,
-  type ListBoxItemProps as ListBoxItemPrimitiveProps,
-  type ListBoxProps as ListBoxPrimitiveProps
-} from "react-aria-components"
+import type { ListBoxItemProps, ListBoxProps as ListBoxPrimitiveProps } from "react-aria-components"
+import { composeRenderProps, ListBox as ListBoxPrimitive, ListBoxItem } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
 import { DropdownItemDetails, DropdownSection } from "./dropdown"
@@ -30,7 +25,7 @@ const ListBox = <T extends object>({ children, className, ...props }: ListBoxPro
 )
 
 const listBoxItemStyles = tv({
-  base: "lbi cursor-pointer relative rounded-[calc(var(--radius)-1px)] p-2 text-base outline-hidden lg:text-sm",
+  base: "lbi cursor-pointer relative rounded-[calc(var(--radius-lg)-1px)] p-2 text-base outline-hidden lg:text-sm",
   variants: {
     isFocusVisible: {
       true: "bg-secondary [&:focus-visible_[slot=label]]:text-accent-fg [&:focus-visible_[slot=description]]:text-accent-fg/70 text-secondary-fg"
@@ -51,15 +46,15 @@ const listBoxItemStyles = tv({
   }
 })
 
-interface ListBoxItemProps<T extends object> extends ListBoxItemPrimitiveProps<T> {
+interface ItemProps<T extends object> extends ListBoxItemProps<T> {
   className?: string
 }
 
-const ListBoxItem = <T extends object>({ children, className, ...props }: ListBoxItemProps<T>) => {
+const Item = <T extends object>({ children, className, ...props }: ItemProps<T>) => {
   const textValue = typeof children === "string" ? children : undefined
 
   return (
-    <ListBoxItemPrimitive
+    <ListBoxItem
       textValue={textValue}
       {...props}
       className={composeRenderProps(className, (className, renderProps) =>
@@ -94,7 +89,7 @@ const ListBoxItem = <T extends object>({ children, className, ...props }: ListBo
           </>
         </div>
       )}
-    </ListBoxItemPrimitive>
+    </ListBoxItem>
   )
 }
 
@@ -110,7 +105,7 @@ const Section = ({ className, ...props }: React.ComponentProps<typeof DropdownSe
 
 ListBox.Section = Section
 ListBox.ItemDetails = DropdownItemDetails
-ListBox.Item = ListBoxItem
+ListBox.Item = Item
 ListBox.Picker = ListBoxPicker
 
 export { ListBox, listBoxStyles, type ListBoxPickerProps }

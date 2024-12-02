@@ -124,8 +124,10 @@ const SheetContent = ({
       >
         {(values) => (
           <Dialog role={role} aria-label={props["aria-label"] ?? undefined} className="h-full">
-            {typeof children === "function" ? children(values) : children}
-            {closeButton && <Dialog.CloseIndicator className="top-2.5 right-2.5" isDismissable={_isDismissable} />}
+            <>
+              {typeof children === "function" ? children(values) : children}
+              {closeButton && <Dialog.CloseIndicator className="top-2.5 right-2.5" isDismissable={_isDismissable} />}
+            </>
           </Dialog>
         )}
       </Modal>

@@ -71,11 +71,11 @@ export function Navbar() {
                     >
                       Components
                     </NavLink>
-                    <NavLink isNextLink isActive={pathname === "/colors"} href="/colors">
-                      Colors
-                    </NavLink>
                     <NavLink isNextLink isActive={pathname === "/icons"} href="/icons">
                       Icons
+                    </NavLink>
+                    <NavLink isNextLink isActive={pathname === "/colors"} href="/colors">
+                      Colors
                     </NavLink>
                     <NavLink isNextLink isActive={pathname === "/themes"} href="/themes">
                       Themes

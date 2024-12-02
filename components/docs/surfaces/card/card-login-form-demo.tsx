@@ -14,7 +14,7 @@ export default function CardLoginFormDemo() {
         <TextField isRequired label="Password" isRevealable type="password" placeholder="Enter your password" />
         <div className="flex justify-between items-center">
           <Checkbox>Remember me</Checkbox>
-          <Link intent="primary" href="#">
+          <Link intent="primary" className="text-sm" href="#">
             Forgot password?
           </Link>
         </div>
