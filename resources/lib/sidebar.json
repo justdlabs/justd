@@ -600,6 +600,49 @@
         ]
       },
       {
+        "title": "Surfaces",
+        "children": [
+          {
+            "title": "Card",
+            "slug": "docs/components/surfaces/card",
+            "order": 1,
+            "children": []
+          },
+          {
+            "title": "Grid",
+            "slug": "docs/components/surfaces/grid",
+            "status": "alpha",
+            "order": 2,
+            "children": []
+          },
+          {
+            "title": "Separator",
+            "slug": "docs/components/surfaces/separator",
+            "order": 3,
+            "children": []
+          },
+          {
+            "title": "Heading",
+            "slug": "docs/components/surfaces/heading",
+            "order": 4,
+            "children": []
+          },
+          {
+            "title": "Show More",
+            "slug": "docs/components/surfaces/show-more",
+            "order": 4,
+            "children": []
+          },
+          {
+            "title": "Description List",
+            "slug": "docs/components/surfaces/description-list",
+            "status": "new",
+            "order": 6,
+            "children": []
+          }
+        ]
+      },
+      {
         "title": "Statuses",
         "children": [
           {
@@ -648,49 +691,6 @@
             "title": "Skeleton",
             "slug": "docs/components/statuses/skeleton",
             "order": 7,
-            "children": []
-          }
-        ]
-      },
-      {
-        "title": "Surfaces",
-        "children": [
-          {
-            "title": "Card",
-            "slug": "docs/components/surfaces/card",
-            "order": 1,
-            "children": []
-          },
-          {
-            "title": "Grid",
-            "slug": "docs/components/surfaces/grid",
-            "status": "alpha",
-            "order": 2,
-            "children": []
-          },
-          {
-            "title": "Separator",
-            "slug": "docs/components/surfaces/separator",
-            "order": 3,
-            "children": []
-          },
-          {
-            "title": "Heading",
-            "slug": "docs/components/surfaces/heading",
-            "order": 4,
-            "children": []
-          },
-          {
-            "title": "Show More",
-            "slug": "docs/components/surfaces/show-more",
-            "order": 4,
-            "children": []
-          },
-          {
-            "title": "Description List",
-            "slug": "docs/components/surfaces/description-list",
-            "status": "new",
-            "order": 6,
             "children": []
           }
         ]

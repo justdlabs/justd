@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import type { FilteredColors } from "@/app/(app)/colors/(colors)/color-palette"
+import colors from "@/resources/colors/colors.json"
 import { getTextColor } from "@/resources/lib/colors"
 import { formatHex, formatHsl, formatRgb, oklch, parse } from "culori"
 import { IconCheck, IconChevronLgDown, IconDuplicate } from "justd-icons"
@@ -10,17 +10,14 @@ import { toast } from "sonner"
 import { twJoin } from "tailwind-merge"
 import { Button, Menu } from "ui"
 
-const isOklch = (color: string | undefined): boolean => color?.startsWith("oklch(") ?? false
+export const isOklch = (color: string | undefined): boolean => color?.startsWith("oklch(") ?? false
 
-const toOklchString = (color: string): string => {
+export const toOklchString = (color: string): string => {
   const { l, c, h } = oklch(parse(color)) || {}
   return `oklch(${l?.toFixed(3)} ${c?.toFixed(3)} ${h?.toFixed(3)})`
 }
-interface ColorItemProps {
-  color: FilteredColors[0]
-}
 
-export function ColorItem({ color }: ColorItemProps) {
+export function ColorItem({ color }: { color: keyof typeof colors }) {
   const [selectedFormat, setSelectedFormat] = React.useState<Selection>(new Set(["oklch"]))
   const [copiedShade, setCopiedShade] = React.useState<string | null>(null)
 
@@ -68,25 +65,25 @@ export function ColorItem({ color }: ColorItemProps) {
       )}
     >
       <div className="flex justify-between mb-4 items-center">
-        <div className="font-mono text-sm uppercase">{color.name}</div>
+        <div className="font-mono text-sm uppercase">{color}</div>
         <div>
           <SelectFormat selected={selectedFormat} setSelected={setSelectedFormat} />
         </div>
       </div>
       <ListBox aria-label="Colors" orientation="horizontal" className="flex flex-wrap sm:flex-nowrap gap-2">
-        {color.children.map((child) => (
+        {Object.entries(colors[color]).map(([shade, colorValue]) => (
           <ListBoxItem
-            textValue={child.shade}
-            onAction={() => handleCopy(child.color, color.name, child.shade)}
-            key={child.shade}
+            textValue={colorValue}
+            onAction={() => handleCopy(colorValue, color, shade)}
+            key={colorValue?.toString()}
             className="flex relative group cursor-pointer focus:outline-hidden min-w-10 inset-shadow-xs inset-shadow-white/15 data-focused:ring-white/25 ring-inset ring-1 ring-white/10 items-end text-xs font-mono justify-center p-2 gap-x-2 w-1/7 sm:w-full rounded-lg h-20 *:data-[slot=icon]:absolute *:data-[slot=icon]:top-3 *:data-[slot=icon]:opacity-90 *:data-[slot=icon]:size-3.5 *:data-[slot=icon]:mx-auto *:data-[slot=icon]:group-data-focus-visible:block *:data-[slot=icon]:group-data-hovered:block *:data-[slot=icon]:hidden"
             style={{
-              color: getTextColor(child.color),
-              backgroundColor: child.color
+              color: getTextColor(colorValue),
+              backgroundColor: colorValue
             }}
           >
-            {copiedShade === child.shade ? <IconCheck /> : <IconDuplicate />}
-            {child.shade}
+            {shade}
+            {copiedShade === shade ? <IconCheck /> : <IconDuplicate />}
           </ListBoxItem>
         ))}
       </ListBox>
@@ -99,7 +96,7 @@ interface SelectedFormatProps {
   setSelected: (s: Selection) => void
 }
 
-function SelectFormat({ selected, setSelected }: SelectedFormatProps) {
+export function SelectFormat({ selected, setSelected }: SelectedFormatProps) {
   return (
     <Menu>
       <Button appearance="outline" className="uppercase w-32 justify-between font-mono">

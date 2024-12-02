@@ -37,10 +37,10 @@ const RadioGroup = ({ label, description, errorMessage, children, ...props }: Ra
 }
 
 const radioStyles = tv({
-  base: "size-4 shrink-0 rounded-full border bg-secondary transition",
+  base: "size-4 shrink-0 rounded-full border bg-secondary/30 transition",
   variants: {
     isSelected: {
-      false: "border-border",
+      false: "border-input",
       true: "border-[4.5px] border-primary"
     },
     isFocused: {

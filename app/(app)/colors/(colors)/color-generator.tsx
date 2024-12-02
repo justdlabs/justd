@@ -1,15 +1,20 @@
 import React from "react"
 
-import { ColorItem } from "@/app/(app)/colors/(colors)/color-item"
-import { getColorName } from "@/resources/lib/colors"
+import { isOklch, SelectFormat, toOklchString } from "@/app/(app)/colors/(colors)/color-item"
+import { getColorName, getTextColor } from "@/resources/lib/colors"
 import { type Color as RacColor, parseColor } from "@react-stately/color"
 import type { Color } from "culori"
-import { formatHex, interpolate, parse } from "culori"
+import { formatHex, formatHsl, formatRgb, interpolate, parse } from "culori"
+import { IconCheck, IconDuplicate } from "justd-icons"
+import { ListBox, ListBoxItem, type Selection } from "react-aria-components"
+import { toast } from "sonner"
+import { twJoin } from "tailwind-merge"
 import { ColorField, Heading } from "ui"
 
 export function ColorGenerator() {
   const [value, setValue] = React.useState(parseColor("#0D6DFD"))
-
+  const [selectedFormat, setSelectedFormat] = React.useState<Selection>(new Set(["oklch"]))
+  const [copiedShade, setCopiedShade] = React.useState<string | null>(null)
   const generateShades = (baseColor: string) => {
     const parsedBase = parse(baseColor.toString())
     if (!parsedBase) {
@@ -45,13 +50,40 @@ export function ColorGenerator() {
 
   const tailwindShades = generateShades(value.toString())
 
-  const formattedColor = {
-    name: getColorName(value.toString("hex"), false) || "Generated Color",
-    children: Object.entries(tailwindShades).map(([shade, color]) => ({
-      shade,
-      color
-    }))
+  const handleCopy = (color: string, shade: string) => {
+    const _selectedFormat = [...selectedFormat].join(", ")
+
+    let formattedColor: string = color
+    switch (_selectedFormat) {
+      case "rgb":
+        formattedColor = formatRgb(parse(color)) || color
+        break
+      case "hsl":
+        formattedColor = formatHsl(parse(color)) || color
+        break
+      case "hex":
+        formattedColor = formatHex(parse(color)) || color
+        break
+      case "oklch":
+      default:
+        formattedColor = isOklch(color) ? color : toOklchString(color) || color
+        break
+    }
+
+    navigator.clipboard.writeText(formattedColor).then(() => {
+      toast(`Copied: ${formattedColor}`)
+      setCopiedShade(shade)
+    })
   }
+
+  React.useEffect(() => {
+    if (copiedShade) {
+      const timeout = setTimeout(() => {
+        setCopiedShade(null)
+      }, 2000)
+      return () => clearTimeout(timeout)
+    }
+  }, [copiedShade])
 
   return (
     <div>
@@ -70,7 +102,38 @@ export function ColorGenerator() {
               value={value}
             />
           </div>
-          <ColorItem color={formattedColor} />
+
+          <div
+            className={twJoin(
+              "p-6",
+              "border-b last:border-b-0 lg:nth-last-2:border-b-0 lg:border-r lg:last:border-r-0",
+              "even:lg:border-r-0 even:pl-6 pb-6"
+            )}
+          >
+            <div className="flex justify-between mb-4 items-center">
+              <div className="font-mono text-sm uppercase">{getColorName(value.toString("hex"))}</div>
+              <div>
+                <SelectFormat selected={selectedFormat} setSelected={setSelectedFormat} />
+              </div>
+            </div>
+            <ListBox aria-label="Colors" orientation="horizontal" className="flex flex-wrap sm:flex-nowrap gap-2">
+              {Object.entries(tailwindShades).map(([shade, colorValue]) => (
+                <ListBoxItem
+                  textValue={colorValue}
+                  onAction={() => handleCopy(colorValue, shade)}
+                  key={colorValue?.toString()}
+                  className="flex relative group cursor-pointer focus:outline-hidden min-w-10 inset-shadow-xs inset-shadow-white/15 data-focused:ring-white/25 ring-inset ring-1 ring-white/10 items-end text-xs font-mono justify-center p-2 gap-x-2 w-1/7 sm:w-full rounded-lg h-20 *:data-[slot=icon]:absolute *:data-[slot=icon]:top-3 *:data-[slot=icon]:opacity-90 *:data-[slot=icon]:size-3.5 *:data-[slot=icon]:mx-auto *:data-[slot=icon]:group-data-focus-visible:block *:data-[slot=icon]:group-data-hovered:block *:data-[slot=icon]:hidden"
+                  style={{
+                    color: getTextColor(colorValue),
+                    backgroundColor: colorValue
+                  }}
+                >
+                  {shade}
+                  {copiedShade === shade ? <IconCheck /> : <IconDuplicate />}
+                </ListBoxItem>
+              ))}
+            </ListBox>
+          </div>
         </div>
       </div>
     </div>
