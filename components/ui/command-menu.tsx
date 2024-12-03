@@ -2,7 +2,8 @@
 
 import * as React from "react"
 
-import { Command as CommandPrimitive } from "cmdk"
+import { Loader } from "@/components/ui/loader"
+import { Command } from "cmdk"
 import { IconSearch, IconX } from "justd-icons"
 import type { ModalOverlayProps, SeparatorProps, TextProps } from "react-aria-components"
 import { Button, Dialog, Modal, ModalOverlay, Text } from "react-aria-components"
@@ -83,6 +84,7 @@ interface CommandMenuRootProps {
   CommandMenuSection?: typeof CommandMenuSection
   CommandMenuSeparator?: typeof CommandMenuSeparator
   CommandMenuDescription?: typeof CommandMenuDescription
+  CommandMenuLoading?: typeof CommandMenuLoading
 }
 
 const modalOverlay = tv({
@@ -96,6 +98,7 @@ const modalOverlay = tv({
     }
   }
 })
+
 interface CommandMenuProps extends ModalOverlayProps, CommandMenuRootProps, CommandMenuContextProps {
   children: React.ReactNode
   value?: string
@@ -133,9 +136,9 @@ const CommandMenu = ({
         <Modal className={modal({ className: classNames?.content })}>
           <Dialog className="outline-hidden" aria-label="Command Palette">
             <>
-              <CommandPrimitive value={value} onValueChange={onValueChange} className={command()}>
+              <Command value={value} onValueChange={onValueChange} className={command()}>
                 {children}
-              </CommandPrimitive>
+              </Command>
               {!hideCloseButton && (
                 <Button autoFocus={!isDesktop} slot="close" className={closeButton()}>
                   <span className="lg:block hidden">Esc</span>
@@ -153,15 +156,28 @@ const CommandMenu = ({
   )
 }
 
-type CommandMenuInputProps = React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input>
+interface CommandMenuInputProps extends React.ComponentPropsWithoutRef<typeof Command.Input> {
+  isPending?: boolean
+}
 
-const CommandMenuInput = React.forwardRef<React.ElementRef<typeof CommandPrimitive.Input>, CommandMenuInputProps>(
-  ({ className, ...props }, ref) => {
+const CommandMenuInput = React.forwardRef<React.ComponentRef<typeof Command.Input>, CommandMenuInputProps>(
+  ({ className, isPending, ...props }, ref) => {
     const { hideSearchIndicator } = React.useContext(CommandMenuContext)
     return (
       <div className="flex border-b items-center px-3">
-        {!hideSearchIndicator && <IconSearch className="mr-2 size-5 shrink-0 opacity-50" />}
-        <CommandPrimitive.Input
+        {!hideSearchIndicator && (
+          <>
+            {isPending ? (
+              <Command.Loading className="mr-2 data-[slot=icon]:size-5 data-[slot=icon]:shrink-0 opacity-50">
+                <Loader variant="spin" />
+              </Command.Loading>
+            ) : (
+              <IconSearch className="mr-2 size-5 shrink-0 opacity-50" />
+            )}
+          </>
+        )}
+
+        <Command.Input
           autoFocus
           ref={ref}
           className={input({ className: hideSearchIndicator ? "pl-1" : className })}
@@ -172,39 +188,43 @@ const CommandMenuInput = React.forwardRef<React.ElementRef<typeof CommandPrimiti
   }
 )
 
-CommandMenuInput.displayName = CommandPrimitive.Input.displayName
+CommandMenuInput.displayName = Command.Input.displayName
 
-type CommandMenuListProps = React.ComponentProps<typeof CommandPrimitive.List>
+type CommandMenuListProps = React.ComponentProps<typeof Command.List>
 
 const CommandMenuList = ({ className, ...props }: CommandMenuListProps) => {
   const { messageOnEmpty } = React.useContext(CommandMenuContext)
   return (
-    <CommandPrimitive.List className={list({ className })} {...props}>
+    <Command.List className={list({ className })} {...props}>
       {messageOnEmpty !== false && (
         <CommandMenuEmpty>{typeof messageOnEmpty === "string" ? messageOnEmpty : "No results found."}</CommandMenuEmpty>
       )}
       {props.children}
-    </CommandPrimitive.List>
+    </Command.List>
   )
 }
 
-type CommandMenuEmptyProps = React.ComponentProps<typeof CommandPrimitive.Empty>
+type CommandMenuEmptyProps = React.ComponentProps<typeof Command.Empty>
 
 const CommandMenuEmpty = ({ className, ...props }: CommandMenuEmptyProps) => {
-  return <CommandPrimitive.Empty className={empty({ className })} {...props} />
+  return <Command.Empty className={empty({ className })} {...props} />
 }
 
-interface CommandSectionProps extends React.ComponentProps<typeof CommandPrimitive.Group> {
+const CommandMenuLoading = (props: React.ComponentProps<typeof Command.Loading>) => {
+  return <Command.Loading {...props} />
+}
+
+interface CommandSectionProps extends React.ComponentProps<typeof Command.Group> {
   separator?: boolean
 }
 
 const CommandMenuSection = ({ className, separator, ...props }: CommandSectionProps) => {
   return (
     <>
-      <CommandPrimitive.Group className={section({ className })} {...props}>
+      <Command.Group className={section({ className })} {...props}>
         {props.children}
         {separator && <CommandMenuSeparator className="mt-2" />}
-      </CommandPrimitive.Group>
+      </Command.Group>
     </>
   )
 }
@@ -217,17 +237,13 @@ const CommandMenuSeparator = ({ className, ...props }: SeparatorProps) => {
   )
 }
 
-interface CommandItemProps extends React.ComponentProps<typeof CommandPrimitive.Item> {
+interface CommandItemProps extends React.ComponentProps<typeof Command.Item> {
   isDanger?: boolean
 }
 
 const CommandMenuItem = ({ isDanger, className, ...props }: CommandItemProps) => {
   return (
-    <CommandPrimitive.Item
-      data-danger={isDanger ? "true" : undefined}
-      className={item({ isDanger, className })}
-      {...props}
-    />
+    <Command.Item data-danger={isDanger ? "true" : undefined} className={item({ isDanger, className })} {...props} />
   )
 }
 
@@ -270,5 +286,6 @@ CommandMenu.List = CommandMenuList
 CommandMenu.Section = CommandMenuSection
 CommandMenu.Separator = CommandMenuSeparator
 CommandMenu.Description = CommandMenuDescription
+CommandMenu.Loading = CommandMenuLoading
 
 export { CommandMenu }

@@ -5,7 +5,7 @@ import React, { Suspense } from "react"
 import { useScrollPosition } from "hooks/use-scroll-position"
 import { Heading } from "react-aria-components"
 import scrollIntoView from "scroll-into-view-if-needed"
-import { cn, Link, useMediaQuery } from "ui"
+import { cn, useMediaQuery } from "ui"
 
 interface TableOfContentsProps {
   title: string
@@ -91,7 +91,7 @@ export function TableOfContents({ className, items }: Props) {
 function TocLink({ item, activeId }: { item: TableOfContentsProps; activeId: string | null }) {
   return (
     <li key={item.title}>
-      <Link
+      <a
         className={cn(
           "outline-hidden block no-underline tracking-tight lg:text-[0.885rem] duration-200 focus-visible:outline-hidden focus-visible:text-fg",
           item.url.split("#")[1] === activeId
@@ -101,7 +101,7 @@ function TocLink({ item, activeId }: { item: TableOfContentsProps; activeId: str
         href={item.url}
       >
         {item.title}
-      </Link>
+      </a>
     </li>
   )
 }

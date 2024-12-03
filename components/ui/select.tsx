@@ -96,7 +96,10 @@ const Trigger = ({ className, ...props }: TriggerProps) => {
       )}
     >
       {props.prefix && <span className="-mr-1">{props.prefix}</span>}
-      <SelectValue className="flex-1 [&_[slot=description]]:hidden text-base placeholder-shown:text-muted-fg lg:text-sm" />
+      <SelectValue
+        aria-placeholder="xxxxx"
+        className="flex-1 [&_[slot=description]]:hidden text-base data-placeholder:text-muted-fg lg:text-sm"
+      />
       <IconChevronLgDown
         aria-hidden
         className="text-muted-fg shrink-0 size-4 duration-300 group-data-open:rotate-180 group-data-open:text-fg group-data-disabled:opacity-50 forced-colors:text-[ButtonText] forced-colors:group-data-disabled:text-[GrayText]"

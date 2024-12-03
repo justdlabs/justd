@@ -1,7 +1,6 @@
-// import '@/resources/styles/code.css'
 import { docs } from "#site/content"
 import { DocRefs } from "@/components/doc-refs"
-import { MDXContent } from "@/components/mdx-components"
+import { Mdx } from "@/components/mdx-components"
 import { Pager } from "@/components/pager"
 import { TableOfContents } from "@/components/table-of-contents"
 import { siteConfig } from "@/resources/config/site"
@@ -119,7 +118,7 @@ export default async function PostPage(props: DocPageProps) {
           </div>
 
           <TableOfContents className="mt-4 sm:mt-8 block xl:hidden" items={doc.toc} />
-          <MDXContent code={doc.body} />
+          <Mdx code={doc.body} />
           <Pager
             doc={{
               title: doc.title,

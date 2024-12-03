@@ -1,7 +1,8 @@
 @import "tailwindcss";
-
 @plugin 'tailwindcss-animate';
 @plugin '@tailwindcss/typography';
+
+@source "../../../node_modules/fumadocs-ui/dist/**/*.js";
 
 @variant dark (&:is(.dark *));
 
@@ -100,8 +101,8 @@
     --muted: oklch(0.967 0.001 286.375);
     --muted-fg: oklch(0.552 0.016 285.938);
 
-    --subtle: oklch(0.973 0.012 271.288);
-    --subtle-fg: oklch(0.546 0.245 262.881);
+    --subtle: oklch(0.932 0.032 255.585);
+    --subtle-fg: oklch(0.424 0.199 265.638);
 
     --overlay: oklch(1 0 0);
     --overlay-fg: oklch(0.141 0.005 285.823);
@@ -156,8 +157,8 @@
     --muted: oklch(0.21 0.006 285.885);
     --muted-fg: oklch(0.705 0.015 286.067);
 
-    --subtle: oklch(0.156 0.045 264.312);
-    --subtle-fg: oklch(0.62 0.21 259.24);
+    --subtle: oklch(0.282 0.091 267.935);
+    --subtle-fg: oklch(0.882 0.059 254.128);
 
     --overlay: oklch(14.1% 0.005 285.823);
     --overlay-fg: oklch(0.985 0 0);

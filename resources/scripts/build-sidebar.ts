@@ -10,13 +10,13 @@ const groupDocs = (docs: Docs[]) => {
   }
 
   docs.forEach((doc) => {
-    const { slug, title, order } = doc
+    const { slug, title, order, toc } = doc
     if (slug.startsWith("docs/dark-mode/")) {
-      groups["dark-mode"].push({ title, slug, order, children: [] })
+      groups["dark-mode"].push({ title, slug, order, children: [], toc })
     } else if (slug.startsWith("docs/getting-started/")) {
-      groups["getting-started"].push({ title, slug, order, children: [] })
+      groups["getting-started"].push({ title, slug, order, children: [], toc })
     } else if (slug.startsWith("docs/prologue/")) {
-      groups["prologue"].push({ title, slug, order, children: [] })
+      groups["prologue"].push({ title, slug, order, children: [], toc })
     } else if (slug.startsWith("docs/components/")) {
       const parts = slug.split("/")
       const category = parts[2]
@@ -31,7 +31,8 @@ const groupDocs = (docs: Docs[]) => {
         slug: `docs/components/${category}/${componentSlug}`,
         status: doc.status,
         order,
-        children: []
+        children: [],
+        toc
       })
     }
   })

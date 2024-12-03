@@ -34,6 +34,7 @@
       "hooks/*": [
         "./resources/hooks/*"
       ],
+      "content-collections": ["./.content-collections/generated"],
       "#site/content": [
         "./.velite"
       ]
@@ -47,6 +48,7 @@
   ],
   "exclude": [
     "node_modules",
+
     "./resources/docs/**/*.docs.*",
     "./resources/docs/**/*.docs.tsx",
     "./resources/content/**/*.mdx",
