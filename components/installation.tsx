@@ -2,29 +2,17 @@
 
 import React from "react"
 
-import { CodeHighlighter } from "@/components/rehype/code"
+import { CodeHighlighter } from "@/components/code/code-highlighter"
+import { CopyButton } from "@/components/code/copy-button"
+import { copyToClipboard } from "@/resources/lib/copy"
+import { cn } from "@/utils/classes"
 import { useOpenPanel } from "@openpanel/nextjs"
-import { IconCheck, IconDuplicate } from "justd-icons"
-import { AnimatePresence, motion } from "motion/react"
-import { Button, type ButtonProps } from "react-aria-components"
-import { tv } from "tailwind-variants"
+import { Group } from "react-aria-components"
 import { Link, Menu } from "ui"
-import { copyToClipboard } from "usemods"
 
 const manualText =
   "Sometimes, using the CLI is the way to go, so make sure you install the necessary\n" +
   "          dependencies for the components you want to use."
-
-const installationStyles = tv({
-  slots: {
-    copyButton:
-      "data-focused:outline-hidden d3k32ksd absolute right-0 mr-2 inset-y-1/2 -translate-y-1/2 data-pressed:bg-zinc-800 size-[1.85rem] grid place-content-center text-white border border-zinc-700 rounded-md bg-black/10 backdrop-blur data-hovered:bg-zinc-800",
-    install:
-      "flex h-12 border pr-8 relative overflow-hidden rounded-lg bg-[#0e0e10] items-center [&_[data-rehype-pretty-code-figure]_pre]:!border-0"
-  }
-})
-
-const { copyButton, install } = installationStyles()
 
 export interface InstallationProps {
   items: string[]
@@ -75,16 +63,21 @@ export function Installation({ className, ...props }: InstallationProps) {
         </p>
       )}
       {options.isManual && <p>{manualText}</p>}
-      <div className={install({ className })}>
+      <Group
+        className={cn("flex h-12 border pr-1 relative overflow-hidden rounded-lg group bg-(--shiki-bg) items-center", {
+          className
+        })}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
-          className="ml-[0.395rem] md:block hidden size-6 -mr-3.5 text-zinc-400 z-10"
+          className="ml-[0.395rem] md:block hidden size-6 text-zinc-400 z-10"
         >
           <path stroke="currentColor" d="m10 16 4-4-4-4" strokeLinecap="square" strokeWidth="2" />
         </svg>
         <CodeHighlighter
+          plain
           className="flex-1 chlt overflow-x-auto pr-4"
           lang="bash"
           code={
@@ -97,34 +90,37 @@ export function Installation({ className, ...props }: InstallationProps) {
           }
         />
         {props.command ? (
-          <ButtonCopy
+          <CopyButton
+            isCopied={isCopied}
+            setIsCopied={setIsCopied}
             onPress={() => {
               copyToClipboard(props.command as string).then(() => {
                 setIsCopied(true)
                 op.track("cli pressed", { copy: props.command })
               })
             }}
-            isCopied={isCopied}
           />
         ) : options.isComponent ? (
-          <ButtonCopy
+          <CopyButton
+            isCopied={isCopied}
+            setIsCopied={setIsCopied}
             onPress={() => {
               copyToClipboard(`npx justd-cli@latest add ${items[0]}`).then(() => {
                 setIsCopied(true)
                 op.track("cli pressed", { copy: `add ${items.join(" ")}` })
               })
             }}
-            isCopied={isCopied}
           />
         ) : options.isInit ? (
-          <ButtonCopy
+          <CopyButton
+            isCopied={isCopied}
+            setIsCopied={setIsCopied}
             onPress={() => {
               copyToClipboard(`npx justd-cli@latest init`).then(() => {
                 setIsCopied(true)
                 op.track("cli pressed", { copy: `init` })
               })
             }}
-            isCopied={isCopied}
           />
         ) : (
           <ChoosePkgManager
@@ -137,14 +133,9 @@ export function Installation({ className, ...props }: InstallationProps) {
             }}
           />
         )}
-      </div>
+      </Group>
     </div>
   )
-}
-
-const copyVariants = {
-  hidden: { opacity: 0, scale: 0.5 },
-  visible: { opacity: 1, scale: 1 }
 }
 
 interface PkgManager {
@@ -161,8 +152,9 @@ interface ChoosePkgManagerProps {
   isExecutor?: boolean
 }
 
-function ChoosePkgManager({ isExecutor, items, setIsCopied, setPkgManager, ...props }: ChoosePkgManagerProps) {
+function ChoosePkgManager({ isExecutor, items, isCopied, setIsCopied, setPkgManager }: ChoosePkgManagerProps) {
   const op = useOpenPanel()
+
   function handleAction(tool: string) {
     let selectedPkgManager: PkgManager = {
       name: "",
@@ -214,7 +206,7 @@ function ChoosePkgManager({ isExecutor, items, setIsCopied, setPkgManager, ...pr
 
   return (
     <Menu>
-      <ButtonCopy isCopied={props.isCopied} />
+      <CopyButton isCopied={isCopied} setIsCopied={setIsCopied} />
       <Menu.Content showArrow placement="bottom end">
         {[
           { name: "NPM", vendor: "npm" },
@@ -228,27 +220,5 @@ function ChoosePkgManager({ isExecutor, items, setIsCopied, setPkgManager, ...pr
         ))}
       </Menu.Content>
     </Menu>
-  )
-}
-
-interface ButtonCopyProps extends ButtonProps {
-  isCopied: boolean
-}
-
-function ButtonCopy({ isCopied, ...props }: ButtonCopyProps) {
-  return (
-    <Button className={copyButton()} {...props}>
-      <AnimatePresence mode="wait" initial={false}>
-        {isCopied ? (
-          <motion.span key="check" variants={copyVariants} initial="hidden" animate="visible" exit="hidden">
-            <IconCheck />
-          </motion.span>
-        ) : (
-          <motion.span key="copy" variants={copyVariants} initial="hidden" animate="visible" exit="hidden">
-            <IconDuplicate />
-          </motion.span>
-        )}
-      </AnimatePresence>
-    </Button>
   )
 }

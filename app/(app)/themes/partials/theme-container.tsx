@@ -4,7 +4,7 @@ import * as React from "react"
 
 import { Blocks } from "@/app/(app)/themes/partials/blocks"
 import { ThemeCustomizer } from "@/app/(app)/themes/partials/theme-customizer"
-import { Code } from "@/components/rehype/code"
+import { CodeHighlighter } from "@/components/code/code-highlighter"
 import { IconBrandCss, IconDuplicate } from "justd-icons"
 import { toast } from "sonner"
 import { Button, Container, Heading, Sheet } from "ui"
@@ -42,18 +42,14 @@ export function ThemeContainer() {
                 {(values) => (
                   <>
                     <Sheet.Header
-                      className="border-b text-white *:text-white border-zinc-800"
+                      className="text-white *:text-white border-zinc-800"
                       title="Theme"
                       description="Copy the theme below and paste it into your CSS file."
                     />
-                    <Sheet.Body className="p-0 sm:p-2">
-                      <Code
-                        className="[&_pre]:max-h-full **:[pre]:!border-0 *:!p-0 rounded-none **:[pre]:!rounded-none"
-                        withCopy={false}
-                        code={generateTheme(selectedColors)}
-                      />
+                    <Sheet.Body className="border-y pb-4 border-zinc-800">
+                      <CodeHighlighter plain max96={false} className="pt-4" code={generateTheme(selectedColors)} />
                     </Sheet.Body>
-                    <Sheet.Footer className="border-t gap-x-1 border-zinc-800 pt-4">
+                    <Sheet.Footer className="gap-x-1">
                       <Sheet.Close className="border-zinc-800 sm:flex hidden text-white data-pressed:border-zinc-700 data-pressed:bg-zinc-800 data-hovered:border-zinc-700 data-hovered:bg-zinc-900">
                         Close
                       </Sheet.Close>

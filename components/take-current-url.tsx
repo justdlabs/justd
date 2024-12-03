@@ -2,12 +2,16 @@
 
 import * as React from "react"
 
-import { snippetVariants } from "@/components/rehype/code"
 import { IconCheck, IconDuplicate } from "justd-icons"
 import { AnimatePresence, motion } from "motion/react"
 import { usePathname } from "next/navigation"
 import { toast } from "sonner"
 import { Button } from "ui"
+
+const snippetVariants = {
+  hidden: { opacity: 0, scale: 0.5 },
+  visible: { opacity: 1, scale: 1 }
+}
 
 export function TakeCurrentUrl() {
   const [copied, setCopied] = React.useState(false)

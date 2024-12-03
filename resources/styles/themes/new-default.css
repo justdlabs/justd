@@ -11,6 +11,9 @@
   --font-mono: var(--font-mono), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol", "Noto Color Emoji";
 
+  --shiki-bg: #0e0e10;
+  --shiki-border: var(--color-zinc-800);
+
   --color-border: var(--border);
   --color-input: var(--input);
 
@@ -52,7 +55,7 @@
   --color-navbar-bg: var(--navbar-bg);
   --color-navbar-fg: var(--navbar-fg);
 
-  --color-sidebar-bg: var(--sidebar-bg);
+  --color-sidebar: var(--sidebar);
   --color-sidebar-fg: var(--sidebar-fg);
   --color-sidebar-primary-bg: var(--sidebar-primary-bg);
   --color-sidebar-primary-fg: var(--sidebar-primary-fg);
@@ -118,7 +121,7 @@
     --navbar-bg: oklch(0.987 0.001 286.375);
     --navbar-fg: oklch(0.141 0.005 285.823);
 
-    --sidebar-bg: oklch(0.967 0.001 286.375);
+    --sidebar: oklch(0.967 0.001 286.375);
     --sidebar-fg: oklch(0.141 0.005 285.823);
 
     --sidebar-primary-bg: oklch(0.546 0.245 262.881);
@@ -174,7 +177,7 @@
     --navbar-bg: oklch(0.17 0.006 285.885);
     --navbar-fg: oklch(0.97 0.014 254.604);
 
-    --sidebar-bg: oklch(0.17 0.006 285.885);
+    --sidebar: oklch(0.17 0.006 285.885);
     --sidebar-fg: oklch(0.97 0.014 254.604);
     --sidebar-primary-bg: oklch(0.546 0.245 262.881);
     --sidebar-primary-fg: oklch(1 0 0);

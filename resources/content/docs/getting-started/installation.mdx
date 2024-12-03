@@ -56,7 +56,7 @@ by running: npx justd-cli@latest add
 
 ### Add Components
 Next, use `add [component-name]` to include a specific component in your project. This allows for selective installation without the need for a full setup. If you need a file-trigger or even a button, this command facilitates that. Install only what you need, or refer to the documentation to manually include components. Here's how to add a `combo-box`:
-<Installation options={{ isComponent: true }} items={['combo-box']} />
+<Installation options={{ isComponent: true, noText: true }} items={['combo-box']} />
 
 This command will ensure all necessary components are installed:
 ```bash
@@ -154,18 +154,6 @@ This starter is already in production, and you can check it out [here](https://a
 available [here](https://github.com/justdlabs/astro). To get started, run the following command:
 <Installation command='npm create astro@latest -- --template justdlabs/astro' items={['']}/>
 
-## Classes / CN
-By default, components are saved in the `components/ui` folder of your project. These components include essential
-functions like `cn` for className handling and `composeTailwindRenderProps`. However, these functions are not
-compatible with server components. If you need to use `cn` outside of the typical environment, you should isolate it
-in a separate file like this:
-
-```ts title="utils/classes.ts"
-import { twMerge } from 'tailwind-merge'
-import { type ClassValue, clsx} from 'clsx'
-
-export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs))
-```
 
 ## Manual Installation
 To begin setting up the design system, start by installing these packages:
@@ -180,15 +168,29 @@ Following that, include the animation package for managing animations and Parano
 
 <Installation options={{isManual: true}} items={['justd-icons', 'tailwindcss-animate']} />
 
-### CSS
+### Style and Primitive
+  After installing the required packages, you can copy the CSS below into your global CSS file and move the primitives to your UI folder. Primitives serve as utilities for managing states, including `focusRing`, `focusStyles`, and `focusButtonStyles`. Additionally, there’s a hook called `useMediaQuery` and a function named `composeTailwindRenderProps`. Every component in Justd relies on helpers from this file, so it’s essential to include it!
 
 <EditorText
   source={{
-    'main.css': 'docs/installation/main.css',
-    'primitive.tsx': 'ui/primitive',
+    'app/globals.css': 'docs/installation/main.css',
+    'ui/primitive.tsx': 'ui/primitive',
   }} />
 
-## Simple Import
+  ### Classes / CN
+  By default, components are saved in the `components/ui` folder of your project. These components include essential
+  functions like `cn` for className handling and `composeTailwindRenderProps`. However, these functions are not
+  compatible with server components. If you need to use `cn` outside of the typical environment, you should isolate it
+  in a separate file like this:
+
+  ```ts title="utils/classes.ts"
+  import { twMerge } from 'tailwind-merge'
+  import { type ClassValue, clsx} from 'clsx'
+
+  export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs))
+  ```
+
+### Simple Import
 Indeed, it's efficient because the `index.ts` file in your UI folder serves as a hub. Even if the button and badge
 components are in separate files, you can import them together easily. First, create a `ui/index.ts` file:
   ```ts title="ui/index.ts"
@@ -224,7 +226,7 @@ If you're using src folder, you can use the following config:
 }
 ```
 
-## Fonts
+### Fonts
 This is is currently using the [Inter font](https://rsms.me/inter/). If you want to use a different font, you can define your font-family in your js or css file.
 
 ### Stylesheet

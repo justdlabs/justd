@@ -8,7 +8,7 @@ import { tv, type VariantProps } from "tailwind-variants"
 
 import { Dialog } from "./dialog"
 
-const sheetOverlayStyles = tv({
+const overlayStyles = tv({
   base: [
     "fixed top-0 left-0 w-full bg-fg/15 dark:bg-bg/40 h-(--visual-viewport-height) isolate z-50 flex items-center justify-center p-4"
   ],
@@ -41,7 +41,7 @@ const generateCompoundVariants = (sides: Array<Sides>) => {
   }))
 }
 
-const sheetContentStyles = tv({
+const contentStyles = tv({
   base: "fixed z-50 grid gap-4 bg-overlay border-fg/5 dark:border-border text-overlay-fg shadow-lg transition ease-in-out",
   variants: {
     isEntering: {
@@ -73,7 +73,7 @@ const Sheet = (props: DialogTriggerProps) => {
 interface SheetContentProps
   extends Omit<React.ComponentProps<typeof Modal>, "children" | "className">,
     Omit<ModalOverlayProps, "className">,
-    VariantProps<typeof sheetOverlayStyles> {
+    VariantProps<typeof overlayStyles> {
   "aria-label"?: DialogProps["aria-label"]
   "aria-labelledby"?: DialogProps["aria-labelledby"]
   role?: DialogProps["role"]
@@ -103,7 +103,7 @@ const SheetContent = ({
     <ModalOverlay
       isDismissable={_isDismissable}
       className={composeRenderProps(classNames?.overlay, (className, renderProps) => {
-        return sheetOverlayStyles({
+        return overlayStyles({
           ...renderProps,
           isBlurred,
           className
@@ -113,7 +113,7 @@ const SheetContent = ({
     >
       <Modal
         className={composeRenderProps(classNames?.content, (className, renderProps) =>
-          sheetContentStyles({
+          contentStyles({
             ...renderProps,
             side,
             isStack,

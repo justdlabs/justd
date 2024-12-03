@@ -2,26 +2,28 @@
 
 import * as React from "react"
 
-import { Code } from "@/components/rehype/code"
+import { CodeHighlighter } from "@/components/code/code-highlighter"
+import { CopyButton } from "@/components/code/copy-button"
 import { IconBrandReactjs } from "justd-icons"
+import { Group } from "react-aria-components"
 
 interface PlainCodeProps extends React.HTMLAttributes<HTMLDivElement> {
   code: string
   lang?: string
   title?: string
-  withImportCopy?: boolean
 }
 
-export function PlainCode({ title, withImportCopy = false, lang = "tsx", code }: PlainCodeProps) {
+export function PlainCode({ title, lang = "tsx", code }: PlainCodeProps) {
   return (
-    <section className="my-4 not-prose">
+    <Group className="my-4 not-prose group relative">
       {title && (
         <figcaption data-rehype-pretty-code-title="" className="inline-flex items-center gap-x-1">
           {title.includes(".tsx") ? <IconBrandReactjs className="text-sky-500 size-4" /> : null}
           {title}
         </figcaption>
       )}
-      <Code code={code} lang={lang} withImportCopy={withImportCopy} />
-    </section>
+      <CopyButton text={code} className="absolute top-0 right-0" />
+      <CodeHighlighter removeLastLine code={code} lang={lang} />
+    </Group>
   )
 }

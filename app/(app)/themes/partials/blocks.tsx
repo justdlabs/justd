@@ -25,12 +25,16 @@ import {
   RadioGroup,
   Select,
   Separator,
+  Switch,
   TextField
 } from "ui"
 
 export function Blocks() {
   return (
     <div className="grid **:data-[slot=card]:bg-secondary/10 gap-2">
+      {/*<div className="@container">*/}
+      {/*<SidebarBlock>Home</SidebarBlock>*/}
+      {/*</div>*/}
       <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-2">
         <Card className="p-6 flex flex-col items-center justify-center gap-y-6">
           <div className="grid grid-cols-2 gap-2">
@@ -120,9 +124,23 @@ export function Blocks() {
           </RadioGroup>
         </Card>
         <Card className="p-6 flex items-center justify-center">
-          <Choicebox columns={1} gap={2} aria-label="Select items" selectionMode="multiple">
-            <Choicebox.Item title="Basic" description="Just the essentials to get started." />
-            <Choicebox.Item title="Standard" description="A step up with more features and support." />
+          <Switch>{({ isSelected }) => <>{isSelected ? "Enabled" : "Disabled"} Auto Updates</>}</Switch>
+        </Card>
+        <Card className="p-6 flex items-center justify-center">
+          <Choicebox
+            defaultSelectedKeys={["standard", "pro"]}
+            columns={1}
+            gap={2}
+            aria-label="Select items"
+            selectionMode="multiple"
+          >
+            <Choicebox.Item id="standard" title="Standard" description="Perfect for growing your team." />
+            <Choicebox.Item id="pro" title="Pro" description="Includes all advanced tools." />
+            <Choicebox.Item
+              id="enterprise"
+              title="Enterprise"
+              description="Custom solutions for large organizations."
+            />
           </Choicebox>
         </Card>
         <PieChartDonutWithTextDemo />

@@ -1,12 +1,14 @@
 "use client"
 
-import React, { useEffect, useMemo, useState } from "react"
+import React from "react"
 
 import generated from "@/__registry__/generated"
-import { TabsList } from "@/components/code-sandbox"
-import { Code } from "@/components/rehype/code"
+import { CodeHighlighter } from "@/components/code/code-highlighter"
+import { TabsList } from "@/components/code/code-sandbox"
+import { CopyButton } from "@/components/code/copy-button"
 import { cn } from "@/resources/lib/utils"
 import type { RegistryItem } from "@/resources/types"
+import { Group } from "react-aria-components"
 import { Loader, Tabs } from "ui"
 
 const registry = generated as Record<string, RegistryItem>
@@ -31,7 +33,7 @@ export const DocHow = ({
   fullscreenUrl,
   ...props
 }: HowProps) => {
-  const [rawSourceCode, setRawSourceCode] = useState<string | null>(null)
+  const [rawSourceCode, setRawSourceCode] = React.useState<string | null>(null)
 
   /*
    * Prepend the `demo/` prefix to the provided `toUse` prop
@@ -45,7 +47,7 @@ export const DocHow = ({
    */
   const Component = registry[registryKey]?.component
 
-  const processedSourceCode = useMemo(() => {
+  const processedSourceCode = React.useMemo(() => {
     if (!rawSourceCode) return null
 
     /*
@@ -57,7 +59,7 @@ export const DocHow = ({
     return rawSourceCode.replace(defaultExportRegex, "export function Component(")
   }, [rawSourceCode])
 
-  useEffect(() => {
+  React.useEffect(() => {
     const fetchSourceCode = async () => {
       try {
         /*
@@ -122,10 +124,10 @@ export const DocHow = ({
         </Tabs.Panel>
         <Tabs.Panel id="code">
           {processedSourceCode ? (
-            <Code
-              className="border [&_pre_span[data-line]:last-of-type]:hidden [&_pre]:border-0! border-zinc-800 bg-[#0e0e10] rounded-lg"
-              code={processedSourceCode}
-            />
+            <Group className="relative group">
+              <CopyButton text={processedSourceCode} className="absolute top-0 right-0" />
+              <CodeHighlighter removeLastLine code={processedSourceCode} />
+            </Group>
           ) : (
             /*
              * Display a loading message while the source code is being fetched.

@@ -1,5 +1,11 @@
 import colors from "@/resources/colors/colors.json"
-import { accentColors300, accentColors400, accentColors500, neutralColors } from "@/resources/lib/colors"
+import {
+  accentColors300,
+  accentColors400,
+  accentColors500,
+  decreaseLightness,
+  neutralColors
+} from "@/resources/lib/colors"
 
 type BlackWhite = "white" | "black"
 
@@ -109,6 +115,9 @@ export const generateTheme = (selectedColors: Record<string, string>) => {
 
   --subtle: ${getColorValue(primary, "100")};
   --subtle-fg: ${getColorValue(primary, "800")};
+
+  --muted: ${getColorValue(gray, "100")};
+  --muted-fg: ${getColorValue(gray, "500")};
   
   --success: oklch(0.696 0.17 162.48);
   --success-fg: oklch(97.9% 0.021 166.113);
@@ -125,6 +134,9 @@ export const generateTheme = (selectedColors: Record<string, string>) => {
   --border: ${getColorValue(gray, "200")};
   --input: ${getColorValue(gray, "300")};
   --ring: ${getColorValue(primary, lightRingShade)};
+  
+  --sidebar: ${decreaseLightness(getColorValue(gray, "900"), 0.04)};
+  --sidebar-fg: ${getColorValue(gray, "50")};
   
   --chart-1: ${getColorValue(primary, chartShadesLight[0])};
   --chart-2: ${getColorValue(primary, chartShadesLight[1])};
@@ -148,6 +160,9 @@ export const generateTheme = (selectedColors: Record<string, string>) => {
 
   --subtle: ${getColorValue(primary, "950")};
   --subtle-fg: ${getColorValue(primary, "200")};
+  
+  --muted: ${getColorValue(gray, "900")};
+  --muted-fg: ${getColorValue(gray, "400")};
   
   --overlay: ${getColorValue(gray, "950")};
   --overlay-fg: ${getColorValue(gray, "50")};

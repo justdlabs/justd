@@ -3,7 +3,9 @@
 import React from "react"
 
 import generated from "@/__registry__/generated"
-import { Code } from "@/components/rehype/code"
+import { CodeHighlighter } from "@/components/code/code-highlighter"
+import { CopyButton } from "@/components/code/copy-button"
+import { copyToClipboard } from "@/resources/lib/copy"
 import { IconBrandReactjs } from "justd-icons"
 
 type RegistryItem = {
@@ -22,6 +24,8 @@ type SourceCodeProps = {
 }
 
 export const SourceCode = ({ toShow, ...props }: SourceCodeProps) => {
+  const [isCopied, setIsCopied] = React.useState(false)
+
   const [rawSourceCode, setRawSourceCode] = React.useState<string | null>(null)
 
   /*
@@ -88,13 +92,24 @@ export const SourceCode = ({ toShow, ...props }: SourceCodeProps) => {
             : "And next, you can copy the code below and paste it into your component folder."}
         </p>
         {props.title && <figcaption data-rehype-pretty-code-title="">{props.title}</figcaption>}
-        <Code
-          title={`${toShow}.tsx`}
-          icon={IconBrandReactjs}
-          code={processedSourceCode}
-          lang={props.ext}
-          withImportCopy={false}
-        />
+        <div className="flex items-center mb-1 justify-between">
+          <div className="flex items-center gap-x-2 font-mono text-[13px] tracking-tight">
+            <IconBrandReactjs className="text-cyan-600 dark:text-cyan-500 size-4" /> {toShow}.tsx
+          </div>
+          <CopyButton
+            isCopied={isCopied}
+            setIsCopied={setIsCopied}
+            alwaysVisible
+            onPress={() => {
+              copyToClipboard(processedSourceCode).then(() => {
+                setIsCopied(true)
+              })
+            }}
+          />
+        </div>
+        <div className="overflow-hidden bg-(--shiki-bg) border border-(--shiki-border) rounded-lg">
+          <CodeHighlighter className="**:[pre]:p-4" removeLastLine plain code={processedSourceCode} lang={props.ext} />
+        </div>
       </section>
     )
   }

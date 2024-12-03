@@ -127,7 +127,7 @@ const SidebarInset = ({ className, ...props }: React.ComponentProps<"main">) => 
       className={cn([
         [
           "relative **:data-[slot=navbar-nav]:shadow-none flex min-h-svh max-w-full flex-1 flex-col bg-bg",
-          "md:peer-data-[intent=inset]:ml-0 md:peer-data-[intent=inset]:bg-sidebar-bg md:peer-data-[intent=inset]:text-sidebar-fg md:peer-data-[intent=inset]:rounded-xl",
+          "md:peer-data-[intent=inset]:ml-0 md:peer-data-[intent=inset]:bg-sidebar md:peer-data-[intent=inset]:text-sidebar-fg md:peer-data-[intent=inset]:rounded-xl",
           "peer-data-[intent=inset]:overflow-hidden peer-data-[intent=inset]:border peer-data-[intent=inset]:min-h-[calc(100svh-calc(var(--spacing)*4))] md:peer-data-[intent=inset]:my-2 md:peer-data-[intent=inset]:mr-2",
           "peer-data-[intent=floating]:**:data-[slot=sidebar-nav]:bg-bg peer-data-[intent=floating]:**:data-[slot=sidebar-nav]:border-none"
         ],
@@ -168,7 +168,7 @@ const Sidebar = ({
           data-slot="sidebar"
           data-mobile="true"
           classNames={{
-            content: "bg-sidebar-bg [&>button]:hidden"
+            content: "bg-sidebar [&>button]:hidden"
           }}
           isStack={intent === "floating"}
           side={side}
@@ -212,7 +212,7 @@ const Sidebar = ({
         <div
           data-slot="sidebar"
           className={cn(
-            "flex h-full w-full flex-col bg-sidebar-bg text-sidebar-fg group-data-[intent=inset]:bg-transparent group-data-[intent=floating]:rounded-lg group-data-[intent=floating]:border group-data-[intent=floating]:border-border",
+            "flex h-full w-full flex-col bg-sidebar text-sidebar-fg group-data-[intent=inset]:bg-transparent group-data-[intent=floating]:rounded-lg group-data-[intent=floating]:border group-data-[intent=floating]:border-border",
             intent === "inset" || state === "collapsed"
               ? "**:data-[slot=sidebar-header]:border-transparent **:data-[slot=sidebar-footer]:border-transparent"
               : "**:data-[slot=sidebar-header]:border-b **:data-[slot=sidebar-footer]:border-t"

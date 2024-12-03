@@ -19,8 +19,8 @@ const dialogStyles = tv({
   slots: {
     root: [
       "dlc relative flex max-h-[inherit] [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin] flex-col overflow-hidden outline-hidden",
-      "sm:[&:not(:has([data-slot=dialog-body]))]:px-6 sm:[&:has([data-slot=dialog-body])_[data-slot=dialog-header]]:px-6 sm:[&:has([data-slot=dialog-body])_[data-slot=dialog-footer]]:px-6",
-      "[&:not(:has([data-slot=dialog-body]))]:px-4 [&:has([data-slot=dialog-body])_[data-slot=dialog-header]]:px-4 [&:has([data-slot=dialog-body])_[data-slot=dialog-footer]]:px-4"
+      "sm:*:not-has-[[data-slot=dialog-body]]:px-6 sm:*:has-data-[slot=dialog-body]:**:data-[slot=dialog-header]:px-6 sm:*:has-data-[slot=dialog-body]:**:data-[slot=dialog-footer]:px-6",
+      "*:not-has-[[data-slot=dialog-body]]:px-4 *:has-data-[slot=dialog-body]:**:data-[slot=dialog-header]:px-4 *:has-data-[slot=dialog-body]:**:data-[slot=dialog-footer]:px-4"
     ],
     header: "relative flex flex-col pb-3 pt-4 sm:pt-6",
     description: "text-sm block text-muted-fg mt-0.5 sm:mt-1",

@@ -3,7 +3,9 @@
 import React from "react"
 
 import generated from "@/__registry__/generated"
-import { Code } from "@/components/rehype/code"
+import { CodeHighlighter } from "@/components/code/code-highlighter"
+import { CopyButton } from "@/components/code/copy-button"
+import { copyToClipboard } from "@/resources/lib/copy"
 import type { RegistryItem } from "@/resources/types"
 import { cn } from "@/utils/classes"
 import { IconBrandCss, IconBrandReactjs, IconFile, IconWindowVisitFill } from "justd-icons"
@@ -18,8 +20,20 @@ interface Props {
 const registry = generated as Record<string, RegistryItem>
 
 export function CodeSandbox({ source, fullscreenUrl }: Props) {
+  const [copiedStates, setCopiedStates] = React.useState<Record<string, boolean>>({})
   const [rawSourceCode, setRawSourceCode] = React.useState<Record<string, string | null>>({})
   const Component = registry[source.preview]?.component
+
+  const handleCopy = (key: string, value: string | null) => {
+    if (value) {
+      copyToClipboard(value)
+      setCopiedStates((prev) => ({ ...prev, [key]: true }))
+      setTimeout(() => {
+        setCopiedStates((prev) => ({ ...prev, [key]: false }))
+      }, 2000) // Reset after 2 seconds
+    }
+  }
+
   React.useEffect(() => {
     const fetchRegistryData = async () => {
       const fetchedSourceCode: Record<string, string | null> = {}
@@ -77,7 +91,7 @@ export function CodeSandbox({ source, fullscreenUrl }: Props) {
       </Tabs.Panel>
       <Tabs.Panel id="code">
         {rawSourceCode && Object.keys(rawSourceCode).length > 0 ? (
-          <Tabs className="gap-0">
+          <Tabs className="gap-0 relative">
             <div className="flex items-center border-y bg-[#0e0e10] dark:border-zinc-800 border-zinc-700 border-x overflow-hidden rounded-t-lg justify-between">
               <Tabs.List className="border-0 gap-0">
                 {Object.keys(rawSourceCode).map((key) => (
@@ -107,21 +121,23 @@ export function CodeSandbox({ source, fullscreenUrl }: Props) {
                   </Tab>
                 ))}
               </Tabs.List>
-              <div className="hidden sm:flex items-center gap-x-2 pr-3">
-                <div className="size-3 bg-red-500 rounded-full" />
-                <div className="size-3 bg-yellow-500 rounded-full" />
-                <div className="size-3 bg-green-500 rounded-full" />
-              </div>
             </div>
             {Object.entries(rawSourceCode).map(([key, value]) => (
               <Tabs.Panel
                 key={key}
                 id={key}
-                className="border-x border-b dark:border-zinc-800 border-zinc-700 overflow-hidden rounded-b-lg"
+                className="border-x border-b bg-(--shiki-bg) dark:border-zinc-800 border-zinc-700 overflow-hidden rounded-b-lg"
               >
-                <Code
-                  withImportCopy={false}
-                  className="[&_pre_span[data-line]:last-of-type]:hidden **:[pre]:!rounded-none **:[pre]:!rounded-none **:[pre]:!border-0"
+                <CopyButton
+                  className="absolute top-0.5 right-1"
+                  alwaysVisible
+                  isCopied={copiedStates[key] || false}
+                  onPress={() => handleCopy(key, value)}
+                />
+                <CodeHighlighter
+                  plain
+                  className="overflow-auto p-4"
+                  removeLastLine
                   code={value || "No source code available"}
                 />
               </Tabs.Panel>

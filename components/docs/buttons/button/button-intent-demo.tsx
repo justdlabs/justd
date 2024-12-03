@@ -16,7 +16,6 @@ export default function ButtonIntentDemo() {
         <IconDashboard /> Label
       </Button>
       <Button intent="warning">
-        {" "}
         <IconDashboard /> Label
       </Button>
     </div>

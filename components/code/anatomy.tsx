@@ -2,8 +2,10 @@
 
 import React from "react"
 
-import { Code } from "@/components/rehype/code"
+import { CodeHighlighter } from "@/components/code/code-highlighter"
+import { CopyButton } from "@/components/code/copy-button"
 import { extractImports, extractJSX } from "@/resources/lib/utils"
+import { Group } from "react-aria-components"
 
 interface AnatomyProps extends React.HTMLAttributes<HTMLDivElement> {
   show: string
@@ -44,18 +46,24 @@ export const Anatomy = ({ show, ...props }: AnatomyProps) => {
         {props.title && <figcaption data-rehype-pretty-code-title="">{props.title}</figcaption>}
         {processedSourceCode && (
           <>
-            <Code
-              className="max-h-none **:data-line:last:hidden [&_pre]:overflow-auto"
-              code={extractImports(processedSourceCode as string)}
-              lang={props.ext}
-              withImportCopy={false}
-            />
-            <Code
-              className="[&_pre]:max-h-[30rem] max-h-none mt-4 [&_pre]:overflow-auto"
-              code={extractJSX(processedSourceCode as string) as any}
-              lang={props.ext}
-              withImportCopy={false}
-            />
+            <Group className="group relative">
+              <CopyButton className="absolute top-1 right-1" text={extractImports(processedSourceCode as string)} />
+              <CodeHighlighter
+                max96={false}
+                removeLastLine
+                code={extractImports(processedSourceCode as string)}
+                lang={props.ext}
+              />
+            </Group>
+            <Group className="mt-4 group relative">
+              <CopyButton className="absolute top-1 right-1" text={extractJSX(processedSourceCode as string) as any} />
+              <CodeHighlighter
+                max96={false}
+                className="[&_pre]:max-h-[30rem] **:[pre]:p-0"
+                code={extractJSX(processedSourceCode as string) as any}
+                lang={props.ext}
+              />
+            </Group>
           </>
         )}
       </section>
