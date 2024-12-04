@@ -200,43 +200,6 @@ export function CommandPalette({ openCmd, setOpen }: OpenCloseProps) {
             ))}
           </>
         )}
-
-        {/*{sidebar*/}
-        {/*  .filter((item) => item.title !== "Components")*/}
-        {/*  .map((item) => (*/}
-        {/*    <CommandMenu.Section key={item.slug || item.title} heading={item.title}>*/}
-        {/*      {item.children?.map((child: SidebarItem) => (*/}
-        {/*        <CommandMenu.Item*/}
-        {/*          value={child.title}*/}
-        {/*          className="pl-[2rem] flex justify-between items-center"*/}
-        {/*          key={child.slug || child.title}*/}
-        {/*          onSelect={() => router.push(`/${child.slug}`)}*/}
-        {/*        >*/}
-        {/*          {child.title}*/}
-        {/*        </CommandMenu.Item>*/}
-        {/*      ))}*/}
-        {/*    </CommandMenu.Section>*/}
-        {/*  ))}*/}
-
-        {/*{sidebar[3].children.map((item: SidebarItem) => (*/}
-        {/*  <CommandMenu.Section key={item.slug || item.title} heading={item.title}>*/}
-        {/*    {item.children?.map((child: SidebarItem) => (*/}
-        {/*      <CommandMenu.Item*/}
-        {/*        value={child.title}*/}
-        {/*        className="pl-[2rem] flex justify-between items-center"*/}
-        {/*        key={child.slug || child.title}*/}
-        {/*        onSelect={() => router.push(`/${child.slug}`)}*/}
-        {/*      >*/}
-        {/*        {child.title}*/}
-        {/*        {child.status && (*/}
-        {/*          <CommandMenu.Description className="uppercase text-[0.65rem]">*/}
-        {/*            {child?.status}*/}
-        {/*          </CommandMenu.Description>*/}
-        {/*        )}*/}
-        {/*      </CommandMenu.Item>*/}
-        {/*    ))}*/}
-        {/*  </CommandMenu.Section>*/}
-        {/*))}*/}
       </CommandMenu.List>
     </CommandMenu>
   )

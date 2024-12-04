@@ -27,7 +27,6 @@ import {
 import { usePathname } from "next/navigation"
 import {
   Avatar,
-  Button,
   Link,
   Menu,
   Modal,
@@ -165,13 +164,11 @@ export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
       </SidebarContent>
       <SidebarFooter className="lg:flex lg:flex-row hidden items-center">
         <Menu>
-          <Button appearance="plain" aria-label="Profile" data-slot="menu-trigger" className="group">
-            <Avatar size="small" shape="square" src="/images/sidebar/profile-slash.jpg" />
-            <span className="group-data-[collapsible=dock]:hidden flex items-center justify-center">
-              Saul Hudson
-              <IconChevronLgDown className="right-3 size-4 absolute group-data-pressed:rotate-180 transition-transform" />
-            </span>
-          </Button>
+          <Menu.Trigger aria-label="Profile" data-slot="menu-trigger" className="group">
+            <Avatar size="small" shape="square" src="/images/avatar/slash.jpg" />
+            <span data-slot="menu-label">Saul Hudson</span>
+            <IconChevronLgDown data-slot="chevron" />
+          </Menu.Trigger>
           <Menu.Content
             placement={collapsed ? "right" : "top"}
             className={collapsed ? "sm:min-w-56" : "min-w-(--trigger-width)"}

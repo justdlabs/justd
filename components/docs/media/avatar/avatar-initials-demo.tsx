@@ -1,7 +1,5 @@
-"use client"
-
 import { Avatar } from "ui"
 
 export default function AvatarInitialsDemo() {
-  return <Avatar alt="IR" initials="IR" />
+  return <Avatar src="" initials="SH" />
 }

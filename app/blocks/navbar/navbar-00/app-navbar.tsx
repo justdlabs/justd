@@ -46,7 +46,7 @@ export default function AppNavbar({ children, ...props }: React.ComponentProps<t
             <Separator orientation="vertical" className="h-6 ml-1 mr-3" />
             <Menu>
               <Menu.Trigger aria-label="Open Menu">
-                <Avatar alt="profile" size="small" shape="square" src="/images/navbar/cobain.jpg" />
+                <Avatar alt="profile" size="small" shape="square" src="/images/avatar/cobain.jpg" />
               </Menu.Trigger>
               <Menu.Content placement="bottom right" showArrow className="sm:min-w-56">
                 <Menu.Section>
@@ -105,7 +105,7 @@ export default function AppNavbar({ children, ...props }: React.ComponentProps<t
             <Separator orientation="vertical" className="h-6 ml-1 mr-3" />
             <Menu>
               <Menu.Trigger aria-label="Open Menu" className="group gap-x-2 flex items-center">
-                <Avatar alt="profile" size="small" shape="square" src="/images/navbar/cobain.jpg" />
+                <Avatar alt="profile" size="small" shape="square" src="/images/avatar/cobain.jpg" />
                 <IconChevronLgDown className="size-4 group-data-pressed:rotate-180 transition-transform" />
               </Menu.Trigger>
               <Menu.Content placement="bottom right" showArrow className="sm:min-w-56">

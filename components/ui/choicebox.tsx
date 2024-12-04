@@ -61,24 +61,27 @@ const Choicebox = <T extends object>({
 
 const choiceboxItemStyles = tv({
   extend: focusStyles,
-  base: "rounded-lg cursor-pointer border p-4 [&_[slot=title]]:font-medium",
+  base: [
+    "[--choicebox:color-mix(in_oklab,var(--color-primary)_10%,white_90%)] [--choicebox-fg:var(--color-primary)]",
+    "[--choicebox-selected-hovered:color-mix(in_oklab,var(--color-primary)_15%,white_85%)]",
+    "dark:[--choicebox-selected-hovered:color-mix(in_oklab,var(--color-primary)_30%,black_70%)]",
+    "dark:[--choicebox:color-mix(in_oklab,var(--color-primary)_25%,black_75%)] dark:[--choicebox-fg:color-mix(in_oklab,var(--color-primary)_95%,black_5%)]",
+    "rounded-lg cursor-pointer border p-4 [&_[slot=title]]:font-medium"
+  ],
   variants: {
     isHovered: {
       true: "bg-secondary/30"
     },
     isSelected: {
       true: [
-        "z-20 bg-subtle/20 hover:bg-subtle/50 border-ring/75",
-        "[&_[slot=title]]:text-subtle-fg",
-        "[&_[slot=description]]:text-subtle-fg/70"
-      ],
-      false: ""
-    },
-    isFocused: {
-      true: "border-ring/80"
+        "bg-(--choicebox) text-(--choicebox-fg)",
+        "z-20 data-hovered:bg-(--choicebox-selected-hovered) border-ring/50",
+        "[&_[slot=title]]:text-(--choicebox-fg)",
+        "[&_[slot=description]]:text-(--choicebox-fg)/80"
+      ]
     },
     isDisabled: {
-      true: "z-10 cursor-default opacity-50 [&_[slot=title]]:text-muted-fg forced-colors:text-[GrayText]"
+      true: "z-10 cursor-default opacity-50 [&_[slot=title]]:text-muted-fg [&_[slot=description]]:text-muted-fg/70 forced-colors:text-[GrayText]"
     }
   }
 })

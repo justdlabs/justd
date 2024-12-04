@@ -25,14 +25,17 @@ export const getColorName = (hex: string, slug = true) => {
   return slug ? slugify(n_match[1]) : n_match[1]
 }
 
-export const decreaseLightness = (oklchColor: string, decreaseBy: number): string => {
+export const adjustLightness = (oklchColor: string, adjustBy: number): string => {
   const match = oklchColor.match(/oklch\((\d+(\.\d+)?) (\d+(\.\d+)?) (\d+(\.\d+)?)\)/)
   if (!match) throw new Error("Invalid OKLCH color format")
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_, l, , c, , h] = match
-  const newLightness = Math.max(0, parseFloat(l) - decreaseBy) // Ensure lightness doesn't go below 0
 
-  return `oklch(${newLightness} ${c} ${h})`
+  const lightness = parseFloat(l)
+  const newLightness = Math.min(1, Math.max(0, lightness + adjustBy / 100))
+
+  return `oklch(${newLightness.toFixed(3)} ${c} ${h})`
 }
 
 export const neutralColors = ["slate", "gray", "zinc", "neutral", "stone"]

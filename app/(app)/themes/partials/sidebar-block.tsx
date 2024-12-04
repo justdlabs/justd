@@ -54,7 +54,7 @@ export function SidebarBlock({ children }: { children: React.ReactNode }) {
             </Button>
             <Menu>
               <Menu.Trigger aria-label="Profile" className="flex items-center gap-x-2 group">
-                <Avatar size="small" shape="circle" src="/images/sidebar/profile-slash.jpg" />
+                <Avatar size="small" shape="circle" src="/images/avatar/slash.jpg" />
                 <IconChevronLgDown className="size-4 group-data-pressed:rotate-180 transition-transform" />
               </Menu.Trigger>
               <Menu.Content className="min-w-(--trigger-width)">
@@ -127,7 +127,7 @@ function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
       <SidebarFooter className="lg:flex lg:flex-row hidden items-center">
         <Menu>
           <Button appearance="plain" aria-label="Profile" data-slot="menu-trigger" className="group">
-            <Avatar size="small" shape="square" src="/images/sidebar/profile-slash.jpg" />
+            <Avatar size="small" shape="square" src="/images/avatar/slash.jpg" />
             <span className="group-data-[collapsible=dock]:hidden flex items-center justify-center">
               Saul Hudson
               <IconChevronLgDown className="right-3 size-4 absolute group-data-pressed:rotate-180 transition-transform" />

@@ -15,6 +15,7 @@ import { Tooltip } from "./tooltip"
 const SIDEBAR_COOKIE_NAME = "sidebar:state"
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7
 const SIDEBAR_WIDTH = "16rem"
+const SIDEBAR_WIDTH_ICON = "3rem"
 const SIDEBAR_KEYBOARD_SHORTCUT = "b"
 
 type SidebarContextProps = {
@@ -103,11 +104,14 @@ const SidebarProvider = React.forwardRef<
         style={
           {
             "--sidebar-width": SIDEBAR_WIDTH,
+            "--sidebar-width-icon": SIDEBAR_WIDTH_ICON,
             ...style
           } as React.CSSProperties
         }
         className={cn(
-          "group/sidebar-wrapper flex min-h-svh w-full text-fg dark:has-data-[intent=inset]:has-data-[intent=inset]:bg-bg",
+          "[--sidebar-accent:color-mix(in_oklab,var(--color-sidebar)_95%,black_5%)]",
+          "dark:[--sidebar-accent:color-mix(in_oklab,var(--color-sidebar)_85%,white_15%)]",
+          "group/sidebar-wrapper flex min-h-svh w-full text-sidebar-fg dark:has-data-[intent=inset]:data-[intent=inset]:bg-bg has-data-[intent=inset]:has-data-[intent=inset]:bg-sidebar",
           className
         )}
         ref={ref}
@@ -127,7 +131,7 @@ const SidebarInset = ({ className, ...props }: React.ComponentProps<"main">) => 
       className={cn([
         [
           "relative **:data-[slot=navbar-nav]:shadow-none flex min-h-svh max-w-full flex-1 flex-col bg-bg",
-          "md:peer-data-[intent=inset]:ml-0 md:peer-data-[intent=inset]:bg-sidebar md:peer-data-[intent=inset]:text-sidebar-fg md:peer-data-[intent=inset]:rounded-xl",
+          "md:peer-data-[intent=inset]:ml-0 md:peer-data-[intent=inset]:bg-bg md:peer-data-[intent=inset]:text-sidebar-fg md:peer-data-[intent=inset]:rounded-xl",
           "peer-data-[intent=inset]:overflow-hidden peer-data-[intent=inset]:border peer-data-[intent=inset]:min-h-[calc(100svh-calc(var(--spacing)*4))] md:peer-data-[intent=inset]:my-2 md:peer-data-[intent=inset]:mr-2",
           "peer-data-[intent=floating]:**:data-[slot=sidebar-nav]:bg-bg peer-data-[intent=floating]:**:data-[slot=sidebar-nav]:border-none"
         ],
@@ -154,7 +158,10 @@ const Sidebar = ({
 
   if (collapsible === "none") {
     return (
-      <div className={cn("flex h-full w-(--sidebar-width) flex-col bg-secondary text-fg ", className)} {...props}>
+      <div
+        className={cn("flex h-full w-(--sidebar-width) flex-col bg-secondary text-sidebar-fg ", className)}
+        {...props}
+      >
         {children}
       </div>
     )
@@ -168,7 +175,7 @@ const Sidebar = ({
           data-slot="sidebar"
           data-mobile="true"
           classNames={{
-            content: "bg-sidebar [&>button]:hidden"
+            content: "bg-sidebar text-sidebar-fg [&>button]:hidden"
           }}
           isStack={intent === "floating"}
           side={side}
@@ -204,7 +211,7 @@ const Sidebar = ({
             : "right-0 group-data-[collapsible=offcanvas]:right-[calc(var(--sidebar-width)*-1)]",
           intent === "floating" || intent === "inset"
             ? "p-2 group-data-[collapsible=dock]:w-[calc(var(--sidebar-width-icon)+calc(var(--spacing)*4)+2px)]"
-            : "group-data-[collapsible=dock]:w-(--sidebar-width-icon) group-data-[side=left]:border-r group-data-[side=right]:border-l",
+            : "group-data-[collapsible=dock]:w-(--sidebar-width-icon) group-data-[side=left]:border-r group-data-[side=left]:border-(--sidebar-border) [--sidebar-border:color-mix(in_oklch,var(--color-border)_95%,black_5%)] group-data-[side=right]:border-l",
           className
         )}
         {...props}
@@ -228,7 +235,7 @@ const Sidebar = ({
 const itemStyles = tv({
   base: [
     "group/sidebar-item grid cursor-pointer *:data-[slot=icon]:size-4 col-span-full *:data-[slot=icon]:shrink-0 items-center *:data-[slot=icon]:text-muted-fg relative rounded-lg lg:text-sm leading-6",
-    "forced-colors:text-[MenuLink] text-fg",
+    "forced-colors:text-[MenuLink] text-sidebar-fg",
     "grid-cols-subgrid *:data-[slot=icon]:mr-2 px-2.5 py-1.5"
   ],
   variants: {
@@ -239,17 +246,17 @@ const itemStyles = tv({
       true: "outline-hidden"
     },
     isFocusVisible: {
-      true: "bg-sidebar-accent-bg text-sidebar-accent-fg data-[slot=description]:text-sidebar-accent-fg/70"
+      true: "bg-(--sidebar-accent) text-sidebar-fg"
     },
     isHovered: {
       true: [
-        "bg-sidebar-accent-bg text-sidebar-accent-fg *:data-[focus-visible]:**:data-[slot=description]:text-sidebar-accent-fg/70 **:[.text-muted-fg]:text-sidebar-accent-fg/80"
+        "bg-(--sidebar-accent) text-sidebar-fg **:data-[slot=icon]:text-sidebar-fg **:[.text-muted-fg]:text-sidebar-fg/80"
       ]
     },
     isCurrent: {
       true: [
-        "bg-sidebar-primary-bg text-sidebar-primary-fg",
-        "**:data-[slot=icon]:text-sidebar-primary-fg [&_.text-muted-fg]:text-sidebar-primary-fg/80",
+        "bg-primary text-primary-fg",
+        "**:data-[slot=icon]:text-primary-fg [&_.text-muted-fg]:text-primary-fg/80",
         "**:data-[slot=sidebar-badge]:bg-sidebar-primary-fg/20 **:data-[slot=sidebar-badge]:ring-sidebar-primary-fg/30"
       ]
     },
@@ -272,8 +279,8 @@ const SidebarItem = ({ isCurrent, children, className, icon: Icon, ...props }: S
       <Link
         className={cn(
           "col-span-full rounded-lg size-9 grid place-content-center",
-          "data-hovered:bg-sidebar-accent-bg data-hovered:text-sidebar-accent-fg text-sidebar-accent-fg",
-          "data-current:bg-sidebar-primary-bg data-current:text-sidebar-primary-fg",
+          "data-hovered:bg-(--sidebar-accent) data-hovered:text-sidebar-accent-fg text-sidebar-accent-fg",
+          "data-current:bg-primary data-current:text-primary-fg",
           "data-focused:outline-hidden"
         )}
         {...props}
@@ -382,8 +389,8 @@ const header = tv({
   base: "flex flex-col mb-2",
   variants: {
     collapsed: {
-      false: "px-5 py-[calc(var(--spacing)*3.9)]",
-      true: "px-5 py-4 md:p-0 md:size-9 mt-1 group-data-[intent=floating]:mt-2 md:rounded-lg md:hover:bg-muted md:mx-auto md:justify-center md:items-center"
+      false: "px-5 py-[calc(var(--spacing)*4)]",
+      true: "px-5 py-4 md:p-0 md:size-9 mt-1 group-data-[intent=floating]:mt-2 md:rounded-lg md:hover:bg-(--sidebar-accent) md:mx-auto md:justify-center md:items-center"
     }
   }
 })
@@ -401,13 +408,21 @@ const SidebarHeader = ({ className, ...props }: React.HtmlHTMLAttributes<HTMLDiv
 }
 
 const footer = tv({
-  base: "flex flex-col mt-auto",
+  base: [
+    "flex flex-col mt-auto p-2",
+    "**:data-[slot=menu-trigger]:rounded-lg **:data-[slot=menu-trigger]:shrink-0",
+    "**:data-[slot=menu-trigger]:outline-hidden **:data-[slot=menu-trigger]:w-full **:data-[slot=menu-trigger]:cursor-default **:data-[slot=menu-trigger]:data-hovered:bg-(--sidebar-accent) **:data-[slot=menu-trigger]:p-2 **:data-[slot=menu-trigger]:items-center lg:**:data-[slot=menu-trigger]:text-sm **:data-[slot=menu-trigger]:flex **:data-[slot=menu-trigger]:gap-x-2",
+    "**:data-[slot=menu-trigger]:**:data-[slot=avatar]:size-6 **:data-[slot=menu-trigger]:**:data-[slot=avatar]:*:size-6"
+  ],
   variants: {
     collapsed: {
-      false: [
-        "p-2 **:data-[slot=menu-trigger]:*:data-[slot=avatar]:-ml-1.5 **:data-[slot=menu-trigger]:w-full data-hovered:**:data-[slot=menu-trigger]:bg-muted **:data-[slot=menu-trigger]:justify-start **:data-[slot=menu-trigger]:flex **:data-[slot=menu-trigger]:items-center"
-      ],
-      true: "size-12 p-1 **:data-[slot=menu-trigger]:size-9 justify-center items-center"
+      false:
+        "**:data-[slot=menu-trigger]:**:data-[slot=chevron]:transition-transform **:data-[slot=menu-trigger]:data-pressed:**:data-[slot=chevron]:rotate-180 **:data-[slot=menu-trigger]:**:data-[slot=chevron]:ml-auto",
+      true: [
+        "**:data-[slot=menu-label]:hidden **:data-[slot=chevron]:hidden",
+        "**:data-[slot=menu-trigger]:size-8 **:data-[slot=menu-trigger]:grid **:data-[slot=menu-trigger]:place-content-center"
+        // "size-12 p-1 **:data-[slot=menu-trigger]:size-9 justify-center items-center",
+      ]
     }
   }
 })
@@ -466,11 +481,11 @@ const SidebarSection = ({ title, className, collapsible, icon: Icon, defaultExpa
                     cn(
                       "w-full data-focused:outline-hidden flex leading-6 items-center justify-between *:data-[slot=chevron]:size-6 *:data-[slot=chevron]:duration-200",
                       Icon
-                        ? "text-fg lg:text-sm py-2 lg:py-1.5 px-3 **:data-[slot=chevron]::text-muted-fg has-[[data-slot=chevron]]:pr-0.5"
+                        ? "text-sidebar-fg lg:text-sm py-2 lg:py-1.5 px-3 **:data-[slot=chevron]::text-muted-fg has-[[data-slot=chevron]]:pr-0.5"
                         : "text-sm text-muted-fg py-2 px-3 has-[[data-slot=chevron]]:pr-0",
                       isHovered &&
                         Icon &&
-                        "bg-sidebar-accent-bg text-sidebar-accent-fg **:[.text-muted-fg]:text-sidebar-accent-fg/80 *:data-[slot=icon]:shrink-0 items-center *:data-[slot=icon]:text-muted-fg relative rounded-lg lg:text-sm leading-6",
+                        "bg-(--sidebar-accent) *:data-[slot=icon]:shrink-0 items-center *:data-[slot=icon]:text-muted-fg relative rounded-lg lg:text-sm leading-6",
                       isExpanded && !Icon && "*:data-[slot=chevron]:rotate-180",
                       isExpanded && Icon && "*:data-[slot=chevron]:rotate-90"
                     )

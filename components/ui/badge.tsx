@@ -6,23 +6,21 @@ import { tv, type VariantProps } from "tailwind-variants"
 
 const badgeIntents = {
   primary: [
-    "bg-primary/10 dark:bg-primary/20 text-primary group-data-hover:bg-primary/25 dark:text-primary dark:group-data-hover:bg-primary/25"
+    "[--badge-primary:color-mix(in_oklab,var(--color-primary)_10%,white_90%)] [--badge-primary-fg:color-mix(in_oklab,var(--color-primary)_60%,white_40%)]",
+    "dark:[--badge-primary:color-mix(in_oklab,var(--color-primary)_40%,black_60%)] bg-(--badge-primary) text-primary dark:text-(--badge-primary-fg) dark:group-data-hover:bg-primary/25",
+    "group-data-hover:bg-primary/25"
   ],
   secondary: [
     "bg-secondary group-data-hovered:bg-muted dark:bg-secondary dark:group-data-hovered:bg-muted text-secondary-fg"
   ],
   success: [
-    "bg-success/15 text-emerald-700 group-data-hover:bg-success/25 dark:bg-success/10 dark:text-emerald-400 dark:group-data-hover:bg-success/20"
+    "bg-emerald-500/15 text-emerald-700 group-data-hovered:bg-emerald-500/25 dark:bg-emerald-500/10 dark:text-emerald-400 dark:group-data-hovered:bg-emerald-500/20"
   ],
-  info: [
-    "bg-info/10 dark:bg-info/20 text-info-fg group-data-hover:bg-info/25 dark:text-info dark:group-data-hover:bg-info/25"
-  ],
-  warning: [
-    "bg-warning/10 dark:bg-warning/15 text-warning-fg group-data-hover:bg-warning/25 dark:text-warning dark:group-data-hover:bg-warning/25"
-  ],
-  danger: [
-    "bg-danger/10 dark:bg-danger/15 text-danger group-data-hover:bg-danger/25 dark:text-danger dark:group-data-hover:bg-danger/20"
-  ]
+  info: "bg-sky-500/15 text-sky-700 group-data-hovered:bg-sky-500/25 dark:bg-sky-500/10 dark:text-sky-300 dark:group-data-hovered:bg-sky-500/20",
+  warning:
+    "bg-amber-400/20 text-amber-700 group-data-hovered:bg-amber-400/30 dark:bg-amber-400/10 dark:text-amber-400 dark:group-data-hovered:bg-amber-400/15",
+  danger:
+    "bg-red-500/15 text-red-700 group-data-hovered:bg-red-500/25 dark:bg-red-500/10 dark:text-red-400 dark:group-data-hovered:bg-red-500/20"
 }
 const badgeShapes = {
   square: "rounded-md px-1.5",

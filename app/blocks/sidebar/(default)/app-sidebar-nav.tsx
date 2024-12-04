@@ -21,7 +21,7 @@ export function AppSidebarNav() {
         </Button>
         <Menu>
           <Menu.Trigger aria-label="Profile" className="flex items-center gap-x-2 group">
-            <Avatar size="small" shape="circle" src="/images/sidebar/profile-slash.jpg" />
+            <Avatar size="small" shape="circle" src="/images/avatar/slash.jpg" />
             <IconChevronLgDown className="size-4 group-pressed:rotate-180 transition-transform" />
           </Menu.Trigger>
           <Menu.Content className="min-w-[--trigger-width]">

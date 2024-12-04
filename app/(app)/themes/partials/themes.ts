@@ -3,7 +3,7 @@ import {
   accentColors300,
   accentColors400,
   accentColors500,
-  decreaseLightness,
+  adjustLightness,
   neutralColors
 } from "@/resources/lib/colors"
 
@@ -81,6 +81,11 @@ export const generateTheme = (selectedColors: Record<string, string>) => {
     ? "50"
     : determineForeground(isNeutralAccent, isShade400Accent, true)
 
+  const dangerColor = primary === "red" ? adjustLightness(getColorValue("red", "600"), -4) : getColorValue("red", "600")
+
+  const warningColor =
+    primary === "amber" ? adjustLightness(getColorValue("amber", "200"), -0) : getColorValue("amber", "400")
+
   const lightPrimaryFgValue = getFgValue(primary, lightPrimaryFg)
   const darkPrimaryFgValue = getFgValue(primary, darkPrimaryFg)
   const lightAccentFgValue = getFgValue(accent, lightAccentFg)
@@ -104,7 +109,7 @@ export const generateTheme = (selectedColors: Record<string, string>) => {
   --primary: ${getColorValue(primary, lightPrimary)};
   --primary-fg: ${lightPrimaryFgValue};
   
-  --secondary: ${getColorValue(gray, "100")};
+  --secondary: ${getColorValue(gray, "200")};
   --secondary-fg: ${getColorValue(gray, "950")};
   
   --overlay: ${getColorValue("white")};
@@ -113,30 +118,27 @@ export const generateTheme = (selectedColors: Record<string, string>) => {
   --accent: ${getColorValue(accent, lightAccent)};
   --accent-fg: ${lightAccentFgValue};
 
-  --subtle: ${getColorValue(primary, "100")};
-  --subtle-fg: ${getColorValue(primary, "800")};
-
   --muted: ${getColorValue(gray, "100")};
   --muted-fg: ${getColorValue(gray, "500")};
   
-  --success: oklch(0.696 0.17 162.48);
-  --success-fg: oklch(97.9% 0.021 166.113);
+  --success: ${getColorValue("emerald", "600")};
+  --success-fg: ${getColorValue("white")};
   
-  --info: oklch(0.685 0.169 237.323);
-  --info-fg: oklch(0.443 0.11 240.79);
+  --info: ${getColorValue("sky", "500")};
+  --info-fg: ${getColorValue("white")};
   
-  --warning: oklch(81.5% 0.184 86.047);
-  --warning-fg: oklch(25.6% 0.066 53.813);
+  --warning: ${warningColor};
+  --warning-fg: ${getColorValue("amber", "950")};
   
-  --danger: oklch(0.577 0.245 27.325);
-  --danger-fg: oklch(0.971 0.013 17.38);
+  --danger: ${dangerColor};
+  --danger-fg: ${getColorValue("red", "50")};
   
   --border: ${getColorValue(gray, "200")};
   --input: ${getColorValue(gray, "300")};
   --ring: ${getColorValue(primary, lightRingShade)};
   
-  --sidebar: ${decreaseLightness(getColorValue(gray, "900"), 0.04)};
-  --sidebar-fg: ${getColorValue(gray, "50")};
+  --sidebar: ${getColorValue(gray, "100")};
+  --sidebar-fg: ${getColorValue(gray, "950")};
   
   --chart-1: ${getColorValue(primary, chartShadesLight[0])};
   --chart-2: ${getColorValue(primary, chartShadesLight[1])};
@@ -152,14 +154,11 @@ export const generateTheme = (selectedColors: Record<string, string>) => {
   --primary: ${getColorValue(primary, darkPrimary)};
   --primary-fg: ${darkPrimaryFgValue};
 
-  --secondary: ${getColorValue(gray, "800")};
+  --secondary: ${adjustLightness(getColorValue(gray, "800"), -4)};
   --secondary-fg: ${getColorValue(gray, "50")};
 
   --accent: ${getColorValue(accent, darkAccent)};
   --accent-fg: ${darkAccentFgValue};
-
-  --subtle: ${getColorValue(primary, "950")};
-  --subtle-fg: ${getColorValue(primary, "200")};
   
   --muted: ${getColorValue(gray, "900")};
   --muted-fg: ${getColorValue(gray, "400")};
@@ -167,21 +166,26 @@ export const generateTheme = (selectedColors: Record<string, string>) => {
   --overlay: ${getColorValue(gray, "950")};
   --overlay-fg: ${getColorValue(gray, "50")};
   
-  --success: oklch(0.696 0.17 162.48);
-  --success-fg: oklch(97.9% 0.021 166.113);
+  --success: ${getColorValue("emerald", "600")};
+  --success-fg: ${getColorValue("white")};
   
-  --info: oklch(0.685 0.169 237.323);
-  --info-fg: oklch(0.443 0.11 240.79);
+  --info: ${getColorValue("sky", "500")};
+  --info-fg: ${getColorValue("sky", "400")};
   
-  --warning: oklch(81.5% 0.184 86.047);
-  --warning-fg: oklch(25.6% 0.066 53.813);
+  --warning: ${getColorValue("amber", "400")};
+  --warning-fg: ${getColorValue("amber", "950")};
   
-  --danger: oklch(0.577 0.245 27.325);
-  --danger-fg: oklch(0.971 0.013 17.38);
+  --danger: ${dangerColor};
+  --danger-fg: ${getColorValue("red", "50")};
   
   --border: ${getColorValue(gray, "800")};
   --input: ${getColorValue(gray, "800")};
   --ring: ${getColorValue(primary, darkRingShade)};
+  
+  --sidebar: ${adjustLightness(getColorValue(gray, "900"), -5)};
+  --sidebar-fg: ${getColorValue(gray, "50")};
+  --sidebar-accent: ${getColorValue(gray, "800")};
+  --sidebar-accent-fg: ${getColorValue(gray, "50")};
 
   --chart-1: ${getColorValue(primary, chartShadesDark[0])};
   --chart-2: ${getColorValue(primary, chartShadesDark[1])};
