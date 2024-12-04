@@ -3,15 +3,15 @@
 import React from "react"
 
 import { IconBell, IconCreditCard, IconDownload, IconSettings, IconShield, IconSupport } from "justd-icons"
-import { Disclosure, DisclosureGroup } from "ui"
+import { Disclosure, DisclosureGroup, DisclosurePanel, DisclosureTrigger } from "ui"
 
 export default function DisclosureGroupBorderHiddenDemo() {
   return (
-    <DisclosureGroup hideBorder>
+    <DisclosureGroup>
       {items.map((item, index) => (
-        <Disclosure key={index} id={index}>
-          <Disclosure.Trigger>{item.title}</Disclosure.Trigger>
-          <Disclosure.Panel>{item.description}</Disclosure.Panel>
+        <Disclosure className="border-b-0" key={index} id={index}>
+          <DisclosureTrigger className="py-1.5">{item.title}</DisclosureTrigger>
+          <DisclosurePanel>{item.description}</DisclosurePanel>
         </Disclosure>
       ))}
     </DisclosureGroup>

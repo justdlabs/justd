@@ -118,34 +118,34 @@
 /*  background: transparent !important;*/
 /*}*/
 
-/*span[data-rehype-pretty-code-figure] > code > span {*/
-/*  @apply bg-secondary text-secondary-fg inline-block rounded text-xs font-normal drop-shadow-none;*/
-/*  padding: 0.2rem 0.3rem !important;*/
-/*}*/
+span[data-rehype-pretty-code-figure] > code > span {
+  @apply bg-secondary text-secondary-fg inline-block rounded text-xs font-normal drop-shadow-none;
+  padding: 0.2rem 0.3rem !important;
+}
 
-/*[data-rehype-pretty-code-figure] code[data-line-numbers] {*/
-/*  counter-reset: line;*/
-/*}*/
+[data-rehype-pretty-code-figure] code[data-line-numbers] {
+  counter-reset: line;
+}
 
-/*[data-rehype-pretty-code-figure] code[data-line-numbers] > [data-line]::before {*/
-/*  counter-increment: line;*/
-/*  content: counter(line);*/
-/*  @apply mr-4 inline-block w-4 text-right text-gray-500;*/
-/*}*/
+[data-rehype-pretty-code-figure] code[data-line-numbers] > [data-line]::before {
+  counter-increment: line;
+  content: counter(line);
+  @apply mr-4 inline-block w-4 text-right text-gray-500;
+}
 
-/*[data-rehype-pretty-code-figure] [data-line] {*/
-/*  @apply border-l-2 border-l-transparent px-3;*/
-/*}*/
+[data-rehype-pretty-code-figure] [data-line] {
+  @apply -ml-4 border-l-2 border-l-transparent px-3;
+}
 
-/*[data-rehype-pretty-code-figure] [data-highlighted-line] {*/
-/*  background: rgba(200, 200, 255, 0.1);*/
-/*  @apply border-l-blue-400;*/
-/*}*/
+[data-rehype-pretty-code-figure] [data-highlighted-line] {
+  background: rgba(200, 200, 255, 0.1);
+  @apply border-l-blue-400;
+}
 
-/*[data-rehype-pretty-code-figure] [data-highlighted-chars] {*/
-/*  @apply rounded bg-zinc-600/50;*/
-/*  box-shadow: 0 0 0 4px rgb(82 82 91 / 0.5);*/
-/*}*/
+[data-rehype-pretty-code-figure] [data-highlighted-chars] {
+  @apply rounded bg-zinc-600/50;
+  box-shadow: 0 0 0 4px rgb(82 82 91 / 0.5);
+}
 
 /*[data-rehype-pretty-code-figure] [data-chars-id] {*/
 /*  @apply border-b-2 p-1 shadow-none;*/
@@ -155,27 +155,28 @@
 /*  @apply text-fg font-semibold no-underline hover:no-underline;*/
 /*}*/
 
-/*.has-diff .diff.remove {*/
-/*  @apply bg-red-500/10;*/
-/*}*/
-/*.has-diff .diff.remove:before {*/
-/*  content: "-";*/
-/*  color: var(--color-red-600);*/
-/*}*/
+.has-diff .diff.remove {
+  @apply bg-red-500/10;
+}
+.has-diff .diff.remove:before {
+  content: "-";
+  color: var(--color-red-600);
+}
 
-/*.has-diff .diff.add {*/
-/*  @apply bg-green-500/10;*/
-/*}*/
+.has-diff .diff.add {
+  @apply bg-green-500/10;
+}
 
-/*.has-diff .diff.add:before {*/
-/*  content: "+";*/
-/*  color: var(--color-emerald-600);*/
-/*}*/
+.has-diff .diff.add:before {
+  content: "+";
+  color: var(--color-emerald-600);
+}
 
-/*.prose-headings\:scroll-mt-24*/
-/*  :is(:where(h1, h2, h3, h4, h5, h6, th):not(:where([class~="not-prose"], [class~="not-prose"] *))) {*/
-/*  @apply tracking-tight;*/
-/*}*/
+.prose-headings\:scroll-mt-24:is(
+    :where(h1, h2, h3, h4, h5, h6, th):not(:where([class~="not-prose"], [class~="not-prose"] *))
+  ) {
+  @apply tracking-tight;
+}
 
 /*.prose-heading.s\:scroll-mt-24*/
 /*  :is(:where(h1, h2, h3, h4, h5, h6, th):not(:where([class~="not-prose"], [class~="not-prose"] *)))*/
@@ -184,7 +185,7 @@
 /*  color: var(--fg) !important;*/
 /*}*/
 
-/*.prose :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *))::before,*/
-/*.prose :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *))::after {*/
-/*  display: none;*/
-/*}*/
+.prose :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *))::before,
+.prose :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *))::after {
+  display: none;
+}

@@ -1,10 +1,10 @@
-import { Disclosure } from "ui"
+import { Disclosure, DisclosurePanel, DisclosureTrigger } from "ui"
 
 export default function DisclosureAnatomy() {
   return (
     <Disclosure>
-      <Disclosure.Trigger>...</Disclosure.Trigger>
-      <Disclosure.Panel>...</Disclosure.Panel>
+      <DisclosureTrigger>...</DisclosureTrigger>
+      <DisclosurePanel>...</DisclosurePanel>
     </Disclosure>
   )
 }
