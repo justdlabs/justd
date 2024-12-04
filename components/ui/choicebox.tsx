@@ -62,10 +62,10 @@ const Choicebox = <T extends object>({
 const choiceboxItemStyles = tv({
   extend: focusStyles,
   base: [
-    "[--choicebox:color-mix(in_oklab,var(--color-primary)_10%,white_90%)] [--choicebox-fg:var(--color-primary)]",
+    "[--choicebox:color-mix(in_oklab,var(--color-primary)_5%,white_95%)] [--choicebox-fg:var(--color-primary)]",
     "[--choicebox-selected-hovered:color-mix(in_oklab,var(--color-primary)_15%,white_85%)]",
     "dark:[--choicebox-selected-hovered:color-mix(in_oklab,var(--color-primary)_30%,black_70%)]",
-    "dark:[--choicebox:color-mix(in_oklab,var(--color-primary)_25%,black_75%)] dark:[--choicebox-fg:color-mix(in_oklab,var(--color-primary)_95%,black_5%)]",
+    "dark:[--choicebox:color-mix(in_oklab,var(--color-primary)_25%,black_60%)] dark:[--choicebox-fg:color-mix(in_oklab,var(--color-primary)_75%,white_25%)]",
     "rounded-lg cursor-pointer border p-4 [&_[slot=title]]:font-medium"
   ],
   variants: {

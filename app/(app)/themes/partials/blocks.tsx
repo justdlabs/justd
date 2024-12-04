@@ -31,7 +31,7 @@ import {
 
 export function Blocks() {
   return (
-    <div className="grid gap-2">
+    <div className="grid **:data-[slot=card]:bg-overlay gap-2">
       <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-2">
         <Card className="p-6 flex flex-col items-center justify-center gap-y-6">
           <div className="grid grid-cols-2 gap-2">
