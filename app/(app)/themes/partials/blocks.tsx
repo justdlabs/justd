@@ -10,7 +10,6 @@ import ModalDemo from "@/components/docs/overlays/modal/modal-demo"
 import PopoverDemo from "@/components/docs/overlays/popover/popover-demo"
 import { users } from "@/components/docs/pickers/combo-box/combo-box-avatar-demo"
 import { roles } from "@/components/docs/pickers/select/select-item-details-demo"
-import BadgeIntentDemo from "@/components/docs/statuses/badge-intent-demo"
 import { IconDashboard } from "justd-icons"
 import {
   Avatar,
@@ -33,17 +32,7 @@ import {
 export function Blocks() {
   return (
     <div className="grid gap-2">
-      {/*<div className="grid **:data-[slot=card]:bg-secondary/10 gap-2">*/}
-      {/*<div className="@container">*/}
-      {/*<SidebarBlock>Home</SidebarBlock>*/}
-      {/*</div>*/}
       <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-2">
-        <div>
-          <BadgeIntentDemo />
-        </div>
-        {/*<div className="relative">*/}
-        {/*  <NoteIntentDemo />*/}
-        {/*</div>*/}
         <Card className="p-6 flex flex-col items-center justify-center gap-y-6">
           <div className="grid grid-cols-2 gap-2">
             {Object.keys(buttonStyles.variants.intent).map((intent) => (

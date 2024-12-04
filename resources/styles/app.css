@@ -77,7 +77,7 @@
   }
 }
 
-@import "./themes/sky.css";
+@import "./themes/default.css";
 
 @layer base {
   *,

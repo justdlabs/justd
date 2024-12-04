@@ -3,9 +3,9 @@
 import React from "react"
 
 import { useTheme } from "@/components/theme-provider"
-import { IconCheck, IconCircleInfoFill, IconTriangleInfoFill } from "justd-icons"
+import { cn } from "@/utils/classes"
+import { IconCheck, IconCircleInfo, IconTriangleInfo } from "justd-icons"
 import { Toaster as ToasterPrimitive, type ToasterProps } from "sonner"
-import { twJoin } from "tailwind-merge"
 
 import { buttonStyles } from "./button"
 import { Loader } from "./loader"
@@ -17,46 +17,45 @@ const Toast = ({ ...props }: ToasterProps) => {
       theme={theme as ToasterProps["theme"]}
       className="toaster group"
       icons={{
-        info: <IconCircleInfoFill />,
+        info: <IconCircleInfo className="text-warning-fg" />,
+        error: <IconTriangleInfo />,
+        warning: <IconTriangleInfo />,
         success: <IconCheck />,
-        warning: <IconTriangleInfoFill />,
-        error: <IconTriangleInfoFill />,
         loading: <Loader variant="spin" />
       }}
       toastOptions={{
         unstyled: true,
+        duration: Infinity,
         closeButton: true,
         classNames: {
-          toast: twJoin(
-            "ring-1 ring-border dark:ring-inset sm:min-w-[22rem] rounded-xl text-fg overflow-hidden text-[0.925rem] backdrop-blur-xl px-4 py-3 font-normal sm:px-5 sm:py-5",
-            "[&:has([data-icon])_[data-content]]:ml-5",
-            '[&:has([data-button])_[data-close-button="true"]]:hidden',
-            "[&:not([data-description])_[data-title]]:font-normal",
-            "[&:has([data-description])_[data-title]]:font-medium! [&:has([data-description])_[data-title]]:text-lg!",
-            "*:data-button:absolute *:data-[button=true]:bottom-4",
-            "*:data-[action=true]:right-4",
-            "*:data-[cancel=true]:left-4"
+          toast: cn(
+            "text-[0.925rem] not-has-data-description:**:data-title:font-normal!",
+            "has-data-description:**:data-title:font-medium [&:has([data-description])_[data-title]]:text-base!",
+            "has-data-[slot=icon]:**:data-content:pl-0",
+            "has-data-button:*:data-content:mb-10",
+            "has-data-button:**:data-close-button:hidden!",
+            "w-full",
+            "flex bg-bg text-fg inset-ring-1 inset-ring-fg/10 p-4 rounded-xl"
           ),
-          icon: "absolute top-[1rem] sm:top-[1.50rem]",
-          content: "[&:not(:has(+button))]:pr-10 [&:has(+button)]:pb-11 md:[&:has(+button)]:pb-9",
-          error: "bg-danger ring-danger-fg/10 text-white ring-inset [&>[data-close-button=true]>svg]:text-white",
-          info: "bg-info ring-info-fg/10 text-info-fg ring-inset [&>[data-close-button=true]>svg]:text-info-fg",
-          warning:
-            "bg-warning text-warning-fg ring-warning-fg/10 ring-inset [&>[data-close-button=true]>svg]:text-amber-950",
-          success:
-            "bg-primary ring-primary/50 text-primary-fg ring-inset [&>[data-close-button=true]>svg]:text-primary-fg",
+          icon: "absolute top-[0.2rem] [--toast-icon-margin-end:7px] *:data-[slot=icon]:text-fg *:data-[slot=icon]:size-4.5 *:data-[slot=icon]:text-white",
+          title: "",
+          description: "",
+          content: "pr-4 *:data-description:text-current/65! *:data-description:text-sm!",
+          error: " bg-danger text-white",
+          info: "bg-sky-600 text-white",
+          warning: "bg-warning text-warning-fg ring-warning-fg/10 **:data-[slot=icon]:text-warning-fg",
+          success: "rounded-md bg-primary ring-primary/50 text-primary-fg",
           cancelButton: buttonStyles({
-            className: "",
+            className: "self-start absolute bottom-4 left-4 justify-self-start",
             size: "extra-small",
             appearance: "outline"
           }),
           actionButton: buttonStyles({
-            className: "self-end justify-self-end",
+            className: "absolute bottom-4 right-4 self-end justify-self-end",
             size: "extra-small"
           }),
-          closeButton: twJoin([
-            "[&_svg]:size-5 size-8 absolute top-1/2 transform -translate-y-1/2 right-2 lg:right-3 left-auto grid place-content-center rounded-md bg-transparent!hover:bg-dark/20! dark:hover:bg-white/20! border-0 [&_svg]:text-fg"
-          ])
+          closeButton:
+            "*:[svg]:size-12 size-6! [--gray2:theme(--color-white/30%)] rounded-md! [--gray1:transparent] [--gray4:transparent] [--gray5:transparent] [--gray12:current] [--toast-close-button-start:full] [--toast-close-button-end:-6px] [--toast-close-button-transform:translate(-75%,60%)] absolute"
         }
       }}
       {...props}
