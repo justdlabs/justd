@@ -1,5 +1,6 @@
 import React from "react"
 
+import { CardBlock } from "@/components/blocks"
 import { SliderOnPopoverBlock } from "@/components/blocks/slider-on-popover-block"
 import {
   IconCamera,
@@ -10,27 +11,22 @@ import {
   IconGalleryFill,
   IconHeart,
   IconHeartFill,
-  IconMagic,
-  IconMagicFill,
   IconVideoPlaylist,
   IconVideoPlaylistFill
 } from "justd-icons"
-import { Card, Toolbar } from "ui"
+import { Toolbar } from "ui"
 
 export function ToolbarBlock() {
   return (
-    <Card className="px-4 py-8 bg-secondary">
+    <CardBlock>
       <div className="flex justify-center gap-2">
         <Toolbar aria-label="Toolbars" className="flex justify-between">
           <Toolbar.Group aria-label="Actions">
-            <Toolbar.Item aria-label="Support" appearance="outline">
+            <Toolbar.Item size="square-petite" aria-label="Support" appearance="outline">
               {({ isSelected }) => <>{isSelected ? <IconHeartFill /> : <IconHeart />}</>}
             </Toolbar.Item>
-            <Toolbar.Item aria-label="Duplicate" appearance="outline">
+            <Toolbar.Item size="square-petite" aria-label="Duplicate" appearance="outline">
               {({ isSelected }) => <>{isSelected ? <IconDuplicateFill /> : <IconDuplicate />}</>}
-            </Toolbar.Item>
-            <Toolbar.Item aria-label="Resolve with AI" appearance="outline">
-              {({ isSelected }) => <>{isSelected ? <IconMagicFill /> : <IconMagic />}</>}
             </Toolbar.Item>
             <SliderOnPopoverBlock />
           </Toolbar.Group>
@@ -48,6 +44,6 @@ export function ToolbarBlock() {
           </Toolbar.Group>
         </Toolbar>
       </div>
-    </Card>
+    </CardBlock>
   )
 }

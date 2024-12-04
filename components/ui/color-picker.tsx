@@ -55,7 +55,7 @@ const ColorPicker = ({
             showArrow={showArrow}
             placement={placement}
           >
-            <Dialog className="flex flex-col gap-2 data-focused:outline-hidden">
+            <Dialog className="flex flex-col gap-2 outline-hidden">
               {children || (
                 <>
                   <ColorArea colorSpace="hsb" xChannel="saturation" yChannel="brightness" />

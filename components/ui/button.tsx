@@ -45,12 +45,12 @@ const buttonStyles = tv({
         "dark:after:-inset-px dark:before:hidden dark:border-white/5 dark:bg-(--button-bg)"
       ],
       outline: [
-        "border-border data-hovered:border-secondary-fg/10 data-pressed:border-secondary-fg/10 text-secondary-fg [--button-icon:var(--color-secondary-fg)]/60",
-        "data-hovered:[--button-icon:var(--color-fg)] data-hovered:bg-secondary/90",
+        "border-border data-hovered:border-secondary-fg/10 data-pressed:border-secondary-fg/10 data-hovered:bg-secondary/90 text-secondary-fg",
+        "[--button-icon:var(--color-secondary-fg)]/60 data-hovered:[--button-icon:var(--color-fg)]",
         "data-pressed:bg-secondary/90 data-pressed:[--button-icon:var(--color-secondary-fg)]"
       ],
       plain: [
-        "border-transparent text-secondary-fg [--button-icon:var(--color-white)]/60",
+        "border-transparent text-secondary-fg [--button-icon:var(--color-secondary-fg)]/60",
         "data-hovered:[--button-icon:var(--color-secondary-fg)] data-hovered:bg-secondary",
         "data-pressed:[--button-icon:var(--color-secondary-fg)] data-pressed:bg-secondary"
       ]

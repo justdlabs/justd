@@ -72,7 +72,7 @@ const toggleStyles = tv({
         "[--button-icon:var(--color-black)]/60 data-selected:[--button-icon:var(--color-white)] data-hovered:[--button-icon:var(--color-black)]/80"
       ],
       outline: [
-        "border-border data-selected:bg-secondary data-selected:backdrop-blur-sm data-selected:text-secondary-fg data-hovered:bg-secondary/50 data-hovered:text-secondary-fg",
+        "border-border data-hovered:border-secondary-fg/10 data-pressed:border-secondary-fg/10 data-selected:border-secondary-fg/10 data-selected:bg-secondary/90 data-selected:backdrop-blur-sm data-selected:text-secondary-fg data-hovered:bg-secondary/90 data-hovered:text-secondary-fg",
         "[--button-icon:var(--color-secondary-fg)]/60 data-selected:[--button-icon:var(--color-secondary-fg)] data-hovered:[--button-icon:var(--color-secondary-fg)]/80"
       ]
     },
