@@ -58,8 +58,8 @@ const SubMenu = ({ delay = 0, ...props }) => (
 
 const menuStyles = tv({
   slots: {
-    menu: "z32kk max-h-[calc(var(--visual-viewport-height)-10rem)] sm:max-h-[inherit] overflow-auto rounded-xl p-1 outline outline-0 [clip-path:inset(0_0_0_0_round_calc(var(--radius-lg)-2px))]",
-    popover: "z-50 [&_[role=dialog]:not(:has([data-slot=dialog-body]))]:px-0 sm:min-w-40 p-0 outline-hidden shadow-xs",
+    menu: "max-h-[calc(var(--visual-viewport-height)-10rem)] sm:max-h-[inherit] overflow-auto rounded-xl p-1 outline-hidden [clip-path:inset(0_0_0_0_round_calc(var(--radius-lg)-2px))]",
+    popover: "z-50 sm:min-w-40 p-0 outline-hidden shadow-xs",
     trigger: [
       "inline relative text-left data-focused:outline-hidden data-focus-visible:ring-1 data-focus-visible:ring-primary data-pressed:outline-hidden"
     ]
@@ -145,7 +145,7 @@ const MenuHeader = ({ className, separator = false, ...props }: MenuHeaderProps)
   <Header
     className={cn(
       "p-2 text-base font-semibold sm:text-sm",
-      separator && "-mx-1 border-b px-3 pb-[0.625rem]",
+      separator && "-mx-1 border-b px-4 py-3 sm:px-3 sm:pb-[0.625rem]",
       className
     )}
     {...props}

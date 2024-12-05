@@ -5,13 +5,13 @@ import * as React from "react"
 import { ThemeSwitcher } from "@/components/theme-switcher"
 import {
   IconBrandApple,
-  IconChevronLgDown,
   IconCommandRegular,
   IconDashboard,
   IconHeadphones,
   IconLogout,
   IconSearch,
   IconSettings,
+  IconShield,
   IconShoppingBag
 } from "justd-icons"
 import { Avatar, Button, Menu, Navbar, SearchField, Separator } from "ui"
@@ -57,49 +57,58 @@ export default function AppNavbar({ children, ...props }: React.ComponentProps<t
               <ThemeSwitcher appearance="plain" />
             </Navbar.Flex>
             <Separator orientation="vertical" className="h-6 ml-1 mr-3" />
-            <Menu>
-              <Menu.Trigger aria-label="Open Menu" className="group gap-x-2 flex items-center">
-                <Avatar alt="cobain" size="small" shape="square" src="/images/avatar/cobain.jpg" />
-                <IconChevronLgDown className="size-4 group-data-pressed:rotate-180 transition-transform" />
-              </Menu.Trigger>
-              <Menu.Content placement="bottom right" showArrow className="sm:min-w-56">
-                <Menu.Section>
-                  <Menu.Header separator>
-                    <span className="block">Kurt Cobain</span>
-                    <span className="font-normal text-muted-fg">@cobain</span>
-                  </Menu.Header>
-                </Menu.Section>
-
-                <Menu.Item href="#dashboard">
-                  <IconDashboard />
-                  Dashboard
-                </Menu.Item>
-                <Menu.Item href="#settings">
-                  <IconSettings />
-                  Settings
-                </Menu.Item>
-                <Menu.Separator />
-                <Menu.Item>
-                  <IconCommandRegular />
-                  Command Menu
-                </Menu.Item>
-                <Menu.Separator />
-                <Menu.Item href="#contact-s">
-                  <IconHeadphones />
-                  Contact Support
-                </Menu.Item>
-                <Menu.Separator />
-                <Menu.Item href="#logout">
-                  <IconLogout />
-                  Log out
-                </Menu.Item>
-              </Menu.Content>
-            </Menu>
+            <UserMenu />
           </Navbar.Flex>
         </Navbar.Compact>
 
         <Navbar.Inset>{children}</Navbar.Inset>
       </Navbar>
     </>
+  )
+}
+
+function UserMenu() {
+  return (
+    <Menu>
+      <Menu.Trigger aria-label="Open Menu">
+        <Avatar alt="cobain" size="small" shape="square" src="/images/avatar/cobain.jpg" />
+      </Menu.Trigger>
+      <Menu.Content placement="bottom right" className="sm:min-w-56">
+        <Menu.Section>
+          <Menu.Header separator>
+            <span className="block">Kurt Cobain</span>
+            <span className="font-normal text-muted-fg">@cobain</span>
+          </Menu.Header>
+        </Menu.Section>
+
+        <Menu.Item href="#dashboard">
+          <IconDashboard />
+          Dashboard
+        </Menu.Item>
+        <Menu.Item href="#settings">
+          <IconSettings />
+          Settings
+        </Menu.Item>
+        <Menu.Item href="#security">
+          <IconShield />
+          Security
+        </Menu.Item>
+        <Menu.Separator />
+        <Menu.Item>
+          <IconCommandRegular />
+          Command Menu
+        </Menu.Item>
+
+        <Menu.Item href="#contact">
+          <IconHeadphones />
+          Customer Support
+        </Menu.Item>
+        <Menu.Separator />
+        <Menu.Item href="#logout">
+          <IconLogout />
+          Log out
+        </Menu.Item>
+      </Menu.Content>
+    </Menu>
   )
 }

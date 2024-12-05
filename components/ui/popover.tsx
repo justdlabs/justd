@@ -18,7 +18,6 @@ import {
   PopoverContext,
   useSlottedContext
 } from "react-aria-components"
-import { twJoin } from "tailwind-merge"
 import { tv } from "tailwind-variants"
 
 import { Dialog } from "./dialog"
@@ -70,13 +69,13 @@ const popoverContentStyles = tv({
   }
 })
 
-const drawerStyles = tv({
+const drawer = tv({
   base: [
     "fixed max-h-full bottom-0 top-auto z-50 w-full bg-overlay max-w-2xl border border-b-transparent outline-hidden"
   ],
   variants: {
     isMenu: {
-      true: "p-0 [&_[role=dialog]]:px-0 rounded-t-xl",
+      true: "p-0 [&_[role=dialog]]:*:not-has-[[data-slot=dialog-body]]:px-1 rounded-t-xl",
       false: "py-4 rounded-t-2xl"
     },
     isEntering: {
@@ -116,19 +115,20 @@ const Content = ({ respectScreen = true, children, showArrow = true, className, 
   const effectiveOffset = isSubmenuTrigger ? offset - 5 : offset
   return isMobile && respectScreen ? (
     <ModalOverlay
-      className={twJoin(
-        "fixed left-0 top-0 isolate z-50 h-(--visual-viewport-height) w-full bg-overlay/10 [--visual-viewport-vertical-padding:16px]",
-        isSubmenuTrigger ? "bg-overlay/10" : ""
-      )}
+      className="fixed left-0 top-0 isolate z-50 h-(--visual-viewport-height) w-full bg-overlay/10 [--visual-viewport-vertical-padding:16px]"
       {...props}
       isDismissable
     >
       <Modal
         className={composeRenderProps(className, (className, renderProps) =>
-          drawerStyles({ ...renderProps, isMenu, className })
+          drawer({ ...renderProps, isMenu, className })
         )}
       >
-        <Dialog aria-label={isMenu ? "Menu" : props["aria-label"]} className="touch-none data-focused:outline-hidden">
+        <Dialog
+          role="dialog"
+          aria-label={isMenu ? "Menu" : props["aria-label"]}
+          className="touch-none p-0 data-focused:outline-hidden"
+        >
           {children}
         </Dialog>
       </Modal>
@@ -189,4 +189,4 @@ Popover.Header = Header
 Popover.Picker = Picker
 Popover.Title = Title
 
-export { Popover, drawerStyles, popoverContentStyles }
+export { Popover, popoverContentStyles }
