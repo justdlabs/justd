@@ -16,59 +16,55 @@ import {
 } from "justd-icons"
 import { Avatar, Button, Menu, Navbar, Separator } from "ui"
 
-export default function AppNavbar({ children, ...props }: React.ComponentProps<typeof Navbar>) {
+export default function AppNavbar() {
   return (
-    <>
-      <Navbar intent="floating" {...props}>
-        <Navbar.Nav>
+    <Navbar intent="floating">
+      <Navbar.Nav>
+        <Navbar.Logo href="/docs/components/layouts/navbar">
+          <IconBrandApple className="size-6 lg:size-5" />
+        </Navbar.Logo>
+        <Navbar.Section>
+          <Navbar.Item isCurrent href="#">
+            Store
+          </Navbar.Item>
+          <Navbar.Item href="#">Mac</Navbar.Item>
+          <Navbar.Item href="#">iPad</Navbar.Item>
+        </Navbar.Section>
+        <Navbar.Section className="ml-auto hidden lg:flex">
+          <Navbar.Flex>
+            <Button appearance="plain" size="square-petite" aria-label="Search for products">
+              <IconSearch />
+            </Button>
+            <Button appearance="plain" size="square-petite" aria-label="Your Bag">
+              <IconShoppingBag />
+            </Button>
+          </Navbar.Flex>
+        </Navbar.Section>
+      </Navbar.Nav>
+
+      <Navbar.Compact>
+        <Navbar.Flex>
+          <Navbar.Trigger className="-ml-2" />
+          <Separator orientation="vertical" className="h-6 lg:mx-1" />
           <Navbar.Logo href="/docs/components/layouts/navbar">
-            <IconBrandApple className="size-6 lg:size-5" />
+            <IconBrandApple className="size-5" />
           </Navbar.Logo>
-          <Navbar.Section>
-            <Navbar.Item isCurrent href="#">
-              Store
-            </Navbar.Item>
-            <Navbar.Item href="#">Mac</Navbar.Item>
-            <Navbar.Item href="#">iPad</Navbar.Item>
-          </Navbar.Section>
-          <Navbar.Section className="ml-auto hidden lg:flex">
-            <Navbar.Flex>
-              <Button appearance="plain" size="square-petite" aria-label="Search for products">
-                <IconSearch />
-              </Button>
-              <Button appearance="plain" size="square-petite" aria-label="Your Bag">
-                <IconShoppingBag />
-              </Button>
-            </Navbar.Flex>
-          </Navbar.Section>
-        </Navbar.Nav>
-
-        <Navbar.Compact>
+        </Navbar.Flex>
+        <Navbar.Flex>
           <Navbar.Flex>
-            <Navbar.Trigger className="-ml-2" />
-            <Separator orientation="vertical" className="h-6 lg:mx-1" />
-            <Navbar.Logo href="/docs/components/layouts/navbar">
-              <IconBrandApple className="size-5" />
-            </Navbar.Logo>
+            <Button appearance="plain" size="square-petite" aria-label="Search for products">
+              <IconSearch />
+            </Button>
+            <Button appearance="plain" size="square-petite" aria-label="Your Bag">
+              <IconShoppingBag />
+            </Button>
+            <ThemeSwitcher appearance="plain" />
           </Navbar.Flex>
-          <Navbar.Flex>
-            <Navbar.Flex>
-              <Button appearance="plain" size="square-petite" aria-label="Search for products">
-                <IconSearch />
-              </Button>
-              <Button appearance="plain" size="square-petite" aria-label="Your Bag">
-                <IconShoppingBag />
-              </Button>
-              <ThemeSwitcher appearance="plain" />
-            </Navbar.Flex>
-            <Separator orientation="vertical" className="h-6 ml-1 mr-3" />
-            <UserMenu />
-          </Navbar.Flex>
-        </Navbar.Compact>
-
-        <Navbar.Inset>{children}</Navbar.Inset>
-      </Navbar>
-    </>
+          <Separator orientation="vertical" className="h-6 ml-1 mr-3" />
+          <UserMenu />
+        </Navbar.Flex>
+      </Navbar.Compact>
+    </Navbar>
   )
 }
 

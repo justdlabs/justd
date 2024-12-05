@@ -3,7 +3,7 @@
 import * as React from "react"
 
 import { IconCheck, IconHamburger } from "justd-icons"
-import type { ListBoxItemProps, ListBoxProps as ListBoxPrimitiveProps } from "react-aria-components"
+import type { ListBoxItemProps, ListBoxProps } from "react-aria-components"
 import { composeRenderProps, ListBox as ListBoxPrimitive, ListBoxItem } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
@@ -14,14 +14,11 @@ const listBoxStyles = tv({
   base: "flex max-h-96 [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin] w-full gap-y-1 min-w-72 flex-col overflow-y-auto rounded-xl border p-1 shadow-lg outline-hidden"
 })
 
-interface ListBoxProps<T> extends ListBoxPrimitiveProps<T> {
-  className?: string
-}
-
-const ListBox = <T extends object>({ children, className, ...props }: ListBoxProps<T>) => (
-  <ListBoxPrimitive {...props} className={listBoxStyles({ className })}>
-    {children}
-  </ListBoxPrimitive>
+const ListBox = <T extends object>({ className, ...props }: ListBoxProps<T>) => (
+  <ListBoxPrimitive
+    {...props}
+    className={composeRenderProps(className, (className, renderProps) => listBoxStyles({ ...renderProps, className }))}
+  />
 )
 
 const listBoxItemStyles = tv({

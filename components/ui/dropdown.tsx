@@ -20,7 +20,7 @@ import { cn } from "./primitive"
 
 const dropdownItemStyles = tv({
   base: [
-    "group text-fg forced-colors:text-[LinkText] flex cursor-default forced-color-adjust-none select-none items-center gap-x-1.5 rounded-[calc(var(--radius-lg)-1px)] py-2 px-2.5 relative text-base outline outline-0 forced-color:text-[Highlight] lg:text-sm",
+    "group text-fg forced-colors:text-[LinkText] flex cursor-default forced-color-adjust-none select-none items-center gap-x-1.5 rounded-[calc(var(--radius-lg)-1px)] py-2 px-2.5 relative text-base outline outline-0 forced-color:text-[Highlight] sm:text-sm",
     "has-submenu:data-open:data-danger:bg-danger/20 has-submenu:data-open:data-danger:text-danger",
     "data-has-submenu:data-open:bg-accent data-has-submenu:data-open:text-accent-fg data-has-submenu:data-open:*:data-[slot=icon]:text-accent-fg data-has-submenu:data-open:*:[.text-muted-fg]:text-accent-fg",
     "**:data-[slot=avatar]:-mr-0.5 **:data-[slot=avatar]:size-6 sm:**:data-[slot=avatar]:size-5",

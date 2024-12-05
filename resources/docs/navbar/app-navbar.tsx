@@ -1,11 +1,8 @@
-"use client"
-
 import * as React from "react"
 
 import { ThemeSwitcher } from "@/components/theme-switcher"
 import {
   IconBrandApple,
-  IconChevronLgDown,
   IconCommandRegular,
   IconDashboard,
   IconHeadphones,
@@ -17,36 +14,22 @@ import {
 } from "justd-icons"
 import { Avatar, Button, Menu, Navbar, Separator } from "ui"
 
-export default function AppNavbar(props: React.ComponentProps<typeof Navbar>) {
+export default function AppNavbar() {
   return (
-    <Navbar {...props}>
+    <Navbar>
       <Navbar.Nav>
         <Navbar.Logo href="/docs/components/layouts/navbar">
           <IconBrandApple className="size-6 lg:size-5" />
         </Navbar.Logo>
         <Navbar.Section>
-          <Navbar.Item href="#" isCurrent>
+          <Navbar.Item isCurrent href="#">
             Home
           </Navbar.Item>
-          <Navbar.Item href="#">Shop</Navbar.Item>
-          <Navbar.Item href="#">Offers</Navbar.Item>
-          <Navbar.Item href="#">Orders</Navbar.Item>
-          <Menu>
-            <Navbar.Item>
-              Categories <IconChevronLgDown data-slot="chevron" />
-            </Navbar.Item>
-            <Menu.Content items={categories}>
-              {(item) => (
-                <Menu.Item id={item.id} textValue={item.label} href={item.url}>
-                  {item.label}
-                </Menu.Item>
-              )}
-            </Menu.Content>
-          </Menu>
+          <Navbar.Item href="#">Mac</Navbar.Item>
+          <Navbar.Item href="#">iPad</Navbar.Item>
         </Navbar.Section>
-
-        <Navbar.Section className="ml-auto hidden md:flex">
-          <Navbar.Flex className="sm:gap-x-1">
+        <Navbar.Section className="ml-auto hidden lg:flex">
+          <Navbar.Flex>
             <Button appearance="plain" size="square-petite" aria-label="Search for products">
               <IconSearch />
             </Button>
@@ -85,59 +68,6 @@ export default function AppNavbar(props: React.ComponentProps<typeof Navbar>) {
     </Navbar>
   )
 }
-
-const categories = [
-  {
-    id: 1,
-    label: "Electronics",
-    url: "#"
-  },
-  {
-    id: 2,
-    label: "Fashion",
-    url: "#"
-  },
-  {
-    id: 3,
-    label: "Home & Kitchen",
-    url: "#"
-  },
-  {
-    id: 4,
-    label: "Sports",
-    url: "#"
-  },
-  {
-    id: 5,
-    label: "Books",
-    url: "#"
-  },
-  {
-    id: 6,
-    label: "Beauty & Personal Care",
-    url: "#"
-  },
-  {
-    id: 7,
-    label: "Grocery",
-    url: "#"
-  },
-  {
-    id: 8,
-    label: "Toys & Games",
-    url: "#"
-  },
-  {
-    id: 9,
-    label: "Automotive",
-    url: "#"
-  },
-  {
-    id: 10,
-    label: "Health & Wellness",
-    url: "#"
-  }
-]
 
 function UserMenu() {
   return (

@@ -61,7 +61,7 @@ export const CodeHighlighter = ({
   }
 
   return loading ? (
-    <div className="text-sm font-mono tracking-tight"> Loading...</div>
+    <div className="text-sm font-mono tracking-tight px-4"> Loading...</div>
   ) : (
     <div
       {...props}

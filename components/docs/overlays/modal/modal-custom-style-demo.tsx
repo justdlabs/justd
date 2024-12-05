@@ -6,16 +6,16 @@ export default function ModalCustomStyleDemo() {
   return (
     <Modal>
       <Button intent="danger">Delete Project</Button>
-      <Modal.Content role="alertdialog">
+      <Modal.Content classNames={{ content: "" }} role="alertdialog">
         <Modal.Header
-          className="border-b mb-4"
+          className="bg-secondary/80"
           title="Delete Project"
           description="This project’s gonna get wiped, including all its Deployments, Domains, Env Variables, Serverless Functions, and Settings."
         >
           <Note intent="danger">No undo button here, so be sure!</Note>
         </Modal.Header>
         <Form onSubmit={() => {}}>
-          <Modal.Body className="space-y-4">
+          <Modal.Body className="space-y-4 border-t pt-6">
             <TextField
               isRequired
               autoFocus

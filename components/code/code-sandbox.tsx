@@ -14,14 +14,19 @@ import { Loader, Tabs } from "ui"
 
 interface Props {
   source: Record<string, string>
-  fullscreenUrl?: string
+  src?: string
+  classNames?: {
+    preview?: string
+    code?: string
+  }
 }
 
 const registry = generated as Record<string, RegistryItem>
 
-export function CodeSandbox({ source, fullscreenUrl }: Props) {
+export function CodeSandbox({ classNames, source, src }: Props) {
   const [copiedStates, setCopiedStates] = React.useState<Record<string, boolean>>({})
   const [rawSourceCode, setRawSourceCode] = React.useState<Record<string, string | null>>({})
+  const typeOfComponent = registry[source.preview]?.type
   const Component = registry[source.preview]?.component
 
   const handleCopy = (key: string, value: string | null) => {
@@ -30,7 +35,7 @@ export function CodeSandbox({ source, fullscreenUrl }: Props) {
       setCopiedStates((prev) => ({ ...prev, [key]: true }))
       setTimeout(() => {
         setCopiedStates((prev) => ({ ...prev, [key]: false }))
-      }, 2000) // Reset after 2 seconds
+      }, 2000)
     }
   }
 
@@ -76,8 +81,8 @@ export function CodeSandbox({ source, fullscreenUrl }: Props) {
   }
   return (
     <Tabs className="not-prose" aria-label="Code Sandbox">
-      <TabsList fullscreenUrl={fullscreenUrl} />
-      <Tabs.Panel id="preview" className="max-h-96 overflow-y-auto grow">
+      <TabsList src={src} />
+      <Tabs.Panel id="preview" className={cn("max-h-110 overflow-y-auto grow", classNames?.preview)}>
         <React.Suspense
           fallback={
             <div className="flex py-6 justify-center items-center text-sm text-muted-fg">
@@ -86,19 +91,24 @@ export function CodeSandbox({ source, fullscreenUrl }: Props) {
             </div>
           }
         >
-          <Component />
+          {typeOfComponent === "registry:blocks" ? (
+            <iframe src={src} className="min-h-110 border rounded-xl overflow-hidden size-full" />
+          ) : (
+            <Component />
+          )}
         </React.Suspense>
       </Tabs.Panel>
-      <Tabs.Panel id="code">
+      <Tabs.Panel id="code" className={classNames?.code}>
         {rawSourceCode && Object.keys(rawSourceCode).length > 0 ? (
           <Tabs className="gap-0 relative">
-            <div className="flex items-center border-y bg-[#0e0e10] dark:border-zinc-800 border-zinc-700 border-x overflow-hidden rounded-t-lg justify-between">
-              <Tabs.List className="border-0 gap-0">
+            {/*bg-[#0e0e10]*/}
+            <div className="flex items-center border-y bg-[#0e0e11] dark:border-zinc-800 border-zinc-700 border-x overflow-hidden rounded-t-lg justify-between">
+              <Tabs.List className="border-0 relative overflow-x-auto scrollbar-hidden gap-0">
                 {Object.keys(rawSourceCode).map((key) => (
                   <Tab
                     className={(values) =>
                       cn(
-                        "flex items-center gap-x-1.5 text-xs tracking-tight px-3 py-2.5 text-zinc-400 font-mono whitespace-nowrap cursor-pointer",
+                        "flex items-center gap-x-1.5 text-xs tracking-tight p-3 text-zinc-400 font-mono whitespace-nowrap cursor-pointer",
                         "**:data-[slot=icon]:shrink-0 **:data-[slot=icon]:-ml-0.5 **:data-[slot=icon]:size-4 first:border-l-0 border-x border-transparent",
                         values.isHovered && "dark:bg-zinc-800/50 bg-zinc-800 text-zinc-50",
                         values.isSelected &&
@@ -129,14 +139,15 @@ export function CodeSandbox({ source, fullscreenUrl }: Props) {
                 className="border-x border-b bg-(--shiki-bg) dark:border-zinc-800 border-zinc-700 overflow-hidden rounded-b-lg"
               >
                 <CopyButton
-                  className="absolute top-0.5 right-1"
+                  className="absolute sm:grid hidden top-0.5 right-1"
                   alwaysVisible
                   isCopied={copiedStates[key] || false}
                   onPress={() => handleCopy(key, value)}
                 />
                 <CodeHighlighter
+                  max96={false}
                   plain
-                  className="overflow-auto p-4"
+                  className="overflow-auto p-4 max-h-110"
                   removeLastLine
                   code={value || "No source code available"}
                 />
@@ -151,13 +162,13 @@ export function CodeSandbox({ source, fullscreenUrl }: Props) {
   )
 }
 
-export const TabsList = ({ fullscreenUrl }: { fullscreenUrl?: string }) => {
+export const TabsList = ({ src }: { src?: string }) => {
   return (
     <Tabs.List>
       <Tabs.Tab id="preview">Preview</Tabs.Tab>
       <Tabs.Tab id="code">Code</Tabs.Tab>
-      {fullscreenUrl && (
-        <Tabs.Tab className="ml-auto flex items-center" target="_blank" href={fullscreenUrl}>
+      {src && (
+        <Tabs.Tab className="ml-auto flex items-center" target="_blank" href={src}>
           <IconWindowVisitFill />
           Fullscreen
         </Tabs.Tab>

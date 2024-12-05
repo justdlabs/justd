@@ -18,17 +18,15 @@ import { useMediaQuery } from "./primitive"
 const dialogStyles = tv({
   slots: {
     root: [
-      "dlc relative flex max-h-[inherit] [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin] flex-col overflow-hidden outline-hidden",
-      "sm:*:not-has-[[data-slot=dialog-body]]:px-6 sm:*:has-data-[slot=dialog-body]:**:data-[slot=dialog-header]:px-6 sm:*:has-data-[slot=dialog-body]:**:data-[slot=dialog-footer]:px-6",
-      "*:not-has-[[data-slot=dialog-body]]:px-4 *:has-data-[slot=dialog-body]:**:data-[slot=dialog-header]:px-4 *:has-data-[slot=dialog-body]:**:data-[slot=dialog-footer]:px-4"
+      "relative flex max-h-[inherit] not-has-data-[slot=dialog-body]:**:data-[slot=dialog-header]:pb-0 [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin] flex-col overflow-hidden outline-hidden"
     ],
-    header: "relative flex flex-col pb-3 pt-4 sm:pt-6",
-    description: "text-sm block text-muted-fg mt-0.5 sm:mt-1",
+    header: "relative flex flex-col gap-0.5 sm:gap-1 px-4 px-4 pb-4 pt-4 sm:px-6 sm:px-6 sm:pt-6",
+    description: "text-sm text-muted-fg",
     body: [
-      "flex flex-1 flex-col gap-2 overflow-auto px-4 sm:px-6 py-1",
+      "flex flex-1 flex-col gap-2 overflow-auto px-4 pb-1 sm:px-6",
       "max-h-[calc(var(--visual-viewport-height)-var(--visual-viewport-vertical-padding)-var(--dialog-header-height,0px)-var(--dialog-footer-height,0px))]"
     ],
-    footer: "mt-auto flex flex-col-reverse justify-between gap-3 pb-4 sm:pb-6 pt-4 sm:flex-row",
+    footer: "mt-auto flex flex-col-reverse justify-between gap-3 p-4 sm:px-6 sm:px-6 sm:pb-6 sm:pt-4 sm:flex-row",
     closeIndicator:
       "close absolute right-1 top-1 sm:right-2 sm:top-2 data-focused:outline-hidden data-focused:bg-secondary data-hovered:bg-secondary grid place-content-center rounded-xl sm:rounded-md data-focus-visible:ring-1 data-focus-visible:ring-primary size-8 sm:size-7 z-50"
   }

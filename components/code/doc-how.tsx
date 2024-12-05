@@ -21,7 +21,7 @@ type HowProps = {
   isCenter?: boolean
   className?: string
   withNoPadding?: boolean
-  fullscreenUrl?: string
+  src?: string
 }
 
 export const DocHow = ({
@@ -30,7 +30,7 @@ export const DocHow = ({
   minW72 = false,
   isCenter = true,
   withNoPadding = false,
-  fullscreenUrl,
+  src,
   ...props
 }: HowProps) => {
   const [rawSourceCode, setRawSourceCode] = React.useState<string | null>(null)
@@ -100,7 +100,7 @@ export const DocHow = ({
   return (
     <div className={cn("not-prose forced-color-adjust-non relative my-4", className)} {...divProps}>
       <Tabs aria-label="Packages">
-        <TabsList fullscreenUrl={fullscreenUrl} />
+        <TabsList src={src} />
         <Tabs.Panel className="w-full" id="preview">
           <div
             className={cn(

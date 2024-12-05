@@ -8,7 +8,6 @@ import { SourceCode } from "@/components/code/source-code"
 import { DocComposed } from "@/components/doc-composed"
 import { DocNote } from "@/components/doc-note"
 import { DocWarningFramer } from "@/components/doc-warning-framer"
-import type { InstallationProps } from "@/components/installation"
 import { Installation } from "@/components/installation"
 import { useMDXComponent } from "@/resources/hooks/use-mdx"
 import Image from "next/image"
@@ -27,7 +26,7 @@ export function Mdx({ code }: MdxProps) {
       components={{
         EditorText: (props: React.ComponentProps<typeof EditorText>) => <EditorText {...props} />,
         CodeSandbox: (props: React.ComponentProps<typeof CodeSandbox>) => <CodeSandbox {...props} />,
-        Installation: (props: InstallationProps) => <Installation {...props} />,
+        Installation,
         WarningFramer: DocWarningFramer,
         Note: DocNote,
         Anatomy: Anatomy,

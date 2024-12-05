@@ -2,7 +2,7 @@ import { Container, Heading } from "ui"
 
 export default function Page() {
   return (
-    <Container className="py-6 sm:py-12">
+    <Container>
       <Heading>Navbar Disabled</Heading>
     </Container>
   )

@@ -4,18 +4,7 @@ import React from "react"
 
 import sidebar from "@/resources/lib/sidebar.json"
 import { useCommandState } from "cmdk"
-import {
-  IconBrandJustd,
-  IconChartBar,
-  IconColors,
-  IconColorSwatch,
-  IconCube,
-  IconHashtag,
-  IconHome,
-  IconLayoutAlignTop,
-  IconNotes,
-  IconSidebar
-} from "justd-icons"
+import { IconBrandJustd, IconColors, IconColorSwatch, IconCube, IconHashtag, IconHome, IconNotes } from "justd-icons"
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
 import { CommandMenu, useMediaQuery } from "ui"
@@ -154,22 +143,6 @@ export function CommandPalette({ openCmd, setOpen }: OpenCloseProps) {
           <CommandMenu.Item value="themes" asChild>
             <Link href="/themes">
               <IconColorSwatch /> Themes
-            </Link>
-          </CommandMenu.Item>
-          {!debouncedSearch && <CommandMenu.Separator className="my-2" />}
-          <CommandMenu.Item value="sidebar" asChild>
-            <Link href="/docs/components/layouts/sidebar">
-              <IconSidebar /> Sidebar
-            </Link>
-          </CommandMenu.Item>
-          <CommandMenu.Item value="navbar" asChild>
-            <Link href="/docs/components/layouts/navbar">
-              <IconLayoutAlignTop /> Navbar
-            </Link>
-          </CommandMenu.Item>
-          <CommandMenu.Item value="chart" asChild>
-            <Link href="/docs/components/charts/setup">
-              <IconChartBar /> Chart
             </Link>
           </CommandMenu.Item>
         </CommandMenu.Section>

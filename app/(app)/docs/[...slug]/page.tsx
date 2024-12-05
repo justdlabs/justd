@@ -89,7 +89,7 @@ export default async function PostPage(props: DocPageProps) {
 
   return (
     <>
-      <div className="min-w-0 max-w-2xl flex-auto pt-16 pb-32 lg:max-w-none px-4 lg:pl-8 lg:pr-0 xl:px-16">
+      <div className="min-w-0 max-w-2xl flex-auto pt-16 pb-32 lg:max-w-none px-4 lg:pl-8 lg:pr-0 xl:px-12">
         <main className="prose prose-img:rounded-lg prose-pre:p-0 prose-headings:mb-[0.3rem] prose-headings:scroll-mt-24 prose-blue dark:prose-invert max-w-[inherit]">
           <div className="-mx-4 sm:mx-0">
             <div className="not-prose -mt-8 sm:mt-0 p-4 sm:p-10 sm:rounded-xl inset-shadow-xs ring-fg/5 dark:ring-fg/10 ring-1 sm:ring-inset relative isolate overflow-hidden">

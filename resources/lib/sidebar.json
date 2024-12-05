@@ -1354,17 +1354,27 @@
         ]
       },
       {
-        "title": "Charts",
+        "title": "Date-and-time",
         "children": [
           {
-            "title": "Setting Up",
-            "slug": "docs/components/charts/setup",
+            "title": "Calendar",
+            "slug": "docs/components/date-and-time/calendar",
             "order": 1,
             "children": [],
             "toc": [
               {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
                 "title": "Installation",
                 "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Composed Components",
+                "url": "#composed-components",
                 "items": []
               },
               {
@@ -1373,50 +1383,15 @@
                 "items": []
               },
               {
-                "title": "Anatomy",
-                "url": "#anatomy",
-                "items": []
-              },
-              {
-                "title": "Area Chart",
-                "url": "#area-chart",
-                "items": []
-              },
-              {
-                "title": "Bar Chart",
-                "url": "#bar-chart",
-                "items": []
-              },
-              {
-                "title": "Line Chart",
-                "url": "#line-chart",
-                "items": []
-              },
-              {
-                "title": "Pie Chart",
-                "url": "#pie-chart",
-                "items": []
-              },
-              {
-                "title": "Radial Bar Chart",
-                "url": "#radial-bar-chart",
-                "items": []
-              },
-              {
-                "title": "Scatter Chart",
-                "url": "#scatter-chart",
-                "items": []
-              },
-              {
-                "title": "Radar Chart",
-                "url": "#radar-chart",
+                "title": "Examples",
+                "url": "#examples",
                 "items": []
               }
             ]
           },
           {
-            "title": "Area Chart",
-            "slug": "docs/components/charts/area-chart",
+            "title": "Range Calendar",
+            "slug": "docs/components/date-and-time/range-calendar",
             "order": 2,
             "children": [],
             "toc": [
@@ -1426,45 +1401,40 @@
                 "items": []
               },
               {
-                "title": "Gradient",
-                "url": "#gradient",
+                "title": "Installation",
+                "url": "#installation",
                 "items": []
               },
               {
-                "title": "Stacked",
-                "url": "#stacked",
+                "title": "Composed Components",
+                "url": "#composed-components",
                 "items": []
               },
               {
-                "title": "Stacked Expanded",
-                "url": "#stacked-expanded",
+                "title": "Manual Installation",
+                "url": "#manual-installation",
                 "items": []
               },
               {
-                "title": "Linear",
-                "url": "#linear",
+                "title": "Controlled",
+                "url": "#controlled",
                 "items": []
               },
               {
-                "title": "Step",
-                "url": "#step",
+                "title": "Uncontrolled",
+                "url": "#uncontrolled",
                 "items": []
               },
               {
-                "title": "Icon",
-                "url": "#icon",
-                "items": []
-              },
-              {
-                "title": "Legend",
-                "url": "#legend",
+                "title": "Examples",
+                "url": "#examples",
                 "items": []
               }
             ]
           },
           {
-            "title": "Bar Chart",
-            "slug": "docs/components/charts/bar-chart",
+            "title": "Date Field",
+            "slug": "docs/components/date-and-time/date-field",
             "order": 3,
             "children": [],
             "toc": [
@@ -1474,60 +1444,65 @@
                 "items": []
               },
               {
-                "title": "Horizontal",
-                "url": "#horizontal",
+                "title": "Installation",
+                "url": "#installation",
                 "items": []
               },
               {
-                "title": "Label",
-                "url": "#label",
+                "title": "Composed Components",
+                "url": "#composed-components",
                 "items": []
               },
               {
-                "title": "Inset Label",
-                "url": "#inset-label",
+                "title": "Manual Installation",
+                "url": "#manual-installation",
                 "items": []
               },
               {
-                "title": "Custom Label",
-                "url": "#custom-label",
+                "title": "Date Time Field",
+                "url": "#date-time-field",
                 "items": []
               },
               {
-                "title": "Mixed",
-                "url": "#mixed",
+                "title": "Validation",
+                "url": "#validation",
                 "items": []
               },
               {
-                "title": "Negative",
-                "url": "#negative",
+                "title": "Prefix",
+                "url": "#prefix",
                 "items": []
               },
               {
-                "title": "Multiple",
-                "url": "#multiple",
-                "items": []
-              },
-              {
-                "title": "Stacked Legend",
-                "url": "#stacked-legend",
-                "items": []
-              },
-              {
-                "title": "Active",
-                "url": "#active",
+                "title": "Suffix",
+                "url": "#suffix",
                 "items": []
               },
               {
                 "title": "Controlled",
                 "url": "#controlled",
                 "items": []
+              },
+              {
+                "title": "Uncontrolled",
+                "url": "#uncontrolled",
+                "items": []
+              },
+              {
+                "title": "Readonly",
+                "url": "#readonly",
+                "items": []
+              },
+              {
+                "title": "Disabled",
+                "url": "#disabled",
+                "items": []
               }
             ]
           },
           {
-            "title": "Line Chart",
-            "slug": "docs/components/charts/line-chart",
+            "title": "Time Field",
+            "slug": "docs/components/date-and-time/time-field",
             "order": 4,
             "children": [],
             "toc": [
@@ -1537,55 +1512,60 @@
                 "items": []
               },
               {
-                "title": "Dots",
-                "url": "#dots",
+                "title": "Installation",
+                "url": "#installation",
                 "items": []
               },
               {
-                "title": "Dots Color",
-                "url": "#dots-color",
+                "title": "Composed Components",
+                "url": "#composed-components",
                 "items": []
               },
               {
-                "title": "Custom Dots",
-                "url": "#custom-dots",
+                "title": "Manual Installation",
+                "url": "#manual-installation",
                 "items": []
               },
               {
-                "title": "Label",
-                "url": "#label",
+                "title": "Hour Cycles",
+                "url": "#hour-cycles",
                 "items": []
               },
               {
-                "title": "Custom Label",
-                "url": "#custom-label",
+                "title": "Prefix",
+                "url": "#prefix",
                 "items": []
               },
               {
-                "title": "Linear",
-                "url": "#linear",
+                "title": "Suffix",
+                "url": "#suffix",
                 "items": []
               },
               {
-                "title": "Multiple",
-                "url": "#multiple",
-                "items": []
-              },
-              {
-                "title": "Step",
-                "url": "#step",
+                "title": "Validation",
+                "url": "#validation",
                 "items": []
               },
               {
                 "title": "Controlled",
                 "url": "#controlled",
                 "items": []
+              },
+              {
+                "title": "Readonly",
+                "url": "#readonly",
+                "items": []
+              },
+              {
+                "title": "Disabled",
+                "url": "#disabled",
+                "items": []
               }
             ]
           },
           {
-            "title": "Pie Chart",
-            "slug": "docs/components/charts/pie-chart",
+            "title": "Date Picker",
+            "slug": "docs/components/date-and-time/date-picker",
             "order": 5,
             "children": [],
             "toc": [
@@ -1595,23 +1575,33 @@
                 "items": []
               },
               {
-                "title": "Donut",
-                "url": "#donut",
+                "title": "Installation",
+                "url": "#installation",
                 "items": []
               },
               {
-                "title": "Donut Active",
-                "url": "#donut-active",
+                "title": "Composed Components",
+                "url": "#composed-components",
                 "items": []
               },
               {
-                "title": "Donut with Text",
-                "url": "#donut-with-text",
+                "title": "Manual Installation",
+                "url": "#manual-installation",
                 "items": []
               },
               {
-                "title": "Custom Label",
-                "url": "#custom-label",
+                "title": "Date and Time",
+                "url": "#date-and-time",
+                "items": []
+              },
+              {
+                "title": "Validation",
+                "url": "#validation",
+                "items": []
+              },
+              {
+                "title": "Custom Validation",
+                "url": "#custom-validation",
                 "items": []
               },
               {
@@ -1620,35 +1610,15 @@
                 "items": []
               },
               {
-                "title": "Label",
-                "url": "#label",
-                "items": []
-              },
-              {
-                "title": "Label List",
-                "url": "#label-list",
-                "items": []
-              },
-              {
-                "title": "Legend",
-                "url": "#legend",
-                "items": []
-              },
-              {
-                "title": "None Separator",
-                "url": "#none-separator",
-                "items": []
-              },
-              {
-                "title": "Stacked",
-                "url": "#stacked",
+                "title": "Disabled",
+                "url": "#disabled",
                 "items": []
               }
             ]
           },
           {
-            "title": "Radar Chart",
-            "slug": "docs/components/charts/radar-chart",
+            "title": "Date Range Picker",
+            "slug": "docs/components/date-and-time/date-range-picker",
             "order": 6,
             "children": [],
             "toc": [
@@ -1658,172 +1628,38 @@
                 "items": []
               },
               {
-                "title": "Custom Label",
-                "url": "#custom-label",
+                "title": "Installation",
+                "url": "#installation",
                 "items": []
               },
               {
-                "title": "Dots",
-                "url": "#dots",
+                "title": "Composed Components",
+                "url": "#composed-components",
                 "items": []
               },
               {
-                "title": "Grid Circle",
-                "url": "#grid-circle",
+                "title": "Manual Installation",
+                "url": "#manual-installation",
                 "items": []
               },
               {
-                "title": "Grid Circle Filled",
-                "url": "#grid-circle-filled",
+                "title": "Validation",
+                "url": "#validation",
                 "items": []
               },
               {
-                "title": "Grid Circle No Lines",
-                "url": "#grid-circle-no-lines",
+                "title": "Custom Validation",
+                "url": "#custom-validation",
                 "items": []
               },
               {
-                "title": "Grid Custom",
-                "url": "#grid-custom",
+                "title": "Controlled",
+                "url": "#controlled",
                 "items": []
               },
               {
-                "title": "Grid Filled",
-                "url": "#grid-filled",
-                "items": []
-              },
-              {
-                "title": "Grid None",
-                "url": "#grid-none",
-                "items": []
-              },
-              {
-                "title": "Legend",
-                "url": "#legend",
-                "items": []
-              },
-              {
-                "title": "Lines Only",
-                "url": "#lines-only",
-                "items": []
-              },
-              {
-                "title": "Multiple",
-                "url": "#multiple",
-                "items": []
-              },
-              {
-                "title": "Radius Axis",
-                "url": "#radius-axis",
-                "items": []
-              },
-              {
-                "title": "Icons",
-                "url": "#icons",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Radial Bar Chart",
-            "slug": "docs/components/charts/radial-bar-chart",
-            "order": 7,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Label",
-                "url": "#label",
-                "items": []
-              },
-              {
-                "title": "Grid",
-                "url": "#grid",
-                "items": []
-              },
-              {
-                "title": "Text",
-                "url": "#text",
-                "items": []
-              },
-              {
-                "title": "Shape",
-                "url": "#shape",
-                "items": []
-              },
-              {
-                "title": "Stacked",
-                "url": "#stacked",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Scatter Chart",
-            "slug": "docs/components/charts/scatter-chart",
-            "order": 8,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Tooltip Chart",
-            "slug": "docs/components/charts/tooltip-chart",
-            "order": 9,
-            "children": [],
-            "toc": [
-              {
-                "title": "Default",
-                "url": "#default",
-                "items": []
-              },
-              {
-                "title": "Icons",
-                "url": "#icons",
-                "items": []
-              },
-              {
-                "title": "Custom Label",
-                "url": "#custom-label",
-                "items": []
-              },
-              {
-                "title": "Formatter",
-                "url": "#formatter",
-                "items": []
-              },
-              {
-                "title": "Label Formatter",
-                "url": "#label-formatter",
-                "items": []
-              },
-              {
-                "title": "Line Indicator",
-                "url": "#line-indicator",
-                "items": []
-              },
-              {
-                "title": "No Indicator",
-                "url": "#no-indicator",
-                "items": []
-              },
-              {
-                "title": "No Label",
-                "url": "#no-label",
-                "items": []
-              },
-              {
-                "title": "Advanced",
-                "url": "#advanced",
+                "title": "Disabled",
+                "url": "#disabled",
                 "items": []
               }
             ]
@@ -2563,319 +2399,6 @@
         ]
       },
       {
-        "title": "Date-and-time",
-        "children": [
-          {
-            "title": "Calendar",
-            "slug": "docs/components/date-and-time/calendar",
-            "order": 1,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Composed Components",
-                "url": "#composed-components",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Examples",
-                "url": "#examples",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Range Calendar",
-            "slug": "docs/components/date-and-time/range-calendar",
-            "order": 2,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Composed Components",
-                "url": "#composed-components",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Controlled",
-                "url": "#controlled",
-                "items": []
-              },
-              {
-                "title": "Uncontrolled",
-                "url": "#uncontrolled",
-                "items": []
-              },
-              {
-                "title": "Examples",
-                "url": "#examples",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Date Field",
-            "slug": "docs/components/date-and-time/date-field",
-            "order": 3,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Composed Components",
-                "url": "#composed-components",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Date Time Field",
-                "url": "#date-time-field",
-                "items": []
-              },
-              {
-                "title": "Validation",
-                "url": "#validation",
-                "items": []
-              },
-              {
-                "title": "Prefix",
-                "url": "#prefix",
-                "items": []
-              },
-              {
-                "title": "Suffix",
-                "url": "#suffix",
-                "items": []
-              },
-              {
-                "title": "Controlled",
-                "url": "#controlled",
-                "items": []
-              },
-              {
-                "title": "Uncontrolled",
-                "url": "#uncontrolled",
-                "items": []
-              },
-              {
-                "title": "Readonly",
-                "url": "#readonly",
-                "items": []
-              },
-              {
-                "title": "Disabled",
-                "url": "#disabled",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Time Field",
-            "slug": "docs/components/date-and-time/time-field",
-            "order": 4,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Composed Components",
-                "url": "#composed-components",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Hour Cycles",
-                "url": "#hour-cycles",
-                "items": []
-              },
-              {
-                "title": "Prefix",
-                "url": "#prefix",
-                "items": []
-              },
-              {
-                "title": "Suffix",
-                "url": "#suffix",
-                "items": []
-              },
-              {
-                "title": "Validation",
-                "url": "#validation",
-                "items": []
-              },
-              {
-                "title": "Controlled",
-                "url": "#controlled",
-                "items": []
-              },
-              {
-                "title": "Readonly",
-                "url": "#readonly",
-                "items": []
-              },
-              {
-                "title": "Disabled",
-                "url": "#disabled",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Date Picker",
-            "slug": "docs/components/date-and-time/date-picker",
-            "order": 5,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Composed Components",
-                "url": "#composed-components",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Date and Time",
-                "url": "#date-and-time",
-                "items": []
-              },
-              {
-                "title": "Validation",
-                "url": "#validation",
-                "items": []
-              },
-              {
-                "title": "Custom Validation",
-                "url": "#custom-validation",
-                "items": []
-              },
-              {
-                "title": "Controlled",
-                "url": "#controlled",
-                "items": []
-              },
-              {
-                "title": "Disabled",
-                "url": "#disabled",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Date Range Picker",
-            "slug": "docs/components/date-and-time/date-range-picker",
-            "order": 6,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Composed Components",
-                "url": "#composed-components",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Validation",
-                "url": "#validation",
-                "items": []
-              },
-              {
-                "title": "Custom Validation",
-                "url": "#custom-validation",
-                "items": []
-              },
-              {
-                "title": "Controlled",
-                "url": "#controlled",
-                "items": []
-              },
-              {
-                "title": "Disabled",
-                "url": "#disabled",
-                "items": []
-              }
-            ]
-          }
-        ]
-      },
-      {
         "title": "Drag-and-drop",
         "children": [
           {
@@ -3563,6 +3086,483 @@
         ]
       },
       {
+        "title": "Charts",
+        "children": [
+          {
+            "title": "Setting Up",
+            "slug": "docs/components/charts/setup",
+            "order": 1,
+            "children": [],
+            "toc": [
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "Anatomy",
+                "url": "#anatomy",
+                "items": []
+              },
+              {
+                "title": "Area Chart",
+                "url": "#area-chart",
+                "items": []
+              },
+              {
+                "title": "Bar Chart",
+                "url": "#bar-chart",
+                "items": []
+              },
+              {
+                "title": "Line Chart",
+                "url": "#line-chart",
+                "items": []
+              },
+              {
+                "title": "Pie Chart",
+                "url": "#pie-chart",
+                "items": []
+              },
+              {
+                "title": "Radial Bar Chart",
+                "url": "#radial-bar-chart",
+                "items": []
+              },
+              {
+                "title": "Scatter Chart",
+                "url": "#scatter-chart",
+                "items": []
+              },
+              {
+                "title": "Radar Chart",
+                "url": "#radar-chart",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Area Chart",
+            "slug": "docs/components/charts/area-chart",
+            "order": 2,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Gradient",
+                "url": "#gradient",
+                "items": []
+              },
+              {
+                "title": "Stacked",
+                "url": "#stacked",
+                "items": []
+              },
+              {
+                "title": "Stacked Expanded",
+                "url": "#stacked-expanded",
+                "items": []
+              },
+              {
+                "title": "Linear",
+                "url": "#linear",
+                "items": []
+              },
+              {
+                "title": "Step",
+                "url": "#step",
+                "items": []
+              },
+              {
+                "title": "Icon",
+                "url": "#icon",
+                "items": []
+              },
+              {
+                "title": "Legend",
+                "url": "#legend",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Bar Chart",
+            "slug": "docs/components/charts/bar-chart",
+            "order": 3,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Horizontal",
+                "url": "#horizontal",
+                "items": []
+              },
+              {
+                "title": "Label",
+                "url": "#label",
+                "items": []
+              },
+              {
+                "title": "Inset Label",
+                "url": "#inset-label",
+                "items": []
+              },
+              {
+                "title": "Custom Label",
+                "url": "#custom-label",
+                "items": []
+              },
+              {
+                "title": "Mixed",
+                "url": "#mixed",
+                "items": []
+              },
+              {
+                "title": "Negative",
+                "url": "#negative",
+                "items": []
+              },
+              {
+                "title": "Multiple",
+                "url": "#multiple",
+                "items": []
+              },
+              {
+                "title": "Stacked Legend",
+                "url": "#stacked-legend",
+                "items": []
+              },
+              {
+                "title": "Active",
+                "url": "#active",
+                "items": []
+              },
+              {
+                "title": "Controlled",
+                "url": "#controlled",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Line Chart",
+            "slug": "docs/components/charts/line-chart",
+            "order": 4,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Dots",
+                "url": "#dots",
+                "items": []
+              },
+              {
+                "title": "Dots Color",
+                "url": "#dots-color",
+                "items": []
+              },
+              {
+                "title": "Custom Dots",
+                "url": "#custom-dots",
+                "items": []
+              },
+              {
+                "title": "Label",
+                "url": "#label",
+                "items": []
+              },
+              {
+                "title": "Custom Label",
+                "url": "#custom-label",
+                "items": []
+              },
+              {
+                "title": "Linear",
+                "url": "#linear",
+                "items": []
+              },
+              {
+                "title": "Multiple",
+                "url": "#multiple",
+                "items": []
+              },
+              {
+                "title": "Step",
+                "url": "#step",
+                "items": []
+              },
+              {
+                "title": "Controlled",
+                "url": "#controlled",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Pie Chart",
+            "slug": "docs/components/charts/pie-chart",
+            "order": 5,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Donut",
+                "url": "#donut",
+                "items": []
+              },
+              {
+                "title": "Donut Active",
+                "url": "#donut-active",
+                "items": []
+              },
+              {
+                "title": "Donut with Text",
+                "url": "#donut-with-text",
+                "items": []
+              },
+              {
+                "title": "Custom Label",
+                "url": "#custom-label",
+                "items": []
+              },
+              {
+                "title": "Controlled",
+                "url": "#controlled",
+                "items": []
+              },
+              {
+                "title": "Label",
+                "url": "#label",
+                "items": []
+              },
+              {
+                "title": "Label List",
+                "url": "#label-list",
+                "items": []
+              },
+              {
+                "title": "Legend",
+                "url": "#legend",
+                "items": []
+              },
+              {
+                "title": "None Separator",
+                "url": "#none-separator",
+                "items": []
+              },
+              {
+                "title": "Stacked",
+                "url": "#stacked",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Radar Chart",
+            "slug": "docs/components/charts/radar-chart",
+            "order": 6,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Custom Label",
+                "url": "#custom-label",
+                "items": []
+              },
+              {
+                "title": "Dots",
+                "url": "#dots",
+                "items": []
+              },
+              {
+                "title": "Grid Circle",
+                "url": "#grid-circle",
+                "items": []
+              },
+              {
+                "title": "Grid Circle Filled",
+                "url": "#grid-circle-filled",
+                "items": []
+              },
+              {
+                "title": "Grid Circle No Lines",
+                "url": "#grid-circle-no-lines",
+                "items": []
+              },
+              {
+                "title": "Grid Custom",
+                "url": "#grid-custom",
+                "items": []
+              },
+              {
+                "title": "Grid Filled",
+                "url": "#grid-filled",
+                "items": []
+              },
+              {
+                "title": "Grid None",
+                "url": "#grid-none",
+                "items": []
+              },
+              {
+                "title": "Legend",
+                "url": "#legend",
+                "items": []
+              },
+              {
+                "title": "Lines Only",
+                "url": "#lines-only",
+                "items": []
+              },
+              {
+                "title": "Multiple",
+                "url": "#multiple",
+                "items": []
+              },
+              {
+                "title": "Radius Axis",
+                "url": "#radius-axis",
+                "items": []
+              },
+              {
+                "title": "Icons",
+                "url": "#icons",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Radial Bar Chart",
+            "slug": "docs/components/charts/radial-bar-chart",
+            "order": 7,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Label",
+                "url": "#label",
+                "items": []
+              },
+              {
+                "title": "Grid",
+                "url": "#grid",
+                "items": []
+              },
+              {
+                "title": "Text",
+                "url": "#text",
+                "items": []
+              },
+              {
+                "title": "Shape",
+                "url": "#shape",
+                "items": []
+              },
+              {
+                "title": "Stacked",
+                "url": "#stacked",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Scatter Chart",
+            "slug": "docs/components/charts/scatter-chart",
+            "order": 8,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Tooltip Chart",
+            "slug": "docs/components/charts/tooltip-chart",
+            "order": 9,
+            "children": [],
+            "toc": [
+              {
+                "title": "Default",
+                "url": "#default",
+                "items": []
+              },
+              {
+                "title": "Icons",
+                "url": "#icons",
+                "items": []
+              },
+              {
+                "title": "Custom Label",
+                "url": "#custom-label",
+                "items": []
+              },
+              {
+                "title": "Formatter",
+                "url": "#formatter",
+                "items": []
+              },
+              {
+                "title": "Label Formatter",
+                "url": "#label-formatter",
+                "items": []
+              },
+              {
+                "title": "Line Indicator",
+                "url": "#line-indicator",
+                "items": []
+              },
+              {
+                "title": "No Indicator",
+                "url": "#no-indicator",
+                "items": []
+              },
+              {
+                "title": "No Label",
+                "url": "#no-label",
+                "items": []
+              },
+              {
+                "title": "Advanced",
+                "url": "#advanced",
+                "items": []
+              }
+            ]
+          }
+        ]
+      },
+      {
         "title": "Layouts",
         "children": [
           {
@@ -3577,62 +3577,22 @@
                 "items": []
               },
               {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Composed Components",
-                "url": "#composed-components",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Anatomy",
-                "url": "#anatomy",
-                "items": []
-              },
-              {
-                "title": "Creating a Sidebar",
-                "url": "#creating-a-sidebar",
+                "title": "Intent",
+                "url": "#intent",
                 "items": [
                   {
-                    "title": "App Sidebar",
-                    "url": "#app-sidebar",
+                    "title": "Sidebar",
+                    "url": "#sidebar",
                     "items": []
                   },
                   {
-                    "title": "Layout",
-                    "url": "#layout",
+                    "title": "Inset",
+                    "url": "#inset",
                     "items": []
                   },
                   {
-                    "title": "Done",
-                    "url": "#done",
-                    "items": []
-                  },
-                  {
-                    "title": "Using the Layout",
-                    "url": "#using-the-layout",
-                    "items": []
-                  },
-                  {
-                    "title": "Common Usage",
-                    "url": "#common-usage",
-                    "items": []
-                  },
-                  {
-                    "title": "Inertia.js",
-                    "url": "#inertiajs",
-                    "items": []
-                  },
-                  {
-                    "title": "Next.js",
-                    "url": "#nextjs",
+                    "title": "Floating",
+                    "url": "#floating",
                     "items": []
                   }
                 ]
@@ -3652,57 +3612,11 @@
                     "items": []
                   },
                   {
-                    "title": "None",
-                    "url": "#none",
+                    "title": "Default Open",
+                    "url": "#default-open",
                     "items": []
                   }
                 ]
-              },
-              {
-                "title": "Intent",
-                "url": "#intent",
-                "items": [
-                  {
-                    "title": "Sidebar",
-                    "url": "#sidebar",
-                    "items": []
-                  },
-                  {
-                    "title": "Floating",
-                    "url": "#floating",
-                    "items": []
-                  },
-                  {
-                    "title": "Inset",
-                    "url": "#inset",
-                    "items": []
-                  }
-                ]
-              },
-              {
-                "title": "Default Open",
-                "url": "#default-open",
-                "items": []
-              },
-              {
-                "title": "Trigger",
-                "url": "#trigger",
-                "items": []
-              },
-              {
-                "title": "Rail",
-                "url": "#rail",
-                "items": []
-              },
-              {
-                "title": "Controlled",
-                "url": "#controlled",
-                "items": []
-              },
-              {
-                "title": "Modal",
-                "url": "#modal",
-                "items": []
               }
             ]
           },
@@ -3957,356 +3871,6 @@
               {
                 "title": "API",
                 "url": "#api",
-                "items": []
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "title": "Navigation",
-        "children": [
-          {
-            "title": "Link",
-            "slug": "docs/components/navigation/link",
-            "order": 1,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Anatomy",
-                "url": "#anatomy",
-                "items": []
-              },
-              {
-                "title": "Unstyled",
-                "url": "#unstyled",
-                "items": []
-              },
-              {
-                "title": "Use as Button",
-                "url": "#use-as-button",
-                "items": []
-              },
-              {
-                "title": "Disabled",
-                "url": "#disabled",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Breadcrumbs",
-            "slug": "docs/components/navigation/breadcrumbs",
-            "order": 2,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Composed Components",
-                "url": "#composed-components",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Anatomy",
-                "url": "#anatomy",
-                "items": []
-              },
-              {
-                "title": "Separator",
-                "url": "#separator",
-                "items": []
-              },
-              {
-                "title": "Menu",
-                "url": "#menu",
-                "items": []
-              },
-              {
-                "title": "Collections",
-                "url": "#collections",
-                "items": []
-              },
-              {
-                "title": "Current",
-                "url": "#current",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Pagination",
-            "slug": "docs/components/navigation/pagination",
-            "status": "beta",
-            "order": 3,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Composed Components",
-                "url": "#composed-components",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Anatomy",
-                "url": "#anatomy",
-                "items": []
-              },
-              {
-                "title": "Simple",
-                "url": "#simple",
-                "items": []
-              },
-              {
-                "title": "Using Collections",
-                "url": "#using-collections",
-                "items": []
-              },
-              {
-                "title": "Preserving Scroll",
-                "url": "#preserving-scroll",
-                "items": [
-                  {
-                    "title": "Inertia.js",
-                    "url": "#inertiajs",
-                    "items": []
-                  },
-                  {
-                    "title": "Next.js",
-                    "url": "#nextjs",
-                    "items": []
-                  },
-                  {
-                    "title": "Remix",
-                    "url": "#remix",
-                    "items": []
-                  },
-                  {
-                    "title": "React Router",
-                    "url": "#react-router",
-                    "items": []
-                  },
-                  {
-                    "title": "Considering",
-                    "url": "#considering",
-                    "items": []
-                  }
-                ]
-              },
-              {
-                "title": "Client Side Routing",
-                "url": "#client-side-routing",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Tabs",
-            "slug": "docs/components/navigation/tabs",
-            "order": 3,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Anatomy",
-                "url": "#anatomy",
-                "items": []
-              },
-              {
-                "title": "With Icons",
-                "url": "#with-icons",
-                "items": []
-              },
-              {
-                "title": "Orientation",
-                "url": "#orientation",
-                "items": []
-              },
-              {
-                "title": "Collections",
-                "url": "#collections",
-                "items": []
-              },
-              {
-                "title": "Links",
-                "url": "#links",
-                "items": []
-              },
-              {
-                "title": "Responsive",
-                "url": "#responsive",
-                "items": []
-              },
-              {
-                "title": "Disabled",
-                "url": "#disabled",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Disclosure | Collapsible",
-            "slug": "docs/components/navigation/disclosure",
-            "order": 5,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Anatomy",
-                "url": "#anatomy",
-                "items": []
-              },
-              {
-                "title": "Disabled",
-                "url": "#disabled",
-                "items": []
-              },
-              {
-                "title": "Controlled",
-                "url": "#controlled",
-                "items": []
-              },
-              {
-                "title": "Accordion",
-                "url": "#accordion",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Disclosure Group | Accordion",
-            "slug": "docs/components/navigation/disclosure-group",
-            "order": 6,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Anatomy",
-                "url": "#anatomy",
-                "items": []
-              },
-              {
-                "title": "Default Expanded",
-                "url": "#default-expanded",
-                "items": []
-              },
-              {
-                "title": "Allow Multiple Expanded",
-                "url": "#allow-multiple-expanded",
-                "items": []
-              },
-              {
-                "title": "Nested",
-                "url": "#nested",
-                "items": []
-              },
-              {
-                "title": "With Icon",
-                "url": "#with-icon",
-                "items": []
-              },
-              {
-                "title": "Hide Border",
-                "url": "#hide-border",
-                "items": []
-              },
-              {
-                "title": "Hide Indicator",
-                "url": "#hide-indicator",
-                "items": []
-              },
-              {
-                "title": "Hide Everything",
-                "url": "#hide-everything",
-                "items": []
-              },
-              {
-                "title": "Disabled",
-                "url": "#disabled",
                 "items": []
               }
             ]
@@ -4666,6 +4230,356 @@
               {
                 "title": "Delay",
                 "url": "#delay",
+                "items": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Navigation",
+        "children": [
+          {
+            "title": "Link",
+            "slug": "docs/components/navigation/link",
+            "order": 1,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "Anatomy",
+                "url": "#anatomy",
+                "items": []
+              },
+              {
+                "title": "Unstyled",
+                "url": "#unstyled",
+                "items": []
+              },
+              {
+                "title": "Use as Button",
+                "url": "#use-as-button",
+                "items": []
+              },
+              {
+                "title": "Disabled",
+                "url": "#disabled",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Breadcrumbs",
+            "slug": "docs/components/navigation/breadcrumbs",
+            "order": 2,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Composed Components",
+                "url": "#composed-components",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "Anatomy",
+                "url": "#anatomy",
+                "items": []
+              },
+              {
+                "title": "Separator",
+                "url": "#separator",
+                "items": []
+              },
+              {
+                "title": "Menu",
+                "url": "#menu",
+                "items": []
+              },
+              {
+                "title": "Collections",
+                "url": "#collections",
+                "items": []
+              },
+              {
+                "title": "Current",
+                "url": "#current",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Pagination",
+            "slug": "docs/components/navigation/pagination",
+            "status": "beta",
+            "order": 3,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Composed Components",
+                "url": "#composed-components",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "Anatomy",
+                "url": "#anatomy",
+                "items": []
+              },
+              {
+                "title": "Simple",
+                "url": "#simple",
+                "items": []
+              },
+              {
+                "title": "Using Collections",
+                "url": "#using-collections",
+                "items": []
+              },
+              {
+                "title": "Preserving Scroll",
+                "url": "#preserving-scroll",
+                "items": [
+                  {
+                    "title": "Inertia.js",
+                    "url": "#inertiajs",
+                    "items": []
+                  },
+                  {
+                    "title": "Next.js",
+                    "url": "#nextjs",
+                    "items": []
+                  },
+                  {
+                    "title": "Remix",
+                    "url": "#remix",
+                    "items": []
+                  },
+                  {
+                    "title": "React Router",
+                    "url": "#react-router",
+                    "items": []
+                  },
+                  {
+                    "title": "Considering",
+                    "url": "#considering",
+                    "items": []
+                  }
+                ]
+              },
+              {
+                "title": "Client Side Routing",
+                "url": "#client-side-routing",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Tabs",
+            "slug": "docs/components/navigation/tabs",
+            "order": 3,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "Anatomy",
+                "url": "#anatomy",
+                "items": []
+              },
+              {
+                "title": "With Icons",
+                "url": "#with-icons",
+                "items": []
+              },
+              {
+                "title": "Orientation",
+                "url": "#orientation",
+                "items": []
+              },
+              {
+                "title": "Collections",
+                "url": "#collections",
+                "items": []
+              },
+              {
+                "title": "Links",
+                "url": "#links",
+                "items": []
+              },
+              {
+                "title": "Responsive",
+                "url": "#responsive",
+                "items": []
+              },
+              {
+                "title": "Disabled",
+                "url": "#disabled",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Disclosure | Collapsible",
+            "slug": "docs/components/navigation/disclosure",
+            "order": 5,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "Anatomy",
+                "url": "#anatomy",
+                "items": []
+              },
+              {
+                "title": "Disabled",
+                "url": "#disabled",
+                "items": []
+              },
+              {
+                "title": "Controlled",
+                "url": "#controlled",
+                "items": []
+              },
+              {
+                "title": "Accordion",
+                "url": "#accordion",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Disclosure Group | Accordion",
+            "slug": "docs/components/navigation/disclosure-group",
+            "order": 6,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "Anatomy",
+                "url": "#anatomy",
+                "items": []
+              },
+              {
+                "title": "Default Expanded",
+                "url": "#default-expanded",
+                "items": []
+              },
+              {
+                "title": "Allow Multiple Expanded",
+                "url": "#allow-multiple-expanded",
+                "items": []
+              },
+              {
+                "title": "Nested",
+                "url": "#nested",
+                "items": []
+              },
+              {
+                "title": "With Icon",
+                "url": "#with-icon",
+                "items": []
+              },
+              {
+                "title": "Hide Border",
+                "url": "#hide-border",
+                "items": []
+              },
+              {
+                "title": "Hide Indicator",
+                "url": "#hide-indicator",
+                "items": []
+              },
+              {
+                "title": "Hide Everything",
+                "url": "#hide-everything",
+                "items": []
+              },
+              {
+                "title": "Disabled",
+                "url": "#disabled",
                 "items": []
               }
             ]
@@ -5252,6 +5166,34 @@
         ]
       },
       {
+        "title": "Utilities",
+        "children": [
+          {
+            "title": "Visually Hidden",
+            "slug": "docs/components/utilities/visually-hidden",
+            "order": 1,
+            "children": [],
+            "toc": [
+              {
+                "title": "Visually Hidden",
+                "url": "#visually-hidden",
+                "items": []
+              },
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              }
+            ]
+          }
+        ]
+      },
+      {
         "title": "Surfaces",
         "children": [
           {
@@ -5526,34 +5468,6 @@
               {
                 "title": "With Card",
                 "url": "#with-card",
-                "items": []
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "title": "Utilities",
-        "children": [
-          {
-            "title": "Visually Hidden",
-            "slug": "docs/components/utilities/visually-hidden",
-            "order": 1,
-            "children": [],
-            "toc": [
-              {
-                "title": "Visually Hidden",
-                "url": "#visually-hidden",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
                 "items": []
               }
             ]

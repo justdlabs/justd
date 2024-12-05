@@ -14,7 +14,7 @@ import { Tooltip } from "./tooltip"
 
 const SIDEBAR_COOKIE_NAME = "sidebar:state"
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7
-const SIDEBAR_WIDTH = "16rem"
+const SIDEBAR_WIDTH = "17rem"
 const SIDEBAR_WIDTH_ICON = "3rem"
 const SIDEBAR_KEYBOARD_SHORTCUT = "b"
 
@@ -124,24 +124,6 @@ const SidebarProvider = React.forwardRef<
 })
 SidebarProvider.displayName = "SidebarProvider"
 
-const SidebarInset = ({ className, ...props }: React.ComponentProps<"main">) => {
-  return (
-    <main
-      data-slot="sidebar-inset"
-      className={cn([
-        [
-          "relative **:data-[slot=navbar-nav]:shadow-none flex min-h-svh max-w-full flex-1 flex-col bg-bg",
-          "md:peer-data-[intent=inset]:ml-0 md:peer-data-[intent=inset]:bg-bg md:peer-data-[intent=inset]:text-sidebar-fg md:peer-data-[intent=inset]:rounded-xl",
-          "peer-data-[intent=inset]:overflow-hidden peer-data-[intent=inset]:border peer-data-[intent=inset]:min-h-[calc(100svh-calc(var(--spacing)*4))] md:peer-data-[intent=inset]:my-2 md:peer-data-[intent=inset]:mr-2",
-          "peer-data-[intent=floating]:**:data-[slot=sidebar-nav]:bg-bg peer-data-[intent=floating]:**:data-[slot=sidebar-nav]:border-none"
-        ],
-        className
-      ])}
-      {...props}
-    />
-  )
-}
-
 const Sidebar = ({
   side = "left",
   intent = "sidebar",
@@ -159,7 +141,8 @@ const Sidebar = ({
   if (collapsible === "none") {
     return (
       <div
-        className={cn("flex h-full w-(--sidebar-width) flex-col bg-secondary text-sidebar-fg ", className)}
+        data-collapsible="none"
+        className={cn("flex h-full peer w-(--sidebar-width) flex-col border-r bg-sidebar text-sidebar-fg ", className)}
         {...props}
       >
         {children}
@@ -180,7 +163,7 @@ const Sidebar = ({
           isStack={intent === "floating"}
           side={side}
         >
-          <Sheet.Body className="p-0 sm:p-0">{children}</Sheet.Body>
+          <Sheet.Body className="px-0">{children}</Sheet.Body>
         </Sheet.Content>
       </Sheet>
     )
@@ -337,7 +320,7 @@ const SidebarContent = ({ className, ...props }: React.ComponentProps<"div">) =>
     <div
       data-slot="sidebar-content"
       className={cn([
-        "flex min-h-0 flex-1 flex-col overflow-auto group-data-[collapsible=dock]:items-center group-data-[collapsible=dock]:overflow-hidden",
+        "flex min-h-0 flex-1 flex-col gap-2 overflow-auto group-data-[collapsible=dock]:overflow-hidden",
         state === "collapsed" ? "gap-y-6" : "gap-y-2",
         className
       ])}
@@ -455,7 +438,7 @@ const SidebarSection = ({ title, className, collapsible, icon: Icon, defaultExpa
     <Disclosure
       data-slot="sidebar-section"
       className={cn(
-        "col-span-full px-2",
+        "col-span-full px-2 w-full min-w-0",
         state === "collapsed" && [title && "px-0", !isMobile && "px-0"],
         state === "expanded" && [
           "**:data-[slot=sidebar-section]:px-0",
@@ -519,6 +502,25 @@ const SidebarSection = ({ title, className, collapsible, icon: Icon, defaultExpa
         </>
       )}
     </Disclosure>
+  )
+}
+
+const SidebarInset = ({ className, ...props }: React.ComponentProps<"main">) => {
+  return (
+    <main
+      data-slot="sidebar-inset"
+      className={cn([
+        [
+          "relative **:data-[slot=navbar-nav]:shadow-none flex min-h-svh max-w-full flex-1 flex-col bg-bg",
+          "peer-data-[collapsible=none]:**:data-[slot=sidebar-trigger]:hidden",
+          "md:peer-data-[intent=inset]:ml-0 md:peer-data-[intent=inset]:bg-bg md:peer-data-[intent=inset]:text-sidebar-fg md:peer-data-[intent=inset]:rounded-xl",
+          "peer-data-[intent=inset]:overflow-hidden peer-data-[intent=inset]:border peer-data-[intent=inset]:min-h-[calc(100svh-calc(var(--spacing)*4))] md:peer-data-[intent=inset]:my-2 md:peer-data-[intent=inset]:mr-2",
+          "peer-data-[intent=floating]:**:data-[slot=sidebar-nav]:bg-bg peer-data-[intent=floating]:**:data-[slot=sidebar-nav]:border-none"
+        ],
+        className
+      ])}
+      {...props}
+    />
   )
 }
 

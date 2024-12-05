@@ -7,7 +7,7 @@ export default function Layout({ children }: Readonly<{ children: React.ReactNod
   return (
     <>
       <SidebarProvider>
-        <AppSidebar intent="floating" />
+        <AppSidebar intent="inset" />
         <SidebarInset>
           <AppSidebarNav />
           <div className="p-4 lg:p-6">{children}</div>

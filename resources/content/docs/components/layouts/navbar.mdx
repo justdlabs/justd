@@ -10,7 +10,7 @@ references: ["https://react-spectrum.adobe.com/react-aria/Link.html#props"]
 A navbar provides a variety of actions or options for users to select.
 
 <CodeSandbox
-  fullscreenUrl='/blocks/navbar/navbar-00'
+  src='/blocks/navbar/navbar-00'
   source={{
     preview: 'blocks/navbar/navbar-00/app-navbar',
     'page.tsx': 'blocks/navbar/navbar-00/page',
@@ -29,10 +29,10 @@ A navbar provides a variety of actions or options for users to select.
 ## Manual Installation
 <Installation options={{ isManual: true }} items={['react-aria-components', 'motion']} />
 
-<SourceCode toShow={'blocks/navbar'} />
+<SourceCode toShow={'navbar'} />
 
 ## Anatomy
-<Anatomy show='blocks/navbar-anatomy' />
+<Anatomy show='navbar-anatomy' />
 
 ## Intent
 There are three types of intents: `navbar`, `floating`, and `inset`, each with distinct behaviors.
@@ -41,7 +41,7 @@ There are three types of intents: `navbar`, `floating`, and `inset`, each with d
 The default intent of the navbar is `navbar`. You can change it to `floating` or `inset` by setting the `intent` prop.
 
 <CodeSandbox
-  fullscreenUrl='/blocks/navbar/navbar-01'
+  src='/blocks/navbar/navbar-01'
   source={{
     preview: 'blocks/navbar/navbar-01/app-navbar',
     'page.tsx': 'blocks/navbar/navbar-01/page',
@@ -52,7 +52,7 @@ The default intent of the navbar is `navbar`. You can change it to `floating` or
 ### Floating
 The floating intent will have a border inside the navbar itself, the wrapper will have a padding to the content.
 <CodeSandbox
-  fullscreenUrl='/blocks/navbar/navbar-02'
+  src='/blocks/navbar/navbar-02'
   source={{
     preview: 'blocks/navbar/navbar-02/app-navbar',
     'page.tsx': 'blocks/navbar/navbar-02/page',
@@ -64,7 +64,7 @@ The floating intent will have a border inside the navbar itself, the wrapper wil
 ### Inset
 The inset one will have the padding to inset main content. You can of course see what's going on the demo, but you can also see the [live example here](/blocks/navbar/navbar-03).
 <CodeSandbox
-  fullscreenUrl='/blocks/navbar/navbar-03'
+  src='/blocks/navbar/navbar-03'
   source={{
     preview: 'blocks/navbar/navbar-03/app-navbar',
     'page.tsx': 'blocks/navbar/navbar-03/page',
@@ -84,10 +84,17 @@ A typical approach is to wrap your content with the layout like this:
 ```
 ### Inertia.js
 If you're using Inertia.js, you can implement a persistent layout. Here's how it looks:
-
 ```
 Home.layout = (page: React.ReactNode) => <AppLayout children={page} />
 ```
+When using **Inertia.js** with **Laravel**, the **layout**, **components**, and **pages** files are typically located in the resources/js folder. All the examples below assume they are within this directory.
+
+<EditorText
+  source={{
+    'layouts/app-layout.tsx': 'docs/navbar/app-layout',
+    'layouts/app-navbar.tsx': 'docs/navbar/app-navbar',
+    'pages/home.tsx': 'docs/navbar/home',
+  }} />
 
 ### Next.js
 If you're using Next.js, there's no extra configuration needed. Simply create a page component and ensure it inherits the layout like this:
@@ -127,7 +134,7 @@ You also make the navbar sticky by setting the `isSticky` prop to `true`.
 If you'd like to use icons on the navbar items, that's no problem at all. The navbar is already designed and optimized to accommodate icons seamlessly. First of all, you need to install the `justd-icons` package.
 <Installation className='mb-6' options={{ isManual: false }} items={['justd-icons']} />
 <CodeSandbox
-  fullscreenUrl='/blocks/navbar/navbar-05'
+  src='/blocks/navbar/navbar-05'
   source={{
     preview: 'blocks/navbar/navbar-05/app-navbar',
     'page.tsx': 'blocks/navbar/navbar-05/page',
@@ -138,7 +145,7 @@ If you'd like to use icons on the navbar items, that's no problem at all. The na
 ## Disabled
 Disable individual navbar items when needed.
 <CodeSandbox
-  fullscreenUrl='/blocks/navbar/navbar-04'
+  src='/blocks/navbar/navbar-04'
   source={{
     preview: 'blocks/navbar/navbar-04/app-navbar',
     'page.tsx': 'blocks/navbar/navbar-04/page',
@@ -155,9 +162,9 @@ When you are using inertia.js, you can listen the path by using `usePage` hooks.
 import { usePage } from '@inertiajs/react';
 
 export function AppNavbar({ children, ...props }: React.ComponentProps<typeof Navbar>) {
-
   const page = usePage();
   const [isOpen, setIsOpen] = React.useState(false);
+
   React.useEffect(() => setIsOpen(false), [page.url]);
 
   return (
@@ -172,9 +179,9 @@ On next.js, you can listen the path by using `usePathname` hooks. If you're not 
 import { usePathname } from "next/navigation"
 
 export function AppNavbar({ children, ...props }: React.ComponentProps<typeof Navbar>) {
-
   const pathname = usePathname();
   const [isOpen, setIsOpen] = React.useState(false);
+
   React.useEffect(() => setIsOpen(false), [pathname]);
 
   return (

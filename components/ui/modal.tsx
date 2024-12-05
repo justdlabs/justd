@@ -59,8 +59,7 @@ const modalContentStyles = tv({
   }
 })
 
-type ModalProps = DialogTriggerProps
-const Modal = (props: ModalProps) => {
+const Modal = (props: DialogTriggerProps) => {
   return <DialogTrigger {...props} />
 }
 

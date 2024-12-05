@@ -46,7 +46,7 @@ export function Installation({ className, ...props }: InstallationProps) {
   }, [isCopied])
 
   return (
-    <div>
+    <div className={className}>
       {options.isComponent && !options.noText && (
         <p>
           If you hit any issues, make sure you check out the installation guide{" "}
@@ -78,7 +78,7 @@ export function Installation({ className, ...props }: InstallationProps) {
         </svg>
         <CodeHighlighter
           plain
-          className="flex-1 chlt overflow-x-auto pr-4"
+          className="flex-1 overflow-x-auto px-4 sm:px-1"
           lang="bash"
           code={
             props.command ||

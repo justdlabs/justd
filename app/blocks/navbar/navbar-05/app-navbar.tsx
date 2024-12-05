@@ -16,10 +16,10 @@ import {
 } from "justd-icons"
 import { Avatar, Button, Menu, Navbar, SearchField, Separator } from "ui"
 
-export default function AppNavbar({ children, ...props }: React.ComponentProps<typeof Navbar>) {
+export default function AppNavbar() {
   return (
     <>
-      <Navbar {...props}>
+      <Navbar>
         <Navbar.Nav>
           <Navbar.Logo href="/docs/components/layouts/navbar">
             <IconBrandApple className="size-6 lg:size-5" />
@@ -60,8 +60,6 @@ export default function AppNavbar({ children, ...props }: React.ComponentProps<t
             <UserMenu />
           </Navbar.Flex>
         </Navbar.Compact>
-
-        <Navbar.Inset>{children}</Navbar.Inset>
       </Navbar>
     </>
   )
