@@ -893,6 +893,483 @@
         ]
       },
       {
+        "title": "Charts",
+        "children": [
+          {
+            "title": "Setting Up",
+            "slug": "docs/components/charts/setup",
+            "order": 1,
+            "children": [],
+            "toc": [
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "Anatomy",
+                "url": "#anatomy",
+                "items": []
+              },
+              {
+                "title": "Area Chart",
+                "url": "#area-chart",
+                "items": []
+              },
+              {
+                "title": "Bar Chart",
+                "url": "#bar-chart",
+                "items": []
+              },
+              {
+                "title": "Line Chart",
+                "url": "#line-chart",
+                "items": []
+              },
+              {
+                "title": "Pie Chart",
+                "url": "#pie-chart",
+                "items": []
+              },
+              {
+                "title": "Radial Bar Chart",
+                "url": "#radial-bar-chart",
+                "items": []
+              },
+              {
+                "title": "Scatter Chart",
+                "url": "#scatter-chart",
+                "items": []
+              },
+              {
+                "title": "Radar Chart",
+                "url": "#radar-chart",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Area Chart",
+            "slug": "docs/components/charts/area-chart",
+            "order": 2,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Gradient",
+                "url": "#gradient",
+                "items": []
+              },
+              {
+                "title": "Stacked",
+                "url": "#stacked",
+                "items": []
+              },
+              {
+                "title": "Stacked Expanded",
+                "url": "#stacked-expanded",
+                "items": []
+              },
+              {
+                "title": "Linear",
+                "url": "#linear",
+                "items": []
+              },
+              {
+                "title": "Step",
+                "url": "#step",
+                "items": []
+              },
+              {
+                "title": "Icon",
+                "url": "#icon",
+                "items": []
+              },
+              {
+                "title": "Legend",
+                "url": "#legend",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Bar Chart",
+            "slug": "docs/components/charts/bar-chart",
+            "order": 3,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Horizontal",
+                "url": "#horizontal",
+                "items": []
+              },
+              {
+                "title": "Label",
+                "url": "#label",
+                "items": []
+              },
+              {
+                "title": "Inset Label",
+                "url": "#inset-label",
+                "items": []
+              },
+              {
+                "title": "Custom Label",
+                "url": "#custom-label",
+                "items": []
+              },
+              {
+                "title": "Mixed",
+                "url": "#mixed",
+                "items": []
+              },
+              {
+                "title": "Negative",
+                "url": "#negative",
+                "items": []
+              },
+              {
+                "title": "Multiple",
+                "url": "#multiple",
+                "items": []
+              },
+              {
+                "title": "Stacked Legend",
+                "url": "#stacked-legend",
+                "items": []
+              },
+              {
+                "title": "Active",
+                "url": "#active",
+                "items": []
+              },
+              {
+                "title": "Controlled",
+                "url": "#controlled",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Line Chart",
+            "slug": "docs/components/charts/line-chart",
+            "order": 4,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Dots",
+                "url": "#dots",
+                "items": []
+              },
+              {
+                "title": "Dots Color",
+                "url": "#dots-color",
+                "items": []
+              },
+              {
+                "title": "Custom Dots",
+                "url": "#custom-dots",
+                "items": []
+              },
+              {
+                "title": "Label",
+                "url": "#label",
+                "items": []
+              },
+              {
+                "title": "Custom Label",
+                "url": "#custom-label",
+                "items": []
+              },
+              {
+                "title": "Linear",
+                "url": "#linear",
+                "items": []
+              },
+              {
+                "title": "Multiple",
+                "url": "#multiple",
+                "items": []
+              },
+              {
+                "title": "Step",
+                "url": "#step",
+                "items": []
+              },
+              {
+                "title": "Controlled",
+                "url": "#controlled",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Pie Chart",
+            "slug": "docs/components/charts/pie-chart",
+            "order": 5,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Donut",
+                "url": "#donut",
+                "items": []
+              },
+              {
+                "title": "Donut Active",
+                "url": "#donut-active",
+                "items": []
+              },
+              {
+                "title": "Donut with Text",
+                "url": "#donut-with-text",
+                "items": []
+              },
+              {
+                "title": "Custom Label",
+                "url": "#custom-label",
+                "items": []
+              },
+              {
+                "title": "Controlled",
+                "url": "#controlled",
+                "items": []
+              },
+              {
+                "title": "Label",
+                "url": "#label",
+                "items": []
+              },
+              {
+                "title": "Label List",
+                "url": "#label-list",
+                "items": []
+              },
+              {
+                "title": "Legend",
+                "url": "#legend",
+                "items": []
+              },
+              {
+                "title": "None Separator",
+                "url": "#none-separator",
+                "items": []
+              },
+              {
+                "title": "Stacked",
+                "url": "#stacked",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Radar Chart",
+            "slug": "docs/components/charts/radar-chart",
+            "order": 6,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Custom Label",
+                "url": "#custom-label",
+                "items": []
+              },
+              {
+                "title": "Dots",
+                "url": "#dots",
+                "items": []
+              },
+              {
+                "title": "Grid Circle",
+                "url": "#grid-circle",
+                "items": []
+              },
+              {
+                "title": "Grid Circle Filled",
+                "url": "#grid-circle-filled",
+                "items": []
+              },
+              {
+                "title": "Grid Circle No Lines",
+                "url": "#grid-circle-no-lines",
+                "items": []
+              },
+              {
+                "title": "Grid Custom",
+                "url": "#grid-custom",
+                "items": []
+              },
+              {
+                "title": "Grid Filled",
+                "url": "#grid-filled",
+                "items": []
+              },
+              {
+                "title": "Grid None",
+                "url": "#grid-none",
+                "items": []
+              },
+              {
+                "title": "Legend",
+                "url": "#legend",
+                "items": []
+              },
+              {
+                "title": "Lines Only",
+                "url": "#lines-only",
+                "items": []
+              },
+              {
+                "title": "Multiple",
+                "url": "#multiple",
+                "items": []
+              },
+              {
+                "title": "Radius Axis",
+                "url": "#radius-axis",
+                "items": []
+              },
+              {
+                "title": "Icons",
+                "url": "#icons",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Radial Bar Chart",
+            "slug": "docs/components/charts/radial-bar-chart",
+            "order": 7,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Label",
+                "url": "#label",
+                "items": []
+              },
+              {
+                "title": "Grid",
+                "url": "#grid",
+                "items": []
+              },
+              {
+                "title": "Text",
+                "url": "#text",
+                "items": []
+              },
+              {
+                "title": "Shape",
+                "url": "#shape",
+                "items": []
+              },
+              {
+                "title": "Stacked",
+                "url": "#stacked",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Scatter Chart",
+            "slug": "docs/components/charts/scatter-chart",
+            "order": 8,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Tooltip Chart",
+            "slug": "docs/components/charts/tooltip-chart",
+            "order": 9,
+            "children": [],
+            "toc": [
+              {
+                "title": "Default",
+                "url": "#default",
+                "items": []
+              },
+              {
+                "title": "Icons",
+                "url": "#icons",
+                "items": []
+              },
+              {
+                "title": "Custom Label",
+                "url": "#custom-label",
+                "items": []
+              },
+              {
+                "title": "Formatter",
+                "url": "#formatter",
+                "items": []
+              },
+              {
+                "title": "Label Formatter",
+                "url": "#label-formatter",
+                "items": []
+              },
+              {
+                "title": "Line Indicator",
+                "url": "#line-indicator",
+                "items": []
+              },
+              {
+                "title": "No Indicator",
+                "url": "#no-indicator",
+                "items": []
+              },
+              {
+                "title": "No Label",
+                "url": "#no-label",
+                "items": []
+              },
+              {
+                "title": "Advanced",
+                "url": "#advanced",
+                "items": []
+              }
+            ]
+          }
+        ]
+      },
+      {
         "title": "Collections",
         "children": [
           {
@@ -2086,521 +2563,6 @@
         ]
       },
       {
-        "title": "Charts",
-        "children": [
-          {
-            "title": "Setting Up",
-            "slug": "docs/components/charts/setup",
-            "order": 1,
-            "children": [],
-            "toc": [
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Anatomy",
-                "url": "#anatomy",
-                "items": []
-              },
-              {
-                "title": "Area Chart",
-                "url": "#area-chart",
-                "items": []
-              },
-              {
-                "title": "Bar Chart",
-                "url": "#bar-chart",
-                "items": []
-              },
-              {
-                "title": "Line Chart",
-                "url": "#line-chart",
-                "items": []
-              },
-              {
-                "title": "Pie Chart",
-                "url": "#pie-chart",
-                "items": []
-              },
-              {
-                "title": "Radial Bar Chart",
-                "url": "#radial-bar-chart",
-                "items": []
-              },
-              {
-                "title": "Scatter Chart",
-                "url": "#scatter-chart",
-                "items": []
-              },
-              {
-                "title": "Radar Chart",
-                "url": "#radar-chart",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Area Chart",
-            "slug": "docs/components/charts/area-chart",
-            "order": 2,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Gradient",
-                "url": "#gradient",
-                "items": []
-              },
-              {
-                "title": "Stacked",
-                "url": "#stacked",
-                "items": []
-              },
-              {
-                "title": "Stacked Expanded",
-                "url": "#stacked-expanded",
-                "items": []
-              },
-              {
-                "title": "Linear",
-                "url": "#linear",
-                "items": []
-              },
-              {
-                "title": "Step",
-                "url": "#step",
-                "items": []
-              },
-              {
-                "title": "Icon",
-                "url": "#icon",
-                "items": []
-              },
-              {
-                "title": "Legend",
-                "url": "#legend",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Bar Chart",
-            "slug": "docs/components/charts/bar-chart",
-            "order": 3,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Horizontal",
-                "url": "#horizontal",
-                "items": []
-              },
-              {
-                "title": "Label",
-                "url": "#label",
-                "items": []
-              },
-              {
-                "title": "Inset Label",
-                "url": "#inset-label",
-                "items": []
-              },
-              {
-                "title": "Custom Label",
-                "url": "#custom-label",
-                "items": []
-              },
-              {
-                "title": "Mixed",
-                "url": "#mixed",
-                "items": []
-              },
-              {
-                "title": "Negative",
-                "url": "#negative",
-                "items": []
-              },
-              {
-                "title": "Multiple",
-                "url": "#multiple",
-                "items": []
-              },
-              {
-                "title": "Stacked Legend",
-                "url": "#stacked-legend",
-                "items": []
-              },
-              {
-                "title": "Active",
-                "url": "#active",
-                "items": []
-              },
-              {
-                "title": "Controlled",
-                "url": "#controlled",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Line Chart",
-            "slug": "docs/components/charts/line-chart",
-            "order": 4,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Dots",
-                "url": "#dots",
-                "items": []
-              },
-              {
-                "title": "Dots Color",
-                "url": "#dots-color",
-                "items": []
-              },
-              {
-                "title": "Custom Dots",
-                "url": "#custom-dots",
-                "items": []
-              },
-              {
-                "title": "Label",
-                "url": "#label",
-                "items": []
-              },
-              {
-                "title": "Custom Label",
-                "url": "#custom-label",
-                "items": []
-              },
-              {
-                "title": "Linear",
-                "url": "#linear",
-                "items": []
-              },
-              {
-                "title": "Multiple",
-                "url": "#multiple",
-                "items": []
-              },
-              {
-                "title": "Step",
-                "url": "#step",
-                "items": []
-              },
-              {
-                "title": "Controlled",
-                "url": "#controlled",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Pie Chart",
-            "slug": "docs/components/charts/pie-chart",
-            "order": 5,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Donut",
-                "url": "#donut",
-                "items": []
-              },
-              {
-                "title": "Donut Active",
-                "url": "#donut-active",
-                "items": []
-              },
-              {
-                "title": "Donut with Text",
-                "url": "#donut-with-text",
-                "items": []
-              },
-              {
-                "title": "Custom Label",
-                "url": "#custom-label",
-                "items": []
-              },
-              {
-                "title": "Controlled",
-                "url": "#controlled",
-                "items": []
-              },
-              {
-                "title": "Label",
-                "url": "#label",
-                "items": []
-              },
-              {
-                "title": "Label List",
-                "url": "#label-list",
-                "items": []
-              },
-              {
-                "title": "Legend",
-                "url": "#legend",
-                "items": []
-              },
-              {
-                "title": "None Separator",
-                "url": "#none-separator",
-                "items": []
-              },
-              {
-                "title": "Stacked",
-                "url": "#stacked",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Radar Chart",
-            "slug": "docs/components/charts/radar-chart",
-            "order": 6,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Custom Label",
-                "url": "#custom-label",
-                "items": []
-              },
-              {
-                "title": "Dots",
-                "url": "#dots",
-                "items": []
-              },
-              {
-                "title": "Grid Circle",
-                "url": "#grid-circle",
-                "items": []
-              },
-              {
-                "title": "Grid Circle Filled",
-                "url": "#grid-circle-filled",
-                "items": []
-              },
-              {
-                "title": "Grid Circle No Lines",
-                "url": "#grid-circle-no-lines",
-                "items": []
-              },
-              {
-                "title": "Grid Custom",
-                "url": "#grid-custom",
-                "items": []
-              },
-              {
-                "title": "Grid Filled",
-                "url": "#grid-filled",
-                "items": []
-              },
-              {
-                "title": "Grid None",
-                "url": "#grid-none",
-                "items": []
-              },
-              {
-                "title": "Legend",
-                "url": "#legend",
-                "items": []
-              },
-              {
-                "title": "Lines Only",
-                "url": "#lines-only",
-                "items": []
-              },
-              {
-                "title": "Multiple",
-                "url": "#multiple",
-                "items": []
-              },
-              {
-                "title": "Radius Axis",
-                "url": "#radius-axis",
-                "items": []
-              },
-              {
-                "title": "Icons",
-                "url": "#icons",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Radial Bar Chart",
-            "slug": "docs/components/charts/radial-bar-chart",
-            "order": 7,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Label",
-                "url": "#label",
-                "items": []
-              },
-              {
-                "title": "Grid",
-                "url": "#grid",
-                "items": []
-              },
-              {
-                "title": "Text",
-                "url": "#text",
-                "items": []
-              },
-              {
-                "title": "Shape",
-                "url": "#shape",
-                "items": []
-              },
-              {
-                "title": "Stacked",
-                "url": "#stacked",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Scatter Chart",
-            "slug": "docs/components/charts/scatter-chart",
-            "order": 8,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Tooltip Chart",
-            "slug": "docs/components/charts/tooltip-chart",
-            "order": 9,
-            "children": [],
-            "toc": [
-              {
-                "title": "Default",
-                "url": "#default",
-                "items": []
-              },
-              {
-                "title": "Icons",
-                "url": "#icons",
-                "items": []
-              },
-              {
-                "title": "Custom Label",
-                "url": "#custom-label",
-                "items": []
-              },
-              {
-                "title": "Formatter",
-                "url": "#formatter",
-                "items": []
-              },
-              {
-                "title": "Label Formatter",
-                "url": "#label-formatter",
-                "items": []
-              },
-              {
-                "title": "Line Indicator",
-                "url": "#line-indicator",
-                "items": []
-              },
-              {
-                "title": "No Indicator",
-                "url": "#no-indicator",
-                "items": []
-              },
-              {
-                "title": "No Label",
-                "url": "#no-label",
-                "items": []
-              },
-              {
-                "title": "Advanced",
-                "url": "#advanced",
-                "items": []
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "title": "Drag-and-drop",
-        "children": [
-          {
-            "title": "Drop Zone",
-            "slug": "docs/components/drag-and-drop/drop-zone",
-            "order": 1,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Anatomy",
-                "url": "#anatomy",
-                "items": []
-              },
-              {
-                "title": "Using FileTrigger",
-                "url": "#using-filetrigger",
-                "items": []
-              }
-            ]
-          }
-        ]
-      },
-      {
         "title": "Date-and-time",
         "children": [
           {
@@ -2907,6 +2869,44 @@
               {
                 "title": "Disabled",
                 "url": "#disabled",
+                "items": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Drag-and-drop",
+        "children": [
+          {
+            "title": "Drop Zone",
+            "slug": "docs/components/drag-and-drop/drop-zone",
+            "order": 1,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "Anatomy",
+                "url": "#anatomy",
+                "items": []
+              },
+              {
+                "title": "Using FileTrigger",
+                "url": "#using-filetrigger",
                 "items": []
               }
             ]
@@ -3563,6 +3563,291 @@
         ]
       },
       {
+        "title": "Layouts",
+        "children": [
+          {
+            "title": "Sidebar",
+            "slug": "docs/components/layouts/sidebar",
+            "order": 1,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Composed Components",
+                "url": "#composed-components",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "Anatomy",
+                "url": "#anatomy",
+                "items": []
+              },
+              {
+                "title": "Creating a Sidebar",
+                "url": "#creating-a-sidebar",
+                "items": [
+                  {
+                    "title": "App Sidebar",
+                    "url": "#app-sidebar",
+                    "items": []
+                  },
+                  {
+                    "title": "Layout",
+                    "url": "#layout",
+                    "items": []
+                  },
+                  {
+                    "title": "Done",
+                    "url": "#done",
+                    "items": []
+                  },
+                  {
+                    "title": "Using the Layout",
+                    "url": "#using-the-layout",
+                    "items": []
+                  },
+                  {
+                    "title": "Common Usage",
+                    "url": "#common-usage",
+                    "items": []
+                  },
+                  {
+                    "title": "Inertia.js",
+                    "url": "#inertiajs",
+                    "items": []
+                  },
+                  {
+                    "title": "Next.js",
+                    "url": "#nextjs",
+                    "items": []
+                  }
+                ]
+              },
+              {
+                "title": "Collapsible",
+                "url": "#collapsible",
+                "items": [
+                  {
+                    "title": "Offcanvas",
+                    "url": "#offcanvas",
+                    "items": []
+                  },
+                  {
+                    "title": "Dock",
+                    "url": "#dock",
+                    "items": []
+                  },
+                  {
+                    "title": "None",
+                    "url": "#none",
+                    "items": []
+                  }
+                ]
+              },
+              {
+                "title": "Intent",
+                "url": "#intent",
+                "items": [
+                  {
+                    "title": "Sidebar",
+                    "url": "#sidebar",
+                    "items": []
+                  },
+                  {
+                    "title": "Floating",
+                    "url": "#floating",
+                    "items": []
+                  },
+                  {
+                    "title": "Inset",
+                    "url": "#inset",
+                    "items": []
+                  }
+                ]
+              },
+              {
+                "title": "Default Open",
+                "url": "#default-open",
+                "items": []
+              },
+              {
+                "title": "Trigger",
+                "url": "#trigger",
+                "items": []
+              },
+              {
+                "title": "Rail",
+                "url": "#rail",
+                "items": []
+              },
+              {
+                "title": "Controlled",
+                "url": "#controlled",
+                "items": []
+              },
+              {
+                "title": "Modal",
+                "url": "#modal",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Container",
+            "slug": "docs/components/layouts/container",
+            "order": 3,
+            "children": [],
+            "toc": [
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "Intent",
+                "url": "#intent",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Navbar",
+            "slug": "docs/components/layouts/navbar",
+            "order": 6,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Composed Components",
+                "url": "#composed-components",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "Anatomy",
+                "url": "#anatomy",
+                "items": []
+              },
+              {
+                "title": "Intent",
+                "url": "#intent",
+                "items": [
+                  {
+                    "title": "Navbar",
+                    "url": "#navbar",
+                    "items": []
+                  },
+                  {
+                    "title": "Floating",
+                    "url": "#floating",
+                    "items": []
+                  },
+                  {
+                    "title": "Inset",
+                    "url": "#inset",
+                    "items": []
+                  }
+                ]
+              },
+              {
+                "title": "Using the Layout",
+                "url": "#using-the-layout",
+                "items": [
+                  {
+                    "title": "Common Usage",
+                    "url": "#common-usage",
+                    "items": []
+                  },
+                  {
+                    "title": "Inertia.js",
+                    "url": "#inertiajs",
+                    "items": []
+                  },
+                  {
+                    "title": "Next.js",
+                    "url": "#nextjs",
+                    "items": []
+                  }
+                ]
+              },
+              {
+                "title": "Logo",
+                "url": "#logo",
+                "items": []
+              },
+              {
+                "title": "Current",
+                "url": "#current",
+                "items": []
+              },
+              {
+                "title": "Sticky",
+                "url": "#sticky",
+                "items": []
+              },
+              {
+                "title": "Using Icons",
+                "url": "#using-icons",
+                "items": []
+              },
+              {
+                "title": "Disabled",
+                "url": "#disabled",
+                "items": []
+              },
+              {
+                "title": "Controlled",
+                "url": "#controlled",
+                "items": [
+                  {
+                    "title": "Inertia.js",
+                    "url": "#inertiajs-1",
+                    "items": []
+                  },
+                  {
+                    "title": "Next.js",
+                    "url": "#nextjs-1",
+                    "items": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
         "title": "Media",
         "children": [
           {
@@ -4000,6 +4285,11 @@
                 "items": []
               },
               {
+                "title": "With Icon",
+                "url": "#with-icon",
+                "items": []
+              },
+              {
                 "title": "Hide Border",
                 "url": "#hide-border",
                 "items": []
@@ -4376,600 +4666,6 @@
               {
                 "title": "Delay",
                 "url": "#delay",
-                "items": []
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "title": "Layouts",
-        "children": [
-          {
-            "title": "Sidebar",
-            "slug": "docs/components/layouts/sidebar",
-            "order": 1,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Composed Components",
-                "url": "#composed-components",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Anatomy",
-                "url": "#anatomy",
-                "items": []
-              },
-              {
-                "title": "Creating a Sidebar",
-                "url": "#creating-a-sidebar",
-                "items": [
-                  {
-                    "title": "App Sidebar",
-                    "url": "#app-sidebar",
-                    "items": []
-                  },
-                  {
-                    "title": "Layout",
-                    "url": "#layout",
-                    "items": []
-                  },
-                  {
-                    "title": "Done",
-                    "url": "#done",
-                    "items": []
-                  },
-                  {
-                    "title": "Using the Layout",
-                    "url": "#using-the-layout",
-                    "items": []
-                  },
-                  {
-                    "title": "Common Usage",
-                    "url": "#common-usage",
-                    "items": []
-                  },
-                  {
-                    "title": "Inertia.js",
-                    "url": "#inertiajs",
-                    "items": []
-                  },
-                  {
-                    "title": "Next.js",
-                    "url": "#nextjs",
-                    "items": []
-                  }
-                ]
-              },
-              {
-                "title": "Collapsible",
-                "url": "#collapsible",
-                "items": [
-                  {
-                    "title": "Offcanvas",
-                    "url": "#offcanvas",
-                    "items": []
-                  },
-                  {
-                    "title": "Dock",
-                    "url": "#dock",
-                    "items": []
-                  },
-                  {
-                    "title": "None",
-                    "url": "#none",
-                    "items": []
-                  }
-                ]
-              },
-              {
-                "title": "Intent",
-                "url": "#intent",
-                "items": [
-                  {
-                    "title": "Sidebar",
-                    "url": "#sidebar",
-                    "items": []
-                  },
-                  {
-                    "title": "Floating",
-                    "url": "#floating",
-                    "items": []
-                  },
-                  {
-                    "title": "Inset",
-                    "url": "#inset",
-                    "items": []
-                  }
-                ]
-              },
-              {
-                "title": "Default Open",
-                "url": "#default-open",
-                "items": []
-              },
-              {
-                "title": "Trigger",
-                "url": "#trigger",
-                "items": []
-              },
-              {
-                "title": "Rail",
-                "url": "#rail",
-                "items": []
-              },
-              {
-                "title": "Controlled",
-                "url": "#controlled",
-                "items": []
-              },
-              {
-                "title": "Modal",
-                "url": "#modal",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Container",
-            "slug": "docs/components/layouts/container",
-            "order": 3,
-            "children": [],
-            "toc": [
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Intent",
-                "url": "#intent",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Navbar",
-            "slug": "docs/components/layouts/navbar",
-            "order": 6,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Composed Components",
-                "url": "#composed-components",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Anatomy",
-                "url": "#anatomy",
-                "items": []
-              },
-              {
-                "title": "Intent",
-                "url": "#intent",
-                "items": [
-                  {
-                    "title": "Navbar",
-                    "url": "#navbar",
-                    "items": []
-                  },
-                  {
-                    "title": "Floating",
-                    "url": "#floating",
-                    "items": []
-                  },
-                  {
-                    "title": "Inset",
-                    "url": "#inset",
-                    "items": []
-                  }
-                ]
-              },
-              {
-                "title": "Using the Layout",
-                "url": "#using-the-layout",
-                "items": [
-                  {
-                    "title": "Common Usage",
-                    "url": "#common-usage",
-                    "items": []
-                  },
-                  {
-                    "title": "Inertia.js",
-                    "url": "#inertiajs",
-                    "items": []
-                  },
-                  {
-                    "title": "Next.js",
-                    "url": "#nextjs",
-                    "items": []
-                  }
-                ]
-              },
-              {
-                "title": "Logo",
-                "url": "#logo",
-                "items": []
-              },
-              {
-                "title": "Current",
-                "url": "#current",
-                "items": []
-              },
-              {
-                "title": "Sticky",
-                "url": "#sticky",
-                "items": []
-              },
-              {
-                "title": "Using Icons",
-                "url": "#using-icons",
-                "items": []
-              },
-              {
-                "title": "Disabled",
-                "url": "#disabled",
-                "items": []
-              },
-              {
-                "title": "Controlled",
-                "url": "#controlled",
-                "items": [
-                  {
-                    "title": "Inertia.js",
-                    "url": "#inertiajs-1",
-                    "items": []
-                  },
-                  {
-                    "title": "Next.js",
-                    "url": "#nextjs-1",
-                    "items": []
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "title": "Surfaces",
-        "children": [
-          {
-            "title": "Card",
-            "slug": "docs/components/surfaces/card",
-            "order": 1,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Composed Components",
-                "url": "#composed-components",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Anatomy",
-                "url": "#anatomy",
-                "items": []
-              },
-              {
-                "title": "With Form",
-                "url": "#with-form",
-                "items": []
-              },
-              {
-                "title": "With Table",
-                "url": "#with-table",
-                "items": []
-              },
-              {
-                "title": "Section Title",
-                "url": "#section-title",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Grid",
-            "slug": "docs/components/surfaces/grid",
-            "status": "alpha",
-            "order": 2,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Anatomy",
-                "url": "#anatomy",
-                "items": []
-              },
-              {
-                "title": "Responsive",
-                "url": "#responsive",
-                "items": []
-              },
-              {
-                "title": "Gaps",
-                "url": "#gaps",
-                "items": []
-              },
-              {
-                "title": "Gaps X and Y",
-                "url": "#gaps-x-and-y",
-                "items": []
-              },
-              {
-                "title": "Collections",
-                "url": "#collections",
-                "items": []
-              },
-              {
-                "title": "Debugging",
-                "url": "#debugging",
-                "items": []
-              },
-              {
-                "title": "Grid Item",
-                "url": "#grid-item",
-                "items": []
-              },
-              {
-                "title": "Props",
-                "url": "#props",
-                "items": [
-                  {
-                    "title": "Grid",
-                    "url": "#grid",
-                    "items": []
-                  },
-                  {
-                    "title": "GridItem",
-                    "url": "#griditem",
-                    "items": []
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "title": "Separator",
-            "slug": "docs/components/surfaces/separator",
-            "order": 3,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Anatomy",
-                "url": "#anatomy",
-                "items": []
-              },
-              {
-                "title": "Orientation",
-                "url": "#orientation",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Heading",
-            "slug": "docs/components/surfaces/heading",
-            "order": 4,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Anatomy",
-                "url": "#anatomy",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Heading Levels",
-                "url": "#heading-levels",
-                "items": []
-              },
-              {
-                "title": "Letter Spacing",
-                "url": "#letter-spacing",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Show More",
-            "slug": "docs/components/surfaces/show-more",
-            "order": 4,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Anatomy",
-                "url": "#anatomy",
-                "items": []
-              },
-              {
-                "title": "As Text",
-                "url": "#as-text",
-                "items": []
-              },
-              {
-                "title": "Controlled",
-                "url": "#controlled",
-                "items": []
-              },
-              {
-                "title": "Orientation",
-                "url": "#orientation",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Description List",
-            "slug": "docs/components/surfaces/description-list",
-            "status": "new",
-            "order": 6,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Anatomy",
-                "url": "#anatomy",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "With Heading",
-                "url": "#with-heading",
-                "items": []
-              },
-              {
-                "title": "With Card",
-                "url": "#with-card",
-                "items": []
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "title": "Utilities",
-        "children": [
-          {
-            "title": "Visually Hidden",
-            "slug": "docs/components/utilities/visually-hidden",
-            "order": 1,
-            "children": [],
-            "toc": [
-              {
-                "title": "Visually Hidden",
-                "url": "#visually-hidden",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
                 "items": []
               }
             ]
@@ -5549,6 +5245,315 @@
               {
                 "title": "Shape",
                 "url": "#shape",
+                "items": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Surfaces",
+        "children": [
+          {
+            "title": "Card",
+            "slug": "docs/components/surfaces/card",
+            "order": 1,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Composed Components",
+                "url": "#composed-components",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "Anatomy",
+                "url": "#anatomy",
+                "items": []
+              },
+              {
+                "title": "With Form",
+                "url": "#with-form",
+                "items": []
+              },
+              {
+                "title": "With Table",
+                "url": "#with-table",
+                "items": []
+              },
+              {
+                "title": "Section Title",
+                "url": "#section-title",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Grid",
+            "slug": "docs/components/surfaces/grid",
+            "status": "alpha",
+            "order": 2,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "Anatomy",
+                "url": "#anatomy",
+                "items": []
+              },
+              {
+                "title": "Responsive",
+                "url": "#responsive",
+                "items": []
+              },
+              {
+                "title": "Gaps",
+                "url": "#gaps",
+                "items": []
+              },
+              {
+                "title": "Gaps X and Y",
+                "url": "#gaps-x-and-y",
+                "items": []
+              },
+              {
+                "title": "Collections",
+                "url": "#collections",
+                "items": []
+              },
+              {
+                "title": "Debugging",
+                "url": "#debugging",
+                "items": []
+              },
+              {
+                "title": "Grid Item",
+                "url": "#grid-item",
+                "items": []
+              },
+              {
+                "title": "Props",
+                "url": "#props",
+                "items": [
+                  {
+                    "title": "Grid",
+                    "url": "#grid",
+                    "items": []
+                  },
+                  {
+                    "title": "GridItem",
+                    "url": "#griditem",
+                    "items": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Separator",
+            "slug": "docs/components/surfaces/separator",
+            "order": 3,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "Anatomy",
+                "url": "#anatomy",
+                "items": []
+              },
+              {
+                "title": "Orientation",
+                "url": "#orientation",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Heading",
+            "slug": "docs/components/surfaces/heading",
+            "order": 4,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Anatomy",
+                "url": "#anatomy",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "Heading Levels",
+                "url": "#heading-levels",
+                "items": []
+              },
+              {
+                "title": "Letter Spacing",
+                "url": "#letter-spacing",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Show More",
+            "slug": "docs/components/surfaces/show-more",
+            "order": 4,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "Anatomy",
+                "url": "#anatomy",
+                "items": []
+              },
+              {
+                "title": "As Text",
+                "url": "#as-text",
+                "items": []
+              },
+              {
+                "title": "Controlled",
+                "url": "#controlled",
+                "items": []
+              },
+              {
+                "title": "Orientation",
+                "url": "#orientation",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Description List",
+            "slug": "docs/components/surfaces/description-list",
+            "status": "new",
+            "order": 6,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Anatomy",
+                "url": "#anatomy",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "With Heading",
+                "url": "#with-heading",
+                "items": []
+              },
+              {
+                "title": "With Card",
+                "url": "#with-card",
+                "items": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Utilities",
+        "children": [
+          {
+            "title": "Visually Hidden",
+            "slug": "docs/components/utilities/visually-hidden",
+            "order": 1,
+            "children": [],
+            "toc": [
+              {
+                "title": "Visually Hidden",
+                "url": "#visually-hidden",
+                "items": []
+              },
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
                 "items": []
               }
             ]

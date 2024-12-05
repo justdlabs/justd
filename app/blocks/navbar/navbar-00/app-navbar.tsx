@@ -31,8 +31,20 @@ export default function AppNavbar({ children, ...props }: React.ComponentProps<t
             <Navbar.Item href="#">Shop</Navbar.Item>
             <Navbar.Item href="#">Offers</Navbar.Item>
             <Navbar.Item href="#">Orders</Navbar.Item>
-            <Navbar.Item href="#">Profile</Navbar.Item>
+            <Menu>
+              <Navbar.Item>
+                Categories <IconChevronLgDown data-slot="chevron" />
+              </Navbar.Item>
+              <Menu.Content items={categories}>
+                {(item) => (
+                  <Menu.Item id={item.id} textValue={item.label} href={item.url}>
+                    {item.label}
+                  </Menu.Item>
+                )}
+              </Menu.Content>
+            </Menu>
           </Navbar.Section>
+
           <Navbar.Section className="ml-auto hidden lg:flex">
             <Navbar.Flex className="sm:gap-x-1">
               <Button appearance="plain" size="square-petite" aria-label="Search for products">
@@ -149,3 +161,56 @@ export default function AppNavbar({ children, ...props }: React.ComponentProps<t
     </>
   )
 }
+
+const categories = [
+  {
+    id: 1,
+    label: "Electronics",
+    url: "#"
+  },
+  {
+    id: 2,
+    label: "Fashion",
+    url: "#"
+  },
+  {
+    id: 3,
+    label: "Home & Kitchen",
+    url: "#"
+  },
+  {
+    id: 4,
+    label: "Sports",
+    url: "#"
+  },
+  {
+    id: 5,
+    label: "Books",
+    url: "#"
+  },
+  {
+    id: 6,
+    label: "Beauty & Personal Care",
+    url: "#"
+  },
+  {
+    id: 7,
+    label: "Grocery",
+    url: "#"
+  },
+  {
+    id: 8,
+    label: "Toys & Games",
+    url: "#"
+  },
+  {
+    id: 9,
+    label: "Automotive",
+    url: "#"
+  },
+  {
+    id: 10,
+    label: "Health & Wellness",
+    url: "#"
+  }
+]

@@ -137,6 +137,9 @@ export const generateTheme = (selectedColors: Record<string, string>) => {
   --input: ${getColorValue(gray, "300")};
   --ring: ${getColorValue(primary, lightRingShade)};
   
+  --navbar: ${getColorValue(gray, "100")};
+  --navbar-fg: ${getColorValue(gray, "950")};
+  
   --sidebar: ${getColorValue(gray, "100")};
   --sidebar-fg: ${getColorValue(gray, "950")};
   
@@ -163,7 +166,7 @@ export const generateTheme = (selectedColors: Record<string, string>) => {
   --muted: ${getColorValue(gray, "900")};
   --muted-fg: ${getColorValue(gray, "400")};
   
-  --overlay: ${getColorValue(gray, "950")};
+  --overlay: ${adjustLightness(getColorValue(gray, "900"), -4)};
   --overlay-fg: ${getColorValue(gray, "50")};
   
   --success: ${getColorValue("emerald", "600")};
@@ -181,6 +184,9 @@ export const generateTheme = (selectedColors: Record<string, string>) => {
   --border: ${getColorValue(gray, "800")};
   --input: ${getColorValue(gray, "800")};
   --ring: ${getColorValue(primary, darkRingShade)};
+  
+  --navbar: ${adjustLightness(getColorValue(gray, "900"), -4)};
+  --navbar-fg: ${getColorValue(gray, "50")};
   
   --sidebar: ${adjustLightness(getColorValue(gray, "900"), -5)};
   --sidebar-fg: ${getColorValue(gray, "50")};

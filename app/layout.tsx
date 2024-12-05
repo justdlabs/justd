@@ -90,7 +90,9 @@ export default function RootLayout({
   return (
     <html dir="ltr" lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
-        <script defer data-site-id="getjustd.com" src="https://assets.onedollarstats.com/tracker.js"></script>
+        {process.env.NODE_ENV === "production" && (
+          <script defer data-site-id="getjustd.com" src="https://assets.onedollarstats.com/tracker.js"></script>
+        )}
       </head>
       <body className={cn("min-h-screen font-sans antialiased", fontSans.variable, fontMono.variable)}>
         <Providers>

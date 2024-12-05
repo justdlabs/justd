@@ -1,5 +1,6 @@
 import * as React from "react"
 
+import AppNavbar from "@/app/blocks/navbar/navbar-00/app-navbar"
 import AreaChartGradientDemo from "@/components/docs/charts/area/area-chart-gradient-demo"
 import BarChartMultipleDemo from "@/components/docs/charts/bar/bar-chart-multiple-demo"
 import PieChartDonutWithTextDemo from "@/components/docs/charts/pie/pie-chart-donut-with-text-demo"
@@ -31,7 +32,10 @@ import {
 
 export function Blocks() {
   return (
-    <div className="grid **:data-[slot=card]:bg-overlay gap-2">
+    <div className="grid **:data-[slot=card]:bg-secondary/15 gap-2">
+      <Card className="px-4 pb-6 pt-4">
+        <AppNavbar intent="floating" />
+      </Card>
       <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-2">
         <Card className="p-6 flex flex-col items-center justify-center gap-y-6">
           <div className="grid grid-cols-2 gap-2">

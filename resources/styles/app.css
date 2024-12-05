@@ -48,7 +48,7 @@
   --color-overlay: var(--overlay);
   --color-overlay-fg: var(--overlay-fg);
 
-  --color-navbar-bg: var(--navbar-bg);
+  --color-navbar: var(--navbar);
   --color-navbar-fg: var(--navbar-fg);
 
   --color-sidebar: var(--sidebar);

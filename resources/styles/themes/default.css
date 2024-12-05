@@ -30,7 +30,7 @@
     --danger: oklch(0.577 0.245 27.325);
     --danger-fg: oklch(1 0 0);
 
-    --navbar-bg: oklch(0.987 0.001 286.375);
+    --navbar: oklch(0.987 0.001 286.375);
     --navbar-fg: oklch(0.141 0.005 285.823);
 
     --sidebar: oklch(0.967 0.001 286.375);

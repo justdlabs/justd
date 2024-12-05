@@ -25,7 +25,7 @@ export function ThemeContainer() {
   return (
     <div className="py-4 sm:py-16">
       <Container>
-        <div className="mb-2 bg-secondary/20 border rounded-xl p-6">
+        <div className="mb-2 bg-secondary/15 border rounded-xl p-6">
           <div className="flex sm:flex-row flex-col sm:justify-between sm:items-end gap-4 mb-6">
             <div>
               <Heading level={2}>Theme Customizer</Heading>

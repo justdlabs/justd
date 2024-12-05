@@ -61,7 +61,7 @@ const Disclosure = ({ className, ...props }: DisclosureProps) => {
 
 const disclosureTrigger = tv({
   base: [
-    "flex items-center **:data-[slot=chevron]:size-6 lg:text-sm justify-between py-3 **:[span]:flex **:[span]:items-center **:[span]:gap-x-1 w-full text-left font-medium"
+    "flex items-center **:data-[slot=chevron]:size-6 lg:text-sm **:data-[slot=icon]:mr-2 **:data-[slot=icon]:text-muted-fg justify-between py-3 **:[span]:*:data-[slot=icon]:mr-1 **:[span]:flex **:[span]:items-center **:[span]:gap-x-1 w-full text-left font-medium"
   ],
   variants: {
     isFocused: {

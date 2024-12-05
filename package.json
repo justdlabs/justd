@@ -17,7 +17,7 @@
     "preview": "bun run build && next start"
   },
   "dependencies": {
-    "@openpanel/nextjs": "^1.0.6",
+    "@openpanel/nextjs": "^1.0.7",
     "@shikijs/transformers": "^1.24.0",
     "@types/mdx": "^2.0.13",
     "@types/node": "^22.10.1",
@@ -51,7 +51,7 @@
   },
   "devDependencies": {
     "@shikijs/rehype": "^1.24.0",
-    "@tailwindcss/postcss": "^4.0.0-beta.4",
+    "@tailwindcss/postcss": "^4.0.0-beta.5",
     "@tailwindcss/typography": "^0.5.15",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/culori": "^2.1.1",
@@ -65,11 +65,11 @@
     "eslint-plugin-prettier": "^5.2.1",
     "husky": "^9.1.7",
     "postcss": "^8.4.49",
-    "prettier": "^3.4.1",
+    "prettier": "^3.4.2",
     "prettier-plugin-tailwindcss": "^0.6.9",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-slug": "^6.0.0",
-    "tailwindcss": "^4.0.0-beta.4",
+    "tailwindcss": "^4.0.0-beta.5",
     "typescript": "^5.7.2",
     "velite": "^0.2.1"
   },

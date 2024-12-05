@@ -25,7 +25,6 @@ const Toast = ({ ...props }: ToasterProps) => {
       }}
       toastOptions={{
         unstyled: true,
-        duration: Infinity,
         closeButton: true,
         classNames: {
           toast: cn(

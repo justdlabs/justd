@@ -115,8 +115,8 @@ const navStyles = tv({
     },
     intent: {
       floating:
-        "bg-navbar-bg text-navbar-fg w-full max-w-7xl 2xl:max-w-(--breakpoint-2xl) mx-auto border rounded-xl sm:px-4",
-      navbar: "bg-navbar-bg text-navbar-fg border-b sm:px-6",
+        "bg-navbar text-navbar-fg w-full max-w-7xl 2xl:max-w-(--breakpoint-2xl) mx-auto border rounded-xl sm:px-4",
+      navbar: "bg-navbar text-navbar-fg border-b sm:px-6",
       inset: [
         "mx-auto dark:sm:px-6",
         "2xl:[&>div]:max-w-(--breakpoint-2xl) lg:[&>div]:flex [&>div]:items-center [&>div]:w-full [&>div]:mx-auto"
@@ -199,12 +199,13 @@ const Section = ({ className, ...props }: React.ComponentProps<"div">) => {
 const navItemStyles = tv({
   base: [
     "relative no-underline cursor-pointer lg:text-sm px-2 flex forced-colors:outline-0 items-center gap-x-2 *:data-[slot=icon]:-mx-0.5 text-muted-fg outline-hidden forced-colors:data-disabled:text-[GrayText] forced-colors:transform-none transition-colors",
-    "hover:text-fg data-focused:text-fg data-pressed:text-fg data-focus-visible:outline-1 data-focus-visible:outline-primary",
-    "*:data-[slot=icon]:size-4 *:data-[slot=icon]:shrink-0"
+    "hover:text-fg focus:text-fg data-hovered:text-fg data-focused:text-fg data-pressed:text-fg data-focus-visible:outline-1 data-focus-visible:outline-primary",
+    "**:data-[slot=chevron]:size-4 **:data-[slot=chevron]:transition-transform",
+    "data-pressed:**:data-[slot=chevron]:rotate-180 *:data-[slot=icon]:size-4 *:data-[slot=icon]:shrink-0"
   ],
   variants: {
     isCurrent: {
-      true: "text-fg cursor-default"
+      true: "text-navbar-fg cursor-default"
     },
     isDisabled: {
       true: "opacity-50 cursor-default forced-colors:text-[GrayText]"
@@ -260,7 +261,7 @@ const Flex = ({ className, ...props }: React.ComponentProps<"div">) => {
 }
 
 const compactStyles = tv({
-  base: "lg:hidden flex peer-has-[[data-intent=floating]]:border bg-navbar-bg text-navbar-fg justify-between",
+  base: "lg:hidden flex peer-has-[[data-intent=floating]]:border bg-navbar text-navbar-fg justify-between",
   variants: {
     intent: {
       floating: "border h-12 rounded-lg px-3.5",

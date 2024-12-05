@@ -928,7 +928,7 @@ interface ThumbnailWrapperProps {
 
 export function ThumbnailWrapper({ thumbnail }: ThumbnailWrapperProps) {
   return thumbnailMap[thumbnail] ? (
-    <div className="relative bg-muted/50 border [&>svg]:shrink-0 [&>svg]:w-full [&>svg]:h-48 rounded-lg">
+    <div className="relative bg-muted/50 border [&>svg]:shrink-0 [&>svg]:w-full [&>svg]:h-48 rounded-md">
       {thumbnailMap[thumbnail] || null}
     </div>
   ) : null
