@@ -1,12 +1,16 @@
-import { IconCreditCard, IconShoppingBag } from "justd-icons"
+import * as React from "react"
+
+import { IconDashboard } from "justd-icons"
 import {
+  Link,
+  Menu,
   Sidebar,
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
   SidebarInset,
   SidebarItem,
-  SidebarNav,
+  SidebarLabel,
   SidebarProvider,
   SidebarRail,
   SidebarSection
@@ -16,26 +20,37 @@ export default function SidebarAnatomy() {
   return (
     <SidebarProvider>
       <Sidebar>
-        <SidebarHeader>
-          <SidebarNav isSticky />
-        </SidebarHeader>
+        <SidebarHeader />
+
         <SidebarContent>
           <SidebarSection>
+            <SidebarItem>
+              <IconDashboard />
+              <SidebarLabel />
+            </SidebarItem>
             <SidebarItem />
             <SidebarItem />
           </SidebarSection>
-          <SidebarSection title="Projects">
-            <SidebarItem icon={IconShoppingBag} />
-            <SidebarItem icon={IconCreditCard} />
-          </SidebarSection>
-          <SidebarSection collapsible title="Team">
-            <SidebarItem />
+          <SidebarSection collapsible title="Articles">
+            <SidebarItem>
+              <Link href="#discount">
+                <SidebarLabel />
+              </Link>
+              <Menu>
+                <Menu.Trigger />
+                <Menu.Content placement="right top">
+                  <Menu.Item />
+                  <Menu.Item />
+                </Menu.Content>
+              </Menu>
+            </SidebarItem>
           </SidebarSection>
         </SidebarContent>
+
         <SidebarFooter />
         <SidebarRail />
       </Sidebar>
-      <SidebarInset>{/* your main content */}</SidebarInset>
+      <SidebarInset />
     </SidebarProvider>
   )
 }

@@ -45,7 +45,7 @@ const Body = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => 
 
 const popoverContentStyles = tv({
   base: [
-    "max-w-xs transition-transform p-4 rounded-xl border bg-overlay bg-clip-padding text-overlay-fg shadow-xs dark:backdrop-saturate-200 lg:text-sm sm:max-w-3xl forced-colors:bg-[Canvas] [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin]"
+    "max-w-xs transition-transform p-4 rounded-xl border bg-overlay bg-clip-padding text-overlay-fg shadow-xs dark:backdrop-saturate-200 sm:text-sm sm:max-w-3xl forced-colors:bg-[Canvas] [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin]"
   ],
   variants: {
     isPicker: { true: "max-h-72 min-w-(--trigger-width) overflow-y-auto p-0", false: "min-w-80" },

@@ -22,7 +22,7 @@ const ListBox = <T extends object>({ className, ...props }: ListBoxProps<T>) => 
 )
 
 const listBoxItemStyles = tv({
-  base: "lbi cursor-pointer relative rounded-[calc(var(--radius-lg)-1px)] p-2 text-base outline-hidden lg:text-sm",
+  base: "lbi cursor-pointer relative rounded-[calc(var(--radius-lg)-1px)] p-2 text-base outline-hidden sm:text-sm",
   variants: {
     isFocusVisible: {
       true: "bg-secondary [&:focus-visible_[slot=label]]:text-accent-fg [&:focus-visible_[slot=description]]:text-accent-fg/70 text-secondary-fg"

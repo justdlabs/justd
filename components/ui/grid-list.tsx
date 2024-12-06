@@ -21,7 +21,7 @@ const GridList = <T extends object>({ children, className, ...props }: GridListP
 )
 
 const itemStyles = tv({
-  base: "[--selected-item:theme(--color-muted/80%)] [--selected-item-hovered:theme(--color-muted/70%)] relative group transition outline-hidden flex cursor-default select-none gap-3 border-y px-3 -mb-px py-2 lg:text-sm text-fg -outline-offset-2 first:rounded-t-md first:border-t-0 last:mb-0 last:rounded-b-md last:border-b-0",
+  base: "[--selected-item:theme(--color-muted/80%)] [--selected-item-hovered:theme(--color-muted/70%)] relative group transition outline-hidden flex cursor-default select-none gap-3 border-y px-3 -mb-px py-2 sm:text-sm text-fg -outline-offset-2 first:rounded-t-md first:border-t-0 last:mb-0 last:rounded-b-md last:border-b-0",
   variants: {
     isHovered: { true: "bg-subtle" },
     isSelected: {

@@ -5,7 +5,7 @@ import * as React from "react"
 import { IconChevronDown } from "justd-icons"
 import type {
   ButtonProps,
-  DisclosureGroupProps as DisclosureGroupPrimitiveProps,
+  DisclosureGroupProps as AccordionProps,
   DisclosurePanelProps,
   DisclosureProps
 } from "react-aria-components"
@@ -14,13 +14,14 @@ import {
   composeRenderProps,
   Disclosure as DisclosurePrimitive,
   DisclosureGroup as DisclosureGroupPrimitive,
-  DisclosurePanel as DisclosurePanelPrimitive
+  DisclosurePanel as DisclosurePanelPrimitive,
+  Heading
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
 import { cn } from "./primitive"
 
-const DisclosureGroup = ({ children, className, ...props }: DisclosureGroupPrimitiveProps) => {
+const DisclosureGroup = ({ children, className, ...props }: AccordionProps) => {
   return (
     <DisclosureGroupPrimitive
       data-slot="disclosure-group"
@@ -61,7 +62,7 @@ const Disclosure = ({ className, ...props }: DisclosureProps) => {
 
 const disclosureTrigger = tv({
   base: [
-    "flex items-center **:data-[slot=chevron]:size-6 lg:text-sm **:data-[slot=icon]:mr-2 **:data-[slot=icon]:text-muted-fg justify-between py-3 **:[span]:*:data-[slot=icon]:mr-1 **:[span]:flex **:[span]:items-center **:[span]:gap-x-1 w-full text-left font-medium"
+    "flex items-center **:data-[slot=chevron]:size-6 sm:text-sm **:data-[slot=icon]:mr-2 **:data-[slot=icon]:text-muted-fg justify-between py-3 **:[span]:*:data-[slot=icon]:mr-1 **:[span]:flex **:[span]:items-center **:[span]:gap-x-1 w-full text-left font-medium"
   ],
   variants: {
     isFocused: {
@@ -78,26 +79,28 @@ const disclosureTrigger = tv({
 
 const DisclosureTrigger = ({ className, ...props }: ButtonProps) => {
   return (
-    <Button
-      {...props}
-      slot="trigger"
-      className={composeRenderProps(className, (className, renderProps) =>
-        disclosureTrigger({
-          ...renderProps,
-          className
-        })
-      )}
-    >
-      {(values) => (
-        <>
-          {typeof props.children === "function" ? props.children(values) : props.children}
-          <IconChevronDown
-            data-slot="disclosure-chevron"
-            className={cn("ml-auto transition shrink-0 duration-300 group-data-expanded:rotate-180")}
-          />
-        </>
-      )}
-    </Button>
+    <Heading>
+      <Button
+        {...props}
+        slot="trigger"
+        className={composeRenderProps(className, (className, renderProps) =>
+          disclosureTrigger({
+            ...renderProps,
+            className
+          })
+        )}
+      >
+        {(values) => (
+          <>
+            {typeof props.children === "function" ? props.children(values) : props.children}
+            <IconChevronDown
+              data-slot="disclosure-chevron"
+              className={cn("ml-auto transition shrink-0 duration-300 group-data-expanded:rotate-180")}
+            />
+          </>
+        )}
+      </Button>
+    </Heading>
   )
 }
 

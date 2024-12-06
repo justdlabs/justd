@@ -1,9 +1,9 @@
 "use client"
 
+import * as React from "react"
+
 import { IconSearch } from "justd-icons"
 import { Breadcrumbs, Button, Separator, SidebarNav, SidebarTrigger } from "ui"
-
-import UserMenu from "./user-menu"
 
 export default function AppSidebarNav() {
   return (
@@ -21,7 +21,6 @@ export default function AppSidebarNav() {
         <Button appearance="plain" aria-label="Search..." size="square-petite">
           <IconSearch />
         </Button>
-        <UserMenu />
       </div>
     </SidebarNav>
   )

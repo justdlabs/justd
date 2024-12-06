@@ -22,7 +22,7 @@ export function Aside() {
       {sidebar.map((item: SidebarItem) => (
         <div key={item.slug || item.title}>
           {item.children && item.children.length > 0 && item.title !== "Components" && (
-            <Heading className="text-base mb-2 font-medium lg:text-sm flex items-center gap-x-2" level={3}>
+            <Heading className="text-base mb-2 font-medium sm:text-sm flex items-center gap-x-2" level={3}>
               {item.title}
             </Heading>
           )}
@@ -32,7 +32,7 @@ export function Aside() {
               {item.children.map((child: SidebarItem) => (
                 <div key={child.slug || child.title}>
                   {child.children && child.children.length > 0 ? (
-                    <Heading className="text-base mb-2 font-medium lg:text-sm" level={4}>
+                    <Heading className="text-base mb-2 font-medium sm:text-sm" level={4}>
                       {child.title}
                     </Heading>
                   ) : (
@@ -84,7 +84,7 @@ function AsideLink({ href, ...props }: AsideLinkProps) {
       {...props}
       href={href}
       className={twMerge(
-        "text-muted-fg py-1.5 px-3 mb-0.5 -ml-3 rounded-lg text-base lg:text-sm flex justify-between items-center",
+        "text-muted-fg py-1.5 px-3 mb-0.5 -ml-3 rounded-lg text-base sm:text-sm flex justify-between items-center",
         "data-focused:outline-hidden",
         "data-hovered:bg-muted data-hovered:text-secondary-fg",
         isActive && [

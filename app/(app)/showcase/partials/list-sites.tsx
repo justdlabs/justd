@@ -35,7 +35,7 @@ export function ListSites({ sites }: Props) {
                   alt="irsyad.co favicon (large)"
                 />
                 <div className="flex flex-col gap-y-0.5">
-                  <Text slot="label" className="font-medium lg:text-sm">
+                  <Text slot="label" className="font-medium sm:text-sm">
                     {item.name}
                   </Text>
                   <Text slot="description" className="text-muted-fg text-xs">

@@ -24,7 +24,7 @@ const dropdownItemStyles = tv({
     "has-submenu:data-open:data-danger:bg-danger/20 has-submenu:data-open:data-danger:text-danger",
     "data-has-submenu:data-open:bg-accent data-has-submenu:data-open:text-accent-fg data-has-submenu:data-open:*:data-[slot=icon]:text-accent-fg data-has-submenu:data-open:*:[.text-muted-fg]:text-accent-fg",
     "**:data-[slot=avatar]:-mr-0.5 **:data-[slot=avatar]:size-6 sm:**:data-[slot=avatar]:size-5",
-    "**:data-[slot=icon]:size-4 **:data-[slot=icon]:shrink-0 **:data-[slot=icon]:text-muted-fg data-hovered:**:data-[slot=icon]:text-accent-fg data-focused:**:data-[slot=icon]:text-accent-fg data-danger:**data-[slot=icon]:text-danger/60 data-focused:data-danger:**:data-[slot=icon]:text-danger-fg",
+    "**:data-[slot=icon]:size-4 **:data-[slot=icon]:shrink-0 **:data-[slot=icon]:text-muted-fg data-hovered:**:data-[slot=icon]:text-accent-fg data-focused:**:data-[slot=icon]:text-accent-fg data-danger:**:data-[slot=icon]:text-danger/70 data-focused:data-danger:**:data-[slot=icon]:text-danger-fg",
     "data-[slot=menu-radio]:*:data-[slot=icon]:size-3",
     "forced-colors:**:data-[slot=icon]:text-[CanvasText] forced-colors:group-data-focused:**:data-[slot=icon]:text-[Canvas] "
   ],
@@ -40,14 +40,7 @@ const dropdownItemStyles = tv({
         "[&_.text-muted-fg]:text-accent-fg/80 data-[slot=label]:text-accent-fg data-[slot=description]:text-accent-fg"
       ]
     }
-  },
-  compoundVariants: [
-    {
-      isFocused: false,
-      isOpen: true,
-      className: "bg-secondary"
-    }
-  ]
+  }
 })
 
 const dropdownSectionStyles = tv({
@@ -115,7 +108,7 @@ const DropdownItemDetails = ({ label, description, classNames, ...props }: Dropd
   return (
     <div className="flex flex-col gap-y-1" {...restProps}>
       {label && (
-        <Text slot={slot ?? "label"} className={cn("font-medium lg:text-sm", classNames?.label)} {...restProps}>
+        <Text slot={slot ?? "label"} className={cn("font-medium sm:text-sm", classNames?.label)} {...restProps}>
           {label}
         </Text>
       )}

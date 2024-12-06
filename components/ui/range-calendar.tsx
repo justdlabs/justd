@@ -54,7 +54,7 @@ const RangeCalendar = <T extends DateValue>({ errorMessage, className, ...props 
               className={twJoin([
                 "[--cell:color-mix(in_oklab,var(--color-primary)_10%,white_90%)] [--cell-fg:var(--color-primary)]",
                 "dark:[--cell:color-mix(in_oklab,var(--color-primary)_35%,black_50%)] dark:[--cell-fg:color-mix(in_oklab,var(--color-primary)_80%,white_20%)]",
-                "group [line-height:2.286rem] size-10 lg:size-9 cursor-default lg:text-sm outline-hidden data-outside-month:text-muted-fg data-selection-start:rounded-s-full data-selection-end:rounded-e-full",
+                "group [line-height:2.286rem] size-10 lg:size-9 cursor-default sm:text-sm outline-hidden data-outside-month:text-muted-fg data-selection-start:rounded-s-full data-selection-end:rounded-e-full",
                 "data-selected:bg-(--cell)/70 dark:data-selected:bg-(--cell) data-selected:text-(--cell-fg)",
                 "data-invalid:data-selected:bg-red-100 dark:data-invalid:data-selected:bg-red-700/30",
                 "[td:first-child_&]:rounded-s-full [td:last-child_&]:rounded-e-full",

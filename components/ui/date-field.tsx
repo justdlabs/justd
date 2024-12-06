@@ -50,7 +50,7 @@ const DateField = <T extends DateValue>({
 }
 
 const segmentStyles = tv({
-  base: "inline shrink-0 sm:uppercase tabular-nums rounded p-0.5 tracking-wider text-fg caret-transparent outline outline-0 forced-color-adjust-none type-literal:px-0 lg:text-sm forced-colors:text-[ButtonText]",
+  base: "inline shrink-0 sm:uppercase tabular-nums rounded p-0.5 tracking-wider text-fg caret-transparent outline outline-0 forced-color-adjust-none type-literal:px-0 sm:text-sm forced-colors:text-[ButtonText]",
   variants: {
     isPlaceholder: {
       true: "text-muted-fg"
@@ -70,7 +70,7 @@ const segmentStyles = tv({
 const DateInput = ({ className, ...props }: Omit<DateInputProps, "children">) => {
   return (
     <DateInputPrimitive
-      className={cn("bg-transparent p-2 text-base text-fg placeholder-muted-fg lg:text-sm", className)}
+      className={cn("bg-transparent p-2 text-base text-fg placeholder-muted-fg sm:text-sm", className)}
       {...props}
     >
       {(segment) => <DateSegment segment={segment} className={segmentStyles} />}

@@ -38,7 +38,7 @@ const fieldStyles = tv({
     label: "w-fit cursor-default font-medium text-secondary-fg text-sm",
     fieldError: "text-sm/6 text-danger forced-colors:text-[Mark]",
     input: [
-      "w-full min-w-0 [&::-ms-reveal]:hidden bg-transparent py-2 px-2.5 text-base text-fg placeholder-muted-fg outline-hidden data-focused:outline-hidden lg:text-sm"
+      "w-full min-w-0 [&::-ms-reveal]:hidden bg-transparent py-2 px-2.5 text-base text-fg placeholder-muted-fg outline-hidden data-focused:outline-hidden sm:text-sm"
     ]
   }
 })

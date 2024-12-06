@@ -3,30 +3,21 @@
 import * as React from "react"
 
 import {
+  IconArchive2,
   IconBrandApple,
-  IconBuilding,
   IconChevronLgDown,
-  IconCircleQuestionmark,
   IconCommandRegular,
-  IconCreditCard,
   IconCube,
-  IconCurrencyDollar,
   IconDashboard,
-  IconEnvelope,
+  IconDotsHorizontal,
   IconGraph,
   IconHeadphones,
+  IconHighlight,
   IconLogout,
-  IconMegaphone,
-  IconNotes,
-  IconPackage,
-  IconPeople,
-  IconPercentBadge,
   IconSettings,
   IconShield,
-  IconShoppingBag,
-  IconSupport,
-  IconTicket,
-  IconTruck
+  IconTrash,
+  IconUpload
 } from "justd-icons"
 import {
   Avatar,
@@ -54,6 +45,7 @@ export default function AppSidebar(props: React.ComponentProps<typeof Sidebar>) 
           <strong className="font-medium group-data-[collapsible=dock]:hidden">Apple</strong>
         </Link>
       </SidebarHeader>
+
       <SidebarContent>
         <SidebarSection>
           <SidebarItem isCurrent href="#">
@@ -61,80 +53,57 @@ export default function AppSidebar(props: React.ComponentProps<typeof Sidebar>) 
             <SidebarLabel>Overview</SidebarLabel>
           </SidebarItem>
           <SidebarItem href="#">
-            <IconShoppingBag />
-            <SidebarLabel>Orders</SidebarLabel>
-          </SidebarItem>
-          <SidebarItem href="#">
             <IconCube />
-            <SidebarLabel>Products</SidebarLabel>
-          </SidebarItem>
-          <SidebarItem href="#" badge="4 Pending">
-            <IconCreditCard />
-            <SidebarLabel>Payments</SidebarLabel>
+            <SidebarLabel>Blog</SidebarLabel>
           </SidebarItem>
           <SidebarItem href="#" badge="12 New">
             <IconGraph />
             <SidebarLabel>Analytics</SidebarLabel>
           </SidebarItem>
           <SidebarItem href="#">
-            <IconPeople />
-            <SidebarLabel>Customers</SidebarLabel>
-          </SidebarItem>
-          <SidebarItem href="#">
             <IconSettings />
             <SidebarLabel>Settings</SidebarLabel>
           </SidebarItem>
         </SidebarSection>
-        <SidebarSection collapsible title="Marketing">
-          <SidebarItem href="#">
-            <IconMegaphone />
-            <SidebarLabel>Campaigns</SidebarLabel>
-          </SidebarItem>
-          <SidebarItem href="#discount">
-            <IconPercentBadge />
-            <SidebarLabel>Discounts</SidebarLabel>
-          </SidebarItem>
-
-          <SidebarItem href="#">
-            <IconCurrencyDollar />
-            <SidebarLabel>Affiliates</SidebarLabel>
-          </SidebarItem>
-          <SidebarItem href="#">
-            <IconEnvelope />
-            <SidebarLabel>Email Marketing</SidebarLabel>
-          </SidebarItem>
-        </SidebarSection>
-        <SidebarSection collapsible title="Support">
-          <SidebarItem href="#">
-            <IconTicket />
-            <SidebarLabel>Tickets</SidebarLabel>
-          </SidebarItem>
-          <SidebarItem href="#">
-            <IconSupport />
-            <SidebarLabel>Chat Support</SidebarLabel>
-          </SidebarItem>
-          <SidebarItem href="#">
-            <IconCircleQuestionmark />
-            <SidebarLabel>FAQ</SidebarLabel>
-          </SidebarItem>
-          <SidebarItem href="#">
-            <IconNotes />
-            <SidebarLabel>Documentation</SidebarLabel>
-          </SidebarItem>
-        </SidebarSection>
-        <SidebarSection title="Inventory">
-          <SidebarItem href="#">
-            <IconPackage />
-            <SidebarLabel>Stock Levels</SidebarLabel>
-          </SidebarItem>
-          <SidebarItem href="#">
-            <IconBuilding />
-            <SidebarLabel>Warehouse</SidebarLabel>
-          </SidebarItem>
-          <SidebarItem href="#">
-            <IconTruck />
-            <SidebarLabel>Shipping</SidebarLabel>
-          </SidebarItem>
+        <SidebarSection collapsible title="Articles">
+          {articles.map((item) => (
+            <SidebarItem key={item.href}>
+              {({ isHovered }) => (
+                <>
+                  <Link href="#discount">
+                    <SidebarLabel>
+                      {item.label} {item.label}
+                    </SidebarLabel>
+                  </Link>
+                  {isHovered && (
+                    <Menu>
+                      <Menu.Trigger aria-label="Manage Discounts">
+                        <IconDotsHorizontal />
+                      </Menu.Trigger>
+                      <Menu.Content placement="right top">
+                        <Menu.Item href="#edit">
+                          <IconHighlight />
+                          Edit
+                        </Menu.Item>
+                        <Menu.Item href="#share">
+                          <IconUpload />
+                          Share
+                        </Menu.Item>
+                        <Menu.Item href="#archive">
+                          <IconArchive2 />
+                          Archive
+                        </Menu.Item>
+                        <Menu.Item isDanger={true} href="#delete">
+                          <IconTrash />
+                          Delete
+                        </Menu.Item>
+                      </Menu.Content>
+                    </Menu>
+                  )}
+                </>
+              )}
+            </SidebarItem>
+          ))}
         </SidebarSection>
       </SidebarContent>
 
@@ -190,3 +159,11 @@ export default function AppSidebar(props: React.ComponentProps<typeof Sidebar>) 
     </Sidebar>
   )
 }
+
+const articles = [
+  { href: "#article-1", label: "How to Improve Productivity" },
+  { href: "#article-2", label: "The Future of Remote Work" },
+  { href: "#article-3", label: "Top 10 Design Tips" },
+  { href: "#article-4", label: "Guide to Mental Health" },
+  { href: "#article-5", label: "AI in Everyday Life" }
+]

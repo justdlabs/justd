@@ -118,10 +118,10 @@
 /*  background: transparent !important;*/
 /*}*/
 
-span[data-rehype-pretty-code-figure] > code > span {
-  @apply bg-secondary text-secondary-fg inline-block rounded text-xs font-normal drop-shadow-none;
-  padding: 0.2rem 0.3rem !important;
-}
+/*span[data-rehype-pretty-code-figure] > code > span {*/
+/*  @apply bg-secondary text-secondary-fg inline-block rounded text-xs font-normal drop-shadow-none;*/
+/*  padding: 0.2rem 0.3rem !important;*/
+/*}*/
 
 [data-rehype-pretty-code-figure] code[data-line-numbers] {
   counter-reset: line;

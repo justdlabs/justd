@@ -22,7 +22,7 @@ import { composeTailwindRenderProps, focusRing } from "./primitive"
 
 const cell = tv({
   extend: focusRing,
-  base: "flex size-10 sm:size-9 cursor-default tabular-nums items-center justify-center rounded-full lg:text-sm forced-colors:outline-0",
+  base: "flex size-10 sm:size-9 cursor-default tabular-nums items-center justify-center rounded-full sm:text-sm forced-colors:outline-0",
   variants: {
     isSelected: {
       false: "text-fg forced-colors:text-[ButtonText] data-hovered:bg-secondary-fg/15 data-pressed:bg-secondary-fg/20",

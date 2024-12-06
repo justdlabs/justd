@@ -2,12 +2,17 @@
 
 import * as React from "react"
 
-import { IconChevronDown, IconChevronRight, IconHamburger, IconSidebarFill } from "justd-icons"
-import type { DisclosureProps, LinkProps } from "react-aria-components"
-import { composeRenderProps, Disclosure, DisclosurePanel, Link } from "react-aria-components"
+import { IconHamburger, IconSidebarFill } from "justd-icons"
+import {
+  Button as DisclosureTrigger,
+  composeRenderProps,
+  Disclosure,
+  DisclosurePanel,
+  Link
+} from "react-aria-components"
 import { tv } from "tailwind-variants"
 
-import { Button, ButtonPrimitive } from "./button"
+import { Button } from "./button"
 import { cn, useMediaQuery } from "./primitive"
 import { Sheet } from "./sheet"
 import { Tooltip } from "./tooltip"
@@ -215,15 +220,17 @@ const Sidebar = ({
   )
 }
 
-const itemStyles = tv({
+const item = tv({
   base: [
-    "group/sidebar-item grid cursor-pointer *:data-[slot=icon]:size-4 col-span-full *:data-[slot=icon]:shrink-0 items-center *:data-[slot=icon]:text-muted-fg relative rounded-lg lg:text-sm leading-6",
-    "forced-colors:text-[MenuLink] text-sidebar-fg",
-    "grid-cols-subgrid *:data-[slot=icon]:mr-2 px-2.5 py-1.5"
+    "pl-2.5 pr-5 relative items-center py-1.5 forced-colors:text-[MenuLink] text-sidebar-fg rounded-lg sm:text-sm/6",
+    "**:data-[slot=icon]:size-4 **:data-[slot=icon]:-mx-0.5 **:data-[slot=icon]:shrink-0 **:data-[slot=icon]:text-muted-fg",
+    "grid gap-x-2 grid-cols-subgrid col-span-full",
+    "*:[a]:grid *:[a]:gap-x-2 *:[a]:items-center *:[a]:grid-cols-subgrid *:[a]:col-span-full",
+    "*:[button]:absolute *:[button]:right-4 *:[button]:h-6 *:[button]:w-12 *:[button]:flex *:[button]:bg-gradient-to-r *:[button]:from-(--sidebar-accent)/5 *:[button]:via-(--sidebar-accent)/90 *:[button]:to-(--sidebar-accent) *:[button]:justify-end *:[button]:place-content-center *:[button]:grid"
   ],
   variants: {
     collapsed: {
-      true: "flex"
+      true: "flex group-data-[collapsible=dock]:hidden"
     },
     isFocused: {
       true: "outline-hidden"
@@ -249,34 +256,38 @@ const itemStyles = tv({
   }
 })
 
-interface SidebarItemProps extends LinkProps {
-  icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>
+interface SidebarItemProps extends React.ComponentProps<typeof Link> {
   badge?: string | number | undefined
   isCurrent?: boolean
 }
 
-const SidebarItem = ({ isCurrent, children, className, icon: Icon, ...props }: SidebarItemProps) => {
+const SidebarItem = ({ isCurrent, children, className, ...props }: SidebarItemProps) => {
   const { state, isMobile } = React.useContext(SidebarContext)!
+
+  const renderChildren = (values?: any) => {
+    if (typeof children === "function") {
+      return children(values || {}) // Pastikan tidak ada destructuring error
+    }
+    return children
+  }
   return state === "collapsed" && !isMobile ? (
     <Tooltip closeDelay={0} delay={0}>
       <Link
         className={cn(
-          "col-span-full rounded-lg size-9 grid place-content-center",
+          "*:[span]:hidden mx-auto size-9 **:[a]:*:[span]:hidden flex items-center justify-center rounded-lg shrink-0",
+          "*:[button]:hidden",
+          "rounded-lg size-9 flex items-center justify-center overflow-hidden",
           "data-hovered:bg-(--sidebar-accent) data-hovered:text-sidebar-accent-fg text-sidebar-accent-fg",
           "data-current:bg-primary data-current:text-primary-fg",
           "data-focused:outline-hidden"
         )}
         {...props}
       >
-        {(values) => (
-          <>
-            {Icon && <Icon data-slot="icon" />}
-            <span className="sr-only">{typeof children === "function" ? children(values) : children}</span>
-          </>
-        )}
+        {(values) => renderChildren(values)}
       </Link>
-      <Tooltip.Content intent="inverse" showArrow={false} placement="right">
-        {children as string}
+
+      <Tooltip.Content intent="inverse" showArrow={false} className="**:data-[slot=icon]:hidden" placement="right">
+        {renderChildren()}
       </Tooltip.Content>
     </Tooltip>
   ) : (
@@ -285,7 +296,7 @@ const SidebarItem = ({ isCurrent, children, className, icon: Icon, ...props }: S
       data-slot="sidebar-item"
       aria-current={isCurrent ? "page" : undefined}
       className={composeRenderProps(className, (className, renderProps) =>
-        itemStyles({
+        item({
           ...renderProps,
           collapsed: state === "collapsed",
           isCurrent,
@@ -296,18 +307,16 @@ const SidebarItem = ({ isCurrent, children, className, icon: Icon, ...props }: S
     >
       {(values) => (
         <>
-          {Icon && <Icon data-slot="icon" />}
-          <span className="col-start-2 group-data-[collapsible=dock]:hidden">
-            {typeof children === "function" ? children(values) : children}
-            {props.badge && (
-              <div
-                data-slot="sidebar-badge"
-                className="h-[1.30rem] px-1 rounded-md text-muted-fg text-xs font-medium ring-1 ring-fg/20 grid place-content-center w-auto inset-y-1/2 -translate-y-1/2 absolute right-1.5 bg-fg/[0.02] dark:bg-fg/10"
-              >
-                {props.badge}
-              </div>
-            )}
-          </span>
+          {typeof children === "function" ? children(values) : children}
+
+          {props.badge && (
+            <span
+              data-slot="sidebar-badge"
+              className="h-[1.30rem] px-1 rounded-md text-muted-fg text-xs font-medium ring-1 ring-fg/20 grid place-content-center w-auto inset-y-1/2 -translate-y-1/2 absolute right-1.5 bg-fg/[0.02] dark:bg-fg/10"
+            >
+              {props.badge}
+            </span>
+          )}
         </>
       )}
     </Link>
@@ -373,7 +382,7 @@ const header = tv({
   variants: {
     collapsed: {
       false: "px-5 py-[calc(var(--spacing)*4)]",
-      true: "px-5 py-4 md:p-0 md:size-9 mt-1 group-data-[intent=floating]:mt-2 md:rounded-lg md:hover:bg-(--sidebar-accent) md:mx-auto md:justify-center md:items-center"
+      true: "p-5 mt-2 md:p-0 md:size-9 group-data-[intent=floating]:mt-2 md:rounded-lg md:hover:bg-(--sidebar-accent) md:mx-auto md:justify-center md:items-center"
     }
   }
 })
@@ -393,9 +402,9 @@ const SidebarHeader = ({ className, ...props }: React.HtmlHTMLAttributes<HTMLDiv
 const footer = tv({
   base: [
     "flex flex-col mt-auto p-2",
-    "**:data-[slot=menu-trigger]:rounded-lg **:data-[slot=menu-trigger]:shrink-0",
-    "**:data-[slot=menu-trigger]:outline-hidden **:data-[slot=menu-trigger]:w-full **:data-[slot=menu-trigger]:cursor-default **:data-[slot=menu-trigger]:data-hovered:bg-(--sidebar-accent) **:data-[slot=menu-trigger]:p-2 **:data-[slot=menu-trigger]:items-center lg:**:data-[slot=menu-trigger]:text-sm **:data-[slot=menu-trigger]:flex **:data-[slot=menu-trigger]:gap-x-2",
-    "**:data-[slot=menu-trigger]:**:data-[slot=avatar]:size-6 **:data-[slot=menu-trigger]:**:data-[slot=avatar]:*:size-6"
+    "**:data-[slot=menu-trigger]:rounded-lg",
+    "",
+    "**:data-[slot=menu-trigger]:outline-hidden **:data-[slot=menu-trigger]:w-full **:data-[slot=menu-trigger]:cursor-default **:data-[slot=menu-trigger]:data-hovered:bg-(--sidebar-accent) **:data-[slot=menu-trigger]:p-2 **:data-[slot=menu-trigger]:items-center sm:**:data-[slot=menu-trigger]:text-sm **:data-[slot=menu-trigger]:flex **:data-[slot=menu-trigger]:gap-x-2"
   ],
   variants: {
     collapsed: {
@@ -404,7 +413,6 @@ const footer = tv({
       true: [
         "**:data-[slot=menu-label]:hidden **:data-[slot=chevron]:hidden",
         "**:data-[slot=menu-trigger]:size-8 **:data-[slot=menu-trigger]:grid **:data-[slot=menu-trigger]:place-content-center"
-        // "size-12 p-1 **:data-[slot=menu-trigger]:size-9 justify-center items-center",
       ]
     }
   }
@@ -422,15 +430,14 @@ const SidebarFooter = ({ className, ...props }: React.HtmlHTMLAttributes<HTMLDiv
   )
 }
 
-interface CollapsibleProps extends DisclosureProps {
+interface CollapsibleProps extends React.ComponentProps<typeof Disclosure> {
   children: React.ReactNode
   title?: string
   collapsible?: boolean
   defaultExpanded?: boolean
-  icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>
 }
 
-const SidebarSection = ({ title, className, collapsible, icon: Icon, defaultExpanded, ...props }: CollapsibleProps) => {
+const SidebarSection = ({ title, className, collapsible, defaultExpanded, ...props }: CollapsibleProps) => {
   const { state, isMobile } = useSidebar()
 
   const isExpanded = state === "collapsed" || (title ? (collapsible ? (defaultExpanded ?? true) : true) : true)
@@ -438,16 +445,9 @@ const SidebarSection = ({ title, className, collapsible, icon: Icon, defaultExpa
     <Disclosure
       data-slot="sidebar-section"
       className={cn(
-        "col-span-full px-2 w-full min-w-0",
+        "px-2 border-0 peer w-full min-w-0",
         state === "collapsed" && [title && "px-0", !isMobile && "px-0"],
-        state === "expanded" && [
-          "**:data-[slot=sidebar-section]:px-0",
-          title && [
-            Icon
-              ? "mt-0.5 **:data-[slot=sidebar-section-panel]:px-6 [&_[data-slot=sidebar-section-panel]_[data-slot=icon]]:-ml-0.5"
-              : "my-2.5"
-          ]
-        ],
+        state === "expanded" && ["**:data-[slot=sidebar-section]:px-0", title && "my-2.5"],
         className
       )}
       defaultExpanded={isExpanded}
@@ -458,46 +458,33 @@ const SidebarSection = ({ title, className, collapsible, icon: Icon, defaultExpa
           {typeof title === "string" && (
             <span className="group-data-[collapsible=dock]:opacity-0 group-data-[collapsible=dock]:hidden">
               {collapsible ? (
-                <ButtonPrimitive
+                <DisclosureTrigger
                   slot="trigger"
-                  className={({ isHovered }) =>
-                    cn(
-                      "w-full data-focused:outline-hidden flex leading-6 items-center justify-between *:data-[slot=chevron]:size-6 *:data-[slot=chevron]:duration-200",
-                      Icon
-                        ? "text-sidebar-fg lg:text-sm py-2 lg:py-1.5 px-3 **:data-[slot=chevron]::text-muted-fg has-[[data-slot=chevron]]:pr-0.5"
-                        : "text-sm text-muted-fg py-2 px-3 has-[[data-slot=chevron]]:pr-0",
-                      isHovered &&
-                        Icon &&
-                        "bg-(--sidebar-accent) *:data-[slot=icon]:shrink-0 items-center *:data-[slot=icon]:text-muted-fg relative rounded-lg lg:text-sm leading-6",
-                      isExpanded && !Icon && "*:data-[slot=chevron]:rotate-180",
-                      isExpanded && Icon && "*:data-[slot=chevron]:rotate-90"
-                    )
-                  }
+                  className={cn(
+                    "w-full data-focused:outline-hidden flex leading-6 items-center justify-between *:data-[slot=chevron]:size-6 *:data-[slot=chevron]:duration-200",
+                    isExpanded && "*:data-[slot=chevron]:rotate-180",
+                    "text-sm text-muted-fg py-2 px-3 has-data-[slot=chevron]:pr-0"
+                  )}
                 >
                   <span className="flex items-center *:data-[slot=icon]:text-muted-fg *:data-[slot=icon]:mr-2">
-                    {Icon && <Icon data-slot="icon" />}
                     {title}
                   </span>
-                  {Icon && <IconChevronRight data-slot="chevron" />}
-                  {!Icon && <IconChevronDown data-slot="chevron" />}
-                </ButtonPrimitive>
+                </DisclosureTrigger>
               ) : (
                 <h4 className="text-sm text-muted-fg px-3 py-2">{title}</h4>
               )}
             </span>
           )}
-          <DisclosurePanel>
-            <div
-              data-slot="sidebar-section-panel"
-              className={cn(
-                "grid gap-y-0.5 group-data-[collapsible=dock]:place-content-center",
-                state === "collapsed"
-                  ? "group-data-[collapsible=dock]:place-content-center"
-                  : "grid-cols-[auto_1fr] [&_[data-slot=sidebar-item]:first-child]:mt-0.5"
-              )}
-            >
-              {props.children}
-            </div>
+          <DisclosurePanel
+            data-slot="sidebar-section-panel"
+            className={cn(
+              "gap-y-0.5",
+              state === "collapsed"
+                ? "items-center justify-center flex flex-col group-data-[collapsible=dock]:place-content-center"
+                : "**:data-[slot=sidebar-item]:first:mt-0.5 grid-cols-[auto_1fr] grid"
+            )}
+          >
+            {props.children}
           </DisclosurePanel>
         </>
       )}
@@ -535,14 +522,23 @@ const SidebarRail = ({ className, ...props }: React.ComponentProps<"button">) =>
       onClick={toggleSidebar}
       title="Toggle Sidebar"
       className={cn(
-        "absolute inset-y-0 z-20 hidden w-4 -translate-x-1/2 transition-all ease-linear after:absolute after:inset-y-0 after:left-1/2 after:w-[2px]data-hovered:after:bg-transparent group-data-[side=left]:-right-4 group-data-[side=right]:left-0 sm:flex",
+        "absolute inset-y-0 z-20 hidden w-4 -translate-x-1/2 transition-all ease-linear after:absolute after:inset-y-0 after:left-1/2 after:w-[2px] data-hovered:after:bg-transparent group-data-[side=left]:-right-4 group-data-[side=right]:left-0 sm:flex",
         "in-data-[side=left]:cursor-w-resize in-data-[side=right]:cursor-e-resize",
         "[[data-side=left][data-state=collapsed]_&]:cursor-e-resize [[data-side=right][data-state=collapsed]_&]:cursor-w-resize",
         "group-data-[collapsible=offcanvas]:translate-x-0 group-data-[collapsible=offcanvas]:after:left-full group-data-[collapsible=offcanvas]:hover:bg-secondary",
-        "[[data-side=left][data-collapsible=offcanvas]_&]:-right-2",
-        "[[data-side=right][data-collapsible=offcanvas]_&]:-left-2",
+        "[[data-side=left][data-collapsible=offcanvas]_&]:-right-2 [[data-side=right][data-collapsible=offcanvas]_&]:-left-2",
         className
       )}
+      {...props}
+    />
+  )
+}
+
+const SidebarLabel = ({ className, ...props }: React.ComponentProps<"span">) => {
+  return (
+    <span
+      data-slot="label"
+      className={cn("col-start-2 text-clip overflow-hidden whitespace-nowrap", className)}
       {...props}
     />
   )
@@ -556,6 +552,7 @@ export {
   SidebarNav,
   SidebarContent,
   SidebarFooter,
+  SidebarLabel,
   SidebarItem,
   SidebarSection,
   SidebarRail,
