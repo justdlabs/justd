@@ -60,78 +60,43 @@ The sidebar comes in three variations: `"sidebar"`, `"floating"`, and `"inset"`.
 
 ### Sidebar
 The default variation is a traditional sidebar often used for navigation.
-<CodeSandbox
-  src='/blocks/sidebar/sidebar-02'
-  source={{
-    preview: 'blocks/sidebar/sidebar-02/page',
-    'app-sidebar-nav.tsx': 'blocks/sidebar/app-sidebar-nav',
-    'app-sidebar.tsx': 'blocks/sidebar/app-sidebar',
-    'layout.tsx': 'blocks/sidebar/sidebar-02/layout',
-    'page.tsx': 'blocks/sidebar/sidebar-02/page',
-  }} />
+```
+<Sidebar intent="default" />
+```
 
 ### Inset
 The inset variation adds padding to the main content for a visually distinct layout. Explore the demo to see it in action, or switch to full-screen mode for a better view.
-<CodeSandbox
-  src='/blocks/sidebar/sidebar-03'
-  source={{
-    preview: 'blocks/sidebar/sidebar-03/page',
-    'app-sidebar-nav.tsx': 'blocks/sidebar/app-sidebar-nav',
-    'app-sidebar.tsx': 'blocks/sidebar/app-sidebar',
-    'layout.tsx': 'blocks/sidebar/sidebar-03/layout',
-    'page.tsx': 'blocks/sidebar/sidebar-03/page',
-  }} />
+```
+<Sidebar intent="inset" />
+```
 
 ### Floating
 The floating variation introduces an inner border within the sidebar, while the wrapper includes padding around the content.
-<CodeSandbox
-  src='/blocks/sidebar/sidebar-04'
-  source={{
-    preview: 'blocks/sidebar/sidebar-04/page',
-    'app-sidebar-nav.tsx': 'blocks/sidebar/app-sidebar-nav',
-    'app-sidebar.tsx': 'blocks/sidebar/app-sidebar',
-    'layout.tsx': 'blocks/sidebar/sidebar-04/layout',
-    'page.tsx': 'blocks/sidebar/sidebar-04/page',
-  }} />
+```
+<Sidebar intent="floating" />
+```
 
 ## Collapsible
 The sidebar can be made collapsible by using the `collapsible` prop in the `SidebarProvider`. The default collapsible behavior is `"hidden"`.
 
 ### Hidden
 When toggled, the sidebar hides completely from view.
-<CodeSandbox
-  src='/blocks/sidebar/sidebar-05'
-  source={{
-    preview: 'blocks/sidebar/sidebar-05/page',
-    'app-sidebar-nav.tsx': 'blocks/sidebar/app-sidebar-nav',
-    'app-sidebar.tsx': 'blocks/sidebar/app-sidebar',
-    'layout.tsx': 'blocks/sidebar/sidebar-05/layout',
-    'page.tsx': 'blocks/sidebar/sidebar-05/page',
-  }} />
+```
+<Sidebar collapsible="hidden" />
+```
 
 ### Dock
 When toggled, the sidebar docks to a minimal state, showing only icons. Hovering over an icon reveals a tooltip with additional information.
-<CodeSandbox
-  src='/blocks/sidebar/sidebar-06'
-  source={{
-    preview: 'blocks/sidebar/sidebar-06/page',
-    'app-sidebar-nav.tsx': 'blocks/sidebar/app-sidebar-nav',
-    'app-sidebar.tsx': 'blocks/sidebar/app-sidebar',
-    'layout.tsx': 'blocks/sidebar/sidebar-06/layout',
-    'page.tsx': 'blocks/sidebar/sidebar-06/page',
-  }} />
+```
+<Sidebar intent="dock" />
+```
 
 ## Default Open
 The sidebar’s initial state can be controlled using the `defaultOpen` prop. For example, you can set `defaultOpen` to `false` and keep the sidebar docked.
-<CodeSandbox
-  src='/blocks/sidebar/sidebar-07'
-  source={{
-    preview: 'blocks/sidebar/sidebar-07/page',
-    'app-sidebar-nav.tsx': 'blocks/sidebar/app-sidebar-nav',
-    'app-sidebar.tsx': 'blocks/sidebar/app-sidebar',
-    'layout.tsx': 'blocks/sidebar/sidebar-07/layout',
-    'page.tsx': 'blocks/sidebar/sidebar-07/page',
-  }} />
+```
+<SidebarProvider defaultOpen={false}>
+  <Sidebar collapsible="dock" />
+```
 
 
 ## Menu
@@ -148,40 +113,93 @@ The sidebar supports menus, which can be used to display additional actions or o
 
 ## Badge
 The sidebar supports badges, which can be used to indicate the number of unread messages, tasks, or other items.
-<CodeSandbox
-  src='/blocks/sidebar/sidebar-09'
-  source={{
-    preview: 'blocks/sidebar/sidebar-09/page',
-    'app-sidebar-nav.tsx': 'blocks/sidebar/app-sidebar-nav',
-    'app-sidebar.tsx': 'blocks/sidebar/sidebar-09/app-sidebar',
-    'layout.tsx': 'blocks/sidebar/sidebar-09/layout',
-    'page.tsx': 'blocks/sidebar/sidebar-09/page',
-  }} />
+```
+<SidebarSection>
+  {navigation.map((item, index) => (
+    <SidebarItem key={index} isCurrent={item.isCurrent} href="#" badge={item?.badge}>
+      {item.icon}
+      <SidebarLabel>{item.label}</SidebarLabel>
+    </SidebarItem>
+  ))}
+</SidebarSection>
+
+const navigation = [
+  { label: "Overview", icon: <IconDashboard />, isCurrent: true, badge: undefined },
+  { label: "Orders", icon: <IconCart />, isCurrent: false, badge: 24 },
+  { label: "Products", icon: <IconCube />, isCurrent: false, badge: "31.51K" },
+  { label: "Customers", icon: <IconPeople />, isCurrent: false, badge: "12K" },
+  { label: "Reports", icon: <IconChartBar />, isCurrent: false, badge: 3 },
+  { label: "Settings", icon: <IconGear />, isCurrent: false, badge: undefined }
+]
+```
 
 ## Section Group
 The sidebar supports section groups, which can be used to group related items together.
-<CodeSandbox
-  src='/blocks/sidebar/sidebar-10'
-  source={{
-    preview: 'blocks/sidebar/sidebar-10/page',
-    'app-sidebar-nav.tsx': 'blocks/sidebar/app-sidebar-nav',
-    'app-sidebar.tsx': 'blocks/sidebar/sidebar-10/app-sidebar',
-    'layout.tsx': 'blocks/sidebar/sidebar-10/layout',
-    'page.tsx': 'blocks/sidebar/sidebar-10/page',
-  }} />
+```
+{sections.map((section, sectionIndex) => (
+  <SidebarDisclosureGroup defaultExpandedKeys={[1, 2]} key={sectionIndex}>
+    <SidebarDisclosure id={sectionIndex + 1}>
+      <SidebarDisclosureTrigger>
+        <section.icon />
+        <SidebarLabel> {section.label}</SidebarLabel>
+      </SidebarDisclosureTrigger>
+      <SidebarDisclosurePanel>
+        {section.items.map((item, itemIndex) => (
+          <SidebarItem key={itemIndex} href="#">
+            {({ isHovered }) => (
+              <>
+                <i aria-hidden className="size-4 content-center">
+                  <IconBullet className={`${isHovered ? "fill-sky-500 text-sky-500" : ""} size-2 m-auto`} />
+                </i>
+                <SidebarLabel>{item}</SidebarLabel>
+              </>
+            )}
+          </SidebarItem>
+        ))}
+      </SidebarDisclosurePanel>
+    </SidebarDisclosure>
+  </SidebarDisclosureGroup>
+))}
 
+const sections = [
+  {
+    icon: IconNotes,
+    label: "Blog",
+    items: ["Articles", "Categories", "Tags", "Comments", "Authors"]
+  },
+  {
+    icon: IconStore4,
+    label: "Commerce",
+    items: ["Orders", "Products", "Customers", "Coupons", "Discounts"]
+  },
+  {
+    icon: IconWhiteboard,
+    label: "Analytics",
+    items: ["Reports", "Traffic", "Conversions", "Audience", "Engagement"]
+  },
+  {
+    icon: IconSettings,
+    label: "Settings",
+    items: ["General", "Profile", "Billing", "Notifications", "Integrations"]
+  }
+]
+```
 
 ## Separator
 The sidebar supports separators, which can be used to separate sections or groups of items.
-<CodeSandbox
-  src='/blocks/sidebar/sidebar-11'
-  source={{
-    preview: 'blocks/sidebar/sidebar-11/page',
-    'app-sidebar-nav.tsx': 'blocks/sidebar/app-sidebar-nav',
-    'app-sidebar.tsx': 'blocks/sidebar/sidebar-11/app-sidebar',
-    'layout.tsx': 'blocks/sidebar/sidebar-11/layout',
-    'page.tsx': 'blocks/sidebar/sidebar-11/page',
-  }} />
+```
+<SidebarContent>
+  <SidebarSection/>
+  <SidebarSeparator />
+  <SidebarSection/>
+  <SidebarSection/>
+  <SidebarSeparator />
+  <SidebarSectionGroup/>
+  <SidebarSectionGroup/>
+  <SidebarSeparator />
+  <SidebarSectionGroup/>
+</SidebarContent>
+```
 
 ## Tooltip
 The sidebar supports tooltips, which can be used to display additional information when you're on docked mode.
@@ -197,39 +215,48 @@ The sidebar supports tooltips, which can be used to display additional informati
 
 ## Header
 The sidebar supports headers, which can be used to display additional actions or options.
-<CodeSandbox
-  src='/blocks/sidebar/sidebar-14'
-  source={{
-    preview: 'blocks/sidebar/sidebar-14/page',
-    'app-sidebar-nav.tsx': 'blocks/sidebar/app-sidebar-nav',
-    'app-sidebar.tsx': 'blocks/sidebar/sidebar-14/app-sidebar',
-    'layout.tsx': 'blocks/sidebar/sidebar-14/layout',
-    'page.tsx': 'blocks/sidebar/sidebar-14/page',
-  }} />
+```
+<Sidebar {...props}>
+  <SidebarHeader>
+    <Link
+      className="flex items-center group-data-[collapsible=dock]:size-10 group-data-[collapsible=dock]:justify-center gap-x-2"
+      href="/docs/components/layouts/sidebar"
+    >
+      <IconBrandApple className="size-5" />
+      <SidebarLabel className="font-medium">Apple</SidebarLabel>
+    </Link>
+  </SidebarHeader>
+  ...
+</Sidebar>
+```
 
 ## Footer
 The sidebar supports footers, which can be used to display additional actions or options.
-<CodeSandbox
-  src='/blocks/sidebar/sidebar-15'
-  source={{
-    preview: 'blocks/sidebar/sidebar-15/page',
-    'app-sidebar-nav.tsx': 'blocks/sidebar/app-sidebar-nav',
-    'app-sidebar.tsx': 'blocks/sidebar/sidebar-15/app-sidebar',
-    'layout.tsx': 'blocks/sidebar/sidebar-15/layout',
-    'page.tsx': 'blocks/sidebar/sidebar-15/page',
-  }} />
-
+```
+<Sidebar {...props}>
+  ...
+  <SidebarFooter>
+    <Menu>
+      <Menu.Trigger aria-label="Profile" data-slot="menu-trigger">
+        <Avatar shape="square" src="/images/avatar/cobain.jpg" />
+        <div className="group-data-[collapsible=dock]:hidden text-sm">
+          Kurt Cobain
+          <span className="block -mt-0.5 text-muted-fg">kurt@cobain.com</span>
+        </div>
+        <IconChevronLgDown className="right-3 size-4 absolute group-pressed:rotate-180 transition-transform" />
+      </Menu.Trigger>
+      <Menu.Content placement="bottom right" className="sm:min-w-(--trigger-width)">
+        <Menu.Item/>
+      </Menu.Content>
+    </Menu>
+  </SidebarFooter>
+</Sidebar>
+```
 ## Side
 The sidebar has two sides, left and right. You can set the side of the sidebar by using the `side` prop.
-<CodeSandbox
-  src='/blocks/sidebar/sidebar-16'
-  source={{
-    preview: 'blocks/sidebar/sidebar-16/page',
-    'app-sidebar-nav.tsx': 'blocks/sidebar/app-sidebar-nav',
-    'app-sidebar.tsx': 'blocks/sidebar/sidebar-16/app-sidebar',
-    'layout.tsx': 'blocks/sidebar/sidebar-16/layout',
-    'page.tsx': 'blocks/sidebar/sidebar-16/page',
-  }} />
+```
+<Sidebar side='left | right'/>
+```
 
 ## Props
 The sidebar supports the following props:
@@ -239,6 +266,7 @@ The sidebar supports the following props:
 | `intent`      | `"default" \| "floating" \| "inset"` | `"default"` |
 | `collapsible` | `"hidden" \| "dock" \| "none"`       | `"hidden"`  |
 | `side`        | `"left" \| "right"`                  | `"left"`    |
+| `closeButton` | `boolean`                            | `"true"`    |
 
 ### SidebarContextProps
 

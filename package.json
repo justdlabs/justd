@@ -13,7 +13,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,css}\"",
     "build:sidebar": "bun run resources/scripts/build-sidebar.ts",
     "b": "bun run build:sidebar && bun run build:registry && prettier --write __registry__/generated.ts",
-    "build:registry": "bun run resources/scripts/build-registry.ts",
+    "build:registry": "rm -rf public/registry && bun run resources/scripts/build-registry.ts",
     "preview": "bun run build && next start"
   },
   "dependencies": {
