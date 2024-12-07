@@ -64,9 +64,7 @@ export default function AppSidebar(props: React.ComponentProps<typeof Sidebar>) 
                 {({ isCollapsed, isHovered }) => (
                   <>
                     <SidebarLink href="#discount">
-                      <SidebarLabel>
-                        {item.label} {item.label}
-                      </SidebarLabel>
+                      <SidebarLabel>{item.label}</SidebarLabel>
                     </SidebarLink>
                     {!isCollapsed && isHovered && (
                       <Menu>

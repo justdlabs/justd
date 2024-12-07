@@ -5,7 +5,8 @@ order: 1
 published: true
 references: ["https://react-spectrum.adobe.com/react-aria/Link.html#props", "https://react-spectrum.adobe.com/react-aria/Disclosure.html#props"]
 ---
-### Basic
+
+## Basic
 The sidebar is a versatile component designed to organize your site's content and navigation. It offers a structured overview of your site's layout, making it easier for users to explore and locate information.
 
 <CodeSandbox
@@ -26,10 +27,33 @@ The sidebar is a versatile component designed to organize your site's content an
 
 ## Manual Installation
 <Installation options={{ isManual: true }} items={['react-aria-components', 'justd-icons']}/>
-<SourceCode toShow={['sidebar']}/>
+<SourceCode toShow={'sidebar'}/>
 
 ## Anatomy
 <Anatomy show='sidebar-anatomy'/>
+
+## CSS Variables
+The sidebar just need one base color to work, the accent will generate from the base and the primary color just taking from the primary color you have. Make sure you have set evertyhing up, or hover into [theme page](/themes) to see the bunch of colors you can get. Too lazy? just copy the default color below to your stylesheet.
+```
+@theme {
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-fg: var(--sidebar-fg);
+}
+
+@layer base {
+  :root {
+    --sidebar: oklch(0.967 0.001 286.375);
+    --sidebar-fg: oklch(0.141 0.005 285.823);
+  }
+
+  .dark {
+    --sidebar: oklch(0.16 0.006 285.885);
+    --sidebar-fg: oklch(0.985 0 0);
+  }
+}
+```
+
+Not sure if it's your style, but it's a great starting point. If you’d like to tweak the colors, check out the [theme customization](/themes) page for more options.
 
 ## Intent
 The sidebar comes in three variations: `"sidebar"`, `"floating"`, and `"inset"`. By default, the variation is set to `"sidebar"`.
@@ -169,6 +193,42 @@ The sidebar supports tooltips, which can be used to display additional informati
     'app-sidebar.tsx': 'blocks/sidebar/sidebar-12/app-sidebar',
     'layout.tsx': 'blocks/sidebar/sidebar-12/layout',
     'page.tsx': 'blocks/sidebar/sidebar-12/page',
+  }} />
+
+## Header
+The sidebar supports headers, which can be used to display additional actions or options.
+<CodeSandbox
+  src='/blocks/sidebar/sidebar-14'
+  source={{
+    preview: 'blocks/sidebar/sidebar-14/page',
+    'app-sidebar-nav.tsx': 'blocks/sidebar/app-sidebar-nav',
+    'app-sidebar.tsx': 'blocks/sidebar/sidebar-14/app-sidebar',
+    'layout.tsx': 'blocks/sidebar/sidebar-14/layout',
+    'page.tsx': 'blocks/sidebar/sidebar-14/page',
+  }} />
+
+## Footer
+The sidebar supports footers, which can be used to display additional actions or options.
+<CodeSandbox
+  src='/blocks/sidebar/sidebar-15'
+  source={{
+    preview: 'blocks/sidebar/sidebar-15/page',
+    'app-sidebar-nav.tsx': 'blocks/sidebar/app-sidebar-nav',
+    'app-sidebar.tsx': 'blocks/sidebar/sidebar-15/app-sidebar',
+    'layout.tsx': 'blocks/sidebar/sidebar-15/layout',
+    'page.tsx': 'blocks/sidebar/sidebar-15/page',
+  }} />
+
+## Side
+The sidebar has two sides, left and right. You can set the side of the sidebar by using the `side` prop.
+<CodeSandbox
+  src='/blocks/sidebar/sidebar-16'
+  source={{
+    preview: 'blocks/sidebar/sidebar-16/page',
+    'app-sidebar-nav.tsx': 'blocks/sidebar/app-sidebar-nav',
+    'app-sidebar.tsx': 'blocks/sidebar/sidebar-16/app-sidebar',
+    'layout.tsx': 'blocks/sidebar/sidebar-16/layout',
+    'page.tsx': 'blocks/sidebar/sidebar-16/page',
   }} />
 
 ## Props

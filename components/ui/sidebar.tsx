@@ -138,6 +138,7 @@ const gap = tv({
   variants: {
     intent: {
       default: "group-data-[sidebar-collapsible=dock]/sidebar-container:w-(--sidebar-width-dock)",
+      fleet: "group-data-[sidebar-collapsible=dock]/sidebar-container:w-(--sidebar-width-dock)",
       floating:
         "group-data-[sidebar-collapsible=dock]/sidebar-container:w-[calc(var(--sidebar-width-dock)+theme(spacing.4))]",
       inset:
@@ -159,11 +160,15 @@ const sidebar = tv({
       right: "right-0 group-data-[sidebar-collapsible=hidden]/sidebar-container:right-[calc(var(--sidebar-width)*-1)]"
     },
     intent: {
-      floating:
-        "p-2 group-data-[sidebar-collapsible=dock]/sidebar-container:w-[calc(var(--sidebar-width-dock)+theme(spacing.4)+2px)]",
+      floating: "p-2 group-data-[sidebar-collapsible=dock]/sidebar-container:w-[calc(var+theme(spacing.4)+2px)]",
       inset: [
         "p-2 group-data-[sidebar-collapsible=dock]/sidebar-container:w-[calc(var(--sidebar-width-dock)+theme(spacing.2)+2px)]",
         "[--bg-sidebar-container:(--color-bg)]"
+      ],
+      fleet: [
+        "group-data-[sidebar-collapsible=dock]/sidebar-container:w-(--sidebar-width-dock)",
+        "**:data-sidebar-section:px-0 **:data-sidebar-disclosure:px-0 **:data-sidebar-section:gap-y-0 **:data-sidebar-disclosure:gap-y-0",
+        "group-data-[sidebar-side=right]/sidebar-container:border-l group-data-[sidebar-side=left]/sidebar-container:border-r"
       ],
       default: [
         "group-data-[sidebar-collapsible=dock]/sidebar-container:w-(--sidebar-width-dock) group-data-[sidebar-side=left]/sidebar-container:border-(--sidebar-border)",
@@ -174,12 +179,20 @@ const sidebar = tv({
 })
 
 interface SidebarProps extends React.ComponentProps<"div"> {
-  intent?: "default" | "floating" | "inset"
+  intent?: "default" | "floating" | "inset" | "fleet"
   collapsible?: "hidden" | "dock" | "none"
   side?: "left" | "right"
+  closeButton?: boolean
 }
 
-const Sidebar = ({ collapsible = "hidden", side = "left", intent = "default", className, ...props }: SidebarProps) => {
+const Sidebar = ({
+  closeButton = true,
+  collapsible = "hidden",
+  side = "left",
+  intent = "default",
+  className,
+  ...props
+}: SidebarProps) => {
   const { isMobile, state, isOpenOnMobile, setIsOpenOnMobile } = useSidebar()
 
   if (collapsible === "none") {
@@ -196,6 +209,7 @@ const Sidebar = ({ collapsible = "hidden", side = "left", intent = "default", cl
     return (
       <Sheet isOpen={isOpenOnMobile} onOpenChange={setIsOpenOnMobile} {...props}>
         <Sheet.Content
+          closeButton={closeButton}
           aria-label="Sidebar"
           data-sidebar-intent="default"
           classNames={{
@@ -264,6 +278,8 @@ const SidebarHeader = ({ className, ref, ...props }: React.ComponentProps<"div">
 const footer = tv({
   base: [
     "flex flex-col mt-auto p-2",
+    "in-data-[sidebar-intent=fleet]:mt-0 in-data-[sidebar-intent=fleet]:p-0",
+    "in-data-[sidebar-intent=fleet]:**:data-[slot=menu-trigger]:rounded-none",
     "**:data-[slot=menu-trigger]:relative **:data-[slot=menu-trigger]:overflow-hidden",
     "**:data-[slot=menu-trigger]:rounded-lg",
     "**:data-[slot=menu-trigger]:outline-hidden **:data-[slot=menu-trigger]:cursor-default **:data-[slot=menu-trigger]:p-2 **:data-[slot=menu-trigger]:items-center sm:**:data-[slot=menu-trigger]:text-sm **:data-[slot=menu-trigger]:flex **:data-[slot=menu-trigger]:gap-x-2",
@@ -290,25 +306,29 @@ const SidebarFooter = ({ className, ...props }: React.ComponentProps<"div">) => 
   return <div data-sidebar-footer="true" className={footer({ collapsed, className })} {...props} />
 }
 
-const SidebarContent = (props: React.ComponentProps<"div">) => {
+const SidebarContent = ({ className, ...props }: React.ComponentProps<"div">) => {
   const { state } = useSidebar()
   return (
     <div
       data-sidebar-content="true"
-      className={cn("flex min-h-0 flex-1 flex-col gap-2 overflow-auto", state === "collapsed" && "items-center")}
+      className={cn(
+        "flex min-h-0 flex-1 flex-col gap-2 overflow-auto scroll-mb-96",
+        state === "collapsed" && "items-center",
+        className
+      )}
       {...props}
     />
   )
 }
 
 const SidebarSectionGroup = ({ className, ...props }: React.ComponentProps<"section">) => {
-  return <section className={cn("flex flex-col gap-y-6", className)} {...props} />
+  return <section data-sidebar-section-group="true" className={cn("flex flex-col gap-y-6", className)} {...props} />
 }
 
 const SidebarSection = ({ className, ...props }: React.ComponentProps<"div"> & { title?: string }) => {
   const { state } = useSidebar()
   return (
-    <div className={cn("flex flex-col px-2 gap-y-0.5", className)} {...props}>
+    <div data-sidebar-section="true" className={cn("flex flex-col px-2 gap-y-0.5", className)} {...props}>
       {state !== "collapsed" && "title" in props && (
         <Header className="duration-200 flex shrink-0 items-center rounded-md px-2.5 text-xs font-medium text-sidebar-fg/70 outline-none ring-sidebar-ring transition-[margin,opa] ease-linear data-focus-visible:ring-2 *:data-[slot=icon]:size-4 *:data-[slot=icon]:shrink-0 group-data-[sidebar-collapsible=dock]/sidebar-container:-mt-8 group-data-[sidebar-collapsible=dock]/sidebar-container:opacity-0">
           {props.title}
@@ -321,11 +341,11 @@ const SidebarSection = ({ className, ...props }: React.ComponentProps<"div"> & {
 
 const sidebarItem = tv({
   base: [
-    "relative px-2.5 py-1.5 overflow-hidden gap-x-2 w-full group cursor-pointer flex items-center sm:text-sm rounded-lg outline-hidden",
+    "text-sidebar-fg/70 relative px-2.5 py-[calc(var(--spacing)*1.7)] overflow-hidden gap-x-2 w-full group cursor-pointer flex items-center sm:text-sm rounded-lg outline-hidden",
     "**:data-[slot=menu-trigger]:absolute **:data-[slot=menu-trigger]:h-full **:data-[slot=menu-trigger]:items-center **:data-[slot=menu-trigger]:w-[calc(var(--sidebar-width)-90%)] **:data-[slot=menu-trigger]:right-0 **:data-[slot=menu-trigger]:flex **:data-[slot=menu-trigger]:justify-end **:data-[slot=menu-trigger]:pr-2.5",
     "**:data-[slot=menu-trigger]:hidden",
     "**:data-[slot=menu-trigger]:bg-gradient-to-l **:data-[slot=menu-trigger]:from-(--sidebar-accent) **:data-[slot=menu-trigger]:from-65%",
-    "text-sidebar-fg/70"
+    "in-data-[sidebar-intent=fleet]:rounded-none"
   ],
   variants: {
     collapsed: {
@@ -358,6 +378,7 @@ const SidebarItem = ({ isCurrent, tooltip, children, badge, className, ref, ...p
   const link = (
     <Link
       ref={ref}
+      data-sidebar-item="true"
       aria-current={isCurrent ? "page" : undefined}
       className={composeRenderProps(className, (cls, renderProps) =>
         sidebarItem({
@@ -449,6 +470,7 @@ const SidebarDisclosureGroup = ({
 }: React.ComponentProps<typeof DisclosureGroup>) => {
   return (
     <DisclosureGroup
+      data-sidebar-disclosure-group="true"
       allowsMultipleExpanded={allowsMultipleExpanded}
       className={cn("flex flex-col gap-y-0.5", className)}
       {...props}
@@ -457,11 +479,14 @@ const SidebarDisclosureGroup = ({
 }
 
 const SidebarDisclosure = ({ className, ...props }: React.ComponentProps<typeof Disclosure>) => {
-  return <Disclosure className={cn("px-2", className)} {...props} />
+  return <Disclosure data-sidebar-disclosure="true" className={cn("px-2", className)} {...props} />
 }
 
 const sidebarDisclosureTrigger = tv({
-  base: "text-sidebar-fg/70 relative px-2.5 py-1.5 overflow-hidden gap-x-2 w-full group cursor-pointer flex items-center sm:text-sm rounded-lg outline-hidden",
+  base: [
+    "text-sidebar-fg/70 relative px-2.5 py-[calc(var(--spacing)*1.7)] overflow-hidden gap-x-2 w-full group cursor-pointer flex items-center sm:text-sm rounded-lg outline-hidden",
+    "in-data-[sidebar-intent=fleet]:rounded-none in-data-[sidebar-intent=fleet]:**:data-[slot=chevron]:hidden in-data-[sidebar-intent=fleet]:py-2"
+  ],
   variants: {
     collapsed: {
       true: "size-9 justify-center p-0 gap-x-0"
@@ -496,7 +521,10 @@ const SidebarDisclosureTrigger = ({ className, ...props }: React.ComponentProps<
           <>
             {typeof props.children === "function" ? props.children(values) : props.children}
             {state !== "collapsed" && (
-              <IconChevronLgLeft className="ml-auto z-10 size-3.5 group-aria-expanded:-rotate-90 transition-transform" />
+              <IconChevronLgLeft
+                data-slot="chevron"
+                className="ml-auto z-10 size-3.5 group-aria-expanded:-rotate-90 transition-transform"
+              />
             )}
           </>
         )}
@@ -506,7 +534,23 @@ const SidebarDisclosureTrigger = ({ className, ...props }: React.ComponentProps<
 }
 
 const SidebarDisclosurePanel = ({ className, ...props }: React.ComponentProps<typeof DisclosurePanel>) => {
-  return <DisclosurePanel className={cn("", className)} {...props} />
+  return (
+    <DisclosurePanel
+      data-sidebar-disclosure-panel="true"
+      className={cn(
+        [
+          // 'in-data-[sidebar-intent=fleet]:**:data-sidebar-disclosure:*:[h3]:**:[[slot=trigger]]:pl-[calc(var(--sidebar-width)-90%)]',
+          //   "in-data-[sidebar-intent=fleet]:**:data-sidebar-disclosure-group:**:[[slot=trigger]]:pl-9",
+          // "in-data-[sidebar-intent=fleet]:**:data-sidebar-disclosure:pl-4",
+          // "in-data-[sidebar-intent=fleet]:**:data-sidebar-item:pl-4",
+          // "in-data-[sidebar-intent=fleet]:**:data-sidebar-disclosure:**:data-sidebar-disclosure-panel:pl-9",
+          // "in-data-[sidebar-intent=fleet]:**:data-sidebar-disclosure-group:**:data-sidebar-disclosure:pl-9"
+        ],
+        className
+      )}
+      {...props}
+    />
+  )
 }
 
 const SidebarSeparator = ({ className, ...props }: React.ComponentProps<typeof Separator>) => {
@@ -565,12 +609,6 @@ const SidebarLabel = ({ className, ...props }: React.ComponentProps<typeof Text>
     return (
       <Text slot="label" className={cn("flex flex-1 w-full overflow-hidden whitespace-nowrap", className)} {...props}>
         {props.children}
-
-        <span
-          aria-hidden
-          data-slot="sidebar-label-mask"
-          className="absolute inset-y-0 in-data-[sidebar-intent=inset]:from-bg from-sidebar right-0 bg-gradient-to-l group-data-current:group-data-hovered:from-primary group-data-current:from-primary group-data-hovered:from-(--sidebar-accent) w-10 from-0% group-data-hovered:from-60%"
-        />
       </Text>
     )
   }
@@ -613,5 +651,6 @@ export {
   SidebarTrigger,
   SidebarLabel,
   SidebarInset,
-  SidebarRail
+  SidebarRail,
+  useSidebar
 }

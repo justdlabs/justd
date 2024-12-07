@@ -153,8 +153,8 @@ export default function AppSidebar(props: React.ComponentProps<typeof Sidebar>) 
           </SidebarItem>
         </SidebarSection>
 
-        <SidebarDisclosureGroup>
-          <SidebarDisclosure>
+        <SidebarDisclosureGroup defaultExpandedKeys={[1]}>
+          <SidebarDisclosure id={1}>
             <SidebarDisclosureTrigger>
               <IconSupport />
               <SidebarLabel>Support</SidebarLabel>
@@ -178,7 +178,7 @@ export default function AppSidebar(props: React.ComponentProps<typeof Sidebar>) 
               </SidebarItem>
             </SidebarDisclosurePanel>
           </SidebarDisclosure>
-          <SidebarDisclosure>
+          <SidebarDisclosure id={2}>
             <SidebarDisclosureTrigger>
               <IconPackage />
               <SidebarLabel>Inventory</SidebarLabel>
@@ -203,7 +203,7 @@ export default function AppSidebar(props: React.ComponentProps<typeof Sidebar>) 
 
       <SidebarFooter>
         <Menu>
-          <Menu.Trigger aria-label="Profile" data-slot="menu-trigger">
+          <Menu.Trigger className="group" aria-label="Profile" data-slot="menu-trigger">
             <Avatar shape="square" src="/images/avatar/cobain.jpg" />
             <div className="group-data-[collapsible=dock]:hidden text-sm">
               <SidebarLabel>Kurt Cobain</SidebarLabel>
