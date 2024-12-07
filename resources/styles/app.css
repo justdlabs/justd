@@ -54,8 +54,6 @@
 
   --color-sidebar: var(--sidebar);
   --color-sidebar-fg: var(--sidebar-fg);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-fg: var(--sidebar-accent-fg);
 
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
@@ -107,32 +105,19 @@
     scrollbar-width: thin;
   }
 
-  /* dark mode */
-  .dark {
-    scrollbar-width: thin;
-
-    @media (prefers-color-scheme: dark) {
-      * {
-        scrollbar-width: thin;
-      }
-    }
+  ::-webkit-scrollbar {
+    width: 4px;
   }
-
-  /* Chrome, Edge, and Safari */
-  *::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-  }
-
-  *::-webkit-scrollbar-track {
+  ::-webkit-scrollbar-track {
     background: transparent;
-    border-radius: 5px;
   }
-
-  *::-webkit-scrollbar-thumb {
-    @apply bg-muted;
-    border-radius: 14px;
-    border: 3px solid transparent;
+  ::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 4px;
+  }
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
   }
 }
 

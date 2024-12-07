@@ -14,6 +14,11 @@ import {
 } from "justd-icons"
 import { ListBox, ListBoxItem } from "react-aria-components"
 
+function getComponentName(url: string): string {
+  const lastSegment = url.split("/").pop()
+  return lastSegment?.split("#")[0].replace(".html", "") || ""
+}
+
 export function DocRefs({ references }: { references: string[] }) {
   const urls = references.map((url: string) => {
     let title = ""
@@ -21,7 +26,7 @@ export function DocRefs({ references }: { references: string[] }) {
 
     switch (true) {
       case url.includes("react-spectrum"):
-        title = "Props"
+        title = getComponentName(url)
         icon = IconBrandAdobe
         break
       case url.includes("icons"):

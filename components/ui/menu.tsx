@@ -44,9 +44,9 @@ interface MenuProps extends MenuTriggerPrimitiveProps {
 
 const Menu = ({ respectScreen = true, ...props }: MenuProps) => {
   return (
-    <MenuContext.Provider value={{ respectScreen }}>
+    <MenuContext value={{ respectScreen }}>
       <MenuTriggerPrimitive {...props}>{props.children}</MenuTriggerPrimitive>
-    </MenuContext.Provider>
+    </MenuContext>
   )
 }
 
@@ -73,7 +73,7 @@ interface MenuTriggerProps extends ButtonProps {
 }
 
 const Trigger = ({ className, ...props }: MenuTriggerProps) => (
-  <Button className={trigger({ className })} {...props}>
+  <Button data-slot="menu-trigger" className={trigger({ className })} {...props}>
     {(values) => <>{typeof props.children === "function" ? props.children(values) : props.children}</>}
   </Button>
 )
@@ -91,7 +91,7 @@ const Content = <T extends object>({
   popoverClassName,
   ...props
 }: MenuContentProps<T>) => {
-  const { respectScreen } = React.useContext(MenuContext)
+  const { respectScreen } = React.use(MenuContext)
   return (
     <Popover.Content
       respectScreen={respectScreen}

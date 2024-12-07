@@ -6,6 +6,7 @@ import generated from "@/__registry__/generated"
 import { CodeHighlighter } from "@/components/code/code-highlighter"
 import { CopyButton } from "@/components/code/copy-button"
 import { copyToClipboard } from "@/resources/lib/copy"
+import { createFetchRegistryFile } from "@/resources/lib/fetch-registry"
 import { IconBrandReactjs } from "justd-icons"
 
 type RegistryItem = {
@@ -22,6 +23,8 @@ type SourceCodeProps = {
   title?: string
   ext?: string
 }
+
+const fetchRegistryFile = createFetchRegistryFile("/registry/ui")
 
 export const SourceCode = ({ toShow, ...props }: SourceCodeProps) => {
   const [isCopied, setIsCopied] = React.useState(false)
@@ -46,34 +49,7 @@ export const SourceCode = ({ toShow, ...props }: SourceCodeProps) => {
   }, [rawSourceCode])
 
   React.useEffect(() => {
-    const fetchSourceCode = async () => {
-      try {
-        /*
-         * Fetch the source code content from the appropriate JSON file.
-         * The JSON file is located at `/public/registry/demo/{toShow}.json`.
-         */
-        const response = await fetch(`/registry/ui/${toShow}.json`)
-        if (response.ok) {
-          const registryEntry = await response.json()
-
-          /*
-           * Extract the source code from the registry entry.
-           * The content is located in the first file of the `files` array.
-           */
-          setRawSourceCode(registryEntry.files?.[0]?.content || null)
-        } else {
-          console.error("Failed to fetch registry file:", response.status)
-        }
-      } catch (error) {
-        /*
-         * Log any errors that occur during the source code fetch process.
-         * This ensures debugging information is available if the fetch fails.
-         */
-        console.error("Error loading source code:", error)
-      }
-    }
-
-    fetchSourceCode()
+    fetchRegistryFile(toShow).then(setRawSourceCode)
   }, [toShow])
 
   if (!Component) {

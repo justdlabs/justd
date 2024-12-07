@@ -6,6 +6,7 @@ import generated from "@/__registry__/generated"
 import { CodeHighlighter } from "@/components/code/code-highlighter"
 import { TabsList } from "@/components/code/code-sandbox"
 import { CopyButton } from "@/components/code/copy-button"
+import { createFetchRegistryFile } from "@/resources/lib/fetch-registry"
 import { cn } from "@/resources/lib/utils"
 import type { RegistryItem } from "@/resources/types"
 import { Group } from "react-aria-components"
@@ -23,6 +24,8 @@ type HowProps = {
   withNoPadding?: boolean
   src?: string
 }
+
+const fetchRegistryFile = createFetchRegistryFile("/registry/demo")
 
 export const DocHow = ({
   toUse,
@@ -60,34 +63,7 @@ export const DocHow = ({
   }, [rawSourceCode])
 
   React.useEffect(() => {
-    const fetchSourceCode = async () => {
-      try {
-        /*
-         * Fetch the source code content from the appropriate JSON file.
-         * The JSON file is located at `/public/registry/demo/{toUse}.json`.
-         */
-        const response = await fetch(`/registry/demo/${toUse}.json`)
-        if (response.ok) {
-          const registryEntry = await response.json()
-
-          /*
-           * Extract the source code from the registry entry.
-           * The content is located in the first file of the `files` array.
-           */
-          setRawSourceCode(registryEntry.files?.[0]?.content || null)
-        } else {
-          console.error("Failed to fetch registry file:", response.status)
-        }
-      } catch (error) {
-        /*
-         * Log any errors that occur during the source code fetch process.
-         * This ensures debugging information is available if the fetch fails.
-         */
-        console.error("Error loading source code:", error)
-      }
-    }
-
-    fetchSourceCode()
+    fetchRegistryFile(toUse).then(setRawSourceCode)
   }, [toUse])
 
   if (!Component) {

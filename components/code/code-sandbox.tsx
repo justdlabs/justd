@@ -40,45 +40,13 @@ export function CodeSandbox({ classNames, source, src }: Props) {
   }
 
   React.useEffect(() => {
-    const fetchRegistryData = async () => {
-      const fetchedSourceCode: Record<string, string | null> = {}
-      await Promise.all(
-        Object.entries(source)
-          .filter(([key]) => key !== "preview")
-
-          .map(async ([key, path]) => {
-            const registryKey = path
-            const registryItem = registry[registryKey]
-
-            if (registryItem) {
-              try {
-                const response = await fetch(`/registry/${registryKey}.json`)
-                if (response.ok) {
-                  const registryEntry = await response.json()
-                  fetchedSourceCode[key] = registryEntry.files?.[0]?.content || "No content available"
-                } else {
-                  console.error(`Failed to fetch source code for ${path}:`, response.status)
-                  fetchedSourceCode[key] = "Error loading source code."
-                }
-              } catch (error) {
-                console.error(`Error fetching source code for ${path}:`, error)
-                fetchedSourceCode[key] = "Error loading source code."
-              }
-            } else {
-              console.error(`Registry item for ${registryKey} not found.`)
-              fetchedSourceCode[key] = "Registry item not found."
-            }
-          })
-      )
-      setRawSourceCode(fetchedSourceCode)
-    }
-
-    fetchRegistryData()
+    fetchRegistryData(source).then(setRawSourceCode)
   }, [source])
 
   if (!Component) {
     return <p>Component "{source.preview}" not found in the registry.</p>
   }
+
   return (
     <Tabs className="not-prose" aria-label="Code Sandbox">
       <TabsList src={src} />
@@ -176,3 +144,37 @@ export const TabsList = ({ src }: { src?: string }) => {
     </Tabs.List>
   )
 }
+
+const fetchRegistryData = React.cache(async (source: Record<string, string>) => {
+  const fetchedSourceCode: Record<string, string | null> = {}
+
+  await Promise.all(
+    Object.entries(source)
+      .filter(([key]) => key !== "preview")
+      .map(async ([key, path]) => {
+        const registryKey = path
+        const registryItem = registry[registryKey]
+
+        if (registryItem) {
+          try {
+            const response = await fetch(`/registry/${registryKey}.json`)
+            if (response.ok) {
+              const registryEntry = await response.json()
+              fetchedSourceCode[key] = registryEntry.files?.[0]?.content || "No content available"
+            } else {
+              console.error(`Failed to fetch source code for ${path}:`, response.status)
+              fetchedSourceCode[key] = "Error loading source code."
+            }
+          } catch (error) {
+            console.error(`Error fetching source code for ${path}:`, error)
+            fetchedSourceCode[key] = "Error loading source code."
+          }
+        } else {
+          console.error(`Registry item for ${registryKey} not found.`)
+          fetchedSourceCode[key] = "Registry item not found."
+        }
+      })
+  )
+
+  return fetchedSourceCode
+})

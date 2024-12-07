@@ -17,7 +17,7 @@ interface ContextMenuTriggerContextType {
 const ContextMenuTriggerContext = React.createContext<ContextMenuTriggerContextType | undefined>(undefined)
 
 const useContextMenuTrigger = () => {
-  const context = React.useContext(ContextMenuTriggerContext)
+  const context = React.use(ContextMenuTriggerContext)
   if (!context) {
     throw new Error("useContextMenuTrigger must be used within a ContextMenuTrigger")
   }

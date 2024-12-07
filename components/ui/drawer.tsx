@@ -43,7 +43,7 @@ interface DrawerContextType {
 const DrawerContext = React.createContext<DrawerContextType | undefined>(undefined)
 
 const useDrawerContext = () => {
-  const context = React.useContext(DrawerContext)
+  const context = React.use(DrawerContext)
   if (context === undefined) {
     throw new Error("useDrawerContext must be used within a Drawer")
   }

@@ -15,9 +15,9 @@ export default function DisclosureGroupNestedDemo() {
             <DisclosureGroup allowsMultipleExpanded>
               {item.children.map((child, childIndex) => (
                 <Disclosure key={childIndex} id={childIndex}>
-                  <DisclosureTrigger>
+                  <DisclosureTrigger className="group">
                     <span>
-                      <IconChevronRight data-slot="chevron" />
+                      <IconChevronRight className="duration-300 group-aria-expanded:rotate-90 size-5" />
                       {child.title}
                     </span>
                   </DisclosureTrigger>

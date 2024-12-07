@@ -22,9 +22,6 @@
   --color-accent: var(--accent);
   --color-accent-fg: var(--accent-fg);
 
-  --color-subtle: var(--subtle);
-  --color-subtle-fg: var(--subtle-fg);
-
   --color-success: var(--success);
   --color-success-fg: var(--success-fg);
 
@@ -43,35 +40,17 @@
   --color-overlay: var(--overlay);
   --color-overlay-fg: var(--overlay-fg);
 
-  --color-navbar-bg: var(--navbar-bg);
+  --color-navbar: var(--navbar);
   --color-navbar-fg: var(--navbar-fg);
 
-  --color-sidebar-bg: var(--sidebar-bg);
+  --color-sidebar: var(--sidebar);
   --color-sidebar-fg: var(--sidebar-fg);
-  --color-sidebar-primary-bg: var(--sidebar-primary-bg);
-  --color-sidebar-primary-fg: var(--sidebar-primary-fg);
-  --color-sidebar-accent-bg: var(--sidebar-accent-bg);
-  --color-sidebar-accent-fg: var(--sidebar-accent-fg);
 
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
-
-  --animate-blink: blink 1.4s both infinite;
-
-  @keyframes blink {
-    0% {
-      opacity: 0.2;
-    }
-    20% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0.2;
-    }
-  }
 }
 
 @layer base {

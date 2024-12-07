@@ -2,7 +2,7 @@
 
 import * as React from "react"
 
-import { IconChevronDown } from "justd-icons"
+import { IconChevronLeft } from "justd-icons"
 import type {
   ButtonProps,
   DisclosureGroupProps as AccordionProps,
@@ -12,9 +12,9 @@ import type {
 import {
   Button,
   composeRenderProps,
-  Disclosure as DisclosurePrimitive,
-  DisclosureGroup as DisclosureGroupPrimitive,
-  DisclosurePanel as DisclosurePanelPrimitive,
+  Disclosure as Collapsible,
+  DisclosureGroup as Accordion,
+  DisclosurePanel as CollapsiblePanel,
   Heading
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
@@ -23,7 +23,7 @@ import { cn } from "./primitive"
 
 const DisclosureGroup = ({ children, className, ...props }: AccordionProps) => {
   return (
-    <DisclosureGroupPrimitive
+    <Accordion
       data-slot="disclosure-group"
       {...props}
       className={({ isDisabled }) =>
@@ -33,12 +33,12 @@ const DisclosureGroup = ({ children, className, ...props }: AccordionProps) => {
       {(values) => (
         <div data-slot="disclosure-content">{typeof children === "function" ? children(values) : children}</div>
       )}
-    </DisclosureGroupPrimitive>
+    </Accordion>
   )
 }
 
-const disclosureStyles = tv({
-  base: ["peer border-b border-border min-w-60 w-full group"],
+const disclosure = tv({
+  base: ["peer border-b border-border min-w-60 w-full group/disclosure"],
   variants: {
     isDisabled: {
       true: "cursor-not-allowed opacity-70"
@@ -48,21 +48,19 @@ const disclosureStyles = tv({
 
 const Disclosure = ({ className, ...props }: DisclosureProps) => {
   return (
-    <DisclosurePrimitive
+    <Collapsible
       data-slot="disclosure"
       {...props}
-      className={composeRenderProps(className, (className, renderProps) =>
-        disclosureStyles({ ...renderProps, className })
-      )}
+      className={composeRenderProps(className, (className, renderProps) => disclosure({ ...renderProps, className }))}
     >
       {props.children}
-    </DisclosurePrimitive>
+    </Collapsible>
   )
 }
 
 const disclosureTrigger = tv({
   base: [
-    "flex items-center **:data-[slot=chevron]:size-6 sm:text-sm **:data-[slot=icon]:mr-2 **:data-[slot=icon]:text-muted-fg justify-between py-3 **:[span]:*:data-[slot=icon]:mr-1 **:[span]:flex **:[span]:items-center **:[span]:gap-x-1 w-full text-left font-medium"
+    "flex items-center gap-x-2 group/trigger [&[aria-expanded=true]_[data-slot=chevron]]:-rotate-90 **:data-[slot=chevron]:size-5 **:data-[slot=chevron]:size-5 **:data-[slot=icon]:shrink-0 sm:text-sm **:data-[slot=icon]:-mx-0.5 **:data-[slot=icon]:text-muted-fg justify-between py-3 **:[span]:*:data-[slot=icon]:mr-1 **:[span]:flex **:[span]:items-center **:[span]:gap-x-1 w-full text-left font-medium"
   ],
   variants: {
     isFocused: {
@@ -93,9 +91,9 @@ const DisclosureTrigger = ({ className, ...props }: ButtonProps) => {
         {(values) => (
           <>
             {typeof props.children === "function" ? props.children(values) : props.children}
-            <IconChevronDown
-              data-slot="disclosure-chevron"
-              className={cn("ml-auto transition shrink-0 duration-300 group-data-expanded:rotate-180")}
+            <IconChevronLeft
+              data-slot="chevron"
+              className="internal-chevron ml-auto size-4 shrink-0 transition shrink-0 duration-300"
             />
           </>
         )}
@@ -106,25 +104,25 @@ const DisclosureTrigger = ({ className, ...props }: ButtonProps) => {
 
 const DisclosurePanel = ({ className, ...props }: DisclosurePanelProps) => {
   return (
-    <DisclosurePanelPrimitive
+    <CollapsiblePanel
       data-slot="disclosure-panel"
       {...props}
       className={cn(
         "overflow-hidden text-muted-fg text-sm transition-all has-data-[slot=disclosure-group]:**:[button]:px-4",
-        "**:data-[slot=disclosure-group]:border-t **:data-[slot=disclosure-group]:**:data-[slot=disclosure-chevron]:hidden",
+        "**:data-[slot=disclosure-group]:border-t **:data-[slot=disclosure-group]:**:[.internal-chevron]:hidden",
         className
       )}
     >
       <div
         data-slot="disclosure-panel-content"
         className={cn(
-          "pt-0 [&:has([data-slot=disclosure-group])_&]:px-11 not-has-data-[slot=disclosure-group]:group-data-expanded:pb-3",
+          "pt-0 [&:has([data-slot=disclosure-group])_&]:px-11 not-has-data-[slot=disclosure-group]:group-data-expanded/disclosure:pb-3",
           className
         )}
       >
         {props.children}
       </div>
-    </DisclosurePanelPrimitive>
+    </CollapsiblePanel>
   )
 }
 

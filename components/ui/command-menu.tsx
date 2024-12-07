@@ -162,7 +162,7 @@ interface CommandMenuInputProps extends React.ComponentPropsWithoutRef<typeof Co
 
 const CommandMenuInput = React.forwardRef<React.ComponentRef<typeof Command.Input>, CommandMenuInputProps>(
   ({ className, isPending, ...props }, ref) => {
-    const { hideSearchIndicator } = React.useContext(CommandMenuContext)
+    const { hideSearchIndicator } = React.use(CommandMenuContext)
     return (
       <div className="flex border-b items-center px-3">
         {!hideSearchIndicator && (
@@ -193,7 +193,7 @@ CommandMenuInput.displayName = Command.Input.displayName
 type CommandMenuListProps = React.ComponentProps<typeof Command.List>
 
 const CommandMenuList = ({ className, ...props }: CommandMenuListProps) => {
-  const { messageOnEmpty } = React.useContext(CommandMenuContext)
+  const { messageOnEmpty } = React.use(CommandMenuContext)
   return (
     <Command.List className={list({ className })} {...props}>
       {messageOnEmpty !== false && (

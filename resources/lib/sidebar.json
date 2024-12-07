@@ -3572,6 +3572,26 @@
             "children": [],
             "toc": [
               {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Composed Components",
+                "url": "#composed-components",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "Anatomy",
+                "url": "#anatomy",
+                "items": []
+              },
+              {
                 "title": "Intent",
                 "url": "#intent",
                 "items": [
@@ -3597,8 +3617,8 @@
                 "url": "#collapsible",
                 "items": [
                   {
-                    "title": "Offcanvas",
-                    "url": "#offcanvas",
+                    "title": "Hidden",
+                    "url": "#hidden",
                     "items": []
                   },
                   {
@@ -3614,9 +3634,50 @@
                 "items": []
               },
               {
-                "title": "Actions",
-                "url": "#actions",
+                "title": "Menu",
+                "url": "#menu",
                 "items": []
+              },
+              {
+                "title": "Badge",
+                "url": "#badge",
+                "items": []
+              },
+              {
+                "title": "Section Group",
+                "url": "#section-group",
+                "items": []
+              },
+              {
+                "title": "Separator",
+                "url": "#separator",
+                "items": []
+              },
+              {
+                "title": "Tooltip",
+                "url": "#tooltip",
+                "items": []
+              },
+              {
+                "title": "Props",
+                "url": "#props",
+                "items": [
+                  {
+                    "title": "Sidebar",
+                    "url": "#sidebar-1",
+                    "items": []
+                  },
+                  {
+                    "title": "SidebarContextProps",
+                    "url": "#sidebarcontextprops",
+                    "items": []
+                  },
+                  {
+                    "title": "SidebarProviderProps",
+                    "url": "#sidebarproviderprops",
+                    "items": []
+                  }
+                ]
               }
             ]
           },

@@ -3,20 +3,19 @@
 import * as React from "react"
 
 import {
-  IconArchive2,
   IconBrandApple,
+  IconCart,
+  IconChartBar,
   IconChevronLgDown,
   IconCommandRegular,
   IconCube,
   IconDashboard,
-  IconDotsHorizontal,
+  IconGear,
   IconHeadphones,
-  IconHighlight,
   IconLogout,
+  IconPeople,
   IconSettings,
-  IconShield,
-  IconTrash,
-  IconUpload
+  IconShield
 } from "justd-icons"
 import {
   Avatar,
@@ -28,7 +27,6 @@ import {
   SidebarHeader,
   SidebarItem,
   SidebarLabel,
-  SidebarLink,
   SidebarSection,
   SidebarSectionGroup
 } from "ui"
@@ -49,52 +47,10 @@ export default function AppSidebar(props: React.ComponentProps<typeof Sidebar>) 
       <SidebarContent>
         <SidebarSectionGroup>
           <SidebarSection>
-            <SidebarItem isCurrent href="#">
-              <IconDashboard />
-              <SidebarLabel>Overview</SidebarLabel>
-            </SidebarItem>
-            <SidebarItem href="#">
-              <IconCube />
-              <SidebarLabel>Blog</SidebarLabel>
-            </SidebarItem>
-          </SidebarSection>
-          <SidebarSection title="Last 5 Articles">
-            {articles.map((item) => (
-              <SidebarItem key={item.href}>
-                {({ isCollapsed, isHovered }) => (
-                  <>
-                    <SidebarLink href="#discount">
-                      <SidebarLabel>
-                        {item.label} {item.label}
-                      </SidebarLabel>
-                    </SidebarLink>
-                    {!isCollapsed && isHovered && (
-                      <Menu>
-                        <Menu.Trigger aria-label="Manage">
-                          <IconDotsHorizontal />
-                        </Menu.Trigger>
-                        <Menu.Content offset={0} placement="right top">
-                          <Menu.Item href="#edit">
-                            <IconHighlight />
-                            Edit
-                          </Menu.Item>
-                          <Menu.Item href="#share">
-                            <IconUpload />
-                            Share
-                          </Menu.Item>
-                          <Menu.Item href="#archive">
-                            <IconArchive2 />
-                            Archive
-                          </Menu.Item>
-                          <Menu.Item isDanger={true} href="#delete">
-                            <IconTrash />
-                            Delete
-                          </Menu.Item>
-                        </Menu.Content>
-                      </Menu>
-                    )}
-                  </>
-                )}
+            {navigation.map((item, index) => (
+              <SidebarItem tooltip={item.label} key={index} isCurrent={item.isCurrent} href="#" badge={item?.badge}>
+                {item.icon}
+                <SidebarLabel>{item.label}</SidebarLabel>
               </SidebarItem>
             ))}
           </SidebarSection>
@@ -153,10 +109,11 @@ export default function AppSidebar(props: React.ComponentProps<typeof Sidebar>) 
   )
 }
 
-const articles = [
-  { href: "#article-1", label: "How to" },
-  { href: "#article-2", label: "The Future of Remote Work" },
-  { href: "#article-3", label: "Top 10 Design Tips" },
-  { href: "#article-4", label: "Guide to Mental Health" },
-  { href: "#article-5", label: "AI in Everyday Life" }
+const navigation = [
+  { label: "Overview", icon: <IconDashboard />, isCurrent: true, badge: undefined },
+  { label: "Orders", icon: <IconCart />, isCurrent: false, badge: 24 },
+  { label: "Products", icon: <IconCube />, isCurrent: false, badge: "31.51K" },
+  { label: "Customers", icon: <IconPeople />, isCurrent: false, badge: "12K" },
+  { label: "Reports", icon: <IconChartBar />, isCurrent: false, badge: 3 },
+  { label: "Settings", icon: <IconGear />, isCurrent: false, badge: undefined }
 ]

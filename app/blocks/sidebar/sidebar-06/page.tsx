@@ -1,3 +1,5 @@
+import { Heading } from "ui"
+
 export default function Page() {
-  return <div>Overview</div>
+  return <Heading>Docked</Heading>
 }

@@ -11,7 +11,7 @@ import { DropdownItemDetails, DropdownSection } from "./dropdown"
 import { cn } from "./primitive"
 
 const listBoxStyles = tv({
-  base: "flex max-h-96 [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin] w-full gap-y-1 min-w-72 flex-col overflow-y-auto rounded-xl border p-1 shadow-lg outline-hidden"
+  base: "flex max-h-96 [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin] w-full gap-y-1 min-w-56 flex-col overflow-y-auto rounded-xl border p-1 shadow-lg outline-hidden"
 })
 
 const ListBox = <T extends object>({ className, ...props }: ListBoxProps<T>) => (
@@ -25,7 +25,7 @@ const listBoxItemStyles = tv({
   base: "lbi cursor-pointer relative rounded-[calc(var(--radius-lg)-1px)] p-2 text-base outline-hidden sm:text-sm",
   variants: {
     isFocusVisible: {
-      true: "bg-secondary [&:focus-visible_[slot=label]]:text-accent-fg [&:focus-visible_[slot=description]]:text-accent-fg/70 text-secondary-fg"
+      true: "bg-secondary text-accent-fg text-accent-fg/70"
     },
     isHovered: {
       true: "bg-accent [&:hover_[slot=label]]:text-accent-fg [&:hover_[slot=description]]:text-accent-fg/70 text-accent-fg [&_.text-muted-fg]:text-accent-fg/80"

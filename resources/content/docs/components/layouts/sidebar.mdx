@@ -18,6 +18,19 @@ The sidebar is a versatile component designed to organize your site's content an
     'page.tsx': 'blocks/sidebar/sidebar-01/page',
   }} />
 
+## Installation
+<Installation options={{isComponent: true}} items={['sidebar']}/>
+
+## Composed Components
+<Composed components={['badge', 'tooltip', 'sheet', 'button']} />
+
+## Manual Installation
+<Installation options={{ isManual: true }} items={['react-aria-components', 'justd-icons']}/>
+<SourceCode toShow={['sidebar']}/>
+
+## Anatomy
+<Anatomy show='sidebar-anatomy'/>
+
 ## Intent
 The sidebar comes in three variations: `"sidebar"`, `"floating"`, and `"inset"`. By default, the variation is set to `"sidebar"`.
 
@@ -58,9 +71,9 @@ The floating variation introduces an inner border within the sidebar, while the 
   }} />
 
 ## Collapsible
-The sidebar can be made collapsible by using the `collapsible` prop in the `SidebarProvider`. The default collapsible behavior is `"offcanvas"`.
+The sidebar can be made collapsible by using the `collapsible` prop in the `SidebarProvider`. The default collapsible behavior is `"hidden"`.
 
-### Offcanvas
+### Hidden
 When toggled, the sidebar hides completely from view.
 <CodeSandbox
   src='/blocks/sidebar/sidebar-05'
@@ -97,8 +110,8 @@ The sidebar’s initial state can be controlled using the `defaultOpen` prop. Fo
   }} />
 
 
-## Actions
-The sidebar’s initial state can be controlled using the `defaultOpen` prop. For example, you can set `defaultOpen` to `false` and keep the sidebar docked.
+## Menu
+The sidebar supports menus, which can be used to display additional actions or options.
 <CodeSandbox
   src='/blocks/sidebar/sidebar-08'
   source={{
@@ -108,3 +121,81 @@ The sidebar’s initial state can be controlled using the `defaultOpen` prop. Fo
     'layout.tsx': 'blocks/sidebar/sidebar-08/layout',
     'page.tsx': 'blocks/sidebar/sidebar-08/page',
   }} />
+
+## Badge
+The sidebar supports badges, which can be used to indicate the number of unread messages, tasks, or other items.
+<CodeSandbox
+  src='/blocks/sidebar/sidebar-09'
+  source={{
+    preview: 'blocks/sidebar/sidebar-09/page',
+    'app-sidebar-nav.tsx': 'blocks/sidebar/app-sidebar-nav',
+    'app-sidebar.tsx': 'blocks/sidebar/sidebar-09/app-sidebar',
+    'layout.tsx': 'blocks/sidebar/sidebar-09/layout',
+    'page.tsx': 'blocks/sidebar/sidebar-09/page',
+  }} />
+
+## Section Group
+The sidebar supports section groups, which can be used to group related items together.
+<CodeSandbox
+  src='/blocks/sidebar/sidebar-10'
+  source={{
+    preview: 'blocks/sidebar/sidebar-10/page',
+    'app-sidebar-nav.tsx': 'blocks/sidebar/app-sidebar-nav',
+    'app-sidebar.tsx': 'blocks/sidebar/sidebar-10/app-sidebar',
+    'layout.tsx': 'blocks/sidebar/sidebar-10/layout',
+    'page.tsx': 'blocks/sidebar/sidebar-10/page',
+  }} />
+
+
+## Separator
+The sidebar supports separators, which can be used to separate sections or groups of items.
+<CodeSandbox
+  src='/blocks/sidebar/sidebar-11'
+  source={{
+    preview: 'blocks/sidebar/sidebar-11/page',
+    'app-sidebar-nav.tsx': 'blocks/sidebar/app-sidebar-nav',
+    'app-sidebar.tsx': 'blocks/sidebar/sidebar-11/app-sidebar',
+    'layout.tsx': 'blocks/sidebar/sidebar-11/layout',
+    'page.tsx': 'blocks/sidebar/sidebar-11/page',
+  }} />
+
+## Tooltip
+The sidebar supports tooltips, which can be used to display additional information when you're on docked mode.
+<CodeSandbox
+  src='/blocks/sidebar/sidebar-12'
+  source={{
+    preview: 'blocks/sidebar/sidebar-12/page',
+    'app-sidebar-nav.tsx': 'blocks/sidebar/app-sidebar-nav',
+    'app-sidebar.tsx': 'blocks/sidebar/sidebar-12/app-sidebar',
+    'layout.tsx': 'blocks/sidebar/sidebar-12/layout',
+    'page.tsx': 'blocks/sidebar/sidebar-12/page',
+  }} />
+
+## Props
+The sidebar supports the following props:
+### Sidebar
+| **Property**  | **Type**                             | **Default** |
+|---------------|--------------------------------------|-------------|
+| `intent`      | `"default" \| "floating" \| "inset"` | `"default"` |
+| `collapsible` | `"hidden" \| "dock" \| "none"`       | `"hidden"`  |
+| `side`        | `"left" \| "right"`                  | `"left"`    |
+
+### SidebarContextProps
+
+| **Property**        | **Type**                    |
+|---------------------|-----------------------------|
+| `state`             | `"expanded" \| "collapsed"` |
+| `open`              | `boolean`                   |
+| `setOpen`           | `(open: boolean) => void`   |
+| `isOpenOnMobile`    | `boolean`                   |
+| `setIsOpenOnMobile` | `(open: boolean) => void`   |
+| `isMobile`          | `boolean`                   |
+| `toggleSidebar`     | `() => void`                |
+
+### SidebarProviderProps
+
+| **Property**   | **Type**                  | **Default** |
+|----------------|---------------------------|-------------|
+| `defaultOpen`  | `boolean`                 | `true`      |
+| `isOpen`       | `boolean`                 | `undefined` |
+| `onOpenChange` | `(open: boolean) => void` | `undefined` |

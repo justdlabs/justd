@@ -54,9 +54,9 @@ const contentStyles = tv({
       top: "inset-x-0 top-0 rounded-b-2xl border-b data-entering:slide-in-from-top data-exiting:slide-out-to-top",
       bottom:
         "inset-x-0 bottom-0 rounded-t-2xl border-t data-entering:slide-in-from-bottom data-exiting:slide-out-to-bottom",
-      left: "inset-y-0 left-0 h-auto w-[19rem] sm:w-3/4 overflow-y-auto border-r data-entering:slide-in-from-left data-exiting:slide-out-to-left sm:max-w-xs",
+      left: "inset-y-0 left-0 h-auto w-[18rem] sm:w-[19rem] sm:w-3/4 overflow-y-auto border-r data-entering:slide-in-from-left data-exiting:slide-out-to-left sm:max-w-xs",
       right:
-        "inset-y-0 right-0 h-auto w-[19rem] sm:w-3/4 overflow-y-auto border-l data-entering:slide-in-from-right data-exiting:slide-out-to-right sm:max-w-xs"
+        "inset-y-0 right-0 h-auto w-[18rem] sm:w-[19rem] sm:w-3/4 overflow-y-auto border-l data-entering:slide-in-from-right data-exiting:slide-out-to-right sm:max-w-xs"
     },
     isStack: {
       false: "border-fg/20 dark:border-border",

@@ -91,7 +91,7 @@ const ComboBoxInput = (props: InputProps) => {
 }
 
 const ComboBoxClearButton = () => {
-  const state = React.useContext(ComboBoxStateContext)
+  const state = React.use(ComboBoxStateContext)
 
   return (
     <ButtonPrimitive
