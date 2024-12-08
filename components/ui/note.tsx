@@ -1,11 +1,12 @@
 import * as React from "react"
 
+import { IconCircleCheckFill, IconCircleExclamationFill, IconCircleInfoFill } from "justd-icons"
 import { tv, type VariantProps } from "tailwind-variants"
 
 const noteStyles = tv({
   base: [
-    "my-4 px-4 leading-relaxed text-pretty text-sm py-4 leading-4 overflow-hidden rounded-lg inset-ring-1 inset-ring-current/10 [&_strong]:font-semibold",
-    "**:data-[slot=icon]:size-5 **:data-[slot=icon]:shrink-0 [&_a]:underline data-hovered:[&_a]:underline"
+    "w-full p-4 sm:text-sm/6 overflow-hidden rounded-lg inset-ring-1 inset-ring-current/10",
+    "[&_a]:underline data-hovered:[&_a]:underline"
   ],
   variants: {
     intent: {
@@ -21,8 +22,8 @@ const noteStyles = tv({
       danger:
         "bg-red-500/15 text-red-700 group-data-hovered:bg-red-500/25 dark:bg-red-500/10 dark:text-red-400 dark:group-data-hovered:bg-red-500/20",
       success: [
-        "border-emerald-500/20 [&_a]:text-emerald-600 text-emerald-900 bg-emerald-50/50 **:data-[slot=icon]:text-emerald-600 leading-4",
-        "dark:bg-emerald-500/10 dark:text-emerald-200 dark:[&_a]:text-emerald-50 dark:**:data-[slot=icon]:text-emerald-400"
+        "border-success/20 [&_a]:text-emerald-600 text-emerald-900 bg-success/50 **:data-[slot=icon]:text-success leading-4",
+        "dark:bg-success/10 dark:text-emerald-200 dark:[&_a]:text-emerald-50 dark:**:data-[slot=icon]:text-emerald-400"
       ]
     }
   },
@@ -31,12 +32,35 @@ const noteStyles = tv({
   }
 })
 
-interface NoteProps extends React.HtmlHTMLAttributes<HTMLDivElement>, VariantProps<typeof noteStyles> {}
+interface NoteProps extends React.HtmlHTMLAttributes<HTMLDivElement>, VariantProps<typeof noteStyles> {
+  indicator?: boolean
+}
 
-const Note = ({ intent, className, ...props }: NoteProps) => {
+const Note = ({ indicator = true, intent, className, ...props }: NoteProps) => {
+  const icon = (() => {
+    switch (intent) {
+      case "info":
+        return IconCircleInfoFill
+      case "warning":
+      case "danger":
+        return IconCircleExclamationFill
+      case "success":
+        return IconCircleCheckFill
+      default:
+        return null
+    }
+  })()
+
   return (
     <div className={noteStyles({ intent, className })} {...props}>
-      {props.children}
+      <div className="flex items-start grow">
+        {icon && indicator && (
+          <div className="leading-loose shrink-0 ring-4 ring-current/30 rounded-full">
+            {React.createElement(icon, { className: "size-5" })}
+          </div>
+        )}
+        <div className="ml-3">{props.children}</div>
+      </div>
     </div>
   )
 }

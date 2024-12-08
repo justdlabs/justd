@@ -1,7 +1,7 @@
 "use client"
 
 import { useListData } from "react-stately"
-import { Tag } from "ui"
+import { Tag, TagGroup, TagList } from "ui"
 
 export default function TagGroupWithRemoveDemo() {
   const list = useListData({
@@ -20,8 +20,8 @@ export default function TagGroupWithRemoveDemo() {
   })
 
   return (
-    <Tag.Group selectionMode="multiple" className="max-w-sm" onRemove={(keys) => list.remove(...keys)}>
-      <Tag.List items={list.items}>{(item) => <Tag.Item>{item.name}</Tag.Item>}</Tag.List>
-    </Tag.Group>
+    <TagGroup selectionMode="multiple" className="max-w-sm" onRemove={(keys) => list.remove(...keys)}>
+      <TagList items={list.items}>{(item) => <Tag>{item.name}</Tag>}</TagList>
+    </TagGroup>
   )
 }

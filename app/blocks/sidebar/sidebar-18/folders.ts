@@ -39,8 +39,7 @@ export const folders: FileTree[] = [
                 ]
               },
               { id: 1212, label: "Controller.php", href: "#" },
-              { id: 1213, label: "ProfileController.php", href: "#" },
-              { id: 1214, label: "TweetController.php", href: "#" }
+              { id: 1213, label: "ProfileController.php", href: "#" }
             ]
           },
           {

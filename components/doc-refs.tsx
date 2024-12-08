@@ -46,7 +46,7 @@ export function DocRefs({ references }: { references: string[] }) {
         icon = Logo
         break
       case url.includes("sonner"):
-        title = "Toaster"
+        title = "Sonner"
         icon = IconBell
         break
       case url.includes("cmdk"):

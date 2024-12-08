@@ -18,7 +18,7 @@ import { ListBox } from "./list-box"
 import { Popover } from "./popover"
 import { cn } from "./primitive"
 import type { RestrictedIntent, TagGroupProps } from "./tag-group"
-import { Tag } from "./tag-group"
+import { Tag, TagGroup, TagList } from "./tag-group"
 import { VisuallyHidden } from "./visually-hidden"
 
 const multiSelectStyles = tv({
@@ -209,14 +209,14 @@ const MultipleSelect = <T extends SelectedKey>({
       {props.label && <Label className="mb-1">{props.label}</Label>}
       <div className={props.isDisabled ? "opacity-50" : ""}>
         <div ref={triggerRef} className={multiSelect({ className })}>
-          <Tag.Group
+          <TagGroup
             shape={props.shape}
             intent={props.intent}
             aria-label="Selected items"
             id={tagGroupIdentifier}
             onRemove={onRemove}
           >
-            <Tag.List
+            <TagList
               items={selectedItems.items}
               className={cn(
                 selectedItems.items.length !== 0 && "px-1 py-1.5",
@@ -225,8 +225,8 @@ const MultipleSelect = <T extends SelectedKey>({
               )}
             >
               {props.tag}
-            </Tag.List>
-          </Tag.Group>
+            </TagList>
+          </TagGroup>
           <ComboBox
             {...props}
             allowsEmptyCollection
@@ -312,7 +312,7 @@ const MultipleSelect = <T extends SelectedKey>({
   )
 }
 
-MultipleSelect.Tag = Tag.Item
+MultipleSelect.Tag = Tag
 MultipleSelect.Option = ListBox.Item
 
 export { MultipleSelect, type SelectedKey }

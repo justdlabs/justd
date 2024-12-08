@@ -1,24 +1,22 @@
 "use client"
 
 import { androidBrands } from "@/components/docs/collections/tag-group/tag-group-demo"
-import { Tag } from "ui"
+import { Tag, TagGroup, TagList } from "ui"
 
 export default function TagGroupDisabledDemo() {
   return (
     <div className="space-y-6">
-      <Tag.Group
+      <TagGroup
         disabledKeys={androidBrands.filter((brand) => !brand.available).map((brand) => brand.id)}
         label="Disabled Key"
         selectionMode="multiple"
       >
-        <Tag.List items={androidBrands}>{(item) => <Tag.Item>{item.name}</Tag.Item>}</Tag.List>
-      </Tag.Group>
+        <TagList items={androidBrands}>{(item) => <Tag>{item.name}</Tag>}</TagList>
+      </TagGroup>
 
-      <Tag.Group label="Disabled by Tag" selectionMode="multiple">
-        <Tag.List items={androidBrands}>
-          {(item) => <Tag.Item isDisabled={item.available}>{item.name}</Tag.Item>}
-        </Tag.List>
-      </Tag.Group>
+      <TagGroup label="Disabled by Tag" selectionMode="multiple">
+        <TagList items={androidBrands}>{(item) => <Tag isDisabled={item.available}>{item.name}</Tag>}</TagList>
+      </TagGroup>
     </div>
   )
 }

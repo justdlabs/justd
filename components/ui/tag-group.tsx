@@ -23,38 +23,50 @@ import { cn, composeTailwindRenderProps, focusStyles } from "./primitive"
 
 const intents = {
   primary: {
-    base: [badgeIntents.primary, "[&_[slot=remove]:hover]:bg-primary [&_[slot=remove]:hover]:text-primary-fg"],
+    base: [
+      badgeIntents.primary,
+      "**:[[slot=remove]]:data-hovered:bg-primary **:[[slot=remove]]:data-hovered:text-primary-fg"
+    ],
     selected: [
       "bg-primary dark:data-hovered:bg-primary dark:bg-primary data-hovered:bg-primary ring-primary ring-inset text-primary-fg dark:text-primary-fg data-hovered:text-primary-fg",
-      "[&_[slot=remove]:hover]:bg-primary-fg/50 [&_[slot=remove]:hover]:text-primary"
+      "**:[[slot=remove]]:data-hovered:bg-primary-fg/50 **:[[slot=remove]]:data-hovered:text-primary"
     ]
   },
   secondary: {
-    base: [badgeIntents.secondary, "[&_[slot=remove]:hover]:bg-fg [&_[slot=remove]:hover]:text-bg"],
+    base: [badgeIntents.secondary, "**:[[slot=remove]]:data-hovered:bg-fg **:[[slot=remove]]:data-hovered:text-bg"],
     selected: [
       "bg-fg ring-fg/50 text-bg dark:bg-fg/90 dark:text-secondary ring-inset",
-      "[&_[slot=remove]:hover]:[&_[slot=remove]:hover]:text-secondary-fg"
+      "**:[[slot=remove]]:data-hovered:**:[[slot=remove]]:data-hovered:text-secondary-fg"
     ]
   },
   success: {
-    base: [badgeIntents.success, "[&_[slot=remove]:hover]:bg-success [&_[slot=remove]:hover]:text-success-fg"],
+    base: [
+      badgeIntents.success,
+      "**:[[slot=remove]]:data-hovered:bg-success **:[[slot=remove]]:data-hovered:text-success-fg"
+    ],
     selected: [
       "bg-success dark:bg-success ring-success ring-inset dark:text-success-fg dark:data-hovered:bg-success data-hovered:bg-success text-success-fg data-hovered:text-success-fg",
-      "[&_[slot=remove]:hover]:bg-success-fg/80 [&_[slot=remove]:hover]:text-success"
+      "**:[[slot=remove]]:data-hovered:bg-success-fg/80 **:[[slot=remove]]:data-hovered:text-success"
     ]
   },
   warning: {
-    base: [badgeIntents.warning, "[&_[slot=remove]:hover]:bg-warning [&_[slot=remove]:hover]:text-warning-fg"],
+    base: [
+      badgeIntents.warning,
+      "**:[[slot=remove]]:data-hovered:bg-warning **:[[slot=remove]]:data-hovered:text-warning-fg"
+    ],
     selected: [
       "bg-warning dark:data-hovered:bg-warning dark:bg-warning dark:text-bg data-hovered:bg-warning text-warning-fg data-hovered:text-warning-fg",
-      "[&_[slot=remove]:hover]:bg-warning-fg/80 [&_[slot=remove]:hover]:text-warning"
+      "**:[[slot=remove]]:data-hovered:bg-warning-fg/80 **:[[slot=remove]]:data-hovered:text-warning"
     ]
   },
   danger: {
-    base: [badgeIntents.danger, "[&_[slot=remove]:hover]:bg-danger [&_[slot=remove]:hover]:text-danger-fg"],
+    base: [
+      badgeIntents.danger,
+      "**:[[slot=remove]]:data-hovered:bg-danger **:[[slot=remove]]:data-hovered:text-danger-fg"
+    ],
     selected: [
       "bg-danger dark:bg-danger dark:data-hovered:bg-danger/90 data-hovered:bg-danger text-danger-fg ring-danger data-hovered:text-danger-fg",
-      "[&_[slot=remove]:hover]:bg-danger-fg/80 [&_[slot=remove]:hover]:text-danger"
+      "**:[[slot=remove]]:bg-danger-fg/80 **:[[slot=remove]]:data-hovered:text-danger"
     ]
   }
 }
@@ -119,7 +131,7 @@ interface TagProps extends TagPrimitiveProps {
   shape?: Shape
 }
 
-const TagItem = ({ className, intent, shape, ...props }: TagProps) => {
+const Tag = ({ className, intent, shape, ...props }: TagProps) => {
   const textValue = typeof props.children === "string" ? props.children : undefined
   const groupContext = React.useContext(TagGroupContext)
 
@@ -160,10 +172,4 @@ const TagItem = ({ className, intent, shape, ...props }: TagProps) => {
   )
 }
 
-const Tag = {
-  Group: TagGroup,
-  Item: TagItem,
-  List: TagList
-}
-
-export { Tag, type RestrictedIntent }
+export { Tag, TagList, TagGroup, type RestrictedIntent }

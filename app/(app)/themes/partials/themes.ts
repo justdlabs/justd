@@ -124,9 +124,6 @@ export const generateTheme = (selectedColors: Record<string, string>) => {
   --success: ${getColorValue("emerald", "600")};
   --success-fg: ${getColorValue("white")};
   
-  --info: ${getColorValue("sky", "500")};
-  --info-fg: ${getColorValue("white")};
-  
   --warning: ${warningColor};
   --warning-fg: ${getColorValue("amber", "950")};
   
@@ -171,9 +168,6 @@ export const generateTheme = (selectedColors: Record<string, string>) => {
   
   --success: ${getColorValue("emerald", "600")};
   --success-fg: ${getColorValue("white")};
-  
-  --info: ${getColorValue("sky", "500")};
-  --info-fg: ${getColorValue("sky", "400")};
   
   --warning: ${getColorValue("amber", "400")};
   --warning-fg: ${getColorValue("amber", "950")};

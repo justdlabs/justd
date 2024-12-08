@@ -8,7 +8,7 @@ import { Heading } from "./heading"
 const card = tv({
   slots: {
     root: [
-      "xrkr rounded-xl xkd2 has-[table]:**:data-[slot=card-footer]:border-t **:data-[slot=table-header]:bg-muted/50 has-[table]:overflow-hidden border text-fg shadow-xs **:[table]:overflow-hidden"
+      "xrkr rounded-lg xkd2 has-[table]:**:data-[slot=card-footer]:border-t **:data-[slot=table-header]:bg-muted/50 has-[table]:overflow-hidden border text-fg shadow-xs **:[table]:overflow-hidden"
     ],
     header: "flex flex-col space-y-1.5 px-6 py-5",
     title: "sm:leading-6 leading-none font-semibold tracking-tight",

@@ -2,7 +2,7 @@
 
 import * as React from "react"
 
-import { IconTriangleInfo } from "justd-icons"
+import { IconCircleExclamation } from "justd-icons"
 import { motion } from "motion/react"
 import { Meter as MeterPrimitive, type MeterProps as MeterPrimitiveProps } from "react-aria-components"
 
@@ -22,7 +22,7 @@ const Meter = ({ label, ...props }: MeterProps) => {
             <Label>{label}</Label>
             <span className={`text-sm tabular-nums ${percentage >= 80 ? "text-danger" : "text-muted-fg"}`}>
               {percentage >= 80 && (
-                <IconTriangleInfo
+                <IconCircleExclamation
                   aria-label="Alert"
                   className="inline-block fill-danger/20 text-danger size-4 align-text-bottom"
                 />

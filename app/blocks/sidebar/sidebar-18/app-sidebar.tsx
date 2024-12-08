@@ -68,7 +68,7 @@ function SidebarTree({ item, index }: { item: (typeof folders)[number]; index: n
   }
 
   return (
-    <SidebarDisclosureGroup defaultExpandedKeys={[1, 12, 121, 1212, 6, 61, 611, 62, 621, 6212, 62121]}>
+    <SidebarDisclosureGroup defaultExpandedKeys={[1, 12, 121, 1212, 6, 61, 611, 62, 621, 6212, 62121, 1211]}>
       <SidebarDisclosure id={item.id}>
         {({ isExpanded }) => (
           <>

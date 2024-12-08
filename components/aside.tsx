@@ -79,10 +79,18 @@ interface AsideLinkProps extends LinkProps {
 function AsideLink({ href, ...props }: AsideLinkProps) {
   const path = usePathname()
   const isActive = path === href
+  const ref = React.useRef<HTMLAnchorElement | null>(null)
+
+  React.useEffect(() => {
+    if (isActive && ref.current) {
+      ref.current.scrollIntoView({ behavior: "smooth", block: "center" })
+    }
+  }, [isActive])
   return (
     <Link
       {...props}
       href={href}
+      ref={ref}
       className={twMerge(
         "text-muted-fg py-1.5 px-3 mb-0.5 -ml-3 rounded-lg text-base sm:text-sm flex justify-between items-center",
         "data-focused:outline-hidden",

@@ -12,7 +12,7 @@ import type { FieldProps } from "./field"
 import { Description, Input, Label } from "./field"
 import { cn } from "./primitive"
 import type { RestrictedIntent, TagGroupProps } from "./tag-group"
-import { Tag } from "./tag-group"
+import { Tag, TagGroup, TagList } from "./tag-group"
 
 const tagFieldsStyles = tv({
   base: ["relative flex min-h-10 flex-row flex-wrap items-center"],
@@ -136,10 +136,10 @@ const TagField = ({
     <div className={cn("flex flex-col gap-y-1.5 w-full", className)}>
       {props.label && <Label>{props.label}</Label>}
       <Group className={twJoin("flex flex-col", props.isDisabled && "opacity-50")}>
-        <Tag.Group intent={props.intent} shape={props.shape} aria-label="List item inserted" onRemove={onRemove}>
+        <TagGroup intent={props.intent} shape={props.shape} aria-label="List item inserted" onRemove={onRemove}>
           <div className={tagFieldsStyles({ appearance })}>
             <div className="flex flex-1 flex-wrap items-center">
-              <Tag.List
+              <TagList
                 items={list.items}
                 className={twJoin(
                   list.items.length !== 0 ? appearance === "outline" && "py-1.5 px-1 gap-1.5" : "gap-0",
@@ -147,8 +147,8 @@ const TagField = ({
                   "[&_.jdt3lr2x]:cursor-default [&_.jdt3lr2x]:last:-mr-1 outline-hidden"
                 )}
               >
-                {(item) => <Tag.Item>{item.name}</Tag.Item>}
-              </Tag.List>
+                {(item) => <Tag>{item.name}</Tag>}
+              </TagList>
               <TextField
                 isDisabled={props.isDisabled}
                 aria-label={props?.label ?? (props["aria-label"] || props.placeholder)}
@@ -165,7 +165,7 @@ const TagField = ({
               </TextField>
             </div>
           </div>
-        </Tag.Group>
+        </TagGroup>
         {name && <input hidden name={name} value={list.items.map((i) => i.name).join(",")} readOnly />}
       </Group>
       {props.description && <Description>{props.description}</Description>}

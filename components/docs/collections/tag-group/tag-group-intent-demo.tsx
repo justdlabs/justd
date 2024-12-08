@@ -3,7 +3,7 @@
 import React from "react"
 
 import { useListData } from "react-stately"
-import { Tag } from "ui"
+import { Tag, TagGroup, TagList } from "ui"
 
 const shoes = [
   { id: "1", name: "Nike", available: true },
@@ -18,46 +18,46 @@ export default function TagGroupIntentDemo() {
   })
   return (
     <div className="space-y-2 max-w-sm">
-      <Tag.Group
+      <TagGroup
         intent="primary"
         aria-label="Primary Intent"
         selectionMode="multiple"
         onRemove={(keys) => shoesList.remove(...keys)}
       >
-        <Tag.List items={shoesList.items}>{(item) => <Tag.Item>{item.name}</Tag.Item>}</Tag.List>
-      </Tag.Group>
-      <Tag.Group
+        <TagList items={shoesList.items}>{(item) => <Tag>{item.name}</Tag>}</TagList>
+      </TagGroup>
+      <TagGroup
         intent="secondary"
         aria-label="Secondary Intent"
         selectionMode="multiple"
         onRemove={(keys) => shoesList.remove(...keys)}
       >
-        <Tag.List items={shoesList.items}>{(item) => <Tag.Item>{item.name}</Tag.Item>}</Tag.List>
-      </Tag.Group>
-      <Tag.Group
+        <TagList items={shoesList.items}>{(item) => <Tag>{item.name}</Tag>}</TagList>
+      </TagGroup>
+      <TagGroup
         intent="success"
         aria-label="Success Intent"
         selectionMode="multiple"
         onRemove={(keys) => shoesList.remove(...keys)}
       >
-        <Tag.List items={shoesList.items}>{(item) => <Tag.Item>{item.name}</Tag.Item>}</Tag.List>
-      </Tag.Group>
-      <Tag.Group
+        <TagList items={shoesList.items}>{(item) => <Tag>{item.name}</Tag>}</TagList>
+      </TagGroup>
+      <TagGroup
         intent="warning"
         aria-label="Warning Intent"
         selectionMode="multiple"
         onRemove={(keys) => shoesList.remove(...keys)}
       >
-        <Tag.List items={shoesList.items}>{(item) => <Tag.Item>{item.name}</Tag.Item>}</Tag.List>
-      </Tag.Group>
-      <Tag.Group
+        <TagList items={shoesList.items}>{(item) => <Tag>{item.name}</Tag>}</TagList>
+      </TagGroup>
+      <TagGroup
         intent="danger"
         aria-label="Danger Intent"
         selectionMode="multiple"
         onRemove={(keys) => shoesList.remove(...keys)}
       >
-        <Tag.List items={shoesList.items}>{(item) => <Tag.Item>{item.name}</Tag.Item>}</Tag.List>
-      </Tag.Group>
+        <TagList items={shoesList.items}>{(item) => <Tag>{item.name}</Tag>}</TagList>
+      </TagGroup>
     </div>
   )
 }

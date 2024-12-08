@@ -3,7 +3,7 @@
 import React from "react"
 
 import type { Selection } from "react-aria-components"
-import { Description, Tag } from "ui"
+import { Description, Tag, TagGroup, TagList } from "ui"
 
 const fruitList = [
   { id: "1", name: "Apple", available: false },
@@ -16,9 +16,9 @@ export default function TagGroupControlledDemo() {
   const [selected, setSelected] = React.useState<Selection>(new Set([]))
   return (
     <div>
-      <Tag.Group selectionMode="multiple" selectedKeys={selected} onSelectionChange={setSelected}>
-        <Tag.List items={fruitList}>{(item) => <Tag.Item>{item.name}</Tag.Item>}</Tag.List>
-      </Tag.Group>
+      <TagGroup selectionMode="multiple" selectedKeys={selected} onSelectionChange={setSelected}>
+        <TagList items={fruitList}>{(item) => <Tag>{item.name}</Tag>}</TagList>
+      </TagGroup>
 
       <Description className="mt-2 block [&>strong]:text-fg text-muted-fg">
         You have selected: <strong>{Array.from(selected).join(", ")}</strong>
