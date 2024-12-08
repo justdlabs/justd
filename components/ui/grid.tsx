@@ -1,4 +1,5 @@
 "use client"
+"use client"
 
 import * as React from "react"
 
@@ -150,7 +151,7 @@ const Grid = ({ className, gap, gapX, gapY, flow, columns, rows, ...props }: Gri
         rows: rows ?? 1,
         className:
           "debug" in props
-            ? cn("[&>.grid-cell]:border [&>.grid-cell]:border-warning", className)
+            ? cn("*:data-[slot=grid-cell]:border *:data-[slot=grid-cell]:border-warning", className)
             : className
       })}
       {...props}
@@ -162,7 +163,7 @@ const Grid = ({ className, gap, gapX, gapY, flow, columns, rows, ...props }: Gri
 
 const gridItemStyles = tv(
   {
-    base: "grid-cell focus:outline-none",
+    base: "grid-cell data-focused:outline-hidden",
     variants: {
       colSpan: {
         auto: "col-auto",
@@ -267,9 +268,7 @@ const gridItemStyles = tv(
   }
 )
 
-interface GridItemProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof gridItemStyles> {
+interface GridItemProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof gridItemStyles> {
   className?: string
 }
 
@@ -286,6 +285,7 @@ const GridItem = ({
 }: GridItemProps) => {
   return (
     <div
+      data-slot="grid-cell"
       className={gridItemStyles({
         colSpan,
         rowSpan,

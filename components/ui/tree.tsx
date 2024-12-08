@@ -3,9 +3,10 @@
 import * as React from "react"
 
 import { IconChevronRight } from "justd-icons"
-import type { TreeItemProps as TreeItemPrimitiveProps, TreeProps } from "react-aria-components"
+import type { TreeItemProps, TreeProps } from "react-aria-components"
 import {
   Button,
+  composeRenderProps,
   UNSTABLE_Tree as TreePrimitive,
   UNSTABLE_TreeItem as TreeItemPrimitive,
   UNSTABLE_TreeItemContent as TreeItemContent
@@ -13,10 +14,9 @@ import {
 import { tv } from "tailwind-variants"
 
 import { Checkbox } from "./checkbox"
-import { cr } from "./primitive"
 
 const treeStyles = tv({
-  base: "flex border max-h-96 min-w-72 [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin] py-2 rounded-lg bg-bg cursor-default lg:text-sm flex-col overflow-auto forced-color-adjust-none outline-none",
+  base: "flex border max-h-96 min-w-72 [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin] py-2 rounded-lg cursor-default sm:text-sm flex-col overflow-auto forced-color-adjust-none outline-hidden",
   variants: {
     isFocusVisible: {
       true: "outline-offset-[-1px] outline-2 outline-primary"
@@ -27,7 +27,7 @@ const treeStyles = tv({
 const Tree = <T extends object>({ className, ...props }: TreeProps<T>) => {
   return (
     <TreePrimitive
-      className={cr(className, (className, renderProps) =>
+      className={composeRenderProps(className, (className, renderProps) =>
         treeStyles({
           ...renderProps,
           className
@@ -42,16 +42,16 @@ const Tree = <T extends object>({ className, ...props }: TreeProps<T>) => {
 
 const itemStyles = tv({
   base: [
-    "[&_[data-expanded]_[slot=chevron]_[data-slot=icon]]:rotate-90 outline-none [--padding:20px] p-[0.286rem_0.286rem_0.286rem_0.571rem] pl-[calc((var(--tree-item-level)-1)*20px+0.571rem+var(--padding))]",
-    "[&_[slot=chevron]]:outline-none [&_[slot=chevron]_[data-slot=icon]]:text-muted-fg",
-    "data-[has-child-rows]:[--padding:0px]"
+    "[&_[data-expanded]_[slot=chevron]_[data-slot=icon]]:rotate-90 outline-hidden [--padding:20px] p-[0.286rem_0.286rem_0.286rem_0.571rem] pl-[calc((var(--tree-item-level)-1)*20px+0.571rem+var(--padding))]",
+    "[&_[slot=chevron]]:outline-hidden [&_[slot=chevron]_[data-slot=icon]]:text-muted-fg",
+    "data-has-child-rows:[--padding:0px]"
   ],
   variants: {
     isExpanded: {
       true: "[&_[slot=chevron]_[data-slot=icon]]:text-fg [&_[slot=chevron]_[data-slot=icon]]:rotate-90 [&_[slot=chevron]_[data-slot=icon]]:transition [&_[slot=chevron]_[data-slot=icon]]:duration-200"
     },
     isFocusVisible: {
-      true: "[&_[slot=chevron]_[data-slot=icon]]:text-fg focus:outline-none focus-visible:ring-1 focus-visible:ring-primary"
+      true: "[&_[slot=chevron]_[data-slot=icon]]:text-fg data-focused:outline-hidden data-focus-visible:ring-1 data-focus-visible:ring-primary"
     },
     isDisabled: {
       true: "opacity-50 forced-colors:text-[GrayText]"
@@ -59,10 +59,10 @@ const itemStyles = tv({
   }
 })
 
-const TreeItem = <T extends object>({ className, ...props }: TreeItemPrimitiveProps<T>) => {
+const TreeItem = <T extends object>({ className, ...props }: TreeItemProps<T>) => {
   return (
     <TreeItemPrimitive
-      className={cr(className, (className, renderProps) =>
+      className={composeRenderProps(className, (className, renderProps) =>
         itemStyles({
           ...renderProps,
           className
@@ -88,9 +88,7 @@ const ItemContent = (props: React.ComponentProps<typeof TreeItemContent>) => {
 const Indicator = () => {
   return (
     <Button className="shrink-0 relative" slot="chevron">
-      <>
-        <IconChevronRight className="size-5" />
-      </>
+      <IconChevronRight className="size-5" />
     </Button>
   )
 }

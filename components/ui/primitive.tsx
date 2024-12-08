@@ -11,15 +11,15 @@ const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs))
 
 function composeTailwindRenderProps<T>(
   className: string | ((v: T) => string) | undefined,
-  tw: string | Array<string | undefined>
+  tailwind: string
 ): string | ((v: T) => string) {
-  return composeRenderProps(className, (className) => twMerge(tw, className))
+  return composeRenderProps(className, (className) => twMerge(tailwind, className))
 }
 
 const focusRing = tv({
-  base: "outline-none focus:outline-none forced-colors:outline-1 forced-colors:outline-[Highlight]",
   variants: {
-    isFocused: { true: "ring-4 ring-ring/20" },
+    isFocused: { true: "ring-4 ring-ring/20 outline-hidden" },
+    isFocusVisible: { true: "ring-4 ring-ring/20 outline-hidden" },
     isInvalid: { true: "ring-4 ring-danger/20" }
   }
 })
@@ -27,8 +27,8 @@ const focusRing = tv({
 const focusStyles = tv({
   extend: focusRing,
   variants: {
-    isFocused: { true: "border-ring/85" },
-    isInvalid: { true: "border-danger" }
+    isFocused: { true: "border-ring/70 forced-colors:border-[Highlight]" },
+    isInvalid: { true: "border-danger/70 forced-colors:border-[Mark]" }
   }
 })
 
@@ -63,7 +63,6 @@ const useMediaQuery = (query: string) => {
 export {
   cn,
   composeTailwindRenderProps,
-  composeTailwindRenderProps as ctr,
   composeRenderProps as cr,
   focusRing,
   focusStyles,

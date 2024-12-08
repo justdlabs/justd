@@ -2,8 +2,8 @@
 
 import React from "react"
 
-import { LayoutGroup } from "framer-motion"
 import { IconBrandJustd, IconBrandX, IconHamburger, IconSearch } from "justd-icons"
+import { LayoutGroup } from "motion/react"
 import { usePathname } from "next/navigation"
 import { Button, buttonStyles, Link, Sheet } from "ui"
 
@@ -12,13 +12,7 @@ import { CommandPalette } from "./command-palette"
 import { NavbarDropdown } from "./navbar"
 import { ThemeSwitcher } from "./theme-switcher"
 
-export function ResponsiveAside({
-  openCmd,
-  setOpenCmd
-}: {
-  openCmd: boolean
-  setOpenCmd: (open: boolean) => void
-}) {
+export function ResponsiveAside({ openCmd, setOpenCmd }: { openCmd: boolean; setOpenCmd: (open: boolean) => void }) {
   const id = React.useId()
   const [openAside, setOpenAside] = React.useState(false)
   const pathname = usePathname()
@@ -29,7 +23,7 @@ export function ResponsiveAside({
       <div className="flex items-center justify-between pl-4 pr-2 -mb-2 pt-2">
         <Button
           aria-label="Open Menu."
-          className="-ml-2 [&_[data-slot=icon]]:text-fg"
+          className="-ml-2 **:data-[slot=icon]:text-fg"
           appearance="outline"
           size="square-petite"
           onPress={() => {
@@ -38,7 +32,7 @@ export function ResponsiveAside({
         >
           <IconHamburger />
         </Button>
-        <Link className="focus:outline-none -mr-6 rounded" href="/" aria-label="Logo">
+        <Link className="data-focused:outline-hidden -mr-6 rounded" href="/" aria-label="Logo">
           <IconBrandJustd className="size-6" />
         </Link>
         <div className="flex items-center gap-x-1">

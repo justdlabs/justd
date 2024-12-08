@@ -2,25 +2,20 @@
 
 import * as React from "react"
 
-import { Link as LinkPrimitive, type LinkProps as LinkPrimitiveProps } from "react-aria-components"
+import { composeRenderProps, Link as LinkPrimitive, type LinkProps as LinkPrimitiveProps } from "react-aria-components"
 import { tv } from "tailwind-variants"
-
-import { cr } from "./primitive"
 
 const linkStyles = tv({
   base: [
-    "relative focus-visible:outline-2 outline-offset-2 outline-0 focus:outline-none outline-primary transition-colors",
-    "forced-colors:outline-[Highlight] forced-colors:disabled:text-[GrayText] disabled:focus-visible:outline-0",
-    "disabled:cursor-default disabled:opacity-60"
+    "relative data-focus-visible:outline-2 outline-offset-2 outline-0 data-focused:outline-hidden outline-primary transition-colors",
+    "forced-colors:outline-[Highlight] forced-colors:data-disabled:text-[GrayText] data-disabled:data-focus-visible:outline-0",
+    "disabled:cursor-default data-disabled:opacity-60"
   ],
   variants: {
     intent: {
       unstyled: "text-current",
-      primary: "text-primary hover:text-primary/80 forced-colors:disabled:text-[GrayText]",
-      danger: "text-danger hover:text-danger/80 forced-colors:disabled:text-[GrayText]",
-      "lad/primary":
-        "text-fg hover:text-primary dark:hover:text-primary/80 forced-colors:disabled:text-[GrayText]",
-      secondary: "text-secondary-fg hover:text-secondary-fg/80"
+      primary: "text-fg data-hovered:underline forced-colors:data-disabled:text-[GrayText]",
+      secondary: "text-muted-fg data-hovered:text-secondary-fg forced-colors:data-disabled:text-[GrayText]"
     }
   },
   defaultVariants: {
@@ -29,20 +24,18 @@ const linkStyles = tv({
 })
 
 interface LinkProps extends LinkPrimitiveProps {
-  intent?: "primary" | "secondary" | "danger" | "lad/primary" | "unstyled"
+  intent?: "primary" | "secondary" | "unstyled"
 }
 
 const Link = ({ className, ...props }: LinkProps) => {
   return (
     <LinkPrimitive
       {...props}
-      className={cr(className, (className, ...renderProps) =>
+      className={composeRenderProps(className, (className, ...renderProps) =>
         linkStyles({ ...renderProps, intent: props.intent, className })
       )}
     >
-      {(values) => (
-        <>{typeof props.children === "function" ? props.children(values) : props.children}</>
-      )}
+      {(values) => <>{typeof props.children === "function" ? props.children(values) : props.children}</>}
     </LinkPrimitive>
   )
 }

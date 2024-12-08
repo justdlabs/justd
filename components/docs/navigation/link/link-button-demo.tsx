@@ -11,10 +11,7 @@ export default function LinkButtonDemo() {
       <Link className={buttonStyles({ appearance: "outline" })} href="#use-as-button">
         Link
       </Link>
-      <Link
-        className={buttonStyles({ appearance: "plain", shape: "circle" })}
-        href="#use-as-button"
-      >
+      <Link className={buttonStyles({ appearance: "plain", shape: "circle" })} href="#use-as-button">
         Link
       </Link>
     </div>

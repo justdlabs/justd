@@ -1,21 +1,52 @@
 "use client"
 
-import { IconBrandX } from "justd-icons"
+import {
+  IconFullscreen,
+  IconGrid4,
+  IconLayoutAlignBottom,
+  IconLayoutAlignLeft,
+  IconLayoutAlignRight,
+  IconLayoutAlignTop,
+  IconLayoutColumnHorizontalHalf,
+  IconLayoutColumnLeftside,
+  IconLayoutColumnVerticalAdd
+} from "justd-icons"
 import { buttonStyles, Tooltip } from "ui"
 
 export default function TooltipDemo() {
   return (
     <Tooltip>
       <Tooltip.Trigger
-        aria-label="Follow My Twitter"
+        aria-label="Manage Layout"
         className={buttonStyles({
           appearance: "outline",
           size: "square-petite"
         })}
       >
-        <IconBrandX />
+        <IconLayoutColumnVerticalAdd />
       </Tooltip.Trigger>
-      <Tooltip.Content>Follow me on X @irsyadadl</Tooltip.Content>
+      <Tooltip.Content placement="bottom">
+        <div className="flex **:[div]:*:[div]:flex **:[div]:*:[div]:items-center **:[div]:*:[div]:gap-x-3 **:data-[slot=icon]:size-5 **:data-[slot=icon]:text-fg/80 **:[h4]:mb-1 **:[h4]:text-xs **:[h4]:font-medium **:[h4]:text-fg/60 flex-col gap-y-6">
+          <div>
+            <h4>Move & Resize</h4>
+            <div>
+              <IconLayoutAlignLeft />
+              <IconLayoutAlignRight />
+              <IconLayoutAlignTop />
+              <IconLayoutAlignBottom />
+            </div>
+          </div>
+          <div>
+            <h4>Fill & Arrange</h4>
+            <div>
+              <IconFullscreen />
+              <IconLayoutColumnLeftside />
+              <IconGrid4 />
+              <IconLayoutColumnHorizontalHalf />
+            </div>
+          </div>
+        </div>
+      </Tooltip.Content>
     </Tooltip>
   )
 }

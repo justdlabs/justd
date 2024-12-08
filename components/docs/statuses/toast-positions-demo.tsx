@@ -20,9 +20,7 @@ export default function ToastPositionsDemo() {
           appearance="outline"
           size="small"
           key={position}
-          onPress={() =>
-            toast("The registration is successful, click here to continue.", { position })
-          }
+          onPress={() => toast("The registration is successful, click here to continue.", { position })}
         >
           {position}
         </Button>

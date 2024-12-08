@@ -4,37 +4,37 @@ import React from "react"
 
 import { IconHamburger } from "justd-icons"
 import type { GridListItemProps, GridListProps } from "react-aria-components"
-import { Button, GridList as GridListPrimitive, GridListItem } from "react-aria-components"
+import { Button, composeRenderProps, GridList as GridListPrimitive, GridListItem } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
 import { Checkbox } from "./checkbox"
-import { cr, ctr } from "./primitive"
+import { composeTailwindRenderProps } from "./primitive"
 
 const gridListStyles = tv({
-  base: "relative [&>[data-drop-target]]:border [&>[data-drop-target]]:border-primary [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin] max-h-96 overflow-auto rounded-lg border"
+  base: "relative *:data-drop-target:border *:data-drop-target:border-accent [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin] max-h-96 overflow-auto rounded-lg border"
 })
 
 const GridList = <T extends object>({ children, className, ...props }: GridListProps<T>) => (
-  <GridListPrimitive className={ctr(className, gridListStyles())} {...props}>
+  <GridListPrimitive className={composeTailwindRenderProps(className, gridListStyles())} {...props}>
     {children}
   </GridListPrimitive>
 )
 
 const itemStyles = tv({
-  base: "relative group transition outline-none flex cursor-default select-none gap-3 border-y px-3 -mb-px py-2 lg:text-sm text-fg -outline-offset-2 first:rounded-t-md first:border-t-0 last:mb-0 last:rounded-b-md last:border-b-0",
+  base: "[--selected-item:theme(--color-muted/80%)] [--selected-item-hovered:theme(--color-muted/70%)] relative group transition outline-hidden flex cursor-default select-none gap-3 border-y px-3 -mb-px py-2 sm:text-sm text-fg -outline-offset-2 first:rounded-t-md first:border-t-0 last:mb-0 last:rounded-b-md last:border-b-0",
   variants: {
-    isHovered: { true: "bg-accent-subtle" },
+    isHovered: { true: "bg-subtle" },
     isSelected: {
-      true: "bg-accent-subtle z-20 border-border/50 hover:bg-accent-subtle/50 dark:hover:bg-accent-subtle/60"
+      true: "bg-(--selected-item) z-20 border-border/50 data-hovered:bg-(--selected-item-hovered)"
     },
     isFocused: {
-      true: "outline-none"
+      true: "outline-hidden"
     },
     isFocusVisible: {
-      true: "ring-1 ring-primary outline-none bg-accent-subtle selected:bg-accent-subtle/80 hover:bg-accent-subtle/70"
+      true: "ring-1 ring-ring outline-hidden bg-(--selected-item) data-selected:bg-(--selected-item) data-hovered:bg-(--selected-item-hovered)"
     },
     isDisabled: {
-      true: "text-muted-fg forced-colors:text-[GrayText]"
+      true: "text-muted-fg/70 forced-colors:text-[GrayText]"
     }
   }
 })
@@ -45,24 +45,19 @@ const Item = ({ className, ...props }: GridListItemProps) => {
     <GridListItem
       textValue={textValue}
       {...props}
-      className={cr(className, (className, renderProps) =>
-        itemStyles({ ...renderProps, className })
-      )}
+      className={composeRenderProps(className, (className, renderProps) => itemStyles({ ...renderProps, className }))}
     >
       {({ selectionMode, selectionBehavior, allowsDragging }) => (
         <>
           {allowsDragging && (
-            <Button
-              slot="drag"
-              className="cursor-grab dragging:cursor-grabbing [&>[data-slot=icon]]:text-muted-fg"
-            >
+            <Button slot="drag" className="cursor-grab data-dragging:cursor-grabbing *:data-[slot=icon]:text-muted-fg">
               <IconHamburger />
             </Button>
           )}
 
           <span
             aria-hidden
-            className="absolute inset-y-0 left-0 hidden h-full w-0.5 bg-primary group-selected:block"
+            className="absolute inset-y-0 left-0 hidden h-full w-0.5 bg-primary group-data-selected:block"
           />
           {selectionMode === "multiple" && selectionBehavior === "toggle" && (
             <Checkbox className="-mr-2" slot="selection" />
@@ -74,9 +69,7 @@ const Item = ({ className, ...props }: GridListItemProps) => {
   )
 }
 
-const EmptyState = (props: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className="p-6" {...props} />
-)
+const EmptyState = (props: React.HTMLAttributes<HTMLDivElement>) => <div className="p-6" {...props} />
 
 GridList.Item = Item
 GridList.EmptyState = EmptyState

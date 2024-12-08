@@ -2,23 +2,16 @@
 
 import React from "react"
 
-import {
-  IconBell,
-  IconCreditCard,
-  IconDownload,
-  IconSettings,
-  IconShield,
-  IconSupport
-} from "justd-icons"
-import { Disclosure, DisclosureGroup } from "ui"
+import { IconBell, IconCreditCard, IconDownload, IconSettings, IconShield, IconSupport } from "justd-icons"
+import { Disclosure, DisclosureGroup, DisclosurePanel, DisclosureTrigger } from "ui"
 
 export default function DisclosureGroupBorderHiddenDemo() {
   return (
-    <DisclosureGroup hideBorder>
+    <DisclosureGroup>
       {items.map((item, index) => (
-        <Disclosure key={index} id={index}>
-          <Disclosure.Trigger>{item.title}</Disclosure.Trigger>
-          <Disclosure.Panel>{item.description}</Disclosure.Panel>
+        <Disclosure className="border-b-0" key={index} id={index}>
+          <DisclosureTrigger className="py-1.5">{item.title}</DisclosureTrigger>
+          <DisclosurePanel>{item.description}</DisclosurePanel>
         </Disclosure>
       ))}
     </DisclosureGroup>
@@ -29,26 +22,22 @@ const items = [
   {
     icon: <IconSettings />,
     title: "Personal Settings",
-    description:
-      "You can update your profile, change your password, and manage your account settings here."
+    description: "You can update your profile, change your password, and manage your account settings here."
   },
   {
     icon: <IconBell />,
     title: "Notifications",
-    description:
-      "Manage your notifications preferences, including alerts, emails, and push notifications."
+    description: "Manage your notifications preferences, including alerts, emails, and push notifications."
   },
   {
     icon: <IconShield />,
     title: "Privacy Options",
-    description:
-      "Adjust your privacy settings to control who can see your information and contact you."
+    description: "Adjust your privacy settings to control who can see your information and contact you."
   },
   {
     icon: <IconCreditCard />,
     title: "Payment Methods",
-    description:
-      "Add, remove, or update your payment methods including credit cards and digital wallets."
+    description: "Add, remove, or update your payment methods including credit cards and digital wallets."
   },
   {
     icon: <IconSupport />,
@@ -58,7 +47,6 @@ const items = [
   {
     icon: <IconDownload />,
     title: "Download Data",
-    description:
-      "Request a download of all your data we have stored, including account activity and user data."
+    description: "Request a download of all your data we have stored, including account activity and user data."
   }
 ]

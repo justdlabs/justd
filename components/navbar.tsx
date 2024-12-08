@@ -4,7 +4,6 @@ import React from "react"
 
 import { ResponsiveAside } from "@/components/responsive-aside"
 import { siteConfig } from "@/resources/config/site"
-import { LayoutGroup } from "framer-motion"
 import {
   IconBrandAdobe,
   IconBrandGithub,
@@ -21,6 +20,7 @@ import {
   IconSearch,
   IconSun
 } from "justd-icons"
+import { LayoutGroup } from "motion/react"
 import { useTheme } from "next-themes"
 import { usePathname } from "next/navigation"
 import { Collection } from "react-aria-components"
@@ -33,8 +33,7 @@ import { ThemeSwitcher } from "./theme-switcher"
 
 const menuItems = [
   { id: 1, label: "Home", url: "/" },
-  { id: 4, label: "Components", url: "/docs/getting-started/introduction" },
-  { id: 3, label: "Charts", url: "/charts" }
+  { id: 4, label: "Components", url: "/docs/getting-started/introduction" }
 ]
 
 export function Navbar() {
@@ -48,8 +47,8 @@ export function Navbar() {
       <CommandPalette setOpen={setOpen} openCmd={open} />
       <LayoutGroup id={`navigation-${id}`}>
         <div className="sticky xnw2 top-0 z-30 hidden overflow-hidden pb-0 lg:block">
-          <nav className="border-b bg-bg/95 py-2 backdrop-blur-lg supports-[backdrop-filter]:bg-bg/60">
-            <div className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
+          <nav className="border-b bg-bg/95 py-2 backdrop-blur-3xl supports-backdrop-filter:bg-bg/60">
+            <div className="mx-auto max-w-(--breakpoint-2xl) px-4 sm:px-6 lg:px-8">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-x-6">
                   <NavbarDropdown />
@@ -60,34 +59,23 @@ export function Navbar() {
                     </NavLink>
                     <NavLink
                       isNextLink
-                      isActive={
-                        pathname?.startsWith("/docs") && !pathname?.includes("/docs/components")
-                      }
+                      isActive={pathname?.startsWith("/docs") && !pathname?.includes("/docs/components")}
                       href="/docs/getting-started/introduction"
                     >
                       Docs
                     </NavLink>
                     <NavLink
                       isNextLink
-                      isActive={
-                        pathname?.startsWith("/docs/components") || pathname === "/components"
-                      }
+                      isActive={pathname?.startsWith("/docs/components") || pathname === "/components"}
                       href="/components"
                     >
                       Components
                     </NavLink>
-                    <NavLink isNextLink isActive={pathname === "/colors"} href="/colors">
-                      Colors
-                    </NavLink>
                     <NavLink isNextLink isActive={pathname === "/icons"} href="/icons">
                       Icons
                     </NavLink>
-                    <NavLink
-                      isNextLink
-                      isActive={pathname?.startsWith("/charts") || pathname === "/charts"}
-                      href="/charts"
-                    >
-                      Charts
+                    <NavLink isNextLink isActive={pathname === "/colors"} href="/colors">
+                      Colors
                     </NavLink>
                     <NavLink isNextLink isActive={pathname === "/themes"} href="/themes">
                       Themes
@@ -120,7 +108,7 @@ export function Navbar() {
                       className={buttonStyles({
                         appearance: "outline",
                         size: "square-petite",
-                        className: "[&_[data-slot=icon]]:text-fg"
+                        className: "**:data-[slot=icon]:text-fg"
                       })}
                       target="_blank"
                       href={siteConfig.repo}
@@ -132,7 +120,7 @@ export function Navbar() {
                       className={buttonStyles({
                         appearance: "outline",
                         size: "square-petite",
-                        className: "[&_[data-slot=icon]]:text-fg"
+                        className: "**:data-[slot=icon]:text-fg"
                       })}
                       target="_blank"
                       href="https://x.com/intent/follow?screen_name=irsyadadl"
@@ -159,7 +147,7 @@ export function NavbarDropdown() {
         <span className="flex items-center gap-x-2">
           <IconBrandJustd className="-ml-1 size-5" />
           <span className="font-mono text-base tracking-tight sm:text-sm">{siteConfig.name}</span>
-          <IconChevronLgDown className="-mr-1 ml-3 size-3.5 text-muted-fg transition duration-300 group-hover:text-fg group-pressed:rotate-180 group-pressed:text-fg" />
+          <IconChevronLgDown className="-mr-1 ml-3 size-3.5 text-muted-fg transition duration-300 group-hover:text-fg group-data-pressed:rotate-180 group-data-pressed:text-fg" />
           <span className="sr-only">Open menu</span>
         </span>
       </Button>
@@ -194,10 +182,7 @@ export function NavbarDropdown() {
             <IconBrandGithub />
             Github
           </Menu.Item>
-          <Menu.Item
-            href="https://react-spectrum.adobe.com/react-aria/components.html"
-            target="_blank"
-          >
+          <Menu.Item href="https://react-spectrum.adobe.com/react-aria/components.html" target="_blank">
             <IconBrandAdobe />
             RAC
           </Menu.Item>
@@ -209,13 +194,7 @@ export function NavbarDropdown() {
         <Menu.Section title="Preferences">
           <Menu.Submenu>
             <Menu.Item>
-              {theme === "system" ? (
-                <IconDeviceDesktop />
-              ) : theme === "dark" ? (
-                <IconMoon />
-              ) : (
-                <IconSun />
-              )}
+              {theme === "system" ? <IconDeviceDesktop /> : theme === "dark" ? <IconMoon /> : <IconSun />}
               <span>Switch Theme</span>
             </Menu.Item>
             <Menu.Content>

@@ -4,7 +4,7 @@ import { Providers } from "@/components/providers"
 import { siteConfig } from "@/resources/config/site"
 import { cn } from "@/resources/lib/utils"
 import "@/resources/styles/app.css"
-import { OpenpanelProvider } from "@openpanel/nextjs"
+import { OpenPanelComponent } from "@openpanel/nextjs"
 import type { Metadata, Viewport } from "next"
 import localFont from "next/font/local"
 
@@ -88,34 +88,25 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html dir="ltr" lang="en" suppressHydrationWarning>
-    <head>
-      <script
-        defer
-        data-site-id="getjustd.com"
-        src="https://assets.onedollarstats.com/tracker.js">
-      </script>
-    </head>
-    <body
-      className={cn(
-        "min-h-screen bg-bg font-sans antialiased",
-        fontSans.variable,
-        fontMono.variable
-      )}
-    >
-    <Providers>
-      {children}
-      {process.env.NODE_ENV === "production" && (
-        <OpenpanelProvider
-          url={process.env.ANALYTICS_CLIENT_URL as string}
-          clientSecret={process.env.ANALYTICS_CLIENT_SECRET as string}
-          clientId={process.env.ANALYTICS_CLIENT_ID as string}
-          trackScreenViews={true}
-          trackAttributes={true}
-        />
-      )}
-    </Providers>
-    </body>
+    <html dir="ltr" lang="en" className="scroll-smooth" suppressHydrationWarning>
+      <head>
+        {process.env.NODE_ENV === "production" && (
+          <script defer data-site-id="getjustd.com" src="https://assets.onedollarstats.com/tracker.js"></script>
+        )}
+      </head>
+      <body className={cn("min-h-screen font-sans antialiased", fontSans.variable, fontMono.variable)}>
+        <Providers>
+          {children}
+          {process.env.NODE_ENV === "production" && (
+            <OpenPanelComponent
+              clientSecret={process.env.ANALYTICS_CLIENT_SECRET as string}
+              clientId={process.env.ANALYTICS_CLIENT_ID as string}
+              trackScreenViews={true}
+              trackAttributes={true}
+            />
+          )}
+        </Providers>
+      </body>
     </html>
   )
 }

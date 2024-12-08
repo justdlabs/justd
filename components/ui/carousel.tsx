@@ -28,7 +28,7 @@ type CarouselContextProps = {
 const CarouselContext = React.createContext<CarouselContextProps | null>(null)
 
 const useCarousel = () => {
-  const context = React.useContext(CarouselContext)
+  const context = React.use(CarouselContext)
 
   if (!context) {
     throw new Error("useCarousel must be used within a <Carousel />")
@@ -175,7 +175,7 @@ const CarouselItem = ({ className, ...props }: ListBoxItemProps) => {
       aria-label={`Slide ${props.id}`}
       aria-roledescription="slide"
       className={cn(
-        "min-w-0 xd24r shrink-0 focus:outline-none grow-0 basis-full focus-visible:outline-none",
+        "min-w-0 xd24r shrink-0 data-focused:outline-hidden grow-0 basis-full data-focus-visible:outline-hidden",
         orientation === "horizontal" ? "pl-4" : "pt-4",
         className
       )}

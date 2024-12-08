@@ -8,6 +8,10 @@ if (!process.env.VELITE_STARTED && (isDev || isBuild)) {
 
 /** @type {import('next').NextConfig} */
 export default {
+  devIndicators: {
+    buildActivity: false,
+    appIsrStatus: false
+  },
   experimental: {
     optimizePackageImports: ["shiki"]
   },
@@ -37,6 +41,19 @@ export default {
         source: "/accordion",
         destination: "/docs/components/navigation/disclosure-group",
         permanent: false
+      },
+      {
+        source: "/charts",
+        destination: "/docs/components/charts/setup",
+        permanent: true
+      },      {
+        source: "/chart",
+        destination: "/docs/components/charts/setup",
+        permanent: true
+      },  {
+        source: "/docs/components/surfaces/chart",
+        destination: "/docs/components/charts/setup",
+        permanent: true
       },
       {
         source: "/aside",
@@ -89,5 +106,5 @@ export default {
         permanent: false
       }
     ]
-  }
+  },
 }

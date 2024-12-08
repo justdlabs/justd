@@ -1,14 +1,7 @@
-import type { formatOnlyForTailwindVariable } from "@/resources/lib/colors"
+import type { LazyExoticComponent } from "react"
 
-export interface ColorShade {
-  shade: string
-  color: string
+export type RegistryItem = {
+  component: LazyExoticComponent<any>
+  files: string[]
+  [key: string]: any
 }
-
-export interface ColorItemProps {
-  name: string
-  children: ColorShade[]
-}
-
-export type FormatOnlyForTailwindVariableType =
-  (typeof formatOnlyForTailwindVariable)[number]["format"]

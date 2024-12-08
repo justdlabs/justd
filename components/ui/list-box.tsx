@@ -3,45 +3,38 @@
 import * as React from "react"
 
 import { IconCheck, IconHamburger } from "justd-icons"
-import {
-  ListBox as ListBoxPrimitive,
-  ListBoxItem as ListBoxItemPrimitive,
-  type ListBoxItemProps as ListBoxItemPrimitiveProps,
-  type ListBoxProps as ListBoxPrimitiveProps
-} from "react-aria-components"
+import type { ListBoxItemProps, ListBoxProps } from "react-aria-components"
+import { composeRenderProps, ListBox as ListBoxPrimitive, ListBoxItem } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
 import { DropdownItemDetails, DropdownSection } from "./dropdown"
-import { cn, cr } from "./primitive"
+import { cn } from "./primitive"
 
 const listBoxStyles = tv({
-  base: "flex max-h-96 [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin] w-full gap-y-1 min-w-72 flex-col overflow-y-auto rounded-xl border p-1 shadow-lg outline-none"
+  base: "flex max-h-96 [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin] w-full gap-y-1 min-w-56 flex-col overflow-y-auto rounded-xl border p-1 shadow-lg outline-hidden"
 })
 
-interface ListBoxProps<T> extends ListBoxPrimitiveProps<T> {
-  className?: string
-}
-
-const ListBox = <T extends object>({ children, className, ...props }: ListBoxProps<T>) => (
-  <ListBoxPrimitive {...props} className={listBoxStyles({ className })}>
-    {children}
-  </ListBoxPrimitive>
+const ListBox = <T extends object>({ className, ...props }: ListBoxProps<T>) => (
+  <ListBoxPrimitive
+    {...props}
+    className={composeRenderProps(className, (className, renderProps) => listBoxStyles({ ...renderProps, className }))}
+  />
 )
 
 const listBoxItemStyles = tv({
-  base: "lbi cursor-pointer relative rounded-[calc(var(--radius)-1px)] p-2 text-base outline-none lg:text-sm",
+  base: "lbi cursor-pointer relative rounded-[calc(var(--radius-lg)-1px)] p-2 text-base outline-hidden sm:text-sm",
   variants: {
     isFocusVisible: {
-      true: "bg-secondary [&:focus-visible_[slot=label]]:text-accent-fg [&:focus-visible_[slot=description]]:text-accent-fg/70 text-secondary-fg"
+      true: "bg-secondary text-accent-fg text-accent-fg/70"
     },
     isHovered: {
       true: "bg-accent [&:hover_[slot=label]]:text-accent-fg [&:hover_[slot=description]]:text-accent-fg/70 text-accent-fg [&_.text-muted-fg]:text-accent-fg/80"
     },
     isFocused: {
-      true: "[&_[data-slot=icon]]:text-accent-fg [&_[data-slot=label]]:text-accent-fg [&_.text-muted-fg]:text-accent-fg/80 bg-accent text-accent-fg"
+      true: "**:data-[slot=icon]:text-accent-fg **:data-[slot=label]:text-accent-fg [&_.text-muted-fg]:text-accent-fg/80 bg-accent text-accent-fg"
     },
     isSelected: {
-      true: "[&_[data-slot=icon]]:text-accent-fg [&_[data-slot=label]]:text-accent-fg [&_.text-muted-fg]:text-accent-fg/80 bg-accent text-accent-fg"
+      true: "**:data-[slot=icon]:text-accent-fg **:data-[slot=label]:text-accent-fg [&_.text-muted-fg]:text-accent-fg/80 bg-accent text-accent-fg"
     },
     isDragging: { true: "cursor-grabbing bg-secondary text-secondary-fg" },
     isDisabled: {
@@ -50,18 +43,18 @@ const listBoxItemStyles = tv({
   }
 })
 
-interface ListBoxItemProps<T extends object> extends ListBoxItemPrimitiveProps<T> {
+interface ItemProps<T extends object> extends ListBoxItemProps<T> {
   className?: string
 }
 
-const ListBoxItem = <T extends object>({ children, className, ...props }: ListBoxItemProps<T>) => {
+const Item = <T extends object>({ children, className, ...props }: ItemProps<T>) => {
   const textValue = typeof children === "string" ? children : undefined
 
   return (
-    <ListBoxItemPrimitive
+    <ListBoxItem
       textValue={textValue}
       {...props}
-      className={cr(className, (className, renderProps) =>
+      className={composeRenderProps(className, (className, renderProps) =>
         listBoxItemStyles({
           ...renderProps,
           className
@@ -93,30 +86,23 @@ const ListBoxItem = <T extends object>({ children, className, ...props }: ListBo
           </>
         </div>
       )}
-    </ListBoxItemPrimitive>
+    </ListBoxItem>
   )
 }
 
 type ListBoxPickerProps<T> = ListBoxProps<T>
 
 const ListBoxPicker = <T extends object>({ className, ...props }: ListBoxPickerProps<T>) => {
-  return (
-    <ListBoxPrimitive
-      className={cn("max-h-72 overflow-auto p-1 outline-none", className)}
-      {...props}
-    />
-  )
+  return <ListBoxPrimitive className={cn("max-h-72 overflow-auto p-1 outline-hidden", className)} {...props} />
 }
 
 const Section = ({ className, ...props }: React.ComponentProps<typeof DropdownSection>) => {
-  return (
-    <DropdownSection className={cn(className, "[&_.lbi:last-child]:-mb-1.5 gap-y-1")} {...props} />
-  )
+  return <DropdownSection className={cn(className, "[&_.lbi:last-child]:-mb-1.5 gap-y-1")} {...props} />
 }
 
 ListBox.Section = Section
 ListBox.ItemDetails = DropdownItemDetails
-ListBox.Item = ListBoxItem
+ListBox.Item = Item
 ListBox.Picker = ListBoxPicker
 
 export { ListBox, listBoxStyles, type ListBoxPickerProps }

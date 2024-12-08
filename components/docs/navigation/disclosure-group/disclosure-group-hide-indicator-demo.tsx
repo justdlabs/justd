@@ -2,15 +2,15 @@
 
 import React from "react"
 
-import { Disclosure, DisclosureGroup } from "ui"
+import { Disclosure, DisclosureGroup, DisclosurePanel, DisclosureTrigger } from "ui"
 
 export default function DisclosureGroupHideIndicatorDemo() {
   return (
-    <DisclosureGroup hideIndicator>
+    <DisclosureGroup className="**:data-[slot=disclosure-chevron]:hidden">
       {faqs.map((item, index) => (
         <Disclosure key={index} id={index}>
-          <Disclosure.Trigger>{item.q}</Disclosure.Trigger>
-          <Disclosure.Panel>{item.a}</Disclosure.Panel>
+          <DisclosureTrigger>{item.q}</DisclosureTrigger>
+          <DisclosurePanel>{item.a}</DisclosurePanel>
         </Disclosure>
       ))}
     </DisclosureGroup>

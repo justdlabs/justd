@@ -5,11 +5,7 @@ import { useState } from "react"
 
 import { IconChevronLgDown } from "justd-icons"
 import { useFilter } from "react-aria"
-import type {
-  ComboBoxProps as ComboBoxPrimitiveProps,
-  Key,
-  ValidationResult
-} from "react-aria-components"
+import type { ComboBoxProps as ComboBoxPrimitiveProps, Key, ValidationResult } from "react-aria-components"
 import { ComboBox } from "react-aria-components"
 import type { ListData } from "react-stately"
 import { useListData } from "react-stately"
@@ -22,29 +18,28 @@ import { ListBox } from "./list-box"
 import { Popover } from "./popover"
 import { cn } from "./primitive"
 import type { RestrictedIntent, TagGroupProps } from "./tag-group"
-import { Tag } from "./tag-group"
+import { Tag, TagGroup, TagList } from "./tag-group"
 import { VisuallyHidden } from "./visually-hidden"
 
 const multiSelectStyles = tv({
   slots: {
     multiSelectField: "group flex w-full min-w-80 flex-col",
     multiSelect: [
-      "relative px-1 flex min-h-10 flex-row flex-wrap items-center rounded-lg bg-bg shadow-sm border",
+      "relative px-1 flex min-h-10 flex-row flex-wrap items-center rounded-lg shadow-xs border",
       "has-[input[data-focused=true]]:border-ring/85",
       "has-[input[data-invalid=true][data-focused=true]]:border-blue-500",
       "has-[input[data-invalid=true]]:border-danger",
       "has-[input[data-focused=true]]:ring-4 has-[input[data-focused=true]]:ring-ring/20"
     ],
     chevronButton:
-      "size-8 -mr-2 grid place-content-center rounded-sm hover:text-fg focus:text-fg text-muted-fg",
+      "size-8 -mr-2 grid place-content-center rounded-sm data-hovered:text-fg data-focused:text-fg text-muted-fg",
     input: "flex-1 py-1 px-0.5 ml-1 shadow-none ring-0",
     comboBoxChild: "inline-flex flex-1 flex-wrap items-center px-0",
     comboBox: "group peer flex flex-1"
   }
 })
 
-const { multiSelectField, multiSelect, chevronButton, input, comboBox, comboBoxChild } =
-  multiSelectStyles()
+const { multiSelectField, multiSelect, chevronButton, input, comboBox, comboBoxChild } = multiSelectStyles()
 
 interface SelectedKey {
   id: Key
@@ -214,24 +209,24 @@ const MultipleSelect = <T extends SelectedKey>({
       {props.label && <Label className="mb-1">{props.label}</Label>}
       <div className={props.isDisabled ? "opacity-50" : ""}>
         <div ref={triggerRef} className={multiSelect({ className })}>
-          <Tag.Group
+          <TagGroup
             shape={props.shape}
             intent={props.intent}
             aria-label="Selected items"
             id={tagGroupIdentifier}
             onRemove={onRemove}
           >
-            <Tag.List
+            <TagList
               items={selectedItems.items}
               className={cn(
                 selectedItems.items.length !== 0 && "px-1 py-1.5",
-                "last:[&_.jdt3lr2x]:-mr-1 outline-none gap-1.5",
-                props.shape === "square" && "[&_.jdt3lr2x]:rounded-[calc(var(--radius)-4px)]"
+                "[&_.jdt3lr2x]:last:-mr-1 outline-hidden gap-1.5",
+                props.shape === "square" && "[&_.jdt3lr2x]:rounded-[calc(var(--radius-lg)-4px)]"
               )}
             >
               {props.tag}
-            </Tag.List>
-          </Tag.Group>
+            </TagList>
+          </TagGroup>
           <ComboBox
             {...props}
             allowsEmptyCollection
@@ -284,8 +279,7 @@ const MultipleSelect = <T extends SelectedKey>({
                     <Description className="p-3 block">
                       {fieldState.inputValue ? (
                         <>
-                          No results found for:{" "}
-                          <strong className="font-medium text-fg">{fieldState.inputValue}</strong>
+                          No results found for: <strong className="font-medium text-fg">{fieldState.inputValue}</strong>
                         </>
                       ) : (
                         `No options`
@@ -318,7 +312,7 @@ const MultipleSelect = <T extends SelectedKey>({
   )
 }
 
-MultipleSelect.Tag = Tag.Item
+MultipleSelect.Tag = Tag
 MultipleSelect.Option = ListBox.Item
 
 export { MultipleSelect, type SelectedKey }

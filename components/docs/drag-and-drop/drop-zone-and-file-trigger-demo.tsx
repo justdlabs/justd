@@ -11,9 +11,7 @@ export default function DropZoneAndFileTriggerDemo() {
   const [droppedImage, setDroppedImage] = React.useState<string | undefined>(undefined)
 
   const onDropHandler = async (e: DropEvent) => {
-    const item = e.items
-      .filter(isFileDropItem)
-      .find((item) => item.type === "image/jpeg" || item.type === "image/png")
+    const item = e.items.filter(isFileDropItem).find((item) => item.type === "image/jpeg" || item.type === "image/png")
     if (item) {
       const file = await item.getFile()
       setDroppedImage(URL.createObjectURL(file))
@@ -32,9 +30,7 @@ export default function DropZoneAndFileTriggerDemo() {
   }
   return (
     <DropZone
-      getDropOperation={(types) =>
-        types.has("image/jpeg") || types.has("image/png") ? "copy" : "cancel"
-      }
+      getDropOperation={(types) => (types.has("image/jpeg") || types.has("image/png") ? "copy" : "cancel")}
       onDrop={onDropHandler}
     >
       {droppedImage ? (

@@ -9,11 +9,12 @@ import {
   TextField as TextFieldPrimitive,
   type TextFieldProps as TextFieldPrimitiveProps
 } from "react-aria-components"
+import { twJoin } from "tailwind-merge"
 
 import type { FieldProps } from "./field"
 import { Description, FieldError, FieldGroup, Input, Label } from "./field"
 import { Loader } from "./loader"
-import { ctr } from "./primitive"
+import { composeTailwindRenderProps } from "./primitive"
 
 type InputType = Exclude<TextInputDOMProps["type"], "password">
 
@@ -51,7 +52,6 @@ const TextField = ({
 }: TextFieldProps) => {
   const [isPasswordVisible, setIsPasswordVisible] = React.useState(false)
   const inputType = isRevealable ? (isPasswordVisible ? "text" : "password") : type
-
   const handleTogglePasswordVisibility = () => {
     setIsPasswordVisible((prev) => !prev)
   }
@@ -59,10 +59,19 @@ const TextField = ({
     <TextFieldPrimitive
       type={inputType}
       {...props}
-      className={ctr(className, "group flex flex-col gap-y-1.5")}
+      className={composeTailwindRenderProps(className, "group flex flex-col gap-y-1.5")}
     >
       {label && <Label>{label}</Label>}
-      <FieldGroup data-loading={isPending ? "true" : undefined}>
+      <FieldGroup
+        isInvalid={!!errorMessage}
+        isDisabled={props.isDisabled}
+        className={twJoin(
+          "**:[button]:shrink-0 **:[button]:size-7 **:[button]:p-0",
+          "[&>[data-slot=suffix]>button]:mr-[calc(var(--spacing)*-1.15)] [&>[data-slot=suffix]>button]:rounded-md [&>[data-slot=suffix]>button]:data-focus-visible:outline-1 [&>[data-slot=suffix]>button]:data-focus-visible:outline-offset-1",
+          "[&>[data-slot=prefix]>button]:mr-[calc(var(--spacing)*-1.15)] [&>[data-slot=prefix]>button]:rounded-md [&>[data-slot=prefix]>button]:data-focus-visible:outline-1 [&>[data-slot=prefix]>button]:data-focus-visible:outline-offset-1"
+        )}
+        data-loading={isPending ? "true" : undefined}
+      >
         {prefix ? (
           <span data-slot="prefix" className="atrs x2e2">
             {prefix}
@@ -74,7 +83,7 @@ const TextField = ({
             type="button"
             aria-label="Toggle password visibility"
             onPress={handleTogglePasswordVisibility}
-            className="mr-2.5 relative [&>[data-slot=icon]]:text-muted-fg focus:outline-none focus-visible:ring-1 focus-visible:ring-primary rounded"
+            className="mr-1 grid place-content-center border-transparent data-focus-visible:*:data-[slot=icon]:text-primary outline-hidden relative shrink-0 *:data-[slot=icon]:text-muted-fg rounded-sm"
           >
             <>{isPasswordVisible ? <IconEyeClosed /> : <IconEye />}</>
           </ButtonPrimitive>
