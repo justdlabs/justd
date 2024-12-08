@@ -106,22 +106,22 @@
 
 /*}*/
 
-/*[data-rehype-pretty-code-title] {*/
-/*  @apply text-muted-fg p-2 text-sm font-medium;*/
-/*}*/
+[data-rehype-pretty-code-title] {
+  @apply text-muted-fg p-2 text-sm font-medium;
+}
 
-/*[data-rehype-pretty-code-figure] code {*/
-/*  @apply border-0 p-0 !text-sm !leading-loose md:text-base;*/
-/*}*/
+[data-rehype-pretty-code-figure] code {
+  @apply border-0 p-0 text-sm! leading-loose! md:text-base;
+}
 
-/*span[data-rehype-pretty-code-figure] > code {*/
-/*  background: transparent !important;*/
-/*}*/
+span[data-rehype-pretty-code-figure] > code {
+  background: transparent !important;
+}
 
-/*span[data-rehype-pretty-code-figure] > code > span {*/
-/*  @apply bg-secondary text-secondary-fg inline-block rounded text-xs font-normal drop-shadow-none;*/
-/*  padding: 0.2rem 0.3rem !important;*/
-/*}*/
+span[data-rehype-pretty-code-figure] > code > span {
+  @apply bg-secondary text-secondary-fg inline-block rounded text-xs font-normal drop-shadow-none;
+  padding: 0.2rem 0.3rem !important;
+}
 
 [data-rehype-pretty-code-figure] code[data-line-numbers] {
   counter-reset: line;
@@ -133,13 +133,8 @@
   @apply mr-4 inline-block w-4 text-right text-gray-500;
 }
 
-[data-rehype-pretty-code-figure] [data-line] {
-  @apply -ml-4 border-l-2 border-l-transparent px-3;
-}
-
 [data-rehype-pretty-code-figure] [data-highlighted-line] {
-  background: rgba(200, 200, 255, 0.1);
-  @apply border-l-blue-400;
+  @apply -ml-4 border-l border-blue-400 bg-gradient-to-r from-blue-600/10 via-(--shiki-bg) to-(--shiki-bg) pl-4;
 }
 
 [data-rehype-pretty-code-figure] [data-highlighted-chars] {
@@ -178,12 +173,12 @@
   @apply tracking-tight;
 }
 
-/*.prose-heading.s\:scroll-mt-24*/
-/*  :is(:where(h1, h2, h3, h4, h5, h6, th):not(:where([class~="not-prose"], [class~="not-prose"] *)))*/
-/*  > a {*/
-/*  text-decoration: none !important;*/
-/*  color: var(--fg) !important;*/
-/*}*/
+.prose-heading.s\:scroll-mt-24
+  :is(:where(h1, h2, h3, h4, h5, h6, th):not(:where([class~="not-prose"], [class~="not-prose"] *)))
+  > a {
+  text-decoration: none !important;
+  color: var(--fg) !important;
+}
 
 .prose :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *))::before,
 .prose :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *))::after {

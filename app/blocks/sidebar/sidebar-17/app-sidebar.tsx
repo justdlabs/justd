@@ -2,8 +2,20 @@
 
 import * as React from "react"
 
+import { parseDate } from "@internationalized/date"
 import { IconBrandApple } from "justd-icons"
-import { Calendar, Link, Sidebar, SidebarContent, SidebarHeader, SidebarLabel, SidebarRail, SidebarSection } from "ui"
+import {
+  Link,
+  RangeCalendar,
+  SearchField,
+  Sidebar,
+  SidebarContent,
+  SidebarHeader,
+  SidebarLabel,
+  SidebarRail,
+  SidebarSection,
+  SidebarSectionGroup
+} from "ui"
 
 export default function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
   return (
@@ -18,9 +30,19 @@ export default function AppSidebar(props: React.ComponentProps<typeof Sidebar>) 
         </Link>
       </SidebarHeader>
       <SidebarContent>
-        <SidebarSection>
-          <Calendar />
-        </SidebarSection>
+        <SidebarSectionGroup>
+          <SidebarSection>
+            <SearchField />
+          </SidebarSection>
+          <SidebarSection>
+            <RangeCalendar
+              defaultValue={{
+                start: parseDate(`${new Date().getFullYear()}-02-03`),
+                end: parseDate(`${new Date().getFullYear()}-02-12`)
+              }}
+            />
+          </SidebarSection>
+        </SidebarSectionGroup>
       </SidebarContent>
       <SidebarRail />
     </Sidebar>

@@ -59,34 +59,45 @@ Not sure if it's your style, but it's a great starting point. If you’d like to
 The sidebar comes in three variations: `"sidebar"`, `"floating"`, and `"inset"`. By default, the variation is set to `"sidebar"`.
 
 ### Sidebar
-The default variation is a traditional sidebar often used for navigation.
+The default variation is a traditional sidebar often used for navigation. <NewTab href='/blocks/sidebar/sidebar-02'/>.
 ```
 <Sidebar intent="default" />
 ```
 
 ### Inset
-The inset variation adds padding to the main content for a visually distinct layout. Explore the demo to see it in action, or switch to full-screen mode for a better view.
+The inset variation adds padding to the main content for a visually distinct layout. Explore the demo to see it in action, or switch to full-screen mode for a better view. <NewTab href='/blocks/sidebar/sidebar-03'/>.
 ```
 <Sidebar intent="inset" />
 ```
 
 ### Floating
-The floating variation introduces an inner border within the sidebar, while the wrapper includes padding around the content.
+The floating variation introduces an inner border within the sidebar, while the wrapper includes padding around the content. <NewTab href='/blocks/sidebar/sidebar-04'/>
 ```
 <Sidebar intent="floating" />
 ```
+
+### Fleet
+The floating variation introduces an inner border within the sidebar, while the wrapper includes padding around the content. <NewTab href='/blocks/sidebar/sidebar-18'/>
+<EditorText
+  source={{
+    'folders.ts': 'blocks/sidebar/sidebar-18/folders.ts',
+    'sidebar-header.tsx': 'blocks/sidebar/sidebar-18/sidebar-header',
+    'app-sidebar.tsx': 'blocks/sidebar/sidebar-18/app-sidebar',
+    'layout.tsx': 'blocks/sidebar/sidebar-18/layout',
+    'page.tsx': 'blocks/sidebar/sidebar-18/page',
+  }} />
 
 ## Collapsible
 The sidebar can be made collapsible by using the `collapsible` prop in the `SidebarProvider`. The default collapsible behavior is `"hidden"`.
 
 ### Hidden
-When toggled, the sidebar hides completely from view.
+When toggled, the sidebar hides completely from view. <NewTab href='/blocks/sidebar/sidebar-05'/>
 ```
 <Sidebar collapsible="hidden" />
 ```
 
 ### Dock
-When toggled, the sidebar docks to a minimal state, showing only icons. Hovering over an icon reveals a tooltip with additional information.
+When toggled, the sidebar docks to a minimal state, showing only icons. Hovering over an icon reveals a tooltip with additional information. <NewTab href='/blocks/sidebar/sidebar-06'/>
 ```
 <Sidebar intent="dock" />
 ```
@@ -187,7 +198,7 @@ const sections = [
 
 ## Separator
 The sidebar supports separators, which can be used to separate sections or groups of items.
-```
+```tsx {3,6, 9}
 <SidebarContent>
   <SidebarSection/>
   <SidebarSeparator />
@@ -258,15 +269,23 @@ The sidebar has two sides, left and right. You can set the side of the sidebar b
 <Sidebar side='left | right'/>
 ```
 
+## Put Anything
+This is justd sidebar, so you can put anything you want in it. You can use the `SidebarContent` component to wrap your content. Let's try to add a range-calendar and search-field to the sidebar. <NewTab href='/blocks/sidebar/sidebar-17'/>
+<EditorText
+  source={{
+    'app-sidebar.tsx': 'blocks/sidebar/sidebar-17/app-sidebar',
+    'layout.tsx': 'blocks/sidebar/sidebar-17/layout',
+  }} />
+
 ## Props
 The sidebar supports the following props:
 ### Sidebar
-| **Property**  | **Type**                             | **Default** |
-|---------------|--------------------------------------|-------------|
-| `intent`      | `"default" \| "floating" \| "inset"` | `"default"` |
-| `collapsible` | `"hidden" \| "dock" \| "none"`       | `"hidden"`  |
-| `side`        | `"left" \| "right"`                  | `"left"`    |
-| `closeButton` | `boolean`                            | `"true"`    |
+| **Property**  | **Type**                                           | **Default** |
+|---------------|----------------------------------------------------|-------------|
+| `intent`      | `"default" \| "floating" \| \| "fleet" \| "inset"` | `"default"` |
+| `collapsible` | `"hidden" \| "dock" \| "none"`                     | `"hidden"`  |
+| `side`        | `"left" \| "right"`                                | `"left"`    |
+| `closeButton` | `boolean`                                          | `"true"`    |
 
 ### SidebarContextProps
 

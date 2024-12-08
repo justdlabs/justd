@@ -10,7 +10,9 @@ import { DocNote } from "@/components/doc-note"
 import { DocWarningFramer } from "@/components/doc-warning-framer"
 import { Installation } from "@/components/installation"
 import { useMDXComponent } from "@/resources/hooks/use-mdx"
+import { IconArrowUpRight } from "justd-icons"
 import Image from "next/image"
+import { Link } from "ui"
 
 import { DocHow } from "./code/doc-how"
 
@@ -32,6 +34,16 @@ export function Mdx({ code }: MdxProps) {
         Anatomy: Anatomy,
         Composed: DocComposed,
         Image,
+        NewTab: (props: React.ComponentProps<typeof Link>) => (
+          <Link
+            className="not-prose xd2432 text-blue-600 dark:text-blue-400 xd2432 data-hovered:underline"
+            target="_blank"
+            {...props}
+          >
+            <>{(props.children as string) ?? "Preview"}</>
+            <IconArrowUpRight className="inline size-3.5 ml-1" />
+          </Link>
+        ),
         How: DocHow,
         a: (props: React.ComponentProps<"a">) => (
           <a {...props} className="not-prose xd2432 text-blue-600 dark:text-blue-400 xd2432 data-hovered:underline" />
