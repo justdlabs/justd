@@ -4,12 +4,7 @@ import * as React from "react"
 
 import { IconX } from "justd-icons"
 import type { ButtonProps as ButtonPrimitiveProps, DialogProps, HeadingProps } from "react-aria-components"
-import {
-  Button as ButtonPrimitive,
-  Dialog as DialogPrimitive,
-  Heading,
-  OverlayTriggerStateContext
-} from "react-aria-components"
+import { Button as ButtonPrimitive, Dialog as DialogPrimitive, Heading } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
 import { Button, type ButtonProps } from "./button"
@@ -126,11 +121,10 @@ const Footer = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) =
 }
 
 const Close = ({ className, appearance = "outline", ...props }: ButtonProps) => {
-  const state = React.use(OverlayTriggerStateContext)!
-  return <Button className={className} appearance={appearance} onPress={() => state.close()} {...props} />
+  return <Button slot="close" className={className} appearance={appearance} {...props} />
 }
 
-interface CloseButtonIndicatorProps {
+interface CloseButtonIndicatorProps extends ButtonProps {
   className?: string
   isDismissable?: boolean | undefined
 }

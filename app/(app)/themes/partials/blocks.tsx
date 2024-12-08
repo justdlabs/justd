@@ -32,11 +32,12 @@ import {
 
 export function Blocks() {
   return (
-    <div className="grid **:data-[slot=card]:bg-secondary/15 gap-2">
-      <Card className="px-4 pb-6 pt-4">
-        <AppNavbar intent="floating" />
-      </Card>
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-2">
+    <div className="grid **:data-[slot=card]:rounded-md gap-1">
+      {/*<div className="grid **:data-[slot=card]:rounded-md **:data-[slot=card]:bg-secondary/15 gap-2">*/}
+      <div className="-mx-2.5">
+        <AppNavbar className="*:data-navbar-nav:rounded-md -mt-1" intent="floating" />
+      </div>
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-1">
         <Card className="p-6 flex flex-col items-center justify-center gap-y-6">
           <div className="grid grid-cols-2 gap-2">
             {Object.keys(buttonStyles.variants.intent).map((intent) => (
@@ -147,7 +148,7 @@ export function Blocks() {
         <PieChartDonutWithTextDemo />
         <RadialBarChartGridDemo />
       </div>
-      <div className="grid sm:grid-cols-2 gap-2">
+      <div className="grid sm:grid-cols-2 gap-1">
         <AreaChartGradientDemo />
         <BarChartMultipleDemo />
       </div>

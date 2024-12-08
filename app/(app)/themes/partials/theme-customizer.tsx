@@ -94,7 +94,7 @@ export function ThemeCustomizer({ selectedColors, setSelectedColors }: ThemeCust
   const filteredPrimaryColors = getFilteredColors(selectedColors.gray)
   const filteredAccentColors = getFilteredColors(selectedColors.gray)
   return (
-    <div className="grid grid-cols-2 sm:gap-3 gap-x-3 gap-y-6 sm:gap-3 mt-6 max-w-xl">
+    <div className="grid gap-4 max-w-xl">
       <ColorSelect
         selectedKey={selectedColors.gray}
         onSelectionChange={handleSelectionChange("gray")}
@@ -102,20 +102,22 @@ export function ThemeCustomizer({ selectedColors, setSelectedColors }: ThemeCust
         placeholder="Select gray color"
         filterKeys={neutralColors}
       />
-      <ColorSelect
-        selectedKey={selectedColors.primary}
-        onSelectionChange={handleSelectionChange("primary")}
-        label="Primary Color"
-        placeholder="Select primary color"
-        filterKeys={filteredPrimaryColors}
-      />
-      <ColorSelect
-        selectedKey={selectedColors.accent}
-        onSelectionChange={handleSelectionChange("accent")}
-        label="Accent Color"
-        placeholder="Select accent color"
-        filterKeys={filteredAccentColors}
-      />
+      <div className="grid grid-cols-2 gap-2">
+        <ColorSelect
+          selectedKey={selectedColors.primary}
+          onSelectionChange={handleSelectionChange("primary")}
+          label="Primary Color"
+          placeholder="Select primary color"
+          filterKeys={filteredPrimaryColors}
+        />
+        <ColorSelect
+          selectedKey={selectedColors.accent}
+          onSelectionChange={handleSelectionChange("accent")}
+          label="Accent Color"
+          placeholder="Select accent color"
+          filterKeys={filteredAccentColors}
+        />
+      </div>
     </div>
   )
 }

@@ -97,7 +97,7 @@ const Navbar = ({
   )
   return (
     <NavbarContext.Provider value={contextValue}>
-      <header data-intent={intent} className={navbarStyles({ intent, className })} {...props}>
+      <header data-navbar-intent={intent} className={navbarStyles({ intent, className })} {...props}>
         {children}
       </header>
     </NavbarContext.Provider>
@@ -153,7 +153,7 @@ const Nav = ({ className, ...props }: NavbarProps) => {
   }
 
   return (
-    <div data-slot="navbar-nav" className={navStyles({ isSticky, intent, className })} {...props}>
+    <div data-navbar-nav="true" className={navStyles({ isSticky, intent, className })} {...props}>
       <div>{props.children}</div>
     </div>
   )
@@ -163,7 +163,7 @@ const Trigger = ({ className, onPress, ...props }: React.ComponentProps<typeof B
   const { toggleNavbar } = useNavbar()
   return (
     <Button
-      data-slot="navbar-trigger"
+      data-navbar-trigger="true"
       appearance="plain"
       aria-label={props["aria-label"] || "Toggle Navbar"}
       size="square-petite"
@@ -186,7 +186,7 @@ const Section = ({ className, ...props }: React.ComponentProps<"div">) => {
   return (
     <LayoutGroup id={id}>
       <div
-        data-slot="navbar-section"
+        data-navbar-section="true"
         className={cn("flex", isCompact ? "flex-col gap-y-4" : "flex-row gap-x-3 items-center", className)}
         {...props}
       >
@@ -219,7 +219,7 @@ const Item = ({ className, isCurrent, ...props }: ItemProps) => {
   const { intent, isCompact } = useNavbar()
   return (
     <Link
-      slot="navbar-item"
+      data-navbar-item="true"
       aria-current={isCurrent ? "page" : undefined}
       className={composeRenderProps(className, (className, ...renderProps) =>
         navItemStyles({ ...renderProps, isCurrent, className })
@@ -259,7 +259,7 @@ const Flex = ({ className, ...props }: React.ComponentProps<"div">) => {
 }
 
 const compactStyles = tv({
-  base: "sm:hidden flex peer-has-[[data-intent=floating]]:border bg-navbar text-navbar-fg justify-between",
+  base: "sm:hidden flex peer-has-[[data-navbar-intent=floating]]:border bg-navbar text-navbar-fg justify-between",
   variants: {
     intent: {
       floating: "border h-12 rounded-lg px-3.5",
@@ -288,7 +288,10 @@ const insetStyles = tv({
 const Inset = ({ className, ...props }: React.ComponentProps<"div">) => {
   const { intent } = useNavbar()
   return (
-    <main data-intent={intent} className={cn("flex flex-1 flex-col", intent === "inset" && "pb-2 sm:px-2", className)}>
+    <main
+      data-navbar-intent={intent}
+      className={cn("flex flex-1 flex-col", intent === "inset" && "pb-2 sm:px-2", className)}
+    >
       <div className={insetStyles({ intent, className })}>{props.children}</div>
     </main>
   )

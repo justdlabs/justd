@@ -3,6 +3,7 @@
 import * as React from "react"
 
 import { Blocks } from "@/app/(app)/themes/partials/blocks"
+import { GeneratedColor } from "@/app/(app)/themes/partials/generated-color"
 import { ThemeCustomizer } from "@/app/(app)/themes/partials/theme-customizer"
 import { CodeHighlighter } from "@/components/code/code-highlighter"
 import { IconBrandCss, IconDuplicate } from "justd-icons"
@@ -22,59 +23,91 @@ export function ThemeContainer() {
     navigator.clipboard.writeText(generateTheme(selectedColors))
     toast(`Copied to clipboard.`)
   }
+
+  const [open, setOpen] = React.useState(false)
+  const handleOpen = () => setOpen(true)
+  const handleClose = () => setOpen(false)
   return (
     <div className="py-4 sm:py-16">
       <Container>
-        <div className="mb-2 bg-secondary/15 border rounded-xl p-6">
-          <div className="flex sm:flex-row flex-col sm:justify-between sm:items-end gap-4 mb-6">
-            <div>
-              <Heading level={2}>Theme Customizer</Heading>
-              <p className="text-muted-fg text-sm">
-                Customize your theme by selecting colors from the color picker or by entering a hex code.
-              </p>
+        <div className="border divide-y lg:divide-y-0 lg:divide-x rounded-lg flex-col lg:flex-row flex flex">
+          <div className="w-full lg:w-1/2 p-4 lg:p-6">
+            <div className="flex sm:flex-row flex-col sm:justify-between sm:items-end gap-4 mb-4 lg:mb-6">
+              <div>
+                <Heading level={2} className="sm:text-lg">
+                  Theme Customizer
+                </Heading>
+                <p className="text-muted-fg text-sm">
+                  Customize your theme by selecting colors from the color picker or by entering a hex code.
+                </p>
+              </div>
             </div>
-            <Sheet>
-              <Button>
+            <div>
+              <ThemeCustomizer {...{ selectedColors, setSelectedColors }} />
+              <div className="mt-3 justify-end flex">
+                <Button className="lg:hidden w-full flex" onPress={handleOpen}>
+                  <IconBrandCss />
+                  Get Theme
+                </Button>
+              </div>
+            </div>
+          </div>
+          <div className="w-full lg:w-2/3 px-4 pb-4 pt-2 lg:p-6">
+            <div className="mb-4 lg:mb-6 flex justify-between">
+              <div>
+                <Heading level={2} className="sm:text-lg">
+                  Generated Colors
+                </Heading>
+                <p className="text-muted-fg text-sm">The generated colors are based on the selected gray color.</p>
+              </div>
+              <Button className="lg:flex hidden" onPress={handleOpen}>
                 <IconBrandCss />
                 Get Theme
               </Button>
-              <Sheet.Content classNames={{ content: "bg-[#0e0e10] sm:max-w-md" }} side="right">
-                {(values) => (
-                  <>
-                    <Sheet.Header
-                      className="text-white *:text-white border-zinc-800"
-                      title="Theme"
-                      description="Copy the theme below and paste it into your CSS file."
-                    />
-                    <Sheet.Body className="border-y pb-4 border-zinc-800">
-                      <CodeHighlighter plain max96={false} className="pt-4" code={generateTheme(selectedColors)} />
-                    </Sheet.Body>
-                    <Sheet.Footer className="gap-x-1">
-                      <Sheet.Close className="border-zinc-800 sm:flex hidden text-white data-pressed:border-zinc-700 data-pressed:bg-zinc-800 data-hovered:border-zinc-700 data-hovered:bg-zinc-900">
-                        Close
-                      </Sheet.Close>
-                      <Button
-                        onPress={() => {
-                          copy()
-                          values.state.close()
-                        }}
-                      >
-                        <IconDuplicate />
-                        Copy
-                      </Button>
-                    </Sheet.Footer>
-                  </>
-                )}
-              </Sheet.Content>
-            </Sheet>
+            </div>
+
+            <GeneratedColor />
           </div>
-          <ThemeCustomizer {...{ selectedColors, setSelectedColors }} />
         </div>
+
         <Blocks />
         <React.Suspense fallback={<div>Loading...</div>}>
           <style>{generateTheme(selectedColors)}</style>
         </React.Suspense>
       </Container>
+
+      <Sheet.Content
+        onOpenChange={setOpen}
+        isOpen={open}
+        classNames={{ content: "bg-[#0e0e10] sm:max-w-md" }}
+        side="right"
+      >
+        <Sheet.Header
+          className="text-white *:text-white border-zinc-800"
+          title="Theme"
+          description="Copy the theme below and paste it into your CSS file."
+        />
+        <Sheet.Body className="border-y pb-4 border-zinc-800">
+          <CodeHighlighter plain max96={false} className="pt-4" code={generateTheme(selectedColors)} />
+        </Sheet.Body>
+        <Sheet.Footer className="gap-x-1">
+          <Sheet.Close
+            onPress={handleClose}
+            className="border-zinc-800 sm:flex hidden text-white data-pressed:border-zinc-700 data-pressed:bg-zinc-800 data-hovered:border-zinc-700 data-hovered:bg-zinc-900"
+          >
+            Close
+          </Sheet.Close>
+          <Button
+            onPress={() => {
+              copy()
+              handleClose()
+            }}
+          >
+            <IconDuplicate />
+            Copy
+          </Button>
+        </Sheet.Footer>
+      </Sheet.Content>
     </div>
   )
 }
