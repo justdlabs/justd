@@ -4,17 +4,18 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "first-time": "bun i && bun run build:registry && bun run build && bun run build:sidebar && bun run dev",
+    "first-time": "bun i && next build && bun run build:sidebar && next start",
     "lint": "next lint",
     "cuc": "bun run resources/scripts/check-use-client.ts",
     "prepare": "husky",
-    "dev:content": "velite --watch",
+    "build:sidebar": "bun run resources/scripts/build-sidebar.ts",
+    "build:registry": "rm -rf public/registry && bun run resources/scripts/build-registry.ts",
     "dev": "next dev --turbopack && velite --watch",
     "build": "next build && velite --clean",
     "format": "prettier --write \"**/*.{ts,tsx,css}\"",
-    "build:sidebar": "bun run resources/scripts/build-sidebar.ts",
-    "b": "bun run build:sidebar && bun run build:registry && prettier --write __registry__/generated.ts",
-    "build:registry": "rm -rf public/registry && bun run resources/scripts/build-registry.ts",
+    "b": "rm -rf pubilc/registry && bun run build:sidebar && bun run build:registry && prettier --write __registry__/generated.ts",
+    "bb": "bun run format && bun run b",
+    "start": "next start",
     "preview": "bun run build && next start"
   },
   "dependencies": {
