@@ -152,7 +152,7 @@ export function NavbarDropdown() {
         </span>
       </Button>
       <Menu.Content placement="bottom" className="sm:min-w-64">
-        <Menu.Section>
+        <Menu.Section title="Pages">
           <Menu.Item href="/">
             <IconHome />
             Home
@@ -165,13 +165,13 @@ export function NavbarDropdown() {
             <IconColors />
             Colors
           </Menu.Item>
-          <Menu.Item href="/icons">
-            <IconBrandJustd />
-            Icons
-          </Menu.Item>
           <Menu.Item href="/themes">
             <IconColorPalette />
             Themes
+          </Menu.Item>
+          <Menu.Item href="/icons">
+            <IconBrandJustd />
+            Icons
           </Menu.Item>
         </Menu.Section>
         <Menu.Section title="Refs">

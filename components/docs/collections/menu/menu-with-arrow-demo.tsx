@@ -10,7 +10,7 @@ export default function MenuWithArrowDemo() {
     <>
       <Menu>
         <Menu.Trigger aria-label="Open Menu">
-          <Avatar className="size-10" src="https://github.com/irsyadadl.png" />
+          <Avatar className="size-10" src="/images/avatar/cobain.jpg" />
         </Menu.Trigger>
         <Menu.Content placement="bottom" showArrow className="min-w-64">
           <Menu.Section>

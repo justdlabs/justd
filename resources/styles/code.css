@@ -14,8 +14,11 @@
   display: block;
 }
 
+[data-rehype-pretty-code-figure] {
+  @apply outline-hidden;
+}
 [data-rehype-pretty-code-figure] pre {
-  @apply overflow-auto font-mono leading-relaxed;
+  @apply overflow-auto font-mono leading-relaxed outline-hidden;
 }
 
 [data-rehype-pretty-code-fragment] {

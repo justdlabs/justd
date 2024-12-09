@@ -112,10 +112,11 @@ const SidebarProvider = ({
     <SidebarContext value={contextValue}>
       <div
         className={cn(
-          "[--sidebar-width:17rem] [--sidebar-width-mobile:18rem] [--sidebar-width-dock:3.25rem]",
-          "[--sidebar-border:color-mix(in_oklch,var(--color-sidebar)_55%,white_10%)]",
-          "[--sidebar-accent:color-mix(in_oklab,var(--color-sidebar)_95%,black_5%)]",
           "**:data-[slot=icon]:shrink-0",
+          "[--sidebar-width:17rem] [--sidebar-width-mobile:18rem] [--sidebar-width-dock:3.25rem]",
+          "[--sidebar-border:color-mix(in_oklch,var(--color-sidebar)_25%,black_6%)]",
+          "dark:[--sidebar-border:color-mix(in_oklch,var(--color-sidebar)_55%,white_10%)]",
+          "[--sidebar-accent:color-mix(in_oklab,var(--color-sidebar)_95%,black_5%)]",
           "dark:[--sidebar-accent:color-mix(in_oklab,var(--color-sidebar)_85%,white_15%)]",
           "flex min-h-svh w-full text-sidebar-fg",
           className
@@ -139,7 +140,7 @@ const gap = tv({
     intent: {
       default: "group-data-[sidebar-collapsible=dock]/sidebar-container:w-(--sidebar-width-dock)",
       fleet: "group-data-[sidebar-collapsible=dock]/sidebar-container:w-(--sidebar-width-dock)",
-      floating:
+      float:
         "group-data-[sidebar-collapsible=dock]/sidebar-container:w-[calc(var(--sidebar-width-dock)+theme(spacing.4))]",
       inset:
         "group-data-[sidebar-collapsible=dock]/sidebar-container:w-[calc(var(--sidebar-width-dock)+theme(spacing.2))]"
@@ -160,7 +161,7 @@ const sidebar = tv({
       right: "right-0 group-data-[sidebar-collapsible=hidden]/sidebar-container:right-[calc(var(--sidebar-width)*-1)]"
     },
     intent: {
-      floating: "p-2 group-data-[sidebar-collapsible=dock]/sidebar-container:w-[calc(var+theme(spacing.4)+2px)]",
+      float: "p-2 group-data-[sidebar-collapsible=dock]/sidebar-container:w-[calc(var+theme(spacing.4)+2px)]",
       inset: [
         "p-2 group-data-[sidebar-collapsible=dock]/sidebar-container:w-[calc(var(--sidebar-width-dock)+theme(spacing.2)+2px)]",
         "[--bg-sidebar-container:(--color-bg)]"
@@ -179,7 +180,7 @@ const sidebar = tv({
 })
 
 interface SidebarProps extends React.ComponentProps<"div"> {
-  intent?: "default" | "floating" | "inset" | "fleet"
+  intent?: "default" | "float" | "inset" | "fleet"
   collapsible?: "hidden" | "dock" | "none"
   side?: "left" | "right"
   closeButton?: boolean
@@ -215,7 +216,7 @@ const Sidebar = ({
           classNames={{
             content: "bg-sidebar w-(--sidebar-width-mobile) text-sidebar-fg [&>button]:hidden"
           }}
-          isStack={intent === "floating"}
+          isStack={intent === "float"}
           side={side}
         >
           <Sheet.Body className="px-0">{props.children}</Sheet.Body>
@@ -244,7 +245,7 @@ const Sidebar = ({
       >
         <div
           data-sidebar="default"
-          className="flex h-full group-data-[sidebar-intent=inset]/sidebar-container:bg-bg bg-sidebar text-sidebar-fg w-full flex-col group-data-[sidebar-intent=floating]/sidebar-container:rounded-lg group-data-[sidebar-intent=floating]/sidebar-container:border group-data-[sidebar-intent=floating]/sidebar-container:border-(--sidebar-border) group-data-[sidebar-intent=floating]/sidebar-container:shadow"
+          className="flex h-full group-data-[sidebar-intent=inset]/sidebar-container:bg-bg bg-sidebar text-sidebar-fg w-full flex-col group-data-[sidebar-intent=float]/sidebar-container:rounded-lg group-data-[sidebar-intent=float]/sidebar-container:border group-data-[sidebar-intent=float]/sidebar-container:border-(--sidebar-border) group-data-[sidebar-intent=float]/sidebar-container:shadow-xs"
         >
           {props.children}
         </div>
@@ -258,7 +259,7 @@ const header = tv({
   variants: {
     collapsed: {
       false: "px-5 py-[calc(var(--spacing)*4)]",
-      true: "p-5 mt-2 md:p-0 md:size-9 group-data-[sidebar-intent=floating]/sidebar-container:mt-2 md:rounded-lg md:hover:bg-(--sidebar-accent) md:mx-auto md:justify-center md:items-center"
+      true: "p-5 mt-2 md:p-0 md:size-9 group-data-[sidebar-intent=float]/sidebar-container:mt-2 md:rounded-lg md:hover:bg-(--sidebar-accent) md:mx-auto md:justify-center md:items-center"
     }
   }
 })
@@ -344,6 +345,7 @@ const sidebarItem = tv({
     "text-sidebar-fg/70 relative px-2.5 py-[calc(var(--spacing)*1.7)] overflow-hidden gap-x-2 w-full group cursor-pointer flex items-center sm:text-sm rounded-lg outline-hidden",
     "**:data-[slot=menu-trigger]:absolute **:data-[slot=menu-trigger]:h-full **:data-[slot=menu-trigger]:items-center **:data-[slot=menu-trigger]:w-[calc(var(--sidebar-width)-90%)] **:data-[slot=menu-trigger]:right-0 **:data-[slot=menu-trigger]:flex **:data-[slot=menu-trigger]:justify-end **:data-[slot=menu-trigger]:pr-2.5",
     "**:data-[slot=menu-trigger]:hidden",
+    "**:data-[slot=icon]:size-4 **:data-[slot=avatar]:size-4 **:data-[slot=avatar]:*:size-4 **:data-[slot=icon]:shrink-0 **:data-[slot=avatar]:shrink-0",
     "**:data-[slot=menu-trigger]:bg-gradient-to-l **:data-[slot=menu-trigger]:from-(--sidebar-accent) **:data-[slot=menu-trigger]:from-65%",
     "in-data-[sidebar-intent=fleet]:rounded-none"
   ],
@@ -352,7 +354,7 @@ const sidebarItem = tv({
       true: "size-9 justify-center p-0 gap-x-0"
     },
     isCurrent: {
-      true: "bg-primary text-primary-fg **:data-[slot=icon]:text-primary-fg **:data-[slot=menu-trigger]:from-primary data-hovered:bg-primary [&_.text-muted-fg]:text-primary-fg/80"
+      true: "bg-primary text-primary-fg **:data-[slot=icon]:text-primary-fg **:data-[slot=menu-trigger]:from-primary data-hovered:bg-primary data-hovered:text-primary-fg [&_.text-muted-fg]:text-primary-fg/80"
     },
     isActive: {
       true: "bg-(--sidebar-accent) text-sidebar-fg **:data-[slot=menu-trigger]:flex"
@@ -455,7 +457,7 @@ const SidebarInset = ({ className, ref, ...props }: React.ComponentProps<"main">
       className={cn(
         "relative flex min-h-svh flex-1 flex-col inset-ring-1 inset-ring-transparent peer-data-[sidebar-intent=inset]:inset-ring-(--sidebar-border)",
         "bg-bg peer-data-[sidebar-intent=inset]:bg-sidebar",
-        "peer-data-[sidebar-intent=inset]:min-h-[calc(100svh-theme(spacing.4))] md:peer-data-[sidebar-intent=inset]:m-2 md:peer-data-[sidebar-state=collapsed]:peer-data-[sidebar-intent=inset]:ml-2 md:peer-data-[sidebar-intent=inset]:ml-0 md:peer-data-[sidebar-intent=inset]:rounded-xl md:peer-data-[sidebar-intent=inset]:shadow",
+        "peer-data-[sidebar-intent=inset]:min-h-[calc(100svh-theme(spacing.4))] md:peer-data-[sidebar-intent=inset]:m-2 md:peer-data-[sidebar-state=collapsed]:peer-data-[sidebar-intent=inset]:ml-2 md:peer-data-[sidebar-intent=inset]:ml-0 md:peer-data-[sidebar-intent=inset]:rounded-xl md:peer-data-[sidebar-intent=inset]:shadow-xs",
         className
       )}
       {...props}
@@ -554,7 +556,9 @@ const SidebarDisclosurePanel = ({ className, ...props }: React.ComponentProps<ty
 }
 
 const SidebarSeparator = ({ className, ...props }: React.ComponentProps<typeof Separator>) => {
-  return <Separator className={cn("mx-auto w-[calc(var(--sidebar-width)-theme(spacing.6))]", className)} {...props} />
+  return (
+    <Separator className={cn("mx-auto my-2 w-[calc(var(--sidebar-width)-theme(spacing.6))]", className)} {...props} />
+  )
 }
 
 const SidebarTrigger = ({ onPress, ...props }: React.ComponentProps<typeof Trigger>) => {

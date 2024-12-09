@@ -36,7 +36,7 @@ export function Mdx({ code }: MdxProps) {
         Image,
         NewTab: (props: React.ComponentProps<typeof Link>) => (
           <Link
-            className="not-prose xd2432 text-blue-600 dark:text-blue-400 xd2432 data-hovered:underline"
+            className="not-prose xd2432 text-blue-600 outline-hidden data-focus-visible:ring-1 dark:text-blue-400 xd2432 data-hovered:underline"
             target="_blank"
             {...props}
           >
@@ -46,7 +46,10 @@ export function Mdx({ code }: MdxProps) {
         ),
         How: DocHow,
         a: (props: React.ComponentProps<"a">) => (
-          <a {...props} className="not-prose xd2432 text-blue-600 dark:text-blue-400 xd2432 data-hovered:underline" />
+          <a
+            {...props}
+            className="not-prose xd2432 outline-hidden focus-visible:ring-1 text-blue-600 dark:text-blue-400 xd2432 data-hovered:underline"
+          />
         ),
         SourceCode: SourceCode,
         PlainCode: PlainCode,

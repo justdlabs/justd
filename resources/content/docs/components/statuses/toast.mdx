@@ -7,28 +7,33 @@ references: ["https://sonner.emilkowal.ski/toast"]
 ---
 
 ## Introduction
-The toast component is built on top of the [Sonner](https://sonner.emilkowal.ski/) library.
+The toast components are built on top of the [Sonner](https://sonner.emilkowal.ski/) library. Shoutout to [Emil Kowalski](https://github.com/emilkowalski) for creating this amazing library.
 
-## Basic
-This is the basic toast component.
-First, in your root app component, import the Toast component.
-```tsx
-import { Toast } from 'ui';
-```
-Then, add the Toast component to your app.
-```tsx
-const App = () => {
-  return (
-    <Toast />
-  );
-};
-```
-And next, just use the `toast()` function to show a toast.
 
 <How toUse="statuses/toast-demo" />
 
 ## Installation
 <Installation options={{ isComponent: true }} items={['toast']}/>
+
+## Getting Started
+Put the `Toast` somewhere in your app layout to make it visible to all your components or pages.
+```
+import { Toast } from 'ui';
+export default function Layout({ children }: Readonly<{ children: React.ReactNode }>) {
+  return (
+    <>
+      <Toast />
+      {children}
+    </>
+  );
+}
+```
+And next, just use the `toast()` function to show a toast.
+```
+<Button onPress={() => toast('Someone requested to delete this product')}>
+  Delete
+</Button>
+```
 
 ## Composed Components
 <Composed components={['button', 'loader']}/>

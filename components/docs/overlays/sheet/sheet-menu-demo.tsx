@@ -71,11 +71,11 @@ export default function SheetMenuDemo() {
       </Modal.Content>
       <Sheet>
         <Sheet.Trigger aria-label="Open menu">
-          <Avatar src="https://github.com/irsyadadl.png" alt="irsyadadl" />
+          <Avatar src="/images/avatar/cobain.jpg" alt="irsyadadl" />
         </Sheet.Trigger>
         <Sheet.Content closeButton={false}>
           <Sheet.Header className="flex border-b p-4 sticky top-0 bg-overlay flex-row items-center gap-x-3 mb-2">
-            <Avatar src="https://github.com/irsyadadl.png" alt="irsyadadl" />
+            <Avatar src="/images/avatar/cobain.jpg" alt="irsyadadl" />
             <div>
               <Sheet.Title>irsyadadl</Sheet.Title>
               <Sheet.Description>Irsyad A. Panjaitan</Sheet.Description>

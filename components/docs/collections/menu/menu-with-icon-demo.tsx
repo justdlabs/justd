@@ -20,13 +20,13 @@ export default function MenuWithIconDemo() {
   return (
     <Menu>
       <Menu.Trigger aria-label="Open Menu">
-        <Avatar alt="irsyadadl" className="size-10" src="https://github.com/irsyadadl.png" />
+        <Avatar alt="irsyadadl" size="large" src="/images/avatar/cobain.jpg" />
       </Menu.Trigger>
       <Menu.Content placement="bottom" showArrow className="sm:min-w-64">
         <Menu.Section>
           <Menu.Header separator>
-            <span className="block">Irsyad A. Panjaitan</span>
-            <span className="font-normal text-muted-fg">@irsyadadl</span>
+            <span className="block">Kurt Cobain</span>
+            <span className="font-normal text-muted-fg">@cobain</span>
           </Menu.Header>
         </Menu.Section>
 
