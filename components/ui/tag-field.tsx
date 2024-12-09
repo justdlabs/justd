@@ -12,14 +12,14 @@ import type { FieldProps } from "./field"
 import { Description, Input, Label } from "./field"
 import { cn } from "./primitive"
 import type { RestrictedIntent, TagGroupProps } from "./tag-group"
-import { Tag } from "./tag-group"
+import { Tag, TagGroup, TagList } from "./tag-group"
 
 const tagFieldsStyles = tv({
-  base: ["relative flex min-h-10 bg-bg flex-row flex-wrap items-center"],
+  base: ["relative flex min-h-10 flex-row flex-wrap items-center"],
   variants: {
     appearance: {
       outline: [
-        "px-1 rounded-lg shadow-sm border",
+        "px-1 rounded-lg shadow-xs border",
         "has-[input[data-focused=true]]:border-primary",
         "has-[input[data-invalid=true][data-focused=true]]:border-danger has-[input[data-invalid=true]]:border-danger has-[input[data-invalid=true]]:ring-danger/20",
         "has-[input[data-focused=true]]:ring-4 has-[input[data-focused=true]]:ring-primary/20"
@@ -81,10 +81,7 @@ const TagField = ({
         .replace(/\s+/g, " ")
         .replace(/[\t\r\n]/g, "")
 
-      if (
-        formattedName &&
-        !list.items.some(({ name }) => name.toLowerCase() === formattedName.toLowerCase())
-      ) {
+      if (formattedName && !list.items.some(({ name }) => name.toLowerCase() === formattedName.toLowerCase())) {
         const tag = {
           id: (list.items.at(-1)?.id ?? 0) + 1,
           name: formattedName
@@ -139,26 +136,19 @@ const TagField = ({
     <div className={cn("flex flex-col gap-y-1.5 w-full", className)}>
       {props.label && <Label>{props.label}</Label>}
       <Group className={twJoin("flex flex-col", props.isDisabled && "opacity-50")}>
-        <Tag.Group
-          intent={props.intent}
-          shape={props.shape}
-          aria-label="List item inserted"
-          onRemove={onRemove}
-        >
+        <TagGroup intent={props.intent} shape={props.shape} aria-label="List item inserted" onRemove={onRemove}>
           <div className={tagFieldsStyles({ appearance })}>
             <div className="flex flex-1 flex-wrap items-center">
-              <Tag.List
+              <TagList
                 items={list.items}
                 className={twJoin(
-                  list.items.length !== 0
-                    ? appearance === "outline" && "py-1.5 px-0.5 gap-1.5"
-                    : "gap-0",
-                  props.shape === "square" && "[&_.jdt3lr2x]:rounded-[calc(var(--radius)-4px)]",
-                  "[&_.jdt3lr2x]:cursor-default last:[&_.jdt3lr2x]:-mr-1 outline-none"
+                  list.items.length !== 0 ? appearance === "outline" && "py-1.5 px-1 gap-1.5" : "gap-0",
+                  props.shape === "square" && "[&_.jdt3lr2x]:rounded-[calc(var(--radius-lg)-4px)]",
+                  "[&_.jdt3lr2x]:cursor-default [&_.jdt3lr2x]:last:-mr-1 outline-hidden"
                 )}
               >
-                {(item) => <Tag.Item>{item.name}</Tag.Item>}
-              </Tag.List>
+                {(item) => <Tag>{item.name}</Tag>}
+              </TagList>
               <TextField
                 isDisabled={props.isDisabled}
                 aria-label={props?.label ?? (props["aria-label"] || props.placeholder)}
@@ -175,10 +165,8 @@ const TagField = ({
               </TextField>
             </div>
           </div>
-        </Tag.Group>
-        {name && (
-          <input hidden name={name} value={list.items.map((i) => i.name).join(",")} readOnly />
-        )}
+        </TagGroup>
+        {name && <input hidden name={name} value={list.items.map((i) => i.name).join(",")} readOnly />}
       </Group>
       {props.description && <Description>{props.description}</Description>}
     </div>

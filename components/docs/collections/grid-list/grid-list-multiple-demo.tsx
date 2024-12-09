@@ -5,12 +5,7 @@ import { GridList } from "ui"
 export default function GridListMultipleDemo() {
   return (
     <div>
-      <GridList
-        items={items}
-        aria-label="Select items"
-        selectionMode="multiple"
-        className="min-w-64"
-      >
+      <GridList items={items} aria-label="Select items" selectionMode="multiple" className="min-w-64">
         {(item) => <GridList.Item>{item.name}</GridList.Item>}
       </GridList>
     </div>

@@ -1,30 +1,67 @@
-import { IconCreditCard, IconShoppingBag } from "justd-icons"
-import { Sidebar } from "ui"
+import * as React from "react"
+
+import {
+  Menu,
+  Sidebar,
+  SidebarContent,
+  SidebarDisclosure,
+  SidebarDisclosureGroup,
+  SidebarDisclosurePanel,
+  SidebarDisclosureTrigger,
+  SidebarFooter,
+  SidebarHeader,
+  SidebarInset,
+  SidebarItem,
+  SidebarNav,
+  SidebarProvider,
+  SidebarRail,
+  SidebarSection,
+  SidebarSeparator
+} from "ui"
 
 export default function SidebarAnatomy() {
   return (
-    <Sidebar.Provider>
+    <SidebarProvider>
       <Sidebar>
-        <Sidebar.Header>
-          <Sidebar.Nav isSticky />
-        </Sidebar.Header>
-        <Sidebar.Content>
-          <Sidebar.Section>
-            <Sidebar.Item />
-            <Sidebar.Item />
-          </Sidebar.Section>
-          <Sidebar.Section title="Projects">
-            <Sidebar.Item icon={IconShoppingBag} />
-            <Sidebar.Item icon={IconCreditCard} />
-          </Sidebar.Section>
-          <Sidebar.Section collapsible title="Team">
-            <Sidebar.Item />
-          </Sidebar.Section>
-        </Sidebar.Content>
-        <Sidebar.Footer />
-        <Sidebar.Rail />
+        <SidebarHeader />
+        <SidebarContent>
+          <SidebarSection>
+            <SidebarItem badge="32K" />
+            <SidebarItem badge={409} />
+            <SidebarItem />
+          </SidebarSection>
+          <SidebarSeparator />
+          <SidebarDisclosureGroup>
+            <SidebarDisclosure>
+              <SidebarDisclosureTrigger />
+              <SidebarDisclosurePanel>
+                <SidebarItem />
+                <SidebarItem />
+              </SidebarDisclosurePanel>
+            </SidebarDisclosure>
+          </SidebarDisclosureGroup>
+        </SidebarContent>
+        <SidebarFooter>
+          <Menu>
+            <Menu.Trigger />
+            <Menu.Content>
+              <Menu.Section>
+                <Menu.Header />
+              </Menu.Section>
+              <Menu.Item />
+              <Menu.Separator />
+              <Menu.Item />
+            </Menu.Content>
+          </Menu>
+        </SidebarFooter>
+        <SidebarRail />
       </Sidebar>
-      <Sidebar.Inset>{/* your main content */}</Sidebar.Inset>
-    </Sidebar.Provider>
+
+      <SidebarInset>
+        <SidebarNav />
+
+        <div className="p-6">{/* Your main content */}</div>
+      </SidebarInset>
+    </SidebarProvider>
   )
 }

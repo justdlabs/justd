@@ -17,7 +17,7 @@ export default function SelectItemDetailsDemo() {
   )
 }
 
-const roles = [
+export const roles = [
   { id: 1, name: "Admin", description: "Has full access to all resources" },
   { id: 2, name: "Editor", description: "Can edit content but has limited access to settings" },
   { id: 3, name: "Viewer", description: "Can view content but cannot make changes" },

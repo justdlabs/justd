@@ -14,7 +14,7 @@ import {
 import { tv } from "tailwind-variants"
 
 import { Description, FieldError, FieldGroup, Label } from "./field"
-import { cn, ctr } from "./primitive"
+import { cn, composeTailwindRenderProps } from "./primitive"
 
 interface DateFieldProps<T extends DateValue> extends DateFieldPrimitiveProps<T> {
   label?: string
@@ -35,7 +35,7 @@ const DateField = <T extends DateValue>({
   return (
     <DateFieldPrimitive
       {...props}
-      className={ctr(props.className, "flex group flex-col gap-y-1.5")}
+      className={composeTailwindRenderProps(props.className, "flex group flex-col gap-y-1.5")}
     >
       {label && <Label>{label}</Label>}
       <FieldGroup>
@@ -50,7 +50,7 @@ const DateField = <T extends DateValue>({
 }
 
 const segmentStyles = tv({
-  base: "inline shrink-0 sm:uppercase tabular-nums rounded p-0.5 tracking-wider text-fg caret-transparent outline outline-0 forced-color-adjust-none type-literal:px-0 lg:text-sm forced-colors:text-[ButtonText]",
+  base: "inline shrink-0 sm:uppercase tabular-nums rounded p-0.5 tracking-wider text-fg caret-transparent outline outline-0 forced-color-adjust-none type-literal:px-0 sm:text-sm forced-colors:text-[ButtonText]",
   variants: {
     isPlaceholder: {
       true: "text-muted-fg"
@@ -61,7 +61,7 @@ const segmentStyles = tv({
     isFocused: {
       true: [
         "bg-primary text-primary-fg forced-colors:bg-[Highlight] forced-colors:text-[HighlightText]",
-        "invalid:bg-danger invalid:text-danger-fg"
+        "data-invalid:bg-danger data-invalid:text-danger-fg"
       ]
     }
   }
@@ -70,10 +70,7 @@ const segmentStyles = tv({
 const DateInput = ({ className, ...props }: Omit<DateInputProps, "children">) => {
   return (
     <DateInputPrimitive
-      className={cn(
-        "bg-transparent p-2 text-base text-fg placeholder-muted-fg lg:text-sm",
-        className
-      )}
+      className={cn("bg-transparent p-2 text-base text-fg placeholder-muted-fg sm:text-sm", className)}
       {...props}
     >
       {(segment) => <DateSegment segment={segment} className={segmentStyles} />}

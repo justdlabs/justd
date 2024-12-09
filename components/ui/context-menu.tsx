@@ -11,17 +11,13 @@ import { focusButtonStyles } from "./primitive"
 interface ContextMenuTriggerContextType {
   buttonRef: React.RefObject<HTMLButtonElement | null>
   contextMenuOffset: { offset: number; crossOffset: number } | null
-  setContextMenuOffset: React.Dispatch<
-    React.SetStateAction<{ offset: number; crossOffset: number } | null>
-  >
+  setContextMenuOffset: React.Dispatch<React.SetStateAction<{ offset: number; crossOffset: number } | null>>
 }
 
-const ContextMenuTriggerContext = React.createContext<ContextMenuTriggerContextType | undefined>(
-  undefined
-)
+const ContextMenuTriggerContext = React.createContext<ContextMenuTriggerContextType | undefined>(undefined)
 
 const useContextMenuTrigger = () => {
-  const context = React.useContext(ContextMenuTriggerContext)
+  const context = React.use(ContextMenuTriggerContext)
   if (!context) {
     throw new Error("useContextMenuTrigger must be used within a ContextMenuTrigger")
   }
@@ -40,9 +36,7 @@ const ContextMenu = ({ children }: ContextMenuRootComponent) => {
   const buttonRef = React.useRef<HTMLButtonElement>(null)
 
   return (
-    <ContextMenuTriggerContext.Provider
-      value={{ buttonRef, contextMenuOffset, setContextMenuOffset }}
-    >
+    <ContextMenuTriggerContext.Provider value={{ buttonRef, contextMenuOffset, setContextMenuOffset }}>
       {children}
     </ContextMenuTriggerContext.Provider>
   )
@@ -50,11 +44,11 @@ const ContextMenu = ({ children }: ContextMenuRootComponent) => {
 
 const contextMenuTriggerStyles = tv({
   extend: focusButtonStyles,
-  base: "focus:outline-none cursor-default",
+  base: "data-focused:outline-hidden cursor-default",
   variants: {
     isDisabled: {
-      false: "forced-colors:disabled:text-[GrayText]",
-      true: "cursor-default opacity-60 forced-colors:disabled:text-[GrayText]"
+      false: "forced-colors:data-disabled:text-[GrayText]",
+      true: "cursor-default opacity-60 forced-colors:data-disabled:text-[GrayText]"
     }
   }
 })

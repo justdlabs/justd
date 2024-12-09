@@ -2,15 +2,15 @@
 
 import React from "react"
 
-import { Disclosure, DisclosureGroup } from "ui"
+import { Disclosure, DisclosureGroup, DisclosurePanel, DisclosureTrigger } from "ui"
 
 export default function DisclosureGroupDisabledDemo() {
   return (
     <DisclosureGroup>
       {faqs.map((item, index) => (
         <Disclosure isDisabled={index === 2} key={index} id={index}>
-          <Disclosure.Trigger>{item.q}</Disclosure.Trigger>
-          <Disclosure.Panel>{item.a}</Disclosure.Panel>
+          <DisclosureTrigger>{item.q}</DisclosureTrigger>
+          <DisclosurePanel>{item.a}</DisclosurePanel>
         </Disclosure>
       ))}
     </DisclosureGroup>

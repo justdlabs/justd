@@ -10,6 +10,7 @@ import type {
 } from "react-aria-components"
 import {
   Button,
+  composeRenderProps,
   Tag as TagPrimitive,
   TagGroup as TagGroupPrimitive,
   TagList as TagListPrimitive
@@ -18,54 +19,54 @@ import { tv } from "tailwind-variants"
 
 import { badgeIntents, badgeShapes, badgeStyles } from "./badge"
 import { Description, Label } from "./field"
-import { cn, cr, ctr, focusStyles } from "./primitive"
+import { cn, composeTailwindRenderProps, focusStyles } from "./primitive"
 
 const intents = {
   primary: {
     base: [
       badgeIntents.primary,
-      "[&_[slot=remove]:hover]:bg-primary [&_[slot=remove]:hover]:text-primary-fg"
+      "**:[[slot=remove]]:data-hovered:bg-primary **:[[slot=remove]]:data-hovered:text-primary-fg"
     ],
     selected: [
-      "bg-primary dark:hover:bg-primary dark:bg-primary hover:bg-primary ring-primary ring-inset text-primary-fg dark:text-primary-fg hover:text-primary-fg",
-      "[&_[slot=remove]:hover]:bg-primary-fg/80 [&_[slot=remove]:hover]:text-primary"
+      "bg-primary dark:data-hovered:bg-primary dark:bg-primary data-hovered:bg-primary ring-primary ring-inset text-primary-fg dark:text-primary-fg data-hovered:text-primary-fg",
+      "**:[[slot=remove]]:data-hovered:bg-primary-fg/50 **:[[slot=remove]]:data-hovered:text-primary"
     ]
   },
   secondary: {
-    base: [badgeIntents.secondary, "[&_[slot=remove]:hover]:bg-fg [&_[slot=remove]:hover]:text-bg"],
+    base: [badgeIntents.secondary, "**:[[slot=remove]]:data-hovered:bg-fg **:[[slot=remove]]:data-hovered:text-bg"],
     selected: [
       "bg-fg ring-fg/50 text-bg dark:bg-fg/90 dark:text-secondary ring-inset",
-      "[&_[slot=remove]:hover]:bg-bg [&_[slot=remove]:hover]:text-secondary-fg"
+      "**:[[slot=remove]]:data-hovered:**:[[slot=remove]]:data-hovered:text-secondary-fg"
     ]
   },
   success: {
     base: [
       badgeIntents.success,
-      "[&_[slot=remove]:hover]:bg-success [&_[slot=remove]:hover]:text-success-fg"
+      "**:[[slot=remove]]:data-hovered:bg-success **:[[slot=remove]]:data-hovered:text-success-fg"
     ],
     selected: [
-      "bg-success dark:bg-success ring-success ring-inset dark:text-success-fg dark:hover:bg-success hover:bg-success text-success-fg hover:text-success-fg",
-      "[&_[slot=remove]:hover]:bg-success-fg/80 [&_[slot=remove]:hover]:text-success"
+      "bg-success dark:bg-success ring-success ring-inset dark:text-success-fg dark:data-hovered:bg-success data-hovered:bg-success text-success-fg data-hovered:text-success-fg",
+      "**:[[slot=remove]]:data-hovered:bg-success-fg/80 **:[[slot=remove]]:data-hovered:text-success"
     ]
   },
   warning: {
     base: [
       badgeIntents.warning,
-      "[&_[slot=remove]:hover]:bg-warning [&_[slot=remove]:hover]:text-warning-fg"
+      "**:[[slot=remove]]:data-hovered:bg-warning **:[[slot=remove]]:data-hovered:text-warning-fg"
     ],
     selected: [
-      "bg-warning dark:hover:bg-warning dark:bg-warning dark:text-bg hover:bg-warning text-warning-fg hover:text-warning-fg",
-      "[&_[slot=remove]:hover]:bg-warning-fg/80 [&_[slot=remove]:hover]:text-warning"
+      "bg-warning dark:data-hovered:bg-warning dark:bg-warning dark:text-bg data-hovered:bg-warning text-warning-fg data-hovered:text-warning-fg",
+      "**:[[slot=remove]]:data-hovered:bg-warning-fg/80 **:[[slot=remove]]:data-hovered:text-warning"
     ]
   },
   danger: {
     base: [
       badgeIntents.danger,
-      "[&_[slot=remove]:hover]:bg-danger [&_[slot=remove]:hover]:text-danger-fg"
+      "**:[[slot=remove]]:data-hovered:bg-danger **:[[slot=remove]]:data-hovered:text-danger-fg"
     ],
     selected: [
-      "bg-danger dark:bg-danger dark:hover:bg-danger/90 hover:bg-danger text-danger-fg ring-danger hover:text-danger-fg",
-      "[&_[slot=remove]:hover]:bg-danger-fg/80 [&_[slot=remove]:hover]:text-danger"
+      "bg-danger dark:bg-danger dark:data-hovered:bg-danger/90 data-hovered:bg-danger text-danger-fg ring-danger data-hovered:text-danger-fg",
+      "**:[[slot=remove]]:bg-danger-fg/80 **:[[slot=remove]]:data-hovered:text-danger"
     ]
   }
 }
@@ -112,7 +113,7 @@ const TagGroup = ({ children, ...props }: TagGroupProps) => {
 }
 
 const TagList = <T extends object>({ className, ...props }: TagListProps<T>) => {
-  return <TagListPrimitive {...props} className={ctr(className, "flex flex-wrap gap-2")} />
+  return <TagListPrimitive {...props} className={composeTailwindRenderProps(className, "flex flex-wrap gap-2")} />
 }
 
 const tagStyles = tv({
@@ -130,7 +131,7 @@ interface TagProps extends TagPrimitiveProps {
   shape?: Shape
 }
 
-const TagItem = ({ className, intent, shape, ...props }: TagProps) => {
+const Tag = ({ className, intent, shape, ...props }: TagProps) => {
   const textValue = typeof props.children === "string" ? props.children : undefined
   const groupContext = React.useContext(TagGroupContext)
 
@@ -138,7 +139,7 @@ const TagItem = ({ className, intent, shape, ...props }: TagProps) => {
     <TagPrimitive
       textValue={textValue}
       {...props}
-      className={cr(className, (_, renderProps) => {
+      className={composeRenderProps(className, (_, renderProps) => {
         const finalIntent = intent || groupContext.intent
         const finalShape = shape || groupContext.shape
 
@@ -159,12 +160,7 @@ const TagItem = ({ className, intent, shape, ...props }: TagProps) => {
             {allowsRemoving && (
               <Button
                 slot="remove"
-                className={cr("", (className) => {
-                  return cn(
-                    "rounded [&>[data-slot=icon]]:size-3 [&>[data-slot=icon]]:shrink-0 focus:outline-none size-3.5 grid place-content-center -mr-0.5 focus-visible:ring-1 focus-visible:ring-primary",
-                    className
-                  )
-                })}
+                className="rounded [&>[data-slot=icon]]:size-3 [&>[data-slot=icon]]:shrink-0 focus:outline-none size-3.5 grid place-content-center -mr-0.5 focus-visible:ring-1 focus-visible:ring-primary"
               >
                 <IconX />
               </Button>
@@ -176,10 +172,4 @@ const TagItem = ({ className, intent, shape, ...props }: TagProps) => {
   )
 }
 
-const Tag = {
-  Group: TagGroup,
-  Item: TagItem,
-  List: TagList
-}
-
-export { Tag, type RestrictedIntent }
+export { Tag, TagList, TagGroup, type RestrictedIntent }

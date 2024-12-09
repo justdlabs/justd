@@ -5,6 +5,7 @@
     "eslint:recommended",
     "prettier"
   ],
+  "ignorePatterns": ["./resources/content/**/*.mdx"],
   "rules": {
     "@next/next/no-html-link-for-pages": "off",
     "no-undef": "off",

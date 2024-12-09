@@ -13,10 +13,7 @@ export default function ShowMoreDemo() {
           <>
             Show {isSelected ? "less" : "more"}
             <IconChevronLgDown
-              className={cn(
-                isSelected ? "rotate-180" : "",
-                "size-4 transition-transform duration-200"
-              )}
+              className={cn(isSelected ? "rotate-180" : "", "size-4 transition-transform duration-200")}
             />
           </>
         )}

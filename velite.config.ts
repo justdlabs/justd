@@ -2,6 +2,9 @@ import { transformerNotationDiff } from "@shikijs/transformers"
 import rehypeAutolinkHeadings from "rehype-autolink-headings"
 import rehypePrettyCode from "rehype-pretty-code"
 import rehypeSlug from "rehype-slug"
+import rehypeStringify from "rehype-stringify"
+import remarkParse from "remark-parse"
+import remarkRehype from "remark-rehype"
 import { defineCollection, defineConfig, s } from "velite"
 
 const computedFields = <T extends { slug: string }>(data: T) => ({
@@ -40,9 +43,11 @@ export default defineConfig({
   mdx: {
     rehypePlugins: [
       rehypeSlug,
+      rehypeStringify,
       [
         rehypePrettyCode,
         {
+          keepBackground: false,
           transformers: [transformerNotationDiff()],
           theme: "vesper",
           defaultLang: {
@@ -62,6 +67,6 @@ export default defineConfig({
         }
       ]
     ],
-    remarkPlugins: []
+    remarkPlugins: [remarkParse, remarkRehype]
   }
 })

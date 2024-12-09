@@ -1,59 +1,65 @@
-"use client"
-
 import * as React from "react"
 
-import { IconCircleCheck, IconCircleInfo, IconTriangleInfo } from "justd-icons"
-import { Text } from "react-aria-components"
+import { IconCircleCheckFill, IconCircleExclamationFill, IconCircleInfoFill } from "justd-icons"
 import { tv, type VariantProps } from "tailwind-variants"
 
 const noteStyles = tv({
   base: [
-    "my-4 px-4 [&_.nd]:block [&_.nd]:text-sm py-4 leading-4 overflow-hidden rounded-lg border [&_strong]:font-semibold",
-    "[&_[data-slot=icon]]:size-5 [&_[data-slot=icon]]:shrink-0 [&_a]:underline [&_a]:hover:underline"
+    "w-full p-4 sm:text-sm/6 overflow-hidden rounded-lg inset-ring-1 inset-ring-current/10",
+    "[&_a]:underline data-hovered:[&_a]:underline"
   ],
   variants: {
     intent: {
-      primary: ["border-primary/35 [&_a]:text-primary text-primary bg-primary/10 leading-4"],
-      secondary: [
-        "border-border [&_a]:text-secondary-fg text-secondary-fg bg-secondary/50 [&_[data-slot=icon]]:text-secondary-fg",
-        "dark:[&_a]:text-secondary-fg dark:[&_[data-slot=icon]]:text-secondary-fg"
+      default: [
+        "border-border [&_a]:text-secondary-fg text-secondary-fg bg-secondary/50 **:data-[slot=icon]:text-secondary-fg",
+        "dark:[&_a]:text-secondary-fg dark:**:data-[slot=icon]:text-secondary-fg"
       ],
-      info: ["border-info/20 text-info bg-info/5 dark:bg-info/10 leading-4"],
+      info: [
+        "bg-sky-500/15 text-sky-700 group-data-hovered:bg-sky-500/25 dark:bg-sky-500/10 dark:text-sky-300 dark:group-data-hovered:bg-sky-500/20"
+      ],
       warning:
-        "border-warning/50 dark:border-warning/25 bg-warning/5 text-warning-fg dark:text-warning",
-      danger: "border-danger/30 bg-danger/5 dark:bg-danger/10 text-danger",
+        "bg-amber-400/20 text-amber-700 group-data-hovered:bg-amber-400/30 dark:bg-amber-400/10 dark:text-amber-400 dark:group-data-hovered:bg-amber-400/15",
+      danger:
+        "bg-red-500/15 text-red-700 group-data-hovered:bg-red-500/25 dark:bg-red-500/10 dark:text-red-400 dark:group-data-hovered:bg-red-500/20",
       success: [
-        "border-emerald-500/20 [&_a]:text-emerald-600 text-emerald-900 bg-emerald-50/50 [&_[data-slot=icon]]:text-emerald-600 leading-4",
-        "dark:bg-emerald-500/10 dark:text-emerald-200 dark:[&_a]:text-emerald-50 dark:[&_[data-slot=icon]]:text-emerald-400"
+        "border-success/20 [&_a]:text-emerald-600 text-emerald-900 bg-success/50 **:data-[slot=icon]:text-success leading-4",
+        "dark:bg-success/10 dark:text-emerald-200 dark:[&_a]:text-emerald-50 dark:**:data-[slot=icon]:text-emerald-400"
       ]
     }
+  },
+  defaultVariants: {
+    intent: "default"
   }
 })
 
-interface NoteProps
-  extends React.HtmlHTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof noteStyles> {
-  hideIndicator?: boolean
+interface NoteProps extends React.HtmlHTMLAttributes<HTMLDivElement>, VariantProps<typeof noteStyles> {
+  indicator?: boolean
 }
 
-const Note = ({ hideIndicator = false, intent = "info", className, ...props }: NoteProps) => {
+const Note = ({ indicator = true, intent, className, ...props }: NoteProps) => {
+  const icon = (() => {
+    switch (intent) {
+      case "info":
+        return IconCircleInfoFill
+      case "warning":
+      case "danger":
+        return IconCircleExclamationFill
+      case "success":
+        return IconCircleCheckFill
+      default:
+        return null
+    }
+  })()
+
   return (
     <div className={noteStyles({ intent, className })} {...props}>
-      <div className="flex items-start gap-x-2.5">
-        {!hideIndicator && (
-          <div className="w-5 shrink-0 mt-px">
-            {["info", "primary", "secondary"].includes(intent) ? (
-              <IconCircleInfo />
-            ) : intent === "success" ? (
-              <IconCircleCheck />
-            ) : (
-              <IconTriangleInfo />
-            )}
+      <div className="flex items-start grow">
+        {icon && indicator && (
+          <div className="leading-loose shrink-0 ring-4 ring-current/30 rounded-full">
+            {React.createElement(icon, { className: "size-5" })}
           </div>
         )}
-        <Text slot="description" {...props} className="nd">
-          {props.children}
-        </Text>
+        <div className="ml-3">{props.children}</div>
       </div>
     </div>
   )

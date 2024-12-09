@@ -7,7 +7,7 @@ import { Card, Carousel } from "ui"
 
 export default function CarouselWithCollectionDemo() {
   return (
-    <Carousel className="w-full [&_.xrkr]:overflow-hidden [&_.xrkr]:flex [&_.xrkr]:flex-col max-w-xs">
+    <Carousel className="w-full **:data-[slot=card]:overflow-hidden **:data-[slot=card]:flex **:data-[slot=card]:flex-col max-w-xs">
       <Carousel.Content items={items}>
         {(item) => (
           <Carousel.Item id={item.id}>
