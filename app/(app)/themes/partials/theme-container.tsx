@@ -3,12 +3,12 @@
 import * as React from "react"
 
 import { Blocks } from "@/app/(app)/themes/partials/blocks"
-import { GeneratedColor } from "@/app/(app)/themes/partials/generated-color"
+import { GeneratedTheme } from "@/app/(app)/themes/partials/generated-theme"
 import { ThemeCustomizer } from "@/app/(app)/themes/partials/theme-customizer"
 import { CodeHighlighter } from "@/components/code/code-highlighter"
-import { IconBrandCss, IconDuplicate } from "justd-icons"
+import { IconBrandCss, IconChevronLgDown, IconDuplicate, IconLayoutColumnRightsideFill } from "justd-icons"
 import { toast } from "sonner"
-import { Button, Container, Heading, Sheet } from "ui"
+import { Button, Container, Heading, Menu, Sheet } from "ui"
 
 import { generateTheme } from "./themes"
 
@@ -16,7 +16,8 @@ export function ThemeContainer() {
   const [selectedColors, setSelectedColors] = React.useState({
     primary: "blue",
     gray: "zinc",
-    accent: "blue"
+    accent: "blue",
+    radius: "0.5rem"
   })
 
   const copy = () => {
@@ -56,17 +57,29 @@ export function ThemeContainer() {
             <div className="mb-4 lg:mb-6 flex justify-between">
               <div>
                 <Heading level={2} className="sm:text-lg">
-                  Generated Colors
+                  Generated Theme
                 </Heading>
                 <p className="text-muted-fg text-sm">The generated colors are based on the selected gray color.</p>
               </div>
-              <Button className="lg:flex hidden" onPress={handleOpen}>
-                <IconBrandCss />
-                Get Theme
-              </Button>
+              <Menu>
+                <Button className="lg:flex hidden">
+                  Get Theme...
+                  <IconChevronLgDown />
+                </Button>
+                <Menu.Content placement="bottom right" className="sm:min-w-(--trigger-width)">
+                  <Menu.Item onAction={copy}>
+                    <IconDuplicate />
+                    Copy
+                  </Menu.Item>
+                  <Menu.Item onAction={handleOpen}>
+                    <IconLayoutColumnRightsideFill />
+                    Show theme
+                  </Menu.Item>
+                </Menu.Content>
+              </Menu>
             </div>
 
-            <GeneratedColor />
+            <GeneratedTheme />
           </div>
         </div>
 

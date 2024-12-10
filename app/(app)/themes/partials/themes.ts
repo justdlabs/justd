@@ -24,7 +24,7 @@ const getFgValue = (colorKey: string, fg: ForegroundColor) => {
 }
 
 export const generateTheme = (selectedColors: Record<string, string>) => {
-  const { primary, gray, accent } = selectedColors
+  const { primary, gray, accent, radius } = selectedColors
 
   const isNeutralPrimary = neutralColors.includes(primary)
   const isShade400Primary = accentColors400.includes(primary)
@@ -102,95 +102,111 @@ export const generateTheme = (selectedColors: Record<string, string>) => {
   const lightRingShade = isNeutralPrimary ? "950" : "600"
   const darkRingShade = isNeutralPrimary ? "50" : "600"
 
-  return `:root {
-  --bg: ${getColorValue(gray, "50")};
-  --fg: ${getColorValue(gray, "950")};
-  
-  --primary: ${getColorValue(primary, lightPrimary)};
-  --primary-fg: ${lightPrimaryFgValue};
-  
-  --secondary: ${getColorValue(gray, "200")};
-  --secondary-fg: ${getColorValue(gray, "950")};
-  
-  --overlay: ${getColorValue("white")};
-  --overlay-fg: ${getColorValue(gray, "950")};
-  
-  --accent: ${getColorValue(accent, lightAccent)};
-  --accent-fg: ${lightAccentFgValue};
+  const lightColors = `--bg: ${getColorValue(gray, "50")};
+    --fg: ${getColorValue(gray, "950")};
+    
+    --primary: ${getColorValue(primary, lightPrimary)};
+    --primary-fg: ${lightPrimaryFgValue};
+    
+    --secondary: ${getColorValue(gray, "200")};
+    --secondary-fg: ${getColorValue(gray, "950")};
+    
+    --overlay: ${getColorValue("white")};
+    --overlay-fg: ${getColorValue(gray, "950")};
+    
+    --accent: ${getColorValue(accent, lightAccent)};
+    --accent-fg: ${lightAccentFgValue};
+    
+    --muted: ${getColorValue(gray, "100")};
+    --muted-fg: ${getColorValue(gray, "500")};
+    
+    --success: ${getColorValue("emerald", "600")};
+    --success-fg: ${getColorValue("white")};
+    
+    --warning: ${warningColor};
+    --warning-fg: ${getColorValue("amber", "950")};
+    
+    --danger: ${dangerColor};
+    --danger-fg: ${getColorValue("red", "50")};
+    
+    --border: ${getColorValue(gray, "200")};
+    --input: ${getColorValue(gray, "300")};
+    --ring: ${getColorValue(primary, lightRingShade)};
+    
+    --navbar: ${getColorValue(gray, "100")};
+    --navbar-fg: ${getColorValue(gray, "950")};
+    
+    --sidebar: ${getColorValue(gray, "100")};
+    --sidebar-fg: ${getColorValue(gray, "950")};
+    
+    --chart-1: ${getColorValue(primary, chartShadesLight[0])};
+    --chart-2: ${getColorValue(primary, chartShadesLight[1])};
+    --chart-3: ${getColorValue(primary, chartShadesLight[2])};
+    --chart-4: ${getColorValue(primary, chartShadesLight[3])};
+    --chart-5: ${getColorValue(primary, chartShadesLight[4])};
+    `
 
-  --muted: ${getColorValue(gray, "100")};
-  --muted-fg: ${getColorValue(gray, "500")};
-  
-  --success: ${getColorValue("emerald", "600")};
-  --success-fg: ${getColorValue("white")};
-  
-  --warning: ${warningColor};
-  --warning-fg: ${getColorValue("amber", "950")};
-  
-  --danger: ${dangerColor};
-  --danger-fg: ${getColorValue("red", "50")};
-  
-  --border: ${getColorValue(gray, "200")};
-  --input: ${getColorValue(gray, "300")};
-  --ring: ${getColorValue(primary, lightRingShade)};
-  
-  --navbar: ${getColorValue(gray, "100")};
-  --navbar-fg: ${getColorValue(gray, "950")};
-  
-  --sidebar: ${getColorValue(gray, "100")};
-  --sidebar-fg: ${getColorValue(gray, "950")};
-  
-  --chart-1: ${getColorValue(primary, chartShadesLight[0])};
-  --chart-2: ${getColorValue(primary, chartShadesLight[1])};
-  --chart-3: ${getColorValue(primary, chartShadesLight[2])};
-  --chart-4: ${getColorValue(primary, chartShadesLight[3])};
-  --chart-5: ${getColorValue(primary, chartShadesLight[4])};
-}
+  const darkColors = `--bg: ${getColorValue(gray, "950")};
+    --fg: ${getColorValue(gray, "50")};
+    
+    --primary: ${getColorValue(primary, darkPrimary)};
+    --primary-fg: ${darkPrimaryFgValue};
+    
+    --secondary: ${adjustLightness(getColorValue(gray, "800"), -4)};
+    --secondary-fg: ${getColorValue(gray, "50")};
+    
+    --accent: ${getColorValue(accent, darkAccent)};
+    --accent-fg: ${darkAccentFgValue};
+    
+    --muted: ${getColorValue(gray, "900")};
+    --muted-fg: ${getColorValue(gray, "400")};
+    
+    --overlay: ${adjustLightness(getColorValue(gray, "900"), -4)};
+    --overlay-fg: ${getColorValue(gray, "50")};
+    
+    --success: ${getColorValue("emerald", "600")};
+    --success-fg: ${getColorValue("white")};
+    
+    --warning: ${getColorValue("amber", "400")};
+    --warning-fg: ${getColorValue("amber", "950")};
+    
+    --danger: ${dangerColor};
+    --danger-fg: ${getColorValue("red", "50")};
+    
+    --border: ${getColorValue(gray, "800")};
+    --input: ${getColorValue(gray, "800")};
+    --ring: ${getColorValue(primary, darkRingShade)};
+    
+    --navbar: ${adjustLightness(getColorValue(gray, "900"), -4)};
+    --navbar-fg: ${getColorValue(gray, "50")};
+    
+    --sidebar: ${adjustLightness(getColorValue(gray, "900"), -5)};
+    --sidebar-fg: ${getColorValue(gray, "50")};
+    
+    --chart-1: ${getColorValue(primary, chartShadesDark[0])};
+    --chart-2: ${getColorValue(primary, chartShadesDark[1])};
+    --chart-3: ${getColorValue(primary, chartShadesDark[2])};
+    --chart-4: ${getColorValue(primary, chartShadesDark[3])};
+    --chart-5: ${getColorValue(primary, chartShadesDark[4])};`
 
-.dark {
-  --bg: ${getColorValue(gray, "950")};
-  --fg: ${getColorValue(gray, "50")};
+  const radiusValues = `
+    --radius-lg: ${radius || "0.5rem"};
+    --radius-xs: calc(var(--radius-lg) * 0.5);
+    --radius-sm: calc(var(--radius-lg) * 0.75);
+    --radius-md: calc(var(--radius-lg) * 0.9);
+    --radius-xl: calc(var(--radius-lg) * 1.25);
+    --radius-2xl: calc(var(--radius-lg) * 1.5);
+    --radius-3xl: calc(var(--radius-lg) * 2);
+    --radius-4xl: calc(var(--radius-lg) * 3);`
 
-  --primary: ${getColorValue(primary, darkPrimary)};
-  --primary-fg: ${darkPrimaryFgValue};
-
-  --secondary: ${adjustLightness(getColorValue(gray, "800"), -4)};
-  --secondary-fg: ${getColorValue(gray, "50")};
-
-  --accent: ${getColorValue(accent, darkAccent)};
-  --accent-fg: ${darkAccentFgValue};
+  return `@layer base {
+  :root {
+    ${lightColors}
+    ${radiusValues}
+  }
   
-  --muted: ${getColorValue(gray, "900")};
-  --muted-fg: ${getColorValue(gray, "400")};
-  
-  --overlay: ${adjustLightness(getColorValue(gray, "900"), -4)};
-  --overlay-fg: ${getColorValue(gray, "50")};
-  
-  --success: ${getColorValue("emerald", "600")};
-  --success-fg: ${getColorValue("white")};
-  
-  --warning: ${getColorValue("amber", "400")};
-  --warning-fg: ${getColorValue("amber", "950")};
-  
-  --danger: ${dangerColor};
-  --danger-fg: ${getColorValue("red", "50")};
-  
-  --border: ${getColorValue(gray, "800")};
-  --input: ${getColorValue(gray, "800")};
-  --ring: ${getColorValue(primary, darkRingShade)};
-  
-  --navbar: ${adjustLightness(getColorValue(gray, "900"), -4)};
-  --navbar-fg: ${getColorValue(gray, "50")};
-  
-  --sidebar: ${adjustLightness(getColorValue(gray, "900"), -5)};
-  --sidebar-fg: ${getColorValue(gray, "50")};
-  --sidebar-accent: ${getColorValue(gray, "800")};
-  --sidebar-accent-fg: ${getColorValue(gray, "50")};
-
-  --chart-1: ${getColorValue(primary, chartShadesDark[0])};
-  --chart-2: ${getColorValue(primary, chartShadesDark[1])};
-  --chart-3: ${getColorValue(primary, chartShadesDark[2])};
-  --chart-4: ${getColorValue(primary, chartShadesDark[3])};
-  --chart-5: ${getColorValue(primary, chartShadesDark[4])};
+  .dark {
+    ${darkColors}
+  }
 }`
 }

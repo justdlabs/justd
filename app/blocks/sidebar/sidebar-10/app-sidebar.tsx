@@ -2,7 +2,7 @@
 
 import * as React from "react"
 
-import { IconBrandApple, IconBullet, IconNotes, IconSettings, IconStore4, IconWhiteboard } from "justd-icons"
+import { IconBrandApple, IconBullet, IconNotes, IconSettings, IconStore, IconWhiteboard } from "justd-icons"
 import {
   Link,
   Sidebar,
@@ -66,7 +66,7 @@ const sections = [
     items: ["Articles", "Categories", "Tags", "Comments", "Authors"]
   },
   {
-    icon: IconStore4,
+    icon: IconStore,
     label: "Commerce",
     items: ["Orders", "Products", "Customers", "Coupons", "Discounts"]
   },

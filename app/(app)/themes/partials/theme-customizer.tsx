@@ -6,7 +6,7 @@ import { useTheme } from "@/components/theme-provider"
 import colors from "@/resources/colors/colors.json"
 import { neutralColors } from "@/resources/lib/colors"
 import type { Key } from "react-aria-components"
-import { cn, Select } from "ui"
+import { Badge, cn, Select } from "ui"
 
 interface ColorSelectProps extends React.ComponentProps<typeof Select> {
   selectedKey: string
@@ -72,6 +72,7 @@ type SelectedColors = {
   primary: string
   gray: string
   accent: string
+  radius: string
 }
 
 type ThemeCustomizerProps = {
@@ -93,16 +94,17 @@ export function ThemeCustomizer({ selectedColors, setSelectedColors }: ThemeCust
 
   const filteredPrimaryColors = getFilteredColors(selectedColors.gray)
   const filteredAccentColors = getFilteredColors(selectedColors.gray)
+  const filteredRadius = ["0rem", "0.125rem", "0.25rem", "0.375rem", "0.5rem", "0.6rem", "0.75rem", "1rem", "1.5rem"]
   return (
     <div className="grid gap-4 max-w-xl">
-      <ColorSelect
-        selectedKey={selectedColors.gray}
-        onSelectionChange={handleSelectionChange("gray")}
-        label="Gray Color"
-        placeholder="Select gray color"
-        filterKeys={neutralColors}
-      />
-      <div className="grid grid-cols-2 gap-2">
+      <div className="grid grid-cols-2 gap-x-3 gap-y-6">
+        <ColorSelect
+          selectedKey={selectedColors.gray}
+          onSelectionChange={handleSelectionChange("gray")}
+          label="Gray Color"
+          placeholder="Select gray color"
+          filterKeys={neutralColors}
+        />
         <ColorSelect
           selectedKey={selectedColors.primary}
           onSelectionChange={handleSelectionChange("primary")}
@@ -117,6 +119,22 @@ export function ThemeCustomizer({ selectedColors, setSelectedColors }: ThemeCust
           placeholder="Select accent color"
           filterKeys={filteredAccentColors}
         />
+        <Select
+          selectedKey={selectedColors.radius}
+          onSelectionChange={handleSelectionChange("radius")}
+          label="Radius"
+          placeholder="Select radius"
+        >
+          <Select.Trigger className="capitalize" />
+          <Select.List>
+            {filteredRadius.map((radius) => (
+              <Select.Option className="tabular-nums tracking-tight" textValue={radius} key={radius} id={radius}>
+                {radius.replace("rem", "")}
+                {radius === "0.5rem" && <Badge>Default</Badge>}
+              </Select.Option>
+            ))}
+          </Select.List>
+        </Select>
       </div>
     </div>
   )

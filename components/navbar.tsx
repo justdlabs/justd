@@ -67,7 +67,7 @@ export function Navbar() {
                     <NavLink
                       isNextLink
                       isActive={pathname?.startsWith("/docs/components") || pathname === "/components"}
-                      href="/components"
+                      href="/docs/components/buttons/button"
                     >
                       Components
                     </NavLink>

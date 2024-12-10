@@ -28,6 +28,11 @@ export default {
         permanent: false
       },
       {
+        source: "/components",
+        destination: "/docs/components/buttons/button",
+        permanent: false
+      },
+      {
         source: "/docs/components/layouts/aside",
         destination: "/docs/components/layouts/sidebar",
         permanent: false
