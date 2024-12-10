@@ -34,9 +34,6 @@
   --color-success: var(--success);
   --color-success-fg: var(--success-fg);
 
-  --color-info: var(--info);
-  --color-info-fg: var(--info-fg);
-
   --color-danger: var(--danger);
   --color-danger-fg: var(--danger-fg);
 
@@ -99,9 +96,6 @@
     --success: oklch(0.596 0.145 163.225);
     --success-fg: oklch(1 0 0);
 
-    --info: oklch(0.685 0.169 237.323);
-    --info-fg: oklch(1 0 0);
-
     --warning: oklch(0.828 0.189 84.429);
     --warning-fg: oklch(0.279 0.077 45.635);
 
@@ -147,9 +141,6 @@
     --success: oklch(0.596 0.145 163.225);
     --success-fg: oklch(1 0 0);
 
-    --info: oklch(0.685 0.169 237.323);
-    --info-fg: oklch(0.746 0.16 232.661);
-
     --warning: oklch(0.828 0.189 84.429);
     --warning-fg: oklch(0.279 0.077 45.635);
 
@@ -185,6 +176,15 @@
 }
 
 @layer base {
+  * {
+    font-feature-settings: "cv11", "ss01";
+    font-variation-settings: "opsz" 850;
+    text-rendering: optimizeLegibility;
+
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+  }
+
   html {
     @apply scroll-smooth;
   }
@@ -194,26 +194,17 @@
     color: var(--fg);
   }
 
-  * {
-    font-feature-settings: "cv11", "ss01";
-    font-variation-settings: "opsz" 850;
-    text-rendering: optimizeLegibility;
-    scrollbar-width: thin;
-  }
-
   ::-webkit-scrollbar {
     width: 4px;
   }
+
   ::-webkit-scrollbar-track {
     background: transparent;
   }
+
   ::-webkit-scrollbar-thumb {
     background: var(--border);
     border-radius: 4px;
-  }
-  * {
-    scrollbar-width: thin;
-    scrollbar-color: var(--border) transparent;
   }
 }
 

@@ -169,7 +169,7 @@ const Picker = ({ children, className, ...props }: PopoverProps) => {
         popoverContentStyles({
           ...renderProps,
           isPicker: true,
-          class: cn("max-h-72 min-w-(--trigger-width) overflow-y-auto p-0", className)
+          className
         })
       )}
     >

@@ -18,7 +18,7 @@ const dialogStyles = tv({
     header: "relative flex flex-col gap-0.5 sm:gap-1 px-4 px-4 pb-4 pt-4 sm:px-6 sm:px-6 sm:pt-6",
     description: "text-sm text-muted-fg",
     body: [
-      "flex flex-1 flex-col gap-2 overflow-auto px-4 pb-1 sm:px-6",
+      "flex flex-1 flex-col gap-2 overflow-auto px-4 py-1 sm:px-6",
       "max-h-[calc(var(--visual-viewport-height)-var(--visual-viewport-vertical-padding)-var(--dialog-header-height,0px)-var(--dialog-footer-height,0px))]"
     ],
     footer: "mt-auto flex flex-col-reverse justify-between gap-3 p-4 sm:px-6 sm:px-6 sm:pb-6 sm:pt-4 sm:flex-row",
