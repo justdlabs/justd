@@ -455,7 +455,7 @@ const SidebarInset = ({ className, ref, ...props }: React.ComponentProps<"main">
     <main
       ref={ref}
       className={cn(
-        "relative flex min-h-svh flex-1 flex-col inset-ring-1 inset-ring-transparent peer-data-[sidebar-intent=inset]:inset-ring-(--sidebar-border)",
+        "relative w-full flex min-h-svh flex-1 flex-col inset-ring-1 inset-ring-transparent peer-data-[sidebar-intent=inset]:inset-ring-(--sidebar-border)",
         "bg-bg peer-data-[sidebar-intent=inset]:bg-sidebar",
         "peer-data-[sidebar-intent=inset]:min-h-[calc(100svh-theme(spacing.4))] md:peer-data-[sidebar-intent=inset]:m-2 md:peer-data-[sidebar-state=collapsed]:peer-data-[sidebar-intent=inset]:ml-2 md:peer-data-[sidebar-intent=inset]:ml-0 md:peer-data-[sidebar-intent=inset]:rounded-xl md:peer-data-[sidebar-intent=inset]:shadow-xs",
         className

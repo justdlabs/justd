@@ -266,6 +266,7 @@ const MultipleSelect = <T extends SelectedKey>({
               </VisuallyHidden>
             </div>
             <Popover.Picker
+              isNonModal
               className="max-w-none"
               style={{ width: `${width}px` }}
               triggerRef={triggerRef}
