@@ -5,7 +5,6 @@ import React from "react"
 import generated from "@/__registry__/generated"
 import { CodeHighlighter } from "@/components/code/code-highlighter"
 import { TabsList } from "@/components/code/code-sandbox"
-import { CopyButton } from "@/components/code/copy-button"
 import { createFetchRegistryFile } from "@/resources/lib/fetch-registry"
 import { cn } from "@/resources/lib/utils"
 import type { RegistryItem } from "@/resources/types"
@@ -16,7 +15,7 @@ const registry = generated as Record<string, RegistryItem>
 
 type HowProps = {
   toUse: string
-
+  copyButton?: boolean
   minW72?: boolean
   description?: string
   isCenter?: boolean
@@ -33,6 +32,7 @@ export const DocHow = ({
   minW72 = false,
   isCenter = true,
   withNoPadding = false,
+  copyButton = true,
   src,
   ...props
 }: HowProps) => {
@@ -76,7 +76,7 @@ export const DocHow = ({
   return (
     <div className={cn("not-prose forced-color-adjust-non relative my-4", className)} {...divProps}>
       <Tabs aria-label="Packages">
-        <TabsList src={src} />
+        <TabsList copyButton={copyButton} code={processedSourceCode as string} src={src} />
         <Tabs.Panel className="w-full" id="preview">
           <div
             className={cn(
@@ -98,10 +98,11 @@ export const DocHow = ({
             </React.Suspense>
           </div>
         </Tabs.Panel>
+
         <Tabs.Panel id="code">
           {processedSourceCode ? (
             <Group className="relative group">
-              <CopyButton text={processedSourceCode} className="absolute top-0 right-0" />
+              {/*<CopyButton text={processedSourceCode} className="absolute top-0 right-0" />*/}
               <CodeHighlighter removeLastLine code={processedSourceCode} />
             </Group>
           ) : (

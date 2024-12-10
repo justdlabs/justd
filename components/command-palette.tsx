@@ -103,6 +103,9 @@ export function CommandPalette({ openCmd, setOpen }: OpenCloseProps) {
     }
   }, [debouncedSearch])
 
+  React.useEffect(() => {
+    setSearch("")
+  }, [pathname])
   return (
     <CommandMenu classNames={{ content: "backdrop-blur-2xl bg-overlay/50" }} isOpen={openCmd} onOpenChange={setOpen}>
       <CommandMenu.Input

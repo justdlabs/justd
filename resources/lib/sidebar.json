@@ -641,483 +641,6 @@
     "slug": "docs/components/components",
     "children": [
       {
-        "title": "Charts",
-        "children": [
-          {
-            "title": "Setting Up",
-            "slug": "docs/components/charts/setup",
-            "order": 1,
-            "children": [],
-            "toc": [
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Anatomy",
-                "url": "#anatomy",
-                "items": []
-              },
-              {
-                "title": "Area Chart",
-                "url": "#area-chart",
-                "items": []
-              },
-              {
-                "title": "Bar Chart",
-                "url": "#bar-chart",
-                "items": []
-              },
-              {
-                "title": "Line Chart",
-                "url": "#line-chart",
-                "items": []
-              },
-              {
-                "title": "Pie Chart",
-                "url": "#pie-chart",
-                "items": []
-              },
-              {
-                "title": "Radial Bar Chart",
-                "url": "#radial-bar-chart",
-                "items": []
-              },
-              {
-                "title": "Scatter Chart",
-                "url": "#scatter-chart",
-                "items": []
-              },
-              {
-                "title": "Radar Chart",
-                "url": "#radar-chart",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Area Chart",
-            "slug": "docs/components/charts/area-chart",
-            "order": 2,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Gradient",
-                "url": "#gradient",
-                "items": []
-              },
-              {
-                "title": "Stacked",
-                "url": "#stacked",
-                "items": []
-              },
-              {
-                "title": "Stacked Expanded",
-                "url": "#stacked-expanded",
-                "items": []
-              },
-              {
-                "title": "Linear",
-                "url": "#linear",
-                "items": []
-              },
-              {
-                "title": "Step",
-                "url": "#step",
-                "items": []
-              },
-              {
-                "title": "Icon",
-                "url": "#icon",
-                "items": []
-              },
-              {
-                "title": "Legend",
-                "url": "#legend",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Bar Chart",
-            "slug": "docs/components/charts/bar-chart",
-            "order": 3,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Horizontal",
-                "url": "#horizontal",
-                "items": []
-              },
-              {
-                "title": "Label",
-                "url": "#label",
-                "items": []
-              },
-              {
-                "title": "Inset Label",
-                "url": "#inset-label",
-                "items": []
-              },
-              {
-                "title": "Custom Label",
-                "url": "#custom-label",
-                "items": []
-              },
-              {
-                "title": "Mixed",
-                "url": "#mixed",
-                "items": []
-              },
-              {
-                "title": "Negative",
-                "url": "#negative",
-                "items": []
-              },
-              {
-                "title": "Multiple",
-                "url": "#multiple",
-                "items": []
-              },
-              {
-                "title": "Stacked Legend",
-                "url": "#stacked-legend",
-                "items": []
-              },
-              {
-                "title": "Active",
-                "url": "#active",
-                "items": []
-              },
-              {
-                "title": "Controlled",
-                "url": "#controlled",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Line Chart",
-            "slug": "docs/components/charts/line-chart",
-            "order": 4,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Dots",
-                "url": "#dots",
-                "items": []
-              },
-              {
-                "title": "Dots Color",
-                "url": "#dots-color",
-                "items": []
-              },
-              {
-                "title": "Custom Dots",
-                "url": "#custom-dots",
-                "items": []
-              },
-              {
-                "title": "Label",
-                "url": "#label",
-                "items": []
-              },
-              {
-                "title": "Custom Label",
-                "url": "#custom-label",
-                "items": []
-              },
-              {
-                "title": "Linear",
-                "url": "#linear",
-                "items": []
-              },
-              {
-                "title": "Multiple",
-                "url": "#multiple",
-                "items": []
-              },
-              {
-                "title": "Step",
-                "url": "#step",
-                "items": []
-              },
-              {
-                "title": "Controlled",
-                "url": "#controlled",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Pie Chart",
-            "slug": "docs/components/charts/pie-chart",
-            "order": 5,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Donut",
-                "url": "#donut",
-                "items": []
-              },
-              {
-                "title": "Donut Active",
-                "url": "#donut-active",
-                "items": []
-              },
-              {
-                "title": "Donut with Text",
-                "url": "#donut-with-text",
-                "items": []
-              },
-              {
-                "title": "Custom Label",
-                "url": "#custom-label",
-                "items": []
-              },
-              {
-                "title": "Controlled",
-                "url": "#controlled",
-                "items": []
-              },
-              {
-                "title": "Label",
-                "url": "#label",
-                "items": []
-              },
-              {
-                "title": "Label List",
-                "url": "#label-list",
-                "items": []
-              },
-              {
-                "title": "Legend",
-                "url": "#legend",
-                "items": []
-              },
-              {
-                "title": "None Separator",
-                "url": "#none-separator",
-                "items": []
-              },
-              {
-                "title": "Stacked",
-                "url": "#stacked",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Radar Chart",
-            "slug": "docs/components/charts/radar-chart",
-            "order": 6,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Custom Label",
-                "url": "#custom-label",
-                "items": []
-              },
-              {
-                "title": "Dots",
-                "url": "#dots",
-                "items": []
-              },
-              {
-                "title": "Grid Circle",
-                "url": "#grid-circle",
-                "items": []
-              },
-              {
-                "title": "Grid Circle Filled",
-                "url": "#grid-circle-filled",
-                "items": []
-              },
-              {
-                "title": "Grid Circle No Lines",
-                "url": "#grid-circle-no-lines",
-                "items": []
-              },
-              {
-                "title": "Grid Custom",
-                "url": "#grid-custom",
-                "items": []
-              },
-              {
-                "title": "Grid Filled",
-                "url": "#grid-filled",
-                "items": []
-              },
-              {
-                "title": "Grid None",
-                "url": "#grid-none",
-                "items": []
-              },
-              {
-                "title": "Legend",
-                "url": "#legend",
-                "items": []
-              },
-              {
-                "title": "Lines Only",
-                "url": "#lines-only",
-                "items": []
-              },
-              {
-                "title": "Multiple",
-                "url": "#multiple",
-                "items": []
-              },
-              {
-                "title": "Radius Axis",
-                "url": "#radius-axis",
-                "items": []
-              },
-              {
-                "title": "Icons",
-                "url": "#icons",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Radial Bar Chart",
-            "slug": "docs/components/charts/radial-bar-chart",
-            "order": 7,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Label",
-                "url": "#label",
-                "items": []
-              },
-              {
-                "title": "Grid",
-                "url": "#grid",
-                "items": []
-              },
-              {
-                "title": "Text",
-                "url": "#text",
-                "items": []
-              },
-              {
-                "title": "Shape",
-                "url": "#shape",
-                "items": []
-              },
-              {
-                "title": "Stacked",
-                "url": "#stacked",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Scatter Chart",
-            "slug": "docs/components/charts/scatter-chart",
-            "order": 8,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Tooltip Chart",
-            "slug": "docs/components/charts/tooltip-chart",
-            "order": 9,
-            "children": [],
-            "toc": [
-              {
-                "title": "Default",
-                "url": "#default",
-                "items": []
-              },
-              {
-                "title": "Icons",
-                "url": "#icons",
-                "items": []
-              },
-              {
-                "title": "Custom Label",
-                "url": "#custom-label",
-                "items": []
-              },
-              {
-                "title": "Formatter",
-                "url": "#formatter",
-                "items": []
-              },
-              {
-                "title": "Label Formatter",
-                "url": "#label-formatter",
-                "items": []
-              },
-              {
-                "title": "Line Indicator",
-                "url": "#line-indicator",
-                "items": []
-              },
-              {
-                "title": "No Indicator",
-                "url": "#no-indicator",
-                "items": []
-              },
-              {
-                "title": "No Label",
-                "url": "#no-label",
-                "items": []
-              },
-              {
-                "title": "Advanced",
-                "url": "#advanced",
-                "items": []
-              }
-            ]
-          }
-        ]
-      },
-      {
         "title": "Buttons",
         "children": [
           {
@@ -2556,6 +2079,483 @@
               {
                 "title": "Disabled",
                 "url": "#disabled",
+                "items": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Charts",
+        "children": [
+          {
+            "title": "Setting Up",
+            "slug": "docs/components/charts/setup",
+            "order": 1,
+            "children": [],
+            "toc": [
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "Anatomy",
+                "url": "#anatomy",
+                "items": []
+              },
+              {
+                "title": "Area Chart",
+                "url": "#area-chart",
+                "items": []
+              },
+              {
+                "title": "Bar Chart",
+                "url": "#bar-chart",
+                "items": []
+              },
+              {
+                "title": "Line Chart",
+                "url": "#line-chart",
+                "items": []
+              },
+              {
+                "title": "Pie Chart",
+                "url": "#pie-chart",
+                "items": []
+              },
+              {
+                "title": "Radial Bar Chart",
+                "url": "#radial-bar-chart",
+                "items": []
+              },
+              {
+                "title": "Scatter Chart",
+                "url": "#scatter-chart",
+                "items": []
+              },
+              {
+                "title": "Radar Chart",
+                "url": "#radar-chart",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Area Chart",
+            "slug": "docs/components/charts/area-chart",
+            "order": 2,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Gradient",
+                "url": "#gradient",
+                "items": []
+              },
+              {
+                "title": "Stacked",
+                "url": "#stacked",
+                "items": []
+              },
+              {
+                "title": "Stacked Expanded",
+                "url": "#stacked-expanded",
+                "items": []
+              },
+              {
+                "title": "Linear",
+                "url": "#linear",
+                "items": []
+              },
+              {
+                "title": "Step",
+                "url": "#step",
+                "items": []
+              },
+              {
+                "title": "Icon",
+                "url": "#icon",
+                "items": []
+              },
+              {
+                "title": "Legend",
+                "url": "#legend",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Bar Chart",
+            "slug": "docs/components/charts/bar-chart",
+            "order": 3,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Horizontal",
+                "url": "#horizontal",
+                "items": []
+              },
+              {
+                "title": "Label",
+                "url": "#label",
+                "items": []
+              },
+              {
+                "title": "Inset Label",
+                "url": "#inset-label",
+                "items": []
+              },
+              {
+                "title": "Custom Label",
+                "url": "#custom-label",
+                "items": []
+              },
+              {
+                "title": "Mixed",
+                "url": "#mixed",
+                "items": []
+              },
+              {
+                "title": "Negative",
+                "url": "#negative",
+                "items": []
+              },
+              {
+                "title": "Multiple",
+                "url": "#multiple",
+                "items": []
+              },
+              {
+                "title": "Stacked Legend",
+                "url": "#stacked-legend",
+                "items": []
+              },
+              {
+                "title": "Active",
+                "url": "#active",
+                "items": []
+              },
+              {
+                "title": "Controlled",
+                "url": "#controlled",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Line Chart",
+            "slug": "docs/components/charts/line-chart",
+            "order": 4,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Dots",
+                "url": "#dots",
+                "items": []
+              },
+              {
+                "title": "Dots Color",
+                "url": "#dots-color",
+                "items": []
+              },
+              {
+                "title": "Custom Dots",
+                "url": "#custom-dots",
+                "items": []
+              },
+              {
+                "title": "Label",
+                "url": "#label",
+                "items": []
+              },
+              {
+                "title": "Custom Label",
+                "url": "#custom-label",
+                "items": []
+              },
+              {
+                "title": "Linear",
+                "url": "#linear",
+                "items": []
+              },
+              {
+                "title": "Multiple",
+                "url": "#multiple",
+                "items": []
+              },
+              {
+                "title": "Step",
+                "url": "#step",
+                "items": []
+              },
+              {
+                "title": "Controlled",
+                "url": "#controlled",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Pie Chart",
+            "slug": "docs/components/charts/pie-chart",
+            "order": 5,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Donut",
+                "url": "#donut",
+                "items": []
+              },
+              {
+                "title": "Donut Active",
+                "url": "#donut-active",
+                "items": []
+              },
+              {
+                "title": "Donut with Text",
+                "url": "#donut-with-text",
+                "items": []
+              },
+              {
+                "title": "Custom Label",
+                "url": "#custom-label",
+                "items": []
+              },
+              {
+                "title": "Controlled",
+                "url": "#controlled",
+                "items": []
+              },
+              {
+                "title": "Label",
+                "url": "#label",
+                "items": []
+              },
+              {
+                "title": "Label List",
+                "url": "#label-list",
+                "items": []
+              },
+              {
+                "title": "Legend",
+                "url": "#legend",
+                "items": []
+              },
+              {
+                "title": "None Separator",
+                "url": "#none-separator",
+                "items": []
+              },
+              {
+                "title": "Stacked",
+                "url": "#stacked",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Radar Chart",
+            "slug": "docs/components/charts/radar-chart",
+            "order": 6,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Custom Label",
+                "url": "#custom-label",
+                "items": []
+              },
+              {
+                "title": "Dots",
+                "url": "#dots",
+                "items": []
+              },
+              {
+                "title": "Grid Circle",
+                "url": "#grid-circle",
+                "items": []
+              },
+              {
+                "title": "Grid Circle Filled",
+                "url": "#grid-circle-filled",
+                "items": []
+              },
+              {
+                "title": "Grid Circle No Lines",
+                "url": "#grid-circle-no-lines",
+                "items": []
+              },
+              {
+                "title": "Grid Custom",
+                "url": "#grid-custom",
+                "items": []
+              },
+              {
+                "title": "Grid Filled",
+                "url": "#grid-filled",
+                "items": []
+              },
+              {
+                "title": "Grid None",
+                "url": "#grid-none",
+                "items": []
+              },
+              {
+                "title": "Legend",
+                "url": "#legend",
+                "items": []
+              },
+              {
+                "title": "Lines Only",
+                "url": "#lines-only",
+                "items": []
+              },
+              {
+                "title": "Multiple",
+                "url": "#multiple",
+                "items": []
+              },
+              {
+                "title": "Radius Axis",
+                "url": "#radius-axis",
+                "items": []
+              },
+              {
+                "title": "Icons",
+                "url": "#icons",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Radial Bar Chart",
+            "slug": "docs/components/charts/radial-bar-chart",
+            "order": 7,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Label",
+                "url": "#label",
+                "items": []
+              },
+              {
+                "title": "Grid",
+                "url": "#grid",
+                "items": []
+              },
+              {
+                "title": "Text",
+                "url": "#text",
+                "items": []
+              },
+              {
+                "title": "Shape",
+                "url": "#shape",
+                "items": []
+              },
+              {
+                "title": "Stacked",
+                "url": "#stacked",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Scatter Chart",
+            "slug": "docs/components/charts/scatter-chart",
+            "order": 8,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Tooltip Chart",
+            "slug": "docs/components/charts/tooltip-chart",
+            "order": 9,
+            "children": [],
+            "toc": [
+              {
+                "title": "Default",
+                "url": "#default",
+                "items": []
+              },
+              {
+                "title": "Icons",
+                "url": "#icons",
+                "items": []
+              },
+              {
+                "title": "Custom Label",
+                "url": "#custom-label",
+                "items": []
+              },
+              {
+                "title": "Formatter",
+                "url": "#formatter",
+                "items": []
+              },
+              {
+                "title": "Label Formatter",
+                "url": "#label-formatter",
+                "items": []
+              },
+              {
+                "title": "Line Indicator",
+                "url": "#line-indicator",
+                "items": []
+              },
+              {
+                "title": "No Indicator",
+                "url": "#no-indicator",
+                "items": []
+              },
+              {
+                "title": "No Label",
+                "url": "#no-label",
+                "items": []
+              },
+              {
+                "title": "Advanced",
+                "url": "#advanced",
                 "items": []
               }
             ]

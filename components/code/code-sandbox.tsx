@@ -4,7 +4,7 @@ import React from "react"
 
 import generated from "@/__registry__/generated"
 import { CodeHighlighter } from "@/components/code/code-highlighter"
-import { CopyButton } from "@/components/code/copy-button"
+import { CopyButton, CopyMotionButton } from "@/components/code/copy-button"
 import { copyToClipboard } from "@/resources/lib/copy"
 import type { RegistryItem } from "@/resources/types"
 import { cn } from "@/utils/classes"
@@ -130,18 +130,27 @@ export function CodeSandbox({ classNames, source, src }: Props) {
   )
 }
 
-export const TabsList = ({ src }: { src?: string }) => {
+interface TabListProps {
+  src?: string
+  code?: string
+  copyButton?: boolean
+}
+
+export const TabsList = ({ src, code, copyButton }: TabListProps) => {
   return (
-    <Tabs.List>
-      <Tabs.Tab id="preview">Preview</Tabs.Tab>
-      <Tabs.Tab id="code">Code</Tabs.Tab>
-      {src && (
-        <Tabs.Tab className="ml-auto flex items-center" target="_blank" href={src}>
-          <IconWindowVisitFill />
-          Fullscreen
-        </Tabs.Tab>
-      )}
-    </Tabs.List>
+    <div className="relative">
+      <Tabs.List>
+        <Tabs.Tab id="preview">Preview</Tabs.Tab>
+        <Tabs.Tab id="code">Code</Tabs.Tab>
+        {src && (
+          <Tabs.Tab className="ml-auto flex items-center" target="_blank" href={src}>
+            <IconWindowVisitFill />
+            Fullscreen
+          </Tabs.Tab>
+        )}
+      </Tabs.List>
+      {copyButton && <CopyMotionButton text={code!} />}
+    </div>
   )
 }
 

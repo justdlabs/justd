@@ -2,7 +2,7 @@ import { Link, Note } from "ui"
 
 export function DocWarningFramer() {
   return (
-    <Note intent="warning" className="not-prose">
+    <Note intent="warning" className="mt-6 not-prose">
       <div className="-mt-0.5 mb-2">
         <strong className="text-base">
           Warning <u>React 19</u>
