@@ -258,7 +258,7 @@ const header = tv({
   base: "flex flex-col mb-2 **:data-[slot=sidebar-label-mask]:hidden",
   variants: {
     collapsed: {
-      false: "px-5 py-[calc(var(--spacing)*4)]",
+      false: "px-4 py-[calc(var(--spacing)*4)]",
       true: "p-5 mt-2 md:p-0 md:size-9 group-data-[sidebar-intent=float]/sidebar-container:mt-2 md:rounded-lg md:hover:bg-(--sidebar-accent) md:mx-auto md:justify-center md:items-center"
     }
   }

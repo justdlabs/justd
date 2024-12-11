@@ -99,7 +99,7 @@ interface TableCellProps extends CellProps {
 }
 
 const cellStyles = tv({
-  base: "group px-3 py-3 outline-hidden",
+  base: "whitespace-nowrap group px-3 py-3 outline-hidden",
   variants: {
     allowResize: {
       true: "overflow-hidden truncate"
