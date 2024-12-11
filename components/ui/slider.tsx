@@ -130,6 +130,8 @@ const controlsStyles = tv({
       "pointer-events-none absolute group-data-[orientation=horizontal]/top-0 group-data-[orientation=vertical]/track:w-full group-data-[orientation=vertical]/track:bottom-0 group-data-[orientation=horizontal]/track:h-full"
     ],
     track: [
+      "[--track:color-mix(in_oklab,var(--color-muted)_90%,black_10%)] dark:[--track:color-mix(in_oklab,var(--color-muted)_90%,white_10%)]",
+      "relative group/track rounded-full bg-(--track) cursor-pointer data-disabled:cursor-default data-disabled:opacity-60",
       "relative group/track rounded-full bg-muted cursor-pointer data-disabled:cursor-default data-disabled:opacity-60",
       "grow group-data-[orientation=vertical]:flex-1 group-data-[orientation=vertical]:w-1.5 group-data-[orientation=horizontal]:w-full group-data-[orientation=horizontal]:h-1.5"
     ]
