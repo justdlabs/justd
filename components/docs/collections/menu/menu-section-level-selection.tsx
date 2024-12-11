@@ -37,12 +37,7 @@ export default function MenuSectionLevelSelection() {
             Paste
           </Menu.Item>
         </Menu.Section>
-        <Menu.Section
-          selectionMode="multiple"
-          selectedKeys={style}
-          onSelectionChange={setStyle}
-          title="Text style"
-        >
+        <Menu.Section selectionMode="multiple" selectedKeys={style} onSelectionChange={setStyle} title="Text style">
           <Menu.Checkbox id="bold" textValue="Bold">
             <IconBold />
             Bold
@@ -56,12 +51,7 @@ export default function MenuSectionLevelSelection() {
             Underline
           </Menu.Checkbox>
         </Menu.Section>
-        <Menu.Section
-          selectionMode="single"
-          selectedKeys={align}
-          onSelectionChange={setAlign}
-          title="Text alignment"
-        >
+        <Menu.Section selectionMode="single" selectedKeys={align} onSelectionChange={setAlign} title="Text alignment">
           <Menu.Radio id="left" textValue="Left">
             <IconAlignmentLeft />
             Left

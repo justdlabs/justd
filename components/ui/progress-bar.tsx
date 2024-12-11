@@ -2,14 +2,14 @@
 
 import * as React from "react"
 
-import { motion } from "framer-motion"
+import { motion } from "motion/react"
 import {
   ProgressBar as ProgressBarPrimitive,
   type ProgressBarProps as ProgressBarPrimitiveProps
 } from "react-aria-components"
 
 import { Label } from "./field"
-import { ctr } from "./primitive"
+import { composeTailwindRenderProps } from "./primitive"
 
 interface ProgressBarProps extends ProgressBarPrimitiveProps {
   label?: string
@@ -17,7 +17,7 @@ interface ProgressBarProps extends ProgressBarPrimitiveProps {
 
 const ProgressBar = ({ label, className, ...props }: ProgressBarProps) => {
   return (
-    <ProgressBarPrimitive {...props} className={ctr(className, "flex flex-col")}>
+    <ProgressBarPrimitive {...props} className={composeTailwindRenderProps(className, "flex flex-col")}>
       {({ percentage, valueText, isIndeterminate }) => (
         <>
           <div className="flex justify-between gap-2">

@@ -15,6 +15,7 @@ import type {
 import {
   Button,
   Collection,
+  composeRenderProps,
   Header,
   Menu as MenuPrimitive,
   MenuItem,
@@ -29,7 +30,7 @@ import { tv } from "tailwind-variants"
 import { DropdownItemDetails, dropdownItemStyles, dropdownSectionStyles } from "./dropdown"
 import { Keyboard } from "./keyboard"
 import { Popover } from "./popover"
-import { cn, cr } from "./primitive"
+import { cn } from "./primitive"
 
 interface MenuContextProps {
   respectScreen: boolean
@@ -43,9 +44,9 @@ interface MenuProps extends MenuTriggerPrimitiveProps {
 
 const Menu = ({ respectScreen = true, ...props }: MenuProps) => {
   return (
-    <MenuContext.Provider value={{ respectScreen }}>
+    <MenuContext value={{ respectScreen }}>
       <MenuTriggerPrimitive {...props}>{props.children}</MenuTriggerPrimitive>
-    </MenuContext.Provider>
+    </MenuContext>
   )
 }
 
@@ -57,10 +58,10 @@ const SubMenu = ({ delay = 0, ...props }) => (
 
 const menuStyles = tv({
   slots: {
-    menu: "z32kk max-h-[calc(var(--visual-viewport-height)-10rem)] sm:max-h-[inherit] overflow-auto rounded-xl p-1 outline outline-0 [clip-path:inset(0_0_0_0_round_calc(var(--radius)-2px))]",
-    popover: "z-50 min-w-40 p-0 outline-none shadow-sm",
+    menu: "max-h-[calc(var(--visual-viewport-height)-10rem)] sm:max-h-[inherit] overflow-auto rounded-xl p-1 outline-hidden [clip-path:inset(0_0_0_0_round_calc(var(--radius-lg)-2px))]",
+    popover: "z-50 sm:min-w-40 p-0 outline-hidden shadow-xs",
     trigger: [
-      "inline relative text-left focus:outline-none focus-visible:ring-1 focus-visible:ring-primary pressed:outline-none"
+      "inline relative text-left data-focused:outline-hidden data-focus-visible:ring-1 data-focus-visible:ring-primary data-pressed:outline-hidden"
     ]
   }
 })
@@ -72,16 +73,12 @@ interface MenuTriggerProps extends ButtonProps {
 }
 
 const Trigger = ({ className, ...props }: MenuTriggerProps) => (
-  <Button className={trigger({ className })} {...props}>
-    {(values) => (
-      <>{typeof props.children === "function" ? props.children(values) : props.children}</>
-    )}
+  <Button data-slot="menu-trigger" className={trigger({ className })} {...props}>
+    {(values) => <>{typeof props.children === "function" ? props.children(values) : props.children}</>}
   </Button>
 )
 
-interface MenuContentProps<T>
-  extends Omit<PopoverProps, "children" | "style">,
-    MenuPrimitiveProps<T> {
+interface MenuContentProps<T> extends Omit<PopoverProps, "children" | "style">, MenuPrimitiveProps<T> {
   className?: string
   popoverClassName?: string
   showArrow?: boolean
@@ -94,14 +91,14 @@ const Content = <T extends object>({
   popoverClassName,
   ...props
 }: MenuContentProps<T>) => {
-  const { respectScreen } = React.useContext(MenuContext)
+  const { respectScreen } = React.use(MenuContext)
   return (
     <Popover.Content
       respectScreen={respectScreen}
       showArrow={showArrow}
       className={popover({
         className: cn([
-          showArrow && "placement-left:mt-[-0.38rem] placement-right:mt-[-0.38rem]",
+          showArrow && "data-[placement=left]:mt-[-0.38rem] data-[placement=right]:mt-[-0.38rem]",
           popoverClassName
         ])
       })}
@@ -112,9 +109,7 @@ const Content = <T extends object>({
   )
 }
 
-interface MenuItemProps
-  extends Omit<MenuItemPrimitiveProps, "isDanger">,
-    VariantProps<typeof dropdownItemStyles> {
+interface MenuItemProps extends MenuItemPrimitiveProps, VariantProps<typeof dropdownItemStyles> {
   isDanger?: boolean
 }
 
@@ -122,7 +117,7 @@ const Item = ({ className, isDanger = false, children, ...props }: MenuItemProps
   const textValue = props.textValue || (typeof children === "string" ? children : undefined)
   return (
     <MenuItem
-      className={cr(className, (className, renderProps) =>
+      className={composeRenderProps(className, (className, renderProps) =>
         dropdownItemStyles({
           ...renderProps,
           className
@@ -150,7 +145,7 @@ const MenuHeader = ({ className, separator = false, ...props }: MenuHeaderProps)
   <Header
     className={cn(
       "p-2 text-base font-semibold sm:text-sm",
-      separator && "-mx-1 border-b px-3 pb-[0.625rem]",
+      separator && "-mx-1 border-b px-4 py-3 sm:px-3 sm:pb-[0.625rem]",
       className
     )}
     {...props}
@@ -177,7 +172,7 @@ const Checkbox = ({ className, children, ...props }: MenuItemProps) => (
 )
 
 const Radio = ({ className, children, ...props }: MenuItemProps) => (
-  <Item className={cn("relative", className)} {...props}>
+  <Item className={cn("relative ", className)} {...props}>
     {(values) => (
       <>
         {typeof children === "function" ? children(values) : children}
@@ -185,9 +180,9 @@ const Radio = ({ className, children, ...props }: MenuItemProps) => (
         {values.isSelected && (
           <span
             data-slot="menu-radio"
-            className="absolute right-3 flex items-center animate-in justify-center"
+            className="absolute right-3 **:data-[slot=indicator]:size-2.5 **:data-[slot=indicator]:shrink-0 flex items-center animate-in justify-center"
           >
-            <IconBulletFill />
+            <IconBulletFill data-slot="indicator" />
           </span>
         )}
       </>

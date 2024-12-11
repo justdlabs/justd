@@ -11,16 +11,16 @@ import {
 import { tv } from "tailwind-variants"
 
 import { Description, FieldError, FieldGroup, Input, Label } from "./field"
-import { ctr, useMediaQuery } from "./primitive"
+import { composeTailwindRenderProps, useMediaQuery } from "./primitive"
 
 const fieldBorderStyles = tv({
-  base: "group-focus:border-primary/70 forced-colors:border-[Highlight]",
+  base: "group-data-focused:border-primary/70 forced-colors:border-[Highlight]",
   variants: {
     isInvalid: {
-      true: "group-focus:border-danger/70 forced-colors:border-[Mark]"
+      true: "group-data-focused:border-danger/70 forced-colors:border-[Mark]"
     },
     isDisabled: {
-      true: "group-focus:border-input/70"
+      true: "group-data-focused:border-input/70"
     }
   }
 })
@@ -29,7 +29,7 @@ const numberFieldStyles = tv({
   slots: {
     base: "group flex flex-col gap-y-1.5",
     stepperButton:
-      "h-10 cursor-default px-3 text-muted-fg pressed:bg-primary pressed:text-primary-fg group-disabled:bg-secondary/70 forced-colors:group-disabled:text-[GrayText]"
+      "h-10 cursor-default px-3 text-muted-fg data-pressed:bg-primary data-pressed:text-primary-fg group-data-disabled:bg-secondary/70 forced-colors:group-data-disabled:text-[GrayText]"
   }
 })
 
@@ -42,17 +42,10 @@ interface NumberFieldProps extends NumberFieldPrimitiveProps {
   errorMessage?: string | ((validation: ValidationResult) => string)
 }
 
-const NumberField = ({
-  label,
-  placeholder,
-  description,
-  className,
-  errorMessage,
-  ...props
-}: NumberFieldProps) => {
+const NumberField = ({ label, placeholder, description, className, errorMessage, ...props }: NumberFieldProps) => {
   const isMobile = useMediaQuery("(max-width: 768px)")
   return (
-    <NumberFieldPrimitive {...props} className={ctr(className, base())}>
+    <NumberFieldPrimitive {...props} className={composeTailwindRenderProps(className, base())}>
       {label && <Label>{label}</Label>}
       <FieldGroup className="overflow-hidden">
         {(renderProps) => (
@@ -95,12 +88,7 @@ interface StepperButtonProps extends ButtonProps {
   className?: string
 }
 
-const StepperButton = ({
-  slot,
-  className,
-  emblemType = "default",
-  ...props
-}: StepperButtonProps) => {
+const StepperButton = ({ slot, className, emblemType = "default", ...props }: StepperButtonProps) => {
   const icon =
     emblemType === "chevron" ? (
       slot === "increment" ? (

@@ -29,26 +29,26 @@ Since you've got the theme provider in play, you'll probably wanna team it up wi
 
 <PlainCode code={`'use client'
 
-import { ThemeProvider } from 'next-themes'
-import { useRouter } from 'next/navigation'
-import { RouterProvider } from 'react-aria-components'
+  import { ThemeProvider } from 'next-themes'
+  import { useRouter } from 'next/navigation'
+  import { RouterProvider } from 'react-aria-components'
 
-declare module 'react-aria-components' {
-  interface RouterConfig {
-    routerOptions: NonNullable<Parameters<ReturnType<typeof useRouter>['push']>[1]>
+  declare module 'react-aria-components' {
+    interface RouterConfig {
+      routerOptions: NonNullable<Parameters<ReturnType<typeof useRouter>['push']>[1]>
+    }
   }
-}
 
-export function Providers({ children }: { children: React.ReactNode }) {
-  let router = useRouter()
+  export function Providers({ children }: { children: React.ReactNode }) {
+    let router = useRouter()
 
-  return (
-    <RouterProvider navigate={router.push}>
-      <ThemeProvider attribute="class">{children}</ThemeProvider>
-    </RouterProvider>
-  )
-}
-`}/>
+    return (
+      <RouterProvider navigate={router.push}>
+        <ThemeProvider attribute="class">{children}</ThemeProvider>
+      </RouterProvider>
+    )
+  }
+  `}/>
 
 ## Usage
 After that, you can use it in your root layout file like so:
@@ -76,24 +76,24 @@ For theme switcher, you can use the `useTheme` hook from `next-themes` to get th
 
 <PlainCode code={`'use client'
 
-import { IconMoon, IconSun } from 'justd-icons'
-import { useTheme } from 'next-themes'
-import { Button } from 'ui'
+  import { IconMoon, IconSun } from 'justd-icons'
+  import { useTheme } from 'next-themes'
+  import { Button } from 'ui'
 
-export function ThemeSwitcher() {
-  const { resolvedTheme, setTheme } = useTheme()
+  export function ThemeSwitcher() {
+    const { resolvedTheme, setTheme } = useTheme()
 
-  return (
-    <Button
-      appearance="outline"
-      size="square-petite"
-      aria-label={'Switch to ' + resolvedTheme === 'light' ? 'dark' : 'light' + 'mode'}
-      onPress={() => setTheme(resolvedTheme === 'light' ? 'dark' : 'light')}
-    >
-      <IconSun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-      <IconMoon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-    </Button>
-  )
-}`}/>
+    return (
+      <Button
+        appearance="outline"
+        size="square-petite"
+        aria-label={'Switch to ' + resolvedTheme === 'light' ? 'dark' : 'light' + 'mode'}
+        onPress={() => setTheme(resolvedTheme === 'light' ? 'dark' : 'light')}
+      >
+        <IconSun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+        <IconMoon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+      </Button>
+    )
+  }`}/>
 
 If you spot typos or wrong implementations, feel free to [contribute here](https://github.com/irsyadadl/d./blob/main/content/docs/dark-mode/next-js.mdx).

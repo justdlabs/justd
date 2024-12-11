@@ -2,8 +2,9 @@
 
 import * as React from "react"
 
-import { LayoutGroup, motion } from "framer-motion"
+import { LayoutGroup, motion } from "motion/react"
 import {
+  composeRenderProps,
   Tab as TabPrimitive,
   TabList,
   type TabListProps,
@@ -16,7 +17,7 @@ import {
 import { twJoin } from "tailwind-merge"
 import { tv } from "tailwind-variants"
 
-import { cn, cr } from "./primitive"
+import { cn, composeTailwindRenderProps } from "./primitive"
 
 const tabsStyles = tv({
   base: "group flex gap-4 forced-color-adjust-none",
@@ -28,11 +29,11 @@ const tabsStyles = tv({
   }
 })
 
-const Tabs = (props: TabsProps) => {
+const Tabs = ({ className, ...props }: TabsProps) => {
   return (
     <TabsPrimitive
       {...props}
-      className={cr(props.className, (className, renderProps) =>
+      className={composeRenderProps(className, (className, renderProps) =>
         tabsStyles({
           ...renderProps,
           className
@@ -58,7 +59,7 @@ const List = <T extends object>(props: TabListProps<T>) => {
     <LayoutGroup id={id}>
       <TabList
         {...props}
-        className={cr(props.className, (className, renderProps) =>
+        className={composeRenderProps(props.className, (className, renderProps) =>
           tabListStyles({ ...renderProps, className })
         )}
       />
@@ -68,11 +69,9 @@ const List = <T extends object>(props: TabListProps<T>) => {
 
 const tabStyles = tv({
   base: [
-    "relative flex whitespace-nowrap cursor-default items-center rounded-full text-sm font-medium outline-none transition hover:text-fg [&>[data-slot=icon]]:size-4 [&>[data-slot=icon]]:mr-2",
-    // hor
-    "group-orientation-vertical:w-full group-orientation-vertical:py-0 group-orientation-vertical:pl-4 group-orientation-vertical:pr-2",
-    // ver
-    "group-orientation-horizontal:pb-3"
+    "relative flex whitespace-nowrap cursor-default items-center rounded-full text-sm font-medium outline-hidden transition data-hovered:text-fg *:data-[slot=icon]:size-4 *:data-[slot=icon]:mr-2",
+    "group-data-[orientation=vertical]:w-full group-data-[orientation=vertical]:py-0 group-data-[orientation=vertical]:pl-4 group-data-[orientation=vertical]:pr-2",
+    "group-data-[orientation=horizontal]:pb-3"
   ],
   variants: {
     isSelected: {
@@ -90,7 +89,7 @@ const Tab = ({ children, ...props }: TabProps) => {
   return (
     <TabPrimitive
       {...props}
-      className={cr(props.className, (_className, renderProps) =>
+      className={composeRenderProps(props.className, (_className, renderProps) =>
         tabStyles({
           ...renderProps,
           className: twJoin("href" in props && "cursor-pointer", _className)
@@ -105,9 +104,9 @@ const Tab = ({ children, ...props }: TabProps) => {
               className={cn(
                 "absolute rounded bg-fg",
                 // horizontal
-                "group-orientation-horizontal:inset-x-0 group-orientation-horizontal:-bottom-px group-orientation-horizontal:h-0.5 group-orientation-horizontal:w-full",
+                "group-data-[orientation=horizontal]:inset-x-0 group-data-[orientation=horizontal]:-bottom-px group-data-[orientation=horizontal]:h-0.5 group-data-[orientation=horizontal]:w-full",
                 // vertical
-                "group-orientation-vertical:left-0 group-orientation-vertical:h-[calc(100%-10%)] group-orientation-vertical:w-0.5 group-orientation-vertical:transform"
+                "group-data-[orientation=vertical]:left-0 group-data-[orientation=vertical]:h-[calc(100%-10%)] group-data-[orientation=vertical]:w-0.5 group-data-[orientation=vertical]:transform"
               )}
               layoutId="current-selected"
               transition={{ type: "spring", stiffness: 500, damping: 40 }}
@@ -119,22 +118,11 @@ const Tab = ({ children, ...props }: TabProps) => {
   )
 }
 
-const tabPanelStyles = tv({
-  base: "flex-1 text-sm text-fg",
-  variants: {
-    isFocusVisible: {
-      true: "outline-none"
-    }
-  }
-})
-
-const Panel = (props: TabPanelProps) => {
+const Panel = ({ className, ...props }: TabPanelProps) => {
   return (
     <TabPanel
       {...props}
-      className={cr(props.className, (className, renderProps) =>
-        tabPanelStyles({ ...renderProps, className })
-      )}
+      className={composeTailwindRenderProps(className, "flex-1 text-sm text-fg data-focus-visible:outline-hidden")}
     />
   )
 }

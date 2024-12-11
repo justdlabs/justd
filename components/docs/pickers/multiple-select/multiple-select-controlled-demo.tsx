@@ -40,8 +40,7 @@ export default function MultipleSelectControlledDemo() {
       </MultipleSelect>
       {selectedItems.items.length > 0 && (
         <Description className="mt-2 max-w-xs block [&>strong]:text-fg text-muted-fg">
-          You have selected:{" "}
-          <strong>{selectedItems.items.map((item) => item.name).join(", ")}</strong>
+          You have selected: <strong>{selectedItems.items.map((item) => item.name).join(", ")}</strong>
         </Description>
       )}
     </>

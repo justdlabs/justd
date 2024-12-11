@@ -7,307 +7,332 @@ references: ["https://react-spectrum.adobe.com/react-aria/Link.html#props", "htt
 ---
 
 ## Basic
-I can't display a live example here. Click on the image to view it in full screen, or <a href='/blocks/sidebar/sidebar-01' target='_blank'>here</a>.
-<a href='/blocks/sidebar/sidebar-01' className='group' target='_blank'>
-  <Image src="/images/sidebar/example-sidebar.jpg" className='aspect-video hover:grayscale-0 grayscale transition-transform' alt="Sidebar" width={1200} height={800} />
-</a>
+The sidebar is a versatile component designed to organize your site's content and navigation. It offers a structured overview of your site's layout, making it easier for users to explore and locate information.
+
+<CodeSandbox
+  src='/blocks/sidebar/sidebar-01'
+  source={{
+    preview: 'blocks/sidebar/sidebar-01/page',
+    'app-sidebar-nav.tsx': 'blocks/sidebar/app-sidebar-nav',
+    'app-sidebar.tsx': 'blocks/sidebar/app-sidebar',
+    'layout.tsx': 'blocks/sidebar/sidebar-01/layout',
+    'page.tsx': 'blocks/sidebar/sidebar-01/page',
+  }} />
 
 ## Installation
-<Installation options={{ isComponent: true }} items={['sidebar']}/>
+<Installation options={{isComponent: true}} items={['sidebar']}/>
 
 ## Composed Components
-<Composed components={['button', 'sheet', 'tooltip']}/>
+<Composed components={['badge', 'tooltip', 'sheet', 'button']} />
 
 ## Manual Installation
-<Installation options={{ isManual: true }} items={['react-aria-components justd-icons']}/>
-<SourceCode toShow={['sidebar']}/>
+<Installation options={{ isManual: true }} items={['react-aria-components', 'justd-icons']}/>
+<SourceCode toShow={'sidebar'}/>
 
 ## Anatomy
 <Anatomy show='sidebar-anatomy'/>
 
-## Creating a Sidebar
-There are several ways to create a sidebar. Let's begin with the most straightforward approach.
+## CSS Variables
+The sidebar just need one base color to work, the accent will generate from the base and the primary color just taking from the primary color you have. Make sure you have set evertyhing up, or hover into [theme page](/themes) to see the bunch of colors you can get. Too lazy? just copy the default color below to your stylesheet.
+```
+@theme {
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-fg: var(--sidebar-fg);
+}
 
-### App Sidebar
-Imagine you're building a dashboard; you'll likely need a sidebar that lists all your projects, teams, and settings.
-<PlainCode title='dashboard/app-sidebar.tsx' code={`"use client"
-
-  import * as React from "react"
-
-  import {
-    IconBrandApple,
-    IconChevronLgDown,
-    IconCirclePerson,
-    IconCreditCard,
-    IconDashboard,
-    IconEnvelope,
-    IconLogout,
-    IconMessage,
-    IconPeople,
-    IconPersonAdd,
-    IconSettings
-  } from "justd-icons"
-  import { Sidebar, Avatar, Button, Link, Menu } from "ui"
-
-  export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
-    return (
-      <Sidebar {...props}>
-        <Sidebar.Header>
-          <Link
-            className="flex items-center group-data-[collapsible=dock]:size-10 group-data-[collapsible=dock]:justify-center gap-x-2"
-            href="/docs/components/layouts/sidebar"
-          >
-            <IconBrandApple className="size-5" />
-            <strong className="font-medium group-data-[collapsible=dock]:hidden">Apple</strong>
-          </Link>
-        </Sidebar.Header>
-        <Sidebar.Content>
-          <Sidebar.Section>
-            <Sidebar.Item isCurrent icon={IconDashboard} href="#">
-              Overview
-            </Sidebar.Item>
-            <Sidebar.Item icon={IconSettings} href="#">
-              Settings
-            </Sidebar.Item>
-            <Sidebar.Item icon={IconCreditCard} href="#">
-              Billing
-            </Sidebar.Item>
-            <Sidebar.Item icon={IconEnvelope} href="#" badge="49.67K">
-              Newsletter
-            </Sidebar.Item>
-            <Sidebar.Item icon={IconMessage} href="#" badge={35}>
-              Messages
-            </Sidebar.Item>
-          </Sidebar.Section>
-          <Sidebar.Section collapsible title="Team">
-            <Sidebar.Item icon={IconPeople} href="#">
-              Team Overview
-            </Sidebar.Item>
-            <Sidebar.Item icon={IconPersonAdd} href="#">
-              Add New Member
-            </Sidebar.Item>
-            <Sidebar.Item href="#">Manage Roles</Sidebar.Item>
-          </Sidebar.Section>
-        </Sidebar.Content>
-        <Sidebar.Footer className="lg:flex lg:flex-row hidden items-center">
-          <Menu>
-            <Button appearance="plain" aria-label="Profile" data-slot="menu-trigger" className="group">
-              <Avatar size="small" shape="square" src="/images/sidebar/profile-slash.jpg" />
-              <span className="group-data-[collapsible=dock]:hidden flex items-center justify-center">
-                Saul Hudson
-                <IconChevronLgDown className="right-3 size-4 absolute group-pressed:rotate-180 transition-transform" />
-              </span>
-            </Button>
-            <Menu.Content className="min-w-[--trigger-width]">
-              <Menu.Item href="#">
-                <IconCirclePerson />
-                Profile
-              </Menu.Item>
-              <Menu.Item href="#">
-                <IconSettings />
-                Settings
-              </Menu.Item>
-              <Menu.Separator />
-              <Menu.Item href="#">
-                <IconLogout />
-                Log out
-              </Menu.Item>
-            </Menu.Content>
-          </Menu>
-        </Sidebar.Footer>
-        <Sidebar.Rail />
-      </Sidebar>
-    )
+@layer base {
+  :root {
+    --sidebar: oklch(0.967 0.001 286.375);
+    --sidebar-fg: oklch(0.141 0.005 285.823);
   }
-  `}/>
 
-### Layout
-Once you've created the sidebar, you can wrap it inside a layout component. Here's what it looks like:
-
-<PlainCode title='dashboard/layout.tsx' code={`"use client"
-
-  import * as React from "react"
-
-  import { AppSidebar } from "@/app/blocks/sidebar/app-sidebar"
-  import {
-    IconChevronLgDown,
-    IconCirclePerson,
-    IconLogout,
-    IconSearch,
-    IconSettings,
-    IconShield
-  } from "justd-icons"
-  import { Avatar, Button, Menu, SearchField, Separator, Sidebar } from "ui"
-
-  export default function Layout({ children }: { children: React.ReactNode }) {
-    return (
-      <Sidebar.Provider>
-        <AppSidebar />
-        <Sidebar.Inset>
-          <Sidebar.Nav isSticky>
-            <span className="flex items-center gap-x-3">
-              <Sidebar.Trigger className="-mx-2" />
-              <Separator className="h-6 sm:block hidden" orientation="vertical" />
-            </span>
-            <SearchField className="sm:inline hidden sm:ml-1.5" />
-            <div className="flex sm:hidden items-center gap-x-2">
-              <Button appearance="plain" aria-label="Search..." size="square-petite">
-                <IconSearch />
-              </Button>
-              <Menu>
-                <Menu.Trigger aria-label="Profile" className="flex items-center gap-x-2 group">
-                  <Avatar size="small" shape="circle" src="/images/sidebar/profile-slash.jpg" />
-                  <IconChevronLgDown className="size-4 group-pressed:rotate-180 transition-transform" />
-                </Menu.Trigger>
-                <Menu.Content className="min-w-[--trigger-width]">
-                  <Menu.Item href="#">
-                    <IconCirclePerson />
-                    Profile
-                  </Menu.Item>
-                  <Menu.Item href="#">
-                    <IconSettings />
-                    Settings
-                  </Menu.Item>
-                  <Menu.Item href="#">
-                    <IconShield />
-                    Security
-                  </Menu.Item>
-                  <Menu.Item href="#">
-                    <IconLogout />
-                    Log out
-                  </Menu.Item>
-                </Menu.Content>
-              </Menu>
-            </div>
-          </Sidebar.Nav>
-          <div className="p-4 lg:p-6">{children}</div>
-        </Sidebar.Inset>
-      </Sidebar.Provider>
-    )
-  }`}/>
-
-### Done
-Great job! You've successfully created a sidebar. The result can be seen [here](/blocks/sidebar/sidebar-01).
-
-### Using the Layout
-There are several ways to use the layout, depending on your framework. Or, if you're not using any framework, you can simply apply the layout component.
-
-### Common Usage
-A typical approach is to wrap your content with the layout like this:
-```
-<AppLayout>
-  {/* your main content */}
-</AppLayout>
-```
-### Inertia.js
-If you're using Inertia.js, you can implement a persistent layout. Here's how it looks:
-
-```
-Home.layout = (page: React.ReactNode) => <AppLayout children={page} />
-```
-
-### Next.js
-If you're using Next.js, there's no extra configuration needed. Simply create a page component and ensure it inherits the layout like this:
-```bash
-app/dashboard
-├── app-sidebar.tsx
-├── layout.tsx
-└── page.tsx
-```
-
-## Collapsible
-By default, the sidebar is collapsible with three options for collapsibility: `offcanvas`, `dock`, and `none`. When set to `dock`, the sidebar will be pinned to a specified location, displaying an icon and tooltip by default. You can see an example of this in [Sidebar 04](/blocks/sidebar/sidebar-04).
-
-### Offcanvas
-This is the default collapsible type. When the trigger is clicked, the sidebar slides out.
-```
-<Sidebar collapsible='offcanvas' />
-```
-
-### Dock
-This collapsible type is used in the sidebar of this documentation. Clicking the trigger causes the sidebar to slide out.
-```
-<Sidebar collapsible='dock' />
-```
-
-### None
-Choosing the `none` type ensures the sidebar is static and cannot be toggled.
-```
-<Sidebar collapsible='none' />
-```
-
-## Intent
-There are three types of sidebar intents: `sidebar`, `floating`, and `inset`, each with distinct behaviors.
-### Sidebar
-This is the default intent and the most common style for sidebars.
-```
-<Sidebar intent='sidebar' />
-```
-
-### Floating
-Using the `floating` intent, the sidebar will be fixed at the bottom of the screen, similar to a modal. Fullscreen example can be seen [here](/blocks/sidebar/sidebar-03).
-
-```
-<Sidebar intent='floating' />
-```
-
-### Inset
-With the `inset` intent, the sidebar is also fixed at the bottom of the screen, resembling a modal. Fullscreen example can be seen [here](/blocks/sidebar/sidebar-02).
-
-```
-<Sidebar intent='inset' />
-```
-
-## Default Open
-The sidebar's default open state can be managed using the `defaultOpen` prop.
-
-```tsx {1}
-<Sidebar.Provider defaultOpen>
-  <Sidebar />
-  <Sidebar.Inset />
-</Sidebar.Provider>
-```
-
-## Trigger
-The trigger is a button that toggles the sidebar on both desktop and mobile devices. On desktop, it collapses the sidebar, while on mobile, it opens the sidebar within the `<Sheet/>` component.
-```
-<Sidebar.Trigger/>
-```
-
-## Rail
-`<Sidebar.Rail/>` is a button that toggles the sidebar, positioned as a slim bar along the sidebar's border rather than a traditional button at the top. It’s typically placed beneath the `<Sidebar.Footer/>`. To see the difference in action, compare [Sidebar 01](/blocks/sidebar/sidebar-01), which includes the rail, with [Sidebar 02](/blocks/sidebar/sidebar-02), which does not.
-```
-<Sidebar.Rail/>
-```
-
-## Controlled
-To manually control the sidebar's state, use the `isOpen` prop. When `isOpen` is set to `true`, the sidebar opens; when it's `false`, the sidebar closes.
-```
-export function AppSidebar() {
-  const [isOpen, setIsOpen] = React.useState(false)
-
-  return (
-    <Sidebar.Provider isOpen={isOpen} onOpenChange={setIsOpen}>
-      <Sidebar />
-    </Sidebar.Provider>
-  )
+  .dark {
+    --sidebar: oklch(0.16 0.006 285.885);
+    --sidebar-fg: oklch(0.985 0 0);
+  }
 }
 ```
 
-## Modal
-Sometimes, you may want a modal to open when a user clicks a sidebar item. You can control the modal's visibility using the `isOpen` prop, which is especially useful when managing multiple modals. However, if you only have one or two modals, you can simplify by wrapping them directly within the `<Modal />` component like this:
+Not sure if it's your style, but it's a great starting point. If you’d like to tweak the colors, check out the [theme customization](/themes) page for more options.
+
+## Intent
+The sidebar comes in three variations: `"sidebar"`, `"float"`, and `"inset"`. By default, the variation is set to `"sidebar"`.
+
+### Sidebar
+The default variation is a traditional sidebar often used for navigation. <NewTab href='/blocks/sidebar/sidebar-02'/>.
 ```
-<Sidebar.Section title="Projects">
-  <Sidebar.Item icon={IconCube} href='#'>All Projects</Sidebar.Item>
-  <Modal>
-    <Sidebar.Item icon={IconPlus}>Create New Project</Sidebar.Item>
-    <Modal.Content>
-      <Modal.Header title="New Project" />
-      <Modal.Footer>
-        <Modal.Close>Close</Modal.Close>
-      </Modal.Footer>
-    </Modal.Content>
-  </Modal>
-</Sidebar.Section>
+<Sidebar intent="default" />
 ```
-See the [Sidebar 05](/blocks/sidebar/sidebar-05) example for a more detailed implementation.
+
+### Inset
+The inset variation adds padding to the main content for a visually distinct layout. Explore the demo to see it in action, or switch to full-screen mode for a better view. <NewTab href='/blocks/sidebar/sidebar-03'/>.
+```
+<Sidebar intent="inset" />
+```
+
+### Float
+The `float` variation introduces an inner border within the sidebar, while the wrapper includes padding around the content. <NewTab href='/blocks/sidebar/sidebar-04'/>
+```
+<Sidebar intent="float" />
+```
+
+### Fleet
+The float variation introduces an inner border within the sidebar, while the wrapper includes padding around the content. <NewTab href='/blocks/sidebar/sidebar-18'/>
+<EditorText
+  source={{
+    'folders.ts': 'blocks/sidebar/sidebar-18/folders.ts',
+    'sidebar-header.tsx': 'blocks/sidebar/sidebar-18/sidebar-header',
+    'app-sidebar.tsx': 'blocks/sidebar/sidebar-18/app-sidebar',
+    'layout.tsx': 'blocks/sidebar/sidebar-18/layout',
+    'page.tsx': 'blocks/sidebar/sidebar-18/page',
+  }} />
+
+## Collapsible
+The sidebar can be made collapsible by using the `collapsible` prop in the `SidebarProvider`. The default collapsible behavior is `"hidden"`.
+
+### Hidden
+When toggled, the sidebar hides completely from view. <NewTab href='/blocks/sidebar/sidebar-05'/>
+```
+<Sidebar collapsible="hidden" />
+```
+
+### Dock
+When toggled, the sidebar docks to a minimal state, showing only icons. Hovering over an icon reveals a tooltip with additional information. <NewTab href='/blocks/sidebar/sidebar-06'/>
+```
+<Sidebar intent="dock" />
+```
+
+## Default Open
+The sidebar’s initial state can be controlled using the `defaultOpen` prop. For example, you can set `defaultOpen` to `false` and keep the sidebar docked.
+```
+<SidebarProvider defaultOpen={false}>
+  <Sidebar collapsible="dock" />
+```
+
+## Sidebar Section
+The sidebar section is a container for sidebar items. It accepts a `title` prop, which will be displayed as a heading.
+```
+<SidebarSection>
+  <SidebarItem isCurrent href="#">
+    <SidebarLabel>Item 1</SidebarLabel>
+  </SidebarItem>
+</SidebarSection>
+<SidebarSection title="Other Section">
+  <SidebarItem isCurrent href="#">
+    <SidebarLabel>Item 1</SidebarLabel>
+  </SidebarItem>
+</SidebarSection>
+```
+
+## Sidebar Disclosure Group
+If you need to collapse multiple items, you can use the `SidebarDisclosureGroup` component. <NewTab href='/blocks/sidebar/sidebar-10'/>
+```
+{sections.map((section, sectionIndex) => (
+  <SidebarDisclosureGroup defaultExpandedKeys={[1, 2]} key={sectionIndex}>
+    <SidebarDisclosure id={sectionIndex + 1}>
+      <SidebarDisclosureTrigger>
+        <section.icon />
+        <SidebarLabel> {section.label}</SidebarLabel>
+      </SidebarDisclosureTrigger>
+      <SidebarDisclosurePanel>
+        {section.items.map((item, itemIndex) => (
+          <SidebarItem key={itemIndex} href="#">
+            {({ isHovered }) => (
+              <>
+                <i aria-hidden className="size-4 content-center">
+                  <IconBullet className={`${isHovered ? "fill-sky-500 text-sky-500" : ""} size-2 m-auto`} />
+                </i>
+                <SidebarLabel>{item}</SidebarLabel>
+              </>
+            )}
+          </SidebarItem>
+        ))}
+      </SidebarDisclosurePanel>
+    </SidebarDisclosure>
+  </SidebarDisclosureGroup>
+))}
+
+const sections = [
+  {
+    icon: IconNotes,
+    label: "Blog",
+    items: ["Articles", "Categories", "Tags", "Comments", "Authors"]
+  },
+  {
+    icon: IconStore,
+    label: "Commerce",
+    items: ["Orders", "Products", "Customers", "Coupons", "Discounts"]
+  },
+  {
+    icon: IconWhiteboard,
+    label: "Analytics",
+    items: ["Reports", "Traffic", "Conversions", "Audience", "Engagement"]
+  },
+  {
+    icon: IconSettings,
+    label: "Settings",
+    items: ["General", "Profile", "Billing", "Notifications", "Integrations"]
+  }
+]
+```
+
+## Menu
+The sidebar supports menus, which can be used to display additional actions or options.
+<CodeSandbox
+  src='/blocks/sidebar/sidebar-08'
+  source={{
+    preview: 'blocks/sidebar/sidebar-08/page',
+    'app-sidebar-nav.tsx': 'blocks/sidebar/app-sidebar-nav',
+    'app-sidebar.tsx': 'blocks/sidebar/sidebar-08/app-sidebar',
+    'layout.tsx': 'blocks/sidebar/sidebar-08/layout',
+    'page.tsx': 'blocks/sidebar/sidebar-08/page',
+  }} />
+
+
+## Badge
+The sidebar supports badges, which can be used to indicate the number of unread messages, tasks, or other items. <NewTab href='/blocks/sidebar/sidebar-09'/>
+```
+<SidebarSection>
+  {navigation.map((item, index) => (
+    <SidebarItem key={index} isCurrent={item.isCurrent} href="#" badge={item?.badge}>
+      {item.icon}
+      <SidebarLabel>{item.label}</SidebarLabel>
+    </SidebarItem>
+  ))}
+</SidebarSection>
+
+const navigation = [
+  { label: "Overview", icon: <IconDashboard />, isCurrent: true, badge: undefined },
+  { label: "Orders", icon: <IconCart />, isCurrent: false, badge: 24 },
+  { label: "Products", icon: <IconCube />, isCurrent: false, badge: "31.51K" },
+  { label: "Customers", icon: <IconPeople />, isCurrent: false, badge: "12K" },
+  { label: "Reports", icon: <IconChartBar />, isCurrent: false, badge: 3 },
+  { label: "Settings", icon: <IconGear />, isCurrent: false, badge: undefined }
+]
+```
+
+## Separator
+The sidebar supports separators, which can be used to separate sections or groups of items. <NewTab href='/blocks/sidebar/sidebar-19'/>
+```tsx {3,6, 9}
+<SidebarContent>
+  <SidebarSection/>
+  <SidebarSeparator />
+  <SidebarSection/>
+  <SidebarSection/>
+  <SidebarSeparator />
+  <SidebarSectionGroup/>
+  <SidebarSectionGroup/>
+  <SidebarSeparator />
+  <SidebarSectionGroup/>
+</SidebarContent>
+```
+The example previews will appear similar to the ones in the YouTube sidebar.
+<EditorText
+  source={{
+    'app-sidebar.tsx': 'blocks/sidebar/sidebar-19/app-sidebar',
+    'app-sidebar-nav.tsx': 'blocks/sidebar/sidebar-19/app-sidebar-nav',
+    'layout.tsx': 'blocks/sidebar/sidebar-19/layout',
+    'page.tsx': 'blocks/sidebar/sidebar-19/page',
+  }} />
+
+## Tooltip
+The sidebar supports tooltips, which can be used to display additional information when you're on docked mode.
+<CodeSandbox
+  src='/blocks/sidebar/sidebar-12'
+  source={{
+    preview: 'blocks/sidebar/sidebar-12/page',
+    'app-sidebar-nav.tsx': 'blocks/sidebar/app-sidebar-nav',
+    'app-sidebar.tsx': 'blocks/sidebar/sidebar-12/app-sidebar',
+    'layout.tsx': 'blocks/sidebar/sidebar-12/layout',
+    'page.tsx': 'blocks/sidebar/sidebar-12/page',
+  }} />
+
+## Header
+The sidebar supports headers, which can be used to display additional actions or options.
+```
+<Sidebar {...props}>
+  <SidebarHeader>
+    <Link
+      className="flex items-center group-data-[collapsible=dock]:size-10 group-data-[collapsible=dock]:justify-center gap-x-2"
+      href="/docs/components/layouts/sidebar"
+    >
+      <IconBrandApple className="size-5" />
+      <SidebarLabel className="font-medium">Apple</SidebarLabel>
+    </Link>
+  </SidebarHeader>
+  ...
+</Sidebar>
+```
+
+## Footer
+The sidebar supports footers, which can be used to display additional actions or options.
+```
+<Sidebar {...props}>
+  ...
+  <SidebarFooter>
+    <Menu>
+      <Menu.Trigger aria-label="Profile" data-slot="menu-trigger">
+        <Avatar shape="square" src="/images/avatar/cobain.jpg" />
+        <div className="group-data-[collapsible=dock]:hidden text-sm">
+          Kurt Cobain
+          <span className="block -mt-0.5 text-muted-fg">kurt@cobain.com</span>
+        </div>
+        <IconChevronLgDown className="right-3 size-4 absolute group-pressed:rotate-180 transition-transform" />
+      </Menu.Trigger>
+      <Menu.Content placement="bottom right" className="sm:min-w-(--trigger-width)">
+        <Menu.Item/>
+      </Menu.Content>
+    </Menu>
+  </SidebarFooter>
+</Sidebar>
+```
+## Side
+The sidebar has two sides, left and right. You can set the side of the sidebar by using the `side` prop. <NewTab href='/blocks/sidebar/sidebar-16'/>
+```
+<Sidebar side='left | right'/>
+```
+<EditorText
+  source={{
+    'app-sidebar.tsx': 'blocks/sidebar/app-sidebar',
+    'app-sidebar-nav.tsx': 'blocks/sidebar/app-sidebar-nav',
+    'layout.tsx': 'blocks/sidebar/sidebar-16/layout',
+    'page.tsx': 'blocks/sidebar/sidebar-16/page',
+  }} />
+
+## Put Anything
+This is justd sidebar, so you can put anything you want in it. You can use the `SidebarContent` component to wrap your content. Let's try to add a range-calendar and search-field to the sidebar. <NewTab href='/blocks/sidebar/sidebar-17'/>
+<EditorText
+  source={{
+    'app-sidebar.tsx': 'blocks/sidebar/sidebar-17/app-sidebar',
+    'layout.tsx': 'blocks/sidebar/sidebar-17/layout',
+  }} />
+
+## Props
+The sidebar supports the following props:
+### Sidebar
+| **Property**  | **Type**                                           | **Default** |
+|---------------|----------------------------------------------------|-------------|
+| `intent`      | `"default" \| "float" \| \| "fleet" \| "inset"` | `"default"` |
+| `collapsible` | `"hidden" \| "dock" \| "none"`                     | `"hidden"`  |
+| `side`        | `"left" \| "right"`                                | `"left"`    |
+| `closeButton` | `boolean`                                          | `"true"`    |
+
+### SidebarContextProps
+
+| **Property**        | **Type**                    |
+|---------------------|-----------------------------|
+| `state`             | `"expanded" \| "collapsed"` |
+| `open`              | `boolean`                   |
+| `setOpen`           | `(open: boolean) => void`   |
+| `isOpenOnMobile`    | `boolean`                   |
+| `setIsOpenOnMobile` | `(open: boolean) => void`   |
+| `isMobile`          | `boolean`                   |
+| `toggleSidebar`     | `() => void`                |
+
+### SidebarProviderProps
+
+| **Property**   | **Type**                  | **Default** |
+|----------------|---------------------------|-------------|
+| `defaultOpen`  | `boolean`                 | `true`      |
+| `isOpen`       | `boolean`                 | `undefined` |
+| `onOpenChange` | `(open: boolean) => void` | `undefined` |

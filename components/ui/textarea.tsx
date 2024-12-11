@@ -3,6 +3,7 @@
 import * as React from "react"
 
 import {
+  composeRenderProps,
   TextArea as TextAreaPrimitive,
   TextField as TextFieldPrimitive,
   type TextFieldProps as TextFieldPrimitiveProps,
@@ -11,11 +12,11 @@ import {
 import { tv } from "tailwind-variants"
 
 import { Description, FieldError, Label } from "./field"
-import { cr, ctr, focusStyles } from "./primitive"
+import { composeTailwindRenderProps, focusStyles } from "./primitive"
 
 const textareaStyles = tv({
   extend: focusStyles,
-  base: "w-full min-w-0 rounded-lg border border-input bg-bg px-2.5 py-2 text-base shadow-sm outline-none transition duration-200 disabled:bg-secondary disabled:opacity-50 sm:text-sm"
+  base: "w-full min-w-0 min-h-16 field-sizing-content rounded-lg border border-input px-2.5 py-2 text-base shadow-xs outline-hidden transition duration-200 data-disabled:opacity-50 sm:text-sm"
 })
 
 interface TextareaProps extends TextFieldPrimitiveProps {
@@ -27,20 +28,13 @@ interface TextareaProps extends TextFieldPrimitiveProps {
   className?: string
 }
 
-const Textarea = ({
-  className,
-  placeholder,
-  label,
-  description,
-  errorMessage,
-  ...props
-}: TextareaProps) => {
+const Textarea = ({ className, placeholder, label, description, errorMessage, ...props }: TextareaProps) => {
   return (
-    <TextFieldPrimitive {...props} className={ctr(className, "group flex flex-col gap-y-1.5")}>
+    <TextFieldPrimitive {...props} className={composeTailwindRenderProps(className, "group flex flex-col gap-y-1.5")}>
       {label && <Label>{label}</Label>}
       <TextAreaPrimitive
         placeholder={placeholder}
-        className={cr(className, (className, renderProps) =>
+        className={composeRenderProps(className, (className, renderProps) =>
           textareaStyles({
             ...renderProps,
             className

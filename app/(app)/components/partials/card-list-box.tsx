@@ -3,9 +3,7 @@
 import React from "react"
 
 import { docs } from "#site/content"
-import { ThumbnailWrapper } from "@/app/(app)/components/partials/thumbnail-wrapper"
 import { goodTitle } from "@/resources/lib/utils"
-import { slug } from "github-slugger"
 import Link from "next/link"
 import { Description, Grid, Heading } from "ui"
 
@@ -38,6 +36,7 @@ const groupByCategory = (data: any[]): GroupedComponents => {
     return acc
   }, {})
 }
+
 export const groupedComponents = groupByCategory(docs.sort((a, b) => a.order - b.order))
 
 export function CardListBox() {
@@ -45,12 +44,7 @@ export function CardListBox() {
     <div className="space-y-10 w-full">
       {Object.entries(groupedComponents).map(([category, components]) => (
         <div key={category}>
-          <Heading
-            tracking="tight"
-            level={2}
-            id={category}
-            className="mb-4 scroll-mt-28 font-medium text-fg"
-          >
+          <Heading tracking="tight" level={2} id={category} className="mb-4 scroll-mt-28 font-medium text-fg">
             {goodTitle(category)}
           </Heading>
           <Grid
@@ -66,12 +60,10 @@ export function CardListBox() {
                 <Link
                   id={component.slug}
                   href={component.slug}
-                  className="relative focus:outline-none p-1 h-full flex flex-col w-full focus-visible:outline-none focus-visible:outline-primary rounded-xl bg-white shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:bg-zinc-900 dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:-inset-px dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset] forced-colors:outline"
+                  className="bg-muted/30 p-1 rounded-lg inset-ring-1 inset-ring-border"
                   aria-label={component.title}
                 >
                   <div className="flex-1">
-                    <ThumbnailWrapper thumbnail={slug(component.title)} />
-
                     <div className="p-4">
                       <Heading tracking="tight" level={3}>
                         {component.title}

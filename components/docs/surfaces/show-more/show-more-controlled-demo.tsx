@@ -11,9 +11,7 @@ export default function ShowMoreControlledDemo() {
     <div className="py-6">
       <ShowMore onChange={setIsExpanded} isSelected={isExpanded}>
         {isExpanded ? "Expand" : "Collapse"}
-        <IconChevronLgDown
-          className={`${isExpanded ? "rotate-180" : ""} size-4 transition-transform duration-200`}
-        />
+        <IconChevronLgDown className={`${isExpanded ? "rotate-180" : ""} size-4 transition-transform duration-200`} />
       </ShowMore>
     </div>
   )

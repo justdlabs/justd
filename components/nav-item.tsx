@@ -2,13 +2,13 @@
 
 import React from "react"
 
-import { motion } from "framer-motion"
+import { motion } from "motion/react"
 import NextLink from "next/link"
 import { tv } from "tailwind-variants"
 import { LinkPrimitive } from "ui"
 
 const navLinkStyles = tv({
-  base: "relative flex focus-visible:text-fg items-center gap-x-3 tracking-tight py-2 text-sm text-muted-fg transition-colors focus:outline-none sm:py-3",
+  base: "relative flex focus-visible:text-fg items-center gap-x-3 tracking-tight py-2 text-sm text-muted-fg transition-colors data-focused:outline-hidden sm:py-3",
   variants: {
     isActive: {
       false: "text-muted-fg hover:text-fg forced-colors:text-[Gray]",

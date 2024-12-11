@@ -1,7 +1,7 @@
 import { type Docs } from "@/.velite"
 import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
-import titlePrimitive from "title"
+import title from "title"
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -12,7 +12,7 @@ export function sortDocs(docs: Array<Docs>) {
 }
 
 export function goodTitle(str: string) {
-  return titlePrimitive(str.replaceAll("-", " "))
+  return title(str.replaceAll("-", " "))
 }
 
 export function wait(number: number) {

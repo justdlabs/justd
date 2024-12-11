@@ -20,16 +20,16 @@ import { DropdownItem, DropdownSection } from "./dropdown"
 import { Description, FieldError, FieldGroup, Input, Label } from "./field"
 import { ListBox } from "./list-box"
 import { Popover } from "./popover"
-import { ctr } from "./primitive"
+import { composeTailwindRenderProps } from "./primitive"
 
 const comboboxStyles = tv({
   slots: {
     base: "group w-full flex flex-col gap-y-1.5",
     chevronButton:
-      "h-7 w-8 [&_[data-slot=icon]]:text-muted-fg hover:[&_[data-slot=icon]]:text-fg pressed:[&_[data-slot=icon]]:text-fg rounded outline-offset-0 active:bg-transparent hover:bg-transparent pressed:bg-transparent",
+      "h-7 w-8 **:data-[slot=icon]:text-muted-fg **:data-[slot=icon]:hover:text-fg **:data-[slot=icon]:data-pressed:text-fg rounded outline-offset-0 active:bg-transparent data-hovered:bg-transparent data-pressed:bg-transparent",
     chevronIcon: "transition shrink-0 size-4 duration-200 group-open:rotate-180 group-open:text-fg",
     clearButton:
-      "focus:outline-none absolute inset-y-0 right-0 flex items-center pr-2 text-muted-fg hover:text-fg"
+      "data-focused:outline-hidden absolute inset-y-0 right-0 flex items-center pr-2 text-muted-fg data-hovered:text-fg"
   }
 })
 
@@ -52,7 +52,7 @@ const ComboBox = <T extends object>({
   ...props
 }: ComboBoxProps<T>) => {
   return (
-    <ComboboxPrimitive {...props} className={ctr(className, base())}>
+    <ComboboxPrimitive {...props} className={composeTailwindRenderProps(className, base())}>
       {label && <Label>{label}</Label>}
       <>{children}</>
       {description && <Description>{description}</Description>}
@@ -91,7 +91,7 @@ const ComboBoxInput = (props: InputProps) => {
 }
 
 const ComboBoxClearButton = () => {
-  const state = React.useContext(ComboBoxStateContext)
+  const state = React.use(ComboBoxStateContext)
 
   return (
     <ButtonPrimitive

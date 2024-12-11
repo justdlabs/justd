@@ -2,12 +2,16 @@
 
 import * as React from "react"
 
-import { snippetVariants } from "@/components/docs/rehype/code"
-import { AnimatePresence, motion } from "framer-motion"
 import { IconCheck, IconDuplicate } from "justd-icons"
+import { AnimatePresence, motion } from "motion/react"
 import { usePathname } from "next/navigation"
 import { toast } from "sonner"
 import { Button } from "ui"
+
+const snippetVariants = {
+  hidden: { opacity: 0, scale: 0.5 },
+  visible: { opacity: 1, scale: 1 }
+}
 
 export function TakeCurrentUrl() {
   const [copied, setCopied] = React.useState(false)
@@ -21,7 +25,7 @@ export function TakeCurrentUrl() {
         await navigator.clipboard.writeText(text as string)
         toast.success(`Copied ${text} to clipboard`, {
           classNames: {
-            toast: "[&:has([data-icon])_[data-content]]:!ml-0",
+            toast: "[&:has([data-icon])_[data-content]]:ml-0!",
             icon: "hidden"
           }
         })
@@ -38,29 +42,17 @@ export function TakeCurrentUrl() {
     <Button
       appearance="outline"
       size="square-petite"
-      className="[&_[data-slot=icon]]:text-fg"
+      className="**:data-[slot=icon]:text-fg"
       aria-label={"Copy " + text + " to clipboard"}
       onPress={handleCopy}
     >
       <AnimatePresence mode="wait" initial={false}>
         {copied ? (
-          <motion.span
-            key="checkmark"
-            variants={snippetVariants}
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
-          >
+          <motion.span key="checkmark" variants={snippetVariants} initial="hidden" animate="visible" exit="hidden">
             <IconCheck />
           </motion.span>
         ) : (
-          <motion.span
-            key="copy"
-            variants={snippetVariants}
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
-          >
+          <motion.span key="copy" variants={snippetVariants} initial="hidden" animate="visible" exit="hidden">
             <IconDuplicate />
           </motion.span>
         )}

@@ -22,7 +22,7 @@ export function Menus() {
     <CardBlock>
       <Menu>
         <Button className="group" appearance="outline">
-          Account <IconChevronLgDown className="group-pressed:rotate-180 duration-300" />
+          Account <IconChevronLgDown className="group-data-pressed:rotate-180 duration-300" />
         </Button>
         <Menu.Content showArrow placement="bottom" className="min-w-64">
           <Menu.Section>

@@ -3,13 +3,13 @@
 import * as React from "react"
 
 import type { GridListItemProps, GridListProps } from "react-aria-components"
-import { GridList, GridListItem } from "react-aria-components"
+import { composeRenderProps, GridList, GridListItem } from "react-aria-components"
 import type { VariantProps } from "tailwind-variants"
 import { tv } from "tailwind-variants"
 
 import { Checkbox } from "./checkbox"
 import { Description, Label } from "./field"
-import { cr, focusStyles } from "./primitive"
+import { focusStyles } from "./primitive"
 
 const choiceboxStyles = tv({
   base: "grid",
@@ -34,9 +34,7 @@ const choiceboxStyles = tv({
   }
 })
 
-interface ChoiceboxProps<T extends object>
-  extends GridListProps<T>,
-    VariantProps<typeof choiceboxStyles> {
+interface ChoiceboxProps<T extends object> extends GridListProps<T>, VariantProps<typeof choiceboxStyles> {
   className?: string
 }
 
@@ -63,23 +61,27 @@ const Choicebox = <T extends object>({
 
 const choiceboxItemStyles = tv({
   extend: focusStyles,
-  base: "rounded-lg cursor-pointer border p-4 [&_[slot=title]]:font-medium",
+  base: [
+    "[--choicebox:color-mix(in_oklab,var(--color-primary)_5%,white_95%)] [--choicebox-fg:var(--color-primary)]",
+    "[--choicebox-selected-hovered:color-mix(in_oklab,var(--color-primary)_15%,white_85%)]",
+    "dark:[--choicebox-selected-hovered:color-mix(in_oklab,var(--color-primary)_30%,black_70%)]",
+    "dark:[--choicebox:color-mix(in_oklab,var(--color-primary)_25%,black_60%)] dark:[--choicebox-fg:color-mix(in_oklab,var(--color-primary)_75%,white_25%)]",
+    "rounded-lg cursor-pointer border p-4 [&_[slot=title]]:font-medium"
+  ],
   variants: {
+    isHovered: {
+      true: "bg-secondary/30"
+    },
     isSelected: {
       true: [
-        "z-20 bg-accent-subtle hover:bg-accent-subtle hover:border-ring border-ring/75",
-        "[&_[slot=title]]:text-accent-subtle-fg",
-        "[&_[slot=description]]:text-accent-subtle-fg/70"
+        "bg-(--choicebox) text-(--choicebox-fg)",
+        "z-20 data-hovered:bg-(--choicebox-selected-hovered) border-ring/50",
+        "[&_[slot=title]]:text-(--choicebox-fg)",
+        "[&_[slot=description]]:text-(--choicebox-fg)/80"
       ]
     },
-    isFocused: {
-      true: "border-ring/80"
-    },
-    isHovered: {
-      true: "bg-secondary/50"
-    },
     isDisabled: {
-      true: "z-10 cursor-default opacity-80 [&_[slot=title]]:text-muted-fg forced-colors:text-[GrayText]"
+      true: "z-10 cursor-default opacity-50 [&_[slot=title]]:text-muted-fg [&_[slot=description]]:text-muted-fg/70 forced-colors:text-[GrayText]"
     }
   }
 })
@@ -89,13 +91,13 @@ interface ChoiceboxItemProps extends GridListItemProps, VariantProps<typeof choi
   description?: string
 }
 
-const ChoiceboxItem = ({ children, className, ...props }: ChoiceboxItemProps) => {
-  const textValue = typeof children === "string" ? children : undefined
+const ChoiceboxItem = ({ className, ...props }: ChoiceboxItemProps) => {
+  const textValue = props.title ?? props.textValue
   return (
     <GridListItem
       textValue={textValue}
       {...props}
-      className={cr(className, (className, renderProps) =>
+      className={composeRenderProps(className, (className, renderProps) =>
         choiceboxItemStyles({
           ...renderProps,
           className

@@ -1,6 +1,6 @@
 "use client"
 
-import { IconBrandGithub } from "justd-icons"
+import { IconBrandX } from "justd-icons"
 import { buttonStyles, Tooltip } from "ui"
 
 export default function TooltipDelayDemo() {
@@ -8,15 +8,15 @@ export default function TooltipDelayDemo() {
     <div className="flex gap-2">
       <Tooltip delay={0}>
         <Tooltip.Trigger
-          aria-label="Follow My Twitter"
+          aria-label="Follow me"
           className={buttonStyles({
             appearance: "outline",
             size: "square-petite"
           })}
         >
-          <IconBrandGithub />
+          <IconBrandX />
         </Tooltip.Trigger>
-        <Tooltip.Content>Follow me on Github @irsyadadl</Tooltip.Content>
+        <Tooltip.Content>Follow me @getjustd</Tooltip.Content>
       </Tooltip>
     </div>
   )

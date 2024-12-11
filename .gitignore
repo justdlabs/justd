@@ -1,7 +1,9 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 /.idea
+/__registry__
+/public/registry
 ignore
-
+/.vercel
 /note.md
 # dependencies
 /node_modules
@@ -41,4 +43,6 @@ yarn-error.log*
 next-env.d.ts
 
 # velite files
+.velite
+
 .velite

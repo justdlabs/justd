@@ -14,9 +14,7 @@ export function Controller({ searchParams }: SearchParamsProps) {
   const router = useRouter()
   const pathname = usePathname()
   const { t } = searchParams
-  const [isSelected, setSelected] = React.useState<"solid" | "regular">(
-    (t as "solid" | "regular") || "regular"
-  )
+  const [isSelected, setSelected] = React.useState<"solid" | "regular">((t as "solid" | "regular") || "regular")
 
   const { createQueryString } = useQueryString()
 
@@ -47,7 +45,7 @@ export function Controller({ searchParams }: SearchParamsProps) {
           </div>
         </div>
 
-        <div className="md:block hidden pointer-events-none z-0 absolute inset-x-0 top-0 -mt-5 h-24 bg-gradient-to-b from-bg via-bg/90 to-transparent" />
+        <div className="md:block hidden pointer-events-none z-0 absolute inset-x-0 top-0 -mt-5 h-24 bg-linear-to-b from-bg via-bg/90 to-transparent" />
       </div>
     </div>
   )

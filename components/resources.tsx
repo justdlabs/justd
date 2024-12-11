@@ -24,8 +24,7 @@ const resources = [
     icon: IconBrandLaravel,
     name: "Laravel Starter Kit",
     url: "https://github.com/justdlabs/inertia.ts",
-    description:
-      "A Laravel starter kit with Justd installed. It includes a authentication system out of the box.",
+    description: "A Laravel starter kit with Justd installed. It includes a authentication system out of the box.",
     label: "Starter Kit"
   },
   {
@@ -51,20 +50,13 @@ export function Resources() {
         <Heading level={2} className="mb-6">
           Starter Kit
         </Heading>
-        <Grid
-          columns={{
-            initial: 1,
-            sm: 2
-          }}
-          gap={2}
-          aria-label="Resources"
-        >
+        <div className="grid-cols-1 sm:grid-cols-2 grid gap-2" aria-label="Resources">
           <Grid.Collection items={resources}>
             {(item) => (
-              <Grid.Item
+              <div
                 aria-label={item.name}
                 id={item.name.toLowerCase().replaceAll(" ", "-")}
-                className="relative focus:outline-none p-4 lg:p-6 h-full flex flex-col w-full focus-visible:outline-none focus-visible:outline-primary rounded-xl bg-tertiary shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:-inset-px dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset] forced-colors:outline"
+                className="relative data-focused:outline-hidden p-4 lg:p-6 h-full flex flex-col w-full rounded-xl bg-white dark:bg-zinc-950 shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:-inset-px dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset] forced-colors:outline"
               >
                 <Link
                   aria-label={`Open ${item.name}`}
@@ -85,10 +77,10 @@ export function Resources() {
                 <Card.Footer>
                   <Badge>{item.label}</Badge>
                 </Card.Footer>
-              </Grid.Item>
+              </div>
             )}
           </Grid.Collection>
-        </Grid>
+        </div>
       </section>
 
       <section id="library" className="mb-12">
@@ -106,7 +98,7 @@ export function Resources() {
           <Grid.Item
             aria-label="Justd icons"
             id="justd-icons"
-            className="relative focus:outline-none p-4 lg:p-6 h-full flex flex-col w-full focus-visible:outline-none focus-visible:outline-primary rounded-xl bg-tertiary shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:-inset-px dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset] forced-colors:outline"
+            className="relative data-focused:outline-hidden p-4 lg:p-6 h-full flex flex-col w-full rounded-xl bg-white dark:bg-zinc-950 shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:-inset-px dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset] forced-colors:outline"
           >
             <Link
               aria-label={`Justd icons`}
@@ -121,8 +113,8 @@ export function Resources() {
               <Card.Header>
                 <Card.Title level={3}>Icons</Card.Title>
                 <Card.Description className="line-clamp-2">
-                  A library of beautifully crafted react icons, perfect for enhancing the visual
-                  appeal and user experience of your web applications.
+                  A library of beautifully crafted react icons, perfect for enhancing the visual appeal and user
+                  experience of your web applications.
                 </Card.Description>
               </Card.Header>
             </div>
@@ -147,7 +139,7 @@ export function Resources() {
           <Grid.Item
             aria-label="Support"
             id="support"
-            className="relative focus:outline-none p-4 lg:p-6 h-full flex flex-col w-full focus-visible:outline-none focus-visible:outline-primary rounded-xl bg-tertiary shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:-inset-px dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset] forced-colors:outline"
+            className="relative data-focused:outline-hidden p-4 lg:p-6 h-full flex flex-col w-full rounded-xl bg-white dark:bg-zinc-950 shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:-inset-px dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset] forced-colors:outline"
           >
             <Link
               target="_blank"
@@ -163,8 +155,8 @@ export function Resources() {
               <Card.Header>
                 <Card.Title level={3}>Support This Project</Card.Title>
                 <Card.Description className="line-clamp-2">
-                  Join us in building something impactful. Your contributions, whether sharing,
-                  coding, or spreading the word, help us grow and make a difference.
+                  Join us in building something impactful. Your contributions, whether sharing, coding, or spreading the
+                  word, help us grow and make a difference.
                 </Card.Description>
               </Card.Header>
             </div>
@@ -175,7 +167,7 @@ export function Resources() {
           <Grid.Item
             aria-label="Templates"
             id="templates"
-            className="relative focus:outline-none p-4 lg:p-6 h-full flex flex-col w-full focus-visible:outline-none focus-visible:outline-primary rounded-xl bg-tertiary shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:-inset-px dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset] forced-colors:outline"
+            className="relative data-focused:outline-hidden p-4 lg:p-6 flex flex-col size-full rounded-xl bg-white dark:bg-zinc-950 shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:-inset-px dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset] forced-colors:outline"
           >
             <Link
               target="_blank"
@@ -191,8 +183,8 @@ export function Resources() {
               <Card.Header>
                 <Card.Title level={3}>Templates</Card.Title>
                 <Card.Description className="line-clamp-2">
-                  Looking for beautifully crafted templates to elevate your project? Browse through
-                  a collection of designs tailored to meet your needs.
+                  Looking for beautifully crafted templates to elevate your project? Browse through a collection of
+                  designs tailored to meet your needs.
                 </Card.Description>
               </Card.Header>
             </div>
