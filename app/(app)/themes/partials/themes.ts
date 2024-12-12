@@ -102,7 +102,7 @@ export const generateTheme = (selectedColors: Record<string, string>) => {
   const lightRingShade = isNeutralPrimary ? "950" : "600"
   const darkRingShade = isNeutralPrimary ? "50" : "600"
 
-  const lightColors = `--bg: ${getColorValue(gray, "50")};
+  const lightColors = `--bg: ${getColorValue("white")};
     --fg: ${getColorValue(gray, "950")};
     
     --primary: ${getColorValue(primary, lightPrimary)};
@@ -182,7 +182,7 @@ export const generateTheme = (selectedColors: Record<string, string>) => {
     
     --sidebar: ${adjustLightness(getColorValue(gray, "900"), -5)};
     --sidebar-fg: ${getColorValue(gray, "50")};
-    
+   
     --chart-1: ${getColorValue(primary, chartShadesDark[0])};
     --chart-2: ${getColorValue(primary, chartShadesDark[1])};
     --chart-3: ${getColorValue(primary, chartShadesDark[2])};
@@ -201,8 +201,7 @@ export const generateTheme = (selectedColors: Record<string, string>) => {
 
   return `@layer base {
   :root {
-    ${lightColors}
-    ${radiusValues}
+    ${lightColors}${radiusValues}
   }
   
   .dark {

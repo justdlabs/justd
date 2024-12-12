@@ -68,7 +68,7 @@
 
 @layer base {
   :root {
-    --bg: oklch(0.985 0.002 247.839);
+    --bg: oklch(1 0 0);
     --fg: oklch(0.13 0.028 261.692);
 
     --primary: oklch(0.546 0.245 262.881);
@@ -110,6 +110,15 @@
     --chart-3: oklch(0.809 0.105 251.813);
     --chart-4: oklch(0.882 0.059 254.128);
     --chart-5: oklch(0.932 0.032 255.585);
+
+    --radius-lg: 0.5rem;
+    --radius-xs: calc(var(--radius-lg) * 0.5);
+    --radius-sm: calc(var(--radius-lg) * 0.75);
+    --radius-md: calc(var(--radius-lg) * 0.9);
+    --radius-xl: calc(var(--radius-lg) * 1.25);
+    --radius-2xl: calc(var(--radius-lg) * 1.5);
+    --radius-3xl: calc(var(--radius-lg) * 2);
+    --radius-4xl: calc(var(--radius-lg) * 3);
   }
 
   .dark {
@@ -149,8 +158,6 @@
 
     --sidebar: oklch(0.16 0.034 264.665);
     --sidebar-fg: oklch(0.985 0.002 247.839);
-    --sidebar-accent: oklch(0.278 0.033 256.848);
-    --sidebar-accent-fg: oklch(0.985 0.002 247.839);
 
     --chart-1: oklch(0.488 0.243 264.376);
     --chart-2: oklch(0.623 0.214 259.815);
