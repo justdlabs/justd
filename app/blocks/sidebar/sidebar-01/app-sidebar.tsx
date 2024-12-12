@@ -45,7 +45,8 @@ import {
   SidebarLabel,
   SidebarLink,
   SidebarRail,
-  SidebarSection
+  SidebarSection,
+  SidebarSectionGroup
 } from "ui"
 
 export default function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
@@ -61,149 +62,151 @@ export default function AppSidebar(props: React.ComponentProps<typeof Sidebar>) 
         </Link>
       </SidebarHeader>
       <SidebarContent>
-        <SidebarSection>
-          <SidebarItem isCurrent href="#">
-            <IconDashboard />
-            <SidebarLabel>Overview</SidebarLabel>
-          </SidebarItem>
+        <SidebarSectionGroup>
+          <SidebarSection title="Overview">
+            <SidebarItem isCurrent href="#">
+              <IconDashboard />
+              <SidebarLabel>Overview</SidebarLabel>
+            </SidebarItem>
 
-          <SidebarItem>
-            {({ isHovered, isCollapsed }) => (
-              <>
-                <IconShoppingBag />
-                <SidebarLink href="#">
-                  <SidebarLabel>Orders</SidebarLabel>
-                </SidebarLink>
-                {!isCollapsed && isHovered && (
-                  <Menu>
-                    <Menu.Trigger aria-label="Manage">
-                      <IconDotsHorizontal />
-                    </Menu.Trigger>
-                    <Menu.Content offset={0} placement="right top">
-                      <Menu.Item href="#new-order">
-                        <IconPlus />
-                        Create New Order
-                      </Menu.Item>
-                      <Menu.Item href="#view-all">
-                        <IconListBullets />
-                        View All Orders
-                      </Menu.Item>
-                      <Menu.Item href="#pending-orders">
-                        <IconClock />
-                        Pending Orders
-                      </Menu.Item>
-                      <Menu.Item href="#completed-orders">
-                        <IconCheck />
-                        Completed Orders
-                      </Menu.Item>
-                      <Menu.Item href="#export-orders">
-                        <IconArrowUp />
-                        Export Orders
-                      </Menu.Item>
-                    </Menu.Content>
-                  </Menu>
-                )}
-              </>
-            )}
-          </SidebarItem>
-          <SidebarItem>
-            {({ isHovered, isCollapsed }) => (
-              <>
-                <IconCube />
-                <SidebarLink href="#">
-                  <SidebarLabel>Products</SidebarLabel>
-                </SidebarLink>
-                {!isCollapsed && isHovered && (
-                  <Menu>
-                    <Menu.Trigger aria-label="Manage">
-                      <IconDotsHorizontal />
-                    </Menu.Trigger>
-                    <Menu.Content offset={0} placement="right top">
-                      <Menu.Item href="#new-product">
-                        <IconPlus />
-                        Add New Product
-                      </Menu.Item>
-                      <Menu.Item href="#archive">
-                        <IconArchive />
-                        Archive Product
-                      </Menu.Item>
-                      <Menu.Item href="#manage-categories">
-                        <IconHashtag />
-                        Manage Categories
-                      </Menu.Item>
-                      <Menu.Item href="#import">
-                        <IconArrowDown />
-                        Import Products
-                      </Menu.Item>
-                      <Menu.Item href="#export">
-                        <IconArrowUp />
-                        Export Products
-                      </Menu.Item>
-                    </Menu.Content>
-                  </Menu>
-                )}
-              </>
-            )}
-          </SidebarItem>
-          <SidebarItem href="#" badge="4 Pending">
-            <IconCreditCard />
-            <SidebarLabel>Payments</SidebarLabel>
-          </SidebarItem>
-        </SidebarSection>
+            <SidebarItem>
+              {({ isHovered, isCollapsed }) => (
+                <>
+                  <IconShoppingBag />
+                  <SidebarLink href="#">
+                    <SidebarLabel>Orders</SidebarLabel>
+                  </SidebarLink>
+                  {!isCollapsed && isHovered && (
+                    <Menu>
+                      <Menu.Trigger aria-label="Manage">
+                        <IconDotsHorizontal />
+                      </Menu.Trigger>
+                      <Menu.Content offset={0} placement="right top">
+                        <Menu.Item href="#new-order">
+                          <IconPlus />
+                          Create New Order
+                        </Menu.Item>
+                        <Menu.Item href="#view-all">
+                          <IconListBullets />
+                          View All Orders
+                        </Menu.Item>
+                        <Menu.Item href="#pending-orders">
+                          <IconClock />
+                          Pending Orders
+                        </Menu.Item>
+                        <Menu.Item href="#completed-orders">
+                          <IconCheck />
+                          Completed Orders
+                        </Menu.Item>
+                        <Menu.Item href="#export-orders">
+                          <IconArrowUp />
+                          Export Orders
+                        </Menu.Item>
+                      </Menu.Content>
+                    </Menu>
+                  )}
+                </>
+              )}
+            </SidebarItem>
+            <SidebarItem>
+              {({ isHovered, isCollapsed }) => (
+                <>
+                  <IconCube />
+                  <SidebarLink href="#">
+                    <SidebarLabel>Products</SidebarLabel>
+                  </SidebarLink>
+                  {!isCollapsed && isHovered && (
+                    <Menu>
+                      <Menu.Trigger aria-label="Manage">
+                        <IconDotsHorizontal />
+                      </Menu.Trigger>
+                      <Menu.Content offset={0} placement="right top">
+                        <Menu.Item href="#new-product">
+                          <IconPlus />
+                          Add New Product
+                        </Menu.Item>
+                        <Menu.Item href="#archive">
+                          <IconArchive />
+                          Archive Product
+                        </Menu.Item>
+                        <Menu.Item href="#manage-categories">
+                          <IconHashtag />
+                          Manage Categories
+                        </Menu.Item>
+                        <Menu.Item href="#import">
+                          <IconArrowDown />
+                          Import Products
+                        </Menu.Item>
+                        <Menu.Item href="#export">
+                          <IconArrowUp />
+                          Export Products
+                        </Menu.Item>
+                      </Menu.Content>
+                    </Menu>
+                  )}
+                </>
+              )}
+            </SidebarItem>
+            <SidebarItem href="#" badge="4 Pending">
+              <IconCreditCard />
+              <SidebarLabel>Payments</SidebarLabel>
+            </SidebarItem>
+          </SidebarSection>
 
-        <SidebarDisclosureGroup defaultExpandedKeys={[1]}>
-          <SidebarDisclosure id={1}>
-            <SidebarDisclosureTrigger>
-              <IconSupport />
-              <SidebarLabel>Support</SidebarLabel>
-            </SidebarDisclosureTrigger>
-            <SidebarDisclosurePanel>
-              <SidebarItem href="#">
-                <IconTicket />
-                <SidebarLabel>Tickets</SidebarLabel>
-              </SidebarItem>
-              <SidebarItem href="#">
-                <IconMessage />
-                <SidebarLabel>Chat Support</SidebarLabel>
-              </SidebarItem>
-              <SidebarItem href="#">
-                <IconCircleQuestionmark />
-                <SidebarLabel>FAQ</SidebarLabel>
-              </SidebarItem>
-              <SidebarItem href="#">
-                <IconNotes />
-                <SidebarLabel>Documentation</SidebarLabel>
-              </SidebarItem>
-            </SidebarDisclosurePanel>
-          </SidebarDisclosure>
-          <SidebarDisclosure id={2}>
-            <SidebarDisclosureTrigger>
-              <IconPackage />
-              <SidebarLabel>Inventory</SidebarLabel>
-            </SidebarDisclosureTrigger>
-            <SidebarDisclosurePanel>
-              <SidebarItem href="#">
-                <IconMinus />
-                <SidebarLabel>Stock Levels</SidebarLabel>
-              </SidebarItem>
-              <SidebarItem href="#">
-                <IconMinus />
-                <SidebarLabel>Warehouse</SidebarLabel>
-              </SidebarItem>
-              <SidebarItem href="#">
-                <IconMinus />
-                <SidebarLabel>Shipping</SidebarLabel>
-              </SidebarItem>
-            </SidebarDisclosurePanel>
-          </SidebarDisclosure>
-        </SidebarDisclosureGroup>
+          <SidebarDisclosureGroup defaultExpandedKeys={[1]}>
+            <SidebarDisclosure id={1}>
+              <SidebarDisclosureTrigger>
+                <IconSupport />
+                <SidebarLabel>Support</SidebarLabel>
+              </SidebarDisclosureTrigger>
+              <SidebarDisclosurePanel>
+                <SidebarItem href="#">
+                  <IconTicket />
+                  <SidebarLabel>Tickets</SidebarLabel>
+                </SidebarItem>
+                <SidebarItem href="#">
+                  <IconMessage />
+                  <SidebarLabel>Chat Support</SidebarLabel>
+                </SidebarItem>
+                <SidebarItem href="#">
+                  <IconCircleQuestionmark />
+                  <SidebarLabel>FAQ</SidebarLabel>
+                </SidebarItem>
+                <SidebarItem href="#">
+                  <IconNotes />
+                  <SidebarLabel>Documentation</SidebarLabel>
+                </SidebarItem>
+              </SidebarDisclosurePanel>
+            </SidebarDisclosure>
+            <SidebarDisclosure id={2}>
+              <SidebarDisclosureTrigger>
+                <IconPackage />
+                <SidebarLabel>Inventory</SidebarLabel>
+              </SidebarDisclosureTrigger>
+              <SidebarDisclosurePanel>
+                <SidebarItem href="#">
+                  <IconMinus />
+                  <SidebarLabel>Stock Levels</SidebarLabel>
+                </SidebarItem>
+                <SidebarItem href="#">
+                  <IconMinus />
+                  <SidebarLabel>Warehouse</SidebarLabel>
+                </SidebarItem>
+                <SidebarItem href="#">
+                  <IconMinus />
+                  <SidebarLabel>Shipping</SidebarLabel>
+                </SidebarItem>
+              </SidebarDisclosurePanel>
+            </SidebarDisclosure>
+          </SidebarDisclosureGroup>
+        </SidebarSectionGroup>
       </SidebarContent>
 
       <SidebarFooter>
         <Menu>
           <Menu.Trigger className="group" aria-label="Profile" data-slot="menu-trigger">
             <Avatar shape="square" src="/images/avatar/cobain.jpg" />
-            <div className="group-data-[collapsible=dock]:hidden text-sm">
+            <div className="in-data-[sidebar-collapsible=dock]:hidden text-sm">
               <SidebarLabel>Kurt Cobain</SidebarLabel>
               <span className="block -mt-0.5 text-muted-fg">kurt@cobain.com</span>
             </div>

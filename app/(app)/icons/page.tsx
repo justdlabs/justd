@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "Justd Icons",
   description:
     " A library of beautifully crafted react icons, perfect for enhancing the visual appeal and user experience of your web applications. ",
-  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? siteConfig.url),
+  metadataBase: new URL("https://getjustd.com"),
   applicationName: siteConfig.name,
   keywords: [
     "Justd Icons",

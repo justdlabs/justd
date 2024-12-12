@@ -71,6 +71,12 @@ export function Navbar() {
                     >
                       Components
                     </NavLink>
+                    <NavLink isNextLink isActive={pathname === "/charts"} href="/docs/charts/setup">
+                      Chart
+                    </NavLink>
+                    <NavLink isNextLink isActive={pathname === "/blocks"} href="/blocks">
+                      Blocks
+                    </NavLink>
                     <NavLink isNextLink isActive={pathname === "/icons"} href="/icons">
                       Icons
                     </NavLink>

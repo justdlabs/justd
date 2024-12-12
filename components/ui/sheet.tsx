@@ -85,7 +85,7 @@ interface SheetContentProps
   }
 }
 
-const SheetContent = ({
+const Content = ({
   classNames,
   isBlurred = false,
   isDismissable = true,
@@ -135,7 +135,7 @@ const SheetContent = ({
 
 Sheet.Trigger = Dialog.Trigger
 Sheet.Footer = Dialog.Footer
-Sheet.Content = SheetContent
+Sheet.Content = Content
 Sheet.Header = Dialog.Header
 Sheet.Title = Dialog.Title
 Sheet.Description = Dialog.Description

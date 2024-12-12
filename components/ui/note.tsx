@@ -1,5 +1,3 @@
-import { createElement } from "react"
-
 import { IconCircleCheckFill, IconCircleExclamationFill, IconCircleInfoFill } from "justd-icons"
 import { tv, type VariantProps } from "tailwind-variants"
 
@@ -36,30 +34,26 @@ interface NoteProps extends React.HtmlHTMLAttributes<HTMLDivElement>, VariantPro
   indicator?: boolean
 }
 
-const Note = ({ indicator = true, intent, className, ...props }: NoteProps) => {
-  const icon = (() => {
-    switch (intent) {
-      case "info":
-        return IconCircleInfoFill
-      case "warning":
-      case "danger":
-        return IconCircleExclamationFill
-      case "success":
-        return IconCircleCheckFill
-      default:
-        return null
-    }
-  })()
+const Note = ({ indicator = true, intent = "default", className, ...props }: NoteProps) => {
+  const iconMap: Record<string, React.ElementType | null> = {
+    info: IconCircleInfoFill,
+    warning: IconCircleExclamationFill,
+    danger: IconCircleExclamationFill,
+    success: IconCircleCheckFill,
+    default: null
+  }
+
+  const IconComponent = iconMap[intent] || null
 
   return (
     <div className={noteStyles({ intent, className })} {...props}>
       <div className="flex items-start grow">
-        {icon && indicator && (
-          <div className="leading-loose shrink-0 ring-4 ring-current/30 rounded-full">
-            {createElement(icon, { className: "size-5" })}
+        {IconComponent && indicator && (
+          <div className="shrink-0">
+            <IconComponent className="size-5 mr-3 leading-loose ring-4 ring-current/30 rounded-full" />
           </div>
         )}
-        <div className="ml-3">{props.children}</div>
+        <div>{props.children}</div>
       </div>
     </div>
   )

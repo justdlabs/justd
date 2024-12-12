@@ -9,7 +9,7 @@ import type { Metadata, Viewport } from "next"
 import localFont from "next/font/local"
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? siteConfig.url),
+  metadataBase: new URL("https://getjustd.com"),
   title: {
     default: `${siteConfig.name}`,
     template: `%s / ${siteConfig.name}`

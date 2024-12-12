@@ -59,7 +59,9 @@ export function CommandPalette({ openCmd, setOpen }: OpenCloseProps) {
   function searchSidebar(items: SidebarItem[], query: string): SidebarItem[] {
     return items
       .map((item) => {
-        const matchesTitle = item.title.toLowerCase().includes(query.toLowerCase())
+        const matchesTitle =
+          item.title.toLowerCase().includes(query.toLowerCase()) ||
+          item.slug?.toLowerCase().includes(query.toLowerCase())
 
         const filteredChildren = item.children?.length ? searchSidebar(item.children, query) : []
 
@@ -155,14 +157,17 @@ export function CommandPalette({ openCmd, setOpen }: OpenCloseProps) {
               <CommandMenu.Section key={`${item.slug}-${i}-${item.title}`} heading={item.title}>
                 {item.children?.map((child) => (
                   <React.Fragment key={`${item.slug}-${item.title}-${child.slug}-${child.title}`}>
-                    <SubItem value={`${item.title}-${child.title}`} onSelect={() => router.push(`/${child.slug}`)}>
+                    <SubItem
+                      value={`${item.title} ${child.title} ${item.slug} ${child.slug}`}
+                      onSelect={() => router.push(`/${child.slug}`)}
+                    >
                       <IconCube />
                       {child.title}
                     </SubItem>
                     {child.toc?.map((tocItem) => (
                       <SubItem
                         key={`toc-${child.slug || child.title}-${tocItem.url}`}
-                        value={`toc-${child.title}-${tocItem.title}-${tocItem.url}`}
+                        value={`toc-${child.title} ${child.slug} ${tocItem.title} ${tocItem.url}`}
                         onSelect={() => router.push(`/${child.slug}${tocItem.url}`)}
                       >
                         <IconHashtag />

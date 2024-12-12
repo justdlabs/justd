@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Colors",
   description:
     "A stash of over 154 colors blending TailwindCSS vibes with HTML color names, served up in 8 slick formats.",
-  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? siteConfig.url),
+  metadataBase: new URL("https://getjustd.com"),
   applicationName: siteConfig.name,
   category: "Colors",
   keywords: [

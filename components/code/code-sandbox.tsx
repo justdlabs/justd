@@ -22,7 +22,7 @@ interface Props {
   }
 }
 
-export const registry = generated as Record<string, RegistryItem>
+const registry = generated as Record<string, RegistryItem>
 
 export function CodeSandbox({ isIframe = true, classNames, source, src }: Props) {
   const [copiedStates, setCopiedStates] = useState<Record<string, boolean>>({})

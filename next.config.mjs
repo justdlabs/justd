@@ -1,12 +1,12 @@
-const isDev = process.argv.indexOf('dev') !== -1
-const isBuild = process.argv.indexOf('build') !== -1
+const isDev = process.argv.indexOf("dev") !== -1
+const isBuild = process.argv.indexOf("build") !== -1
 if (!process.env.VELITE_STARTED && (isDev || isBuild)) {
-  process.env.VELITE_STARTED = '1'
-  const { build } = await import('velite')
+  process.env.VELITE_STARTED = "1"
+  const { build } = await import("velite")
   await build({ watch: isDev, clean: !isDev })
 }
 
-/** @type {import('next').NextConfig} */
+/** @type {import("next").NextConfig} */
 export default {
   devIndicators: {
     buildActivity: false,
@@ -48,14 +48,6 @@ export default {
         permanent: false
       },
       {
-        source: "/charts",
-        destination: "/docs/components/charts/setup",
-        permanent: true
-      },      {
-        source: "/chart",
-        destination: "/docs/components/charts/setup",
-        permanent: true
-      },  {
         source: "/docs/components/surfaces/chart",
         destination: "/docs/components/charts/setup",
         permanent: true
@@ -111,5 +103,5 @@ export default {
         permanent: false
       }
     ]
-  },
+  }
 }

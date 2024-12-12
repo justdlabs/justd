@@ -314,7 +314,7 @@ const SidebarContent = ({ className, ...props }: React.ComponentProps<"div">) =>
     <div
       data-sidebar-content="true"
       className={cn(
-        "flex min-h-0 flex-1 flex-col gap-2 overflow-auto scroll-mb-96",
+        "flex min-h-0 flex-1 flex-col overflow-auto scroll-mb-96",
         state === "collapsed" && "items-center",
         className
       )}
@@ -460,8 +460,8 @@ const SidebarInset = ({ className, ref, ...props }: React.ComponentProps<"main">
     <main
       ref={ref}
       className={cn(
-        "relative w-full flex min-h-svh flex-1 flex-col inset-ring-1 inset-ring-transparent peer-data-[sidebar-intent=inset]:inset-ring-(--sidebar-border)",
-        "bg-bg peer-data-[sidebar-intent=inset]:bg-sidebar",
+        "relative w-full flex min-h-svh flex-1 flex-col border border-transparent peer-data-[sidebar-intent=inset]:border-(--sidebar-border)",
+        "bg-bg peer-data-[sidebar-intent=inset]:bg-sidebar peer-data-[sidebar-intent=inset]:overflow-hidden",
         "peer-data-[sidebar-intent=inset]:min-h-[calc(100svh-theme(spacing.4))] md:peer-data-[sidebar-intent=inset]:m-2 md:peer-data-[sidebar-state=collapsed]:peer-data-[sidebar-intent=inset]:ml-2 md:peer-data-[sidebar-intent=inset]:ml-0 md:peer-data-[sidebar-intent=inset]:rounded-xl md:peer-data-[sidebar-intent=inset]:shadow-xs",
         className
       )}
@@ -615,10 +615,10 @@ const SidebarLabel = ({ className, ...props }: React.ComponentProps<typeof Text>
 }
 
 const navStyles = tv({
-  base: "md:w-full bg-navbar text-navbar-fg justify-between sm:justify-start h-[3.57rem] px-4 border-b flex items-center gap-x-2",
+  base: "md:w-full bg-sidebar isolate text-navbar-fg justify-between sm:justify-start h-[3.57rem] px-4 border-b flex items-center gap-x-2",
   variants: {
     isSticky: {
-      true: "sticky top-0 z-40"
+      true: "sticky in-data-[sidebar-intent=inset]:static top-0 z-40"
     }
   }
 })
