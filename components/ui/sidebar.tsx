@@ -331,7 +331,7 @@ const SidebarSection = ({ className, ...props }: React.ComponentProps<"div"> & {
   return (
     <div data-sidebar-section="true" className={cn("flex flex-col px-2 gap-y-0.5", className)} {...props}>
       {state !== "collapsed" && "title" in props && (
-        <Header className="duration-200 flex shrink-0 items-center rounded-md px-2.5 text-xs font-medium text-sidebar-fg/70 outline-none ring-sidebar-ring transition-[margin,opa] ease-linear data-focus-visible:ring-2 *:data-[slot=icon]:size-4 *:data-[slot=icon]:shrink-0 group-data-[sidebar-collapsible=dock]/sidebar-container:-mt-8 group-data-[sidebar-collapsible=dock]/sidebar-container:opacity-0">
+        <Header className="duration-200 mb-1 flex shrink-0 items-center rounded-md px-2.5 text-xs font-medium text-sidebar-fg/70 outline-none ring-sidebar-ring transition-[margin,opa] ease-linear data-focus-visible:ring-2 *:data-[slot=icon]:size-4 *:data-[slot=icon]:shrink-0 group-data-[sidebar-collapsible=dock]/sidebar-container:-mt-8 group-data-[sidebar-collapsible=dock]/sidebar-container:opacity-0">
           {props.title}
         </Header>
       )}
