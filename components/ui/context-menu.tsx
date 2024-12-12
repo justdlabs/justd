@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react"
+import { createContext, use, useRef, useState } from "react"
 
 import { tv } from "tailwind-variants"
 
@@ -14,10 +14,10 @@ interface ContextMenuTriggerContextType {
   setContextMenuOffset: React.Dispatch<React.SetStateAction<{ offset: number; crossOffset: number } | null>>
 }
 
-const ContextMenuTriggerContext = React.createContext<ContextMenuTriggerContextType | undefined>(undefined)
+const ContextMenuTriggerContext = createContext<ContextMenuTriggerContextType | undefined>(undefined)
 
 const useContextMenuTrigger = () => {
-  const context = React.use(ContextMenuTriggerContext)
+  const context = use(ContextMenuTriggerContext)
   if (!context) {
     throw new Error("useContextMenuTrigger must be used within a ContextMenuTrigger")
   }
@@ -29,11 +29,11 @@ interface ContextMenuRootComponent {
 }
 
 const ContextMenu = ({ children }: ContextMenuRootComponent) => {
-  const [contextMenuOffset, setContextMenuOffset] = React.useState<{
+  const [contextMenuOffset, setContextMenuOffset] = useState<{
     offset: number
     crossOffset: number
   } | null>(null)
-  const buttonRef = React.useRef<HTMLButtonElement>(null)
+  const buttonRef = useRef<HTMLButtonElement>(null)
 
   return (
     <ContextMenuTriggerContext.Provider value={{ buttonRef, contextMenuOffset, setContextMenuOffset }}>

@@ -1,7 +1,5 @@
 "use client"
 
-import * as React from "react"
-
 import {
   Button as ButtonPrimitive,
   type ButtonProps as ButtonPrimitiveProps,
@@ -90,31 +88,28 @@ interface ButtonProps extends ButtonPrimitiveProps {
   size?: "medium" | "large" | "square-petite" | "extra-small" | "small"
   shape?: "square" | "circle"
   appearance?: "solid" | "outline" | "plain"
+  ref?: React.Ref<HTMLButtonElement>
 }
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, intent, appearance, size, shape, ...props }, ref) => {
-    return (
-      <ButtonPrimitive
-        ref={ref}
-        {...props}
-        className={composeRenderProps(className, (className, renderProps) =>
-          buttonStyles({
-            ...renderProps,
-            intent,
-            appearance,
-            size,
-            shape,
-            className
-          })
-        )}
-      >
-        {(values) => <>{typeof props.children === "function" ? props.children(values) : props.children}</>}
-      </ButtonPrimitive>
-    )
-  }
-)
-
-Button.displayName = "Button"
+const Button = ({ className, intent, appearance, size, shape, ref, ...props }: ButtonProps) => {
+  return (
+    <ButtonPrimitive
+      ref={ref}
+      {...props}
+      className={composeRenderProps(className, (className, renderProps) =>
+        buttonStyles({
+          ...renderProps,
+          intent,
+          appearance,
+          size,
+          shape,
+          className
+        })
+      )}
+    >
+      {(values) => <>{typeof props.children === "function" ? props.children(values) : props.children}</>}
+    </ButtonPrimitive>
+  )
+}
 
 export { Button, ButtonPrimitive, buttonStyles, type ButtonProps }

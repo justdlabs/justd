@@ -1,7 +1,5 @@
 "use client"
 
-import * as React from "react"
-
 import { IconCheck, IconMinus } from "justd-icons"
 import type {
   CheckboxGroupProps as CheckboxGroupPrimitiveProps,

@@ -1,6 +1,6 @@
 "use client"
 
-import * as React from "react"
+import { useState } from "react"
 
 import type { TextInputDOMProps } from "@react-types/shared"
 import { IconEye, IconEyeClosed } from "justd-icons"
@@ -50,7 +50,7 @@ const TextField = ({
   type,
   ...props
 }: TextFieldProps) => {
-  const [isPasswordVisible, setIsPasswordVisible] = React.useState(false)
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false)
   const inputType = isRevealable ? (isPasswordVisible ? "text" : "password") : type
   const handleTogglePasswordVisibility = () => {
     setIsPasswordVisible((prev) => !prev)

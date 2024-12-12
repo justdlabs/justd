@@ -1,12 +1,12 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import { type Color } from "react-aria-components"
 import { ColorArea, ColorField, ColorPicker, ColorSlider, ColorSwatchPicker, defaultColor } from "ui"
 
 export default function ColorPickerEnableSwatchDemo() {
-  const [color, setColor] = React.useState(defaultColor)
+  const [color, setColor] = useState(defaultColor)
   const colorChangeHandler = (v: Color) => {
     setColor(v)
   }

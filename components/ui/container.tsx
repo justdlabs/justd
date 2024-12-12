@@ -1,5 +1,3 @@
-import React from "react"
-
 import { tv } from "tailwind-variants"
 
 const containerStyles = tv({
@@ -17,12 +15,11 @@ const containerStyles = tv({
 
 interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   intent?: "constrained" | "padded-content"
+  ref?: React.Ref<HTMLDivElement>
 }
 
-const Container = React.forwardRef<HTMLDivElement, ContainerProps>(({ className, intent, ...props }, ref) => (
+const Container = ({ className, intent, ref, ...props }: ContainerProps) => (
   <div className={containerStyles({ intent, className })} {...props} ref={ref} />
-))
-
-Container.displayName = "Container"
+)
 
 export { Container }

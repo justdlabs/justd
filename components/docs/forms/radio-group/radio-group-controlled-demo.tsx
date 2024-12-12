@@ -1,11 +1,11 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import { Description, Radio, RadioGroup } from "ui"
 
 export default function RadioGroupControlledDemo() {
-  const [selected, setSelected] = React.useState("")
+  const [selected, setSelected] = useState("")
   return (
     <>
       <RadioGroup label="Features" value={selected} onChange={setSelected}>

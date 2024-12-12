@@ -1,13 +1,13 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import { IconCreditCard, IconCube, IconGear, IconHome2, IconNotes, IconShield } from "justd-icons"
 import Link from "next/link"
 import { CommandMenu } from "ui"
 
 export default function CommandMenuTriggerByKeyboardDemo() {
-  const [isOpen, setIsOpen] = React.useState(false)
+  const [isOpen, setIsOpen] = useState(false)
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
       if (e.key === "/" && (e.metaKey || e.ctrlKey)) {

@@ -1,9 +1,9 @@
-import * as React from "react"
+import { useEffect, useState } from "react"
 
-export function useScrollPosition(ref: React.MutableRefObject<HTMLElement | null>) {
-  const [scrollPosition, setScrollPosition] = React.useState(0)
+export function useScrollPosition(ref: React.RefObject<HTMLElement | null>) {
+  const [scrollPosition, setScrollPosition] = useState(0)
 
-  React.useEffect(() => {
+  useEffect(() => {
     const handleScroll = () => {
       setScrollPosition(ref.current?.scrollTop || 0)
     }

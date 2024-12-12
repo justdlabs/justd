@@ -1,13 +1,13 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import { getLocalTimeZone, now, parseZonedDateTime } from "@internationalized/date"
 import { DateField } from "ui"
 
 export default function DateTimeFieldDemo() {
   const today = parseZonedDateTime(now(getLocalTimeZone()).toString())
-  const [value, setValue] = React.useState(today)
+  const [value, setValue] = useState(today)
   return (
     <DateField
       hideTimeZone

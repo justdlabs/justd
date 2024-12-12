@@ -1,12 +1,12 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import { IconPlus } from "justd-icons"
 import { Button, Modal, TextField } from "ui"
 
 export default function TextFieldSuffixButtonDemo() {
-  const [open, setOpen] = React.useState(false)
+  const [open, setOpen] = useState(false)
   const close = () => setOpen(false)
   return (
     <>

@@ -1,7 +1,5 @@
 "use client"
 
-import * as React from "react"
-
 import {
   IconBrandApple,
   IconCommandRegular,
@@ -19,7 +17,7 @@ export default function AppNavbar() {
     <Navbar>
       <Navbar.Nav>
         <Navbar.Logo href="/docs/components/layouts/navbar">
-          <IconBrandApple className="size-6 lg:size-5" />
+          <IconBrandApple className="size-6 sm:size-5" />
         </Navbar.Logo>
         <Navbar.Section>
           <Navbar.Item href="#">Enabled</Navbar.Item>
@@ -32,7 +30,7 @@ export default function AppNavbar() {
       <Navbar.Compact>
         <Navbar.Flex>
           <Navbar.Trigger className="-ml-2" />
-          <Separator orientation="vertical" className="h-6 lg:mx-1" />
+          <Separator orientation="vertical" className="h-6 sm:mx-1" />
           <Navbar.Logo href="/docs/components/layouts/navbar">
             <IconBrandApple className="size-5" />
           </Navbar.Logo>

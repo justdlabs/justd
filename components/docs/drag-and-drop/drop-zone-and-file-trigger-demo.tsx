@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import type { DropEvent } from "@react-types/shared"
 import { IconGallery } from "justd-icons"
@@ -8,7 +8,7 @@ import { isFileDropItem } from "react-aria-components"
 import { Description, DropZone, FileTrigger } from "ui"
 
 export default function DropZoneAndFileTriggerDemo() {
-  const [droppedImage, setDroppedImage] = React.useState<string | undefined>(undefined)
+  const [droppedImage, setDroppedImage] = useState<string | undefined>(undefined)
 
   const onDropHandler = async (e: DropEvent) => {
     const item = e.items.filter(isFileDropItem).find((item) => item.type === "image/jpeg" || item.type === "image/png")

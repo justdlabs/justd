@@ -1,5 +1,3 @@
-import * as React from "react"
-
 import { Breadcrumbs } from "ui"
 
 export default function BreadcrumbsAnatomy() {

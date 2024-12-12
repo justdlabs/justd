@@ -1,12 +1,12 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import type { Selection } from "react-aria-components"
 import { Choicebox, Description } from "ui"
 
 export default function ChoiceboxControlledDemo() {
-  const [selectedKeys, setSelectedKeys] = React.useState<Selection>(new Set([packages[0].id]))
+  const [selectedKeys, setSelectedKeys] = useState<Selection>(new Set([packages[0].id]))
   return (
     <>
       <Choicebox

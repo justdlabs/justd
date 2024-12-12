@@ -1,7 +1,5 @@
 "use client"
 
-import * as React from "react"
-
 import { IconCalendarDays } from "justd-icons"
 import {
   DatePicker as DatePickerPrimitive,

@@ -1,6 +1,6 @@
 "use client"
 
-import * as React from "react"
+import { useMemo, useState } from "react"
 
 import type { Key } from "react-aria-components"
 import { Label, Pie, PieChart, Sector } from "recharts"
@@ -49,10 +49,10 @@ const config = {
 
 export default function PieChartControlledDemo() {
   const id = "pie-interactive"
-  const [activeMonth, setActiveMonth] = React.useState<Key>(data[0].month)
+  const [activeMonth, setActiveMonth] = useState<Key>(data[0].month)
 
-  const activeIndex = React.useMemo(() => data.findIndex((item) => item.month === activeMonth), [activeMonth])
-  const months = React.useMemo(() => data.map((item) => item.month), [])
+  const activeIndex = useMemo(() => data.findIndex((item) => item.month === activeMonth), [activeMonth])
+  const months = useMemo(() => data.map((item) => item.month), [])
 
   return (
     <Card data-chart={id} className="flex flex-col">

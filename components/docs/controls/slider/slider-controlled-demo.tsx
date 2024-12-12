@@ -1,12 +1,12 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import { Slider } from "ui"
 
 export default function SliderControlledDemo() {
-  const [temperature, setTemperature] = React.useState<number>(31)
-  const [saturation, setSaturation] = React.useState<number[]>([21, 86])
+  const [temperature, setTemperature] = useState<number>(31)
+  const [saturation, setSaturation] = useState<number[]>([21, 86])
   return (
     <div className="space-y-6">
       <div>

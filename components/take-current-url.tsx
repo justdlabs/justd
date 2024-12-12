@@ -1,6 +1,6 @@
 "use client"
 
-import * as React from "react"
+import { useState } from "react"
 
 import { IconCheck, IconDuplicate } from "justd-icons"
 import { AnimatePresence, motion } from "motion/react"
@@ -14,7 +14,7 @@ const snippetVariants = {
 }
 
 export function TakeCurrentUrl() {
-  const [copied, setCopied] = React.useState(false)
+  const [copied, setCopied] = useState(false)
   const pathname = usePathname()
   const text = pathname.includes("/docs")
     ? "https://getjustd.com/" + pathname.split("/").pop()

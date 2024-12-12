@@ -1,11 +1,11 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import { ProgressCircle } from "ui"
 
 export default function ProgressCircleDemo() {
-  const [value, setValue] = React.useState(1)
+  const [value, setValue] = useState(1)
 
   React.useEffect(() => {
     const interval = setInterval(() => {

@@ -1,14 +1,14 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import { toast } from "sonner"
 import { Button, Drawer, Form, Textarea } from "ui"
 
 export default function DrawerNestedDemo() {
-  const [isRegistrationDrawerOpen, setIsRegistrationDrawerOpen] = React.useState(false)
-  const [isProfileSetupDrawerOpen, setIsProfileSetupDrawerOpen] = React.useState(false)
-  const [isTyping, setIsTyping] = React.useState(false)
+  const [isRegistrationDrawerOpen, setIsRegistrationDrawerOpen] = useState(false)
+  const [isProfileSetupDrawerOpen, setIsProfileSetupDrawerOpen] = useState(false)
+  const [isTyping, setIsTyping] = useState(false)
 
   return (
     <>

@@ -1,6 +1,6 @@
 "use client"
 
-import * as React from "react"
+import { useEffect, useRef } from "react"
 
 import { IconX } from "justd-icons"
 import type { ButtonProps as ButtonPrimitiveProps, DialogProps, HeadingProps } from "react-aria-components"
@@ -41,9 +41,9 @@ type DialogHeaderProps = React.HTMLAttributes<HTMLDivElement> & {
 }
 
 const Header = ({ className, ...props }: DialogHeaderProps) => {
-  const headerRef = React.useRef<HTMLHeadingElement>(null)
+  const headerRef = useRef<HTMLHeadingElement>(null)
 
-  React.useEffect(() => {
+  useEffect(() => {
     const header = headerRef.current
     if (!header) {
       return
@@ -97,9 +97,9 @@ const Body = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => 
 )
 
 const Footer = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => {
-  const footerRef = React.useRef<HTMLDivElement>(null)
+  const footerRef = useRef<HTMLDivElement>(null)
 
-  React.useEffect(() => {
+  useEffect(() => {
     const footer = footerRef.current
 
     if (!footer) {
@@ -131,9 +131,9 @@ interface CloseButtonIndicatorProps extends ButtonProps {
 
 const CloseIndicator = ({ className, ...props }: CloseButtonIndicatorProps) => {
   const isMobile = useMediaQuery("(max-width: 600px)")
-  const buttonRef = React.useRef<HTMLButtonElement>(null)
+  const buttonRef = useRef<HTMLButtonElement>(null)
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (isMobile && buttonRef.current) {
       buttonRef.current.focus()
     }

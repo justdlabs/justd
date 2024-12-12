@@ -1,7 +1,5 @@
 "use client"
 
-import * as React from "react"
-
 import { Pie, PieChart } from "recharts"
 import { Card, Chart, type ChartConfig, ChartTooltip, ChartTooltipContent } from "ui"
 

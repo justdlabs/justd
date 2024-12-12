@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import { CodeHighlighter } from "@/components/code/code-highlighter"
 import { CopyButton } from "@/components/code/copy-button"
@@ -15,7 +15,7 @@ interface AnatomyProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export const Anatomy = ({ show, ...props }: AnatomyProps) => {
-  const [rawSourceCode, setRawSourceCode] = React.useState<string | null>(null)
+  const [rawSourceCode, setRawSourceCode] = useState<string | null>(null)
   const processedSourceCode = React.useMemo(() => rawSourceCode || null, [rawSourceCode])
 
   React.useEffect(() => {

@@ -8,7 +8,7 @@ published: true
 ## Theme Provider
 First, you need to create a provider called `theme-provider.tsx` in your components folder.
 
-<PlainCode title='theme-provider.tsx' lang="tsx" code={`import * as React from "react"
+<PlainCode title='theme-provider.tsx' lang="tsx" code={`
 
   type Theme = "dark" | "light" | "system"
 
@@ -36,7 +36,7 @@ First, you need to create a provider called `theme-provider.tsx` in your compone
     storageKey = "vite-ui-theme",
     ...props
   }: ThemeProviderProps) {
-    const [theme, setTheme] = React.useState<Theme>(() => (localStorage.getItem(storageKey) as Theme) || defaultTheme)
+    const [theme, setTheme] = useState<Theme>(() => (localStorage.getItem(storageKey) as Theme) || defaultTheme)
 
     React.useEffect(() => {
       const root = window.document.documentElement

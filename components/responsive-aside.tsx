@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import { IconBrandJustd, IconBrandX, IconHamburger, IconSearch } from "justd-icons"
 import { LayoutGroup } from "motion/react"
@@ -14,7 +14,7 @@ import { ThemeSwitcher } from "./theme-switcher"
 
 export function ResponsiveAside({ openCmd, setOpenCmd }: { openCmd: boolean; setOpenCmd: (open: boolean) => void }) {
   const id = React.useId()
-  const [openAside, setOpenAside] = React.useState(false)
+  const [openAside, setOpenAside] = useState(false)
   const pathname = usePathname()
   React.useEffect(() => setOpenAside(false), [pathname])
   return (

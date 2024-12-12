@@ -8,7 +8,6 @@ import { PlainCode } from "@/components/code/plain-code"
 import { SourceCode } from "@/components/code/source-code"
 import { DocComposed } from "@/components/doc-composed"
 import { DocNote } from "@/components/doc-note"
-import { DocWarningFramer } from "@/components/doc-warning-framer"
 import { Installation } from "@/components/installation"
 import { useMDXComponent } from "@/resources/hooks/use-mdx"
 import { IconArrowUpRight } from "justd-icons"
@@ -31,7 +30,6 @@ export function Mdx({ code }: MdxProps) {
         EditorText: (props: React.ComponentProps<typeof EditorText>) => <EditorText {...props} />,
         CodeSandbox: (props: React.ComponentProps<typeof CodeSandbox>) => <CodeSandbox {...props} />,
         Installation,
-        WarningFramer: DocWarningFramer,
         Note: DocNote,
         Anatomy: Anatomy,
         Composed: DocComposed,
@@ -57,7 +55,7 @@ export function Mdx({ code }: MdxProps) {
         PlainCode: PlainCode,
         figure: (props: React.ComponentProps<"figure">) => (
           <figure
-            className="*:[pre]:max-h-96 *:[pre]:p-4 *:[pre]:inset-ring-1 *:[pre]:rounded-lg *:[pre]:inset-ring-zinc-800 *:[pre]:bg-(--shiki-bg)"
+            className="*:[pre]:max-h-96 *:[pre]:p-4 *:[pre]:inset-ring-1 *:[pre]:rounded-lg *:[pre]:inset-ring-zinc-800 *:[pre]:bg-shiki-bg"
             {...props}
           />
         )

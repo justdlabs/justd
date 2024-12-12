@@ -1,10 +1,10 @@
-import React from "react"
+import React, { useState } from "react"
 
 import type { Key } from "react-aria-components"
 import { Toggle, ToggleGroup } from "ui"
 
 export default function ToggleGroupControlledDemo() {
-  const [selected, setSelected] = React.useState(new Set<Key>(["bold"]))
+  const [selected, setSelected] = useState(new Set<Key>(["bold"]))
 
   return (
     <>

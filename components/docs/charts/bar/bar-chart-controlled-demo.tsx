@@ -1,6 +1,6 @@
 "use client"
 
-import * as React from "react"
+import { useMemo, useState } from "react"
 
 import type { Key } from "react-aria-components"
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts"
@@ -27,9 +27,9 @@ const chartConfig = {
 } satisfies ChartConfig
 
 export default function BarChartControlledDemo() {
-  const [activeChart, setActiveChart] = React.useState<Key>("sales")
+  const [activeChart, setActiveChart] = useState<Key>("sales")
 
-  const total = React.useMemo(
+  const total = useMemo(
     () => ({
       sales: chartData.reduce((acc, curr) => acc + curr.sales, 0),
       revenue: chartData.reduce((acc, curr) => acc + curr.revenue, 0)

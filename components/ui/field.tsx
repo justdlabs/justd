@@ -1,6 +1,6 @@
 "use client"
 
-import * as React from "react"
+import { forwardRef } from "react"
 
 import type {
   FieldErrorProps,
@@ -100,7 +100,7 @@ const FieldGroup = ({ className, ...props }: GroupProps) => {
   )
 }
 
-const Input = React.forwardRef<HTMLInputElement, InputProps>(({ className, ...props }, ref) => {
+const Input = forwardRef<HTMLInputElement, InputProps>(({ className, ...props }, ref) => {
   return <InputPrimitive ref={ref} {...props} className={composeTailwindRenderProps(className, input())} />
 })
 

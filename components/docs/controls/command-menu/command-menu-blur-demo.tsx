@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import { IconBill, IconCube, IconGear, IconHome, IconNotes, IconShield } from "justd-icons"
 // Replace with your router link component
@@ -8,7 +8,7 @@ import Link from "next/link"
 import { Avatar, Button, CommandMenu } from "ui"
 
 export default function CommandMenuBlurDemo() {
-  const [isOpen, setIsOpen] = React.useState(false)
+  const [isOpen, setIsOpen] = useState(false)
   return (
     <>
       <Button appearance="outline" onPress={() => setIsOpen(true)}>

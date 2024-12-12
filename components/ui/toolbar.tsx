@@ -1,6 +1,6 @@
 "use client"
 
-import * as React from "react"
+import { createContext, useContext } from "react"
 
 import type { GroupProps, SeparatorProps, ToolbarProps } from "react-aria-components"
 import { composeRenderProps, Group, Toolbar as ToolbarPrimitive } from "react-aria-components"
@@ -10,7 +10,7 @@ import { cn } from "./primitive"
 import { Separator } from "./separator"
 import { Toggle } from "./toggle"
 
-const ToolbarContext = React.createContext<{ orientation?: ToolbarProps["orientation"] }>({
+const ToolbarContext = createContext<{ orientation?: ToolbarProps["orientation"] }>({
   orientation: "horizontal"
 })
 
@@ -38,7 +38,7 @@ const Toolbar = ({ orientation = "horizontal", className, ...props }: ToolbarPro
   )
 }
 
-const ToolbarGroupContext = React.createContext<{ isDisabled?: boolean }>({})
+const ToolbarGroupContext = createContext<{ isDisabled?: boolean }>({})
 
 const ToolbarGroup = ({ isDisabled, className, ...props }: GroupProps) => {
   return (
@@ -57,14 +57,14 @@ const ToolbarGroup = ({ isDisabled, className, ...props }: GroupProps) => {
 }
 
 const Item = ({ isDisabled, ...props }: React.ComponentProps<typeof Toggle>) => {
-  const context = React.useContext(ToolbarGroupContext)
+  const context = useContext(ToolbarGroupContext)
   const effectiveIsDisabled = isDisabled || context.isDisabled
 
   return <Toggle isDisabled={effectiveIsDisabled} {...props} />
 }
 
 const ToolbarSeparator = ({ className, ...props }: SeparatorProps) => {
-  const { orientation } = React.useContext(ToolbarContext)
+  const { orientation } = useContext(ToolbarContext)
   const effectiveOrientation = orientation === "vertical" ? "horizontal" : "vertical"
   return (
     <Separator

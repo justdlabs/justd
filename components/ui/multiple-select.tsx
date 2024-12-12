@@ -1,7 +1,6 @@
 "use client"
 
-import * as React from "react"
-import { useState } from "react"
+import { useCallback, useEffect, useId, useRef, useState } from "react"
 
 import { IconChevronLgDown } from "justd-icons"
 import { useFilter } from "react-aria"
@@ -85,14 +84,14 @@ const MultipleSelect = <T extends SelectedKey>({
   errorMessage,
   ...props
 }: MultipleSelectProps<T>) => {
-  const tagGroupIdentifier = React.useId()
-  const triggerRef = React.useRef<HTMLDivElement | null>(null)
-  const [width, setWidth] = React.useState(0)
+  const tagGroupIdentifier = useId()
+  const triggerRef = useRef<HTMLDivElement | null>(null)
+  const [width, setWidth] = useState(0)
 
   const { contains } = useFilter({ sensitivity: "base" })
   const selectedKeys = selectedItems.items.map((i) => i.id)
 
-  const filter = React.useCallback(
+  const filter = useCallback(
     (item: T, filterText: string) => {
       return !selectedKeys.includes(item.id) && contains(item.name, filterText)
     },
@@ -112,7 +111,7 @@ const MultipleSelect = <T extends SelectedKey>({
     inputValue: ""
   })
 
-  const onRemove = React.useCallback(
+  const onRemove = useCallback(
     (keys: Set<Key>) => {
       const key = keys.values().next().value
       if (key) {
@@ -159,7 +158,7 @@ const MultipleSelect = <T extends SelectedKey>({
     accessibleList.setFilterText(value)
   }
 
-  const popLast = React.useCallback(() => {
+  const popLast = useCallback(() => {
     if (selectedItems.items.length == 0) {
       return
     }
@@ -177,7 +176,7 @@ const MultipleSelect = <T extends SelectedKey>({
     })
   }, [selectedItems, onItemCleared])
 
-  const onKeyDownCapture = React.useCallback(
+  const onKeyDownCapture = useCallback(
     (e: React.KeyboardEvent<HTMLInputElement>) => {
       if (e.key === "Backspace" && fieldState.inputValue === "") {
         popLast()
@@ -186,7 +185,7 @@ const MultipleSelect = <T extends SelectedKey>({
     [popLast, fieldState.inputValue]
   )
 
-  React.useEffect(() => {
+  useEffect(() => {
     const trigger = triggerRef.current
     if (!trigger) return
 
@@ -202,7 +201,7 @@ const MultipleSelect = <T extends SelectedKey>({
     }
   }, [triggerRef])
 
-  const triggerButtonRef = React.useRef<HTMLButtonElement | null>(null)
+  const triggerButtonRef = useRef<HTMLButtonElement | null>(null)
 
   return (
     <div className={multiSelectField({ className })}>

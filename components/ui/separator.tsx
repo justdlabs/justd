@@ -1,7 +1,5 @@
 "use client"
 
-import * as React from "react"
-
 import { Separator as Divider, type SeparatorProps as DividerProps } from "react-aria-components"
 import { tv } from "tailwind-variants"
 

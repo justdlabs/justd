@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import { getLocalTimeZone, parseDate, today } from "@internationalized/date"
 import { useDateFormatter } from "@react-aria/i18n"
@@ -9,7 +9,7 @@ import { DatePicker } from "ui"
 export default function DatePickerControlledDemo() {
   const now = today(getLocalTimeZone())
 
-  const [value, setValue] = React.useState(parseDate(now.toString()))
+  const [value, setValue] = useState(parseDate(now.toString()))
 
   const formatter = useDateFormatter({ dateStyle: "full" })
 

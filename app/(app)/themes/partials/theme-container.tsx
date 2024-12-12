@@ -1,6 +1,6 @@
 "use client"
 
-import * as React from "react"
+import { Suspense, useState } from "react"
 
 import { Blocks } from "@/app/(app)/themes/partials/blocks"
 import { GeneratedTheme } from "@/app/(app)/themes/partials/generated-theme"
@@ -13,7 +13,7 @@ import { Button, Container, Heading, Menu, Sheet } from "ui"
 import { generateTheme } from "./themes"
 
 export function ThemeContainer() {
-  const [selectedColors, setSelectedColors] = React.useState({
+  const [selectedColors, setSelectedColors] = useState({
     primary: "blue",
     gray: "zinc",
     accent: "blue",
@@ -25,7 +25,7 @@ export function ThemeContainer() {
     toast(`Copied to clipboard.`)
   }
 
-  const [open, setOpen] = React.useState(false)
+  const [open, setOpen] = useState(false)
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
   return (
@@ -84,9 +84,9 @@ export function ThemeContainer() {
         </div>
 
         <Blocks />
-        <React.Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div>Loading...</div>}>
           <style>{generateTheme(selectedColors)}</style>
-        </React.Suspense>
+        </Suspense>
       </Container>
 
       <Sheet.Content

@@ -1,6 +1,6 @@
 "use client"
 
-import React, { Suspense } from "react"
+import React, { Suspense, useState } from "react"
 
 import { useScrollPosition } from "hooks/use-scroll-position"
 import { Heading } from "react-aria-components"
@@ -19,7 +19,7 @@ interface Props {
 }
 
 export function TableOfContents({ className, items }: Props) {
-  // const [thereIsAnAd, setThereIsAnAd] = React.useState(true)
+  // const [thereIsAnAd, setThereIsAnAd] = useState(true)
   const tocRef = React.useRef<HTMLDivElement>(null)
   const scrollPosition = useScrollPosition(tocRef)
   const ids = items.flatMap((item) => [
@@ -107,7 +107,7 @@ function TocLink({ item, activeId }: { item: TableOfContentsProps; activeId: str
 }
 
 export function useActiveItem(itemIds: string[]) {
-  const [activeId, setActiveId] = React.useState<string | null>(null)
+  const [activeId, setActiveId] = useState<string | null>(null)
 
   React.useEffect(() => {
     const observer = new IntersectionObserver(

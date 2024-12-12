@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import type { Selection } from "react-aria-components"
 import { Description, Tag, TagGroup, TagList } from "ui"
@@ -13,7 +13,7 @@ const fruitList = [
 ]
 
 export default function TagGroupControlledDemo() {
-  const [selected, setSelected] = React.useState<Selection>(new Set([]))
+  const [selected, setSelected] = useState<Selection>(new Set([]))
   return (
     <div>
       <TagGroup selectionMode="multiple" selectedKeys={selected} onSelectionChange={setSelected}>

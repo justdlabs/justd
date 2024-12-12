@@ -1,6 +1,6 @@
 "use client"
 
-import * as React from "react"
+import { createContext, use } from "react"
 
 import type { ToggleButtonGroupProps, ToggleButtonProps } from "react-aria-components"
 import { composeRenderProps, ToggleButton, ToggleButtonGroup } from "react-aria-components"
@@ -13,12 +13,12 @@ interface ToggleGroupContextProps {
   appearance?: "outline" | "plain" | "solid"
 }
 
-const ToggleGroupContext = React.createContext<ToggleGroupContextProps>({
+const ToggleGroupContext = createContext<ToggleGroupContextProps>({
   appearance: "plain"
 })
 
 const toggleGroupStyles = tv({
-  base: ["flex gap-1"],
+  base: "flex gap-1",
   variants: {
     orientation: {
       horizontal: "flex-row [&::-webkit-scrollbar]:hidden [scrollbar-width:none] [-ms-overflow-style:none]",
@@ -97,7 +97,7 @@ const toggleStyles = tv({
 type ToggleProps = ToggleButtonProps & VariantProps<typeof toggleStyles>
 
 const Toggle = ({ className, appearance, ...props }: ToggleProps) => {
-  const { appearance: groupAppearance } = React.useContext(ToggleGroupContext)
+  const { appearance: groupAppearance } = use(ToggleGroupContext)
   return (
     <ToggleButton
       {...props}

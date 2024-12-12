@@ -1,12 +1,12 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import { type Selection } from "@react-types/shared"
 import { Button, Menu } from "ui"
 
 export default function MultipleMenuDemo() {
-  const [selected, setSelected] = React.useState<Selection>(new Set(["autoPlay"]))
+  const [selected, setSelected] = useState<Selection>(new Set(["autoPlay"]))
   return (
     <Menu>
       <Button appearance="outline">Open</Button>

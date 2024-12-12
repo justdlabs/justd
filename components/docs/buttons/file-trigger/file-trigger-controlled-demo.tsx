@@ -1,11 +1,11 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import { Description, FileTrigger } from "ui"
 
 export default function FileTriggerDemo() {
-  const [file, setFile] = React.useState<string[] | null>(null)
+  const [file, setFile] = useState<string[] | null>(null)
   return (
     <>
       <FileTrigger

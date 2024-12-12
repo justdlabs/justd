@@ -1,7 +1,5 @@
 "use client"
 
-import * as React from "react"
-
 import { IconChevronLgDown } from "justd-icons"
 import { cn, ShowMore } from "ui"
 

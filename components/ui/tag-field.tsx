@@ -1,6 +1,6 @@
 "use client"
 
-import * as React from "react"
+import { useCallback, useState } from "react"
 
 import type { Key } from "react-aria-components"
 import { Group, TextField } from "react-aria-components"
@@ -56,8 +56,8 @@ const TagField = ({
   onItemInserted,
   ...props
 }: TagFieldProps) => {
-  const [isInvalid, setIsInvalid] = React.useState(false)
-  const [inputValue, setInputValue] = React.useState("")
+  const [isInvalid, setIsInvalid] = useState(false)
+  const [inputValue, setInputValue] = useState("")
 
   const existingTagCount = list.items.length
   const maxTags = props.max !== undefined ? props.max : Infinity
@@ -119,7 +119,7 @@ const TagField = ({
     }
   }
 
-  const popLast = React.useCallback(() => {
+  const popLast = useCallback(() => {
     if (list.items.length == 0) {
       return
     }

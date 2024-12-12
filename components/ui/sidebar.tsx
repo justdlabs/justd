@@ -1,6 +1,6 @@
 "use client"
 
-import * as React from "react"
+import { createContext, use, useCallback, useEffect, useMemo, useState } from "react"
 
 import { IconChevronLgLeft, IconHamburger, IconSidebarFill } from "justd-icons"
 import type { LinkRenderProps } from "react-aria-components"
@@ -31,10 +31,10 @@ type SidebarContextProps = {
   toggleSidebar: () => void
 }
 
-const SidebarContext = React.createContext<SidebarContextProps | null>(null)
+const SidebarContext = createContext<SidebarContextProps | null>(null)
 
 const useSidebar = () => {
-  const context = React.use(SidebarContext)
+  const context = use(SidebarContext)
   if (!context) {
     throw new Error("useSidebar must be used within a Sidebar.")
   }
@@ -58,11 +58,11 @@ const SidebarProvider = ({
   ...props
 }: SidebarProviderProps) => {
   const isMobile = useMediaQuery("(max-width: 768px)")
-  const [openMobile, setOpenMobile] = React.useState(false)
+  const [openMobile, setOpenMobile] = useState(false)
 
-  const [internalOpenState, setInternalOpenState] = React.useState(defaultOpen)
+  const [internalOpenState, setInternalOpenState] = useState(defaultOpen)
   const open = openProp ?? internalOpenState
-  const setOpen = React.useCallback(
+  const setOpen = useCallback(
     (value: boolean | ((value: boolean) => boolean)) => {
       const openState = typeof value === "function" ? value(open) : value
 
@@ -77,11 +77,11 @@ const SidebarProvider = ({
     [setOpenProp, open]
   )
 
-  const toggleSidebar = React.useCallback(() => {
+  const toggleSidebar = useCallback(() => {
     return isMobile ? setOpenMobile((open) => !open) : setOpen((open) => !open)
   }, [isMobile, setOpen, setOpenMobile])
 
-  React.useEffect(() => {
+  useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === SIDEBAR_KEYBOARD_SHORTCUT && (event.metaKey || event.ctrlKey)) {
         event.preventDefault()
@@ -95,7 +95,7 @@ const SidebarProvider = ({
 
   const state = open ? "expanded" : "collapsed"
 
-  const contextValue = React.useMemo<SidebarContextProps>(
+  const contextValue = useMemo<SidebarContextProps>(
     () => ({
       state,
       open,
@@ -117,7 +117,7 @@ const SidebarProvider = ({
           "[--sidebar-border:color-mix(in_oklch,var(--color-sidebar)_25%,black_6%)]",
           "dark:[--sidebar-border:color-mix(in_oklch,var(--color-sidebar)_55%,white_10%)]",
           "[--sidebar-accent:color-mix(in_oklab,var(--color-sidebar)_95%,black_5%)]",
-          "dark:[--sidebar-accent:color-mix(in_oklab,var(--color-sidebar)_85%,white_15%)]",
+          "dark:[--sidebar-accent:color-mix(in_oklab,var(--color-sidebar)90%,white_10%)]",
           "flex min-h-svh w-full text-sidebar-fg",
           className
         )}
@@ -199,6 +199,7 @@ const Sidebar = ({
   if (collapsible === "none") {
     return (
       <div
+        data-sidebar-intent={intent}
         data-sidebar-collapsible="none"
         className={cn("flex h-full peer w-(--sidebar-width) flex-col border-r bg-sidebar text-sidebar-fg ", className)}
         {...props}
@@ -265,7 +266,7 @@ const header = tv({
 })
 
 const SidebarHeader = ({ className, ref, ...props }: React.ComponentProps<"div">) => {
-  const { state } = React.use(SidebarContext)!
+  const { state } = use(SidebarContext)!
   return (
     <div
       ref={ref}
@@ -329,7 +330,11 @@ const SidebarSectionGroup = ({ className, ...props }: React.ComponentProps<"sect
 const SidebarSection = ({ className, ...props }: React.ComponentProps<"div"> & { title?: string }) => {
   const { state } = useSidebar()
   return (
-    <div data-sidebar-section="true" className={cn("flex flex-col px-2 gap-y-0.5", className)} {...props}>
+    <div
+      data-sidebar-section="true"
+      className={cn("flex flex-col in-data-[sidebar-intent=fleet]:px-0 px-2 gap-y-0.5", className)}
+      {...props}
+    >
       {state !== "collapsed" && "title" in props && (
         <Header className="duration-200 mb-1 flex shrink-0 items-center rounded-md px-2.5 text-xs font-medium text-sidebar-fg/70 outline-none ring-sidebar-ring transition-[margin,opa] ease-linear data-focus-visible:ring-2 *:data-[slot=icon]:size-4 *:data-[slot=icon]:shrink-0 group-data-[sidebar-collapsible=dock]/sidebar-container:-mt-8 group-data-[sidebar-collapsible=dock]/sidebar-container:opacity-0">
           {props.title}
@@ -481,7 +486,13 @@ const SidebarDisclosureGroup = ({
 }
 
 const SidebarDisclosure = ({ className, ...props }: React.ComponentProps<typeof Disclosure>) => {
-  return <Disclosure data-sidebar-disclosure="true" className={cn("px-2", className)} {...props} />
+  return (
+    <Disclosure
+      data-sidebar-disclosure="true"
+      className={cn("px-2  in-data-[sidebar-intent=fleet]:px-0", className)}
+      {...props}
+    />
+  )
 }
 
 const sidebarDisclosureTrigger = tv({
@@ -535,24 +546,8 @@ const SidebarDisclosureTrigger = ({ className, ...props }: React.ComponentProps<
   )
 }
 
-const SidebarDisclosurePanel = ({ className, ...props }: React.ComponentProps<typeof DisclosurePanel>) => {
-  return (
-    <DisclosurePanel
-      data-sidebar-disclosure-panel="true"
-      className={cn(
-        [
-          // 'in-data-[sidebar-intent=fleet]:**:data-sidebar-disclosure:*:[h3]:**:[[slot=trigger]]:pl-[calc(var(--sidebar-width)-90%)]',
-          //   "in-data-[sidebar-intent=fleet]:**:data-sidebar-disclosure-group:**:[[slot=trigger]]:pl-9",
-          // "in-data-[sidebar-intent=fleet]:**:data-sidebar-disclosure:pl-4",
-          // "in-data-[sidebar-intent=fleet]:**:data-sidebar-item:pl-4",
-          // "in-data-[sidebar-intent=fleet]:**:data-sidebar-disclosure:**:data-sidebar-disclosure-panel:pl-9",
-          // "in-data-[sidebar-intent=fleet]:**:data-sidebar-disclosure-group:**:data-sidebar-disclosure:pl-9"
-        ],
-        className
-      )}
-      {...props}
-    />
-  )
+const SidebarDisclosurePanel = (props: React.ComponentProps<typeof DisclosurePanel>) => {
+  return <DisclosurePanel data-sidebar-disclosure-panel="true" {...props} />
 }
 
 const SidebarSeparator = ({ className, ...props }: React.ComponentProps<typeof Separator>) => {
@@ -620,7 +615,7 @@ const SidebarLabel = ({ className, ...props }: React.ComponentProps<typeof Text>
 }
 
 const navStyles = tv({
-  base: "md:w-full justify-between sm:justify-start h-[3.57rem] px-4 border-b flex items-center gap-x-2",
+  base: "md:w-full bg-navbar text-navbar-fg justify-between sm:justify-start h-[3.57rem] px-4 border-b flex items-center gap-x-2",
   variants: {
     isSticky: {
       true: "sticky top-0 z-40"

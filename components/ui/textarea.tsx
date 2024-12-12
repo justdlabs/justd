@@ -1,7 +1,5 @@
 "use client"
 
-import * as React from "react"
-
 import {
   composeRenderProps,
   TextArea as TextAreaPrimitive,

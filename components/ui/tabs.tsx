@@ -1,6 +1,6 @@
 "use client"
 
-import * as React from "react"
+import { useId } from "react"
 
 import { LayoutGroup, motion } from "motion/react"
 import {
@@ -20,7 +20,7 @@ import { tv } from "tailwind-variants"
 import { cn, composeTailwindRenderProps } from "./primitive"
 
 const tabsStyles = tv({
-  base: "group flex gap-4 forced-color-adjust-none",
+  base: "group/tabs flex gap-4 forced-color-adjust-none",
   variants: {
     orientation: {
       horizontal: "flex-col",
@@ -54,7 +54,7 @@ const tabListStyles = tv({
 })
 
 const List = <T extends object>(props: TabListProps<T>) => {
-  const id = React.useId()
+  const id = useId()
   return (
     <LayoutGroup id={id}>
       <TabList
@@ -70,8 +70,8 @@ const List = <T extends object>(props: TabListProps<T>) => {
 const tabStyles = tv({
   base: [
     "relative flex whitespace-nowrap cursor-default items-center rounded-full text-sm font-medium outline-hidden transition data-hovered:text-fg *:data-[slot=icon]:size-4 *:data-[slot=icon]:mr-2",
-    "group-data-[orientation=vertical]:w-full group-data-[orientation=vertical]:py-0 group-data-[orientation=vertical]:pl-4 group-data-[orientation=vertical]:pr-2",
-    "group-data-[orientation=horizontal]:pb-3"
+    "group-data-[orientation=vertical]/tabs:w-full group-data-[orientation=vertical]/tabs:py-0 group-data-[orientation=vertical]/tabs:pl-4 group-data-[orientation=vertical]/tabs:pr-2",
+    "group-data-[orientation=horizontal]/tabs:pb-3"
   ],
   variants: {
     isSelected: {
@@ -104,9 +104,9 @@ const Tab = ({ children, ...props }: TabProps) => {
               className={cn(
                 "absolute rounded bg-fg",
                 // horizontal
-                "group-data-[orientation=horizontal]:inset-x-0 group-data-[orientation=horizontal]:-bottom-px group-data-[orientation=horizontal]:h-0.5 group-data-[orientation=horizontal]:w-full",
+                "group-data-[orientation=horizontal]/tabs:inset-x-0 group-data-[orientation=horizontal]/tabs:-bottom-px group-data-[orientation=horizontal]/tabs:h-0.5 group-data-[orientation=horizontal]/tabs:w-full",
                 // vertical
-                "group-data-[orientation=vertical]:left-0 group-data-[orientation=vertical]:h-[calc(100%-10%)] group-data-[orientation=vertical]:w-0.5 group-data-[orientation=vertical]:transform"
+                "group-data-[orientation=vertical]/tabs:left-0 group-data-[orientation=vertical]/tabs:h-[calc(100%-10%)] group-data-[orientation=vertical]/tabs:w-0.5 group-data-[orientation=vertical]/tabs:transform"
               )}
               layoutId="current-selected"
               transition={{ type: "spring", stiffness: 500, damping: 40 }}

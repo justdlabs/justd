@@ -1,7 +1,5 @@
 "use client"
 
-import * as React from "react"
-
 import { parseDate } from "@internationalized/date"
 import { IconBrandApple } from "justd-icons"
 import {

@@ -1,7 +1,4 @@
 "use client"
-"use client"
-
-import * as React from "react"
 
 import { Collection } from "react-aria-components"
 import { tv, type VariantProps } from "tailwind-variants"

@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useRef } from "react"
+import React, { useRef, useState } from "react"
 
 import * as icons from "justd-icons"
 import { IconDownload } from "justd-icons"
@@ -52,7 +52,7 @@ interface IconListItemProps {
 }
 
 export function IconListItem({ name, Icon }: IconListItemProps) {
-  const [isSelected, setSelected] = React.useState(false)
+  const [isSelected, setSelected] = useState(false)
   const searchParams = useSearchParams()
   const selectedSize = searchParams.get("s") ?? "size-5"
   const handleCopy = (type: "text" | "jsx") => {

@@ -1,14 +1,14 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import { type ColorSpace, getColorChannels } from "react-aria-components"
 import { ColorArea, ColorField, ColorPicker, defaultColor, Select } from "ui"
 
 export default function ColorPickerEnableSelectionFormatDemo() {
-  const [color, setColor] = React.useState(defaultColor)
-  const [isHexFormat, setIsHexFormat] = React.useState(false)
-  const [space, setSpace] = React.useState<ColorSpace>("rgb")
+  const [color, setColor] = useState(defaultColor)
+  const [isHexFormat, setIsHexFormat] = useState(false)
+  const [space, setSpace] = useState<ColorSpace>("rgb")
   return (
     <ColorPicker label={color.toString(space)} value={color} onChange={setColor}>
       <>

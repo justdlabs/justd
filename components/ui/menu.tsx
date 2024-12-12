@@ -1,6 +1,6 @@
 "use client"
 
-import * as React from "react"
+import { createContext, use } from "react"
 
 import { IconBulletFill, IconCheck, IconChevronLgRight } from "justd-icons"
 import type {
@@ -36,7 +36,7 @@ interface MenuContextProps {
   respectScreen: boolean
 }
 
-const MenuContext = React.createContext<MenuContextProps>({ respectScreen: true })
+const MenuContext = createContext<MenuContextProps>({ respectScreen: true })
 
 interface MenuProps extends MenuTriggerPrimitiveProps {
   respectScreen?: boolean
@@ -91,7 +91,7 @@ const Content = <T extends object>({
   popoverClassName,
   ...props
 }: MenuContentProps<T>) => {
-  const { respectScreen } = React.use(MenuContext)
+  const { respectScreen } = use(MenuContext)
   return (
     <Popover.Content
       respectScreen={respectScreen}

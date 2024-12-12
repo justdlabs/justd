@@ -1,12 +1,12 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import type { Key } from "react-aria-components"
 import { ComboBox, Description } from "ui"
 
 export default function ComboBoxControlledSelectionDemo() {
-  const [country, setCountry] = React.useState<Key | null>(null)
+  const [country, setCountry] = useState<Key | null>(null)
   return (
     <>
       <ComboBox label="Country" placeholder="Country" onSelectionChange={setCountry} selectedKey={country}>

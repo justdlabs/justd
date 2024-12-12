@@ -1,7 +1,5 @@
 "use client"
 
-import * as React from "react"
-
 import { ThemeSwitcher } from "@/components/theme-switcher"
 import {
   IconBrandApple,
@@ -22,7 +20,7 @@ export default function AppNavbar() {
       <Navbar>
         <Navbar.Nav>
           <Navbar.Logo href="/docs/components/layouts/navbar">
-            <IconBrandApple className="size-6 lg:size-5" />
+            <IconBrandApple className="size-6 sm:size-5" />
           </Navbar.Logo>
           <Navbar.Section>
             <Navbar.Item isCurrent href="#">
@@ -31,7 +29,7 @@ export default function AppNavbar() {
             <Navbar.Item href="#">Mac</Navbar.Item>
             <Navbar.Item href="#">iPad</Navbar.Item>
           </Navbar.Section>
-          <Navbar.Section className="ml-auto hidden lg:flex">
+          <Navbar.Section className="ml-auto hidden sm:flex">
             <Navbar.Flex>
               <SearchField aria-label="Search for products" />
             </Navbar.Flex>
@@ -41,7 +39,7 @@ export default function AppNavbar() {
         <Navbar.Compact>
           <Navbar.Flex>
             <Navbar.Trigger className="-ml-2" />
-            <Separator orientation="vertical" className="h-6 lg:mx-1" />
+            <Separator orientation="vertical" className="h-6 sm:mx-1" />
             <Navbar.Logo href="/docs/components/layouts/navbar">
               <IconBrandApple className="size-5" />
             </Navbar.Logo>

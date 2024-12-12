@@ -1,11 +1,11 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import { Description, NumberField } from "ui"
 
 export default function NumberFieldControlledDemo() {
-  const [number, setNumber] = React.useState(1280)
+  const [number, setNumber] = useState(1280)
   return (
     <div>
       <NumberField label="Width" value={number} onChange={setNumber} />

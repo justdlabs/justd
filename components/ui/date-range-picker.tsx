@@ -1,7 +1,5 @@
 "use client"
 
-import * as React from "react"
-
 import {
   DateRangePicker as DateRangePickerPrimitive,
   type DateRangePickerProps as DateRangePickerPrimitiveProps,

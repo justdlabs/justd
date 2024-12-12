@@ -1,11 +1,11 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import { Description, SearchField } from "ui"
 
 export default function SearchFieldControlledDemo() {
-  const [value, setValue] = React.useState("")
+  const [value, setValue] = useState("")
   return (
     <>
       <SearchField value={value} onChange={setValue} className="mb-2" />

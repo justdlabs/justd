@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import type { Key } from "react-aria-components"
 import { useListData } from "react-stately"
@@ -8,7 +8,7 @@ import type { SelectedKey } from "ui"
 import { Button, Form, MultipleSelect } from "ui"
 
 export default function MultipleSelectInvalidDemo() {
-  const [invalid, setInvalid] = React.useState(false)
+  const [invalid, setInvalid] = useState(false)
   const selectedItems = useListData<SelectedKey>({
     initialItems: []
   })

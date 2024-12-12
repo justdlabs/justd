@@ -1,12 +1,12 @@
 "use client"
 
-import * as React from "react"
+import { useState } from "react"
 
 import { IconChevronLgDown } from "justd-icons"
 import { ShowMore } from "ui"
 
 export default function ShowMoreControlledDemo() {
-  const [isExpanded, setIsExpanded] = React.useState(false)
+  const [isExpanded, setIsExpanded] = useState(false)
   return (
     <div className="py-6">
       <ShowMore onChange={setIsExpanded} isSelected={isExpanded}>

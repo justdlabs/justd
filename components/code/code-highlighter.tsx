@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import { cn } from "@/utils/classes"
 import rehypePrettyCode from "rehype-pretty-code"
@@ -27,9 +27,9 @@ export const CodeHighlighter = ({
   className,
   ...props
 }: CodeHighlighterProps) => {
-  const [loading, setLoading] = React.useState(false)
-  const [formattedCode, setFormattedCode] = React.useState("")
-  const [error, setError] = React.useState("")
+  const [loading, setLoading] = useState(false)
+  const [formattedCode, setFormattedCode] = useState("")
+  const [error, setError] = useState("")
 
   React.useEffect(() => {
     setLoading(true)
@@ -63,14 +63,14 @@ export const CodeHighlighter = ({
   }
 
   return loading ? (
-    <div className="text-sm font-mono tracking-tight px-4"> Loading...</div>
+    <div />
   ) : (
     <div
       {...props}
       className={cn(
         "not-prose overflow-auto text-sm font-mono",
         max96 && "max-h-96",
-        !plain && "p-4 inset-ring-1 rounded-lg inset-ring-zinc-800 bg-(--shiki-bg)",
+        !plain && "p-4 inset-ring-1 rounded-lg inset-ring-zinc-800 bg-shiki-bg",
         removeLastLine && "**:data-rehype-pretty-code-figure:*:[pre]:*:[code]:*:data-line:last:hidden",
         className
       )}

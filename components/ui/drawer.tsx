@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react"
+import { createContext, forwardRef, use, useState } from "react"
 
 import type { PanInfo } from "motion/react"
 import {
@@ -40,24 +40,24 @@ interface DrawerContextType {
   withNotch?: boolean
 }
 
-const DrawerContext = React.createContext<DrawerContextType | undefined>(undefined)
+const DrawerContext = createContext<DrawerContextType | undefined>(undefined)
 
 const useDrawerContext = () => {
-  const context = React.use(DrawerContext)
+  const context = use(DrawerContext)
   if (context === undefined) {
     throw new Error("useDrawerContext must be used within a Drawer")
   }
   return context
 }
 
-const ModalWrapper = React.forwardRef<HTMLDivElement, React.ComponentProps<typeof Modal>>((props, ref) => (
+const ModalWrapper = forwardRef<HTMLDivElement, React.ComponentProps<typeof Modal>>((props, ref) => (
   <Modal ref={ref} {...props} />
 ))
 ModalWrapper.displayName = "ModalWrapper"
 
-const ModalOverlayWrapper = React.forwardRef<HTMLDivElement, React.ComponentProps<typeof ModalOverlay>>(
-  (props, ref) => <ModalOverlay ref={ref} {...props} />
-)
+const ModalOverlayWrapper = forwardRef<HTMLDivElement, React.ComponentProps<typeof ModalOverlay>>((props, ref) => (
+  <ModalOverlay ref={ref} {...props} />
+))
 ModalOverlayWrapper.displayName = "ModalOverlayWrapper"
 
 const ModalPrimitive = motion.create(ModalWrapper)
@@ -73,7 +73,7 @@ interface DrawerOverlayPrimitiveProps
 
 const DrawerContentPrimitive = ({ children, ...props }: DrawerOverlayPrimitiveProps) => {
   const { closeDrawer, withNotch } = useDrawerContext()
-  const [contentHeight, setContentHeight] = React.useState(0)
+  const [contentHeight, setContentHeight] = useState(0)
 
   const h = Math.min(contentHeight + drawerMargin, window.innerHeight - drawerMargin)
   const y = useMotionValue(h)
@@ -194,7 +194,7 @@ interface DrawerProps {
 }
 
 const Drawer = ({ children, withNotch = true, isOpen: controlledIsOpen, onOpenChange }: DrawerProps) => {
-  const [internalIsOpen, setInternalIsOpen] = React.useState(false)
+  const [internalIsOpen, setInternalIsOpen] = useState(false)
 
   const isControlled = controlledIsOpen !== undefined
   const isOpen = isControlled ? controlledIsOpen : internalIsOpen

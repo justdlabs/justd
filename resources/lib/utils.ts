@@ -23,13 +23,6 @@ export function getSiteName(url: string): string {
   return url.replace(/^(https?:\/\/)?(www\.)?/, "").split(".")[0]
 }
 
-export function extractAndFormat(url: string): string {
-  const match = url.match(/\/([^/]+)\.html/)
-  if (match) {
-    return match[1].replace(/([a-z])([A-Z])/g, "$1 $2")
-  }
-  return ""
-}
 export function extractJSX(code: string) {
   const match = code.match(/return\s*(\([^]*?\)|.*?);?\s*}/)
   if (match && match[1]) {

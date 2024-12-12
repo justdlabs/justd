@@ -1,11 +1,11 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import { Button, CommandMenu } from "ui"
 
 export default function CommandMenuDisabledDemo() {
-  const [isOpen, setIsOpen] = React.useState(false)
+  const [isOpen, setIsOpen] = useState(false)
   return (
     <>
       <Button appearance="outline" onPress={() => setIsOpen(true)}>

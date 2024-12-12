@@ -1,13 +1,13 @@
 "use client"
 
-import React from "react"
+import { useState } from "react"
 
 import { ControlledValues } from "@/components/docs/colors/controlled-values"
 import { parseColor } from "@react-stately/color"
 import { ColorArea, ColorThumb } from "ui"
 
 export default function ColorAreaControlledDemo() {
-  const [value, setValue] = React.useState(parseColor("hsl(0, 100%, 50%)"))
+  const [value, setValue] = useState(parseColor("hsl(0, 100%, 50%)"))
 
   return (
     <div className="flex flex-col lg:flex-row gap-2 lg:gap-4">

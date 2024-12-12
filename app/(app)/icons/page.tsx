@@ -1,4 +1,4 @@
-import * as React from "react"
+import React, { Suspense } from "react"
 
 import { Header } from "@/components/header"
 import { siteConfig } from "@/resources/config/site"
@@ -71,7 +71,7 @@ export default async function Page({
       </Header>
       <div className="py-4 sm:py-16">
         <Container>
-          <React.Suspense
+          <Suspense
             fallback={
               <div className="flex justify-center items-center min-h-96">
                 <Loader />
@@ -79,7 +79,7 @@ export default async function Page({
             }
           >
             <IconsList searchParams={{ query, t }} />
-          </React.Suspense>
+          </Suspense>
         </Container>
       </div>
     </>

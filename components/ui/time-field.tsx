@@ -1,7 +1,5 @@
 "use client"
 
-import * as React from "react"
-
 import {
   TimeField as TimeFieldPrimitive,
   type TimeFieldProps as TimeFieldPrimitiveProps,

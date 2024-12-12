@@ -1,7 +1,5 @@
 "use client"
 
-import * as React from "react"
-
 import { IconSearch } from "justd-icons"
 import { Breadcrumbs, Button, Separator, SidebarNav, SidebarTrigger } from "ui"
 

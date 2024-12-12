@@ -1,17 +1,7 @@
 "use client"
 
-import * as React from "react"
-
-import {
-  IconBrandLaravel,
-  IconBrandPhp,
-  IconBrandReactjs,
-  IconBrandTailwindcss,
-  IconBrandTypescript,
-  IconFile,
-  IconFolderFill,
-  IconFolderOpen
-} from "justd-icons"
+import { BrandIcon } from "@/components/brand-icon"
+import { IconFolderFill, IconFolderOpen } from "justd-icons"
 import {
   Sidebar,
   SidebarContent,
@@ -32,20 +22,14 @@ export default function AppSidebar(props: React.ComponentProps<typeof Sidebar>) 
     <Sidebar {...props}>
       <SidebarHeader />
       <SidebarContent className="pb-10">
-        <FileTreeView data={folders} />
+        <SidebarDisclosureGroup>
+          {folders.map((item) => (
+            <SidebarTree key={item.id} item={item} index={1} />
+          ))}
+        </SidebarDisclosureGroup>
       </SidebarContent>
       <SidebarRail />
     </Sidebar>
-  )
-}
-
-function FileTreeView({ data }: { data: typeof folders }) {
-  return (
-    <SidebarDisclosureGroup>
-      {data.map((item) => (
-        <SidebarTree key={item.id} item={item} index={1} />
-      ))}
-    </SidebarDisclosureGroup>
   )
 }
 
@@ -61,7 +45,7 @@ function SidebarTree({ item, index }: { item: (typeof folders)[number]; index: n
           } as React.CSSProperties
         }
       >
-        {getFileIcon(item.label)}
+        <BrandIcon label={item.label} />
         <SidebarLabel>{item.label}</SidebarLabel>
       </SidebarItem>
     )
@@ -93,24 +77,4 @@ function SidebarTree({ item, index }: { item: (typeof folders)[number]; index: n
       </SidebarDisclosure>
     </SidebarDisclosureGroup>
   )
-}
-
-function getFileIcon(label: string) {
-  const ext = label.toLowerCase()
-  if (ext.endsWith(".blade.php")) {
-    return <IconBrandLaravel className="size-4 text-red-500" />
-  }
-
-  switch (label.split(".").pop()?.toLowerCase()) {
-    case "php":
-      return <IconBrandPhp className="size-4 text-indigo-500" />
-    case "tsx":
-      return <IconBrandReactjs className="size-4 text-cyan-500" />
-    case "ts":
-      return <IconBrandTypescript className="size-4 text-blue-500" />
-    case "css":
-      return <IconBrandTailwindcss className="size-4 text-sky-500" />
-    default:
-      return <IconFile />
-  }
 }

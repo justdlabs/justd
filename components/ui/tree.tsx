@@ -1,7 +1,5 @@
 "use client"
 
-import * as React from "react"
-
 import { IconChevronRight } from "justd-icons"
 import type { TreeItemProps, TreeProps } from "react-aria-components"
 import {

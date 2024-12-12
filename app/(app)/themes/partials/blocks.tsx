@@ -1,5 +1,3 @@
-import * as React from "react"
-
 import AppNavbar from "@/app/blocks/navbar/navbar-00/app-navbar"
 import AreaChartGradientDemo from "@/components/docs/charts/area/area-chart-gradient-demo"
 import BarChartMultipleDemo from "@/components/docs/charts/bar/bar-chart-multiple-demo"

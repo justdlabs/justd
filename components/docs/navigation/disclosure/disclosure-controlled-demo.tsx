@@ -1,11 +1,11 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import { Disclosure, DisclosurePanel, DisclosureTrigger } from "ui"
 
 export default function DisclosureControlledDemo() {
-  const [expanded, setExpanded] = React.useState(false)
+  const [expanded, setExpanded] = useState(false)
 
   return (
     <div>

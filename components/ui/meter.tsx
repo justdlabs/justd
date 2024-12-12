@@ -1,7 +1,5 @@
 "use client"
 
-import * as React from "react"
-
 import { IconCircleExclamation } from "justd-icons"
 import { motion } from "motion/react"
 import { Meter as MeterPrimitive, type MeterProps as MeterPrimitiveProps } from "react-aria-components"

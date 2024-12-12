@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import { ResponsiveAside } from "@/components/responsive-aside"
 import { siteConfig } from "@/resources/config/site"
@@ -40,7 +40,7 @@ export function Navbar() {
   const id = React.useId()
   const pathname = usePathname()
 
-  const [open, setOpen] = React.useState(false)
+  const [open, setOpen] = useState(false)
   const isDesktop = useMediaQuery("(min-width: 1024px)")
   return (
     <>

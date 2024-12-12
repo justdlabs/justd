@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 
 import { isOklch, SelectFormat, toOklchString } from "@/app/(app)/colors/(colors)/color-item"
 import { getColorName, getTextColor } from "@/resources/lib/colors"
@@ -12,9 +12,9 @@ import { twJoin } from "tailwind-merge"
 import { ColorField, Heading } from "ui"
 
 export function ColorGenerator() {
-  const [value, setValue] = React.useState(parseColor("#0D6DFD"))
-  const [selectedFormat, setSelectedFormat] = React.useState<Selection>(new Set(["oklch"]))
-  const [copiedShade, setCopiedShade] = React.useState<string | null>(null)
+  const [value, setValue] = useState(parseColor("#0D6DFD"))
+  const [selectedFormat, setSelectedFormat] = useState<Selection>(new Set(["oklch"]))
+  const [copiedShade, setCopiedShade] = useState<string | null>(null)
   const generateShades = (baseColor: string) => {
     const parsedBase = parse(baseColor.toString())
     if (!parsedBase) {

@@ -1,6 +1,6 @@
 "use client"
 
-import * as React from "react"
+import { createContext, forwardRef, use } from "react"
 
 import { Loader } from "@/components/ui/loader"
 import { Command } from "cmdk"
@@ -73,7 +73,7 @@ interface CommandMenuContextProps {
   isBlurred?: boolean
 }
 
-const CommandMenuContext = React.createContext<CommandMenuContextProps>({})
+const CommandMenuContext = createContext<CommandMenuContextProps>({})
 
 interface CommandMenuRootProps {
   CommandMenuEmpty?: typeof CommandMenuEmpty
@@ -160,9 +160,9 @@ interface CommandMenuInputProps extends React.ComponentPropsWithoutRef<typeof Co
   isPending?: boolean
 }
 
-const CommandMenuInput = React.forwardRef<React.ComponentRef<typeof Command.Input>, CommandMenuInputProps>(
+const CommandMenuInput = forwardRef<React.ComponentRef<typeof Command.Input>, CommandMenuInputProps>(
   ({ className, isPending, ...props }, ref) => {
-    const { hideSearchIndicator } = React.use(CommandMenuContext)
+    const { hideSearchIndicator } = use(CommandMenuContext)
     return (
       <div className="flex border-b items-center px-3">
         {!hideSearchIndicator && (
@@ -193,7 +193,7 @@ CommandMenuInput.displayName = Command.Input.displayName
 type CommandMenuListProps = React.ComponentProps<typeof Command.List>
 
 const CommandMenuList = ({ className, ...props }: CommandMenuListProps) => {
-  const { messageOnEmpty } = React.use(CommandMenuContext)
+  const { messageOnEmpty } = use(CommandMenuContext)
   return (
     <Command.List className={list({ className })} {...props}>
       {messageOnEmpty !== false && (

@@ -9,7 +9,7 @@ published: true
 
 When using Inertia.js, you'll need to create a `theme-provider.tsx` component and place it in the `resources/js/components` folder.
 
-<PlainCode title='theme-provider.tsx' lang="tsx" code={`import * as React from "react"
+<PlainCode title='theme-provider.tsx' lang="tsx" code={`
 
   type Theme = "dark" | "light" | "system"
 
@@ -37,7 +37,7 @@ When using Inertia.js, you'll need to create a `theme-provider.tsx` component an
     storageKey = "vite-ui-theme",
     ...props
   }: ThemeProviderProps) {
-    const [theme, setTheme] = React.useState<Theme>(() => (localStorage.getItem(storageKey) as Theme) || defaultTheme)
+    const [theme, setTheme] = useState<Theme>(() => (localStorage.getItem(storageKey) as Theme) || defaultTheme)
 
     React.useEffect(() => {
       const root = window.document.documentElement

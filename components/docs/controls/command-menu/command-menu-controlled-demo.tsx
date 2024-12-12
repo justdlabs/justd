@@ -1,12 +1,12 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import { Avatar, Button, CommandMenu } from "ui"
 
 export default function CommandMenuControlledDemo() {
-  const [isOpen, setIsOpen] = React.useState(false)
-  const [value, setValue] = React.useState("")
+  const [isOpen, setIsOpen] = useState(false)
+  const [value, setValue] = useState("")
   return (
     <>
       <Button appearance="outline" onPress={() => setIsOpen(true)}>

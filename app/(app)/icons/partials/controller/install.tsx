@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 
 import { IconBrandBun, IconBrandNpm, IconBrandPnpm, IconBrandYarn, IconCheck, IconDuplicate } from "justd-icons"
 import { Button, Menu } from "ui"
@@ -7,8 +7,8 @@ import { copyToClipboard } from "usemods"
 type Tool = "Bun" | "Yarn" | "PNPM" | "NPM"
 
 export function Install({ pkg = "justd-icons" }: { pkg?: string }) {
-  const [isCopied, setIsCopied] = React.useState(false)
-  const [command, setCommand] = React.useState("")
+  const [isCopied, setIsCopied] = useState(false)
+  const [command, setCommand] = useState("")
   const commandArgs = pkg
 
   const installMap: Record<Tool, string> = {

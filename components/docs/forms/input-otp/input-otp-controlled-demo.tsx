@@ -1,11 +1,11 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import { InputOTP } from "ui"
 
 export default function InputOtpControlledDemo() {
-  const [value, setValue] = React.useState("")
+  const [value, setValue] = useState("")
   return (
     <div className="space-y-2">
       <InputOTP maxLength={6} value={value} onChange={setValue}>

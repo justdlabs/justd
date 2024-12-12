@@ -1,6 +1,6 @@
 "use client"
 
-import * as React from "react"
+import { forwardRef } from "react"
 
 import { IconLoader } from "justd-icons"
 import { ProgressBar } from "react-aria-components"
@@ -184,7 +184,7 @@ interface LoaderProps
   formatOptions?: Intl.NumberFormatOptions
 }
 
-const Loader = React.forwardRef<SVGSVGElement, LoaderProps>(({ isIndeterminate = true, ...props }, ref) => {
+const Loader = forwardRef<SVGSVGElement, LoaderProps>(({ isIndeterminate = true, ...props }, ref) => {
   const { className, variant = DEFAULT_SPINNER, intent, size, ...spinnerProps } = props
   const LoaderPrimitive = LOADERS[variant in LOADERS ? variant : DEFAULT_SPINNER]
 

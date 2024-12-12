@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import type { CalendarDate } from "@internationalized/date"
 import { getLocalTimeZone, parseDate, today } from "@internationalized/date"
@@ -9,7 +9,7 @@ import { DateField } from "ui"
 
 export default function DateFieldControlledDemo() {
   const now = today(getLocalTimeZone())
-  const [value, setValue] = React.useState<CalendarDate>(parseDate(now.toString()))
+  const [value, setValue] = useState<CalendarDate>(parseDate(now.toString()))
 
   const formatter = useDateFormatter({ dateStyle: "full" })
 

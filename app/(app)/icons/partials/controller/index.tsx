@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 
 import { useQueryString } from "hooks/use-query-string"
 import { IconBullet, IconBulletFill } from "justd-icons"
@@ -14,7 +14,7 @@ export function Controller({ searchParams }: SearchParamsProps) {
   const router = useRouter()
   const pathname = usePathname()
   const { t } = searchParams
-  const [isSelected, setSelected] = React.useState<"solid" | "regular">((t as "solid" | "regular") || "regular")
+  const [isSelected, setSelected] = useState<"solid" | "regular">((t as "solid" | "regular") || "regular")
 
   const { createQueryString } = useQueryString()
 

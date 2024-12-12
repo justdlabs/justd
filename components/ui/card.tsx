@@ -1,5 +1,3 @@
-import * as React from "react"
-
 import { cn } from "@/utils/classes"
 import { tv } from "tailwind-variants"
 

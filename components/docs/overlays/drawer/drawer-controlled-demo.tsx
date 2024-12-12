@@ -1,11 +1,11 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import { Button, Drawer, TextField } from "ui"
 
 export default function DrawerControlledDemo() {
-  const [isOpen, setIsOpen] = React.useState(false)
+  const [isOpen, setIsOpen] = useState(false)
   return (
     <>
       <Button onPress={() => setIsOpen(!isOpen)} appearance="outline">

@@ -20,7 +20,7 @@ export function CopyButton({
   className,
   ...props
 }: CopyButtonProps) {
-  const [isCopiedState, setIsCopiedState] = React.useState(false)
+  const [isCopiedState, setIsCopiedState] = useState(false)
 
   const isControlled = isCopiedProp !== undefined
   const isCopied = isControlled ? isCopiedProp : isCopiedState

@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import generated from "@/__registry__/generated"
 import { CodeHighlighter } from "@/components/code/code-highlighter"
@@ -26,7 +26,7 @@ type SourceCodeProps = {
 const fetchRegistryFile = createFetchRegistryFile("/registry/ui")
 
 export const SourceCode = ({ toShow, ...props }: SourceCodeProps) => {
-  const [rawSourceCode, setRawSourceCode] = React.useState<string | null>(null)
+  const [rawSourceCode, setRawSourceCode] = useState<string | null>(null)
 
   /*
    * Prepend the `ui/` prefix to the provided `toShow` prop
@@ -71,7 +71,7 @@ export const SourceCode = ({ toShow, ...props }: SourceCodeProps) => {
           </div>
           <CopyMotionButton className="-top-1.5" text={processedSourceCode} />
         </div>
-        <div className="overflow-hidden bg-(--shiki-bg) border border-(--shiki-border) rounded-lg">
+        <div className="overflow-hidden bg-shiki-bg border border-shiki-border rounded-lg">
           <CodeHighlighter className="**:[pre]:p-4" removeLastLine plain code={processedSourceCode} lang={props.ext} />
         </div>
       </section>

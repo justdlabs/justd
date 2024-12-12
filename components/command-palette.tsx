@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import sidebar from "@/resources/lib/sidebar.json"
 import { useCommandState } from "cmdk"
@@ -52,8 +52,8 @@ export function CommandPalette({ openCmd, setOpen }: OpenCloseProps) {
 
   const isDesktop = useMediaQuery("(min-width: 1024px)")
 
-  const [loading, setLoading] = React.useState(false)
-  const [search, setSearch] = React.useState("")
+  const [loading, setLoading] = useState(false)
+  const [search, setSearch] = useState("")
   const [debouncedSearch] = useDebounce(search, 300)
 
   function searchSidebar(items: SidebarItem[], query: string): SidebarItem[] {

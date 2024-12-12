@@ -1,11 +1,11 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import { Button, Sheet, Textarea } from "ui"
 
 export default function SheetControlledDemo() {
-  const [isOpen, setIsOpen] = React.useState(false)
+  const [isOpen, setIsOpen] = useState(false)
   return (
     <>
       <Button onPress={() => setIsOpen(true)}>Feedback</Button>

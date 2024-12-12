@@ -1,7 +1,5 @@
 "use client"
 
-import * as React from "react"
-
 import { IconBrandApple, IconCart, IconChartBar, IconDashboard, IconGear, IconPackage, IconPeople } from "justd-icons"
 import {
   Link,

@@ -1,7 +1,5 @@
 "use client"
 
-import * as React from "react"
-
 import { Keyboard as KeyboardPrimitive } from "react-aria-components"
 import { tv } from "tailwind-variants"
 

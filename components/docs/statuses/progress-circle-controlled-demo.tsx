@@ -1,11 +1,11 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import { ProgressCircle, Slider } from "ui"
 
 export default function ProgressCircleControlledDemo() {
-  const [value, setValue] = React.useState(10)
+  const [value, setValue] = useState(10)
 
   return (
     <div className="flex flex-col items-center gap-y-6 min-w-56">

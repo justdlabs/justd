@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import { ComboBox, Description } from "ui"
 
@@ -17,7 +17,7 @@ const sports = [
 ]
 
 export default function ComboBoxControlledDemo() {
-  const [sport, setSport] = React.useState("")
+  const [sport, setSport] = useState("")
   return (
     <>
       <ComboBox onInputChange={setSport} inputValue={sport} placeholder="Select a sports" label="Sports">

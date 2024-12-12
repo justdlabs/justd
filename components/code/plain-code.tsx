@@ -1,7 +1,5 @@
 "use client"
 
-import * as React from "react"
-
 import { CodeHighlighter } from "@/components/code/code-highlighter"
 import { CopyButton } from "@/components/code/copy-button"
 import { IconBrandReactjs } from "justd-icons"

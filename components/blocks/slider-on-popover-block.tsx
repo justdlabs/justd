@@ -1,13 +1,13 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import { IconAdjustment } from "justd-icons"
 import { Button, Description, Popover, Separator, Slider } from "ui"
 
 export function SliderOnPopoverBlock() {
-  const [fontSize, setFontSize] = React.useState<number>(16)
-  const [lineHeight, setLineHeight] = React.useState<number[]>([1.5, 1.75])
+  const [fontSize, setFontSize] = useState<number>(16)
+  const [lineHeight, setLineHeight] = useState<number[]>([1.5, 1.75])
   return (
     <Popover>
       <Button aria-label="Slider on Popover" size="square-petite" appearance="outline">

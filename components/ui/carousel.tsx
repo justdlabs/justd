@@ -1,6 +1,7 @@
 "use client"
 
-import * as React from "react"
+import type { HTMLAttributes } from "react"
+import { createContext, use, useCallback, useEffect, useState } from "react"
 
 import useEmblaCarousel, { type UseEmblaCarouselType } from "embla-carousel-react"
 import { IconChevronLgLeft, IconChevronLgRight } from "justd-icons"
@@ -25,10 +26,10 @@ type CarouselContextProps = {
   canScrollNext: boolean
 } & CarouselProps
 
-const CarouselContext = React.createContext<CarouselContextProps | null>(null)
+const CarouselContext = createContext<CarouselContextProps | null>(null)
 
 const useCarousel = () => {
-  const context = React.use(CarouselContext)
+  const context = use(CarouselContext)
 
   if (!context) {
     throw new Error("useCarousel must be used within a <Carousel />")
@@ -44,7 +45,7 @@ interface CarouselRootProps {
   CarouselButton?: typeof CarouselButton
 }
 
-interface CarouselProps extends React.HTMLAttributes<HTMLDivElement>, CarouselRootProps {
+interface CarouselProps extends HTMLAttributes<HTMLDivElement>, CarouselRootProps {
   opts?: CarouselOptions
   plugins?: CarouselPlugin
   orientation?: "horizontal" | "vertical"
@@ -67,10 +68,10 @@ const Carousel = ({
     },
     plugins
   )
-  const [canScrollPrev, setCanScrollPrev] = React.useState(false)
-  const [canScrollNext, setCanScrollNext] = React.useState(false)
+  const [canScrollPrev, setCanScrollPrev] = useState(false)
+  const [canScrollNext, setCanScrollNext] = useState(false)
 
-  const onSelect = React.useCallback((api: CarouselApi) => {
+  const onSelect = useCallback((api: CarouselApi) => {
     if (!api) {
       return
     }
@@ -79,15 +80,15 @@ const Carousel = ({
     setCanScrollNext(api.canScrollNext())
   }, [])
 
-  const scrollPrev = React.useCallback(() => {
+  const scrollPrev = useCallback(() => {
     api?.scrollPrev()
   }, [api])
 
-  const scrollNext = React.useCallback(() => {
+  const scrollNext = useCallback(() => {
     api?.scrollNext()
   }, [api])
 
-  const handleKeyDown = React.useCallback(
+  const handleKeyDown = useCallback(
     (event: React.KeyboardEvent<HTMLDivElement>) => {
       if (event.key === "ArrowLeft") {
         event.preventDefault()
@@ -100,7 +101,7 @@ const Carousel = ({
     [scrollPrev, scrollNext]
   )
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!api || !setApi) {
       return
     }
@@ -108,7 +109,7 @@ const Carousel = ({
     setApi(api)
   }, [api, setApi])
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!api) {
       return
     }
@@ -184,23 +185,20 @@ const CarouselItem = ({ className, ...props }: ListBoxItemProps) => {
   )
 }
 
-const CarouselHandler = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => {
-    const { orientation } = useCarousel()
-    return (
-      <div
-        ref={ref}
-        className={cn(
-          "mt-6 z-10 relative flex items-center gap-x-2",
-          orientation === "horizontal" ? "justify-end" : "justify-center",
-          className
-        )}
-        {...props}
-      />
-    )
-  }
-)
-CarouselHandler.displayName = "CarouselHandler"
+const CarouselHandler = ({ ref, className, ...props }: React.ComponentProps<"div">) => {
+  const { orientation } = useCarousel()
+  return (
+    <div
+      ref={ref}
+      className={cn(
+        "mt-6 z-10 relative flex items-center gap-x-2",
+        orientation === "horizontal" ? "justify-end" : "justify-center",
+        className
+      )}
+      {...props}
+    />
+  )
+}
 
 const CarouselButton = ({
   slot,

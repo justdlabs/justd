@@ -1,4 +1,4 @@
-import * as React from "react"
+import { createElement } from "react"
 
 import { IconCircleCheckFill, IconCircleExclamationFill, IconCircleInfoFill } from "justd-icons"
 import { tv, type VariantProps } from "tailwind-variants"
@@ -56,7 +56,7 @@ const Note = ({ indicator = true, intent, className, ...props }: NoteProps) => {
       <div className="flex items-start grow">
         {icon && indicator && (
           <div className="leading-loose shrink-0 ring-4 ring-current/30 rounded-full">
-            {React.createElement(icon, { className: "size-5" })}
+            {createElement(icon, { className: "size-5" })}
           </div>
         )}
         <div className="ml-3">{props.children}</div>

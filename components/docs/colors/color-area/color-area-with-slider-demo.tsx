@@ -1,12 +1,12 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import { parseColor } from "@react-stately/color"
 import { ColorArea, ColorField, ColorSlider } from "ui"
 
 export default function ColorAreaWithSliderDemo() {
-  const [color, setColor] = React.useState(parseColor("hsl(50, 100%, 50%)"))
+  const [color, setColor] = useState(parseColor("hsl(50, 100%, 50%)"))
   return (
     <div className="flex max-w-60 flex-col gap-y-2">
       <ColorArea

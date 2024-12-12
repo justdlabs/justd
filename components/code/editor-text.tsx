@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import generated from "@/__registry__/generated"
 import { CodeHighlighter } from "@/components/code/code-highlighter"
@@ -19,9 +19,9 @@ interface Props {
 const registry = generated as Record<string, RegistryItem>
 
 export function EditorText({ source }: Props) {
-  const [copiedStates, setCopiedStates] = React.useState<Record<string, boolean>>({})
+  const [copiedStates, setCopiedStates] = useState<Record<string, boolean>>({})
 
-  const [rawSourceCode, setRawSourceCode] = React.useState<Record<string, string | null>>({})
+  const [rawSourceCode, setRawSourceCode] = useState<Record<string, string | null>>({})
 
   const handleCopy = (key: string, value: string | null) => {
     if (value) {
@@ -122,7 +122,7 @@ export function EditorText({ source }: Props) {
             <Tabs.Panel
               key={key}
               id={key}
-              className="border-x border-b bg-(--shiki-bg) dark:border-zinc-800 border-zinc-700 overflow-hidden rounded-b-lg"
+              className="border-x border-b bg-shiki-bg dark:border-zinc-800 border-zinc-700 overflow-hidden rounded-b-lg"
             >
               <CopyButton
                 className="absolute top-0.5 right-1"

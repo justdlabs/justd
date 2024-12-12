@@ -1,7 +1,5 @@
 "use client"
 
-import * as React from "react"
-
 import type { Placement } from "@react-types/overlays"
 import { IconChevronLgDown } from "justd-icons"
 import {

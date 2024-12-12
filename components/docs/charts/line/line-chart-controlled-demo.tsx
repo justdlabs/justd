@@ -1,6 +1,6 @@
 "use client"
 
-import * as React from "react"
+import { useState } from "react"
 
 import { CartesianGrid, Line, LineChart, XAxis } from "recharts"
 import { Card, Chart, type ChartConfig, ChartTooltip, ChartTooltipContent, Toggle } from "ui"
@@ -36,7 +36,7 @@ const chartConfig = {
 } satisfies ChartConfig
 
 export default function LineChartControlledDemo() {
-  const [activeChart, setActiveChart] = React.useState<keyof typeof chartConfig>("revenue")
+  const [activeChart, setActiveChart] = useState<keyof typeof chartConfig>("revenue")
 
   return (
     <Card>

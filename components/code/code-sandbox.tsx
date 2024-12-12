@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import generated from "@/__registry__/generated"
 import { CodeHighlighter } from "@/components/code/code-highlighter"
@@ -15,18 +15,18 @@ import { Loader, Tabs } from "ui"
 interface Props {
   source: Record<string, string>
   src?: string
+  isIframe?: boolean
   classNames?: {
     preview?: string
     code?: string
   }
 }
 
-const registry = generated as Record<string, RegistryItem>
+export const registry = generated as Record<string, RegistryItem>
 
-export function CodeSandbox({ classNames, source, src }: Props) {
-  const [copiedStates, setCopiedStates] = React.useState<Record<string, boolean>>({})
-  const [rawSourceCode, setRawSourceCode] = React.useState<Record<string, string | null>>({})
-  const typeOfComponent = registry[source.preview]?.type
+export function CodeSandbox({ isIframe = true, classNames, source, src }: Props) {
+  const [copiedStates, setCopiedStates] = useState<Record<string, boolean>>({})
+  const [rawSourceCode, setRawSourceCode] = useState<Record<string, string | null>>({})
   const Component = registry[source.preview]?.component
 
   const handleCopy = (key: string, value: string | null) => {
@@ -59,7 +59,7 @@ export function CodeSandbox({ classNames, source, src }: Props) {
             </div>
           }
         >
-          {typeOfComponent === "registry:blocks" ? (
+          {isIframe ? (
             <iframe src={src} className="min-h-110 border rounded-xl overflow-hidden size-full" />
           ) : (
             <Component />
@@ -104,7 +104,7 @@ export function CodeSandbox({ classNames, source, src }: Props) {
               <Tabs.Panel
                 key={key}
                 id={key}
-                className="border-x border-b bg-(--shiki-bg) dark:border-zinc-800 border-zinc-700 overflow-hidden rounded-b-lg"
+                className="border-x border-b bg-shiki-bg dark:border-zinc-800 border-zinc-700 overflow-hidden rounded-b-lg"
               >
                 <CopyButton
                   className="absolute sm:grid hidden top-0.5 right-1"
@@ -154,7 +154,7 @@ export const TabsList = ({ src, code, copyButton }: TabListProps) => {
   )
 }
 
-const fetchRegistryData = React.cache(async (source: Record<string, string>) => {
+export const fetchRegistryData = React.cache(async (source: Record<string, string>) => {
   const fetchedSourceCode: Record<string, string | null> = {}
 
   await Promise.all(

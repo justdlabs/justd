@@ -1,7 +1,5 @@
 "use client"
 
-import * as React from "react"
-
 import { ShowMore } from "ui"
 
 export default function ShowMoreOrientationDemo() {

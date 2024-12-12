@@ -1,14 +1,14 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import { toast } from "sonner"
 import { Button, Form, Modal, Textarea } from "ui"
 
 export default function ModalNestedDemo() {
-  const [isRegistrationModalOpen, setIsRegistrationModalOpen] = React.useState(false)
-  const [isProfileSetupModalOpen, setIsProfileSetupModalOpen] = React.useState(false)
-  const [isTyping, setIsTyping] = React.useState(false)
+  const [isRegistrationModalOpen, setIsRegistrationModalOpen] = useState(false)
+  const [isProfileSetupModalOpen, setIsProfileSetupModalOpen] = useState(false)
+  const [isTyping, setIsTyping] = useState(false)
 
   return (
     <>

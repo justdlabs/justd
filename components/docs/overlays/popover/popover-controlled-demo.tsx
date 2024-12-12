@@ -1,14 +1,14 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import { wait } from "@/resources/lib/utils"
 import { IconCircleCheckFill, IconTrash } from "justd-icons"
 import { Button, Loader, Popover } from "ui"
 
 export default function PopoverControlledDemo() {
-  const [isOpen, setIsOpen] = React.useState(false)
-  const [loading, setLoading] = React.useState<"idle" | "loading" | "success">("idle")
+  const [isOpen, setIsOpen] = useState(false)
+  const [loading, setLoading] = useState<"idle" | "loading" | "success">("idle")
   const triggerRef = React.useRef(null)
 
   const deleteAccount = async () => {

@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import { CodeHighlighter } from "@/components/code/code-highlighter"
 import { CopyButton } from "@/components/code/copy-button"
@@ -31,11 +31,11 @@ export function Installation({ className, ...props }: InstallationProps) {
   const op = useOpenPanel()
   const { options = { isExecutor: false, isInit: false, isComponent: false, isManual: false, noText: true }, items } =
     props
-  const [pkgManager, setPkgManager] = React.useState({
+  const [pkgManager, setPkgManager] = useState({
     name: "npm",
     action: "i"
   })
-  const [isCopied, setIsCopied] = React.useState(false)
+  const [isCopied, setIsCopied] = useState(false)
 
   React.useEffect(() => {
     let timer: NodeJS.Timeout
@@ -64,7 +64,7 @@ export function Installation({ className, ...props }: InstallationProps) {
       )}
       {options.isManual && <p>{manualText}</p>}
       <Group
-        className={cn("flex h-12 border pr-1 relative overflow-hidden rounded-lg group bg-(--shiki-bg) items-center", {
+        className={cn("flex h-12 border pr-1 relative overflow-hidden rounded-lg group bg-shiki-bg items-center", {
           className
         })}
       >

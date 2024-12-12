@@ -1,11 +1,11 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import { Description, Switch } from "ui"
 
 export default function SwitchControlledDemo() {
-  const [darkMode, setDarkMode] = React.useState(false)
+  const [darkMode, setDarkMode] = useState(false)
   return (
     <>
       <Switch isSelected={darkMode} onChange={setDarkMode} value="dark_mode">

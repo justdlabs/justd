@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 
 import { useQueryString } from "hooks/use-query-string"
 import { IconChevronLgDown } from "justd-icons"
@@ -18,7 +18,7 @@ export function SelectSize() {
   const pathname = usePathname()
   const { createQueryString } = useQueryString()
 
-  const [selectedSize, setSelectSize] = React.useState<Selection>(new Set(["size-5"]))
+  const [selectedSize, setSelectSize] = useState<Selection>(new Set(["size-5"]))
   const onSelectionChange = (size: Selection) => {
     router.push(pathname + "?" + createQueryString("s", [...size].join(",")), {
       scroll: false

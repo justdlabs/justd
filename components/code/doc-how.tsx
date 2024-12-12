@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import generated from "@/__registry__/generated"
 import { CodeHighlighter } from "@/components/code/code-highlighter"
@@ -36,7 +36,7 @@ export const DocHow = ({
   src,
   ...props
 }: HowProps) => {
-  const [rawSourceCode, setRawSourceCode] = React.useState<string | null>(null)
+  const [rawSourceCode, setRawSourceCode] = useState<string | null>(null)
 
   /*
    * Prepend the `demo/` prefix to the provided `toUse` prop

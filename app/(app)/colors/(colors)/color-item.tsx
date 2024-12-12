@@ -1,4 +1,4 @@
-import * as React from "react"
+import { useEffect, useState } from "react"
 
 import colors from "@/resources/colors/colors.json"
 import { getTextColor } from "@/resources/lib/colors"
@@ -18,8 +18,8 @@ export const toOklchString = (color: string): string => {
 }
 
 export function ColorItem({ color }: { color: keyof typeof colors }) {
-  const [selectedFormat, setSelectedFormat] = React.useState<Selection>(new Set(["oklch"]))
-  const [copiedShade, setCopiedShade] = React.useState<string | null>(null)
+  const [selectedFormat, setSelectedFormat] = useState<Selection>(new Set(["oklch"]))
+  const [copiedShade, setCopiedShade] = useState<string | null>(null)
 
   const handleCopy = (color: string, shade: string) => {
     const _selectedFormat = [...selectedFormat].join(", ")
@@ -47,7 +47,7 @@ export function ColorItem({ color }: { color: keyof typeof colors }) {
     })
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (copiedShade) {
       const timeout = setTimeout(() => {
         setCopiedShade(null)

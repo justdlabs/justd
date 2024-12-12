@@ -1,11 +1,11 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import { DropZone, Label } from "ui"
 
 export default function DropZoneDemo() {
-  const [dropped, setDropped] = React.useState(false)
+  const [dropped, setDropped] = useState(false)
 
   return (
     <DropZone onDrop={() => setDropped(true)}>

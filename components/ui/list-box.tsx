@@ -1,7 +1,5 @@
 "use client"
 
-import * as React from "react"
-
 import { IconCheck, IconHamburger } from "justd-icons"
 import type { ListBoxItemProps, ListBoxProps } from "react-aria-components"
 import { composeRenderProps, ListBox as ListBoxPrimitive, ListBoxItem } from "react-aria-components"

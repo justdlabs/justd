@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import type { Key } from "react-aria-components"
 import { Description, Select } from "ui"
@@ -14,7 +14,7 @@ export const movies = [
 ]
 
 export default function SelectControlledDemo() {
-  const [movie, setMovie] = React.useState<Key>("")
+  const [movie, setMovie] = useState<Key>("")
   return (
     <>
       <Select selectedKey={movie} onSelectionChange={setMovie} label="Movies" placeholder="Select a movie">

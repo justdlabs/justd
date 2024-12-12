@@ -1,17 +1,17 @@
 "use client"
 
-import * as React from "react"
+import { useEffect, useState } from "react"
 
 import { Button } from "react-aria-components"
 import { twJoin } from "tailwind-merge"
 import { Card, Carousel, type CarouselApi } from "ui"
 
 export default function CarouselDApiDemo() {
-  const [api, setApi] = React.useState<CarouselApi>()
-  const [current, setCurrent] = React.useState(0)
-  const [count, setCount] = React.useState(0)
+  const [api, setApi] = useState<CarouselApi>()
+  const [current, setCurrent] = useState(0)
+  const [count, setCount] = useState(0)
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!api) {
       return
     }

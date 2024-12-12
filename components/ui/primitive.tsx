@@ -1,6 +1,6 @@
 "use client"
 
-import * as React from "react"
+import { useEffect, useState } from "react"
 
 import { type ClassValue, clsx } from "clsx"
 import { composeRenderProps } from "react-aria-components"
@@ -43,9 +43,9 @@ const focusButtonStyles = tv({
 })
 
 const useMediaQuery = (query: string) => {
-  const [value, setValue] = React.useState(false)
+  const [value, setValue] = useState(false)
 
-  React.useEffect(() => {
+  useEffect(() => {
     const onChange = (event: MediaQueryListEvent) => {
       setValue(event.matches)
     }

@@ -1,6 +1,6 @@
 "use client"
 
-import * as React from "react"
+import { useMemo } from "react"
 
 import { Label, Pie, PieChart } from "recharts"
 import { Card, Chart, type ChartConfig, ChartTooltip, ChartTooltipContent } from "ui"
@@ -40,7 +40,7 @@ const chartConfig = {
 } satisfies ChartConfig
 
 export default function PieChartDonutWithTextDemo() {
-  const totalSales = React.useMemo(() => {
+  const totalSales = useMemo(() => {
     return chartData.reduce((acc, curr) => acc + curr.sales, 0)
   }, [])
 

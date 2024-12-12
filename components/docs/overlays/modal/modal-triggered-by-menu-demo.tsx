@@ -1,14 +1,14 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import { wait } from "@/resources/lib/utils"
 import { IconDotsVertical } from "justd-icons"
 import { Button, buttonStyles, Loader, Menu, Modal } from "ui"
 
 export default function ModalTriggeredByMenuDemo() {
-  const [state, setState] = React.useState<string | null>(null)
-  const [loading, setLoading] = React.useState<boolean>(false)
+  const [state, setState] = useState<string | null>(null)
+  const [loading, setLoading] = useState<boolean>(false)
   const closeModal = () => setState(null)
   const executeAction = (action: string) => {
     console.log(`${action} is executing`)

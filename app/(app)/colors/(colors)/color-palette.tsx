@@ -1,7 +1,5 @@
 "use client"
 
-import * as React from "react"
-
 import { ColorGenerator } from "@/app/(app)/colors/(colors)/color-generator"
 import { ColorItem } from "@/app/(app)/colors/(colors)/color-item"
 import colors from "@/resources/colors/colors.json"

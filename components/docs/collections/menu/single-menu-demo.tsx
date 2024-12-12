@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
 import type { Placement } from "@react-types/overlays"
 import type { Selection } from "react-aria-components"
@@ -32,7 +32,7 @@ export const placements = [
 ].map((item, i) => ({ id: i, name: item }))
 
 export default function SingleMenuDemo() {
-  const [selected, setSelected] = React.useState<Selection>(new Set(["bottom"]))
+  const [selected, setSelected] = useState<Selection>(new Set(["bottom"]))
   return (
     <Menu>
       <Button appearance="outline">Placement</Button>
