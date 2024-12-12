@@ -1,6 +1,6 @@
 "use client"
 
-import { IconTrendingChart3 } from "justd-icons"
+import { IconChartTrending } from "justd-icons"
 import { CartesianGrid, Dot, Line, LineChart } from "recharts"
 import { Card, Chart, type ChartConfig } from "ui"
 
@@ -85,7 +85,7 @@ export default function LineChartDotsColorDemo() {
       </Card.Content>
       <Card.Footer className="flex-col items-start gap-2 text-sm">
         <div className="flex gap-2 font-medium leading-none">
-          Trending up by 5.2% this month <IconTrendingChart3 />
+          Trending up by 5.2% this month <IconChartTrending />
         </div>
         <div className="leading-none text-muted-fg">
           Showing total visitors for the last 10 months

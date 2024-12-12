@@ -1,6 +1,6 @@
 "use client"
 
-import { IconTrendingChart3 } from "justd-icons"
+import { IconChartTrending } from "justd-icons"
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts"
 import { Card, Chart, type ChartConfig } from "ui"
 
@@ -55,7 +55,7 @@ export default function BarChartDemo() {
       </Card.Content>
       <Card.Footer className="flex-col items-start gap-2 text-sm">
         <div className="flex gap-2 font-medium leading-none">
-          Trending up by 10.5% this month <IconTrendingChart3 />
+          Trending up by 10.5% this month <IconChartTrending />
         </div>
         <div className="leading-none text-muted-fg">Showing total sales for the last 11 months</div>
       </Card.Footer>
