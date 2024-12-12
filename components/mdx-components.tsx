@@ -1,5 +1,6 @@
 import React from "react"
 
+import { GeneratedTheme } from "@/app/(app)/themes/partials/generated-theme"
 import { Anatomy } from "@/components/code/anatomy"
 import { CodeSandbox } from "@/components/code/code-sandbox"
 import { EditorText } from "@/components/code/editor-text"
@@ -26,6 +27,7 @@ export function Mdx({ code }: MdxProps) {
   return (
     <Component
       components={{
+        GeneratedTheme,
         EditorText: (props: React.ComponentProps<typeof EditorText>) => <EditorText {...props} />,
         CodeSandbox: (props: React.ComponentProps<typeof CodeSandbox>) => <CodeSandbox {...props} />,
         Installation,

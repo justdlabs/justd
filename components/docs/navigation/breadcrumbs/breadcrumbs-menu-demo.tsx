@@ -1,7 +1,7 @@
 "use client"
 
 import { IconDotsHorizontal } from "justd-icons"
-import { Breadcrumbs, Menu } from "ui"
+import { Breadcrumbs, Button, Menu } from "ui"
 
 export default function BreadcrumbsMenuDemo() {
   return (
@@ -10,9 +10,9 @@ export default function BreadcrumbsMenuDemo() {
 
       <Breadcrumbs.Item separator>
         <Menu>
-          <Menu.Trigger>
+          <Button appearance="plain" size="square-petite" className="h-6 -mx-1">
             <IconDotsHorizontal />
-          </Menu.Trigger>
+          </Button>
           <Menu.Content placement="bottom">
             <Menu.Item href="/docs/components/layouts/sidebar">Sidebar</Menu.Item>
             <Menu.Item href="/docs/components/controls/toolbar">Toolbar</Menu.Item>

@@ -1,9 +1,11 @@
 import * as React from "react"
 
-export function GeneratedTheme() {
+import { cn } from "@/utils/classes"
+
+export function GeneratedTheme({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div>
-      <div className="grid gap-4 lg:gap-6 max-h-48 overflow-y-auto">
+      <div className={cn("grid gap-4 lg:gap-6 max-h-48 overflow-y-auto", className)} {...props}>
         <div className="sticky bg-gradient-to-b from-bg to-transparent inset-x-0 from-5% top-0 w-full h-10" />
         <div className="gap-y-6 flex flex-col -mb-12 -mt-12">
           <ColorBox>
