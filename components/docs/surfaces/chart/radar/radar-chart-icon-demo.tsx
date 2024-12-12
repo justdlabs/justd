@@ -1,6 +1,6 @@
 "use client"
 
-import { IconArrowWall2Down, IconArrowWallUp, IconTrendingChart3 } from "justd-icons"
+import { IconArrowWall2Down, IconArrowWallUp, IconChartTrending } from "justd-icons"
 import { PolarAngleAxis, PolarGrid, Radar, RadarChart } from "recharts"
 import { Card, Chart, type ChartConfig } from "ui"
 
@@ -53,7 +53,7 @@ export default function RadarChartIconDemo() {
       </Card.Content>
       <Card.Footer className="flex-col gap-2 pt-4 text-sm">
         <div className="flex items-center gap-2 font-medium leading-none">
-          Trending up by 5.2% this month <IconTrendingChart3 />
+          Trending up by 5.2% this month <IconChartTrending />
         </div>
         <div className="flex items-center gap-2 leading-none text-muted-fg">
           January - June 2024

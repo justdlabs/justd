@@ -1,6 +1,6 @@
 "use client"
 
-import { IconTrendingChart3 } from "justd-icons"
+import { IconChartTrending } from "justd-icons"
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts"
 import { Card, Chart, type ChartConfig } from "ui"
 
@@ -64,7 +64,7 @@ export default function BarChartMultipleDemo() {
       </Card.Content>
       <Card.Footer className="flex-col items-start gap-2 text-sm">
         <div className="flex gap-2 font-medium leading-none">
-          Online courses increased by 15.2% this year <IconTrendingChart3 />
+          Online courses increased by 15.2% this year <IconChartTrending />
         </div>
         <div className="leading-none text-muted-fg">
           Showing total revenue for january 2023 to august 2024

@@ -2,7 +2,7 @@
 
 import * as React from "react"
 
-import { IconCircleCheck, IconCircleInfo, IconTriangleInfo } from "justd-icons"
+import { IconCircleCheck, IconCircleInfo, IconTriangleExclamation } from "justd-icons"
 import { Text } from "react-aria-components"
 import { tv, type VariantProps } from "tailwind-variants"
 
@@ -47,7 +47,7 @@ const Note = ({ hideIndicator = false, intent = "info", className, ...props }: N
             ) : intent === "success" ? (
               <IconCircleCheck />
             ) : (
-              <IconTriangleInfo />
+              <IconTriangleExclamation />
             )}
           </div>
         )}

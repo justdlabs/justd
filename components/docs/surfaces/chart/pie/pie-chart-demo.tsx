@@ -2,7 +2,7 @@
 
 import * as React from "react"
 
-import { IconTrendingChart3 } from "justd-icons"
+import { IconChartTrending } from "justd-icons"
 import { Label, Pie, PieChart } from "recharts"
 import { Card, Chart, type ChartConfig } from "ui"
 
@@ -83,7 +83,7 @@ export default function PieChartDemo() {
       </Card.Content>
       <Card.Footer className="flex-col gap-2 text-sm">
         <div className="flex items-center gap-2 font-medium leading-none">
-          Subscribers increased by 8.5% this year <IconTrendingChart3 />
+          Subscribers increased by 8.5% this year <IconChartTrending />
         </div>
         <div className="leading-none text-muted-fg">
           Showing total subscribers for the last 3 months

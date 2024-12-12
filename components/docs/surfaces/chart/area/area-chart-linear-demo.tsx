@@ -1,6 +1,6 @@
 "use client"
 
-import { IconTrendingChart5 } from "justd-icons"
+import { IconChartTrending } from "justd-icons"
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
 import { Card, Chart, type ChartConfig } from "ui"
 
@@ -69,7 +69,7 @@ export default function AreaChartLinearDemo() {
         <div className="flex w-full items-start gap-2 text-sm">
           <div className="grid gap-2">
             <div className="flex items-center gap-2 font-medium leading-none">
-              Revenue increased by 12.5% this year <IconTrendingChart5 />
+              Revenue increased by 12.5% this year <IconChartTrending />
             </div>
             <div className="flex items-center gap-2 leading-none text-muted-fg">
               January - December 2024

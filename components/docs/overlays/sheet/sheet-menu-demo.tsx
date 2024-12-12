@@ -8,7 +8,7 @@ import {
   IconBrandCopilot,
   IconBrandGithub,
   IconBuilding,
-  IconChart,
+  IconChartBar,
   IconCodeBrackets,
   IconFilter,
   IconGear,

@@ -1,6 +1,6 @@
 "use client"
 
-import { IconTrendingChart3 } from "justd-icons"
+import { IconChartTrending } from "justd-icons"
 import { CartesianGrid, Line, LineChart, XAxis } from "recharts"
 import { Card, Chart, type ChartConfig } from "ui"
 
@@ -74,7 +74,7 @@ export default function LineChartLinearDemo() {
       </Card.Content>
       <Card.Footer className="flex-col items-start gap-2 text-sm">
         <div className="flex gap-2 font-medium leading-none">
-          Sales increased by 5.2% this year <IconTrendingChart3 />
+          Sales increased by 5.2% this year <IconChartTrending />
         </div>
         <div className="leading-none text-muted-fg">
           Showing sales for january 2023 to october 2024
