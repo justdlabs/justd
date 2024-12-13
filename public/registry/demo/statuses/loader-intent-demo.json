@@ -1,0 +1,11 @@
+{
+  "name": "loader-intent-demo",
+  "files": [
+    {
+      "name": "loader-intent-demo.tsx",
+      "content": "\"use client\"\n\nimport { Loader } from \"ui\"\n\nexport default function LoaderIntentDemo() {\n  return (\n    <div className=\"flex gap-6\">\n      <Loader variant=\"spin\" size=\"medium\" intent=\"current\" />\n      <Loader variant=\"spin\" size=\"medium\" intent=\"primary\" />\n      <Loader variant=\"spin\" size=\"medium\" intent=\"secondary\" />\n      <Loader variant=\"spin\" size=\"medium\" intent=\"success\" />\n      <Loader variant=\"spin\" size=\"medium\" intent=\"warning\" />\n      <Loader variant=\"spin\" size=\"medium\" intent=\"danger\" />\n    </div>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/statuses/loader-intent-demo.tsx"
+}

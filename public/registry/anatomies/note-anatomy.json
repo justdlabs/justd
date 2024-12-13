@@ -1,0 +1,11 @@
+{
+  "name": "note-anatomy",
+  "files": [
+    {
+      "name": "note-anatomy.tsx",
+      "content": "import { Note } from \"ui\"\n\nexport default function NoteAnatomy() {\n  return (\n    <Note>\n      We hook you up with top-tier migration services in our startup plan. Wanna roll with it? Hit us up here.\n    </Note>\n  )\n}\n"
+    }
+  ],
+  "type": "components:anatomies",
+  "componentPath": "components/docs/anatomies/note-anatomy.tsx"
+}

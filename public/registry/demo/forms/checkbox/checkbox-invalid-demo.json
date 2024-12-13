@@ -1,0 +1,11 @@
+{
+  "name": "checkbox-invalid-demo",
+  "files": [
+    {
+      "name": "checkbox-invalid-demo.tsx",
+      "content": "\"use client\"\n\nimport { Checkbox } from \"ui\"\n\nexport default function CheckboxInvalidDemo() {\n  return <Checkbox isInvalid>Enable notifications</Checkbox>\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/forms/checkbox/checkbox-invalid-demo.tsx"
+}

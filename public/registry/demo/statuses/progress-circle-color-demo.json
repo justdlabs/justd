@@ -1,0 +1,11 @@
+{
+  "name": "progress-circle-color-demo",
+  "files": [
+    {
+      "name": "progress-circle-color-demo.tsx",
+      "content": "\"use client\"\n\nimport { ProgressCircle } from \"ui\"\n\nexport default function ProgressCircleColorDemo() {\n  return (\n    <div className=\"flex gap-2\">\n      <ProgressCircle isIndeterminate className=\"text-red-500\" />\n      <ProgressCircle isIndeterminate className=\"text-blue-500\" />\n      <ProgressCircle isIndeterminate className=\"text-warning\" />\n    </div>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/statuses/progress-circle-color-demo.tsx"
+}

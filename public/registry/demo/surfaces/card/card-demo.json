@@ -1,0 +1,11 @@
+{
+  "name": "card-demo",
+  "files": [
+    {
+      "name": "card-demo.tsx",
+      "content": "\"use client\"\n\nimport { Button, Card } from \"ui\"\n\nexport default function CardDemo() {\n  return (\n    <Card className=\"max-w-lg\">\n      <Card.Header>\n        <Card.Title>Monthly Report</Card.Title>\n        <Card.Description>Financial summary for June</Card.Description>\n      </Card.Header>\n      <Card.Content>The monthly financial report shows a 15% increase in revenue compared to last month.</Card.Content>\n      <Card.Footer>\n        <Button>View Details</Button>\n      </Card.Footer>\n    </Card>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/surfaces/card/card-demo.tsx"
+}

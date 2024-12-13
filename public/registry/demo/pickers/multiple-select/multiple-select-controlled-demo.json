@@ -1,0 +1,11 @@
+{
+  "name": "multiple-select-controlled-demo",
+  "files": [
+    {
+      "name": "multiple-select-controlled-demo.tsx",
+      "content": "\"use client\"\n\nimport { useListData } from \"react-stately\"\nimport type { SelectedKey } from \"ui\"\nimport { Description, MultipleSelect } from \"ui\"\n\nconst tags = [\n  { id: 1, name: \"Travel\" },\n  { id: 2, name: \"Food\" },\n  { id: 3, name: \"Fashion\" },\n  { id: 4, name: \"Music\" },\n  { id: 5, name: \"Photography\" },\n]\n\nexport default function MultipleSelectControlledDemo() {\n  const selectedItems = useListData<SelectedKey>({\n    initialItems: [],\n  })\n\n  return (\n    <>\n      <MultipleSelect\n        className=\"max-w-xs\"\n        onItemInserted={(key) => console.info(\"onItemInserted\", key)}\n        onItemCleared={(key) => console.info(\"onItemCleared\", key)}\n        label=\"Select tags\"\n        selectedItems={selectedItems}\n        items={tags}\n        tag={(item) => <MultipleSelect.Tag textValue={item.name}>{item.name}</MultipleSelect.Tag>}\n      >\n        {(item) => {\n          return (\n            <MultipleSelect.Option id={item.id} textValue={item.name}>\n              {item.name}\n            </MultipleSelect.Option>\n          )\n        }}\n      </MultipleSelect>\n      {selectedItems.items.length > 0 && (\n        <Description className=\"mt-2 block max-w-xs text-muted-fg [&>strong]:text-fg\">\n          You have selected: <strong>{selectedItems.items.map((item) => item.name).join(\", \")}</strong>\n        </Description>\n      )}\n    </>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/pickers/multiple-select/multiple-select-controlled-demo.tsx"
+}

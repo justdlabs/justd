@@ -1,0 +1,11 @@
+{
+  "name": "toggle-appearance-demo",
+  "files": [
+    {
+      "name": "toggle-appearance-demo.tsx",
+      "content": "\"use client\"\n\nimport { Toggle } from \"ui\"\n\nexport default function ToggleAppearanceDemo() {\n  return (\n    <div className=\"flex gap-2\">\n      <Toggle>{({ isSelected }) => <>{isSelected ? \"Unpin\" : \"Pin\"}</>}</Toggle>\n      <Toggle appearance=\"outline\">{({ isSelected }) => <>{isSelected ? \"Unpin\" : \"Pin\"}</>}</Toggle>\n      <Toggle appearance=\"solid\">{({ isSelected }) => <>{isSelected ? \"Unpin\" : \"Pin\"}</>}</Toggle>\n    </div>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/buttons/toggle/toggle-appearance-demo.tsx"
+}

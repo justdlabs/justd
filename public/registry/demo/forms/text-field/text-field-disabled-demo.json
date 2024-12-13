@@ -1,0 +1,11 @@
+{
+  "name": "text-field-disabled-demo",
+  "files": [
+    {
+      "name": "text-field-disabled-demo.tsx",
+      "content": "\"use client\"\n\nimport { TextField } from \"ui\"\n\nexport default function TextFieldDisabledDemo() {\n  return <TextField isDisabled label=\"Name\" placeholder=\"Kurt Cobain\" />\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/forms/text-field/text-field-disabled-demo.tsx"
+}

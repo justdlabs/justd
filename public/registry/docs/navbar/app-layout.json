@@ -1,0 +1,11 @@
+{
+  "name": "app-layout",
+  "files": [
+    {
+      "name": "app-layout.tsx",
+      "content": "import AppNavbar from \"./app-navbar\"\n\nexport function AppLayout(props: React.ComponentProps<\"div\">) {\n  return (\n    <>\n      <AppNavbar />\n      <div className=\"py-6 sm:py-12\">{props.children}</div>\n    </>\n  )\n}\n"
+    }
+  ],
+  "type": "components:docs",
+  "componentPath": "resources/docs/navbar/app-layout.tsx"
+}

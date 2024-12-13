@@ -1,0 +1,11 @@
+{
+  "name": "description-list-anatomy",
+  "files": [
+    {
+      "name": "description-list-anatomy.tsx",
+      "content": "import { DescriptionList } from \"ui\"\n\nexport function DescriptionListAnatomy() {\n  return (\n    <DescriptionList>\n      <DescriptionList.Term>Invoice Number</DescriptionList.Term>\n      <DescriptionList.Details>INV-12345</DescriptionList.Details>\n      <DescriptionList.Term>Invoice Date</DescriptionList.Term>\n      <DescriptionList.Details>September 21, 2024</DescriptionList.Details>\n    </DescriptionList>\n  )\n}\n"
+    }
+  ],
+  "type": "components:anatomies",
+  "componentPath": "components/docs/anatomies/description-list-anatomy.tsx"
+}

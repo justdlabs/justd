@@ -1,0 +1,11 @@
+{
+  "name": "color-field-with-prefix-demo",
+  "files": [
+    {
+      "name": "color-field-with-prefix-demo.tsx",
+      "content": "\"use client\"\n\nimport { IconColors } from \"justd-icons\"\nimport { ColorField } from \"ui\"\n\nexport default function ColorFieldWithPrefixDemo() {\n  return <ColorField label=\"Color\" prefix={<IconColors />} placeholder=\"#FAFAFA\" />\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/colors/color-field/color-field-with-prefix-demo.tsx"
+}

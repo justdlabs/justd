@@ -1,0 +1,11 @@
+{
+  "name": "time-field-suffix-demo",
+  "files": [
+    {
+      "name": "time-field-suffix-demo.tsx",
+      "content": "\"use client\"\n\nimport { Time } from \"@internationalized/date\"\nimport { IconClock } from \"justd-icons\"\nimport { TimeField } from \"ui\"\n\nexport default function TimeFieldSuffixDemo() {\n  return <TimeField suffix={<IconClock />} defaultValue={new Time()} label=\"Event time\" />\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/date-and-time/time-field/time-field-suffix-demo.tsx"
+}

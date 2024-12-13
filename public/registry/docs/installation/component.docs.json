@@ -1,0 +1,11 @@
+{
+  "name": "component.docs",
+  "files": [
+    {
+      "name": "component.docs.tsx",
+      "content": "import { Button, Table } from \"ui\"\n\nexport function Component() {\n  return (\n    <>\n      <Table />\n\n      <Button />\n    </>\n  )\n}\n"
+    }
+  ],
+  "type": "components:docs",
+  "componentPath": "resources/docs/installation/component.docs.tsx"
+}

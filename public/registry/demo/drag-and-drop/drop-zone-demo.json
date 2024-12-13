@@ -1,0 +1,11 @@
+{
+  "name": "drop-zone-demo",
+  "files": [
+    {
+      "name": "drop-zone-demo.tsx",
+      "content": "\"use client\"\n\nimport { useState } from \"react\"\n\nimport { DropZone, Label } from \"ui\"\n\nexport default function DropZoneDemo() {\n  const [dropped, setDropped] = useState(false)\n\n  return (\n    <DropZone onDrop={() => setDropped(true)}>\n      <Label>{dropped ? \"Drop nailed\" : \"Toss your stuff here\"}</Label>\n    </DropZone>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/drag-and-drop/drop-zone-demo.tsx"
+}

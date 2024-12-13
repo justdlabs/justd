@@ -1,0 +1,11 @@
+{
+  "name": "color-wheel-anatomy",
+  "files": [
+    {
+      "name": "color-wheel-anatomy.tsx",
+      "content": "import { ColorWheel } from \"ui\"\n\nexport default function ColorWheelAnatomy() {\n  return <ColorWheel aria-label=\"Background color\" />\n}\n"
+    }
+  ],
+  "type": "components:anatomies",
+  "componentPath": "components/docs/anatomies/color-wheel-anatomy.tsx"
+}

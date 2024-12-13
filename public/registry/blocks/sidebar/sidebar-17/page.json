@@ -1,0 +1,11 @@
+{
+  "name": "page",
+  "files": [
+    {
+      "name": "page.tsx",
+      "content": "export default function Page() {\n  return <div />\n}\n"
+    }
+  ],
+  "type": "components:blocks",
+  "componentPath": "app/blocks/sidebar/sidebar-17/page.tsx"
+}

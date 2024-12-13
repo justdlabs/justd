@@ -1,0 +1,11 @@
+{
+  "name": "badge-intent-demo",
+  "files": [
+    {
+      "name": "badge-intent-demo.tsx",
+      "content": "\"use client\"\n\nimport { Badge } from \"ui\"\n\nexport default function BadgeIntentDemo() {\n  return (\n    <div className=\"flex flex-wrap gap-2\">\n      {[\"primary\", \"secondary\", \"success\", \"info\", \"warning\", \"danger\"].map((intent, index) => (\n        <Badge key={index} intent={intent as any}>\n          {intent}\n        </Badge>\n      ))}\n    </div>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/statuses/badge-intent-demo.tsx"
+}

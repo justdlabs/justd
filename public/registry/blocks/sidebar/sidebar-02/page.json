@@ -1,0 +1,11 @@
+{
+  "name": "page",
+  "files": [
+    {
+      "name": "page.tsx",
+      "content": "import { Heading } from \"ui\"\n\nexport default function Page() {\n  return <Heading>Default</Heading>\n}\n"
+    }
+  ],
+  "type": "components:blocks",
+  "componentPath": "app/blocks/sidebar/sidebar-02/page.tsx"
+}

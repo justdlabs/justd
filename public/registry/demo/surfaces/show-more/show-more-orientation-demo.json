@@ -1,0 +1,11 @@
+{
+  "name": "show-more-orientation-demo",
+  "files": [
+    {
+      "name": "show-more-orientation-demo.tsx",
+      "content": "\"use client\"\n\nimport { ShowMore } from \"ui\"\n\nexport default function ShowMoreOrientationDemo() {\n  return <ShowMore orientation=\"vertical\" as=\"text\" text=\"Or\" className=\"h-56\" />\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/surfaces/show-more/show-more-orientation-demo.tsx"
+}

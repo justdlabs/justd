@@ -1,0 +1,11 @@
+{
+  "name": "color-picker-disabled-demo",
+  "files": [
+    {
+      "name": "color-picker-disabled-demo.tsx",
+      "content": "\"use client\"\n\nimport { useState } from \"react\"\n\nimport { parseColor } from \"@react-stately/color\"\nimport { ColorPicker } from \"ui\"\n\nexport default function ColorPickerDisabledDemo() {\n  const [color, setColor] = useState(parseColor(\"hsl(216, 98%, 52%)\"))\n  return <ColorPicker isDisabled label=\"Color Picker\" value={color} onChange={setColor} />\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/colors/color-picker/color-picker-disabled-demo.tsx"
+}

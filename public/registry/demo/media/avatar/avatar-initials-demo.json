@@ -1,0 +1,11 @@
+{
+  "name": "avatar-initials-demo",
+  "files": [
+    {
+      "name": "avatar-initials-demo.tsx",
+      "content": "import { Avatar } from \"ui\"\n\nexport default function AvatarInitialsDemo() {\n  return <Avatar src=\"\" initials=\"SH\" />\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/media/avatar/avatar-initials-demo.tsx"
+}

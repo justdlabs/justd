@@ -1,0 +1,11 @@
+{
+  "name": "command-menu-anatomy",
+  "files": [
+    {
+      "name": "command-menu-anatomy.tsx",
+      "content": "import { useState } from \"react\"\n\nimport { IconHome } from \"justd-icons\"\nimport { CommandMenu, Link } from \"ui\"\n\nexport default function CommandMenuAnatomy() {\n  const [isOpen, setIsOpen] = useState(false)\n  return (\n    <CommandMenu isOpen={isOpen} onOpenChange={setIsOpen}>\n      <CommandMenu.Input placeholder=\"Quick search...\" />\n      <CommandMenu.List>\n        <CommandMenu.Section separator heading=\"Pages\">\n          <CommandMenu.Item asChild>\n            <Link href=\"#\">\n              <IconHome /> Home\n            </Link>\n          </CommandMenu.Item>\n        </CommandMenu.Section>\n      </CommandMenu.List>\n    </CommandMenu>\n  )\n}\n"
+    }
+  ],
+  "type": "components:anatomies",
+  "componentPath": "components/docs/anatomies/command-menu-anatomy.tsx"
+}
