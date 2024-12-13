@@ -18,22 +18,22 @@ export default function GridResponsiveDemo() {
       }}
     >
       <Grid.Item>
-        <div className="h-32 border p-4" />
+        <div className="p-4 h-32 border" />
       </Grid.Item>
       <Grid.Item>
-        <div className="h-32 border p-4" />
+        <div className="p-4 h-32 border" />
       </Grid.Item>
       <Grid.Item>
-        <div className="h-32 border p-4" />
+        <div className="p-4 h-32 border" />
       </Grid.Item>
       <Grid.Item>
-        <div className="h-32 border p-4" />
+        <div className="p-4 h-32 border" />
       </Grid.Item>
       <Grid.Item>
-        <div className="h-32 border p-4" />
+        <div className="p-4 h-32 border" />
       </Grid.Item>
       <Grid.Item>
-        <div className="h-32 border p-4" />
+        <div className="p-4 h-32 border" />
       </Grid.Item>
     </Grid>
   )

@@ -56,7 +56,7 @@ export function Resources() {
               <div
                 aria-label={item.name}
                 id={item.name.toLowerCase().replaceAll(" ", "-")}
-                className="dark:before:-inset-px relative flex h-full w-full flex-col rounded-xl bg-white p-4 shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] data-focused:outline-hidden lg:p-6 dark:bg-zinc-950 dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset] forced-colors:outline"
+                className="flex relative flex-col p-4 w-full h-full bg-white rounded-xl lg:p-6 shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] data-focused:outline-hidden forced-colors:outline dark:before:-inset-px dark:bg-zinc-950 dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset]"
               >
                 <Link
                   aria-label={`Open ${item.name}`}
@@ -98,7 +98,7 @@ export function Resources() {
           <Grid.Item
             aria-label="Justd icons"
             id="justd-icons"
-            className="dark:before:-inset-px relative flex h-full w-full flex-col rounded-xl bg-white p-4 shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] data-focused:outline-hidden lg:p-6 dark:bg-zinc-950 dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset] forced-colors:outline"
+            className="flex relative flex-col p-4 w-full h-full bg-white rounded-xl lg:p-6 shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] data-focused:outline-hidden forced-colors:outline dark:before:-inset-px dark:bg-zinc-950 dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset]"
           >
             <Link
               aria-label={"Justd icons"}
@@ -139,7 +139,7 @@ export function Resources() {
           <Grid.Item
             aria-label="Support"
             id="support"
-            className="dark:before:-inset-px relative flex h-full w-full flex-col rounded-xl bg-white p-4 shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] data-focused:outline-hidden lg:p-6 dark:bg-zinc-950 dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset] forced-colors:outline"
+            className="flex relative flex-col p-4 w-full h-full bg-white rounded-xl lg:p-6 shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] data-focused:outline-hidden forced-colors:outline dark:before:-inset-px dark:bg-zinc-950 dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset]"
           >
             <Link
               target="_blank"
@@ -150,7 +150,7 @@ export function Resources() {
             />
             <div className="flex-1">
               <div className="px-6 pt-6">
-                <IconHeartFill className="size-7 text-pink-500" />
+                <IconHeartFill className="text-pink-500 size-7" />
               </div>
               <Card.Header>
                 <Card.Title level={3}>Support This Project</Card.Title>
@@ -167,7 +167,7 @@ export function Resources() {
           <Grid.Item
             aria-label="Templates"
             id="templates"
-            className="dark:before:-inset-px relative flex size-full flex-col rounded-xl bg-white p-4 shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] data-focused:outline-hidden lg:p-6 dark:bg-zinc-950 dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset] forced-colors:outline"
+            className="flex relative flex-col p-4 bg-white rounded-xl lg:p-6 size-full shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] data-focused:outline-hidden forced-colors:outline dark:before:-inset-px dark:bg-zinc-950 dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset]"
           >
             <Link
               target="_blank"

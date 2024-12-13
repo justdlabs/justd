@@ -39,10 +39,10 @@ export const groupedComponents = groupByCategory(docs.sort((a, b) => a.order - b
 
 export function CardListBox() {
   return (
-    <div className="w-full space-y-10">
+    <div className="space-y-10 w-full">
       {Object.entries(groupedComponents).map(([category, components]) => (
         <div key={category}>
-          <Heading tracking="tight" level={2} id={category} className="mb-4 scroll-mt-28 font-medium text-fg">
+          <Heading tracking="tight" level={2} id={category} className="mb-4 font-medium scroll-mt-28 text-fg">
             {goodTitle(category)}
           </Heading>
           <Grid
@@ -58,7 +58,7 @@ export function CardListBox() {
                 <Link
                   id={component.slug}
                   href={component.slug}
-                  className="inset-ring-1 inset-ring-border rounded-lg bg-muted/30 p-1"
+                  className="p-1 rounded-lg inset-ring-1 inset-ring-border bg-muted/30"
                   aria-label={component.title}
                 >
                   <div className="flex-1">
@@ -66,7 +66,7 @@ export function CardListBox() {
                       <Heading tracking="tight" level={3}>
                         {component.title}
                       </Heading>
-                      <Description className="mt-2 block">{component.description}</Description>
+                      <Description className="block mt-2">{component.description}</Description>
                     </div>
                   </div>
                 </Link>

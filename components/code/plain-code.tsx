@@ -13,9 +13,9 @@ interface PlainCodeProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export function PlainCode({ title, lang = "tsx", code }: PlainCodeProps) {
   return (
-    <Group className="not-prose group relative my-4">
+    <Group className="relative my-4 not-prose group">
       {title && (
-        <figcaption data-rehype-pretty-code-title="" className="inline-flex items-center gap-x-1">
+        <figcaption data-rehype-pretty-code-title="" className="inline-flex gap-x-1 items-center">
           {title.includes(".tsx") ? <IconBrandReactjs className="size-4 text-sky-500" /> : null}
           {title}
         </figcaption>

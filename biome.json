@@ -4,7 +4,7 @@
     "enabled": true
   },
   "files": {
-    "ignore": ["**/*.js", "**/.next/**", "resource/content", ".velite", "components/docs/generated/**/*"]
+    "ignore": ["**/*.js", "**/*.css", "**/.next/**", "resource/content", ".velite", "components/docs/generated/**/*"]
   },
   "linter": {
     "enabled": true,
@@ -12,6 +12,7 @@
       "recommended": true,
       "style": {
         "noNonNullAssertion": "off",
+        "noParameterAssign": "warn",
         "useImportType": "error"
       },
       "complexity": {
@@ -25,15 +26,19 @@
       },
       "correctness": {
         "useHookAtTopLevel": "error",
-        "noUnusedImports": "warn"
+        "noUnusedImports": "warn",
+        "noChildrenProp": "off"
       },
       "suspicious": {
         "noExplicitAny": "off",
         "noArrayIndexKey": "off",
         "noConsoleLog": "warn"
       },
+      "security": {
+        "noDangerouslySetInnerHtml": "off"
+      },
       "nursery": {
-        "useSortedClasses": "error"
+        "useSortedClasses": "off"
       }
     },
     "ignore": ["node_modules", ".next", ".velite", "dist", ".vercel"]

@@ -46,7 +46,7 @@ export function Pager({ docs, doc }: { docs: Doc[]; doc: Doc }) {
   }
 
   return (
-    <div className="mt-6 flex flex-row items-center justify-between">
+    <div className="flex flex-row justify-between items-center mt-6">
       {pager.prev && (
         <Link
           aria-label={`Previous page: ${pager.prev.title}`}

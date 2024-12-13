@@ -17,7 +17,7 @@ const navigations = Object.keys(groupedComponents).map((x) => {
 export function OnThisPage() {
   const activeId = useActiveItem(navigations.map((x) => x.href.split("#")[1]))
   return (
-    <div className="sticky top-28 w-40 shrink-0 pt-0 pb-16 pl-2">
+    <div className="sticky top-28 pt-0 pb-16 pl-2 w-40 shrink-0">
       <Heading level={2} className="mb-3 font-medium">
         On this Page
       </Heading>

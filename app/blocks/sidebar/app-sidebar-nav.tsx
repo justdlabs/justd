@@ -6,7 +6,7 @@ import { Breadcrumbs, Button, Separator, SidebarNav, SidebarTrigger } from "ui"
 export default function AppSidebarNav() {
   return (
     <SidebarNav>
-      <span className="flex items-center gap-x-4">
+      <span className="flex gap-x-4 items-center">
         <SidebarTrigger className="-mx-2" />
         <Separator className="hidden h-6 md:block" orientation="vertical" />
         <Breadcrumbs className="hidden md:flex">
@@ -15,7 +15,7 @@ export default function AppSidebarNav() {
         </Breadcrumbs>
       </span>
 
-      <div className="flex items-center gap-x-2 sm:hidden">
+      <div className="flex gap-x-2 items-center sm:hidden">
         <Button appearance="plain" aria-label="Search..." size="square-petite">
           <IconSearch />
         </Button>

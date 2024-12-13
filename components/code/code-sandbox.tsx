@@ -53,14 +53,18 @@ export function CodeSandbox({ isIframe = true, classNames, source, src }: Props)
       <Tabs.Panel id="preview" className={cn("max-h-110 grow overflow-y-auto", classNames?.preview)}>
         <React.Suspense
           fallback={
-            <div className="flex items-center justify-center py-6 text-muted-fg text-sm">
+            <div className="flex justify-center items-center py-6 text-sm text-muted-fg">
               <Loader variant="spin" />
               <span className="sr-only">Loading...</span>
             </div>
           }
         >
           {isIframe ? (
-            <iframe src={src} className="size-full min-h-110 overflow-hidden rounded-xl border" />
+            <iframe
+              src={src}
+              title="sanddbox-preview"
+              className="overflow-hidden rounded-xl border size-full min-h-110"
+            />
           ) : (
             <Component />
           )}
@@ -70,8 +74,8 @@ export function CodeSandbox({ isIframe = true, classNames, source, src }: Props)
         {rawSourceCode && Object.keys(rawSourceCode).length > 0 ? (
           <Tabs className="relative gap-0">
             {/*bg-[#0e0e10]*/}
-            <div className="flex items-center justify-between overflow-hidden rounded-t-lg border-zinc-700 border-x border-y bg-[#0e0e11] dark:border-zinc-800">
-              <Tabs.List className="scrollbar-hidden relative gap-0 overflow-x-auto border-0">
+            <div className="flex overflow-hidden justify-between items-center rounded-t-lg border-zinc-700 border-x border-y bg-[#0e0e11] dark:border-zinc-800">
+              <Tabs.List className="overflow-x-auto relative gap-0 border-0 scrollbar-hidden">
                 {Object.keys(rawSourceCode).map((key) => (
                   <Tab
                     className={(values) =>
@@ -104,10 +108,10 @@ export function CodeSandbox({ isIframe = true, classNames, source, src }: Props)
               <Tabs.Panel
                 key={key}
                 id={key}
-                className="overflow-hidden rounded-b-lg border-zinc-700 border-x border-b bg-shiki-bg dark:border-zinc-800"
+                className="overflow-hidden rounded-b-lg border-b border-zinc-700 border-x bg-shiki-bg dark:border-zinc-800"
               >
                 <CopyButton
-                  className="absolute top-0.5 right-1 hidden sm:grid"
+                  className="hidden absolute top-0.5 right-1 sm:grid"
                   alwaysVisible
                   isCopied={copiedStates[key] || false}
                   onPress={() => handleCopy(key, value)}
@@ -115,7 +119,7 @@ export function CodeSandbox({ isIframe = true, classNames, source, src }: Props)
                 <CodeHighlighter
                   max96={false}
                   plain
-                  className="max-h-110 overflow-auto p-4"
+                  className="overflow-auto p-4 max-h-110"
                   removeLastLine
                   code={value || "No source code available"}
                 />
@@ -143,7 +147,7 @@ export const TabsList = ({ src, code, copyButton }: TabListProps) => {
         <Tabs.Tab id="preview">Preview</Tabs.Tab>
         <Tabs.Tab id="code">Code</Tabs.Tab>
         {src && (
-          <Tabs.Tab className="ml-auto flex items-center" target="_blank" href={src}>
+          <Tabs.Tab className="flex items-center ml-auto" target="_blank" href={src}>
             <IconWindowVisitFill />
             Fullscreen
           </Tabs.Tab>

@@ -138,7 +138,7 @@ const TagField = ({
       <Group className={twJoin("flex flex-col", props.isDisabled && "opacity-50")}>
         <TagGroup intent={props.intent} shape={props.shape} aria-label="List item inserted" onRemove={onRemove}>
           <div className={tagFieldsStyles({ appearance })}>
-            <div className="flex flex-1 flex-wrap items-center">
+            <div className="flex flex-wrap flex-1 items-center">
               <TagList
                 items={list.items}
                 className={twJoin(

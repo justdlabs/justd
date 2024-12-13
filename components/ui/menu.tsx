@@ -130,7 +130,7 @@ const Item = ({ className, isDanger = false, children, ...props }: MenuItemProps
       {(values) => (
         <>
           {typeof children === "function" ? children(values) : children}
-          {values.hasSubmenu && <IconChevronLgRight className="gpfw ml-auto size-3.5" />}
+          {values.hasSubmenu && <IconChevronLgRight className="ml-auto gpfw size-3.5" />}
         </>
       )}
     </MenuItem>
@@ -162,7 +162,7 @@ const Checkbox = ({ className, children, ...props }: MenuItemProps) => (
       <>
         {typeof children === "function" ? children(values) : children}
         {values.isSelected && (
-          <span className="absolute right-2 flex size-4 shrink-0 animate-in items-center justify-center">
+          <span className="flex absolute right-2 justify-center items-center size-4 shrink-0 animate-in">
             <IconCheck />
           </span>
         )}

@@ -26,7 +26,7 @@ export default function AppNavbar() {
           <Navbar.Item href="#">Mac</Navbar.Item>
           <Navbar.Item href="#">iPad</Navbar.Item>
         </Navbar.Section>
-        <Navbar.Section className="ml-auto hidden lg:flex">
+        <Navbar.Section className="hidden ml-auto lg:flex">
           <Navbar.Flex>
             <Button appearance="plain" size="square-petite" aria-label="Search for products">
               <IconSearch />

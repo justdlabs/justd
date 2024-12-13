@@ -54,7 +54,7 @@ export default function SalesDistribution() {
               <LabelList
                 position="insideStart"
                 dataKey="category"
-                className="fill-white capitalize mix-blend-luminosity"
+                className="capitalize fill-white mix-blend-luminosity"
                 fontSize={11}
               />
             </RadialBar>

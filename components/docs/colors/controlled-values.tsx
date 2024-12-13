@@ -9,10 +9,10 @@ export function ControlledValues({ color }: { color: any }) {
     <Card className="flex min-w-[15.5rem] flex-col gap-y-2 bg-transparent p-3 text-center sm:min-w-72 [&>span]:flex [&>span]:justify-between [&>span]:gap-x-6">
       {formats.map((format, i) => (
         <span key={i}>
-          <span className="flex items-center gap-x-1.5">
+          <span className="flex gap-x-1.5 items-center">
             <ColorSwatch
               aria-label="color picked"
-              className="size-4 rounded"
+              className="rounded size-4"
               color={color.toString(format as ColorFormat | "css" | undefined)}
             />
             <span className="text-xs uppercase">{format}</span>

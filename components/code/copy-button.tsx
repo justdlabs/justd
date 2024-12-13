@@ -142,7 +142,7 @@ export function CopyMotionButton({ className, text }: { className?: string; text
           copied && "-translate-y-1.5 opacity-0",
         )}
       >
-        <ClipboardIcon className="h-5 w-5 fill-zinc-500/20 stroke-zinc-500 transition-colors group-hover/button:stroke-zinc-400" />
+        <ClipboardIcon className="w-5 h-5 transition-colors fill-zinc-500/20 stroke-zinc-500 group-hover/button:stroke-zinc-400" />
         Copy
       </span>
       <span

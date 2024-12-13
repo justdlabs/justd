@@ -78,7 +78,7 @@ const RangeCalendar = <T extends DateValue>({ errorMessage, className, ...props 
         </CalendarGridBody>
       </CalendarGrid>
       {errorMessage && (
-        <Text slot="errorMessage" className="text-danger text-sm">
+        <Text slot="errorMessage" className="text-sm text-danger">
           {errorMessage}
         </Text>
       )}

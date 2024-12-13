@@ -103,7 +103,7 @@ const ChoiceboxItem = ({ className, ...props }: ChoiceboxItemProps) => {
       )}
     >
       {(values) => (
-        <div className="flex w-full items-center justify-between gap-2">
+        <div className="flex gap-2 justify-between items-center w-full">
           <div className="flex flex-col pr-8">
             <Label slot="title" htmlFor={textValue}>
               {props.title}

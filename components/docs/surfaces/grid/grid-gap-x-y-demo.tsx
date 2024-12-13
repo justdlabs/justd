@@ -20,22 +20,22 @@ export default function GridGapXYDemo() {
       }}
     >
       <Grid.Item>
-        <div className="h-24 border p-4" />
+        <div className="p-4 h-24 border" />
       </Grid.Item>
       <Grid.Item>
-        <div className="h-24 border p-4" />
+        <div className="p-4 h-24 border" />
       </Grid.Item>
       <Grid.Item>
-        <div className="h-24 border p-4" />
+        <div className="p-4 h-24 border" />
       </Grid.Item>
       <Grid.Item>
-        <div className="h-24 border p-4" />
+        <div className="p-4 h-24 border" />
       </Grid.Item>
       <Grid.Item>
-        <div className="h-24 border p-4" />
+        <div className="p-4 h-24 border" />
       </Grid.Item>
       <Grid.Item>
-        <div className="h-24 border p-4" />
+        <div className="p-4 h-24 border" />
       </Grid.Item>
     </Grid>
   )

@@ -7,7 +7,7 @@ export default function Page() {
   return (
     <>
       <Hero />
-      <Container className="space-y-16 py-6 sm:py-16">
+      <Container className="py-6 space-y-16 sm:py-16">
         <Resources />
       </Container>
       <Cta />

@@ -51,7 +51,7 @@ export function Installation({ className, ...props }: InstallationProps) {
         <p>
           If you hit any issues, make sure you check out the installation guide{" "}
           <Link
-            className="not-prose xd2432 text-blue-600 data-hovered:underline dark:text-blue-400"
+            className="text-blue-600 dark:text-blue-400 not-prose xd2432 data-hovered:underline"
             intent="primary"
             href="/docs/getting-started/installation"
             target="_blank"
@@ -72,13 +72,13 @@ export function Installation({ className, ...props }: InstallationProps) {
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
-          className="z-10 ml-[0.395rem] hidden size-6 text-zinc-400 md:block"
+          className="hidden z-10 md:block ml-[0.395rem] size-6 text-zinc-400"
         >
           <path stroke="currentColor" d="m10 16 4-4-4-4" strokeLinecap="square" strokeWidth="2" />
         </svg>
         <CodeHighlighter
           plain
-          className="flex-1 overflow-x-auto px-4 sm:px-1"
+          className="overflow-x-auto flex-1 px-4 sm:px-1"
           lang="bash"
           code={
             props.command ||

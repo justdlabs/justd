@@ -53,9 +53,9 @@ export default function Page() {
         <span className="text-fg">Comp</span>
         <span className="text-muted-fg">onents</span>
       </Header>
-      <div className="bg-muted/35 py-10 lg:py-16">
+      <div className="py-10 lg:py-16 bg-muted/35">
         <Container>
-          <div className="flex flex-col items-start gap-12 lg:flex-row">
+          <div className="flex flex-col gap-12 items-start lg:flex-row">
             <OnThisPage />
             <CardListBox />
           </div>

@@ -84,7 +84,9 @@ const DrawerContentPrimitive = ({ children, ...props }: DrawerOverlayPrimitivePr
 
   const bodyBorderRadius = useTransform(y, [0, h], [drawerRadius, 0])
 
-  useMotionValueEvent(bodyBorderRadius, "change", (v) => (root.style.borderRadius = `${v}px`))
+  useMotionValueEvent(bodyBorderRadius, "change", (v) => {
+    root.style.borderRadius = `${v}px`
+  })
 
   const onDragEnd = (_: any, { offset, velocity }: PanInfo) => {
     if (offset.y > h * 0.4 || velocity.y > 10) {
@@ -130,10 +132,10 @@ const DrawerContentPrimitive = ({ children, ...props }: DrawerOverlayPrimitivePr
         >
           <div className="overflow-hidden">
             {withNotch && (
-              <div className="notch sticky top-0 mx-auto mt-2.5 h-1.5 w-10 shrink-0 touch-pan-y rounded-full bg-fg/20" />
+              <div className="sticky top-0 mx-auto mt-2.5 w-10 h-1.5 rounded-full notch shrink-0 touch-pan-y bg-fg/20" />
             )}
             <div
-              className="mt-3 overflow-y-auto"
+              className="overflow-y-auto mt-3"
               ref={(el) => {
                 if (el) {
                   const resizeObserver = new ResizeObserver((entries) => {
@@ -175,7 +177,7 @@ const DrawerPrimitive = (props: DrawerPrimitiveProps) => {
         transformOrigin: "center 0",
       }}
     >
-      <AnimatePresence>{isOpen && <>{props.children as React.ReactNode}</>}</AnimatePresence>
+      <AnimatePresence>{isOpen && (props.children as React.ReactNode)}</AnimatePresence>
     </motion.div>
   )
 }

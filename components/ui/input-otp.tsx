@@ -41,8 +41,8 @@ const InputOTPSlot = ({ index, className, ref, ...props }: InputOTPSlotProps) =>
     >
       {char}
       {hasFakeCaret && (
-        <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-          <div className="h-4 w-px animate-caret-blink bg-fg duration-1000" />
+        <div className="flex absolute inset-0 justify-center items-center pointer-events-none">
+          <div className="w-px h-4 duration-1000 animate-caret-blink bg-fg" />
         </div>
       )}
     </div>
@@ -50,6 +50,7 @@ const InputOTPSlot = ({ index, className, ref, ...props }: InputOTPSlotProps) =>
 }
 
 const InputOTPSeparator = ({ ref, ...props }: React.ComponentProps<"div">) => (
+  // biome-ignore lint/a11y/useFocusableInteractive: TODO: fix this
   <div ref={ref} role="separator" {...props}>
     <IconBulletFill className="size-2" />
   </div>

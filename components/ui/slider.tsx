@@ -85,7 +85,7 @@ const Slider = ({ output = "inline", orientation = "horizontal", className, ...p
           showArrow={false}
           offset={orientation === "horizontal" ? 8 : -140}
           crossOffset={orientation === "horizontal" ? -85 : 0}
-          className="min-w-6 px-1.5 py-1 text-xs"
+          className="py-1 px-1.5 text-xs min-w-6"
           placement={orientation === "vertical" ? "right" : "top"}
         >
           <SliderOutput />

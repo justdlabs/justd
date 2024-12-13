@@ -139,7 +139,7 @@ If you need to collapse multiple items, you can use the `SidebarDisclosureGroup`
           <SidebarItem key={itemIndex} href="#">
             {({ isHovered }) => (
               <>
-                <i aria-hidden className="size-4 content-center">
+                <i aria-hidden className="content-center size-4">
                   <IconBullet className={`${isHovered ? "fill-sky-500 text-sky-500" : ""} size-2 m-auto`} />
                 </i>
                 <SidebarLabel>{item}</SidebarLabel>
@@ -277,7 +277,7 @@ The sidebar supports footers, which can be used to display additional actions or
           Kurt Cobain
           <span className="block -mt-0.5 text-muted-fg">kurt@cobain.com</span>
         </div>
-        <IconChevronLgDown className="right-3 size-4 absolute group-pressed:rotate-180 transition-transform" />
+        <IconChevronLgDown className="absolute right-3 transition-transform size-4 group-pressed:rotate-180" />
       </Menu.Trigger>
       <Menu.Content placement="bottom right" className="sm:min-w-(--trigger-width)">
         <Menu.Item/>

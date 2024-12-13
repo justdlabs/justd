@@ -36,7 +36,7 @@ export function Blocks() {
         <AppNavbar className="-mt-1 *:data-navbar-nav:rounded-md" intent="floating" />
       </div>
       <div className="grid gap-1 sm:grid-cols-2 md:grid-cols-3">
-        <Card className="flex flex-col items-center justify-center gap-y-6 p-6">
+        <Card className="flex flex-col gap-y-6 justify-center items-center p-6">
           <div className="grid grid-cols-2 gap-2">
             {Object.keys(buttonStyles.variants.intent).map((intent) => (
               <Button key={intent} intent={intent as keyof typeof buttonStyles.variants.intent}>
@@ -61,7 +61,7 @@ export function Blocks() {
           <Card.Content className="space-y-6">
             <TextField isRequired label="Email" placeholder="Enter your email" />
             <TextField isRequired label="Password" isRevealable type="password" placeholder="Enter your password" />
-            <div className="flex items-center justify-between">
+            <div className="flex justify-between items-center">
               <Checkbox>Remember me</Checkbox>
               <Link intent="primary" className="text-sm" href="#">
                 Forgot password?
@@ -72,7 +72,7 @@ export function Blocks() {
             <Button className="w-full">Login</Button>
           </Card.Footer>
         </Card>
-        <Card className="flex items-center justify-center gap-2 p-6">
+        <Card className="flex gap-2 justify-center items-center p-6">
           <div className="space-y-2">
             <div className="flex flex-col gap-2 md:flex-row">
               <ModalDemo />
@@ -102,10 +102,10 @@ export function Blocks() {
             </ComboBox>
           </div>
         </Card>
-        <Card className="flex items-center justify-center p-6">
+        <Card className="flex justify-center items-center p-6">
           <RangeCalendarControlledDemo />
         </Card>
-        <Card className="flex items-center justify-center p-6">
+        <Card className="flex justify-center items-center p-6">
           <RadioGroup defaultValue="highSecurity" aria-label="Security settings">
             <Radio value="highSecurity" description="Set security settings to high.">
               High Security
@@ -123,10 +123,10 @@ export function Blocks() {
             </Radio>
           </RadioGroup>
         </Card>
-        <Card className="flex items-center justify-center p-6">
+        <Card className="flex justify-center items-center p-6">
           <Switch>{({ isSelected }) => <>{isSelected ? "Enabled" : "Disabled"} Auto Updates</>}</Switch>
         </Card>
-        <Card className="flex items-center justify-center p-6">
+        <Card className="flex justify-center items-center p-6">
           <Choicebox
             defaultSelectedKeys={["standard", "pro"]}
             columns={1}

@@ -96,7 +96,7 @@ export function ThemeCustomizer({ selectedColors, setSelectedColors }: ThemeCust
   const filteredAccentColors = getFilteredColors(selectedColors.gray)
   const filteredRadius = ["0rem", "0.125rem", "0.25rem", "0.375rem", "0.5rem", "0.6rem", "0.75rem", "1rem", "1.5rem"]
   return (
-    <div className="grid max-w-xl gap-4">
+    <div className="grid gap-4 max-w-xl">
       <div className="grid grid-cols-2 gap-x-3 gap-y-6">
         <ColorSelect
           selectedKey={selectedColors.gray}

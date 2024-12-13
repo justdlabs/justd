@@ -30,6 +30,8 @@ interface SidebarItem {
 export function CommandPalette({ openCmd, setOpen }: OpenCloseProps) {
   const router = useRouter()
   const pathname = usePathname()
+
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
       if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
@@ -44,6 +46,7 @@ export function CommandPalette({ openCmd, setOpen }: OpenCloseProps) {
     return () => document.removeEventListener("keydown", down)
   }, [pathname, setOpen])
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   React.useEffect(() => {
     if (setOpen) {
       setOpen(false)
@@ -89,6 +92,7 @@ export function CommandPalette({ openCmd, setOpen }: OpenCloseProps) {
       .filter(Boolean) as SidebarItem[]
   }
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   const filteredItems = React.useMemo(() => {
     if (!debouncedSearch) return []
 
@@ -104,6 +108,7 @@ export function CommandPalette({ openCmd, setOpen }: OpenCloseProps) {
     setLoading(false)
   }, [debouncedSearch])
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   React.useEffect(() => {
     setSearch("")
   }, [pathname])

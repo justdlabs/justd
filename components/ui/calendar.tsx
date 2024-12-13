@@ -63,7 +63,7 @@ const Calendar = <T extends DateValue>({ errorMessage, className, ...props }: Ca
         </CalendarGridBody>
       </CalendarGrid>
       {errorMessage && (
-        <Text slot="errorMessage" className="text-red-600 text-sm">
+        <Text slot="errorMessage" className="text-sm text-red-600">
           {errorMessage}
         </Text>
       )}
@@ -87,7 +87,7 @@ const CalendarHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivEle
   return (
     <header data-slot="calendar-header" className={header({ className })} {...props}>
       <Heading className={heading()} />
-      <div className="flex items-center gap-1">
+      <div className="flex gap-1 items-center">
         <Button
           size="square-petite"
           className="size-8 **:data-[slot=icon]:text-fg sm:size-7"

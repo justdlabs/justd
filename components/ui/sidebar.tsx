@@ -79,7 +79,7 @@ const SidebarProvider = ({
 
   const toggleSidebar = useCallback(() => {
     return isMobile ? setOpenMobile((open) => !open) : setOpen((open) => !open)
-  }, [isMobile, setOpen, setOpenMobile])
+  }, [isMobile, setOpen])
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -105,7 +105,7 @@ const SidebarProvider = ({
       setIsOpenOnMobile: setOpenMobile,
       toggleSidebar,
     }),
-    [state, open, setOpen, isMobile, openMobile, setOpenMobile, toggleSidebar],
+    [state, open, setOpen, isMobile, openMobile, toggleSidebar],
   )
 
   return (
@@ -232,7 +232,7 @@ const Sidebar = ({
       data-sidebar-collapsible={state === "collapsed" ? collapsible : ""}
       data-sidebar-intent={intent}
       data-sidebar-side={side}
-      className="group/sidebar-container peer hidden text-sidebar-fg md:block"
+      className="hidden md:block group/sidebar-container peer text-sidebar-fg"
       {...props}
     >
       <div className={gap({ intent })} />
@@ -413,7 +413,7 @@ const SidebarItem = ({ isCurrent, tooltip, children, badge, className, ref, ...p
                 {badge}
               </Badge>
             ) : (
-              <div aria-hidden className="absolute top-1 right-1 size-1.5 rounded-full bg-primary" />
+              <div aria-hidden className="absolute top-1 right-1 rounded-full size-1.5 bg-primary" />
             ))}
         </>
       )}
@@ -533,7 +533,7 @@ const SidebarDisclosureTrigger = ({ className, ...props }: React.ComponentProps<
             {state !== "collapsed" && (
               <IconChevronLgLeft
                 data-slot="chevron"
-                className="group-aria-expanded:-rotate-90 z-10 ml-auto size-3.5 transition-transform"
+                className="z-10 ml-auto transition-transform group-aria-expanded:-rotate-90 size-3.5"
               />
             )}
           </>

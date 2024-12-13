@@ -35,7 +35,7 @@ const NavLink = ({ href, isActive, className, isNextLink, ...props }: NavLinkPro
         {isActive && (
           <motion.span
             layoutId="current-indicator-navlink"
-            className="absolute inset-x-0 bottom-[-0.550rem] h-0.5 w-full rounded bg-fg"
+            className="absolute inset-x-0 w-full h-0.5 rounded bottom-[-0.550rem] bg-fg"
           />
         )}
       </>

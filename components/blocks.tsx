@@ -67,7 +67,7 @@ export function Blocks() {
 
           <Grid.Item>
             <div className="grid gap-2">
-              <CardBlock className="grid gap-6 lg:px-8 lg:py-9">
+              <CardBlock className="grid gap-6 lg:py-9 lg:px-8">
                 <DateRangePicker className="w-full" label="Reservations date" />
                 <DatePicker className="w-full" label="Event date" />
               </CardBlock>
@@ -91,7 +91,7 @@ export function Blocks() {
         </Grid>
       </div>
 
-      <div className="mt-8 flex items-center justify-center lg:justify-end">
+      <div className="flex justify-center items-center mt-8 lg:justify-end">
         <Link className={buttonStyles()} href="/docs/getting-started/installation">
           <IconCubeFill /> Show More
         </Link>
@@ -104,7 +104,7 @@ export function CardBlock({ className, children, ...props }: React.HtmlHTMLAttri
   return (
     <div
       {...props}
-      className="dark:before:-inset-px relative size-full rounded-xl bg-white shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:bg-zinc-950 dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset] forced-colors:outline"
+      className="relative bg-white rounded-xl size-full shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] forced-colors:outline dark:before:-inset-px dark:bg-zinc-950 dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset]"
     >
       <div
         className={cn(

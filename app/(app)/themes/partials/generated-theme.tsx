@@ -5,7 +5,7 @@ export function GeneratedTheme({ className, ...props }: React.ComponentProps<"di
     <div>
       <div className={cn("grid max-h-48 gap-4 overflow-y-auto lg:gap-6", className)} {...props}>
         <div className="sticky inset-x-0 top-0 h-10 w-full bg-gradient-to-b from-5% from-bg to-transparent" />
-        <div className="-mb-12 -mt-12 flex flex-col gap-y-6">
+        <div className="flex flex-col gap-y-6 -mt-12 -mb-12">
           <ColorBox>
             <ColorBoxItem variable="bg" />
             <ColorBoxItem variable="fg" />
@@ -76,9 +76,9 @@ function ColorBox(props: React.ComponentProps<"div">) {
 
 function ColorBoxItem({ variable }: { variable: string }) {
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex gap-2 items-center">
       <div
-        className="inset-ring-1 inset-ring-fg/15 size-5 shrink-0 rounded-sm"
+        className="rounded-sm inset-ring-1 inset-ring-fg/15 size-5 shrink-0"
         style={{ backgroundColor: `var(--${variable})` }}
       />
       <small className="font-mono text-xs">--{variable}</small>

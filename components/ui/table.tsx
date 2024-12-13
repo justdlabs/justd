@@ -60,7 +60,7 @@ const useTableContext = () => React.useContext(TableContext)
 
 const Table = ({ children, className, ...props }: TableProps) => (
   <TableContext.Provider value={props}>
-    <div className="relative w-full overflow-auto">
+    <div className="overflow-auto relative w-full">
       {props.allowResize ? (
         <ResizableTableContainer className="overflow-auto">
           <TablePrimitive {...props} className={root({ className })}>
@@ -86,7 +86,7 @@ const ColumnResizer = ({ className, ...props }: ColumnResizerProps) => (
       }),
     )}
   >
-    <div className="h-full w-px bg-border py-3" />
+    <div className="py-3 w-px h-full bg-border" />
   </ColumnResizerPrimitive>
 )
 
@@ -166,7 +166,7 @@ const Header = <T extends object>({ children, className, columns, ...props }: He
     <TableHeader data-slot="table-header" {...props} className={header({ className })}>
       {allowsDragging && <Column className="w-0" />}
       {selectionBehavior === "toggle" && (
-        <Column className="w-0 pl-4">{selectionMode === "multiple" && <Checkbox slot="selection" />}</Column>
+        <Column className="pl-4 w-0">{selectionMode === "multiple" && <Checkbox slot="selection" />}</Column>
       )}
       <Collection items={columns}>{children}</Collection>
     </TableHeader>
@@ -192,8 +192,8 @@ const TableRow = <T extends object>({ children, className, columns, id, ...props
       })}
     >
       {allowsDragging && (
-        <Cell className="group cursor-grab pr-0 ring-primary data-dragging:cursor-grabbing">
-          <Button className="relative bg-transparent py-1.5 pl-3.5 text-muted-fg data-pressed:text-fg" slot="drag">
+        <Cell className="pr-0 group cursor-grab ring-primary data-dragging:cursor-grabbing">
+          <Button className="relative py-1.5 pl-3.5 bg-transparent text-muted-fg data-pressed:text-fg" slot="drag">
             <IconHamburger />
           </Button>
         </Cell>
@@ -202,7 +202,7 @@ const TableRow = <T extends object>({ children, className, columns, id, ...props
         <Cell className="pl-4">
           <span
             aria-hidden
-            className="absolute inset-y-0 left-0 hidden h-full w-0.5 bg-primary group-data-selected:block"
+            className="hidden absolute inset-y-0 left-0 w-0.5 h-full bg-primary group-data-selected:block"
           />
           <Checkbox slot="selection" />
         </Cell>

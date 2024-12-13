@@ -76,12 +76,12 @@ const DropdownItem = ({ className, ...props }: ListBoxItemProps) => {
     >
       {composeRenderProps(props.children, (children, { isSelected }) => (
         <>
-          <span className="flex flex-1 items-center gap-2 truncate font-normal group-data-selected:font-medium">
+          <span className="flex flex-1 gap-2 items-center font-normal truncate group-data-selected:font-medium">
             {children}
           </span>
 
           {isSelected && (
-            <span className="absolute top-3 right-2 lg:top-2.5">
+            <span className="absolute right-2 top-3 lg:top-2.5">
               <IconCheck />
             </span>
           )}

@@ -7,10 +7,10 @@ import { Container, Link, buttonStyles } from "ui"
 
 export function Hero() {
   return (
-    <div className="relative isolate overflow-hidden bg-bg">
+    <div className="overflow-hidden relative isolate bg-bg">
       <div
         aria-hidden="true"
-        className="-top-10 -z-10 sm:-top-56 absolute inset-x-0 hidden transform-gpu overflow-hidden blur-3xl sm:block"
+        className="hidden overflow-hidden absolute inset-x-0 -top-10 transform-gpu sm:block sm:-top-56 -z-10 blur-3xl"
       >
         <div
           style={{
@@ -38,7 +38,7 @@ export function Hero() {
         </defs>
         <rect fill="url(#0787a7c5-978c-4f66-83c7-11c213f99cb7)" width="100%" height="100%" strokeWidth={0} />
       </svg>
-      <div className="border-b pt-10 pb-6 sm:py-8 lg:py-10 xl:py-20 2xl:py-24">
+      <div className="pt-10 pb-6 border-b sm:py-8 lg:py-10 xl:py-20 2xl:py-24">
         <Container>
           <Header>
             <Link
@@ -51,9 +51,9 @@ export function Hero() {
                 className: "group bg-white text-zinc-900 hover:bg-zinc-100 **:data-[slot=icon]:text-warning",
               })}
             >
-              <IconStar className="group-hover:fill-yellow-500 group-hover:text-yellow-500" /> Stars sustain energy
+              <IconStar className="group-hover:text-yellow-500 group-hover:fill-yellow-500" /> Stars sustain energy
             </Link>
-            <h1 className="mt-4 mb-4 max-w-xl font-bold text-2xl tracking-tight lg:mb-6 lg:text-4xl">
+            <h1 className="mt-4 mb-4 max-w-xl text-2xl font-bold tracking-tight lg:mb-6 lg:text-4xl">
               Accessible React UI Components. Copy, Customize, and Make Them Yours.
             </h1>
             <p className="block max-w-3xl text-base text-muted-fg leading-relaxed md:leading-loose lg:text-xl [&_strong]:font-medium">
@@ -64,7 +64,7 @@ export function Hero() {
             </p>
           </Header>
 
-          <div className="mt-6 flex items-center gap-x-2">
+          <div className="flex gap-x-2 items-center mt-6">
             <Link
               className={buttonStyles({
                 size: "large",

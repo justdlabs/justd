@@ -113,7 +113,7 @@ const Content = ({ respectScreen = true, children, showArrow = true, className, 
   const effectiveOffset = isSubmenuTrigger ? offset - 5 : offset
   return isMobile && respectScreen ? (
     <ModalOverlay
-      className="fixed top-0 left-0 isolate z-50 h-(--visual-viewport-height) w-full bg-overlay/10 [--visual-viewport-vertical-padding:16px]"
+      className="fixed top-0 left-0 z-50 w-full isolate h-(--visual-viewport-height) bg-overlay/10 [--visual-viewport-vertical-padding:16px]"
       {...props}
       isDismissable
     >
@@ -125,7 +125,7 @@ const Content = ({ respectScreen = true, children, showArrow = true, className, 
         <Dialog
           role="dialog"
           aria-label={isMenu ? "Menu" : props["aria-label"]}
-          className="touch-none p-0 data-focused:outline-hidden"
+          className="p-0 touch-none data-focused:outline-hidden"
         >
           {children}
         </Dialog>

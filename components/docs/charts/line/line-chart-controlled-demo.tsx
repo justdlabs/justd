@@ -40,7 +40,7 @@ export default function LineChartControlledDemo() {
 
   return (
     <Card>
-      <Card.Header className="flex flex-row items-center justify-between">
+      <Card.Header className="flex flex-row justify-between items-center">
         <div className="space-y-1">
           <Card.Title>Revenue vs Expenses</Card.Title>
           <Card.Description>Tracking daily revenue and expenses over the last 3 months</Card.Description>
@@ -57,7 +57,7 @@ export default function LineChartControlledDemo() {
         </div>
       </Card.Header>
       <Card.Content className="px-2 sm:p-6">
-        <Chart config={chartConfig} className="aspect-auto h-[250px] w-full">
+        <Chart config={chartConfig} className="w-full aspect-auto h-[250px]">
           <LineChart
             accessibilityLayer
             data={chartData}

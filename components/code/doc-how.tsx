@@ -87,7 +87,7 @@ export const DocHow = ({
           >
             <React.Suspense
               fallback={
-                <div className="flex items-center justify-center py-6 text-muted-fg text-sm">
+                <div className="flex justify-center items-center py-6 text-sm text-muted-fg">
                   <Loader variant="spin" />
                   <span className="sr-only">Loading...</span>
                 </div>
@@ -102,7 +102,7 @@ export const DocHow = ({
 
         <Tabs.Panel id="code">
           {processedSourceCode ? (
-            <Group className="group relative">
+            <Group className="relative group">
               {/*<CopyButton text={processedSourceCode} className="absolute top-0 right-0" />*/}
               <CodeHighlighter removeLastLine code={processedSourceCode} />
             </Group>

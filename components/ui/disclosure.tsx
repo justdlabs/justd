@@ -91,7 +91,7 @@ const DisclosureTrigger = ({ className, ...props }: ButtonProps) => {
             {typeof props.children === "function" ? props.children(values) : props.children}
             <IconChevronLeft
               data-slot="chevron"
-              className="internal-chevron ml-auto size-4 shrink-0 shrink-0 transition duration-300"
+              className="ml-auto transition duration-300 internal-chevron size-4 shrink-0"
             />
           </>
         )}

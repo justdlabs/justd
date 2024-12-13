@@ -142,7 +142,7 @@ const CommandMenu = ({
               {!hideCloseButton && (
                 <Button autoFocus={!isDesktop} slot="close" className={closeButton()}>
                   <span className="hidden lg:block">Esc</span>
-                  <span className="-mr-2 block lg:hidden">
+                  <span className="block -mr-2 lg:hidden">
                     <IconX />
                     <span className="sr-only">Close command palette</span>
                   </span>
@@ -164,14 +164,14 @@ const CommandMenuInput = forwardRef<React.ComponentRef<typeof Command.Input>, Co
   ({ className, isPending, ...props }, ref) => {
     const { hideSearchIndicator } = use(CommandMenuContext)
     return (
-      <div className="flex items-center border-b px-3">
+      <div className="flex items-center px-3 border-b">
         {!hideSearchIndicator &&
           (isPending ? (
             <Command.Loading className="mr-2 opacity-50 data-[slot=icon]:size-5 data-[slot=icon]:shrink-0">
               <Loader variant="spin" />
             </Command.Loading>
           ) : (
-            <IconSearch className="mr-2 size-5 shrink-0 opacity-50" />
+            <IconSearch className="mr-2 opacity-50 size-5 shrink-0" />
           ))}
 
         <Command.Input

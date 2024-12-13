@@ -70,7 +70,6 @@ const ChartStyle = ({ id, config }: { id: string; config: ChartConfig }) => {
 
   return (
     <style
-      // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
       dangerouslySetInnerHTML={{
         __html: Object.entries(THEMES)
           .map(
@@ -212,7 +211,7 @@ const ChartTooltipContent = forwardRef<
                         <span className="text-muted-fg">{itemConfig?.label || item.name}</span>
                       </div>
                       {item.value && (
-                        <span className="font-medium font-mono text-foreground tabular-nums">
+                        <span className="font-mono font-medium tabular-nums text-foreground">
                           {item.value.toLocaleString()}
                         </span>
                       )}
@@ -263,7 +262,7 @@ const ChartLegendContent = forwardRef<
               <itemConfig.icon />
             ) : (
               <div
-                className="h-2 w-2 shrink-0 rounded-[2px]"
+                className="w-2 h-2 shrink-0 rounded-[2px]"
                 style={{
                   backgroundColor: item.color,
                 }}

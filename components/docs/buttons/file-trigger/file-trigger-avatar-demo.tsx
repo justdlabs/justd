@@ -30,7 +30,7 @@ export default function FileTriggerAvatarDemo() {
   }
 
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex gap-2 items-center">
       <DropZone
         getDropOperation={() => "copy"}
         onDrop={onDropHandler}

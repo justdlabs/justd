@@ -46,9 +46,9 @@ type HSBColor = {
 }
 
 const isBrightColor = (color: string | HSBColor): boolean => {
-  let r
-  let g
-  let b
+  let r: number
+  let g: number
+  let b: number
 
   if (typeof color === "string") {
     if (color.startsWith("#")) {

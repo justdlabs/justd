@@ -73,7 +73,7 @@ export default async function Page({
         <Container>
           <Suspense
             fallback={
-              <div className="flex min-h-96 items-center justify-center">
+              <div className="flex justify-center items-center min-h-96">
                 <Loader />
               </div>
             }

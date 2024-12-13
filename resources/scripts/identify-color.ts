@@ -51,12 +51,16 @@ const main = () => {
     process.exit(1)
   }
 
+  console.log(`Searching for components using classes in "${TARGET_DIR}"...`)
+
   const components = findComponentsUsingClasses(TARGET_DIR, TARGET_CLASSES)
 
   TARGET_CLASSES.forEach((cls) => {
     if (components[cls].length === 0) {
+      console.log(`No components found using class "${cls}".`)
     } else {
-      components[cls].forEach((component) => )
+      console.log(`${cls} is used in ${components[cls].length} component(s):`)
+      components[cls].forEach((component) => console.log(`- ${component}`))
     }
   })
 }

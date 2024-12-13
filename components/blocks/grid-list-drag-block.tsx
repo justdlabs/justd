@@ -34,7 +34,7 @@ export function GridListDragBlock() {
 
   return (
     <CardBlock>
-      <div className="grid w-full items-start gap-4 lg:grid-cols-3">
+      <div className="grid gap-4 items-start w-full lg:grid-cols-3">
         <GridListDragDemo />
         <GridList aria-label="Droppable list" items={list.items} dragAndDropHooks={dragAndDropHooks}>
           {(item) => <GridList.Item>{item.name}</GridList.Item>}

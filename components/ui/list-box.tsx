@@ -60,7 +60,7 @@ const Item = <T extends object>({ children, className, ...props }: ItemProps<T>)
       )}
     >
       {(values) => (
-        <div className="flex items-center gap-2">
+        <div className="flex gap-2 items-center">
           <>
             {values.allowsDragging && (
               <IconHamburger
@@ -76,7 +76,7 @@ const Item = <T extends object>({ children, className, ...props }: ItemProps<T>)
               {typeof children === "function" ? children(values) : children}
 
               {values.isSelected && (
-                <span className="absolute top-3 right-2 animate-in lg:top-2.5">
+                <span className="absolute right-2 top-3 lg:top-2.5 animate-in">
                   <IconCheck />
                 </span>
               )}

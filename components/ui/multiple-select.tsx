@@ -199,7 +199,7 @@ const MultipleSelect = <T extends SelectedKey>({
     return () => {
       observer.unobserve(trigger)
     }
-  }, [triggerRef])
+  }, [])
 
   const triggerButtonRef = useRef<HTMLButtonElement | null>(null)
 
@@ -293,7 +293,7 @@ const MultipleSelect = <T extends SelectedKey>({
               </ListBox.Picker>
             </Popover.Picker>
           </ComboBox>
-          <div className="relative ml-auto flex items-center justify-center px-1" aria-hidden>
+          <div className="flex relative justify-center items-center px-1 ml-auto" aria-hidden>
             <button
               type="button"
               className={chevronButton()}

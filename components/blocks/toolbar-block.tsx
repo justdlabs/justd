@@ -17,7 +17,7 @@ import { Toolbar } from "ui"
 export function ToolbarBlock() {
   return (
     <CardBlock>
-      <div className="flex justify-center gap-2">
+      <div className="flex gap-2 justify-center">
         <Toolbar aria-label="Toolbars" className="flex justify-between">
           <Toolbar.Group aria-label="Actions">
             <Toolbar.Item size="square-petite" aria-label="Support" appearance="outline">

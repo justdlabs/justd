@@ -74,7 +74,7 @@ export function EditorText({ source }: Props) {
     <>
       {rawSourceCode && Object.keys(rawSourceCode).length > 0 ? (
         <Tabs className="relative gap-0">
-          <div className="flex items-center justify-between overflow-hidden rounded-t-lg border-zinc-700 border-x border-y bg-[#0e0e10] dark:border-zinc-800">
+          <div className="flex overflow-hidden justify-between items-center rounded-t-lg border-zinc-700 border-x border-y bg-[#0e0e10] dark:border-zinc-800">
             <Tabs.List className="gap-0 border-0">
               {Object.keys(rawSourceCode).map((key) => (
                 <Tab
@@ -108,10 +108,10 @@ export function EditorText({ source }: Props) {
               ))}
             </Tabs.List>
             {/*<Tooltip>*/}
-            {/*  <Tooltip.Trigger className="hidden sm:flex items-center gap-x-2 pr-3">*/}
-            {/*    <div className="size-3 bg-green-500 rounded-full" />*/}
-            {/*    <div className="size-3 bg-yellow-500 rounded-full" />*/}
-            {/*    <div className="size-3 bg-red-500 rounded-full" />*/}
+            {/*  <Tooltip.Trigger className="hidden gap-x-2 items-center pr-3 sm:flex">*/}
+            {/*    <div className="bg-green-500 rounded-full size-3" />*/}
+            {/*    <div className="bg-yellow-500 rounded-full size-3" />*/}
+            {/*    <div className="bg-red-500 rounded-full size-3" />*/}
             {/*  </Tooltip.Trigger>*/}
             {/*  <Tooltip.Content className="max-w-[16rem]" placement="bottom right">*/}
             {/*    Nothing to worry about, this is a documentation file. You can safely ignore it.*/}
@@ -122,7 +122,7 @@ export function EditorText({ source }: Props) {
             <Tabs.Panel
               key={key}
               id={key}
-              className="overflow-hidden rounded-b-lg border-zinc-700 border-x border-b bg-shiki-bg dark:border-zinc-800"
+              className="overflow-hidden rounded-b-lg border-b border-zinc-700 border-x bg-shiki-bg dark:border-zinc-800"
             >
               <CopyButton
                 className="absolute top-0.5 right-1"

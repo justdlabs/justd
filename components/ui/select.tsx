@@ -100,7 +100,7 @@ const Trigger = ({ className, ...props }: TriggerProps) => {
       />
       <IconChevronLgDown
         aria-hidden
-        className="size-4 shrink-0 text-muted-fg duration-300 group-data-open:rotate-180 group-data-open:text-fg group-data-disabled:opacity-50 forced-colors:text-[ButtonText] forced-colors:group-data-disabled:text-[GrayText]"
+        className="duration-300 size-4 shrink-0 text-muted-fg group-data-open:rotate-180 group-data-open:text-fg group-data-disabled:opacity-50 forced-colors:text-[ButtonText] forced-colors:group-data-disabled:text-[GrayText]"
       />
     </Button>
   )

@@ -62,7 +62,7 @@ export function TableOfContents({ className, items }: Props) {
       <nav aria-labelledby="on-this-page-title" className="w-56">
         <Suspense>
           <>
-            <Heading level={2} className="mb-6 font-medium text-base text-fg leading-7 lg:text-lg">
+            <Heading level={2} className="mb-6 text-base font-medium leading-7 lg:text-lg text-fg">
               On this page
             </Heading>
             {items.length > 0 && (
@@ -109,6 +109,7 @@ function TocLink({ item, activeId }: { item: TableOfContentsProps; activeId: str
 export function useActiveItem(itemIds: string[]) {
   const [activeId, setActiveId] = useState<string | null>(null)
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   React.useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {

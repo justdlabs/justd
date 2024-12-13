@@ -24,6 +24,7 @@ export function getSiteName(url: string): string {
 }
 
 export function extractJSX(code: string) {
+  // biome-ignore lint/correctness/noEmptyCharacterClassInRegex: <explanation>
   const match = code.match(/return\s*(\([^]*?\)|.*?);?\s*}/)
   if (match?.[1]) {
     const jsx = match[1].replace(/^\(|\)$/g, "").trim()

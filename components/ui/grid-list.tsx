@@ -57,7 +57,7 @@ const Item = ({ className, ...props }: GridListItemProps) => {
 
           <span
             aria-hidden
-            className="absolute inset-y-0 left-0 hidden h-full w-0.5 bg-primary group-data-selected:block"
+            className="hidden absolute inset-y-0 left-0 w-0.5 h-full bg-primary group-data-selected:block"
           />
           {selectionMode === "multiple" && selectionBehavior === "toggle" && (
             <Checkbox className="-mr-2" slot="selection" />
