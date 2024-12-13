@@ -13,8 +13,8 @@ export default function TagFieldControlledDemo() {
       <TagField
         appearance="outline"
         label="Add tag"
-        onItemInserted={(key) => console.log("onItemInserted", key)}
-        onItemCleared={(key) => console.log("onItemCleared", key)}
+        onItemInserted={(key) => console.info("onItemInserted", key)}
+        onItemCleared={(key) => console.info("onItemCleared", key)}
         description="You can add multiple tags"
         list={selectedItems}
       />
