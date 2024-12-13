@@ -28,14 +28,14 @@ const surveyData = [
   { category: "Product Quality", satisfaction: 90 },
   { category: "Delivery Speed", satisfaction: 78 },
   { category: "Ease of Use", satisfaction: 88 },
-  { category: "Value for Money", satisfaction: 82 }
+  { category: "Value for Money", satisfaction: 82 },
 ]
 
 const chartConfig = {
   satisfaction: {
     label: "Satisfaction",
-    color: "var(--chart-1)"
-  }
+    color: "var(--chart-1)",
+  },
 } satisfies ChartConfig
 
 export default function BarChartLabelDemo() {
@@ -48,7 +48,7 @@ export default function BarChartLabelDemo() {
             accessibilityLayer
             data={surveyData}
             margin={{
-              top: 20
+              top: 20,
             }}
           >
             <CartesianGrid vertical={false} />

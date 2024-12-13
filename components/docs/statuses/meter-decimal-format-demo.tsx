@@ -1,7 +1,5 @@
 "use client"
 
-import React from "react"
-
 import { Meter } from "ui"
 
 export default function MeterDecimalFormatDemo() {
@@ -10,7 +8,7 @@ export default function MeterDecimalFormatDemo() {
       formatOptions={{
         style: "decimal",
         minimumFractionDigits: 2,
-        maximumFractionDigits: 2
+        maximumFractionDigits: 2,
       }}
       label="Progress"
       value={75.25}

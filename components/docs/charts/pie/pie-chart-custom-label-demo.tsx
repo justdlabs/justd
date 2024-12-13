@@ -8,33 +8,33 @@ const chartData = [
   { category: "Marketing", amount: 200, fill: "var(--color-marketing)" },
   { category: "IT", amount: 187, fill: "var(--color-it)" },
   { category: "HR", amount: 173, fill: "var(--color-hr)" },
-  { category: "Operations", amount: 90, fill: "var(--color-operations)" }
+  { category: "Operations", amount: 90, fill: "var(--color-operations)" },
 ]
 
 const chartConfig = {
   amount: {
-    label: "Amount"
+    label: "Amount",
   },
   sales: {
     label: "Sales",
-    color: "var(--chart-1)"
+    color: "var(--chart-1)",
   },
   marketing: {
     label: "Marketing",
-    color: "var(--chart-2)"
+    color: "var(--chart-2)",
   },
   it: {
     label: "IT",
-    color: "var(--chart-3)"
+    color: "var(--chart-3)",
   },
   hr: {
     label: "HR",
-    color: "var(--chart-4)"
+    color: "var(--chart-4)",
   },
   operations: {
     label: "Operations",
-    color: "var(--chart-5)"
-  }
+    color: "var(--chart-5)",
+  },
 } satisfies ChartConfig
 
 export default function PieChartCustomLabelDemo() {

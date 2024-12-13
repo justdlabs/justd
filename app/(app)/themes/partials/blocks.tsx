@@ -25,18 +25,18 @@ import {
   Select,
   Separator,
   Switch,
-  TextField
+  TextField,
 } from "ui"
 
 export function Blocks() {
   return (
-    <div className="grid **:data-[slot=card]:rounded-md gap-1">
+    <div className="grid gap-1 **:data-[slot=card]:rounded-md">
       {/*<div className="grid **:data-[slot=card]:rounded-md **:data-[slot=card]:bg-secondary/15 gap-2">*/}
       <div className="-mx-2.5">
-        <AppNavbar className="*:data-navbar-nav:rounded-md -mt-1" intent="floating" />
+        <AppNavbar className="-mt-1 *:data-navbar-nav:rounded-md" intent="floating" />
       </div>
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-1">
-        <Card className="p-6 flex flex-col items-center justify-center gap-y-6">
+      <div className="grid gap-1 sm:grid-cols-2 md:grid-cols-3">
+        <Card className="flex flex-col items-center justify-center gap-y-6 p-6">
           <div className="grid grid-cols-2 gap-2">
             {Object.keys(buttonStyles.variants.intent).map((intent) => (
               <Button key={intent} intent={intent as keyof typeof buttonStyles.variants.intent}>
@@ -44,7 +44,7 @@ export function Blocks() {
               </Button>
             ))}
           </div>
-          <Separator className="max-w-[16rem] mx-auto" />
+          <Separator className="mx-auto max-w-[16rem]" />
           <div className="grid grid-cols-2 gap-2">
             {Object.keys(buttonStyles.variants.appearance).map((appearance) => (
               <Button key={appearance} appearance={appearance as keyof typeof buttonStyles.variants.appearance}>
@@ -61,7 +61,7 @@ export function Blocks() {
           <Card.Content className="space-y-6">
             <TextField isRequired label="Email" placeholder="Enter your email" />
             <TextField isRequired label="Password" isRevealable type="password" placeholder="Enter your password" />
-            <div className="flex justify-between items-center">
+            <div className="flex items-center justify-between">
               <Checkbox>Remember me</Checkbox>
               <Link intent="primary" className="text-sm" href="#">
                 Forgot password?
@@ -72,9 +72,9 @@ export function Blocks() {
             <Button className="w-full">Login</Button>
           </Card.Footer>
         </Card>
-        <Card className="flex justify-center items-center gap-2 p-6">
+        <Card className="flex items-center justify-center gap-2 p-6">
           <div className="space-y-2">
-            <div className="flex md:flex-row flex-col gap-2">
+            <div className="flex flex-col gap-2 md:flex-row">
               <ModalDemo />
               <PopoverDemo />
               <MenuSubDemo />
@@ -102,10 +102,10 @@ export function Blocks() {
             </ComboBox>
           </div>
         </Card>
-        <Card className="p-6 flex items-center justify-center">
+        <Card className="flex items-center justify-center p-6">
           <RangeCalendarControlledDemo />
         </Card>
-        <Card className="p-6 flex items-center justify-center">
+        <Card className="flex items-center justify-center p-6">
           <RadioGroup defaultValue="highSecurity" aria-label="Security settings">
             <Radio value="highSecurity" description="Set security settings to high.">
               High Security
@@ -123,10 +123,10 @@ export function Blocks() {
             </Radio>
           </RadioGroup>
         </Card>
-        <Card className="p-6 flex items-center justify-center">
+        <Card className="flex items-center justify-center p-6">
           <Switch>{({ isSelected }) => <>{isSelected ? "Enabled" : "Disabled"} Auto Updates</>}</Switch>
         </Card>
-        <Card className="p-6 flex items-center justify-center">
+        <Card className="flex items-center justify-center p-6">
           <Choicebox
             defaultSelectedKeys={["standard", "pro"]}
             columns={1}
@@ -146,7 +146,7 @@ export function Blocks() {
         <PieChartDonutWithTextDemo />
         <RadialBarChartGridDemo />
       </div>
-      <div className="grid sm:grid-cols-2 gap-1">
+      <div className="grid gap-1 sm:grid-cols-2">
         <AreaChartGradientDemo />
         <BarChartMultipleDemo />
       </div>

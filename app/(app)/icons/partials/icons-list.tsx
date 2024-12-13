@@ -1,6 +1,7 @@
 "use client"
 
-import React, { useRef, useState } from "react"
+import type React from "react"
+import { useRef, useState } from "react"
 
 import * as icons from "justd-icons"
 import { IconDownload } from "justd-icons"
@@ -60,11 +61,11 @@ export function IconListItem({ name, Icon }: IconListItemProps) {
     copyToClipboard(textToCopy).then(() => {
       toast(
         <>
-          <code className="text-xs tracking-tight mr-1">{textToCopy}</code> copied to clipboard.
+          <code className="mr-1 text-xs tracking-tight">{textToCopy}</code> copied to clipboard.
         </>,
         {
-          closeButton: false
-        }
+          closeButton: false,
+        },
       )
     })
   }
@@ -80,7 +81,7 @@ export function IconListItem({ name, Icon }: IconListItemProps) {
       <Icon aria-label={name} className={selectedSize} key={name} />
       <Menu isOpen={isSelected} onOpenChange={setSelected}>
         <Menu.Content triggerRef={triggerRef} className="sm:min-w-48" showArrow aria-label="Options">
-          <Menu.Header className="font-normal font-mono text-xs sm:text-xs" separator>
+          <Menu.Header className="font-mono font-normal text-xs sm:text-xs" separator>
             {name}
           </Menu.Header>
           <Menu.Item onAction={() => handleCopy("jsx")}>Copy JSX</Menu.Item>

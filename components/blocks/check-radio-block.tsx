@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import { useState } from "react"
 
 import { CardBlock } from "@/components/blocks"
 import { Checkbox, CheckboxGroup, Radio, RadioGroup } from "ui"

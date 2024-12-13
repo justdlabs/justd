@@ -1,5 +1,5 @@
-import fs from "fs"
-import path from "path"
+import fs from "node:fs"
+import path from "node:path"
 
 const directoryPath = "./components/docs"
 
@@ -23,7 +23,6 @@ function findFilesWithoutUseClient(dirPath: string): void {
           }
 
           if (!content.includes('"use client"') && !content.includes("use client")) {
-            console.log(`Component does not contain 'use client': ${fullPath}`)
           }
         })
       }

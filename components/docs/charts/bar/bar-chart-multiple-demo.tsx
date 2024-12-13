@@ -9,23 +9,23 @@ const chartData = Array.from({ length: 12 }, (_, i) => {
     month: months[i],
     sales: 1000 + Math.floor(Math.random() * 300), // Random value for Sales
     expenses: 800 + Math.floor(Math.random() * 400), // Random value for Expenses
-    profit: 200 + Math.floor(Math.random() * 900) // Random value for Profit
+    profit: 200 + Math.floor(Math.random() * 900), // Random value for Profit
   }
 })
 
 const chartConfig = {
   sales: {
     label: "Sales",
-    color: "var(--chart-1)"
+    color: "var(--chart-1)",
   },
   expenses: {
     label: "Expenses",
-    color: "var(--chart-2)"
+    color: "var(--chart-2)",
   },
   profit: {
     label: "Profit",
-    color: "var(--chart-4)"
-  }
+    color: "var(--chart-4)",
+  },
 } satisfies ChartConfig
 
 export default function BarChartMultipleDemo() {
@@ -37,7 +37,7 @@ export default function BarChartMultipleDemo() {
         className="items-center pb-4"
       />
       <Card.Content>
-        <Chart config={chartConfig} className="w-full max-h-[250px]">
+        <Chart config={chartConfig} className="max-h-[250px] w-full">
           <BarChart accessibilityLayer data={chartData}>
             <CartesianGrid vertical={false} />
             <XAxis dataKey="month" tickLine={false} tickMargin={10} axisLine={false} />

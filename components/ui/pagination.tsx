@@ -5,7 +5,7 @@ import {
   IconChevronLgRight,
   IconChevronsLgLeft,
   IconChevronsLgRight,
-  IconDotsHorizontal
+  IconDotsHorizontal,
 } from "justd-icons"
 import {
   composeRenderProps,
@@ -15,7 +15,7 @@ import {
   type ListBoxProps,
   ListBoxSection,
   type SectionProps,
-  Separator
+  Separator,
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
@@ -36,8 +36,8 @@ const paginationStyles = tv({
     itemEllipsisIcon: "flex size-9 items-center justify-center",
     defaultItem:
       "data-data-focus-visible:border-primary tabular-nums font-normal cursor-pointer disabled:cursor-default data-data-focus-visible:bg-primary/10 data-data-focus-visible:ring-4 data-data-focus-visible:ring-primary/20 disabled:opacity-100",
-    itemSeparatorLine: "h-5 w-[1.5px] bg-secondary-fg/40 rotate-[14deg] shrink-0"
-  }
+    itemSeparatorLine: "h-5 w-[1.5px] bg-secondary-fg/40 rotate-[14deg] shrink-0",
+  },
 })
 
 const {
@@ -50,11 +50,11 @@ const {
   itemEllipsis,
   itemEllipsisIcon,
   defaultItem,
-  itemSeparatorLine
+  itemSeparatorLine,
 } = paginationStyles()
 
 const Pagination = ({ className, ...props }: React.ComponentProps<"nav">) => (
-  <nav role="navigation" aria-label="pagination" className={pagination({ className })} {...props} />
+  <nav aria-label="pagination" className={pagination({ className })} {...props} />
 )
 
 const PaginationSection = <T extends object>({ className, ...props }: SectionProps<T>) => (
@@ -80,7 +80,7 @@ const renderListItem = (
     isDisabled?: boolean
     className?: string
   },
-  children: React.ReactNode
+  children: React.ReactNode,
 ) => <ListBoxItem {...props}>{children}</ListBoxItem>
 
 interface PaginationItemProps extends ListBoxItemProps {
@@ -117,13 +117,13 @@ const Item = ({
           buttonStyles({
             appearance: "outline",
             size: "small",
-            className: itemButton()
+            className: itemButton(),
           }),
-          className
+          className,
         ),
-        ...props
+        ...props,
       },
-      indicator
+      indicator,
     )
 
   switch (variant) {
@@ -132,29 +132,29 @@ const Item = ({
         {
           textValue: textValue,
           className: itemLabel({ className }),
-          ...props
+          ...props,
         },
-        children
+        children,
       )
     case "separator":
       return renderListItem(
         {
           textValue: "Separator",
           className: itemSeparator({ className }),
-          ...props
+          ...props,
         },
-        <Separator orientation="vertical" className={itemSeparatorLine()} />
+        <Separator orientation="vertical" className={itemSeparatorLine()} />,
       )
     case "ellipsis":
       return renderListItem(
         {
           textValue: "More pages",
           className: itemEllipsis({ className }),
-          ...props
+          ...props,
         },
         <span aria-hidden className={itemEllipsisIcon({ className })}>
           <IconDotsHorizontal />
-        </span>
+        </span>,
       )
     case "previous":
       return renderPaginationIndicator(<IconChevronLgLeft />)
@@ -175,13 +175,13 @@ const Item = ({
               intent: isCurrent ? "primary" : intent,
               appearance: isCurrent ? "solid" : appearance,
               size,
-              className: defaultItem({ className })
+              className: defaultItem({ className }),
             }),
-            className
+            className,
           ),
-          ...props
+          ...props,
         },
-        children
+        children,
       )
   }
 }

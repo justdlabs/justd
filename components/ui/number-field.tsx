@@ -6,7 +6,7 @@ import {
   type ButtonProps,
   NumberField as NumberFieldPrimitive,
   type NumberFieldProps as NumberFieldPrimitiveProps,
-  type ValidationResult
+  type ValidationResult,
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
@@ -17,20 +17,20 @@ const fieldBorderStyles = tv({
   base: "group-data-focused:border-primary/70 forced-colors:border-[Highlight]",
   variants: {
     isInvalid: {
-      true: "group-data-focused:border-danger/70 forced-colors:border-[Mark]"
+      true: "group-data-focused:border-danger/70 forced-colors:border-[Mark]",
     },
     isDisabled: {
-      true: "group-data-focused:border-input/70"
-    }
-  }
+      true: "group-data-focused:border-input/70",
+    },
+  },
 })
 
 const numberFieldStyles = tv({
   slots: {
     base: "group flex flex-col gap-y-1.5",
     stepperButton:
-      "h-10 cursor-default px-3 text-muted-fg data-pressed:bg-primary data-pressed:text-primary-fg group-data-disabled:bg-secondary/70 forced-colors:group-data-disabled:text-[GrayText]"
-  }
+      "h-10 cursor-default px-3 text-muted-fg data-pressed:bg-primary data-pressed:text-primary-fg group-data-disabled:bg-secondary/70 forced-colors:group-data-disabled:text-[GrayText]",
+  },
 })
 
 const { base, stepperButton } = numberFieldStyles()
@@ -55,7 +55,7 @@ const NumberField = ({ label, placeholder, description, className, errorMessage,
             <div
               className={fieldBorderStyles({
                 ...renderProps,
-                className: "grid h-10 place-content-center border-s"
+                className: "grid h-10 place-content-center border-s",
               })}
             >
               {isMobile ? (
@@ -66,7 +66,7 @@ const NumberField = ({ label, placeholder, description, className, errorMessage,
                   <div
                     className={fieldBorderStyles({
                       ...renderProps,
-                      className: "border-b border-input"
+                      className: "border-input border-b",
                     })}
                   />
                   <StepperButton slot="decrement" emblemType="chevron" className="h-5 px-1" />

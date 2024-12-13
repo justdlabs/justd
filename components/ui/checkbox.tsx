@@ -4,12 +4,12 @@ import { IconCheck, IconMinus } from "justd-icons"
 import type {
   CheckboxGroupProps as CheckboxGroupPrimitiveProps,
   CheckboxProps as CheckboxPrimitiveProps,
-  ValidationResult
+  ValidationResult,
 } from "react-aria-components"
 import {
   Checkbox as CheckboxPrimitive,
   CheckboxGroup as CheckboxGroupPrimitive,
-  composeRenderProps
+  composeRenderProps,
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
@@ -26,7 +26,7 @@ const CheckboxGroup = ({ className, ...props }: CheckboxGroupProps) => {
   return (
     <CheckboxGroupPrimitive {...props} className={composeTailwindRenderProps(className, "flex flex-col gap-y-2")}>
       <Label>{props.label}</Label>
-      <>{props.children as React.ReactNode}</>
+      {props.children as React.ReactNode}
       {props.description && <Description className="block">{props.description}</Description>}
       <FieldError>{props.errorMessage}</FieldError>
     </CheckboxGroupPrimitive>
@@ -37,9 +37,9 @@ const checkboxStyles = tv({
   base: "group flex items-center gap-2 text-sm transition",
   variants: {
     isDisabled: {
-      true: "opacity-50"
-    }
-  }
+      true: "opacity-50",
+    },
+  },
 })
 
 const boxStyles = tv({
@@ -49,19 +49,19 @@ const boxStyles = tv({
       false: "bg-muted",
       true: [
         "border-primary bg-primary text-primary-fg",
-        "group-data-invalid:border-danger/70 group-data-invalid:bg-danger group-data-invalid:text-danger-fg"
-      ]
+        "group-data-invalid:border-danger/70 group-data-invalid:bg-danger group-data-invalid:text-danger-fg",
+      ],
     },
     isFocused: {
       true: [
         "border-primary ring-4 ring-primary/20",
-        "group-data-invalid:border-danger/70 group-data-invalid:text-danger-fg group-data-invalid:ring-danger/20"
-      ]
+        "group-data-invalid:border-danger/70 group-data-invalid:text-danger-fg group-data-invalid:ring-danger/20",
+      ],
     },
     isInvalid: {
-      true: "border-danger/70 bg-danger/20 text-danger-fg ring-danger/20"
-    }
-  }
+      true: "border-danger/70 bg-danger/20 text-danger-fg ring-danger/20",
+    },
+  },
 })
 
 interface CheckboxProps extends CheckboxPrimitiveProps {
@@ -74,7 +74,7 @@ const Checkbox = ({ className, ...props }: CheckboxProps) => {
     <CheckboxPrimitive
       {...props}
       className={composeRenderProps(className, (className, renderProps) =>
-        checkboxStyles({ ...renderProps, className })
+        checkboxStyles({ ...renderProps, className }),
       )}
     >
       {({ isSelected, isIndeterminate, ...renderProps }) => (
@@ -83,7 +83,7 @@ const Checkbox = ({ className, ...props }: CheckboxProps) => {
             className={boxStyles({
               ...renderProps,
               isSelected: isSelected || isIndeterminate,
-              className: props.description ? "mt-1" : "mt-px"
+              className: props.description ? "mt-1" : "mt-px",
             })}
           >
             {isIndeterminate ? <IconMinus /> : isSelected ? <IconCheck /> : null}

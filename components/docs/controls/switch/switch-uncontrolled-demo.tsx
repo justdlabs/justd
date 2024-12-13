@@ -1,7 +1,5 @@
 "use client"
 
-import React from "react"
-
 import { Switch } from "ui"
 
 export default function SwitchUncontrolledDemo() {

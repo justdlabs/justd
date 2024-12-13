@@ -5,7 +5,7 @@ import {
   TextArea as TextAreaPrimitive,
   TextField as TextFieldPrimitive,
   type TextFieldProps as TextFieldPrimitiveProps,
-  type ValidationResult
+  type ValidationResult,
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
@@ -14,7 +14,7 @@ import { composeTailwindRenderProps, focusStyles } from "./primitive"
 
 const textareaStyles = tv({
   extend: focusStyles,
-  base: "w-full min-w-0 min-h-16 field-sizing-content rounded-lg border border-input px-2.5 py-2 text-base shadow-xs outline-hidden transition duration-200 data-disabled:opacity-50 sm:text-sm"
+  base: "w-full min-w-0 min-h-16 field-sizing-content rounded-lg border border-input px-2.5 py-2 text-base shadow-xs outline-hidden transition duration-200 data-disabled:opacity-50 sm:text-sm",
 })
 
 interface TextareaProps extends TextFieldPrimitiveProps {
@@ -35,8 +35,8 @@ const Textarea = ({ className, placeholder, label, description, errorMessage, ..
         className={composeRenderProps(className, (className, renderProps) =>
           textareaStyles({
             ...renderProps,
-            className
-          })
+            className,
+          }),
         )}
       />
       {description && <Description>{description}</Description>}

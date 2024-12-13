@@ -38,7 +38,7 @@ const ColorField = ({
       aria-label={props["aria-label"] ?? "Color field"}
       className={composeTailwindRenderProps(
         className,
-        "**:data-[slot=color-swatch]:-ml-0.5 group w-full flex flex-col gap-y-1"
+        "**:data-[slot=color-swatch]:-ml-0.5 group flex w-full flex-col gap-y-1",
       )}
     >
       {label && <Label>{label}</Label>}

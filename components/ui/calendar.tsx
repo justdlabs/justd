@@ -13,7 +13,7 @@ import {
   type DateValue,
   Heading,
   Text,
-  useLocale
+  useLocale,
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
@@ -26,12 +26,12 @@ const cell = tv({
   variants: {
     isSelected: {
       false: "text-fg forced-colors:text-[ButtonText] data-hovered:bg-secondary-fg/15 data-pressed:bg-secondary-fg/20",
-      true: "bg-primary text-primary-fg data-invalid:bg-danger data-invalid:text-danger-fg forced-colors:bg-[Highlight] forced-colors:text-[Highlight] forced-colors:data-invalid:bg-[Mark]"
+      true: "bg-primary text-primary-fg data-invalid:bg-danger data-invalid:text-danger-fg forced-colors:bg-[Highlight] forced-colors:text-[Highlight] forced-colors:data-invalid:bg-[Mark]",
     },
     isDisabled: {
-      true: "text-muted-fg/70 forced-colors:text-[GrayText]"
-    }
-  }
+      true: "text-muted-fg/70 forced-colors:text-[GrayText]",
+    },
+  },
 })
 
 interface CalendarProps<T extends DateValue> extends Omit<CalendarPrimitiveProps<T>, "visibleDuration"> {
@@ -55,15 +55,15 @@ const Calendar = <T extends DateValue>({ errorMessage, className, ...props }: Ca
               className={composeRenderProps(className, (className, renderProps) =>
                 cell({
                   ...renderProps,
-                  className
-                })
+                  className,
+                }),
               )}
             />
           )}
         </CalendarGridBody>
       </CalendarGrid>
       {errorMessage && (
-        <Text slot="errorMessage" className="text-sm text-red-600">
+        <Text slot="errorMessage" className="text-red-600 text-sm">
           {errorMessage}
         </Text>
       )}
@@ -75,8 +75,8 @@ const calendarHeaderStyles = tv({
   slots: {
     header: "flex w-full justify-center gap-1 px-1 pb-5 sm:pb-4",
     heading: "mr-2 text-muted-fg sm:text-sm flex-1 text-left font-medium",
-    calendarGridHeaderCell: "text-sm lg:text-xs font-semibold text-muted-fg"
-  }
+    calendarGridHeaderCell: "text-sm lg:text-xs font-semibold text-muted-fg",
+  },
 })
 
 const { header, heading, calendarGridHeaderCell } = calendarHeaderStyles()
@@ -90,7 +90,7 @@ const CalendarHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivEle
       <div className="flex items-center gap-1">
         <Button
           size="square-petite"
-          className="**:data-[slot=icon]:text-fg size-8 sm:size-7"
+          className="size-8 **:data-[slot=icon]:text-fg sm:size-7"
           shape="circle"
           appearance="plain"
           slot="previous"
@@ -99,7 +99,7 @@ const CalendarHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivEle
         </Button>
         <Button
           size="square-petite"
-          className="**:data-[slot=icon]:text-fg size-8 sm:size-7"
+          className="size-8 **:data-[slot=icon]:text-fg sm:size-7"
           shape="circle"
           appearance="plain"
           slot="next"

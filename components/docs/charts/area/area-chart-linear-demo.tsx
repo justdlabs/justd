@@ -9,15 +9,15 @@ const visitorData = Array.from({ length: 24 }, (_, index) => {
   const month = date.toLocaleDateString("en-US", { month: "long" })
   return {
     month,
-    uniqueVisitors: Math.floor(Math.random() * 500 + 1000)
+    uniqueVisitors: Math.floor(Math.random() * 500 + 1000),
   }
 })
 
 const visitorConfig = {
   uniqueVisitors: {
     label: "Unique Visitors",
-    color: "var(--chart-1)"
-  }
+    color: "var(--chart-1)",
+  },
 } satisfies ChartConfig
 
 export default function AreaChartLinearDemo() {
@@ -35,7 +35,7 @@ export default function AreaChartLinearDemo() {
             data={visitorData}
             margin={{
               left: 12,
-              right: 12
+              right: 12,
             }}
           >
             <CartesianGrid vertical={false} />

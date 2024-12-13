@@ -1,5 +1,3 @@
-import React from "react"
-
 import { Radio, RadioGroup } from "ui"
 
 export default function RadioGroupAnatomy() {

@@ -3,9 +3,9 @@ import { cn } from "@/utils/classes"
 export function GeneratedTheme({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div>
-      <div className={cn("grid gap-4 lg:gap-6 max-h-48 overflow-y-auto", className)} {...props}>
-        <div className="sticky bg-gradient-to-b from-bg to-transparent inset-x-0 from-5% top-0 w-full h-10" />
-        <div className="gap-y-6 flex flex-col -mb-12 -mt-12">
+      <div className={cn("grid max-h-48 gap-4 overflow-y-auto lg:gap-6", className)} {...props}>
+        <div className="sticky inset-x-0 top-0 h-10 w-full bg-gradient-to-b from-5% from-bg to-transparent" />
+        <div className="-mb-12 -mt-12 flex flex-col gap-y-6">
           <ColorBox>
             <ColorBoxItem variable="bg" />
             <ColorBoxItem variable="fg" />
@@ -64,24 +64,24 @@ export function GeneratedTheme({ className, ...props }: React.ComponentProps<"di
           </ColorBox>
         </div>
 
-        <div className="sticky bg-gradient-to-t from-bg to-transparent inset-x-0 from-5% bottom-0 w-full h-10" />
+        <div className="sticky inset-x-0 bottom-0 h-10 w-full bg-gradient-to-t from-5% from-bg to-transparent" />
       </div>
     </div>
   )
 }
 
 function ColorBox(props: React.ComponentProps<"div">) {
-  return <div className="gap-4 lg:gap-2 flex flex-col rounded-md" {...props} />
+  return <div className="flex flex-col gap-4 rounded-md lg:gap-2" {...props} />
 }
 
 function ColorBoxItem({ variable }: { variable: string }) {
   return (
     <div className="flex items-center gap-2">
       <div
-        className="size-5 shrink-0 inset-ring-1 inset-ring-fg/15 rounded-sm"
+        className="inset-ring-1 inset-ring-fg/15 size-5 shrink-0 rounded-sm"
         style={{ backgroundColor: `var(--${variable})` }}
       />
-      <small className="text-xs font-mono">--{variable}</small>
+      <small className="font-mono text-xs">--{variable}</small>
     </div>
   )
 }

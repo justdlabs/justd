@@ -1,13 +1,11 @@
 "use client"
 
-import React from "react"
-
 import { ContextMenu } from "ui"
 
 export default function ContextMenuDangerDemo() {
   return (
     <ContextMenu>
-      <ContextMenu.Trigger className="h-28 w-56 border-2 border-dashed rounded-lg grid place-content-center">
+      <ContextMenu.Trigger className="grid h-28 w-56 place-content-center rounded-lg border-2 border-dashed">
         Right click me
       </ContextMenu.Trigger>
       <ContextMenu.Content>

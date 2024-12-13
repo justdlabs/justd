@@ -8,33 +8,33 @@ const chartData = [
   { region: "rivian", visitors: 200, fill: "var(--color-rivian)" },
   { region: "ford", visitors: 187, fill: "var(--color-ford)" },
   { region: "lucid", visitors: 173, fill: "var(--color-lucid)" },
-  { region: "other", visitors: 90, fill: "var(--color-other)" }
+  { region: "other", visitors: 90, fill: "var(--color-other)" },
 ]
 
 const chartConfig = {
   visitors: {
-    label: "Visitors"
+    label: "Visitors",
   },
   tesla: {
     label: "Tesla",
-    color: "var(--chart-1)"
+    color: "var(--chart-1)",
   },
   rivian: {
     label: "Rivian",
-    color: "var(--chart-2)"
+    color: "var(--chart-2)",
   },
   ford: {
     label: "Ford",
-    color: "var(--chart-3)"
+    color: "var(--chart-3)",
   },
   lucid: {
     label: "Lucid",
-    color: "var(--chart-4)"
+    color: "var(--chart-4)",
   },
   other: {
     label: "Other",
-    color: "var(--chart-5)"
-  }
+    color: "var(--chart-5)",
+  },
 } satisfies ChartConfig
 
 export default function PieChartLegendDemo() {

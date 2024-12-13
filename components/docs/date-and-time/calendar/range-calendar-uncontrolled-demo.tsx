@@ -10,7 +10,7 @@ export default function RangeCalendarUncontrolledDemo() {
       aria-label="Date range (uncontrolled)"
       defaultValue={{
         start: today(getLocalTimeZone()),
-        end: today(getLocalTimeZone()).add({ days: 12 })
+        end: today(getLocalTimeZone()).add({ days: 12 }),
       }}
     />
   )

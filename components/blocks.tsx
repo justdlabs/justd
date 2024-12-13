@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react"
+import type React from "react"
 
 import { Buttons } from "@/components/blocks/buttons"
 import { CheckRadioBlock } from "@/components/blocks/check-radio-block"
@@ -91,7 +91,7 @@ export function Blocks() {
         </Grid>
       </div>
 
-      <div className="flex items-center mt-8 justify-center lg:justify-end">
+      <div className="mt-8 flex items-center justify-center lg:justify-end">
         <Link className={buttonStyles()} href="/docs/getting-started/installation">
           <IconCubeFill /> Show More
         </Link>
@@ -104,12 +104,12 @@ export function CardBlock({ className, children, ...props }: React.HtmlHTMLAttri
   return (
     <div
       {...props}
-      className="relative size-full rounded-xl shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] bg-white dark:bg-zinc-950 dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:-inset-px dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset] forced-colors:outline"
+      className="dark:before:-inset-px relative size-full rounded-xl bg-white shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:bg-zinc-950 dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset] forced-colors:outline"
     >
       <div
         className={cn(
-          "grid size-full justify-items-center overflow-hidden place-items-center p-6 py-8 sm:p-8 lg:p-12",
-          className
+          "grid size-full place-items-center justify-items-center overflow-hidden p-6 py-8 sm:p-8 lg:p-12",
+          className,
         )}
       >
         {children}

@@ -1,15 +1,13 @@
-import React from "react"
-
 import { CodeHighlighter } from "@/components/code/code-highlighter"
 
 export default async function Page() {
   return (
-    <div className="bg-black min-h-screen">
+    <div className="min-h-screen bg-black">
       <div className="p-4">
         <CodeHighlighter
           lang="php"
           max96={false}
-          className="**:[pre]:p-4 -mt-8"
+          className="-mt-8 **:[pre]:p-4"
           removeLastLine
           plain
           code={processedSourceCode}

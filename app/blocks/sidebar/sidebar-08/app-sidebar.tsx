@@ -14,7 +14,7 @@ import {
   IconSettings,
   IconShield,
   IconTrash,
-  IconUpload
+  IconUpload,
 } from "justd-icons"
 import {
   Avatar,
@@ -28,7 +28,7 @@ import {
   SidebarLabel,
   SidebarLink,
   SidebarSection,
-  SidebarSectionGroup
+  SidebarSectionGroup,
 } from "ui"
 
 export default function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
@@ -36,7 +36,7 @@ export default function AppSidebar(props: React.ComponentProps<typeof Sidebar>) 
     <Sidebar {...props}>
       <SidebarHeader>
         <Link
-          className="flex items-center group-data-[collapsible=dock]:size-10 group-data-[collapsible=dock]:justify-center gap-x-2"
+          className="flex items-center gap-x-2 group-data-[collapsible=dock]:size-10 group-data-[collapsible=dock]:justify-center"
           href="/docs/components/layouts/sidebar"
         >
           <IconBrandApple className="size-5" />
@@ -101,11 +101,11 @@ export default function AppSidebar(props: React.ComponentProps<typeof Sidebar>) 
         <Menu>
           <Menu.Trigger aria-label="Profile" data-slot="menu-trigger">
             <Avatar shape="square" src="/images/avatar/cobain.jpg" />
-            <div className="group-data-[collapsible=dock]:hidden text-sm">
+            <div className="text-sm group-data-[collapsible=dock]:hidden">
               Kurt Cobain
-              <span className="block -mt-0.5 text-muted-fg">kurt@cobain.com</span>
+              <span className="-mt-0.5 block text-muted-fg">kurt@cobain.com</span>
             </div>
-            <IconChevronLgDown className="right-3 size-4 absolute group-pressed:rotate-180 transition-transform" />
+            <IconChevronLgDown className="absolute right-3 size-4 transition-transform group-pressed:rotate-180" />
           </Menu.Trigger>
           <Menu.Content placement="bottom right" className="sm:min-w-(--trigger-width)">
             <Menu.Section>
@@ -154,5 +154,5 @@ const articles = [
   { href: "#article-2", label: "The Future of Remote Work" },
   { href: "#article-3", label: "Top 10 Design Tips" },
   { href: "#article-4", label: "Guide to Mental Health" },
-  { href: "#article-5", label: "AI in Everyday Life" }
+  { href: "#article-5", label: "AI in Everyday Life" },
 ]

@@ -1,7 +1,5 @@
 "use client"
 
-import React from "react"
-
 import { Choicebox } from "ui"
 
 export default function ChoiceboxColumnsDemo() {
@@ -20,5 +18,5 @@ const prices = [
   { id: 3, title: "Premium", description: "Advanced, growing needs" },
   { id: 4, title: "Deluxe", description: "Top-tier, maximum performance" },
   { id: 5, title: "Ultimate", description: "All-inclusive, every feature" },
-  { id: 6, title: "Enterprise", description: "Custom, large-scale operations" }
+  { id: 6, title: "Enterprise", description: "Custom, large-scale operations" },
 ]

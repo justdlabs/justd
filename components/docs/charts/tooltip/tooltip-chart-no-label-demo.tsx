@@ -6,24 +6,24 @@ import { Card, Chart, type ChartConfig, ChartTooltip, ChartTooltipContent } from
 const chartData = Array.from({ length: 24 }, (_, index) => {
   const date = new Date(new Date().getFullYear() - 1, index).toLocaleDateString("en-US", {
     month: "short",
-    year: "numeric"
+    year: "numeric",
   })
   return {
     date,
     products: Math.floor(Math.random() * 600 + 200),
-    services: Math.floor(Math.random() * 400 + 100)
+    services: Math.floor(Math.random() * 400 + 100),
   }
 })
 
 const chartConfig = {
   products: {
     label: "Products",
-    color: "var(--chart-1)"
+    color: "var(--chart-1)",
   },
   services: {
     label: "Services",
-    color: "var(--chart-2)"
-  }
+    color: "var(--chart-2)",
+  },
 } satisfies ChartConfig
 
 export default function TooltipChartNoLabelDemo() {

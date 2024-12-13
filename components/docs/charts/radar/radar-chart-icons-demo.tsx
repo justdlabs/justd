@@ -16,20 +16,20 @@ const chartData = [
   { month: "Sep", sales: 290, profit: 170 },
   { month: "Oct", sales: 310, profit: 180 },
   { month: "Nov", sales: 330, profit: 190 },
-  { month: "Dec", sales: 350, profit: 200 }
+  { month: "Dec", sales: 350, profit: 200 },
 ]
 
 const chartConfig = {
   sales: {
     label: "Sales",
     color: "var(--chart-1)",
-    icon: IconShippingBag
+    icon: IconShippingBag,
   },
   profit: {
     label: "Profit",
     color: "var(--chart-2)",
-    icon: IconMoneybag
-  }
+    icon: IconMoneybag,
+  },
 } satisfies ChartConfig
 
 export default function RadarChartIconsDemo() {
@@ -46,7 +46,7 @@ export default function RadarChartIconsDemo() {
             data={chartData}
             margin={{
               top: -40,
-              bottom: -10
+              bottom: -10,
             }}
           >
             <ChartTooltip cursor={false} content={<ChartTooltipContent indicator="line" />} />

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState } from "react"
 
 import { IconBrandBun, IconBrandNpm, IconBrandPnpm, IconBrandYarn, IconCheck, IconDuplicate } from "justd-icons"
 import { Button, Menu } from "ui"
@@ -15,7 +15,7 @@ export function Install({ pkg = "justd-icons" }: { pkg?: string }) {
     Bun: "bun add",
     Yarn: "yarn add",
     PNPM: "pnpm add",
-    NPM: "npm i"
+    NPM: "npm i",
   }
 
   const handleCopy = (tool: Tool) => {
@@ -28,7 +28,7 @@ export function Install({ pkg = "justd-icons" }: { pkg?: string }) {
   }
 
   return (
-    <div className="pl-3 font-mono text-sm tracking-tighter border flex items-center justify-between p-1 rounded-lg w-full sm:min-w-72 sm:max-w-72 [&_.xd]:mr-[-0.30rem] [&_.xd]:-mt-px h-10 xd">
+    <div className="[&_.xd]:-mt-px xd flex h-10 w-full items-center justify-between rounded-lg border p-1 pl-3 font-mono text-sm tracking-tighter sm:min-w-72 sm:max-w-72 [&_.xd]:mr-[-0.30rem]">
       {command || "npm i justd-icons"}
       <Menu>
         <Button size="square-petite" appearance="outline" className="size-7 rounded-md" aria-label="Copy npm command">

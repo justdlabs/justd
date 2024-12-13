@@ -10,98 +10,98 @@ if (!process.env.VELITE_STARTED && (isDev || isBuild)) {
 export default {
   devIndicators: {
     buildActivity: false,
-    appIsrStatus: false
+    appIsrStatus: false,
   },
   experimental: {
-    optimizePackageImports: ["shiki"]
+    optimizePackageImports: ["shiki"],
   },
   async redirects() {
     return [
       {
         source: "/d/:path*",
         destination: "/:path*",
-        permanent: true
+        permanent: true,
       },
       {
         source: "/docs",
         destination: "/docs/getting-started/installation",
-        permanent: false
+        permanent: false,
       },
       {
         source: "/components",
         destination: "/docs/components/buttons/button",
-        permanent: false
+        permanent: false,
       },
       {
         source: "/docs/components/layouts/aside",
         destination: "/docs/components/layouts/sidebar",
-        permanent: false
+        permanent: false,
       },
       {
         source: "/d/accordion",
         destination: "/docs/components/navigation/disclosure-group",
-        permanent: false
+        permanent: false,
       },
       {
         source: "/accordion",
         destination: "/docs/components/navigation/disclosure-group",
-        permanent: false
+        permanent: false,
       },
       {
         source: "/docs/components/surfaces/chart",
         destination: "/docs/components/charts/setup",
-        permanent: true
+        permanent: true,
       },
       {
         source: "/aside",
         destination: "/docs/components/layouts/sidebar",
-        permanent: false
+        permanent: false,
       },
       {
         source: "/design-system",
         destination: "/docs/getting-started/installation",
-        permanent: false
+        permanent: false,
       },
       {
         source: "/docs/components/collections/accordion",
         destination: "/docs/components/navigation/disclosure-group",
-        permanent: true
+        permanent: true,
       },
       {
         source: "/docs/components/controls/command",
         destination: "/docs/components/controls/command-menu",
-        permanent: false
+        permanent: false,
       },
       {
         source: "/docs/components/forms/select",
         destination: "/docs/components/pickers/select",
-        permanent: false
+        permanent: false,
       },
       {
         source: "/docs/components/forms/select",
         destination: "/docs/components/pickers/select",
-        permanent: false
+        permanent: false,
       },
       {
         source: "/docs/components/statuses/toaster",
         destination: "/docs/components/statuses/toast",
-        permanent: true
+        permanent: true,
       },
       {
         source: "/docs/components/collections/carousel",
         destination: "/docs/components/media/carousel",
-        permanent: true
+        permanent: true,
       },
       {
         source: "/docs/components/forms/choicebox",
         destination: "/docs/components/collections/choicebox",
-        permanent: true
+        permanent: true,
       },
       {
         source: "/docs/components/forms/multiple-select",
         destination: "/docs/components/pickers/multiple-select",
-        permanent: false
-      }
+        permanent: false,
+      },
     ]
-  }
+  },
 }

@@ -1,6 +1,7 @@
 "use client"
 
-import React, { useState } from "react"
+import type React from "react"
+import { useState } from "react"
 
 import type { Key } from "react-aria-components"
 import { useListData } from "react-stately"
@@ -10,7 +11,7 @@ import { Button, Form, MultipleSelect } from "ui"
 export default function MultipleSelectInvalidDemo() {
   const [invalid, setInvalid] = useState(false)
   const selectedItems = useListData<SelectedKey>({
-    initialItems: []
+    initialItems: [],
   })
 
   function submit(e: React.FormEvent<HTMLFormElement>) {
@@ -23,7 +24,6 @@ export default function MultipleSelectInvalidDemo() {
   }
 
   function onItemInserted(key: Key) {
-    console.log("item inserted", key)
     setInvalid(false)
   }
 
@@ -42,7 +42,7 @@ export default function MultipleSelectInvalidDemo() {
           return <MultipleSelect.Option textValue={item.name}>{item.name}</MultipleSelect.Option>
         }}
       </MultipleSelect>
-      {invalid && <div className="text-sm text-danger forced-colors:text-[Mark]">Please fill out this field.</div>}
+      {invalid && <div className="text-danger text-sm forced-colors:text-[Mark]">Please fill out this field.</div>}
       <Button type="submit">Submit</Button>
     </Form>
   )
@@ -64,5 +64,5 @@ const fruits: SelectedKey[] = [
   { id: 17, name: "Strawberry" },
   { id: 18, name: "Tangerine" },
   { id: 19, name: "Ugli Fruit" },
-  { id: 20, name: "Watermelon" }
+  { id: 20, name: "Watermelon" },
 ]

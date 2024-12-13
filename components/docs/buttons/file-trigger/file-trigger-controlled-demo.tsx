@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import { useState } from "react"
 
 import { Description, FileTrigger } from "ui"
 
@@ -16,7 +16,7 @@ export default function FileTriggerDemo() {
         }}
       />
       {file && (
-        <Description className="truncate max-w-60 [&>strong]:font-medium block [&>strong]:text-fg mt-2">
+        <Description className="mt-2 block max-w-60 truncate [&>strong]:font-medium [&>strong]:text-fg">
           Your file: <strong>{file}</strong>
         </Description>
       )}

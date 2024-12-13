@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import { useState } from "react"
 
 import { Button, Sheet } from "ui"
 import { titleCase } from "usemods"

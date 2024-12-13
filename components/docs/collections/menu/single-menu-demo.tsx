@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import { useState } from "react"
 
 import type { Placement } from "@react-types/overlays"
 import type { Selection } from "react-aria-components"
@@ -28,7 +28,7 @@ export const placements = [
   "right bottom",
   "end",
   "end top",
-  "end bottom"
+  "end bottom",
 ].map((item, i) => ({ id: i, name: item }))
 
 export default function SingleMenuDemo() {

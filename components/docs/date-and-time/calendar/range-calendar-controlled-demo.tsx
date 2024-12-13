@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import { useState } from "react"
 
 import { getLocalTimeZone, today } from "@internationalized/date"
 import { RangeCalendar } from "ui"
@@ -10,7 +10,7 @@ export default function RangeCalendarControlledDemo() {
   const tomorrowWeek = today(getLocalTimeZone()).add({ days: 20 })
   const [value, setValue] = useState({
     start: now,
-    end: tomorrowWeek
+    end: tomorrowWeek,
   })
   return (
     <RangeCalendar

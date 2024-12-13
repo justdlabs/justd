@@ -15,18 +15,18 @@ const chartData = [
   { month: "Sep", sales: 270, expenses: 170 },
   { month: "Oct", sales: 290, expenses: 180 },
   { month: "Nov", sales: 310, expenses: 190 },
-  { month: "Dec", sales: 330, expenses: 200 }
+  { month: "Dec", sales: 330, expenses: 200 },
 ]
 
 const chartConfig = {
   sales: {
     label: "Sales",
-    color: "var(--chart-1)"
+    color: "var(--chart-1)",
   },
   expenses: {
     label: "Expenses",
-    color: "var(--chart-2)"
-  }
+    color: "var(--chart-2)",
+  },
 } satisfies ChartConfig
 
 export default function RadarChartLegendDemo() {
@@ -43,7 +43,7 @@ export default function RadarChartLegendDemo() {
             data={chartData}
             margin={{
               top: -40,
-              bottom: -10
+              bottom: -10,
             }}
           >
             <ChartTooltip cursor={false} content={<ChartTooltipContent indicator="line" />} />

@@ -1,7 +1,5 @@
 "use client"
 
-import React from "react"
-
 import { buttonStyles, Drawer } from "ui"
 
 export default function DrawerStickyDemo() {

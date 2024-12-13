@@ -1,7 +1,5 @@
 "use client"
 
-import React from "react"
-
 import {
   IconCommandRegular,
   IconDashboard,
@@ -10,7 +8,7 @@ import {
   IconLogout,
   IconMoon,
   IconSettings,
-  IconSun
+  IconSun,
 } from "justd-icons"
 import { useTheme } from "next-themes"
 import { Avatar, Menu } from "ui"

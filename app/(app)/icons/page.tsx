@@ -1,4 +1,4 @@
-import React, { Suspense } from "react"
+import { Suspense } from "react"
 
 import { Header } from "@/components/header"
 import { siteConfig } from "@/resources/config/site"
@@ -44,18 +44,18 @@ export const metadata: Metadata = {
     "Justd UI Framework",
     "Justd Laravel Inertia",
     "Justd Laravel",
-    "Justd Inertia"
+    "Justd Inertia",
   ],
   authors: [
     {
       name: "irsyadadl",
-      url: "https://x.com/irsyadadl"
-    }
-  ]
+      url: "https://x.com/irsyadadl",
+    },
+  ],
 }
 
 export default async function Page({
-  searchParams
+  searchParams,
 }: {
   searchParams: Promise<{
     query: string
@@ -73,7 +73,7 @@ export default async function Page({
         <Container>
           <Suspense
             fallback={
-              <div className="flex justify-center items-center min-h-96">
+              <div className="flex min-h-96 items-center justify-center">
                 <Loader />
               </div>
             }

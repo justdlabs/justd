@@ -1,5 +1,3 @@
-import React from "react"
-
 import { CardBlock } from "@/components/blocks"
 import { SliderOnPopoverBlock } from "@/components/blocks/slider-on-popover-block"
 import {
@@ -12,7 +10,7 @@ import {
   IconHeart,
   IconHeartFill,
   IconVideoPlaylist,
-  IconVideoPlaylistFill
+  IconVideoPlaylistFill,
 } from "justd-icons"
 import { Toolbar } from "ui"
 
@@ -30,8 +28,8 @@ export function ToolbarBlock() {
             </Toolbar.Item>
             <SliderOnPopoverBlock />
           </Toolbar.Group>
-          <Toolbar.Separator className="sm:flex hidden" />
-          <Toolbar.Group className="sm:flex gap-2 hidden" aria-label="Gallery">
+          <Toolbar.Separator className="hidden sm:flex" />
+          <Toolbar.Group className="hidden gap-2 sm:flex" aria-label="Gallery">
             <Toolbar.Item aria-label="Camera" size="square-petite" appearance="outline">
               {({ isSelected }) => <>{isSelected ? <IconCameraFill /> : <IconCamera />}</>}
             </Toolbar.Item>

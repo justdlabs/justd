@@ -33,7 +33,7 @@ export function Installation({ className, ...props }: InstallationProps) {
     props
   const [pkgManager, setPkgManager] = useState({
     name: "npm",
-    action: "i"
+    action: "i",
   })
   const [isCopied, setIsCopied] = useState(false)
 
@@ -51,7 +51,7 @@ export function Installation({ className, ...props }: InstallationProps) {
         <p>
           If you hit any issues, make sure you check out the installation guide{" "}
           <Link
-            className="not-prose text-blue-600 dark:text-blue-400 xd2432 data-hovered:underline"
+            className="not-prose xd2432 text-blue-600 data-hovered:underline dark:text-blue-400"
             intent="primary"
             href="/docs/getting-started/installation"
             target="_blank"
@@ -64,15 +64,15 @@ export function Installation({ className, ...props }: InstallationProps) {
       )}
       {options.isManual && <p>{manualText}</p>}
       <Group
-        className={cn("flex h-12 border pr-1 relative overflow-hidden rounded-lg group bg-shiki-bg items-center", {
-          className
+        className={cn("group relative flex h-12 items-center overflow-hidden rounded-lg border bg-shiki-bg pr-1", {
+          className,
         })}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
-          className="ml-[0.395rem] md:block hidden size-6 text-zinc-400 z-10"
+          className="z-10 ml-[0.395rem] hidden size-6 text-zinc-400 md:block"
         >
           <path stroke="currentColor" d="m10 16 4-4-4-4" strokeLinecap="square" strokeWidth="2" />
         </svg>
@@ -116,9 +116,9 @@ export function Installation({ className, ...props }: InstallationProps) {
             isCopied={isCopied}
             setIsCopied={setIsCopied}
             onPress={() => {
-              copyToClipboard(`npx justd-cli@latest init`).then(() => {
+              copyToClipboard("npx justd-cli@latest init").then(() => {
                 setIsCopied(true)
-                op.track("cli pressed", { copy: `init` })
+                op.track("cli pressed", { copy: "init" })
               })
             }}
           />
@@ -129,7 +129,7 @@ export function Installation({ className, ...props }: InstallationProps) {
               isCopied,
               setIsCopied,
               setPkgManager,
-              items
+              items,
             }}
           />
         )}
@@ -159,7 +159,7 @@ function ChoosePkgManager({ isExecutor, items, isCopied, setIsCopied, setPkgMana
     let selectedPkgManager: PkgManager = {
       name: "",
       executor: "",
-      action: ""
+      action: "",
     }
 
     switch (tool) {
@@ -167,28 +167,28 @@ function ChoosePkgManager({ isExecutor, items, isCopied, setIsCopied, setPkgMana
         selectedPkgManager = {
           name: "npm",
           executor: "npx",
-          action: "i"
+          action: "i",
         }
         break
       case "yarn":
         selectedPkgManager = {
           name: "yarn",
           executor: "yarn dlx",
-          action: "add"
+          action: "add",
         }
         break
       case "pnpm":
         selectedPkgManager = {
           name: "pnpm",
           executor: "pnpm dlx",
-          action: "add"
+          action: "add",
         }
         break
       case "bun":
         selectedPkgManager = {
           name: "bun",
           executor: "bunx",
-          action: "add"
+          action: "add",
         }
         break
     }
@@ -199,7 +199,7 @@ function ChoosePkgManager({ isExecutor, items, isCopied, setIsCopied, setPkgMana
     copyToClipboard(`${executor} ${selectedPkgManager.action} ${items.join(" ")}`).then(() => {
       setIsCopied(true)
       op.track("cli pressed", {
-        copy: `${executor} ${selectedPkgManager.action} ${items.join(" ")}`
+        copy: `${executor} ${selectedPkgManager.action} ${items.join(" ")}`,
       })
     })
   }
@@ -212,7 +212,7 @@ function ChoosePkgManager({ isExecutor, items, isCopied, setIsCopied, setPkgMana
           { name: "NPM", vendor: "npm" },
           { name: "Yarn", vendor: "yarn" },
           { name: "Bun", vendor: "bun" },
-          { name: "PNPM", vendor: "pnpm" }
+          { name: "PNPM", vendor: "pnpm" },
         ].map(({ name, vendor }) => (
           <Menu.Item key={name} onAction={() => handleAction(vendor)}>
             {name}

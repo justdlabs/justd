@@ -8,13 +8,13 @@ export default function SheetCustomStyleDemo() {
       <Button intent="warning">Archive Project</Button>
       <Sheet.Content role="dialog">
         <Sheet.Header
-          className="border-b mb-4"
+          className="mb-4 border-b"
           title="Archive Project"
           description="Archiving this project will disable access and hide it from active projects."
         >
           <Note intent="warning">You can restore the project anytime from the archive!</Note>
         </Sheet.Header>
-        <Form className="overflow-y-auto flex-1" onSubmit={() => {}}>
+        <Form className="flex-1 overflow-y-auto" onSubmit={() => {}}>
           <Sheet.Body className="space-y-4">
             <TextField
               isRequired

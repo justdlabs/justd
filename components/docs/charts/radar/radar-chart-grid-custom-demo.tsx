@@ -15,18 +15,18 @@ const chartData = [
   { month: "Sep", sales: 270, expenses: 180 },
   { month: "Oct", sales: 290, expenses: 200 },
   { month: "Nov", sales: 310, expenses: 220 },
-  { month: "Dec", sales: 330, expenses: 250 }
+  { month: "Dec", sales: 330, expenses: 250 },
 ]
 
 const chartConfig = {
   sales: {
     label: "Sales",
-    color: "var(--chart-1)"
+    color: "var(--chart-1)",
   },
   expenses: {
     label: "Expenses",
-    color: "var(--chart-2)"
-  }
+    color: "var(--chart-2)",
+  },
 } satisfies ChartConfig
 
 export default function Component() {

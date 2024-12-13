@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import { useState } from "react"
 
 import { type ColorSpace, getColorChannels } from "react-aria-components"
 import { ColorArea, ColorField, ColorPicker, ColorSlider, Select } from "ui"

@@ -15,8 +15,8 @@ export default function TagGroupWithRemoveDemo() {
       { id: "7", name: "Bentley", available: false },
       { id: "8", name: "Rolls-Royce", available: true },
       { id: "9", name: "Maserati", available: false },
-      { id: "10", name: "Jaguar", available: true }
-    ]
+      { id: "10", name: "Jaguar", available: true },
+    ],
   })
 
   return (

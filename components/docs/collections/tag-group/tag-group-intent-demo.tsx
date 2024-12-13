@@ -1,7 +1,5 @@
 "use client"
 
-import React from "react"
-
 import { useListData } from "react-stately"
 import { Tag, TagGroup, TagList } from "ui"
 
@@ -9,15 +7,15 @@ const shoes = [
   { id: "1", name: "Nike", available: true },
   { id: "2", name: "Adidas", available: false },
   { id: "3", name: "Puma", available: true },
-  { id: "4", name: "Reebok", available: true }
+  { id: "4", name: "Reebok", available: true },
 ]
 
 export default function TagGroupIntentDemo() {
   const shoesList = useListData({
-    initialItems: shoes
+    initialItems: shoes,
   })
   return (
-    <div className="space-y-2 max-w-sm">
+    <div className="max-w-sm space-y-2">
       <TagGroup
         intent="primary"
         aria-label="Primary Intent"

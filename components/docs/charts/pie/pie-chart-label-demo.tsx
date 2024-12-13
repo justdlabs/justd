@@ -8,33 +8,33 @@ const chartData = [
   { category: "Clothing", sales: 200, fill: "var(--color-clothing)" },
   { category: "Groceries", sales: 187, fill: "var(--color-groceries)" },
   { category: "Furniture", sales: 173, fill: "var(--color-furniture)" },
-  { category: "Books", sales: 90, fill: "var(--color-books)" }
+  { category: "Books", sales: 90, fill: "var(--color-books)" },
 ]
 
 const chartConfig = {
   sales: {
-    label: "Sales"
+    label: "Sales",
   },
   electronics: {
     label: "Electronics",
-    color: "var(--chart-1)"
+    color: "var(--chart-1)",
   },
   clothing: {
     label: "Clothing",
-    color: "var(--chart-2)"
+    color: "var(--chart-2)",
   },
   groceries: {
     label: "Groceries",
-    color: "var(--chart-3)"
+    color: "var(--chart-3)",
   },
   furniture: {
     label: "Furniture",
-    color: "var(--chart-4)"
+    color: "var(--chart-4)",
   },
   books: {
     label: "Books",
-    color: "var(--chart-5)"
-  }
+    color: "var(--chart-5)",
+  },
 } satisfies ChartConfig
 
 export default function PieChartLabelDemo() {

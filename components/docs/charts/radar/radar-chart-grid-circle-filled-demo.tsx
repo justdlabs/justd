@@ -15,14 +15,14 @@ const chartData = [
   { month: "Sep", sales: 320 },
   { month: "Oct", sales: 330 },
   { month: "Nov", sales: 350 },
-  { month: "Dec", sales: 370 }
+  { month: "Dec", sales: 370 },
 ]
 
 const chartConfig = {
   sales: {
     label: "Sales",
-    color: "var(--chart-1)"
-  }
+    color: "var(--chart-1)",
+  },
 } satisfies ChartConfig
 
 export default function RadarChartGridCircleFilledDemo() {

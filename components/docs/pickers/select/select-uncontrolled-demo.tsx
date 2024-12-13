@@ -1,7 +1,5 @@
 "use client"
 
-import React from "react"
-
 import { Select } from "ui"
 
 export const movies = [
@@ -9,7 +7,7 @@ export const movies = [
   { id: 2, title: "The Dark Knight" },
   { id: 3, title: "Interstellar" },
   { id: 4, title: "The Matrix" },
-  { id: 5, title: "Pulp Fiction" }
+  { id: 5, title: "Pulp Fiction" },
 ]
 
 export default function SelectUncontrolledDemo() {

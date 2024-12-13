@@ -9,12 +9,12 @@ const positions: ToastT["position"][] = [
   "bottom-left",
   "bottom-right",
   "top-center",
-  "bottom-center"
+  "bottom-center",
 ]
 
 export default function ToastPositionsDemo() {
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+    <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
       {positions.map((position) => (
         <Button
           appearance="outline"

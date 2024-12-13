@@ -3,7 +3,7 @@
 import type {
   DialogTriggerProps,
   ModalOverlayProps,
-  PopoverProps as PopoverPrimitiveProps
+  PopoverProps as PopoverPrimitiveProps,
 } from "react-aria-components"
 import {
   composeRenderProps,
@@ -14,7 +14,7 @@ import {
   OverlayArrow,
   Popover as PopoverPrimitive,
   PopoverContext,
-  useSlottedContext
+  useSlottedContext,
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
@@ -34,7 +34,7 @@ const Header = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) =
 )
 
 const Footer = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <Dialog.Footer className={cn("pb-0 pt-4 sm:pb-0", className)} {...props} />
+  <Dialog.Footer className={cn("pt-4 pb-0 sm:pb-0", className)} {...props} />
 )
 
 const Body = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
@@ -43,51 +43,51 @@ const Body = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => 
 
 const popoverContentStyles = tv({
   base: [
-    "max-w-xs transition-transform p-4 rounded-xl border bg-overlay bg-clip-padding text-overlay-fg shadow-xs dark:backdrop-saturate-200 sm:text-sm sm:max-w-3xl forced-colors:bg-[Canvas] [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin]"
+    "max-w-xs transition-transform p-4 rounded-xl border bg-overlay bg-clip-padding text-overlay-fg shadow-xs dark:backdrop-saturate-200 sm:text-sm sm:max-w-3xl forced-colors:bg-[Canvas] [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin]",
   ],
   variants: {
     isPicker: { true: "max-h-72 min-w-(--trigger-width) overflow-y-auto p-0", false: "min-w-80" },
     isMenu: {
       true: {
-        true: "p-0"
-      }
+        true: "p-0",
+      },
     },
     isEntering: {
       true: [
         "duration-100 ease-out animate-in fade-in",
-        "data-[placement=left]:slide-in-from-right-1 data-[placement=right]:slide-in-from-left-1 data-[placement=top]:slide-in-from-bottom-1 data-[placement=bottom]:slide-in-from-top-1"
-      ]
+        "data-[placement=left]:slide-in-from-right-1 data-[placement=right]:slide-in-from-left-1 data-[placement=top]:slide-in-from-bottom-1 data-[placement=bottom]:slide-in-from-top-1",
+      ],
     },
     isExiting: {
       true: [
         "duration-50 ease-in animate-out fade-out",
-        "data-[placement=left]:slide-out-to-right-1 data-[placement=right]:slide-out-to-left-1 data-[placement=top]:slide-out-to-bottom-1 data-[placement=bottom]:slide-out-to-top-1"
-      ]
-    }
-  }
+        "data-[placement=left]:slide-out-to-right-1 data-[placement=right]:slide-out-to-left-1 data-[placement=top]:slide-out-to-bottom-1 data-[placement=bottom]:slide-out-to-top-1",
+      ],
+    },
+  },
 })
 
 const drawer = tv({
   base: [
-    "fixed max-h-full bottom-0 top-auto z-50 w-full bg-overlay max-w-2xl border border-b-transparent outline-hidden"
+    "fixed max-h-full bottom-0 top-auto z-50 w-full bg-overlay max-w-2xl border border-b-transparent outline-hidden",
   ],
   variants: {
     isMenu: {
       true: "p-0 [&_[role=dialog]]:*:not-has-[[data-slot=dialog-body]]:px-1 rounded-t-xl",
-      false: "py-4 rounded-t-2xl"
+      false: "py-4 rounded-t-2xl",
     },
     isEntering: {
       true: [
         "[will-change:transform] [transition:transform_0.5s_cubic-bezier(0.32,_0.72,_0,_1)]",
         "animate-in duration-200 fade-in-0 slide-in-from-bottom-56",
         "[transition:translate3d(0,_100%,_0)]",
-        "sm:slide-in-from-bottom-auto sm:slide-in-from-top-[20%]"
-      ]
+        "sm:slide-in-from-bottom-auto sm:slide-in-from-top-[20%]",
+      ],
     },
     isExiting: {
-      true: "duration-200 ease-in animate-out slide-out-to-bottom-56"
-    }
-  }
+      true: "duration-200 ease-in animate-out slide-out-to-bottom-56",
+    },
+  },
 })
 
 interface PopoverProps
@@ -113,13 +113,13 @@ const Content = ({ respectScreen = true, children, showArrow = true, className, 
   const effectiveOffset = isSubmenuTrigger ? offset - 5 : offset
   return isMobile && respectScreen ? (
     <ModalOverlay
-      className="fixed left-0 top-0 isolate z-50 h-(--visual-viewport-height) w-full bg-overlay/10 [--visual-viewport-vertical-padding:16px]"
+      className="fixed top-0 left-0 isolate z-50 h-(--visual-viewport-height) w-full bg-overlay/10 [--visual-viewport-vertical-padding:16px]"
       {...props}
       isDismissable
     >
       <Modal
         className={composeRenderProps(className, (className, renderProps) =>
-          drawer({ ...renderProps, isMenu, className })
+          drawer({ ...renderProps, isMenu, className }),
         )}
       >
         <Dialog
@@ -138,8 +138,8 @@ const Content = ({ respectScreen = true, children, showArrow = true, className, 
       className={composeRenderProps(className, (className, renderProps) =>
         popoverContentStyles({
           ...renderProps,
-          className
-        })
+          className,
+        }),
       )}
     >
       {showArrow && (
@@ -148,7 +148,7 @@ const Content = ({ respectScreen = true, children, showArrow = true, className, 
             width={12}
             height={12}
             viewBox="0 0 12 12"
-            className="block fill-overlay stroke-border group-data-[placement=left]:-rotate-90 group-data-[placement=right]:rotate-90 group-data-[placement=bottom]:rotate-180 forced-colors:fill-[Canvas] forced-colors:stroke-[ButtonBorder]"
+            className="group-data-[placement=left]:-rotate-90 block fill-overlay stroke-border group-data-[placement=bottom]:rotate-180 group-data-[placement=right]:rotate-90 forced-colors:fill-[Canvas] forced-colors:stroke-[ButtonBorder]"
           >
             <path d="M0 0 L6 6 L12 0" />
           </svg>
@@ -167,8 +167,8 @@ const Picker = ({ children, className, ...props }: PopoverProps) => {
         popoverContentStyles({
           ...renderProps,
           isPicker: true,
-          className
-        })
+          className,
+        }),
       )}
     >
       {children}

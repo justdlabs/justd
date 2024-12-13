@@ -10,14 +10,14 @@ const performanceData = [
   { dataCenter: "London", uptime: 95.3 },
   { dataCenter: "Tokyo", uptime: 94.8 },
   { dataCenter: "Sydney", uptime: 99.9 },
-  { dataCenter: "Seoul", uptime: 97.5 }
+  { dataCenter: "Seoul", uptime: 97.5 },
 ]
 
 const chartConfig = {
   uptime: {
     label: "Uptime (%)",
-    color: "var(--chart-1)"
-  }
+    color: "var(--chart-1)",
+  },
 } satisfies ChartConfig
 
 export default function BarChartHorizontalDemo() {
@@ -31,7 +31,7 @@ export default function BarChartHorizontalDemo() {
             data={performanceData}
             layout="vertical"
             margin={{
-              left: -20
+              left: -20,
             }}
           >
             <XAxis type="number" dataKey="uptime" hide />

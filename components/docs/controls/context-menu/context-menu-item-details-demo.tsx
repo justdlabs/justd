@@ -5,7 +5,7 @@ import { ContextMenu } from "ui"
 export default function ContextMenuItemDetailsDemo() {
   return (
     <ContextMenu>
-      <ContextMenu.Trigger className="h-28 w-56 border-2 border-dashed rounded-lg grid place-content-center">
+      <ContextMenu.Trigger className="grid h-28 w-56 place-content-center rounded-lg border-2 border-dashed">
         Right click me
       </ContextMenu.Trigger>
       <ContextMenu.Content items={roles}>
@@ -24,5 +24,5 @@ const roles = [
   { id: 2, name: "Editor", description: "Can edit content but has limited access to settings" },
   { id: 3, name: "Viewer", description: "Can view content but cannot make changes" },
   { id: 4, name: "Contributor", description: "Can contribute content for review" },
-  { id: 5, name: "Guest", description: "Limited access, mostly for viewing purposes" }
+  { id: 5, name: "Guest", description: "Limited access, mostly for viewing purposes" },
 ]

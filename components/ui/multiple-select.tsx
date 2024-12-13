@@ -28,14 +28,14 @@ const multiSelectStyles = tv({
       "has-[input[data-focused=true]]:border-ring/85",
       "has-[input[data-invalid=true][data-focused=true]]:border-blue-500",
       "has-[input[data-invalid=true]]:border-danger",
-      "has-[input[data-focused=true]]:ring-4 has-[input[data-focused=true]]:ring-ring/20"
+      "has-[input[data-focused=true]]:ring-4 has-[input[data-focused=true]]:ring-ring/20",
     ],
     chevronButton:
       "size-8 -mr-2 grid place-content-center rounded-sm data-hovered:text-fg data-focused:text-fg text-muted-fg",
     input: "flex-1 py-1 px-0.5 ml-1 shadow-none ring-0",
     comboBoxChild: "inline-flex flex-1 flex-wrap items-center px-0",
-    comboBox: "group peer flex flex-1"
-  }
+    comboBox: "group peer flex flex-1",
+  },
 })
 
 const { multiSelectField, multiSelect, chevronButton, input, comboBox, comboBoxChild } = multiSelectStyles()
@@ -95,12 +95,12 @@ const MultipleSelect = <T extends SelectedKey>({
     (item: T, filterText: string) => {
       return !selectedKeys.includes(item.id) && contains(item.name, filterText)
     },
-    [contains, selectedKeys]
+    [contains, selectedKeys],
   )
 
   const accessibleList = useListData({
     initialItems: items,
-    filter
+    filter,
   })
 
   const [fieldState, setFieldState] = useState<{
@@ -108,7 +108,7 @@ const MultipleSelect = <T extends SelectedKey>({
     inputValue: string
   }>({
     selectedKey: null,
-    inputValue: ""
+    inputValue: "",
   })
 
   const onRemove = useCallback(
@@ -118,12 +118,12 @@ const MultipleSelect = <T extends SelectedKey>({
         selectedItems.remove(key)
         setFieldState({
           inputValue: "",
-          selectedKey: null
+          selectedKey: null,
         })
         onItemCleared?.(key)
       }
     },
-    [selectedItems, onItemCleared]
+    [selectedItems, onItemCleared],
   )
 
   const onSelectionChange = (id: Key | null) => {
@@ -141,7 +141,7 @@ const MultipleSelect = <T extends SelectedKey>({
       selectedItems.append(item)
       setFieldState({
         inputValue: "",
-        selectedKey: id
+        selectedKey: id,
       })
       onItemInserted?.(id)
     }
@@ -152,14 +152,14 @@ const MultipleSelect = <T extends SelectedKey>({
   const onInputChange = (value: string) => {
     setFieldState((prev) => ({
       inputValue: value,
-      selectedKey: value === "" ? null : prev.selectedKey
+      selectedKey: value === "" ? null : prev.selectedKey,
     }))
 
     accessibleList.setFilterText(value)
   }
 
   const popLast = useCallback(() => {
-    if (selectedItems.items.length == 0) {
+    if (selectedItems.items.length === 0) {
       return
     }
 
@@ -172,7 +172,7 @@ const MultipleSelect = <T extends SelectedKey>({
 
     setFieldState({
       inputValue: "",
-      selectedKey: null
+      selectedKey: null,
     })
   }, [selectedItems, onItemCleared])
 
@@ -182,7 +182,7 @@ const MultipleSelect = <T extends SelectedKey>({
         popLast()
       }
     },
-    [popLast, fieldState.inputValue]
+    [popLast, fieldState.inputValue],
   )
 
   useEffect(() => {
@@ -219,8 +219,8 @@ const MultipleSelect = <T extends SelectedKey>({
               items={selectedItems.items}
               className={cn(
                 selectedItems.items.length !== 0 && "px-1 py-1.5",
-                "[&_.jdt3lr2x]:last:-mr-1 outline-hidden gap-1.5",
-                props.shape === "square" && "[&_.jdt3lr2x]:rounded-[calc(var(--radius-lg)-4px)]"
+                "[&_.jdt3lr2x]:last:-mr-1 gap-1.5 outline-hidden",
+                props.shape === "square" && "[&_.jdt3lr2x]:rounded-[calc(var(--radius-lg)-4px)]",
               )}
             >
               {props.tag}
@@ -244,7 +244,7 @@ const MultipleSelect = <T extends SelectedKey>({
                 onBlur={() => {
                   setFieldState({
                     inputValue: "",
-                    selectedKey: null
+                    selectedKey: null,
                   })
                   accessibleList.setFilterText("")
                 }}
@@ -276,13 +276,13 @@ const MultipleSelect = <T extends SelectedKey>({
                   renderEmptyState ? (
                     renderEmptyState(fieldState.inputValue)
                   ) : (
-                    <Description className="p-3 block">
+                    <Description className="block p-3">
                       {fieldState.inputValue ? (
                         <>
                           No results found for: <strong className="font-medium text-fg">{fieldState.inputValue}</strong>
                         </>
                       ) : (
-                        `No options`
+                        "No options"
                       )}
                     </Description>
                   )
@@ -293,14 +293,14 @@ const MultipleSelect = <T extends SelectedKey>({
               </ListBox.Picker>
             </Popover.Picker>
           </ComboBox>
-          <div className="relative px-1 ml-auto flex items-center justify-center" aria-hidden>
+          <div className="relative ml-auto flex items-center justify-center px-1" aria-hidden>
             <button
               type="button"
               className={chevronButton()}
               onClick={() => triggerButtonRef.current?.click()}
               tabIndex={-1}
             >
-              <IconChevronLgDown className="peer/[data-open]:rotate-180 size-4" />
+              <IconChevronLgDown className="size-4 peer/[data-open]:rotate-180" />
             </button>
           </div>
         </div>

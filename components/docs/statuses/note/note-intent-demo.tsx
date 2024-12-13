@@ -1,5 +1,3 @@
-import React from "react"
-
 import { Note } from "ui"
 
 const notes = ["info", "default", "warning", "danger", "success"] as const

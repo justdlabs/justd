@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import { useState } from "react"
 
 import { Button, CommandMenu } from "ui"
 
@@ -47,13 +47,13 @@ const users = [
   {
     id: 7,
     name: "Miss Jacinthe Gerlach DVM",
-    image_url: "https://i.pravatar.cc/150?img=7"
+    image_url: "https://i.pravatar.cc/150?img=7",
   },
   {
     id: 8,
     name: "Miss Stephania Schaefer Sr.",
-    image_url: "https://i.pravatar.cc/150?img=8"
+    image_url: "https://i.pravatar.cc/150?img=8",
   },
   { id: 9, name: "Kevon Hackett MD", image_url: "https://i.pravatar.cc/150?img=9" },
-  { id: 10, name: "Tom Ledner", image_url: "https://i.pravatar.cc/150?img=10" }
+  { id: 10, name: "Tom Ledner", image_url: "https://i.pravatar.cc/150?img=10" },
 ]

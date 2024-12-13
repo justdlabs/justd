@@ -46,10 +46,10 @@ export function CopyButton({
     <Button
       onPress={props.onPress || onPressHandler}
       className={cn(
-        "size-8 text-zinc-400 data-hovered:text-zinc-50 outline-hidden grid group-data-hovered:opacity-100 place-content-center ml-auto",
+        "ml-auto grid size-8 place-content-center text-zinc-400 outline-hidden data-hovered:text-zinc-50 group-data-hovered:opacity-100",
         !alwaysVisible ? "opacity-0" : "opacity-100",
         isCopied && "opacity-100",
-        className
+        className,
       )}
       {...props}
     >
@@ -123,11 +123,11 @@ export function CopyMotionButton({ className, text }: { className?: string; text
     <button
       type="button"
       className={cn(
-        "group/button absolute right-0 -top-0.5 overflow-hidden rounded-full py-1 pl-1.5 pr-2.5 text-[0.70rem]/[1.20rem] font-medium opacity-0 backdrop-blur transition focus:opacity-100 group-hover:opacity-100",
+        "group/button -top-0.5 absolute right-0 overflow-hidden rounded-full py-1 pr-2.5 pl-1.5 font-medium text-[0.70rem]/[1.20rem] opacity-0 backdrop-blur transition focus:opacity-100 group-hover:opacity-100",
         copied
-          ? "bg-blue-400/10 ring-1 ring-inset ring-blue-400/20"
-          : "bg-secondary/80 text-secondary-fg ring-1 ring-inset ring-fg/10",
-        className
+          ? "bg-blue-400/10 ring-1 ring-blue-400/20 ring-inset"
+          : "bg-secondary/80 text-secondary-fg ring-1 ring-fg/10 ring-inset",
+        className,
       )}
       onClick={() => {
         window.navigator.clipboard.writeText(text).then(() => {
@@ -139,7 +139,7 @@ export function CopyMotionButton({ className, text }: { className?: string; text
         aria-hidden={copied}
         className={clsx(
           "pointer-events-none flex items-center gap-0.5 text-zinc-400 transition duration-300",
-          copied && "-translate-y-1.5 opacity-0"
+          copied && "-translate-y-1.5 opacity-0",
         )}
       >
         <ClipboardIcon className="h-5 w-5 fill-zinc-500/20 stroke-zinc-500 transition-colors group-hover/button:stroke-zinc-400" />
@@ -149,7 +149,7 @@ export function CopyMotionButton({ className, text }: { className?: string; text
         aria-hidden={!copied}
         className={clsx(
           "pointer-events-none absolute inset-0 flex items-center justify-center text-blue-400 transition duration-300",
-          !copied && "translate-y-1.5 opacity-0"
+          !copied && "translate-y-1.5 opacity-0",
         )}
       >
         Copied!

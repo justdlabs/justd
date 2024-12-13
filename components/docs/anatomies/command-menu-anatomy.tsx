@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState } from "react"
 
 import { IconHome } from "justd-icons"
 import { CommandMenu, Link } from "ui"

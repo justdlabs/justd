@@ -8,9 +8,9 @@ export async function highlightCode(code: string) {
       {
         code(node) {
           node.properties["data-line-numbers"] = ""
-        }
-      }
-    ]
+        },
+      },
+    ],
   })
 
   return html

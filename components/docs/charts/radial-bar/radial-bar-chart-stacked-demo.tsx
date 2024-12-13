@@ -9,12 +9,12 @@ const chartData = [{ month: "January", sales: 1260, profit: 570 }]
 const chartConfig = {
   sales: {
     label: "Sales",
-    color: "var(--chart-1)"
+    color: "var(--chart-1)",
   },
   profit: {
     label: "Profit",
-    color: "var(--chart-2)"
-  }
+    color: "var(--chart-2)",
+  },
 } satisfies ChartConfig
 
 export default function SalesPerformanceOverview() {
@@ -23,7 +23,7 @@ export default function SalesPerformanceOverview() {
   return (
     <Card>
       <Card.Header
-        className="items-center text-center pb-0"
+        className="items-center pb-0 text-center"
         title="Monthly Revenue Distribution"
         description="Visualizing sales and profit for Jan - Dec 2024"
       />
@@ -37,7 +37,7 @@ export default function SalesPerformanceOverview() {
                   if (viewBox && "cx" in viewBox && "cy" in viewBox) {
                     return (
                       <text x={viewBox.cx} y={viewBox.cy} textAnchor="middle">
-                        <tspan x={viewBox.cx} y={(viewBox.cy || 0) - 16} className="fill-fg text-2xl font-bold">
+                        <tspan x={viewBox.cx} y={(viewBox.cy || 0) - 16} className="fill-fg font-bold text-2xl">
                           {totalRevenue.toLocaleString()}
                         </tspan>
                         <tspan x={viewBox.cx} y={(viewBox.cy || 0) + 4} className="fill-muted-fg">
@@ -54,14 +54,14 @@ export default function SalesPerformanceOverview() {
               stackId="a"
               cornerRadius={5}
               fill="var(--color-sales)"
-              className="stroke-transparent stroke-2"
+              className="stroke-2 stroke-transparent"
             />
             <RadialBar
               dataKey="profit"
               fill="var(--color-profit)"
               stackId="a"
               cornerRadius={5}
-              className="stroke-transparent stroke-2"
+              className="stroke-2 stroke-transparent"
             />
           </RadialBarChart>
         </Chart>

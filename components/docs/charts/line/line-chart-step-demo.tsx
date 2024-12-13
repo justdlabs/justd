@@ -8,15 +8,15 @@ const chartData = Array.from({ length: 12 }, (_, index) => {
   const month = date.toLocaleDateString("en-US", { month: "short" })
   return {
     month,
-    sales: Math.floor(Math.random() * 300 + 150)
+    sales: Math.floor(Math.random() * 300 + 150),
   }
 })
 
 const chartConfig = {
   sales: {
     label: "Sales",
-    color: "var(--chart-1)"
-  }
+    color: "var(--chart-1)",
+  },
 } satisfies ChartConfig
 
 export default function LineChartStepDemo() {
@@ -30,7 +30,7 @@ export default function LineChartStepDemo() {
             data={chartData}
             margin={{
               left: 12,
-              right: 12
+              right: 12,
             }}
           >
             <CartesianGrid vertical={false} />

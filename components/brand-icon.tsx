@@ -4,7 +4,7 @@ import {
   IconBrandReactjs,
   IconBrandTailwindcss,
   IconBrandTypescript,
-  IconFile
+  IconFile,
 } from "justd-icons"
 
 export const BrandIcon = ({ label }: { label: string }) => {

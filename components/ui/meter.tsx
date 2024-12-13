@@ -22,19 +22,19 @@ const Meter = ({ label, ...props }: MeterProps) => {
               {percentage >= 80 && (
                 <IconCircleExclamation
                   aria-label="Alert"
-                  className="inline-block fill-danger/20 text-danger size-4 align-text-bottom"
+                  className="inline-block size-4 fill-danger/20 align-text-bottom text-danger"
                 />
               )}
-              {" " + valueText}
+              {` ${valueText}`}
             </span>
           </div>
-          <div className="relative h-2 min-w-64 rounded-full bg-muted outline outline-1 -outline-offset-1 outline-transparent">
+          <div className="-outline-offset-1 relative h-2 min-w-64 rounded-full bg-muted outline outline-1 outline-transparent">
             <motion.div
-              className="absolute left-0 top-0 h-full rounded-full forced-colors:bg-[Highlight]"
+              className="absolute top-0 left-0 h-full rounded-full forced-colors:bg-[Highlight]"
               initial={{ width: "0%", backgroundColor: getColor(0) }}
               animate={{
                 width: `${percentage}%`,
-                backgroundColor: getColor(percentage)
+                backgroundColor: getColor(percentage),
               }}
               transition={{ duration: 0.5 }}
             />

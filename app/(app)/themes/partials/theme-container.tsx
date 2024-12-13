@@ -17,12 +17,12 @@ export function ThemeContainer() {
     primary: "blue",
     gray: "zinc",
     accent: "blue",
-    radius: "0.5rem"
+    radius: "0.5rem",
   })
 
   const copy = () => {
     navigator.clipboard.writeText(generateTheme(selectedColors))
-    toast(`Copied to clipboard.`)
+    toast("Copied to clipboard.")
   }
 
   const [open, setOpen] = useState(false)
@@ -31,9 +31,9 @@ export function ThemeContainer() {
   return (
     <div className="py-4 sm:py-16">
       <Container>
-        <div className="border divide-y lg:divide-y-0 lg:divide-x rounded-lg flex-col lg:flex-row flex flex">
-          <div className="w-full lg:w-1/2 p-4 lg:p-6">
-            <div className="flex sm:flex-row flex-col sm:justify-between sm:items-end gap-4 mb-4 lg:mb-6">
+        <div className="flex flex flex-col divide-y rounded-lg border lg:flex-row lg:divide-x lg:divide-y-0">
+          <div className="w-full p-4 lg:w-1/2 lg:p-6">
+            <div className="mb-4 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between lg:mb-6">
               <div>
                 <Heading level={2} className="sm:text-lg">
                   Theme Customizer
@@ -45,16 +45,16 @@ export function ThemeContainer() {
             </div>
             <div>
               <ThemeCustomizer {...{ selectedColors, setSelectedColors }} />
-              <div className="mt-3 justify-end flex">
-                <Button className="lg:hidden w-full flex" onPress={handleOpen}>
+              <div className="mt-3 flex justify-end">
+                <Button className="flex w-full lg:hidden" onPress={handleOpen}>
                   <IconBrandCss />
                   Get Theme
                 </Button>
               </div>
             </div>
           </div>
-          <div className="w-full lg:w-2/3 px-4 pb-4 pt-2 lg:p-6">
-            <div className="mb-4 lg:mb-6 flex justify-between">
+          <div className="w-full px-4 pt-2 pb-4 lg:w-2/3 lg:p-6">
+            <div className="mb-4 flex justify-between lg:mb-6">
               <div>
                 <Heading level={2} className="sm:text-lg">
                   Generated Theme
@@ -62,7 +62,7 @@ export function ThemeContainer() {
                 <p className="text-muted-fg text-sm">The generated colors are based on the selected gray color.</p>
               </div>
               <Menu>
-                <Button className="lg:flex hidden">
+                <Button className="hidden lg:flex">
                   Get Theme...
                   <IconChevronLgDown />
                 </Button>
@@ -96,17 +96,17 @@ export function ThemeContainer() {
         side="right"
       >
         <Sheet.Header
-          className="text-white *:text-white border-zinc-800"
+          className="border-zinc-800 text-white *:text-white"
           title="Theme"
           description="Copy the theme below and paste it into your CSS file."
         />
-        <Sheet.Body className="border-y pb-4 border-zinc-800">
+        <Sheet.Body className="border-zinc-800 border-y pb-4">
           <CodeHighlighter plain max96={false} className="pt-4" code={generateTheme(selectedColors)} />
         </Sheet.Body>
         <Sheet.Footer className="gap-x-1">
           <Sheet.Close
             onPress={handleClose}
-            className="border-zinc-800 sm:flex hidden text-white data-pressed:border-zinc-700 data-pressed:bg-zinc-800 data-hovered:border-zinc-700 data-hovered:bg-zinc-900"
+            className="hidden border-zinc-800 text-white data-hovered:border-zinc-700 data-pressed:border-zinc-700 data-hovered:bg-zinc-900 data-pressed:bg-zinc-800 sm:flex"
           >
             Close
           </Sheet.Close>

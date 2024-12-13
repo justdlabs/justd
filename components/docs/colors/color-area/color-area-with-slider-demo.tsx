@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import { useState } from "react"
 
 import { parseColor } from "@react-stately/color"
 import { ColorArea, ColorField, ColorSlider } from "ui"

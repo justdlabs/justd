@@ -1,5 +1,3 @@
-import React from "react"
-
 import { ProgressBar } from "ui"
 
 export default function ProgressBarAnatomy() {

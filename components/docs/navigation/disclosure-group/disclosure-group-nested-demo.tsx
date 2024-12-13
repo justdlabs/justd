@@ -1,13 +1,11 @@
 "use client"
 
-import React from "react"
-
 import { IconChevronRight } from "justd-icons"
 import { Disclosure, DisclosureGroup, DisclosurePanel, DisclosureTrigger } from "ui"
 
 export default function DisclosureGroupNestedDemo() {
   return (
-    <DisclosureGroup className="border rounded-xl **:data-[slot=disclosure]:last:border-b-0" defaultExpandedKeys={[1]}>
+    <DisclosureGroup className="rounded-xl border **:data-[slot=disclosure]:last:border-b-0" defaultExpandedKeys={[1]}>
       {items.map((item, index) => (
         <Disclosure key={index} id={index}>
           <DisclosureTrigger className="px-4">{item.title}</DisclosureTrigger>
@@ -17,7 +15,7 @@ export default function DisclosureGroupNestedDemo() {
                 <Disclosure key={childIndex} id={childIndex}>
                   <DisclosureTrigger className="group">
                     <span>
-                      <IconChevronRight className="duration-300 group-aria-expanded:rotate-90 size-5" />
+                      <IconChevronRight className="size-5 duration-300 group-aria-expanded:rotate-90" />
                       {child.title}
                     </span>
                   </DisclosureTrigger>
@@ -41,19 +39,19 @@ const items = [
       {
         id: 101,
         title: "Men's Wear",
-        description: "Stylish and comfortable outfits for men."
+        description: "Stylish and comfortable outfits for men.",
       },
       {
         id: 102,
         title: "Women's Wear",
-        description: "Elegant and trendy fashion for women."
+        description: "Elegant and trendy fashion for women.",
       },
       {
         id: 103,
         title: "Kids' Wear",
-        description: "Colorful and playful clothing for kids."
-      }
-    ]
+        description: "Colorful and playful clothing for kids.",
+      },
+    ],
   },
   {
     id: 2,
@@ -63,19 +61,19 @@ const items = [
       {
         id: 201,
         title: "Smartphones",
-        description: "Top brands and the latest models."
+        description: "Top brands and the latest models.",
       },
       {
         id: 202,
         title: "Laptops",
-        description: "High-performance laptops for work and play."
+        description: "High-performance laptops for work and play.",
       },
       {
         id: 203,
         title: "Accessories",
-        description: "Chargers, cases, and other must-have gadgets."
-      }
-    ]
+        description: "Chargers, cases, and other must-have gadgets.",
+      },
+    ],
   },
   {
     id: 3,
@@ -85,18 +83,18 @@ const items = [
       {
         id: 301,
         title: "Furniture",
-        description: "Comfortable and stylish furniture for every room."
+        description: "Comfortable and stylish furniture for every room.",
       },
       {
         id: 302,
         title: "Decor",
-        description: "Beautiful decor items to personalize your space."
+        description: "Beautiful decor items to personalize your space.",
       },
       {
         id: 303,
         title: "Kitchen Essentials",
-        description: "Practical and modern kitchen tools."
-      }
-    ]
-  }
+        description: "Practical and modern kitchen tools.",
+      },
+    ],
+  },
 ]

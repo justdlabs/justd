@@ -10,7 +10,7 @@ import {
   IconSearch,
   IconSettings,
   IconShield,
-  IconShoppingBag
+  IconShoppingBag,
 } from "justd-icons"
 import { Avatar, Button, Menu, Navbar, Separator } from "ui"
 
@@ -39,7 +39,7 @@ export default function AppNavbar({ children, ...props }: React.ComponentProps<t
               </Button>
               <ThemeSwitcher appearance="plain" />
             </Navbar.Flex>
-            <Separator orientation="vertical" className="h-6 ml-1 mr-3" />
+            <Separator orientation="vertical" className="mr-3 ml-1 h-6" />
             <Menu>
               <Menu.Trigger aria-label="Open Menu">
                 <Avatar alt="cobain" size="small" shape="square" src="/images/avatar/cobain.jpg" />
@@ -98,7 +98,7 @@ export default function AppNavbar({ children, ...props }: React.ComponentProps<t
               </Button>
               <ThemeSwitcher appearance="plain" />
             </Navbar.Flex>
-            <Separator orientation="vertical" className="h-6 ml-1 mr-3" />
+            <Separator orientation="vertical" className="mr-3 ml-1 h-6" />
             <UserMenu />
           </Navbar.Flex>
         </Navbar.Compact>

@@ -11,7 +11,7 @@ import {
   SidebarDisclosureTrigger,
   SidebarHeader,
   SidebarItem,
-  SidebarLabel
+  SidebarLabel,
 } from "ui"
 
 export default function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
@@ -19,7 +19,7 @@ export default function AppSidebar(props: React.ComponentProps<typeof Sidebar>) 
     <Sidebar {...props}>
       <SidebarHeader>
         <Link
-          className="flex items-center group-data-[collapsible=dock]:size-10 group-data-[collapsible=dock]:justify-center gap-x-2"
+          className="flex items-center gap-x-2 group-data-[collapsible=dock]:size-10 group-data-[collapsible=dock]:justify-center"
           href="/docs/components/layouts/sidebar"
         >
           <IconBrandApple className="size-5" />
@@ -41,7 +41,7 @@ export default function AppSidebar(props: React.ComponentProps<typeof Sidebar>) 
                     {({ isHovered }) => (
                       <>
                         <i aria-hidden className="size-4 content-center">
-                          <IconBullet className={`${isHovered ? "fill-sky-500 text-sky-500" : ""} size-2 m-auto`} />
+                          <IconBullet className={`${isHovered ? "fill-sky-500 text-sky-500" : ""} m-auto size-2`} />
                         </i>
                         <SidebarLabel>{item}</SidebarLabel>
                       </>
@@ -61,21 +61,21 @@ const sections = [
   {
     icon: IconNotes,
     label: "Blog",
-    items: ["Articles", "Categories", "Tags", "Comments", "Authors"]
+    items: ["Articles", "Categories", "Tags", "Comments", "Authors"],
   },
   {
     icon: IconStore,
     label: "Commerce",
-    items: ["Orders", "Products", "Customers", "Coupons", "Discounts"]
+    items: ["Orders", "Products", "Customers", "Coupons", "Discounts"],
   },
   {
     icon: IconWhiteboard,
     label: "Analytics",
-    items: ["Reports", "Traffic", "Conversions", "Audience", "Engagement"]
+    items: ["Reports", "Traffic", "Conversions", "Audience", "Engagement"],
   },
   {
     icon: IconSettings,
     label: "Settings",
-    items: ["General", "Profile", "Billing", "Notifications", "Integrations"]
-  }
+    items: ["General", "Profile", "Billing", "Notifications", "Integrations"],
+  },
 ]

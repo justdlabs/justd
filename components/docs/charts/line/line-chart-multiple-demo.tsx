@@ -9,19 +9,19 @@ const chartData = Array.from({ length: 24 }, (_, index) => {
   return {
     month,
     revenue: Math.floor(Math.random() * 300 + 200),
-    expenses: Math.floor(Math.random() * 150 + 50)
+    expenses: Math.floor(Math.random() * 150 + 50),
   }
 })
 
 const chartConfig = {
   revenue: {
     label: "Revenue",
-    color: "var(--chart-1)"
+    color: "var(--chart-1)",
   },
   expenses: {
     label: "Expenses",
-    color: "var(--chart-2)"
-  }
+    color: "var(--chart-2)",
+  },
 } satisfies ChartConfig
 
 export default function LineChartMultipleDemo() {
@@ -39,7 +39,7 @@ export default function LineChartMultipleDemo() {
             data={chartData}
             margin={{
               left: 12,
-              right: 12
+              right: 12,
             }}
           >
             <CartesianGrid vertical={false} />

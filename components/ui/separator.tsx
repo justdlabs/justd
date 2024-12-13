@@ -8,12 +8,12 @@ const separatorStyles = tv({
   variants: {
     orientation: {
       horizontal: "h-px w-full",
-      vertical: "w-px"
-    }
+      vertical: "w-px",
+    },
   },
   defaultVariants: {
-    orientation: "horizontal"
-  }
+    orientation: "horizontal",
+  },
 })
 
 interface SeparatorProps extends DividerProps {
@@ -28,7 +28,7 @@ const Separator = ({ className, ref, ...props }: SeparatorProps) => {
       {...props}
       className={separatorStyles({
         orientation: props.orientation,
-        className: className
+        className: className,
       })}
     />
   )

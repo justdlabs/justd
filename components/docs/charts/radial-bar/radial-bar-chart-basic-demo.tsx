@@ -9,40 +9,40 @@ const chartData = [
   { category: "Furniture", sales: 250, fill: "var(--color-furniture)" },
   { category: "Clothing", sales: 200, fill: "var(--color-clothing)" },
   { category: "Sports", sales: 180, fill: "var(--color-sports)" },
-  { category: "Books", sales: 100, fill: "var(--color-books)" }
+  { category: "Books", sales: 100, fill: "var(--color-books)" },
 ]
 
 const chartConfig = {
   sales: {
-    label: "Sales"
+    label: "Sales",
   },
   electronics: {
     label: "Electronics",
-    color: "var(--chart-1)"
+    color: "var(--chart-1)",
   },
   furniture: {
     label: "Furniture",
-    color: "var(--chart-2)"
+    color: "var(--chart-2)",
   },
   clothing: {
     label: "Clothing",
-    color: "var(--chart-3)"
+    color: "var(--chart-3)",
   },
   sports: {
     label: "Sports",
-    color: "var(--chart-4)"
+    color: "var(--chart-4)",
   },
   books: {
     label: "Books",
-    color: "var(--chart-5)"
-  }
+    color: "var(--chart-5)",
+  },
 } satisfies ChartConfig
 
 export default function RadialBarChartBasicDemo() {
   return (
     <Card>
       <Card.Header
-        className="items-center text-center pb-0"
+        className="items-center pb-0 text-center"
         title="Category Sales Overview"
         description="Visualizing sales distribution across categories for the year 2024"
       />

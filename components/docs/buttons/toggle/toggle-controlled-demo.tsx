@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import { useState } from "react"
 
 import { IconPin, IconUnpin } from "justd-icons"
 import { Toggle } from "ui"

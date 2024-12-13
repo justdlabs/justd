@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react"
+import type React from "react"
 
 import { motion } from "motion/react"
 import NextLink from "next/link"
@@ -12,9 +12,9 @@ const navLinkStyles = tv({
   variants: {
     isActive: {
       false: "text-muted-fg hover:text-fg forced-colors:text-[Gray]",
-      true: "text-fg forced-colors:text-[WindowText]"
-    }
-  }
+      true: "text-fg forced-colors:text-[WindowText]",
+    },
+  },
 })
 
 interface NavLinkProps {

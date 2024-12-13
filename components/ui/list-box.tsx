@@ -9,7 +9,7 @@ import { DropdownItemDetails, DropdownSection } from "./dropdown"
 import { cn } from "./primitive"
 
 const listBoxStyles = tv({
-  base: "flex max-h-96 [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin] w-full gap-y-1 min-w-56 flex-col overflow-y-auto rounded-xl border p-1 shadow-lg outline-hidden"
+  base: "flex max-h-96 [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin] w-full gap-y-1 min-w-56 flex-col overflow-y-auto rounded-xl border p-1 shadow-lg outline-hidden",
 })
 
 const ListBox = <T extends object>({ className, ...props }: ListBoxProps<T>) => (
@@ -23,22 +23,22 @@ const listBoxItemStyles = tv({
   base: "lbi cursor-pointer relative rounded-[calc(var(--radius-lg)-1px)] p-2 text-base outline-hidden sm:text-sm",
   variants: {
     isFocusVisible: {
-      true: "bg-secondary text-accent-fg text-accent-fg/70"
+      true: "bg-secondary text-accent-fg text-accent-fg/70",
     },
     isHovered: {
-      true: "bg-accent [&:hover_[slot=label]]:text-accent-fg [&:hover_[slot=description]]:text-accent-fg/70 text-accent-fg [&_.text-muted-fg]:text-accent-fg/80"
+      true: "bg-accent [&:hover_[slot=label]]:text-accent-fg [&:hover_[slot=description]]:text-accent-fg/70 text-accent-fg [&_.text-muted-fg]:text-accent-fg/80",
     },
     isFocused: {
-      true: "**:data-[slot=icon]:text-accent-fg **:data-[slot=label]:text-accent-fg [&_.text-muted-fg]:text-accent-fg/80 bg-accent text-accent-fg"
+      true: "**:data-[slot=icon]:text-accent-fg **:data-[slot=label]:text-accent-fg [&_.text-muted-fg]:text-accent-fg/80 bg-accent text-accent-fg",
     },
     isSelected: {
-      true: "**:data-[slot=icon]:text-accent-fg **:data-[slot=label]:text-accent-fg [&_.text-muted-fg]:text-accent-fg/80 bg-accent text-accent-fg"
+      true: "**:data-[slot=icon]:text-accent-fg **:data-[slot=label]:text-accent-fg [&_.text-muted-fg]:text-accent-fg/80 bg-accent text-accent-fg",
     },
     isDragging: { true: "cursor-grabbing bg-secondary text-secondary-fg" },
     isDisabled: {
-      true: "opacity-70 cursor-default text-muted-fg"
-    }
-  }
+      true: "opacity-70 cursor-default text-muted-fg",
+    },
+  },
 })
 
 interface ItemProps<T extends object> extends ListBoxItemProps<T> {
@@ -55,8 +55,8 @@ const Item = <T extends object>({ children, className, ...props }: ItemProps<T>)
       className={composeRenderProps(className, (className, renderProps) =>
         listBoxItemStyles({
           ...renderProps,
-          className
-        })
+          className,
+        }),
       )}
     >
       {(values) => (
@@ -68,7 +68,7 @@ const Item = <T extends object>({ children, className, ...props }: ItemProps<T>)
                   "size-4 shrink-0 text-muted-fg transition",
                   values.isFocused && "text-fg",
                   values.isDragging && "text-fg",
-                  values.isSelected && "text-accent-fg/70"
+                  values.isSelected && "text-accent-fg/70",
                 )}
               />
             )}
@@ -76,7 +76,7 @@ const Item = <T extends object>({ children, className, ...props }: ItemProps<T>)
               {typeof children === "function" ? children(values) : children}
 
               {values.isSelected && (
-                <span className="animate-in absolute right-2 top-3 lg:top-2.5">
+                <span className="absolute top-3 right-2 animate-in lg:top-2.5">
                   <IconCheck />
                 </span>
               )}

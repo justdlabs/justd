@@ -1,7 +1,5 @@
 "use client"
 
-import React from "react"
-
 import { Disclosure, DisclosureGroup, DisclosurePanel, DisclosureTrigger } from "ui"
 
 export default function DisclosureGroupDemo() {

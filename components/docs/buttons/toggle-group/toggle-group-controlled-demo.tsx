@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState } from "react"
 
 import type { Key } from "react-aria-components"
 import { Toggle, ToggleGroup } from "ui"
@@ -14,8 +14,8 @@ export default function ToggleGroupControlledDemo() {
         <Toggle id="underline">Underline</Toggle>
       </ToggleGroup>
       {[...selected].length > 0 && (
-        <p className="text-muted-fg mt-4">
-          Selected: <strong className="text-fg font-semibold">{[...selected].join(", ")}</strong>
+        <p className="mt-4 text-muted-fg">
+          Selected: <strong className="font-semibold text-fg">{[...selected].join(", ")}</strong>
         </p>
       )}
     </>

@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import { useState } from "react"
 
 import { IconPlus } from "justd-icons"
 import { Button, ProgressCircle } from "ui"

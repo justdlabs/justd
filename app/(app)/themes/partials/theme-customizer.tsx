@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react"
+import type React from "react"
 
 import { useTheme } from "@/components/theme-provider"
 import colors from "@/resources/colors/colors.json"
@@ -47,8 +47,8 @@ const ColorSelect = ({
             <div
               data-slot="icon"
               className={cn(
-                "size-4 rounded-sm inset-ring inset-ring-(--inset-ring-color)/15 dark:inset-ring-(--inset-ring-color)/5",
-                className
+                "inset-ring inset-ring-(--inset-ring-color)/15 size-4 rounded-sm dark:inset-ring-(--inset-ring-color)/5",
+                className,
               )}
               aria-hidden
               style={
@@ -56,7 +56,7 @@ const ColorSelect = ({
                   "--inset-ring-color": colors[key as keyof typeof colors]["200"],
                   backgroundColor: neutralColors.includes(key)
                     ? colors[key as keyof typeof colors][theme === "dark" ? "900" : "700"]
-                    : colors[key as keyof typeof colors]["500"]
+                    : colors[key as keyof typeof colors]["500"],
                 } as React.CSSProperties
               }
             />
@@ -96,7 +96,7 @@ export function ThemeCustomizer({ selectedColors, setSelectedColors }: ThemeCust
   const filteredAccentColors = getFilteredColors(selectedColors.gray)
   const filteredRadius = ["0rem", "0.125rem", "0.25rem", "0.375rem", "0.5rem", "0.6rem", "0.75rem", "1rem", "1.5rem"]
   return (
-    <div className="grid gap-4 max-w-xl">
+    <div className="grid max-w-xl gap-4">
       <div className="grid grid-cols-2 gap-x-3 gap-y-6">
         <ColorSelect
           selectedKey={selectedColors.gray}

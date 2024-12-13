@@ -1,4 +1,4 @@
-import React from "react"
+import type React from "react"
 
 import { GeneratedTheme } from "@/app/(app)/themes/partials/generated-theme"
 import { Anatomy } from "@/components/code/anatomy"
@@ -36,29 +36,29 @@ export function Mdx({ code }: MdxProps) {
         Image,
         NewTab: (props: React.ComponentProps<typeof Link>) => (
           <Link
-            className="not-prose xd2432 text-blue-600 outline-hidden data-focus-visible:ring-1 dark:text-blue-400 xd2432 data-hovered:underline"
+            className="not-prose xd2432 xd2432 text-blue-600 outline-hidden data-hovered:underline data-focus-visible:ring-1 dark:text-blue-400"
             target="_blank"
             {...props}
           >
-            <>{(props.children as string) ?? "Preview"}</>
-            <IconArrowUpRight className="inline size-3.5 ml-1" />
+            {(props.children as string) ?? "Preview"}
+            <IconArrowUpRight className="ml-1 inline size-3.5" />
           </Link>
         ),
         How: DocHow,
         a: (props: React.ComponentProps<"a">) => (
           <a
             {...props}
-            className="not-prose xd2432 outline-hidden focus-visible:ring-1 text-blue-600 dark:text-blue-400 xd2432 data-hovered:underline"
+            className="not-prose xd2432 xd2432 text-blue-600 outline-hidden focus-visible:ring-1 data-hovered:underline dark:text-blue-400"
           />
         ),
         SourceCode: SourceCode,
         PlainCode: PlainCode,
         figure: (props: React.ComponentProps<"figure">) => (
           <figure
-            className="*:[pre]:max-h-96 *:[pre]:p-4 *:[pre]:inset-ring-1 *:[pre]:rounded-lg *:[pre]:inset-ring-zinc-800 *:[pre]:bg-shiki-bg"
+            className="*:[pre]:inset-ring-1 *:[pre]:inset-ring-zinc-800 *:[pre]:max-h-96 *:[pre]:rounded-lg *:[pre]:bg-shiki-bg *:[pre]:p-4"
             {...props}
           />
-        )
+        ),
       }}
     />
   )

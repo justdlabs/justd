@@ -4,7 +4,7 @@ import {
   TimeField as TimeFieldPrimitive,
   type TimeFieldProps as TimeFieldPrimitiveProps,
   type TimeValue,
-  type ValidationResult
+  type ValidationResult,
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
@@ -21,7 +21,7 @@ export interface TimeFieldProps<T extends TimeValue> extends TimeFieldPrimitiveP
 }
 
 const timeFieldStyles = tv({
-  base: "flex w-fit min-w-28 justify-around whitespace-nowrap p-2 sm:text-sm"
+  base: "flex w-fit min-w-28 justify-around whitespace-nowrap p-2 sm:text-sm",
 })
 
 const TimeField = <T extends TimeValue>({

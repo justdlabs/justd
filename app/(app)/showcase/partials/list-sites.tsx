@@ -14,14 +14,14 @@ interface Props {
 export function ListSites({ sites }: Props) {
   return (
     <Primitive aria-label="Showcase">
-      <ListBoxSection className="grid lg:grid-cols-4 sm:grid-cols-2 gap-4 lg:gap-6">
+      <ListBoxSection className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
         <Collection items={sites}>
           {(item) => {
             return (
               <ListBoxItem
                 rel="nofollow"
                 target="_blank"
-                className="flex items-center data-focused:outline-hidden data-focus-visible:ring-1 data-focus-visible:ring-ring gap-x-3 bg-secondary/70 data-hovered:bg-secondary transition ring-1 ring-border rounded-lg px-3 py-2.5"
+                className="flex items-center gap-x-3 rounded-lg bg-secondary/70 px-3 py-2.5 ring-1 ring-border transition data-hovered:bg-secondary data-focused:outline-hidden data-focus-visible:ring-1 data-focus-visible:ring-ring"
                 textValue={item.name}
                 href={`${item.url}?ref=getjustd.com/showcase`}
                 id={getSiteName(item.url)}

@@ -4,7 +4,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <AppNavbar />
-      <div className="py-6 @xl:py-12">{children}</div>
+      <div className="@xl:py-12 py-6">{children}</div>
     </>
   )
 }

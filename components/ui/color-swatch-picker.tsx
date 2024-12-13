@@ -1,7 +1,5 @@
 "use client"
 
-import React from "react"
-
 import type { ColorSwatchPickerItemProps, ColorSwatchPickerProps } from "react-aria-components"
 import { ColorSwatchPicker as ColorSwatchPickerPrimitive, ColorSwatchPickerItem } from "react-aria-components"
 import { tv } from "tailwind-variants"
@@ -23,7 +21,7 @@ const ColorSwatchPicker = ({ children, className, layout = "grid", ...props }: C
 
 const itemStyles = tv({
   extend: focusRing,
-  base: "relative rounded disabled:opacity-50"
+  base: "relative rounded disabled:opacity-50",
 })
 
 const SwatchPickerItem = (props: ColorSwatchPickerItemProps) => {
@@ -33,7 +31,7 @@ const SwatchPickerItem = (props: ColorSwatchPickerItemProps) => {
         <>
           <ColorSwatch />
           {isSelected && (
-            <div className="absolute top-0 left-0 w-full h-full ring-1 rounded-md ring-fg/30 outline-hidden rounded-[calc(var(--radius-lg)-3.9px)] ring-inset forced-color-adjust-none" />
+            <div className="absolute top-0 left-0 h-full w-full rounded-[calc(var(--radius-lg)-3.9px)] rounded-md outline-hidden ring-1 ring-fg/30 ring-inset forced-color-adjust-none" />
           )}
         </>
       )}

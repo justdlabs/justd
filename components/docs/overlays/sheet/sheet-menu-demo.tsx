@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import { useState } from "react"
 
 import {
   IconBook,
@@ -18,7 +18,7 @@ import {
   IconMessages,
   IconPeople,
   IconPerson,
-  IconStar
+  IconStar,
 } from "justd-icons"
 import { Group } from "react-aria-components"
 import { Avatar, Button, Checkbox, Description, Menu, Modal, Select, Sheet, TextField } from "ui"
@@ -74,7 +74,7 @@ export default function SheetMenuDemo() {
           <Avatar src="/images/avatar/cobain.jpg" alt="irsyadadl" />
         </Sheet.Trigger>
         <Sheet.Content closeButton={false}>
-          <Sheet.Header className="flex border-b p-4 sticky top-0 bg-overlay flex-row items-center gap-x-3 mb-2">
+          <Sheet.Header className="sticky top-0 mb-2 flex flex-row items-center gap-x-3 border-b bg-overlay p-4">
             <Avatar src="/images/avatar/cobain.jpg" alt="irsyadadl" />
             <div>
               <Sheet.Title>irsyadadl</Sheet.Title>

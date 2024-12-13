@@ -1,7 +1,5 @@
 "use client"
 
-import React from "react"
-
 import { IconPin } from "justd-icons"
 import { Toggle } from "ui"
 

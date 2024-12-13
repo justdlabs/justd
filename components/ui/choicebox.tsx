@@ -18,18 +18,18 @@ const choiceboxStyles = tv({
       3: "sm:grid-cols-3",
       4: "sm:grid-cols-4",
       5: "sm:grid-cols-5",
-      6: "sm:grid-cols-6"
+      6: "sm:grid-cols-6",
     },
     gap: {
       2: "gap-2",
       4: "gap-4",
-      6: "gap-6"
-    }
+      6: "gap-6",
+    },
   },
   defaultVariants: {
     columns: 2,
-    gap: 6
-  }
+    gap: 6,
+  },
 })
 
 interface ChoiceboxProps<T extends object> extends GridListProps<T>, VariantProps<typeof choiceboxStyles> {
@@ -50,7 +50,7 @@ const Choicebox = <T extends object>({
       className={choiceboxStyles({
         columns,
         gap,
-        className
+        className,
       })}
       {...props}
     />
@@ -64,24 +64,24 @@ const choiceboxItemStyles = tv({
     "[--choicebox-selected-hovered:color-mix(in_oklab,var(--color-primary)_15%,white_85%)]",
     "dark:[--choicebox-selected-hovered:color-mix(in_oklab,var(--color-primary)_30%,black_70%)]",
     "dark:[--choicebox:color-mix(in_oklab,var(--color-primary)_25%,black_60%)] dark:[--choicebox-fg:color-mix(in_oklab,var(--color-primary)_75%,white_25%)]",
-    "rounded-lg cursor-pointer border p-4 [&_[slot=title]]:font-medium"
+    "rounded-lg cursor-pointer border p-4 [&_[slot=title]]:font-medium",
   ],
   variants: {
     isHovered: {
-      true: "bg-secondary/30"
+      true: "bg-secondary/30",
     },
     isSelected: {
       true: [
         "bg-(--choicebox) text-(--choicebox-fg)",
         "z-20 data-hovered:bg-(--choicebox-selected-hovered) border-ring/50",
         "[&_[slot=title]]:text-(--choicebox-fg)",
-        "[&_[slot=description]]:text-(--choicebox-fg)/80"
-      ]
+        "[&_[slot=description]]:text-(--choicebox-fg)/80",
+      ],
     },
     isDisabled: {
-      true: "z-10 cursor-default opacity-50 [&_[slot=title]]:text-muted-fg [&_[slot=description]]:text-muted-fg/70 forced-colors:text-[GrayText]"
-    }
-  }
+      true: "z-10 cursor-default opacity-50 [&_[slot=title]]:text-muted-fg [&_[slot=description]]:text-muted-fg/70 forced-colors:text-[GrayText]",
+    },
+  },
 })
 
 interface ChoiceboxItemProps extends GridListItemProps, VariantProps<typeof choiceboxItemStyles> {
@@ -98,23 +98,21 @@ const ChoiceboxItem = ({ className, ...props }: ChoiceboxItemProps) => {
       className={composeRenderProps(className, (className, renderProps) =>
         choiceboxItemStyles({
           ...renderProps,
-          className
-        })
+          className,
+        }),
       )}
     >
       {(values) => (
-        <div className="flex items-center w-full justify-between gap-2">
-          <div className="pr-8 flex flex-col">
+        <div className="flex w-full items-center justify-between gap-2">
+          <div className="flex flex-col pr-8">
             <Label slot="title" htmlFor={textValue}>
               {props.title}
             </Label>
             {props.description && <Description>{props.description}</Description>}
           </div>
-          <>
-            {values.selectionMode === "multiple" && values.selectionBehavior === "toggle" && (
-              <Checkbox slot="selection" />
-            )}
-          </>
+          {values.selectionMode === "multiple" && values.selectionBehavior === "toggle" && (
+            <Checkbox slot="selection" />
+          )}
         </div>
       )}
     </GridListItem>

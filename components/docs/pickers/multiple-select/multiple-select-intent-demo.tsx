@@ -6,7 +6,7 @@ import { MultipleSelect } from "ui"
 
 export default function MultipleSelectIntentDemo() {
   const selectedItems = useListData<SelectedKey>({
-    initialItems: [fruits[0]]
+    initialItems: [fruits[0]],
   })
   return (
     <MultipleSelect
@@ -41,5 +41,5 @@ const fruits: SelectedKey[] = [
   { id: 17, name: "Strawberry" },
   { id: 18, name: "Tangerine" },
   { id: 19, name: "Ugli Fruit" },
-  { id: 20, name: "Watermelon" }
+  { id: 20, name: "Watermelon" },
 ]

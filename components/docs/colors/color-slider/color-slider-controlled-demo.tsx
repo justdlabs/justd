@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import { useState } from "react"
 
 import { ControlledValues } from "@/components/docs/colors/controlled-values"
 import { ColorSlider, defaultColor } from "ui"

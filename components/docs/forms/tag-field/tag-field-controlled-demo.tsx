@@ -1,13 +1,11 @@
 "use client"
 
-import React from "react"
-
 import { useListData } from "react-stately"
 import { Description, TagField } from "ui"
 
 export default function TagFieldControlledDemo() {
   const selectedItems = useListData({
-    initialItems: [{ id: 1, name: "Ferrari" }]
+    initialItems: [{ id: 1, name: "Ferrari" }],
   })
 
   return (
@@ -20,7 +18,7 @@ export default function TagFieldControlledDemo() {
         description="You can add multiple tags"
         list={selectedItems}
       />
-      <Description className="max-w-xs block [&>strong]:text-fg [&>strong]:text-medium mt-4">
+      <Description className="mt-4 block max-w-xs [&>strong]:text-fg [&>strong]:text-medium">
         {JSON.stringify(selectedItems.items)}
       </Description>
     </div>

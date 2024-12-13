@@ -1,7 +1,5 @@
 "use client"
 
-import React from "react"
-
 import { getLocalTimeZone, parseDate, today } from "@internationalized/date"
 import { DateField } from "ui"
 

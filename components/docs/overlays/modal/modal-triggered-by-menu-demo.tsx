@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import { useState } from "react"
 
 import { wait } from "@/resources/lib/utils"
 import { IconDotsVertical } from "justd-icons"
@@ -11,7 +11,6 @@ export default function ModalTriggeredByMenuDemo() {
   const [loading, setLoading] = useState<boolean>(false)
   const closeModal = () => setState(null)
   const executeAction = (action: string) => {
-    console.log(`${action} is executing`)
     setLoading(true)
     wait(2000).then(() => {
       setLoading(false)
@@ -26,7 +25,7 @@ export default function ModalTriggeredByMenuDemo() {
           title: "Delete User",
           description: "Are you sure you want to delete this item?",
           confirmText: "Delete",
-          action: () => executeAction(t)
+          action: () => executeAction(t),
         }
 
       case "ban":
@@ -34,7 +33,7 @@ export default function ModalTriggeredByMenuDemo() {
           title: "Ban User",
           description: "Are you sure you want to ban this user?",
           confirmText: "Ban",
-          action: () => executeAction(t)
+          action: () => executeAction(t),
         }
 
       case "restore":
@@ -42,7 +41,7 @@ export default function ModalTriggeredByMenuDemo() {
           title: "Restore User",
           description: "Are you sure you want to restore this user?",
           confirmText: "Restore",
-          action: () => executeAction(t)
+          action: () => executeAction(t),
         }
       default:
         return

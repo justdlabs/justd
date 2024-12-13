@@ -10,7 +10,7 @@ import {
   ListBoxSection,
   type SectionProps,
   Text,
-  type TextProps
+  type TextProps,
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
@@ -24,29 +24,29 @@ const dropdownItemStyles = tv({
     "**:data-[slot=avatar]:-mr-0.5 **:data-[slot=avatar]:size-6 sm:**:data-[slot=avatar]:size-5",
     "**:data-[slot=icon]:size-4 **:data-[slot=icon]:shrink-0 **:data-[slot=icon]:text-muted-fg data-hovered:**:data-[slot=icon]:text-accent-fg data-focused:**:data-[slot=icon]:text-accent-fg data-danger:**:data-[slot=icon]:text-danger/70 data-focused:data-danger:**:data-[slot=icon]:text-danger-fg",
     "data-[slot=menu-radio]:*:data-[slot=icon]:size-3",
-    "forced-colors:**:data-[slot=icon]:text-[CanvasText] forced-colors:group-data-focused:**:data-[slot=icon]:text-[Canvas] "
+    "forced-colors:**:data-[slot=icon]:text-[CanvasText] forced-colors:group-data-focused:**:data-[slot=icon]:text-[Canvas] ",
   ],
   variants: {
     isDisabled: {
-      true: "text-muted-fg forced-colors:text-[GrayText]"
+      true: "text-muted-fg forced-colors:text-[GrayText]",
     },
     isFocused: {
       false: "data-danger:text-danger",
       true: [
         "bg-accent text-accent-fg forced-colors:text-[HighlightText] forced-colors:bg-[Highlight]",
         "data-danger:bg-danger data-danger:text-danger-fg",
-        "[&_.text-muted-fg]:text-accent-fg/80 data-[slot=label]:text-accent-fg data-[slot=description]:text-accent-fg"
-      ]
-    }
-  }
+        "[&_.text-muted-fg]:text-accent-fg/80 data-[slot=label]:text-accent-fg data-[slot=description]:text-accent-fg",
+      ],
+    },
+  },
 })
 
 const dropdownSectionStyles = tv({
   slots: {
     section: "first:-mt-[5px] xss3 flex flex-col gap-y-0.5 after:content-[''] after:block after:h-[4px]",
     header:
-      "text-sm font-medium text-muted-fg px-4 py-2 truncate min-w-(--trigger-width) sticky -top-[5px] bg-muted -mb-0.5 -mx-1.5 z-10 supports-[-moz-appearance:none]:bg-muted border-y [&+*]:mt-1"
-  }
+      "text-sm font-medium text-muted-fg px-4 py-2 truncate min-w-(--trigger-width) sticky -top-[5px] bg-muted -mb-0.5 -mx-1.5 z-10 supports-[-moz-appearance:none]:bg-muted border-y [&+*]:mt-1",
+  },
 })
 
 const { section, header } = dropdownSectionStyles()
@@ -70,7 +70,7 @@ const DropdownItem = ({ className, ...props }: ListBoxItemProps) => {
     <ListBoxItemPrimitive
       textValue={textValue}
       className={composeRenderProps(className, (className, renderProps) =>
-        dropdownItemStyles({ ...renderProps, className })
+        dropdownItemStyles({ ...renderProps, className }),
       )}
       {...props}
     >
@@ -81,7 +81,7 @@ const DropdownItem = ({ className, ...props }: ListBoxItemProps) => {
           </span>
 
           {isSelected && (
-            <span className="absolute right-2 top-3 lg:top-2.5">
+            <span className="absolute top-3 right-2 lg:top-2.5">
               <IconCheck />
             </span>
           )}

@@ -48,9 +48,9 @@ const navbarStyles = tv({
     intent: {
       floating: "pt-2 px-2.5",
       navbar: "",
-      inset: "bg-bg min-h-svh"
-    }
-  }
+      inset: "bg-bg min-h-svh",
+    },
+  },
 })
 
 const Navbar = ({
@@ -76,7 +76,7 @@ const Navbar = ({
 
       _setOpen(value)
     },
-    [setOpenProp, open]
+    [setOpenProp, open],
   )
 
   const toggleNavbar = useCallback(() => {
@@ -91,9 +91,9 @@ const Navbar = ({
       toggleNavbar,
       intent,
       isSticky,
-      side
+      side,
     }),
-    [open, setOpen, isCompact, toggleNavbar, intent, isSticky, side]
+    [open, setOpen, isCompact, toggleNavbar, intent, isSticky, side],
   )
   return (
     <NavbarContext value={contextValue}>
@@ -107,11 +107,11 @@ const Navbar = ({
 const navStyles = tv({
   base: [
     "hidden h-(--navbar-height) [--navbar-height:3.5rem] px-4 group peer md:flex items-center w-full",
-    "[&>div]:max-w-[1680px] md:[&>div]:flex [&>div]:items-center [&>div]:w-full [&>div]:mx-auto"
+    "[&>div]:max-w-[1680px] md:[&>div]:flex [&>div]:items-center [&>div]:w-full [&>div]:mx-auto",
   ],
   variants: {
     isSticky: {
-      true: "sticky z-40 top-0"
+      true: "sticky z-40 top-0",
     },
     intent: {
       floating:
@@ -119,10 +119,10 @@ const navStyles = tv({
       navbar: "bg-navbar text-navbar-fg border-b md:px-6",
       inset: [
         "mx-auto dark:md:px-6",
-        "2xl:[&>div]:max-w-(--breakpoint-2xl) md:[&>div]:flex [&>div]:items-center [&>div]:w-full [&>div]:mx-auto"
-      ]
-    }
-  }
+        "2xl:[&>div]:max-w-(--breakpoint-2xl) md:[&>div]:flex [&>div]:items-center [&>div]:w-full [&>div]:mx-auto",
+      ],
+    },
+  },
 })
 
 interface NavbarProps extends React.ComponentProps<"div"> {
@@ -142,11 +142,11 @@ const Nav = ({ className, ...props }: NavbarProps) => {
           aria-label="Compact Navbar"
           data-navbar="compact"
           classNames={{
-            content: "text-fg [&>button]:hidden"
+            content: "text-fg [&>button]:hidden",
           }}
           isStack={intent === "floating"}
         >
-          <Sheet.Body className="md:px-4 px-2">{props.children}</Sheet.Body>
+          <Sheet.Body className="px-2 md:px-4">{props.children}</Sheet.Body>
         </Sheet.Content>
       </Sheet>
     )
@@ -187,7 +187,7 @@ const Section = ({ className, ...props }: React.ComponentProps<"div">) => {
     <LayoutGroup id={id}>
       <div
         data-navbar-section="true"
-        className={cn("flex", isCompact ? "flex-col gap-y-4" : "flex-row gap-x-3 items-center", className)}
+        className={cn("flex", isCompact ? "flex-col gap-y-4" : "flex-row items-center gap-x-3", className)}
         {...props}
       >
         {props.children}
@@ -202,13 +202,13 @@ const navItemStyles = tv({
     "data-hovered:text-fg data-focused:text-fg data-pressed:text-fg data-focus-visible:outline-1 data-focus-visible:outline-primary",
     "**:data-[slot=chevron]:size-4 **:data-[slot=chevron]:transition-transform",
     "data-pressed:**:data-[slot=chevron]:rotate-180 *:data-[slot=icon]:size-4 *:data-[slot=icon]:shrink-0",
-    "data-disabled:opacity-50 data-disabled:cursor-default data-disabled:forced-colors:text-[GrayText]"
+    "data-disabled:opacity-50 data-disabled:cursor-default data-disabled:forced-colors:text-[GrayText]",
   ],
   variants: {
     isCurrent: {
-      true: "text-navbar-fg cursor-default"
-    }
-  }
+      true: "text-navbar-fg cursor-default",
+    },
+  },
 })
 
 interface ItemProps extends LinkProps {
@@ -222,7 +222,7 @@ const Item = ({ className, isCurrent, ...props }: ItemProps) => {
       data-navbar-item="true"
       aria-current={isCurrent ? "page" : undefined}
       className={composeRenderProps(className, (className, ...renderProps) =>
-        navItemStyles({ ...renderProps, isCurrent, className })
+        navItemStyles({ ...renderProps, isCurrent, className }),
       )}
       {...props}
     >
@@ -246,8 +246,8 @@ const Logo = ({ className, ...props }: LinkProps) => {
   return (
     <Link
       className={cn(
-        "md:mr-4 data-focused:outline-hidden flex items-center gap-x-2 data-focus-visible:outline-1 data-focus-visible:outline-primary px-2 py-4 md:px-0 md:py-0 text-fg",
-        className
+        "flex items-center gap-x-2 px-2 py-4 text-fg data-focus-visible:outline-1 data-focus-visible:outline-primary data-focused:outline-hidden md:mr-4 md:px-0 md:py-0",
+        className,
       )}
       {...props}
     />
@@ -264,9 +264,9 @@ const compactStyles = tv({
     intent: {
       floating: "border h-12 rounded-lg px-3.5",
       inset: "h-14 px-4",
-      navbar: "h-14 border-b px-4"
-    }
-  }
+      navbar: "h-14 border-b px-4",
+    },
+  },
 })
 
 const Compact = ({ className, ...props }: React.ComponentProps<"div">) => {
@@ -280,9 +280,9 @@ const insetStyles = tv({
     intent: {
       floating: "",
       inset: "bg-muted/40 md:rounded-lg md:shadow-xs md:ring-1 md:ring-fg/15 md:dark:ring-border",
-      navbar: ""
-    }
-  }
+      navbar: "",
+    },
+  },
 })
 
 const Inset = ({ className, ...props }: React.ComponentProps<"div">) => {

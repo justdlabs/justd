@@ -1,5 +1,3 @@
-import React from "react"
-
 import { BlockSandbox } from "@/components/code/block-sandbox"
 import { Header } from "@/components/header"
 import { Container } from "ui"
@@ -7,7 +5,7 @@ import { Container } from "ui"
 export const metadata = {
   title: "Blocks",
   description:
-    "Blocks offers a comprehensive collection of example guides demonstrating how to effectively use components in their entirety."
+    "Blocks offers a comprehensive collection of example guides demonstrating how to effectively use components in their entirety.",
 }
 
 export default function Page() {
@@ -17,7 +15,7 @@ export default function Page() {
         Blo
         <span className="text-muted-fg">cks</span>
       </Header>
-      <Container className="py-6 space-y-16 sm:py-16">
+      <Container className="space-y-16 py-6 sm:py-16">
         <div className="flex flex-col gap-1">
           <BlockSandbox
             {...{
@@ -37,17 +35,17 @@ export default function Page() {
                     "tooltip.tsx": "ui/tooltip",
                     "primitive.tsx": "ui/primitive",
                     "button.tsx": "ui/button",
-                    "sidebar.tsx": "ui/sidebar"
+                    "sidebar.tsx": "ui/sidebar",
                   },
 
-                  "app-sidebar.tsx": "blocks/sidebar/sidebar-01/app-sidebar"
+                  "app-sidebar.tsx": "blocks/sidebar/sidebar-01/app-sidebar",
                 },
                 app: {
                   "page.tsx": "blocks/sidebar/sidebar-01/page",
                   "layout.tsx": "blocks/sidebar/sidebar-01/layout",
-                  "global.css": "docs/installation/main.css"
-                }
-              }
+                  "global.css": "docs/installation/main.css",
+                },
+              },
             }}
           />
 
@@ -69,16 +67,16 @@ export default function Page() {
                     "tooltip.tsx": "ui/tooltip",
                     "primitive.tsx": "ui/primitive",
                     "button.tsx": "ui/button",
-                    "sidebar.tsx": "ui/sidebar"
+                    "sidebar.tsx": "ui/sidebar",
                   },
-                  "app-sidebar.tsx": "blocks/sidebar/app-sidebar"
+                  "app-sidebar.tsx": "blocks/sidebar/app-sidebar",
                 },
                 app: {
                   "page.tsx": "blocks/sidebar/sidebar-03/page",
                   "layout.tsx": "blocks/sidebar/sidebar-03/layout",
-                  "global.css": "docs/installation/main.css"
-                }
-              }
+                  "global.css": "docs/installation/main.css",
+                },
+              },
             }}
           />
 
@@ -100,16 +98,16 @@ export default function Page() {
                     "tooltip.tsx": "ui/tooltip",
                     "primitive.tsx": "ui/primitive",
                     "button.tsx": "ui/button",
-                    "sidebar.tsx": "ui/sidebar"
+                    "sidebar.tsx": "ui/sidebar",
                   },
-                  "app-sidebar.tsx": "blocks/sidebar/app-sidebar"
+                  "app-sidebar.tsx": "blocks/sidebar/app-sidebar",
                 },
                 app: {
                   "page.tsx": "blocks/sidebar/sidebar-04/page",
                   "layout.tsx": "blocks/sidebar/sidebar-04/layout",
-                  "global.css": "docs/installation/main.css"
-                }
-              }
+                  "global.css": "docs/installation/main.css",
+                },
+              },
             }}
           />
 
@@ -127,16 +125,16 @@ export default function Page() {
                     "primitive.tsx": "ui/primitive",
                     "button.tsx": "ui/button",
                     "sheet.tsx": "ui/sheet",
-                    "navbar.tsx": "ui/navbar"
+                    "navbar.tsx": "ui/navbar",
                   },
-                  "app-navbar.tsx": "blocks/navbar/navbar-00/app-navbar"
+                  "app-navbar.tsx": "blocks/navbar/navbar-00/app-navbar",
                 },
                 app: {
                   "global.css": "docs/installation/main.css",
                   "page.tsx": "blocks/navbar/navbar-00/page",
-                  "layout.tsx": "blocks/navbar/navbar-00/layout"
-                }
-              }
+                  "layout.tsx": "blocks/navbar/navbar-00/layout",
+                },
+              },
             }}
           />
 
@@ -155,16 +153,16 @@ export default function Page() {
                     "primitive.tsx": "ui/primitive",
                     "button.tsx": "ui/button",
                     "sheet.tsx": "ui/sheet",
-                    "navbar.tsx": "ui/navbar"
+                    "navbar.tsx": "ui/navbar",
                   },
-                  "app-navbar.tsx": "blocks/navbar/navbar-03/app-navbar"
+                  "app-navbar.tsx": "blocks/navbar/navbar-03/app-navbar",
                 },
                 app: {
                   "global.css": "docs/installation/main.css",
                   "page.tsx": "blocks/navbar/navbar-03/page",
-                  "layout.tsx": "blocks/navbar/navbar-03/layout"
-                }
-              }
+                  "layout.tsx": "blocks/navbar/navbar-03/layout",
+                },
+              },
             }}
           />
 
@@ -182,16 +180,16 @@ export default function Page() {
                     "primitive.tsx": "ui/primitive",
                     "button.tsx": "ui/button",
                     "sheet.tsx": "ui/sheet",
-                    "navbar.tsx": "ui/navbar"
+                    "navbar.tsx": "ui/navbar",
                   },
-                  "app-navbar.tsx": "blocks/navbar/navbar-02/app-navbar"
+                  "app-navbar.tsx": "blocks/navbar/navbar-02/app-navbar",
                 },
                 app: {
                   "global.css": "docs/installation/main.css",
                   "page.tsx": "blocks/navbar/navbar-02/page",
-                  "layout.tsx": "blocks/navbar/navbar-02/layout"
-                }
-              }
+                  "layout.tsx": "blocks/navbar/navbar-02/layout",
+                },
+              },
             }}
           />
         </div>

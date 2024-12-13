@@ -14,7 +14,7 @@ const generateChartData = (startDate: string, endDate: string) => {
     result.push({
       date,
       revenue: Math.floor(Math.random() * 5000), // Random revenue value
-      expenses: Math.floor(Math.random() * 3000) // Random expenses value
+      expenses: Math.floor(Math.random() * 3000), // Random expenses value
     })
     currentDate.setDate(currentDate.getDate() + 1)
   }
@@ -27,12 +27,12 @@ const chartData = generateChartData("2024-04-01", "2024-06-30")
 const chartConfig = {
   revenue: {
     label: "Revenue",
-    color: "var(--chart-1)"
+    color: "var(--chart-1)",
   },
   expenses: {
     label: "Expenses",
-    color: "var(--chart-2)"
-  }
+    color: "var(--chart-2)",
+  },
 } satisfies ChartConfig
 
 export default function LineChartControlledDemo() {
@@ -40,7 +40,7 @@ export default function LineChartControlledDemo() {
 
   return (
     <Card>
-      <Card.Header className="flex justify-between items-center flex-row">
+      <Card.Header className="flex flex-row items-center justify-between">
         <div className="space-y-1">
           <Card.Title>Revenue vs Expenses</Card.Title>
           <Card.Description>Tracking daily revenue and expenses over the last 3 months</Card.Description>
@@ -63,7 +63,7 @@ export default function LineChartControlledDemo() {
             data={chartData}
             margin={{
               left: 12,
-              right: 12
+              right: 12,
             }}
           >
             <CartesianGrid vertical={false} />
@@ -77,7 +77,7 @@ export default function LineChartControlledDemo() {
                 const date = new Date(value)
                 return date.toLocaleDateString("en-US", {
                   month: "short",
-                  day: "numeric"
+                  day: "numeric",
                 })
               }}
             />
@@ -90,7 +90,7 @@ export default function LineChartControlledDemo() {
                     return new Date(value).toLocaleDateString("en-US", {
                       month: "short",
                       day: "numeric",
-                      year: "numeric"
+                      year: "numeric",
                     })
                   }}
                 />

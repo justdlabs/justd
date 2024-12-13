@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import { useState } from "react"
 
 import type { Key } from "react-aria-components"
 import { ComboBox, Description } from "ui"
@@ -16,7 +16,7 @@ export default function ComboBoxControlledSelectionDemo() {
         </ComboBox.List>
       </ComboBox>
 
-      <Description className="mt-2 block [&>strong]:text-fg text-muted-fg">
+      <Description className="mt-2 block text-muted-fg [&>strong]:text-fg">
         You have selected: <strong>{country}</strong>
       </Description>
     </>
@@ -44,5 +44,5 @@ const countries = [
   { id: 18, name: "South Korea" },
   { id: 19, name: "Sweden" },
   { id: 20, name: "United Kingdom" },
-  { id: 21, name: "United States" }
+  { id: 21, name: "United States" },
 ]

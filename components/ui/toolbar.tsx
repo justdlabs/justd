@@ -11,7 +11,7 @@ import { Separator } from "./separator"
 import { Toggle } from "./toggle"
 
 const ToolbarContext = createContext<{ orientation?: ToolbarProps["orientation"] }>({
-  orientation: "horizontal"
+  orientation: "horizontal",
 })
 
 const toolbarStyles = tv({
@@ -19,9 +19,9 @@ const toolbarStyles = tv({
   variants: {
     orientation: {
       horizontal: "flex-row [&::-webkit-scrollbar]:hidden [scrollbar-width:none] [-ms-overflow-style:none]",
-      vertical: "flex-col items-start"
-    }
-  }
+      vertical: "flex-col items-start",
+    },
+  },
 })
 
 const Toolbar = ({ orientation = "horizontal", className, ...props }: ToolbarProps) => {
@@ -31,7 +31,7 @@ const Toolbar = ({ orientation = "horizontal", className, ...props }: ToolbarPro
         orientation={orientation}
         {...props}
         className={composeRenderProps(className, (className, renderProps) =>
-          toolbarStyles({ ...renderProps, className })
+          toolbarStyles({ ...renderProps, className }),
         )}
       />
     </ToolbarContext.Provider>
@@ -46,7 +46,7 @@ const ToolbarGroup = ({ isDisabled, className, ...props }: GroupProps) => {
       <Group
         className={cn(
           "flex gap-2 group-data-[orientation=vertical]:flex-col group-data-[orientation=vertical]:items-start",
-          className
+          className,
         )}
         {...props}
       >

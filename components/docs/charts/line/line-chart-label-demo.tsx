@@ -15,18 +15,18 @@ const chartData = [
   { month: "Sep", revenue: 280, expenses: 150 },
   { month: "Oct", revenue: 350, expenses: 200 },
   { month: "Nov", revenue: 400, expenses: 210 },
-  { month: "Dec", revenue: 450, expenses: 230 }
+  { month: "Dec", revenue: 450, expenses: 230 },
 ]
 
 const chartConfig = {
   revenue: {
     label: "Revenue",
-    color: "var(--chart-1)"
+    color: "var(--chart-1)",
   },
   expenses: {
     label: "Expenses",
-    color: "var(--chart-2)"
-  }
+    color: "var(--chart-2)",
+  },
 } satisfies ChartConfig
 
 export default function LineChartLabelDemo() {
@@ -41,7 +41,7 @@ export default function LineChartLabelDemo() {
             margin={{
               top: 20,
               left: 12,
-              right: 12
+              right: 12,
             }}
           >
             <CartesianGrid vertical={false} />
@@ -53,10 +53,10 @@ export default function LineChartLabelDemo() {
               stroke="var(--color-revenue)"
               strokeWidth={2}
               dot={{
-                fill: "var(--color-revenue)"
+                fill: "var(--color-revenue)",
               }}
               activeDot={{
-                r: 6
+                r: 6,
               }}
             >
               <LabelList position="top" offset={12} className="fill-fg" fontSize={12} />
@@ -67,10 +67,10 @@ export default function LineChartLabelDemo() {
               stroke="var(--color-expenses)"
               strokeWidth={2}
               dot={{
-                fill: "var(--color-expenses)"
+                fill: "var(--color-expenses)",
               }}
               activeDot={{
-                r: 6
+                r: 6,
               }}
             >
               <LabelList position="top" offset={12} className="fill-fg" fontSize={12} />

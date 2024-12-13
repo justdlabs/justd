@@ -1,7 +1,5 @@
 "use client"
 
-import React from "react"
-
 import { CardBlock } from "@/components/blocks"
 import { OtherEmptyList } from "@/components/docs/collections/grid-list/grid-list-drag-between-item-demo"
 import GridListDragDemo from "@/components/docs/collections/grid-list/grid-list-drag-demo"
@@ -13,8 +11,8 @@ export function GridListDragBlock() {
   const list = useListData({
     initialItems: [
       { id: 6, name: "The Byrds" },
-      { id: 7, name: "The Yardbirds" }
-    ]
+      { id: 7, name: "The Yardbirds" },
+    ],
   })
 
   const { dragAndDropHooks } = useDragAndDrop({
@@ -23,7 +21,7 @@ export function GridListDragBlock() {
         e.items.map(async (item) => {
           const name = item.kind === "text" ? await item.getText("text/plain") : item.name
           return { id: Math.random(), name }
-        })
+        }),
       )
 
       if (e.target.dropPosition === "before") {
@@ -31,12 +29,12 @@ export function GridListDragBlock() {
       } else if (e.target.dropPosition === "after") {
         list.insertAfter(e.target.key, ...items)
       }
-    }
+    },
   })
 
   return (
     <CardBlock>
-      <div className="grid gap-4 items-start lg:grid-cols-3 w-full">
+      <div className="grid w-full items-start gap-4 lg:grid-cols-3">
         <GridListDragDemo />
         <GridList aria-label="Droppable list" items={list.items} dragAndDropHooks={dragAndDropHooks}>
           {(item) => <GridList.Item>{item.name}</GridList.Item>}

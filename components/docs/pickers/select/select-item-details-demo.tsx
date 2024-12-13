@@ -22,5 +22,5 @@ export const roles = [
   { id: 2, name: "Editor", description: "Can edit content but has limited access to settings" },
   { id: 3, name: "Viewer", description: "Can view content but cannot make changes" },
   { id: 4, name: "Contributor", description: "Can contribute content for review" },
-  { id: 5, name: "Guest", description: "Limited access, mostly for viewing purposes" }
+  { id: 5, name: "Guest", description: "Limited access, mostly for viewing purposes" },
 ]

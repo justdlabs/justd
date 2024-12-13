@@ -18,7 +18,7 @@ import {
   IconHome,
   IconMoon,
   IconSearch,
-  IconSun
+  IconSun,
 } from "justd-icons"
 import { LayoutGroup } from "motion/react"
 import { useTheme } from "next-themes"
@@ -33,7 +33,7 @@ import { ThemeSwitcher } from "./theme-switcher"
 
 const menuItems = [
   { id: 1, label: "Home", url: "/" },
-  { id: 4, label: "Components", url: "/docs/getting-started/introduction" }
+  { id: 4, label: "Components", url: "/docs/getting-started/introduction" },
 ]
 
 export function Navbar() {
@@ -46,8 +46,8 @@ export function Navbar() {
     <>
       <CommandPalette setOpen={setOpen} openCmd={open} />
       <LayoutGroup id={`navigation-${id}`}>
-        <div className="sticky xnw2 top-0 z-30 hidden overflow-hidden pb-0 lg:block">
-          <nav className="border-b bg-bg dark:bg-bg/95 py-2 backdrop-blur-3xl supports-backdrop-filter:bg-bg/60">
+        <div className="xnw2 sticky top-0 z-30 hidden overflow-hidden pb-0 lg:block">
+          <nav className="border-b bg-bg py-2 backdrop-blur-3xl supports-backdrop-filter:bg-bg/60 dark:bg-bg/95">
             <div className="mx-auto max-w-(--breakpoint-2xl) px-4 sm:px-6 lg:px-8">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-x-6">
@@ -107,14 +107,14 @@ export function Navbar() {
                     <TakeCurrentUrl />
                     <ThemeSwitcher />
 
-                    <Separator orientation="vertical" className="h-7 mx-2" />
+                    <Separator orientation="vertical" className="mx-2 h-7" />
 
                     <Link
                       aria-label="Github Repository"
                       className={buttonStyles({
                         appearance: "outline",
                         size: "square-petite",
-                        className: "**:data-[slot=icon]:text-fg"
+                        className: "**:data-[slot=icon]:text-fg",
                       })}
                       target="_blank"
                       href={siteConfig.repo}
@@ -126,7 +126,7 @@ export function Navbar() {
                       className={buttonStyles({
                         appearance: "outline",
                         size: "square-petite",
-                        className: "**:data-[slot=icon]:text-fg"
+                        className: "**:data-[slot=icon]:text-fg",
                       })}
                       target="_blank"
                       href="https://x.com/intent/follow?screen_name=irsyadadl"

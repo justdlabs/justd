@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState } from "react"
 
 import { useQueryString } from "hooks/use-query-string"
 import { IconBullet, IconBulletFill } from "justd-icons"
@@ -19,18 +19,18 @@ export function Controller({ searchParams }: SearchParamsProps) {
   const { createQueryString } = useQueryString()
 
   const onFilter = (type: "solid" | "regular") => {
-    router.push(pathname + "?" + createQueryString("t", type), {
-      scroll: false
+    router.push(`${pathname}?${createQueryString("t", type)}`, {
+      scroll: false,
     })
     setSelected(type)
   }
 
   return (
-    <div className="lg:sticky lg:top-20 z-10">
+    <div className="z-10 lg:sticky lg:top-20">
       <div className="relative">
-        <div className="flex flex-col relative z-20 sm:flex-row items-center justify-between gap-2 mb-6 sm:mb-12">
+        <div className="relative z-20 mb-6 flex flex-col items-center justify-between gap-2 sm:mb-12 sm:flex-row">
           <Install />
-          <div className="flex gap-2 items-center">
+          <div className="flex items-center gap-2">
             <Search />
             <Button
               aria-label={`Change filter to ${isSelected === "solid" ? "regular" : "solid"}`}
@@ -45,7 +45,7 @@ export function Controller({ searchParams }: SearchParamsProps) {
           </div>
         </div>
 
-        <div className="md:block hidden pointer-events-none z-0 absolute inset-x-0 top-0 -mt-5 h-24 bg-linear-to-b from-bg via-bg/90 to-transparent" />
+        <div className="-mt-5 pointer-events-none absolute inset-x-0 top-0 z-0 hidden h-24 bg-linear-to-b from-bg via-bg/90 to-transparent md:block" />
       </div>
     </div>
   )

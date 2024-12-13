@@ -9,7 +9,7 @@ import {
   SidebarItem,
   SidebarLabel,
   SidebarRail,
-  SidebarSection
+  SidebarSection,
 } from "ui"
 
 export default function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
@@ -17,7 +17,7 @@ export default function AppSidebar(props: React.ComponentProps<typeof Sidebar>) 
     <Sidebar {...props}>
       <SidebarHeader>
         <Link
-          className="flex items-center group-data-[collapsible=dock]:size-10 group-data-[collapsible=dock]:justify-center gap-x-2"
+          className="flex items-center gap-x-2 group-data-[collapsible=dock]:size-10 group-data-[collapsible=dock]:justify-center"
           href="/docs/components/layouts/sidebar"
         >
           <IconBrandApple className="size-5" />
@@ -45,5 +45,5 @@ const navigation = [
   { label: "Products", icon: <IconPackage />, isCurrent: false },
   { label: "Customers", icon: <IconPeople />, isCurrent: false },
   { label: "Reports", icon: <IconChartBar />, isCurrent: false },
-  { label: "Settings", icon: <IconGear />, isCurrent: false }
+  { label: "Settings", icon: <IconGear />, isCurrent: false },
 ]

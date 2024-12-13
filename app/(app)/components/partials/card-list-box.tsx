@@ -1,7 +1,5 @@
 "use client"
 
-import React from "react"
-
 import { docs } from "#site/content"
 import { goodTitle } from "@/resources/lib/utils"
 import Link from "next/link"
@@ -30,7 +28,7 @@ const groupByCategory = (data: any[]): GroupedComponents => {
         title: item.title,
         order: item.order,
         description: item.description,
-        published: item.published
+        published: item.published,
       })
     }
     return acc
@@ -41,7 +39,7 @@ export const groupedComponents = groupByCategory(docs.sort((a, b) => a.order - b
 
 export function CardListBox() {
   return (
-    <div className="space-y-10 w-full">
+    <div className="w-full space-y-10">
       {Object.entries(groupedComponents).map(([category, components]) => (
         <div key={category}>
           <Heading tracking="tight" level={2} id={category} className="mb-4 scroll-mt-28 font-medium text-fg">
@@ -52,7 +50,7 @@ export function CardListBox() {
             gap={2}
             columns={{
               initial: 1,
-              sm: 3
+              sm: 3,
             }}
           >
             <Grid.Collection items={components}>
@@ -60,7 +58,7 @@ export function CardListBox() {
                 <Link
                   id={component.slug}
                   href={component.slug}
-                  className="bg-muted/30 p-1 rounded-lg inset-ring-1 inset-ring-border"
+                  className="inset-ring-1 inset-ring-border rounded-lg bg-muted/30 p-1"
                   aria-label={component.title}
                 >
                   <div className="flex-1">
@@ -68,7 +66,7 @@ export function CardListBox() {
                       <Heading tracking="tight" level={3}>
                         {component.title}
                       </Heading>
-                      <Description className="block mt-2">{component.description}</Description>
+                      <Description className="mt-2 block">{component.description}</Description>
                     </div>
                   </div>
                 </Link>

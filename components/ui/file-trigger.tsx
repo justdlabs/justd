@@ -1,11 +1,9 @@
 "use client"
 
-import React from "react"
-
 import { IconCamera, IconFolder, IconPaperclip } from "justd-icons"
 import {
   FileTrigger as FileTriggerPrimitive,
-  type FileTriggerProps as FileTriggerPrimitiveProps
+  type FileTriggerProps as FileTriggerPrimitiveProps,
 } from "react-aria-components"
 
 import { Button } from "./button"
@@ -31,17 +29,14 @@ const FileTrigger = ({
     <>
       <FileTriggerPrimitive {...props}>
         <Button isDisabled={props.isDisabled} intent={intent} size={size} shape={shape} appearance={appearance}>
-          {withIcon && (
-            <>
-              {props.defaultCamera ? (
-                <IconCamera />
-              ) : props.acceptDirectory ? (
-                <IconFolder />
-              ) : (
-                <IconPaperclip className="rotate-45" />
-              )}
-            </>
-          )}
+          {withIcon &&
+            (props.defaultCamera ? (
+              <IconCamera />
+            ) : props.acceptDirectory ? (
+              <IconFolder />
+            ) : (
+              <IconPaperclip className="rotate-45" />
+            ))}
           {props.children ? (
             props.children
           ) : (

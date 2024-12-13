@@ -1,7 +1,5 @@
 "use client"
 
-import React from "react"
-
 import {
   IconArchive,
   IconChartTrending,
@@ -15,13 +13,13 @@ import {
   IconRobot,
   IconService,
   IconShieldCheck,
-  IconWhiteboard
+  IconWhiteboard,
 } from "justd-icons"
 import { Disclosure, DisclosureGroup, DisclosurePanel, DisclosureTrigger } from "ui"
 
 export default function DisclosureGroupWithIconDemo() {
   return (
-    <DisclosureGroup className="border rounded-xl **:data-[slot=disclosure]:last:border-b-0" defaultExpandedKeys={[1]}>
+    <DisclosureGroup className="rounded-xl border **:data-[slot=disclosure]:last:border-b-0" defaultExpandedKeys={[1]}>
       {items.map((item, index) => (
         <Disclosure key={index} id={index}>
           <DisclosureTrigger className="px-4">
@@ -33,7 +31,7 @@ export default function DisclosureGroupWithIconDemo() {
                 <Disclosure key={childIndex} id={childIndex}>
                   <DisclosureTrigger className="group">
                     <span>
-                      <IconChevronRight className="duration-300 group-aria-expanded:rotate-90 size-5" />
+                      <IconChevronRight className="size-5 duration-300 group-aria-expanded:rotate-90" />
                       <child.icon />
                       {child.title}
                     </span>
@@ -60,21 +58,21 @@ const items = [
         id: 101,
         icon: IconRobot,
         title: "Artificial Intelligence",
-        description: "Courses on machine learning, neural networks, and deep learning."
+        description: "Courses on machine learning, neural networks, and deep learning.",
       },
       {
         id: 102,
         icon: IconShieldCheck,
         title: "Cybersecurity",
-        description: "Programs focused on protecting information and systems."
+        description: "Programs focused on protecting information and systems.",
       },
       {
         id: 103,
         icon: IconService,
         title: "Software Engineering",
-        description: "Learn best practices for designing and building software."
-      }
-    ]
+        description: "Learn best practices for designing and building software.",
+      },
+    ],
   },
   {
     id: 2,
@@ -86,21 +84,21 @@ const items = [
         id: 201,
         icon: IconWhiteboard,
         title: "Marketing Strategies",
-        description: "Courses on digital marketing and customer engagement."
+        description: "Courses on digital marketing and customer engagement.",
       },
       {
         id: 202,
         icon: IconChartTrending,
         title: "Financial Analysis",
-        description: "Learn techniques for financial decision-making and planning."
+        description: "Learn techniques for financial decision-making and planning.",
       },
       {
         id: 203,
         icon: IconCircleCheck,
         title: "Entrepreneurship",
-        description: "Develop your business ideas and startup skills."
-      }
-    ]
+        description: "Develop your business ideas and startup skills.",
+      },
+    ],
   },
   {
     id: 3,
@@ -112,20 +110,20 @@ const items = [
         id: 301,
         icon: IconHighlight,
         title: "Creative Writing",
-        description: "Programs for aspiring authors and poets."
+        description: "Programs for aspiring authors and poets.",
       },
       {
         id: 302,
         icon: IconCheck,
         title: "Philosophy",
-        description: "Explore key questions about life, existence, and ethics."
+        description: "Explore key questions about life, existence, and ethics.",
       },
       {
         id: 303,
         icon: IconArchive,
         title: "Art History",
-        description: "Study the evolution and impact of art across cultures."
-      }
-    ]
-  }
+        description: "Study the evolution and impact of art across cultures.",
+      },
+    ],
+  },
 ]

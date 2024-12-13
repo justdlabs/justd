@@ -18,9 +18,9 @@ export function ResponsiveAside({ openCmd, setOpenCmd }: { openCmd: boolean; set
   const pathname = usePathname()
   React.useEffect(() => setOpenAside(false), [pathname])
   return (
-    <nav className="lg:hidden z-10 relative">
+    <nav className="relative z-10 lg:hidden">
       <CommandPalette setOpen={setOpenCmd} openCmd={openCmd} />
-      <div className="flex items-center justify-between pl-4 pr-2 -mb-2 pt-2">
+      <div className="-mb-2 flex items-center justify-between pt-2 pr-2 pl-4">
         <Button
           aria-label="Open Menu."
           className="-ml-2 **:data-[slot=icon]:text-fg"
@@ -32,7 +32,7 @@ export function ResponsiveAside({ openCmd, setOpenCmd }: { openCmd: boolean; set
         >
           <IconHamburger />
         </Button>
-        <Link className="data-focused:outline-hidden -mr-6 rounded" href="/" aria-label="Logo">
+        <Link className="-mr-6 rounded data-focused:outline-hidden" href="/" aria-label="Logo">
           <IconBrandJustd className="size-6" />
         </Link>
         <div className="flex items-center gap-x-1">

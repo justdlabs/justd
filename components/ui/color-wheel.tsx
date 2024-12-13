@@ -3,7 +3,7 @@
 import {
   ColorWheel as ColorWheelPrimitive,
   type ColorWheelProps as ColorWheelPrimitiveProps,
-  ColorWheelTrack
+  ColorWheelTrack,
 } from "react-aria-components"
 
 import { ColorThumb } from "./color-thumb"
@@ -19,7 +19,7 @@ const ColorWheel = (props: ColorWheelProps) => {
           ...defaultStyle,
           background: isDisabled
             ? undefined
-            : `${defaultStyle.background}, repeating-conic-gradient(#CCC 0% 25%, white 0% 50%) 50% / 16px 16px`
+            : `${defaultStyle.background}, repeating-conic-gradient(#CCC 0% 25%, white 0% 50%) 50% / 16px 16px`,
         })}
       />
       <ColorThumb />

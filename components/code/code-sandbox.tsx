@@ -50,17 +50,17 @@ export function CodeSandbox({ isIframe = true, classNames, source, src }: Props)
   return (
     <Tabs className="not-prose" aria-label="Code Sandbox">
       <TabsList src={src} />
-      <Tabs.Panel id="preview" className={cn("max-h-110 overflow-y-auto grow", classNames?.preview)}>
+      <Tabs.Panel id="preview" className={cn("max-h-110 grow overflow-y-auto", classNames?.preview)}>
         <React.Suspense
           fallback={
-            <div className="flex py-6 justify-center items-center text-sm text-muted-fg">
+            <div className="flex items-center justify-center py-6 text-muted-fg text-sm">
               <Loader variant="spin" />
               <span className="sr-only">Loading...</span>
             </div>
           }
         >
           {isIframe ? (
-            <iframe src={src} className="min-h-110 border rounded-xl overflow-hidden size-full" />
+            <iframe src={src} className="size-full min-h-110 overflow-hidden rounded-xl border" />
           ) : (
             <Component />
           )}
@@ -68,21 +68,21 @@ export function CodeSandbox({ isIframe = true, classNames, source, src }: Props)
       </Tabs.Panel>
       <Tabs.Panel id="code" className={classNames?.code}>
         {rawSourceCode && Object.keys(rawSourceCode).length > 0 ? (
-          <Tabs className="gap-0 relative">
+          <Tabs className="relative gap-0">
             {/*bg-[#0e0e10]*/}
-            <div className="flex items-center border-y bg-[#0e0e11] dark:border-zinc-800 border-zinc-700 border-x overflow-hidden rounded-t-lg justify-between">
-              <Tabs.List className="border-0 relative overflow-x-auto scrollbar-hidden gap-0">
+            <div className="flex items-center justify-between overflow-hidden rounded-t-lg border-zinc-700 border-x border-y bg-[#0e0e11] dark:border-zinc-800">
+              <Tabs.List className="scrollbar-hidden relative gap-0 overflow-x-auto border-0">
                 {Object.keys(rawSourceCode).map((key) => (
                   <Tab
                     className={(values) =>
                       cn(
-                        "flex items-center gap-x-1.5 text-xs tracking-tight p-3 text-zinc-400 font-mono whitespace-nowrap cursor-pointer",
-                        "**:data-[slot=icon]:shrink-0 **:data-[slot=icon]:-ml-0.5 **:data-[slot=icon]:size-4 first:border-l-0 border-x border-transparent",
-                        values.isHovered && "dark:bg-zinc-800/50 bg-zinc-800 text-zinc-50",
+                        "flex cursor-pointer items-center gap-x-1.5 whitespace-nowrap p-3 font-mono text-xs text-zinc-400 tracking-tight",
+                        "**:data-[slot=icon]:-ml-0.5 border-transparent border-x first:border-l-0 **:data-[slot=icon]:size-4 **:data-[slot=icon]:shrink-0",
+                        values.isHovered && "bg-zinc-800 text-zinc-50 dark:bg-zinc-800/50",
                         values.isSelected &&
-                          "dark:bg-zinc-800/50 bg-zinc-800 text-zinc-50 dark:border-zinc-800 border-zinc-700",
-                        values.isFocused && "outline-hidden dark:bg-zinc-800/50 bg-zinc-800 text-zinc-50",
-                        values.isFocusVisible && "dark:bg-zinc-800/50 bg-zinc-800 text-zinc-50"
+                          "border-zinc-700 bg-zinc-800 text-zinc-50 dark:border-zinc-800 dark:bg-zinc-800/50",
+                        values.isFocused && "bg-zinc-800 text-zinc-50 outline-hidden dark:bg-zinc-800/50",
+                        values.isFocusVisible && "bg-zinc-800 text-zinc-50 dark:bg-zinc-800/50",
                       )
                     }
                     key={key}
@@ -104,10 +104,10 @@ export function CodeSandbox({ isIframe = true, classNames, source, src }: Props)
               <Tabs.Panel
                 key={key}
                 id={key}
-                className="border-x border-b bg-shiki-bg dark:border-zinc-800 border-zinc-700 overflow-hidden rounded-b-lg"
+                className="overflow-hidden rounded-b-lg border-zinc-700 border-x border-b bg-shiki-bg dark:border-zinc-800"
               >
                 <CopyButton
-                  className="absolute sm:grid hidden top-0.5 right-1"
+                  className="absolute top-0.5 right-1 hidden sm:grid"
                   alwaysVisible
                   isCopied={copiedStates[key] || false}
                   onPress={() => handleCopy(key, value)}
@@ -115,7 +115,7 @@ export function CodeSandbox({ isIframe = true, classNames, source, src }: Props)
                 <CodeHighlighter
                   max96={false}
                   plain
-                  className="overflow-auto p-4 max-h-110"
+                  className="max-h-110 overflow-auto p-4"
                   removeLastLine
                   code={value || "No source code available"}
                 />
@@ -182,7 +182,7 @@ export const fetchRegistryData = React.cache(async (source: Record<string, strin
           console.error(`Registry item for ${registryKey} not found.`)
           fetchedSourceCode[key] = "Registry item not found."
         }
-      })
+      }),
   )
 
   return fetchedSourceCode

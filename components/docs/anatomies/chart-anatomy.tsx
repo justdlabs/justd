@@ -7,15 +7,15 @@ export default function ChartAnatomy() {
       config={{
         first: {
           label: "...",
-          color: "var(--chart-1)"
-        }
+          color: "var(--chart-1)",
+        },
       }}
       className="min-h-[250px]"
     >
       <AreaChart
         accessibilityLayer
         data={[
-          { month: "January", revenue: 12000 }
+          { month: "January", revenue: 12000 },
           //...
         ]}
         margin={{ left: 12, right: 12 }}

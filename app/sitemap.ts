@@ -6,31 +6,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: siteConfig.url,
-      lastModified: new Date()
+      lastModified: new Date(),
     },
     {
-      url: siteConfig.url + "/components",
-      lastModified: new Date()
+      url: `${siteConfig.url}/components`,
+      lastModified: new Date(),
     },
     {
-      url: siteConfig.url + "/icons",
-      lastModified: new Date()
+      url: `${siteConfig.url}/icons`,
+      lastModified: new Date(),
     },
     {
-      url: siteConfig.url + "/colors",
-      lastModified: new Date()
+      url: `${siteConfig.url}/colors`,
+      lastModified: new Date(),
     },
     {
-      url: siteConfig.url + "/themes",
-      lastModified: new Date()
+      url: `${siteConfig.url}/themes`,
+      lastModified: new Date(),
     },
     {
-      url: siteConfig.url + "/charts",
-      lastModified: new Date()
+      url: `${siteConfig.url}/charts`,
+      lastModified: new Date(),
     },
     ...docs.map((doc: Docs) => ({
       url: `${siteConfig.url}/${doc.slug}`,
-      lastModified: new Date()
-    }))
+      lastModified: new Date(),
+    })),
   ]
 }

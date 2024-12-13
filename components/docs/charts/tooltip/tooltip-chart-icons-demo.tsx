@@ -7,12 +7,12 @@ import { Card, Chart, type ChartConfig, ChartTooltip, ChartTooltipContent } from
 const chartData = Array.from({ length: 24 }, (_, index) => {
   const date = new Date(new Date().getFullYear() - 1, index).toLocaleDateString("en-US", {
     month: "short",
-    year: "numeric"
+    year: "numeric",
   })
   return {
     date,
     sales: Math.floor(Math.random() * 500 + 100),
-    expenses: Math.floor(Math.random() * 300 + 50)
+    expenses: Math.floor(Math.random() * 300 + 50),
   }
 })
 
@@ -20,13 +20,13 @@ const chartConfig = {
   sales: {
     label: "Sales",
     color: "var(--chart-1)",
-    icon: IconShippingBag
+    icon: IconShippingBag,
   },
   expenses: {
     label: "Expenses",
     color: "var(--chart-2)",
-    icon: IconStrikeThrough
-  }
+    icon: IconStrikeThrough,
+  },
 } satisfies ChartConfig
 
 export default function TooltipChartIconsDemo() {

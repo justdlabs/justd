@@ -7,7 +7,7 @@ import {
   type DateValue,
   type DialogProps,
   type PopoverProps,
-  type ValidationResult
+  type ValidationResult,
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
@@ -29,8 +29,8 @@ const datePickerStyles = tv({
     dateRangePickerInputStart: "px-2 sm:text-sm text-base",
     dateRangePickerInputEnd: "flex-1 px-2 py-1.5 sm:text-sm text-base",
     dateRangePickerDash:
-      "text-fg group-data-disabled:opacity-50 forced-colors:text-[ButtonText] forced-colors:group-data-disabled:text-[GrayText]"
-  }
+      "text-fg group-data-disabled:opacity-50 forced-colors:text-[ButtonText] forced-colors:group-data-disabled:text-[GrayText]",
+  },
 })
 
 const { base, datePickerIcon, calendarIcon, datePickerInput } = datePickerStyles()
@@ -48,12 +48,12 @@ const DatePickerOverlay = ({ closeButton = true, range, ...props }: DatePickerOv
   return (
     <Popover.Content
       showArrow={false}
-      className="flex justify-center p-4 sm:p-2 sm:pt-3 sm:max-w-[17.2rem] sm:min-w-[17rem]"
+      className="flex justify-center p-4 sm:min-w-[17rem] sm:max-w-[17.2rem] sm:p-2 sm:pt-3"
       {...props}
     >
       {range ? <RangeCalendar /> : <Calendar />}
       {closeButton && (
-        <div className="sm:hidden py-2.5 flex justify-center mx-auto w-full max-w-[inherit]">
+        <div className="mx-auto flex w-full max-w-[inherit] justify-center py-2.5 sm:hidden">
           <Popover.Close shape="circle" className="w-full">
             Close
           </Popover.Close>

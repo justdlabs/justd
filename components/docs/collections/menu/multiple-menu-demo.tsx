@@ -1,8 +1,8 @@
 "use client"
 
-import React, { useState } from "react"
+import { useState } from "react"
 
-import { type Selection } from "@react-types/shared"
+import type { Selection } from "@react-types/shared"
 import { Button, Menu } from "ui"
 
 export default function MultipleMenuDemo() {
@@ -30,30 +30,30 @@ export default function MultipleMenuDemo() {
 const items = [
   {
     name: "Auto-Play Videos",
-    slug: "autoPlay"
+    slug: "autoPlay",
   },
   {
     name: "High-Quality Streaming",
-    slug: "highQuality"
+    slug: "highQuality",
   },
   {
     name: "Exclusive Releases",
-    slug: "exclusiveContent"
+    slug: "exclusiveContent",
   },
   {
     name: "Default Subtitles",
-    slug: "subtitles"
+    slug: "subtitles",
   },
   {
     name: "Personalized Recommendations",
-    slug: "recommendations"
+    slug: "recommendations",
   },
   {
     name: "Background Play",
-    slug: "backgroundPlay"
+    slug: "backgroundPlay",
   },
   {
     name: "Allow Downloads",
-    slug: "download"
-  }
+    slug: "download",
+  },
 ]

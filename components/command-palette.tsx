@@ -70,7 +70,7 @@ export function CommandPalette({ openCmd, setOpen }: OpenCloseProps) {
             ?.filter(
               (t, index, self) =>
                 t.title.toLowerCase().includes(query.toLowerCase()) &&
-                self.findIndex((tt) => tt.title === t.title) === index
+                self.findIndex((tt) => tt.title === t.title) === index,
             )
             ?.slice(0, 5) || []
 
@@ -80,7 +80,7 @@ export function CommandPalette({ openCmd, setOpen }: OpenCloseProps) {
           return {
             ...item,
             children: matchesTitle ? item.children : filteredChildren,
-            toc: filteredToc
+            toc: filteredToc,
           }
         }
 
@@ -100,9 +100,8 @@ export function CommandPalette({ openCmd, setOpen }: OpenCloseProps) {
       setLoading(true)
       const timeout = setTimeout(() => setLoading(false), 100)
       return () => clearTimeout(timeout)
-    } else {
-      setLoading(false)
     }
+    setLoading(false)
   }, [debouncedSearch])
 
   React.useEffect(() => {
@@ -151,36 +150,33 @@ export function CommandPalette({ openCmd, setOpen }: OpenCloseProps) {
             </Link>
           </CommandMenu.Item>
         </CommandMenu.Section>
-        {debouncedSearch && (
-          <>
-            {filteredItems.map((item, i) => (
-              <CommandMenu.Section key={`${item.slug}-${i}-${item.title}`} heading={item.title}>
-                {item.children?.map((child) => (
-                  <React.Fragment key={`${item.slug}-${item.title}-${child.slug}-${child.title}`}>
+        {debouncedSearch &&
+          filteredItems.map((item, i) => (
+            <CommandMenu.Section key={`${item.slug}-${i}-${item.title}`} heading={item.title}>
+              {item.children?.map((child) => (
+                <React.Fragment key={`${item.slug}-${item.title}-${child.slug}-${child.title}`}>
+                  <SubItem
+                    value={`${item.title} ${child.title} ${item.slug} ${child.slug}`}
+                    onSelect={() => router.push(`/${child.slug}`)}
+                  >
+                    <IconCube />
+                    {child.title}
+                  </SubItem>
+                  {child.toc?.map((tocItem) => (
                     <SubItem
-                      value={`${item.title} ${child.title} ${item.slug} ${child.slug}`}
-                      onSelect={() => router.push(`/${child.slug}`)}
+                      key={`toc-${child.slug || child.title}-${tocItem.url}`}
+                      value={`toc-${child.title} ${child.slug} ${tocItem.title} ${tocItem.url}`}
+                      onSelect={() => router.push(`/${child.slug}${tocItem.url}`)}
                     >
-                      <IconCube />
-                      {child.title}
+                      <IconHashtag />
+                      {tocItem.title}
+                      <CommandMenu.Description>{child.title}</CommandMenu.Description>
                     </SubItem>
-                    {child.toc?.map((tocItem) => (
-                      <SubItem
-                        key={`toc-${child.slug || child.title}-${tocItem.url}`}
-                        value={`toc-${child.title} ${child.slug} ${tocItem.title} ${tocItem.url}`}
-                        onSelect={() => router.push(`/${child.slug}${tocItem.url}`)}
-                      >
-                        <IconHashtag />
-                        {tocItem.title}
-                        <CommandMenu.Description>{child.title}</CommandMenu.Description>
-                      </SubItem>
-                    ))}
-                  </React.Fragment>
-                ))}
-              </CommandMenu.Section>
-            ))}
-          </>
-        )}
+                  ))}
+                </React.Fragment>
+              ))}
+            </CommandMenu.Section>
+          ))}
       </CommandMenu.List>
     </CommandMenu>
   )

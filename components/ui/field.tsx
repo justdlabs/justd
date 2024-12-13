@@ -9,7 +9,7 @@ import type {
   LabelProps,
   TextFieldProps as TextFieldPrimitiveProps,
   TextProps,
-  ValidationResult
+  ValidationResult,
 } from "react-aria-components"
 import {
   composeRenderProps,
@@ -17,7 +17,7 @@ import {
   Group,
   Input as InputPrimitive,
   Label as LabelPrimitive,
-  Text
+  Text,
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
@@ -38,9 +38,9 @@ const fieldStyles = tv({
     label: "w-fit cursor-default font-medium text-secondary-fg text-sm",
     fieldError: "text-sm/6 text-danger forced-colors:text-[Mark]",
     input: [
-      "w-full min-w-0 [&::-ms-reveal]:hidden bg-transparent py-2 px-2.5 text-base text-fg placeholder-muted-fg outline-hidden data-focused:outline-hidden sm:text-sm"
-    ]
-  }
+      "w-full min-w-0 [&::-ms-reveal]:hidden bg-transparent py-2 px-2.5 text-base text-fg placeholder-muted-fg outline-hidden data-focused:outline-hidden sm:text-sm",
+    ],
+  },
 })
 
 const { description, label, fieldError, input } = fieldStyles()
@@ -75,15 +75,15 @@ const fieldGroupStyles = tv({
     "[&>[role=progressbar]]:mr-2.5",
     "**:data-[slot=icon]:size-4 **:data-[slot=icon]:shrink-0",
     "*:data-[slot=suffix]:mr-2.5 *:data-[slot=suffix]:text-muted-fg",
-    "*:data-[slot=prefix]:ml-2.5 *:data-[slot=prefix]:text-muted-fg"
+    "*:data-[slot=prefix]:ml-2.5 *:data-[slot=prefix]:text-muted-fg",
   ],
   variants: {
     isFocusWithin: focusStyles.variants.isFocused,
     isInvalid: focusStyles.variants.isInvalid,
     isDisabled: {
-      true: "opacity-50 forced-colors:border-[GrayText]"
-    }
-  }
+      true: "opacity-50 forced-colors:border-[GrayText]",
+    },
+  },
 })
 
 const FieldGroup = ({ className, ...props }: GroupProps) => {
@@ -93,8 +93,8 @@ const FieldGroup = ({ className, ...props }: GroupProps) => {
       className={composeRenderProps(className, (className, renderProps) =>
         fieldGroupStyles({
           ...renderProps,
-          className
-        })
+          className,
+        }),
       )}
     />
   )

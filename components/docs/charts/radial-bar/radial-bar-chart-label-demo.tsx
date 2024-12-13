@@ -9,40 +9,40 @@ const chartData = [
   { category: "Oranges", quantity: 250, fill: "var(--color-oranges)" },
   { category: "Bananas", quantity: 200, fill: "var(--color-bananas)" },
   { category: "Grapes", quantity: 180, fill: "var(--color-grapes)" },
-  { category: "Berries", quantity: 100, fill: "var(--color-berries)" }
+  { category: "Berries", quantity: 100, fill: "var(--color-berries)" },
 ]
 
 const chartConfig = {
   quantity: {
-    label: "Quantity"
+    label: "Quantity",
   },
   apples: {
     label: "Apples",
-    color: "var(--chart-1)"
+    color: "var(--chart-1)",
   },
   oranges: {
     label: "Oranges",
-    color: "var(--chart-2)"
+    color: "var(--chart-2)",
   },
   bananas: {
     label: "Bananas",
-    color: "var(--chart-3)"
+    color: "var(--chart-3)",
   },
   grapes: {
     label: "Grapes",
-    color: "var(--chart-4)"
+    color: "var(--chart-4)",
   },
   berries: {
     label: "Berries",
-    color: "var(--chart-5)"
-  }
+    color: "var(--chart-5)",
+  },
 } satisfies ChartConfig
 
 export default function SalesDistribution() {
   return (
     <Card>
       <Card.Header
-        className="items-center text-center pb-0"
+        className="items-center pb-0 text-center"
         title="Fruit Sales Distribution"
         description="Sales data of various fruit categories for Jan - Dec 2024"
       />

@@ -1,7 +1,5 @@
 "use client"
 
-import React from "react"
-
 import { Button, Checkbox, CheckboxGroup, Form } from "ui"
 
 export default function CheckboxValidationDemo() {

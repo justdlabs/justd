@@ -10,19 +10,19 @@ const salesData = Array.from({ length: 24 }, (_, index) => {
   return {
     month,
     wholesale: Math.floor(Math.random() * 1000 + 500),
-    retail: Math.floor(Math.random() * 1000 + 1500)
+    retail: Math.floor(Math.random() * 1000 + 1500),
   }
 })
 
 const salesConfig = {
   wholesale: {
     label: "Wholesale",
-    color: "var(--chart-1)"
+    color: "var(--chart-1)",
   },
   retail: {
     label: "Retail",
-    color: "var(--chart-2)"
-  }
+    color: "var(--chart-2)",
+  },
 } satisfies ChartConfig
 
 export default function AreaChartLegendDemo() {
@@ -40,7 +40,7 @@ export default function AreaChartLegendDemo() {
             data={salesData}
             margin={{
               left: 12,
-              right: 12
+              right: 12,
             }}
           >
             <CartesianGrid vertical={false} />

@@ -4,7 +4,7 @@ import { IconSearch, IconX } from "justd-icons"
 import {
   SearchField as SearchFieldPrimitive,
   type SearchFieldProps as SearchFieldPrimitiveProps,
-  type ValidationResult
+  type ValidationResult,
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
@@ -19,10 +19,10 @@ const searchFieldStyles = tv({
     searchIcon:
       "ml-2.5 size-4 shrink-0 text-muted-fg group-data-disabled:text-muted-fg forced-colors:text-[ButtonText] forced-colors:group-data-disabled:text-[GrayText]",
     clearButton: [
-      "mr-1 size-8 text-muted-fg group-data-empty:invisible data-pressed:bg-transparent data-hovered:bg-transparent data-hovered:text-fg data-pressed:text-fg"
+      "mr-1 size-8 text-muted-fg group-data-empty:invisible data-pressed:bg-transparent data-hovered:bg-transparent data-hovered:text-fg data-pressed:text-fg",
     ],
-    input: "[&::-webkit-search-cancel-button]:hidden"
-  }
+    input: "[&::-webkit-search-cancel-button]:hidden",
+  },
 })
 
 const { base, searchIcon, clearButton, input } = searchFieldStyles()

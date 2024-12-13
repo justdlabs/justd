@@ -1,7 +1,5 @@
 "use client"
 
-import React from "react"
-
 import { Meter } from "ui"
 
 export default function MeterCurrencyFormatDemo() {

@@ -17,7 +17,7 @@ import {
   IconFullscreen,
   IconLayoutAlignLeft,
   IconLayoutAlignTop,
-  IconX
+  IconX,
 } from "justd-icons"
 import type { Key } from "react-aria-components"
 import { Tab, TabList, ToggleButton } from "react-aria-components"
@@ -40,7 +40,7 @@ import {
   SidebarNav,
   SidebarProvider,
   Tabs,
-  ToggleGroup
+  ToggleGroup,
 } from "ui"
 
 const registry = generated as Record<string, RegistryItem>
@@ -108,16 +108,16 @@ function Component({ folders, fullscreen, isIframe = false, title, ...props }: P
           />
         )
       }),
-    [registryKey]
+    [registryKey],
   )
   if (!Component && !isIframe) {
     return <p>Component "{props.preview}" not found in the registry.</p>
   }
   return (
-    <div className="flex overflow-hidden relative isolate border rounded-xl">
+    <div className="relative isolate flex overflow-hidden rounded-xl border">
       <Tabs className="w-full gap-0 p-1">
-        <div className="flex bg-navbar mb-1 rounded-lg overflow-hidden ring-1 ring-fg/10 items-center justify-between">
-          <h2 className="text-sm ml-3.5 font-medium inline-flex items-center **:data-[slot=icon]:text-muted-fg gap-x-1.5">
+        <div className="mb-1 flex items-center justify-between overflow-hidden rounded-lg bg-navbar ring-1 ring-fg/10">
+          <h2 className="ml-3.5 inline-flex items-center gap-x-1.5 font-medium text-sm **:data-[slot=icon]:text-muted-fg">
             {title.includes("Sidebar") ? (
               <IconLayoutAlignLeft />
             ) : title.includes("Navbar") ? (
@@ -127,13 +127,13 @@ function Component({ folders, fullscreen, isIframe = false, title, ...props }: P
             )}
             {title}
           </h2>
-          <div className="flex rounded-s-lg ring-1 ring-transparent dark:ring-border bg-bg shadow-sm items-center px-2 py-1">
+          <div className="flex items-center rounded-s-lg bg-bg px-2 py-1 shadow-sm ring-1 ring-transparent dark:ring-border">
             <TabList className="flex items-center text-xs">
               <Tab
                 className={({ isSelected }) =>
                   clsx(
-                    "px-2.5 cursor-pointer py-1.5 rounded-sm outline-hidden",
-                    isSelected && "bg-primary text-primary-fg"
+                    "cursor-pointer rounded-sm px-2.5 py-1.5 outline-hidden",
+                    isSelected && "bg-primary text-primary-fg",
                   )
                 }
                 id="preview"
@@ -143,8 +143,8 @@ function Component({ folders, fullscreen, isIframe = false, title, ...props }: P
               <Tab
                 className={({ isSelected }) =>
                   clsx(
-                    "px-2.5 cursor-pointer py-1.5 rounded-sm outline-hidden",
-                    isSelected && "bg-primary text-primary-fg"
+                    "cursor-pointer rounded-sm px-2.5 py-1.5 outline-hidden",
+                    isSelected && "bg-primary text-primary-fg",
                   )
                 }
                 id="code"
@@ -153,13 +153,13 @@ function Component({ folders, fullscreen, isIframe = false, title, ...props }: P
               </Tab>
             </TabList>
             <Separator orientation="vertical" className="mx-2 h-6" />
-            <ToggleGroup className="items-center sm:flex hidden" selectedKeys={device} onSelectionChange={setDevice}>
+            <ToggleGroup className="hidden items-center sm:flex" selectedKeys={device} onSelectionChange={setDevice}>
               <ToggleButton
                 aria-label="Switch to phone display"
                 className={({ isSelected }) =>
                   clsx(
-                    "*:data-[slot=icon]:size-4 *:data-[slot=icon]:shrink-0 p-1 outline-hidden data-focus-visible:inset-ring-1 data-focus-visible:inset-ring-primary",
-                    isSelected ? "text-fg" : "text-muted-fg/70"
+                    "p-1 outline-hidden data-focus-visible:inset-ring-1 data-focus-visible:inset-ring-primary *:data-[slot=icon]:size-4 *:data-[slot=icon]:shrink-0",
+                    isSelected ? "text-fg" : "text-muted-fg/70",
                   )
                 }
                 id="phone"
@@ -170,8 +170,8 @@ function Component({ folders, fullscreen, isIframe = false, title, ...props }: P
                 aria-label="Switch to ipad/tablet display"
                 className={({ isSelected }) =>
                   clsx(
-                    "*:data-[slot=icon]:size-4 *:data-[slot=icon]:shrink-0 p-1 outline-hidden data-focus-visible:inset-ring-1 data-focus-visible:inset-ring-primary",
-                    isSelected ? "text-fg" : "text-muted-fg/70"
+                    "p-1 outline-hidden data-focus-visible:inset-ring-1 data-focus-visible:inset-ring-primary *:data-[slot=icon]:size-4 *:data-[slot=icon]:shrink-0",
+                    isSelected ? "text-fg" : "text-muted-fg/70",
                   )
                 }
                 id="ipad"
@@ -182,8 +182,8 @@ function Component({ folders, fullscreen, isIframe = false, title, ...props }: P
                 aria-label="Switch to desktop / large screen display"
                 className={({ isSelected }) =>
                   clsx(
-                    "*:data-[slot=icon]:size-4 *:data-[slot=icon]:shrink-0 p-1 outline-hidden data-focus-visible:inset-ring-1 data-focus-visible:inset-ring-primary",
-                    isSelected ? "text-fg" : "text-muted-fg/70"
+                    "p-1 outline-hidden data-focus-visible:inset-ring-1 data-focus-visible:inset-ring-primary *:data-[slot=icon]:size-4 *:data-[slot=icon]:shrink-0",
+                    isSelected ? "text-fg" : "text-muted-fg/70",
                   )
                 }
                 id="desktop"
@@ -191,7 +191,7 @@ function Component({ folders, fullscreen, isIframe = false, title, ...props }: P
                 <IconDeviceDesktop />
               </ToggleButton>
             </ToggleGroup>
-            <Separator orientation="vertical" className="mx-2 sm:block hidden h-6" />
+            <Separator orientation="vertical" className="mx-2 hidden h-6 sm:block" />
             {fullscreen && (
               <Link
                 href={fullscreen}
@@ -209,19 +209,19 @@ function Component({ folders, fullscreen, isIframe = false, title, ...props }: P
               <iframe
                 src={props.preview}
                 className={cn(
-                  "min-h-160 border rounded-lg overflow-hidden w-full",
+                  "min-h-160 w-full overflow-hidden rounded-lg border",
                   [...device].join(", ") === "phone" && "max-w-sm",
                   [...device].join(", ") === "ipad" && "max-w-3xl",
-                  [...device].join(", ") === "desktop" && "max-w-none"
+                  [...device].join(", ") === "desktop" && "max-w-none",
                 )}
               />
             ) : (
               <div
                 className={cn(
-                  "min-h-140 border rounded-lg overflow-hidden w-full",
+                  "min-h-140 w-full overflow-hidden rounded-lg border",
                   [...device].join(", ") === "phone" && "max-w-sm",
                   [...device].join(", ") === "ipad" && "max-w-3xl",
-                  [...device].join(", ") === "desktop" && "max-w-none"
+                  [...device].join(", ") === "desktop" && "max-w-none",
                 )}
               >
                 <Component />
@@ -230,12 +230,12 @@ function Component({ folders, fullscreen, isIframe = false, title, ...props }: P
           </div>
         </Tabs.Panel>
         <Tabs.Panel id="code">
-          <div className="border rounded-lg [--height:85vh]  min-h-(--height) max-h-(--height) overflow-hidden flex">
+          <div className="flex max-h-(--height) min-h-(--height) overflow-hidden rounded-lg border [--height:85vh]">
             <SidebarProvider className="min-h-full">
               <Sidebar intent="fleet" className="h-full" collapsible="none">
-                <SidebarHeader className="bg-gradient-to-b py-0 h-12 flex items-center justify-between flex-row border-b">
+                <SidebarHeader className="flex h-12 flex-row items-center justify-between border-b bg-gradient-to-b py-0">
                   <Link
-                    className="flex items-center group-data-[collapsible=dock]:size-10 group-data-[collapsible=dock]:justify-center gap-x-2"
+                    className="flex items-center gap-x-2 group-data-[collapsible=dock]:size-10 group-data-[collapsible=dock]:justify-center"
                     href="/docs/components/layouts/sidebar"
                   >
                     <IconFolderFill className="size-4.5" />
@@ -245,10 +245,10 @@ function Component({ folders, fullscreen, isIframe = false, title, ...props }: P
                 <SidebarContent className="pb-10">{renderTree(folders)}</SidebarContent>
               </Sidebar>
               <SidebarInset className="overflow-hidden">
-                <SidebarNav className="h-12 bg-sidebar flex justify-between shrink-0">
+                <SidebarNav className="flex h-12 shrink-0 justify-between bg-sidebar">
                   <div className="flex flex-1 items-center">
                     <BrandIcon label={selectedKey} />
-                    <strong className="font-medium ml-2 text-xs">{selectedKey}</strong>
+                    <strong className="ml-2 font-medium text-xs">{selectedKey}</strong>
                   </div>
                   <Button
                     onPress={() => {
@@ -258,7 +258,7 @@ function Component({ folders, fullscreen, isIframe = false, title, ...props }: P
 */
                       `)
                     }}
-                    className="-mr-2 **:data-[slot=icon]:text-muted-fg data-hovered:**:data-[slot=icon]:rotate-90 **:data-[slot=icon]:duration-200 data-hovered:bg-transparent"
+                    className="-mr-2 data-hovered:bg-transparent data-hovered:**:data-[slot=icon]:rotate-90 **:data-[slot=icon]:text-muted-fg **:data-[slot=icon]:duration-200"
                     size="square-petite"
                     appearance="plain"
                   >
@@ -273,7 +273,7 @@ function Component({ folders, fullscreen, isIframe = false, title, ...props }: P
                 <CodeHighlighter
                   max96={false}
                   plain
-                  className={"p-6 bg-zinc-950 text-white overflow-y-auto"}
+                  className={"overflow-y-auto bg-zinc-950 p-6 text-white"}
                   code={code}
                 />
               </SidebarInset>

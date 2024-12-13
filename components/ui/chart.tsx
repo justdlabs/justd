@@ -49,7 +49,7 @@ const Chart = forwardRef<
         ref={ref}
         className={cn(
           "flex aspect-video justify-center text-xs [&_.recharts-cartesian-axis-tick_text]:fill-muted-fg [&_.recharts-cartesian-grid_line[stroke='#ccc']]:stroke-border/80 [&_.recharts-curve.recharts-tooltip-cursor]:stroke-border [&_.recharts-dot[stroke='#fff']]:stroke-transparent [&_.recharts-layer]:outline-hidden [&_.recharts-polar-grid_[stroke='#ccc']]:stroke-border [&_.recharts-radial-bar-background-sector]:fill-muted [&_.recharts-rectangle.recharts-tooltip-cursor]:fill-muted [&_.recharts-reference-line_[stroke='#ccc']]:stroke-border [&_.recharts-sector[stroke='#fff']]:stroke-transparent [&_.recharts-sector]:outline-hidden [&_.recharts-surface]:outline-hidden",
-          className
+          className,
         )}
         {...props}
       >
@@ -62,7 +62,6 @@ const Chart = forwardRef<
 Chart.displayName = "Chart"
 
 const ChartStyle = ({ id, config }: { id: string; config: ChartConfig }) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const colorConfig = Object.entries(config).filter(([_, config]) => config.theme || config.color)
 
   if (!colorConfig.length) {
@@ -71,6 +70,7 @@ const ChartStyle = ({ id, config }: { id: string; config: ChartConfig }) => {
 
   return (
     <style
+      // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
       dangerouslySetInnerHTML={{
         __html: Object.entries(THEMES)
           .map(
@@ -83,9 +83,9 @@ ${colorConfig
   })
   .join("\n")}
 }
-`
+`,
           )
-          .join("\n")
+          .join("\n"),
       }}
     />
   )
@@ -118,9 +118,9 @@ const ChartTooltipContent = forwardRef<
       formatter,
       color,
       nameKey,
-      labelKey
+      labelKey,
     },
-    ref
+    ref,
   ) => {
     const { config } = useChart()
 
@@ -158,8 +158,8 @@ const ChartTooltipContent = forwardRef<
       <div
         ref={ref}
         className={cn(
-          "grid min-w-[12rem] items-start gap-1.5 rounded-lg border bg-overlay text-overlay-fg px-3 py-2 text-xs shadow-xl",
-          className
+          "grid min-w-[12rem] items-start gap-1.5 rounded-lg border bg-overlay px-3 py-2 text-overlay-fg text-xs shadow-xl",
+          className,
         )}
       >
         {!nestLabel ? tooltipLabel : null}
@@ -174,7 +174,7 @@ const ChartTooltipContent = forwardRef<
                 key={item.dataKey}
                 className={cn(
                   "flex w-full flex-wrap items-stretch gap-2 [&>svg]:h-2.5 [&>svg]:w-2.5 [&>svg]:text-muted-fg",
-                  indicator === "dot" && "items-center"
+                  indicator === "dot" && "items-center",
                 )}
               >
                 {formatter && item?.value !== undefined && item.name ? (
@@ -190,12 +190,12 @@ const ChartTooltipContent = forwardRef<
                             "size-2.5": indicator === "dot",
                             "w-1": indicator === "line",
                             "w-0 border-[1.5px] border-dashed bg-transparent": indicator === "dashed",
-                            "my-0.5": nestLabel && indicator === "dashed"
+                            "my-0.5": nestLabel && indicator === "dashed",
                           })}
                           style={
                             {
                               "--color-bg": indicatorColor,
-                              "--color-border": indicatorColor
+                              "--color-border": indicatorColor,
                             } as React.CSSProperties
                           }
                         />
@@ -204,7 +204,7 @@ const ChartTooltipContent = forwardRef<
                     <div
                       className={cn(
                         "flex flex-1 justify-between leading-none",
-                        nestLabel ? "items-end" : "items-center"
+                        nestLabel ? "items-end" : "items-center",
                       )}
                     >
                       <div className="grid gap-1.5">
@@ -212,7 +212,7 @@ const ChartTooltipContent = forwardRef<
                         <span className="text-muted-fg">{itemConfig?.label || item.name}</span>
                       </div>
                       {item.value && (
-                        <span className="font-mono font-medium tabular-nums text-foreground">
+                        <span className="font-medium font-mono text-foreground tabular-nums">
                           {item.value.toLocaleString()}
                         </span>
                       )}
@@ -225,7 +225,7 @@ const ChartTooltipContent = forwardRef<
         </div>
       </div>
     )
-  }
+  },
 )
 ChartTooltipContent.displayName = "ChartTooltip"
 
@@ -265,7 +265,7 @@ const ChartLegendContent = forwardRef<
               <div
                 className="h-2 w-2 shrink-0 rounded-[2px]"
                 style={{
-                  backgroundColor: item.color
+                  backgroundColor: item.color,
                 }}
               />
             )}

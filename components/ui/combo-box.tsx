@@ -11,7 +11,7 @@ import {
   ComboBoxStateContext,
   type PopoverProps as PopoverPrimitiveProps,
   useSlottedContext,
-  type ValidationResult
+  type ValidationResult,
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
@@ -29,8 +29,8 @@ const comboboxStyles = tv({
       "h-7 w-8 **:data-[slot=icon]:text-muted-fg **:data-[slot=icon]:hover:text-fg **:data-[slot=icon]:data-pressed:text-fg rounded outline-offset-0 active:bg-transparent data-hovered:bg-transparent data-pressed:bg-transparent",
     chevronIcon: "transition shrink-0 size-4 duration-200 group-open:rotate-180 group-open:text-fg",
     clearButton:
-      "data-focused:outline-hidden absolute inset-y-0 right-0 flex items-center pr-2 text-muted-fg data-hovered:text-fg"
-  }
+      "data-focused:outline-hidden absolute inset-y-0 right-0 flex items-center pr-2 text-muted-fg data-hovered:text-fg",
+  },
 })
 
 const { base, chevronButton, chevronIcon, clearButton } = comboboxStyles()
@@ -54,7 +54,7 @@ const ComboBox = <T extends object>({
   return (
     <ComboboxPrimitive {...props} className={composeTailwindRenderProps(className, base())}>
       {label && <Label>{label}</Label>}
-      <>{children}</>
+      {children}
       {description && <Description>{description}</Description>}
       <FieldError>{errorMessage}</FieldError>
     </ComboboxPrimitive>
@@ -80,7 +80,7 @@ const List = <T extends object>({ children, items, ...props }: ListProps<T>) => 
 const ComboBoxInput = (props: InputProps) => {
   const context = useSlottedContext(ComboBoxContext)!
   return (
-    <FieldGroup className="pl-0 relative">
+    <FieldGroup className="relative pl-0">
       <Input {...props} placeholder={props?.placeholder} />
       <Button size="square-petite" appearance="plain" className={chevronButton()}>
         {!context?.inputValue && <IconChevronLgDown className={chevronIcon()} />}

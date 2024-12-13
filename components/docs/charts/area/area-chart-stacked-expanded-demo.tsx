@@ -11,23 +11,23 @@ const trafficData = Array.from({ length: 24 }, (_, index) => {
     month,
     organic: Math.floor(Math.random() * 100 + 150),
     paid: Math.floor(Math.random() * 50 + 100),
-    referral: Math.floor(Math.random() * 50 + 50)
+    referral: Math.floor(Math.random() * 50 + 50),
   }
 })
 
 const trafficConfig = {
   organic: {
     label: "Organic",
-    color: "var(--chart-1)"
+    color: "var(--chart-1)",
   },
   paid: {
     label: "Paid",
-    color: "var(--chart-2)"
+    color: "var(--chart-2)",
   },
   referral: {
     label: "Referral",
-    color: "var(--chart-3)"
-  }
+    color: "var(--chart-3)",
+  },
 } satisfies ChartConfig
 
 export default function AreaChartStackedExpandedDemo() {
@@ -46,7 +46,7 @@ export default function AreaChartStackedExpandedDemo() {
             margin={{
               left: 20,
               right: 20,
-              top: 20
+              top: 20,
             }}
             stackOffset="expand"
           >

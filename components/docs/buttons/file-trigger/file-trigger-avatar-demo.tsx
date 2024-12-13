@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import { useState } from "react"
 
 import type { DropEvent } from "@react-types/shared"
 import { isFileDropItem } from "react-aria-components"
@@ -35,7 +35,7 @@ export default function FileTriggerAvatarDemo() {
         getDropOperation={() => "copy"}
         onDrop={onDropHandler}
         className={twJoin(
-          "**:data-[slot=avatar]:bg-transparent **:data-[slot=avatar]:outline-hidden rounded-full p-0 overflow-hidden size-10"
+          "size-10 overflow-hidden rounded-full p-0 **:data-[slot=avatar]:bg-transparent **:data-[slot=avatar]:outline-hidden",
         )}
       >
         {droppedImage ? <Avatar src={droppedImage} size="large" /> : <Avatar initials="IA" size="large" />}

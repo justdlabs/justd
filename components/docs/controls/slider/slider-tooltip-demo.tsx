@@ -5,7 +5,7 @@ import { Slider } from "ui"
 export default function SliderTooltipDemo() {
   return (
     <div className="flex w-full flex-col gap-y-1">
-      <div className="flex items-center w-full justify-between text-sm">
+      <div className="flex w-full items-center justify-between text-sm">
         <span>Soft</span>
         <span>Loud</span>
       </div>

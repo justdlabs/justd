@@ -9,7 +9,7 @@ export default function PaginationDynamicDemo() {
       <Pagination.List>
         <Pagination.Item variant="first" href="#" />
         <Pagination.Item variant="previous" href="#" />
-        <Pagination.Section aria-label="Pagination Segment" className="rounded-lg lg:hidden border">
+        <Pagination.Section aria-label="Pagination Segment" className="rounded-lg border lg:hidden">
           <Pagination.Item variant="label">1</Pagination.Item>
           <Pagination.Item variant="separator" />
           <Pagination.Item className="text-muted-fg" variant="label">

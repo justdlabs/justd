@@ -12,39 +12,39 @@ const data = [
   { month: "february", sales: 2305, fill: "var(--color-february)" },
   { month: "march", sales: 4237, fill: "var(--color-march)" },
   { month: "april", sales: 4173, fill: "var(--color-april)" },
-  { month: "may", sales: 5209, fill: "var(--color-may)" }
+  { month: "may", sales: 5209, fill: "var(--color-may)" },
 ]
 
 const config = {
   visitors: {
-    label: "Visitors"
+    label: "Visitors",
   },
   sales: {
-    label: "Sales"
+    label: "Sales",
   },
   profit: {
-    label: "Profit"
+    label: "Profit",
   },
   january: {
     label: "January",
-    color: "var(--chart-1)"
+    color: "var(--chart-1)",
   },
   february: {
     label: "February",
-    color: "var(--chart-2)"
+    color: "var(--chart-2)",
   },
   march: {
     label: "March",
-    color: "var(--chart-3)"
+    color: "var(--chart-3)",
   },
   april: {
     label: "April",
-    color: "var(--chart-4)"
+    color: "var(--chart-4)",
   },
   may: {
     label: "May",
-    color: "var(--chart-5)"
-  }
+    color: "var(--chart-5)",
+  },
 } satisfies ChartConfig
 
 export default function PieChartControlledDemo() {
@@ -66,7 +66,7 @@ export default function PieChartControlledDemo() {
           </Card.Description>
         </div>
         <Select selectedKey={activeMonth} onSelectionChange={setActiveMonth}>
-          <Select.Trigger className="ml-auto h-8 px-2 w-[130px] rounded-lg" aria-label="Select a value" />
+          <Select.Trigger className="ml-auto h-8 w-[130px] rounded-lg px-2" aria-label="Select a value" />
           <Select.List className="rounded-xl">
             {months.map((key) => {
               const _config = config[key as keyof typeof config]
@@ -107,7 +107,7 @@ export default function PieChartControlledDemo() {
                   if (viewBox && "cx" in viewBox && "cy" in viewBox) {
                     return (
                       <text x={viewBox.cx} y={viewBox.cy} textAnchor="middle" dominantBaseline="middle">
-                        <tspan x={viewBox.cx} y={viewBox.cy} className="fill-fg text-2xl font-semibold">
+                        <tspan x={viewBox.cx} y={viewBox.cy} className="fill-fg font-semibold text-2xl">
                           {data[activeIndex].sales.toLocaleString()}
                         </tspan>
                         <tspan x={viewBox.cx} y={(viewBox.cy || 0) + 24} className="fill-muted-fg">

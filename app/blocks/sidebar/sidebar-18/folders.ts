@@ -13,7 +13,7 @@ export const folders: FileTree[] = [
       {
         id: 11,
         label: "Data",
-        files: [{ id: 111, label: "AuthenticatedUserData.php", href: "#" }]
+        files: [{ id: 111, label: "AuthenticatedUserData.php", href: "#" }],
       },
       {
         id: 12,
@@ -35,17 +35,17 @@ export const folders: FileTree[] = [
                   { id: 12116, label: "PasswordController.php", href: "#" },
                   { id: 12117, label: "PasswordResetLinkController.php", href: "#" },
                   { id: 12118, label: "RegisteredUserController.php", href: "#" },
-                  { id: 12119, label: "VerifyEmailController.php", href: "#" }
-                ]
+                  { id: 12119, label: "VerifyEmailController.php", href: "#" },
+                ],
               },
               { id: 1212, label: "Controller.php", href: "#" },
-              { id: 1213, label: "ProfileController.php", href: "#" }
-            ]
+              { id: 1213, label: "ProfileController.php", href: "#" },
+            ],
           },
           {
             id: 122,
             label: "Middleware",
-            files: [{ id: 1221, label: "HandleInertiaRequests.php", href: "#" }]
+            files: [{ id: 1221, label: "HandleInertiaRequests.php", href: "#" }],
           },
           {
             id: 123,
@@ -54,24 +54,24 @@ export const folders: FileTree[] = [
               {
                 id: 1231,
                 label: "Auth",
-                files: [{ id: 12311, label: "LoginRequest.php", href: "#" }]
+                files: [{ id: 12311, label: "LoginRequest.php", href: "#" }],
               },
-              { id: 1232, label: "ProfileUpdateRequest.php", href: "#" }
-            ]
-          }
-        ]
+              { id: 1232, label: "ProfileUpdateRequest.php", href: "#" },
+            ],
+          },
+        ],
       },
       {
         id: 13,
         label: "Models",
-        files: [{ id: 131, label: "User.php", href: "#" }]
+        files: [{ id: 131, label: "User.php", href: "#" }],
       },
       {
         id: 14,
         label: "Providers",
-        files: [{ id: 141, label: "AppServiceProvider.php", href: "#" }]
-      }
-    ]
+        files: [{ id: 141, label: "AppServiceProvider.php", href: "#" }],
+      },
+    ],
   },
   {
     id: 2,
@@ -87,8 +87,8 @@ export const folders: FileTree[] = [
       { id: 28, label: "mail.php", href: "#" },
       { id: 29, label: "queue.php", href: "#" },
       { id: 210, label: "services.php", href: "#" },
-      { id: 211, label: "session.php", href: "#" }
-    ]
+      { id: 211, label: "session.php", href: "#" },
+    ],
   },
   {
     id: 3,
@@ -96,8 +96,8 @@ export const folders: FileTree[] = [
     files: [
       { id: 31, label: "auth.php", href: "#" },
       { id: 32, label: "console.php", href: "#" },
-      { id: 33, label: "web.php", href: "#" }
-    ]
+      { id: 33, label: "web.php", href: "#" },
+    ],
   },
   {
     id: 4,
@@ -107,7 +107,7 @@ export const folders: FileTree[] = [
       {
         id: 42,
         label: "factories",
-        files: [{ id: 421, label: "UserFactory.php", href: "#" }]
+        files: [{ id: 421, label: "UserFactory.php", href: "#" }],
       },
       {
         id: 43,
@@ -115,15 +115,15 @@ export const folders: FileTree[] = [
         files: [
           { id: 431, label: "0001_01_01_000000_create_users_table.php", href: "#" },
           { id: 432, label: "0001_01_01_000001_create_cache_table.php", href: "#" },
-          { id: 433, label: "0001_01_01_000002_create_jobs_table.php", href: "#" }
-        ]
+          { id: 433, label: "0001_01_01_000002_create_jobs_table.php", href: "#" },
+        ],
       },
       {
         id: 44,
         label: "seeders",
-        files: [{ id: 441, label: "DatabaseSeeder.php", href: "#" }]
-      }
-    ]
+        files: [{ id: 441, label: "DatabaseSeeder.php", href: "#" }],
+      },
+    ],
   },
   {
     id: 5,
@@ -131,8 +131,8 @@ export const folders: FileTree[] = [
     files: [
       { id: 51, label: "favicon.ico", href: "#" },
       { id: 52, label: "index.php", href: "#" },
-      { id: 53, label: "robots.txt", href: "#" }
-    ]
+      { id: 53, label: "robots.txt", href: "#" },
+    ],
   },
   {
     id: 6,
@@ -141,7 +141,7 @@ export const folders: FileTree[] = [
       {
         id: 61,
         label: "css",
-        files: [{ id: 611, label: "app.css", href: "#" }]
+        files: [{ id: 611, label: "app.css", href: "#" }],
       },
       {
         id: 62,
@@ -162,16 +162,16 @@ export const folders: FileTree[] = [
               { id: 6219, label: "PrimaryButton.tsx", href: "#" },
               { id: 6220, label: "ResponsiveNavLink.tsx", href: "#" },
               { id: 6221, label: "SecondaryButton.tsx", href: "#" },
-              { id: 6222, label: "TextInput.tsx", href: "#" }
-            ]
+              { id: 6222, label: "TextInput.tsx", href: "#" },
+            ],
           },
           {
             id: 622,
             label: "Layouts",
             files: [
               { id: 6221, label: "AuthenticatedLayout.tsx", href: "#" },
-              { id: 6222, label: "GuestLayout.tsx", href: "#" }
-            ]
+              { id: 6222, label: "GuestLayout.tsx", href: "#" },
+            ],
           },
           {
             id: 623,
@@ -186,8 +186,8 @@ export const folders: FileTree[] = [
                   { id: 62313, label: "Login.tsx", href: "#" },
                   { id: 62314, label: "Register.tsx", href: "#" },
                   { id: 62315, label: "ResetPassword.tsx", href: "#" },
-                  { id: 62316, label: "VerifyEmail.tsx", href: "#" }
-                ]
+                  { id: 62316, label: "VerifyEmail.tsx", href: "#" },
+                ],
               },
               { id: 6232, label: "Dashboard.tsx", href: "#" },
               {
@@ -203,19 +203,19 @@ export const folders: FileTree[] = [
                       {
                         id: 623322,
                         label: "UpdatePasswordForm.tsx",
-                        href: "#"
+                        href: "#",
                       },
                       {
                         id: 623323,
                         label: "UpdateProfileInformationForm.tsx",
-                        href: "#"
-                      }
-                    ]
-                  }
-                ]
+                        href: "#",
+                      },
+                    ],
+                  },
+                ],
               },
-              { id: 6234, label: "Welcome.tsx", href: "#" }
-            ]
+              { id: 6234, label: "Welcome.tsx", href: "#" },
+            ],
           },
           { id: 624, label: "app.tsx", href: "#" },
           { id: 625, label: "bootstrap.ts", href: "#" },
@@ -226,16 +226,16 @@ export const folders: FileTree[] = [
             files: [
               { id: 6271, label: "global.d.ts", href: "#" },
               { id: 6272, label: "index.d.ts", href: "#" },
-              { id: 6273, label: "vite-env.d.ts", href: "#" }
-            ]
-          }
-        ]
+              { id: 6273, label: "vite-env.d.ts", href: "#" },
+            ],
+          },
+        ],
       },
       {
         id: 63,
         label: "views",
-        files: [{ id: 631, label: "app.blade.php", href: "#" }]
-      }
-    ]
-  }
+        files: [{ id: 631, label: "app.blade.php", href: "#" }],
+      },
+    ],
+  },
 ]

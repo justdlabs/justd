@@ -24,13 +24,13 @@ const movies = [
     genres: [
       {
         id: 101,
-        name: "Sci-Fi"
+        name: "Sci-Fi",
       },
       {
         id: 102,
-        name: "Thriller"
-      }
-    ]
+        name: "Thriller",
+      },
+    ],
   },
   {
     id: 2,
@@ -38,13 +38,13 @@ const movies = [
     genres: [
       {
         id: 201,
-        name: "Romance"
+        name: "Romance",
       },
       {
         id: 202,
-        name: "Drama"
-      }
-    ]
+        name: "Drama",
+      },
+    ],
   },
   {
     id: 3,
@@ -52,13 +52,13 @@ const movies = [
     genres: [
       {
         id: 301,
-        name: "Action"
+        name: "Action",
       },
       {
         id: 302,
-        name: "Sci-Fi"
-      }
-    ]
+        name: "Sci-Fi",
+      },
+    ],
   },
   {
     id: 4,
@@ -66,13 +66,13 @@ const movies = [
     genres: [
       {
         id: 401,
-        name: "Action"
+        name: "Action",
       },
       {
         id: 402,
-        name: "Drama"
-      }
-    ]
+        name: "Drama",
+      },
+    ],
   },
   {
     id: 5,
@@ -80,12 +80,12 @@ const movies = [
     genres: [
       {
         id: 501,
-        name: "Romance"
+        name: "Romance",
       },
       {
         id: 502,
-        name: "Drama"
-      }
-    ]
-  }
+        name: "Drama",
+      },
+    ],
+  },
 ]

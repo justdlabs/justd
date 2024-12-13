@@ -1,14 +1,12 @@
 "use client"
 
-import React from "react"
-
 import { useTheme } from "@/components/theme-provider"
 import { cn } from "@/utils/classes"
 import {
   IconCircleCheckFill,
   IconCircleExclamationFill,
   IconCircleInfoFill,
-  IconTriangleExclamationFill
+  IconTriangleExclamationFill,
 } from "justd-icons"
 import { Toaster as ToasterPrimitive, type ToasterProps } from "sonner"
 
@@ -27,7 +25,7 @@ const Toast = ({ ...props }: ToasterProps) => {
         error: <IconTriangleExclamationFill />,
         warning: <IconCircleExclamationFill />,
         success: <IconCircleCheckFill />,
-        loading: <Loader variant="spin" />
+        loading: <Loader variant="spin" />,
       }}
       toastOptions={{
         unstyled: true,
@@ -39,7 +37,7 @@ const Toast = ({ ...props }: ToasterProps) => {
             "has-data-[slot=icon]:**:data-content:pl-0",
             "has-data-button:*:data-content:mb-10",
             "has-data-button:**:data-close-button:hidden! w-full flex p-4 rounded-xl",
-            "backdrop-blur-3xl inset-ring-1 inset-ring-current/10"
+            "backdrop-blur-3xl inset-ring-1 inset-ring-current/10",
           ),
           icon: "absolute top-[0.2rem] [--toast-icon-margin-end:7px] *:data-[slot=icon]:text-fg *:data-[slot=icon]:size-4.5 **:data-[slot=icon]:text-current",
           title: "",
@@ -57,15 +55,15 @@ const Toast = ({ ...props }: ToasterProps) => {
             className:
               "hover:border-secondary-fg/10 hover:bg-secondary/90 self-start absolute bottom-4 left-4 justify-self-start",
             size: "extra-small",
-            appearance: "outline"
+            appearance: "outline",
           }),
           actionButton: buttonStyles({
             className: "absolute bottom-4 right-4 self-end justify-self-end",
-            size: "extra-small"
+            size: "extra-small",
           }),
           closeButton:
-            "*:[svg]:size-12 size-6! rounded-md! [--gray1:transparent] [--gray4:transparent] [--gray5:transparent] [--gray12:current] [--toast-close-button-start:full] [--toast-close-button-end:-6px] [--toast-close-button-transform:translate(-75%,60%)] absolute"
-        }
+            "*:[svg]:size-12 size-6! rounded-md! [--gray1:transparent] [--gray4:transparent] [--gray5:transparent] [--gray12:current] [--toast-close-button-start:full] [--toast-close-button-end:-6px] [--toast-close-button-transform:translate(-75%,60%)] absolute",
+        },
       }}
       {...props}
     />

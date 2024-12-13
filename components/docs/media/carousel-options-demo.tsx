@@ -7,7 +7,7 @@ export default function CarouselOptionsDemo() {
     <Carousel
       opts={{
         align: "center",
-        loop: true
+        loop: true,
       }}
       className="w-full max-w-2xl"
     >

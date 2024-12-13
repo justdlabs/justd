@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react"
+import type React from "react"
 
 import { IconHamburger } from "justd-icons"
 import type { GridListItemProps, GridListProps } from "react-aria-components"
@@ -11,7 +11,7 @@ import { Checkbox } from "./checkbox"
 import { composeTailwindRenderProps } from "./primitive"
 
 const gridListStyles = tv({
-  base: "relative *:data-drop-target:border *:data-drop-target:border-accent [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin] max-h-96 overflow-auto rounded-lg border"
+  base: "relative *:data-drop-target:border *:data-drop-target:border-accent [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin] max-h-96 overflow-auto rounded-lg border",
 })
 
 const GridList = <T extends object>({ children, className, ...props }: GridListProps<T>) => (
@@ -25,18 +25,18 @@ const itemStyles = tv({
   variants: {
     isHovered: { true: "bg-subtle" },
     isSelected: {
-      true: "bg-(--selected-item) z-20 border-border/50 data-hovered:bg-(--selected-item-hovered)"
+      true: "bg-(--selected-item) z-20 border-border/50 data-hovered:bg-(--selected-item-hovered)",
     },
     isFocused: {
-      true: "outline-hidden"
+      true: "outline-hidden",
     },
     isFocusVisible: {
-      true: "ring-1 ring-ring outline-hidden bg-(--selected-item) data-selected:bg-(--selected-item) data-hovered:bg-(--selected-item-hovered)"
+      true: "ring-1 ring-ring outline-hidden bg-(--selected-item) data-selected:bg-(--selected-item) data-hovered:bg-(--selected-item-hovered)",
     },
     isDisabled: {
-      true: "text-muted-fg/70 forced-colors:text-[GrayText]"
-    }
-  }
+      true: "text-muted-fg/70 forced-colors:text-[GrayText]",
+    },
+  },
 })
 
 const Item = ({ className, ...props }: GridListItemProps) => {

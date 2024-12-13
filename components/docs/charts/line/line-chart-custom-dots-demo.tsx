@@ -9,18 +9,18 @@ const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "
 const chartData = months.map((month) => ({
   month,
   sales: Math.floor(Math.random() * 300) + 150,
-  profit: Math.floor(Math.random() * 150) + 50
+  profit: Math.floor(Math.random() * 150) + 50,
 }))
 
 const chartConfig = {
   sales: {
     label: "Sales",
-    color: "var(--chart-1)"
+    color: "var(--chart-1)",
   },
   profit: {
     label: "Profit",
-    color: "var(--chart-2)"
-  }
+    color: "var(--chart-2)",
+  },
 } satisfies ChartConfig
 
 export default function LineChartCustomDotsDemo() {
@@ -34,7 +34,7 @@ export default function LineChartCustomDotsDemo() {
             data={chartData}
             margin={{
               left: 12,
-              right: 12
+              right: 12,
             }}
           >
             <CartesianGrid vertical={false} />

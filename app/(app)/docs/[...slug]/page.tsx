@@ -5,7 +5,7 @@ import { Pager } from "@/components/pager"
 import { TableOfContents } from "@/components/table-of-contents"
 import { siteConfig } from "@/resources/config/site"
 import { goodTitle } from "@/resources/lib/utils"
-import { type Metadata } from "next"
+import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 
 export interface DocPageProps {
@@ -70,8 +70,8 @@ export async function generateMetadata(props: DocPageProps): Promise<Metadata> {
       "Justd UI Framework",
       "Justd Laravel Inertia",
       "Justd Laravel",
-      "Justd Inertia"
-    ]
+      "Justd Inertia",
+    ],
   }
 }
 
@@ -89,41 +89,41 @@ export default async function PostPage(props: DocPageProps) {
 
   return (
     <>
-      <div className="min-w-0 max-w-2xl flex-auto pt-16 pb-32 lg:max-w-none px-4 lg:pl-8 lg:pr-0 xl:px-12">
-        <main className="prose prose-img:rounded-lg prose-pre:p-0 prose-headings:mb-[0.3rem] prose-headings:scroll-mt-24 prose-blue dark:prose-invert max-w-[inherit]">
+      <div className="min-w-0 max-w-2xl flex-auto px-4 pt-16 pb-32 lg:max-w-none lg:pr-0 lg:pl-8 xl:px-12">
+        <main className="prose prose-blue dark:prose-invert prose-headings:mb-[0.3rem] max-w-[inherit] prose-headings:scroll-mt-24 prose-img:rounded-lg prose-pre:p-0">
           <div className="-mx-4 sm:mx-0">
-            <div className="not-prose -mt-8 sm:mt-0 p-4 sm:p-10 sm:rounded-xl inset-shadow-xs ring-fg/5 dark:ring-fg/10 ring-1 sm:ring-inset relative isolate overflow-hidden">
+            <div className="not-prose -mt-8 relative inset-shadow-xs isolate overflow-hidden p-4 ring-1 ring-fg/5 sm:mt-0 sm:rounded-xl sm:p-10 sm:ring-inset dark:ring-fg/10">
               <div
                 aria-hidden="true"
-                className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+                className="-top-40 -z-10 sm:-top-80 absolute inset-x-0 transform-gpu overflow-hidden blur-3xl"
               >
                 <div
                   style={{
                     clipPath:
-                      "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"
+                      "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
                   }}
-                  className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-cyan-500 to-blue-600 opacity-15 dark:opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+                  className="-translate-x-1/2 relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] rotate-[30deg] bg-gradient-to-tr from-cyan-500 to-blue-600 opacity-15 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem] dark:opacity-20"
                 />
               </div>
-              <div className="font-mono text-xs uppercase text-blue-600 dark:text-blue-400">
+              <div className="font-mono text-blue-600 text-xs uppercase dark:text-blue-400">
                 {extractSegment(doc.slug)}
               </div>
-              <h1 className="font-semibold tracking-tight text-2xl mt-2 sm:text-3xl">{doc.title}</h1>
+              <h1 className="mt-2 font-semibold text-2xl tracking-tight sm:text-3xl">{doc.title}</h1>
               {doc.description ? (
-                <p className="text-base mt-2.5 leading-relaxed text-fg/60 text-pretty">{doc.description}</p>
+                <p className="mt-2.5 text-pretty text-base text-fg/60 leading-relaxed">{doc.description}</p>
               ) : null}
 
               {doc.references && doc.references?.length > 0 && <DocRefs references={doc.references} />}
             </div>
           </div>
 
-          <TableOfContents className="mt-4 sm:mt-8 block xl:hidden" items={doc.toc} />
+          <TableOfContents className="mt-4 block sm:mt-8 xl:hidden" items={doc.toc} />
           <Mdx code={doc.body} />
           <Pager
             doc={{
               title: doc.title,
               slug: doc.slug,
-              order: doc.order
+              order: doc.order,
             }}
             docs={docs
               .filter((doc) => doc.slug.startsWith("docs/components"))

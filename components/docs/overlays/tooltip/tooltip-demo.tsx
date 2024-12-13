@@ -9,7 +9,7 @@ import {
   IconLayoutAlignTop,
   IconLayoutColumnHorizontalHalf,
   IconLayoutColumnLeftside,
-  IconLayoutColumnVerticalAdd
+  IconLayoutColumnVerticalAdd,
 } from "justd-icons"
 import { buttonStyles, Tooltip } from "ui"
 
@@ -20,13 +20,13 @@ export default function TooltipDemo() {
         aria-label="Manage Layout"
         className={buttonStyles({
           appearance: "outline",
-          size: "square-petite"
+          size: "square-petite",
         })}
       >
         <IconLayoutColumnVerticalAdd />
       </Tooltip.Trigger>
       <Tooltip.Content placement="bottom">
-        <div className="flex **:[div]:*:[div]:flex **:[div]:*:[div]:items-center **:[div]:*:[div]:gap-x-3 **:data-[slot=icon]:size-5 **:data-[slot=icon]:text-fg/80 **:[h4]:mb-1 **:[h4]:text-xs **:[h4]:font-medium **:[h4]:text-fg/60 flex-col gap-y-6">
+        <div className="flex flex-col gap-y-6 **:data-[slot=icon]:size-5 **:data-[slot=icon]:text-fg/80 **:[h4]:mb-1 **:[h4]:font-medium **:[h4]:text-fg/60 **:[h4]:text-xs **:[div]:*:[div]:flex **:[div]:*:[div]:items-center **:[div]:*:[div]:gap-x-3">
           <div>
             <h4>Move & Resize</h4>
             <div>

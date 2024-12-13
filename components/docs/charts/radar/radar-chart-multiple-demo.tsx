@@ -15,18 +15,18 @@ const chartData = [
   { month: "Sep", sales: 270, profit: 170 },
   { month: "Oct", sales: 290, profit: 180 },
   { month: "Nov", sales: 310, profit: 190 },
-  { month: "Dec", sales: 330, profit: 200 }
+  { month: "Dec", sales: 330, profit: 200 },
 ]
 
 const chartConfig = {
   sales: {
     label: "Sales",
-    color: "var(--chart-1)"
+    color: "var(--chart-1)",
   },
   profit: {
     label: "Profit",
-    color: "var(--chart-2)"
-  }
+    color: "var(--chart-2)",
+  },
 } satisfies ChartConfig
 
 export default function RadarChartMultipleDemo() {
