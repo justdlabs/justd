@@ -1,0 +1,11 @@
+{
+  "name": "link-button-demo",
+  "files": [
+    {
+      "name": "link-button-demo.tsx",
+      "content": "\"use client\"\n\nimport { Link, buttonStyles } from \"ui\"\n\nexport default function LinkButtonDemo() {\n  return (\n    <div className=\"flex gap-2\">\n      <Link className={buttonStyles()} href=\"#use-as-button\">\n        Link\n      </Link>\n      <Link className={buttonStyles({ appearance: \"outline\" })} href=\"#use-as-button\">\n        Link\n      </Link>\n      <Link className={buttonStyles({ appearance: \"plain\", shape: \"circle\" })} href=\"#use-as-button\">\n        Link\n      </Link>\n    </div>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/navigation/link/link-button-demo.tsx"
+}

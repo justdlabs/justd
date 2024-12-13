@@ -1,0 +1,11 @@
+{
+  "name": "color-picker-with-description-demo",
+  "files": [
+    {
+      "name": "color-picker-with-description-demo.tsx",
+      "content": "\"use client\"\n\nimport { useState } from \"react\"\n\nimport { ColorPicker, defaultColor } from \"ui\"\n\nexport default function ColorPickerWithDescriptionDemo() {\n  const [color, setColor] = useState(defaultColor)\n  return (\n    <ColorPicker label=\"Theme Color\" description=\"Snag a color for the app theme\" value={color} onChange={setColor} />\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/colors/color-picker/color-picker-with-description-demo.tsx"
+}

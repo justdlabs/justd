@@ -1,0 +1,11 @@
+{
+  "name": "radar-chart-grid-circle-filled-demo",
+  "files": [
+    {
+      "name": "radar-chart-grid-circle-filled-demo.tsx",
+      "content": "\"use client\"\n\nimport { PolarAngleAxis, PolarGrid, Radar, RadarChart } from \"recharts\"\nimport { Card, Chart, type ChartConfig, ChartTooltip, ChartTooltipContent } from \"ui\"\n\nconst chartData = [\n  { month: \"Jan\", sales: 186 },\n  { month: \"Feb\", sales: 285 },\n  { month: \"Mar\", sales: 237 },\n  { month: \"Apr\", sales: 203 },\n  { month: \"May\", sales: 209 },\n  { month: \"Jun\", sales: 264 },\n  { month: \"Jul\", sales: 290 },\n  { month: \"Aug\", sales: 310 },\n  { month: \"Sep\", sales: 320 },\n  { month: \"Oct\", sales: 330 },\n  { month: \"Nov\", sales: 350 },\n  { month: \"Dec\", sales: 370 },\n]\n\nconst chartConfig = {\n  sales: {\n    label: \"Sales\",\n    color: \"var(--chart-1)\",\n  },\n} satisfies ChartConfig\n\nexport default function RadarChartGridCircleFilledDemo() {\n  return (\n    <Card>\n      <Card.Header\n        className=\"items-center pb-4\"\n        title=\"Monthly Sales Overview\"\n        description=\"Displaying sales data for Jan - Dec 2024\"\n      />\n      <Card.Content>\n        <Chart config={chartConfig} className=\"mx-auto aspect-square max-h-[250px]\">\n          <RadarChart data={chartData}>\n            <ChartTooltip cursor={false} content={<ChartTooltipContent />} />\n            <PolarGrid className=\"opacity-20 fill-[--color-sales]\" gridType=\"circle\" />\n            <PolarAngleAxis dataKey=\"month\" />\n            <Radar dataKey=\"sales\" fill=\"var(--color-sales)\" fillOpacity={0.5} />\n          </RadarChart>\n        </Chart>\n      </Card.Content>\n    </Card>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/charts/radar/radar-chart-grid-circle-filled-demo.tsx"
+}

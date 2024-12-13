@@ -1,0 +1,11 @@
+{
+  "name": "switch",
+  "files": [
+    {
+      "name": "switch.tsx",
+      "content": "\"use client\"\n\nimport { Switch as SwitchPrimitive, type SwitchProps } from \"react-aria-components\"\n\nimport { composeTailwindRenderProps } from \"./primitive\"\n\nconst Switch = ({ children, className, ...props }: SwitchProps) => {\n  return (\n    <SwitchPrimitive\n      {...props}\n      className={composeTailwindRenderProps(className, \"group inline-flex touch-none items-center sm:text-sm\")}\n      style={{ WebkitTapHighlightColor: \"transparent\" }}\n    >\n      {(values) => (\n        <>\n          <span className=\"mr-2 h-5 w-8 cursor-pointer rounded-full border-2 border-transparent bg-(--switch) transition duration-200 [--switch:color-mix(in_oklab,var(--color-muted)_90%,black_10%)] group-data-disabled:cursor-default group-data-selected:bg-primary group-data-disabled:opacity-50 group-data-focused:ring-4 group-data-focused:ring-4 group-data-focused:ring-primary/20 group-data-invalid:ring-danger/20 dark:[--switch:color-mix(in_oklab,var(--color-muted)_85%,white_15%)]\">\n            <span className=\"block rounded-full shadow-sm transition-all duration-200 origin-right size-4 bg-primary-fg group-data-selected:group-data-[pressed]:ml-2 group-data-selected:ml-3 group-data-pressed:w-5 forced-colors:data-disabled:outline-[GrayText]\" />\n          </span>\n          {typeof children === \"function\" ? children(values) : children}\n        </>\n      )}\n    </SwitchPrimitive>\n  )\n}\n\nexport { Switch }\n"
+    }
+  ],
+  "type": "components:ui",
+  "componentPath": "components/ui/switch.tsx"
+}

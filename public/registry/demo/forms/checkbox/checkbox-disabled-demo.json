@@ -1,0 +1,11 @@
+{
+  "name": "checkbox-disabled-demo",
+  "files": [
+    {
+      "name": "checkbox-disabled-demo.tsx",
+      "content": "\"use client\"\n\nimport { Checkbox } from \"ui\"\n\nexport default function CheckboxDisabledDemo() {\n  return <Checkbox isDisabled>Enable notifications</Checkbox>\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/forms/checkbox/checkbox-disabled-demo.tsx"
+}

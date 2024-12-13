@@ -1,0 +1,11 @@
+{
+  "name": "meter-currency-format-demo",
+  "files": [
+    {
+      "name": "meter-currency-format-demo.tsx",
+      "content": "\"use client\"\n\nimport { Meter } from \"ui\"\n\nexport default function MeterCurrencyFormatDemo() {\n  return <Meter label=\"Revenue\" formatOptions={{ style: \"currency\", currency: \"USD\" }} value={15} />\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/statuses/meter-currency-format-demo.tsx"
+}

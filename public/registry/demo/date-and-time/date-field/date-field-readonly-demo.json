@@ -1,0 +1,11 @@
+{
+  "name": "date-field-readonly-demo",
+  "files": [
+    {
+      "name": "date-field-readonly-demo.tsx",
+      "content": "\"use client\"\n\nimport { getLocalTimeZone, parseDate, today } from \"@internationalized/date\"\nimport { DateField } from \"ui\"\n\nexport default function DateFieldReadonlyDemo() {\n  const now = today(getLocalTimeZone())\n  return <DateField isReadOnly defaultValue={parseDate(now.toString())} label=\"Event date\" />\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/date-and-time/date-field/date-field-readonly-demo.tsx"
+}
