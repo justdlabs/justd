@@ -5,6 +5,7 @@
 ignore
 /.vercel
 /note.md
+delete-me.txt
 # dependencies
 /node_modules
 /.pnp

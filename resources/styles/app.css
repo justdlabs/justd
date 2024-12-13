@@ -1,4 +1,7 @@
+@import "./code.css" layer(base);
+
 @import "tailwindcss";
+
 @plugin 'tailwindcss-animate';
 @plugin '@tailwindcss/typography';
 @source "./content/docs";
@@ -224,5 +227,3 @@
     display: none; /* Safari and Chrome */
   }
 }
-
-@import "./code.css";
