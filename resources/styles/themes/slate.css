@@ -1,0 +1,168 @@
+@import "tailwindcss";
+@plugin 'tailwindcss-animate';
+
+@variant dark (&:is(.dark *));
+
+@theme {
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-bg: var(--bg);
+  --color-fg: var(--fg);
+
+  --color-primary: var(--primary);
+  --color-primary-fg: var(--primary-fg);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-fg: var(--secondary-fg);
+
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+
+  --color-success: var(--success);
+  --color-success-fg: var(--success-fg);
+
+  --color-info: var(--info);
+  --color-info-fg: var(--info-fg);
+
+  --color-danger: var(--danger);
+  --color-danger-fg: var(--danger-fg);
+
+  --color-warning: var(--warning);
+  --color-warning-fg: var(--warning-fg);
+
+  --color-muted: var(--muted);
+  --color-muted-fg: var(--muted-fg);
+
+  --color-overlay: var(--overlay);
+  --color-overlay-fg: var(--overlay-fg);
+
+  --color-navbar: var(--navbar);
+  --color-navbar-fg: var(--navbar-fg);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-fg: var(--sidebar-fg);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--border, currentColor);
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--fg);
+  }
+}
+
+@layer base {
+  :root {
+    --bg: oklch(1 0 0);
+    --fg: oklch(0.129 0.042 264.695);
+
+    --primary: oklch(0.546 0.245 262.881);
+    --primary-fg: oklch(1 0 0);
+
+    --secondary: oklch(0.929 0.013 255.508);
+    --secondary-fg: oklch(0.129 0.042 264.695);
+
+    --overlay: oklch(1 0 0);
+    --overlay-fg: oklch(0.129 0.042 264.695);
+
+    --accent: oklch(0.546 0.245 262.881);
+    --accent-fg: oklch(1 0 0);
+
+    --muted: oklch(0.968 0.007 247.896);
+    --muted-fg: oklch(0.554 0.046 257.417);
+
+    --success: oklch(0.596 0.145 163.225);
+    --success-fg: oklch(1 0 0);
+
+    --warning: oklch(0.828 0.189 84.429);
+    --warning-fg: oklch(0.279 0.077 45.635);
+
+    --danger: oklch(0.577 0.245 27.325);
+    --danger-fg: oklch(0.971 0.013 17.38);
+
+    --border: oklch(0.929 0.013 255.508);
+    --input: oklch(0.869 0.022 252.894);
+    --ring: oklch(0.546 0.245 262.881);
+
+    --navbar: oklch(0.968 0.007 247.896);
+    --navbar-fg: oklch(0.129 0.042 264.695);
+
+    --sidebar: oklch(0.968 0.007 247.896);
+    --sidebar-fg: oklch(0.129 0.042 264.695);
+
+    --chart-1: oklch(0.546 0.245 262.881);
+    --chart-2: oklch(0.707 0.165 254.624);
+    --chart-3: oklch(0.809 0.105 251.813);
+    --chart-4: oklch(0.882 0.059 254.128);
+    --chart-5: oklch(0.932 0.032 255.585);
+
+    --radius-lg: 0.5rem;
+    --radius-xs: calc(var(--radius-lg) * 0.5);
+    --radius-sm: calc(var(--radius-lg) * 0.75);
+    --radius-md: calc(var(--radius-lg) * 0.9);
+    --radius-xl: calc(var(--radius-lg) * 1.25);
+    --radius-2xl: calc(var(--radius-lg) * 1.5);
+    --radius-3xl: calc(var(--radius-lg) * 2);
+    --radius-4xl: calc(var(--radius-lg) * 3);
+  }
+
+  .dark {
+    --bg: oklch(0.129 0.042 264.695);
+    --fg: oklch(0.984 0.003 247.858);
+
+    --primary: oklch(0.546 0.245 262.881);
+    --primary-fg: oklch(1 0 0);
+
+    --secondary: oklch(0.239 0.041 260.031);
+    --secondary-fg: oklch(0.984 0.003 247.858);
+
+    --accent: oklch(0.546 0.245 262.881);
+    --accent-fg: oklch(1 0 0);
+
+    --muted: oklch(0.208 0.042 265.755);
+    --muted-fg: oklch(0.704 0.04 256.788);
+
+    --overlay: oklch(0.168 0.042 265.755);
+    --overlay-fg: oklch(0.984 0.003 247.858);
+
+    --success: oklch(0.596 0.145 163.225);
+    --success-fg: oklch(1 0 0);
+
+    --warning: oklch(0.828 0.189 84.429);
+    --warning-fg: oklch(0.279 0.077 45.635);
+
+    --danger: oklch(0.577 0.245 27.325);
+    --danger-fg: oklch(0.971 0.013 17.38);
+
+    --border: oklch(0.279 0.041 260.031);
+    --input: oklch(0.279 0.041 260.031);
+    --ring: oklch(0.546 0.245 262.881);
+
+    --navbar: oklch(0.168 0.042 265.755);
+    --navbar-fg: oklch(0.984 0.003 247.858);
+
+    --sidebar: oklch(0.158 0.042 265.755);
+    --sidebar-fg: oklch(0.984 0.003 247.858);
+
+    --chart-1: oklch(0.488 0.243 264.376);
+    --chart-2: oklch(0.623 0.214 259.815);
+    --chart-3: oklch(0.707 0.165 254.624);
+    --chart-4: oklch(0.809 0.105 251.813);
+    --chart-5: oklch(0.882 0.059 254.128);
+  }
+}

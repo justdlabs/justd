@@ -1,0 +1,18 @@
+---
+title: "Container"
+description: "A container is a wrapper that helps you center and pad your content, and it's great for laying out your page."
+order: 3
+published: true
+---
+
+## Installation
+<Installation options={{ isComponent: true }} items={['container']}/>
+
+## Manual Installation
+<SourceCode toShow='container'/>
+
+## Intent
+Containers come in two variants: `constrained` and `padded-content`. The `constrained` variant doesn't have padding on mobile view, while the `padded-content` variant has padding on both mobile and desktop. And the default variant is `padded-content`. If you want to change the variant, you can use the `intent` prop.
+```
+<Container intent="constrained" />
+```
