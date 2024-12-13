@@ -21,8 +21,8 @@ export default function MultipleSelectControlledDemo() {
     <>
       <MultipleSelect
         className="max-w-xs"
-        onItemInserted={(key) => console.log("on item inserted", key)}
-        onItemCleared={(key) => console.log("on item cleared", key)}
+        onItemInserted={(key) => console.log("onItemInserted", key)}
+        onItemCleared={(key) => console.log("onItemCleared", key)}
         label="Select tags"
         selectedItems={selectedItems}
         items={tags}

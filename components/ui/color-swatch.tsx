@@ -6,10 +6,9 @@ import { ColorSwatch as ColorSwatchPrimitive, type ColorSwatchProps } from "reac
 import { cn } from "./primitive"
 
 const hexToRgb = (hex: string): { r: number; g: number; b: number } | null => {
-  const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i
-  hex = hex.replace(shorthandRegex, (m, r, g, b) => r + r + g + g + b + b)
+  const normalizeHex = hex.replace(/^#?([a-f\d])([a-f\d])([a-f\d])$/i, (_m, r, g, b) => r + r + g + g + b + b)
 
-  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(normalizeHex)
   return result
     ? {
         r: Number.parseInt(result[1], 16),
@@ -20,10 +19,10 @@ const hexToRgb = (hex: string): { r: number; g: number; b: number } | null => {
 }
 
 const hsbToRgb = (h: number, s: number, b: number): { r: number; g: number; b: number } => {
-  s /= 100
-  b /= 100
+  const saturation = s / 100
+  const brightness = b / 100
   const k = (n: number) => (n + h / 60) % 6
-  const f = (n: number) => b * (1 - s * Math.max(0, Math.min(k(n), 4 - k(n), 1)))
+  const f = (n: number) => brightness * (1 - saturation * Math.max(0, Math.min(k(n), 4 - k(n), 1)))
   return {
     r: Math.round(255 * f(5)),
     g: Math.round(255 * f(3)),
@@ -33,8 +32,8 @@ const hsbToRgb = (h: number, s: number, b: number): { r: number; g: number; b: n
 
 const luminance = (r: number, g: number, b: number): number => {
   const a = [r, g, b].map((v) => {
-    v /= 255
-    return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4
+    const normalized = v / 255
+    return normalized <= 0.03928 ? normalized / 12.92 : ((normalized + 0.055) / 1.055) ** 2.4
   })
   return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722
 }

@@ -33,7 +33,7 @@ const generateComponentRegistry = () => {
     files.forEach((file) => {
       const fullPath = path.join(dirPath, file)
       if (fs.statSync(fullPath).isDirectory()) {
-        arrayOfFiles = getAllFiles(fullPath, arrayOfFiles)
+        getAllFiles(fullPath, arrayOfFiles)
       } else if ([".tsx", ".css", ".json", ".ts"].some((ext) => file.endsWith(ext))) {
         arrayOfFiles.push(fullPath)
       }
