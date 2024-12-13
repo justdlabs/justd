@@ -1,8 +1,8 @@
 "use client"
 
-import { IconChartTrending } from "justd-icons"
 import { Bar, BarChart, Rectangle, XAxis, YAxis } from "recharts"
 import { Card, Chart, type ChartConfig } from "ui"
+import { IconChartTrending } from "justd-icons"
 
 const chartData = [
   {
