@@ -1,0 +1,11 @@
+{
+  "name": "bar-chart-horizontal-demo",
+  "files": [
+    {
+      "name": "bar-chart-horizontal-demo.tsx",
+      "content": "\"use client\"\n\nimport { Bar, BarChart, XAxis, YAxis } from \"recharts\"\nimport { Card, Chart, type ChartConfig, ChartTooltip, ChartTooltipContent } from \"ui\"\n\nconst performanceData = [\n  { dataCenter: \"New York\", uptime: 99.9 },\n  { dataCenter: \"San Francisco\", uptime: 97.5 },\n  { dataCenter: \"Singapore\", uptime: 98.7 },\n  { dataCenter: \"London\", uptime: 95.3 },\n  { dataCenter: \"Tokyo\", uptime: 94.8 },\n  { dataCenter: \"Sydney\", uptime: 99.9 },\n  { dataCenter: \"Seoul\", uptime: 97.5 },\n]\n\nconst chartConfig = {\n  uptime: {\n    label: \"Uptime (%)\",\n    color: \"var(--chart-1)\",\n  },\n} satisfies ChartConfig\n\nexport default function BarChartHorizontalDemo() {\n  return (\n    <Card>\n      <Card.Header title=\"Data Center Uptime\" description=\"Uptime percentage by region for Q1 2024\" />\n      <Card.Content>\n        <Chart config={chartConfig}>\n          <BarChart\n            accessibilityLayer\n            data={performanceData}\n            layout=\"vertical\"\n            margin={{\n              left: -20,\n            }}\n          >\n            <XAxis type=\"number\" dataKey=\"uptime\" hide />\n            <YAxis dataKey=\"dataCenter\" type=\"category\" tickLine={false} tickMargin={10} axisLine={false} />\n            <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />\n            <Bar dataKey=\"uptime\" fill=\"var(--color-uptime)\" radius={5} />\n          </BarChart>\n        </Chart>\n      </Card.Content>\n    </Card>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/charts/bar/bar-chart-horizontal-demo.tsx"
+}

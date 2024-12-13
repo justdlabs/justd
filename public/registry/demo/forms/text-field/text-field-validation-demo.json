@@ -1,0 +1,11 @@
+{
+  "name": "text-field-validation-demo",
+  "files": [
+    {
+      "name": "text-field-validation-demo.tsx",
+      "content": "\"use client\"\n\nimport { Button, Form, TextField } from \"ui\"\n\nexport default function TextFieldValidationDemo() {\n  return (\n    <Form className=\"space-y-4\">\n      <TextField isRequired label=\"Name\" />\n      <Button type=\"submit\">Submit</Button>\n    </Form>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/forms/text-field/text-field-validation-demo.tsx"
+}

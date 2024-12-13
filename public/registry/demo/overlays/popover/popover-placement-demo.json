@@ -1,0 +1,11 @@
+{
+  "name": "popover-placement-demo",
+  "files": [
+    {
+      "name": "popover-placement-demo.tsx",
+      "content": "\"use client\"\n\nimport type { TooltipProps } from \"react-aria-components\"\nimport { Button, Popover } from \"ui\"\n\ntype Placement = Pick<TooltipProps, \"placement\">[\"placement\"]\nconst placements: Placement[] = [\"bottom\", \"top\", \"left\", \"start\", \"right\", \"end\"]\nexport default function PopoverPlacementDemo() {\n  return (\n    <div className=\"grid grid-cols-2 gap-2 sm:grid-cols-3 [&_.kbt32x]:w-full\">\n      {placements.map((placement, idx) => (\n        <Popover key={idx}>\n          <Button className=\"mx-auto\" size=\"small\" appearance=\"outline\">\n            {placement}\n          </Button>\n          <Popover.Content placement={placement}>Popover shown at {placement}.</Popover.Content>\n        </Popover>\n      ))}\n    </div>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/overlays/popover/popover-placement-demo.tsx"
+}

@@ -1,0 +1,11 @@
+{
+  "name": "color-slider-with-label-demo",
+  "files": [
+    {
+      "name": "color-slider-with-label-demo.tsx",
+      "content": "\"use client\"\n\nimport { ColorSlider } from \"ui\"\n\nexport default function ColorSliderWithLabelDemo() {\n  return <ColorSlider label=\"Color Customizer\" channel=\"hue\" defaultValue=\"hsl(0, 100%, 50%)\" />\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/colors/color-slider/color-slider-with-label-demo.tsx"
+}

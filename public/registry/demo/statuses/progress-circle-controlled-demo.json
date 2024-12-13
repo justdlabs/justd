@@ -1,0 +1,11 @@
+{
+  "name": "progress-circle-controlled-demo",
+  "files": [
+    {
+      "name": "progress-circle-controlled-demo.tsx",
+      "content": "\"use client\"\n\nimport { useState } from \"react\"\n\nimport { ProgressCircle, Slider } from \"ui\"\n\nexport default function ProgressCircleControlledDemo() {\n  const [value, setValue] = useState(10)\n\n  return (\n    <div className=\"flex flex-col gap-y-6 items-center min-w-56\">\n      <ProgressCircle className=\"size-10\" value={value} />\n      <Slider label=\"Track\" value={value} onChange={(v) => setValue(v as number)} />\n    </div>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/statuses/progress-circle-controlled-demo.tsx"
+}

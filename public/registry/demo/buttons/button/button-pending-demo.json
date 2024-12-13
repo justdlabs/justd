@@ -1,0 +1,11 @@
+{
+  "name": "button-pending-demo",
+  "files": [
+    {
+      "name": "button-pending-demo.tsx",
+      "content": "\"use client\"\n\nimport { useState } from \"react\"\n\nimport { IconPlus } from \"justd-icons\"\nimport { Button, ProgressCircle } from \"ui\"\n\nexport default function ButtonPendingDemo() {\n  const [isLoading, setLoading] = useState(false)\n\n  const handlePress = () => {\n    setLoading(true)\n    setTimeout(() => {\n      setLoading(false)\n    }, 4500)\n  }\n  return (\n    <Button onPress={handlePress} isPending={isLoading}>\n      {({ isPending }) => (\n        <>\n          {isPending ? <ProgressCircle isIndeterminate aria-label=\"Creating...\" /> : <IconPlus />}\n          {isLoading ? \"Creating...\" : \"Create\"}\n        </>\n      )}\n    </Button>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/buttons/button/button-pending-demo.tsx"
+}

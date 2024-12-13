@@ -1,0 +1,11 @@
+{
+  "name": "modal-controlled-demo",
+  "files": [
+    {
+      "name": "modal-controlled-demo.tsx",
+      "content": "\"use client\"\n\nimport { useState } from \"react\"\n\nimport { Button, Modal } from \"ui\"\n\nexport default function ModalControlledDemo() {\n  const [open, setOpen] = useState(false)\n  return (\n    <>\n      <Button onPress={() => setOpen(true)} intent=\"primary\">\n        Subscribe\n      </Button>\n      <Modal.Content isOpen={open} onOpenChange={setOpen}>\n        <Modal.Header>\n          <Modal.Title>Subscribe to Our Newsletter</Modal.Title>\n          <Modal.Description>Get the latest news and updates right to your inbox.</Modal.Description>\n        </Modal.Header>\n        <Modal.Footer>\n          <Button onPress={() => setOpen(false)}>Sign Up</Button>\n        </Modal.Footer>\n      </Modal.Content>\n    </>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/overlays/modal/modal-controlled-demo.tsx"
+}

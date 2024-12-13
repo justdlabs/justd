@@ -1,0 +1,11 @@
+{
+  "name": "choicebox-columns-demo",
+  "files": [
+    {
+      "name": "choicebox-columns-demo.tsx",
+      "content": "\"use client\"\n\nimport { Choicebox } from \"ui\"\n\nexport default function ChoiceboxColumnsDemo() {\n  return (\n    <div className=\"p-1\">\n      <Choicebox aria-label=\"Select prices\" gap={2} columns={3} selectionMode=\"multiple\" items={prices}>\n        {(item) => <Choicebox.Item {...item} />}\n      </Choicebox>\n    </div>\n  )\n}\n\nconst prices = [\n  { id: 1, title: \"Basic\", description: \"Essentials, get started\" },\n  { id: 2, title: \"Standard\", description: \"More features, support\" },\n  { id: 3, title: \"Premium\", description: \"Advanced, growing needs\" },\n  { id: 4, title: \"Deluxe\", description: \"Top-tier, maximum performance\" },\n  { id: 5, title: \"Ultimate\", description: \"All-inclusive, every feature\" },\n  { id: 6, title: \"Enterprise\", description: \"Custom, large-scale operations\" },\n]\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/collections/choicebox/choicebox-columns-demo.tsx"
+}

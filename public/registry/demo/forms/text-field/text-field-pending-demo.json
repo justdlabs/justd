@@ -1,0 +1,11 @@
+{
+  "name": "text-field-pending-demo",
+  "files": [
+    {
+      "name": "text-field-pending-demo.tsx",
+      "content": "\"use client\"\n\nimport { TextField } from \"ui\"\n\nexport default function TextFieldPendingDemo() {\n  return <TextField isPending label=\"Name\" />\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/forms/text-field/text-field-pending-demo.tsx"
+}

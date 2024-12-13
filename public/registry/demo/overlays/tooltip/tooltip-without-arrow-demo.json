@@ -1,0 +1,11 @@
+{
+  "name": "tooltip-without-arrow-demo",
+  "files": [
+    {
+      "name": "tooltip-without-arrow-demo.tsx",
+      "content": "\"use client\"\n\nimport { Badge, Description, Tooltip } from \"ui\"\n\nexport default function TooltipWithoutArrowDemo() {\n  return (\n    <Tooltip>\n      <Tooltip.Trigger aria-label=\"Fresh drop alert\">\n        <Badge shape=\"circle\">New</Badge>\n      </Tooltip.Trigger>\n      <Tooltip.Content showArrow={false}>\n        <strong className=\"font-semibold\">Fresh drop alert</strong> <br />\n        <Description>Scope the newest addition to our stash.</Description>\n      </Tooltip.Content>\n    </Tooltip>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/overlays/tooltip/tooltip-without-arrow-demo.tsx"
+}

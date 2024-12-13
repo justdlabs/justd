@@ -1,0 +1,11 @@
+{
+  "name": "tooltip-placement-demo",
+  "files": [
+    {
+      "name": "tooltip-placement-demo.tsx",
+      "content": "\"use client\"\n\nimport type { TooltipProps } from \"react-aria-components\"\nimport { Button, Tooltip } from \"ui\"\n\ntype Placement = Pick<TooltipProps, \"placement\">[\"placement\"]\nconst placements: Placement[] = [\"bottom\", \"top\", \"left\", \"start\", \"right\", \"end\"]\nexport default function TooltipPlacementDemo() {\n  return (\n    <div className=\"grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6 [&_.kbt32x]:w-full\">\n      {placements.map((placement, idx) => (\n        <Tooltip key={idx}>\n          <Button className=\"mx-auto\" size=\"small\" appearance=\"outline\">\n            {placement}\n          </Button>\n          <Tooltip.Content placement={placement}>\n            Tooltip shown at <strong>{placement}</strong>.\n          </Tooltip.Content>\n        </Tooltip>\n      ))}\n    </div>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/overlays/tooltip/tooltip-placement-demo.tsx"
+}

@@ -1,0 +1,11 @@
+{
+  "name": "time-field-demo",
+  "files": [
+    {
+      "name": "time-field-demo.tsx",
+      "content": "\"use client\"\n\nimport { Time } from \"@internationalized/date\"\nimport { TimeField } from \"ui\"\n\nexport default function TimeFieldDemo() {\n  return <TimeField defaultValue={new Time()} label=\"Event time\" />\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/date-and-time/time-field/time-field-demo.tsx"
+}

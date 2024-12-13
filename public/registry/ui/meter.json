@@ -1,0 +1,11 @@
+{
+  "name": "meter",
+  "files": [
+    {
+      "name": "meter.tsx",
+      "content": "\"use client\"\n\nimport { IconCircleExclamation } from \"justd-icons\"\nimport { motion } from \"motion/react\"\nimport { Meter as MeterPrimitive, type MeterProps as MeterPrimitiveProps } from \"react-aria-components\"\n\nimport { Label } from \"./field\"\nimport { composeTailwindRenderProps } from \"./primitive\"\n\nexport interface MeterProps extends MeterPrimitiveProps {\n  label?: string\n}\n\nconst Meter = ({ label, ...props }: MeterProps) => {\n  return (\n    <MeterPrimitive {...props} className={composeTailwindRenderProps(props.className, \"flex flex-col gap-1\")}>\n      {({ percentage, valueText }) => (\n        <>\n          <div className=\"flex gap-2 justify-between w-full\">\n            <Label>{label}</Label>\n            <span className={`text-sm tabular-nums ${percentage >= 80 ? \"text-danger\" : \"text-muted-fg\"}`}>\n              {percentage >= 80 && (\n                <IconCircleExclamation\n                  aria-label=\"Alert\"\n                  className=\"inline-block align-text-bottom size-4 fill-danger/20 text-danger\"\n                />\n              )}\n              {` ${valueText}`}\n            </span>\n          </div>\n          <div className=\"relative h-2 rounded-full -outline-offset-1 min-w-64 bg-muted outline outline-1 outline-transparent\">\n            <motion.div\n              className=\"absolute top-0 left-0 h-full rounded-full forced-colors:bg-[Highlight]\"\n              initial={{ width: \"0%\", backgroundColor: getColor(0) }}\n              animate={{\n                width: `${percentage}%`,\n                backgroundColor: getColor(percentage),\n              }}\n              transition={{ duration: 0.5 }}\n            />\n          </div>\n        </>\n      )}\n    </MeterPrimitive>\n  )\n}\n\nconst getColor = (percentage: number) => {\n  if (percentage < 30) {\n    return \"var(--primary)\" // Blue\n  }\n\n  if (percentage < 50) {\n    return \"var(--success)\" // Green\n  }\n\n  if (percentage < 70) {\n    return \"#eab308\" // Yellow\n  }\n\n  if (percentage < 80) {\n    return \"var(--warning)\" // Orange\n  }\n\n  return \"var(--danger)\" // Red\n}\n\nexport { Meter }\n"
+    }
+  ],
+  "type": "components:ui",
+  "componentPath": "components/ui/meter.tsx"
+}

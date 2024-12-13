@@ -1,0 +1,11 @@
+{
+  "name": "description-list",
+  "files": [
+    {
+      "name": "description-list.tsx",
+      "content": "import { tv } from \"tailwind-variants\"\n\nconst descriptionListStyles = tv({\n  slots: {\n    dl: \"grid grid-cols-1 text-base/6 sm:grid-cols-[min(50%,calc(var(--spacing)*80))_auto] sm:text-sm/6\",\n    dt: \"col-start-1 border-t pt-3 text-muted-fg first:border-none sm:py-3\",\n    dd: \"pb-3 pt-1 text-fg sm:border-t sm:py-3 sm:nth-2:border-none\",\n  },\n})\n\nconst { dl, dt, dd } = descriptionListStyles()\n\nconst DescriptionList = ({ className, ...props }: React.ComponentPropsWithoutRef<\"dl\">) => {\n  return <dl {...props} className={dl({ className })} />\n}\n\nconst DescriptionTerm = ({ className, ...props }: React.ComponentPropsWithoutRef<\"dt\">) => {\n  return <dt {...props} className={dt({ className })} />\n}\n\nconst DescriptionDetails = ({ className, ...props }: React.ComponentPropsWithoutRef<\"dd\">) => {\n  return <dd {...props} className={dd({ className })} />\n}\n\nDescriptionList.Term = DescriptionTerm\nDescriptionList.Details = DescriptionDetails\nexport { DescriptionList }\n"
+    }
+  ],
+  "type": "components:ui",
+  "componentPath": "components/ui/description-list.tsx"
+}
