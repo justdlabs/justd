@@ -12,7 +12,9 @@ export default function ModalCustomStyleDemo() {
           title="Delete Project"
           description="This project’s gonna get wiped, including all its Deployments, Domains, Env Variables, Serverless Functions, and Settings."
         >
-          <Note intent="danger">No undo button here, so be sure!</Note>
+          <Note intent="danger" className="mt-2">
+            No undo button here, so be sure!
+          </Note>
         </Modal.Header>
         <Form onSubmit={() => {}}>
           <Modal.Body className="pt-6 space-y-4 border-t">

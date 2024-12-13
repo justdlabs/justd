@@ -12,7 +12,9 @@ export default function SheetCustomStyleDemo() {
           title="Archive Project"
           description="Archiving this project will disable access and hide it from active projects."
         >
-          <Note intent="warning">You can restore the project anytime from the archive!</Note>
+          <Note intent="warning" className="mt-2">
+            You can restore the project anytime from the archive!
+          </Note>
         </Sheet.Header>
         <Form className="overflow-y-auto flex-1" onSubmit={() => {}}>
           <Sheet.Body className="space-y-4">

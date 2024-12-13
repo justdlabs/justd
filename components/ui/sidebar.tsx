@@ -512,7 +512,7 @@ const sidebarDisclosureTrigger = tv({
 
 const SidebarDisclosureTrigger = ({ className, ...props }: React.ComponentProps<typeof Button>) => {
   const { state, isMobile } = useSidebar()
-  const collapsed = state === "collapsed" && !isMobile
+  const collapsed = state === "collapsed" || !isMobile
   return (
     <Heading level={3}>
       <Trigger

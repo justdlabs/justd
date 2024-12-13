@@ -27,11 +27,11 @@ const buttonStyles = tv({
         "[--button-icon:var(--color-secondary-fg)]/60 data-pressed:[--button-icon:var(--color-secondary-fg)] data-hovered:[--button-icon:var(--color-secondary-fg)]",
       ],
       warning: [
-        "text-warning-fg [--button-bg:var(--color-warning)] [--button-border:var(--color-warning)] [--button-hover-overlay:var(--color-warning-fg)]/10",
+        "text-warning-fg outline-warning [--button-bg:var(--color-warning)] [--button-border:var(--color-warning)] [--button-hover-overlay:var(--color-warning-fg)]/10",
         "[--button-icon:var(--color-warning-fg)]/60 data-pressed:[--button-icon:var(--color-warning-fg)]/80 data-hovered:[--button-icon:var(--color-warning-fg)]/80",
       ],
       danger: [
-        "text-danger-fg [--button-bg:var(--color-danger)] [--button-border:var(--color-danger)] [--button-hover-overlay:var(--color-danger-fg)]/10",
+        "text-danger-fg outline-danger [--button-bg:var(--color-danger)] [--button-border:var(--color-danger)] [--button-hover-overlay:var(--color-danger-fg)]/10",
         "[--button-icon:var(--color-white)]/60 data-pressed:[--button-icon:var(--color-danger-fg)]/80 data-hovered:[--button-icon:var(--color-danger-fg)]/80",
       ],
     },
