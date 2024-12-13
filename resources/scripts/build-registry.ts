@@ -120,6 +120,8 @@ const registry = {
 export default registry;
   `
 
+  console.info("Generating registry files...")
+
   const loadingInterval = setInterval(() => {
     process.stdout.write(".")
   }, 500)
@@ -133,6 +135,8 @@ export default registry;
   clearInterval(loadingInterval)
 
   console.table(generatedFiles)
+
+  console.info("Registry generation complete.")
 }
 
 generateComponentRegistry()

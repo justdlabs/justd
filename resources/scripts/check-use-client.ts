@@ -23,6 +23,7 @@ function findFilesWithoutUseClient(dirPath: string): void {
           }
 
           if (!content.includes('"use client"') && !content.includes("use client")) {
+            console.info(`Component does not contain 'use client': ${fullPath}`)
           }
         })
       }

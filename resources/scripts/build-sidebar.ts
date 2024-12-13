@@ -80,3 +80,5 @@ const generateSidebarJson = () => {
 
 const sidebarJson = generateSidebarJson()
 fs.writeFileSync("resources/lib/sidebar.json", JSON.stringify(sidebarJson, null, 2))
+
+console.info("✅ sidebar.json generated successfully.")
