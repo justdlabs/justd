@@ -71,9 +71,6 @@ export function Navbar() {
                     >
                       Components
                     </NavLink>
-                    <NavLink isNextLink isActive={pathname === "/charts"} href="/docs/charts/setup">
-                      Chart
-                    </NavLink>
                     <NavLink isNextLink isActive={pathname === "/blocks"} href="/blocks">
                       Blocks
                     </NavLink>
@@ -96,11 +93,11 @@ export function Navbar() {
                       size="small"
                       appearance="outline"
                       className="h-9"
-                      aria-label="Open command palette"
+                      aria-label="Search..."
                     >
                       <IconSearch />
 
-                      <span className="text-muted-fg">Search..</span>
+                      <span className="text-muted-fg">Search...</span>
 
                       <Menu.Keyboard className="-mr-2" keys="⌘K" />
                     </Button>
@@ -149,12 +146,11 @@ export function NavbarDropdown() {
   const { theme, setTheme } = useTheme()
   return (
     <Menu>
-      <Button aria-label="Menu." appearance="plain" className="-ml-1 group">
+      <Button aria-label={siteConfig.name} appearance="plain" className="-ml-1 group">
         <span className="flex gap-x-2 items-center">
           <IconBrandJustd className="-ml-1 size-5" />
           <span className="font-mono text-base tracking-tight sm:text-sm">{siteConfig.name}</span>
           <IconChevronLgDown className="ml-3 -mr-1 transition duration-300 size-3.5 text-muted-fg group-data-pressed:rotate-180 group-data-pressed:text-fg group-hover:text-fg" />
-          <span className="sr-only">Open menu</span>
         </span>
       </Button>
       <Menu.Content placement="bottom" className="sm:min-w-64">

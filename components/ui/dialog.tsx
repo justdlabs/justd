@@ -18,6 +18,7 @@ const dialogStyles = tv({
     header: "relative flex flex-col gap-0.5 sm:gap-1 p-4 sm:p-6",
     description: "text-sm text-muted-fg",
     body: [
+      "has-[input]:py-1",
       "flex flex-1 flex-col overflow-auto px-4 sm:px-6",
       "max-h-[calc(var(--visual-viewport-height)-var(--visual-viewport-vertical-padding)-var(--dialog-header-height,0px)-var(--dialog-footer-height,0px))]",
     ],

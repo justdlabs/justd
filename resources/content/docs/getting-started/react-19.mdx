@@ -6,18 +6,10 @@ published: true
 ---
 
 ## Recharts
-The [Chart](/docs/components/surfaces/chart) component uses [Recharts](https://recharts.org/). Add `react-is` in the overrides section of your `package.json` as shown below:
+Rechart v2.15.0 now fully support **React 19**, but you still need to add the following override to your `package.json`. Read more about it [here](https://github.com/recharts/recharts/releases/tag/v2.15.0).
 
 ```
 "overrides": {
-  "react-is": "19.0.0-rc-66855b96-20241106"
+  "react-is": "^19.0.0"
 }
 ```
-
-<Note intent='warning'>
-  Ensure the `react-is` version matches your React version. For instance, in this project, React is at `19.0.0-rc-02c0e824-20241028`, so `react-is` should be the same version.
-</Note>
-
-## Framer Motion
-Components like [Tabs](/docs/components/navigation/tabs), [Drawer](/docs/components/overlays/drawer), and [Progress Bar](/docs/components/statuses/progress-bar) use [Framer Motion](https://motion.dev/) for animations. If you're working with React 19, install `motion@12.0.0-alpha.2`.
-<Installation options={{isManual: false}} items={['motion@12.0.0-alpha.2']}/>

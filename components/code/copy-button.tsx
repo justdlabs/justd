@@ -44,6 +44,7 @@ export function CopyButton({
 
   return (
     <Button
+      aria-label="Copy to clipboard"
       onPress={props.onPress || onPressHandler}
       className={cn(
         "ml-auto grid size-8 place-content-center text-zinc-400 outline-hidden data-hovered:text-zinc-50 group-data-hovered:opacity-100",

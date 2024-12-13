@@ -16,7 +16,7 @@ import { composeTailwindRenderProps, focusRing } from "./primitive"
 
 const cell = tv({
   extend: focusRing,
-  base: "flex size-full items-center tabular-nums justify-center rounded-full forced-color-adjust-none",
+  base: "flex size-full items-center tabular-nums justify-center rounded-lg forced-color-adjust-none",
   variants: {
     selectionState: {
       none: "group-data-hovered/calendar-cell:bg-secondary-fg/15 group-data-pressed/calendar-cell:bg-secondary-fg/20 forced-colors:group-data-pressed/calendar-cell:bg-[Highlight]",
@@ -53,11 +53,11 @@ const RangeCalendar = <T extends DateValue>({ errorMessage, className, ...props 
               date={date}
               className={twJoin([
                 "[--cell-fg:var(--color-primary)] [--cell:color-mix(in_oklab,var(--color-primary)_10%,white_90%)]",
-                "dark:[--cell-fg:color-mix(in_oklab,var(--color-primary)_80%,white_20%)] dark:[--cell:color-mix(in_oklab,var(--color-primary)_35%,black_50%)]",
-                "group/calendar-cell size-10 cursor-default outline-hidden [line-height:2.286rem] data-selection-start:rounded-s-full data-selection-end:rounded-e-full data-outside-month:text-muted-fg sm:text-sm lg:size-9",
+                "dark:[--cell:color-mix(in_oklab,var(--color-primary)_30%,black_45%)] dark:[--cell-fg:color-mix(in_oklab,var(--color-primary)_80%,white_20%)]",
+                "group/calendar-cell size-10 cursor-default outline-hidden [line-height:2.286rem] data-selection-start:rounded-s-lg data-selection-end:rounded-e-lg data-outside-month:text-muted-fg sm:text-sm lg:size-9",
                 "data-selected:bg-(--cell)/70 data-selected:text-(--cell-fg) dark:data-selected:bg-(--cell)",
                 "data-invalid:data-selected:bg-red-100 dark:data-invalid:data-selected:bg-red-700/30",
-                "[td:first-child_&]:rounded-s-full [td:last-child_&]:rounded-e-full",
+                "[td:first-child_&]:rounded-s-lg [td:last-child_&]:rounded-e-lg",
                 "forced-colors:data-invalid:data-selected:bg-[Mark] forced-colors:data-selected:bg-[Highlight] forced-colors:data-selected:text-[HighlightText]",
               ])}
             >

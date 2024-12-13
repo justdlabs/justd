@@ -60,10 +60,10 @@ const Choicebox = <T extends object>({
 const choiceboxItemStyles = tv({
   extend: focusStyles,
   base: [
-    "[--choicebox:color-mix(in_oklab,var(--color-primary)_5%,white_95%)] [--choicebox-fg:var(--color-primary)]",
+    "[--choicebox:color-mix(in_oklab,var(--color-primary)_3%,white_97%)] [--choicebox-fg:var(--color-primary)]",
     "[--choicebox-selected-hovered:color-mix(in_oklab,var(--color-primary)_15%,white_85%)]",
-    "dark:[--choicebox-selected-hovered:color-mix(in_oklab,var(--color-primary)_30%,black_70%)]",
-    "dark:[--choicebox:color-mix(in_oklab,var(--color-primary)_25%,black_60%)] dark:[--choicebox-fg:color-mix(in_oklab,var(--color-primary)_75%,white_25%)]",
+    "dark:[--choicebox-selected-hovered:color-mix(in_oklab,var(--color-primary)_25%,black_75%)]",
+    "dark:[--choicebox:color-mix(in_oklab,var(--color-primary)_20%,black_70%)] dark:[--choicebox-fg:color-mix(in_oklab,var(--color-primary)_45%,white_55%)]",
     "rounded-lg cursor-pointer border p-4 [&_[slot=title]]:font-medium",
   ],
   variants: {
@@ -75,7 +75,7 @@ const choiceboxItemStyles = tv({
         "bg-(--choicebox) text-(--choicebox-fg)",
         "z-20 data-hovered:bg-(--choicebox-selected-hovered) border-ring/50",
         "[&_[slot=title]]:text-(--choicebox-fg)",
-        "[&_[slot=description]]:text-(--choicebox-fg)/80",
+        "[&_[slot=description]]:text-(--choicebox-fg)",
       ],
     },
     isDisabled: {

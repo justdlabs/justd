@@ -15,7 +15,9 @@ const navigation = {
     { name: "Icons", href: "/icons" },
     { name: "Colors", href: "/colors" },
     { name: "Themes", href: "/themes" },
+    { name: "Blocks", href: "/blocks" },
     { name: "Showcase", href: "/showcase" },
+    { name: "Blog", href: "/blog" },
   ],
   labs: [
     { name: "Github", href: "https://github.com/justdlabs" },

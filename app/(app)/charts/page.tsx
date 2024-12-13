@@ -1,4 +1,5 @@
 import { Header } from "@/components/header"
+import { Container, Link, Note } from "ui"
 
 export const metadata = {
   title: "Charts",
@@ -13,6 +14,12 @@ export default function Page() {
         Ch
         <span className="text-muted-fg">arts</span>
       </Header>
+      <Container className={"py-4 sm:py-16"}>
+        <Note intent="info" className="max-w-md">
+          This page is under construction. Please check back later for updates. For now, you can check out the{" "}
+          <Link href="/docs/components/charts/setup">Charts</Link>.
+        </Note>
+      </Container>
     </div>
   )
 }

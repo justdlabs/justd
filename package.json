@@ -28,6 +28,7 @@
     "@types/node": "^22.10.2",
     "cmdk": "^1.0.4",
     "culori": "^4.0.1",
+    "dayjs": "^1.11.13",
     "embla-carousel-autoplay": "^8.5.1",
     "embla-carousel-react": "^8.5.1",
     "input-otp": "^1.4.1",
@@ -77,5 +78,8 @@
     "type": "git",
     "url": "git+https://github.com/justdlabs/justd.git"
   },
-  "trustedDependencies": ["es5-ext", "esbuild", "sharp"]
+  "trustedDependencies": ["es5-ext", "esbuild", "sharp"],
+  "overrides": {
+    "react-is": "^19.0.0"
+  }
 }

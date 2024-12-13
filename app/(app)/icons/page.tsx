@@ -69,19 +69,17 @@ export default async function Page({
         Ico
         <span className="text-muted-fg">ns</span>
       </Header>
-      <div className="py-4 sm:py-16">
-        <Container>
-          <Suspense
-            fallback={
-              <div className="flex justify-center items-center min-h-96">
-                <Loader />
-              </div>
-            }
-          >
-            <IconsList searchParams={{ query, t }} />
-          </Suspense>
-        </Container>
-      </div>
+      <Container className="py-4 sm:py-16">
+        <Suspense
+          fallback={
+            <div className="flex justify-center items-center min-h-96">
+              <Loader />
+            </div>
+          }
+        >
+          <IconsList searchParams={{ query, t }} />
+        </Suspense>
+      </Container>
     </>
   )
 }
