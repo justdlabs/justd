@@ -1,0 +1,11 @@
+{
+  "name": "app-sidebar-nav",
+  "files": [
+    {
+      "name": "app-sidebar-nav.tsx",
+      "content": "\"use client\"\n\nimport { IconSearch } from \"justd-icons\"\nimport { Breadcrumbs, Button, Separator, SidebarNav, SidebarTrigger } from \"ui\"\n\nexport default function AppSidebarNav() {\n  return (\n    <SidebarNav>\n      <span className=\"flex gap-x-4 items-center\">\n        <SidebarTrigger className=\"-mx-2\" />\n        <Separator className=\"hidden h-6 md:block\" orientation=\"vertical\" />\n        <Breadcrumbs className=\"hidden md:flex\">\n          <Breadcrumbs.Item href=\"/blocks/sidebar/sidebar-01\">Dashboard</Breadcrumbs.Item>\n          <Breadcrumbs.Item>Newsletter</Breadcrumbs.Item>\n        </Breadcrumbs>\n      </span>\n\n      <div className=\"flex gap-x-2 items-center sm:hidden\">\n        <Button appearance=\"plain\" aria-label=\"Search...\" size=\"square-petite\">\n          <IconSearch />\n        </Button>\n      </div>\n    </SidebarNav>\n  )\n}\n"
+    }
+  ],
+  "type": "components:blocks",
+  "componentPath": "app/blocks/sidebar/app-sidebar-nav.tsx"
+}

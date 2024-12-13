@@ -1,0 +1,11 @@
+{
+  "name": "list-box-item-details-demo",
+  "files": [
+    {
+      "name": "list-box-item-details-demo.tsx",
+      "content": "\"use client\"\n\nimport { useState } from \"react\"\n\nimport type { Selection } from \"react-aria-components\"\nimport { ListBox } from \"ui\"\n\nexport default function ListBoxItemDetailsDemo() {\n  const [selected, setSelected] = useState<Selection>(new Set([1]))\n  return (\n    <ListBox selectedKeys={selected} onSelectionChange={setSelected} items={roles} aria-label=\"Bands\">\n      {(item) => (\n        <ListBox.Item id={item.id}>\n          <ListBox.ItemDetails label={item.name} description={item.description} />\n        </ListBox.Item>\n      )}\n    </ListBox>\n  )\n}\n\nconst roles = [\n  { id: 1, name: \"Admin\", description: \"Has full access to all resources\" },\n  { id: 2, name: \"Editor\", description: \"Can edit content but has limited access to settings\" },\n  { id: 3, name: \"Viewer\", description: \"Can view content but cannot make changes\" },\n  { id: 4, name: \"Contributor\", description: \"Can contribute content for review\" },\n  { id: 5, name: \"Guest\", description: \"Limited access, mostly for viewing purposes\" },\n]\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/collections/list-box/list-box-item-details-demo.tsx"
+}

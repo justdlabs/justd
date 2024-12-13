@@ -1,0 +1,11 @@
+{
+  "name": "layout",
+  "files": [
+    {
+      "name": "layout.tsx",
+      "content": "import type React from \"react\"\n\nimport { IconBrandPhp, IconX } from \"justd-icons\"\nimport { SidebarInset, SidebarProvider, SidebarTrigger } from \"ui\"\n\nimport AppSidebar from \"./app-sidebar\"\n\nexport default function Layout({ children }: Readonly<{ children: React.ReactNode }>) {\n  return (\n    <>\n      <SidebarProvider className=\"[--sidebar-width:19rem]\">\n        <AppSidebar closeButton={false} intent=\"fleet\" />\n        <SidebarInset>\n          <div className=\"flex justify-between items-center px-4 w-full h-12 border-b bg-sidebar\">\n            <SidebarTrigger className=\"-ml-2 sm:hidden\" />\n            <div className=\"flex items-center\">\n              <IconBrandPhp className=\"w-8 text-indigo-500\" />\n              <span className=\"font-mono text-xs text-muted-fg\">Controller.php</span>\n            </div>\n            <IconX />\n          </div>\n          <div>{children}</div>\n        </SidebarInset>\n      </SidebarProvider>\n    </>\n  )\n}\n"
+    }
+  ],
+  "type": "components:blocks",
+  "componentPath": "app/blocks/sidebar/sidebar-18/layout.tsx"
+}

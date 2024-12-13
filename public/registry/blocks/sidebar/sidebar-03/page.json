@@ -1,0 +1,11 @@
+{
+  "name": "page",
+  "files": [
+    {
+      "name": "page.tsx",
+      "content": "import { Heading } from \"ui\"\n\nexport default function Page() {\n  return <Heading>Inset</Heading>\n}\n"
+    }
+  ],
+  "type": "components:blocks",
+  "componentPath": "app/blocks/sidebar/sidebar-03/page.tsx"
+}

@@ -1,0 +1,11 @@
+{
+  "name": "line-chart-step-demo",
+  "files": [
+    {
+      "name": "line-chart-step-demo.tsx",
+      "content": "\"use client\"\n\nimport { CartesianGrid, Line, LineChart, XAxis } from \"recharts\"\nimport { Card, Chart, type ChartConfig, ChartTooltip, ChartTooltipContent } from \"ui\"\n\nconst chartData = Array.from({ length: 12 }, (_, index) => {\n  const date = new Date(2024, index)\n  const month = date.toLocaleDateString(\"en-US\", { month: \"short\" })\n  return {\n    month,\n    sales: Math.floor(Math.random() * 300 + 150),\n  }\n})\n\nconst chartConfig = {\n  sales: {\n    label: \"Sales\",\n    color: \"var(--chart-1)\",\n  },\n} satisfies ChartConfig\n\nexport default function LineChartStepDemo() {\n  return (\n    <Card>\n      <Card.Header title=\"Monthly Sales Overview\" description=\"Jan - Dec 2024\" />\n      <Card.Content>\n        <Chart config={chartConfig}>\n          <LineChart\n            accessibilityLayer\n            data={chartData}\n            margin={{\n              left: 12,\n              right: 12,\n            }}\n          >\n            <CartesianGrid vertical={false} />\n            <XAxis dataKey=\"month\" tickLine={false} axisLine={false} tickMargin={8} />\n            <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />\n            <Line dataKey=\"sales\" type=\"step\" stroke=\"var(--color-sales)\" strokeWidth={2} dot={false} />\n          </LineChart>\n        </Chart>\n      </Card.Content>\n    </Card>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/charts/line/line-chart-step-demo.tsx"
+}

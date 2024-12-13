@@ -1,0 +1,11 @@
+{
+  "name": "popover-controlled-demo",
+  "files": [
+    {
+      "name": "popover-controlled-demo.tsx",
+      "content": "\"use client\"\n\nimport React, { useState } from \"react\"\n\nimport { wait } from \"@/resources/lib/utils\"\nimport { IconCircleCheckFill, IconTrash } from \"justd-icons\"\nimport { Button, Loader, Popover } from \"ui\"\n\nexport default function PopoverControlledDemo() {\n  const [isOpen, setIsOpen] = useState(false)\n  const [loading, setLoading] = useState<\"idle\" | \"loading\" | \"success\">(\"idle\")\n  const triggerRef = React.useRef(null)\n\n  const deleteAccount = async () => {\n    setLoading(\"loading\")\n    await wait(3000)\n    setLoading(\"success\")\n\n    await wait(2000)\n    setLoading(\"idle\")\n    setIsOpen(false)\n  }\n  return (\n    <>\n      <Button ref={triggerRef} onPress={() => setIsOpen(true)} intent=\"danger\">\n        Delete Account\n      </Button>\n      <Popover.Content triggerRef={triggerRef} isOpen={isOpen} onOpenChange={setIsOpen} className=\"sm:max-w-sm\">\n        <Popover.Header>\n          <Popover.Title>Confirm Deletion</Popover.Title>\n          <Popover.Description>\n            Are you sure you want to delete your account? This action cannot be undone.\n          </Popover.Description>\n        </Popover.Header>\n        <Popover.Footer>\n          <Button appearance=\"outline\" onPress={() => setIsOpen(false)} className=\"mr-2\">\n            Cancel\n          </Button>\n          <Button\n            isDisabled={loading === \"loading\"}\n            onPress={deleteAccount}\n            intent={[\"loading\", \"idle\"].includes(loading) ? \"danger\" : \"primary\"}\n          >\n            {loading === \"loading\" ? (\n              <>\n                <Loader variant=\"spin\" />\n                Deleting...\n              </>\n            ) : loading === \"success\" ? (\n              <>\n                <IconCircleCheckFill />\n                Deleted\n              </>\n            ) : (\n              <>\n                <IconTrash />\n                Delete\n              </>\n            )}\n          </Button>\n        </Popover.Footer>\n      </Popover.Content>\n    </>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/overlays/popover/popover-controlled-demo.tsx"
+}

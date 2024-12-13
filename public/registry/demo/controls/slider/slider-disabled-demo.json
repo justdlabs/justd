@@ -1,0 +1,11 @@
+{
+  "name": "slider-disabled-demo",
+  "files": [
+    {
+      "name": "slider-disabled-demo.tsx",
+      "content": "\"use client\"\n\nimport { Slider } from \"ui\"\n\nexport default function SliderDisabledDemo() {\n  return <Slider isDisabled label=\"Volume\" />\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/controls/slider/slider-disabled-demo.tsx"
+}

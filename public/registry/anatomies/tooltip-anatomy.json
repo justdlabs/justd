@@ -1,0 +1,11 @@
+{
+  "name": "tooltip-anatomy",
+  "files": [
+    {
+      "name": "tooltip-anatomy.tsx",
+      "content": "import { IconBrandX } from \"justd-icons\"\nimport { Tooltip } from \"ui\"\n\nexport default function TooltipAnatomy() {\n  return (\n    <Tooltip>\n      <Tooltip.Trigger aria-label=\"Follow My Twitter\">\n        <IconBrandX />\n      </Tooltip.Trigger>\n      <Tooltip.Content>Follow me on X @irsyadadl</Tooltip.Content>\n    </Tooltip>\n  )\n}\n"
+    }
+  ],
+  "type": "components:anatomies",
+  "componentPath": "components/docs/anatomies/tooltip-anatomy.tsx"
+}

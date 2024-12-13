@@ -1,0 +1,11 @@
+{
+  "name": "multiple-select-anatomy",
+  "files": [
+    {
+      "name": "multiple-select-anatomy.tsx",
+      "content": "import { useListData } from \"react-stately\"\nimport { MultipleSelect, type SelectedKey } from \"ui\"\n\nexport default function MultipleSelectAnatomy() {\n  const selectedItems = useListData<SelectedKey>({ initialItems: [] })\n  return (\n    <MultipleSelect\n      className=\"max-w-xs\"\n      label=\"Fruits\"\n      selectedItems={selectedItems}\n      items={[\n        { id: 1, name: \"Apple\" },\n        { id: 2, name: \"Banana\" },\n      ]}\n      tag={(item) => <MultipleSelect.Tag textValue={item.name}>{item.name}</MultipleSelect.Tag>}\n    >\n      {(item) => {\n        return <MultipleSelect.Option textValue={item.name}>{item.name}</MultipleSelect.Option>\n      }}\n    </MultipleSelect>\n  )\n}\n"
+    }
+  ],
+  "type": "components:anatomies",
+  "componentPath": "components/docs/anatomies/multiple-select-anatomy.tsx"
+}

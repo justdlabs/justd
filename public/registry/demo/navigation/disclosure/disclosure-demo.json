@@ -1,0 +1,11 @@
+{
+  "name": "disclosure-demo",
+  "files": [
+    {
+      "name": "disclosure-demo.tsx",
+      "content": "import { Disclosure, DisclosurePanel, DisclosureTrigger } from \"ui\"\n\nexport default function DisclosureDemo() {\n  return (\n    <Disclosure>\n      <DisclosureTrigger>What are the benefits of regular exercise?</DisclosureTrigger>\n      <DisclosurePanel>\n        <p>\n          Regular exercise can improve your overall health, boost your mood, increase energy levels, and help you\n          maintain a healthy weight.\n        </p>\n      </DisclosurePanel>\n    </Disclosure>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/navigation/disclosure/disclosure-demo.tsx"
+}

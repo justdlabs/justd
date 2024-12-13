@@ -1,0 +1,11 @@
+{
+  "name": "search-field-demo",
+  "files": [
+    {
+      "name": "search-field-demo.tsx",
+      "content": "\"use client\"\n\nimport { SearchField } from \"ui\"\n\nexport default function SearchFieldDemo() {\n  return <SearchField aria-label=\"Search\" placeholder=\"Search\" />\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/forms/search-field/search-field-demo.tsx"
+}

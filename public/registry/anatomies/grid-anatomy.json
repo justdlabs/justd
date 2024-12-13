@@ -1,0 +1,11 @@
+{
+  "name": "grid-anatomy",
+  "files": [
+    {
+      "name": "grid-anatomy.tsx",
+      "content": "import { Grid } from \"ui\"\n\nexport default function GridAnatomy() {\n  return (\n    <Grid columns={3}>\n      <Grid.Item />\n      <Grid.Item />\n      <Grid.Item />\n    </Grid>\n  )\n}\n"
+    }
+  ],
+  "type": "components:anatomies",
+  "componentPath": "components/docs/anatomies/grid-anatomy.tsx"
+}

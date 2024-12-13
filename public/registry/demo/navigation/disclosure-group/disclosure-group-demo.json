@@ -1,0 +1,11 @@
+{
+  "name": "disclosure-group-demo",
+  "files": [
+    {
+      "name": "disclosure-group-demo.tsx",
+      "content": "\"use client\"\n\nimport { Disclosure, DisclosureGroup, DisclosurePanel, DisclosureTrigger } from \"ui\"\n\nexport default function DisclosureGroupDemo() {\n  return (\n    <DisclosureGroup>\n      <Disclosure id={1}>\n        <DisclosureTrigger>What is a VPS?</DisclosureTrigger>\n        <DisclosurePanel>\n          A VPS is a Virtual Private Server, which provides dedicated resources on a server shared with other users,\n          offering more control and customization than shared hosting.\n        </DisclosurePanel>\n      </Disclosure>\n\n      <Disclosure id={2}>\n        <DisclosureTrigger>What is cloud hosting?</DisclosureTrigger>\n        <DisclosurePanel>\n          Cloud hosting utilizes multiple servers to balance load and maximize uptime. Instead of being hosted on a\n          single server, your data and resources are spread across multiple servers.\n        </DisclosurePanel>\n      </Disclosure>\n\n      <Disclosure id={3}>\n        <DisclosureTrigger>What is shared hosting?</DisclosureTrigger>\n        <DisclosurePanel>\n          Shared hosting is a type of web hosting where multiple websites share the same server and its resources. It's\n          an affordable option, but may have limitations on performance and customization.\n        </DisclosurePanel>\n      </Disclosure>\n      <Disclosure id={4}>\n        <DisclosureTrigger>What is dedicated hosting?</DisclosureTrigger>\n        <DisclosurePanel>\n          Dedicated hosting means your website is hosted on a single server exclusively reserved for your site. This\n          provides maximum performance and customization, but at a higher cost.\n        </DisclosurePanel>\n      </Disclosure>\n    </DisclosureGroup>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/navigation/disclosure-group/disclosure-group-demo.tsx"
+}

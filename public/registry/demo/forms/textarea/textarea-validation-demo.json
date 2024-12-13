@@ -1,0 +1,11 @@
+{
+  "name": "textarea-validation-demo",
+  "files": [
+    {
+      "name": "textarea-validation-demo.tsx",
+      "content": "\"use client\"\n\nimport { useState } from \"react\"\n\nimport { Button, Form, Textarea } from \"ui\"\n\nexport default function TextareaValidationDemo() {\n  const [value, setValue] = useState(\"\")\n  return (\n    <Form onSubmit={(e) => e.preventDefault()} className=\"space-y-4\">\n      <Textarea value={value} onChange={setValue} label=\"Address\" isRequired />\n      <Button type=\"submit\">Submit</Button>\n    </Form>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/forms/textarea/textarea-validation-demo.tsx"
+}

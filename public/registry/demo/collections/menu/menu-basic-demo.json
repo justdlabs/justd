@@ -1,0 +1,11 @@
+{
+  "name": "menu-basic-demo",
+  "files": [
+    {
+      "name": "menu-basic-demo.tsx",
+      "content": "\"use client\"\n\nimport { Menu } from \"ui\"\n\nexport default function MenuBasicDemo() {\n  return (\n    <Menu>\n      <Menu.Trigger>Open</Menu.Trigger>\n      <Menu.Content placement=\"bottom\">\n        <Menu.Item>Inbox</Menu.Item>\n        <Menu.Item>Sent</Menu.Item>\n        <Menu.Item>New Message</Menu.Item>\n      </Menu.Content>\n    </Menu>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/collections/menu/menu-basic-demo.tsx"
+}
