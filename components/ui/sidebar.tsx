@@ -113,7 +113,7 @@ const SidebarProvider = ({
       <div
         className={cn(
           "**:data-[slot=icon]:shrink-0",
-          "[--sidebar-width-dock:3.25rem] [--sidebar-width-mobile:18rem] [--sidebar-width:17rem]",
+          "[--sidebar-width:17rem] [--sidebar-width-mobile:18rem] [--sidebar-width-dock:3.25rem]",
           "[--sidebar-border:color-mix(in_oklch,var(--color-sidebar)_25%,black_6%)]",
           "dark:[--sidebar-border:color-mix(in_oklch,var(--color-sidebar)_55%,white_10%)]",
           "[--sidebar-accent:color-mix(in_oklab,var(--color-sidebar)_95%,black_5%)]",
@@ -201,7 +201,7 @@ const Sidebar = ({
       <div
         data-sidebar-intent={intent}
         data-sidebar-collapsible="none"
-        className={cn("peer flex h-full w-(--sidebar-width) flex-col border-r bg-sidebar text-sidebar-fg ", className)}
+        className={cn("flex h-full peer w-(--sidebar-width) flex-col border-r bg-sidebar text-sidebar-fg ", className)}
         {...props}
       />
     )
@@ -246,7 +246,7 @@ const Sidebar = ({
       >
         <div
           data-sidebar="default"
-          className="flex h-full w-full flex-col bg-sidebar text-sidebar-fg group-data-[sidebar-intent=float]/sidebar-container:rounded-lg group-data-[sidebar-intent=float]/sidebar-container:border group-data-[sidebar-intent=float]/sidebar-container:border-(--sidebar-border) group-data-[sidebar-intent=inset]/sidebar-container:bg-bg group-data-[sidebar-intent=float]/sidebar-container:shadow-xs"
+          className="flex h-full group-data-[sidebar-intent=inset]/sidebar-container:bg-bg bg-sidebar text-sidebar-fg w-full flex-col group-data-[sidebar-intent=float]/sidebar-container:rounded-lg group-data-[sidebar-intent=float]/sidebar-container:border group-data-[sidebar-intent=float]/sidebar-container:border-(--sidebar-border) group-data-[sidebar-intent=float]/sidebar-container:shadow-xs"
         >
           {props.children}
         </div>
@@ -314,7 +314,7 @@ const SidebarContent = ({ className, ...props }: React.ComponentProps<"div">) =>
     <div
       data-sidebar-content="true"
       className={cn(
-        "flex min-h-0 flex-1 scroll-mb-96 flex-col overflow-auto",
+        "flex min-h-0 flex-1 flex-col overflow-auto scroll-mb-96",
         state === "collapsed" && "items-center",
         className,
       )}
@@ -332,11 +332,11 @@ const SidebarSection = ({ className, ...props }: React.ComponentProps<"div"> & {
   return (
     <div
       data-sidebar-section="true"
-      className={cn("flex flex-col gap-y-0.5 in-data-[sidebar-intent=fleet]:px-0 px-2", className)}
+      className={cn("flex flex-col in-data-[sidebar-intent=fleet]:px-0 px-2 gap-y-0.5", className)}
       {...props}
     >
       {state !== "collapsed" && "title" in props && (
-        <Header className="group-data-[sidebar-collapsible=dock]/sidebar-container:-mt-8 mb-1 flex shrink-0 items-center rounded-md px-2.5 font-medium text-sidebar-fg/70 text-xs outline-none ring-sidebar-ring transition-[margin,opa] duration-200 ease-linear data-focus-visible:ring-2 *:data-[slot=icon]:size-4 *:data-[slot=icon]:shrink-0 group-data-[sidebar-collapsible=dock]/sidebar-container:opacity-0">
+        <Header className="duration-200 mb-1 flex shrink-0 items-center rounded-md px-2.5 text-xs font-medium text-sidebar-fg/70 outline-none ring-sidebar-ring transition-[margin,opa] ease-linear data-focus-visible:ring-2 *:data-[slot=icon]:size-4 *:data-[slot=icon]:shrink-0 group-data-[sidebar-collapsible=dock]/sidebar-container:-mt-8 group-data-[sidebar-collapsible=dock]/sidebar-container:opacity-0">
           {props.title}
         </Header>
       )}
@@ -347,7 +347,7 @@ const SidebarSection = ({ className, ...props }: React.ComponentProps<"div"> & {
 
 const sidebarItem = tv({
   base: [
-    "text-sidebar-fg/70 relative px-2.5 py-[calc(var(--spacing)*1.7)] overflow-hidden gap-x-2 w-full group cursor-pointer flex items-center sm:text-sm rounded-lg outline-hidden",
+    "text-sidebar-fg/70 relative px-2.5 py-2 overflow-hidden gap-x-2 w-full group cursor-pointer flex items-center sm:text-sm rounded-lg outline-hidden",
     "**:data-[slot=menu-trigger]:absolute **:data-[slot=menu-trigger]:h-full **:data-[slot=menu-trigger]:items-center **:data-[slot=menu-trigger]:w-[calc(var(--sidebar-width)-90%)] **:data-[slot=menu-trigger]:right-0 **:data-[slot=menu-trigger]:flex **:data-[slot=menu-trigger]:justify-end **:data-[slot=menu-trigger]:pr-2.5",
     "**:data-[slot=menu-trigger]:hidden",
     "**:data-[slot=icon]:size-4 **:data-[slot=avatar]:size-4 **:data-[slot=avatar]:*:size-4 **:data-[slot=icon]:shrink-0 **:data-[slot=avatar]:shrink-0",
@@ -408,7 +408,7 @@ const SidebarItem = ({ isCurrent, tooltip, children, badge, className, ref, ...p
                 shape="square"
                 intent="primary"
                 data-slot="sidebar-badge"
-                className="-translate-y-1/2 absolute inset-ring-1 inset-ring-primary/20 inset-y-1/2 right-1.5 h-5.5 w-auto text-[10px] transition-colors group-data-current:inset-ring-transparent group-data-current:bg-[color-mix(in_oklab,var(--color-primary)_20%,white_20%)] group-data-current:text-primary-fg dark:group-data-current:bg-[color-mix(in_oklab,var(--color-primary)_20%,white_15%)] dark:group-data-current:text-current"
+                className="w-auto inset-y-1/2 text-[10px] dark:group-data-current:bg-[color-mix(in_oklab,var(--color-primary)_20%,white_15%)] group-data-current:bg-[color-mix(in_oklab,var(--color-primary)_20%,white_20%)] group-data-current:text-primary-fg inset-ring-1 inset-ring-primary/20 group-data-current:inset-ring-transparent dark:group-data-current:text-current transition-colors -translate-y-1/2 absolute right-1.5 h-5.5"
               >
                 {badge}
               </Badge>
@@ -424,7 +424,7 @@ const SidebarItem = ({ isCurrent, tooltip, children, badge, className, ref, ...p
     <Tooltip delay={0}>
       {link}
       <Tooltip.Content
-        className="**:data-[slot=icon]:hidden **:data-[slot=sidebar-label-mask]:hidden"
+        className="**:data-[slot=sidebar-label-mask]:hidden **:data-[slot=icon]:hidden"
         intent="inverse"
         showArrow={false}
         placement="right"
@@ -443,7 +443,7 @@ const SidebarLink = ({ className, ...props }: React.ComponentProps<typeof Link>)
   return (
     <Link
       className={cn(
-        "flex w-full items-center gap-x-2 focus:outline-hidden",
+        "flex items-center focus:outline-hidden w-full gap-x-2",
         collapsed && "absolute inset-0 size-full",
         className,
       )}
@@ -457,9 +457,9 @@ const SidebarInset = ({ className, ref, ...props }: React.ComponentProps<"main">
     <main
       ref={ref}
       className={cn(
-        "relative flex min-h-svh w-full flex-1 flex-col border border-transparent peer-data-[sidebar-intent=inset]:border-(--sidebar-border)",
-        "bg-bg peer-data-[sidebar-intent=inset]:overflow-hidden peer-data-[sidebar-intent=inset]:bg-sidebar",
-        "peer-data-[sidebar-intent=inset]:min-h-[calc(100svh-theme(spacing.4))] md:peer-data-[sidebar-state=collapsed]:peer-data-[sidebar-intent=inset]:ml-2 md:peer-data-[sidebar-intent=inset]:m-2 md:peer-data-[sidebar-intent=inset]:ml-0 md:peer-data-[sidebar-intent=inset]:rounded-xl md:peer-data-[sidebar-intent=inset]:shadow-xs",
+        "relative w-full flex min-h-svh flex-1 flex-col border border-transparent peer-data-[sidebar-intent=inset]:border-(--sidebar-border)",
+        "bg-bg peer-data-[sidebar-intent=inset]:bg-sidebar peer-data-[sidebar-intent=inset]:overflow-hidden",
+        "peer-data-[sidebar-intent=inset]:min-h-[calc(100svh-theme(spacing.4))] md:peer-data-[sidebar-intent=inset]:m-2 md:peer-data-[sidebar-state=collapsed]:peer-data-[sidebar-intent=inset]:ml-2 md:peer-data-[sidebar-intent=inset]:ml-0 md:peer-data-[sidebar-intent=inset]:rounded-xl md:peer-data-[sidebar-intent=inset]:shadow-xs",
         className,
       )}
       {...props}
@@ -476,7 +476,7 @@ const SidebarDisclosureGroup = ({
     <DisclosureGroup
       data-sidebar-disclosure-group="true"
       allowsMultipleExpanded={allowsMultipleExpanded}
-      className={cn("flex flex-col gap-y-0.5", className)}
+      className={cn("flex flex-col gap-y-6", className)}
       {...props}
     />
   )
@@ -486,7 +486,7 @@ const SidebarDisclosure = ({ className, ...props }: React.ComponentProps<typeof 
   return (
     <Disclosure
       data-sidebar-disclosure="true"
-      className={cn("in-data-[sidebar-intent=fleet]:px-0 px-2", className)}
+      className={cn("px-2  in-data-[sidebar-intent=fleet]:px-0", className)}
       {...props}
     />
   )
@@ -494,7 +494,7 @@ const SidebarDisclosure = ({ className, ...props }: React.ComponentProps<typeof 
 
 const sidebarDisclosureTrigger = tv({
   base: [
-    "text-sidebar-fg/70 relative px-2.5 py-[calc(var(--spacing)*1.7)] overflow-hidden gap-x-2 w-full group cursor-pointer flex items-center sm:text-sm rounded-lg outline-hidden",
+    "text-sidebar-fg/70 relative px-2.5 py-2 overflow-hidden gap-x-2 w-full group cursor-pointer flex items-center sm:text-sm rounded-lg outline-hidden",
     "in-data-[sidebar-intent=fleet]:rounded-none in-data-[sidebar-intent=fleet]:**:data-[slot=chevron]:hidden in-data-[sidebar-intent=fleet]:py-2",
   ],
   variants: {
@@ -512,7 +512,7 @@ const sidebarDisclosureTrigger = tv({
 
 const SidebarDisclosureTrigger = ({ className, ...props }: React.ComponentProps<typeof Button>) => {
   const { state, isMobile } = useSidebar()
-  const collapsed = state === "collapsed" || !isMobile
+  const collapsed = state === "collapsed" && !isMobile
   return (
     <Heading level={3}>
       <Trigger
@@ -533,7 +533,7 @@ const SidebarDisclosureTrigger = ({ className, ...props }: React.ComponentProps<
             {state !== "collapsed" && (
               <IconChevronLgLeft
                 data-slot="chevron"
-                className="z-10 ml-auto transition-transform group-aria-expanded:-rotate-90 size-3.5"
+                className="z-10 ml-auto transition-transform size-3.5 group-aria-expanded:-rotate-90"
               />
             )}
           </>
@@ -586,10 +586,10 @@ const SidebarRail = ({ className, ref, ...props }: React.ComponentProps<"button"
       tabIndex={-1}
       onClick={toggleSidebar}
       className={cn(
-        "-translate-x-1/2 group-data-[sidebar-side=left]/sidebar-container:-right-4 absolute inset-y-0 z-20 hidden w-4 outline-hidden transition-all ease-linear after:absolute after:inset-y-0 after:left-1/2 after:w-[2px] data-hovered:after:bg-transparent group-data-[sidebar-side=right]/sidebar-container:left-0 sm:flex",
+        "absolute outline-hidden inset-y-0 z-20 hidden w-4 -translate-x-1/2 transition-all ease-linear after:absolute after:inset-y-0 after:left-1/2 after:w-[2px] data-hovered:after:bg-transparent group-data-[sidebar-side=left]/sidebar-container:-right-4 group-data-[sidebar-side=right]/sidebar-container:left-0 sm:flex",
         "in-data-[sidebar-side=left]:cursor-w-resize in-data-[sidebar-side=right]:cursor-e-resize",
         "[[data-sidebar-side=left][data-sidebar-state=collapsed]_&]:cursor-e-resize [[data-sidebar-side=right][data-sidebar-state=collapsed]_&]:cursor-w-resize",
-        "group-data-[sidebar-collapsible=hidden]/sidebar-container:translate-x-0 group-data-[sidebar-collapsible=hidden]/sidebar-container:hover:bg-secondary group-data-[sidebar-collapsible=hidden]/sidebar-container:after:left-full",
+        "group-data-[sidebar-collapsible=hidden]/sidebar-container:translate-x-0 group-data-[sidebar-collapsible=hidden]/sidebar-container:after:left-full group-data-[sidebar-collapsible=hidden]/sidebar-container:hover:bg-secondary",
         "[[data-sidebar-side=left][data-sidebar-collapsible=hidden]_&]:-right-2 [[data-sidebar-side=right][data-sidebar-collapsible=hidden]_&]:-left-2",
         className,
       )}
@@ -603,7 +603,7 @@ const SidebarLabel = ({ className, ...props }: React.ComponentProps<typeof Text>
   const collapsed = state === "collapsed" && !isMobile
   if (!collapsed) {
     return (
-      <Text slot="label" className={cn("flex w-full flex-1 overflow-hidden whitespace-nowrap", className)} {...props}>
+      <Text slot="label" className={cn("flex flex-1 w-full overflow-hidden whitespace-nowrap", className)} {...props}>
         {props.children}
       </Text>
     )
