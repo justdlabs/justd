@@ -1,0 +1,11 @@
+{
+  "name": "page",
+  "files": [
+    {
+      "name": "page.tsx",
+      "content": "import { Card, Heading } from \"ui\"\n\nexport default function Page() {\n  return (\n    <div className=\"flex flex-col gap-6\">\n      <Heading level={1}>Latest Videos</Heading>\n      <div className=\"grid gap-6 sm:grid-cols-2 lg:grid-cols-3\">\n        {Array.from({ length: 12 }).map((_, index) => (\n          <Card key={index} className=\"aspect-video bg-secondary/50\" />\n        ))}\n      </div>\n    </div>\n  )\n}\n"
+    }
+  ],
+  "type": "components:blocks",
+  "componentPath": "app/blocks/sidebar/sidebar-19/page.tsx"
+}

@@ -1,0 +1,11 @@
+{
+  "name": "note-intent-demo",
+  "files": [
+    {
+      "name": "note-intent-demo.tsx",
+      "content": "import { Note } from \"ui\"\n\nconst notes = [\"info\", \"default\", \"warning\", \"danger\", \"success\"] as const\n\nexport default function NoteIntentDemo() {\n  return (\n    <div className=\"space-y-2 max-w-md\">\n      {notes.map((it) => (\n        <Note key={it} intent={it}>\n          We hook you up with top-tier migration services in our startup plan. Wanna roll with it? Hit us up here.\n        </Note>\n      ))}\n    </div>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/statuses/note/note-intent-demo.tsx"
+}

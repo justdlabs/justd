@@ -1,0 +1,11 @@
+{
+  "name": "skeleton-demo",
+  "files": [
+    {
+      "name": "skeleton-demo.tsx",
+      "content": "\"use client\"\n\nimport { Card, Skeleton } from \"ui\"\n\nexport default function SkeletonDemo() {\n  return (\n    <Card className=\"p-4\">\n      <div className=\"flex gap-2\">\n        <Skeleton shape=\"circle\" className=\"size-6\" />\n        <div className=\"space-y-1\">\n          <Skeleton className=\"w-56 h-3\" />\n          <Skeleton className=\"w-10 h-3\" />\n        </div>\n      </div>\n    </Card>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/statuses/skeleton-demo.tsx"
+}

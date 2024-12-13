@@ -1,0 +1,11 @@
+{
+  "name": "toggle-disabled-demo",
+  "files": [
+    {
+      "name": "toggle-disabled-demo.tsx",
+      "content": "\"use client\"\n\nimport { IconPin } from \"justd-icons\"\nimport { Toggle } from \"ui\"\n\nexport default function ToggleDisabledDemo() {\n  return (\n    <Toggle size=\"square-petite\" isDisabled>\n      <IconPin />\n    </Toggle>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/buttons/toggle/toggle-disabled-demo.tsx"
+}

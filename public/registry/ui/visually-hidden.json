@@ -1,0 +1,11 @@
+{
+  "name": "visually-hidden",
+  "files": [
+    {
+      "name": "visually-hidden.tsx",
+      "content": "\"use client\"\n\nimport { useVisuallyHidden } from \"react-aria\"\n\ntype VisuallyHiddenSpanProps = {\n  children: React.ReactNode\n}\n\nconst VisuallyHidden = ({ children }: VisuallyHiddenSpanProps) => {\n  const { visuallyHiddenProps } = useVisuallyHidden()\n\n  return <span {...visuallyHiddenProps}>{children}</span>\n}\n\nexport { VisuallyHidden }\n"
+    }
+  ],
+  "type": "components:ui",
+  "componentPath": "components/ui/visually-hidden.tsx"
+}

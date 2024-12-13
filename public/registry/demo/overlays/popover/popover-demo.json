@@ -1,0 +1,11 @@
+{
+  "name": "popover-demo",
+  "files": [
+    {
+      "name": "popover-demo.tsx",
+      "content": "\"use client\"\n\nimport { Button, Popover } from \"ui\"\n\nexport default function PopoverDemo() {\n  return (\n    <Popover>\n      <Button>Forgot Password</Button>\n      <Popover.Content className=\"min-w-72\">\n        <Popover.Header>\n          <Popover.Title>Email</Popover.Title>\n          <Popover.Description>We'll send you an email to log in.</Popover.Description>\n        </Popover.Header>\n        <Popover.Footer>\n          <Button>Send Login Link</Button>\n        </Popover.Footer>\n      </Popover.Content>\n    </Popover>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/overlays/popover/popover-demo.tsx"
+}

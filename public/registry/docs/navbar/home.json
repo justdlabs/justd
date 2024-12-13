@@ -1,0 +1,11 @@
+{
+  "name": "home",
+  "files": [
+    {
+      "name": "home.tsx",
+      "content": "import { Container, Heading } from \"ui\"\n\nimport { AppLayout } from \"./app-layout\"\n\nexport default function Home() {\n  return (\n    <Container>\n      <Heading>Home</Heading>\n    </Container>\n  )\n}\n\nHome.layout = (page: React.ReactNode) => <AppLayout children={page} />\n"
+    }
+  ],
+  "type": "components:docs",
+  "componentPath": "resources/docs/navbar/home.tsx"
+}

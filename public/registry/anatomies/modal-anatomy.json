@@ -1,0 +1,11 @@
+{
+  "name": "modal-anatomy",
+  "files": [
+    {
+      "name": "modal-anatomy.tsx",
+      "content": "import { Button, Modal } from \"ui\"\n\nexport default function ModalAnatomy() {\n  return (\n    <Modal>\n      <Button>Turn on 2FA</Button>\n      <Modal.Content>\n        <Modal.Header>\n          <Modal.Title>Let's beef up your account.</Modal.Title>\n          <Modal.Description>...</Modal.Description>\n        </Modal.Header>\n        <Modal.Body>...</Modal.Body>\n        <Modal.Footer>\n          <Modal.Close>Nope</Modal.Close>\n          <Button>Yep</Button>\n        </Modal.Footer>\n      </Modal.Content>\n    </Modal>\n  )\n}\n"
+    }
+  ],
+  "type": "components:anatomies",
+  "componentPath": "components/docs/anatomies/modal-anatomy.tsx"
+}

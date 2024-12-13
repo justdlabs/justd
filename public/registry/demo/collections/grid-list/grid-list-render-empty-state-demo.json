@@ -1,0 +1,11 @@
+{
+  "name": "grid-list-render-empty-state-demo",
+  "files": [
+    {
+      "name": "grid-list-render-empty-state-demo.tsx",
+      "content": "\"use client\"\n\nimport { GridList } from \"ui\"\n\nexport default function GridListRenderEmptyStateDemo() {\n  return (\n    <GridList\n      items={items}\n      aria-label=\"Select items\"\n      selectionMode=\"multiple\"\n      className=\"min-w-64\"\n      renderEmptyState={() => <GridList.EmptyState>No bands selected</GridList.EmptyState>}\n    />\n  )\n}\n\nconst items: Iterable<any> | undefined = []\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/collections/grid-list/grid-list-render-empty-state-demo.tsx"
+}

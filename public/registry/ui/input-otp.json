@@ -1,0 +1,11 @@
+{
+  "name": "input-otp",
+  "files": [
+    {
+      "name": "input-otp.tsx",
+      "content": "\"use client\"\n\nimport { use } from \"react\"\n\nimport { OTPInput, OTPInputContext } from \"input-otp\"\nimport { IconBulletFill } from \"justd-icons\"\n\nimport { cn } from \"./primitive\"\n\nconst InputOTP = ({ className, containerClassName, ref, ...props }: React.ComponentProps<typeof OTPInput>) => (\n  <OTPInput\n    data-1p-ignore\n    ref={ref}\n    containerClassName={cn(\"flex items-center gap-2 has-disabled:opacity-50\", containerClassName)}\n    className={cn(\"disabled:cursor-not-allowed\", className)}\n    {...props}\n  />\n)\n\nconst InputOTPGroup = ({ className, ref, ...props }: React.ComponentProps<\"div\">) => (\n  <div ref={ref} className={cn(\"flex items-center gap-x-1.5\", className)} {...props} />\n)\n\ninterface InputOTPSlotProps extends React.ComponentProps<\"div\"> {\n  index: number\n}\n\nconst InputOTPSlot = ({ index, className, ref, ...props }: InputOTPSlotProps) => {\n  const inputOTPContext = use(OTPInputContext)\n  const { char, hasFakeCaret, isActive } = inputOTPContext.slots[index]\n\n  return (\n    <div\n      ref={ref}\n      className={cn(\n        \"relative flex size-10 items-center justify-center rounded-md border border-input text-sm tabular-nums transition-all\",\n        isActive && \"z-10 border-ring/70 ring-4 ring-ring/20\",\n        className,\n      )}\n      {...props}\n    >\n      {char}\n      {hasFakeCaret && (\n        <div className=\"flex absolute inset-0 justify-center items-center pointer-events-none\">\n          <div className=\"w-px h-4 duration-1000 animate-caret-blink bg-fg\" />\n        </div>\n      )}\n    </div>\n  )\n}\n\nconst InputOTPSeparator = ({ ref, ...props }: React.ComponentProps<\"div\">) => (\n  // biome-ignore lint/a11y/useFocusableInteractive: TODO: fix this\n  <div ref={ref} role=\"separator\" {...props}>\n    <IconBulletFill className=\"size-2\" />\n  </div>\n)\n\nInputOTP.Group = InputOTPGroup\nInputOTP.Slot = InputOTPSlot\nInputOTP.Separator = InputOTPSeparator\n\nexport { InputOTP }\n"
+    }
+  ],
+  "type": "components:ui",
+  "componentPath": "components/ui/input-otp.tsx"
+}

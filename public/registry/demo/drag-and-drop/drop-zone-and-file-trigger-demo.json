@@ -1,0 +1,11 @@
+{
+  "name": "drop-zone-and-file-trigger-demo",
+  "files": [
+    {
+      "name": "drop-zone-and-file-trigger-demo.tsx",
+      "content": "\"use client\"\n\nimport { useState } from \"react\"\n\nimport type { DropEvent } from \"@react-types/shared\"\nimport { IconGallery } from \"justd-icons\"\nimport { isFileDropItem } from \"react-aria-components\"\nimport { Description, DropZone, FileTrigger } from \"ui\"\n\nexport default function DropZoneAndFileTriggerDemo() {\n  const [droppedImage, setDroppedImage] = useState<string | undefined>(undefined)\n\n  const onDropHandler = async (e: DropEvent) => {\n    const item = e.items.filter(isFileDropItem).find((item) => item.type === \"image/jpeg\" || item.type === \"image/png\")\n    if (item) {\n      const file = await item.getFile()\n      setDroppedImage(URL.createObjectURL(file))\n    }\n  }\n\n  const onSelectHandler = async (e: any) => {\n    if (e) {\n      const files = Array.from([...e])\n      const item = files[0]\n\n      if (item) {\n        setDroppedImage(URL.createObjectURL(item))\n      }\n    }\n  }\n  return (\n    <DropZone\n      getDropOperation={(types) => (types.has(\"image/jpeg\") || types.has(\"image/png\") ? \"copy\" : \"cancel\")}\n      onDrop={onDropHandler}\n    >\n      {droppedImage ? (\n        <img alt=\"\" src={droppedImage} className=\"object-contain aspect-square size-full\" />\n      ) : (\n        <div className=\"grid space-y-3\">\n          <div className=\"grid place-content-center mx-auto rounded-full border size-12 bg-secondary/70 group-data-[drop-target]:border-primary/70 group-data-[drop-target]:bg-primary/20\">\n            <IconGallery className=\"size-5\" />\n          </div>\n          <div className=\"flex justify-center\">\n            <FileTrigger\n              acceptedFileTypes={[\"image/png\", \"image/jpeg\"]}\n              allowsMultiple={false}\n              onSelect={onSelectHandler}\n            >\n              Upload a file\n            </FileTrigger>\n          </div>\n          <Description>Or drag and drop PNG, JPG, GIF up to 10MB</Description>\n        </div>\n      )}\n      <input type=\"hidden\" name=\"image\" value={droppedImage} />\n    </DropZone>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/drag-and-drop/drop-zone-and-file-trigger-demo.tsx"
+}
