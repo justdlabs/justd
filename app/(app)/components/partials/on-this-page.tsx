@@ -4,7 +4,7 @@ import { groupedComponents } from "@/app/(app)/components/partials/card-list-box
 import { useActiveItem } from "@/components/table-of-contents"
 import { goodTitle } from "@/resources/lib/utils"
 import { ListBox, ListBoxItem, type ListBoxItemProps } from "react-aria-components"
-import { cn, Heading } from "ui"
+import { Heading, cn } from "ui"
 
 const navigations = Object.keys(groupedComponents).map((x) => {
   return {

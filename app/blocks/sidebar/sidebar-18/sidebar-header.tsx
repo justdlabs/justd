@@ -11,7 +11,7 @@ import {
   IconFolderFill,
   IconMinus,
 } from "justd-icons"
-import { Button, Link, Menu, SidebarHeader as Header, SidebarLabel, useSidebar } from "ui"
+import { Button, SidebarHeader as Header, Link, Menu, SidebarLabel, useSidebar } from "ui"
 
 export function SidebarHeader() {
   const { toggleSidebar } = useSidebar()

@@ -11,7 +11,7 @@ import {
   IconLayoutColumnLeftside,
   IconLayoutColumnVerticalAdd,
 } from "justd-icons"
-import { buttonStyles, Tooltip } from "ui"
+import { Tooltip, buttonStyles } from "ui"
 
 export default function TooltipDemo() {
   return (

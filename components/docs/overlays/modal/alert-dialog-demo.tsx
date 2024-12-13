@@ -1,6 +1,6 @@
 "use client"
 
-import { buttonStyles, Modal } from "ui"
+import { Modal, buttonStyles } from "ui"
 
 export default function AlertDialogDemo() {
   return (

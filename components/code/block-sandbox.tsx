@@ -23,8 +23,6 @@ import type { Key } from "react-aria-components"
 import { Tab, TabList, ToggleButton } from "react-aria-components"
 import {
   Button,
-  buttonStyles,
-  cn,
   Link,
   Separator,
   Sidebar,
@@ -41,6 +39,8 @@ import {
   SidebarProvider,
   Tabs,
   ToggleGroup,
+  buttonStyles,
+  cn,
 } from "ui"
 
 const registry = generated as Record<string, RegistryItem>

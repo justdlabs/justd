@@ -2,7 +2,7 @@
 
 import { siteConfig } from "@/resources/config/site"
 import { IconBrandGithub } from "justd-icons"
-import { buttonStyles, Container, Heading, Link } from "ui"
+import { Container, Heading, Link, buttonStyles } from "ui"
 
 export function Cta() {
   return (

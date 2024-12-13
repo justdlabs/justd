@@ -1,7 +1,7 @@
 "use client"
 
 import { getSiteName } from "@/resources/lib/utils"
-import { Collection, ListBox as Primitive, ListBoxItem, ListBoxSection, Text } from "react-aria-components"
+import { Collection, ListBoxItem, ListBoxSection, ListBox as Primitive, Text } from "react-aria-components"
 import { Avatar } from "ui"
 
 interface Props {

@@ -15,7 +15,7 @@ import TagFieldDemo from "@/components/docs/forms/tag-field/tag-field-demo"
 import ComboBoxAvatarDemo from "@/components/docs/pickers/combo-box/combo-box-avatar-demo"
 import MultipleSelectDemo from "@/components/docs/pickers/multiple-select/multiple-select-demo"
 import { IconCubeFill } from "justd-icons"
-import { buttonStyles, cn, DatePicker, DateRangePicker, Grid, Heading, Link, Note } from "ui"
+import { DatePicker, DateRangePicker, Grid, Heading, Link, Note, buttonStyles, cn } from "ui"
 
 export function Blocks() {
   return (

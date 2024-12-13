@@ -1,5 +1,5 @@
-import { type Docs, docs } from "#site/content"
 import * as fs from "node:fs"
+import { type Docs, docs } from "#site/content"
 
 const groupDocs = (docs: Docs[]) => {
   const groups: any = {

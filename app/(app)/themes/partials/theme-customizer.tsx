@@ -6,7 +6,7 @@ import { useTheme } from "@/components/theme-provider"
 import colors from "@/resources/colors/colors.json"
 import { neutralColors } from "@/resources/lib/colors"
 import type { Key } from "react-aria-components"
-import { Badge, cn, Select } from "ui"
+import { Badge, Select, cn } from "ui"
 
 interface ColorSelectProps extends React.ComponentProps<typeof Select> {
   selectedKey: string

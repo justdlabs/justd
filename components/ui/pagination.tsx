@@ -8,7 +8,6 @@ import {
   IconDotsHorizontal,
 } from "justd-icons"
 import {
-  composeRenderProps,
   ListBox,
   ListBoxItem,
   type ListBoxItemProps,
@@ -16,6 +15,7 @@ import {
   ListBoxSection,
   type SectionProps,
   Separator,
+  composeRenderProps,
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 

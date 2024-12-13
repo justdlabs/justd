@@ -1,8 +1,8 @@
 "use client"
 
-import { docs } from "#site/content"
 import { usePathname } from "next/navigation"
 import { Card, Grid, Link } from "ui"
+import { docs } from "#site/content"
 
 const simplifiedDocs = docs.map(({ title, slug, description }) => ({ title, slug, description }))
 

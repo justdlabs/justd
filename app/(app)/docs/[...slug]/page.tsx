@@ -1,4 +1,3 @@
-import { docs } from "#site/content"
 import { DocRefs } from "@/components/doc-refs"
 import { Mdx } from "@/components/mdx-components"
 import { Pager } from "@/components/pager"
@@ -7,6 +6,7 @@ import { siteConfig } from "@/resources/config/site"
 import { goodTitle } from "@/resources/lib/utils"
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
+import { docs } from "#site/content"
 
 export interface DocPageProps {
   params: Promise<{

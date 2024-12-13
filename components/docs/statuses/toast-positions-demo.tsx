@@ -1,6 +1,6 @@
 "use client"
 
-import { toast, type ToastT } from "sonner"
+import { type ToastT, toast } from "sonner"
 import { Button } from "ui"
 
 const positions: ToastT["position"][] = [

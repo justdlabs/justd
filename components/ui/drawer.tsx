@@ -4,9 +4,9 @@ import { createContext, forwardRef, use, useState } from "react"
 
 import type { PanInfo } from "motion/react"
 import {
-  animate,
   AnimatePresence,
   type Inertia,
+  animate,
   motion,
   useMotionTemplate,
   useMotionValue,

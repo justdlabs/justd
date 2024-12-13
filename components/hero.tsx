@@ -3,7 +3,7 @@
 import { siteConfig } from "@/resources/config/site"
 import { IconBrandJustd, IconCube, IconStar } from "justd-icons"
 import { Header } from "react-aria-components"
-import { buttonStyles, Container, Link } from "ui"
+import { Container, Link, buttonStyles } from "ui"
 
 export function Hero() {
   return (

@@ -1,7 +1,7 @@
 "use client"
 
 import { IconCircleInfo } from "justd-icons"
-import { buttonStyles, Tooltip } from "ui"
+import { Tooltip, buttonStyles } from "ui"
 
 export default function TooltipIntentDemo() {
   return (

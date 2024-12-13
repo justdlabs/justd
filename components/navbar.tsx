@@ -24,7 +24,7 @@ import { LayoutGroup } from "motion/react"
 import { useTheme } from "next-themes"
 import { usePathname } from "next/navigation"
 import { Collection } from "react-aria-components"
-import { Button, buttonStyles, Link, Menu, Separator, useMediaQuery } from "ui"
+import { Button, Link, Menu, Separator, buttonStyles, useMediaQuery } from "ui"
 
 import { CommandPalette } from "./command-palette"
 import { NavLink } from "./nav-item"

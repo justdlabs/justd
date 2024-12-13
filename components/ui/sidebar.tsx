@@ -5,8 +5,6 @@ import { createContext, use, useCallback, useEffect, useMemo, useState } from "r
 import { IconChevronLgLeft, IconHamburger, IconSidebarFill } from "justd-icons"
 import type { LinkRenderProps } from "react-aria-components"
 import {
-  Button as Trigger,
-  composeRenderProps,
   Disclosure,
   DisclosureGroup,
   DisclosurePanel,
@@ -14,9 +12,11 @@ import {
   Heading,
   Link,
   Text,
+  Button as Trigger,
+  composeRenderProps,
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
-import { Badge, Button, cn, Separator, Sheet, Tooltip, useMediaQuery } from "ui"
+import { Badge, Button, Separator, Sheet, Tooltip, cn, useMediaQuery } from "ui"
 
 const SIDEBAR_COOKIE_NAME = "sidebar:state"
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7

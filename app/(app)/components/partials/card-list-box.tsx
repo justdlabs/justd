@@ -1,9 +1,9 @@
 "use client"
 
-import { docs } from "#site/content"
 import { goodTitle } from "@/resources/lib/utils"
 import Link from "next/link"
 import { Description, Grid, Heading } from "ui"
+import { docs } from "#site/content"
 
 type GroupedComponents = {
   [category: string]: {

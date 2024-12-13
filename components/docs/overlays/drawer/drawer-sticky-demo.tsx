@@ -1,6 +1,6 @@
 "use client"
 
-import { buttonStyles, Drawer } from "ui"
+import { Drawer, buttonStyles } from "ui"
 
 export default function DrawerStickyDemo() {
   return (

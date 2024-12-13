@@ -4,7 +4,7 @@ import React, { useState } from "react"
 
 import sidebar from "@/resources/lib/sidebar.json"
 import { useCommandState } from "cmdk"
-import { IconBrandJustd, IconColors, IconColorSwatch, IconCube, IconHashtag, IconHome, IconNotes } from "justd-icons"
+import { IconBrandJustd, IconColorSwatch, IconColors, IconCube, IconHashtag, IconHome, IconNotes } from "justd-icons"
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
 import { CommandMenu, useMediaQuery } from "ui"

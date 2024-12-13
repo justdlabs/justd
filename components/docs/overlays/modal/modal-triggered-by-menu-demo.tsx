@@ -4,7 +4,7 @@ import { useState } from "react"
 
 import { wait } from "@/resources/lib/utils"
 import { IconDotsVertical } from "justd-icons"
-import { Button, buttonStyles, Loader, Menu, Modal } from "ui"
+import { Button, Loader, Menu, Modal, buttonStyles } from "ui"
 
 export default function ModalTriggeredByMenuDemo() {
   const [state, setState] = useState<string | null>(null)

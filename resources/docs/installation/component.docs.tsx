@@ -1,4 +1,4 @@
-import { Table, Button } from "ui"
+import { Button, Table } from "ui"
 
 export function Component() {
   return (

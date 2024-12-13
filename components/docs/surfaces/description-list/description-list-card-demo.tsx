@@ -1,6 +1,6 @@
 "use client"
 
-import { buttonStyles, Card, DescriptionList, Link } from "ui"
+import { Card, DescriptionList, Link, buttonStyles } from "ui"
 
 export default function DescriptionListCardDemo() {
   return (
