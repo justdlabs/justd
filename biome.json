@@ -4,7 +4,16 @@
     "enabled": true
   },
   "files": {
-    "ignore": ["**/*.js", "**/*.css", "**/.next/**", "resource/content", ".velite", "components/docs/generated/**/*"]
+    "ignore": [
+      "**/*.js",
+      "public/**/*",
+      "resources/lib/sidebar.json",
+      "**/*.css",
+      "**/.next/**",
+      "resource/content",
+      ".velite",
+      "components/docs/generated/**/*"
+    ]
   },
   "linter": {
     "enabled": true,
