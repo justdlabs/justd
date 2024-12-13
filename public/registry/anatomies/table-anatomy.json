@@ -1,0 +1,11 @@
+{
+  "name": "table-anatomy",
+  "files": [
+    {
+      "name": "table-anatomy.tsx",
+      "content": "import { Table } from \"ui\"\n\nexport default function TableAnatomy() {\n  return (\n    <Table aria-label=\"Bands\">\n      <Table.Header>\n        <Table.Column>#</Table.Column>\n        <Table.Column isRowHeader>Name</Table.Column>\n      </Table.Header>\n      <Table.Body>\n        <Table.Row>\n          <Table.Cell>1</Table.Cell>\n          <Table.Cell>Nirvana</Table.Cell>\n        </Table.Row>\n        <Table.Row>\n          <Table.Cell>2</Table.Cell>\n          <Table.Cell>The Beatles</Table.Cell>\n        </Table.Row>\n      </Table.Body>\n    </Table>\n  )\n}\n"
+    }
+  ],
+  "type": "components:anatomies",
+  "componentPath": "components/docs/anatomies/table-anatomy.tsx"
+}

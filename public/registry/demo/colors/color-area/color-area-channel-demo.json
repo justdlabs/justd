@@ -1,0 +1,11 @@
+{
+  "name": "color-area-channel-demo",
+  "files": [
+    {
+      "name": "color-area-channel-demo.tsx",
+      "content": "\"use client\"\n\nimport { ColorArea } from \"ui\"\n\nexport default function ColorAreaChannelDemo() {\n  return <ColorArea xChannel=\"alpha\" yChannel=\"blue\" />\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/colors/color-area/color-area-channel-demo.tsx"
+}

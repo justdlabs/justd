@@ -1,0 +1,11 @@
+{
+  "name": "color-field-validation-demo",
+  "files": [
+    {
+      "name": "color-field-validation-demo.tsx",
+      "content": "\"use client\"\n\nimport { Button, ColorField, Form } from \"ui\"\n\nexport default function ColorFieldValidationDemo() {\n  function submit(e: React.FormEvent) {\n    e.preventDefault()\n  }\n\n  return (\n    <Form onSubmit={submit} className=\"space-y-4\">\n      <ColorField label=\"Color\" isRequired placeholder=\"#FAFAFA\" />\n      <Button type=\"submit\">Save</Button>\n    </Form>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/colors/color-field/color-field-validation-demo.tsx"
+}

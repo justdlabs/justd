@@ -1,0 +1,11 @@
+{
+  "name": "toast-status-demo",
+  "files": [
+    {
+      "name": "toast-status-demo.tsx",
+      "content": "\"use client\"\n\nimport { toast } from \"sonner\"\nimport { Button } from \"ui\"\n\nexport default function ToastStatusDemo() {\n  return (\n    <div className=\"flex flex-wrap gap-3\">\n      <Button appearance=\"outline\" onPress={() => toast.error(\"The registration failed\")}>\n        Error\n      </Button>\n      <Button appearance=\"outline\" onPress={() => toast.success(\"The registration was successful.\")}>\n        Success\n      </Button>\n      <Button appearance=\"outline\" onPress={() => toast.warning(\"There was an issue during registration\")}>\n        Warning\n      </Button>\n      <Button appearance=\"outline\" onPress={() => toast.info(\"Email is already registered.\")}>\n        Info\n      </Button>\n      <Button\n        appearance=\"outline\"\n        onPress={() => {\n          toast.promise(wait(2000), {\n            loading: \"Deleting database...\",\n            success: \"Database deleted.\",\n            error: \"Failed to delete database.\",\n          })\n        }}\n      >\n        Promise / Loading\n      </Button>\n    </div>\n  )\n}\n\nfunction wait(number: number) {\n  return new Promise((resolve) => setTimeout(resolve, number))\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/statuses/toast-status-demo.tsx"
+}

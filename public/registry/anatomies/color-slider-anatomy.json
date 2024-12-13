@@ -1,0 +1,11 @@
+{
+  "name": "color-slider-anatomy",
+  "files": [
+    {
+      "name": "color-slider-anatomy.tsx",
+      "content": "import { ColorSlider } from \"ui\"\n\nexport default function ColorSliderAnatomy() {\n  return <ColorSlider channel=\"hue\" />\n}\n"
+    }
+  ],
+  "type": "components:anatomies",
+  "componentPath": "components/docs/anatomies/color-slider-anatomy.tsx"
+}

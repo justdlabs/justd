@@ -1,0 +1,11 @@
+{
+  "name": "range-calendar-uncontrolled-demo",
+  "files": [
+    {
+      "name": "range-calendar-uncontrolled-demo.tsx",
+      "content": "\"use client\"\n\nimport { getLocalTimeZone, today } from \"@internationalized/date\"\nimport { RangeCalendar } from \"ui\"\n\nexport default function RangeCalendarUncontrolledDemo() {\n  return (\n    <RangeCalendar\n      className=\"**:data-[slot=calendar-header]:items-center\"\n      aria-label=\"Date range (uncontrolled)\"\n      defaultValue={{\n        start: today(getLocalTimeZone()),\n        end: today(getLocalTimeZone()).add({ days: 12 }),\n      }}\n    />\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/date-and-time/calendar/range-calendar-uncontrolled-demo.tsx"
+}

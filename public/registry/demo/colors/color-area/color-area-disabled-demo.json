@@ -1,0 +1,11 @@
+{
+  "name": "color-area-disabled-demo",
+  "files": [
+    {
+      "name": "color-area-disabled-demo.tsx",
+      "content": "\"use client\"\n\nimport { ColorArea, ColorThumb as Thumb } from \"ui\"\n\nexport default function ColorAreaDisabledDemo() {\n  return (\n    <ColorArea isDisabled>\n      <Thumb />\n    </ColorArea>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/colors/color-area/color-area-disabled-demo.tsx"
+}

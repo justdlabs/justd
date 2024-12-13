@@ -1,0 +1,11 @@
+{
+  "name": "disclosure-group-anatomy",
+  "files": [
+    {
+      "name": "disclosure-group-anatomy.tsx",
+      "content": "import { Disclosure, DisclosureGroup, DisclosurePanel, DisclosureTrigger } from \"ui\"\n\nexport default function DisclosureAnatomy() {\n  return (\n    <DisclosureGroup defaultExpandedKeys={[\"x\"]}>\n      <Disclosure id=\"x\">\n        <DisclosureTrigger>Q1</DisclosureTrigger>\n        <DisclosurePanel>A1</DisclosurePanel>\n      </Disclosure>\n      <Disclosure id=\"y\">\n        <DisclosureTrigger>Q2</DisclosureTrigger>\n        <DisclosurePanel>A2</DisclosurePanel>\n      </Disclosure>\n      <Disclosure id=\"z\">\n        <DisclosureTrigger>Q3</DisclosureTrigger>\n        <DisclosurePanel>A3</DisclosurePanel>\n      </Disclosure>\n    </DisclosureGroup>\n  )\n}\n"
+    }
+  ],
+  "type": "components:anatomies",
+  "componentPath": "components/docs/anatomies/disclosure-group-anatomy.tsx"
+}

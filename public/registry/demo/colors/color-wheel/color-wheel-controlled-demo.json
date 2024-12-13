@@ -1,0 +1,11 @@
+{
+  "name": "color-wheel-controlled-demo",
+  "files": [
+    {
+      "name": "color-wheel-controlled-demo.tsx",
+      "content": "\"use client\"\n\nimport { useState } from \"react\"\n\nimport { ControlledValues } from \"@/components/docs/colors/controlled-values\"\nimport { parseColor } from \"@react-stately/color\"\nimport { ColorWheel } from \"ui\"\n\nexport default function ColorWheelControlledDemo() {\n  const [color, setColor] = useState(parseColor(\"hsl(0, 100%, 50%)\"))\n  return (\n    <div className=\"grid gap-4 justify-center items-center sm:grid-cols-2\">\n      <div className=\"grid place-content-center shrink-0\">\n        <ColorWheel aria-label=\"Background color\" value={color} onChange={setColor} />\n      </div>\n      <ControlledValues color={color} />\n    </div>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/colors/color-wheel/color-wheel-controlled-demo.tsx"
+}

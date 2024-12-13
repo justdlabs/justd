@@ -1,0 +1,11 @@
+{
+  "name": "grid-responsive-demo",
+  "files": [
+    {
+      "name": "grid-responsive-demo.tsx",
+      "content": "\"use client\"\n\nimport { Grid } from \"ui\"\n\nexport default function GridResponsiveDemo() {\n  return (\n    <Grid\n      columns={{\n        initial: 3,\n        sm: 4,\n        md: 5,\n        xl: 6,\n      }}\n      gap={{\n        initial: 2,\n        sm: 3,\n        lg: 4,\n      }}\n    >\n      <Grid.Item>\n        <div className=\"p-4 h-32 border\" />\n      </Grid.Item>\n      <Grid.Item>\n        <div className=\"p-4 h-32 border\" />\n      </Grid.Item>\n      <Grid.Item>\n        <div className=\"p-4 h-32 border\" />\n      </Grid.Item>\n      <Grid.Item>\n        <div className=\"p-4 h-32 border\" />\n      </Grid.Item>\n      <Grid.Item>\n        <div className=\"p-4 h-32 border\" />\n      </Grid.Item>\n      <Grid.Item>\n        <div className=\"p-4 h-32 border\" />\n      </Grid.Item>\n    </Grid>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/surfaces/grid/grid-responsive-demo.tsx"
+}

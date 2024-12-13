@@ -1,0 +1,11 @@
+{
+  "name": "color-slider-demo",
+  "files": [
+    {
+      "name": "color-slider-demo.tsx",
+      "content": "\"use client\"\n\nimport { ColorSlider } from \"ui\"\n\nexport default function ColorSliderDemo() {\n  return <ColorSlider label=\"Fill color\" channel=\"hue\" defaultValue=\"hsl(0, 100%, 50%)\" />\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/colors/color-slider/color-slider-demo.tsx"
+}

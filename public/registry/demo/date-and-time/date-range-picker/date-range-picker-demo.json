@@ -1,0 +1,11 @@
+{
+  "name": "date-range-picker-demo",
+  "files": [
+    {
+      "name": "date-range-picker-demo.tsx",
+      "content": "\"use client\"\n\nimport { DateRangePicker } from \"ui\"\n\nexport default function DateRangePickerDemo() {\n  return <DateRangePicker label=\"Event date\" />\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/date-and-time/date-range-picker/date-range-picker-demo.tsx"
+}

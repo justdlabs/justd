@@ -1,0 +1,11 @@
+{
+  "name": "layout",
+  "files": [
+    {
+      "name": "layout.tsx",
+      "content": "import { SidebarInset, SidebarProvider } from \"ui\"\n\nimport AppSidebar from \"../app-sidebar\"\nimport AppSidebarNav from \"../app-sidebar-nav\"\n\nexport default function Layout({ children }: Readonly<{ children: React.ReactNode }>) {\n  return (\n    <>\n      <SidebarProvider>\n        <AppSidebar collapsible=\"dock\" intent=\"inset\" />\n        <SidebarInset>\n          <AppSidebarNav />\n          <div className=\"p-4 lg:p-6\">{children}</div>\n        </SidebarInset>\n      </SidebarProvider>\n    </>\n  )\n}\n"
+    }
+  ],
+  "type": "components:blocks",
+  "componentPath": "app/blocks/sidebar/sidebar-03/layout.tsx"
+}

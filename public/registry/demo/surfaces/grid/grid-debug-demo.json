@@ -1,0 +1,11 @@
+{
+  "name": "grid-debug-demo",
+  "files": [
+    {
+      "name": "grid-debug-demo.tsx",
+      "content": "\"use client\"\n\nimport { Grid } from \"ui\"\n\nexport default function GridDebugDemo() {\n  return (\n    <Grid debug columns={3} gap={4}>\n      <Grid.Item className=\"w-full h-24\" />\n      <Grid.Item className=\"w-full h-24\" />\n      <Grid.Item className=\"w-full h-24\" />\n      <Grid.Item className=\"w-full h-24\" />\n      <Grid.Item className=\"w-full h-24\" />\n      <Grid.Item className=\"w-full h-24\" />\n      <Grid.Item className=\"w-full h-24\" />\n      <Grid.Item className=\"w-full h-24\" />\n      <Grid.Item className=\"w-full h-24\" />\n    </Grid>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/surfaces/grid/grid-debug-demo.tsx"
+}

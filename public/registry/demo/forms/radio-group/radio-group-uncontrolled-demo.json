@@ -1,0 +1,11 @@
+{
+  "name": "radio-group-uncontrolled-demo",
+  "files": [
+    {
+      "name": "radio-group-uncontrolled-demo.tsx",
+      "content": "\"use client\"\n\nimport { Radio, RadioGroup } from \"ui\"\n\nexport default function RadioGroupUncontrolledDemo() {\n  return (\n    <RadioGroup label=\"Features\" defaultValue=\"theme\">\n      <Radio value=\"language\">Language</Radio>\n      <Radio value=\"timezone\">Timezone</Radio>\n      <Radio value=\"notifications\">Notifications</Radio>\n      <Radio value=\"privacy\">Privacy</Radio>\n    </RadioGroup>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/forms/radio-group/radio-group-uncontrolled-demo.tsx"
+}

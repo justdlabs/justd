@@ -1,0 +1,11 @@
+{
+  "name": "time-field-prefix-demo",
+  "files": [
+    {
+      "name": "time-field-prefix-demo.tsx",
+      "content": "\"use client\"\n\nimport { Time } from \"@internationalized/date\"\nimport { TimeField } from \"ui\"\n\nexport default function TimeFieldPrefixDemo() {\n  return <TimeField prefix=\"UTC\" defaultValue={new Time()} label=\"Event time\" />\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/date-and-time/time-field/time-field-prefix-demo.tsx"
+}

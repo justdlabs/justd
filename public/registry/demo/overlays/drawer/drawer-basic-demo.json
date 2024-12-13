@@ -1,0 +1,11 @@
+{
+  "name": "drawer-basic-demo",
+  "files": [
+    {
+      "name": "drawer-basic-demo.tsx",
+      "content": "\"use client\"\n\nimport { Drawer, TextField, buttonStyles } from \"ui\"\n\nexport default function DrawerBasicDemo() {\n  return (\n    <Drawer>\n      <Drawer.Trigger className={buttonStyles({ appearance: \"outline\" })}>Login</Drawer.Trigger>\n      <Drawer.Content>\n        <Drawer.Header>\n          <Drawer.Title>Login</Drawer.Title>\n          <Drawer.Description>Please enter your credentials to access your account.</Drawer.Description>\n        </Drawer.Header>\n        <Drawer.Body className=\"space-y-4\">\n          <TextField label=\"Email\" type=\"email\" placeholder=\"john.doe@example.com\" />\n          <TextField label=\"Password\" type=\"password\" placeholder=\"••••••••••••\" isRevealable />\n        </Drawer.Body>\n        <Drawer.Footer>\n          <Drawer.Close className=\"w-full\">Login</Drawer.Close>\n        </Drawer.Footer>\n      </Drawer.Content>\n    </Drawer>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/overlays/drawer/drawer-basic-demo.tsx"
+}

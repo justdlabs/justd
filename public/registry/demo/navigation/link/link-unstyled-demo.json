@@ -1,0 +1,11 @@
+{
+  "name": "link-unstyled-demo",
+  "files": [
+    {
+      "name": "link-unstyled-demo.tsx",
+      "content": "\"use client\"\n\nimport { Link } from \"ui\"\n\nexport default function LinkUnstyledDemo() {\n  return <Link href=\"#unstyled\">Label</Link>\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/navigation/link/link-unstyled-demo.tsx"
+}

@@ -1,0 +1,11 @@
+{
+  "name": "checkbox-group-anatomy",
+  "files": [
+    {
+      "name": "checkbox-group-anatomy.tsx",
+      "content": "import { Checkbox, CheckboxGroup } from \"ui\"\n\nexport default function CheckboxGroupAnatomy() {\n  return (\n    <CheckboxGroup label=\"Settings\">\n      <Checkbox value=\"notifications\">Enable notifications</Checkbox>\n      <Checkbox value=\"auto_update\">Auto-update applications</Checkbox>\n      <Checkbox value=\"dark_mode\">Enable dark mode</Checkbox>\n    </CheckboxGroup>\n  )\n}\n"
+    }
+  ],
+  "type": "components:anatomies",
+  "componentPath": "components/docs/anatomies/checkbox-group-anatomy.tsx"
+}
