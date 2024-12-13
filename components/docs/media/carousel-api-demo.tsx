@@ -36,22 +36,22 @@ export default function CarouselDApiDemo() {
         {({ id }) => (
           <Carousel.Item id={id}>
             <Card>
-              <Card.Content className="flex aspect-square items-center justify-center p-6">
+              <Card.Content className="flex justify-center items-center p-6 aspect-square">
                 <span className="text-4xl font-semibold">{id}</span>
               </Card.Content>
             </Card>
           </Carousel.Item>
         )}
       </Carousel.Content>
-      <div className="flex justify-between mt-4 items-center">
-        <div className="py-2 gap-1 flex text-center text-sm text-muted-fg">
+      <div className="flex justify-between items-center mt-4">
+        <div className="flex gap-1 py-2 text-sm text-center text-muted-fg">
           {Array.from({ length: 10 }).map((_, index) => (
             <Button
               className={twJoin(
-                "data-focused:outline-hidden transition rounded-xl",
+                "rounded-xl transition data-focused:outline-hidden",
                 current === index + 1
-                  ? "w-5 h-3 transition-all bg-primary data-hovered:bg-primary/80"
-                  : "bg-fg/10 data-hovered:bg-fg/15 w-3 h-3"
+                  ? "h-3 w-5 bg-primary transition-all data-hovered:bg-primary/80"
+                  : "h-3 w-3 bg-fg/10 data-hovered:bg-fg/15",
               )}
               aria-label={`Slide ${current} of ${count}`}
               onPress={() => handleSelect(index)}

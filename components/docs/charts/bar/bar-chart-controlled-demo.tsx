@@ -11,19 +11,19 @@ const chartData = Array.from({ length: 50 }, (_, index) => {
   return {
     date: date.toISOString().split("T")[0],
     sales: Math.floor(Math.random() * 1000 + 500),
-    revenue: Math.floor(Math.random() * 3000 + 1500)
+    revenue: Math.floor(Math.random() * 3000 + 1500),
   }
 })
 
 const chartConfig = {
   sales: {
     label: "Sales",
-    color: "var(--chart-1)"
+    color: "var(--chart-1)",
   },
   revenue: {
     label: "Revenue",
-    color: "var(--chart-2)"
-  }
+    color: "var(--chart-2)",
+  },
 } satisfies ChartConfig
 
 export default function BarChartControlledDemo() {
@@ -32,14 +32,14 @@ export default function BarChartControlledDemo() {
   const total = useMemo(
     () => ({
       sales: chartData.reduce((acc, curr) => acc + curr.sales, 0),
-      revenue: chartData.reduce((acc, curr) => acc + curr.revenue, 0)
+      revenue: chartData.reduce((acc, curr) => acc + curr.revenue, 0),
     }),
-    []
+    [],
   )
 
   return (
     <Card>
-      <Card.Header className="justify-between flex-row items-center">
+      <Card.Header className="flex-row justify-between items-center">
         <div className="space-y-1">
           <Card.Title>Business Overview</Card.Title>
           <Card.Description>Displaying total sales and revenue for the last 50 days</Card.Description>
@@ -69,13 +69,13 @@ export default function BarChartControlledDemo() {
         </div>
       </Card.Header>
       <Card.Content className="px-2 sm:p-6">
-        <Chart config={chartConfig} className="aspect-auto h-[250px] w-full">
+        <Chart config={chartConfig} className="w-full aspect-auto h-[250px]">
           <BarChart
             accessibilityLayer
             data={chartData}
             margin={{
               left: 12,
-              right: 12
+              right: 12,
             }}
           >
             <CartesianGrid vertical={false} />
@@ -89,7 +89,7 @@ export default function BarChartControlledDemo() {
                 const date = new Date(value)
                 return date.toLocaleDateString("en-US", {
                   month: "short",
-                  day: "numeric"
+                  day: "numeric",
                 })
               }}
             />
@@ -102,7 +102,7 @@ export default function BarChartControlledDemo() {
                     return new Date(value).toLocaleDateString("en-US", {
                       month: "short",
                       day: "numeric",
-                      year: "numeric"
+                      year: "numeric",
                     })
                   }}
                 />

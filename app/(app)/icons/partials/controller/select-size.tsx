@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState } from "react"
 
 import { useQueryString } from "hooks/use-query-string"
 import { IconChevronLgDown } from "justd-icons"
@@ -10,7 +10,7 @@ import { Button, Menu } from "ui"
 const sizes = [
   { id: "size-4", name: "Size 4" },
   { id: "size-5", name: "Size 5" },
-  { id: "size-6", name: "Size 6" }
+  { id: "size-6", name: "Size 6" },
 ]
 
 export function SelectSize() {
@@ -20,8 +20,8 @@ export function SelectSize() {
 
   const [selectedSize, setSelectSize] = useState<Selection>(new Set(["size-5"]))
   const onSelectionChange = (size: Selection) => {
-    router.push(pathname + "?" + createQueryString("s", [...size].join(",")), {
-      scroll: false
+    router.push(`${pathname}?${createQueryString("s", [...size].join(","))}`, {
+      scroll: false,
     })
     setSelectSize(size)
   }
@@ -29,11 +29,11 @@ export function SelectSize() {
   return (
     <Menu aria-label="Select Icon Size">
       <Button
-        className="[&[data-pressed]_[data-slot=icon]]:rotate-180 **:data-[slot=icon]:transition-transform"
+        className="**:data-[slot=icon]:transition-transform [&[data-pressed]_[data-slot=icon]]:rotate-180"
         appearance="outline"
       >
-        <span className="sm:hidden inline">{title([...selectedSize].join(", ").replace("size-", " ")) || "5"}</span>
-        <span className="sm:inline hidden">{title([...selectedSize].join(", ").replace("-", " ")) || "Size 5"}</span>
+        <span className="inline sm:hidden">{title([...selectedSize].join(", ").replace("size-", " ")) || "5"}</span>
+        <span className="hidden sm:inline">{title([...selectedSize].join(", ").replace("-", " ")) || "Size 5"}</span>
         <IconChevronLgDown />
       </Button>
       <Menu.Content

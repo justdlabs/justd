@@ -19,7 +19,7 @@ export default function CommandMenuTriggerByKeyboardDemo() {
     document.addEventListener("keydown", down)
 
     return () => document.removeEventListener("keydown", down)
-  }, [setIsOpen])
+  }, [])
   return (
     <>
       ⌘ /

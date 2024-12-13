@@ -1,8 +1,6 @@
 "use client"
 
-import React from "react"
-
-import { buttonStyles, Drawer, TextField } from "ui"
+import { Drawer, TextField, buttonStyles } from "ui"
 
 export default function DrawerBasicDemo() {
   return (

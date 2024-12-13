@@ -1,9 +1,9 @@
 "use client"
 
-import React, { useState } from "react"
+import { useState } from "react"
 
 import { type ColorSpace, getColorChannels } from "react-aria-components"
-import { ColorArea, ColorField, ColorPicker, defaultColor, Select } from "ui"
+import { ColorArea, ColorField, ColorPicker, Select, defaultColor } from "ui"
 
 export default function ColorPickerEnableSelectionFormatDemo() {
   const [color, setColor] = useState(defaultColor)
@@ -34,7 +34,7 @@ export default function ColorPickerEnableSelectionFormatDemo() {
         {isHexFormat ? (
           <ColorField aria-label="Hex color" colorSpace={space} />
         ) : getColorChannels(space).length > 0 ? (
-          <div className="flex sm:max-w-56 gap-2">
+          <div className="flex gap-2 sm:max-w-56">
             {getColorChannels(space).map((channel) => (
               <ColorField colorSpace={space} channel={channel} key={channel} />
             ))}

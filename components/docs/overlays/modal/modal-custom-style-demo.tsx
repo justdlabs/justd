@@ -15,7 +15,7 @@ export default function ModalCustomStyleDemo() {
           <Note intent="danger">No undo button here, so be sure!</Note>
         </Modal.Header>
         <Form onSubmit={() => {}}>
-          <Modal.Body className="space-y-4 border-t pt-6">
+          <Modal.Body className="pt-6 space-y-4 border-t">
             <TextField
               isRequired
               autoFocus

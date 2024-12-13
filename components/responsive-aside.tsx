@@ -1,11 +1,11 @@
 "use client"
 
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 
 import { IconBrandJustd, IconBrandX, IconHamburger, IconSearch } from "justd-icons"
 import { LayoutGroup } from "motion/react"
 import { usePathname } from "next/navigation"
-import { Button, buttonStyles, Link, Sheet } from "ui"
+import { Button, Link, Sheet, buttonStyles } from "ui"
 
 import { Aside } from "./aside"
 import { CommandPalette } from "./command-palette"
@@ -16,11 +16,14 @@ export function ResponsiveAside({ openCmd, setOpenCmd }: { openCmd: boolean; set
   const id = React.useId()
   const [openAside, setOpenAside] = useState(false)
   const pathname = usePathname()
-  React.useEffect(() => setOpenAside(false), [pathname])
+
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+  useEffect(() => setOpenAside(false), [pathname])
+
   return (
-    <nav className="lg:hidden z-10 relative">
+    <nav className="relative z-10 lg:hidden">
       <CommandPalette setOpen={setOpenCmd} openCmd={openCmd} />
-      <div className="flex items-center justify-between pl-4 pr-2 -mb-2 pt-2">
+      <div className="flex justify-between items-center pt-2 pr-2 pl-4 -mb-2">
         <Button
           aria-label="Open Menu."
           className="-ml-2 **:data-[slot=icon]:text-fg"
@@ -32,10 +35,10 @@ export function ResponsiveAside({ openCmd, setOpenCmd }: { openCmd: boolean; set
         >
           <IconHamburger />
         </Button>
-        <Link className="data-focused:outline-hidden -mr-6 rounded" href="/" aria-label="Logo">
+        <Link className="-mr-6 rounded data-focused:outline-hidden" href="/" aria-label="Logo">
           <IconBrandJustd className="size-6" />
         </Link>
-        <div className="flex items-center gap-x-1">
+        <div className="flex gap-x-1 items-center">
           <Button
             onPress={() => setOpenCmd(true)}
             size="square-petite"
@@ -62,7 +65,7 @@ export function ResponsiveAside({ openCmd, setOpenCmd }: { openCmd: boolean; set
         side="left"
         closeButton={true}
       >
-        <Sheet.Header className="mb-4 flex flex-row justify-between py-2">
+        <Sheet.Header className="flex flex-row justify-between py-2 mb-4">
           <NavbarDropdown />
         </Sheet.Header>
         <Sheet.Body className="px-2">

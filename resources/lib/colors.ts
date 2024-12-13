@@ -32,7 +32,7 @@ export const adjustLightness = (oklchColor: string, adjustBy: number): string =>
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_, l, , c, , h] = match
 
-  const lightness = parseFloat(l)
+  const lightness = Number.parseFloat(l)
   const newLightness = Math.min(1, Math.max(0, lightness + adjustBy / 100))
 
   return `oklch(${newLightness.toFixed(3)} ${c} ${h})`

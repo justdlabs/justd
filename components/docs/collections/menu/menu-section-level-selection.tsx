@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import { useState } from "react"
 
 import {
   IconAlignmentCenter,
@@ -11,7 +11,7 @@ import {
   IconCut,
   IconDuplicate,
   IconItalic,
-  IconUnderline
+  IconUnderline,
 } from "justd-icons"
 import type { Selection } from "react-aria-components"
 import { Menu } from "ui"

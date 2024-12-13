@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import { useState } from "react"
 
 import type { DropEvent } from "@react-types/shared"
 import { IconGallery } from "justd-icons"
@@ -34,13 +34,13 @@ export default function DropZoneAndFileTriggerDemo() {
       onDrop={onDropHandler}
     >
       {droppedImage ? (
-        <img alt="" src={droppedImage} className="aspect-square size-full object-contain" />
+        <img alt="" src={droppedImage} className="object-contain aspect-square size-full" />
       ) : (
         <div className="grid space-y-3">
-          <div className="size-12 mx-auto grid place-content-center rounded-full border bg-secondary/70 group-data-[drop-target]:bg-primary/20 group-data-[drop-target]:border-primary/70">
+          <div className="grid place-content-center mx-auto rounded-full border size-12 bg-secondary/70 group-data-[drop-target]:border-primary/70 group-data-[drop-target]:bg-primary/20">
             <IconGallery className="size-5" />
           </div>
-          <div className="justify-center flex">
+          <div className="flex justify-center">
             <FileTrigger
               acceptedFileTypes={["image/png", "image/jpeg"]}
               allowsMultiple={false}

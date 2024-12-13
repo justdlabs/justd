@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import { useState } from "react"
 
 import type { CalendarDate } from "@internationalized/date"
 import { getLocalTimeZone, parseDate, today } from "@internationalized/date"

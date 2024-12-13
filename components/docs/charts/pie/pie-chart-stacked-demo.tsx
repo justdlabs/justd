@@ -8,33 +8,33 @@ const northAmericaData = [
   { region: "Europe", sales: 300, fill: "var(--color-europe)" },
   { region: "Asia", sales: 400, fill: "var(--color-asia)" },
   { region: "Africa", sales: 150, fill: "var(--color-africa)" },
-  { region: "South America", sales: 100, fill: "var(--color-south-america)" }
+  { region: "South America", sales: 100, fill: "var(--color-south-america)" },
 ]
 
 const chartConfig = {
   sales: {
-    label: "Sales"
+    label: "Sales",
   },
   northAmerica: {
     label: "North America",
-    color: "var(--chart-1)"
+    color: "var(--chart-1)",
   },
   europe: {
     label: "Europe",
-    color: "var(--chart-2)"
+    color: "var(--chart-2)",
   },
   asia: {
     label: "Asia",
-    color: "var(--chart-3)"
+    color: "var(--chart-3)",
   },
   africa: {
     label: "Africa",
-    color: "var(--chart-4)"
+    color: "var(--chart-4)",
   },
   southAmerica: {
     label: "South America",
-    color: "var(--chart-5)"
-  }
+    color: "var(--chart-5)",
+  },
 } satisfies ChartConfig
 
 export default function PieChartStackedDemo() {

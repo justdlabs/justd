@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import { useState } from "react"
 
 import type { Selection } from "react-aria-components"
 import { Description, ListBox } from "ui"
@@ -24,7 +24,7 @@ export default function ListBoxMultipleDemo() {
       </ListBox>
 
       {[...selected].length > 0 && (
-        <Description className="mt-4 block">
+        <Description className="block mt-4">
           Selected: {selected === "all" ? "All selected" : [...selected].join(", ")}
         </Description>
       )}
@@ -35,30 +35,30 @@ export default function ListBoxMultipleDemo() {
 const fruits = [
   {
     id: 1,
-    name: "Apple"
+    name: "Apple",
   },
   {
     id: 2,
-    name: "Banana"
+    name: "Banana",
   },
   {
     id: 3,
-    name: "Orange"
+    name: "Orange",
   },
   {
     id: 4,
-    name: "Strawberry"
+    name: "Strawberry",
   },
   {
     id: 5,
-    name: "Grapes"
+    name: "Grapes",
   },
   {
     id: 6,
-    name: "Mango"
+    name: "Mango",
   },
   {
     id: 7,
-    name: "Pineapple"
-  }
+    name: "Pineapple",
+  },
 ]

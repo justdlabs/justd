@@ -1,14 +1,12 @@
 "use client"
 
-import React from "react"
-
 import { IconDuplicate, IconFolder, IconHighlight, IconTrash, IconUpload } from "justd-icons"
 import { ContextMenu } from "ui"
 
 export default function ContextMenuWithIconDemo() {
   return (
     <ContextMenu>
-      <ContextMenu.Trigger className="h-28 w-56 border-2 border-dashed rounded-lg grid place-content-center">
+      <ContextMenu.Trigger className="grid place-content-center w-56 h-28 rounded-lg border-2 border-dashed">
         Right click me
       </ContextMenu.Trigger>
       <ContextMenu.Content>

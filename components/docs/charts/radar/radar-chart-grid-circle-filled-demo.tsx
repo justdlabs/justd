@@ -15,14 +15,14 @@ const chartData = [
   { month: "Sep", sales: 320 },
   { month: "Oct", sales: 330 },
   { month: "Nov", sales: 350 },
-  { month: "Dec", sales: 370 }
+  { month: "Dec", sales: 370 },
 ]
 
 const chartConfig = {
   sales: {
     label: "Sales",
-    color: "var(--chart-1)"
-  }
+    color: "var(--chart-1)",
+  },
 } satisfies ChartConfig
 
 export default function RadarChartGridCircleFilledDemo() {
@@ -37,7 +37,7 @@ export default function RadarChartGridCircleFilledDemo() {
         <Chart config={chartConfig} className="mx-auto aspect-square max-h-[250px]">
           <RadarChart data={chartData}>
             <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
-            <PolarGrid className="fill-[--color-sales] opacity-20" gridType="circle" />
+            <PolarGrid className="opacity-20 fill-[--color-sales]" gridType="circle" />
             <PolarAngleAxis dataKey="month" />
             <Radar dataKey="sales" fill="var(--color-sales)" fillOpacity={0.5} />
           </RadarChart>

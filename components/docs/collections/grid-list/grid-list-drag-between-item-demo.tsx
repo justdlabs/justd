@@ -1,7 +1,5 @@
 "use client"
 
-import React from "react"
-
 import GridListDragDemo from "@/components/docs/collections/grid-list/grid-list-drag-demo"
 import { useDragAndDrop } from "react-aria-components"
 import { useListData } from "react-stately"
@@ -11,8 +9,8 @@ export default function GridListDragBetweenItemDemo() {
   const list = useListData({
     initialItems: [
       { id: 6, name: "The Byrds" },
-      { id: 7, name: "The Yardbirds" }
-    ]
+      { id: 7, name: "The Yardbirds" },
+    ],
   })
 
   const { dragAndDropHooks } = useDragAndDrop({
@@ -21,7 +19,7 @@ export default function GridListDragBetweenItemDemo() {
         e.items.map(async (item) => {
           const name = item.kind === "text" ? await item.getText("text/plain") : item.name
           return { id: Math.random(), name }
-        })
+        }),
       )
 
       if (e.target.dropPosition === "before") {
@@ -29,7 +27,7 @@ export default function GridListDragBetweenItemDemo() {
       } else if (e.target.dropPosition === "after") {
         list.insertAfter(e.target.key, ...items)
       }
-    }
+    },
   })
 
   return (
@@ -45,7 +43,7 @@ export default function GridListDragBetweenItemDemo() {
 
 export function OtherEmptyList() {
   const list = useListData({
-    initialItems: [{ id: 7, name: "The Who" }]
+    initialItems: [{ id: 7, name: "The Who" }],
   })
 
   const { dragAndDropHooks } = useDragAndDrop({
@@ -54,7 +52,7 @@ export function OtherEmptyList() {
         e.items.map(async (item) => {
           const name = item.kind === "text" ? await item.getText("text/plain") : item.name
           return { id: Math.random(), name }
-        })
+        }),
       )
 
       if (e.target.dropPosition === "before") {
@@ -62,7 +60,7 @@ export function OtherEmptyList() {
       } else if (e.target.dropPosition === "after") {
         list.insertAfter(e.target.key, ...items)
       }
-    }
+    },
   })
 
   return (

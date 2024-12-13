@@ -8,33 +8,33 @@ const chartData = [
   { manufacturer: "Rivian", marketShare: 150, fill: "var(--color-rivian)" },
   { manufacturer: "Ford", marketShare: 200, fill: "var(--color-ford)" },
   { manufacturer: "Lucid Motors", marketShare: 120, fill: "var(--color-lucid)" },
-  { manufacturer: "Others", marketShare: 80, fill: "var(--color-others)" }
+  { manufacturer: "Others", marketShare: 80, fill: "var(--color-others)" },
 ]
 
 const chartConfig = {
   marketShare: {
-    label: "Market Share"
+    label: "Market Share",
   },
   tesla: {
     label: "Tesla",
-    color: "var(--chart-1)"
+    color: "var(--chart-1)",
   },
   rivian: {
     label: "Rivian",
-    color: "var(--chart-2)"
+    color: "var(--chart-2)",
   },
   ford: {
     label: "Ford",
-    color: "var(--chart-3)"
+    color: "var(--chart-3)",
   },
   lucid: {
     label: "Lucid Motors",
-    color: "var(--chart-4)"
+    color: "var(--chart-4)",
   },
   others: {
     label: "Others",
-    color: "var(--chart-5)"
-  }
+    color: "var(--chart-5)",
+  },
 } satisfies ChartConfig
 
 export default function PieChartLabelListDemo() {

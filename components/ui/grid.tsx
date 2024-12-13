@@ -1,7 +1,7 @@
 "use client"
 
 import { Collection } from "react-aria-components"
-import { tv, type VariantProps } from "tailwind-variants"
+import { type VariantProps, tv } from "tailwind-variants"
 
 import { cn } from "./primitive"
 
@@ -22,7 +22,7 @@ const gridStyles = tv(
         9: "grid-cols-9",
         10: "grid-cols-10",
         11: "grid-cols-11",
-        12: "grid-cols-12"
+        12: "grid-cols-12",
       },
 
       // Rows
@@ -38,7 +38,7 @@ const gridStyles = tv(
         9: "grid-rows-9",
         10: "grid-rows-10",
         11: "grid-rows-11",
-        12: "grid-rows-12"
+        12: "grid-rows-12",
       },
 
       // Flow
@@ -47,7 +47,7 @@ const gridStyles = tv(
         col: "grid-flow-col",
         rowDense: "grid-flow-row-dense",
         colDense: "grid-flow-col-dense",
-        dense: "grid-flow-dense"
+        dense: "grid-flow-dense",
       },
 
       // Gap
@@ -72,7 +72,7 @@ const gridStyles = tv(
         14: "gap-14",
         16: "gap-16",
         20: "gap-20",
-        24: "gap-24"
+        24: "gap-24",
       },
       gapX: {
         0: "gap-x-0",
@@ -95,7 +95,7 @@ const gridStyles = tv(
         14: "gap-x-14",
         16: "gap-x-16",
         20: "gap-x-20",
-        24: "gap-x-24"
+        24: "gap-x-24",
       },
       gapY: {
         0: "gap-y-0",
@@ -118,16 +118,16 @@ const gridStyles = tv(
         14: "gap-y-14",
         16: "gap-y-16",
         20: "gap-y-20",
-        24: "gap-y-24"
-      }
+        24: "gap-y-24",
+      },
     },
     defaultVariants: {
-      columns: 1
-    }
+      columns: 1,
+    },
   },
   {
-    responsiveVariants: true
-  }
+    responsiveVariants: true,
+  },
 )
 
 interface GridProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof gridStyles> {
@@ -149,7 +149,7 @@ const Grid = ({ className, gap, gapX, gapY, flow, columns, rows, ...props }: Gri
         className:
           "debug" in props
             ? cn("*:data-[slot=grid-cell]:border *:data-[slot=grid-cell]:border-warning", className)
-            : className
+            : className,
       })}
       {...props}
     >
@@ -176,7 +176,7 @@ const gridItemStyles = tv(
         10: "col-span-10",
         11: "col-span-11",
         12: "col-span-12",
-        full: "col-span-full"
+        full: "col-span-full",
       },
       colStart: {
         1: "col-start-1",
@@ -192,7 +192,7 @@ const gridItemStyles = tv(
         11: "col-start-11",
         12: "col-start-12",
         13: "col-start-13",
-        auto: "col-start-auto"
+        auto: "col-start-auto",
       },
       colEnd: {
         1: "col-end-1",
@@ -208,7 +208,7 @@ const gridItemStyles = tv(
         11: "col-end-11",
         12: "col-end-12",
         13: "col-end-13",
-        auto: "col-end-auto"
+        auto: "col-end-auto",
       },
       rowSpan: {
         auto: "row-auto",
@@ -224,7 +224,7 @@ const gridItemStyles = tv(
         10: "row-span-10",
         11: "row-span-11",
         12: "row-span-12",
-        full: "row-span-full"
+        full: "row-span-full",
       },
       rowStart: {
         1: "row-start-1",
@@ -240,7 +240,7 @@ const gridItemStyles = tv(
         11: "row-start-11",
         12: "row-start-12",
         13: "row-start-13",
-        auto: "row-start-auto"
+        auto: "row-start-auto",
       },
       rowEnd: {
         1: "row-end-1",
@@ -256,13 +256,13 @@ const gridItemStyles = tv(
         11: "row-end-11",
         12: "row-end-12",
         13: "row-end-13",
-        auto: "row-end-auto"
-      }
-    }
+        auto: "row-end-auto",
+      },
+    },
   },
   {
-    responsiveVariants: ["sm", "md", "lg", "xl", "2xl"]
-  }
+    responsiveVariants: ["sm", "md", "lg", "xl", "2xl"],
+  },
 )
 
 interface GridItemProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof gridItemStyles> {
@@ -290,7 +290,7 @@ const GridItem = ({
         colEnd,
         rowStart,
         rowEnd,
-        className
+        className,
       })}
       {...props}
     >

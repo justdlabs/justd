@@ -1,5 +1,3 @@
-import React from "react"
-
 import { CardListBox } from "@/app/(app)/components/partials/card-list-box"
 import { OnThisPage } from "@/app/(app)/components/partials/on-this-page"
 import { Header } from "@/components/header"
@@ -44,8 +42,8 @@ export const metadata: Metadata = {
     "Justd UI Framework",
     "Justd Laravel Inertia",
     "Justd Laravel",
-    "Justd Inertia"
-  ]
+    "Justd Inertia",
+  ],
 }
 
 export default function Page() {
@@ -55,9 +53,9 @@ export default function Page() {
         <span className="text-fg">Comp</span>
         <span className="text-muted-fg">onents</span>
       </Header>
-      <div className="bg-muted/35 py-10 lg:py-16">
+      <div className="py-10 lg:py-16 bg-muted/35">
         <Container>
-          <div className="flex lg:flex-row flex-col items-start gap-12">
+          <div className="flex flex-col gap-12 items-start lg:flex-row">
             <OnThisPage />
             <CardListBox />
           </div>

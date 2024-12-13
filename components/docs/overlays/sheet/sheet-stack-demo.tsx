@@ -1,7 +1,5 @@
 "use client"
 
-import React from "react"
-
 import { Button, Sheet } from "ui"
 
 export default function SheetStackDemo() {

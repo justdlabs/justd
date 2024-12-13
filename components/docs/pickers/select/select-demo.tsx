@@ -7,7 +7,7 @@ export const software = [
   { id: 2, name: "Sketch" },
   { id: 3, name: "Figma" },
   { id: 4, name: "Adobe XD" },
-  { id: 5, name: "InVision" }
+  { id: 5, name: "InVision" },
 ]
 export default function SelectDemo() {
   return (

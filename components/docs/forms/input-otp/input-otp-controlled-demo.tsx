@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import { useState } from "react"
 
 import { InputOTP } from "ui"
 
@@ -16,7 +16,7 @@ export default function InputOtpControlledDemo() {
         </InputOTP.Group>
       </InputOTP>
 
-      <div className="text-center text-sm">
+      <div className="text-sm text-center">
         {value === "" ? <>Enter your one-time password.</> : <>You entered: {value}</>}
       </div>
     </div>

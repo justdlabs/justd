@@ -1,13 +1,11 @@
 "use client"
 
-import React from "react"
-
 import {
   ColorSlider as ColorSliderPrimitive,
   type ColorSliderProps as ColorSliderPrimitiveProps,
-  composeRenderProps,
   SliderOutput,
-  SliderTrack
+  SliderTrack,
+  composeRenderProps,
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
@@ -19,12 +17,12 @@ const trackStyles = tv({
   variants: {
     orientation: {
       horizontal: "w-full h-6",
-      vertical: "w-6 h-56 ml-[50%] -translate-x-[50%]"
+      vertical: "w-6 h-56 ml-[50%] -translate-x-[50%]",
     },
     isDisabled: {
-      true: "opacity-75 bg-muted forced-colors:bg-[GrayText]"
-    }
-  }
+      true: "opacity-75 bg-muted forced-colors:bg-[GrayText]",
+    },
+  },
 })
 
 interface ColorSliderProps extends ColorSliderPrimitiveProps {
@@ -37,12 +35,12 @@ const colorSliderStyles = tv({
   variants: {
     orientation: {
       horizontal: "grid grid-cols-[1fr_auto] min-w-56",
-      vertical: "flex flex-col justify-center items-center"
+      vertical: "flex flex-col justify-center items-center",
     },
     isDisabled: {
-      true: "opacity-75 bg-muted forced-colors:bg-[GrayText]"
-    }
-  }
+      true: "opacity-75 bg-muted forced-colors:bg-[GrayText]",
+    },
+  },
 })
 const ColorSlider = ({ showOutput = true, label, className, ...props }: ColorSliderProps) => {
   return (
@@ -50,7 +48,7 @@ const ColorSlider = ({ showOutput = true, label, className, ...props }: ColorSli
       {...props}
       data-slot="color-slider"
       className={composeRenderProps(className, (className, renderProps) =>
-        colorSliderStyles({ ...renderProps, className })
+        colorSliderStyles({ ...renderProps, className }),
       )}
     >
       <div className="flex items-center">
@@ -63,7 +61,7 @@ const ColorSlider = ({ showOutput = true, label, className, ...props }: ColorSli
           ...defaultStyle,
           background: isDisabled
             ? undefined
-            : `${defaultStyle.background}, repeating-conic-gradient(#CCC 0% 25%, white 0% 50%) 50% / 16px 16px`
+            : `${defaultStyle.background}, repeating-conic-gradient(#CCC 0% 25%, white 0% 50%) 50% / 16px 16px`,
         })}
       >
         <ColorThumb />

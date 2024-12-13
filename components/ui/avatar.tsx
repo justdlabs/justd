@@ -3,20 +3,20 @@ import { tv } from "tailwind-variants"
 const avatar = tv({
   base: [
     "inline-grid shrink-0 align-middle [--avatar-radius:20%] [--ring-opacity:20%] *:col-start-1 *:row-start-1",
-    "outline-1 -outline-offset-1 outline-fg/(--ring-opacity)"
+    "outline-1 -outline-offset-1 outline-fg/(--ring-opacity)",
   ],
   variants: {
     shape: {
       square: "rounded-(--avatar-radius) *:rounded-(--avatar-radius)",
-      circle: "rounded-full *:rounded-full"
+      circle: "rounded-full *:rounded-full",
     },
     size: {
       small: "size-6 *:size-6",
       medium: "size-8 *:size-8",
       large: "size-10 *:size-10",
-      "extra-large": "size-12 *:size-12"
-    }
-  }
+      "extra-large": "size-12 *:size-12",
+    },
+  },
 })
 
 interface AvatarProps {
@@ -41,7 +41,7 @@ const Avatar = ({
     <span data-slot="avatar" {...props} className={avatar({ shape, size, className })}>
       {initials && (
         <svg
-          className="size-full select-none fill-current p-[5%] text-[48px] font-medium uppercase"
+          className="size-full select-none fill-current p-[5%] font-medium text-[48px] uppercase"
           viewBox="0 0 100 100"
           aria-hidden={alt ? undefined : "true"}
         >

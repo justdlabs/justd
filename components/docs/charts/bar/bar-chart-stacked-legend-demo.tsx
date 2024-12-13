@@ -16,18 +16,18 @@ const chartData = [
   { month: "Sep", revenue: 3700, expenses: 2900 },
   { month: "Oct", revenue: 4200, expenses: 3400 },
   { month: "Nov", revenue: 4000, expenses: 3100 },
-  { month: "Dec", revenue: 4300, expenses: 3500 }
+  { month: "Dec", revenue: 4300, expenses: 3500 },
 ]
 
 const chartConfig = {
   revenue: {
     label: "Revenue",
-    color: "var(--chart-1)"
+    color: "var(--chart-1)",
   },
   expenses: {
     label: "Expenses",
-    color: "var(--chart-2)"
-  }
+    color: "var(--chart-2)",
+  },
 } satisfies ChartConfig
 
 export default function BarChartStackedLegendDemo() {

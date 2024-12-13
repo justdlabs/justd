@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState } from "react"
 
 import { useQueryString } from "hooks/use-query-string"
 import { IconBullet, IconBulletFill } from "justd-icons"
@@ -19,16 +19,16 @@ export function Controller({ searchParams }: SearchParamsProps) {
   const { createQueryString } = useQueryString()
 
   const onFilter = (type: "solid" | "regular") => {
-    router.push(pathname + "?" + createQueryString("t", type), {
-      scroll: false
+    router.push(`${pathname}?${createQueryString("t", type)}`, {
+      scroll: false,
     })
     setSelected(type)
   }
 
   return (
-    <div className="lg:sticky lg:top-20 z-10">
+    <div className="z-10 lg:sticky lg:top-20">
       <div className="relative">
-        <div className="flex flex-col relative z-20 sm:flex-row items-center justify-between gap-2 mb-6 sm:mb-12">
+        <div className="flex relative z-20 flex-col gap-2 justify-between items-center mb-6 sm:flex-row sm:mb-12">
           <Install />
           <div className="flex gap-2 items-center">
             <Search />
@@ -45,7 +45,7 @@ export function Controller({ searchParams }: SearchParamsProps) {
           </div>
         </div>
 
-        <div className="md:block hidden pointer-events-none z-0 absolute inset-x-0 top-0 -mt-5 h-24 bg-linear-to-b from-bg via-bg/90 to-transparent" />
+        <div className="hidden absolute inset-x-0 top-0 z-0 -mt-5 h-24 to-transparent pointer-events-none md:block bg-linear-to-b from-bg via-bg/90" />
       </div>
     </div>
   )

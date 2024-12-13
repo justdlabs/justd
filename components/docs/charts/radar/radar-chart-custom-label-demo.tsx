@@ -15,18 +15,18 @@ const chartData = [
   { month: "Sep", revenue: 54000, expenses: 35000 },
   { month: "Oct", revenue: 56000, expenses: 38000 },
   { month: "Nov", revenue: 58000, expenses: 39000 },
-  { month: "Dec", revenue: 60000, expenses: 40000 }
+  { month: "Dec", revenue: 60000, expenses: 40000 },
 ]
 
 const chartConfig = {
   revenue: {
     label: "Revenue",
-    color: "var(--chart-1)"
+    color: "var(--chart-1)",
   },
   expenses: {
     label: "Expenses",
-    color: "var(--chart-2)"
-  }
+    color: "var(--chart-2)",
+  },
 } satisfies ChartConfig
 
 export default function RadarChartCustomLabelDemo() {
@@ -45,7 +45,7 @@ export default function RadarChartCustomLabelDemo() {
               top: 10,
               right: 10,
               bottom: 10,
-              left: 10
+              left: 10,
             }}
           >
             <ChartTooltip cursor={false} content={<ChartTooltipContent indicator="line" />} />

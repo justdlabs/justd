@@ -1,7 +1,5 @@
 "use client"
 
-import React from "react"
-
 import {
   IconAlignmentCenter,
   IconAlignmentCenterFill,
@@ -23,7 +21,7 @@ import {
   IconRedo,
   IconToolbox,
   IconToolboxFill,
-  IconUndo
+  IconUndo,
 } from "justd-icons"
 import { Button, Menu, Toggle, Toolbar } from "ui"
 

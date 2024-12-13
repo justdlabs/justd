@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Themes",
     description:
-      "Curated themes, selected for you, ready to copy, paste, and integrate into your apps for a polished, custom look without the hassle."
+      "Curated themes, selected for you, ready to copy, paste, and integrate into your apps for a polished, custom look without the hassle.",
   },
   keywords: [
     "Themes",
@@ -61,6 +61,6 @@ export const metadata: Metadata = {
     "Justd UI Framework",
     "Justd Laravel Inertia",
     "Justd Laravel",
-    "Justd Inertia"
-  ]
+    "Justd Inertia",
+  ],
 }

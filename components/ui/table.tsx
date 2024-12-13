@@ -10,7 +10,7 @@ import type {
   RowProps,
   TableBodyProps,
   TableHeaderProps,
-  TableProps as TablePrimitiveProps
+  TableProps as TablePrimitiveProps,
 } from "react-aria-components"
 import {
   Button,
@@ -18,13 +18,13 @@ import {
   Collection,
   Column,
   ColumnResizer as ColumnResizerPrimitive,
-  composeRenderProps,
   ResizableTableContainer,
   Row,
-  Table as TablePrimitive,
   TableBody,
   TableHeader,
-  useTableOptions
+  Table as TablePrimitive,
+  composeRenderProps,
+  useTableOptions,
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
@@ -40,9 +40,9 @@ const table = tv({
       "flex-none rounded bg-secondary text-fg *:data-[slot=icon]:shrink-0 *:data-[slot=icon]:size-3.5 *:data-[slot=icon]:transition-transform *:data-[slot=icon]:duration-200 size-[1.15rem] grid place-content-center shrink-0",
     columnResizer: [
       "touch-none absolute [&[data-resizing]>div]:bg-primary right-0 top-0 bottom-0 w-px px-1 grid place-content-center",
-      "data-[resizable-direction=both]:cursor-ew-resize &[data-resizable-direction=left]:cursor-e-resize &[data-resizable-direction=right]:cursor-w-resize"
-    ]
-  }
+      "data-[resizable-direction=both]:cursor-ew-resize &[data-resizable-direction=left]:cursor-e-resize &[data-resizable-direction=right]:cursor-w-resize",
+    ],
+  },
 })
 
 const { root, header, row, cellIcon, columnResizer } = table()
@@ -53,14 +53,14 @@ interface TableProps extends TablePrimitiveProps {
 }
 
 const TableContext = React.createContext<TableProps>({
-  allowResize: false
+  allowResize: false,
 })
 
 const useTableContext = () => React.useContext(TableContext)
 
 const Table = ({ children, className, ...props }: TableProps) => (
   <TableContext.Provider value={props}>
-    <div className="relative w-full overflow-auto">
+    <div className="overflow-auto relative w-full">
       {props.allowResize ? (
         <ResizableTableContainer className="overflow-auto">
           <TablePrimitive {...props} className={root({ className })}>
@@ -82,11 +82,11 @@ const ColumnResizer = ({ className, ...props }: ColumnResizerProps) => (
     className={composeRenderProps(className, (className, renderProps) =>
       columnResizer({
         ...renderProps,
-        className
-      })
+        className,
+      }),
     )}
   >
-    <div className="bg-border h-full w-px py-3" />
+    <div className="py-3 w-px h-full bg-border" />
   </ColumnResizerPrimitive>
 )
 
@@ -102,9 +102,9 @@ const cellStyles = tv({
   base: "whitespace-nowrap group px-3 py-3 outline-hidden",
   variants: {
     allowResize: {
-      true: "overflow-hidden truncate"
-    }
-  }
+      true: "overflow-hidden truncate",
+    },
+  },
 })
 const TableCell = ({ children, className, ...props }: TableCellProps) => {
   const { allowResize } = useTableContext()
@@ -119,9 +119,9 @@ const columnStyles = tv({
   base: "whitespace-nowrap relative allows-sorting:cursor-pointer px-3 py-3 text-left data-dragging:cursor-grabbing font-medium outline-hidden [&:has([slot=selection])]:pr-0",
   variants: {
     isResizable: {
-      true: "overflow-hidden truncate"
-    }
-  }
+      true: "overflow-hidden truncate",
+    },
+  },
 })
 
 interface TableColumnProps extends ColumnProps {
@@ -136,19 +136,17 @@ const TableColumn = ({ isResizable = false, className, ...props }: TableColumnPr
       {...props}
       className={columnStyles({
         isResizable,
-        className
+        className,
       })}
     >
       {({ allowsSorting, sortDirection, isHovered }) => (
-        <div className="flex **:data-[slot=icon]:shrink-0 items-center gap-2">
+        <div className="flex items-center gap-2 **:data-[slot=icon]:shrink-0">
           <>
             {props.children as React.ReactNode}
             {allowsSorting && (
-              <>
-                <span className={cellIcon({ className: isHovered ? "bg-secondary-fg/10" : "" })}>
-                  <IconChevronLgDown className={sortDirection === "ascending" ? "rotate-180" : ""} />
-                </span>
-              </>
+              <span className={cellIcon({ className: isHovered ? "bg-secondary-fg/10" : "" })}>
+                <IconChevronLgDown className={sortDirection === "ascending" ? "rotate-180" : ""} />
+              </span>
             )}
             {isResizable && <ColumnResizer />}
           </>
@@ -190,12 +188,12 @@ const TableRow = <T extends object>({ children, className, columns, id, ...props
         className:
           "href" in props
             ? cn("cursor-pointer data-hovered:bg-secondary/50 data-hovered:text-secondary-fg", className)
-            : ""
+            : "",
       })}
     >
       {allowsDragging && (
-        <Cell className="ring-primary pr-0 group cursor-grab data-dragging:cursor-grabbing">
-          <Button className="relative bg-transparent pl-3.5 py-1.5 text-muted-fg data-pressed:text-fg" slot="drag">
+        <Cell className="pr-0 group cursor-grab ring-primary data-dragging:cursor-grabbing">
+          <Button className="relative py-1.5 pl-3.5 bg-transparent text-muted-fg data-pressed:text-fg" slot="drag">
             <IconHamburger />
           </Button>
         </Cell>
@@ -204,7 +202,7 @@ const TableRow = <T extends object>({ children, className, columns, id, ...props
         <Cell className="pl-4">
           <span
             aria-hidden
-            className="absolute inset-y-0 left-0 hidden h-full w-0.5 bg-primary group-data-selected:block"
+            className="hidden absolute inset-y-0 left-0 w-0.5 h-full bg-primary group-data-selected:block"
           />
           <Checkbox slot="selection" />
         </Cell>

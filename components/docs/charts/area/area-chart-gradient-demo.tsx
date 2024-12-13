@@ -10,19 +10,19 @@ const salesData = Array.from({ length: 24 }, (_, index) => {
   return {
     month,
     online: Math.floor(Math.random() * 2000 + 3000),
-    inStore: Math.floor(Math.random() * 1000 + 1500)
+    inStore: Math.floor(Math.random() * 1000 + 1500),
   }
 })
 
 const chartConfig = {
   online: {
     label: "Online Sales",
-    color: "var(--chart-1)"
+    color: "var(--chart-1)",
   },
   inStore: {
     label: "In-Store Sales",
-    color: "var(--chart-2)"
-  }
+    color: "var(--chart-2)",
+  },
 } satisfies ChartConfig
 
 export default function AreaChartGradientDemo() {
@@ -40,7 +40,7 @@ export default function AreaChartGradientDemo() {
             data={salesData}
             margin={{
               left: 12,
-              right: 12
+              right: 12,
             }}
           >
             <CartesianGrid vertical={false} />

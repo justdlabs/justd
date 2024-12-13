@@ -1,7 +1,5 @@
 "use client"
 
-import React from "react"
-
 import { NumberField } from "ui"
 
 export default function NumberFieldUncontrolledDemo() {

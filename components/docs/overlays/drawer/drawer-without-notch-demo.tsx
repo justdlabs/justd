@@ -1,8 +1,6 @@
 "use client"
 
-import React from "react"
-
-import { buttonStyles, Drawer } from "ui"
+import { Drawer, buttonStyles } from "ui"
 
 export default function DrawerWithoutNotchDemo() {
   return (

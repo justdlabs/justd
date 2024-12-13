@@ -1,4 +1,4 @@
-import React from "react"
+import type React from "react"
 
 import { Providers } from "@/components/providers"
 import { siteConfig } from "@/resources/config/site"
@@ -12,11 +12,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://getjustd.com"),
   title: {
     default: `${siteConfig.name}`,
-    template: `%s / ${siteConfig.name}`
+    template: `%s / ${siteConfig.name}`,
   },
   description: siteConfig.description,
   alternates: {
-    canonical: "./"
+    canonical: "./",
   },
   keywords: [
     "React",
@@ -50,40 +50,40 @@ export const metadata: Metadata = {
     "Justd UI Framework",
     "Justd Laravel Inertia",
     "Justd Laravel",
-    "Justd Inertia"
+    "Justd Inertia",
   ],
   manifest: "/manifest.json",
   authors: [
     {
       name: "irsyadadl",
-      url: "https://x.com/irsyadadl"
-    }
+      url: "https://x.com/irsyadadl",
+    },
   ],
-  creator: "irsyadadl"
+  creator: "irsyadadl",
 }
 
 export const viewport: Viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" }
+    { media: "(prefers-color-scheme: dark)", color: "black" },
   ],
   viewportFit: "cover",
   width: "device-width",
-  initialScale: 1
+  initialScale: 1,
 }
 
 const fontSans = localFont({
   src: [{ path: "./fonts/Inter.woff2" }],
-  variable: "--font-sans"
+  variable: "--font-sans",
 })
 
 const fontMono = localFont({
   src: [{ path: "./fonts/GeistMonoVF.woff" }, { path: "./fonts/GeistMonoVF.woff2" }],
-  variable: "--font-mono"
+  variable: "--font-mono",
 })
 
 export default function RootLayout({
-  children
+  children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
@@ -91,7 +91,7 @@ export default function RootLayout({
     <html dir="ltr" lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
         {process.env.NODE_ENV === "production" && (
-          <script defer data-site-id="getjustd.com" src="https://assets.onedollarstats.com/tracker.js"></script>
+          <script defer data-site-id="getjustd.com" src="https://assets.onedollarstats.com/tracker.js" />
         )}
       </head>
       <body className={cn("min-h-screen font-sans antialiased", fontSans.variable, fontMono.variable)}>

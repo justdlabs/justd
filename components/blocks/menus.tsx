@@ -13,7 +13,7 @@ import {
   IconMessage,
   IconPersonAdd,
   IconPlus,
-  IconSettings
+  IconSettings,
 } from "justd-icons"
 import { Button, Menu } from "ui"
 
@@ -22,7 +22,7 @@ export function Menus() {
     <CardBlock>
       <Menu>
         <Button className="group" appearance="outline">
-          Account <IconChevronLgDown className="group-data-pressed:rotate-180 duration-300" />
+          Account <IconChevronLgDown className="duration-300 group-data-pressed:rotate-180" />
         </Button>
         <Menu.Content showArrow placement="bottom" className="min-w-64">
           <Menu.Section>

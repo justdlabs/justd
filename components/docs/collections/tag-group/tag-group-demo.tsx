@@ -6,7 +6,7 @@ export const androidBrands = [
   { id: "1", name: "Samsung", available: false },
   { id: "2", name: "OnePlus", available: true },
   { id: "3", name: "Google", available: true },
-  { id: "4", name: "Xiaomi", available: false }
+  { id: "4", name: "Xiaomi", available: false },
 ]
 
 export default function TagGroupDemo() {

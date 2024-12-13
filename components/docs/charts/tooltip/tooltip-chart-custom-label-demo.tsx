@@ -9,21 +9,21 @@ const chartData = [
   { date: "2024-07-17", sales: 520, profit: 120 },
   { date: "2024-07-18", sales: 140, profit: 550 },
   { date: "2024-07-19", sales: 600, profit: 350 },
-  { date: "2024-07-20", sales: 480, profit: 400 }
+  { date: "2024-07-20", sales: 480, profit: 400 },
 ]
 
 const chartConfig = {
   metrics: {
-    label: "Metrics"
+    label: "Metrics",
   },
   sales: {
     label: "Sales",
-    color: "var(--chart-1)"
+    color: "var(--chart-1)",
   },
   profit: {
     label: "Profit",
-    color: "var(--chart-2)"
-  }
+    color: "var(--chart-2)",
+  },
 } satisfies ChartConfig
 
 export default function TooltipChartCustomLabelDemo() {
@@ -44,7 +44,7 @@ export default function TooltipChartCustomLabelDemo() {
               axisLine={false}
               tickFormatter={(value) => {
                 return new Date(value).toLocaleDateString("en-US", {
-                  weekday: "short"
+                  weekday: "short",
                 })
               }}
             />

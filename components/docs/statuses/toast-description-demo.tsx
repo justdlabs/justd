@@ -8,7 +8,7 @@ export default function ToastDescriptionDemo() {
     <Button
       onPress={() =>
         toast("Cart Updated", {
-          description: "Your item’s in the cart. Tap here to check it out."
+          description: "Your item’s in the cart. Tap here to check it out.",
         })
       }
     >

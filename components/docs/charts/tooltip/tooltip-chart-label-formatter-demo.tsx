@@ -6,24 +6,24 @@ import { Card, Chart, type ChartConfig, ChartTooltip, ChartTooltipContent } from
 const chartData = Array.from({ length: 24 }, (_, index) => {
   const date = new Date(new Date().getFullYear() - 1, index).toLocaleDateString("en-US", {
     month: "short",
-    year: "numeric"
+    year: "numeric",
   })
   return {
     date,
     sales: Math.floor(Math.random() * 500 + 200),
-    profit: Math.floor(Math.random() * 300 + 100)
+    profit: Math.floor(Math.random() * 300 + 100),
   }
 })
 
 const chartConfig = {
   sales: {
     label: "Sales",
-    color: "var(--chart-1)"
+    color: "var(--chart-1)",
   },
   profit: {
     label: "Profit",
-    color: "var(--chart-2)"
-  }
+    color: "var(--chart-2)",
+  },
 } satisfies ChartConfig
 
 export default function TooltipChartLabelFormatterDemo() {
@@ -46,7 +46,7 @@ export default function TooltipChartLabelFormatterDemo() {
                   labelFormatter={(value) => {
                     return new Date(value).toLocaleDateString("en-US", {
                       month: "long",
-                      year: "numeric"
+                      year: "numeric",
                     })
                   }}
                 />

@@ -64,9 +64,9 @@ const Carousel = ({
   const [carouselRef, api] = useEmblaCarousel(
     {
       ...opts,
-      axis: orientation === "horizontal" ? "x" : "y"
+      axis: orientation === "horizontal" ? "x" : "y",
     },
-    plugins
+    plugins,
   )
   const [canScrollPrev, setCanScrollPrev] = useState(false)
   const [canScrollNext, setCanScrollNext] = useState(false)
@@ -98,7 +98,7 @@ const Carousel = ({
         scrollNext()
       }
     },
-    [scrollPrev, scrollNext]
+    [scrollPrev, scrollNext],
   )
 
   useEffect(() => {
@@ -133,7 +133,7 @@ const Carousel = ({
         scrollPrev,
         scrollNext,
         canScrollPrev,
-        canScrollNext
+        canScrollNext,
       }}
     >
       <div
@@ -176,9 +176,9 @@ const CarouselItem = ({ className, ...props }: ListBoxItemProps) => {
       aria-label={`Slide ${props.id}`}
       aria-roledescription="slide"
       className={cn(
-        "min-w-0 xd24r shrink-0 data-focused:outline-hidden grow-0 basis-full data-focus-visible:outline-hidden",
+        "xd24r min-w-0 shrink-0 grow-0 basis-full data-focus-visible:outline-hidden data-focused:outline-hidden",
         orientation === "horizontal" ? "pl-4" : "pt-4",
-        className
+        className,
       )}
       {...props}
     />
@@ -191,9 +191,9 @@ const CarouselHandler = ({ ref, className, ...props }: React.ComponentProps<"div
     <div
       ref={ref}
       className={cn(
-        "mt-6 z-10 relative flex items-center gap-x-2",
+        "relative z-10 mt-6 flex items-center gap-x-2",
         orientation === "horizontal" ? "justify-end" : "justify-center",
-        className
+        className,
       )}
       {...props}
     />

@@ -7,7 +7,7 @@ import {
   type DateInputProps,
   DateSegment,
   type DateValue,
-  type ValidationResult
+  type ValidationResult,
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
@@ -33,7 +33,7 @@ const DateField = <T extends DateValue>({
   return (
     <DateFieldPrimitive
       {...props}
-      className={composeTailwindRenderProps(props.className, "flex group flex-col gap-y-1.5")}
+      className={composeTailwindRenderProps(props.className, "group flex flex-col gap-y-1.5")}
     >
       {label && <Label>{label}</Label>}
       <FieldGroup>
@@ -51,18 +51,18 @@ const segmentStyles = tv({
   base: "inline shrink-0 sm:uppercase tabular-nums rounded p-0.5 tracking-wider text-fg caret-transparent outline outline-0 forced-color-adjust-none type-literal:px-0 sm:text-sm forced-colors:text-[ButtonText]",
   variants: {
     isPlaceholder: {
-      true: "text-muted-fg"
+      true: "text-muted-fg",
     },
     isDisabled: {
-      true: "text-fg/50 forced-colors:text-[GrayText]"
+      true: "text-fg/50 forced-colors:text-[GrayText]",
     },
     isFocused: {
       true: [
         "bg-primary text-primary-fg forced-colors:bg-[Highlight] forced-colors:text-[HighlightText]",
-        "data-invalid:bg-danger data-invalid:text-danger-fg"
-      ]
-    }
-  }
+        "data-invalid:bg-danger data-invalid:text-danger-fg",
+      ],
+    },
+  },
 })
 
 const DateInput = ({ className, ...props }: Omit<DateInputProps, "children">) => {

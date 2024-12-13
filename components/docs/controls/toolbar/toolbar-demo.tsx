@@ -1,7 +1,5 @@
 "use client"
 
-import React from "react"
-
 import {
   IconAlignmentCenter,
   IconAlignmentCenterFill,
@@ -24,7 +22,7 @@ import {
   IconStrikeThroughFill,
   IconUnderline,
   IconUnderlineFill,
-  IconUndo
+  IconUndo,
 } from "justd-icons"
 import { Button, Checkbox, Menu, Toolbar } from "ui"
 

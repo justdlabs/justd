@@ -8,7 +8,7 @@ import {
   IconSearch,
   IconSettings,
   IconShield,
-  IconShoppingBag
+  IconShoppingBag,
 } from "justd-icons"
 import { Avatar, Button, Menu, Navbar, Separator } from "ui"
 
@@ -26,7 +26,7 @@ export default function AppNavbar() {
           <Navbar.Item href="#">Mac</Navbar.Item>
           <Navbar.Item href="#">iPad</Navbar.Item>
         </Navbar.Section>
-        <Navbar.Section className="ml-auto hidden lg:flex">
+        <Navbar.Section className="hidden ml-auto lg:flex">
           <Navbar.Flex>
             <Button appearance="plain" size="square-petite" aria-label="Search for products">
               <IconSearch />
@@ -36,7 +36,7 @@ export default function AppNavbar() {
             </Button>
             <ThemeSwitcher appearance="plain" />
           </Navbar.Flex>
-          <Separator orientation="vertical" className="h-6 ml-1 mr-3" />
+          <Separator orientation="vertical" className="mr-3 ml-1 h-6" />
           <UserMenu />
         </Navbar.Section>
       </Navbar.Nav>
@@ -59,7 +59,7 @@ export default function AppNavbar() {
             </Button>
             <ThemeSwitcher appearance="plain" />
           </Navbar.Flex>
-          <Separator orientation="vertical" className="h-6 ml-1 mr-3" />
+          <Separator orientation="vertical" className="mr-3 ml-1 h-6" />
           <UserMenu />
         </Navbar.Flex>
       </Navbar.Compact>

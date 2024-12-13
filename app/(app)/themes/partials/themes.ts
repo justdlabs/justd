@@ -4,7 +4,7 @@ import {
   accentColors400,
   accentColors500,
   adjustLightness,
-  neutralColors
+  neutralColors,
 } from "@/resources/lib/colors"
 
 type BlackWhite = "white" | "black"
@@ -36,13 +36,7 @@ export const generateTheme = (selectedColors: Record<string, string>) => {
   const isShade500Accent = accentColors500.includes(accent)
   const isShade300Accent = accentColors300.includes(accent)
 
-  const determineShade = (
-    isNeutral: boolean,
-    is500: boolean,
-    is300: boolean,
-    is400: boolean,
-    isDarkMode: boolean = false
-  ) => {
+  const determineShade = (isNeutral: boolean, is500: boolean, is300: boolean, is400: boolean, isDarkMode = false) => {
     if (isNeutral) return isDarkMode ? "50" : "950" // Adjust for light and dark
     if (is500) return "500"
     if (is300) return "300"
@@ -50,7 +44,7 @@ export const generateTheme = (selectedColors: Record<string, string>) => {
     return "600"
   }
 
-  const determineForeground = (isNeutral: boolean, is400: boolean, isDarkMode: boolean = false) => {
+  const determineForeground = (isNeutral: boolean, is400: boolean, isDarkMode = false) => {
     if (isNeutral) return isDarkMode ? "950" : "50"
     return is400 ? "950" : "white"
   }
@@ -63,7 +57,7 @@ export const generateTheme = (selectedColors: Record<string, string>) => {
     isShade500Primary,
     isShade300Primary,
     isShade400Primary,
-    true
+    true,
   )
   const darkPrimaryFg: ForegroundColor = determineForeground(isNeutralPrimary, isShade400Primary, true)
 

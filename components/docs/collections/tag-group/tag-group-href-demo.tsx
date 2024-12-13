@@ -5,7 +5,7 @@ import { Tag, TagGroup, TagList } from "ui"
 const articles = [
   { name: "React Tutorial", url: "#" },
   { name: "TypeScript Handbook", url: "#" },
-  { name: "JavaScript Guide", url: "#" }
+  { name: "JavaScript Guide", url: "#" },
 ]
 
 export default function TagGroupHrefDemo() {

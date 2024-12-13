@@ -9,7 +9,7 @@ import {
   IconRotate2Left,
   IconVideoPlaylist,
   IconVideoRoll,
-  IconYes
+  IconYes,
 } from "justd-icons"
 import {
   Avatar,
@@ -24,7 +24,7 @@ import {
   SidebarLabel,
   SidebarRail,
   SidebarSection,
-  SidebarSeparator
+  SidebarSeparator,
 } from "ui"
 
 export default function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
@@ -32,14 +32,14 @@ export default function AppSidebar(props: React.ComponentProps<typeof Sidebar>) 
     <Sidebar {...props}>
       <SidebarHeader>
         <Link
-          className="flex items-center group-data-[collapsible=dock]:size-10 group-data-[collapsible=dock]:justify-center gap-x-2"
+          className="flex items-center gap-x-2 group-data-[collapsible=dock]:size-10 group-data-[collapsible=dock]:justify-center"
           href="/docs/components/layouts/sidebar"
         >
-          <IconBrandYoutube className="size-6 text-red-500" />
+          <IconBrandYoutube className="text-red-500 size-6" />
           <SidebarLabel className="font-medium">Youtube</SidebarLabel>
         </Link>
       </SidebarHeader>
-      <SidebarContent className="**:data-[slot=icon]:size-5 **:data-[slot=avatar]:size-5 **:data-[slot=avatar]:*:size-5">
+      <SidebarContent className="**:data-[slot=avatar]:*:size-5 **:data-[slot=avatar]:size-5 **:data-[slot=icon]:size-5">
         <SidebarSection>
           <SidebarItem>
             <IconHome />
@@ -98,5 +98,5 @@ export const users = [
   { id: 2, name: "Jimmy Page", image_url: "/images/avatar/page.jpg" },
   { id: 5, name: "Irsyad", image_url: "/images/avatar/irsyad.jpg" },
   { id: 3, name: "Slash", image_url: "/images/avatar/slash.jpg" },
-  { id: 4, name: "Kurt Cobain", image_url: "/images/avatar/cobain.jpg" }
+  { id: 4, name: "Kurt Cobain", image_url: "/images/avatar/cobain.jpg" },
 ]

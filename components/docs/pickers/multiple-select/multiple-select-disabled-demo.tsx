@@ -6,7 +6,7 @@ import { MultipleSelect } from "ui"
 
 export default function MultipleSelectDisabledDemo() {
   const selectedItems = useListData<SelectedKey>({
-    initialItems: []
+    initialItems: [],
   })
   return (
     <MultipleSelect

@@ -3,7 +3,7 @@
 import { Button, Form, Select } from "ui"
 
 const software = [
-  { id: 1, name: "Adobe Photoshop" }
+  { id: 1, name: "Adobe Photoshop" },
   //...
 ]
 

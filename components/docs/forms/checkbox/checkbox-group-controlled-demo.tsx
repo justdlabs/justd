@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import { useState } from "react"
 
 import { Checkbox, CheckboxGroup, Description } from "ui"
 
@@ -14,7 +14,7 @@ export default function CheckboxGroupControlledDemo() {
         <Checkbox value="sync">Sync</Checkbox>
       </CheckboxGroup>
 
-      <Description className="flex flex-col gap-y-1 h-10 mt-2 [&>strong]:text-fg [&>strong]:font-medium">
+      <Description className="mt-2 flex h-10 flex-col gap-y-1 [&>strong]:font-medium [&>strong]:text-fg">
         {values.length > 0 ? (
           <>
             Selected values <strong className="font-medium">{values.join(", ")}</strong>

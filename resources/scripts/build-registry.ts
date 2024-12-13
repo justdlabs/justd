@@ -1,5 +1,5 @@
-import fs from "fs"
-import path from "path"
+import fs from "node:fs"
+import path from "node:path"
 
 type RegistryItem = {
   name: string
@@ -21,7 +21,7 @@ const generateComponentRegistry = () => {
     { type: "anatomies", path: "components/docs/anatomies" },
     { type: "demo", path: "components/docs" },
     { type: "blocks", path: "app/blocks" },
-    { type: "docs", path: "resources/docs" }
+    { type: "docs", path: "resources/docs" },
   ]
 
   const getAllFiles = (dirPath: string, arrayOfFiles: string[] = []): string[] => {
@@ -73,11 +73,11 @@ const generateComponentRegistry = () => {
         files: [
           {
             name: path.basename(filePath),
-            content: fileContent
-          }
+            content: fileContent,
+          },
         ],
         type: `components:${type}`,
-        componentPath: relativePath
+        componentPath: relativePath,
       }
 
       const jsonOutputPath = path.join(outputBaseDir, `${key}.json`)
@@ -119,7 +119,8 @@ const registry = {
 
 export default registry;
   `
-  console.log("Generating registry files...")
+
+  console.info("Generating registry files...")
 
   const loadingInterval = setInterval(() => {
     process.stdout.write(".")
@@ -135,7 +136,7 @@ export default registry;
 
   console.table(generatedFiles)
 
-  console.log("Registry generation complete.")
+  console.info("Registry generation complete.")
 }
 
 generateComponentRegistry()

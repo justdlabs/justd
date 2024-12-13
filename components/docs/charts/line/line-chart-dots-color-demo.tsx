@@ -8,34 +8,34 @@ const chartData = [
   { department: "Sales", expenses: 200, fill: "var(--color-sales)" },
   { department: "IT", expenses: 187, fill: "var(--color-it)" },
   { department: "HR", expenses: 173, fill: "var(--color-hr)" },
-  { department: "Operations", expenses: 90, fill: "var(--color-operations)" }
+  { department: "Operations", expenses: 90, fill: "var(--color-operations)" },
 ]
 
 const chartConfig = {
   expenses: {
     label: "Expenses",
-    color: "var(--chart-2)"
+    color: "var(--chart-2)",
   },
   marketing: {
     label: "Marketing",
-    color: "var(--chart-1)"
+    color: "var(--chart-1)",
   },
   sales: {
     label: "Sales",
-    color: "var(--chart-2)"
+    color: "var(--chart-2)",
   },
   it: {
     label: "IT",
-    color: "var(--chart-3)"
+    color: "var(--chart-3)",
   },
   hr: {
     label: "HR",
-    color: "var(--chart-4)"
+    color: "var(--chart-4)",
   },
   operations: {
     label: "Operations",
-    color: "var(--chart-5)"
-  }
+    color: "var(--chart-5)",
+  },
 } satisfies ChartConfig
 
 export default function LineChartDotsColorDemo() {
@@ -50,7 +50,7 @@ export default function LineChartDotsColorDemo() {
             margin={{
               top: 24,
               left: 24,
-              right: 24
+              right: 24,
             }}
           >
             <CartesianGrid vertical={false} />

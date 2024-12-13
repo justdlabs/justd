@@ -6,24 +6,24 @@ import { Card, Chart, type ChartConfig, ChartTooltip, ChartTooltipContent } from
 const chartData = Array.from({ length: 24 }, (_, index) => {
   const date = new Date(new Date().getFullYear() - 1, index).toLocaleDateString("en-US", {
     month: "short",
-    year: "numeric"
+    year: "numeric",
   })
   return {
     date,
     sales: Math.floor(Math.random() * 1000 + 200),
-    profit: Math.floor(Math.random() * 500 + 100)
+    profit: Math.floor(Math.random() * 500 + 100),
   }
 })
 
 const chartConfig = {
   sales: {
     label: "Sales",
-    color: "var(--chart-1)"
+    color: "var(--chart-1)",
   },
   profit: {
     label: "Profit",
-    color: "var(--chart-2)"
-  }
+    color: "var(--chart-2)",
+  },
 } satisfies ChartConfig
 
 export default function TooltipChartFormatterDemo() {
@@ -45,9 +45,9 @@ export default function TooltipChartFormatterDemo() {
                 <ChartTooltipContent
                   hideLabel
                   formatter={(value, name) => (
-                    <div className="flex min-w-[130px] items-center text-xs text-muted-fg">
+                    <div className="flex items-center text-xs min-w-[130px] text-muted-fg">
                       {chartConfig[name as keyof typeof chartConfig]?.label || name}
-                      <div className="ml-auto flex items-baseline gap-0.5 font-mono font-medium tabular-nums text-foreground">
+                      <div className="flex gap-0.5 items-baseline ml-auto font-mono font-medium tabular-nums text-foreground">
                         {value}
                         <span className="font-normal text-muted-fg">USD</span>
                       </div>

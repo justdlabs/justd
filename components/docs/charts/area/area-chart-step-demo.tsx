@@ -10,7 +10,7 @@ const enrollmentData = Array.from({ length: 24 }, (_, index) => {
   const month = date.toLocaleDateString("en-US", { month: "long" })
   return {
     month,
-    newEnrollments: Math.floor(Math.random() * 20 + 40)
+    newEnrollments: Math.floor(Math.random() * 20 + 40),
   }
 })
 
@@ -18,8 +18,8 @@ const enrollmentConfig = {
   newEnrollments: {
     label: "New Enrollments",
     color: "var(--chart-1)",
-    icon: IconGraph
-  }
+    icon: IconGraph,
+  },
 } satisfies ChartConfig
 
 export default function AreaChartStepDemo() {
@@ -37,7 +37,7 @@ export default function AreaChartStepDemo() {
             data={enrollmentData}
             margin={{
               left: 12,
-              right: 12
+              right: 12,
             }}
           >
             <CartesianGrid vertical={false} />

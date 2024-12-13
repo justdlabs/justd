@@ -22,11 +22,11 @@ const tagFieldsStyles = tv({
         "px-1 rounded-lg shadow-xs border",
         "has-[input[data-focused=true]]:border-primary",
         "has-[input[data-invalid=true][data-focused=true]]:border-danger has-[input[data-invalid=true]]:border-danger has-[input[data-invalid=true]]:ring-danger/20",
-        "has-[input[data-focused=true]]:ring-4 has-[input[data-focused=true]]:ring-primary/20"
+        "has-[input[data-focused=true]]:ring-4 has-[input[data-focused=true]]:ring-primary/20",
       ],
-      plain: ["has-[input[data-focused=true]]:border-transparent"]
-    }
-  }
+      plain: ["has-[input[data-focused=true]]:border-transparent"],
+    },
+  },
 })
 
 interface TagItemProps {
@@ -60,7 +60,7 @@ const TagField = ({
   const [inputValue, setInputValue] = useState("")
 
   const existingTagCount = list.items.length
-  const maxTags = props.max !== undefined ? props.max : Infinity
+  const maxTags = props.max !== undefined ? props.max : Number.POSITIVE_INFINITY
   const maxTagsToAdd = maxTags - existingTagCount
 
   const insertTag = () => {
@@ -84,7 +84,7 @@ const TagField = ({
       if (formattedName && !list.items.some(({ name }) => name.toLowerCase() === formattedName.toLowerCase())) {
         const tag = {
           id: (list.items.at(-1)?.id ?? 0) + 1,
-          name: formattedName
+          name: formattedName,
         }
 
         list.append(tag)
@@ -120,7 +120,7 @@ const TagField = ({
   }
 
   const popLast = useCallback(() => {
-    if (list.items.length == 0) {
+    if (list.items.length === 0) {
       return
     }
 
@@ -133,18 +133,18 @@ const TagField = ({
   }, [list, onItemCleared])
 
   return (
-    <div className={cn("flex flex-col gap-y-1.5 w-full", className)}>
+    <div className={cn("flex w-full flex-col gap-y-1.5", className)}>
       {props.label && <Label>{props.label}</Label>}
       <Group className={twJoin("flex flex-col", props.isDisabled && "opacity-50")}>
         <TagGroup intent={props.intent} shape={props.shape} aria-label="List item inserted" onRemove={onRemove}>
           <div className={tagFieldsStyles({ appearance })}>
-            <div className="flex flex-1 flex-wrap items-center">
+            <div className="flex flex-wrap flex-1 items-center">
               <TagList
                 items={list.items}
                 className={twJoin(
-                  list.items.length !== 0 ? appearance === "outline" && "py-1.5 px-1 gap-1.5" : "gap-0",
+                  list.items.length !== 0 ? appearance === "outline" && "gap-1.5 px-1 py-1.5" : "gap-0",
                   props.shape === "square" && "[&_.jdt3lr2x]:rounded-[calc(var(--radius-lg)-4px)]",
-                  "[&_.jdt3lr2x]:cursor-default [&_.jdt3lr2x]:last:-mr-1 outline-hidden"
+                  "[&_.jdt3lr2x]:last:-mr-1 outline-hidden [&_.jdt3lr2x]:cursor-default",
                 )}
               >
                 {(item) => <Tag>{item.name}</Tag>}
@@ -159,7 +159,7 @@ const TagField = ({
                 {...props}
               >
                 <Input
-                  className="w-auto inline"
+                  className="inline w-auto"
                   placeholder={maxTagsToAdd <= 0 ? "Remove one to add more" : props.placeholder}
                 />
               </TextField>

@@ -11,7 +11,7 @@ import {
   IconSearch,
   IconSettings,
   IconShield,
-  IconShoppingBag
+  IconShoppingBag,
 } from "justd-icons"
 import { Avatar, Button, Menu, Navbar, Separator } from "ui"
 
@@ -43,7 +43,7 @@ export default function AppNavbar(props: React.ComponentProps<typeof Navbar>) {
           </Menu>
         </Navbar.Section>
 
-        <Navbar.Section className="ml-auto hidden md:flex">
+        <Navbar.Section className="hidden ml-auto md:flex">
           <Navbar.Flex className="sm:gap-x-1">
             <Button appearance="plain" size="square-petite" aria-label="Search for products">
               <IconSearch />
@@ -53,7 +53,7 @@ export default function AppNavbar(props: React.ComponentProps<typeof Navbar>) {
             </Button>
             <ThemeSwitcher appearance="plain" />
           </Navbar.Flex>
-          <Separator orientation="vertical" className="h-6 ml-1 mr-3" />
+          <Separator orientation="vertical" className="mr-3 ml-1 h-6" />
           <UserMenu />
         </Navbar.Section>
       </Navbar.Nav>
@@ -76,7 +76,7 @@ export default function AppNavbar(props: React.ComponentProps<typeof Navbar>) {
             </Button>
             <ThemeSwitcher appearance="plain" />
           </Navbar.Flex>
-          <Separator orientation="vertical" className="h-6 ml-1 mr-3" />
+          <Separator orientation="vertical" className="mr-3 ml-1 h-6" />
           <UserMenu />
         </Navbar.Flex>
       </Navbar.Compact>
@@ -88,53 +88,53 @@ const categories = [
   {
     id: 1,
     label: "Electronics",
-    url: "#"
+    url: "#",
   },
   {
     id: 2,
     label: "Fashion",
-    url: "#"
+    url: "#",
   },
   {
     id: 3,
     label: "Home & Kitchen",
-    url: "#"
+    url: "#",
   },
   {
     id: 4,
     label: "Sports",
-    url: "#"
+    url: "#",
   },
   {
     id: 5,
     label: "Books",
-    url: "#"
+    url: "#",
   },
   {
     id: 6,
     label: "Beauty & Personal Care",
-    url: "#"
+    url: "#",
   },
   {
     id: 7,
     label: "Grocery",
-    url: "#"
+    url: "#",
   },
   {
     id: 8,
     label: "Toys & Games",
-    url: "#"
+    url: "#",
   },
   {
     id: 9,
     label: "Automotive",
-    url: "#"
+    url: "#",
   },
   {
     id: 10,
     label: "Health & Wellness",
-    url: "#"
-  }
+    url: "#",
+  },
 ]
 
 function UserMenu() {

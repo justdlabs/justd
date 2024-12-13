@@ -1,7 +1,7 @@
 "use client"
 
 import { IconBrandX } from "justd-icons"
-import { buttonStyles, Tooltip } from "ui"
+import { Tooltip, buttonStyles } from "ui"
 
 export default function TooltipDelayDemo() {
   return (
@@ -11,7 +11,7 @@ export default function TooltipDelayDemo() {
           aria-label="Follow me"
           className={buttonStyles({
             appearance: "outline",
-            size: "square-petite"
+            size: "square-petite",
           })}
         >
           <IconBrandX />

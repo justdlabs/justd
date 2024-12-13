@@ -12,39 +12,39 @@ const data = [
   { month: "february", sales: 2305, fill: "var(--color-february)" },
   { month: "march", sales: 4237, fill: "var(--color-march)" },
   { month: "april", sales: 4173, fill: "var(--color-april)" },
-  { month: "may", sales: 5209, fill: "var(--color-may)" }
+  { month: "may", sales: 5209, fill: "var(--color-may)" },
 ]
 
 const config = {
   visitors: {
-    label: "Visitors"
+    label: "Visitors",
   },
   sales: {
-    label: "Sales"
+    label: "Sales",
   },
   profit: {
-    label: "Profit"
+    label: "Profit",
   },
   january: {
     label: "January",
-    color: "var(--chart-1)"
+    color: "var(--chart-1)",
   },
   february: {
     label: "February",
-    color: "var(--chart-2)"
+    color: "var(--chart-2)",
   },
   march: {
     label: "March",
-    color: "var(--chart-3)"
+    color: "var(--chart-3)",
   },
   april: {
     label: "April",
-    color: "var(--chart-4)"
+    color: "var(--chart-4)",
   },
   may: {
     label: "May",
-    color: "var(--chart-5)"
-  }
+    color: "var(--chart-5)",
+  },
 } satisfies ChartConfig
 
 export default function PieChartControlledDemo() {
@@ -57,8 +57,8 @@ export default function PieChartControlledDemo() {
   return (
     <Card data-chart={id} className="flex flex-col">
       <ChartStyle id={id} config={config} />
-      <Card.Header className="flex-row items-start space-y-0 pb-0">
-        <div className="grid w-full gap-1">
+      <Card.Header className="flex-row items-start pb-0 space-y-0">
+        <div className="grid gap-1 w-full">
           <Card.Title className="capitalize">{activeMonth}</Card.Title>
           <Card.Description>
             The total sales for the month is{" "}
@@ -66,7 +66,7 @@ export default function PieChartControlledDemo() {
           </Card.Description>
         </div>
         <Select selectedKey={activeMonth} onSelectionChange={setActiveMonth}>
-          <Select.Trigger className="ml-auto h-8 px-2 w-[130px] rounded-lg" aria-label="Select a value" />
+          <Select.Trigger className="px-2 ml-auto h-8 rounded-lg w-[130px]" aria-label="Select a value" />
           <Select.List className="rounded-xl">
             {months.map((key) => {
               const _config = config[key as keyof typeof config]
@@ -77,7 +77,7 @@ export default function PieChartControlledDemo() {
 
               return (
                 <Select.Option key={key} id={key}>
-                  <div className="flex items-center gap-2 text-xs">{_config?.label}</div>
+                  <div className="flex gap-2 items-center text-xs">{_config?.label}</div>
                 </Select.Option>
               )
             })}
@@ -85,7 +85,7 @@ export default function PieChartControlledDemo() {
         </Select>
       </Card.Header>
       <Card.Content className="flex flex-1 justify-center pb-0">
-        <Chart id={id} config={config} className="mx-auto aspect-square w-full max-w-[315px]">
+        <Chart id={id} config={config} className="mx-auto w-full aspect-square max-w-[315px]">
           <PieChart>
             <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
             <Pie
@@ -107,7 +107,7 @@ export default function PieChartControlledDemo() {
                   if (viewBox && "cx" in viewBox && "cy" in viewBox) {
                     return (
                       <text x={viewBox.cx} y={viewBox.cy} textAnchor="middle" dominantBaseline="middle">
-                        <tspan x={viewBox.cx} y={viewBox.cy} className="fill-fg text-2xl font-semibold">
+                        <tspan x={viewBox.cx} y={viewBox.cy} className="text-2xl font-semibold fill-fg">
                           {data[activeIndex].sales.toLocaleString()}
                         </tspan>
                         <tspan x={viewBox.cx} y={(viewBox.cy || 0) + 24} className="fill-muted-fg">

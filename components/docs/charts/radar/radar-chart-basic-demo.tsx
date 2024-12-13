@@ -9,14 +9,14 @@ const chartData = [
   { category: "Groceries", sales: 237 },
   { category: "Furniture", sales: 273 },
   { category: "Toys", sales: 209 },
-  { category: "Beauty", sales: 214 }
+  { category: "Beauty", sales: 214 },
 ]
 
 const chartConfig = {
   sales: {
     label: "Sales",
-    color: "var(--chart-1)"
-  }
+    color: "var(--chart-1)",
+  },
 } satisfies ChartConfig
 
 export default function RadarChartBasicDemo() {

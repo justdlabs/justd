@@ -10,7 +10,7 @@ export function convertToTree(paths: string[]) {
         current[part] = {
           name: part,
           type: index === parts.length - 1 ? "file" : "directory",
-          children: index === parts.length - 1 ? undefined : {}
+          children: index === parts.length - 1 ? undefined : {},
         }
       }
       current = current[part].children || {}
@@ -23,7 +23,7 @@ export function convertToTree(paths: string[]) {
     return Object.values(node).map((child) => ({
       name: child.name,
       type: child.type,
-      children: child.children ? transform(child.children) : undefined
+      children: child.children ? transform(child.children) : undefined,
     }))
   }
 

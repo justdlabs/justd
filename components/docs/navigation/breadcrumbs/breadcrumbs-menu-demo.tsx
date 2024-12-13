@@ -10,7 +10,7 @@ export default function BreadcrumbsMenuDemo() {
 
       <Breadcrumbs.Item separator>
         <Menu>
-          <Button appearance="plain" size="square-petite" className="h-6 -mx-1">
+          <Button appearance="plain" size="square-petite" className="-mx-1 h-6">
             <IconDotsHorizontal />
           </Button>
           <Menu.Content placement="bottom">

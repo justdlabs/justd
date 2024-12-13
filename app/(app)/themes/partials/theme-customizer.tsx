@@ -1,12 +1,12 @@
 "use client"
 
-import React from "react"
+import type React from "react"
 
 import { useTheme } from "@/components/theme-provider"
 import colors from "@/resources/colors/colors.json"
 import { neutralColors } from "@/resources/lib/colors"
 import type { Key } from "react-aria-components"
-import { Badge, cn, Select } from "ui"
+import { Badge, Select, cn } from "ui"
 
 interface ColorSelectProps extends React.ComponentProps<typeof Select> {
   selectedKey: string
@@ -47,8 +47,8 @@ const ColorSelect = ({
             <div
               data-slot="icon"
               className={cn(
-                "size-4 rounded-sm inset-ring inset-ring-(--inset-ring-color)/15 dark:inset-ring-(--inset-ring-color)/5",
-                className
+                "inset-ring inset-ring-(--inset-ring-color)/15 size-4 rounded-sm dark:inset-ring-(--inset-ring-color)/5",
+                className,
               )}
               aria-hidden
               style={
@@ -56,7 +56,7 @@ const ColorSelect = ({
                   "--inset-ring-color": colors[key as keyof typeof colors]["200"],
                   backgroundColor: neutralColors.includes(key)
                     ? colors[key as keyof typeof colors][theme === "dark" ? "900" : "700"]
-                    : colors[key as keyof typeof colors]["500"]
+                    : colors[key as keyof typeof colors]["500"],
                 } as React.CSSProperties
               }
             />

@@ -24,7 +24,7 @@ export default function ToastStatusDemo() {
           toast.promise(wait(2000), {
             loading: "Deleting database...",
             success: "Database deleted.",
-            error: "Failed to delete database."
+            error: "Failed to delete database.",
           })
         }}
       >

@@ -1,7 +1,5 @@
 "use client"
 
-import React from "react"
-
 import { parseColor } from "@react-stately/color"
 import { ColorSwatch as ColorSwatchPrimitive, type ColorSwatchProps } from "react-aria-components"
 
@@ -14,9 +12,9 @@ const hexToRgb = (hex: string): { r: number; g: number; b: number } | null => {
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
   return result
     ? {
-        r: parseInt(result[1], 16),
-        g: parseInt(result[2], 16),
-        b: parseInt(result[3], 16)
+        r: Number.parseInt(result[1], 16),
+        g: Number.parseInt(result[2], 16),
+        b: Number.parseInt(result[3], 16),
       }
     : null
 }
@@ -29,14 +27,14 @@ const hsbToRgb = (h: number, s: number, b: number): { r: number; g: number; b: n
   return {
     r: Math.round(255 * f(5)),
     g: Math.round(255 * f(3)),
-    b: Math.round(255 * f(1))
+    b: Math.round(255 * f(1)),
   }
 }
 
 const luminance = (r: number, g: number, b: number): number => {
   const a = [r, g, b].map((v) => {
     v /= 255
-    return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4)
+    return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4
   })
   return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722
 }
@@ -48,7 +46,9 @@ type HSBColor = {
 }
 
 const isBrightColor = (color: string | HSBColor): boolean => {
-  let r, g, b
+  let r: number
+  let g: number
+  let b: number
 
   if (typeof color === "string") {
     if (color.startsWith("#")) {
@@ -63,16 +63,16 @@ const isBrightColor = (color: string | HSBColor): boolean => {
     } else if (color.startsWith("rgb")) {
       const rgbValues = color.match(/\d+/g)
       if (rgbValues) {
-        r = parseInt(rgbValues[0], 10)
-        g = parseInt(rgbValues[1], 10)
-        b = parseInt(rgbValues[2], 10)
+        r = Number.parseInt(rgbValues[0], 10)
+        g = Number.parseInt(rgbValues[1], 10)
+        b = Number.parseInt(rgbValues[2], 10)
       } else {
         return false
       }
     } else {
       const namedColors: Record<string, string> = {
         white: "#ffffff",
-        black: "#000000"
+        black: "#000000",
       }
       const hex = namedColors[color.toLowerCase()]
       if (hex) {
@@ -110,7 +110,7 @@ const ColorSwatch = ({ className, ...props }: ColorSwatchProps) => {
     <ColorSwatchPrimitive
       data-slot="color-swatch"
       aria-label={props["aria-label"] ?? "Color swatch"}
-      className={cn("size-8 cs rounded-md shrink-0", needRing && "ring-1 ring-inset ring-fg/10", className)}
+      className={cn("cs size-8 shrink-0 rounded-md", needRing && "ring-1 ring-fg/10 ring-inset", className)}
       {...props}
     />
   )

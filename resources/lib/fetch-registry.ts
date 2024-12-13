@@ -7,10 +7,9 @@ export const createFetchRegistryFile = (basePath: string) =>
       if (response.ok) {
         const registryEntry = await response.json()
         return registryEntry.files?.[0]?.content || null
-      } else {
-        console.error(`Failed to fetch registry file at ${basePath}:`, response.status)
-        return null
       }
+      console.error(`Failed to fetch registry file at ${basePath}:`, response.status)
+      return null
     } catch (error) {
       console.error(`Error loading source code from ${basePath}:`, error)
       return null

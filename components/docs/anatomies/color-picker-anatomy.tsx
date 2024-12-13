@@ -1,7 +1,5 @@
 "use client"
 
-import React from "react"
-
 import { ColorPicker } from "ui"
 
 export default function ColorPickerAnatomy() {

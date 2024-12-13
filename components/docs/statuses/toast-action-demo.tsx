@@ -13,8 +13,8 @@ export default function ToastActionDemo() {
           toast("New comment on your post!", {
             action: {
               label: "View",
-              onClick: () => alert("Viewed")
-            }
+              onClick: () => alert("Viewed"),
+            },
           })
         }
       >
@@ -27,12 +27,12 @@ export default function ToastActionDemo() {
           toast("New comment on your post!", {
             action: {
               label: "View",
-              onClick: () => alert("Viewed")
+              onClick: () => alert("Viewed"),
             },
             cancel: {
               label: "Cancel",
-              onClick: () => alert("Cancelled")
-            }
+              onClick: () => alert("Cancelled"),
+            },
           })
         }
       >
@@ -45,8 +45,8 @@ export default function ToastActionDemo() {
           toast("New comment on your post!", {
             cancel: {
               label: "Cancel",
-              onClick: () => alert("Cancelled")
-            }
+              onClick: () => alert("Cancelled"),
+            },
           })
         }
       >

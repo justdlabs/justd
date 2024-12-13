@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import { useState } from "react"
 
 import { IconBill, IconCube, IconGear, IconHome, IconNotes, IconShield } from "justd-icons"
 // Replace with your router link component
@@ -72,5 +72,5 @@ const users = [
   { id: 2, name: "Rosemarie Koch", image_url: "https://i.pravatar.cc/150?img=2" },
   { id: 3, name: "Mrs. Reva Heaney Jr.", image_url: "https://i.pravatar.cc/150?img=3" },
   { id: 5, name: "Bria Ziemann", image_url: "https://i.pravatar.cc/150?img=5" },
-  { id: 6, name: "Heloise Borer Sr.", image_url: "https://i.pravatar.cc/150?img=6" }
+  { id: 6, name: "Heloise Borer Sr.", image_url: "https://i.pravatar.cc/150?img=6" },
 ]

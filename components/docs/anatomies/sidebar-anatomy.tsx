@@ -14,7 +14,7 @@ import {
   SidebarProvider,
   SidebarRail,
   SidebarSection,
-  SidebarSeparator
+  SidebarSeparator,
 } from "ui"
 
 export default function SidebarAnatomy() {

@@ -14,7 +14,7 @@ export default function ModalStickyDemo() {
           </Modal.Description>
         </Modal.Header>
         <Modal.Body>
-          <div className="prose dark:prose-invert prose-zinc">
+          <div className="prose prose-zinc dark:prose-invert">
             <p>
               Welcome to our Terms of Use. By accessing or using our services, you agree to be bound by these terms. If
               you do not agree to these terms, please refrain from using our services.

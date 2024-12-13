@@ -3,7 +3,7 @@
 import { motion } from "motion/react"
 import {
   ProgressBar as ProgressBarPrimitive,
-  type ProgressBarProps as ProgressBarPrimitiveProps
+  type ProgressBarProps as ProgressBarPrimitiveProps,
 } from "react-aria-components"
 
 import { Label } from "./field"
@@ -18,14 +18,14 @@ const ProgressBar = ({ label, className, ...props }: ProgressBarProps) => {
     <ProgressBarPrimitive {...props} className={composeTailwindRenderProps(className, "flex flex-col")}>
       {({ percentage, valueText, isIndeterminate }) => (
         <>
-          <div className="flex justify-between gap-2">
+          <div className="flex gap-2 justify-between">
             {label && <Label>{label}</Label>}
-            <span className="text-sm text-muted-fg tabular-nums">{valueText}</span>
+            <span className="text-sm tabular-nums text-muted-fg">{valueText}</span>
           </div>
-          <div className="relative h-2 min-w-64 overflow-hidden rounded-full bg-secondary outline outline-1 -outline-offset-1 outline-transparent">
+          <div className="overflow-hidden relative h-2 rounded-full -outline-offset-1 min-w-64 bg-secondary outline outline-1 outline-transparent">
             {!isIndeterminate ? (
               <motion.div
-                className="absolute left-0 top-0 h-full rounded-full bg-primary forced-colors:bg-[Highlight]"
+                className="absolute top-0 left-0 h-full rounded-full bg-primary forced-colors:bg-[Highlight]"
                 initial={{ width: "0%" }}
                 animate={{ width: `${percentage}%` }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
@@ -36,9 +36,9 @@ const ProgressBar = ({ label, className, ...props }: ProgressBarProps) => {
                 initial={{ left: "0%", width: "40%" }}
                 animate={{ left: ["0%", "100%", "0%"] }}
                 transition={{
-                  repeat: Infinity,
+                  repeat: Number.POSITIVE_INFINITY,
                   duration: 2,
-                  ease: "easeInOut"
+                  ease: "easeInOut",
                 }}
               />
             )}

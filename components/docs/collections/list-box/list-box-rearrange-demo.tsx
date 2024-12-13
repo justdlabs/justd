@@ -11,8 +11,8 @@ export default function ListBoxRearrangeDemo() {
       { id: "2", name: "Radiohead" },
       { id: "3", name: "Foo Fighters" },
       { id: "4", name: "Arctic Monkeys" },
-      { id: "5", name: "The Strokes" }
-    ]
+      { id: "5", name: "The Strokes" },
+    ],
   })
 
   const { dragAndDropHooks } = useDragAndDrop({
@@ -23,7 +23,7 @@ export default function ListBoxRearrangeDemo() {
       } else if (e.target.dropPosition === "after") {
         list.moveAfter(e.target.key, e.keys)
       }
-    }
+    },
   })
 
   return (

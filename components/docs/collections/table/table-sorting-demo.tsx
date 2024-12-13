@@ -14,12 +14,12 @@ interface Character {
 export default function TableSortingDemo() {
   const list = useAsyncList<Character>({
     async load({ signal }) {
-      const res = await fetch(`https://swapi.py4e.com/api/films`, {
-        signal
+      const res = await fetch("https://swapi.py4e.com/api/films", {
+        signal,
       })
       const json = await res.json()
       return {
-        items: json.results
+        items: json.results,
       }
     },
     async sort({ items, sortDescriptor }) {
@@ -29,14 +29,14 @@ export default function TableSortingDemo() {
           const first = a[sortDescriptor.column]
           // @ts-ignore
           const second = b[sortDescriptor.column]
-          let cmp = (parseInt(first) || first) < (parseInt(second) || second) ? -1 : 1
+          let cmp = (Number.parseInt(first) || first) < (Number.parseInt(second) || second) ? -1 : 1
           if (sortDescriptor.direction === "descending") {
             cmp *= -1
           }
           return cmp
-        })
+        }),
       }
-    }
+    },
   })
   return (
     <Card>

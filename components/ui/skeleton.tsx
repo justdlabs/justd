@@ -1,4 +1,4 @@
-import React from "react"
+import type React from "react"
 
 import { tv } from "tailwind-variants"
 
@@ -7,17 +7,17 @@ const skeletonStyles = tv({
   variants: {
     intent: {
       muted: "bg-fg/20",
-      lighter: "bg-fg/15"
+      lighter: "bg-fg/15",
     },
     shape: {
       circle: "rounded-full",
-      square: "rounded-lg"
-    }
+      square: "rounded-lg",
+    },
   },
   defaultVariants: {
     intent: "muted",
-    shape: "square"
-  }
+    shape: "square",
+  },
 })
 
 interface SkeletonProps extends React.HTMLAttributes<HTMLDivElement> {

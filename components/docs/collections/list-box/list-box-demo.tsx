@@ -15,5 +15,5 @@ const rockPopBands = [
   { id: "2", name: "Radiohead" },
   { id: "3", name: "Foo Fighters" },
   { id: "4", name: "Arctic Monkeys" },
-  { id: "5", name: "The Strokes" }
+  { id: "5", name: "The Strokes" },
 ]

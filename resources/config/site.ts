@@ -7,9 +7,9 @@ export const siteConfig = {
   links: {
     twitter: "https://x.com/intent/follow?screen_name=getjustd",
     github: "https://github.com/justdlabs",
-    personalSite: "https://irsyad.co"
+    personalSite: "https://irsyad.co",
   },
-  repo: "https://github.com/justdlabs/justd"
+  repo: "https://github.com/justdlabs/justd",
 }
 
 export type SiteConfig = typeof siteConfig

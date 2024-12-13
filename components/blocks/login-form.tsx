@@ -1,7 +1,5 @@
 "use client"
 
-import React from "react"
-
 import { Button, Card, Checkbox, Link, TextField } from "ui"
 
 export function LoginForm() {
@@ -11,7 +9,7 @@ export function LoginForm() {
         <Card.Title>Login</Card.Title>
         <Card.Description>Don't loose the level, just keep on going.</Card.Description>
       </Card.Header>
-      <div className="space-y-6 mb-6">
+      <div className="mb-6 space-y-6">
         <TextField isRequired type="email" label="Email" placeholder="Enter your email" />
         <TextField isRequired label="Password" isRevealable type="password" placeholder="Enter your password" />
         <div className="flex justify-between items-center">

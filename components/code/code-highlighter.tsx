@@ -43,8 +43,8 @@ export const CodeHighlighter = ({
             theme: "vesper",
             defaultLang: {
               block: lang,
-              inline: "plaintext"
-            }
+              inline: "plaintext",
+            },
           })
           .use(rehypeStringify, { allowDangerousHtml: true })
           .process(`\`\`\`${lang}\n${code}\n\`\`\``)
@@ -68,11 +68,11 @@ export const CodeHighlighter = ({
     <div
       {...props}
       className={cn(
-        "not-prose overflow-auto text-sm font-mono",
+        "not-prose overflow-auto font-mono text-sm",
         max96 && "max-h-96",
-        !plain && "p-4 inset-ring-1 rounded-lg inset-ring-zinc-800 bg-shiki-bg",
+        !plain && "inset-ring-1 inset-ring-zinc-800 rounded-lg bg-shiki-bg p-4",
         removeLastLine && "**:data-rehype-pretty-code-figure:*:[pre]:*:[code]:*:data-line:last:hidden",
-        className
+        className,
       )}
       dangerouslySetInnerHTML={{ __html: formattedCode }}
     />

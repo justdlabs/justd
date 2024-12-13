@@ -1,7 +1,5 @@
 "use client"
 
-import React from "react"
-
 import { Button, Menu } from "ui"
 
 export default function MenuCollectionDemo() {
@@ -18,42 +16,42 @@ export default function MenuCollectionDemo() {
 const categories = [
   {
     name: "Technology",
-    slug: "technology"
+    slug: "technology",
   },
   {
     name: "Health",
-    slug: "health"
+    slug: "health",
   },
   {
     name: "Business",
-    slug: "business"
+    slug: "business",
   },
   {
     name: "Travel",
-    slug: "travel"
+    slug: "travel",
   },
   {
     name: "Education",
-    slug: "education"
+    slug: "education",
   },
   {
     name: "Entertainment",
-    slug: "entertainment"
+    slug: "entertainment",
   },
   {
     name: "Sports",
-    slug: "sports"
+    slug: "sports",
   },
   {
     name: "Fashion",
-    slug: "fashion"
+    slug: "fashion",
   },
   {
     name: "Food",
-    slug: "food"
+    slug: "food",
   },
   {
     name: "Science",
-    slug: "science"
-  }
+    slug: "science",
+  },
 ]

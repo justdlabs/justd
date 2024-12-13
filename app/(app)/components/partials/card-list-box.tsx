@@ -1,11 +1,9 @@
 "use client"
 
-import React from "react"
-
-import { docs } from "#site/content"
 import { goodTitle } from "@/resources/lib/utils"
 import Link from "next/link"
 import { Description, Grid, Heading } from "ui"
+import { docs } from "#site/content"
 
 type GroupedComponents = {
   [category: string]: {
@@ -30,7 +28,7 @@ const groupByCategory = (data: any[]): GroupedComponents => {
         title: item.title,
         order: item.order,
         description: item.description,
-        published: item.published
+        published: item.published,
       })
     }
     return acc
@@ -44,7 +42,7 @@ export function CardListBox() {
     <div className="space-y-10 w-full">
       {Object.entries(groupedComponents).map(([category, components]) => (
         <div key={category}>
-          <Heading tracking="tight" level={2} id={category} className="mb-4 scroll-mt-28 font-medium text-fg">
+          <Heading tracking="tight" level={2} id={category} className="mb-4 font-medium scroll-mt-28 text-fg">
             {goodTitle(category)}
           </Heading>
           <Grid
@@ -52,7 +50,7 @@ export function CardListBox() {
             gap={2}
             columns={{
               initial: 1,
-              sm: 3
+              sm: 3,
             }}
           >
             <Grid.Collection items={components}>
@@ -60,7 +58,7 @@ export function CardListBox() {
                 <Link
                   id={component.slug}
                   href={component.slug}
-                  className="bg-muted/30 p-1 rounded-lg inset-ring-1 inset-ring-border"
+                  className="p-1 rounded-lg inset-ring-1 inset-ring-border bg-muted/30"
                   aria-label={component.title}
                 >
                   <div className="flex-1">

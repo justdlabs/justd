@@ -7,13 +7,13 @@ import { Card, Table } from "ui"
 
 export default function TableDragDemo() {
   const list = useListData({
-    initialItems: movies
+    initialItems: movies,
   })
 
   const { dragAndDropHooks } = useDragAndDrop({
     getItems: (keys) =>
       [...keys].map((key) => ({
-        "text/plain": list.getItem(key)?.name ?? ""
+        "text/plain": list.getItem(key)?.name ?? "",
       })),
     onReorder(e) {
       if (e.target.dropPosition === "before") {
@@ -21,7 +21,7 @@ export default function TableDragDemo() {
       } else if (e.target.dropPosition === "after") {
         list.moveAfter(e.target.key, e.keys)
       }
-    }
+    },
   })
   return (
     <Card>
@@ -41,8 +41,8 @@ export default function TableDragDemo() {
               <Table.Cell>{item.genre}</Table.Cell>
               <Table.Cell>{item.releaseYear}</Table.Cell>
               <Table.Cell>
-                <div className="flex items-center gap-x-2">
-                  <IconStarFill className="text-warning size-3.5" /> <span>{item.rating}</span>
+                <div className="flex gap-x-2 items-center">
+                  <IconStarFill className="size-3.5 text-warning" /> <span>{item.rating}</span>
                 </div>
               </Table.Cell>
             </Table.Row>
@@ -60,7 +60,7 @@ const movies = [
     genre: "Sci-Fi",
     releaseYear: 1999,
     director: "Wachowskis",
-    rating: 8.7
+    rating: 8.7,
   },
   {
     id: "2",
@@ -68,7 +68,7 @@ const movies = [
     genre: "Sci-Fi",
     releaseYear: 2010,
     director: "Christopher Nolan",
-    rating: 8.8
+    rating: 8.8,
   },
   {
     id: "3",
@@ -76,7 +76,7 @@ const movies = [
     genre: "Crime",
     releaseYear: 1972,
     director: "Francis Ford Coppola",
-    rating: 9.2
+    rating: 9.2,
   },
   {
     id: "4",
@@ -84,7 +84,7 @@ const movies = [
     genre: "Crime",
     releaseYear: 1994,
     director: "Quentin Tarantino",
-    rating: 8.9
+    rating: 8.9,
   },
   {
     id: "5",
@@ -92,7 +92,7 @@ const movies = [
     genre: "Action",
     releaseYear: 2008,
     director: "Christopher Nolan",
-    rating: 9.0
+    rating: 9.0,
   },
   {
     id: "6",
@@ -100,7 +100,7 @@ const movies = [
     genre: "Drama",
     releaseYear: 1999,
     director: "David Fincher",
-    rating: 8.8
+    rating: 8.8,
   },
   {
     id: "7",
@@ -108,6 +108,6 @@ const movies = [
     genre: "Drama",
     releaseYear: 1994,
     director: "Robert Zemeckis",
-    rating: 8.8
-  }
+    rating: 8.8,
+  },
 ]

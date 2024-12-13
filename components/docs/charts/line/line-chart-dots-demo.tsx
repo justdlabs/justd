@@ -15,18 +15,18 @@ const chartData = [
   { month: "Sep", revenue: 260, profit: 180 },
   { month: "Oct", revenue: 275, profit: 190 },
   { month: "Nov", revenue: 290, profit: 200 },
-  { month: "Dec", revenue: 300, profit: 220 }
+  { month: "Dec", revenue: 300, profit: 220 },
 ]
 
 const chartConfig = {
   revenue: {
     label: "Revenue",
-    color: "var(--chart-1)"
+    color: "var(--chart-1)",
   },
   profit: {
     label: "Profit",
-    color: "var(--chart-2)"
-  }
+    color: "var(--chart-2)",
+  },
 } satisfies ChartConfig
 
 export default function LineChartDotsDemo() {
@@ -40,7 +40,7 @@ export default function LineChartDotsDemo() {
             data={chartData}
             margin={{
               left: 12,
-              right: 12
+              right: 12,
             }}
           >
             <CartesianGrid vertical={false} />
@@ -52,10 +52,10 @@ export default function LineChartDotsDemo() {
               stroke="var(--color-revenue)"
               strokeWidth={2}
               dot={{
-                fill: "var(--color-revenue)"
+                fill: "var(--color-revenue)",
               }}
               activeDot={{
-                r: 6
+                r: 6,
               }}
             />
           </LineChart>

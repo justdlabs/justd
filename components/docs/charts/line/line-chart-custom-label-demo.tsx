@@ -8,34 +8,34 @@ const chartData = [
   { platform: "TikTok", users: 200, fill: "var(--color-tiktok)" },
   { platform: "Twitter", users: 187, fill: "var(--color-twitter)" },
   { platform: "LinkedIn", users: 173, fill: "var(--color-linkedin)" },
-  { platform: "Other", users: 90, fill: "var(--color-other)" }
+  { platform: "Other", users: 90, fill: "var(--color-other)" },
 ]
 
 const chartConfig = {
   users: {
     label: "Users",
-    color: "var(--chart-2)"
+    color: "var(--chart-2)",
   },
   Instagram: {
     label: "Instagram",
-    color: "var(--chart-1)"
+    color: "var(--chart-1)",
   },
   TikTok: {
     label: "TikTok",
-    color: "var(--chart-2)"
+    color: "var(--chart-2)",
   },
   Twitter: {
     label: "Twitter",
-    color: "var(--chart-3)"
+    color: "var(--chart-3)",
   },
   LinkedIn: {
     label: "LinkedIn",
-    color: "var(--chart-4)"
+    color: "var(--chart-4)",
   },
   Other: {
     label: "Other",
-    color: "var(--chart-5)"
-  }
+    color: "var(--chart-5)",
+  },
 } satisfies ChartConfig
 
 export default function LineChartCustomLabelDemo() {
@@ -50,7 +50,7 @@ export default function LineChartCustomLabelDemo() {
             margin={{
               top: 24,
               left: 24,
-              right: 24
+              right: 24,
             }}
           >
             <CartesianGrid vertical={false} />
@@ -61,10 +61,10 @@ export default function LineChartCustomLabelDemo() {
               stroke="var(--color-users)"
               strokeWidth={2}
               dot={{
-                fill: "var(--color-users)"
+                fill: "var(--color-users)",
               }}
               activeDot={{
-                r: 6
+                r: 6,
               }}
             >
               <LabelList

@@ -15,14 +15,14 @@ const chartData = [
   { month: "Sep", revenue: 280 },
   { month: "Oct", revenue: 350 },
   { month: "Nov", revenue: 400 },
-  { month: "Dec", revenue: 450 }
+  { month: "Dec", revenue: 450 },
 ]
 
 const chartConfig = {
   revenue: {
     label: "Revenue",
-    color: "var(--chart-1)"
-  }
+    color: "var(--chart-1)",
+  },
 } satisfies ChartConfig
 
 export default function LineChartLinearDemo() {
@@ -36,7 +36,7 @@ export default function LineChartLinearDemo() {
             data={chartData}
             margin={{
               left: 12,
-              right: 12
+              right: 12,
             }}
           >
             <CartesianGrid vertical={false} />

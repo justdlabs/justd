@@ -45,12 +45,12 @@ const files: FileNode[] = [
                 title: "Q1 Report",
                 children: [
                   { id: 5, title: "Summary", children: [] },
-                  { id: 6, title: "Details", children: [] }
-                ]
-              }
-            ]
-          }
-        ]
+                  { id: 6, title: "Details", children: [] },
+                ],
+              },
+            ],
+          },
+        ],
       },
       {
         id: 7,
@@ -65,19 +65,19 @@ const files: FileNode[] = [
                 title: "Project A",
                 children: [
                   { id: 10, title: "Draft", children: [] },
-                  { id: 11, title: "Final", children: [] }
-                ]
+                  { id: 11, title: "Final", children: [] },
+                ],
               },
               {
                 id: 12,
                 title: "Project B",
-                children: [{ id: 13, title: "Research", children: [] }]
-              }
-            ]
-          }
-        ]
-      }
-    ]
+                children: [{ id: 13, title: "Research", children: [] }],
+              },
+            ],
+          },
+        ],
+      },
+    ],
   },
   {
     id: 14,
@@ -92,17 +92,17 @@ const files: FileNode[] = [
             title: "Photography",
             children: [
               { id: 17, title: "Travel", children: [] },
-              { id: 18, title: "Portraits", children: [] }
-            ]
+              { id: 18, title: "Portraits", children: [] },
+            ],
           },
           {
             id: 19,
             title: "Cooking",
-            children: [{ id: 20, title: "Recipes", children: [] }]
-          }
-        ]
-      }
-    ]
+            children: [{ id: 20, title: "Recipes", children: [] }],
+          },
+        ],
+      },
+    ],
   },
   {
     id: 21,
@@ -117,18 +117,18 @@ const files: FileNode[] = [
             title: "Portfolio",
             children: [
               { id: 24, title: "Images", children: [] },
-              { id: 25, title: "CSS", children: [] }
-            ]
+              { id: 25, title: "CSS", children: [] },
+            ],
           },
-          { id: 26, title: "Landing Page", children: [] }
-        ]
+          { id: 26, title: "Landing Page", children: [] },
+        ],
       },
       {
         id: 27,
         title: "Mobile Apps",
-        children: [{ id: 28, title: "Weather App", children: [] }]
-      }
-    ]
+        children: [{ id: 28, title: "Weather App", children: [] }],
+      },
+    ],
   },
   {
     id: 29,
@@ -143,12 +143,12 @@ const files: FileNode[] = [
             title: "2023",
             children: [
               { id: 32, title: "January", children: [] },
-              { id: 33, title: "February", children: [] }
-            ]
-          }
-        ]
-      }
-    ]
+              { id: 33, title: "February", children: [] },
+            ],
+          },
+        ],
+      },
+    ],
   },
   {
     id: 34,
@@ -159,10 +159,10 @@ const files: FileNode[] = [
         title: "Fitness",
         children: [
           { id: 36, title: "Workouts", children: [] },
-          { id: 37, title: "Nutrition", children: [] }
-        ]
+          { id: 37, title: "Nutrition", children: [] },
+        ],
       },
-      { id: 38, title: "Wellness", children: [] }
-    ]
-  }
+      { id: 38, title: "Wellness", children: [] },
+    ],
+  },
 ]

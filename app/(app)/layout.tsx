@@ -1,4 +1,4 @@
-import React from "react"
+import type React from "react"
 
 import { Footer } from "@/components/footer"
 import { Navbar } from "@/components/navbar"
@@ -6,7 +6,7 @@ import { Toast } from "ui"
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="relative flex min-h-dvh flex-col bg-bg">
+    <div className="flex relative flex-col min-h-dvh bg-bg">
       <Navbar />
       <main className="flex-1">{children}</main>
 

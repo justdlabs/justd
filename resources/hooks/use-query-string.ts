@@ -11,7 +11,7 @@ export function useQueryString() {
       params.set(name, value)
       return params.toString()
     },
-    [searchParams]
+    [searchParams],
   )
 
   return { createQueryString }

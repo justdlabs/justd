@@ -11,7 +11,7 @@ const revenueData = Array.from({ length: 24 }, (_, index) => {
   return {
     month,
     ecommerce: Math.floor(Math.random() * 5000 + 10000),
-    retail: Math.floor(Math.random() * 3000 + 7000)
+    retail: Math.floor(Math.random() * 3000 + 7000),
   }
 })
 
@@ -19,13 +19,13 @@ const revenueConfig = {
   ecommerce: {
     label: "E-Commerce",
     color: "var(--chart-1)",
-    icon: IconShoppingBag
+    icon: IconShoppingBag,
   },
   retail: {
     label: "Retail",
     color: "var(--chart-2)",
-    icon: IconStore
-  }
+    icon: IconStore,
+  },
 } satisfies ChartConfig
 
 export default function AreaChartIconDemo() {
@@ -43,7 +43,7 @@ export default function AreaChartIconDemo() {
             data={revenueData}
             margin={{
               left: 12,
-              right: 12
+              right: 12,
             }}
           >
             <CartesianGrid vertical={false} />

@@ -7,7 +7,7 @@ const carModels = [
   { id: "2", name: "Ford Mustang", available: false },
   { id: "3", name: "Chevrolet Camaro", available: true },
   { id: "4", name: "BMW M3", available: false },
-  { id: "5", name: "Audi R8", available: true }
+  { id: "5", name: "Audi R8", available: true },
 ]
 
 export default function TagGroupShapeDemo() {

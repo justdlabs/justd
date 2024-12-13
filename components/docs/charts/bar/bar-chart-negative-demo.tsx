@@ -15,13 +15,13 @@ const chartData = [
   { month: "Sep", profitLoss: -1400 },
   { month: "Oct", profitLoss: -1800 },
   { month: "Nov", profitLoss: 2100 },
-  { month: "Dec", profitLoss: 1600 }
+  { month: "Dec", profitLoss: 1600 },
 ]
 
 const chartConfig = {
   profitLoss: {
-    label: "Profit/Loss"
-  }
+    label: "Profit/Loss",
+  },
 } satisfies ChartConfig
 
 export default function BarChartNegativeDemo() {

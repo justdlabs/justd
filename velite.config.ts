@@ -9,7 +9,7 @@ import { defineCollection, defineConfig, s } from "velite"
 
 const computedFields = <T extends { slug: string }>(data: T) => ({
   ...data,
-  slugAsParams: data.slug.split("/").slice(1).join("/")
+  slugAsParams: data.slug.split("/").slice(1).join("/"),
 })
 
 const docs = defineCollection({
@@ -25,9 +25,9 @@ const docs = defineCollection({
       references: s.array(s.string()).optional(),
       body: s.mdx(),
       toc: s.toc(),
-      status: s.string().optional()
+      status: s.string().optional(),
     })
-    .transform(computedFields)
+    .transform(computedFields),
 })
 
 export default defineConfig({
@@ -37,7 +37,7 @@ export default defineConfig({
     assets: "public/static",
     base: "/static/",
     name: "[name]-[hash:6].[ext]",
-    clean: true
+    clean: true,
   },
   collections: { docs },
   mdx: {
@@ -52,9 +52,9 @@ export default defineConfig({
           theme: "vesper",
           defaultLang: {
             block: "tsx",
-            inline: "plaintext"
-          }
-        }
+            inline: "plaintext",
+          },
+        },
       ],
       [
         rehypeAutolinkHeadings,
@@ -62,11 +62,11 @@ export default defineConfig({
           behavior: "wrap",
           properties: {
             className: ["not-prose subheading-anchor"],
-            ariaLabel: "Link to section"
-          }
-        }
-      ]
+            ariaLabel: "Link to section",
+          },
+        },
+      ],
     ],
-    remarkPlugins: [remarkParse, remarkRehype]
-  }
+    remarkPlugins: [remarkParse, remarkRehype],
+  },
 })

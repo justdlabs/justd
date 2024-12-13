@@ -1,4 +1,4 @@
-import { type Docs } from "@/.velite"
+import type { Docs } from "@/.velite"
 import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
 import title from "title"
@@ -24,8 +24,9 @@ export function getSiteName(url: string): string {
 }
 
 export function extractJSX(code: string) {
+  // biome-ignore lint/correctness/noEmptyCharacterClassInRegex: <explanation>
   const match = code.match(/return\s*(\([^]*?\)|.*?);?\s*}/)
-  if (match && match[1]) {
+  if (match?.[1]) {
     const jsx = match[1].replace(/^\(|\)$/g, "").trim()
     const lines = jsx.split("\n")
 

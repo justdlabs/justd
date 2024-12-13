@@ -1,7 +1,7 @@
 "use client"
 
 import { getSiteName } from "@/resources/lib/utils"
-import { Collection, ListBox as Primitive, ListBoxItem, ListBoxSection, Text } from "react-aria-components"
+import { Collection, ListBoxItem, ListBoxSection, ListBox as Primitive, Text } from "react-aria-components"
 import { Avatar } from "ui"
 
 interface Props {
@@ -14,14 +14,14 @@ interface Props {
 export function ListSites({ sites }: Props) {
   return (
     <Primitive aria-label="Showcase">
-      <ListBoxSection className="grid lg:grid-cols-4 sm:grid-cols-2 gap-4 lg:gap-6">
+      <ListBoxSection className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
         <Collection items={sites}>
           {(item) => {
             return (
               <ListBoxItem
                 rel="nofollow"
                 target="_blank"
-                className="flex items-center data-focused:outline-hidden data-focus-visible:ring-1 data-focus-visible:ring-ring gap-x-3 bg-secondary/70 data-hovered:bg-secondary transition ring-1 ring-border rounded-lg px-3 py-2.5"
+                className="flex gap-x-3 items-center py-2.5 px-3 rounded-lg ring-1 transition bg-secondary/70 ring-border data-hovered:bg-secondary data-focused:outline-hidden data-focus-visible:ring-1 data-focus-visible:ring-ring"
                 textValue={item.name}
                 href={`${item.url}?ref=getjustd.com/showcase`}
                 id={getSiteName(item.url)}
@@ -36,7 +36,7 @@ export function ListSites({ sites }: Props) {
                   <Text slot="label" className="font-medium sm:text-sm">
                     {item.name}
                   </Text>
-                  <Text slot="description" className="text-muted-fg text-xs">
+                  <Text slot="description" className="text-xs text-muted-fg">
                     {item.url}
                   </Text>
                 </div>

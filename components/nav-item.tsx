@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react"
+import type React from "react"
 
 import { motion } from "motion/react"
 import NextLink from "next/link"
@@ -12,9 +12,9 @@ const navLinkStyles = tv({
   variants: {
     isActive: {
       false: "text-muted-fg hover:text-fg forced-colors:text-[Gray]",
-      true: "text-fg forced-colors:text-[WindowText]"
-    }
-  }
+      true: "text-fg forced-colors:text-[WindowText]",
+    },
+  },
 })
 
 interface NavLinkProps {
@@ -35,7 +35,7 @@ const NavLink = ({ href, isActive, className, isNextLink, ...props }: NavLinkPro
         {isActive && (
           <motion.span
             layoutId="current-indicator-navlink"
-            className="absolute inset-x-0 bottom-[-0.550rem] h-0.5 w-full rounded bg-fg"
+            className="absolute inset-x-0 w-full h-0.5 rounded bottom-[-0.550rem] bg-fg"
           />
         )}
       </>

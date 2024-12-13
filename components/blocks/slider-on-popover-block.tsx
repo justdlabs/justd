@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import { useState } from "react"
 
 import { IconAdjustment } from "justd-icons"
 import { Button, Description, Popover, Separator, Slider } from "ui"

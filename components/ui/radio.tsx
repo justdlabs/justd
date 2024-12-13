@@ -3,9 +3,9 @@
 import type {
   RadioGroupProps as RadioGroupPrimitiveProps,
   RadioProps as RadioPrimitiveProps,
-  ValidationResult
+  ValidationResult,
 } from "react-aria-components"
-import { Radio as RadioPrimitive, RadioGroup as RadioGroupPrimitive } from "react-aria-components"
+import { RadioGroup as RadioGroupPrimitive, Radio as RadioPrimitive } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
 import { Description, FieldError, Label } from "./field"
@@ -25,7 +25,7 @@ const RadioGroup = ({ label, description, errorMessage, children, ...props }: Ra
       className={composeTailwindRenderProps(props.className, "group flex flex-col gap-2")}
     >
       {label && <Label>{label}</Label>}
-      <div className="flex select-none gap-2 group-data-[orientation=horizontal]:flex-wrap group-data-[orientation=horizontal]:gap-2 sm:group-data-[orientation=horizontal]:gap-4 group-data-[orientation=vertical]:flex-col">
+      <div className="flex select-none gap-2 group-data-[orientation=vertical]:flex-col group-data-[orientation=horizontal]:flex-wrap group-data-[orientation=horizontal]:gap-2 sm:group-data-[orientation=horizontal]:gap-4">
         {children}
       </div>
       {description && <Description>{description}</Description>}
@@ -39,21 +39,21 @@ const radioStyles = tv({
   variants: {
     isSelected: {
       false: "border-input",
-      true: "border-[4.5px] border-primary"
+      true: "border-[4.5px] border-primary",
     },
     isFocused: {
       true: [
         "border-ring bg-primary/20 ring-4 ring-primary/20",
-        "group-data-invalid:border-danger/70 group-data-invalid:bg-danger/20 group-data-invalid:ring-danger/20"
-      ]
+        "group-data-invalid:border-danger/70 group-data-invalid:bg-danger/20 group-data-invalid:ring-danger/20",
+      ],
     },
     isInvalid: {
-      true: "border-danger/70 bg-danger/20"
+      true: "border-danger/70 bg-danger/20",
     },
     isDisabled: {
-      true: "opacity-50"
-    }
-  }
+      true: "opacity-50",
+    },
+  },
 })
 
 interface RadioProps extends RadioPrimitiveProps {
@@ -67,7 +67,7 @@ const Radio = ({ description, ...props }: RadioProps) => {
         {...props}
         className={composeTailwindRenderProps(
           props.className,
-          "group flex items-center gap-2 text-sm text-fg transition disabled:text-fg/50 forced-colors:data-disabled:text-[GrayText]"
+          "group flex items-center gap-2 text-fg text-sm transition disabled:text-fg/50 forced-colors:data-disabled:text-[GrayText]",
         )}
       >
         {(renderProps) => (
@@ -75,7 +75,7 @@ const Radio = ({ description, ...props }: RadioProps) => {
             <div
               className={radioStyles({
                 ...renderProps,
-                className: "description" in props ? "mt-1" : "mt-0.5"
+                className: "description" in props ? "mt-1" : "mt-0.5",
               })}
             />
             <div className="flex flex-col gap-1">

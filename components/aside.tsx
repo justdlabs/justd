@@ -22,7 +22,7 @@ export function Aside() {
       {sidebar.map((item: SidebarItem) => (
         <div key={item.slug || item.title}>
           {item.children && item.children.length > 0 && item.title !== "Components" && (
-            <Heading className="text-base mb-2 font-medium sm:text-sm flex items-center gap-x-2" level={3}>
+            <Heading className="flex gap-x-2 items-center mb-2 text-base font-medium sm:text-sm" level={3}>
               {item.title}
             </Heading>
           )}
@@ -32,7 +32,7 @@ export function Aside() {
               {item.children.map((child: SidebarItem) => (
                 <div key={child.slug || child.title}>
                   {child.children && child.children.length > 0 ? (
-                    <Heading className="text-base mb-2 font-medium sm:text-sm" level={4}>
+                    <Heading className="mb-2 text-base font-medium sm:text-sm" level={4}>
                       {child.title}
                     </Heading>
                   ) : (
@@ -92,14 +92,14 @@ function AsideLink({ href, ...props }: AsideLinkProps) {
       href={href}
       ref={ref}
       className={twMerge(
-        "text-muted-fg py-1.5 px-3 mb-0.5 -ml-3 rounded-lg text-base sm:text-sm flex justify-between items-center",
+        "-ml-3 mb-0.5 flex items-center justify-between rounded-lg px-3 py-1.5 text-base text-muted-fg sm:text-sm",
         "data-focused:outline-hidden",
         "data-hovered:bg-muted data-hovered:text-secondary-fg",
         isActive && [
           "font-medium",
-          "bg-blue-100 data-hovered:bg-blue-100 data-hovered:text-blue-600 text-blue-600",
-          "dark:bg-blue-400/10 dark:data-hovered:bg-blue-400/10 dark:data-hovered:text-blue-400 dark:text-blue-400"
-        ]
+          "bg-blue-100 text-blue-600 data-hovered:bg-blue-100 data-hovered:text-blue-600",
+          "dark:bg-blue-400/10 dark:text-blue-400 dark:data-hovered:bg-blue-400/10 dark:data-hovered:text-blue-400",
+        ],
       )}
     />
   )

@@ -1,7 +1,5 @@
 "use client"
 
-import React from "react"
-
 import { IconHashtag, IconHeadphones, IconLogout, IconPlus, IconSettings } from "justd-icons"
 import { Avatar, Menu } from "ui"
 

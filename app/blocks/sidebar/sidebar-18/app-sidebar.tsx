@@ -11,7 +11,7 @@ import {
   SidebarDisclosureTrigger,
   SidebarItem,
   SidebarLabel,
-  SidebarRail
+  SidebarRail,
 } from "ui"
 
 import { folders } from "./folders"
@@ -41,7 +41,7 @@ function SidebarTree({ item, index }: { item: (typeof folders)[number]; index: n
         className="pl-[calc(var(--nested-level)*16px)]"
         style={
           {
-            "--nested-level": index
+            "--nested-level": index,
           } as React.CSSProperties
         }
       >
@@ -60,7 +60,7 @@ function SidebarTree({ item, index }: { item: (typeof folders)[number]; index: n
               className="pl-[calc(var(--nested-level)*16px)]"
               style={
                 {
-                  "--nested-level": index
+                  "--nested-level": index,
                 } as React.CSSProperties
               }
             >

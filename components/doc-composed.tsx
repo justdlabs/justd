@@ -1,8 +1,8 @@
 "use client"
 
-import { docs } from "#site/content"
 import { usePathname } from "next/navigation"
 import { Card, Grid, Link } from "ui"
+import { docs } from "#site/content"
 
 const simplifiedDocs = docs.map(({ title, slug, description }) => ({ title, slug, description }))
 
@@ -32,11 +32,11 @@ export function DocComposed({ components, text }: { components: string[]; text?:
       <Grid
         gap={{
           initial: 2,
-          sm: 4
+          sm: 4,
         }}
         columns={{
           initial: filteredComponents.length === 1 ? 1 : 2,
-          sm: 2
+          sm: 2,
         }}
       >
         <Grid.Collection items={filteredComponents}>
@@ -46,12 +46,12 @@ export function DocComposed({ components, text }: { components: string[]; text?:
                 aria-label={`Open ${item.title}`}
                 rel="noopener noreferrer"
                 href={`/${item.slug}`}
-                className="absolute inset-0 peer rounded-lg size-full"
+                className="absolute inset-0 rounded-lg peer size-full"
               />
-              <Card className="overflow-hidden peer-data-hovered:bg-secondary/40 peer-data-focused:bg-secondary/40 transition-colors">
+              <Card className="overflow-hidden transition-colors peer-data-focused:bg-secondary/40 peer-data-hovered:bg-secondary/40">
                 <Card.Header className="p-4">
-                  <Card.Title className="sm:text-lg text-base line-clamp-1 font-medium">{item.title}</Card.Title>
-                  <Card.Description className="line-clamp-2 sm:text-sm text-xs">{item.description}</Card.Description>
+                  <Card.Title className="text-base font-medium sm:text-lg line-clamp-1">{item.title}</Card.Title>
+                  <Card.Description className="text-xs sm:text-sm line-clamp-2">{item.description}</Card.Description>
                 </Card.Header>
               </Card>
             </Grid.Item>

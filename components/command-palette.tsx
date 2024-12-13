@@ -4,7 +4,7 @@ import React, { useState } from "react"
 
 import sidebar from "@/resources/lib/sidebar.json"
 import { useCommandState } from "cmdk"
-import { IconBrandJustd, IconColors, IconColorSwatch, IconCube, IconHashtag, IconHome, IconNotes } from "justd-icons"
+import { IconBrandJustd, IconColorSwatch, IconColors, IconCube, IconHashtag, IconHome, IconNotes } from "justd-icons"
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
 import { CommandMenu, useMediaQuery } from "ui"
@@ -30,6 +30,8 @@ interface SidebarItem {
 export function CommandPalette({ openCmd, setOpen }: OpenCloseProps) {
   const router = useRouter()
   const pathname = usePathname()
+
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
       if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
@@ -44,6 +46,7 @@ export function CommandPalette({ openCmd, setOpen }: OpenCloseProps) {
     return () => document.removeEventListener("keydown", down)
   }, [pathname, setOpen])
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   React.useEffect(() => {
     if (setOpen) {
       setOpen(false)
@@ -70,7 +73,7 @@ export function CommandPalette({ openCmd, setOpen }: OpenCloseProps) {
             ?.filter(
               (t, index, self) =>
                 t.title.toLowerCase().includes(query.toLowerCase()) &&
-                self.findIndex((tt) => tt.title === t.title) === index
+                self.findIndex((tt) => tt.title === t.title) === index,
             )
             ?.slice(0, 5) || []
 
@@ -80,7 +83,7 @@ export function CommandPalette({ openCmd, setOpen }: OpenCloseProps) {
           return {
             ...item,
             children: matchesTitle ? item.children : filteredChildren,
-            toc: filteredToc
+            toc: filteredToc,
           }
         }
 
@@ -89,6 +92,7 @@ export function CommandPalette({ openCmd, setOpen }: OpenCloseProps) {
       .filter(Boolean) as SidebarItem[]
   }
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   const filteredItems = React.useMemo(() => {
     if (!debouncedSearch) return []
 
@@ -100,11 +104,11 @@ export function CommandPalette({ openCmd, setOpen }: OpenCloseProps) {
       setLoading(true)
       const timeout = setTimeout(() => setLoading(false), 100)
       return () => clearTimeout(timeout)
-    } else {
-      setLoading(false)
     }
+    setLoading(false)
   }, [debouncedSearch])
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   React.useEffect(() => {
     setSearch("")
   }, [pathname])
@@ -151,36 +155,33 @@ export function CommandPalette({ openCmd, setOpen }: OpenCloseProps) {
             </Link>
           </CommandMenu.Item>
         </CommandMenu.Section>
-        {debouncedSearch && (
-          <>
-            {filteredItems.map((item, i) => (
-              <CommandMenu.Section key={`${item.slug}-${i}-${item.title}`} heading={item.title}>
-                {item.children?.map((child) => (
-                  <React.Fragment key={`${item.slug}-${item.title}-${child.slug}-${child.title}`}>
+        {debouncedSearch &&
+          filteredItems.map((item, i) => (
+            <CommandMenu.Section key={`${item.slug}-${i}-${item.title}`} heading={item.title}>
+              {item.children?.map((child) => (
+                <React.Fragment key={`${item.slug}-${item.title}-${child.slug}-${child.title}`}>
+                  <SubItem
+                    value={`${item.title} ${child.title} ${item.slug} ${child.slug}`}
+                    onSelect={() => router.push(`/${child.slug}`)}
+                  >
+                    <IconCube />
+                    {child.title}
+                  </SubItem>
+                  {child.toc?.map((tocItem) => (
                     <SubItem
-                      value={`${item.title} ${child.title} ${item.slug} ${child.slug}`}
-                      onSelect={() => router.push(`/${child.slug}`)}
+                      key={`toc-${child.slug || child.title}-${tocItem.url}`}
+                      value={`toc-${child.title} ${child.slug} ${tocItem.title} ${tocItem.url}`}
+                      onSelect={() => router.push(`/${child.slug}${tocItem.url}`)}
                     >
-                      <IconCube />
-                      {child.title}
+                      <IconHashtag />
+                      {tocItem.title}
+                      <CommandMenu.Description>{child.title}</CommandMenu.Description>
                     </SubItem>
-                    {child.toc?.map((tocItem) => (
-                      <SubItem
-                        key={`toc-${child.slug || child.title}-${tocItem.url}`}
-                        value={`toc-${child.title} ${child.slug} ${tocItem.title} ${tocItem.url}`}
-                        onSelect={() => router.push(`/${child.slug}${tocItem.url}`)}
-                      >
-                        <IconHashtag />
-                        {tocItem.title}
-                        <CommandMenu.Description>{child.title}</CommandMenu.Description>
-                      </SubItem>
-                    ))}
-                  </React.Fragment>
-                ))}
-              </CommandMenu.Section>
-            ))}
-          </>
-        )}
+                  ))}
+                </React.Fragment>
+              ))}
+            </CommandMenu.Section>
+          ))}
       </CommandMenu.List>
     </CommandMenu>
   )

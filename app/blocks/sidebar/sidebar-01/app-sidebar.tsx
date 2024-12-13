@@ -27,7 +27,7 @@ import {
   IconShield,
   IconShoppingBag,
   IconSupport,
-  IconTicket
+  IconTicket,
 } from "justd-icons"
 import {
   Avatar,
@@ -46,7 +46,7 @@ import {
   SidebarLink,
   SidebarRail,
   SidebarSection,
-  SidebarSectionGroup
+  SidebarSectionGroup,
 } from "ui"
 
 export default function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
@@ -54,7 +54,7 @@ export default function AppSidebar(props: React.ComponentProps<typeof Sidebar>) 
     <Sidebar {...props}>
       <SidebarHeader>
         <Link
-          className="flex items-center group-data-[collapsible=dock]:size-10 group-data-[collapsible=dock]:justify-center gap-x-2"
+          className="flex items-center gap-x-2 group-data-[collapsible=dock]:size-10 group-data-[collapsible=dock]:justify-center"
           href="/docs/components/layouts/sidebar"
         >
           <IconBrandApple className="size-5" />
@@ -212,7 +212,7 @@ export default function AppSidebar(props: React.ComponentProps<typeof Sidebar>) 
             </div>
             <IconChevronLgDown
               data-slot="chevron"
-              className="right-3 size-4 absolute group-pressed:rotate-180 transition-transform"
+              className="absolute right-3 transition-transform size-4 group-pressed:rotate-180"
             />
           </Menu.Trigger>
           <Menu.Content placement="bottom right" className="sm:min-w-(--trigger-width)">

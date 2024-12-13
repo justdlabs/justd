@@ -18,13 +18,13 @@ import {
   IconHome,
   IconMoon,
   IconSearch,
-  IconSun
+  IconSun,
 } from "justd-icons"
 import { LayoutGroup } from "motion/react"
 import { useTheme } from "next-themes"
 import { usePathname } from "next/navigation"
 import { Collection } from "react-aria-components"
-import { Button, buttonStyles, Link, Menu, Separator, useMediaQuery } from "ui"
+import { Button, Link, Menu, Separator, buttonStyles, useMediaQuery } from "ui"
 
 import { CommandPalette } from "./command-palette"
 import { NavLink } from "./nav-item"
@@ -33,7 +33,7 @@ import { ThemeSwitcher } from "./theme-switcher"
 
 const menuItems = [
   { id: 1, label: "Home", url: "/" },
-  { id: 4, label: "Components", url: "/docs/getting-started/introduction" }
+  { id: 4, label: "Components", url: "/docs/getting-started/introduction" },
 ]
 
 export function Navbar() {
@@ -46,11 +46,11 @@ export function Navbar() {
     <>
       <CommandPalette setOpen={setOpen} openCmd={open} />
       <LayoutGroup id={`navigation-${id}`}>
-        <div className="sticky xnw2 top-0 z-30 hidden overflow-hidden pb-0 lg:block">
-          <nav className="border-b bg-bg dark:bg-bg/95 py-2 backdrop-blur-3xl supports-backdrop-filter:bg-bg/60">
-            <div className="mx-auto max-w-(--breakpoint-2xl) px-4 sm:px-6 lg:px-8">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-x-6">
+        <div className="hidden overflow-hidden sticky top-0 z-30 pb-0 lg:block xnw2">
+          <nav className="py-2 border-b bg-bg backdrop-blur-3xl supports-backdrop-filter:bg-bg/60 dark:bg-bg/95">
+            <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-(--breakpoint-2xl)">
+              <div className="flex justify-between items-center">
+                <div className="flex gap-x-6 items-center">
                   <NavbarDropdown />
                   <Separator orientation="vertical" className="h-6" />
                   <Collection items={menuItems}>
@@ -89,7 +89,7 @@ export function Navbar() {
                   </Collection>
                 </div>
 
-                <div className="flex items-center gap-x-1">
+                <div className="flex gap-x-1 items-center">
                   <>
                     <Button
                       onPress={() => setOpen((open: boolean) => !open)}
@@ -107,14 +107,14 @@ export function Navbar() {
                     <TakeCurrentUrl />
                     <ThemeSwitcher />
 
-                    <Separator orientation="vertical" className="h-7 mx-2" />
+                    <Separator orientation="vertical" className="mx-2 h-7" />
 
                     <Link
                       aria-label="Github Repository"
                       className={buttonStyles({
                         appearance: "outline",
                         size: "square-petite",
-                        className: "**:data-[slot=icon]:text-fg"
+                        className: "**:data-[slot=icon]:text-fg",
                       })}
                       target="_blank"
                       href={siteConfig.repo}
@@ -126,7 +126,7 @@ export function Navbar() {
                       className={buttonStyles({
                         appearance: "outline",
                         size: "square-petite",
-                        className: "**:data-[slot=icon]:text-fg"
+                        className: "**:data-[slot=icon]:text-fg",
                       })}
                       target="_blank"
                       href="https://x.com/intent/follow?screen_name=irsyadadl"
@@ -149,11 +149,11 @@ export function NavbarDropdown() {
   const { theme, setTheme } = useTheme()
   return (
     <Menu>
-      <Button aria-label="Menu." appearance="plain" className="group -ml-1">
-        <span className="flex items-center gap-x-2">
+      <Button aria-label="Menu." appearance="plain" className="-ml-1 group">
+        <span className="flex gap-x-2 items-center">
           <IconBrandJustd className="-ml-1 size-5" />
           <span className="font-mono text-base tracking-tight sm:text-sm">{siteConfig.name}</span>
-          <IconChevronLgDown className="-mr-1 ml-3 size-3.5 text-muted-fg transition duration-300 group-hover:text-fg group-data-pressed:rotate-180 group-data-pressed:text-fg" />
+          <IconChevronLgDown className="ml-3 -mr-1 transition duration-300 size-3.5 text-muted-fg group-data-pressed:rotate-180 group-data-pressed:text-fg group-hover:text-fg" />
           <span className="sr-only">Open menu</span>
         </span>
       </Button>

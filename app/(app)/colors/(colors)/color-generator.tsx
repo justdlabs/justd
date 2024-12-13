@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 
-import { isOklch, SelectFormat, toOklchString } from "@/app/(app)/colors/(colors)/color-item"
+import { SelectFormat, isOklch, toOklchString } from "@/app/(app)/colors/(colors)/color-item"
 import { getColorName, getTextColor } from "@/resources/lib/colors"
 import { type Color as RacColor, parseColor } from "@react-stately/color"
 import type { Color } from "culori"
@@ -23,14 +23,14 @@ export function ColorGenerator() {
 
     const lightToDarkScale = interpolate([
       parse(formatHex(interpolate([parse("white") as Color, parsedBase])(0.1))) as Color,
-      parsedBase
+      parsedBase,
     ])
     const darkerScale = interpolate([parsedBase, parse("black") as Color])
 
     const scale = [
       ...Array.from({ length: 9 }, (_, i) => formatHex(lightToDarkScale(i / 8))),
       formatHex(darkerScale(0.15)), // 900 shade
-      formatHex(darkerScale(0.5)) // 950 shade
+      formatHex(darkerScale(0.5)), // 950 shade
     ]
 
     return {
@@ -44,7 +44,7 @@ export function ColorGenerator() {
       700: scale[7],
       800: scale[8],
       900: scale[9],
-      950: scale[10]
+      950: scale[10],
     }
   }
 
@@ -64,7 +64,6 @@ export function ColorGenerator() {
       case "hex":
         formattedColor = formatHex(parse(color)) || color
         break
-      case "oklch":
       default:
         formattedColor = isOklch(color) ? color : toOklchString(color) || color
         break
@@ -87,12 +86,12 @@ export function ColorGenerator() {
 
   return (
     <div>
-      <div className="border-b items-center gap-6">
+      <div className="gap-6 items-center border-b">
         <div className="grid lg:grid-cols-2">
           <div className="p-6 border-r">
             <div className="mb-7">
               <Heading level={2}>Generate</Heading>
-              <p className="text-muted-fg text-sm">
+              <p className="text-sm text-muted-fg">
                 Genereate your desired color by picking a shade from the color picker or by entering a hex code.
               </p>
             </div>
@@ -106,26 +105,26 @@ export function ColorGenerator() {
           <div
             className={twJoin(
               "p-6",
-              "border-b last:border-b-0 lg:nth-last-2:border-b-0 lg:border-r lg:last:border-r-0",
-              "even:lg:border-r-0 even:pl-6 pb-6"
+              "border-b last:border-b-0 lg:border-r lg:nth-last-2:border-b-0 lg:last:border-r-0",
+              "pb-6 even:pl-6 even:lg:border-r-0",
             )}
           >
-            <div className="flex justify-between mb-4 items-center">
+            <div className="flex justify-between items-center mb-4">
               <div className="font-mono text-sm uppercase">{getColorName(value.toString("hex"))}</div>
               <div>
                 <SelectFormat selected={selectedFormat} setSelected={setSelectedFormat} />
               </div>
             </div>
-            <ListBox aria-label="Colors" orientation="horizontal" className="flex flex-wrap sm:flex-nowrap gap-2">
+            <ListBox aria-label="Colors" orientation="horizontal" className="flex flex-wrap gap-2 sm:flex-nowrap">
               {Object.entries(tailwindShades).map(([shade, colorValue]) => (
                 <ListBoxItem
                   textValue={colorValue}
                   onAction={() => handleCopy(colorValue, shade)}
                   key={colorValue?.toString()}
-                  className="flex relative group cursor-pointer focus:outline-hidden min-w-10 inset-shadow-xs inset-shadow-white/15 data-focused:ring-white/25 ring-inset ring-1 ring-white/10 items-end text-xs font-mono justify-center p-2 gap-x-2 w-1/7 sm:w-full rounded-lg h-20 *:data-[slot=icon]:absolute *:data-[slot=icon]:top-3 *:data-[slot=icon]:opacity-90 *:data-[slot=icon]:size-3.5 *:data-[slot=icon]:mx-auto *:data-[slot=icon]:group-data-focus-visible:block *:data-[slot=icon]:group-data-hovered:block *:data-[slot=icon]:hidden"
+                  className="group relative inset-shadow-white/15 inset-shadow-xs flex h-20 w-1/7 min-w-10 cursor-pointer items-end justify-center gap-x-2 rounded-lg p-2 font-mono text-xs ring-1 ring-white/10 ring-inset focus:outline-hidden data-focused:ring-white/25 *:data-[slot=icon]:absolute *:data-[slot=icon]:top-3 *:data-[slot=icon]:mx-auto *:data-[slot=icon]:hidden *:data-[slot=icon]:size-3.5 *:data-[slot=icon]:opacity-90 *:data-[slot=icon]:group-data-focus-visible:block *:data-[slot=icon]:group-data-hovered:block sm:w-full"
                   style={{
                     color: getTextColor(colorValue),
-                    backgroundColor: colorValue
+                    backgroundColor: colorValue,
                   }}
                 >
                   {shade}

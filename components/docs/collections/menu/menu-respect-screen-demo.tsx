@@ -1,7 +1,5 @@
 "use client"
 
-import React from "react"
-
 import { Button, Menu } from "ui"
 
 export default function MenuRespectScreenDemo() {

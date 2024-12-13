@@ -43,7 +43,7 @@ const items = [
     age: 52,
     role: "Vocalist",
     band: "Lamb of God",
-    status: "Active"
+    status: "Active",
   },
   {
     id: 2,
@@ -52,7 +52,7 @@ const items = [
     age: 55,
     role: "Vocalist",
     band: "Pantera",
-    status: "Active"
+    status: "Active",
   },
   {
     id: 3,
@@ -61,7 +61,7 @@ const items = [
     age: 53,
     role: "Vocalist",
     band: "Cannibal Corpse",
-    status: "Active"
+    status: "Active",
   },
   {
     id: 4,
@@ -70,7 +70,7 @@ const items = [
     age: 50,
     role: "Vocalist",
     band: "Slipknot",
-    status: "Active"
+    status: "Active",
   },
   {
     id: 5,
@@ -79,7 +79,7 @@ const items = [
     age: 41,
     role: "Vocalist",
     band: "The Black Dahlia Murder",
-    status: "Inactive"
+    status: "Inactive",
   },
   {
     id: 6,
@@ -88,7 +88,7 @@ const items = [
     age: 34,
     role: "Vocalist",
     band: "Death",
-    status: "Deceased"
+    status: "Deceased",
   },
   {
     id: 7,
@@ -97,6 +97,6 @@ const items = [
     age: 28,
     role: "Vocalist",
     band: "Suicide Silence",
-    status: "Deceased"
-  }
+    status: "Deceased",
+  },
 ]

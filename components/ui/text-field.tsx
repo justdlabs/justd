@@ -7,7 +7,7 @@ import { IconEye, IconEyeClosed } from "justd-icons"
 import {
   Button as ButtonPrimitive,
   TextField as TextFieldPrimitive,
-  type TextFieldProps as TextFieldPrimitiveProps
+  type TextFieldProps as TextFieldPrimitiveProps,
 } from "react-aria-components"
 import { twJoin } from "tailwind-merge"
 
@@ -66,9 +66,9 @@ const TextField = ({
         isInvalid={!!errorMessage}
         isDisabled={props.isDisabled}
         className={twJoin(
-          "**:[button]:shrink-0 **:[button]:size-7 **:[button]:p-0",
+          "**:[button]:size-7 **:[button]:shrink-0 **:[button]:p-0",
           "[&>[data-slot=suffix]>button]:mr-[calc(var(--spacing)*-1.15)] [&>[data-slot=suffix]>button]:rounded-md [&>[data-slot=suffix]>button]:data-focus-visible:outline-1 [&>[data-slot=suffix]>button]:data-focus-visible:outline-offset-1",
-          "[&>[data-slot=prefix]>button]:mr-[calc(var(--spacing)*-1.15)] [&>[data-slot=prefix]>button]:rounded-md [&>[data-slot=prefix]>button]:data-focus-visible:outline-1 [&>[data-slot=prefix]>button]:data-focus-visible:outline-offset-1"
+          "[&>[data-slot=prefix]>button]:mr-[calc(var(--spacing)*-1.15)] [&>[data-slot=prefix]>button]:rounded-md [&>[data-slot=prefix]>button]:data-focus-visible:outline-1 [&>[data-slot=prefix]>button]:data-focus-visible:outline-offset-1",
         )}
         data-loading={isPending ? "true" : undefined}
       >
@@ -83,9 +83,9 @@ const TextField = ({
             type="button"
             aria-label="Toggle password visibility"
             onPress={handleTogglePasswordVisibility}
-            className="mr-1 grid place-content-center border-transparent data-focus-visible:*:data-[slot=icon]:text-primary outline-hidden relative shrink-0 *:data-[slot=icon]:text-muted-fg rounded-sm"
+            className="relative mr-1 grid shrink-0 place-content-center rounded-sm border-transparent outline-hidden data-focus-visible:*:data-[slot=icon]:text-primary *:data-[slot=icon]:text-muted-fg"
           >
-            <>{isPasswordVisible ? <IconEyeClosed /> : <IconEye />}</>
+            {isPasswordVisible ? <IconEyeClosed /> : <IconEye />}
           </ButtonPrimitive>
         ) : isPending ? (
           <Loader variant="spin" data-slot="suffix" />

@@ -6,24 +6,24 @@ import { Card, Chart, type ChartConfig, ChartTooltip, ChartTooltipContent } from
 const chartData = Array.from({ length: 24 }, (_, index) => {
   const date = new Date(new Date().getFullYear() - 1, index).toLocaleDateString("en-US", {
     month: "short",
-    year: "numeric"
+    year: "numeric",
   })
   return {
     date,
     coffee: Math.floor(Math.random() * 50 + 50),
-    snacks: Math.floor(Math.random() * 100 + 100)
+    snacks: Math.floor(Math.random() * 100 + 100),
   }
 })
 
 const chartConfig = {
   coffee: {
     label: "Coffee",
-    color: "var(--chart-1)"
+    color: "var(--chart-1)",
   },
   snacks: {
     label: "Snacks",
-    color: "var(--chart-2)"
-  }
+    color: "var(--chart-2)",
+  },
 } satisfies ChartConfig
 
 export default function TooltipChartAdvanceDemo() {
@@ -51,20 +51,20 @@ export default function TooltipChartAdvanceDemo() {
                         className="size-2.5 shrink-0 rounded-[2px] bg-(--color-bg)"
                         style={
                           {
-                            "--color-bg": `var(--color-${name})`
+                            "--color-bg": `var(--color-${name})`,
                           } as React.CSSProperties
                         }
                       />
                       {chartConfig[name as keyof typeof chartConfig]?.label || name}
-                      <div className="ml-auto flex items-baseline gap-0.5 font-mono font-medium tabular-nums text-foreground">
+                      <div className="flex gap-0.5 items-baseline ml-auto font-mono font-medium tabular-nums text-foreground">
                         {value}
                         <span className="font-normal text-muted-fg">USD</span>
                       </div>
                       {/* Add this after the last item */}
                       {index === 1 && (
-                        <div className="mt-1.5 flex basis-full items-center border-t pt-1.5 text-xs font-medium text-foreground">
+                        <div className="flex items-center pt-1.5 mt-1.5 text-xs font-medium border-t basis-full text-foreground">
                           Total
-                          <div className="ml-auto flex items-baseline gap-0.5 font-mono font-medium tabular-nums text-foreground">
+                          <div className="flex gap-0.5 items-baseline ml-auto font-mono font-medium tabular-nums text-foreground">
                             {item.payload.coffee + item.payload.snacks}
                             <span className="font-normal text-muted-fg">USD</span>
                           </div>

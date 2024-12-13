@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import { useState } from "react"
 
 import { getLocalTimeZone, today } from "@internationalized/date"
 import { useDateFormatter } from "@react-aria/i18n"
@@ -13,7 +13,7 @@ export default function DateRangePickerControlledDemo() {
 
   const [value, setValue] = useState({
     start: now,
-    end: tomorrowWeek
+    end: tomorrowWeek,
   })
 
   return (

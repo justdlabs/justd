@@ -2,7 +2,7 @@
 
 import { cn } from "@/resources/lib/utils"
 import { IconChevronLgLeft, IconChevronLgRight } from "justd-icons"
-import { buttonStyles, Link } from "ui"
+import { Link, buttonStyles } from "ui"
 
 interface Doc {
   order: number
@@ -13,7 +13,7 @@ interface Doc {
 const getPagerForDoc = (docs: Doc[], doc: Doc) => {
   const nav = docs.map((d) => ({
     href: `/${d.slug}`,
-    title: d.title
+    title: d.title,
   }))
 
   const activeIndex = nav.findIndex((link) => `/${doc.slug}` === link.href)
@@ -23,7 +23,7 @@ const getPagerForDoc = (docs: Doc[], doc: Doc) => {
 
   return {
     prev,
-    next
+    next,
   }
 }
 
@@ -46,7 +46,7 @@ export function Pager({ docs, doc }: { docs: Doc[]; doc: Doc }) {
   }
 
   return (
-    <div className="flex mt-6 flex-row items-center justify-between">
+    <div className="flex flex-row justify-between items-center mt-6">
       {pager.prev && (
         <Link
           aria-label={`Previous page: ${pager.prev.title}`}

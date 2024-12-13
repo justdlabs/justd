@@ -8,7 +8,7 @@ export default function SheetCustomStyleDemo() {
       <Button intent="warning">Archive Project</Button>
       <Sheet.Content role="dialog">
         <Sheet.Header
-          className="border-b mb-4"
+          className="mb-4 border-b"
           title="Archive Project"
           description="Archiving this project will disable access and hide it from active projects."
         >

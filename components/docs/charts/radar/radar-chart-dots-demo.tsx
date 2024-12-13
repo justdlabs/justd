@@ -15,14 +15,14 @@ const chartData = [
   { month: "Sep", revenue: 240 },
   { month: "Oct", revenue: 250 },
   { month: "Nov", revenue: 260 },
-  { month: "Dec", revenue: 270 }
+  { month: "Dec", revenue: 270 },
 ]
 
 const chartConfig = {
   revenue: {
     label: "Revenue",
-    color: "var(--chart-1)"
-  }
+    color: "var(--chart-1)",
+  },
 } satisfies ChartConfig
 
 export default function RadarChartDotsDemo() {
@@ -44,7 +44,7 @@ export default function RadarChartDotsDemo() {
               fillOpacity={0.6}
               dot={{
                 r: 4,
-                fillOpacity: 1
+                fillOpacity: 1,
               }}
             />
           </RadarChart>

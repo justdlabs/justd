@@ -15,21 +15,21 @@ const projectData = [
   { team: "Sales", completed: 20, ongoing: 8 },
   { team: "Support", completed: 35, ongoing: 12 },
   { team: "Engineering", completed: 42, ongoing: 15 },
-  { team: "Design", completed: 30, ongoing: 5 }
+  { team: "Design", completed: 30, ongoing: 5 },
 ]
 
 const chartConfig = {
   completed: {
     label: "Completed",
-    color: "var(--chart-1)"
+    color: "var(--chart-1)",
   },
   ongoing: {
     label: "Ongoing",
-    color: "var(--chart-2)"
+    color: "var(--chart-2)",
   },
   label: {
-    color: "var(--bg)"
-  }
+    color: "var(--bg)",
+  },
 } satisfies ChartConfig
 
 export default function BarChartCustomLabelDemo() {
@@ -43,7 +43,7 @@ export default function BarChartCustomLabelDemo() {
             data={projectData}
             layout="vertical"
             margin={{
-              right: 16
+              right: 16,
             }}
           >
             <CartesianGrid horizontal={false} />

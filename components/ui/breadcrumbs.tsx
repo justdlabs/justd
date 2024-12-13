@@ -20,7 +20,7 @@ const Item = ({ href, separator = true, className, ...props }: ItemProps & Parti
   const separatorValue = separator === true ? "chevron" : separator
 
   return (
-    <Breadcrumb {...props} className={composeTailwindRenderProps(className, "flex text-sm items-center gap-2")}>
+    <Breadcrumb {...props} className={composeTailwindRenderProps(className, "flex items-center gap-2 text-sm")}>
       {({ isCurrent }) => (
         <>
           {<Link href={href} {...props} />}
@@ -33,7 +33,7 @@ const Item = ({ href, separator = true, className, ...props }: ItemProps & Parti
 
 const Separator = ({ separator = "chevron" }: { separator?: ItemProps["separator"] }) => {
   return (
-    <span className={cn("*:shrink-0 *:data-[slot=icon]:size-3.5 *:text-muted-fg")}>
+    <span className={cn("*:shrink-0 *:text-muted-fg *:data-[slot=icon]:size-3.5")}>
       {separator === "chevron" && <IconChevronLgRight />}
       {separator === "slash" && <span className="text-muted-fg">/</span>}
     </span>

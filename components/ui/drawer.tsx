@@ -4,14 +4,14 @@ import { createContext, forwardRef, use, useState } from "react"
 
 import type { PanInfo } from "motion/react"
 import {
-  animate,
   AnimatePresence,
   type Inertia,
+  animate,
   motion,
   useMotionTemplate,
   useMotionValue,
   useMotionValueEvent,
-  useTransform
+  useTransform,
 } from "motion/react"
 import type { DialogProps } from "react-aria-components"
 import { type ButtonProps, Modal, ModalOverlay } from "react-aria-components"
@@ -24,11 +24,11 @@ const inertiaTransition: Inertia = {
   type: "inertia",
   bounceStiffness: 300,
   bounceDamping: 60,
-  timeConstant: 300
+  timeConstant: 300,
 }
 const staticTransition = {
   duration: 0.4,
-  ease: [0.32, 0.72, 0, 1]
+  ease: [0.32, 0.72, 0, 1],
 }
 const drawerMargin = 60
 const drawerRadius = 32
@@ -84,7 +84,9 @@ const DrawerContentPrimitive = ({ children, ...props }: DrawerOverlayPrimitivePr
 
   const bodyBorderRadius = useTransform(y, [0, h], [drawerRadius, 0])
 
-  useMotionValueEvent(bodyBorderRadius, "change", (v) => (root.style.borderRadius = `${v}px`))
+  useMotionValueEvent(bodyBorderRadius, "change", (v) => {
+    root.style.borderRadius = `${v}px`
+  })
 
   const onDragEnd = (_: any, { offset, velocity }: PanInfo) => {
     if (offset.y > h * 0.4 || velocity.y > 10) {
@@ -101,17 +103,17 @@ const DrawerContentPrimitive = ({ children, ...props }: DrawerOverlayPrimitivePr
         isOpen
         onOpenChange={closeDrawer}
         className={twJoin([
-          "fixed touch-none will-change-transform left-0 top-0 isolate z-50 h-(--visual-viewport-height) w-full",
-          "flex items-end [--visual-viewport-vertical-padding:100px]"
+          "fixed top-0 left-0 isolate z-50 h-(--visual-viewport-height) w-full touch-none will-change-transform",
+          "flex items-end [--visual-viewport-vertical-padding:100px]",
         ])}
         style={{
-          backgroundColor: bg as any
+          backgroundColor: bg as any,
         }}
       >
         <ModalPrimitive
           className={cn(
-            "max-h-full flex flex-col w-full rounded-t-2xl sm:rounded-lg overflow-hidden bg-overlay text-overlay-fg text-left align-middle shadow-lg",
-            "ring-1 ring-dark/5 dark:ring-light/15"
+            "flex max-h-full w-full flex-col overflow-hidden rounded-t-2xl bg-overlay text-left align-middle text-overlay-fg shadow-lg sm:rounded-lg",
+            "ring-1 ring-dark/5 dark:ring-light/15",
           )}
           initial={{ y: h }}
           animate={{ y: 0 }}
@@ -121,7 +123,7 @@ const DrawerContentPrimitive = ({ children, ...props }: DrawerOverlayPrimitivePr
             y,
             top: "auto",
             height: contentHeight > 0 ? `${contentHeight + drawerMargin}px` : "auto",
-            maxHeight: `calc(100% - ${drawerMargin}px)`
+            maxHeight: `calc(100% - ${drawerMargin}px)`,
           }}
           drag="y"
           dragConstraints={{ top: 0, bottom: h }}
@@ -130,7 +132,7 @@ const DrawerContentPrimitive = ({ children, ...props }: DrawerOverlayPrimitivePr
         >
           <div className="overflow-hidden">
             {withNotch && (
-              <div className="notch touch-pan-y sticky top-0 mx-auto shrink-0 mt-2.5 h-1.5 w-10 rounded-full bg-fg/20" />
+              <div className="sticky top-0 mx-auto mt-2.5 w-10 h-1.5 rounded-full notch shrink-0 touch-pan-y bg-fg/20" />
             )}
             <div
               className="overflow-y-auto mt-3"
@@ -146,7 +148,7 @@ const DrawerContentPrimitive = ({ children, ...props }: DrawerOverlayPrimitivePr
                 }
               }}
             >
-              <>{children}</>
+              {children}
             </div>
           </div>
         </ModalPrimitive>
@@ -172,10 +174,10 @@ const DrawerPrimitive = (props: DrawerPrimitiveProps) => {
     <motion.div
       style={{
         borderRadius: bodyBorderRadius,
-        transformOrigin: "center 0"
+        transformOrigin: "center 0",
       }}
     >
-      <AnimatePresence>{isOpen && <>{props.children as React.ReactNode}</>}</AnimatePresence>
+      <AnimatePresence>{isOpen && (props.children as React.ReactNode)}</AnimatePresence>
     </motion.div>
   )
 }
@@ -232,7 +234,7 @@ const Content = ({ children, ...props }: React.ComponentProps<typeof DrawerPrimi
           role={props.role ?? "dialog"}
           aria-label={props["aria-label"] ?? undefined}
           aria-labelledby={props["aria-labelledby"] ?? undefined}
-          className="sm:max-w-lg mx-auto"
+          className="mx-auto sm:max-w-lg"
         >
           {(values) => <>{typeof children === "function" ? children(values) : children}</>}
         </Dialog>

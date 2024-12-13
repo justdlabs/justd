@@ -12,7 +12,7 @@ export default function ColorSwatchPickerDemo() {
       aria-label="Pick color"
       value={value}
       onChange={setValue}
-      className="grid grid-cols-3 lg:grid-cols-6 gap-2"
+      className="grid grid-cols-3 gap-2 lg:grid-cols-6"
     >
       <ColorSwatchPicker.Item color="#f59e0b" />
       <ColorSwatchPicker.Item color="#84cc16" />

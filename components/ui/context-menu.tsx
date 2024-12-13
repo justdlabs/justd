@@ -48,9 +48,9 @@ const contextMenuTriggerStyles = tv({
   variants: {
     isDisabled: {
       false: "forced-colors:data-disabled:text-[GrayText]",
-      true: "cursor-default opacity-60 forced-colors:data-disabled:text-[GrayText]"
-    }
-  }
+      true: "cursor-default opacity-60 forced-colors:data-disabled:text-[GrayText]",
+    },
+  },
 })
 
 type ContextMenuTriggerProps = React.ButtonHTMLAttributes<HTMLButtonElement>
@@ -63,7 +63,7 @@ const ContextMenuTrigger = ({ className, ...props }: ContextMenuTriggerProps) =>
     const rect = e.currentTarget.getBoundingClientRect()
     setContextMenuOffset({
       offset: e.clientY - rect.bottom,
-      crossOffset: e.clientX - rect.left
+      crossOffset: e.clientX - rect.left,
     })
   }
   return (

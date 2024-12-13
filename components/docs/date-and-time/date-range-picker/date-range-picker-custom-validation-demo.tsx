@@ -11,7 +11,7 @@ export default function DateRangePickerCustomValidationDemo() {
         validate={(range) => (range?.end.compare(range.start) > 7 ? "Maximum booking duration is 1 week." : null)}
         defaultValue={{
           start: today(getLocalTimeZone()),
-          end: today(getLocalTimeZone()).add({ weeks: 2 })
+          end: today(getLocalTimeZone()).add({ weeks: 2 }),
         }}
         className="mb-2"
       />

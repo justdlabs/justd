@@ -2,11 +2,11 @@
 
 import { siteConfig } from "@/resources/config/site"
 import { IconBrandGithub } from "justd-icons"
-import { buttonStyles, Container, Heading, Link } from "ui"
+import { Container, Heading, Link, buttonStyles } from "ui"
 
 export function Cta() {
   return (
-    <div className="py-8 lg:py-16 bg-secondary/30 border-t">
+    <div className="py-8 border-t lg:py-16 bg-secondary/30">
       <Container>
         <div className="mx-auto max-w-md text-center">
           <Heading className="text-2xl sm:text-3xl" level={3}>

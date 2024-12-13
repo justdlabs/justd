@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import { useState } from "react"
 
 import type { Selection } from "react-aria-components"
 import { Description, Tag, TagGroup, TagList } from "ui"
@@ -9,7 +9,7 @@ const fruitList = [
   { id: "1", name: "Apple", available: false },
   { id: "2", name: "Banana", available: true },
   { id: "3", name: "Cherry", available: true },
-  { id: "4", name: "Date", available: false }
+  { id: "4", name: "Date", available: false },
 ]
 
 export default function TagGroupControlledDemo() {
@@ -20,7 +20,7 @@ export default function TagGroupControlledDemo() {
         <TagList items={fruitList}>{(item) => <Tag>{item.name}</Tag>}</TagList>
       </TagGroup>
 
-      <Description className="mt-2 block [&>strong]:text-fg text-muted-fg">
+      <Description className="mt-2 block text-muted-fg [&>strong]:text-fg">
         You have selected: <strong>{Array.from(selected).join(", ")}</strong>
       </Description>
     </div>

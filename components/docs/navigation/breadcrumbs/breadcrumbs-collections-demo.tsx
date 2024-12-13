@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import { useState } from "react"
 
 import type { Key } from "react-aria-components"
 import { Breadcrumbs } from "ui"
@@ -9,7 +9,7 @@ export default function BreadcrumbsCollectionsDemo() {
   const [breadcrumbs, setBreadcrumbs] = useState([
     { id: 1, label: "Dashboard", href: "#" },
     { id: 2, label: "Reports", href: "#" },
-    { id: 3, label: "2024 Quarterly Review" }
+    { id: 3, label: "2024 Quarterly Review" },
   ])
 
   const navigate = (id: Key) => {

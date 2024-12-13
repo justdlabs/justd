@@ -58,7 +58,7 @@ export const products = [
     category: "Electronics",
     price: 699,
     brand: "Samsung",
-    stock: 200
+    stock: 200,
   },
   { id: "3", name: "MacBook Pro", category: "Computers", price: 1299, brand: "Apple", stock: 80 },
   { id: "4", name: "Dell XPS 13", category: "Computers", price: 999, brand: "Dell", stock: 50 },
@@ -68,7 +68,7 @@ export const products = [
     category: "Headphones",
     price: 349,
     brand: "Sony",
-    stock: 120
+    stock: 120,
   },
   { id: "6", name: "AirPods Pro", category: "Headphones", price: 249, brand: "Apple", stock: 180 },
   {
@@ -77,6 +77,6 @@ export const products = [
     category: "Wearables",
     price: 179,
     brand: "Fitbit",
-    stock: 75
-  }
+    stock: 75,
+  },
 ]

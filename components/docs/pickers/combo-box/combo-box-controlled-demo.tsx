@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import { useState } from "react"
 
 import { ComboBox, Description } from "ui"
 
@@ -13,7 +13,7 @@ const sports = [
   { id: 6, name: "Cricket" },
   { id: 7, name: "Hockey" },
   { id: 8, name: "Rugby" },
-  { id: 9, name: "Golf" }
+  { id: 9, name: "Golf" },
 ]
 
 export default function ComboBoxControlledDemo() {
@@ -30,7 +30,7 @@ export default function ComboBoxControlledDemo() {
           )}
         </ComboBox.List>
       </ComboBox>
-      <Description className="mt-2 block [&>strong]:text-fg text-muted-fg">
+      <Description className="mt-2 block text-muted-fg [&>strong]:text-fg">
         You have selected: <strong>{sport}</strong>
       </Description>
     </>

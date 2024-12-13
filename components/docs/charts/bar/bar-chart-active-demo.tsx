@@ -12,53 +12,53 @@ const chartData = [
   { os: "ChromeOS", users: 90, fill: "var(--chart-1)" },
   { os: "Ubuntu", users: 130, fill: "var(--chart-2)" },
   { os: "Fedora", users: 100, fill: "var(--chart-3)" },
-  { os: "FreeBSD", users: 60, fill: "var(--chart-5)" }
+  { os: "FreeBSD", users: 60, fill: "var(--chart-5)" },
 ]
 
 const chartConfig = {
   users: {
-    label: "Users"
+    label: "Users",
   },
   windows: {
     label: "Windows",
-    color: "var(--chart-1)"
+    color: "var(--chart-1)",
   },
   macos: {
     label: "MacOS",
-    color: "var(--chart-2)"
+    color: "var(--chart-2)",
   },
   linux: {
     label: "Linux",
-    color: "var(--chart-3)"
+    color: "var(--chart-3)",
   },
   android: {
     label: "Android",
-    color: "var(--chart-4)"
+    color: "var(--chart-4)",
   },
   ios: {
     label: "iOS",
-    color: "var(--chart-5)"
+    color: "var(--chart-5)",
   },
   chromeos: {
     label: "ChromeOS",
-    color: "var(--chart-1)"
+    color: "var(--chart-1)",
   },
   ubuntu: {
     label: "Ubuntu",
-    color: "var(--chart-2)"
+    color: "var(--chart-2)",
   },
   fedora: {
     label: "Fedora",
-    color: "var(--chart-3)"
+    color: "var(--chart-3)",
   },
   harmonyos: {
     label: "HarmonyOS",
-    color: "var(--chart-4)"
+    color: "var(--chart-4)",
   },
   freebsd: {
     label: "FreeBSD",
-    color: "var(--chart-5)"
-  }
+    color: "var(--chart-5)",
+  },
 } satisfies ChartConfig
 
 export default function BarChartActiveDemo() {

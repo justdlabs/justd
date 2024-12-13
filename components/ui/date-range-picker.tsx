@@ -4,7 +4,7 @@ import {
   DateRangePicker as DateRangePickerPrimitive,
   type DateRangePickerProps as DateRangePickerPrimitiveProps,
   type DateValue,
-  type ValidationResult
+  type ValidationResult,
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
@@ -19,8 +19,8 @@ const dateRangePickerStyles = tv({
     dateRangePickerInputStart: "px-2 sm:text-sm tabular-nums text-base",
     dateRangePickerInputEnd: "flex-1 px-2 py-1.5 tabular-nums text-base sm:text-sm",
     dateRangePickerDash:
-      "text-fg group-data-disabled:text-muted-fg forced-colors:text-[ButtonText] forced-colors:group-data-disabled:text-[GrayText]"
-  }
+      "text-fg group-data-disabled:text-muted-fg forced-colors:text-[ButtonText] forced-colors:group-data-disabled:text-[GrayText]",
+  },
 })
 const { base, dateRangePickerInputStart, dateRangePickerInputEnd, dateRangePickerDash } = dateRangePickerStyles()
 

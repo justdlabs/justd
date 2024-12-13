@@ -9,15 +9,15 @@ const salesData = Array.from({ length: 24 }, (_, index) => {
   const month = date.toLocaleDateString("en-US", { month: "long" })
   return {
     month,
-    revenue: Math.floor(Math.random() * 5000 + 2000)
+    revenue: Math.floor(Math.random() * 5000 + 2000),
   }
 })
 
 const salesConfig = {
   revenue: {
     label: "Revenue",
-    color: "var(--chart-1)"
-  }
+    color: "var(--chart-1)",
+  },
 } satisfies ChartConfig
 
 export default function AreaChartBasicDemo() {
@@ -35,7 +35,7 @@ export default function AreaChartBasicDemo() {
             data={salesData}
             margin={{
               left: 12,
-              right: 12
+              right: 12,
             }}
           >
             <CartesianGrid vertical={false} />

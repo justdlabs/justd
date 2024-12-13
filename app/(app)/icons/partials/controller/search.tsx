@@ -1,5 +1,3 @@
-import React from "react"
-
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { SearchField } from "ui"
 import { useDebouncedCallback } from "use-debounce"

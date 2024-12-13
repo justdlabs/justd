@@ -5,12 +5,12 @@ const containerStyles = tv({
   variants: {
     intent: {
       constrained: "sm:px-6 lg:px-8",
-      "padded-content": "px-4 sm:px-6 lg:px-8"
-    }
+      "padded-content": "px-4 sm:px-6 lg:px-8",
+    },
   },
   defaultVariants: {
-    intent: "padded-content"
-  }
+    intent: "padded-content",
+  },
 })
 
 interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {

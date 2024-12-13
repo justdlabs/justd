@@ -8,19 +8,19 @@ const chartData = [{ product: "Laptops", sales: 200, fill: "var(--color-laptops)
 
 const chartConfig = {
   sales: {
-    label: "Sales"
+    label: "Sales",
   },
   laptops: {
     label: "Laptops",
-    color: "var(--chart-2)"
-  }
+    color: "var(--chart-2)",
+  },
 } satisfies ChartConfig
 
 export default function ProductSalesOverview() {
   return (
     <Card>
       <Card.Header
-        className="items-center text-center pb-0"
+        className="items-center pb-0 text-center"
         title="Laptop Sales Performance"
         description="Tracking sales data for Jan - Dec 2024"
       />
@@ -41,7 +41,7 @@ export default function ProductSalesOverview() {
                   if (viewBox && "cx" in viewBox && "cy" in viewBox) {
                     return (
                       <text x={viewBox.cx} y={viewBox.cy} textAnchor="middle" dominantBaseline="middle">
-                        <tspan x={viewBox.cx} y={viewBox.cy} className="fill-fg text-4xl font-bold">
+                        <tspan x={viewBox.cx} y={viewBox.cy} className="text-4xl font-bold fill-fg">
                           {chartData[0].sales.toLocaleString()}
                         </tspan>
                         <tspan x={viewBox.cx} y={(viewBox.cy || 0) + 24} className="fill-muted-fg">

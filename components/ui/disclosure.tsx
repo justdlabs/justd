@@ -2,18 +2,18 @@
 
 import { IconChevronLeft } from "justd-icons"
 import type {
-  ButtonProps,
   DisclosureGroupProps as AccordionProps,
+  ButtonProps,
   DisclosurePanelProps,
-  DisclosureProps
+  DisclosureProps,
 } from "react-aria-components"
 import {
-  Button,
-  composeRenderProps,
-  Disclosure as Collapsible,
   DisclosureGroup as Accordion,
+  Button,
+  Disclosure as Collapsible,
   DisclosurePanel as CollapsiblePanel,
-  Heading
+  Heading,
+  composeRenderProps,
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
@@ -39,9 +39,9 @@ const disclosure = tv({
   base: ["peer border-b border-border min-w-60 w-full group/disclosure"],
   variants: {
     isDisabled: {
-      true: "cursor-not-allowed opacity-70"
-    }
-  }
+      true: "cursor-not-allowed opacity-70",
+    },
+  },
 })
 
 const Disclosure = ({ className, ...props }: DisclosureProps) => {
@@ -58,19 +58,19 @@ const Disclosure = ({ className, ...props }: DisclosureProps) => {
 
 const disclosureTrigger = tv({
   base: [
-    "flex items-center gap-x-2 group/trigger [&[aria-expanded=true]_[data-slot=chevron]]:-rotate-90 **:data-[slot=chevron]:size-5 **:data-[slot=chevron]:size-5 **:data-[slot=icon]:shrink-0 sm:text-sm **:data-[slot=icon]:-mx-0.5 **:data-[slot=icon]:text-muted-fg justify-between py-3 **:[span]:*:data-[slot=icon]:mr-1 **:[span]:flex **:[span]:items-center **:[span]:gap-x-1 w-full text-left font-medium"
+    "flex items-center gap-x-2 group/trigger [&[aria-expanded=true]_[data-slot=chevron]]:-rotate-90 **:data-[slot=chevron]:size-5 **:data-[slot=chevron]:size-5 **:data-[slot=icon]:shrink-0 sm:text-sm **:data-[slot=icon]:-mx-0.5 **:data-[slot=icon]:text-muted-fg justify-between py-3 **:[span]:*:data-[slot=icon]:mr-1 **:[span]:flex **:[span]:items-center **:[span]:gap-x-1 w-full text-left font-medium",
   ],
   variants: {
     isFocused: {
-      true: "outline-hidden text-fg"
+      true: "outline-hidden text-fg",
     },
     isOpen: {
-      true: "text-fg"
+      true: "text-fg",
     },
     isDisabled: {
-      true: "opacity-50 cursor-default"
-    }
-  }
+      true: "opacity-50 cursor-default",
+    },
+  },
 })
 
 const DisclosureTrigger = ({ className, ...props }: ButtonProps) => {
@@ -82,8 +82,8 @@ const DisclosureTrigger = ({ className, ...props }: ButtonProps) => {
         className={composeRenderProps(className, (className, renderProps) =>
           disclosureTrigger({
             ...renderProps,
-            className
-          })
+            className,
+          }),
         )}
       >
         {(values) => (
@@ -91,7 +91,7 @@ const DisclosureTrigger = ({ className, ...props }: ButtonProps) => {
             {typeof props.children === "function" ? props.children(values) : props.children}
             <IconChevronLeft
               data-slot="chevron"
-              className="internal-chevron ml-auto size-4 shrink-0 transition shrink-0 duration-300"
+              className="ml-auto transition duration-300 internal-chevron size-4 shrink-0"
             />
           </>
         )}
@@ -108,14 +108,14 @@ const DisclosurePanel = ({ className, ...props }: DisclosurePanelProps) => {
       className={cn(
         "overflow-hidden text-muted-fg text-sm transition-all has-data-[slot=disclosure-group]:**:[button]:px-4",
         "**:data-[slot=disclosure-group]:border-t **:data-[slot=disclosure-group]:**:[.internal-chevron]:hidden",
-        className
+        className,
       )}
     >
       <div
         data-slot="disclosure-panel-content"
         className={cn(
-          "pt-0 [&:has([data-slot=disclosure-group])_&]:px-11 not-has-data-[slot=disclosure-group]:group-data-expanded/disclosure:pb-3",
-          className
+          "pt-0 not-has-data-[slot=disclosure-group]:group-data-expanded/disclosure:pb-3 [&:has([data-slot=disclosure-group])_&]:px-11",
+          className,
         )}
       >
         {props.children}

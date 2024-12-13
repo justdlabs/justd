@@ -11,7 +11,7 @@ import {
   Modal,
   ModalOverlay,
   Popover,
-  Text
+  Text,
 } from "react-aria-components"
 
 const items = [
@@ -21,7 +21,7 @@ const items = [
   { id: 4, name: "Empty trash" },
   { id: 5, name: "Switch workspace..." },
   { id: 6, name: "Add teammate..." },
-  { id: 7, name: "Quit application" }
+  { id: 7, name: "Quit application" },
 ]
 
 export function CmdK() {
@@ -29,16 +29,17 @@ export function CmdK() {
   const inputRef = useRef<HTMLInputElement>(null)
   const [filterValue, setFilterValue] = useState("")
   const { contains } = useFilter({ sensitivity: "base" })
-  const filteredItems = useMemo(() => items.filter((i) => contains(i.name, filterValue)), [items, filterValue])
+  const filteredItems = useMemo(() => items.filter((i) => contains(i.name, filterValue)), [contains, filterValue])
 
-  function toggle(e: KeyboardEvent) {
-    if (e.key === "k" && e.metaKey) {
-      setOpen((o) => !o)
-    } else if (e.key === "Escape") {
-      setOpen(false)
-    }
-  }
   useEffect(() => {
+    function toggle(e: KeyboardEvent) {
+      if (e.key === "k" && e.metaKey) {
+        setOpen((o) => !o)
+      } else if (e.key === "Escape") {
+        setOpen(false)
+      }
+    }
+
     window.addEventListener("keydown", toggle, { capture: true })
 
     return () => {
@@ -61,15 +62,15 @@ export function CmdK() {
   return (
     <>
       <Button
-        className="flex items-center self-center gap-1 px-4 py-2 transition rounded text-stone-800 data-focused:outline-hidden focus-visible:ring-3 ring-stone-600 ring-offset-2 hover:bg-stone-100"
+        className="flex gap-1 items-center self-center py-2 px-4 rounded ring-offset-2 transition text-stone-800 ring-stone-600 data-focused:outline-hidden hover:bg-stone-100 focus-visible:ring-3"
         onPress={() => setOpen(true)}
       >
-        <kbd className="p-1 border border-b-2 rounded-md border-stone-400">cmd+k</kbd>
+        <kbd className="p-1 rounded-md border border-b-2 border-stone-400">cmd+k</kbd>
         to open
       </Button>
       <ModalOverlay
         isOpen={open}
-        className="entering:animate-in entering:fade-in duration-150 fixed inset-0 z-10 pt-[33dvh] flex justify-center min-h-full p-4 overflow-y-auto text-center bg-black/25 backdrop-blur-sm"
+        className="flex overflow-y-auto fixed inset-0 z-10 justify-center p-4 min-h-full text-center duration-150 entering:fade-in entering:animate-in bg-black/25 pt-[33dvh] backdrop-blur-sm"
       >
         <Modal>
           <Dialog className="data-focused:outline-hidden" aria-label="command bar">
@@ -88,11 +89,11 @@ export function CmdK() {
                   ref={inputRef}
                   aria-label="Search for apps, files, anything..."
                   placeholder="Search for apps, files, anything..."
-                  className="w-[66vw] p-3 rounded-t-lg text-stone-800 data-focused:outline-hidden bg-stone-100 "
+                  className="p-3 rounded-t-lg w-[66vw] bg-stone-100 text-stone-800 data-focused:outline-hidden"
                 />
                 {filteredItems.length === 0 ? (
                   <Text
-                    className="p-3 border-b-stone-300 border-t-2 w-[66vw] bg-stone-100 text-stone-800 rounded-b-lg"
+                    className="p-3 rounded-b-lg border-t-2 w-[66vw] border-b-stone-300 bg-stone-100 text-stone-800"
                     slot="description"
                   >
                     Hmm, we couldn't find anything
@@ -104,13 +105,13 @@ export function CmdK() {
 
               <Popover
                 offset={0}
-                className="entering:animate-in entering:slide-in-from-top-2 duration-75 p-3 border-b-stone-300 border-t-2 w-[66vw] bg-stone-100 text-stone-800 rounded-b-lg"
+                className="p-3 rounded-b-lg border-t-2 duration-75 entering:slide-in-from-top-2 w-[66vw] entering:animate-in border-b-stone-300 bg-stone-100 text-stone-800"
               >
                 <ListBox className="flex flex-col gap-2">
                   {(i: (typeof items)[number]) => (
                     <ListBoxItem
                       textValue={i.name}
-                      className="flex items-center gap-4 p-2 rounded-md data-focused:bg-stone-200"
+                      className="flex gap-4 items-center p-2 rounded-md data-focused:bg-stone-200"
                     >
                       {i.name}
                     </ListBoxItem>

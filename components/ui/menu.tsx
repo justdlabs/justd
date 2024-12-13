@@ -10,19 +10,19 @@ import type {
   MenuSectionProps,
   MenuTriggerProps as MenuTriggerPrimitiveProps,
   PopoverProps,
-  SeparatorProps
+  SeparatorProps,
 } from "react-aria-components"
 import {
   Button,
   Collection,
-  composeRenderProps,
   Header,
-  Menu as MenuPrimitive,
   MenuItem,
+  Menu as MenuPrimitive,
   MenuSection,
   MenuTrigger as MenuTriggerPrimitive,
   Separator,
-  SubmenuTrigger as SubmenuTriggerPrimitive
+  SubmenuTrigger as SubmenuTriggerPrimitive,
+  composeRenderProps,
 } from "react-aria-components"
 import type { VariantProps } from "tailwind-variants"
 import { tv } from "tailwind-variants"
@@ -61,9 +61,9 @@ const menuStyles = tv({
     menu: "max-h-[calc(var(--visual-viewport-height)-10rem)] sm:max-h-[inherit] overflow-auto rounded-xl p-1 outline-hidden [clip-path:inset(0_0_0_0_round_calc(var(--radius-lg)-2px))]",
     popover: "z-50 sm:min-w-40 p-0 outline-hidden shadow-xs",
     trigger: [
-      "inline relative text-left data-focused:outline-hidden data-focus-visible:ring-1 data-focus-visible:ring-primary data-pressed:outline-hidden"
-    ]
-  }
+      "inline relative text-left data-focused:outline-hidden data-focus-visible:ring-1 data-focus-visible:ring-primary data-pressed:outline-hidden",
+    ],
+  },
 })
 
 const { menu, popover, trigger } = menuStyles()
@@ -99,8 +99,8 @@ const Content = <T extends object>({
       className={popover({
         className: cn([
           showArrow && "data-[placement=left]:mt-[-0.38rem] data-[placement=right]:mt-[-0.38rem]",
-          popoverClassName
-        ])
+          popoverClassName,
+        ]),
       })}
       {...props}
     >
@@ -120,8 +120,8 @@ const Item = ({ className, isDanger = false, children, ...props }: MenuItemProps
       className={composeRenderProps(className, (className, renderProps) =>
         dropdownItemStyles({
           ...renderProps,
-          className
-        })
+          className,
+        }),
       )}
       textValue={textValue}
       data-danger={isDanger ? "true" : undefined}
@@ -130,7 +130,7 @@ const Item = ({ className, isDanger = false, children, ...props }: MenuItemProps
       {(values) => (
         <>
           {typeof children === "function" ? children(values) : children}
-          {values.hasSubmenu && <IconChevronLgRight className="gpfw ml-auto size-3.5" />}
+          {values.hasSubmenu && <IconChevronLgRight className="ml-auto gpfw size-3.5" />}
         </>
       )}
     </MenuItem>
@@ -144,9 +144,9 @@ export interface MenuHeaderProps extends React.ComponentProps<typeof Header> {
 const MenuHeader = ({ className, separator = false, ...props }: MenuHeaderProps) => (
   <Header
     className={cn(
-      "p-2 text-base font-semibold sm:text-sm",
+      "p-2 font-semibold text-base sm:text-sm",
       separator && "-mx-1 border-b px-4 py-3 sm:px-3 sm:pb-[0.625rem]",
-      className
+      className,
     )}
     {...props}
   />
@@ -162,7 +162,7 @@ const Checkbox = ({ className, children, ...props }: MenuItemProps) => (
       <>
         {typeof children === "function" ? children(values) : children}
         {values.isSelected && (
-          <span className="absolute right-2 flex size-4 shrink-0 items-center animate-in justify-center">
+          <span className="flex absolute right-2 justify-center items-center size-4 shrink-0 animate-in">
             <IconCheck />
           </span>
         )}
@@ -180,7 +180,7 @@ const Radio = ({ className, children, ...props }: MenuItemProps) => (
         {values.isSelected && (
           <span
             data-slot="menu-radio"
-            className="absolute right-3 **:data-[slot=indicator]:size-2.5 **:data-[slot=indicator]:shrink-0 flex items-center animate-in justify-center"
+            className="absolute right-3 flex animate-in items-center justify-center **:data-[slot=indicator]:size-2.5 **:data-[slot=indicator]:shrink-0"
           >
             <IconBulletFill data-slot="indicator" />
           </span>

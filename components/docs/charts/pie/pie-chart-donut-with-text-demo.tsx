@@ -10,33 +10,33 @@ const chartData = [
   { category: "Clothing", sales: 200, fill: "var(--color-clothing)" },
   { category: "Groceries", sales: 287, fill: "var(--color-groceries)" },
   { category: "Furniture", sales: 173, fill: "var(--color-furniture)" },
-  { category: "Books", sales: 190, fill: "var(--color-books)" }
+  { category: "Books", sales: 190, fill: "var(--color-books)" },
 ]
 
 const chartConfig = {
   sales: {
-    label: "Sales"
+    label: "Sales",
   },
   electronics: {
     label: "Electronics",
-    color: "var(--chart-1)"
+    color: "var(--chart-1)",
   },
   clothing: {
     label: "Clothing",
-    color: "var(--chart-2)"
+    color: "var(--chart-2)",
   },
   groceries: {
     label: "Groceries",
-    color: "var(--chart-3)"
+    color: "var(--chart-3)",
   },
   furniture: {
     label: "Furniture",
-    color: "var(--chart-4)"
+    color: "var(--chart-4)",
   },
   books: {
     label: "Books",
-    color: "var(--chart-5)"
-  }
+    color: "var(--chart-5)",
+  },
 } satisfies ChartConfig
 
 export default function PieChartDonutWithTextDemo() {
@@ -60,7 +60,7 @@ export default function PieChartDonutWithTextDemo() {
                   if (viewBox && "cx" in viewBox && "cy" in viewBox) {
                     return (
                       <text x={viewBox.cx} y={viewBox.cy} textAnchor="middle" dominantBaseline="middle">
-                        <tspan x={viewBox.cx} y={viewBox.cy} className="fill-fg text-3xl font-bold">
+                        <tspan x={viewBox.cx} y={viewBox.cy} className="text-3xl font-bold fill-fg">
                           {totalSales.toLocaleString()}
                         </tspan>
                         <tspan x={viewBox.cx} y={(viewBox.cy || 0) + 24} className="fill-muted-fg">

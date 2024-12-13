@@ -24,21 +24,21 @@ const countries = [
     cities: [
       {
         id: 101,
-        name: "Cairo"
+        name: "Cairo",
       },
       {
         id: 102,
-        name: "Alexandria"
+        name: "Alexandria",
       },
       {
         id: 103,
-        name: "Giza"
+        name: "Giza",
       },
       {
         id: 104,
-        name: "Luxor"
-      }
-    ]
+        name: "Luxor",
+      },
+    ],
   },
   {
     id: 2,
@@ -46,25 +46,25 @@ const countries = [
     cities: [
       {
         id: 201,
-        name: "Jakarta"
+        name: "Jakarta",
       },
       {
         id: 202,
-        name: "Bali"
+        name: "Bali",
       },
       {
         id: 203,
-        name: "Surabaya"
+        name: "Surabaya",
       },
       {
         id: 204,
-        name: "Bandung"
+        name: "Bandung",
       },
       {
         id: 205,
-        name: "Medan"
-      }
-    ]
+        name: "Medan",
+      },
+    ],
   },
   {
     id: 3,
@@ -72,21 +72,21 @@ const countries = [
     cities: [
       {
         id: 301,
-        name: "New York City"
+        name: "New York City",
       },
       {
         id: 302,
-        name: "Los Angeles"
+        name: "Los Angeles",
       },
       {
         id: 303,
-        name: "Chicago"
+        name: "Chicago",
       },
       {
         id: 304,
-        name: "Houston"
-      }
-    ]
+        name: "Houston",
+      },
+    ],
   },
   {
     id: 4,
@@ -94,17 +94,17 @@ const countries = [
     cities: [
       {
         id: 401,
-        name: "Toronto"
+        name: "Toronto",
       },
       {
         id: 402,
-        name: "Vancouver"
+        name: "Vancouver",
       },
       {
         id: 403,
-        name: "Montreal"
-      }
-    ]
+        name: "Montreal",
+      },
+    ],
   },
   {
     id: 5,
@@ -112,17 +112,17 @@ const countries = [
     cities: [
       {
         id: 501,
-        name: "Sydney"
+        name: "Sydney",
       },
       {
         id: 502,
-        name: "Melbourne"
+        name: "Melbourne",
       },
       {
         id: 503,
-        name: "Brisbane"
-      }
-    ]
+        name: "Brisbane",
+      },
+    ],
   },
   {
     id: 6,
@@ -130,21 +130,21 @@ const countries = [
     cities: [
       {
         id: 601,
-        name: "Berlin"
+        name: "Berlin",
       },
       {
         id: 602,
-        name: "Munich"
+        name: "Munich",
       },
       {
         id: 603,
-        name: "Frankfurt"
+        name: "Frankfurt",
       },
       {
         id: 604,
-        name: "Hamburg"
-      }
-    ]
+        name: "Hamburg",
+      },
+    ],
   },
   {
     id: 7,
@@ -152,16 +152,16 @@ const countries = [
     cities: [
       {
         id: 701,
-        name: "Tokyo"
+        name: "Tokyo",
       },
       {
         id: 702,
-        name: "Osaka"
+        name: "Osaka",
       },
       {
         id: 703,
-        name: "Kyoto"
-      }
-    ]
-  }
+        name: "Kyoto",
+      },
+    ],
+  },
 ]

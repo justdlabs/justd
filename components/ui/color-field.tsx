@@ -38,7 +38,7 @@ const ColorField = ({
       aria-label={props["aria-label"] ?? "Color field"}
       className={composeTailwindRenderProps(
         className,
-        "**:data-[slot=color-swatch]:-ml-0.5 group w-full flex flex-col gap-y-1"
+        "**:data-[slot=color-swatch]:-ml-0.5 group flex w-full flex-col gap-y-1",
       )}
     >
       {label && <Label>{label}</Label>}
@@ -48,7 +48,7 @@ const ColorField = ({
             {prefix}
           </span>
         ) : null}
-        <div className="flex w-full items-center">
+        <div className="flex items-center w-full">
           {value && (
             <span className="ml-2">
               {enableColorPicker ? (
@@ -62,7 +62,7 @@ const ColorField = ({
           <Input placeholder={placeholder} />
         </div>
         {suffix ? (
-          <span data-slot="suffix" className="atrs ml-auto">
+          <span data-slot="suffix" className="ml-auto atrs">
             {suffix}
           </span>
         ) : null}

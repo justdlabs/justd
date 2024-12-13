@@ -10,19 +10,19 @@ const engagementData = Array.from({ length: 24 }, (_, index) => {
   return {
     month,
     likes: Math.floor(Math.random() * 50 + 100),
-    comments: Math.floor(Math.random() * 30 + 40)
+    comments: Math.floor(Math.random() * 30 + 40),
   }
 })
 
 const engagementConfig = {
   likes: {
     label: "Likes",
-    color: "var(--chart-1)"
+    color: "var(--chart-1)",
   },
   comments: {
     label: "Comments",
-    color: "var(--chart-2)"
-  }
+    color: "var(--chart-2)",
+  },
 } satisfies ChartConfig
 
 export default function AreaChartStackedDemo() {
@@ -40,7 +40,7 @@ export default function AreaChartStackedDemo() {
             data={engagementData}
             margin={{
               left: 12,
-              right: 12
+              right: 12,
             }}
           >
             <CartesianGrid vertical={false} />

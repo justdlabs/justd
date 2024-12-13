@@ -10,7 +10,7 @@ export default function MultipleSelectAnatomy() {
       selectedItems={selectedItems}
       items={[
         { id: 1, name: "Apple" },
-        { id: 2, name: "Banana" }
+        { id: 2, name: "Banana" },
       ]}
       tag={(item) => <MultipleSelect.Tag textValue={item.name}>{item.name}</MultipleSelect.Tag>}
     >

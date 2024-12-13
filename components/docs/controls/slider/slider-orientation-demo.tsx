@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import { useState } from "react"
 
 import { Card, Description, Slider } from "ui"
 
@@ -12,7 +12,7 @@ export default function SliderOrientationDemo() {
     mid: 70,
     highMid: 65,
     presence: 75,
-    brilliance: 80
+    brilliance: 80,
   })
 
   const handleSliderChange = (name: string, value: number) => {
@@ -21,7 +21,7 @@ export default function SliderOrientationDemo() {
 
   return (
     <Card className="p-4">
-      <div className="flex justify-center *:w-6 gap-4">
+      <div className="flex justify-center gap-4 *:w-6">
         <Slider
           output="tooltip"
           aria-label="Sub Bass"
@@ -72,7 +72,7 @@ export default function SliderOrientationDemo() {
           orientation="vertical"
         />
       </div>
-      <Description className="mt-6 block text-center">Equilizer</Description>
+      <Description className="block mt-6 text-center">Equilizer</Description>
     </Card>
   )
 }

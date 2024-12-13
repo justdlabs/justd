@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import { useState } from "react"
 
 import { OptionPreview } from "@/components/docs/outside/option-preview"
 import { Time } from "@internationalized/date"
