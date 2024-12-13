@@ -1,0 +1,11 @@
+{
+  "name": "search-field-disabled-demo",
+  "files": [
+    {
+      "name": "search-field-disabled-demo.tsx",
+      "content": "\"use client\"\n\nimport { SearchField } from \"ui\"\n\nexport default function SearchFieldDisabledDemo() {\n  return <SearchField isDisabled />\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/forms/search-field/search-field-disabled-demo.tsx"
+}

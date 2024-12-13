@@ -1,0 +1,11 @@
+{
+  "name": "switch-demo",
+  "files": [
+    {
+      "name": "switch-demo.tsx",
+      "content": "\"use client\"\n\nimport { Switch } from \"ui\"\n\nexport default function SwitchDemo() {\n  return <Switch>Switch Theme</Switch>\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/controls/switch/switch-demo.tsx"
+}

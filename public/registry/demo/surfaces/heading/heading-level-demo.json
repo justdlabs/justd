@@ -1,0 +1,11 @@
+{
+  "name": "heading-level-demo",
+  "files": [
+    {
+      "name": "heading-level-demo.tsx",
+      "content": "\"use client\"\n\nimport { Heading } from \"ui\"\n\nexport default function HeadingLevelDemo() {\n  return (\n    <div className=\"space-y-2\">\n      <Heading>The quick brown fox jumps over the lazy dog</Heading>\n      <Heading level={2}>The quick brown fox jumps over the lazy dog</Heading>\n      <Heading level={3}>The quick brown fox jumps over the lazy dog</Heading>\n      <Heading level={4}>The quick brown fox jumps over the lazy dog</Heading>\n    </div>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/surfaces/heading/heading-level-demo.tsx"
+}

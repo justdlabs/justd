@@ -1,0 +1,11 @@
+{
+  "name": "avatar-basic-demo",
+  "files": [
+    {
+      "name": "avatar-basic-demo.tsx",
+      "content": "import { Avatar } from \"ui\"\n\nexport default function AvatarBasicDemo() {\n  return <Avatar src=\"/images/avatar/slash.jpg\" alt=\"...\" />\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/media/avatar/avatar-basic-demo.tsx"
+}

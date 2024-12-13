@@ -1,0 +1,11 @@
+{
+  "name": "breadcrumbs-separator-demo",
+  "files": [
+    {
+      "name": "breadcrumbs-separator-demo.tsx",
+      "content": "\"use client\"\n\nimport { Breadcrumbs } from \"ui\"\n\nexport default function BreadcrumbsSeparatorDemo() {\n  return (\n    <Breadcrumbs>\n      <Breadcrumbs.Item separator=\"slash\" href=\"#\">\n        Home\n      </Breadcrumbs.Item>\n      <Breadcrumbs.Item separator=\"slash\" href=\"#\">\n        Design System\n      </Breadcrumbs.Item>\n      <Breadcrumbs.Item>Collections</Breadcrumbs.Item>\n    </Breadcrumbs>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/navigation/breadcrumbs/breadcrumbs-separator-demo.tsx"
+}

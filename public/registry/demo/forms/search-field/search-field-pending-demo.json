@@ -1,0 +1,11 @@
+{
+  "name": "search-field-pending-demo",
+  "files": [
+    {
+      "name": "search-field-pending-demo.tsx",
+      "content": "\"use client\"\n\nimport { SearchField } from \"ui\"\n\nexport default function SearchFieldPendingDemo() {\n  return <SearchField isPending aria-label=\"Search\" placeholder=\"Search\" />\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/forms/search-field/search-field-pending-demo.tsx"
+}

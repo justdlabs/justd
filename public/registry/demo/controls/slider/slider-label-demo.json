@@ -1,0 +1,11 @@
+{
+  "name": "slider-label-demo",
+  "files": [
+    {
+      "name": "slider-label-demo.tsx",
+      "content": "\"use client\"\n\nimport { Slider } from \"ui\"\n\nexport default function SliderLabelDemo() {\n  return <Slider label=\"Opacity\" defaultValue={30} />\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/controls/slider/slider-label-demo.tsx"
+}

@@ -1,0 +1,11 @@
+{
+  "name": "time-field-validation-demo",
+  "files": [
+    {
+      "name": "time-field-validation-demo.tsx",
+      "content": "\"use client\"\n\nimport { Button, Form, TimeField } from \"ui\"\n\nexport default function TimeFieldValidationDemo() {\n  return (\n    <Form onSubmit={(e) => e.preventDefault()}>\n      <TimeField label=\"Event time\" isRequired className=\"mb-2\" />\n      <Button type=\"submit\">Submit</Button>\n    </Form>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/date-and-time/time-field/time-field-validation-demo.tsx"
+}

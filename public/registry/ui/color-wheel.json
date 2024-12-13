@@ -1,0 +1,11 @@
+{
+  "name": "color-wheel",
+  "files": [
+    {
+      "name": "color-wheel.tsx",
+      "content": "\"use client\"\n\nimport {\n  ColorWheel as ColorWheelPrimitive,\n  type ColorWheelProps as ColorWheelPrimitiveProps,\n  ColorWheelTrack,\n} from \"react-aria-components\"\n\nimport { ColorThumb } from \"./color-thumb\"\n\nexport type ColorWheelProps = Omit<ColorWheelPrimitiveProps, \"outerRadius\" | \"innerRadius\">\n\nconst ColorWheel = (props: ColorWheelProps) => {\n  return (\n    <ColorWheelPrimitive {...props} outerRadius={100} innerRadius={74}>\n      <ColorWheelTrack\n        className=\"forced-colors:data-disabled:bg-[GrayText] disabled:bg-muted/75\"\n        style={({ defaultStyle, isDisabled }) => ({\n          ...defaultStyle,\n          background: isDisabled\n            ? undefined\n            : `${defaultStyle.background}, repeating-conic-gradient(#CCC 0% 25%, white 0% 50%) 50% / 16px 16px`,\n        })}\n      />\n      <ColorThumb />\n    </ColorWheelPrimitive>\n  )\n}\n\nexport { ColorWheel }\n"
+    }
+  ],
+  "type": "components:ui",
+  "componentPath": "components/ui/color-wheel.tsx"
+}

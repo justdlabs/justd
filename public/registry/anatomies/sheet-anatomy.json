@@ -1,0 +1,11 @@
+{
+  "name": "sheet-anatomy",
+  "files": [
+    {
+      "name": "sheet-anatomy.tsx",
+      "content": "import { Button, Sheet } from \"ui\"\n\nexport default function SheetAnatomy() {\n  return (\n    <Sheet>\n      <Button>Edit Settings</Button>\n      <Sheet.Content>\n        <Sheet.Header>\n          <Sheet.Title>Update User Settings</Sheet.Title>\n          <Sheet.Description>Adjust your preferences and configurations here.</Sheet.Description>\n        </Sheet.Header>\n        <Sheet.Body>...</Sheet.Body>\n        <Sheet.Footer>\n          <Sheet.Close>Cancel</Sheet.Close>\n          <Button intent=\"primary\" type=\"submit\">\n            Save Changes\n          </Button>\n        </Sheet.Footer>\n      </Sheet.Content>\n    </Sheet>\n  )\n}\n"
+    }
+  ],
+  "type": "components:anatomies",
+  "componentPath": "components/docs/anatomies/sheet-anatomy.tsx"
+}

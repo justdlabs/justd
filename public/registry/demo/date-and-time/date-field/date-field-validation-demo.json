@@ -1,0 +1,11 @@
+{
+  "name": "date-field-validation-demo",
+  "files": [
+    {
+      "name": "date-field-validation-demo.tsx",
+      "content": "\"use client\"\n\nimport { Button, DateField, Form } from \"ui\"\n\nexport default function DateFieldValidationDemo() {\n  return (\n    <Form onSubmit={(e) => e.preventDefault()}>\n      <DateField isRequired label=\"Event date\" className=\"mb-2\" />\n      <Button type=\"submit\">Submit</Button>\n    </Form>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/date-and-time/date-field/date-field-validation-demo.tsx"
+}

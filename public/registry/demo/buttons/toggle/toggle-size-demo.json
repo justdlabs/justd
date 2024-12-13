@@ -1,0 +1,11 @@
+{
+  "name": "toggle-size-demo",
+  "files": [
+    {
+      "name": "toggle-size-demo.tsx",
+      "content": "\"use client\"\n\nimport { IconAccessible, IconAccessibleFill } from \"justd-icons\"\nimport { Toggle } from \"ui\"\n\nexport default function ToggleSizeDemo() {\n  return (\n    <div className=\"flex flex-wrap gap-2\">\n      <Toggle appearance=\"outline\" size=\"square-petite\">\n        {({ isSelected }) => <>{isSelected ? <IconAccessibleFill /> : <IconAccessible />}</>}\n      </Toggle>\n      <Toggle appearance=\"outline\" size=\"small\">\n        {({ isSelected }) => <>{isSelected ? \"Unpin\" : \"Pin\"}</>}\n      </Toggle>\n      <Toggle appearance=\"outline\" size=\"medium\">\n        {({ isSelected }) => <>{isSelected ? \"Unpin\" : \"Pin\"}</>}\n      </Toggle>\n      <Toggle appearance=\"outline\" size=\"large\">\n        {({ isSelected }) => <>{isSelected ? \"Unpin\" : \"Pin\"}</>}\n      </Toggle>\n    </div>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/buttons/toggle/toggle-size-demo.tsx"
+}

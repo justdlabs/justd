@@ -8,7 +8,7 @@ import {
   IconBrandCopilot,
   IconBrandGithub,
   IconBuilding,
-  IconChart,
+  IconChartBar,
   IconCodeBrackets,
   IconFilter,
   IconGear,
@@ -105,7 +105,7 @@ export default function SheetMenuDemo() {
                   <IconBrandCopilot /> Your Copilot
                 </Menu.Item>
                 <Menu.Item>
-                  <IconChart /> Your projects
+                  <IconChartBar /> Your projects
                 </Menu.Item>
                 <Menu.Item>
                   <IconStar /> Your stars

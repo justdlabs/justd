@@ -1,0 +1,11 @@
+{
+  "name": "toast-description-demo",
+  "files": [
+    {
+      "name": "toast-description-demo.tsx",
+      "content": "\"use client\"\n\nimport { toast } from \"sonner\"\nimport { Button } from \"ui\"\n\nexport default function ToastDescriptionDemo() {\n  return (\n    <Button\n      onPress={() =>\n        toast(\"Cart Updated\", {\n          description: \"Your item’s in the cart. Tap here to check it out.\",\n        })\n      }\n    >\n      Add to Cart\n    </Button>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/statuses/toast-description-demo.tsx"
+}

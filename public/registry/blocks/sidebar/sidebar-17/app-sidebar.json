@@ -1,0 +1,11 @@
+{
+  "name": "app-sidebar",
+  "files": [
+    {
+      "name": "app-sidebar.tsx",
+      "content": "\"use client\"\n\nimport { parseDate } from \"@internationalized/date\"\nimport { IconBrandApple } from \"justd-icons\"\nimport {\n  Link,\n  RangeCalendar,\n  SearchField,\n  Sidebar,\n  SidebarContent,\n  SidebarHeader,\n  SidebarLabel,\n  SidebarRail,\n  SidebarSection,\n  SidebarSectionGroup,\n} from \"ui\"\n\nexport default function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {\n  return (\n    <Sidebar {...props}>\n      <SidebarHeader>\n        <Link\n          className=\"flex items-center gap-x-2 group-data-[collapsible=dock]:size-10 group-data-[collapsible=dock]:justify-center\"\n          href=\"/docs/components/layouts/sidebar\"\n        >\n          <IconBrandApple className=\"size-5\" />\n          <SidebarLabel className=\"font-medium\">Apple</SidebarLabel>\n        </Link>\n      </SidebarHeader>\n      <SidebarContent>\n        <SidebarSectionGroup>\n          <SidebarSection>\n            <SearchField />\n          </SidebarSection>\n          <SidebarSection>\n            <RangeCalendar\n              defaultValue={{\n                start: parseDate(`${new Date().getFullYear()}-02-03`),\n                end: parseDate(`${new Date().getFullYear()}-02-12`),\n              }}\n            />\n          </SidebarSection>\n        </SidebarSectionGroup>\n      </SidebarContent>\n      <SidebarRail />\n    </Sidebar>\n  )\n}\n"
+    }
+  ],
+  "type": "components:blocks",
+  "componentPath": "app/blocks/sidebar/sidebar-17/app-sidebar.tsx"
+}

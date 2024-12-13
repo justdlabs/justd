@@ -1,0 +1,11 @@
+{
+  "name": "color-area-space-demo",
+  "files": [
+    {
+      "name": "color-area-space-demo.tsx",
+      "content": "\"use client\"\n\nimport { ColorArea, ColorThumb } from \"ui\"\n\nexport default function ColorAreaSpaceDemo() {\n  return (\n    <ColorArea colorSpace=\"rgb\">\n      <ColorThumb />\n    </ColorArea>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/colors/color-area/color-area-space-demo.tsx"
+}

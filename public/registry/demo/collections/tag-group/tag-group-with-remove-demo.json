@@ -1,0 +1,11 @@
+{
+  "name": "tag-group-with-remove-demo",
+  "files": [
+    {
+      "name": "tag-group-with-remove-demo.tsx",
+      "content": "\"use client\"\n\nimport { useListData } from \"react-stately\"\nimport { Tag, TagGroup, TagList } from \"ui\"\n\nexport default function TagGroupWithRemoveDemo() {\n  const list = useListData({\n    initialItems: [\n      { id: \"1\", name: \"Ferrari\", available: true },\n      { id: \"2\", name: \"Lamborghini\", available: false },\n      { id: \"3\", name: \"Porsche\", available: true },\n      { id: \"4\", name: \"Bugatti\", available: false },\n      { id: \"5\", name: \"McLaren\", available: true },\n      { id: \"6\", name: \"Aston Martin\", available: true },\n      { id: \"7\", name: \"Bentley\", available: false },\n      { id: \"8\", name: \"Rolls-Royce\", available: true },\n      { id: \"9\", name: \"Maserati\", available: false },\n      { id: \"10\", name: \"Jaguar\", available: true },\n    ],\n  })\n\n  return (\n    <TagGroup selectionMode=\"multiple\" className=\"max-w-sm\" onRemove={(keys) => list.remove(...keys)}>\n      <TagList items={list.items}>{(item) => <Tag>{item.name}</Tag>}</TagList>\n    </TagGroup>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/collections/tag-group/tag-group-with-remove-demo.tsx"
+}
