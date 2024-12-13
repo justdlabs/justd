@@ -1,7 +1,0 @@
-resources/content
-components/ui/index.ts
-**/*.mdx
-components/docs/generated/**/*
-.velite
-.next
-.github
