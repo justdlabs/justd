@@ -1,0 +1,11 @@
+{
+  "name": "checkbox-anatomy",
+  "files": [
+    {
+      "name": "checkbox-anatomy.tsx",
+      "content": "import { Checkbox } from \"ui\"\n\nexport default function CheckboxAnatomy() {\n  return <Checkbox>Enable notifications</Checkbox>\n}\n"
+    }
+  ],
+  "type": "components:anatomies",
+  "componentPath": "components/docs/anatomies/checkbox-anatomy.tsx"
+}

@@ -1,0 +1,11 @@
+{
+  "name": "drop-zone-anatomy",
+  "files": [
+    {
+      "name": "drop-zone-anatomy.tsx",
+      "content": "import { DropZone, Label } from \"ui\"\n\nexport default function DropZoneAnatomy() {\n  return (\n    <DropZone>\n      <Label>Toss your stuff here</Label>\n    </DropZone>\n  )\n}\n"
+    }
+  ],
+  "type": "components:anatomies",
+  "componentPath": "components/docs/anatomies/drop-zone-anatomy.tsx"
+}

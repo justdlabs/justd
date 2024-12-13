@@ -1,0 +1,11 @@
+{
+  "name": "color-swatch-picker",
+  "files": [
+    {
+      "name": "color-swatch-picker.tsx",
+      "content": "\"use client\"\n\nimport type { ColorSwatchPickerItemProps, ColorSwatchPickerProps } from \"react-aria-components\"\nimport { ColorSwatchPickerItem, ColorSwatchPicker as ColorSwatchPickerPrimitive } from \"react-aria-components\"\nimport { tv } from \"tailwind-variants\"\n\nimport { ColorSwatch } from \"./color-swatch\"\nimport { composeTailwindRenderProps, focusRing } from \"./primitive\"\n\nconst ColorSwatchPicker = ({ children, className, layout = \"grid\", ...props }: ColorSwatchPickerProps) => {\n  return (\n    <ColorSwatchPickerPrimitive\n      layout={layout}\n      {...props}\n      className={composeTailwindRenderProps(className, \"flex gap-1\")}\n    >\n      {children}\n    </ColorSwatchPickerPrimitive>\n  )\n}\n\nconst itemStyles = tv({\n  extend: focusRing,\n  base: \"relative rounded disabled:opacity-50\",\n})\n\nconst SwatchPickerItem = (props: ColorSwatchPickerItemProps) => {\n  return (\n    <ColorSwatchPickerItem {...props} className={itemStyles}>\n      {({ isSelected }) => (\n        <>\n          <ColorSwatch />\n          {isSelected && (\n            <div className=\"absolute top-0 left-0 w-full h-full rounded-md ring-1 ring-inset rounded-[calc(var(--radius-lg)-3.9px)] outline-hidden ring-fg/30 forced-color-adjust-none\" />\n          )}\n        </>\n      )}\n    </ColorSwatchPickerItem>\n  )\n}\n\nColorSwatchPicker.Item = SwatchPickerItem\n\nexport { ColorSwatchPicker }\n"
+    }
+  ],
+  "type": "components:ui",
+  "componentPath": "components/ui/color-swatch-picker.tsx"
+}

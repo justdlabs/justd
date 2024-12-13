@@ -1,0 +1,11 @@
+{
+  "name": "color-wheel-demo",
+  "files": [
+    {
+      "name": "color-wheel-demo.tsx",
+      "content": "\"use client\"\n\nimport { ColorWheel } from \"ui\"\n\nexport default function ColorWheelDemo() {\n  return <ColorWheel aria-label=\"Background color\" />\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/colors/color-wheel/color-wheel-demo.tsx"
+}

@@ -1,0 +1,11 @@
+{
+  "name": "color-field-with-suffix-demo",
+  "files": [
+    {
+      "name": "color-field-with-suffix-demo.tsx",
+      "content": "\"use client\"\n\nimport { IconColors } from \"justd-icons\"\nimport { ColorField } from \"ui\"\n\nexport default function ColorFieldWithSuffixDemo() {\n  return <ColorField label=\"Color\" suffix={<IconColors />} placeholder=\"#FAFAFA\" />\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/colors/color-field/color-field-with-suffix-demo.tsx"
+}

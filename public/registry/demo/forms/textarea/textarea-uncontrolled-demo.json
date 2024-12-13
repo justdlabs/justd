@@ -1,0 +1,11 @@
+{
+  "name": "textarea-uncontrolled-demo",
+  "files": [
+    {
+      "name": "textarea-uncontrolled-demo.tsx",
+      "content": "\"use client\"\n\nimport { Textarea } from \"ui\"\n\nexport default function TextareaUncontrolledDemo() {\n  return <Textarea defaultValue=\"Brooklyn New York, USA\" label=\"Address\" className=\"mb-2\" />\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/forms/textarea/textarea-uncontrolled-demo.tsx"
+}

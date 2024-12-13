@@ -1,0 +1,11 @@
+{
+  "name": "file-trigger-multiple-demo",
+  "files": [
+    {
+      "name": "file-trigger-multiple-demo.tsx",
+      "content": "\"use client\"\n\nimport { FileTrigger } from \"ui\"\n\nexport default function FileTriggerMultipleDemo() {\n  return <FileTrigger allowsMultiple />\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/buttons/file-trigger/file-trigger-multiple-demo.tsx"
+}

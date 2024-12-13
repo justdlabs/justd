@@ -1,0 +1,11 @@
+{
+  "name": "context-menu-demo",
+  "files": [
+    {
+      "name": "context-menu-demo.tsx",
+      "content": "\"use client\"\n\nimport { ContextMenu } from \"ui\"\n\nexport default function ContextMenuDemo() {\n  return (\n    <ContextMenu>\n      <ContextMenu.Trigger className=\"grid place-content-center w-56 h-28 rounded-lg border-2 border-dashed\">\n        Right click me\n      </ContextMenu.Trigger>\n      <ContextMenu.Content className=\"sm:min-w-56\">\n        <ContextMenu.Item>Back</ContextMenu.Item>\n        <ContextMenu.Item isDisabled>Forward</ContextMenu.Item>\n        <ContextMenu.Item>Reload</ContextMenu.Item>\n        <ContextMenu.Separator />\n        <ContextMenu.Item>Bookmark</ContextMenu.Item>\n        <ContextMenu.Item>Save as</ContextMenu.Item>\n        <ContextMenu.Item>\n          Select all\n          <ContextMenu.Keyboard keys=\"⌘A\" />\n        </ContextMenu.Item>\n        <ContextMenu.Separator />\n        <ContextMenu.Item>View source</ContextMenu.Item>\n        <ContextMenu.Item>Inspect Accessibility</ContextMenu.Item>\n        <ContextMenu.Item>Inspect</ContextMenu.Item>\n      </ContextMenu.Content>\n    </ContextMenu>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/controls/context-menu/context-menu-demo.tsx"
+}

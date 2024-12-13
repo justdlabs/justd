@@ -1,0 +1,11 @@
+{
+  "name": "tooltip-chart-icons-demo",
+  "files": [
+    {
+      "name": "tooltip-chart-icons-demo.tsx",
+      "content": "\"use client\"\n\nimport { IconShippingBag, IconStrikeThrough } from \"justd-icons\"\nimport { Bar, BarChart, XAxis } from \"recharts\"\nimport { Card, Chart, type ChartConfig, ChartTooltip, ChartTooltipContent } from \"ui\"\n\nconst chartData = Array.from({ length: 24 }, (_, index) => {\n  const date = new Date(new Date().getFullYear() - 1, index).toLocaleDateString(\"en-US\", {\n    month: \"short\",\n    year: \"numeric\",\n  })\n  return {\n    date,\n    sales: Math.floor(Math.random() * 500 + 100),\n    expenses: Math.floor(Math.random() * 300 + 50),\n  }\n})\n\nconst chartConfig = {\n  sales: {\n    label: \"Sales\",\n    color: \"var(--chart-1)\",\n    icon: IconShippingBag,\n  },\n  expenses: {\n    label: \"Expenses\",\n    color: \"var(--chart-2)\",\n    icon: IconStrikeThrough,\n  },\n} satisfies ChartConfig\n\nexport default function TooltipChartIconsDemo() {\n  return (\n    <Card>\n      <Card.Header\n        className=\"items-center pb-0\"\n        title=\"Monthly Financial Overview\"\n        description=\"Sales and expenses for the past 24 months\"\n      />\n      <Card.Content>\n        <Chart config={chartConfig}>\n          <BarChart accessibilityLayer data={chartData}>\n            <XAxis dataKey=\"date\" tickLine={false} tickMargin={10} axisLine={false} tickFormatter={(value) => value} />\n            <Bar dataKey=\"sales\" stackId=\"a\" fill=\"var(--color-sales)\" radius={[0, 0, 4, 4]} />\n            <Bar dataKey=\"expenses\" stackId=\"a\" fill=\"var(--color-expenses)\" radius={[4, 4, 0, 0]} />\n            <ChartTooltip content={<ChartTooltipContent hideLabel />} cursor={false} defaultIndex={1} />\n          </BarChart>\n        </Chart>\n      </Card.Content>\n    </Card>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/charts/tooltip/tooltip-chart-icons-demo.tsx"
+}
