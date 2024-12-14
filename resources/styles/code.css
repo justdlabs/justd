@@ -145,14 +145,6 @@ span[data-rehype-pretty-code-figure] > code > span {
   box-shadow: 0 0 0 4px rgb(82 82 91 / 0.5);
 }
 
-/*[data-rehype-pretty-code-figure] [data-chars-id] {*/
-/*  @apply border-b-2 p-1 shadow-none;*/
-/*}*/
-
-/*.subheading-anchor {*/
-/*  @apply text-fg font-semibold no-underline hover:no-underline;*/
-/*}*/
-
 .has-diff .diff.remove {
   @apply bg-red-500/10;
 }
@@ -174,11 +166,6 @@ span[data-rehype-pretty-code-figure] > code > span {
     :where(h1, h2, h3, h4, h5, h6, th):not(:where([class~="not-prose"], [class~="not-prose"] *))
   ) {
   @apply tracking-tight;
-}
-
-.prose-heading.s\:scroll-mt-24
-  :is(:where(h1, h2, h3, h4, h5, h6, th):not(:where([class~="not-prose"], [class~="not-prose"] *)))
-  > a {
   text-decoration: none !important;
   color: var(--fg) !important;
 }

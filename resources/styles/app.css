@@ -1,10 +1,8 @@
-@import "./code.css" layer(base);
-
 @import "tailwindcss";
+@import "./code.css";
 
 @plugin 'tailwindcss-animate';
 @plugin '@tailwindcss/typography';
-@source "./content/docs";
 
 @variant dark (&:is(.dark *));
 
