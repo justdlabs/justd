@@ -1,3 +1,5 @@
+import type { NextConfig } from "next"
+
 const isDev = process.argv.indexOf("dev") !== -1
 const isBuild = process.argv.indexOf("build") !== -1
 if (!process.env.VELITE_STARTED && (isDev || isBuild)) {
@@ -6,13 +8,13 @@ if (!process.env.VELITE_STARTED && (isDev || isBuild)) {
   await build({ watch: isDev, clean: !isDev })
 }
 
-/** @type {import("next").NextConfig} */
 export default {
   devIndicators: {
     buildActivity: false,
     appIsrStatus: false,
   },
   experimental: {
+    reactCompiler: true,
     optimizePackageImports: ["shiki"],
   },
   async redirects() {
@@ -104,4 +106,4 @@ export default {
       },
     ]
   },
-}
+} satisfies NextConfig
