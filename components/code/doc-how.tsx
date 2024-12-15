@@ -75,12 +75,12 @@ export const DocHow = ({
   const divProps = { ...props } as React.HTMLProps<HTMLDivElement>
   return (
     <div className={cn("not-prose forced-color-adjust-non relative my-4", className)} {...divProps}>
-      <Tabs aria-label="Packages">
+      <Tabs className="group" aria-label="Packages">
         <TabsList copyButton={copyButton} code={processedSourceCode as string} src={src} />
         <Tabs.Panel className="w-full" id="preview">
           <div
             className={cn(
-              !withNoPadding && "relative gap-4 rounded-lg border bg-overlay p-6",
+              !withNoPadding && "relative gap-4 rounded-lg border bg-secondary/50 p-6",
               isCenter &&
                 "preview flex min-h-56 items-center justify-center overflow-x-auto py-6 sm:py-24 lg:min-h-110",
             )}
@@ -103,7 +103,6 @@ export const DocHow = ({
         <Tabs.Panel id="code">
           {processedSourceCode ? (
             <Group className="relative group">
-              {/*<CopyButton text={processedSourceCode} className="absolute top-0 right-0" />*/}
               <CodeHighlighter removeLastLine code={processedSourceCode} />
             </Group>
           ) : (

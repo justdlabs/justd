@@ -123,7 +123,7 @@ export const generateTheme = (selectedColors: Record<string, string>) => {
     --danger: ${dangerColor};
     --danger-fg: ${getColorValue("red", "50")};
     
-    --border: ${getColorValue(gray, "200")};
+    --border: ${adjustLightness(getColorValue(gray, "300"), +4)};
     --input: ${getColorValue(gray, "300")};
     --ring: ${getColorValue(primary, lightRingShade)};
     

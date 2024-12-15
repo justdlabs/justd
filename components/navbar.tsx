@@ -47,7 +47,7 @@ export function Navbar() {
       <CommandPalette setOpen={setOpen} openCmd={open} />
       <LayoutGroup id={`navigation-${id}`}>
         <div className="hidden overflow-hidden sticky top-0 z-30 pb-0 lg:block xnw2">
-          <nav className="py-2 border-b bg-bg backdrop-blur-3xl supports-backdrop-filter:bg-bg/60 dark:bg-bg/95">
+          <nav className="py-2 border-b border-current/10 bg-bg dark:supports-backdrop-filter:backdrop-blur-3xl dark:supports-backdrop-filter:bg-bg/60">
             <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-(--breakpoint-2xl)">
               <div className="flex justify-between items-center">
                 <div className="flex gap-x-6 items-center">
