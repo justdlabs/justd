@@ -19,15 +19,15 @@ const buttonStyles = tv({
   variants: {
     intent: {
       primary: [
-        "text-primary-fg [--button-bg:var(--color-primary)] [--button-border:var(--color-primary)] [--button-hover-overlay:var(--color-color-primary-fg)]/10",
+        "text-primary-fg [--button-bg:var(--color-primary)] [--button-border:var(--color-primary)] [--button-hover-overlay:var(--color-primary-fg)]/10",
         "[--button-icon:var(--color-primary-fg)]/60 data-pressed:[--button-icon:var(--color-primary-fg)]/80 data-hovered:[--button-icon:var(--color-primary-fg)]/80",
       ],
       secondary: [
-        "text-secondary-fg [--button-bg:var(--color-secondary)] dark:[--button-bg:var(--color-secondary)] [--button-border:var(--color-secondary-fg)]/10 [--button-hover-overlay:var(--color-secondary-fg)]/[2.5%] data-data-pressed:[--button-border:var(--color-secondary-fg)]/15 data-hovered:[--button-border:var(--color-secondary-fg)]/15",
+        "text-secondary-fg [--button-bg:var(--color-secondary)] dark:[--button-bg:var(--color-secondary)] [--button-border:var(--color-secondary-fg)]/10 [--button-hover-overlay:color-mix(in_oklab,var(--color-secondary)_95%,white_5%)] data-data-pressed:[--button-border:var(--color-secondary-fg)]/15 data-hovered:[--button-border:var(--color-secondary-fg)]/15",
         "[--button-icon:var(--color-secondary-fg)]/60 data-pressed:[--button-icon:var(--color-secondary-fg)] data-hovered:[--button-icon:var(--color-secondary-fg)]",
       ],
       warning: [
-        "text-warning-fg outline-warning [--button-bg:var(--color-warning)] [--button-border:var(--color-warning)] [--button-hover-overlay:var(--color-warning-fg)]/10",
+        "text-warning-fg outline-warning [--button-bg:var(--color-warning)] [--button-border:var(--color-warning)] [--button-hover-overlay:color-mix(in_oklab,var(--color-warning)_90%,white_10%)]",
         "[--button-icon:var(--color-warning-fg)]/60 data-pressed:[--button-icon:var(--color-warning-fg)]/80 data-hovered:[--button-icon:var(--color-warning-fg)]/80",
       ],
       danger: [

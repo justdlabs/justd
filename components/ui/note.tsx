@@ -4,7 +4,7 @@ import { type VariantProps, tv } from "tailwind-variants"
 const noteStyles = tv({
   base: [
     "w-full p-4 sm:text-sm/6 overflow-hidden rounded-lg inset-ring-1 inset-ring-current/10",
-    "[&_a]:underline data-hovered:[&_a]:underline",
+    "[&_a]:underline data-hovered:[&_a]:underline **:[strong]:font-semibold",
   ],
   variants: {
     intent: {
@@ -13,7 +13,7 @@ const noteStyles = tv({
         "dark:[&_a]:text-secondary-fg dark:**:data-[slot=icon]:text-secondary-fg",
       ],
       info: [
-        "bg-sky-500/15 text-sky-700 group-data-hovered:bg-sky-500/25 dark:bg-sky-500/10 dark:text-sky-300 dark:group-data-hovered:bg-sky-500/20",
+        "bg-sky-500/5 text-sky-700 group-data-hovered:bg-sky-500/25 dark:bg-sky-500/10 dark:text-sky-300 dark:group-data-hovered:bg-sky-500/20",
       ],
       warning:
         "bg-amber-400/20 text-amber-700 group-data-hovered:bg-amber-400/30 dark:bg-amber-400/10 dark:text-amber-400 dark:group-data-hovered:bg-amber-400/15",

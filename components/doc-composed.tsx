@@ -39,24 +39,22 @@ export function DocComposed({ components, text }: { components: string[]; text?:
           sm: 2,
         }}
       >
-        <div>
-          {filteredComponents.map((item) => (
-            <Grid.Item className="relative" key={item.slug}>
-              <Link
-                aria-label={`Open ${item.title}`}
-                rel="noopener noreferrer"
-                href={`/${item.slug}`}
-                className="absolute inset-0 rounded-lg peer size-full"
-              />
-              <Card className="overflow-hidden transition-colors peer-data-focused:shadow-none peer-data-hovered:shadow-none">
-                <Card.Header className="p-4">
-                  <Card.Title className="text-base font-medium sm:text-lg line-clamp-1">{item.title}</Card.Title>
-                  <Card.Description className="text-xs sm:text-sm line-clamp-2">{item.description}</Card.Description>
-                </Card.Header>
-              </Card>
-            </Grid.Item>
-          ))}
-        </div>
+        {filteredComponents.map((item) => (
+          <Grid.Item className="relative" key={item.slug}>
+            <Link
+              aria-label={`Open ${item.title}`}
+              rel="noopener noreferrer"
+              href={`/${item.slug}`}
+              className="absolute inset-0 rounded-lg peer size-full"
+            />
+            <Card className="overflow-hidden transition-colors peer-hover:bg-secondary/30">
+              <Card.Header className="p-4">
+                <Card.Title className="text-base font-medium sm:text-lg line-clamp-1">{item.title}</Card.Title>
+                <Card.Description className="text-xs sm:text-sm line-clamp-2">{item.description}</Card.Description>
+              </Card.Header>
+            </Card>
+          </Grid.Item>
+        ))}
       </Grid>
     </div>
   )
