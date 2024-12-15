@@ -28,8 +28,8 @@ import {
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
+import { cn } from "@/utils/classes"
 import { Checkbox } from "./checkbox"
-import { cn } from "./primitive"
 
 const table = tv({
   slots: {

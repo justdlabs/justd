@@ -9,6 +9,7 @@ import { CopyButton } from "@/components/code/copy-button"
 import { IconDeviceDesktop, IconDeviceIpad, IconDevicePhone } from "@/components/icon-device"
 import quotes from "@/resources/json/quotes.json"
 import type { RegistryItem } from "@/resources/types"
+import { cn } from "@/utils/classes"
 import { clsx } from "clsx"
 import {
   IconCube,
@@ -40,7 +41,6 @@ import {
   Tabs,
   ToggleGroup,
   buttonStyles,
-  cn,
 } from "ui"
 
 const registry = generated as Record<string, RegistryItem>

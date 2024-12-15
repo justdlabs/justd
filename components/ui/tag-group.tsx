@@ -17,9 +17,10 @@ import {
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
+import { cn } from "@/utils/classes"
 import { badgeIntents, badgeShapes, badgeStyles } from "./badge"
 import { Description, Label } from "./field"
-import { cn, composeTailwindRenderProps, focusStyles } from "./primitive"
+import { composeTailwindRenderProps, focusStyles } from "./primitive"
 
 const intents = {
   primary: {

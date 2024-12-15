@@ -17,7 +17,7 @@ import {
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
-import { cn } from "./primitive"
+import { cn } from "@/utils/classes"
 
 const DisclosureGroup = ({ children, className, ...props }: AccordionProps) => {
   return (

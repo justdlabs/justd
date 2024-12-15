@@ -14,7 +14,7 @@ const modalOverlayStyles = tv({
   ],
   variants: {
     isBlurred: {
-      true: "backdrop-blur bg-bg/15 dark:bg-bg/40",
+      true: "supports-backdrop-filter:backdrop-blur supports-backdrop-filter:bg-bg/15 bg-bg dark:supports-backdrop-filter:bg-bg/40",
     },
     isEntering: {
       true: "ease-out animate-in duration-300 fade-in",

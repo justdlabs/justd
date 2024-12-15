@@ -1,5 +1,6 @@
 "use client"
 
+import { cn } from "@/utils/classes"
 import { IconCheck } from "justd-icons"
 import {
   Collection,
@@ -13,8 +14,6 @@ import {
   composeRenderProps,
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
-
-import { cn } from "./primitive"
 
 const dropdownItemStyles = tv({
   base: [

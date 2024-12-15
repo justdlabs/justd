@@ -51,35 +51,33 @@ export function Resources() {
           Starter Kit
         </Heading>
         <div className="grid grid-cols-1 gap-2 sm:grid-cols-2" aria-label="Resources">
-          <Grid.Collection items={resources}>
-            {(item) => (
-              <div
-                aria-label={item.name}
-                id={item.name.toLowerCase().replaceAll(" ", "-")}
-                className="flex relative flex-col p-4 w-full h-full bg-white rounded-xl lg:p-6 shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] data-focused:outline-hidden forced-colors:outline dark:before:-inset-px dark:bg-zinc-950 dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset]"
-              >
-                <Link
-                  aria-label={`Open ${item.name}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={item.url}
-                  className="absolute inset-0 size-full"
-                />
-                <div className="flex-1">
-                  <div className="px-6 pt-6">
-                    <item.icon className="size-7" />
-                  </div>
-                  <Card.Header>
-                    <Card.Title level={3}>{item.name}</Card.Title>
-                    <Card.Description className="line-clamp-2">{item.description}</Card.Description>
-                  </Card.Header>
+          {resources.map((item) => (
+            <div
+              aria-label={item.name}
+              key={item.name.toLowerCase().replaceAll(" ", "-")}
+              className="flex relative flex-col p-4 w-full h-full bg-white rounded-xl lg:p-6 shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] data-focused:outline-hidden forced-colors:outline dark:before:-inset-px dark:bg-zinc-950 dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset]"
+            >
+              <Link
+                aria-label={`Open ${item.name}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                href={item.url}
+                className="absolute inset-0 size-full"
+              />
+              <div className="flex-1">
+                <div className="px-6 pt-6">
+                  <item.icon className="size-7" />
                 </div>
-                <Card.Footer>
-                  <Badge>{item.label}</Badge>
-                </Card.Footer>
+                <Card.Header>
+                  <Card.Title level={3}>{item.name}</Card.Title>
+                  <Card.Description className="line-clamp-2">{item.description}</Card.Description>
+                </Card.Header>
               </div>
-            )}
-          </Grid.Collection>
+              <Card.Footer>
+                <Badge>{item.label}</Badge>
+              </Card.Footer>
+            </div>
+          ))}
         </div>
       </section>
 

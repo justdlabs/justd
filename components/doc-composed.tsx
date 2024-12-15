@@ -39,9 +39,9 @@ export function DocComposed({ components, text }: { components: string[]; text?:
           sm: 2,
         }}
       >
-        <Grid.Collection items={filteredComponents}>
-          {(item) => (
-            <Grid.Item className="relative" id={item.slug}>
+        <div>
+          {filteredComponents.map((item) => (
+            <Grid.Item className="relative" key={item.slug}>
               <Link
                 aria-label={`Open ${item.title}`}
                 rel="noopener noreferrer"
@@ -55,8 +55,8 @@ export function DocComposed({ components, text }: { components: string[]; text?:
                 </Card.Header>
               </Card>
             </Grid.Item>
-          )}
-        </Grid.Collection>
+          ))}
+        </div>
       </Grid>
     </div>
   )

@@ -1,6 +1,6 @@
 "use client"
 
-import { cn } from "./ui/primitive"
+import { cn } from "@/utils/classes"
 
 const dots = "mx-[1px] inline-block size-[0.3125rem] animate-blink rounded-md"
 

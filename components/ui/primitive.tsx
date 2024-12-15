@@ -2,12 +2,9 @@
 
 import { useEffect, useState } from "react"
 
-import { type ClassValue, clsx } from "clsx"
 import { composeRenderProps } from "react-aria-components"
 import { twMerge } from "tailwind-merge"
 import { tv } from "tailwind-variants"
-
-const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs))
 
 function composeTailwindRenderProps<T>(
   className: string | ((v: T) => string) | undefined,
@@ -60,12 +57,4 @@ const useMediaQuery = (query: string) => {
   return value
 }
 
-export {
-  cn,
-  composeTailwindRenderProps,
-  composeRenderProps as cr,
-  focusRing,
-  focusStyles,
-  focusButtonStyles,
-  useMediaQuery,
-}
+export { composeTailwindRenderProps, focusRing, focusStyles, focusButtonStyles, useMediaQuery }

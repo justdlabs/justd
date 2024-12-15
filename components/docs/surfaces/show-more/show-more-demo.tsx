@@ -1,7 +1,8 @@
 "use client"
 
+import { cn } from "@/utils/classes"
 import { IconChevronLgDown } from "justd-icons"
-import { ShowMore, cn } from "ui"
+import { ShowMore } from "ui"
 
 export default function ShowMoreDemo() {
   return (

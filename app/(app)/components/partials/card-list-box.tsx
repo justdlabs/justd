@@ -53,25 +53,23 @@ export function CardListBox() {
               sm: 3,
             }}
           >
-            <Grid.Collection items={components}>
-              {(component) => (
-                <Link
-                  id={component.slug}
-                  href={component.slug}
-                  className="p-1 rounded-lg inset-ring-1 inset-ring-border bg-muted/30"
-                  aria-label={component.title}
-                >
-                  <div className="flex-1">
-                    <div className="p-4">
-                      <Heading tracking="tight" level={3}>
-                        {component.title}
-                      </Heading>
-                      <Description className="block mt-2">{component.description}</Description>
-                    </div>
+            {components.map((component) => (
+              <Link
+                key={component.slug}
+                href={component.slug}
+                className="p-1 rounded-lg inset-ring-1 inset-ring-border bg-muted/30"
+                aria-label={component.title}
+              >
+                <div className="flex-1">
+                  <div className="p-4">
+                    <Heading tracking="tight" level={3}>
+                      {component.title}
+                    </Heading>
+                    <Description className="block mt-2">{component.description}</Description>
                   </div>
-                </Link>
-              )}
-            </Grid.Collection>
+                </div>
+              </Link>
+            ))}
           </Grid>
         </div>
       ))}

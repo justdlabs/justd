@@ -27,10 +27,10 @@ import {
 import type { VariantProps } from "tailwind-variants"
 import { tv } from "tailwind-variants"
 
+import { cn } from "@/utils/classes"
 import { DropdownItemDetails, dropdownItemStyles, dropdownSectionStyles } from "./dropdown"
 import { Keyboard } from "./keyboard"
 import { Popover } from "./popover"
-import { cn } from "./primitive"
 
 interface MenuContextProps {
   respectScreen: boolean

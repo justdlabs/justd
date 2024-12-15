@@ -1,6 +1,6 @@
 "use client"
 
-import { cn } from "@/resources/lib/utils"
+import { cn } from "@/utils/classes"
 import { IconChevronLgLeft, IconChevronLgRight } from "justd-icons"
 import { Link, buttonStyles } from "ui"
 

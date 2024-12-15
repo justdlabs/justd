@@ -2,10 +2,11 @@
 
 import React, { Suspense, useState } from "react"
 
+import { cn } from "@/utils/classes"
 import { useScrollPosition } from "hooks/use-scroll-position"
 import { Heading } from "react-aria-components"
 import scrollIntoView from "scroll-into-view-if-needed"
-import { cn, useMediaQuery } from "ui"
+import { useMediaQuery } from "ui"
 
 interface TableOfContentsProps {
   title: string

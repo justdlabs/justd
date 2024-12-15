@@ -2,12 +2,11 @@
 
 import { forwardRef } from "react"
 
+import { cn } from "@/utils/classes"
 import { IconLoader } from "justd-icons"
 import { ProgressBar } from "react-aria-components"
 import type { VariantProps } from "tailwind-variants"
 import { tv } from "tailwind-variants"
-
-import { cn } from "./primitive"
 
 const loaderStyles = tv({
   base: "relative",

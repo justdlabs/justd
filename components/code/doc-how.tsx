@@ -6,8 +6,8 @@ import generated from "@/__registry__/generated"
 import { CodeHighlighter } from "@/components/code/code-highlighter"
 import { TabsList } from "@/components/code/code-sandbox"
 import { createFetchRegistryFile } from "@/resources/lib/fetch-registry"
-import { cn } from "@/resources/lib/utils"
 import type { RegistryItem } from "@/resources/types"
+import { cn } from "@/utils/classes"
 import { Group } from "react-aria-components"
 import { Loader, Tabs } from "ui"
 
@@ -80,7 +80,7 @@ export const DocHow = ({
         <Tabs.Panel className="w-full" id="preview">
           <div
             className={cn(
-              !withNoPadding && "relative gap-4 rounded-lg border bg-secondary/50 p-6",
+              !withNoPadding && "relative gap-4 rounded-lg border bg-bg dark:bg-secondary/40 p-6",
               isCenter &&
                 "preview flex min-h-56 items-center justify-center overflow-x-auto py-6 sm:py-24 lg:min-h-110",
             )}

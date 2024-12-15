@@ -5,7 +5,7 @@ import { createContext, forwardRef, use, useId, useMemo } from "react"
 import type { LegendProps } from "recharts"
 import { Legend, ResponsiveContainer, Tooltip } from "recharts"
 
-import { cn } from "./primitive"
+import { cn } from "@/utils/classes"
 
 const THEMES = { light: "", dark: ".dark" } as const
 

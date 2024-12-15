@@ -8,9 +8,9 @@ import { IconChevronLgLeft, IconChevronLgRight } from "justd-icons"
 import type { ListBoxItemProps, SectionProps } from "react-aria-components"
 import { ListBox, ListBoxItem, ListBoxSection } from "react-aria-components"
 
+import { cn } from "@/utils/classes"
 import type { ButtonProps } from "./button"
 import { Button } from "./button"
-import { cn } from "./primitive"
 
 type CarouselApi = UseEmblaCarouselType[1]
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>

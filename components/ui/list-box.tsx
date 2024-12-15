@@ -5,8 +5,8 @@ import type { ListBoxItemProps, ListBoxProps } from "react-aria-components"
 import { ListBoxItem, ListBox as ListBoxPrimitive, composeRenderProps } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
+import { cn } from "@/utils/classes"
 import { DropdownItemDetails, DropdownSection } from "./dropdown"
-import { cn } from "./primitive"
 
 const listBoxStyles = tv({
   base: "flex max-h-96 [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin] w-full gap-y-1 min-w-56 flex-col overflow-y-auto rounded-xl border p-1 shadow-lg outline-hidden",

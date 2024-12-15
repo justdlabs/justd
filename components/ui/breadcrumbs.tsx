@@ -4,8 +4,9 @@ import { IconChevronLgRight } from "justd-icons"
 import type { BreadcrumbProps, BreadcrumbsProps } from "react-aria-components"
 import { Breadcrumb, Breadcrumbs as BreadcrumbsPrimitive, type LinkProps } from "react-aria-components"
 
+import { cn } from "@/utils/classes"
 import { Link } from "./link"
-import { cn, composeTailwindRenderProps } from "./primitive"
+import { composeTailwindRenderProps } from "./primitive"
 
 const Breadcrumbs = <T extends object>({ className, ...props }: BreadcrumbsProps<T>) => {
   return <BreadcrumbsPrimitive {...props} className={cn("flex items-center gap-2", className)} />

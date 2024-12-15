@@ -1,11 +1,5 @@
 import type { Docs } from "@/.velite"
-import { type ClassValue, clsx } from "clsx"
-import { twMerge } from "tailwind-merge"
 import title from "title"
-
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
-}
 
 export function sortDocs(docs: Array<Docs>) {
   return docs.sort((a, b) => a.order - b.order)

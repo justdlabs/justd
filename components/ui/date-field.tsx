@@ -11,8 +11,9 @@ import {
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
+import { cn } from "@/utils/classes"
 import { Description, FieldError, FieldGroup, Label } from "./field"
-import { cn, composeTailwindRenderProps } from "./primitive"
+import { composeTailwindRenderProps } from "./primitive"
 
 interface DateFieldProps<T extends DateValue> extends DateFieldPrimitiveProps<T> {
   label?: string

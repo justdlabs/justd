@@ -113,7 +113,13 @@ export function CommandPalette({ openCmd, setOpen }: OpenCloseProps) {
     setSearch("")
   }, [pathname])
   return (
-    <CommandMenu classNames={{ content: "backdrop-blur-2xl bg-overlay/50" }} isOpen={openCmd} onOpenChange={setOpen}>
+    <CommandMenu
+      classNames={{
+        content: "dark:supports-backdrop-filter:backdrop-blur-2xl dark:supports-backdrop-filter:bg-overlay/50",
+      }}
+      isOpen={openCmd}
+      onOpenChange={setOpen}
+    >
       <CommandMenu.Input
         className="text-sm"
         isPending={loading}

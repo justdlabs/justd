@@ -6,7 +6,7 @@ import type { GroupProps, SeparatorProps, ToolbarProps } from "react-aria-compon
 import { Group, Toolbar as ToolbarPrimitive, composeRenderProps } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
-import { cn } from "./primitive"
+import { cn } from "@/utils/classes"
 import { Separator } from "./separator"
 import { Toggle } from "./toggle"
 

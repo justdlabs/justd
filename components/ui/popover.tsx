@@ -18,8 +18,9 @@ import {
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
+import { cn } from "@/utils/classes"
 import { Dialog } from "./dialog"
-import { cn, useMediaQuery } from "./primitive"
+import { useMediaQuery } from "./primitive"
 
 const Popover = ({ children, ...props }: DialogTriggerProps) => {
   return <DialogTrigger {...props}>{children}</DialogTrigger>

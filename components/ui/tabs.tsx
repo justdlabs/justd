@@ -17,7 +17,8 @@ import {
 import { twJoin } from "tailwind-merge"
 import { tv } from "tailwind-variants"
 
-import { cn, composeTailwindRenderProps } from "./primitive"
+import { cn } from "@/utils/classes"
+import { composeTailwindRenderProps } from "./primitive"
 
 const tabsStyles = tv({
   base: "group/tabs flex gap-4 forced-color-adjust-none",
