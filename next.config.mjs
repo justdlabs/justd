@@ -13,6 +13,7 @@ export default {
     appIsrStatus: false,
   },
   experimental: {
+    reactCompiler: true,
     optimizePackageImports: ["shiki"],
   },
   async redirects() {
