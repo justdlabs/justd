@@ -1,10 +1,10 @@
 import colors from "@/resources/colors/colors.json"
 import {
-  accentColors300,
-  accentColors400,
-  accentColors500,
-  adjustLightness,
-  neutralColors,
+    accentColors300,
+    accentColors400,
+    accentColors500,
+    adjustLightness,
+    neutralColors,
 } from "@/resources/lib/colors"
 
 type BlackWhite = "white" | "black"
@@ -140,7 +140,7 @@ export const generateTheme = (selectedColors: Record<string, string>) => {
     --chart-5: ${getColorValue(primary, chartShadesLight[4])};
     `
 
-  const darkColors = `--bg: ${getColorValue(gray, "950")};
+  const darkColors = `--bg: ${adjustLightness(getColorValue(gray, "950"), -5)};
     --fg: ${getColorValue(gray, "50")};
     
     --primary: ${getColorValue(primary, darkPrimary)};
@@ -161,7 +161,7 @@ export const generateTheme = (selectedColors: Record<string, string>) => {
     --success: ${getColorValue("emerald", "600")};
     --success-fg: ${getColorValue("white")};
     
-    --warning: ${getColorValue("amber", "400")};
+    --warning: ${warningColor};
     --warning-fg: ${getColorValue("amber", "950")};
     
     --danger: ${dangerColor};

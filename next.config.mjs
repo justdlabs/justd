@@ -38,8 +38,20 @@ export default {
         permanent: true,
       },
       {
+        source: "/docs/:path",
+        destination: "/docs/2.x/:path",
+        permanent: true,
+        has: [
+          {
+            type: "header",
+            key: "referer",
+            value: "/docs/2.x",
+          },
+        ],
+      },
+      {
         source: "/docs",
-        destination: "/docs/getting-started/installation",
+        destination: "/docs/2.x/getting-started/installation",
         permanent: false,
       },
       {

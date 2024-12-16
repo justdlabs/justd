@@ -13,6 +13,7 @@ import { IconDashboard } from "justd-icons"
 import {
   Avatar,
   Button,
+  buttonStyles,
   Card,
   Checkbox,
   CheckboxGroup,
@@ -25,7 +26,6 @@ import {
   Separator,
   Switch,
   TextField,
-  buttonStyles,
 } from "ui"
 
 export function Blocks() {

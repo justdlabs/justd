@@ -6,6 +6,8 @@ import { cn } from "@/utils/classes"
 import { IconChevronLgLeft, IconHamburger, IconSidebarFill } from "justd-icons"
 import type { LinkRenderProps } from "react-aria-components"
 import {
+  Button as Trigger,
+  composeRenderProps,
   Disclosure,
   DisclosureGroup,
   DisclosurePanel,
@@ -13,11 +15,10 @@ import {
   Heading,
   Link,
   Text,
-  Button as Trigger,
-  composeRenderProps,
 } from "react-aria-components"
+import { twJoin } from "tailwind-merge"
 import { tv } from "tailwind-variants"
-import { Badge, Button, Separator, Sheet, Tooltip, composeTailwindRenderProps, useMediaQuery } from "ui"
+import { Badge, Button, composeTailwindRenderProps, Separator, Sheet, Tooltip, useMediaQuery } from "ui"
 
 const SIDEBAR_COOKIE_NAME = "sidebar:state"
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7
@@ -118,8 +119,9 @@ const SidebarProvider = ({
           "[--sidebar-border:color-mix(in_oklch,var(--color-sidebar)_25%,black_6%)]",
           "dark:[--sidebar-border:color-mix(in_oklch,var(--color-sidebar)_55%,white_10%)]",
           "[--sidebar-accent:color-mix(in_oklab,var(--color-sidebar)_95%,black_5%)]",
-          "dark:[--sidebar-accent:color-mix(in_oklab,var(--color-sidebar)90%,white_10%)]",
+          "dark:[--sidebar-accent:color-mix(in_oklab,var(--color-sidebar)_90%,white_10%)]",
           "flex min-h-svh w-full text-sidebar-fg",
+          "dark:has-data-[sidebar-intent=inset]:bg-bg has-data-[sidebar-intent=inset]:bg-sidebar group/sidebar-root",
           className,
         )}
         ref={ref}
@@ -152,9 +154,8 @@ const gap = tv({
 const sidebar = tv({
   base: [
     "duration-200 fixed inset-y-0 z-10 hidden h-svh w-(--sidebar-width) transition-[left,right,width] ease-linear md:flex",
-    "bg-bg min-h-screen",
+    "bg-sidebar min-h-svh",
     "**:data-[slot=disclosure]:border-0 **:data-[slot=disclosure]:px-2",
-    "[--bg-sidebar-container:(--color-sidebar)]",
   ],
   variants: {
     side: {
@@ -162,10 +163,9 @@ const sidebar = tv({
       right: "right-0 group-data-[sidebar-collapsible=hidden]/sidebar-container:right-[calc(var(--sidebar-width)*-1)]",
     },
     intent: {
-      float: "p-2 group-data-[sidebar-collapsible=dock]/sidebar-container:w-[calc(var+theme(spacing.4)+2px)]",
+      float: "p-2 bg-bg group-data-[sidebar-collapsible=dock]/sidebar-container:w-[calc(var+theme(spacing.4)+2px)]",
       inset: [
-        "p-2 group-data-[sidebar-collapsible=dock]/sidebar-container:w-[calc(var(--sidebar-width-dock)+theme(spacing.2)+2px)]",
-        "[--bg-sidebar-container:(--color-bg)]",
+        "p-2 bg-sidebar dark:bg-bg group-data-[sidebar-collapsible=dock]/sidebar-container:w-[calc(var(--sidebar-width-dock)+theme(spacing.2)+2px)]",
       ],
       fleet: [
         "group-data-[sidebar-collapsible=dock]/sidebar-container:w-(--sidebar-width-dock)",
@@ -247,7 +247,11 @@ const Sidebar = ({
       >
         <div
           data-sidebar="default"
-          className="flex h-full group-data-[sidebar-intent=inset]/sidebar-container:bg-bg bg-sidebar text-sidebar-fg w-full flex-col group-data-[sidebar-intent=float]/sidebar-container:rounded-lg group-data-[sidebar-intent=float]/sidebar-container:border group-data-[sidebar-intent=float]/sidebar-container:border-(--sidebar-border) group-data-[sidebar-intent=float]/sidebar-container:shadow-xs"
+          className={twJoin(
+            "flex h-full text-sidebar-fg w-full flex-col",
+            "group-data-[sidebar-intent=inset]/sidebar-container:bg-sidebar dark:group-data-[sidebar-intent=inset]/sidebar-container:bg-bg",
+            "group-data-[sidebar-intent=float]/sidebar-container:rounded-lg group-data-[sidebar-intent=float]/sidebar-container:bg-sidebar group-data-[sidebar-intent=float]/sidebar-container:border group-data-[sidebar-intent=float]/sidebar-container:border-(--sidebar-border) group-data-[sidebar-intent=float]/sidebar-container:shadow-xs",
+          )}
         >
           {props.children}
         </div>
@@ -439,10 +443,7 @@ const SidebarItem = ({ isCurrent, tooltip, children, badge, className, ref, ...p
 }
 
 const sidebarLink = tv({
-  base: [
-    "flex items-center focus:outline-hidden w-full gap-x-2",
-    "data-collapsed:absolute data-collapsed:inset-0 data-collapsed:size-full",
-  ],
+  base: "flex items-center focus:outline-hidden w-full gap-x-2",
   variants: {
     collapsed: {
       true: "absolute inset-0 size-full",
@@ -451,7 +452,7 @@ const sidebarLink = tv({
 })
 const SidebarLink = ({ className, ...props }: React.ComponentProps<typeof Link>) => {
   const { state, isMobile } = useSidebar()
-  const collapsed = state === "collapsed" || !isMobile
+  const collapsed = state === "collapsed" && !isMobile
   return (
     <Link
       className={composeRenderProps(className, (className, renderProps) =>
@@ -472,7 +473,7 @@ const SidebarInset = ({ className, ref, ...props }: React.ComponentProps<"main">
       ref={ref}
       className={cn(
         "relative w-full flex min-h-svh flex-1 flex-col border border-transparent peer-data-[sidebar-intent=inset]:border-(--sidebar-border)",
-        "bg-bg peer-data-[sidebar-intent=inset]:bg-sidebar peer-data-[sidebar-intent=inset]:overflow-hidden",
+        "bg-bg dark:peer-data-[sidebar-intent=inset]:bg-sidebar peer-data-[sidebar-intent=inset]:overflow-hidden",
         "peer-data-[sidebar-intent=inset]:min-h-[calc(100svh-theme(spacing.4))] md:peer-data-[sidebar-intent=inset]:m-2 md:peer-data-[sidebar-state=collapsed]:peer-data-[sidebar-intent=inset]:ml-2 md:peer-data-[sidebar-intent=inset]:ml-0 md:peer-data-[sidebar-intent=inset]:rounded-xl md:peer-data-[sidebar-intent=inset]:shadow-xs",
         className,
       )}
@@ -625,8 +626,8 @@ const SidebarLabel = ({ className, ...props }: React.ComponentProps<typeof Text>
   return null
 }
 
-const navStyles = tv({
-  base: "md:w-full bg-sidebar isolate text-navbar-fg justify-between sm:justify-start h-[3.57rem] px-4 border-b flex items-center gap-x-2",
+const nav = tv({
+  base: "md:w-full [--bg-nav:var(--sidebar-sidebar)] bg-(--bg-nav) peer-data-[sidebar-intent=inset]:[--bg-nav:var(--color-red-500)] isolate text-navbar-fg justify-between sm:justify-start h-[3rem] px-4 border-b flex items-center gap-x-2",
   variants: {
     isSticky: {
       true: "sticky in-data-[sidebar-intent=inset]:static top-0 z-40",
@@ -639,7 +640,7 @@ interface SidebarNavProps extends React.ComponentProps<"nav"> {
 }
 
 const SidebarNav = ({ isSticky = false, className, ...props }: SidebarNavProps) => {
-  return <nav data-slot="sidebar-nav" {...props} className={navStyles({ isSticky, className })} />
+  return <nav data-slot="sidebar-nav" {...props} className={nav({ isSticky, className })} />
 }
 
 export {

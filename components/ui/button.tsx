@@ -1,9 +1,9 @@
 "use client"
 
 import {
-  Button as ButtonPrimitive,
-  type ButtonProps as ButtonPrimitiveProps,
-  composeRenderProps,
+    Button as ButtonPrimitive,
+    type ButtonProps as ButtonPrimitiveProps,
+    composeRenderProps,
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 

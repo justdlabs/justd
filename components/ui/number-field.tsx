@@ -2,11 +2,11 @@
 
 import { IconChevronDown, IconChevronUp, IconMinus, IconPlus } from "justd-icons"
 import {
-  Button,
-  type ButtonProps,
-  NumberField as NumberFieldPrimitive,
-  type NumberFieldProps as NumberFieldPrimitiveProps,
-  type ValidationResult,
+    Button,
+    type ButtonProps,
+    NumberField as NumberFieldPrimitive,
+    type NumberFieldProps as NumberFieldPrimitiveProps,
+    type ValidationResult,
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 

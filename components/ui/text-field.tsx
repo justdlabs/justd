@@ -5,9 +5,9 @@ import { useState } from "react"
 import type { TextInputDOMProps } from "@react-types/shared"
 import { IconEye, IconEyeClosed } from "justd-icons"
 import {
-  Button as ButtonPrimitive,
-  TextField as TextFieldPrimitive,
-  type TextFieldProps as TextFieldPrimitiveProps,
+    Button as ButtonPrimitive,
+    TextField as TextFieldPrimitive,
+    type TextFieldProps as TextFieldPrimitiveProps,
 } from "react-aria-components"
 import { twJoin } from "tailwind-merge"
 

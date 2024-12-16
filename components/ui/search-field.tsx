@@ -2,9 +2,9 @@
 
 import { IconSearch, IconX } from "justd-icons"
 import {
-  SearchField as SearchFieldPrimitive,
-  type SearchFieldProps as SearchFieldPrimitiveProps,
-  type ValidationResult,
+    SearchField as SearchFieldPrimitive,
+    type SearchFieldProps as SearchFieldPrimitiveProps,
+    type ValidationResult,
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 

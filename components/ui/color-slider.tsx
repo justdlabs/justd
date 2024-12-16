@@ -1,11 +1,11 @@
 "use client"
 
 import {
-  ColorSlider as ColorSliderPrimitive,
-  type ColorSliderProps as ColorSliderPrimitiveProps,
-  SliderOutput,
-  SliderTrack,
-  composeRenderProps,
+    ColorSlider as ColorSliderPrimitive,
+    type ColorSliderProps as ColorSliderPrimitiveProps,
+    composeRenderProps,
+    SliderOutput,
+    SliderTrack,
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 

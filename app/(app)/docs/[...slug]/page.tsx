@@ -126,7 +126,7 @@ export default async function PostPage(props: DocPageProps) {
               order: doc.order,
             }}
             docs={docs
-              .filter((doc) => doc.slug.startsWith("docs/components"))
+              .filter((doc) => doc.slug.startsWith("docs/2.x/components"))
               .map((doc) => ({ order: doc.order, slug: doc.slug, title: doc.title }))}
           />
         </main>

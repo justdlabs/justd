@@ -3,12 +3,12 @@
 import type { Placement } from "@react-types/overlays"
 import { IconChevronLgDown } from "justd-icons"
 import {
-  Button,
-  Select as SelectPrimitive,
-  type SelectProps as SelectPrimitiveProps,
-  SelectValue,
-  type ValidationResult,
-  composeRenderProps,
+    Button,
+    composeRenderProps,
+    Select as SelectPrimitive,
+    type SelectProps as SelectPrimitiveProps,
+    SelectValue,
+    type ValidationResult,
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 

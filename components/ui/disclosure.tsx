@@ -3,18 +3,18 @@
 import { composeTailwindRenderProps } from "@/components/ui/primitive"
 import { IconChevronLeft } from "justd-icons"
 import type {
-  DisclosureGroupProps as AccordionProps,
   ButtonProps,
+  DisclosureGroupProps as AccordionProps,
   DisclosurePanelProps,
   DisclosureProps,
 } from "react-aria-components"
 import {
-  DisclosureGroup as Accordion,
   Button,
+  composeRenderProps,
   Disclosure as Collapsible,
+  DisclosureGroup as Accordion,
   DisclosurePanel as CollapsiblePanel,
   Heading,
-  composeRenderProps,
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 

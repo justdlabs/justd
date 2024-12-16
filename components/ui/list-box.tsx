@@ -2,7 +2,7 @@
 
 import { IconCheck, IconHamburger } from "justd-icons"
 import type { ListBoxItemProps, ListBoxProps } from "react-aria-components"
-import { ListBoxItem, ListBox as ListBoxPrimitive, composeRenderProps } from "react-aria-components"
+import { composeRenderProps, ListBox as ListBoxPrimitive, ListBoxItem } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
 import { composeTailwindRenderProps } from "@/components/ui/primitive"

@@ -5,7 +5,7 @@ import { createContext, use, useCallback, useId, useMemo, useState } from "react
 import { IconHamburger } from "justd-icons"
 import { LayoutGroup, motion } from "motion/react"
 import type { LinkProps } from "react-aria-components"
-import { Link, composeRenderProps } from "react-aria-components"
+import { composeRenderProps, Link } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
 import { cn } from "@/utils/classes"

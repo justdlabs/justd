@@ -237,7 +237,7 @@ function Component({ folders, fullscreen, isIframe = false, title, ...props }: P
                 <SidebarHeader className="flex flex-row justify-between items-center py-0 h-12 bg-gradient-to-b border-b">
                   <Link
                     className="flex items-center gap-x-2 group-data-[collapsible=dock]:size-10 group-data-[collapsible=dock]:justify-center"
-                    href="/docs/components/layouts/sidebar"
+                    href="/docs/2.x/components/layouts/sidebar"
                   >
                     <IconFolderFill className="size-4.5" />
                     <SidebarLabel className="text-sm font-medium">getjustd.com</SidebarLabel>
@@ -274,7 +274,7 @@ function Component({ folders, fullscreen, isIframe = false, title, ...props }: P
                 <CodeHighlighter
                   max96={false}
                   plain
-                  className={"overflow-y-auto bg-zinc-950 p-6 text-white"}
+                  className={"overflow-y-auto bg-zinc-950 h-full p-6 text-white"}
                   code={code}
                 />
               </SidebarInset>

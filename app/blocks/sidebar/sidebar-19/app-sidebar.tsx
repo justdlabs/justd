@@ -33,7 +33,7 @@ export default function AppSidebar(props: React.ComponentProps<typeof Sidebar>) 
       <SidebarHeader>
         <Link
           className="flex items-center gap-x-2 group-data-[collapsible=dock]:size-10 group-data-[collapsible=dock]:justify-center"
-          href="/docs/components/layouts/sidebar"
+          href="/docs/2.x/components/layouts/sidebar"
         >
           <IconBrandYoutube className="text-red-500 size-6" />
           <SidebarLabel className="font-medium">Youtube</SidebarLabel>

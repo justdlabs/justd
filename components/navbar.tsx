@@ -107,7 +107,7 @@ export function Navbar() {
 
                     <Menu>
                       <Button size="small" appearance="outline" className="justify-between text-left group">
-                        {pathname.split("/")[2]}
+                        {pathname.includes("/docs/") ? pathname.split("/")[2] : siteConfig.currentVersion}
                         <IconChevronLgDown className="duration-200 size-3 group-pressed:rotate-180" />
                       </Button>
                       <Menu.Content placement="bottom right" className="sm:min-w-10">
@@ -234,7 +234,7 @@ export function NavbarDropdown() {
       </Menu>
       <Menu>
         <Button appearance="plain" className="justify-between text-left sm:hidden group">
-          {pathname.split("/")[2]}
+          {pathname.includes("/docs/") ? pathname.split("/")[2] : siteConfig.currentVersion}
           <IconChevronLgDown className="duration-200 size-3 group-pressed:rotate-180" />
         </Button>
         <Menu.Content placement="bottom right" className="sm:min-w-10">
