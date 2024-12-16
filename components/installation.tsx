@@ -5,10 +5,9 @@ import React, { useState } from "react"
 import { CodeHighlighter } from "@/components/code/code-highlighter"
 import { CopyButton } from "@/components/code/copy-button"
 import { copyToClipboard } from "@/resources/lib/copy"
-import { cn } from "@/utils/classes"
 import { useOpenPanel } from "@openpanel/nextjs"
 import { Group } from "react-aria-components"
-import { Link, Menu } from "ui"
+import { Link, Menu, composeTailwindRenderProps } from "ui"
 
 const manualText =
   "Sometimes, using the CLI is the way to go, so make sure you install the necessary\n" +
@@ -64,9 +63,10 @@ export function Installation({ className, ...props }: InstallationProps) {
       )}
       {options.isManual && <p>{manualText}</p>}
       <Group
-        className={cn("group relative flex h-12 items-center overflow-hidden rounded-lg border bg-shiki-bg pr-1", {
+        className={composeTailwindRenderProps(
           className,
-        })}
+          "group relative flex h-12 items-center overflow-hidden rounded-lg border bg-shiki-bg pr-1",
+        )}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

@@ -2,14 +2,14 @@
 
 import { Button, Sheet } from "ui"
 
-export default function SheetStackDemo() {
+export default function SheetFloatDemo() {
   return (
     <Sheet>
-      <Button appearance="outline">Stack</Button>
-      <Sheet.Content isStack={false}>
+      <Button appearance="outline">Float</Button>
+      <Sheet.Content isFloat={false}>
         <Sheet.Header>
-          <Sheet.Title>Not Stacked</Sheet.Title>
-          <Sheet.Description>This sheet is not stacked.</Sheet.Description>
+          <Sheet.Title>Not Floated</Sheet.Title>
+          <Sheet.Description>This sheet is not floated.</Sheet.Description>
         </Sheet.Header>
         <Sheet.Footer>
           <Sheet.Close>Cancel</Sheet.Close>

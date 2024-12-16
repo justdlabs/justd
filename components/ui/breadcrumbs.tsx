@@ -34,7 +34,7 @@ const Item = ({ href, separator = true, className, ...props }: ItemProps & Parti
 
 const Separator = ({ separator = "chevron" }: { separator?: ItemProps["separator"] }) => {
   return (
-    <span className={cn("*:shrink-0 *:text-muted-fg *:data-[slot=icon]:size-3.5")}>
+    <span className="*:shrink-0 *:text-muted-fg *:data-[slot=icon]:size-3.5">
       {separator === "chevron" && <IconChevronLgRight />}
       {separator === "slash" && <span className="text-muted-fg">/</span>}
     </span>

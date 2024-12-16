@@ -6,6 +6,7 @@ import type { GroupProps, SeparatorProps, ToolbarProps } from "react-aria-compon
 import { Group, Toolbar as ToolbarPrimitive, composeRenderProps } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
+import { composeTailwindRenderProps } from "@/components/ui/primitive"
 import { cn } from "@/utils/classes"
 import { Separator } from "./separator"
 import { Toggle } from "./toggle"
@@ -44,9 +45,9 @@ const ToolbarGroup = ({ isDisabled, className, ...props }: GroupProps) => {
   return (
     <ToolbarGroupContext.Provider value={{ isDisabled }}>
       <Group
-        className={cn(
-          "flex gap-2 group-data-[orientation=vertical]:flex-col group-data-[orientation=vertical]:items-start",
+        className={composeTailwindRenderProps(
           className,
+          "flex gap-2 group-data-[orientation=vertical]:flex-col group-data-[orientation=vertical]:items-start",
         )}
         {...props}
       >

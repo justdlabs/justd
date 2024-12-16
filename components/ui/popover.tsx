@@ -18,7 +18,7 @@ import {
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
-import { cn } from "@/utils/classes"
+import { twMerge } from "tailwind-merge"
 import { Dialog } from "./dialog"
 import { useMediaQuery } from "./primitive"
 
@@ -27,19 +27,19 @@ const Popover = ({ children, ...props }: DialogTriggerProps) => {
 }
 
 const Title = ({ level = 2, className, ...props }: React.ComponentProps<typeof Dialog.Title>) => (
-  <Dialog.Title className={cn("sm:leading-none", level === 2 && "sm:text-lg", className)} {...props} />
+  <Dialog.Title className={twMerge("sm:leading-none", level === 2 && "sm:text-lg", className)} {...props} />
 )
 
 const Header = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <Dialog.Header className={cn("p-0 sm:pt-0", className)} {...props} />
+  <Dialog.Header className={twMerge("p-0 sm:pt-0", className)} {...props} />
 )
 
 const Footer = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <Dialog.Footer className={cn("pt-4 pb-0 sm:pb-0", className)} {...props} />
+  <Dialog.Footer className={twMerge("pt-4 pb-0 sm:pb-0", className)} {...props} />
 )
 
 const Body = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <Dialog.Body className={cn("sm:p-0", className)} {...props} />
+  <Dialog.Body className={twMerge("sm:p-0", className)} {...props} />
 )
 
 const popoverContentStyles = tv({

@@ -10,7 +10,6 @@ import { IconDeviceDesktop, IconDeviceIpad, IconDevicePhone } from "@/components
 import quotes from "@/resources/json/quotes.json"
 import type { RegistryItem } from "@/resources/types"
 import { cn } from "@/utils/classes"
-import { clsx } from "clsx"
 import {
   IconCube,
   IconFolderFill,
@@ -132,7 +131,7 @@ function Component({ folders, fullscreen, isIframe = false, title, ...props }: P
             <TabList className="flex items-center text-xs">
               <Tab
                 className={({ isSelected }) =>
-                  clsx(
+                  cn(
                     "cursor-pointer rounded-sm px-2.5 py-1.5 outline-hidden",
                     isSelected && "bg-primary text-primary-fg",
                   )
@@ -143,7 +142,7 @@ function Component({ folders, fullscreen, isIframe = false, title, ...props }: P
               </Tab>
               <Tab
                 className={({ isSelected }) =>
-                  clsx(
+                  cn(
                     "cursor-pointer rounded-sm px-2.5 py-1.5 outline-hidden",
                     isSelected && "bg-primary text-primary-fg",
                   )
@@ -158,7 +157,7 @@ function Component({ folders, fullscreen, isIframe = false, title, ...props }: P
               <ToggleButton
                 aria-label="Switch to phone display"
                 className={({ isSelected }) =>
-                  clsx(
+                  cn(
                     "p-1 outline-hidden data-focus-visible:inset-ring-1 data-focus-visible:inset-ring-primary *:data-[slot=icon]:size-4 *:data-[slot=icon]:shrink-0",
                     isSelected ? "text-fg" : "text-muted-fg/70",
                   )
@@ -170,7 +169,7 @@ function Component({ folders, fullscreen, isIframe = false, title, ...props }: P
               <ToggleButton
                 aria-label="Switch to ipad/tablet display"
                 className={({ isSelected }) =>
-                  clsx(
+                  cn(
                     "p-1 outline-hidden data-focus-visible:inset-ring-1 data-focus-visible:inset-ring-primary *:data-[slot=icon]:size-4 *:data-[slot=icon]:shrink-0",
                     isSelected ? "text-fg" : "text-muted-fg/70",
                   )
@@ -182,7 +181,7 @@ function Component({ folders, fullscreen, isIframe = false, title, ...props }: P
               <ToggleButton
                 aria-label="Switch to desktop / large screen display"
                 className={({ isSelected }) =>
-                  clsx(
+                  cn(
                     "p-1 outline-hidden data-focus-visible:inset-ring-1 data-focus-visible:inset-ring-primary *:data-[slot=icon]:size-4 *:data-[slot=icon]:shrink-0",
                     isSelected ? "text-fg" : "text-muted-fg/70",
                   )

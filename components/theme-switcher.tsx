@@ -1,11 +1,9 @@
 "use client"
 
-import { useEffect, useState } from "react"
-
-import { cn } from "@/utils/classes"
 import { IconDeviceDesktop2, IconMoon, IconSun } from "justd-icons"
 import { useTheme } from "next-themes"
-import { Button } from "ui"
+import { useEffect, useState } from "react"
+import { Button, composeTailwindRenderProps } from "ui"
 
 export function ThemeSwitcher({
   shape = "square",
@@ -32,7 +30,7 @@ export function ThemeSwitcher({
       shape={shape}
       appearance={appearance}
       size="square-petite"
-      className={cn("**:data-[slot=icon]:text-fg", className)}
+      className={composeTailwindRenderProps(className, "**:data-[slot=icon]:text-fg")}
       aria-label="Switch theme"
       onPress={toggleTheme}
       {...props}

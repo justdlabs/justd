@@ -1,5 +1,6 @@
 "use client"
 
+import { composeTailwindRenderProps } from "@/components/ui/primitive"
 import { IconChevronLeft } from "justd-icons"
 import type {
   DisclosureGroupProps as AccordionProps,
@@ -17,16 +18,15 @@ import {
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
-import { cn } from "@/utils/classes"
-
 const DisclosureGroup = ({ children, className, ...props }: AccordionProps) => {
   return (
     <Accordion
       data-slot="disclosure-group"
       {...props}
-      className={({ isDisabled }) =>
-        cn(isDisabled ? "cursor-not-allowed opacity-75" : "cursor-pointer", "peer", className)
-      }
+      className={composeTailwindRenderProps(
+        className,
+        "data-disabled:cursor-not-allowed data-disabled:opacity-75 cursor-pointer peer",
+      )}
     >
       {(values) => (
         <div data-slot="disclosure-content">{typeof children === "function" ? children(values) : children}</div>
@@ -104,19 +104,15 @@ const DisclosurePanel = ({ className, ...props }: DisclosurePanelProps) => {
   return (
     <CollapsiblePanel
       data-slot="disclosure-panel"
-      {...props}
-      className={cn(
-        "overflow-hidden text-muted-fg text-sm transition-all has-data-[slot=disclosure-group]:**:[button]:px-4",
-        "**:data-[slot=disclosure-group]:border-t **:data-[slot=disclosure-group]:**:[.internal-chevron]:hidden",
+      className={composeTailwindRenderProps(
         className,
+        "overflow-hidden text-muted-fg text-sm transition-all has-data-[slot=disclosure-group]:**:[button]:px-4 **:data-[slot=disclosure-group]:border-t **:data-[slot=disclosure-group]:**:[.internal-chevron]:hidden",
       )}
+      {...props}
     >
       <div
         data-slot="disclosure-panel-content"
-        className={cn(
-          "pt-0 not-has-data-[slot=disclosure-group]:group-data-expanded/disclosure:pb-3 [&:has([data-slot=disclosure-group])_&]:px-11",
-          className,
-        )}
+        className="pt-0 not-has-data-[slot=disclosure-group]:group-data-expanded/disclosure:pb-3 [&:has([data-slot=disclosure-group])_&]:px-11"
       >
         {props.children}
       </div>

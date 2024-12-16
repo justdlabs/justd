@@ -10,7 +10,7 @@ import { tv } from "tailwind-variants"
 
 import { cn } from "@/utils/classes"
 import { Button } from "./button"
-import { useMediaQuery } from "./primitive"
+import { composeTailwindRenderProps, useMediaQuery } from "./primitive"
 import { Sheet } from "./sheet"
 
 type NavbarOptions = {
@@ -145,7 +145,7 @@ const Nav = ({ className, ...props }: NavbarProps) => {
           classNames={{
             content: "text-fg [&>button]:hidden",
           }}
-          isStack={intent === "floating"}
+          isFloat={intent === "floating"}
         >
           <Sheet.Body className="px-2 md:px-4">{props.children}</Sheet.Body>
         </Sheet.Content>
@@ -246,9 +246,9 @@ const Item = ({ className, isCurrent, ...props }: ItemProps) => {
 const Logo = ({ className, ...props }: LinkProps) => {
   return (
     <Link
-      className={cn(
-        "flex items-center gap-x-2 px-2 py-4 text-fg data-focus-visible:outline-1 data-focus-visible:outline-primary data-focused:outline-hidden md:mr-4 md:px-0 md:py-0",
+      className={composeTailwindRenderProps(
         className,
+        "flex items-center gap-x-2 px-2 py-4 text-fg data-focus-visible:outline-1 data-focus-visible:outline-primary data-focused:outline-hidden md:mr-4 md:px-0 md:py-0",
       )}
       {...props}
     />

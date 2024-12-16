@@ -17,7 +17,7 @@ import {
   composeRenderProps,
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
-import { Badge, Button, Separator, Sheet, Tooltip, useMediaQuery } from "ui"
+import { Badge, Button, Separator, Sheet, Tooltip, composeTailwindRenderProps, useMediaQuery } from "ui"
 
 const SIDEBAR_COOKIE_NAME = "sidebar:state"
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7
@@ -218,7 +218,7 @@ const Sidebar = ({
           classNames={{
             content: "bg-sidebar w-(--sidebar-width-mobile) text-sidebar-fg [&>button]:hidden",
           }}
-          isStack={intent === "float"}
+          isFloat={intent === "float"}
           side={side}
         >
           <Sheet.Body className="px-0">{props.children}</Sheet.Body>
@@ -438,15 +438,28 @@ const SidebarItem = ({ isCurrent, tooltip, children, badge, className, ref, ...p
   )
 }
 
+const sidebarLink = tv({
+  base: [
+    "flex items-center focus:outline-hidden w-full gap-x-2",
+    "data-collapsed:absolute data-collapsed:inset-0 data-collapsed:size-full",
+  ],
+  variants: {
+    collapsed: {
+      true: "absolute inset-0 size-full",
+    },
+  },
+})
 const SidebarLink = ({ className, ...props }: React.ComponentProps<typeof Link>) => {
   const { state, isMobile } = useSidebar()
-  const collapsed = state === "collapsed" && !isMobile
+  const collapsed = state === "collapsed" || !isMobile
   return (
     <Link
-      className={cn(
-        "flex items-center focus:outline-hidden w-full gap-x-2",
-        collapsed && "absolute inset-0 size-full",
-        className,
+      className={composeRenderProps(className, (className, renderProps) =>
+        sidebarLink({
+          ...renderProps,
+          collapsed,
+          className,
+        }),
       )}
       {...props}
     />
@@ -477,7 +490,7 @@ const SidebarDisclosureGroup = ({
     <DisclosureGroup
       data-sidebar-disclosure-group="true"
       allowsMultipleExpanded={allowsMultipleExpanded}
-      className={cn("flex flex-col gap-y-6", className)}
+      className={composeTailwindRenderProps(className, "flex flex-col gap-y-6")}
       {...props}
     />
   )
@@ -487,7 +500,7 @@ const SidebarDisclosure = ({ className, ...props }: React.ComponentProps<typeof 
   return (
     <Disclosure
       data-sidebar-disclosure="true"
-      className={cn("px-2  in-data-[sidebar-intent=fleet]:px-0", className)}
+      className={composeTailwindRenderProps(className, "px-2 in-data-[sidebar-intent=fleet]:px-0")}
       {...props}
     />
   )

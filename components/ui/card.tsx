@@ -1,4 +1,3 @@
-import { cn } from "@/utils/classes"
 import { tv } from "tailwind-variants"
 
 import { Heading } from "./heading"
@@ -26,15 +25,10 @@ const Card = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => 
 interface HeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   title?: string
   description?: string
-  withoutPadding?: boolean
 }
 
-const Header = ({ withoutPadding = false, className, title, description, children, ...props }: HeaderProps) => (
-  <div
-    data-slot="card-header"
-    className={header({ className: cn(className, withoutPadding && "px-0 pt-0") })}
-    {...props}
-  >
+const Header = ({ className, title, description, children, ...props }: HeaderProps) => (
+  <div data-slot="card-header" className={header({ className })} {...props}>
     {title && <Title>{title}</Title>}
     {description && <Description>{description}</Description>}
     {!title && typeof children === "string" ? <Title>{children}</Title> : children}

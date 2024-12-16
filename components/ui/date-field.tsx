@@ -10,8 +10,6 @@ import {
   type ValidationResult,
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
-
-import { cn } from "@/utils/classes"
 import { Description, FieldError, FieldGroup, Label } from "./field"
 import { composeTailwindRenderProps } from "./primitive"
 
@@ -69,7 +67,10 @@ const segmentStyles = tv({
 const DateInput = ({ className, ...props }: Omit<DateInputProps, "children">) => {
   return (
     <DateInputPrimitive
-      className={cn("bg-transparent p-2 text-base text-fg placeholder-muted-fg sm:text-sm", className)}
+      className={composeTailwindRenderProps(
+        className,
+        "bg-transparent p-2 text-base text-fg placeholder-muted-fg sm:text-sm",
+      )}
       {...props}
     >
       {(segment) => <DateSegment segment={segment} className={segmentStyles} />}
