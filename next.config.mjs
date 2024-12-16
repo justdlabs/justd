@@ -12,18 +12,26 @@ export default {
     buildActivity: false,
     appIsrStatus: false,
   },
-  trailingSlash: true,
   experimental: {
     reactCompiler: true,
     optimizePackageImports: ["shiki"],
   },
-  async redirects() {
+
+  async rewrites() {
     return [
       {
-        source: '/docs/1.x/:path*/',
-        destination: 'https://1x.getjustd.com/docs/:path*/',
-        permanent: true,
+        source: '/docs/1.x/:path*',
+        destination: 'https://1x.getjustd.com/docs/:path*',
       },
+
+      {
+        source: '/_next/:path*',
+        destination: 'https://1x.getjustd.com/_next/:path*'
+      },
+    ]
+  },
+  async redirects() {
+    return [
       {
         source: "/d/:path*",
         destination: "/:path*",
