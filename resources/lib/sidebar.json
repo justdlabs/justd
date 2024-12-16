@@ -647,258 +647,6 @@
     "slug": "docs/1.x/components/components",
     "children": [
       {
-        "title": "Buttons",
-        "children": [
-          {
-            "title": "Button",
-            "slug": "docs/1.x/components/buttons/button",
-            "order": 1,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Anatomy",
-                "url": "#anatomy",
-                "items": []
-              },
-              {
-                "title": "Intent",
-                "url": "#intent",
-                "items": []
-              },
-              {
-                "title": "Appearance",
-                "url": "#appearance",
-                "items": []
-              },
-              {
-                "title": "Shape",
-                "url": "#shape",
-                "items": []
-              },
-              {
-                "title": "Size",
-                "url": "#size",
-                "items": []
-              },
-              {
-                "title": "With Icon",
-                "url": "#with-icon",
-                "items": []
-              },
-              {
-                "title": "With Only Icon",
-                "url": "#with-only-icon",
-                "items": []
-              },
-              {
-                "title": "Disabled",
-                "url": "#disabled",
-                "items": []
-              },
-              {
-                "title": "Pending",
-                "url": "#pending",
-                "items": []
-              },
-              {
-                "title": "With Loader",
-                "url": "#with-loader",
-                "items": []
-              },
-              {
-                "title": "Link",
-                "url": "#link",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "File Trigger",
-            "slug": "docs/1.x/components/buttons/file-trigger",
-            "order": 2,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Composed Components",
-                "url": "#composed-components",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Anatomy",
-                "url": "#anatomy",
-                "items": []
-              },
-              {
-                "title": "Folder",
-                "url": "#folder",
-                "items": []
-              },
-              {
-                "title": "Multiple",
-                "url": "#multiple",
-                "items": []
-              },
-              {
-                "title": "Camera",
-                "url": "#camera",
-                "items": []
-              },
-              {
-                "title": "Avatar",
-                "url": "#avatar",
-                "items": []
-              },
-              {
-                "title": "Controlled",
-                "url": "#controlled",
-                "items": []
-              },
-              {
-                "title": "Disabled",
-                "url": "#disabled",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Toggle Group",
-            "slug": "docs/1.x/components/buttons/toggle-group",
-            "order": 3,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Composed Components",
-                "url": "#composed-components",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Anatomy",
-                "url": "#anatomy",
-                "items": []
-              },
-              {
-                "title": "Orientation",
-                "url": "#orientation",
-                "items": []
-              },
-              {
-                "title": "Selection Mode",
-                "url": "#selection-mode",
-                "items": []
-              },
-              {
-                "title": "Appearance",
-                "url": "#appearance",
-                "items": []
-              },
-              {
-                "title": "Controlled",
-                "url": "#controlled",
-                "items": []
-              },
-              {
-                "title": "Disabled",
-                "url": "#disabled",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Toggle",
-            "slug": "docs/1.x/components/buttons/toggle",
-            "order": 3,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Appearance",
-                "url": "#appearance",
-                "items": []
-              },
-              {
-                "title": "Shape",
-                "url": "#shape",
-                "items": []
-              },
-              {
-                "title": "Size",
-                "url": "#size",
-                "items": []
-              },
-              {
-                "title": "Controlled",
-                "url": "#controlled",
-                "items": []
-              },
-              {
-                "title": "Disabled",
-                "url": "#disabled",
-                "items": []
-              }
-            ]
-          }
-        ]
-      },
-      {
         "title": "Collections",
         "children": [
           {
@@ -1750,6 +1498,258 @@
         ]
       },
       {
+        "title": "Buttons",
+        "children": [
+          {
+            "title": "Button",
+            "slug": "docs/1.x/components/buttons/button",
+            "order": 1,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "Anatomy",
+                "url": "#anatomy",
+                "items": []
+              },
+              {
+                "title": "Intent",
+                "url": "#intent",
+                "items": []
+              },
+              {
+                "title": "Appearance",
+                "url": "#appearance",
+                "items": []
+              },
+              {
+                "title": "Shape",
+                "url": "#shape",
+                "items": []
+              },
+              {
+                "title": "Size",
+                "url": "#size",
+                "items": []
+              },
+              {
+                "title": "With Icon",
+                "url": "#with-icon",
+                "items": []
+              },
+              {
+                "title": "With Only Icon",
+                "url": "#with-only-icon",
+                "items": []
+              },
+              {
+                "title": "Disabled",
+                "url": "#disabled",
+                "items": []
+              },
+              {
+                "title": "Pending",
+                "url": "#pending",
+                "items": []
+              },
+              {
+                "title": "With Loader",
+                "url": "#with-loader",
+                "items": []
+              },
+              {
+                "title": "Link",
+                "url": "#link",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "File Trigger",
+            "slug": "docs/1.x/components/buttons/file-trigger",
+            "order": 2,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Composed Components",
+                "url": "#composed-components",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "Anatomy",
+                "url": "#anatomy",
+                "items": []
+              },
+              {
+                "title": "Folder",
+                "url": "#folder",
+                "items": []
+              },
+              {
+                "title": "Multiple",
+                "url": "#multiple",
+                "items": []
+              },
+              {
+                "title": "Camera",
+                "url": "#camera",
+                "items": []
+              },
+              {
+                "title": "Avatar",
+                "url": "#avatar",
+                "items": []
+              },
+              {
+                "title": "Controlled",
+                "url": "#controlled",
+                "items": []
+              },
+              {
+                "title": "Disabled",
+                "url": "#disabled",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Toggle Group",
+            "slug": "docs/1.x/components/buttons/toggle-group",
+            "order": 3,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Composed Components",
+                "url": "#composed-components",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "Anatomy",
+                "url": "#anatomy",
+                "items": []
+              },
+              {
+                "title": "Orientation",
+                "url": "#orientation",
+                "items": []
+              },
+              {
+                "title": "Selection Mode",
+                "url": "#selection-mode",
+                "items": []
+              },
+              {
+                "title": "Appearance",
+                "url": "#appearance",
+                "items": []
+              },
+              {
+                "title": "Controlled",
+                "url": "#controlled",
+                "items": []
+              },
+              {
+                "title": "Disabled",
+                "url": "#disabled",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Toggle",
+            "slug": "docs/1.x/components/buttons/toggle",
+            "order": 3,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "Appearance",
+                "url": "#appearance",
+                "items": []
+              },
+              {
+                "title": "Shape",
+                "url": "#shape",
+                "items": []
+              },
+              {
+                "title": "Size",
+                "url": "#size",
+                "items": []
+              },
+              {
+                "title": "Controlled",
+                "url": "#controlled",
+                "items": []
+              },
+              {
+                "title": "Disabled",
+                "url": "#disabled",
+                "items": []
+              }
+            ]
+          }
+        ]
+      },
+      {
         "title": "Controls",
         "children": [
           {
@@ -2087,6 +2087,44 @@
         ]
       },
       {
+        "title": "Drag-and-drop",
+        "children": [
+          {
+            "title": "Drop Zone",
+            "slug": "docs/1.x/components/drag-and-drop/drop-zone",
+            "order": 1,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "Anatomy",
+                "url": "#anatomy",
+                "items": []
+              },
+              {
+                "title": "Using FileTrigger",
+                "url": "#using-filetrigger",
+                "items": []
+              }
+            ]
+          }
+        ]
+      },
+      {
         "title": "Date-and-time",
         "children": [
           {
@@ -2383,44 +2421,6 @@
               {
                 "title": "Disabled",
                 "url": "#disabled",
-                "items": []
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "title": "Drag-and-drop",
-        "children": [
-          {
-            "title": "Drop Zone",
-            "slug": "docs/1.x/components/drag-and-drop/drop-zone",
-            "order": 1,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Anatomy",
-                "url": "#anatomy",
-                "items": []
-              },
-              {
-                "title": "Using FileTrigger",
-                "url": "#using-filetrigger",
                 "items": []
               }
             ]
