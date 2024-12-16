@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { tv, type VariantProps } from "tailwind-variants"
+import { type VariantProps, tv } from "tailwind-variants"
 
 const badgeIntents = {
   primary: [

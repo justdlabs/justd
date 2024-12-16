@@ -1,10 +1,10 @@
 import colors from "@/resources/colors/colors.json"
 import {
-    accentColors300,
-    accentColors400,
-    accentColors500,
-    adjustLightness,
-    neutralColors,
+  accentColors300,
+  accentColors400,
+  accentColors500,
+  adjustLightness,
+  neutralColors,
 } from "@/resources/lib/colors"
 
 type BlackWhite = "white" | "black"

@@ -4,14 +4,14 @@ import { createContext, forwardRef, use, useState } from "react"
 
 import type { PanInfo } from "motion/react"
 import {
-    animate,
-    AnimatePresence,
-    type Inertia,
-    motion,
-    useMotionTemplate,
-    useMotionValue,
-    useMotionValueEvent,
-    useTransform,
+  AnimatePresence,
+  type Inertia,
+  animate,
+  motion,
+  useMotionTemplate,
+  useMotionValue,
+  useMotionValueEvent,
+  useTransform,
 } from "motion/react"
 import type { DialogProps } from "react-aria-components"
 import { type ButtonProps, Modal, ModalOverlay } from "react-aria-components"

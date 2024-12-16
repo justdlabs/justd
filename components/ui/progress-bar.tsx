@@ -2,8 +2,8 @@
 
 import { motion } from "motion/react"
 import {
-    ProgressBar as ProgressBarPrimitive,
-    type ProgressBarProps as ProgressBarPrimitiveProps,
+  ProgressBar as ProgressBarPrimitive,
+  type ProgressBarProps as ProgressBarPrimitiveProps,
 } from "react-aria-components"
 
 import { Label } from "./field"

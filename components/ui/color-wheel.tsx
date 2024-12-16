@@ -1,9 +1,9 @@
 "use client"
 
 import {
-    ColorWheel as ColorWheelPrimitive,
-    type ColorWheelProps as ColorWheelPrimitiveProps,
-    ColorWheelTrack,
+  ColorWheel as ColorWheelPrimitive,
+  type ColorWheelProps as ColorWheelPrimitiveProps,
+  ColorWheelTrack,
 } from "react-aria-components"
 
 import { ColorThumb } from "./color-thumb"

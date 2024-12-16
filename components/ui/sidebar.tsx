@@ -6,8 +6,6 @@ import { cn } from "@/utils/classes"
 import { IconChevronLgLeft, IconHamburger, IconSidebarFill } from "justd-icons"
 import type { LinkRenderProps } from "react-aria-components"
 import {
-  Button as Trigger,
-  composeRenderProps,
   Disclosure,
   DisclosureGroup,
   DisclosurePanel,
@@ -15,10 +13,12 @@ import {
   Heading,
   Link,
   Text,
+  Button as Trigger,
+  composeRenderProps,
 } from "react-aria-components"
 import { twJoin } from "tailwind-merge"
 import { tv } from "tailwind-variants"
-import { Badge, Button, composeTailwindRenderProps, Separator, Sheet, Tooltip, useMediaQuery } from "ui"
+import { Badge, Button, Separator, Sheet, Tooltip, composeTailwindRenderProps, useMediaQuery } from "ui"
 
 const SIDEBAR_COOKIE_NAME = "sidebar:state"
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7

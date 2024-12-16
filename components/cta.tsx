@@ -6,7 +6,7 @@ import { Container, Heading, Link, buttonStyles } from "ui"
 
 export function Cta() {
   return (
-    <div className="py-8 border-t lg:py-16 bg-secondary/30">
+    <div className="py-8 bg-gradient-to-b lg:py-16 from-bg to-zinc-950">
       <Container>
         <div className="mx-auto max-w-md text-center">
           <Heading className="text-2xl sm:text-3xl" level={3}>

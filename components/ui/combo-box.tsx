@@ -5,13 +5,13 @@ import React from "react"
 import { IconChevronLgDown, IconX } from "justd-icons"
 import type { InputProps } from "react-aria-components"
 import {
-    ComboBox as ComboboxPrimitive,
-    ComboBoxContext,
-    type ComboBoxProps as ComboboxPrimitiveProps,
-    ComboBoxStateContext,
-    type PopoverProps as PopoverPrimitiveProps,
-    useSlottedContext,
-    type ValidationResult,
+  ComboBoxContext,
+  ComboBoxStateContext,
+  ComboBox as ComboboxPrimitive,
+  type ComboBoxProps as ComboboxPrimitiveProps,
+  type PopoverProps as PopoverPrimitiveProps,
+  type ValidationResult,
+  useSlottedContext,
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 

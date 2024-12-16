@@ -4,27 +4,27 @@ import React from "react"
 
 import { IconChevronLgDown, IconHamburger } from "justd-icons"
 import type {
-    CellProps,
-    ColumnProps,
-    ColumnResizerProps,
-    RowProps,
-    TableBodyProps,
-    TableHeaderProps,
-    TableProps as TablePrimitiveProps,
+  CellProps,
+  ColumnProps,
+  ColumnResizerProps,
+  RowProps,
+  TableBodyProps,
+  TableHeaderProps,
+  TableProps as TablePrimitiveProps,
 } from "react-aria-components"
 import {
-    Button,
-    Cell,
-    Collection,
-    Column,
-    ColumnResizer as ColumnResizerPrimitive,
-    composeRenderProps,
-    ResizableTableContainer,
-    Row,
-    Table as TablePrimitive,
-    TableBody,
-    TableHeader,
-    useTableOptions,
+  Button,
+  Cell,
+  Collection,
+  Column,
+  ColumnResizer as ColumnResizerPrimitive,
+  ResizableTableContainer,
+  Row,
+  TableBody,
+  TableHeader,
+  Table as TablePrimitive,
+  composeRenderProps,
+  useTableOptions,
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 

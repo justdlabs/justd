@@ -1,10 +1,10 @@
 "use client"
 
 import {
-    TimeField as TimeFieldPrimitive,
-    type TimeFieldProps as TimeFieldPrimitiveProps,
-    type TimeValue,
-    type ValidationResult,
+  TimeField as TimeFieldPrimitive,
+  type TimeFieldProps as TimeFieldPrimitiveProps,
+  type TimeValue,
+  type ValidationResult,
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 

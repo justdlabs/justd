@@ -1,6 +1,6 @@
 "use client"
 
-import { composeRenderProps, DropZone as DropPrimitiveZone, type DropZoneProps } from "react-aria-components"
+import { DropZone as DropPrimitiveZone, type DropZoneProps, composeRenderProps } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
 import { focusStyles } from "./primitive"

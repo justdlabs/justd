@@ -4,15 +4,15 @@ import { useId } from "react"
 
 import { LayoutGroup, motion } from "motion/react"
 import {
-  composeRenderProps,
-  Tab as TabPrimitive,
   TabList,
   type TabListProps,
   TabPanel,
   type TabPanelProps,
+  Tab as TabPrimitive,
   type TabProps,
   Tabs as TabsPrimitive,
   type TabsProps,
+  composeRenderProps,
 } from "react-aria-components"
 import { twJoin } from "tailwind-merge"
 import { tv } from "tailwind-variants"

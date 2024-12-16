@@ -6,7 +6,6 @@ import {
   IconBrandLaravel,
   IconBrandNextjs,
   IconBrandRemix,
-  IconHeartFill,
   IconWindowVisitFill,
 } from "justd-icons"
 import { Badge, Card, Grid, Heading, Link } from "ui"
@@ -52,11 +51,7 @@ export function Resources() {
         </Heading>
         <div className="grid grid-cols-1 gap-2 sm:grid-cols-2" aria-label="Resources">
           {resources.map((item) => (
-            <div
-              aria-label={item.name}
-              key={item.name.toLowerCase().replaceAll(" ", "-")}
-              className="flex relative flex-col p-4 w-full h-full bg-white rounded-xl lg:p-6 shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] data-focused:outline-hidden forced-colors:outline dark:before:-inset-px dark:bg-zinc-950 dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset]"
-            >
+            <Wrapper aria-label={item.name} key={item.name.toLowerCase().replaceAll(" ", "-")}>
               <Link
                 aria-label={`Open ${item.name}`}
                 target="_blank"
@@ -66,7 +61,7 @@ export function Resources() {
               />
               <div className="flex-1">
                 <div className="px-6 pt-6">
-                  <item.icon className="size-7" />
+                  <item.icon className="size-6" />
                 </div>
                 <Card.Header>
                   <Card.Title level={3}>{item.name}</Card.Title>
@@ -76,7 +71,7 @@ export function Resources() {
               <Card.Footer>
                 <Badge>{item.label}</Badge>
               </Card.Footer>
-            </div>
+            </Wrapper>
           ))}
         </div>
       </section>
@@ -91,13 +86,9 @@ export function Resources() {
             sm: 2,
           }}
           gap={2}
-          aria-label="Support"
+          aria-label="Extra"
         >
-          <Grid.Item
-            aria-label="Justd icons"
-            id="justd-icons"
-            className="flex relative flex-col p-4 w-full h-full bg-white rounded-xl lg:p-6 shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] data-focused:outline-hidden forced-colors:outline dark:before:-inset-px dark:bg-zinc-950 dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset]"
-          >
+          <Wrapper aria-label="Justd icons" id="justd-icons">
             <Link
               aria-label={"Justd icons"}
               rel="noopener noreferrer"
@@ -106,7 +97,7 @@ export function Resources() {
             />
             <div className="flex-1">
               <div className="px-6 pt-6">
-                <IconBrandJustd className="size-7" />
+                <IconBrandJustd className="size-6" />
               </div>
               <Card.Header>
                 <Card.Title level={3}>Icons</Card.Title>
@@ -119,12 +110,12 @@ export function Resources() {
             <Card.Footer>
               <Badge>justd-icons</Badge>
             </Card.Footer>
-          </Grid.Item>
+          </Wrapper>
         </Grid>
       </section>
       <section id="support" className="mb-12">
         <Heading level={2} className="mb-6">
-          Support
+          Extra
         </Heading>
         <Grid
           columns={{
@@ -132,13 +123,9 @@ export function Resources() {
             sm: 2,
           }}
           gap={2}
-          aria-label="Support"
+          aria-label="Extra"
         >
-          <Grid.Item
-            aria-label="Support"
-            id="support"
-            className="flex relative flex-col p-4 w-full h-full bg-white rounded-xl lg:p-6 shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] data-focused:outline-hidden forced-colors:outline dark:before:-inset-px dark:bg-zinc-950 dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset]"
-          >
+          <Wrapper aria-label="Extra">
             <Link
               target="_blank"
               aria-label={"Justd icons"}
@@ -147,9 +134,7 @@ export function Resources() {
               className="absolute inset-0 size-full"
             />
             <div className="flex-1">
-              <div className="px-6 pt-6">
-                <IconHeartFill className="text-pink-500 size-7" />
-              </div>
+              <div className="px-6 pt-6 text-xl">💖</div>
               <Card.Header>
                 <Card.Title level={3}>Support This Project</Card.Title>
                 <Card.Description className="line-clamp-2">
@@ -159,14 +144,12 @@ export function Resources() {
               </Card.Header>
             </div>
             <Card.Footer>
-              <Badge>support</Badge>
+              <Badge className="text-pink-700 dark:text-pink-400 bg-pink-400/15 group-data-hover:bg-pink-400/25 dark:bg-pink-400/10 dark:group-data-hover:bg-pink-400/20">
+                support
+              </Badge>
             </Card.Footer>
-          </Grid.Item>
-          <Grid.Item
-            aria-label="Templates"
-            id="templates"
-            className="flex relative flex-col p-4 bg-white rounded-xl lg:p-6 size-full shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] data-focused:outline-hidden forced-colors:outline dark:before:-inset-px dark:bg-zinc-950 dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset]"
-          >
+          </Wrapper>
+          <Wrapper aria-label="Templates" id="templates">
             <Link
               target="_blank"
               aria-label={"Justd icons"}
@@ -176,7 +159,7 @@ export function Resources() {
             />
             <div className="flex-1">
               <div className="px-6 pt-6">
-                <IconWindowVisitFill className="size-7" />
+                <IconWindowVisitFill className="size-6" />
               </div>
               <Card.Header>
                 <Card.Title level={3}>Templates</Card.Title>
@@ -187,11 +170,23 @@ export function Resources() {
               </Card.Header>
             </div>
             <Card.Footer>
-              <Badge>support</Badge>
+              <Badge className="bg-zinc-600/10 text-zinc-700 group-data-hover:bg-zinc-600/20 dark:bg-white/5 dark:text-zinc-400 dark:group-data-hover:bg-white/10">
+                support
+              </Badge>
             </Card.Footer>
-          </Grid.Item>
+          </Wrapper>
         </Grid>
       </section>
     </>
+  )
+}
+
+function Wrapper(props: React.ComponentProps<"div">) {
+  return (
+    <div
+      id="support"
+      className="flex relative flex-col p-4 w-full h-full rounded-lg lg:p-6 bg-overlay inset-shadow-zinc-200 inset-shadow-xs inset-ring inset-ring-zinc-200 shadow-xs dark:inset-shadow-zinc-800 dark:inset-ring-zinc-600/10"
+      {...props}
+    />
   )
 }
