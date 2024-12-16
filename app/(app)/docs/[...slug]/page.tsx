@@ -7,7 +7,7 @@ import { siteConfig } from "@/resources/config/site"
 import "@/resources/styles/code.css"
 import { type Metadata } from "next"
 import { notFound } from "next/navigation"
-import { Separator } from "ui"
+import { Link, Note, Separator } from "ui"
 
 export interface DocPageProps {
   params: Promise<{
@@ -95,6 +95,9 @@ export default async function PostPage(props: DocPageProps) {
           ) : null}
 
           <div className="not-prose">
+            <Note intent='warning'>
+              This documentation is for the 1.x version of Justd. If you're looking for the latest version, check out the <Link href="/docs/2.x/getting-started/installation">2.x version</Link>.
+            </Note>
             <div className="flex gap-2 mt-0">
               {doc.references && doc.references?.length > 0 && (
                 <DocRefs references={doc.references} />

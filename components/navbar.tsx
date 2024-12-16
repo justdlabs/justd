@@ -33,7 +33,7 @@ import { ThemeSwitcher } from "./theme-switcher"
 
 const menuItems = [
   { id: 1, label: "Home", url: "/" },
-  { id: 4, label: "Components", url: "/docs/getting-started/introduction" },
+  { id: 4, label: "Components", url: "/docs/1.x/getting-started/introduction" },
   { id: 3, label: "Charts", url: "/charts" }
 ]
 
@@ -61,16 +61,17 @@ export function Navbar() {
                     <NavLink
                       isNextLink
                       isActive={
-                        pathname?.startsWith("/docs") && !pathname?.includes("/docs/components")
+                        pathname?.startsWith("/docs/1.x") &&
+                        !pathname?.includes("/docs/1.x/components")
                       }
-                      href="/docs/getting-started/introduction"
+                      href="/docs/1.x/getting-started/introduction"
                     >
                       Docs
                     </NavLink>
                     <NavLink
                       isNextLink
                       isActive={
-                        pathname?.startsWith("/docs/components") || pathname === "/components"
+                        pathname?.startsWith("/docs/1.x/components") || pathname === "/components"
                       }
                       href="/components"
                     >

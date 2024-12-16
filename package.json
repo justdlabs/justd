@@ -11,9 +11,10 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
-    "generate-preview": "bun run resources/scripts/create-pr-content.ts",
+    "build:sidebar": "bun run resources/scripts/build-sidebar.ts",
+    "generate-preview": "bun run resources/scripts/create-pr-content.ts && bun run build:sidebar",
     "b": "bun run generate-preview",
-    "preview": "bun run build && npm run start"
+    "preview": "next build && next start -p 3001"
   },
   "dependencies": {
     "@openpanel/nextjs": "^0.0.10-beta",
