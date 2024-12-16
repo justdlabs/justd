@@ -3,11 +3,9 @@
 import React, { Suspense } from "react"
 
 import { useScrollPosition } from "hooks/use-scroll-position"
-import { IconChevronLgDown, IconGitBranches } from "justd-icons"
-import { usePathname } from "next/navigation"
 import { Heading } from "react-aria-components"
 import scrollIntoView from "scroll-into-view-if-needed"
-import { Button, cn, Link, Menu, Skeleton } from "ui"
+import { cn, Link, Skeleton } from "ui"
 
 interface TableOfContentsProps {
   title: string
@@ -53,7 +51,6 @@ export function TableOfContents({ className, items }: Props) {
   //     emitter.off("thereIsAnAdVisibilityChange")
   //   }
   // }, [])
-  const pathname = usePathname()
   return (
     <aside
       ref={tocRef}
@@ -84,16 +81,6 @@ export function TableOfContents({ className, items }: Props) {
           }
         >
           <>
-            <Menu>
-              <Button appearance="outline" className="text-left group justify-between">
-                <IconGitBranches /> <span className="mr-2">Version {pathname.split("/")[2]}</span>
-                <IconChevronLgDown className="size-3 group-pressed:rotate-180 duration-200" />
-              </Button>
-              <Menu.Content className="sm:w-full sm:max-w-(--trigger-width)">
-                <Menu.Item href={pathname.replace(/\/\d+\.x/, "/1.x")}>Version 1.x</Menu.Item>
-                <Menu.Item href={pathname.replace(/\/\d+\.x/, "/2.x")}>Version 2.x</Menu.Item>
-              </Menu.Content>
-            </Menu>
             <Heading
               level={2}
               className="text-base lg:text-lg font-medium leading-7 mb-6 text-fg mt-6"

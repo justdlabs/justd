@@ -95,11 +95,6 @@ export default async function PostPage(props: DocPageProps) {
           ) : null}
 
           <div className="not-prose">
-            <Note intent="warning">
-              This documentation is for the 1.x version of Justd. If you're looking for the latest
-              version, check out the{" "}
-              <Link href="/docs/2.x/getting-started/installation">2.x version</Link>.
-            </Note>
             <div className="flex gap-2 mt-0">
               {doc.references && doc.references?.length > 0 && (
                 <DocRefs references={doc.references} />
@@ -108,6 +103,12 @@ export default async function PostPage(props: DocPageProps) {
             <Separator className="my-4 lg:my-10 not-prose" />
           </div>
           <TableOfContents className="mt-8 block xl:hidden" items={doc.toc} />
+
+          <Note intent="warning">
+            This documentation is for the 1.x version of Justd. If you're looking for the latest
+            version, check out the{" "}
+            <Link href="/docs/2.x/getting-started/installation">2.x version</Link>.
+          </Note>
           <MDXContent code={doc.body} />
           <Pager
             doc={{

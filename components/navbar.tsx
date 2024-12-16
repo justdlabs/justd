@@ -114,7 +114,20 @@ export function Navbar() {
                     <TakeCurrentUrl />
                     <ThemeSwitcher />
 
-                    <Separator orientation="vertical" className="h-7 mx-2" />
+                    <Menu>
+                      <Button
+                        size="small"
+                        appearance="outline"
+                        className="justify-between text-left group"
+                      >
+                        {pathname.split("/")[2]}
+                        <IconChevronLgDown className="duration-200 size-3 group-pressed:rotate-180" />
+                      </Button>
+                      <Menu.Content placement="bottom right" className="sm:min-w-10">
+                        <Menu.Item href={pathname.replace(/\/\d+\.x/, "/1.x")}>1.x</Menu.Item>
+                        <Menu.Item href={pathname.replace(/\/\d+\.x/, "/2.x")}>2.x</Menu.Item>
+                      </Menu.Content>
+                    </Menu>
 
                     <Link
                       aria-label="Github Repository"
@@ -154,88 +167,101 @@ export function Navbar() {
 
 export function NavbarDropdown() {
   const { theme, setTheme } = useTheme()
+  const pathname = usePathname()
   return (
-    <Menu>
-      <Button aria-label="Menu." appearance="plain" className="group -ml-1">
-        <span className="flex items-center gap-x-2">
-          <IconBrandJustd className="-ml-1 size-5" />
-          <span className="font-mono text-base tracking-tight sm:text-sm">{siteConfig.name}</span>
-          <IconChevronLgDown className="-mr-1 ml-3 size-3.5 text-muted-fg transition duration-300 group-hover:text-fg group-pressed:rotate-180 group-pressed:text-fg" />
-          <span className="sr-only">Open menu</span>
-        </span>
-      </Button>
-      <Menu.Content placement="bottom" className="sm:min-w-64">
-        <Menu.Section>
-          <Menu.Item href="/">
-            <IconHome />
-            Home
-          </Menu.Item>
-          <Menu.Item href="/components">
-            <IconCube />
-            Components
-          </Menu.Item>
-          <Menu.Item href="/colors">
-            <IconColors />
-            Colors
-          </Menu.Item>
-          <Menu.Item href="/icons">
-            <IconBrandJustd />
-            Icons
-          </Menu.Item>
-          <Menu.Item href="/themes">
-            <IconColorPalette />
-            Themes
-          </Menu.Item>
-        </Menu.Section>
-        <Menu.Section title="Refs">
-          <Menu.Item href="https://x.com/intent/follow?screen_name=irsyadadl" target="_blank">
-            <IconBrandX />X / Twitter
-          </Menu.Item>
-          <Menu.Item href="https://github.com/justdlabs" target="_blank">
-            <IconBrandGithub />
-            Github
-          </Menu.Item>
-          <Menu.Item
-            href="https://react-spectrum.adobe.com/react-aria/components.html"
-            target="_blank"
-          >
-            <IconBrandAdobe />
-            RAC
-          </Menu.Item>
-          <Menu.Item href="https://tailwindcss.com" target="_blank">
-            <IconBrandTailwindcss />
-            Tailwind CSS
-          </Menu.Item>
-        </Menu.Section>
-        <Menu.Section title="Preferences">
-          <Menu.Submenu>
-            <Menu.Item>
-              {theme === "system" ? (
-                <IconDeviceDesktop />
-              ) : theme === "dark" ? (
-                <IconMoon />
-              ) : (
-                <IconSun />
-              )}
-              <span>Switch Theme</span>
+    <div className="flex items-center gap-x-1">
+      <Menu>
+        <Button aria-label="Menu." appearance="plain" className="group -ml-1">
+          <span className="flex items-center gap-x-2">
+            <IconBrandJustd className="-ml-1 size-5" />
+            <span className="font-mono text-base tracking-tight sm:text-sm">{siteConfig.name}</span>
+            <IconChevronLgDown className="-mr-1 ml-3 size-3.5 text-muted-fg transition duration-300 group-hover:text-fg group-pressed:rotate-180 group-pressed:text-fg" />
+            <span className="sr-only">Open menu</span>
+          </span>
+        </Button>
+        <Menu.Content placement="bottom" className="sm:min-w-64">
+          <Menu.Section>
+            <Menu.Item href="/">
+              <IconHome />
+              Home
             </Menu.Item>
-            <Menu.Content>
-              <Menu.Item onAction={() => setTheme("system")}>
-                <IconDeviceDesktop />
-                <span>System</span>
+            <Menu.Item href="/components">
+              <IconCube />
+              Components
+            </Menu.Item>
+            <Menu.Item href="/colors">
+              <IconColors />
+              Colors
+            </Menu.Item>
+            <Menu.Item href="/icons">
+              <IconBrandJustd />
+              Icons
+            </Menu.Item>
+            <Menu.Item href="/themes">
+              <IconColorPalette />
+              Themes
+            </Menu.Item>
+          </Menu.Section>
+          <Menu.Section title="Refs">
+            <Menu.Item href="https://x.com/intent/follow?screen_name=irsyadadl" target="_blank">
+              <IconBrandX />X / Twitter
+            </Menu.Item>
+            <Menu.Item href="https://github.com/justdlabs" target="_blank">
+              <IconBrandGithub />
+              Github
+            </Menu.Item>
+            <Menu.Item
+              href="https://react-spectrum.adobe.com/react-aria/components.html"
+              target="_blank"
+            >
+              <IconBrandAdobe />
+              RAC
+            </Menu.Item>
+            <Menu.Item href="https://tailwindcss.com" target="_blank">
+              <IconBrandTailwindcss />
+              Tailwind CSS
+            </Menu.Item>
+          </Menu.Section>
+          <Menu.Section title="Preferences">
+            <Menu.Submenu>
+              <Menu.Item>
+                {theme === "system" ? (
+                  <IconDeviceDesktop />
+                ) : theme === "dark" ? (
+                  <IconMoon />
+                ) : (
+                  <IconSun />
+                )}
+                <span>Switch Theme</span>
               </Menu.Item>
-              <Menu.Item onAction={() => setTheme("dark")}>
-                <IconMoon />
-                <span>Dark</span>
-              </Menu.Item>
-              <Menu.Item onAction={() => setTheme("light")}>
-                <IconSun />
-                <span>Light</span>
-              </Menu.Item>
-            </Menu.Content>
-          </Menu.Submenu>
-        </Menu.Section>
-      </Menu.Content>
-    </Menu>
+              <Menu.Content>
+                <Menu.Item onAction={() => setTheme("system")}>
+                  <IconDeviceDesktop />
+                  <span>System</span>
+                </Menu.Item>
+                <Menu.Item onAction={() => setTheme("dark")}>
+                  <IconMoon />
+                  <span>Dark</span>
+                </Menu.Item>
+                <Menu.Item onAction={() => setTheme("light")}>
+                  <IconSun />
+                  <span>Light</span>
+                </Menu.Item>
+              </Menu.Content>
+            </Menu.Submenu>
+          </Menu.Section>
+        </Menu.Content>
+      </Menu>
+      <Menu>
+        <Button appearance="plain" className="justify-between sm:hidden text-left group">
+          {pathname.split("/")[2]}
+          <IconChevronLgDown className="duration-200 size-3 group-pressed:rotate-180" />
+        </Button>
+        <Menu.Content placement="bottom right" className="sm:min-w-10">
+          <Menu.Item href={pathname.replace(/\/\d+\.x/, "/1.x")}>1.x</Menu.Item>
+          <Menu.Item href={pathname.replace(/\/\d+\.x/, "/2.x")}>2.x</Menu.Item>
+        </Menu.Content>
+      </Menu>
+    </div>
   )
 }
