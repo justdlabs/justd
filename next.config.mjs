@@ -20,13 +20,13 @@ export default {
   async rewrites() {
     return [
       {
-        source: '/docs/1.x/:path*',
-        destination: 'https://1x.getjustd.com/docs/:path*',
+        source: "/docs/1.x/:path*",
+        destination: "https://1x.getjustd.com/docs/:path*",
       },
 
       {
-        source: '/_next/:path*',
-        destination: 'https://1x.getjustd.com/_next/:path*'
+        source: "/_next/:path*",
+        destination: "https://1x.getjustd.com/_next/:path*",
       },
     ]
   },
