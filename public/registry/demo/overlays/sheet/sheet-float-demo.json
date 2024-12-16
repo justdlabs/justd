@@ -1,0 +1,11 @@
+{
+  "name": "sheet-float-demo",
+  "files": [
+    {
+      "name": "sheet-float-demo.tsx",
+      "content": "\"use client\"\n\nimport { Button, Sheet } from \"ui\"\n\nexport default function SheetFloatDemo() {\n  return (\n    <Sheet>\n      <Button appearance=\"outline\">Float</Button>\n      <Sheet.Content isFloat={false}>\n        <Sheet.Header>\n          <Sheet.Title>Not Floated</Sheet.Title>\n          <Sheet.Description>This sheet is not floated.</Sheet.Description>\n        </Sheet.Header>\n        <Sheet.Footer>\n          <Sheet.Close>Cancel</Sheet.Close>\n          <Button intent=\"primary\">Save Changes</Button>\n        </Sheet.Footer>\n      </Sheet.Content>\n    </Sheet>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/overlays/sheet/sheet-float-demo.tsx"
+}

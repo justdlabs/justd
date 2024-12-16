@@ -89,33 +89,33 @@ export default function RootLayout({
 }>) {
   return (
     <html dir="ltr" lang="en" suppressHydrationWarning>
-    <head>
-      <script
-        defer
-        data-site-id="getjustd.com"
-        src="https://assets.onedollarstats.com/tracker.js">
-      </script>
-    </head>
-    <body
-      className={cn(
-        "min-h-screen bg-bg font-sans antialiased",
-        fontSans.variable,
-        fontMono.variable
-      )}
-    >
-    <Providers>
-      {children}
-      {process.env.NODE_ENV === "production" && (
-        <OpenpanelProvider
-          url={process.env.ANALYTICS_CLIENT_URL as string}
-          clientSecret={process.env.ANALYTICS_CLIENT_SECRET as string}
-          clientId={process.env.ANALYTICS_CLIENT_ID as string}
-          trackScreenViews={true}
-          trackAttributes={true}
-        />
-      )}
-    </Providers>
-    </body>
+      <head>
+        <script
+          defer
+          data-site-id="getjustd.com"
+          src="https://assets.onedollarstats.com/tracker.js"
+        ></script>
+      </head>
+      <body
+        className={cn(
+          "min-h-screen bg-bg font-sans antialiased",
+          fontSans.variable,
+          fontMono.variable
+        )}
+      >
+        <Providers>
+          {children}
+          {process.env.NODE_ENV === "production" && (
+            <OpenpanelProvider
+              url={process.env.ANALYTICS_CLIENT_URL as string}
+              clientSecret={process.env.ANALYTICS_CLIENT_SECRET as string}
+              clientId={process.env.ANALYTICS_CLIENT_ID as string}
+              trackScreenViews={true}
+              trackAttributes={true}
+            />
+          )}
+        </Providers>
+      </body>
     </html>
   )
 }
