@@ -23,7 +23,7 @@ async function getPostFromParams(params: { slug: string[] }) {
 
 const extractSegment = (str: string): string | null => {
   const segments = str.split("/")
-  return segments.length === 4 ? goodTitle(segments[2]) : goodTitle(segments[1])
+  return segments.length === 5 ? goodTitle(segments[3]) : goodTitle(segments[2])
 }
 
 export async function generateMetadata(props: DocPageProps): Promise<Metadata> {

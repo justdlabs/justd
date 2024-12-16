@@ -16,8 +16,8 @@
     "tailwind:format": "rustywind --write .",
     "format": "bun run tailwind:format && biome check --write",
     "format:unsafe": "biome check --unsafe --write",
-    "b": "rm -rf pubilc/registry && bun run build:sidebar && bun run build:registry && biome format --write __registry__/generated.ts",
-    "bb": "bun run format && bun run b",
+    "build:everything": "rm -rf pubilc/registry && bun run build:sidebar && bun run build:registry && biome format --write __registry__/generated.ts",
+    "bb": "bun run format && bun run build:everything",
     "start": "next start",
     "preview": "bun run build && next start",
     "ic": "bun run resources/scripts/identify-color.ts"

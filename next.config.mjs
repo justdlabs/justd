@@ -21,7 +21,7 @@ export default {
     return [
       {
         source: "/docs/1.x/:path*",
-        destination: "https://1x.getjustd.com/docs/:path*",
+        destination: "https://1x.getjustd.com/docs/1.x/:path*",
       },
 
       {
