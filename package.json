@@ -6,7 +6,8 @@
   "scripts": {
     "first-time": "bun i && next build && bun run build:sidebar && next start",
     "lint": "biome check",
-    "prod": "rm -rf public/registry && bun run build:registry && next build && bun run build:sidebar",
+    "prebuild": "rm -rf public/registry && bun run build:registry && next build",
+    "postbuild": "bun run build:sidebar",
     "cuc": "bun run resources/scripts/check-use-client.ts",
     "prepare": "husky",
     "build:sidebar": "bun run resources/scripts/build-sidebar.ts",
