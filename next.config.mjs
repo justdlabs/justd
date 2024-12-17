@@ -22,6 +22,16 @@ export default {
         source: '/docs/1.x/:slug*',
         destination: 'https://1x.getjustd.com/docs/1.x/:slug*',
       },
+      {
+        source: '/_next/static/:path*',
+        has: [{ type: 'header', key: 'referer', value: '^.*\\/docs\\/1\\.x\\/.*$' }],
+        destination: 'https://1x.getjustd.com/_next/static/:path*',
+      },
+      {
+        source: '/static/:path*',
+        has: [{ type: 'header', key: 'referer', value: '^.*\\/docs\\/1\\.x\\/.*$' }],
+        destination: 'https://1x.getjustd.com/static/:path*',
+      },
     ];
   },
 }
