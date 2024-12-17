@@ -31,7 +31,6 @@ import {
 export function Blocks() {
   return (
     <div className="grid gap-1 **:data-[slot=card]:rounded-md">
-      {/*<div className="grid **:data-[slot=card]:rounded-md **:data-[slot=card]:bg-secondary/15 gap-2">*/}
       <div className="-mx-2.5">
         <AppNavbar className="-mt-1 *:data-navbar-nav:rounded-md" intent="floating" />
       </div>

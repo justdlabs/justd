@@ -34,20 +34,20 @@ const Title = ({ level = 2, className, ...props }: React.ComponentProps<typeof D
 )
 
 const Header = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <Dialog.Header className={twMerge("p-0 sm:pt-0", className)} {...props} />
+  <Dialog.Header className={twMerge("sm:p-4", className)} {...props} />
 )
 
 const Footer = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <Dialog.Footer className={twMerge("pt-4 pb-0 sm:pb-0", className)} {...props} />
+  <Dialog.Footer className={twMerge("sm:p-4", className)} {...props} />
 )
 
 const Body = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <Dialog.Body className={twMerge("sm:p-0", className)} {...props} />
+  <Dialog.Body className={twMerge("sm:px-4", className)} {...props} />
 )
 
-const popoverContentStyles = tv({
+const content = tv({
   base: [
-    "max-w-xs transition-transform p-4 rounded-xl border bg-overlay bg-clip-padding text-overlay-fg shadow-xs dark:backdrop-saturate-200 sm:text-sm sm:max-w-3xl forced-colors:bg-[Canvas] [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin]",
+    "max-w-xs transition-transform peer-not-has-[data=dialog-header]:p-4 rounded-xl border bg-overlay bg-clip-padding text-overlay-fg shadow-xs dark:backdrop-saturate-200 sm:text-sm sm:max-w-3xl forced-colors:bg-[Canvas] [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin]",
   ],
   variants: {
     isPicker: { true: "max-h-72 min-w-(--trigger-width) overflow-y-auto p-0", false: "min-w-80" },
@@ -135,7 +135,7 @@ const Content = ({
         <Dialog
           role="dialog"
           aria-label={isMenu ? "Menu" : props["aria-label"]}
-          className="p-0 touch-none data-focused:outline-hidden"
+          className="p-0 sm:p-0 touch-none data-focused:outline-hidden"
         >
           {children}
         </Dialog>
@@ -146,7 +146,7 @@ const Content = ({
       offset={effectiveOffset}
       {...props}
       className={composeRenderProps(className, (className, renderProps) =>
-        popoverContentStyles({
+        content({
           ...renderProps,
           className,
         }),
@@ -174,7 +174,7 @@ const Picker = ({ children, className, ...props }: PopoverProps) => {
     <PopoverPrimitive
       {...props}
       className={composeRenderProps(className, (className, renderProps) =>
-        popoverContentStyles({
+        content({
           ...renderProps,
           isPicker: true,
           className,
@@ -197,4 +197,4 @@ Popover.Header = Header
 Popover.Picker = Picker
 Popover.Title = Title
 
-export { Popover, popoverContentStyles }
+export { Popover, content }
