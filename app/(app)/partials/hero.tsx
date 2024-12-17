@@ -56,7 +56,7 @@ export function Hero() {
             <h1 className="mt-4 mb-4 max-w-xl text-2xl font-bold tracking-tight lg:mb-6 lg:text-4xl">
               Accessible React UI Components. Copy, Customize, and Make Them Yours.
             </h1>
-            <p className="block max-w-3xl text-base text-muted-fg leading-relaxed md:leading-loose lg:text-xl [&_strong]:font-medium">
+            <p className="block max-w-3xl text-base text-muted-fg leading-relaxed md:leading-relaxed max-w-xl lg:text-xl [&_strong]:font-medium">
               <strong className="text-fg">{siteConfig.name}</strong> is a chill set of React components, built on top of{" "}
               <strong className="text-fg">React Aria Components</strong>, all about keeping the web accessible. Easy to
               customize and just copy & paste into your React projects. Plus, it includes{" "}

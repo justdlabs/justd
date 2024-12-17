@@ -1,4 +1,4 @@
-import { CardBlock } from "@/components/blocks"
+import { Wrapper } from "@/app/(app)/partials/resources"
 import { SliderOnPopoverBlock } from "@/components/blocks/slider-on-popover-block"
 import {
   IconCamera,
@@ -16,7 +16,7 @@ import { Toolbar } from "ui"
 
 export function ToolbarBlock() {
   return (
-    <CardBlock>
+    <Wrapper>
       <div className="flex gap-2 justify-center">
         <Toolbar aria-label="Toolbars" className="flex justify-between">
           <Toolbar.Group aria-label="Actions">
@@ -42,6 +42,6 @@ export function ToolbarBlock() {
           </Toolbar.Group>
         </Toolbar>
       </div>
-    </CardBlock>
+    </Wrapper>
   )
 }

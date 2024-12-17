@@ -1,10 +1,11 @@
 "use client"
 
+import { Wrapper } from "@/app/(app)/partials/resources"
 import { Button, Card, Checkbox, Link, TextField } from "ui"
 
 export function LoginForm() {
   return (
-    <div className="w-full">
+    <Wrapper className="w-full">
       <Card.Header className="px-0">
         <Card.Title>Login</Card.Title>
         <Card.Description>Don't loose the level, just keep on going.</Card.Description>
@@ -24,6 +25,6 @@ export function LoginForm() {
           Login
         </Button>
       </Card.Footer>
-    </div>
+    </Wrapper>
   )
 }

@@ -136,7 +136,7 @@ export function CommandPalette({ openCmd, setOpen }: OpenCloseProps) {
             </Link>
           </CommandMenu.Item>
           <CommandMenu.Item value="documenation" asChild>
-            <Link href="/docs/getting-started/installation">
+            <Link href="/docs/2.x/getting-started/installation">
               <IconNotes /> Docs
             </Link>
           </CommandMenu.Item>

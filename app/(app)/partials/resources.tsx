@@ -1,14 +1,8 @@
 "use client"
 
-import {
-  IconBrandAstro,
-  IconBrandJustd,
-  IconBrandLaravel,
-  IconBrandNextjs,
-  IconBrandRemix,
-  IconWindowVisitFill,
-} from "justd-icons"
-import { Badge, Card, Grid, Heading, Link } from "ui"
+import { cn } from "@/utils/classes"
+import { IconBrandAstro, IconBrandLaravel, IconBrandNextjs, IconBrandRemix, IconWindowVisitFill } from "justd-icons"
+import { Badge, Card, Container, Grid, Heading, Link } from "ui"
 
 const resources = [
   {
@@ -44,7 +38,7 @@ const resources = [
 
 export function Resources() {
   return (
-    <>
+    <Container>
       <section id="starter-kit" className="mb-12">
         <Heading level={2} className="mb-6">
           Starter Kit
@@ -53,22 +47,22 @@ export function Resources() {
           {resources.map((item) => (
             <Wrapper aria-label={item.name} key={item.name.toLowerCase().replaceAll(" ", "-")}>
               <Link
+                href={item.url}
                 aria-label={`Open ${item.name}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                href={item.url}
                 className="absolute inset-0 size-full"
               />
               <div className="flex-1">
-                <div className="px-6 pt-6">
+                <WrapperIcon>
                   <item.icon className="size-6" />
-                </div>
+                </WrapperIcon>
                 <Card.Header>
                   <Card.Title level={3}>{item.name}</Card.Title>
                   <Card.Description className="line-clamp-2">{item.description}</Card.Description>
                 </Card.Header>
               </div>
-              <Card.Footer>
+              <Card.Footer className="justify-between">
                 <Badge>{item.label}</Badge>
               </Card.Footer>
             </Wrapper>
@@ -76,43 +70,6 @@ export function Resources() {
         </div>
       </section>
 
-      <section id="library" className="mb-12">
-        <Heading level={2} className="mb-6">
-          Icons
-        </Heading>
-        <Grid
-          columns={{
-            initial: 1,
-            sm: 2,
-          }}
-          gap={2}
-          aria-label="Extra"
-        >
-          <Wrapper aria-label="Justd icons" id="justd-icons">
-            <Link
-              aria-label={"Justd icons"}
-              rel="noopener noreferrer"
-              href="/icons"
-              className="absolute inset-0 size-full"
-            />
-            <div className="flex-1">
-              <div className="px-6 pt-6">
-                <IconBrandJustd className="size-6" />
-              </div>
-              <Card.Header>
-                <Card.Title level={3}>Icons</Card.Title>
-                <Card.Description className="line-clamp-2">
-                  A library of beautifully crafted react icons, perfect for enhancing the visual appeal and user
-                  experience of your web applications.
-                </Card.Description>
-              </Card.Header>
-            </div>
-            <Card.Footer>
-              <Badge>justd-icons</Badge>
-            </Card.Footer>
-          </Wrapper>
-        </Grid>
-      </section>
       <section id="support" className="mb-12">
         <Heading level={2} className="mb-6">
           Extra
@@ -134,7 +91,7 @@ export function Resources() {
               className="absolute inset-0 size-full"
             />
             <div className="flex-1">
-              <div className="px-6 pt-6 text-xl">💖</div>
+              <WrapperIcon>💖</WrapperIcon>
               <Card.Header>
                 <Card.Title level={3}>Support This Project</Card.Title>
                 <Card.Description className="line-clamp-2">
@@ -144,7 +101,7 @@ export function Resources() {
               </Card.Header>
             </div>
             <Card.Footer>
-              <Badge className="text-pink-700 dark:text-pink-400 bg-pink-400/15 group-data-hover:bg-pink-400/25 dark:bg-pink-400/10 dark:group-data-hover:bg-pink-400/20">
+              <Badge className="text-pink-700 dark:text-pink-400 bg-pink-400/15 group-data-hovered:bg-pink-400/25 dark:bg-pink-400/10 dark:group-data-hovered:bg-pink-400/20">
                 support
               </Badge>
             </Card.Footer>
@@ -158,9 +115,9 @@ export function Resources() {
               className="absolute inset-0 size-full"
             />
             <div className="flex-1">
-              <div className="px-6 pt-6">
+              <WrapperIcon>
                 <IconWindowVisitFill className="size-6" />
-              </div>
+              </WrapperIcon>
               <Card.Header>
                 <Card.Title level={3}>Templates</Card.Title>
                 <Card.Description className="line-clamp-2">
@@ -170,22 +127,35 @@ export function Resources() {
               </Card.Header>
             </div>
             <Card.Footer>
-              <Badge className="bg-zinc-600/10 text-zinc-700 group-data-hover:bg-zinc-600/20 dark:bg-white/5 dark:text-zinc-400 dark:group-data-hover:bg-white/10">
+              <Badge className="bg-zinc-600/10 text-zinc-700 group-data-hovered:bg-zinc-600/20 dark:bg-white/5 dark:text-zinc-400 dark:group-data-hovered:bg-white/10">
                 support
               </Badge>
             </Card.Footer>
           </Wrapper>
         </Grid>
       </section>
-    </>
+    </Container>
   )
 }
 
-function Wrapper(props: React.ComponentProps<"div">) {
+export function Wrapper({ className, ...props }: React.ComponentProps<"div">) {
+  return (
+    <div
+      data-slot="wrapper-card"
+      className={cn(
+        "flex relative group **:data-[slot=card-header]:px-0 **:data-[slot=card-footer]:px-0 flex-col p-4 w-full h-full rounded-lg lg:p-8 bg-overlay inset-shadow-zinc-200 inset-shadow-xs inset-ring inset-ring-zinc-200 shadow-xs dark:inset-shadow-zinc-800 dark:inset-ring-zinc-500/10",
+        className,
+      )}
+      {...props}
+    />
+  )
+}
+
+export function WrapperIcon(props: React.ComponentProps<"div">) {
   return (
     <div
       id="support"
-      className="flex relative flex-col p-4 w-full h-full rounded-lg lg:p-6 bg-overlay inset-shadow-zinc-200 inset-shadow-xs inset-ring inset-ring-zinc-200 shadow-xs dark:inset-shadow-zinc-800 dark:inset-ring-zinc-600/10"
+      className="grid place-content-center text-xl rounded-full size-14 bg-secondary/20 inset-ring inset-ring-fg/15 group-hover:bg-secondary/30"
       {...props}
     />
   )

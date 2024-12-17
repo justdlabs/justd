@@ -53,7 +53,7 @@ const Note = ({ indicator = true, intent = "default", className, ...props }: Not
             <IconComponent className="mr-3 leading-loose rounded-full ring-4 size-5 ring-current/30" />
           </div>
         )}
-        <div>{props.children}</div>
+        <div className="text-pretty">{props.children}</div>
       </div>
     </div>
   )
