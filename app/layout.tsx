@@ -14,6 +14,12 @@ export const metadata: Metadata = {
     default: `${siteConfig.name}`,
     template: `%s / ${siteConfig.name}`,
   },
+  openGraph: {
+    title: siteConfig.name,
+    description: siteConfig.description,
+    url: "https://getjustd.com",
+    siteName: siteConfig.name,
+  },
   description: siteConfig.description,
   alternates: {
     canonical: "./",
@@ -91,10 +97,16 @@ export default function RootLayout({
     <html dir="ltr" lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
         {process.env.NODE_ENV === "production" && (
-          <script defer data-site-id="getjustd.com" src="https://assets.onedollarstats.com/tracker.js" />
+          <script
+            defer
+            data-site-id="getjustd.com"
+            src="https://assets.onedollarstats.com/tracker.js"
+          />
         )}
       </head>
-      <body className={cn("min-h-screen font-sans antialiased", fontSans.variable, fontMono.variable)}>
+      <body
+        className={cn("min-h-screen font-sans antialiased", fontSans.variable, fontMono.variable)}
+      >
         <Providers>
           {children}
           {process.env.NODE_ENV === "production" && (

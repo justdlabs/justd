@@ -7,7 +7,8 @@ import { Container } from "ui"
 
 export const metadata: Metadata = {
   title: "Components",
-  description: "Over 50 accessible components, neatly grouped into sections. Guaranteed usability for all!",
+  description:
+    "Over 50 accessible components, neatly grouped into sections. Guaranteed usability for all!",
   metadataBase: new URL("https://getjustd.com"),
   applicationName: siteConfig.name,
   keywords: [

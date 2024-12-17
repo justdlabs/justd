@@ -69,7 +69,11 @@ export function ColorItem({ color }: { color: keyof typeof colors }) {
           <SelectFormat selected={selectedFormat} setSelected={setSelectedFormat} />
         </div>
       </div>
-      <ListBox aria-label="Colors" orientation="horizontal" className="flex flex-wrap gap-2 sm:flex-nowrap">
+      <ListBox
+        aria-label="Colors"
+        orientation="horizontal"
+        className="flex flex-wrap gap-2 sm:flex-nowrap"
+      >
         {Object.entries(colors[color]).map(([shade, colorValue]) => (
           <ListBoxItem
             textValue={colorValue}

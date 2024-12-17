@@ -54,12 +54,23 @@ export default function PieChartDonutWithTextDemo() {
         <Chart config={chartConfig} className="mx-auto aspect-square max-h-[250px]">
           <PieChart>
             <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
-            <Pie data={chartData} dataKey="sales" nameKey="category" innerRadius={60} strokeWidth={5}>
+            <Pie
+              data={chartData}
+              dataKey="sales"
+              nameKey="category"
+              innerRadius={60}
+              strokeWidth={5}
+            >
               <Label
                 content={({ viewBox }) => {
                   if (viewBox && "cx" in viewBox && "cy" in viewBox) {
                     return (
-                      <text x={viewBox.cx} y={viewBox.cy} textAnchor="middle" dominantBaseline="middle">
+                      <text
+                        x={viewBox.cx}
+                        y={viewBox.cy}
+                        textAnchor="middle"
+                        dominantBaseline="middle"
+                      >
                         <tspan x={viewBox.cx} y={viewBox.cy} className="text-3xl font-bold fill-fg">
                           {totalSales.toLocaleString()}
                         </tspan>

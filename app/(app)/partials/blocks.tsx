@@ -74,8 +74,12 @@ export function Blocks() {
                 </Wrapper>
                 <Wrapper className="p-4 py-2 sm:p-4 lg:p-5">
                   <div className="space-y-2">
-                    <Note intent="danger">Complete your profile to get personalized recommendations.</Note>
-                    <Note intent="warning">Heads up! We'll be doing system maintenance this Sunday at 2 AM.</Note>
+                    <Note intent="danger">
+                      Complete your profile to get personalized recommendations.
+                    </Note>
+                    <Note intent="warning">
+                      Heads up! We'll be doing system maintenance this Sunday at 2 AM.
+                    </Note>
                   </div>
                 </Wrapper>
               </div>

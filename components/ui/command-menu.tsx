@@ -10,9 +10,9 @@ import { Button, Dialog, Modal, ModalOverlay, Text } from "react-aria-components
 import { twJoin } from "tailwind-merge"
 import { tv } from "tailwind-variants"
 
+import { useMediaQuery } from "@/utils/use-media-query"
 import type { KeyboardProps } from "./keyboard"
 import { Keyboard } from "./keyboard"
-import { useMediaQuery } from "./primitive"
 import { Separator } from "./separator"
 
 const commandStyles = tv({
@@ -64,7 +64,8 @@ const commandStyles = tv({
   },
 })
 
-const { command, empty, section, list, item, closeButton, modal, input, kbdKeyboard, description } = commandStyles()
+const { command, empty, section, list, item, closeButton, modal, input, kbdKeyboard, description } =
+  commandStyles()
 
 interface CommandMenuContextProps {
   hideSearchIndicator?: boolean
@@ -100,7 +101,10 @@ const modalOverlay = tv({
   },
 })
 
-interface CommandMenuProps extends ModalOverlayProps, CommandMenuRootProps, CommandMenuContextProps {
+interface CommandMenuProps
+  extends ModalOverlayProps,
+    CommandMenuRootProps,
+    CommandMenuContextProps {
   children: React.ReactNode
   value?: string
   messageOnEmpty?: boolean | string
@@ -161,30 +165,31 @@ interface CommandMenuInputProps extends React.ComponentPropsWithoutRef<typeof Co
   isPending?: boolean
 }
 
-const CommandMenuInput = forwardRef<React.ComponentRef<typeof Command.Input>, CommandMenuInputProps>(
-  ({ className, isPending, ...props }, ref) => {
-    const { hideSearchIndicator } = use(CommandMenuContext)
-    return (
-      <div className="flex items-center px-3 border-b">
-        {!hideSearchIndicator &&
-          (isPending ? (
-            <Command.Loading className="mr-2 opacity-50 data-[slot=icon]:size-5 data-[slot=icon]:shrink-0">
-              <Loader variant="spin" />
-            </Command.Loading>
-          ) : (
-            <IconSearch className="mr-2 opacity-50 size-5 shrink-0" />
-          ))}
+const CommandMenuInput = forwardRef<
+  React.ComponentRef<typeof Command.Input>,
+  CommandMenuInputProps
+>(({ className, isPending, ...props }, ref) => {
+  const { hideSearchIndicator } = use(CommandMenuContext)
+  return (
+    <div className="flex items-center px-3 border-b">
+      {!hideSearchIndicator &&
+        (isPending ? (
+          <Command.Loading className="mr-2 opacity-50 data-[slot=icon]:size-5 data-[slot=icon]:shrink-0">
+            <Loader variant="spin" />
+          </Command.Loading>
+        ) : (
+          <IconSearch className="mr-2 opacity-50 size-5 shrink-0" />
+        ))}
 
-        <Command.Input
-          autoFocus
-          ref={ref}
-          className={input({ className: hideSearchIndicator ? "pl-1" : className })}
-          {...props}
-        />
-      </div>
-    )
-  },
-)
+      <Command.Input
+        autoFocus
+        ref={ref}
+        className={input({ className: hideSearchIndicator ? "pl-1" : className })}
+        {...props}
+      />
+    </div>
+  )
+})
 
 CommandMenuInput.displayName = Command.Input.displayName
 
@@ -195,7 +200,9 @@ const CommandMenuList = ({ className, ...props }: CommandMenuListProps) => {
   return (
     <Command.List className={list({ className })} {...props}>
       {messageOnEmpty !== false && (
-        <CommandMenuEmpty>{typeof messageOnEmpty === "string" ? messageOnEmpty : "No results found."}</CommandMenuEmpty>
+        <CommandMenuEmpty>
+          {typeof messageOnEmpty === "string" ? messageOnEmpty : "No results found."}
+        </CommandMenuEmpty>
       )}
       {props.children}
     </Command.List>
@@ -241,7 +248,11 @@ interface CommandItemProps extends React.ComponentProps<typeof Command.Item> {
 
 const CommandMenuItem = ({ isDanger, className, ...props }: CommandItemProps) => {
   return (
-    <Command.Item data-danger={isDanger ? "true" : undefined} className={item({ isDanger, className })} {...props} />
+    <Command.Item
+      data-danger={isDanger ? "true" : undefined}
+      className={item({ isDanger, className })}
+      {...props}
+    />
   )
 }
 

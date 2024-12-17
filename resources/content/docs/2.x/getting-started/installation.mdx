@@ -165,18 +165,14 @@ Following that, include the animation package for managing animations and Parano
     'ui/primitive.tsx': 'ui/primitive',
   }} />
 
-  ### Classes / CN
-  By default, components are saved in the `components/ui` folder of your project. These components include essential
-  functions like `cn` for className handling and `composeTailwindRenderProps`. However, these functions are not
-  compatible with server components. If you need to use `cn` outside of the typical environment, you should isolate it
-  in a separate file like this:
+### Classes and Hooks
 
-  ```ts title="utils/classes.ts"
-import { type ClassValue, cnBase } from "tailwind-variants"
-import { twMerge } from "tailwind-merge"
-
-export const cn = (...inputs: ClassValue[]): string => twMerge(cnBase(...inputs))
-```
+All components that use the `cn` function will import it from the `utils/classes.ts` file, which provides a `cn` function compatible with server components. Hooks are only used in specific components like the **Navbar**, **Sidebar**, **Popover**, and **Command Menu**. If you're using the **Justd CLI**, it will handle this automatically; otherwise, download the file below.
+<EditorText
+source={{
+    'utils/classes.ts': 'utils/classes.ts',
+    'utils/use-media-query.ts': 'utils/use-media-query.ts',
+}} />
 
 ### Simple Import
 Indeed, it's efficient because the `index.ts` file in your UI folder serves as a hub. Even if the button and badge

@@ -261,7 +261,9 @@ const gridItemStyles = tv(
   },
 )
 
-interface GridItemProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof gridItemStyles> {
+interface GridItemProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof gridItemStyles> {
   className?: string
 }
 

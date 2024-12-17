@@ -37,7 +37,11 @@ export default function SalesPerformanceOverview() {
                   if (viewBox && "cx" in viewBox && "cy" in viewBox) {
                     return (
                       <text x={viewBox.cx} y={viewBox.cy} textAnchor="middle">
-                        <tspan x={viewBox.cx} y={(viewBox.cy || 0) - 16} className="text-2xl font-bold fill-fg">
+                        <tspan
+                          x={viewBox.cx}
+                          y={(viewBox.cy || 0) - 16}
+                          className="text-2xl font-bold fill-fg"
+                        >
                           {totalRevenue.toLocaleString()}
                         </tspan>
                         <tspan x={viewBox.cx} y={(viewBox.cy || 0) + 4} className="fill-muted-fg">

@@ -21,7 +21,8 @@ const toggleGroupStyles = tv({
   base: "flex gap-1",
   variants: {
     orientation: {
-      horizontal: "flex-row [&::-webkit-scrollbar]:hidden [scrollbar-width:none] [-ms-overflow-style:none]",
+      horizontal:
+        "flex-row [&::-webkit-scrollbar]:hidden [scrollbar-width:none] [-ms-overflow-style:none]",
       vertical: "flex-col items-start",
     },
   },

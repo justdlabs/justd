@@ -3,6 +3,7 @@
 import { createContext, use, useCallback, useEffect, useMemo, useState } from "react"
 
 import { cn } from "@/utils/classes"
+import { useMediaQuery } from "@/utils/use-media-query"
 import { IconChevronLgLeft, IconHamburger, IconSidebarFill } from "justd-icons"
 import type { LinkRenderProps } from "react-aria-components"
 import {
@@ -18,7 +19,7 @@ import {
 } from "react-aria-components"
 import { twJoin } from "tailwind-merge"
 import { tv } from "tailwind-variants"
-import { Badge, Button, Separator, Sheet, Tooltip, composeTailwindRenderProps, useMediaQuery } from "ui"
+import { Badge, Button, Separator, Sheet, Tooltip, composeTailwindRenderProps } from "ui"
 
 const SIDEBAR_COOKIE_NAME = "sidebar:state"
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7
@@ -160,10 +161,12 @@ const sidebar = tv({
   variants: {
     side: {
       left: "left-0 group-data-[sidebar-collapsible=hidden]/sidebar-container:left-[calc(var(--sidebar-width)*-1)]",
-      right: "right-0 group-data-[sidebar-collapsible=hidden]/sidebar-container:right-[calc(var(--sidebar-width)*-1)]",
+      right:
+        "right-0 group-data-[sidebar-collapsible=hidden]/sidebar-container:right-[calc(var(--sidebar-width)*-1)]",
     },
     intent: {
-      float: "p-2 bg-bg group-data-[sidebar-collapsible=dock]/sidebar-container:w-[calc(var+theme(spacing.4)+2px)]",
+      float:
+        "p-2 bg-bg group-data-[sidebar-collapsible=dock]/sidebar-container:w-[calc(var+theme(spacing.4)+2px)]",
       inset: [
         "p-2 bg-sidebar dark:bg-bg group-data-[sidebar-collapsible=dock]/sidebar-container:w-[calc(var(--sidebar-width-dock)+theme(spacing.2)+2px)]",
       ],
@@ -202,7 +205,10 @@ const Sidebar = ({
       <div
         data-sidebar-intent={intent}
         data-sidebar-collapsible="none"
-        className={cn("flex h-full peer w-(--sidebar-width) flex-col border-r bg-sidebar text-sidebar-fg ", className)}
+        className={cn(
+          "flex h-full peer w-(--sidebar-width) flex-col border-r bg-sidebar text-sidebar-fg ",
+          className,
+        )}
         {...props}
       />
     )
@@ -329,10 +335,19 @@ const SidebarContent = ({ className, ...props }: React.ComponentProps<"div">) =>
 }
 
 const SidebarSectionGroup = ({ className, ...props }: React.ComponentProps<"section">) => {
-  return <section data-sidebar-section-group="true" className={cn("flex flex-col gap-y-6", className)} {...props} />
+  return (
+    <section
+      data-sidebar-section-group="true"
+      className={cn("flex flex-col gap-y-6", className)}
+      {...props}
+    />
+  )
 }
 
-const SidebarSection = ({ className, ...props }: React.ComponentProps<"div"> & { title?: string }) => {
+const SidebarSection = ({
+  className,
+  ...props
+}: React.ComponentProps<"div"> & { title?: string }) => {
   const { state } = useSidebar()
   return (
     <div
@@ -380,11 +395,21 @@ interface SidebarItemProps extends Omit<React.ComponentProps<typeof Link>, "chil
   tooltip?: React.ReactNode | string
   children?:
     | React.ReactNode
-    | ((values: LinkRenderProps & { defaultChildren: React.ReactNode; isCollapsed: boolean }) => React.ReactNode)
+    | ((
+        values: LinkRenderProps & { defaultChildren: React.ReactNode; isCollapsed: boolean },
+      ) => React.ReactNode)
   badge?: string | number | undefined
 }
 
-const SidebarItem = ({ isCurrent, tooltip, children, badge, className, ref, ...props }: SidebarItemProps) => {
+const SidebarItem = ({
+  isCurrent,
+  tooltip,
+  children,
+  badge,
+  className,
+  ref,
+  ...props
+}: SidebarItemProps) => {
   const { state, isMobile } = useSidebar()
   const isCollapsed = state === "collapsed" && !isMobile
   const link = (
@@ -418,7 +443,10 @@ const SidebarItem = ({ isCurrent, tooltip, children, badge, className, ref, ...p
                 {badge}
               </Badge>
             ) : (
-              <div aria-hidden className="absolute top-1 right-1 rounded-full size-1.5 bg-primary" />
+              <div
+                aria-hidden
+                className="absolute top-1 right-1 rounded-full size-1.5 bg-primary"
+              />
             ))}
         </>
       )}
@@ -564,7 +592,10 @@ const SidebarDisclosurePanel = (props: React.ComponentProps<typeof DisclosurePan
 
 const SidebarSeparator = ({ className, ...props }: React.ComponentProps<typeof Separator>) => {
   return (
-    <Separator className={cn("mx-auto my-2 w-[calc(var(--sidebar-width)-theme(spacing.6))]", className)} {...props} />
+    <Separator
+      className={cn("mx-auto my-2 w-[calc(var(--sidebar-width)-theme(spacing.6))]", className)}
+      {...props}
+    />
   )
 }
 
@@ -618,7 +649,11 @@ const SidebarLabel = ({ className, ...props }: React.ComponentProps<typeof Text>
   const collapsed = state === "collapsed" && !isMobile
   if (!collapsed) {
     return (
-      <Text slot="label" className={cn("flex flex-1 w-full overflow-hidden whitespace-nowrap", className)} {...props}>
+      <Text
+        slot="label"
+        className={cn("flex flex-1 w-full overflow-hidden whitespace-nowrap", className)}
+        {...props}
+      >
         {props.children}
       </Text>
     )

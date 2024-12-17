@@ -10,8 +10,9 @@ import {
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
+import { useMediaQuery } from "@/utils/use-media-query"
 import { Description, FieldError, FieldGroup, Input, Label } from "./field"
-import { composeTailwindRenderProps, useMediaQuery } from "./primitive"
+import { composeTailwindRenderProps } from "./primitive"
 
 const fieldBorderStyles = tv({
   base: "group-data-focused:border-primary/70 forced-colors:border-[Highlight]",
@@ -42,7 +43,14 @@ interface NumberFieldProps extends NumberFieldPrimitiveProps {
   errorMessage?: string | ((validation: ValidationResult) => string)
 }
 
-const NumberField = ({ label, placeholder, description, className, errorMessage, ...props }: NumberFieldProps) => {
+const NumberField = ({
+  label,
+  placeholder,
+  description,
+  className,
+  errorMessage,
+  ...props
+}: NumberFieldProps) => {
   const isMobile = useMediaQuery("(max-width: 768px)")
   return (
     <NumberFieldPrimitive {...props} className={composeTailwindRenderProps(className, base())}>
@@ -88,7 +96,12 @@ interface StepperButtonProps extends ButtonProps {
   className?: string
 }
 
-const StepperButton = ({ slot, className, emblemType = "default", ...props }: StepperButtonProps) => {
+const StepperButton = ({
+  slot,
+  className,
+  emblemType = "default",
+  ...props
+}: StepperButtonProps) => {
   const icon =
     emblemType === "chevron" ? (
       slot === "increment" ? (

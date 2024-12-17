@@ -37,7 +37,9 @@ export function ToolbarBlock() {
               {({ isSelected }) => <>{isSelected ? <IconGalleryFill /> : <IconGallery />}</>}
             </Toolbar.Item>
             <Toolbar.Item aria-label="Playlist" size="square-petite" appearance="outline">
-              {({ isSelected }) => <>{isSelected ? <IconVideoPlaylistFill /> : <IconVideoPlaylist />}</>}
+              {({ isSelected }) => (
+                <>{isSelected ? <IconVideoPlaylistFill /> : <IconVideoPlaylist />}</>
+              )}
             </Toolbar.Item>
           </Toolbar.Group>
         </Toolbar>

@@ -9,8 +9,9 @@ import { Link, composeRenderProps } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
 import { cn } from "@/utils/classes"
+import { useMediaQuery } from "@/utils/use-media-query"
 import { Button } from "./button"
-import { composeTailwindRenderProps, useMediaQuery } from "./primitive"
+import { composeTailwindRenderProps } from "./primitive"
 import { Sheet } from "./sheet"
 
 type NavbarOptions = {
@@ -98,7 +99,11 @@ const Navbar = ({
   )
   return (
     <NavbarContext value={contextValue}>
-      <header data-navbar-intent={intent} className={navbarStyles({ intent, className })} {...props}>
+      <header
+        data-navbar-intent={intent}
+        className={navbarStyles({ intent, className })}
+        {...props}
+      >
         {children}
       </header>
     </NavbarContext>
@@ -188,7 +193,11 @@ const Section = ({ className, ...props }: React.ComponentProps<"div">) => {
     <LayoutGroup id={id}>
       <div
         data-navbar-section="true"
-        className={cn("flex", isCompact ? "flex-col gap-y-4" : "flex-row items-center gap-x-3", className)}
+        className={cn(
+          "flex",
+          isCompact ? "flex-col gap-y-4" : "flex-row items-center gap-x-3",
+          className,
+        )}
         {...props}
       >
         {props.children}

@@ -56,8 +56,10 @@ const buttonStyles = tv({
     size: {
       "extra-small":
         "h-8 px-[calc(calc(var(--spacing)*3)-1px)] py-[calc(calc(var(--spacing)*1)-1px)] text-xs/4 lg:text-[0.800rem]/4",
-      small: "h-9 px-[calc(calc(var(--spacing)*4)-1px)] py-[calc(calc(var(--spacing)*1.5)-1px)] text-sm/5 sm:text-sm/5",
-      medium: "h-10 px-[calc(calc(var(--spacing)*4)-1px)] py-[calc(calc(var(--spacing)*2)-1px)] text-base sm:text-sm/6",
+      small:
+        "h-9 px-[calc(calc(var(--spacing)*4)-1px)] py-[calc(calc(var(--spacing)*1.5)-1px)] text-sm/5 sm:text-sm/5",
+      medium:
+        "h-10 px-[calc(calc(var(--spacing)*4)-1px)] py-[calc(calc(var(--spacing)*2)-1px)] text-base sm:text-sm/6",
       large:
         "h-10 *:data-[slot=icon]:mx-[-3px] sm:h-11 px-[calc(calc(var(--spacing)*4)-1px)] sm:px-[calc(calc(var(--spacing)*5)-1px)] py-[calc(calc(var(--spacing)*2.5)-1px)] text-base lg:text-base/7 sm:*:data-[slot=icon]:size-5",
       "square-petite": "size-9 shrink-0 **:data-[slot=icon]:text-current",
@@ -107,7 +109,9 @@ const Button = ({ className, intent, appearance, size, shape, ref, ...props }: B
         }),
       )}
     >
-      {(values) => <>{typeof props.children === "function" ? props.children(values) : props.children}</>}
+      {(values) => (
+        <>{typeof props.children === "function" ? props.children(values) : props.children}</>
+      )}
     </ButtonPrimitive>
   )
 }

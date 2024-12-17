@@ -47,7 +47,10 @@ export const Anatomy = ({ show, ...props }: AnatomyProps) => {
         {processedSourceCode && (
           <>
             <Group className="relative group">
-              <CopyButton className="absolute top-1 right-1" text={extractImports(processedSourceCode as string)} />
+              <CopyButton
+                className="absolute top-1 right-1"
+                text={extractImports(processedSourceCode as string)}
+              />
               <CodeHighlighter
                 max96={false}
                 removeLastLine
@@ -56,7 +59,10 @@ export const Anatomy = ({ show, ...props }: AnatomyProps) => {
               />
             </Group>
             <Group className="relative mt-4 group">
-              <CopyButton className="absolute top-1 right-1" text={extractJSX(processedSourceCode as string) as any} />
+              <CopyButton
+                className="absolute top-1 right-1"
+                text={extractJSX(processedSourceCode as string) as any}
+              />
               <CodeHighlighter
                 max96={false}
                 className="[&_pre]:max-h-[30rem] **:[pre]:p-0"

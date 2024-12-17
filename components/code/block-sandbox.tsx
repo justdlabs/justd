@@ -102,7 +102,9 @@ function Component({ folders, fullscreen, isIframe = false, title, ...props }: P
                   {isExpanded ? <IconFolderOpen /> : <IconFolderFill />}
                   <SidebarLabel>{key}</SidebarLabel>
                 </SidebarDisclosureTrigger>
-                <SidebarDisclosurePanel>{renderTree(value, nestedLevel + 1)}</SidebarDisclosurePanel>
+                <SidebarDisclosurePanel>
+                  {renderTree(value, nestedLevel + 1)}
+                </SidebarDisclosurePanel>
               </>
             )}
           />
@@ -153,7 +155,11 @@ function Component({ folders, fullscreen, isIframe = false, title, ...props }: P
               </Tab>
             </TabList>
             <Separator orientation="vertical" className="mx-2 h-6" />
-            <ToggleGroup className="hidden items-center sm:flex" selectedKeys={device} onSelectionChange={setDevice}>
+            <ToggleGroup
+              className="hidden items-center sm:flex"
+              selectedKeys={device}
+              onSelectionChange={setDevice}
+            >
               <ToggleButton
                 aria-label="Switch to phone display"
                 className={({ isSelected }) =>

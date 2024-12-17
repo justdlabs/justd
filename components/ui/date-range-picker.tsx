@@ -22,7 +22,8 @@ const dateRangePickerStyles = tv({
       "text-fg group-data-disabled:text-muted-fg forced-colors:text-[ButtonText] forced-colors:group-data-disabled:text-[GrayText]",
   },
 })
-const { base, dateRangePickerInputStart, dateRangePickerInputEnd, dateRangePickerDash } = dateRangePickerStyles()
+const { base, dateRangePickerInputStart, dateRangePickerInputEnd, dateRangePickerDash } =
+  dateRangePickerStyles()
 
 interface DateRangePickerProps<T extends DateValue> extends DateRangePickerPrimitiveProps<T> {
   label?: string

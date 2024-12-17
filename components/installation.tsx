@@ -28,8 +28,16 @@ export interface InstallationProps {
 
 export function Installation({ className, ...props }: InstallationProps) {
   const op = useOpenPanel()
-  const { options = { isExecutor: false, isInit: false, isComponent: false, isManual: false, noText: true }, items } =
-    props
+  const {
+    options = {
+      isExecutor: false,
+      isInit: false,
+      isComponent: false,
+      isManual: false,
+      noText: true,
+    },
+    items,
+  } = props
   const [pkgManager, setPkgManager] = useState({
     name: "npm",
     action: "i",
@@ -152,7 +160,13 @@ interface ChoosePkgManagerProps {
   isExecutor?: boolean
 }
 
-function ChoosePkgManager({ isExecutor, items, isCopied, setIsCopied, setPkgManager }: ChoosePkgManagerProps) {
+function ChoosePkgManager({
+  isExecutor,
+  items,
+  isCopied,
+  setIsCopied,
+  setPkgManager,
+}: ChoosePkgManagerProps) {
   const op = useOpenPanel()
 
   function handleAction(tool: string) {

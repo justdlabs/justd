@@ -6,7 +6,10 @@ import { docs } from "#site/content"
 
 const simplifiedDocs = docs.map(({ title, slug, description }) => ({ title, slug, description }))
 
-export function DocComposed({ components, text }: { components: string[]; text?: string | React.ReactNode }) {
+export function DocComposed({
+  components,
+  text,
+}: { components: string[]; text?: string | React.ReactNode }) {
   const pathname = usePathname()
   const name = getLatestOfString(pathname)
   const filteredComponents = simplifiedDocs.filter((component) => {
@@ -18,12 +21,12 @@ export function DocComposed({ components, text }: { components: string[]; text?:
       {!text ? (
         <>
           <p className="mb-6">
-            When you plug this component from the CLI, it autoloads all the composed components. No need to toss 'em in
-            one at a time.
+            When you plug this component from the CLI, it autoloads all the composed components. No
+            need to toss 'em in one at a time.
           </p>
           <p className="mb-6">
-            The <strong className="font-medium lowercase">{name}</strong>'s decked out with several components to make
-            it bangin'.
+            The <strong className="font-medium lowercase">{name}</strong>'s decked out with several
+            components to make it bangin'.
           </p>
         </>
       ) : (
@@ -49,8 +52,12 @@ export function DocComposed({ components, text }: { components: string[]; text?:
             />
             <Card className="overflow-hidden transition-colors peer-hover:bg-secondary/30">
               <Card.Header className="p-4">
-                <Card.Title className="text-base font-medium sm:text-lg line-clamp-1">{item.title}</Card.Title>
-                <Card.Description className="text-xs sm:text-sm line-clamp-2">{item.description}</Card.Description>
+                <Card.Title className="text-base font-medium sm:text-lg line-clamp-1">
+                  {item.title}
+                </Card.Title>
+                <Card.Description className="text-xs sm:text-sm line-clamp-2">
+                  {item.description}
+                </Card.Description>
               </Card.Header>
             </Card>
           </Grid.Item>

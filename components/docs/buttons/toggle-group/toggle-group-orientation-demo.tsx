@@ -1,4 +1,11 @@
-import { IconBell, IconBellFill, IconMoonFill, IconSun, IconTranslate, IconTranslateFill } from "justd-icons"
+import {
+  IconBell,
+  IconBellFill,
+  IconMoonFill,
+  IconSun,
+  IconTranslate,
+  IconTranslateFill,
+} from "justd-icons"
 import { Toggle, ToggleGroup } from "ui"
 
 export default function ToggleGroupOrientationDemo() {

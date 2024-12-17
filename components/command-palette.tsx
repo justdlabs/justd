@@ -3,11 +3,20 @@
 import React, { useState } from "react"
 
 import sidebar from "@/resources/lib/sidebar.json"
+import { useMediaQuery } from "@/utils/use-media-query"
 import { useCommandState } from "cmdk"
-import { IconBrandJustd, IconColorSwatch, IconColors, IconCube, IconHashtag, IconHome, IconNotes } from "justd-icons"
+import {
+  IconBrandJustd,
+  IconColorSwatch,
+  IconColors,
+  IconCube,
+  IconHashtag,
+  IconHome,
+  IconNotes,
+} from "justd-icons"
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
-import { CommandMenu, useMediaQuery } from "ui"
+import { CommandMenu } from "ui"
 import { useDebounce } from "use-debounce"
 
 export interface OpenCloseProps {
@@ -115,7 +124,8 @@ export function CommandPalette({ openCmd, setOpen }: OpenCloseProps) {
   return (
     <CommandMenu
       classNames={{
-        content: "dark:supports-backdrop-filter:backdrop-blur-2xl dark:supports-backdrop-filter:bg-overlay/50",
+        content:
+          "dark:supports-backdrop-filter:backdrop-blur-2xl dark:supports-backdrop-filter:bg-overlay/50",
       }}
       isOpen={openCmd}
       onOpenChange={setOpen}

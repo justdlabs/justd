@@ -166,7 +166,9 @@ const Header = <T extends object>({ children, className, columns, ...props }: He
     <TableHeader data-slot="table-header" {...props} className={header({ className })}>
       {allowsDragging && <Column className="w-0" />}
       {selectionBehavior === "toggle" && (
-        <Column className="pl-4 w-0">{selectionMode === "multiple" && <Checkbox slot="selection" />}</Column>
+        <Column className="pl-4 w-0">
+          {selectionMode === "multiple" && <Checkbox slot="selection" />}
+        </Column>
       )}
       <Collection items={columns}>{children}</Collection>
     </TableHeader>
@@ -177,7 +179,13 @@ interface TableRowProps<T extends object> extends RowProps<T> {
   className?: string
 }
 
-const TableRow = <T extends object>({ children, className, columns, id, ...props }: TableRowProps<T>) => {
+const TableRow = <T extends object>({
+  children,
+  className,
+  columns,
+  id,
+  ...props
+}: TableRowProps<T>) => {
   const { selectionBehavior, allowsDragging } = useTableOptions()
   return (
     <Row
@@ -187,13 +195,19 @@ const TableRow = <T extends object>({ children, className, columns, id, ...props
       className={row({
         className:
           "href" in props
-            ? cn("cursor-pointer data-hovered:bg-secondary/50 data-hovered:text-secondary-fg", className)
+            ? cn(
+                "cursor-pointer data-hovered:bg-secondary/50 data-hovered:text-secondary-fg",
+                className,
+              )
             : "",
       })}
     >
       {allowsDragging && (
         <Cell className="pr-0 group cursor-grab ring-primary data-dragging:cursor-grabbing">
-          <Button className="relative py-1.5 pl-3.5 bg-transparent text-muted-fg data-pressed:text-fg" slot="drag">
+          <Button
+            className="relative py-1.5 pl-3.5 bg-transparent text-muted-fg data-pressed:text-fg"
+            slot="drag"
+          >
             <IconHamburger />
           </Button>
         </Cell>

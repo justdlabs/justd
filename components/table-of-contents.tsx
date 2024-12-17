@@ -3,11 +3,11 @@
 import React, { Suspense, useState } from "react"
 
 import { cn } from "@/utils/classes"
+import { useMediaQuery } from "@/utils/use-media-query"
 import { useScrollPosition } from "hooks/use-scroll-position"
 import { usePathname } from "next/navigation"
 import { Heading } from "react-aria-components"
 import scrollIntoView from "scroll-into-view-if-needed"
-import { useMediaQuery } from "ui"
 
 interface TableOfContentsProps {
   title: string
@@ -121,7 +121,10 @@ export function useActiveItem(itemIds: string[]) {
       (entries) => {
         let bestCandidate: IntersectionObserverEntry | null = null
         entries.forEach((entry) => {
-          if (entry.isIntersecting && (!bestCandidate || bestCandidate.intersectionRatio < entry.intersectionRatio)) {
+          if (
+            entry.isIntersecting &&
+            (!bestCandidate || bestCandidate.intersectionRatio < entry.intersectionRatio)
+          ) {
             bestCandidate = entry
           }
         })

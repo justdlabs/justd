@@ -5,7 +5,10 @@ import { Disclosure, DisclosureGroup, DisclosurePanel, DisclosureTrigger } from 
 
 export default function DisclosureGroupNestedDemo() {
   return (
-    <DisclosureGroup className="rounded-xl border **:data-[slot=disclosure]:last:border-b-0" defaultExpandedKeys={[1]}>
+    <DisclosureGroup
+      className="rounded-xl border **:data-[slot=disclosure]:last:border-b-0"
+      defaultExpandedKeys={[1]}
+    >
       {items.map((item, index) => (
         <Disclosure key={index} id={index}>
           <DisclosureTrigger className="px-4">{item.title}</DisclosureTrigger>

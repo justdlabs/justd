@@ -5,7 +5,15 @@ import { useMemo, useState } from "react"
 import type { Key } from "react-aria-components"
 import { Label, Pie, PieChart, Sector } from "recharts"
 import type { PieSectorDataItem } from "recharts/types/polar/Pie"
-import { Card, Chart, type ChartConfig, ChartStyle, ChartTooltip, ChartTooltipContent, Select } from "ui"
+import {
+  Card,
+  Chart,
+  type ChartConfig,
+  ChartStyle,
+  ChartTooltip,
+  ChartTooltipContent,
+  Select,
+} from "ui"
 
 const data = [
   { month: "january", sales: 3186, fill: "var(--color-january)" },
@@ -51,7 +59,10 @@ export default function PieChartControlledDemo() {
   const id = "pie-interactive"
   const [activeMonth, setActiveMonth] = useState<Key>(data[0].month)
 
-  const activeIndex = useMemo(() => data.findIndex((item) => item.month === activeMonth), [activeMonth])
+  const activeIndex = useMemo(
+    () => data.findIndex((item) => item.month === activeMonth),
+    [activeMonth],
+  )
   const months = useMemo(() => data.map((item) => item.month), [])
 
   return (
@@ -66,7 +77,10 @@ export default function PieChartControlledDemo() {
           </Card.Description>
         </div>
         <Select selectedKey={activeMonth} onSelectionChange={setActiveMonth}>
-          <Select.Trigger className="px-2 ml-auto h-8 rounded-lg w-[130px]" aria-label="Select a value" />
+          <Select.Trigger
+            className="px-2 ml-auto h-8 rounded-lg w-[130px]"
+            aria-label="Select a value"
+          />
           <Select.List className="rounded-xl">
             {months.map((key) => {
               const _config = config[key as keyof typeof config]
@@ -98,7 +112,11 @@ export default function PieChartControlledDemo() {
               activeShape={({ outerRadius = 0, ...props }: PieSectorDataItem) => (
                 <g>
                   <Sector {...props} outerRadius={outerRadius + 10} />
-                  <Sector {...props} outerRadius={outerRadius + 25} innerRadius={outerRadius + 12} />
+                  <Sector
+                    {...props}
+                    outerRadius={outerRadius + 25}
+                    innerRadius={outerRadius + 12}
+                  />
                 </g>
               )}
             >
@@ -106,8 +124,17 @@ export default function PieChartControlledDemo() {
                 content={({ viewBox }) => {
                   if (viewBox && "cx" in viewBox && "cy" in viewBox) {
                     return (
-                      <text x={viewBox.cx} y={viewBox.cy} textAnchor="middle" dominantBaseline="middle">
-                        <tspan x={viewBox.cx} y={viewBox.cy} className="text-2xl font-semibold fill-fg">
+                      <text
+                        x={viewBox.cx}
+                        y={viewBox.cy}
+                        textAnchor="middle"
+                        dominantBaseline="middle"
+                      >
+                        <tspan
+                          x={viewBox.cx}
+                          y={viewBox.cy}
+                          className="text-2xl font-semibold fill-fg"
+                        >
                           {data[activeIndex].sales.toLocaleString()}
                         </tspan>
                         <tspan x={viewBox.cx} y={(viewBox.cy || 0) + 24} className="fill-muted-fg">

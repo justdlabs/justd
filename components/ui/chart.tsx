@@ -13,7 +13,10 @@ type ChartConfig = {
   [k in string]: {
     label?: React.ReactNode
     icon?: React.ComponentType
-  } & ({ color?: string; theme?: never } | { color?: never; theme: Record<keyof typeof THEMES, string> })
+  } & (
+    | { color?: string; theme?: never }
+    | { color?: never; theme: Record<keyof typeof THEMES, string> }
+  )
 }
 
 type ChartContextProps = {
@@ -189,7 +192,8 @@ const ChartTooltipContent = forwardRef<
                             "shrink-0 rounded-[2px] border-(--color-border) bg-(--color-bg)",
                             indicator === "dot" && "size-2.5",
                             indicator === "line" && "w-1",
-                            indicator === "dashed" && "w-0 border-[1.5px] border-dashed bg-transparent",
+                            indicator === "dashed" &&
+                              "w-0 border-[1.5px] border-dashed bg-transparent",
                             nestLabel && indicator === "dashed" && "my-0.5",
                           )}
                           style={
@@ -248,7 +252,11 @@ const ChartLegendContent = forwardRef<
   return (
     <div
       ref={ref}
-      className={cn("flex items-center justify-center gap-4", verticalAlign === "top" ? "pb-3" : "pt-3", className)}
+      className={cn(
+        "flex items-center justify-center gap-4",
+        verticalAlign === "top" ? "pb-3" : "pt-3",
+        className,
+      )}
     >
       {payload.map((item) => {
         const key = `${nameKey || item.dataKey || "value"}`
@@ -257,7 +265,9 @@ const ChartLegendContent = forwardRef<
         return (
           <div
             key={item.value}
-            className={cn("flex items-center gap-1.5 [&>svg]:h-3 [&>svg]:w-3 [&>svg]:text-muted-fg")}
+            className={cn(
+              "flex items-center gap-1.5 [&>svg]:h-3 [&>svg]:w-3 [&>svg]:text-muted-fg",
+            )}
           >
             {itemConfig?.icon && !hideIcon ? (
               <itemConfig.icon />
@@ -303,4 +313,12 @@ function getPayloadConfigFromPayload(config: ChartConfig, payload: unknown, key:
   return configLabelKey in config ? config[configLabelKey] : config[key as keyof typeof config]
 }
 
-export { type ChartConfig, Chart, ChartTooltip, ChartTooltipContent, ChartLegend, ChartLegendContent, ChartStyle }
+export {
+  type ChartConfig,
+  Chart,
+  ChartTooltip,
+  ChartTooltipContent,
+  ChartLegend,
+  ChartLegendContent,
+  ChartStyle,
+}

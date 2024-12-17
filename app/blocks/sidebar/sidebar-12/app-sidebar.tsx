@@ -46,7 +46,13 @@ export default function AppSidebar(props: React.ComponentProps<typeof Sidebar>) 
         <SidebarSectionGroup>
           <SidebarSection>
             {navigation.map((item, index) => (
-              <SidebarItem tooltip={item.label} key={index} isCurrent={item.isCurrent} href="#" badge={item?.badge}>
+              <SidebarItem
+                tooltip={item.label}
+                key={index}
+                isCurrent={item.isCurrent}
+                href="#"
+                badge={item?.badge}
+              >
                 {item.icon}
                 <SidebarLabel>{item.label}</SidebarLabel>
               </SidebarItem>

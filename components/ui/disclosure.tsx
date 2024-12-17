@@ -29,7 +29,9 @@ const DisclosureGroup = ({ children, className, ...props }: AccordionProps) => {
       )}
     >
       {(values) => (
-        <div data-slot="disclosure-content">{typeof children === "function" ? children(values) : children}</div>
+        <div data-slot="disclosure-content">
+          {typeof children === "function" ? children(values) : children}
+        </div>
       )}
     </Accordion>
   )
@@ -49,7 +51,9 @@ const Disclosure = ({ className, ...props }: DisclosureProps) => {
     <Collapsible
       data-slot="disclosure"
       {...props}
-      className={composeRenderProps(className, (className, renderProps) => disclosure({ ...renderProps, className }))}
+      className={composeRenderProps(className, (className, renderProps) =>
+        disclosure({ ...renderProps, className }),
+      )}
     >
       {props.children}
     </Collapsible>

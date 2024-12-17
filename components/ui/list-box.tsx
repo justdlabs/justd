@@ -16,7 +16,9 @@ const listBoxStyles = tv({
 const ListBox = <T extends object>({ className, ...props }: ListBoxProps<T>) => (
   <ListBoxPrimitive
     {...props}
-    className={composeRenderProps(className, (className, renderProps) => listBoxStyles({ ...renderProps, className }))}
+    className={composeRenderProps(className, (className, renderProps) =>
+      listBoxStyles({ ...renderProps, className }),
+    )}
   />
 )
 
@@ -101,7 +103,9 @@ const ListBoxPicker = <T extends object>({ className, ...props }: ListBoxPickerP
 }
 
 const Section = ({ className, ...props }: React.ComponentProps<typeof DropdownSection>) => {
-  return <DropdownSection className={cn(className, "[&_.lbi:last-child]:-mb-1.5 gap-y-1")} {...props} />
+  return (
+    <DropdownSection className={cn(className, "[&_.lbi:last-child]:-mb-1.5 gap-y-1")} {...props} />
+  )
 }
 
 ListBox.Section = Section

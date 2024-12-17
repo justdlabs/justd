@@ -1,13 +1,21 @@
 "use client"
 
 import type { ColorSwatchPickerItemProps, ColorSwatchPickerProps } from "react-aria-components"
-import { ColorSwatchPickerItem, ColorSwatchPicker as ColorSwatchPickerPrimitive } from "react-aria-components"
+import {
+  ColorSwatchPickerItem,
+  ColorSwatchPicker as ColorSwatchPickerPrimitive,
+} from "react-aria-components"
 import { tv } from "tailwind-variants"
 
 import { ColorSwatch } from "./color-swatch"
 import { composeTailwindRenderProps, focusRing } from "./primitive"
 
-const ColorSwatchPicker = ({ children, className, layout = "grid", ...props }: ColorSwatchPickerProps) => {
+const ColorSwatchPicker = ({
+  children,
+  className,
+  layout = "grid",
+  ...props
+}: ColorSwatchPickerProps) => {
   return (
     <ColorSwatchPickerPrimitive
       layout={layout}

@@ -25,7 +25,8 @@ const cell = tv({
   base: "flex size-10 sm:size-9 cursor-default tabular-nums items-center justify-center rounded-lg sm:text-sm forced-colors:outline-0",
   variants: {
     isSelected: {
-      false: "text-fg forced-colors:text-[ButtonText] data-hovered:bg-secondary-fg/15 data-pressed:bg-secondary-fg/20",
+      false:
+        "text-fg forced-colors:text-[ButtonText] data-hovered:bg-secondary-fg/15 data-pressed:bg-secondary-fg/20",
       true: "bg-primary text-primary-fg data-invalid:bg-danger data-invalid:text-danger-fg forced-colors:bg-[Highlight] forced-colors:text-[Highlight] forced-colors:data-invalid:bg-[Mark]",
     },
     isDisabled: {
@@ -34,7 +35,8 @@ const cell = tv({
   },
 })
 
-interface CalendarProps<T extends DateValue> extends Omit<CalendarPrimitiveProps<T>, "visibleDuration"> {
+interface CalendarProps<T extends DateValue>
+  extends Omit<CalendarPrimitiveProps<T>, "visibleDuration"> {
   errorMessage?: string
   className?: string
 }

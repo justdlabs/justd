@@ -72,7 +72,13 @@ export const SourceCode = ({ toShow, ...props }: SourceCodeProps) => {
           <CopyMotionButton className="-top-1.5" text={processedSourceCode} />
         </div>
         <div className="overflow-hidden rounded-lg border border-shiki-border bg-shiki-bg">
-          <CodeHighlighter className="**:[pre]:p-4" removeLastLine plain code={processedSourceCode} lang={props.ext} />
+          <CodeHighlighter
+            className="**:[pre]:p-4"
+            removeLastLine
+            plain
+            code={processedSourceCode}
+            lang={props.ext}
+          />
         </div>
       </section>
     )

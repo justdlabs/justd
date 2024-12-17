@@ -5,10 +5,21 @@ const PATH = path.resolve(__dirname, "../../components/ui")
 
 // Define the target directory and classes to search for
 const TARGET_DIR = PATH
-const TARGET_CLASSES = ["bg-primary", "bg-accent", "bg-overlay", "bg-secondary", "bg-muted", "bg-warning", "bg-success"]
+const TARGET_CLASSES = [
+  "bg-primary",
+  "bg-accent",
+  "bg-overlay",
+  "bg-secondary",
+  "bg-muted",
+  "bg-warning",
+  "bg-success",
+]
 
 // Function to read files recursively and find matches
-const findComponentsUsingClasses = (dir: string, targetClasses: string[]): Record<string, string[]> => {
+const findComponentsUsingClasses = (
+  dir: string,
+  targetClasses: string[],
+): Record<string, string[]> => {
   const result: Record<string, string[]> = {}
 
   targetClasses.forEach((cls) => {

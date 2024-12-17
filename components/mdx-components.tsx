@@ -28,7 +28,9 @@ export function Mdx({ code }: MdxProps) {
       components={{
         GeneratedTheme,
         EditorText: (props: React.ComponentProps<typeof EditorText>) => <EditorText {...props} />,
-        CodeSandbox: (props: React.ComponentProps<typeof CodeSandbox>) => <CodeSandbox {...props} />,
+        CodeSandbox: (props: React.ComponentProps<typeof CodeSandbox>) => (
+          <CodeSandbox {...props} />
+        ),
         Installation,
         Note: DocNote,
         Anatomy: Anatomy,

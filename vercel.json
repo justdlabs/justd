@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/docs/1.x/:slug*",
+      "destination": "https://1x.getjustd.com/docs/1.x/:slug*"
+    }
+  ]
+}

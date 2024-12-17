@@ -8,7 +8,10 @@ const Switch = ({ children, className, ...props }: SwitchProps) => {
   return (
     <SwitchPrimitive
       {...props}
-      className={composeTailwindRenderProps(className, "group inline-flex touch-none items-center sm:text-sm")}
+      className={composeTailwindRenderProps(
+        className,
+        "group inline-flex touch-none items-center sm:text-sm",
+      )}
       style={{ WebkitTapHighlightColor: "transparent" }}
     >
       {(values) => (

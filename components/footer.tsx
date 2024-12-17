@@ -44,7 +44,10 @@ export function Footer() {
                 <ul className="mt-6 space-y-4">
                   {navigation.resources.map((item) => (
                     <li key={item.name}>
-                      <Link href={item.href} className="text-sm leading-6 text-muted-fg data-hovered:text-fg">
+                      <Link
+                        href={item.href}
+                        className="text-sm leading-6 text-muted-fg data-hovered:text-fg"
+                      >
                         {item.name}
                       </Link>
                     </li>
@@ -141,8 +144,8 @@ export function Footer() {
           <Link href="https://vercel.com" target="_blank">
             Vercel
           </Link>
-          . The source code's got the <Link href="https://github.com/justdlabs/justd/blob/main/LICENSE">MIT</Link>{" "}
-          license.
+          . The source code's got the{" "}
+          <Link href="https://github.com/justdlabs/justd/blob/main/LICENSE">MIT</Link> license.
         </p>
       </Container>
     </footer>

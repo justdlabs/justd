@@ -14,7 +14,9 @@ import type { VariantProps } from "tailwind-variants"
 import { tv } from "tailwind-variants"
 
 const tooltipStyles = tv({
-  base: ["group rounded-lg [&_strong]:font-medium border px-2.5 py-1.5 text-sm will-change-transform dark:shadow-none"],
+  base: [
+    "group rounded-lg [&_strong]:font-medium border px-2.5 py-1.5 text-sm will-change-transform dark:shadow-none",
+  ],
   variants: {
     intent: {
       default: "bg-overlay text-overlay-fg [&_.arx]:fill-overlay [&_.arx]:stroke-border",
@@ -39,14 +41,24 @@ const tooltipStyles = tv({
   },
 })
 
-const Tooltip = (props: React.ComponentProps<typeof TooltipTrigger>) => <TooltipTrigger {...props} />
+const Tooltip = (props: React.ComponentProps<typeof TooltipTrigger>) => (
+  <TooltipTrigger {...props} />
+)
 
-interface ContentProps extends Omit<TooltipPrimitiveProps, "children">, VariantProps<typeof tooltipStyles> {
+interface ContentProps
+  extends Omit<TooltipPrimitiveProps, "children">,
+    VariantProps<typeof tooltipStyles> {
   showArrow?: boolean
   children: React.ReactNode
 }
 
-const Content = ({ offset = 10, showArrow = true, intent = "default", children, ...props }: ContentProps) => {
+const Content = ({
+  offset = 10,
+  showArrow = true,
+  intent = "default",
+  children,
+  ...props
+}: ContentProps) => {
   return (
     <TooltipPrimitive
       {...props}
