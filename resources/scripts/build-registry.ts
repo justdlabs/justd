@@ -22,6 +22,7 @@ const generateComponentRegistry = () => {
     { type: "demo", path: "components/docs" },
     { type: "blocks", path: "app/blocks" },
     { type: "docs", path: "resources/docs" },
+    { type: "utils", path: "utils" },
   ]
 
   const getAllFiles = (dirPath: string, arrayOfFiles: string[] = []): string[] => {

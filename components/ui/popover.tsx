@@ -18,9 +18,9 @@ import {
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
+import { useMediaQuery } from "@/utils/use-media-query"
 import { twMerge } from "tailwind-merge"
 import { Dialog } from "./dialog"
-import { useMediaQuery } from "@/utils/use-media-query"
 
 const Popover = ({ children, ...props }: DialogTriggerProps) => {
   return <DialogTrigger {...props}>{children}</DialogTrigger>

@@ -9,9 +9,9 @@ import { Link, composeRenderProps } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
 import { cn } from "@/utils/classes"
+import { useMediaQuery } from "@/utils/use-media-query"
 import { Button } from "./button"
 import { composeTailwindRenderProps } from "./primitive"
-import { useMediaQuery } from "@/utils/use-media-query";
 import { Sheet } from "./sheet"
 
 type NavbarOptions = {

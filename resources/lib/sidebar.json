@@ -398,8 +398,8 @@
                 "items": []
               },
               {
-                "title": "Classes / CN",
-                "url": "#classes--cn",
+                "title": "Classes and Hooks",
+                "url": "#classes-and-hooks",
                 "items": []
               },
               {
@@ -1849,738 +1849,6 @@
         ]
       },
       {
-        "title": "Colors",
-        "children": [
-          {
-            "title": "Color Picker",
-            "slug": "docs/2.x/components/colors/color-picker",
-            "order": 1,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Composed Components",
-                "url": "#composed-components",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Anatomy",
-                "url": "#anatomy",
-                "items": []
-              },
-              {
-                "title": "Enable Format Selection",
-                "url": "#enable-format-selection",
-                "items": []
-              },
-              {
-                "title": "Combination",
-                "url": "#combination",
-                "items": []
-              },
-              {
-                "title": "Label",
-                "url": "#label",
-                "items": []
-              },
-              {
-                "title": "Dynamic Label",
-                "url": "#dynamic-label",
-                "items": []
-              },
-              {
-                "title": "Description",
-                "url": "#description",
-                "items": []
-              },
-              {
-                "title": "Controlled",
-                "url": "#controlled",
-                "items": []
-              },
-              {
-                "title": "Disabled",
-                "url": "#disabled",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Color Field",
-            "slug": "docs/2.x/components/colors/color-field",
-            "order": 2,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Composed Components",
-                "url": "#composed-components",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Anatomy",
-                "url": "#anatomy",
-                "items": []
-              },
-              {
-                "title": "Prefix",
-                "url": "#prefix",
-                "items": []
-              },
-              {
-                "title": "Suffix",
-                "url": "#suffix",
-                "items": []
-              },
-              {
-                "title": "Controlled",
-                "url": "#controlled",
-                "items": []
-              },
-              {
-                "title": "Disabled",
-                "url": "#disabled",
-                "items": []
-              },
-              {
-                "title": "Validation",
-                "url": "#validation",
-                "items": []
-              },
-              {
-                "title": "Props",
-                "url": "#props",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Color Area",
-            "slug": "docs/2.x/components/colors/color-area",
-            "order": 3,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Composed Components",
-                "url": "#composed-components",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Anatomy",
-                "url": "#anatomy",
-                "items": []
-              },
-              {
-                "title": "Channel",
-                "url": "#channel",
-                "items": []
-              },
-              {
-                "title": "Space",
-                "url": "#space",
-                "items": []
-              },
-              {
-                "title": "Controlled",
-                "url": "#controlled",
-                "items": []
-              },
-              {
-                "title": "Disabled",
-                "url": "#disabled",
-                "items": []
-              },
-              {
-                "title": "Color Area with Slider",
-                "url": "#color-area-with-slider",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Color Slider",
-            "slug": "docs/2.x/components/colors/color-slider",
-            "order": 4,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Composed Components",
-                "url": "#composed-components",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Anatomy",
-                "url": "#anatomy",
-                "items": []
-              },
-              {
-                "title": "With Label",
-                "url": "#with-label",
-                "items": []
-              },
-              {
-                "title": "Orientation",
-                "url": "#orientation",
-                "items": []
-              },
-              {
-                "title": "Controlled",
-                "url": "#controlled",
-                "items": []
-              },
-              {
-                "title": "Disabled",
-                "url": "#disabled",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Color Swatch Picker",
-            "slug": "docs/2.x/components/colors/color-swatch-picker",
-            "order": 5,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Composed Components",
-                "url": "#composed-components",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Anatomy",
-                "url": "#anatomy",
-                "items": []
-              },
-              {
-                "title": "Controlled",
-                "url": "#controlled",
-                "items": []
-              },
-              {
-                "title": "Disabled",
-                "url": "#disabled",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Color Swatch",
-            "slug": "docs/2.x/components/colors/color-swatch",
-            "order": 5,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Anatomy",
-                "url": "#anatomy",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Color Wheel",
-            "slug": "docs/2.x/components/colors/color-wheel",
-            "order": 7,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Composed Components",
-                "url": "#composed-components",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Anatomy",
-                "url": "#anatomy",
-                "items": []
-              },
-              {
-                "title": "Controlled",
-                "url": "#controlled",
-                "items": []
-              },
-              {
-                "title": "Disabled",
-                "url": "#disabled",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Color Thumb",
-            "slug": "docs/2.x/components/colors/color-thumb",
-            "status": "primitive",
-            "order": 8,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "title": "Controls",
-        "children": [
-          {
-            "title": "Slider",
-            "slug": "docs/2.x/components/controls/slider",
-            "order": 1,
-            "children": [],
-            "toc": [
-              {
-                "title": "Slider",
-                "url": "#slider",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Composed Components",
-                "url": "#composed-components",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Step",
-                "url": "#step",
-                "items": []
-              },
-              {
-                "title": "Tooltip",
-                "url": "#tooltip",
-                "items": []
-              },
-              {
-                "title": "Range",
-                "url": "#range",
-                "items": []
-              },
-              {
-                "title": "Orientation",
-                "url": "#orientation",
-                "items": []
-              },
-              {
-                "title": "Suffix Prefix",
-                "url": "#suffix-prefix",
-                "items": []
-              },
-              {
-                "title": "Description",
-                "url": "#description",
-                "items": []
-              },
-              {
-                "title": "Controlled",
-                "url": "#controlled",
-                "items": []
-              },
-              {
-                "title": "Disabled",
-                "url": "#disabled",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Switch",
-            "slug": "docs/2.x/components/controls/switch",
-            "order": 2,
-            "children": [],
-            "toc": [
-              {
-                "title": "Switch",
-                "url": "#switch",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Controlled",
-                "url": "#controlled",
-                "items": []
-              },
-              {
-                "title": "Uncontrolled",
-                "url": "#uncontrolled",
-                "items": []
-              },
-              {
-                "title": "Disabled",
-                "url": "#disabled",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Toolbar",
-            "slug": "docs/2.x/components/controls/toolbar",
-            "order": 3,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Composed Components",
-                "url": "#composed-components",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Anatomy",
-                "url": "#anatomy",
-                "items": []
-              },
-              {
-                "title": "Orientation",
-                "url": "#orientation",
-                "items": []
-              },
-              {
-                "title": "Disabled",
-                "url": "#disabled",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Command Menu",
-            "slug": "docs/2.x/components/controls/command-menu",
-            "status": "beta",
-            "order": 4,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Composed Components",
-                "url": "#composed-components",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Anatomy",
-                "url": "#anatomy",
-                "items": []
-              },
-              {
-                "title": "Blurred",
-                "url": "#blurred",
-                "items": []
-              },
-              {
-                "title": "Separator",
-                "url": "#separator",
-                "items": []
-              },
-              {
-                "title": "Section",
-                "url": "#section",
-                "items": []
-              },
-              {
-                "title": "Keyboard",
-                "url": "#keyboard",
-                "items": []
-              },
-              {
-                "title": "Trigger by Keyboard",
-                "url": "#trigger-by-keyboard",
-                "items": []
-              },
-              {
-                "title": "Danger",
-                "url": "#danger",
-                "items": []
-              },
-              {
-                "title": "Blur",
-                "url": "#blur",
-                "items": []
-              },
-              {
-                "title": "Controlled",
-                "url": "#controlled",
-                "items": []
-              },
-              {
-                "title": "Disabled",
-                "url": "#disabled",
-                "items": []
-              },
-              {
-                "title": "Hide Indicator",
-                "url": "#hide-indicator",
-                "items": []
-              },
-              {
-                "title": "Description",
-                "url": "#description",
-                "items": []
-              },
-              {
-                "title": "Fallback Empty Message",
-                "url": "#fallback-empty-message",
-                "items": []
-              },
-              {
-                "title": "Navigating",
-                "url": "#navigating",
-                "items": [
-                  {
-                    "title": "Inertia.js",
-                    "url": "#inertiajs",
-                    "items": []
-                  },
-                  {
-                    "title": "Next.js",
-                    "url": "#nextjs",
-                    "items": []
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "title": "Keyboard",
-            "slug": "docs/2.x/components/controls/keyboard",
-            "status": "primitive",
-            "order": 5,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Context Menu",
-            "slug": "docs/2.x/components/controls/context-menu",
-            "status": "beta",
-            "order": 6,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Composed Components",
-                "url": "#composed-components",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Item Details",
-                "url": "#item-details",
-                "items": []
-              },
-              {
-                "title": "Danger",
-                "url": "#danger",
-                "items": []
-              },
-              {
-                "title": "With Icon",
-                "url": "#with-icon",
-                "items": []
-              },
-              {
-                "title": "Separator",
-                "url": "#separator",
-                "items": []
-              },
-              {
-                "title": "Context Sub Menu",
-                "url": "#context-sub-menu",
-                "items": []
-              },
-              {
-                "title": "Disabled",
-                "url": "#disabled",
-                "items": []
-              }
-            ]
-          }
-        ]
-      },
-      {
         "title": "Date-and-time",
         "children": [
           {
@@ -4002,6 +3270,738 @@
         ]
       },
       {
+        "title": "Controls",
+        "children": [
+          {
+            "title": "Slider",
+            "slug": "docs/2.x/components/controls/slider",
+            "order": 1,
+            "children": [],
+            "toc": [
+              {
+                "title": "Slider",
+                "url": "#slider",
+                "items": []
+              },
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Composed Components",
+                "url": "#composed-components",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "Step",
+                "url": "#step",
+                "items": []
+              },
+              {
+                "title": "Tooltip",
+                "url": "#tooltip",
+                "items": []
+              },
+              {
+                "title": "Range",
+                "url": "#range",
+                "items": []
+              },
+              {
+                "title": "Orientation",
+                "url": "#orientation",
+                "items": []
+              },
+              {
+                "title": "Suffix Prefix",
+                "url": "#suffix-prefix",
+                "items": []
+              },
+              {
+                "title": "Description",
+                "url": "#description",
+                "items": []
+              },
+              {
+                "title": "Controlled",
+                "url": "#controlled",
+                "items": []
+              },
+              {
+                "title": "Disabled",
+                "url": "#disabled",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Switch",
+            "slug": "docs/2.x/components/controls/switch",
+            "order": 2,
+            "children": [],
+            "toc": [
+              {
+                "title": "Switch",
+                "url": "#switch",
+                "items": []
+              },
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "Controlled",
+                "url": "#controlled",
+                "items": []
+              },
+              {
+                "title": "Uncontrolled",
+                "url": "#uncontrolled",
+                "items": []
+              },
+              {
+                "title": "Disabled",
+                "url": "#disabled",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Toolbar",
+            "slug": "docs/2.x/components/controls/toolbar",
+            "order": 3,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Composed Components",
+                "url": "#composed-components",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "Anatomy",
+                "url": "#anatomy",
+                "items": []
+              },
+              {
+                "title": "Orientation",
+                "url": "#orientation",
+                "items": []
+              },
+              {
+                "title": "Disabled",
+                "url": "#disabled",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Command Menu",
+            "slug": "docs/2.x/components/controls/command-menu",
+            "status": "beta",
+            "order": 4,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Composed Components",
+                "url": "#composed-components",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "Anatomy",
+                "url": "#anatomy",
+                "items": []
+              },
+              {
+                "title": "Blurred",
+                "url": "#blurred",
+                "items": []
+              },
+              {
+                "title": "Separator",
+                "url": "#separator",
+                "items": []
+              },
+              {
+                "title": "Section",
+                "url": "#section",
+                "items": []
+              },
+              {
+                "title": "Keyboard",
+                "url": "#keyboard",
+                "items": []
+              },
+              {
+                "title": "Trigger by Keyboard",
+                "url": "#trigger-by-keyboard",
+                "items": []
+              },
+              {
+                "title": "Danger",
+                "url": "#danger",
+                "items": []
+              },
+              {
+                "title": "Blur",
+                "url": "#blur",
+                "items": []
+              },
+              {
+                "title": "Controlled",
+                "url": "#controlled",
+                "items": []
+              },
+              {
+                "title": "Disabled",
+                "url": "#disabled",
+                "items": []
+              },
+              {
+                "title": "Hide Indicator",
+                "url": "#hide-indicator",
+                "items": []
+              },
+              {
+                "title": "Description",
+                "url": "#description",
+                "items": []
+              },
+              {
+                "title": "Fallback Empty Message",
+                "url": "#fallback-empty-message",
+                "items": []
+              },
+              {
+                "title": "Navigating",
+                "url": "#navigating",
+                "items": [
+                  {
+                    "title": "Inertia.js",
+                    "url": "#inertiajs",
+                    "items": []
+                  },
+                  {
+                    "title": "Next.js",
+                    "url": "#nextjs",
+                    "items": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Keyboard",
+            "slug": "docs/2.x/components/controls/keyboard",
+            "status": "primitive",
+            "order": 5,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Context Menu",
+            "slug": "docs/2.x/components/controls/context-menu",
+            "status": "beta",
+            "order": 6,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Composed Components",
+                "url": "#composed-components",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "Item Details",
+                "url": "#item-details",
+                "items": []
+              },
+              {
+                "title": "Danger",
+                "url": "#danger",
+                "items": []
+              },
+              {
+                "title": "With Icon",
+                "url": "#with-icon",
+                "items": []
+              },
+              {
+                "title": "Separator",
+                "url": "#separator",
+                "items": []
+              },
+              {
+                "title": "Context Sub Menu",
+                "url": "#context-sub-menu",
+                "items": []
+              },
+              {
+                "title": "Disabled",
+                "url": "#disabled",
+                "items": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Colors",
+        "children": [
+          {
+            "title": "Color Picker",
+            "slug": "docs/2.x/components/colors/color-picker",
+            "order": 1,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Composed Components",
+                "url": "#composed-components",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "Anatomy",
+                "url": "#anatomy",
+                "items": []
+              },
+              {
+                "title": "Enable Format Selection",
+                "url": "#enable-format-selection",
+                "items": []
+              },
+              {
+                "title": "Combination",
+                "url": "#combination",
+                "items": []
+              },
+              {
+                "title": "Label",
+                "url": "#label",
+                "items": []
+              },
+              {
+                "title": "Dynamic Label",
+                "url": "#dynamic-label",
+                "items": []
+              },
+              {
+                "title": "Description",
+                "url": "#description",
+                "items": []
+              },
+              {
+                "title": "Controlled",
+                "url": "#controlled",
+                "items": []
+              },
+              {
+                "title": "Disabled",
+                "url": "#disabled",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Color Field",
+            "slug": "docs/2.x/components/colors/color-field",
+            "order": 2,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Composed Components",
+                "url": "#composed-components",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "Anatomy",
+                "url": "#anatomy",
+                "items": []
+              },
+              {
+                "title": "Prefix",
+                "url": "#prefix",
+                "items": []
+              },
+              {
+                "title": "Suffix",
+                "url": "#suffix",
+                "items": []
+              },
+              {
+                "title": "Controlled",
+                "url": "#controlled",
+                "items": []
+              },
+              {
+                "title": "Disabled",
+                "url": "#disabled",
+                "items": []
+              },
+              {
+                "title": "Validation",
+                "url": "#validation",
+                "items": []
+              },
+              {
+                "title": "Props",
+                "url": "#props",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Color Area",
+            "slug": "docs/2.x/components/colors/color-area",
+            "order": 3,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Composed Components",
+                "url": "#composed-components",
+                "items": []
+              },
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "Anatomy",
+                "url": "#anatomy",
+                "items": []
+              },
+              {
+                "title": "Channel",
+                "url": "#channel",
+                "items": []
+              },
+              {
+                "title": "Space",
+                "url": "#space",
+                "items": []
+              },
+              {
+                "title": "Controlled",
+                "url": "#controlled",
+                "items": []
+              },
+              {
+                "title": "Disabled",
+                "url": "#disabled",
+                "items": []
+              },
+              {
+                "title": "Color Area with Slider",
+                "url": "#color-area-with-slider",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Color Slider",
+            "slug": "docs/2.x/components/colors/color-slider",
+            "order": 4,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Composed Components",
+                "url": "#composed-components",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "Anatomy",
+                "url": "#anatomy",
+                "items": []
+              },
+              {
+                "title": "With Label",
+                "url": "#with-label",
+                "items": []
+              },
+              {
+                "title": "Orientation",
+                "url": "#orientation",
+                "items": []
+              },
+              {
+                "title": "Controlled",
+                "url": "#controlled",
+                "items": []
+              },
+              {
+                "title": "Disabled",
+                "url": "#disabled",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Color Swatch Picker",
+            "slug": "docs/2.x/components/colors/color-swatch-picker",
+            "order": 5,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Composed Components",
+                "url": "#composed-components",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "Anatomy",
+                "url": "#anatomy",
+                "items": []
+              },
+              {
+                "title": "Controlled",
+                "url": "#controlled",
+                "items": []
+              },
+              {
+                "title": "Disabled",
+                "url": "#disabled",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Color Swatch",
+            "slug": "docs/2.x/components/colors/color-swatch",
+            "order": 5,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "Anatomy",
+                "url": "#anatomy",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Color Wheel",
+            "slug": "docs/2.x/components/colors/color-wheel",
+            "order": 7,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Composed Components",
+                "url": "#composed-components",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "Anatomy",
+                "url": "#anatomy",
+                "items": []
+              },
+              {
+                "title": "Controlled",
+                "url": "#controlled",
+                "items": []
+              },
+              {
+                "title": "Disabled",
+                "url": "#disabled",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Color Thumb",
+            "slug": "docs/2.x/components/colors/color-thumb",
+            "status": "primitive",
+            "order": 8,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              }
+            ]
+          }
+        ]
+      },
+      {
         "title": "Navigation",
         "children": [
           {
@@ -4706,17 +4706,17 @@
         ]
       },
       {
-        "title": "Pickers",
+        "title": "Utilities",
         "children": [
           {
-            "title": "Combo Box",
-            "slug": "docs/2.x/components/pickers/combo-box",
+            "title": "Visually Hidden",
+            "slug": "docs/2.x/components/utilities/visually-hidden",
             "order": 1,
             "children": [],
             "toc": [
               {
-                "title": "Basic",
-                "url": "#basic",
+                "title": "Visually Hidden",
+                "url": "#visually-hidden",
                 "items": []
               },
               {
@@ -4725,190 +4725,8 @@
                 "items": []
               },
               {
-                "title": "Composed Components",
-                "url": "#composed-components",
-                "items": []
-              },
-              {
                 "title": "Manual Installation",
                 "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Anatomy",
-                "url": "#anatomy",
-                "items": []
-              },
-              {
-                "title": "Using Avatars",
-                "url": "#using-avatars",
-                "items": []
-              },
-              {
-                "title": "Section",
-                "url": "#section",
-                "items": []
-              },
-              {
-                "title": "Validation",
-                "url": "#validation",
-                "items": []
-              },
-              {
-                "title": "Controlled",
-                "url": "#controlled",
-                "items": [
-                  {
-                    "title": "Input",
-                    "url": "#input",
-                    "items": []
-                  },
-                  {
-                    "title": "Selection",
-                    "url": "#selection",
-                    "items": []
-                  }
-                ]
-              },
-              {
-                "title": "Readonly",
-                "url": "#readonly",
-                "items": []
-              },
-              {
-                "title": "Disabled",
-                "url": "#disabled",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Select",
-            "slug": "docs/2.x/components/pickers/select",
-            "order": 2,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Composed Components",
-                "url": "#composed-components",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Anatomy",
-                "url": "#anatomy",
-                "items": []
-              },
-              {
-                "title": "Select Item Details",
-                "url": "#select-item-details",
-                "items": []
-              },
-              {
-                "title": "Section",
-                "url": "#section",
-                "items": []
-              },
-              {
-                "title": "Select with Icon",
-                "url": "#select-with-icon",
-                "items": []
-              },
-              {
-                "title": "Validation",
-                "url": "#validation",
-                "items": []
-              },
-              {
-                "title": "Controlled",
-                "url": "#controlled",
-                "items": []
-              },
-              {
-                "title": "Uncontrolled",
-                "url": "#uncontrolled",
-                "items": []
-              },
-              {
-                "title": "Disabled",
-                "url": "#disabled",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Multiple Select",
-            "slug": "docs/2.x/components/pickers/multiple-select",
-            "order": 3,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Composed Components",
-                "url": "#composed-components",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Anatomy",
-                "url": "#anatomy",
-                "items": []
-              },
-              {
-                "title": "Intent",
-                "url": "#intent",
-                "items": []
-              },
-              {
-                "title": "Shape",
-                "url": "#shape",
-                "items": []
-              },
-              {
-                "title": "Controlled",
-                "url": "#controlled",
-                "items": []
-              },
-              {
-                "title": "Invalid",
-                "url": "#invalid",
-                "items": []
-              },
-              {
-                "title": "Disabled",
-                "url": "#disabled",
-                "items": []
-              },
-              {
-                "title": "Props",
-                "url": "#props",
                 "items": []
               }
             ]
@@ -5565,17 +5383,17 @@
         ]
       },
       {
-        "title": "Utilities",
+        "title": "Pickers",
         "children": [
           {
-            "title": "Visually Hidden",
-            "slug": "docs/2.x/components/utilities/visually-hidden",
+            "title": "Combo Box",
+            "slug": "docs/2.x/components/pickers/combo-box",
             "order": 1,
             "children": [],
             "toc": [
               {
-                "title": "Visually Hidden",
-                "url": "#visually-hidden",
+                "title": "Basic",
+                "url": "#basic",
                 "items": []
               },
               {
@@ -5584,8 +5402,190 @@
                 "items": []
               },
               {
+                "title": "Composed Components",
+                "url": "#composed-components",
+                "items": []
+              },
+              {
                 "title": "Manual Installation",
                 "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "Anatomy",
+                "url": "#anatomy",
+                "items": []
+              },
+              {
+                "title": "Using Avatars",
+                "url": "#using-avatars",
+                "items": []
+              },
+              {
+                "title": "Section",
+                "url": "#section",
+                "items": []
+              },
+              {
+                "title": "Validation",
+                "url": "#validation",
+                "items": []
+              },
+              {
+                "title": "Controlled",
+                "url": "#controlled",
+                "items": [
+                  {
+                    "title": "Input",
+                    "url": "#input",
+                    "items": []
+                  },
+                  {
+                    "title": "Selection",
+                    "url": "#selection",
+                    "items": []
+                  }
+                ]
+              },
+              {
+                "title": "Readonly",
+                "url": "#readonly",
+                "items": []
+              },
+              {
+                "title": "Disabled",
+                "url": "#disabled",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Select",
+            "slug": "docs/2.x/components/pickers/select",
+            "order": 2,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Composed Components",
+                "url": "#composed-components",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "Anatomy",
+                "url": "#anatomy",
+                "items": []
+              },
+              {
+                "title": "Select Item Details",
+                "url": "#select-item-details",
+                "items": []
+              },
+              {
+                "title": "Section",
+                "url": "#section",
+                "items": []
+              },
+              {
+                "title": "Select with Icon",
+                "url": "#select-with-icon",
+                "items": []
+              },
+              {
+                "title": "Validation",
+                "url": "#validation",
+                "items": []
+              },
+              {
+                "title": "Controlled",
+                "url": "#controlled",
+                "items": []
+              },
+              {
+                "title": "Uncontrolled",
+                "url": "#uncontrolled",
+                "items": []
+              },
+              {
+                "title": "Disabled",
+                "url": "#disabled",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Multiple Select",
+            "slug": "docs/2.x/components/pickers/multiple-select",
+            "order": 3,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Composed Components",
+                "url": "#composed-components",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "Anatomy",
+                "url": "#anatomy",
+                "items": []
+              },
+              {
+                "title": "Intent",
+                "url": "#intent",
+                "items": []
+              },
+              {
+                "title": "Shape",
+                "url": "#shape",
+                "items": []
+              },
+              {
+                "title": "Controlled",
+                "url": "#controlled",
+                "items": []
+              },
+              {
+                "title": "Invalid",
+                "url": "#invalid",
+                "items": []
+              },
+              {
+                "title": "Disabled",
+                "url": "#disabled",
+                "items": []
+              },
+              {
+                "title": "Props",
+                "url": "#props",
                 "items": []
               }
             ]
