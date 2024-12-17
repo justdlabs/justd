@@ -1,0 +1,11 @@
+{
+  "name": "tabs-responsive-demo",
+  "files": [
+    {
+      "name": "tabs-responsive-demo.tsx",
+      "content": "\"use client\"\n\nimport { IconHamburger } from \"justd-icons\"\nimport { Collection } from \"react-aria-components\"\nimport { Select, Tabs, useMediaQuery } from \"ui\"\n\nconst tabs = [\n  { id: 1, title: \"Overview\", content: \"This is the overview tab content.\" },\n  { id: 2, title: \"Features\", content: \"Details about the features are listed here.\" },\n  { id: 3, title: \"Pricing\", content: \"Find the pricing information on this tab.\" },\n  { id: 4, title: \"Reviews\", content: \"Read user reviews and ratings here.\" },\n  { id: 5, title: \"Support\", content: \"Contact our support team on this tab.\" },\n  { id: 6, title: \"Guarantee\", content: \"Our satisfaction guarantee details are here.\" },\n  { id: 7, title: \"FAQ\", content: \"Frequently asked questions are answered here.\" },\n]\n\nexport default function TabsResponsiveDemo() {\n  const isMobile = useMediaQuery(\"(max-width: 600px)\")\n  return isMobile ? (\n    <Select className=\"flex sm:hidden\">\n      <Select.Trigger prefix={<IconHamburger />} />\n      <Select.List items={tabs}>\n        {(item) => <Select.Option textValue={item.title}>{item.title}</Select.Option>}\n      </Select.List>\n    </Select>\n  ) : (\n    <Tabs className=\"hidden sm:flex\" aria-label=\"Project Management\">\n      <Tabs.List aria-label=\"Dynamic tabs\" items={tabs}>\n        {(item) => <Tabs.Tab>{item.title}</Tabs.Tab>}\n      </Tabs.List>\n      <Collection items={tabs}>{(item) => <Tabs.Panel key={item.id}>{item.content}</Tabs.Panel>}</Collection>\n    </Tabs>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/navigation/tabs/tabs-responsive-demo.tsx"
+}

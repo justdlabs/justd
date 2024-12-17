@@ -1,0 +1,11 @@
+{
+  "name": "file-trigger-anatomy",
+  "files": [
+    {
+      "name": "file-trigger-anatomy.tsx",
+      "content": "import { FileTrigger } from \"ui\"\n\nexport default function FileTriggerAnatomy() {\n  return <FileTrigger />\n}\n"
+    }
+  ],
+  "type": "components:anatomies",
+  "componentPath": "components/docs/anatomies/file-trigger-anatomy.tsx"
+}

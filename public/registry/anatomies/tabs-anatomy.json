@@ -1,0 +1,11 @@
+{
+  "name": "tabs-anatomy",
+  "files": [
+    {
+      "name": "tabs-anatomy.tsx",
+      "content": "\"use client\"\n\nimport { Tabs } from \"ui\"\n\nexport default function TabsAnatomy() {\n  return (\n    <Tabs aria-label=\"Recipe App\">\n      <Tabs.List>\n        <Tabs.Tab id=\"i\">Ingredients</Tabs.Tab>\n        <Tabs.Tab id=\"m\">Meal Plans</Tabs.Tab>\n      </Tabs.List>\n      <Tabs.Panel id=\"i\">Check the list of ingredients needed for your chosen recipes.</Tabs.Panel>\n      <Tabs.Panel id=\"m\">Discover curated meal plans to simplify your weekly cooking.</Tabs.Panel>\n    </Tabs>\n  )\n}\n"
+    }
+  ],
+  "type": "components:anatomies",
+  "componentPath": "components/docs/anatomies/tabs-anatomy.tsx"
+}

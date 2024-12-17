@@ -1,8 +1,8 @@
 "use client"
 
-import { IconTrendingChart3 } from "justd-icons"
 import { Bar, BarChart, Rectangle, XAxis, YAxis } from "recharts"
 import { Card, Chart, type ChartConfig } from "ui"
+import { IconChartTrending } from "justd-icons"
 
 const chartData = [
   {
@@ -88,7 +88,7 @@ export function TrafficChart() {
         <div className="flex w-full items-start gap-2 text-sm">
           <div className="grid gap-2">
             <div className="flex items-center gap-2 font-medium leading-none">
-              Trending up by 5.2% this month <IconTrendingChart3 />
+              Trending up by 5.2% this month <IconChartTrending />
             </div>
             <div className="flex items-center gap-2 leading-none text-muted-fg">
               August - October 2024

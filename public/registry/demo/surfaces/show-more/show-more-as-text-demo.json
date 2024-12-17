@@ -1,0 +1,11 @@
+{
+  "name": "show-more-as-text-demo",
+  "files": [
+    {
+      "name": "show-more-as-text-demo.tsx",
+      "content": "\"use client\"\n\nimport { ShowMore } from \"ui\"\n\nexport default function ShowMoreAsTextDemo() {\n  return (\n    <div className=\"py-6\">\n      <ShowMore as=\"text\" text=\"Or continue with\" />\n    </div>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/surfaces/show-more/show-more-as-text-demo.tsx"
+}

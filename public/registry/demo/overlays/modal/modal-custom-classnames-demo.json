@@ -1,0 +1,11 @@
+{
+  "name": "modal-custom-classnames-demo",
+  "files": [
+    {
+      "name": "modal-custom-classnames-demo.tsx",
+      "content": "\"use client\"\n\nimport { Button, Modal } from \"ui\"\n\nexport default function ModalCustomClassnamesDemo() {\n  return (\n    <Modal>\n      <Button>Open</Button>\n      <Modal.Content\n        classNames={{\n          overlay: \"bg-white/40 dark:bg-black/40 backdrop-blur\",\n          content: \"bg-bg\",\n        }}\n      >\n        <Modal.Header title=\"Custom Classnames\" description=\"This modal has custom class names.\" />\n        <Modal.Footer>\n          <Modal.Close>Close</Modal.Close>\n        </Modal.Footer>\n      </Modal.Content>\n    </Modal>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/overlays/modal/modal-custom-classnames-demo.tsx"
+}

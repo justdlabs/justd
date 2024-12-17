@@ -1,0 +1,11 @@
+{
+  "name": "skeleton-anatomy",
+  "files": [
+    {
+      "name": "skeleton-anatomy.tsx",
+      "content": "import { Card, Skeleton } from \"ui\"\n\nexport default function SkeletonAnatomy() {\n  return (\n    <Card className=\"p-4\">\n      <div className=\"flex gap-2\">\n        <Skeleton intent=\"lighter\" shape=\"circle\" className=\"size-8\" />\n        <div className=\"space-y-1\">\n          <Skeleton intent=\"muted\" shape=\"circle\" className=\"w-56 h-4\" />\n          <Skeleton intent=\"lighter\" shape=\"circle\" className=\"w-16 h-4\" />\n          <Skeleton intent=\"lighter\" className=\"w-24 h-4\" />\n          <Skeleton intent=\"muted\" className=\"w-32 h-4\" />\n        </div>\n      </div>\n    </Card>\n  )\n}\n"
+    }
+  ],
+  "type": "components:anatomies",
+  "componentPath": "components/docs/anatomies/skeleton-anatomy.tsx"
+}

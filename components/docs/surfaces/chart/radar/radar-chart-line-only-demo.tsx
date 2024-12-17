@@ -1,6 +1,6 @@
 "use client"
 
-import { IconTrendingChart3 } from "justd-icons"
+import { IconChartTrending } from "justd-icons"
 import { PolarAngleAxis, PolarGrid, Radar, RadarChart } from "recharts"
 import { Card, Chart, type ChartConfig } from "ui"
 
@@ -62,7 +62,7 @@ export default function RadarChartLineOnlyDemo() {
       </Card.Content>
       <Card.Footer className="flex-col gap-2 text-sm">
         <div className="flex items-center gap-2 font-medium leading-none">
-          Profit increased by 5.2% this year <IconTrendingChart3 />
+          Profit increased by 5.2% this year <IconChartTrending />
         </div>
         <div className="flex items-center gap-2 leading-none text-muted-fg">
           January - December 2023

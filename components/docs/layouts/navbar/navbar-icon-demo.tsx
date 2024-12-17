@@ -1,7 +1,7 @@
 import {
   IconBrandApple,
   IconBrandJustd,
-  IconChart3,
+  IconChartBar,
   IconChevronLgDown,
   IconColors,
   IconCommandRegular,
@@ -36,7 +36,7 @@ export default function NavbarIconDemo() {
             <IconColors /> Themes
           </Navbar.Item>
           <Navbar.Item href="https://getjustd.com/charts">
-            <IconChart3 /> Charts
+            <IconChartBar /> Charts
           </Navbar.Item>
         </Navbar.Section>
       </Navbar.Nav>

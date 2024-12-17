@@ -1,0 +1,11 @@
+{
+  "name": "progress-bar-demo",
+  "files": [
+    {
+      "name": "progress-bar-demo.tsx",
+      "content": "\"use client\"\n\nimport React, { useState } from \"react\"\n\nimport { ProgressBar } from \"ui\"\n\nexport default function ProgressBarDemo() {\n  const [value, setValue] = useState(1)\n\n  React.useEffect(() => {\n    const interval = setInterval(() => {\n      setValue((prev) => (prev < 100 ? prev + 1 : 100))\n    }, 200)\n\n    return () => clearInterval(interval)\n  }, [])\n\n  return <ProgressBar label=\"Loading…\" value={value} />\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/statuses/progress-bar-demo.tsx"
+}

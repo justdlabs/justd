@@ -1,0 +1,11 @@
+{
+  "name": "toggle-group-orientation-demo",
+  "files": [
+    {
+      "name": "toggle-group-orientation-demo.tsx",
+      "content": "import { IconBell, IconBellFill, IconMoonFill, IconSun, IconTranslate, IconTranslateFill } from \"justd-icons\"\nimport { Toggle, ToggleGroup } from \"ui\"\n\nexport default function ToggleGroupOrientationDemo() {\n  return (\n    <div>\n      <ToggleGroup orientation=\"vertical\">\n        <Toggle>\n          {({ isSelected }) => (\n            <>\n              {isSelected ? <IconMoonFill /> : <IconSun />}\n              {isSelected ? \"Dark\" : \"Light\"}Mode\n            </>\n          )}\n        </Toggle>\n        <Toggle>\n          {({ isSelected }) => (\n            <>\n              {isSelected ? <IconBellFill /> : <IconBell />}\n              Notifications {isSelected ? \"On\" : \"Off\"}\n            </>\n          )}\n        </Toggle>\n        <Toggle>\n          {({ isSelected }) => (\n            <>\n              {isSelected ? <IconTranslateFill /> : <IconTranslate />}\n              Always Translate\n            </>\n          )}\n        </Toggle>\n      </ToggleGroup>\n    </div>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/buttons/toggle-group/toggle-group-orientation-demo.tsx"
+}

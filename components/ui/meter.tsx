@@ -3,7 +3,7 @@
 import * as React from "react"
 
 import { motion } from "framer-motion"
-import { IconTriangleInfo } from "justd-icons"
+import { IconTriangleExclamation } from "justd-icons"
 import {
   Meter as MeterPrimitive,
   type MeterProps as MeterPrimitiveProps
@@ -27,7 +27,7 @@ const Meter = ({ label, ...props }: MeterProps) => {
               className={`text-sm tabular-nums ${percentage >= 80 ? "text-danger" : "text-muted-fg"}`}
             >
               {percentage >= 80 && (
-                <IconTriangleInfo
+                <IconTriangleExclamation
                   aria-label="Alert"
                   className="inline-block fill-danger/20 text-danger size-4 align-text-bottom"
                 />

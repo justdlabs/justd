@@ -1,0 +1,11 @@
+{
+  "name": "drawer-without-notch-demo",
+  "files": [
+    {
+      "name": "drawer-without-notch-demo.tsx",
+      "content": "\"use client\"\n\nimport { Drawer, buttonStyles } from \"ui\"\n\nexport default function DrawerWithoutNotchDemo() {\n  return (\n    <Drawer withNotch={false}>\n      <Drawer.Trigger className={buttonStyles({ shape: \"circle\", appearance: \"outline\" })}>Open Drawer</Drawer.Trigger>\n      <Drawer.Content>\n        <Drawer.Header>\n          <Drawer.Title>The Beatles</Drawer.Title>\n          <Drawer.Description>\n            The Beatles were an English rock band formed in Liverpool in 1960, comprising John Lennon, Paul McCartney,\n            George Harrison and Ringo Starr.\n          </Drawer.Description>\n        </Drawer.Header>\n        <Drawer.Footer>\n          <Drawer.Close shape=\"circle\">Close</Drawer.Close>\n        </Drawer.Footer>\n      </Drawer.Content>\n    </Drawer>\n  )\n}\n"
+    }
+  ],
+  "type": "components:demo",
+  "componentPath": "components/docs/overlays/drawer/drawer-without-notch-demo.tsx"
+}

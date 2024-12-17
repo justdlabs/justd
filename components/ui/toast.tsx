@@ -3,7 +3,7 @@
 import React from "react"
 
 import { useTheme } from "@/components/theme-provider"
-import { IconCheck, IconCircleInfoFill, IconTriangleInfoFill } from "justd-icons"
+import { IconCheck, IconCircleExclamationFill, IconTriangleExclamationFill } from "justd-icons"
 import { Toaster as ToasterPrimitive, type ToasterProps } from "sonner"
 import { twJoin } from "tailwind-merge"
 
@@ -17,10 +17,10 @@ const Toast = ({ ...props }: ToasterProps) => {
       theme={theme as ToasterProps["theme"]}
       className="toaster group"
       icons={{
-        info: <IconCircleInfoFill />,
+        info: <IconCircleExclamationFill />,
         success: <IconCheck />,
-        warning: <IconTriangleInfoFill />,
-        error: <IconTriangleInfoFill />,
+        warning: <IconTriangleExclamationFill />,
+        error: <IconTriangleExclamationFill />,
         loading: <Loader variant="spin" />
       }}
       toastOptions={{
