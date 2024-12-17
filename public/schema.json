@@ -23,5 +23,5 @@
       "type": "string"
     }
   },
-  "required": ["$schema", "ui", "classes", "theme", "css", "alias"]
+  "required": ["$schema", "ui", "utils", "gray", "css", "alias"]
 }
