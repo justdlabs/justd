@@ -24,24 +24,12 @@ export default {
         destination: "https://1x.getjustd.com/docs/1.x/:path*",
       },
       {
-        source: "/_next/:path*",
-        destination: "https://1x.getjustd.com/_next/:path*",
+        source: "/docs/1.x/_next/static/:path*",
+        destination: "https://1x.getjustd.com/_next/static/:path*",
       },
     ]
   },
-  async headers() {
-    return [
-      {
-        source: "/(.*)",
-        headers: [
-          {
-            key: "Access-Control-Allow-Origin",
-            value: "*",
-          },
-        ],
-      },
-    ]
-  },
+
   async redirects() {
     return [
       {
