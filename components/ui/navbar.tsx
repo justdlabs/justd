@@ -10,7 +10,8 @@ import { tv } from "tailwind-variants"
 
 import { cn } from "@/utils/classes"
 import { Button } from "./button"
-import { composeTailwindRenderProps, useMediaQuery } from "./primitive"
+import { composeTailwindRenderProps } from "./primitive"
+import { useMediaQuery } from "@/utils/use-media-query";
 import { Sheet } from "./sheet"
 
 type NavbarOptions = {

@@ -4227,11 +4227,6 @@
                 "items": []
               },
               {
-                "title": "Responsive",
-                "url": "#responsive",
-                "items": []
-              },
-              {
                 "title": "Disabled",
                 "url": "#disabled",
                 "items": []
@@ -5348,7 +5343,7 @@
           {
             "title": "Grid",
             "slug": "docs/2.x/components/surfaces/grid",
-            "status": "beta",
+            "status": "alpha",
             "order": 2,
             "children": [],
             "toc": [

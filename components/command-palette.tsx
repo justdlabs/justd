@@ -3,6 +3,7 @@
 import React, { useState } from "react"
 
 import sidebar from "@/resources/lib/sidebar.json"
+import { useMediaQuery } from "@/utils/use-media-query"
 import { useCommandState } from "cmdk"
 import {
   IconBrandJustd,
@@ -15,7 +16,7 @@ import {
 } from "justd-icons"
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
-import { CommandMenu, useMediaQuery } from "ui"
+import { CommandMenu } from "ui"
 import { useDebounce } from "use-debounce"
 
 export interface OpenCloseProps {

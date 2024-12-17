@@ -15,8 +15,8 @@ import {
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
+import { useMediaQuery } from "@/utils/use-media-query"
 import { Button, type ButtonProps } from "./button"
-import { useMediaQuery } from "./primitive"
 
 const dialogStyles = tv({
   slots: {

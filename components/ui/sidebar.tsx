@@ -3,6 +3,7 @@
 import { createContext, use, useCallback, useEffect, useMemo, useState } from "react"
 
 import { cn } from "@/utils/classes"
+import { useMediaQuery } from "@/utils/use-media-query"
 import { IconChevronLgLeft, IconHamburger, IconSidebarFill } from "justd-icons"
 import type { LinkRenderProps } from "react-aria-components"
 import {
@@ -18,15 +19,7 @@ import {
 } from "react-aria-components"
 import { twJoin } from "tailwind-merge"
 import { tv } from "tailwind-variants"
-import {
-  Badge,
-  Button,
-  Separator,
-  Sheet,
-  Tooltip,
-  composeTailwindRenderProps,
-  useMediaQuery,
-} from "ui"
+import { Badge, Button, Separator, Sheet, Tooltip, composeTailwindRenderProps } from "ui"
 
 const SIDEBAR_COOKIE_NAME = "sidebar:state"
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7

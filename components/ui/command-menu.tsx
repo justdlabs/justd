@@ -10,9 +10,9 @@ import { Button, Dialog, Modal, ModalOverlay, Text } from "react-aria-components
 import { twJoin } from "tailwind-merge"
 import { tv } from "tailwind-variants"
 
+import { useMediaQuery } from "@/utils/use-media-query"
 import type { KeyboardProps } from "./keyboard"
 import { Keyboard } from "./keyboard"
-import { useMediaQuery } from "./primitive"
 import { Separator } from "./separator"
 
 const commandStyles = tv({
