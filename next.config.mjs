@@ -23,17 +23,5 @@ export default {
                 ],
             },
         ];
-    },
-    async rewrites() {
-        return [
-            {
-                source: "/docs/1.x/:path*",
-                destination: "https://1x.getjustd.com/docs/1.x/:path*",
-            },
-            {
-                source: "/_next/static/:path*",
-                destination: "https://1x.getjustd.com/_next/static/:path*",
-            },
-        ];
-    },
+    }
 }
