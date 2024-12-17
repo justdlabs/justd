@@ -69,7 +69,7 @@ import {
 import { useEffect, useState } from "react"
 import { Button, Container, Link, buttonStyles } from "ui"
 
-export function Icon() {
+export function IconResources() {
   const [isCopied, setIsCopied] = useState(false)
 
   function handleCopy(text: string) {
