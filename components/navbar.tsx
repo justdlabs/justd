@@ -111,8 +111,8 @@ export function Navbar() {
                         <IconChevronLgDown className="duration-200 size-3 group-pressed:rotate-180" />
                       </Button>
                       <Menu.Content placement="bottom right" className="sm:min-w-10">
-                        <Menu.Item href={pathname.replace(/\/\d+\.x/, "/1.x")}>1.x</Menu.Item>
-                        <Menu.Item href={pathname.replace(/\/\d+\.x/, "/2.x")}>2.x</Menu.Item>
+                        <Menu.Item href="/docs/1.x/getting-started/introduction">1.x</Menu.Item>
+                        <Menu.Item href="/docs/2.x/getting-started/introduction">2.x</Menu.Item>
                       </Menu.Content>
                     </Menu>
                     <Link
@@ -238,8 +238,8 @@ export function NavbarDropdown() {
           <IconChevronLgDown className="duration-200 size-3 group-pressed:rotate-180" />
         </Button>
         <Menu.Content placement="bottom right" className="sm:min-w-10">
-          <Menu.Item href={pathname.replace(/\/\d+\.x/, "/1.x")}>1.x</Menu.Item>
-          <Menu.Item href={pathname.replace(/\/\d+\.x/, "/2.x")}>2.x</Menu.Item>
+          <Menu.Item href="/docs/1.x/getting-started/introduction">1.x</Menu.Item>
+          <Menu.Item href="/docs/2.x/getting-started/introduction">2.x</Menu.Item>
         </Menu.Content>
       </Menu>
     </div>

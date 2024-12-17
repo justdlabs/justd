@@ -23,10 +23,22 @@ export default {
         source: "/docs/1.x/:path*",
         destination: "https://1x.getjustd.com/docs/1.x/:path*",
       },
-
       {
         source: "/_next/:path*",
         destination: "https://1x.getjustd.com/_next/:path*",
+      },
+    ]
+  },
+  async headers() {
+    return [
+      {
+        source: "/(.*)",
+        headers: [
+          {
+            key: "Access-Control-Allow-Origin",
+            value: "*",
+          },
+        ],
       },
     ]
   },
