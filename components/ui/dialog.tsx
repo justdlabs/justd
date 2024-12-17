@@ -3,8 +3,16 @@
 import { useEffect, useRef } from "react"
 
 import { IconX } from "justd-icons"
-import type { ButtonProps as ButtonPrimitiveProps, DialogProps, HeadingProps } from "react-aria-components"
-import { Button as ButtonPrimitive, Dialog as DialogPrimitive, Heading } from "react-aria-components"
+import type {
+  ButtonProps as ButtonPrimitiveProps,
+  DialogProps,
+  HeadingProps,
+} from "react-aria-components"
+import {
+  Button as ButtonPrimitive,
+  Dialog as DialogPrimitive,
+  Heading,
+} from "react-aria-components"
 import { tv } from "tailwind-variants"
 
 import { Button, type ButtonProps } from "./button"
@@ -52,7 +60,10 @@ const Header = ({ className, ...props }: DialogHeaderProps) => {
 
     const observer = new ResizeObserver((entries) => {
       for (const entry of entries) {
-        header.parentElement?.style.setProperty("--dialog-header-height", `${entry.target.clientHeight}px`)
+        header.parentElement?.style.setProperty(
+          "--dialog-header-height",
+          `${entry.target.clientHeight}px`,
+        )
       }
     })
 
@@ -109,7 +120,10 @@ const Footer = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) =
 
     const observer = new ResizeObserver((entries) => {
       for (const entry of entries) {
-        footer.parentElement?.style.setProperty("--dialog-footer-height", `${entry.target.clientHeight}px`)
+        footer.parentElement?.style.setProperty(
+          "--dialog-footer-height",
+          `${entry.target.clientHeight}px`,
+        )
       }
     })
 
@@ -118,7 +132,9 @@ const Footer = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) =
       observer.unobserve(footer)
     }
   }, [])
-  return <div ref={footerRef} data-slot="dialog-footer" className={footer({ className })} {...props} />
+  return (
+    <div ref={footerRef} data-slot="dialog-footer" className={footer({ className })} {...props} />
+  )
 }
 
 const Close = ({ className, appearance = "outline", ...props }: ButtonProps) => {

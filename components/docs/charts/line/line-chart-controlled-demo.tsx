@@ -43,13 +43,19 @@ export default function LineChartControlledDemo() {
       <Card.Header className="flex flex-row justify-between items-center">
         <div className="space-y-1">
           <Card.Title>Revenue vs Expenses</Card.Title>
-          <Card.Description>Tracking daily revenue and expenses over the last 3 months</Card.Description>
+          <Card.Description>
+            Tracking daily revenue and expenses over the last 3 months
+          </Card.Description>
         </div>
         <div className="flex gap-x-1">
           {["revenue", "expenses"].map((key) => {
             const chart = key as keyof typeof chartConfig
             return (
-              <Toggle key={chart} isSelected={activeChart === chart} onPress={() => setActiveChart(chart)}>
+              <Toggle
+                key={chart}
+                isSelected={activeChart === chart}
+                onPress={() => setActiveChart(chart)}
+              >
                 {chartConfig[chart].label}
               </Toggle>
             )

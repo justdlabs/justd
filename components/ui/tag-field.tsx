@@ -81,7 +81,10 @@ const TagField = ({
         .replace(/\s+/g, " ")
         .replace(/[\t\r\n]/g, "")
 
-      if (formattedName && !list.items.some(({ name }) => name.toLowerCase() === formattedName.toLowerCase())) {
+      if (
+        formattedName &&
+        !list.items.some(({ name }) => name.toLowerCase() === formattedName.toLowerCase())
+      ) {
         const tag = {
           id: (list.items.at(-1)?.id ?? 0) + 1,
           name: formattedName,
@@ -136,13 +139,20 @@ const TagField = ({
     <div className={cn("flex w-full flex-col gap-y-1.5", className)}>
       {props.label && <Label>{props.label}</Label>}
       <Group className={twJoin("flex flex-col", props.isDisabled && "opacity-50")}>
-        <TagGroup intent={props.intent} shape={props.shape} aria-label="List item inserted" onRemove={onRemove}>
+        <TagGroup
+          intent={props.intent}
+          shape={props.shape}
+          aria-label="List item inserted"
+          onRemove={onRemove}
+        >
           <div className={tagFieldsStyles({ appearance })}>
             <div className="flex flex-wrap flex-1 items-center">
               <TagList
                 items={list.items}
                 className={twJoin(
-                  list.items.length !== 0 ? appearance === "outline" && "gap-1.5 px-1 py-1.5" : "gap-0",
+                  list.items.length !== 0
+                    ? appearance === "outline" && "gap-1.5 px-1 py-1.5"
+                    : "gap-0",
                   props.shape === "square" && "[&_.jdt3lr2x]:rounded-[calc(var(--radius-lg)-4px)]",
                   "[&_.jdt3lr2x]:last:-mr-1 outline-hidden [&_.jdt3lr2x]:cursor-default",
                 )}
@@ -166,7 +176,9 @@ const TagField = ({
             </div>
           </div>
         </TagGroup>
-        {name && <input hidden name={name} value={list.items.map((i) => i.name).join(",")} readOnly />}
+        {name && (
+          <input hidden name={name} value={list.items.map((i) => i.name).join(",")} readOnly />
+        )}
       </Group>
       {props.description && <Description>{props.description}</Description>}
     </div>

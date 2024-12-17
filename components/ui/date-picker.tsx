@@ -96,4 +96,11 @@ const DatePicker = <T extends DateValue>({
   )
 }
 
-export { DatePicker, DatePickerIcon, DatePickerOverlay, type DatePickerProps, type DateValue, type ValidationResult }
+export {
+  DatePicker,
+  DatePickerIcon,
+  DatePickerOverlay,
+  type DatePickerProps,
+  type DateValue,
+  type ValidationResult,
+}

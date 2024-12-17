@@ -42,7 +42,14 @@ interface NumberFieldProps extends NumberFieldPrimitiveProps {
   errorMessage?: string | ((validation: ValidationResult) => string)
 }
 
-const NumberField = ({ label, placeholder, description, className, errorMessage, ...props }: NumberFieldProps) => {
+const NumberField = ({
+  label,
+  placeholder,
+  description,
+  className,
+  errorMessage,
+  ...props
+}: NumberFieldProps) => {
   const isMobile = useMediaQuery("(max-width: 768px)")
   return (
     <NumberFieldPrimitive {...props} className={composeTailwindRenderProps(className, base())}>
@@ -88,7 +95,12 @@ interface StepperButtonProps extends ButtonProps {
   className?: string
 }
 
-const StepperButton = ({ slot, className, emblemType = "default", ...props }: StepperButtonProps) => {
+const StepperButton = ({
+  slot,
+  className,
+  emblemType = "default",
+  ...props
+}: StepperButtonProps) => {
   const icon =
     emblemType === "chevron" ? (
       slot === "increment" ? (

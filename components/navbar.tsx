@@ -60,14 +60,19 @@ export function Navbar() {
                     </NavLink>
                     <NavLink
                       isNextLink
-                      isActive={pathname?.startsWith("/docs/2.x") && !pathname?.includes("/docs/2.x/components")}
+                      isActive={
+                        pathname?.startsWith("/docs/2.x") &&
+                        !pathname?.includes("/docs/2.x/components")
+                      }
                       href="/docs/2.x/getting-started/introduction"
                     >
                       Docs
                     </NavLink>
                     <NavLink
                       isNextLink
-                      isActive={pathname?.startsWith("/docs/2.x/components") || pathname === "/components"}
+                      isActive={
+                        pathname?.startsWith("/docs/2.x/components") || pathname === "/components"
+                      }
                       href="/docs/2.x/components/buttons/button"
                     >
                       Components
@@ -106,8 +111,14 @@ export function Navbar() {
                     <ThemeSwitcher />
 
                     <Menu>
-                      <Button size="small" appearance="outline" className="justify-between text-left group">
-                        {pathname.includes("/docs/") ? pathname.split("/")[2] : siteConfig.currentVersion}
+                      <Button
+                        size="small"
+                        appearance="outline"
+                        className="justify-between text-left group"
+                      >
+                        {pathname.includes("/docs/")
+                          ? pathname.split("/")[2]
+                          : siteConfig.currentVersion}
                         <IconChevronLgDown className="duration-200 size-3 group-pressed:rotate-180" />
                       </Button>
                       <Menu.Content placement="bottom right" className="sm:min-w-10">
@@ -199,7 +210,10 @@ export function NavbarDropdown() {
               <IconBrandGithub />
               Github
             </Menu.Item>
-            <Menu.Item href="https://react-spectrum.adobe.com/react-aria/components.html" target="_blank">
+            <Menu.Item
+              href="https://react-spectrum.adobe.com/react-aria/components.html"
+              target="_blank"
+            >
               <IconBrandAdobe />
               RAC
             </Menu.Item>
@@ -211,7 +225,13 @@ export function NavbarDropdown() {
           <Menu.Section title="Preferences">
             <Menu.Submenu>
               <Menu.Item>
-                {theme === "system" ? <IconDeviceDesktop /> : theme === "dark" ? <IconMoon /> : <IconSun />}
+                {theme === "system" ? (
+                  <IconDeviceDesktop />
+                ) : theme === "dark" ? (
+                  <IconMoon />
+                ) : (
+                  <IconSun />
+                )}
                 <span>Switch Theme</span>
               </Menu.Item>
               <Menu.Content>

@@ -25,7 +25,10 @@ interface CheckboxGroupProps extends CheckboxGroupPrimitiveProps {
 
 const CheckboxGroup = ({ className, ...props }: CheckboxGroupProps) => {
   return (
-    <CheckboxGroupPrimitive {...props} className={composeTailwindRenderProps(className, "flex flex-col gap-y-2")}>
+    <CheckboxGroupPrimitive
+      {...props}
+      className={composeTailwindRenderProps(className, "flex flex-col gap-y-2")}
+    >
       <Label>{props.label}</Label>
       {props.children as React.ReactNode}
       {props.description && <Description className="block">{props.description}</Description>}

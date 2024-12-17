@@ -28,7 +28,13 @@ const FileTrigger = ({
   return (
     <>
       <FileTriggerPrimitive {...props}>
-        <Button isDisabled={props.isDisabled} intent={intent} size={size} shape={shape} appearance={appearance}>
+        <Button
+          isDisabled={props.isDisabled}
+          intent={intent}
+          size={size}
+          shape={shape}
+          appearance={appearance}
+        >
           {withIcon &&
             (props.defaultCamera ? (
               <IconCamera />
@@ -41,7 +47,11 @@ const FileTrigger = ({
             props.children
           ) : (
             <>
-              {props.allowsMultiple ? "Browse a files" : props.acceptDirectory ? "Browse" : "Browse a file"}
+              {props.allowsMultiple
+                ? "Browse a files"
+                : props.acceptDirectory
+                  ? "Browse"
+                  : "Browse a file"}
               ...
             </>
           )}

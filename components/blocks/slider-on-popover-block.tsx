@@ -23,10 +23,24 @@ export function SliderOnPopoverBlock() {
       >
         <IconAdjustment />
       </Button>
-      <Popover.Content triggerRef={button} isOpen={isOpen} onOpenChange={setIsOpen} showArrow={false}>
+      <Popover.Content
+        triggerRef={button}
+        isOpen={isOpen}
+        onOpenChange={setIsOpen}
+        showArrow={false}
+      >
         <div className="space-y-4">
-          <Slider output="tooltip" value={fontSize} onChange={(v) => setFontSize(v as number)} label="Font Size" />
-          <Slider value={lineHeight} onChange={(v) => setLineHeight(v as number[])} label="Line Height" />
+          <Slider
+            output="tooltip"
+            value={fontSize}
+            onChange={(v) => setFontSize(v as number)}
+            label="Font Size"
+          />
+          <Slider
+            value={lineHeight}
+            onChange={(v) => setLineHeight(v as number[])}
+            label="Line Height"
+          />
           <Separator />
           <Description className="flex flex-col gap-y-2 [&>strong]:text-fg">
             <strong>Font Size:</strong> {fontSize}

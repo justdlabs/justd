@@ -47,7 +47,10 @@ export function Blocks() {
           <Separator className="mx-auto max-w-[16rem]" />
           <div className="grid grid-cols-2 gap-2">
             {Object.keys(buttonStyles.variants.appearance).map((appearance) => (
-              <Button key={appearance} appearance={appearance as keyof typeof buttonStyles.variants.appearance}>
+              <Button
+                key={appearance}
+                appearance={appearance as keyof typeof buttonStyles.variants.appearance}
+              >
                 <IconDashboard /> Label
               </Button>
             ))}
@@ -60,7 +63,13 @@ export function Blocks() {
           </Card.Header>
           <Card.Content className="space-y-6">
             <TextField isRequired label="Email" placeholder="Enter your email" />
-            <TextField isRequired label="Password" isRevealable type="password" placeholder="Enter your password" />
+            <TextField
+              isRequired
+              label="Password"
+              isRevealable
+              type="password"
+              placeholder="Enter your password"
+            />
             <div className="flex justify-between items-center">
               <Checkbox>Remember me</Checkbox>
               <Link intent="primary" className="text-sm" href="#">
@@ -110,7 +119,11 @@ export function Blocks() {
             <Radio value="highSecurity" description="Set security settings to high.">
               High Security
             </Radio>
-            <CheckboxGroup aria-label="Encryption and Firewall" defaultValue={["encryption"]} className="ml-6">
+            <CheckboxGroup
+              aria-label="Encryption and Firewall"
+              defaultValue={["encryption"]}
+              className="ml-6"
+            >
               <Checkbox value="encryption" description="Enable encryption.">
                 Encryption
               </Checkbox>
@@ -124,7 +137,9 @@ export function Blocks() {
           </RadioGroup>
         </Card>
         <Card className="flex justify-center items-center p-6">
-          <Switch>{({ isSelected }) => <>{isSelected ? "Enabled" : "Disabled"} Auto Updates</>}</Switch>
+          <Switch>
+            {({ isSelected }) => <>{isSelected ? "Enabled" : "Disabled"} Auto Updates</>}
+          </Switch>
         </Card>
         <Card className="flex justify-center items-center p-6">
           <Choicebox
@@ -134,7 +149,11 @@ export function Blocks() {
             aria-label="Select items"
             selectionMode="multiple"
           >
-            <Choicebox.Item id="standard" title="Standard" description="Perfect for growing your team." />
+            <Choicebox.Item
+              id="standard"
+              title="Standard"
+              description="Perfect for growing your team."
+            />
             <Choicebox.Item id="pro" title="Pro" description="Includes all advanced tools." />
             <Choicebox.Item
               id="enterprise"

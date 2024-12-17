@@ -53,7 +53,9 @@ const ColorSlider = ({ showOutput = true, label, className, ...props }: ColorSli
     >
       <div className="flex items-center">
         {label && <Label className="text-sm [grid-area:label]">{label}</Label>}
-        {showOutput && <SliderOutput className="text-sm [grid-area:output] data-[orientation=horizontal]:ml-auto" />}
+        {showOutput && (
+          <SliderOutput className="text-sm [grid-area:output] data-[orientation=horizontal]:ml-auto" />
+        )}
       </div>
       <SliderTrack
         className={trackStyles}

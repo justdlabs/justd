@@ -11,10 +11,14 @@ import { focusButtonStyles } from "./primitive"
 interface ContextMenuTriggerContextType {
   buttonRef: React.RefObject<HTMLButtonElement | null>
   contextMenuOffset: { offset: number; crossOffset: number } | null
-  setContextMenuOffset: React.Dispatch<React.SetStateAction<{ offset: number; crossOffset: number } | null>>
+  setContextMenuOffset: React.Dispatch<
+    React.SetStateAction<{ offset: number; crossOffset: number } | null>
+  >
 }
 
-const ContextMenuTriggerContext = createContext<ContextMenuTriggerContextType | undefined>(undefined)
+const ContextMenuTriggerContext = createContext<ContextMenuTriggerContextType | undefined>(
+  undefined,
+)
 
 const useContextMenuTrigger = () => {
   const context = use(ContextMenuTriggerContext)
@@ -36,7 +40,9 @@ const ContextMenu = ({ children }: ContextMenuRootComponent) => {
   const buttonRef = useRef<HTMLButtonElement>(null)
 
   return (
-    <ContextMenuTriggerContext.Provider value={{ buttonRef, contextMenuOffset, setContextMenuOffset }}>
+    <ContextMenuTriggerContext.Provider
+      value={{ buttonRef, contextMenuOffset, setContextMenuOffset }}
+    >
       {children}
     </ContextMenuTriggerContext.Provider>
   )

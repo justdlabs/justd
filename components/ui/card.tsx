@@ -36,11 +36,15 @@ const Header = ({ className, title, description, children, ...props }: HeaderPro
 )
 
 const Title = ({ className, level = 3, ...props }: React.ComponentProps<typeof Heading>) => {
-  return <Heading data-slot="card-title" level={level} className={title({ className })} {...props} />
+  return (
+    <Heading data-slot="card-title" level={level} className={title({ className })} {...props} />
+  )
 }
 
 const Description = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => {
-  return <div {...props} data-slot="description" className={description({ className })} {...props} />
+  return (
+    <div {...props} data-slot="description" className={description({ className })} {...props} />
+  )
 }
 
 const Content = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => {

@@ -19,7 +19,9 @@ const headingStyles = tv({
     },
   },
 })
-type HeadingType = { level?: 1 | 2 | 3 | 4 } & React.ComponentPropsWithoutRef<"h1" | "h2" | "h3" | "h4">
+type HeadingType = { level?: 1 | 2 | 3 | 4 } & React.ComponentPropsWithoutRef<
+  "h1" | "h2" | "h3" | "h4"
+>
 
 interface HeadingProps extends HeadingType {
   tracking?: "tighter" | "tight" | "normal" | "wide" | "wider" | "widest"

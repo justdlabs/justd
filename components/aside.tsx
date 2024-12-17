@@ -22,7 +22,10 @@ export function Aside() {
       {sidebar.map((item: SidebarItem) => (
         <div key={item.slug || item.title}>
           {item.children && item.children.length > 0 && item.title !== "Components" && (
-            <Heading className="flex gap-x-2 items-center mb-2 text-base font-medium sm:text-sm" level={3}>
+            <Heading
+              className="flex gap-x-2 items-center mb-2 text-base font-medium sm:text-sm"
+              level={3}
+            >
               {item.title}
             </Heading>
           )}
@@ -42,7 +45,10 @@ export function Aside() {
                   {child.children && child.children.length > 0 && (
                     <div className="mb-6 space-y-2">
                       {child.children.map((subChild: SidebarItem) => (
-                        <AsideLink key={subChild.slug || subChild.title} href={`/${subChild.slug}` || "#"}>
+                        <AsideLink
+                          key={subChild.slug || subChild.title}
+                          href={`/${subChild.slug}` || "#"}
+                        >
                           {subChild.title}
 
                           {subChild.status && (

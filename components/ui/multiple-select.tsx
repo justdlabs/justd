@@ -4,7 +4,11 @@ import { useCallback, useEffect, useId, useRef, useState } from "react"
 
 import { IconChevronLgDown } from "justd-icons"
 import { useFilter } from "react-aria"
-import type { ComboBoxProps as ComboBoxPrimitiveProps, Key, ValidationResult } from "react-aria-components"
+import type {
+  ComboBoxProps as ComboBoxPrimitiveProps,
+  Key,
+  ValidationResult,
+} from "react-aria-components"
 import { ComboBox } from "react-aria-components"
 import type { ListData } from "react-stately"
 import { useListData } from "react-stately"
@@ -38,7 +42,8 @@ const multiSelectStyles = tv({
   },
 })
 
-const { multiSelectField, multiSelect, chevronButton, input, comboBox, comboBoxChild } = multiSelectStyles()
+const { multiSelectField, multiSelect, chevronButton, input, comboBox, comboBoxChild } =
+  multiSelectStyles()
 
 interface SelectedKey {
   id: Key
@@ -279,7 +284,8 @@ const MultipleSelect = <T extends SelectedKey>({
                     <Description className="block p-3">
                       {fieldState.inputValue ? (
                         <>
-                          No results found for: <strong className="font-medium text-fg">{fieldState.inputValue}</strong>
+                          No results found for:{" "}
+                          <strong className="font-medium text-fg">{fieldState.inputValue}</strong>
                         </>
                       ) : (
                         "No options"

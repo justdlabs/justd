@@ -37,9 +37,25 @@ export default function TooltipChartAdvanceDemo() {
       <Card.Content>
         <Chart config={chartConfig}>
           <BarChart accessibilityLayer data={chartData}>
-            <XAxis dataKey="date" tickLine={false} tickMargin={10} axisLine={false} tickFormatter={(value) => value} />
-            <Bar dataKey="groceries" stackId="a" fill="var(--color-groceries)" radius={[0, 0, 4, 4]} />
-            <Bar dataKey="utilities" stackId="a" fill="var(--color-utilities)" radius={[4, 4, 0, 0]} />
+            <XAxis
+              dataKey="date"
+              tickLine={false}
+              tickMargin={10}
+              axisLine={false}
+              tickFormatter={(value) => value}
+            />
+            <Bar
+              dataKey="groceries"
+              stackId="a"
+              fill="var(--color-groceries)"
+              radius={[0, 0, 4, 4]}
+            />
+            <Bar
+              dataKey="utilities"
+              stackId="a"
+              fill="var(--color-utilities)"
+              radius={[4, 4, 0, 0]}
+            />
             <ChartTooltip
               content={
                 <ChartTooltipContent

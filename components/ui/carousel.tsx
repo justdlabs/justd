@@ -246,7 +246,10 @@ const CarouselButton = ({
       appearance={appearance}
       size={size}
       shape={shape}
-      className={composeTailwindRenderProps(className, orientation === "vertical" ? "rotate-90" : "")}
+      className={composeTailwindRenderProps(
+        className,
+        orientation === "vertical" ? "rotate-90" : "",
+      )}
       isDisabled={!canScroll}
       onPress={scroll}
       {...props}

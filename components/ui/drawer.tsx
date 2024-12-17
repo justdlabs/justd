@@ -50,21 +50,24 @@ const useDrawerContext = () => {
   return context
 }
 
-const ModalWrapper = forwardRef<HTMLDivElement, React.ComponentProps<typeof Modal>>((props, ref) => (
-  <Modal ref={ref} {...props} />
-))
+const ModalWrapper = forwardRef<HTMLDivElement, React.ComponentProps<typeof Modal>>(
+  (props, ref) => <Modal ref={ref} {...props} />,
+)
 ModalWrapper.displayName = "ModalWrapper"
 
-const ModalOverlayWrapper = forwardRef<HTMLDivElement, React.ComponentProps<typeof ModalOverlay>>((props, ref) => (
-  <ModalOverlay ref={ref} {...props} />
-))
+const ModalOverlayWrapper = forwardRef<HTMLDivElement, React.ComponentProps<typeof ModalOverlay>>(
+  (props, ref) => <ModalOverlay ref={ref} {...props} />,
+)
 ModalOverlayWrapper.displayName = "ModalOverlayWrapper"
 
 const ModalPrimitive = motion.create(ModalWrapper)
 const ModalOverlayPrimitive = motion.create(ModalOverlayWrapper)
 
 interface DrawerOverlayPrimitiveProps
-  extends Omit<React.ComponentProps<typeof ModalOverlayPrimitive>, "isOpen" | "onOpenChange" | "style"> {
+  extends Omit<
+    React.ComponentProps<typeof ModalOverlayPrimitive>,
+    "isOpen" | "onOpenChange" | "style"
+  > {
   "aria-label"?: DialogProps["aria-label"]
   "aria-labelledby"?: DialogProps["aria-labelledby"]
   role?: DialogProps["role"]
@@ -195,7 +198,12 @@ interface DrawerProps {
   onOpenChange?: (isOpen: boolean) => void
 }
 
-const Drawer = ({ children, withNotch = true, isOpen: controlledIsOpen, onOpenChange }: DrawerProps) => {
+const Drawer = ({
+  children,
+  withNotch = true,
+  isOpen: controlledIsOpen,
+  onOpenChange,
+}: DrawerProps) => {
   const [internalIsOpen, setInternalIsOpen] = useState(false)
 
   const isControlled = controlledIsOpen !== undefined
@@ -222,7 +230,9 @@ const Drawer = ({ children, withNotch = true, isOpen: controlledIsOpen, onOpenCh
   }
 
   return (
-    <DrawerContext.Provider value={{ isOpen, openDrawer, closeDrawer, withNotch }}>{children}</DrawerContext.Provider>
+    <DrawerContext.Provider value={{ isOpen, openDrawer, closeDrawer, withNotch }}>
+      {children}
+    </DrawerContext.Provider>
   )
 }
 
@@ -247,13 +257,21 @@ const DrawerHeader = ({ className, ...props }: React.ComponentProps<typeof Dialo
   <Dialog.Header className={cn("pt-2", className)} {...props} />
 )
 
-const DrawerBody = ({ children, className, ...props }: React.ComponentProps<typeof Dialog.Body>) => (
+const DrawerBody = ({
+  children,
+  className,
+  ...props
+}: React.ComponentProps<typeof Dialog.Body>) => (
   <Dialog.Body {...props} className={cn("px-4", className)}>
     {children}
   </Dialog.Body>
 )
 
-const DrawerFooter = ({ children, className, ...props }: React.ComponentProps<typeof Dialog.Footer>) => (
+const DrawerFooter = ({
+  children,
+  className,
+  ...props
+}: React.ComponentProps<typeof Dialog.Footer>) => (
   <Dialog.Footer {...props} className={cn("pb-2", className)}>
     {children}
   </Dialog.Footer>

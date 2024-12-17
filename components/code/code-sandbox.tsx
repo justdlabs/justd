@@ -50,7 +50,10 @@ export function CodeSandbox({ isIframe = true, classNames, source, src }: Props)
   return (
     <Tabs className="not-prose" aria-label="Code Sandbox">
       <TabsList src={src} />
-      <Tabs.Panel id="preview" className={cn("max-h-110 grow overflow-y-auto", classNames?.preview)}>
+      <Tabs.Panel
+        id="preview"
+        className={cn("max-h-110 grow overflow-y-auto", classNames?.preview)}
+      >
         <React.Suspense
           fallback={
             <div className="flex justify-center items-center py-6 text-sm text-muted-fg">
@@ -85,7 +88,8 @@ export function CodeSandbox({ isIframe = true, classNames, source, src }: Props)
                         values.isHovered && "bg-zinc-800 text-zinc-50 dark:bg-zinc-800/50",
                         values.isSelected &&
                           "border-zinc-700 bg-zinc-800 text-zinc-50 dark:border-zinc-800 dark:bg-zinc-800/50",
-                        values.isFocused && "bg-zinc-800 text-zinc-50 outline-hidden dark:bg-zinc-800/50",
+                        values.isFocused &&
+                          "bg-zinc-800 text-zinc-50 outline-hidden dark:bg-zinc-800/50",
                         values.isFocusVisible && "bg-zinc-800 text-zinc-50 dark:bg-zinc-800/50",
                       )
                     }

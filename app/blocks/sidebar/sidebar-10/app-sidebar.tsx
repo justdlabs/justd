@@ -1,6 +1,13 @@
 "use client"
 
-import { IconBrandApple, IconBullet, IconNotes, IconSettings, IconStore, IconWhiteboard } from "justd-icons"
+import {
+  IconBrandApple,
+  IconBullet,
+  IconNotes,
+  IconSettings,
+  IconStore,
+  IconWhiteboard,
+} from "justd-icons"
 import {
   Link,
   Sidebar,
@@ -41,7 +48,9 @@ export default function AppSidebar(props: React.ComponentProps<typeof Sidebar>) 
                     {({ isHovered }) => (
                       <>
                         <i aria-hidden className="content-center size-4">
-                          <IconBullet className={`${isHovered ? "fill-sky-500 text-sky-500" : ""} m-auto size-2`} />
+                          <IconBullet
+                            className={`${isHovered ? "fill-sky-500 text-sky-500" : ""} m-auto size-2`}
+                          />
                         </i>
                         <SidebarLabel>{item}</SidebarLabel>
                       </>

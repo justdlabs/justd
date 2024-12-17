@@ -56,7 +56,7 @@
     "enabled": true,
     "indentStyle": "space",
     "indentWidth": 2,
-    "lineWidth": 120,
+    "lineWidth": 100,
     "ignore": ["node_modules", ".next", ".velite", "dist", ".vercel"]
   },
   "javascript": {

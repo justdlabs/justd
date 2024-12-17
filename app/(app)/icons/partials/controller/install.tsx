@@ -1,6 +1,13 @@
 import { useState } from "react"
 
-import { IconBrandBun, IconBrandNpm, IconBrandPnpm, IconBrandYarn, IconCheck, IconDuplicate } from "justd-icons"
+import {
+  IconBrandBun,
+  IconBrandNpm,
+  IconBrandPnpm,
+  IconBrandYarn,
+  IconCheck,
+  IconDuplicate,
+} from "justd-icons"
 import { Button, Menu } from "ui"
 import { copyToClipboard } from "usemods"
 
@@ -31,7 +38,12 @@ export function Install({ pkg = "justd-icons" }: { pkg?: string }) {
     <div className="[&_.xd]:-mt-px xd flex h-10 w-full items-center justify-between rounded-lg border p-1 pl-3 font-mono text-sm tracking-tighter sm:min-w-72 sm:max-w-72 [&_.xd]:mr-[-0.30rem]">
       {command || "npm i justd-icons"}
       <Menu>
-        <Button size="square-petite" appearance="outline" className="rounded-md size-7" aria-label="Copy npm command">
+        <Button
+          size="square-petite"
+          appearance="outline"
+          className="rounded-md size-7"
+          aria-label="Copy npm command"
+        >
           {isCopied ? <IconCheck /> : <IconDuplicate />}
         </Button>
         <Menu.Content showArrow placement="bottom end">

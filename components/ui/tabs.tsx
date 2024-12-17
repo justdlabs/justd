@@ -123,7 +123,10 @@ const Panel = ({ className, ...props }: TabPanelProps) => {
   return (
     <TabPanel
       {...props}
-      className={composeTailwindRenderProps(className, "flex-1 text-fg text-sm data-focus-visible:outline-hidden")}
+      className={composeTailwindRenderProps(
+        className,
+        "flex-1 text-fg text-sm data-focus-visible:outline-hidden",
+      )}
     />
   )
 }

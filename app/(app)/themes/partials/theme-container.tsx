@@ -6,7 +6,12 @@ import { Blocks } from "@/app/(app)/themes/partials/blocks"
 import { GeneratedTheme } from "@/app/(app)/themes/partials/generated-theme"
 import { ThemeCustomizer } from "@/app/(app)/themes/partials/theme-customizer"
 import { CodeHighlighter } from "@/components/code/code-highlighter"
-import { IconBrandCss, IconChevronLgDown, IconDuplicate, IconLayoutColumnRightsideFill } from "justd-icons"
+import {
+  IconBrandCss,
+  IconChevronLgDown,
+  IconDuplicate,
+  IconLayoutColumnRightsideFill,
+} from "justd-icons"
 import { toast } from "sonner"
 import { Button, Container, Heading, Menu, Sheet } from "ui"
 
@@ -39,7 +44,8 @@ export function ThemeContainer() {
                   Theme Customizer
                 </Heading>
                 <p className="text-sm text-muted-fg">
-                  Customize your theme by selecting colors from the color picker or by entering a hex code.
+                  Customize your theme by selecting colors from the color picker or by entering a
+                  hex code.
                 </p>
               </div>
             </div>
@@ -59,7 +65,9 @@ export function ThemeContainer() {
                 <Heading level={2} className="sm:text-lg">
                   Generated Theme
                 </Heading>
-                <p className="text-sm text-muted-fg">The generated colors are based on the selected gray color.</p>
+                <p className="text-sm text-muted-fg">
+                  The generated colors are based on the selected gray color.
+                </p>
               </div>
               <Menu>
                 <Button className="hidden lg:flex">
@@ -101,7 +109,12 @@ export function ThemeContainer() {
           description="Copy the theme below and paste it into your CSS file."
         />
         <Sheet.Body className="pb-4 border-zinc-800 border-y">
-          <CodeHighlighter plain max96={false} className="pt-4" code={generateTheme(selectedColors)} />
+          <CodeHighlighter
+            plain
+            max96={false}
+            className="pt-4"
+            code={generateTheme(selectedColors)}
+          />
         </Sheet.Body>
         <Sheet.Footer className="gap-x-1">
           <Sheet.Close

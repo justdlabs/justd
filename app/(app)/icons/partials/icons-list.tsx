@@ -29,7 +29,8 @@ export function IconsList({ searchParams }: SearchParamsProps) {
   const filteredIcons = Object.entries(icons).filter(([name]) => {
     const matchesSearch = query ? name.toLowerCase().includes(query.toLowerCase()) : true
     const isSolid = name.toLowerCase().endsWith("fill")
-    const matchesFilter = (filterType === "solid" && isSolid) || (filterType === "regular" && !isSolid)
+    const matchesFilter =
+      (filterType === "solid" && isSolid) || (filterType === "regular" && !isSolid)
     return matchesSearch && matchesFilter
   })
 
@@ -80,7 +81,12 @@ export function IconListItem({ name, Icon }: IconListItemProps) {
     >
       <Icon aria-label={name} className={selectedSize} key={name} />
       <Menu isOpen={isSelected} onOpenChange={setSelected}>
-        <Menu.Content triggerRef={triggerRef} className="sm:min-w-48" showArrow aria-label="Options">
+        <Menu.Content
+          triggerRef={triggerRef}
+          className="sm:min-w-48"
+          showArrow
+          aria-label="Options"
+        >
           <Menu.Header className="font-mono text-xs font-normal sm:text-xs" separator>
             {name}
           </Menu.Header>

@@ -121,7 +121,10 @@ export function useActiveItem(itemIds: string[]) {
       (entries) => {
         let bestCandidate: IntersectionObserverEntry | null = null
         entries.forEach((entry) => {
-          if (entry.isIntersecting && (!bestCandidate || bestCandidate.intersectionRatio < entry.intersectionRatio)) {
+          if (
+            entry.isIntersecting &&
+            (!bestCandidate || bestCandidate.intersectionRatio < entry.intersectionRatio)
+          ) {
             bestCandidate = entry
           }
         })

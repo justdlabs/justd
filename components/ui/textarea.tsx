@@ -26,9 +26,19 @@ interface TextareaProps extends TextFieldPrimitiveProps {
   className?: string
 }
 
-const Textarea = ({ className, placeholder, label, description, errorMessage, ...props }: TextareaProps) => {
+const Textarea = ({
+  className,
+  placeholder,
+  label,
+  description,
+  errorMessage,
+  ...props
+}: TextareaProps) => {
   return (
-    <TextFieldPrimitive {...props} className={composeTailwindRenderProps(className, "group flex flex-col gap-y-1.5")}>
+    <TextFieldPrimitive
+      {...props}
+      className={composeTailwindRenderProps(className, "group flex flex-col gap-y-1.5")}
+    >
       {label && <Label>{label}</Label>}
       <TextAreaPrimitive
         placeholder={placeholder}

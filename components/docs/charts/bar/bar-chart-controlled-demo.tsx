@@ -42,7 +42,9 @@ export default function BarChartControlledDemo() {
       <Card.Header className="flex-row justify-between items-center">
         <div className="space-y-1">
           <Card.Title>Business Overview</Card.Title>
-          <Card.Description>Displaying total sales and revenue for the last 50 days</Card.Description>
+          <Card.Description>
+            Displaying total sales and revenue for the last 50 days
+          </Card.Description>
         </div>
         <div>
           <Select selectedKey={activeChart} onSelectionChange={setActiveChart}>
@@ -108,7 +110,10 @@ export default function BarChartControlledDemo() {
                 />
               }
             />
-            <Bar dataKey={activeChart as keyof typeof chartConfig} fill={`var(--color-${activeChart})`} />
+            <Bar
+              dataKey={activeChart as keyof typeof chartConfig}
+              fill={`var(--color-${activeChart})`}
+            />
           </BarChart>
         </Chart>
       </Card.Content>

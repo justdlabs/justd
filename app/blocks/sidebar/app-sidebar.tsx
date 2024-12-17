@@ -1,6 +1,14 @@
 "use client"
 
-import { IconBrandApple, IconCart, IconChartBar, IconDashboard, IconGear, IconPackage, IconPeople } from "justd-icons"
+import {
+  IconBrandApple,
+  IconCart,
+  IconChartBar,
+  IconDashboard,
+  IconGear,
+  IconPackage,
+  IconPeople,
+} from "justd-icons"
 import {
   Link,
   Sidebar,

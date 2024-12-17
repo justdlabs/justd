@@ -1,6 +1,9 @@
 "use client"
 
-import type { DateValue, RangeCalendarProps as RangeCalendarPrimitiveProps } from "react-aria-components"
+import type {
+  DateValue,
+  RangeCalendarProps as RangeCalendarPrimitiveProps,
+} from "react-aria-components"
 import {
   CalendarCell,
   CalendarGrid,
@@ -34,11 +37,16 @@ const cell = tv({
   },
 })
 
-interface RangeCalendarProps<T extends DateValue> extends Omit<RangeCalendarPrimitiveProps<T>, "visibleDuration"> {
+interface RangeCalendarProps<T extends DateValue>
+  extends Omit<RangeCalendarPrimitiveProps<T>, "visibleDuration"> {
   errorMessage?: string
 }
 
-const RangeCalendar = <T extends DateValue>({ errorMessage, className, ...props }: RangeCalendarProps<T>) => {
+const RangeCalendar = <T extends DateValue>({
+  errorMessage,
+  className,
+  ...props
+}: RangeCalendarProps<T>) => {
   return (
     <RangeCalendarPrimitive
       className={composeTailwindRenderProps(className, "max-w-[17.5rem] sm:max-w-[15.8rem]")}
@@ -61,11 +69,22 @@ const RangeCalendar = <T extends DateValue>({ errorMessage, className, ...props 
                 "forced-colors:data-invalid:data-selected:bg-[Mark] forced-colors:data-selected:bg-[Highlight] forced-colors:data-selected:text-[HighlightText]",
               ])}
             >
-              {({ formattedDate, isSelected, isSelectionStart, isSelectionEnd, isFocusVisible, isDisabled }) => (
+              {({
+                formattedDate,
+                isSelected,
+                isSelectionStart,
+                isSelectionEnd,
+                isFocusVisible,
+                isDisabled,
+              }) => (
                 <span
                   className={cell({
                     selectionState:
-                      isSelected && (isSelectionStart || isSelectionEnd) ? "cap" : isSelected ? "middle" : "none",
+                      isSelected && (isSelectionStart || isSelectionEnd)
+                        ? "cap"
+                        : isSelected
+                          ? "middle"
+                          : "none",
                     isFocusVisible,
                     isDisabled,
                   })}

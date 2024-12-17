@@ -4,7 +4,12 @@ import type React from "react"
 
 import { IconHamburger } from "justd-icons"
 import type { GridListItemProps, GridListProps } from "react-aria-components"
-import { Button, GridListItem, GridList as GridListPrimitive, composeRenderProps } from "react-aria-components"
+import {
+  Button,
+  GridListItem,
+  GridList as GridListPrimitive,
+  composeRenderProps,
+} from "react-aria-components"
 import { tv } from "tailwind-variants"
 
 import { Checkbox } from "./checkbox"
@@ -45,12 +50,17 @@ const Item = ({ className, ...props }: GridListItemProps) => {
     <GridListItem
       textValue={textValue}
       {...props}
-      className={composeRenderProps(className, (className, renderProps) => itemStyles({ ...renderProps, className }))}
+      className={composeRenderProps(className, (className, renderProps) =>
+        itemStyles({ ...renderProps, className }),
+      )}
     >
       {({ selectionMode, selectionBehavior, allowsDragging }) => (
         <>
           {allowsDragging && (
-            <Button slot="drag" className="cursor-grab data-dragging:cursor-grabbing *:data-[slot=icon]:text-muted-fg">
+            <Button
+              slot="drag"
+              className="cursor-grab data-dragging:cursor-grabbing *:data-[slot=icon]:text-muted-fg"
+            >
               <IconHamburger />
             </Button>
           )}
@@ -69,7 +79,9 @@ const Item = ({ className, ...props }: GridListItemProps) => {
   )
 }
 
-const EmptyState = (props: React.HTMLAttributes<HTMLDivElement>) => <div className="p-6" {...props} />
+const EmptyState = (props: React.HTMLAttributes<HTMLDivElement>) => (
+  <div className="p-6" {...props} />
+)
 
 GridList.Item = Item
 GridList.EmptyState = EmptyState

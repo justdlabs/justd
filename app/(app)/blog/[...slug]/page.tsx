@@ -106,9 +106,13 @@ export default async function PostPage(props: DocPageProps) {
               <div className="font-mono text-xs text-blue-600 uppercase dark:text-blue-400">
                 {extractSegment(article.slug)}
               </div>
-              <h1 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">{article.title}</h1>
+              <h1 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
+                {article.title}
+              </h1>
               {article.description ? (
-                <p className="mt-2.5 text-base leading-relaxed text-pretty text-fg/60">{article.description}</p>
+                <p className="mt-2.5 text-base leading-relaxed text-pretty text-fg/60">
+                  {article.description}
+                </p>
               ) : null}
             </div>
           </div>

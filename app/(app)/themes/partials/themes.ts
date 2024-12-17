@@ -36,7 +36,13 @@ export const generateTheme = (selectedColors: Record<string, string>) => {
   const isShade500Accent = accentColors500.includes(accent)
   const isShade300Accent = accentColors300.includes(accent)
 
-  const determineShade = (isNeutral: boolean, is500: boolean, is300: boolean, is400: boolean, isDarkMode = false) => {
+  const determineShade = (
+    isNeutral: boolean,
+    is500: boolean,
+    is300: boolean,
+    is400: boolean,
+    isDarkMode = false,
+  ) => {
     if (isNeutral) return isDarkMode ? "50" : "950" // Adjust for light and dark
     if (is500) return "500"
     if (is300) return "300"
@@ -49,7 +55,12 @@ export const generateTheme = (selectedColors: Record<string, string>) => {
     return is400 ? "950" : "white"
   }
 
-  const lightPrimary: Shade = determineShade(isNeutralPrimary, isShade500Primary, isShade300Primary, isShade400Primary)
+  const lightPrimary: Shade = determineShade(
+    isNeutralPrimary,
+    isShade500Primary,
+    isShade300Primary,
+    isShade400Primary,
+  )
   const lightPrimaryFg: ForegroundColor = determineForeground(isNeutralPrimary, isShade400Primary)
 
   const darkPrimary: Shade = determineShade(
@@ -59,7 +70,11 @@ export const generateTheme = (selectedColors: Record<string, string>) => {
     isShade400Primary,
     true,
   )
-  const darkPrimaryFg: ForegroundColor = determineForeground(isNeutralPrimary, isShade400Primary, true)
+  const darkPrimaryFg: ForegroundColor = determineForeground(
+    isNeutralPrimary,
+    isShade400Primary,
+    true,
+  )
 
   const lightAccent: Shade = isNeutralAccent
     ? "200"
@@ -75,10 +90,15 @@ export const generateTheme = (selectedColors: Record<string, string>) => {
     ? "50"
     : determineForeground(isNeutralAccent, isShade400Accent, true)
 
-  const dangerColor = primary === "red" ? adjustLightness(getColorValue("red", "600"), -4) : getColorValue("red", "600")
+  const dangerColor =
+    primary === "red"
+      ? adjustLightness(getColorValue("red", "600"), -4)
+      : getColorValue("red", "600")
 
   const warningColor =
-    primary === "amber" ? adjustLightness(getColorValue("amber", "200"), -0) : getColorValue("amber", "400")
+    primary === "amber"
+      ? adjustLightness(getColorValue("amber", "200"), -0)
+      : getColorValue("amber", "400")
 
   const lightPrimaryFgValue = getFgValue(primary, lightPrimaryFg)
   const darkPrimaryFgValue = getFgValue(primary, darkPrimaryFg)

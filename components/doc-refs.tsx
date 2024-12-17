@@ -73,7 +73,12 @@ export function DocRefs({ references }: { references: string[] }) {
   })
 
   return (
-    <ListBox orientation="horizontal" className="flex gap-x-2 mt-6 not-prose" aria-label="Link References" items={urls}>
+    <ListBox
+      orientation="horizontal"
+      className="flex gap-x-2 mt-6 not-prose"
+      aria-label="Link References"
+      items={urls}
+    >
       {(item: { url: string; title: string; icon: FC<SVGProps<SVGSVGElement>> }) => (
         <ListBoxItem
           textValue={item.title}

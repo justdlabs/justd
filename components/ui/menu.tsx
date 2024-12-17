@@ -75,11 +75,15 @@ interface MenuTriggerProps extends ButtonProps {
 
 const Trigger = ({ className, ...props }: MenuTriggerProps) => (
   <Button data-slot="menu-trigger" className={trigger({ className })} {...props}>
-    {(values) => <>{typeof props.children === "function" ? props.children(values) : props.children}</>}
+    {(values) => (
+      <>{typeof props.children === "function" ? props.children(values) : props.children}</>
+    )}
   </Button>
 )
 
-interface MenuContentProps<T> extends Omit<PopoverProps, "children" | "style">, MenuPrimitiveProps<T> {
+interface MenuContentProps<T>
+  extends Omit<PopoverProps, "children" | "style">,
+    MenuPrimitiveProps<T> {
   className?: string
   popoverClassName?: string
   showArrow?: boolean

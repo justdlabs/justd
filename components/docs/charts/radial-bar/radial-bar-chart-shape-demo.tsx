@@ -40,7 +40,12 @@ export default function SalesPerformance() {
                 content={({ viewBox }) => {
                   if (viewBox && "cx" in viewBox && "cy" in viewBox) {
                     return (
-                      <text x={viewBox.cx} y={viewBox.cy} textAnchor="middle" dominantBaseline="middle">
+                      <text
+                        x={viewBox.cx}
+                        y={viewBox.cy}
+                        textAnchor="middle"
+                        dominantBaseline="middle"
+                      >
                         <tspan x={viewBox.cx} y={viewBox.cy} className="text-4xl font-bold fill-fg">
                           {chartData[0].sales.toLocaleString()}
                         </tspan>

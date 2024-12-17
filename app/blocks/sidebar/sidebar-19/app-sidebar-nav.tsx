@@ -1,6 +1,13 @@
 "use client"
 
-import { IconCommandRegular, IconDashboard, IconHeadphones, IconLogout, IconMic, IconSettings } from "justd-icons"
+import {
+  IconCommandRegular,
+  IconDashboard,
+  IconHeadphones,
+  IconLogout,
+  IconMic,
+  IconSettings,
+} from "justd-icons"
 import { Avatar, Button, Menu, SearchField, SidebarNav, SidebarTrigger } from "ui"
 
 export default function AppSidebarNav() {

@@ -99,14 +99,18 @@ export function IconResources() {
             </h2>
             <p className="mt-3 mb-6 leading-relaxed lg:text-lg text-muted-fg text-pretty">
               Justd Icons is a powerful open-source SVG icon library with over{" "}
-              <strong className="text-fg">1,191 symbols</strong>, and more added with every release. Designed to
-              seamlessly integrate into any project, they work perfectly whether or not you use Justd components.
+              <strong className="text-fg">1,191 symbols</strong>, and more added with every release.
+              Designed to seamlessly integrate into any project, they work perfectly whether or not
+              you use Justd components.
             </p>
 
             <div className="flex justify-between items-center py-1 px-3 max-w-xs h-11 text-sm rounded-lg border group bg-secondary/20 shadow-xs dark:bg-secondary/50">
               <code>npm i justd-icons</code>
               <Button
-                className={cn("size-8 group-hover:flex hidden -mr-2 rounded-xs", isCopied ? "flex" : "hidden")}
+                className={cn(
+                  "size-8 group-hover:flex hidden -mr-2 rounded-xs",
+                  isCopied ? "flex" : "hidden",
+                )}
                 onPress={() => handleCopy("npm i justd-icons")}
                 appearance="plain"
                 size="square-petite"

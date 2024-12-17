@@ -7,7 +7,12 @@ import { IconBulletFill } from "justd-icons"
 
 import { cn } from "@/utils/classes"
 
-const InputOTP = ({ className, containerClassName, ref, ...props }: React.ComponentProps<typeof OTPInput>) => (
+const InputOTP = ({
+  className,
+  containerClassName,
+  ref,
+  ...props
+}: React.ComponentProps<typeof OTPInput>) => (
   <OTPInput
     data-1p-ignore
     ref={ref}

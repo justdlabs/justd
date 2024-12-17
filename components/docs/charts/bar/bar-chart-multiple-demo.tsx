@@ -4,7 +4,20 @@ import { Bar, BarChart, CartesianGrid, XAxis } from "recharts"
 import { Card, Chart, type ChartConfig, ChartTooltip, ChartTooltipContent } from "ui"
 
 const chartData = Array.from({ length: 12 }, (_, i) => {
-  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ]
   return {
     month: months[i],
     sales: 1000 + Math.floor(Math.random() * 300), // Random value for Sales

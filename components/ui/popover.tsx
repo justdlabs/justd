@@ -27,7 +27,10 @@ const Popover = ({ children, ...props }: DialogTriggerProps) => {
 }
 
 const Title = ({ level = 2, className, ...props }: React.ComponentProps<typeof Dialog.Title>) => (
-  <Dialog.Title className={twMerge("sm:leading-none", level === 2 && "sm:text-lg", className)} {...props} />
+  <Dialog.Title
+    className={twMerge("sm:leading-none", level === 2 && "sm:text-lg", className)}
+    {...props}
+  />
 )
 
 const Header = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
@@ -104,7 +107,13 @@ interface PopoverProps
   className?: string | ((values: { defaultClassName?: string }) => string)
 }
 
-const Content = ({ respectScreen = true, children, showArrow = true, className, ...props }: PopoverProps) => {
+const Content = ({
+  respectScreen = true,
+  children,
+  showArrow = true,
+  className,
+  ...props
+}: PopoverProps) => {
   const isMobile = useMediaQuery("(max-width: 600px)")
   const popoverContext = useSlottedContext(PopoverContext)!
   const isMenuTrigger = popoverContext?.trigger === "MenuTrigger"

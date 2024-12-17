@@ -2,7 +2,10 @@
 
 import { IconCircleExclamation } from "justd-icons"
 import { motion } from "motion/react"
-import { Meter as MeterPrimitive, type MeterProps as MeterPrimitiveProps } from "react-aria-components"
+import {
+  Meter as MeterPrimitive,
+  type MeterProps as MeterPrimitiveProps,
+} from "react-aria-components"
 
 import { Label } from "./field"
 import { composeTailwindRenderProps } from "./primitive"
@@ -13,12 +16,17 @@ export interface MeterProps extends MeterPrimitiveProps {
 
 const Meter = ({ label, ...props }: MeterProps) => {
   return (
-    <MeterPrimitive {...props} className={composeTailwindRenderProps(props.className, "flex flex-col gap-1")}>
+    <MeterPrimitive
+      {...props}
+      className={composeTailwindRenderProps(props.className, "flex flex-col gap-1")}
+    >
       {({ percentage, valueText }) => (
         <>
           <div className="flex gap-2 justify-between w-full">
             <Label>{label}</Label>
-            <span className={`text-sm tabular-nums ${percentage >= 80 ? "text-danger" : "text-muted-fg"}`}>
+            <span
+              className={`text-sm tabular-nums ${percentage >= 80 ? "text-danger" : "text-muted-fg"}`}
+            >
               {percentage >= 80 && (
                 <IconCircleExclamation
                   aria-label="Alert"

@@ -65,7 +65,12 @@ const Description = ({ className, ...props }: DescriptionProps) => {
 }
 
 const FieldError = ({ className, ...props }: FieldErrorProps) => {
-  return <FieldErrorPrimitive {...props} className={composeTailwindRenderProps(className, fieldError())} />
+  return (
+    <FieldErrorPrimitive
+      {...props}
+      className={composeTailwindRenderProps(className, fieldError())}
+    />
+  )
 }
 
 const fieldGroupStyles = tv({
@@ -101,7 +106,13 @@ const FieldGroup = ({ className, ...props }: GroupProps) => {
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(({ className, ...props }, ref) => {
-  return <InputPrimitive ref={ref} {...props} className={composeTailwindRenderProps(className, input())} />
+  return (
+    <InputPrimitive
+      ref={ref}
+      {...props}
+      className={composeTailwindRenderProps(className, input())}
+    />
+  )
 })
 
 Input.displayName = "Input"

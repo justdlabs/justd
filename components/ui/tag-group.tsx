@@ -34,7 +34,10 @@ const intents = {
     ],
   },
   secondary: {
-    base: [badgeIntents.secondary, "**:[[slot=remove]]:data-hovered:bg-fg **:[[slot=remove]]:data-hovered:text-bg"],
+    base: [
+      badgeIntents.secondary,
+      "**:[[slot=remove]]:data-hovered:bg-fg **:[[slot=remove]]:data-hovered:text-bg",
+    ],
     selected: [
       "bg-fg ring-fg/50 text-bg dark:bg-fg/90 dark:text-secondary ring-inset",
       "**:[[slot=remove]]:data-hovered:**:[[slot=remove]]:data-hovered:text-secondary-fg",
@@ -114,7 +117,12 @@ const TagGroup = ({ children, ...props }: TagGroupProps) => {
 }
 
 const TagList = <T extends object>({ className, ...props }: TagListProps<T>) => {
-  return <TagListPrimitive {...props} className={composeTailwindRenderProps(className, "flex flex-wrap gap-2")} />
+  return (
+    <TagListPrimitive
+      {...props}
+      className={composeTailwindRenderProps(className, "flex flex-wrap gap-2")}
+    />
+  )
 }
 
 const tagStyles = tv({

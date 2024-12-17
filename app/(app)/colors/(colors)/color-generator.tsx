@@ -92,7 +92,8 @@ export function ColorGenerator() {
             <div className="mb-7">
               <Heading level={2}>Generate</Heading>
               <p className="text-sm text-muted-fg">
-                Genereate your desired color by picking a shade from the color picker or by entering a hex code.
+                Genereate your desired color by picking a shade from the color picker or by entering
+                a hex code.
               </p>
             </div>
             <ColorField
@@ -110,12 +111,18 @@ export function ColorGenerator() {
             )}
           >
             <div className="flex justify-between items-center mb-4">
-              <div className="font-mono text-sm uppercase">{getColorName(value.toString("hex"))}</div>
+              <div className="font-mono text-sm uppercase">
+                {getColorName(value.toString("hex"))}
+              </div>
               <div>
                 <SelectFormat selected={selectedFormat} setSelected={setSelectedFormat} />
               </div>
             </div>
-            <ListBox aria-label="Colors" orientation="horizontal" className="flex flex-wrap gap-2 sm:flex-nowrap">
+            <ListBox
+              aria-label="Colors"
+              orientation="horizontal"
+              className="flex flex-wrap gap-2 sm:flex-nowrap"
+            >
               {Object.entries(tailwindShades).map(([shade, colorValue]) => (
                 <ListBoxItem
                   textValue={colorValue}

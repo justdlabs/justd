@@ -37,7 +37,12 @@ interface SliderProps extends SliderPrimitiveProps {
   thumbLabels?: string[]
 }
 
-const Slider = ({ output = "inline", orientation = "horizontal", className, ...props }: SliderProps) => {
+const Slider = ({
+  output = "inline",
+  orientation = "horizontal",
+  className,
+  ...props
+}: SliderProps) => {
   const showTooltip = output === "tooltip"
   const [showTooltipState, setShowTooltipState] = useState(false)
 
@@ -97,7 +102,9 @@ const Slider = ({ output = "inline", orientation = "horizontal", className, ...p
   return (
     <SliderPrimitive
       orientation={orientation}
-      className={composeRenderProps(className, (className, renderProps) => sliderStyles({ ...renderProps, className }))}
+      className={composeRenderProps(className, (className, renderProps) =>
+        sliderStyles({ ...renderProps, className }),
+      )}
       {...props}
     >
       <div className="flex text-fg">
@@ -140,7 +147,12 @@ const controlsStyles = tv({
 const { track, filler } = controlsStyles()
 
 const Track = (props: SliderTrackProps) => {
-  return <SliderTrack {...props} className={composeRenderProps(props.className, (className) => track({ className }))} />
+  return (
+    <SliderTrack
+      {...props}
+      className={composeRenderProps(props.className, (className) => track({ className }))}
+    />
+  )
 }
 
 const Filler = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => {
@@ -183,7 +195,9 @@ const Thumb = ({ className, ...props }: SliderThumbProps) => {
   return (
     <SliderThumb
       {...props}
-      className={composeRenderProps(className, (className, renderProps) => thumbStyles({ ...renderProps, className }))}
+      className={composeRenderProps(className, (className, renderProps) =>
+        thumbStyles({ ...renderProps, className }),
+      )}
     />
   )
 }

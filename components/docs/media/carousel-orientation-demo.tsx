@@ -35,7 +35,8 @@ const items = [
   {
     id: 2,
     title: "Wireless Bluetooth Headphones",
-    description: "Experience high-quality sound with these comfortable, noise-canceling headphones.",
+    description:
+      "Experience high-quality sound with these comfortable, noise-canceling headphones.",
   },
   {
     id: 3,

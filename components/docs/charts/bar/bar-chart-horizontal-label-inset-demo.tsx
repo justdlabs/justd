@@ -68,7 +68,13 @@ export default function BarChartHorizontalLabelInsetDemo() {
       </Card.Header>
       <Card.Content>
         <Chart config={chartConfig} className="aspect-[15/11] sm:aspect-[17/11]">
-          <BarChart accessibilityLayer data={chartData} layout="vertical" barSize={30} margin={{ left: 0, right: 0 }}>
+          <BarChart
+            accessibilityLayer
+            data={chartData}
+            layout="vertical"
+            barSize={30}
+            margin={{ left: 0, right: 0 }}
+          >
             <YAxis dataKey="name" type="category" hide />
             <XAxis dataKey="count" type="number" hide />
             <Bar
@@ -83,7 +89,12 @@ export default function BarChartHorizontalLabelInsetDemo() {
                   <text x={props.x + 10} y={props.y + 20} fill="white">
                     {props.country}
                   </text>
-                  <text x={props.background.width - 10} y={props.y + 20} textAnchor="end" fill="var(--fg)">
+                  <text
+                    x={props.background.width - 10}
+                    y={props.y + 20}
+                    textAnchor="end"
+                    fill="var(--fg)"
+                  >
                     {props.count.toLocaleString()} ({props.percentage.toFixed(1)}%)
                   </text>
                 </>
