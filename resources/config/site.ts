@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "Justd",
-  url: "https://getjustd.com",
+  url: "https://1x.getjustd.com",
   description:
     "Justd offers customizable, accessible React components with Tailwind CSS, ready for easy copy and paste into your projects.",
   author: "irsyadadl",
