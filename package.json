@@ -1,7 +1,7 @@
 {
   "name": "justd",
   "author": "irsyadadl",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "first-time": "bun i && next build && bun run build:sidebar && next start",
