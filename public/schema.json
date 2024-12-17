@@ -9,7 +9,7 @@
     "ui": {
       "type": "string"
     },
-    "classes": {
+    "utils": {
       "type": "string"
     },
     "gray": {
