@@ -15,7 +15,7 @@ export default {
     async headers() {
         return [
             {
-                source: "/_next/static/:path*",
+                source: "/_next/:path*",
                 headers: [
                     { key: "Access-Control-Allow-Origin", value: "*" },
                     { key: "Access-Control-Allow-Methods", value: "GET, OPTIONS" },
