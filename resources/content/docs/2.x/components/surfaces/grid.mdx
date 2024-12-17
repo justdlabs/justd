@@ -3,7 +3,7 @@ title: "Grid"
 description: Check out this Responsive Grid component! It adjusts columns and gaps for any device, enhancing your UI’s vibe and usability across all screen sizes.
 order: 2
 published: true
-status: alpha
+status: beta
 ---
 
 ## Basic
@@ -36,13 +36,8 @@ Grid's gaps are configurable, allowing you to define the space between each item
 <How withNoPadding isCenter={false} toUse="surfaces/grid/grid-gap-demo" />
 
 ## Gaps X and Y
-Sometimes you need make diffrent gaps for the x and y axis. Grid's `gapX` and `gapY` props allow you to do just that.
+Sometimes you need make diffrent gaps for the `x` and `y` axis. Grid's `gapX` and `gapY` props allow you to do just that.
 <How withNoPadding isCenter={false} toUse="surfaces/grid/grid-gap-x-y-demo" />
-
-## Collections
-You might wanna render this grid on the fly for stuff like articles, podcasts, or whatever. It's a breeze to just toss in items as props like this. Not sure why we roll with collections? Check it out [here](https://react-spectrum.adobe.com/react-aria/collections.html#why-not-array-map).
-
-<How withNoPadding isCenter={false} toUse="surfaces/grid/grid-collections-demo" />
 
 ## Debugging
 Sometimes you need to know what's going on in your grid. Grid has a `debug` prop that will add a border around each item.

@@ -17,8 +17,8 @@ import type { DialogProps } from "react-aria-components"
 import { type ButtonProps, Modal, ModalOverlay } from "react-aria-components"
 import { twJoin } from "tailwind-merge"
 
+import { cn } from "@/utils/classes"
 import { Dialog } from "./dialog"
-import { cn } from "./primitive"
 
 const inertiaTransition: Inertia = {
   type: "inertia",

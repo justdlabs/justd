@@ -27,7 +27,7 @@ type Sides = "top" | "bottom" | "left" | "right"
 const generateCompoundVariants = (sides: Array<Sides>) => {
   return sides.map((side) => ({
     side,
-    isStack: true,
+    isFloat: true,
     className:
       side === "top"
         ? "top-2 inset-x-2 rounded-xl ring-1 border-b-0"
@@ -56,7 +56,7 @@ const contentStyles = tv({
       right:
         "inset-y-0 right-0 h-auto w-[18rem] sm:w-[19rem] sm:w-3/4 overflow-y-auto border-l data-entering:slide-in-from-right data-exiting:slide-out-to-right sm:max-w-xs",
     },
-    isStack: {
+    isFloat: {
       false: "border-fg/20 dark:border-border",
       true: "ring-fg/5 dark:ring-border",
     },
@@ -77,7 +77,7 @@ interface SheetContentProps
   role?: DialogProps["role"]
   closeButton?: boolean
   isBlurred?: boolean
-  isStack?: boolean
+  isFloat?: boolean
   side?: Sides
   classNames?: {
     overlay?: ModalOverlayProps["className"]
@@ -92,7 +92,7 @@ const Content = ({
   side = "right",
   role = "dialog",
   closeButton = true,
-  isStack = true,
+  isFloat = true,
   children,
   ...props
 }: SheetContentProps) => {
@@ -114,7 +114,7 @@ const Content = ({
           contentStyles({
             ...renderProps,
             side,
-            isStack,
+            isFloat,
             className,
           }),
         )}

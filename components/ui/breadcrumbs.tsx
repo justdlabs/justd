@@ -4,8 +4,9 @@ import { IconChevronLgRight } from "justd-icons"
 import type { BreadcrumbProps, BreadcrumbsProps } from "react-aria-components"
 import { Breadcrumb, Breadcrumbs as BreadcrumbsPrimitive, type LinkProps } from "react-aria-components"
 
+import { cn } from "@/utils/classes"
 import { Link } from "./link"
-import { cn, composeTailwindRenderProps } from "./primitive"
+import { composeTailwindRenderProps } from "./primitive"
 
 const Breadcrumbs = <T extends object>({ className, ...props }: BreadcrumbsProps<T>) => {
   return <BreadcrumbsPrimitive {...props} className={cn("flex items-center gap-2", className)} />
@@ -33,7 +34,7 @@ const Item = ({ href, separator = true, className, ...props }: ItemProps & Parti
 
 const Separator = ({ separator = "chevron" }: { separator?: ItemProps["separator"] }) => {
   return (
-    <span className={cn("*:shrink-0 *:text-muted-fg *:data-[slot=icon]:size-3.5")}>
+    <span className="*:shrink-0 *:text-muted-fg *:data-[slot=icon]:size-3.5">
       {separator === "chevron" && <IconChevronLgRight />}
       {separator === "slash" && <span className="text-muted-fg">/</span>}
     </span>

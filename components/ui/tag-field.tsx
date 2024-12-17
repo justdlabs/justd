@@ -8,9 +8,9 @@ import type { ListData } from "react-stately"
 import { twJoin } from "tailwind-merge"
 import { tv } from "tailwind-variants"
 
+import { cn } from "@/utils/classes"
 import type { FieldProps } from "./field"
 import { Description, Input, Label } from "./field"
-import { cn } from "./primitive"
 import type { RestrictedIntent, TagGroupProps } from "./tag-group"
 import { Tag, TagGroup, TagList } from "./tag-group"
 

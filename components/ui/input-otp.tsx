@@ -5,7 +5,7 @@ import { use } from "react"
 import { OTPInput, OTPInputContext } from "input-otp"
 import { IconBulletFill } from "justd-icons"
 
-import { cn } from "./primitive"
+import { cn } from "@/utils/classes"
 
 const InputOTP = ({ className, containerClassName, ref, ...props }: React.ComponentProps<typeof OTPInput>) => (
   <OTPInput

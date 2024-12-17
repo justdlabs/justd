@@ -5,7 +5,7 @@ import { createContext, forwardRef, use, useId, useMemo } from "react"
 import type { LegendProps } from "recharts"
 import { Legend, ResponsiveContainer, Tooltip } from "recharts"
 
-import { cn } from "./primitive"
+import { cn } from "@/utils/classes"
 
 const THEMES = { light: "", dark: ".dark" } as const
 
@@ -185,12 +185,13 @@ const ChartTooltipContent = forwardRef<
                     ) : (
                       !hideIndicator && (
                         <div
-                          className={cn("shrink-0 rounded-[2px] border-(--color-border) bg-(--color-bg)", {
-                            "size-2.5": indicator === "dot",
-                            "w-1": indicator === "line",
-                            "w-0 border-[1.5px] border-dashed bg-transparent": indicator === "dashed",
-                            "my-0.5": nestLabel && indicator === "dashed",
-                          })}
+                          className={cn(
+                            "shrink-0 rounded-[2px] border-(--color-border) bg-(--color-bg)",
+                            indicator === "dot" && "size-2.5",
+                            indicator === "line" && "w-1",
+                            indicator === "dashed" && "w-0 border-[1.5px] border-dashed bg-transparent",
+                            nestLabel && indicator === "dashed" && "my-0.5",
+                          )}
                           style={
                             {
                               "--color-bg": indicatorColor,

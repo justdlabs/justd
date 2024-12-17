@@ -2,10 +2,12 @@
 
 import React, { Suspense, useState } from "react"
 
+import { cn } from "@/utils/classes"
 import { useScrollPosition } from "hooks/use-scroll-position"
+import { usePathname } from "next/navigation"
 import { Heading } from "react-aria-components"
 import scrollIntoView from "scroll-into-view-if-needed"
-import { cn, useMediaQuery } from "ui"
+import { useMediaQuery } from "ui"
 
 interface TableOfContentsProps {
   title: string
@@ -28,6 +30,9 @@ export function TableOfContents({ className, items }: Props) {
   ])
   const activeId = useActiveItem(ids)
   const activeIndex = activeId?.length || 0
+
+  const pathname = usePathname()
+
   React.useEffect(() => {
     if (!activeId || activeIndex < 2) return
     const anchor = tocRef.current?.querySelector(`li > a[href="#${activeId}"]`)
@@ -44,6 +49,7 @@ export function TableOfContents({ className, items }: Props) {
   }, [activeId, activeIndex])
 
   const isLargeScreen = useMediaQuery("(min-width: 1024px)")
+
   return (
     <aside
       ref={tocRef}

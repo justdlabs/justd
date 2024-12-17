@@ -27,10 +27,11 @@ import {
 import type { VariantProps } from "tailwind-variants"
 import { tv } from "tailwind-variants"
 
+import { composeTailwindRenderProps } from "@/components/ui/primitive"
+import { cn } from "@/utils/classes"
 import { DropdownItemDetails, dropdownItemStyles, dropdownSectionStyles } from "./dropdown"
 import { Keyboard } from "./keyboard"
 import { Popover } from "./popover"
-import { cn } from "./primitive"
 
 interface MenuContextProps {
   respectScreen: boolean
@@ -157,7 +158,7 @@ const MenuSeparator = ({ className, ...props }: SeparatorProps) => (
 )
 
 const Checkbox = ({ className, children, ...props }: MenuItemProps) => (
-  <Item className={cn("relative pr-8", className)} {...props}>
+  <Item className={composeTailwindRenderProps(className, "relative pr-8")} {...props}>
     {(values) => (
       <>
         {typeof children === "function" ? children(values) : children}
@@ -171,8 +172,8 @@ const Checkbox = ({ className, children, ...props }: MenuItemProps) => (
   </Item>
 )
 
-const Radio = ({ className, children, ...props }: MenuItemProps) => (
-  <Item className={cn("relative ", className)} {...props}>
+const Radio = ({ children, ...props }: MenuItemProps) => (
+  <Item {...props}>
     {(values) => (
       <>
         {typeof children === "function" ? children(values) : children}

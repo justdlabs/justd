@@ -1,4 +1,4 @@
-import { cn } from "@/resources/lib/utils"
+import { cn } from "@/utils/classes"
 import type { TextProps } from "react-aria-components"
 import { Note, type NoteProps } from "ui"
 

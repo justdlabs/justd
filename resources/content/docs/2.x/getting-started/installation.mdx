@@ -172,11 +172,11 @@ Following that, include the animation package for managing animations and Parano
   in a separate file like this:
 
   ```ts title="utils/classes.ts"
-  import { twMerge } from 'tailwind-merge'
-  import { type ClassValue, clsx} from 'clsx'
+import { type ClassValue, cnBase } from "tailwind-variants"
+import { twMerge } from "tailwind-merge"
 
-  export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs))
-  ```
+export const cn = (...inputs: ClassValue[]): string => twMerge(cnBase(...inputs))
+```
 
 ### Simple Import
 Indeed, it's efficient because the `index.ts` file in your UI folder serves as a hub. Even if the button and badge

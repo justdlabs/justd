@@ -1,7 +1,7 @@
 "use client"
 
 import { CodeHighlighter } from "@/components/code/code-highlighter"
-import { CopyButton } from "@/components/code/copy-button"
+import { CopyMotionButton } from "@/components/code/copy-button"
 import { IconBrandReactjs } from "justd-icons"
 import { Group } from "react-aria-components"
 
@@ -20,7 +20,7 @@ export function PlainCode({ title, lang = "tsx", code }: PlainCodeProps) {
           {title}
         </figcaption>
       )}
-      <CopyButton text={code} className="absolute top-0 right-0" />
+      <CopyMotionButton text={code} className="absolute right-0 top-2" />
       <CodeHighlighter removeLastLine code={code} lang={lang} />
     </Group>
   )

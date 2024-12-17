@@ -17,7 +17,7 @@ export default function Page() {
       <Container className={"py-4 sm:py-16"}>
         <Note intent="info" className="max-w-md">
           This page is under construction. Please check back later for updates. For now, you can check out the{" "}
-          <Link href="/docs/components/charts/setup">Charts</Link>.
+          <Link href="/docs/2.x/components/charts/setup">Charts</Link>.
         </Note>
       </Container>
     </div>

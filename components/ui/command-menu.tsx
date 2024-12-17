@@ -34,12 +34,12 @@ const commandStyles = tv({
     ],
     modal: [
       "fixed bottom-0 left-[50%] top-auto z-50 grid h-[calc(100vh-35%)] w-full max-w-full translate-x-[-50%] gap-4 overflow-hidden rounded-t-2xl bg-overlay text-overlay-fg shadow-lg forced-colors:border ring-1 ring-fg/10 dark:ring-border sm:bottom-auto sm:top-[6rem] sm:h-auto sm:w-full sm:max-w-2xl sm:rounded-xl",
-      "sm:data-entering:slide-in-from-bottom-auto data-entering:duration-300 data-entering:animate-in data-entering:fade-in-0 data-entering:slide-in-from-bottom-1/2 data-entering:[transition-timing-function:ease-out] sm:data-entering:duration-300 sm:data-entering:slide-in-from-top-[2rem]",
-      "data-exiting:duration-200 data-exiting:animate-out data-exiting:fade-out-0 data-exiting:slide-out-to-bottom-1/2 data-exiting:[transition-timing-function:ease] sm:data-exiting:slide-out-to-top-[4rem]",
+      "data-entering:duration-300 data-entering:animate-in data-entering:fade-in-0 data-entering:slide-in-from-bottom sm:data-entering:slide-in-from-bottom-0 sm:data-entering:duration-300 sm:data-entering:zoom-in-95",
+      "data-exiting:duration-200 data-exiting:animate-out data-exiting:fade-out sm:data-exiting:zoom-out-95 data-exiting:slide-out-to-bottom-56 sm:data-exiting:slide-out-to-bottom-0",
     ],
     closeButton: [
       "absolute right-3 top-1.5 [&>span>[data-slot=icon]]:text-muted-fg **:data-[slot=icon]:data-pressed:text-fg lg:top-3.5 rounded-full border lg:border-border border-transparent lg:bg-secondary/50 py-2.5 px-2.5 lg:py-0.5 text-xs transition-opacity data-[state=open]:bg-secondary data-[state=open]:text-muted-fg lg:focus:border-fg/70 data-focused:outline-hidden lg:focus:ring-2 lg:data-focused:ring-ring data-disabled:pointer-events-none",
-      "focus:outline-hidden lg:data-focused:bg-primary/10 lg:data-focused:ring-2 lg:data-focused:ring-primary/20 lg:data-focused:border-primary/70",
+      "focus:outline-hidden lg:data-focused:bg-primary/10 lg:data-focused:ring-2 lg:data-focused:ring-ring/20 lg:data-focused:border-primary/70",
       "disabled:pointer-events-none",
     ],
     empty: "py-6 text-center text-sm text-muted-fg x3tmpy",
@@ -51,8 +51,8 @@ const commandStyles = tv({
       "focus-visible:bg-accent focus-visible:text-accent-fg [&:focus-visible_[data-slot=icon]]:text-accent-fg",
       "data-[danger=true]:text-danger data-[danger=true]:data-[selected=true]:bg-danger data-[danger=true]:data-[selected=true]:text-danger-fg",
       "data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50",
-      "**:data-[slot=icon]:mr-2 **:data-[slot=icon]:size-[1.10rem] **:data-[slot=icon]:shrink-0 **:data-[slot=icon]:text-muted-fg",
-      "**:data-[slot=avatar]:mr-2 **:data-[slot=avatar]:size-[1.10rem] **:data-[slot=avatar]:shrink-0",
+      "**:data-[slot=icon]:mr-2 **:data-[slot=icon]:size-4.5 **:data-[slot=icon]:shrink-0 **:data-[slot=icon]:text-muted-fg",
+      "**:data-[slot=avatar]:mr-2 **:data-[slot=avatar]:size-4.5 **:data-[slot=avatar]:shrink-0 **:data-[slot=avatar]:**:mr-2 **:data-[slot=avatar]:**:size-4.5 **:data-[slot=avatar]:**:shrink-0",
       "forced-colors:**:data-[slot=icon]:text-[CanvasText] forced-colors:group-data-[focus]:**:data-[slot=icon]:text-[Canvas] ",
     ],
   },
@@ -89,7 +89,8 @@ interface CommandMenuRootProps {
 
 const modalOverlay = tv({
   base: [
-    "fixed inset-0 max-h-(--visual-viewport-height) z-50 bg-dark/15 dark:bg-dark/40 data-entering:animate-in data-entering:fade-in-0 exiting:animate-in exiting:fade-out-0",
+    "fixed inset-0 max-h-(--visual-viewport-height) z-50 bg-dark/15 dark:bg-dark/40",
+    "data-entering:animate-in data-entering:fade-in data-exiting:animate-in data-exiting:fade-out",
   ],
   variants: {
     isBlurred: {

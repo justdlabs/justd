@@ -2,7 +2,7 @@
 
 import { ProgressBar, type ProgressBarProps } from "react-aria-components"
 
-import { cn } from "./primitive"
+import { cn } from "@/utils/classes"
 
 interface ProgressCircleProps extends Omit<ProgressBarProps, "className"> {
   className?: string

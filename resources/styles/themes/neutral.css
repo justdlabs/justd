@@ -95,7 +95,7 @@
     --danger: oklch(0.577 0.245 27.325);
     --danger-fg: oklch(0.971 0.013 17.38);
 
-    --border: oklch(0.922 0 0);
+    --border: oklch(0.910 0 0);
     --input: oklch(0.87 0 0);
     --ring: oklch(0.546 0.245 262.881);
 
@@ -122,7 +122,7 @@
   }
 
   .dark {
-    --bg: oklch(0.145 0 0);
+    --bg: oklch(0.095 0 0);
     --fg: oklch(0.985 0 0);
 
     --primary: oklch(0.546 0.245 262.881);

@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react"
 
 import { copyToClipboard } from "@/resources/lib/copy"
 import { cn } from "@/utils/classes"
-import { clsx } from "clsx"
 import { Button } from "react-aria-components"
+import { composeTailwindRenderProps } from "ui"
 
 interface CopyButtonProps extends React.ComponentProps<typeof Button> {
   isCopied?: boolean
@@ -46,11 +46,13 @@ export function CopyButton({
     <Button
       aria-label="Copy to clipboard"
       onPress={props.onPress || onPressHandler}
-      className={cn(
-        "ml-auto grid size-8 place-content-center text-zinc-400 outline-hidden data-hovered:text-zinc-50 group-data-hovered:opacity-100",
-        !alwaysVisible ? "opacity-0" : "opacity-100",
-        isCopied && "opacity-100",
+      className={composeTailwindRenderProps(
         className,
+        cn(
+          "ml-auto grid size-8 place-content-center text-zinc-400 outline-hidden data-hovered:text-zinc-50 group-data-hovered:opacity-100",
+          !alwaysVisible ? "opacity-0" : "opacity-100",
+          isCopied && "opacity-100",
+        ),
       )}
       {...props}
     >
@@ -138,7 +140,7 @@ export function CopyMotionButton({ className, text }: { className?: string; text
     >
       <span
         aria-hidden={copied}
-        className={clsx(
+        className={cn(
           "pointer-events-none flex items-center gap-0.5 text-zinc-400 transition duration-300",
           copied && "-translate-y-1.5 opacity-0",
         )}
@@ -148,7 +150,7 @@ export function CopyMotionButton({ className, text }: { className?: string; text
       </span>
       <span
         aria-hidden={!copied}
-        className={clsx(
+        className={cn(
           "pointer-events-none absolute inset-0 flex items-center justify-center text-blue-400 transition duration-300",
           !copied && "translate-y-1.5 opacity-0",
         )}

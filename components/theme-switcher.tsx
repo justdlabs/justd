@@ -1,10 +1,8 @@
 "use client"
 
-import { useEffect, useState } from "react"
-
 import { IconDeviceDesktop2, IconMoon, IconSun } from "justd-icons"
 import { useTheme } from "next-themes"
-import { Button, cn } from "ui"
+import { Button, composeTailwindRenderProps } from "ui"
 
 export function ThemeSwitcher({
   shape = "square",
@@ -13,25 +11,18 @@ export function ThemeSwitcher({
   ...props
 }: React.ComponentProps<typeof Button>) {
   const { theme, setTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
 
   const toggleTheme = () => {
     const nextTheme = theme === "light" ? "dark" : theme === "dark" ? "system" : "light"
     setTheme(nextTheme)
   }
 
-  if (!mounted) return null
-
   return (
     <Button
       shape={shape}
       appearance={appearance}
       size="square-petite"
-      className={cn("**:data-[slot=icon]:text-fg", className)}
+      className={composeTailwindRenderProps(className, "**:data-[slot=icon]:text-fg")}
       aria-label="Switch theme"
       onPress={toggleTheme}
       {...props}

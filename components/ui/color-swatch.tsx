@@ -1,9 +1,9 @@
 "use client"
 
+import { composeTailwindRenderProps } from "@/components/ui/primitive"
 import { parseColor } from "@react-stately/color"
 import { ColorSwatch as ColorSwatchPrimitive, type ColorSwatchProps } from "react-aria-components"
-
-import { cn } from "./primitive"
+import { twMerge } from "tailwind-merge"
 
 const hexToRgb = (hex: string): { r: number; g: number; b: number } | null => {
   const normalizeHex = hex.replace(/^#?([a-f\d])([a-f\d])([a-f\d])$/i, (_m, r, g, b) => r + r + g + g + b + b)
@@ -109,7 +109,10 @@ const ColorSwatch = ({ className, ...props }: ColorSwatchProps) => {
     <ColorSwatchPrimitive
       data-slot="color-swatch"
       aria-label={props["aria-label"] ?? "Color swatch"}
-      className={cn("cs size-8 shrink-0 rounded-md", needRing && "ring-1 ring-fg/10 ring-inset", className)}
+      className={composeTailwindRenderProps(
+        className,
+        twMerge("size-8 shrink-0 rounded-md", needRing && "inset-ring-1 inset-ring-fg/10"),
+      )}
       {...props}
     />
   )

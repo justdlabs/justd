@@ -123,7 +123,7 @@ export const generateTheme = (selectedColors: Record<string, string>) => {
     --danger: ${dangerColor};
     --danger-fg: ${getColorValue("red", "50")};
     
-    --border: ${getColorValue(gray, "200")};
+    --border: ${adjustLightness(getColorValue(gray, "300"), +4)};
     --input: ${getColorValue(gray, "300")};
     --ring: ${getColorValue(primary, lightRingShade)};
     
@@ -140,7 +140,7 @@ export const generateTheme = (selectedColors: Record<string, string>) => {
     --chart-5: ${getColorValue(primary, chartShadesLight[4])};
     `
 
-  const darkColors = `--bg: ${getColorValue(gray, "950")};
+  const darkColors = `--bg: ${adjustLightness(getColorValue(gray, "950"), -5)};
     --fg: ${getColorValue(gray, "50")};
     
     --primary: ${getColorValue(primary, darkPrimary)};
@@ -161,7 +161,7 @@ export const generateTheme = (selectedColors: Record<string, string>) => {
     --success: ${getColorValue("emerald", "600")};
     --success-fg: ${getColorValue("white")};
     
-    --warning: ${getColorValue("amber", "400")};
+    --warning: ${warningColor};
     --warning-fg: ${getColorValue("amber", "950")};
     
     --danger: ${dangerColor};

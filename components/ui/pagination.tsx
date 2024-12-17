@@ -19,8 +19,8 @@ import {
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
+import { cn } from "@/utils/classes"
 import { buttonStyles } from "./button"
-import { cn } from "./primitive"
 
 const paginationStyles = tv({
   slots: {

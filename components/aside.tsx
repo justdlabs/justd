@@ -47,6 +47,7 @@ export function Aside() {
 
                           {subChild.status && (
                             <Badge
+                              className="-mr-1.5"
                               intent={
                                 subChild.status === "primitive"
                                   ? "secondary"
@@ -54,6 +55,7 @@ export function Aside() {
                                     ? "warning"
                                     : "info"
                               }
+                              shape="square"
                             >
                               {subChild.status}
                             </Badge>

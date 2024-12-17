@@ -9,7 +9,7 @@ import { CopyButton } from "@/components/code/copy-button"
 import { IconDeviceDesktop, IconDeviceIpad, IconDevicePhone } from "@/components/icon-device"
 import quotes from "@/resources/json/quotes.json"
 import type { RegistryItem } from "@/resources/types"
-import { clsx } from "clsx"
+import { cn } from "@/utils/classes"
 import {
   IconCube,
   IconFolderFill,
@@ -40,7 +40,6 @@ import {
   Tabs,
   ToggleGroup,
   buttonStyles,
-  cn,
 } from "ui"
 
 const registry = generated as Record<string, RegistryItem>
@@ -132,7 +131,7 @@ function Component({ folders, fullscreen, isIframe = false, title, ...props }: P
             <TabList className="flex items-center text-xs">
               <Tab
                 className={({ isSelected }) =>
-                  clsx(
+                  cn(
                     "cursor-pointer rounded-sm px-2.5 py-1.5 outline-hidden",
                     isSelected && "bg-primary text-primary-fg",
                   )
@@ -143,7 +142,7 @@ function Component({ folders, fullscreen, isIframe = false, title, ...props }: P
               </Tab>
               <Tab
                 className={({ isSelected }) =>
-                  clsx(
+                  cn(
                     "cursor-pointer rounded-sm px-2.5 py-1.5 outline-hidden",
                     isSelected && "bg-primary text-primary-fg",
                   )
@@ -158,7 +157,7 @@ function Component({ folders, fullscreen, isIframe = false, title, ...props }: P
               <ToggleButton
                 aria-label="Switch to phone display"
                 className={({ isSelected }) =>
-                  clsx(
+                  cn(
                     "p-1 outline-hidden data-focus-visible:inset-ring-1 data-focus-visible:inset-ring-primary *:data-[slot=icon]:size-4 *:data-[slot=icon]:shrink-0",
                     isSelected ? "text-fg" : "text-muted-fg/70",
                   )
@@ -170,7 +169,7 @@ function Component({ folders, fullscreen, isIframe = false, title, ...props }: P
               <ToggleButton
                 aria-label="Switch to ipad/tablet display"
                 className={({ isSelected }) =>
-                  clsx(
+                  cn(
                     "p-1 outline-hidden data-focus-visible:inset-ring-1 data-focus-visible:inset-ring-primary *:data-[slot=icon]:size-4 *:data-[slot=icon]:shrink-0",
                     isSelected ? "text-fg" : "text-muted-fg/70",
                   )
@@ -182,7 +181,7 @@ function Component({ folders, fullscreen, isIframe = false, title, ...props }: P
               <ToggleButton
                 aria-label="Switch to desktop / large screen display"
                 className={({ isSelected }) =>
-                  clsx(
+                  cn(
                     "p-1 outline-hidden data-focus-visible:inset-ring-1 data-focus-visible:inset-ring-primary *:data-[slot=icon]:size-4 *:data-[slot=icon]:shrink-0",
                     isSelected ? "text-fg" : "text-muted-fg/70",
                   )
@@ -238,7 +237,7 @@ function Component({ folders, fullscreen, isIframe = false, title, ...props }: P
                 <SidebarHeader className="flex flex-row justify-between items-center py-0 h-12 bg-gradient-to-b border-b">
                   <Link
                     className="flex items-center gap-x-2 group-data-[collapsible=dock]:size-10 group-data-[collapsible=dock]:justify-center"
-                    href="/docs/components/layouts/sidebar"
+                    href="/docs/2.x/components/layouts/sidebar"
                   >
                     <IconFolderFill className="size-4.5" />
                     <SidebarLabel className="text-sm font-medium">getjustd.com</SidebarLabel>
@@ -275,7 +274,7 @@ function Component({ folders, fullscreen, isIframe = false, title, ...props }: P
                 <CodeHighlighter
                   max96={false}
                   plain
-                  className={"overflow-y-auto bg-zinc-950 p-6 text-white"}
+                  className={"overflow-y-auto bg-zinc-950 h-full p-6 text-white"}
                   code={code}
                 />
               </SidebarInset>

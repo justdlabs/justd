@@ -2,7 +2,7 @@ import type React from "react"
 
 import { Providers } from "@/components/providers"
 import { siteConfig } from "@/resources/config/site"
-import { cn } from "@/resources/lib/utils"
+import { cn } from "@/utils/classes"
 import "@/resources/styles/app.css"
 import { OpenPanelComponent } from "@openpanel/nextjs"
 import type { Metadata, Viewport } from "next"
