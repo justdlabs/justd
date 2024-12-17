@@ -6,7 +6,7 @@ import { usePathname, useRouter } from "next/navigation"
 import { Button } from "ui"
 
 import type { SearchParamsProps } from "../icons-list"
-import { Install } from "./install"
+import { InstallIcon } from "./install-icon"
 import { Search } from "./search"
 import { SelectSize } from "./select-size"
 
@@ -31,7 +31,7 @@ export function Controller({ searchParams }: SearchParamsProps) {
     <div className="z-10 lg:sticky lg:top-20">
       <div className="relative">
         <div className="flex relative z-20 flex-col gap-2 justify-between items-center mb-6 sm:flex-row sm:mb-12">
-          <Install />
+          <InstallIcon />
           <div className="flex gap-2 items-center">
             <Search />
             <Button
