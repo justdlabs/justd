@@ -22,7 +22,7 @@ export default function AppSidebar(props: React.ComponentProps<typeof Sidebar>) 
     <Sidebar {...props}>
       <SidebarHeader />
       <SidebarContent className="pb-10">
-        <SidebarDisclosureGroup>
+        <SidebarDisclosureGroup className="gap-y-0.5">
           {folders.map((item) => (
             <SidebarTree key={item.id} item={item} index={1} />
           ))}

@@ -1,5 +1,4 @@
 "use client"
-
 import React, { useState } from "react"
 
 import { ResponsiveAside } from "@/components/responsive-aside"
@@ -40,7 +39,6 @@ const menuItems = [
 export function Navbar() {
   const id = React.useId()
   const pathname = usePathname()
-
   const [open, setOpen] = useState(false)
   const isDesktop = useMediaQuery("(min-width: 1024px)")
   return (
