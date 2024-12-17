@@ -9,7 +9,9 @@ if (!process.env.VELITE_STARTED && (isDev || isBuild)) {
 
 /** @type {import('next').NextConfig} */
 export default {
+    assetPrefix: process.env.NEXT_PUBLIC_APP_V1_URL,
     experimental: {
         optimizePackageImports: ["shiki"]
-    }
+    },
+    crossOrigin: 'anonymous',
 }
