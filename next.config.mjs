@@ -11,17 +11,5 @@ if (!process.env.VELITE_STARTED && (isDev || isBuild)) {
 export default {
     experimental: {
         optimizePackageImports: ["shiki"]
-    },
-    async headers() {
-        return [
-            {
-                source: "/_next/:path*",
-                headers: [
-                    { key: "Access-Control-Allow-Origin", value: "*" },
-                    { key: "Access-Control-Allow-Methods", value: "GET, OPTIONS" },
-                    { key: "Access-Control-Allow-Headers", value: "Content-Type" },
-                ],
-            },
-        ];
     }
 }
