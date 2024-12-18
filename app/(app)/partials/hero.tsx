@@ -78,7 +78,7 @@ export function Hero() {
               className={buttonStyles({
                 size: "large",
               })}
-              href="/docs/getting-started/installation"
+              href="/docs/2.x/getting-started/installation"
             >
               <IconBrandJustd />
               Get started
@@ -88,7 +88,7 @@ export function Hero() {
                 size: "large",
                 intent: "secondary",
               })}
-              href="/components"
+              href="/docs/2.x/components/buttons/button"
             >
               <IconCube />
               Components

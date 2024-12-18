@@ -1,6 +1,5 @@
 "use client"
-
-import { cn } from "@/utils/classes"
+import { InstallIcon } from "@/app/(app)/icons/partials/controller/install-icon"
 import {
   IconArrowRight,
   IconBrandJustd,
@@ -16,7 +15,6 @@ import {
   IconCubeFill,
   IconDeviceDesktop2,
   IconDeviceDesktop2Fill,
-  IconDuplicate,
   IconFileText,
   IconFileTextFill,
   IconFolderCloud,
@@ -67,7 +65,7 @@ import {
   IconTriangleExclamationFill,
 } from "justd-icons"
 import { useEffect, useState } from "react"
-import { Button, Container, Link, buttonStyles } from "ui"
+import { Container, Link, buttonStyles } from "ui"
 
 export function IconResources() {
   const [isCopied, setIsCopied] = useState(false)
@@ -104,20 +102,21 @@ export function IconResources() {
               you use Justd components.
             </p>
 
-            <div className="flex justify-between items-center py-1 px-3 max-w-xs h-11 text-sm rounded-lg border group bg-secondary/20 shadow-xs dark:bg-secondary/50">
-              <code>npm i justd-icons</code>
-              <Button
-                className={cn(
-                  "size-8 group-hover:flex hidden -mr-2 rounded-xs",
-                  isCopied ? "flex" : "hidden",
-                )}
-                onPress={() => handleCopy("npm i justd-icons")}
-                appearance="plain"
-                size="square-petite"
-              >
-                {isCopied ? <IconCheck /> : <IconDuplicate />}
-              </Button>
-            </div>
+            {/*<div className="flex justify-between items-center py-1 px-3 max-w-xs h-11 text-sm rounded-lg border group bg-secondary/20 shadow-xs dark:bg-secondary/50">*/}
+            {/*  <code>npm i justd-icons</code>*/}
+            {/*  <Button*/}
+            {/*    className={cn(*/}
+            {/*      "size-8 group-hover:flex hidden -mr-2 rounded-xs",*/}
+            {/*      isCopied ? "flex" : "hidden",*/}
+            {/*    )}*/}
+            {/*    onPress={() => handleCopy("npm i justd-icons")}*/}
+            {/*    appearance="plain"*/}
+            {/*    size="square-petite"*/}
+            {/*  >*/}
+            {/*    {isCopied ? <IconCheck /> : <IconDuplicate />}*/}
+            {/*  </Button>*/}
+            {/*</div>*/}
+            <InstallIcon />
           </div>
           <div>
             <div className="grid flex-1 **:data-[slot=icon]:size-5 items-start md:grid-cols-2 gap-2">

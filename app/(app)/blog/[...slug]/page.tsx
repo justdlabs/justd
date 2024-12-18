@@ -2,6 +2,7 @@ import { Mdx } from "@/components/mdx-components"
 import { TableOfContents } from "@/components/table-of-contents"
 import { siteConfig } from "@/resources/config/site"
 import { goodTitle } from "@/resources/lib/utils"
+import dayjs from "dayjs"
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { blog } from "#site/content"
@@ -104,7 +105,7 @@ export default async function PostPage(props: DocPageProps) {
                 />
               </div>
               <div className="font-mono text-xs text-blue-600 uppercase dark:text-blue-400">
-                {extractSegment(article.slug)}
+                {dayjs(article.published).format("MMMM D, YYYY")}
               </div>
               <h1 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
                 {article.title}

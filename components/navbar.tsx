@@ -79,14 +79,14 @@ export function Navbar() {
                     <NavLink isNextLink isActive={pathname === "/blocks"} href="/blocks">
                       Blocks
                     </NavLink>
-                    <NavLink isNextLink isActive={pathname === "/icons"} href="/icons">
-                      Icons
-                    </NavLink>
                     <NavLink isNextLink isActive={pathname === "/colors"} href="/colors">
                       Colors
                     </NavLink>
                     <NavLink isNextLink isActive={pathname === "/themes"} href="/themes">
                       Themes
+                    </NavLink>
+                    <NavLink isNextLink isActive={pathname === "/icons"} href="/icons">
+                      Icons
                     </NavLink>
                   </Collection>
                 </div>
