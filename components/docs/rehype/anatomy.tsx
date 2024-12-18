@@ -32,7 +32,7 @@ export function Anatomy({ title, message, ext = "tsx", show }: AnatomyProps) {
         withImportCopy={false}
       />
       <Code
-        className="[&_pre]:max-h-[30rem] max-h-none [&_pre]:overflow-auto"
+        className="[&_pre]:max-h-[30rem] mt-2 max-h-none [&_pre]:overflow-auto"
         code={extractJSX(actualCode) as any}
         lang={ext}
         withImportCopy={false}

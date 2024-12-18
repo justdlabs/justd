@@ -2,8 +2,8 @@
 
 import * as React from "react"
 
-import { LayoutGroup, motion } from "framer-motion"
 import { IconHamburger } from "justd-icons"
+import { LayoutGroup, motion } from "motion/react"
 import type { LinkProps } from "react-aria-components"
 import { Link } from "react-aria-components"
 import { tv } from "tailwind-variants"

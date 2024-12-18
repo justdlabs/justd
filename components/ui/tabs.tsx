@@ -2,7 +2,7 @@
 
 import * as React from "react"
 
-import { LayoutGroup, motion } from "framer-motion"
+import { LayoutGroup, motion } from "motion/react"
 import {
   Tab as TabPrimitive,
   TabList,

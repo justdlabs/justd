@@ -2,8 +2,8 @@
 
 import * as React from "react"
 
-import { motion } from "framer-motion"
 import { IconTriangleExclamation } from "justd-icons"
+import { motion } from "motion/react"
 import {
   Meter as MeterPrimitive,
   type MeterProps as MeterPrimitiveProps

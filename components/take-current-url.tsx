@@ -3,8 +3,8 @@
 import * as React from "react"
 
 import { snippetVariants } from "@/components/docs/rehype/code"
-import { AnimatePresence, motion } from "framer-motion"
 import { IconCheck, IconDuplicate } from "justd-icons"
+import { AnimatePresence, motion } from "motion/react"
 import { usePathname } from "next/navigation"
 import { toast } from "sonner"
 import { Button } from "ui"

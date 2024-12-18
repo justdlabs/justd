@@ -105,9 +105,11 @@ export default async function PostPage(props: DocPageProps) {
           <TableOfContents className="mt-8 block xl:hidden" items={doc.toc} />
 
           <Note intent="warning">
-            This documentation is for the 1.x version of Justd. If you're looking for the latest
-            version, check out the{" "}
-            <Link href="/docs/2.x/getting-started/installation">2.x version</Link>.
+            If you are using Tailwind v4, please refer to the{" "}
+            <Link className="font-semibold" href="/docs/2.x/getting-started/installation">
+              2.x
+            </Link>{" "}
+            documentation. This documentation assumes you are using Tailwind v3.
           </Note>
           <MDXContent code={doc.body} />
           <Pager

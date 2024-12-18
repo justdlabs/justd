@@ -18,41 +18,21 @@ Begin by executing this command:
 
 <Installation options={{ isInit: true }} items={['initial setup']} />
 
-When you're run this command, it will ask a couple of questions. Like where's your components folder, utils, your main css file, and lastly is the theme you want like so:
+When you're run that command, it will ask a couple of questions. Like where's your components folder, utils, your main css file, and lastly is the theme you want like so:
 ```bash
-? Enter the path to your components folder: components
-? Enter the path to your utils folder: utils
-? Where would you like to place the CSS file? app/globals.css
-✔ UI folder already exists at components/ui
-✔ Utils folder already exists at utils
-? Select a theme: (Use arrow keys)
-❯ Default
-  Zinc
-  Neutral
-  Slate
-  Gray
-  Azure
-  Sky
-  Amber
-  Violet
-  Emerald
-  Rose
-  Turquoise
-  Orange
-```
-After you select the theme, next you will be asked to select components you want to include.
-```bash
-? Select components to add: (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter> to proceed)
-❯ ◯ aside
-  ◯ avatar
-  ◯ badge
-  ◯ breadcrumbs
-  ◯ button
-  ◯ buttons
-  ◯ calendar
-  ◯ card
-  ◯ carousel
-  ◯ carousel
+✔ Initializing.
+? Components folder: src/components
+? Utils folder: src/utils
+? Where would you like to place the CSS file? src/app/globals.css
+✔ Installing dependencies.
+✔ Configuring.
+✔ UI folder created at `src/components/ui`
+✔ Primitive file saved to `src/components/ui/primitive.tsx`
+✔ Classes file saved to `src/utils/classes.ts`
+✔ Theme Provider file saved to `"src/components/theme-provider.tsx"`
+✔ Providers file saved to `"src/components/providers.tsx"`
+✔ Configuration saved to `justd.json`
+✔ Installation complete.
 ```
 
 ### Add Components
@@ -114,10 +94,6 @@ You can see this [tweet](https://x.com/irsyadadl/status/1823355475020402781) if 
 
 You can also doing a diff to specific components by using the following command:
 <Installation command='npx justd-cli@latest diff multiple-select menu modal' items={['']}/>
-
-### Theme
-Sometimes you want to change the theme of your project. You can do that by using the following command:
-<Installation options={{isExecutor: true}} command='npx justd-cli@latest theme' items={['']} />
 
 ## Starter Kit
 I offer two starter kits, one for Next.js and one for Laravel. Choose the one that suits your project needs.
