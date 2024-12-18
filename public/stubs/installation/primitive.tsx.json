@@ -1,0 +1,9 @@
+{
+  "name": "installation/primitive.tsx.stub",
+  "files": [
+    {
+      "name": "installation/primitive.tsx.stub",
+      "content": "\"use client\"\n\nimport { composeRenderProps } from \"react-aria-components\"\nimport { twMerge } from \"tailwind-merge\"\nimport { tv } from \"tailwind-variants\"\n\nfunction composeTailwindRenderProps<T>(\n  className: string | ((v: T) => string) | undefined,\n  tailwind: string,\n): string | ((v: T) => string) {\n  return composeRenderProps(className, (className) => twMerge(tailwind, className))\n}\n\nconst focusRing = tv({\n  variants: {\n    isFocused: { true: \"ring-4 ring-ring/20 outline-hidden\" },\n    isFocusVisible: { true: \"ring-4 ring-ring/20 outline-hidden\" },\n    isInvalid: { true: \"ring-4 ring-danger/20\" },\n  },\n})\n\nconst focusStyles = tv({\n  extend: focusRing,\n  variants: {\n    isFocused: { true: \"border-ring/70 forced-colors:border-[Highlight]\" },\n    isInvalid: { true: \"border-danger/70 forced-colors:border-[Mark]\" },\n  },\n})\n\nconst focusButtonStyles = tv({\n  base: \"outline outline-ring forced-colors:outline-[Highlight] outline-offset-2\",\n  variants: {\n    isFocusVisible: {\n      false: \"outline-0\",\n      true: \"outline-2\",\n    },\n  },\n})\n\nexport { composeTailwindRenderProps, focusRing, focusStyles, focusButtonStyles }\n"
+    }
+  ]
+}

@@ -8,7 +8,7 @@ interface DocsNoteProps extends NoteProps {
 
 export function DocNote({ intent = "info", children }: DocsNoteProps) {
   return (
-    <div className="not-prose">
+    <div className="mt-4 not-prose">
       <Note
         className={cn(
           "[&_span[data-line]]:font-medium",
