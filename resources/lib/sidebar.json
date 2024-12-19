@@ -4,74 +4,9 @@
     "slug": "docs/2.x/prologue/prologue",
     "children": [
       {
-        "title": "Contribution Guide",
-        "slug": "docs/2.x/prologue/contribution-guide",
-        "order": 1,
-        "children": [],
-        "toc": [
-          {
-            "title": "Contribution Guide",
-            "url": "#contribution-guide",
-            "items": []
-          },
-          {
-            "title": "Getting Started",
-            "url": "#getting-started",
-            "items": []
-          },
-          {
-            "title": "How to Contribute",
-            "url": "#how-to-contribute",
-            "items": [
-              {
-                "title": "Reporting Bugs",
-                "url": "#reporting-bugs",
-                "items": []
-              },
-              {
-                "title": "Suggesting Enhancements",
-                "url": "#suggesting-enhancements",
-                "items": []
-              },
-              {
-                "title": "Pull Requests",
-                "url": "#pull-requests",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Folder Structure",
-            "url": "#folder-structure",
-            "items": [
-              {
-                "title": "Components",
-                "url": "#components",
-                "items": []
-              },
-              {
-                "title": "Registry",
-                "url": "#registry",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Code of Conduct",
-            "url": "#code-of-conduct",
-            "items": []
-          },
-          {
-            "title": "License",
-            "url": "#license",
-            "items": []
-          }
-        ]
-      },
-      {
         "title": "Release Notes",
         "slug": "docs/2.x/prologue/release-notes",
-        "order": 2,
+        "order": 1,
         "children": [],
         "toc": [
           {
@@ -282,6 +217,96 @@
           {
             "title": "July 05",
             "url": "#july-05",
+            "items": []
+          }
+        ]
+      },
+      {
+        "title": "Upgrade Guide",
+        "slug": "docs/2.x/prologue/upgrade-guide",
+        "order": 2,
+        "children": [],
+        "toc": [
+          {
+            "title": "Let's Start",
+            "url": "#lets-start",
+            "items": [
+              {
+                "title": "Upgrade Tailwind v3 to v4",
+                "url": "#upgrade-tailwind-v3-to-v4",
+                "items": [
+                  {
+                    "title": "Vite",
+                    "url": "#vite",
+                    "items": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Contribution Guide",
+        "slug": "docs/2.x/prologue/contribution-guide",
+        "order": 3,
+        "children": [],
+        "toc": [
+          {
+            "title": "Contribution Guide",
+            "url": "#contribution-guide",
+            "items": []
+          },
+          {
+            "title": "Getting Started",
+            "url": "#getting-started",
+            "items": []
+          },
+          {
+            "title": "How to Contribute",
+            "url": "#how-to-contribute",
+            "items": [
+              {
+                "title": "Reporting Bugs",
+                "url": "#reporting-bugs",
+                "items": []
+              },
+              {
+                "title": "Suggesting Enhancements",
+                "url": "#suggesting-enhancements",
+                "items": []
+              },
+              {
+                "title": "Pull Requests",
+                "url": "#pull-requests",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Folder Structure",
+            "url": "#folder-structure",
+            "items": [
+              {
+                "title": "Components",
+                "url": "#components",
+                "items": []
+              },
+              {
+                "title": "Registry",
+                "url": "#registry",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Code of Conduct",
+            "url": "#code-of-conduct",
+            "items": []
+          },
+          {
+            "title": "License",
+            "url": "#license",
             "items": []
           }
         ]
@@ -2593,319 +2618,6 @@
         ]
       },
       {
-        "title": "Date-and-time",
-        "children": [
-          {
-            "title": "Calendar",
-            "slug": "docs/2.x/components/date-and-time/calendar",
-            "order": 1,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Composed Components",
-                "url": "#composed-components",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Examples",
-                "url": "#examples",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Range Calendar",
-            "slug": "docs/2.x/components/date-and-time/range-calendar",
-            "order": 2,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Composed Components",
-                "url": "#composed-components",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Controlled",
-                "url": "#controlled",
-                "items": []
-              },
-              {
-                "title": "Uncontrolled",
-                "url": "#uncontrolled",
-                "items": []
-              },
-              {
-                "title": "Examples",
-                "url": "#examples",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Date Field",
-            "slug": "docs/2.x/components/date-and-time/date-field",
-            "order": 3,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Composed Components",
-                "url": "#composed-components",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Date Time Field",
-                "url": "#date-time-field",
-                "items": []
-              },
-              {
-                "title": "Validation",
-                "url": "#validation",
-                "items": []
-              },
-              {
-                "title": "Prefix",
-                "url": "#prefix",
-                "items": []
-              },
-              {
-                "title": "Suffix",
-                "url": "#suffix",
-                "items": []
-              },
-              {
-                "title": "Controlled",
-                "url": "#controlled",
-                "items": []
-              },
-              {
-                "title": "Uncontrolled",
-                "url": "#uncontrolled",
-                "items": []
-              },
-              {
-                "title": "Readonly",
-                "url": "#readonly",
-                "items": []
-              },
-              {
-                "title": "Disabled",
-                "url": "#disabled",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Time Field",
-            "slug": "docs/2.x/components/date-and-time/time-field",
-            "order": 4,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Composed Components",
-                "url": "#composed-components",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Hour Cycles",
-                "url": "#hour-cycles",
-                "items": []
-              },
-              {
-                "title": "Prefix",
-                "url": "#prefix",
-                "items": []
-              },
-              {
-                "title": "Suffix",
-                "url": "#suffix",
-                "items": []
-              },
-              {
-                "title": "Validation",
-                "url": "#validation",
-                "items": []
-              },
-              {
-                "title": "Controlled",
-                "url": "#controlled",
-                "items": []
-              },
-              {
-                "title": "Readonly",
-                "url": "#readonly",
-                "items": []
-              },
-              {
-                "title": "Disabled",
-                "url": "#disabled",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Date Picker",
-            "slug": "docs/2.x/components/date-and-time/date-picker",
-            "order": 5,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Composed Components",
-                "url": "#composed-components",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Date and Time",
-                "url": "#date-and-time",
-                "items": []
-              },
-              {
-                "title": "Validation",
-                "url": "#validation",
-                "items": []
-              },
-              {
-                "title": "Custom Validation",
-                "url": "#custom-validation",
-                "items": []
-              },
-              {
-                "title": "Controlled",
-                "url": "#controlled",
-                "items": []
-              },
-              {
-                "title": "Disabled",
-                "url": "#disabled",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Date Range Picker",
-            "slug": "docs/2.x/components/date-and-time/date-range-picker",
-            "order": 6,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Composed Components",
-                "url": "#composed-components",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Validation",
-                "url": "#validation",
-                "items": []
-              },
-              {
-                "title": "Custom Validation",
-                "url": "#custom-validation",
-                "items": []
-              },
-              {
-                "title": "Controlled",
-                "url": "#controlled",
-                "items": []
-              },
-              {
-                "title": "Disabled",
-                "url": "#disabled",
-                "items": []
-              }
-            ]
-          }
-        ]
-      },
-      {
         "title": "Drag-and-drop",
         "children": [
           {
@@ -3238,122 +2950,6 @@
                     "items": []
                   }
                 ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "title": "Media",
-        "children": [
-          {
-            "title": "Avatar",
-            "slug": "docs/2.x/components/media/avatar",
-            "order": 1,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Anatomy",
-                "url": "#anatomy",
-                "items": []
-              },
-              {
-                "title": "Fallback",
-                "url": "#fallback",
-                "items": []
-              },
-              {
-                "title": "Shape",
-                "url": "#shape",
-                "items": []
-              },
-              {
-                "title": "Size",
-                "url": "#size",
-                "items": []
-              },
-              {
-                "title": "Avatar Group",
-                "url": "#avatar-group",
-                "items": []
-              }
-            ]
-          },
-          {
-            "title": "Carousel",
-            "slug": "docs/2.x/components/media/carousel",
-            "order": 8,
-            "children": [],
-            "toc": [
-              {
-                "title": "Basic",
-                "url": "#basic",
-                "items": []
-              },
-              {
-                "title": "Installation",
-                "url": "#installation",
-                "items": []
-              },
-              {
-                "title": "Composed Components",
-                "url": "#composed-components",
-                "items": []
-              },
-              {
-                "title": "Manual Installation",
-                "url": "#manual-installation",
-                "items": []
-              },
-              {
-                "title": "Anatomy",
-                "url": "#anatomy",
-                "items": []
-              },
-              {
-                "title": "Collections",
-                "url": "#collections",
-                "items": []
-              },
-              {
-                "title": "Orientation",
-                "url": "#orientation",
-                "items": []
-              },
-              {
-                "title": "Options",
-                "url": "#options",
-                "items": []
-              },
-              {
-                "title": "Autoplay",
-                "url": "#autoplay",
-                "items": []
-              },
-              {
-                "title": "Link",
-                "url": "#link",
-                "items": []
-              },
-              {
-                "title": "API",
-                "url": "#api",
-                "items": []
               }
             ]
           }
@@ -4007,6 +3603,435 @@
               {
                 "title": "Props",
                 "url": "#props",
+                "items": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Date-and-time",
+        "children": [
+          {
+            "title": "Calendar",
+            "slug": "docs/2.x/components/date-and-time/calendar",
+            "order": 1,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Composed Components",
+                "url": "#composed-components",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "Examples",
+                "url": "#examples",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Range Calendar",
+            "slug": "docs/2.x/components/date-and-time/range-calendar",
+            "order": 2,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Composed Components",
+                "url": "#composed-components",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "Controlled",
+                "url": "#controlled",
+                "items": []
+              },
+              {
+                "title": "Uncontrolled",
+                "url": "#uncontrolled",
+                "items": []
+              },
+              {
+                "title": "Examples",
+                "url": "#examples",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Date Field",
+            "slug": "docs/2.x/components/date-and-time/date-field",
+            "order": 3,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Composed Components",
+                "url": "#composed-components",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "Date Time Field",
+                "url": "#date-time-field",
+                "items": []
+              },
+              {
+                "title": "Validation",
+                "url": "#validation",
+                "items": []
+              },
+              {
+                "title": "Prefix",
+                "url": "#prefix",
+                "items": []
+              },
+              {
+                "title": "Suffix",
+                "url": "#suffix",
+                "items": []
+              },
+              {
+                "title": "Controlled",
+                "url": "#controlled",
+                "items": []
+              },
+              {
+                "title": "Uncontrolled",
+                "url": "#uncontrolled",
+                "items": []
+              },
+              {
+                "title": "Readonly",
+                "url": "#readonly",
+                "items": []
+              },
+              {
+                "title": "Disabled",
+                "url": "#disabled",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Time Field",
+            "slug": "docs/2.x/components/date-and-time/time-field",
+            "order": 4,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Composed Components",
+                "url": "#composed-components",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "Hour Cycles",
+                "url": "#hour-cycles",
+                "items": []
+              },
+              {
+                "title": "Prefix",
+                "url": "#prefix",
+                "items": []
+              },
+              {
+                "title": "Suffix",
+                "url": "#suffix",
+                "items": []
+              },
+              {
+                "title": "Validation",
+                "url": "#validation",
+                "items": []
+              },
+              {
+                "title": "Controlled",
+                "url": "#controlled",
+                "items": []
+              },
+              {
+                "title": "Readonly",
+                "url": "#readonly",
+                "items": []
+              },
+              {
+                "title": "Disabled",
+                "url": "#disabled",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Date Picker",
+            "slug": "docs/2.x/components/date-and-time/date-picker",
+            "order": 5,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Composed Components",
+                "url": "#composed-components",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "Date and Time",
+                "url": "#date-and-time",
+                "items": []
+              },
+              {
+                "title": "Validation",
+                "url": "#validation",
+                "items": []
+              },
+              {
+                "title": "Custom Validation",
+                "url": "#custom-validation",
+                "items": []
+              },
+              {
+                "title": "Controlled",
+                "url": "#controlled",
+                "items": []
+              },
+              {
+                "title": "Disabled",
+                "url": "#disabled",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Date Range Picker",
+            "slug": "docs/2.x/components/date-and-time/date-range-picker",
+            "order": 6,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Composed Components",
+                "url": "#composed-components",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "Validation",
+                "url": "#validation",
+                "items": []
+              },
+              {
+                "title": "Custom Validation",
+                "url": "#custom-validation",
+                "items": []
+              },
+              {
+                "title": "Controlled",
+                "url": "#controlled",
+                "items": []
+              },
+              {
+                "title": "Disabled",
+                "url": "#disabled",
+                "items": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Media",
+        "children": [
+          {
+            "title": "Avatar",
+            "slug": "docs/2.x/components/media/avatar",
+            "order": 1,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "Anatomy",
+                "url": "#anatomy",
+                "items": []
+              },
+              {
+                "title": "Fallback",
+                "url": "#fallback",
+                "items": []
+              },
+              {
+                "title": "Shape",
+                "url": "#shape",
+                "items": []
+              },
+              {
+                "title": "Size",
+                "url": "#size",
+                "items": []
+              },
+              {
+                "title": "Avatar Group",
+                "url": "#avatar-group",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Carousel",
+            "slug": "docs/2.x/components/media/carousel",
+            "order": 8,
+            "children": [],
+            "toc": [
+              {
+                "title": "Basic",
+                "url": "#basic",
+                "items": []
+              },
+              {
+                "title": "Installation",
+                "url": "#installation",
+                "items": []
+              },
+              {
+                "title": "Composed Components",
+                "url": "#composed-components",
+                "items": []
+              },
+              {
+                "title": "Manual Installation",
+                "url": "#manual-installation",
+                "items": []
+              },
+              {
+                "title": "Anatomy",
+                "url": "#anatomy",
+                "items": []
+              },
+              {
+                "title": "Collections",
+                "url": "#collections",
+                "items": []
+              },
+              {
+                "title": "Orientation",
+                "url": "#orientation",
+                "items": []
+              },
+              {
+                "title": "Options",
+                "url": "#options",
+                "items": []
+              },
+              {
+                "title": "Autoplay",
+                "url": "#autoplay",
+                "items": []
+              },
+              {
+                "title": "Link",
+                "url": "#link",
+                "items": []
+              },
+              {
+                "title": "API",
+                "url": "#api",
                 "items": []
               }
             ]
