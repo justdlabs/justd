@@ -15,16 +15,16 @@ Typically, links perform the default browser action when clicked. However, many 
 Note that links to external sites will default to the browser's native navigation, and links not targeting "_self", using the download attribute, or modified with keys like Command or Alt, will also follow the browser's native behavior.
 
 ## Router Provider
-The `RouterProvider` component accepts two properties: `navigate` and `useHref`. Assign `navigate` to a function from your routing framework that handles client-side navigation. `useHref` is optional and modifies a router-specific href to a standard HTML href, such as by adding a base path. Below are setup examples for various frameworks.
+The `RouterProvider` component accepts two properties: `navigate`. Assign `navigate` to a function from your routing framework that handles client-side navigation. Below are setup examples for various frameworks.
 ```tsx
 import { RouterProvider } from 'react-aria-components';
-import { useNavigate, useHref } from 'your-router';
+import { useNavigate } from 'your-router';
 
 export default function Layout() {
   let navigate = useNavigate();
 
   return (
-    <RouterProvider navigate={navigate} useHref={useHref}>
+    <RouterProvider navigate={navigate}>
       {/* ... */}
     </RouterProvider>
   );
@@ -76,7 +76,7 @@ After you create the provider files, you can use them in your `app/layout.tsx` f
 
 
 ## Remix
-For Remix, we can use the `useNavigate` and `useHref` hooks. First, let's create a file `route-provider.tsx` in `app/components` folder.
+For Remix, we can use the `useNavigate` hooks. First, let's create a file `route-provider.tsx` in `app/components` folder.
 
 For comprehensive details, consult the [Remix documentation](https://remix.run/docs/en/main/file-conventions/root).
 <CodeBlock

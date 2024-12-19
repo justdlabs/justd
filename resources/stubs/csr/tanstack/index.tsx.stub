@@ -12,10 +12,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
     const router = useRouter();
 
     return (
-        <RouterProvider
-            navigate={(to, options) => router.navigate({ to, ...options })}
-            useHref={(to) => router.buildLocation({ to }).href}
-        >
+        <RouterProvider navigate={(to, options) => router.navigate({ to, ...options })} >
             {children}
         </RouterProvider>
     );
