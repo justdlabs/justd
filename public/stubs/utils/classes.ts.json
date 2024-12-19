@@ -1,9 +1,0 @@
-{
-  "name": "utils/classes.ts.stub",
-  "files": [
-    {
-      "name": "utils/classes.ts.stub",
-      "content": "import { twMerge } from \"tailwind-merge\"\nimport { type ClassValue, cnBase } from \"tailwind-variants\"\n\nexport const cn = (...inputs: ClassValue[]): string => twMerge(cnBase(...inputs))\n"
-    }
-  ]
-}
